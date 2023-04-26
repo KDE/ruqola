@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 00:51+0000\n"
+"POT-Creation-Date: 2023-04-26 00:49+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -5340,11 +5340,11 @@ msgstr "Maximal meddelandeålder i privata grupper"
 msgid "Maximum message age in direct messages"
 msgstr "Maximal meddelandeålder i direktmeddelanden"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:96
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:107
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:136
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:180
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:209
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:248
 #, kde-format
 msgid "Apply"
 msgstr "Verkställ"
@@ -8598,17 +8598,21 @@ msgstr ""
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:79
+#: widgets/whatsnew/whatsnewwidget.cpp:38
+msgid "Fix animated gif in reactions"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:80
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:87
+#: widgets/whatsnew/whatsnewwidget.cpp:88
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, fuzzy, kde-format
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"

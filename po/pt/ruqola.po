@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 00:51+0000\n"
+"POT-Creation-Date: 2023-04-26 00:49+0000\n"
 "PO-Revision-Date: 2023-04-17 17:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -5372,11 +5372,11 @@ msgstr "Idade máxima das mensagens nos grupos privados"
 msgid "Maximum message age in direct messages"
 msgstr "Idade máxima das mensagens nas mensagens directas"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:96
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:107
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:136
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:180
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:209
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:248
 #, kde-format
 msgid "Apply"
 msgstr "Aplicar"
@@ -8608,17 +8608,21 @@ msgstr ""
 "Correcção do suporte para emoji's (uso do novo módulo ktextaddons/"
 "textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:79
+#: widgets/whatsnew/whatsnewwidget.cpp:38
+msgid "Fix animated gif in reactions"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:80
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificações importantes desde a última versão:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:87
+#: widgets/whatsnew/whatsnewwidget.cpp:88
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"

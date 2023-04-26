@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-25 00:51+0000\n"
+"POT-Creation-Date: 2023-04-26 00:49+0000\n"
 "PO-Revision-Date: 2023-04-15 18:02+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -5350,11 +5350,11 @@ msgstr "Máxima edad de los mensajes en grupos privados"
 msgid "Maximum message age in direct messages"
 msgstr "Máxima edad de los mensajes en los mensajes directos"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:96
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:107
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:136
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:180
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:209
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:248
 #, kde-format
 msgid "Apply"
 msgstr "Aplicar"
@@ -8580,18 +8580,22 @@ msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Arregla el soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:79
+#: widgets/whatsnew/whatsnewwidget.cpp:38
+msgid "Fix animated gif in reactions"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:80
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Cambios importantes desde la última versión:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:87
+#: widgets/whatsnew/whatsnewwidget.cpp:88
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
