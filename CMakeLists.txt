@@ -107,7 +107,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 
 find_package(KF${KF_MAJOR_VERSION}TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextTranslator PROPERTIES DESCRIPTION
-    "Add support for text translation"
+    "Add support for text translation (ktextaddons)"
     TYPE OPTIONAL
 )
 if (TARGET KF${KF_MAJOR_VERSION}::TextTranslator)
@@ -116,7 +116,7 @@ endif()
 
 find_package(KF${KF_MAJOR_VERSION}TextAutoCorrectionWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextAutoCorrectionWidgets PROPERTIES DESCRIPTION
-    "Add support for text auto correction"
+    "Add support for text auto correction (ktextaddons)"
     TYPE OPTIONAL
 )
 if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets)
@@ -124,7 +124,7 @@ if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets)
 else()
     find_package(KF${KF_MAJOR_VERSION}TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG)
     set_package_properties(KF${KF_MAJOR_VERSION}TextAutoCorrection PROPERTIES DESCRIPTION
-        "Add support for text auto correction"
+        "Add support for text auto correction (ktextaddons)"
         TYPE OPTIONAL
     )
     if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrection)
@@ -134,7 +134,7 @@ endif()
 
 find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
-    "Add support for text to speech"
+    "Add support for text to speech (ktextaddons)"
     TYPE OPTIONAL
 )
 if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
@@ -154,7 +154,7 @@ endif()
 
 find_package(KF${KF_MAJOR_VERSION}TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextAddonsWidgets PROPERTIES DESCRIPTION
-    "Add text addons widgets"
+    "Add text addons widgets (ktextaddons)"
     TYPE OPTIONAL
 )
 if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
