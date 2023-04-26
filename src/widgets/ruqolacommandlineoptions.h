@@ -6,7 +6,6 @@
 
 #pragma once
 #include "config-ruqola.h"
-#include "libruqolawidgets_export.h"
 #include <KLocalizedString>
 #include <QCommandLineParser>
 
