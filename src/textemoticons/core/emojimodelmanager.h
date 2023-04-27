@@ -7,6 +7,7 @@
 
 #include "textemoticonscore_export.h"
 #include <QObject>
+#include <memory>
 namespace TextEmoticonsCore
 {
 class EmojiModel;
@@ -36,9 +37,7 @@ Q_SIGNALS:
     void usedIdentifierChanged(const QStringList &lst);
 
 private:
-    TEXTEMOTICONSCORE_NO_EXPORT void loadRecentUsed();
-    TEXTEMOTICONSCORE_NO_EXPORT void writeRecentUsed();
-    TextEmoticonsCore::EmojiModel *const mEmojiModel;
-    QStringList mRecentIdentifier;
+    class EmojiModelManagerPrivate;
+    std::unique_ptr<EmojiModelManagerPrivate> const d;
 };
 }

@@ -15,17 +15,42 @@ namespace
 {
 static const char myEmoticonRecentUsedGroupName[] = "EmoticonRecentUsed";
 }
+
+class EmojiModelManager::EmojiModelManagerPrivate
+{
+public:
+    EmojiModelManagerPrivate(EmojiModelManager *q)
+        : mEmojiModel(new TextEmoticonsCore::EmojiModel(q))
+    {
+        mEmojiModel->setUnicodeEmoticonList(TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmojiList());
+    }
+    void loadRecentUsed()
+    {
+        KConfigGroup group(KSharedConfig::openConfig(), myEmoticonRecentUsedGroupName);
+        mRecentIdentifier = group.readEntry("Recents", QStringList());
+    }
+
+    void writeRecentUsed()
+    {
+        KConfigGroup group(KSharedConfig::openConfig(), myEmoticonRecentUsedGroupName);
+        group.writeEntry("Recents", mRecentIdentifier);
+        group.sync();
+    }
+
+    TextEmoticonsCore::EmojiModel *const mEmojiModel;
+    QStringList mRecentIdentifier;
+};
+
 EmojiModelManager::EmojiModelManager(QObject *parent)
     : QObject(parent)
-    , mEmojiModel(new TextEmoticonsCore::EmojiModel(this))
+    , d(new EmojiModelManagerPrivate(this))
 {
-    mEmojiModel->setUnicodeEmoticonList(TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmojiList());
-    loadRecentUsed();
+    d->loadRecentUsed();
 }
 
 EmojiModelManager::~EmojiModelManager()
 {
-    writeRecentUsed();
+    d->writeRecentUsed();
 }
 
 EmojiModelManager *EmojiModelManager::self()
@@ -36,53 +61,40 @@ EmojiModelManager *EmojiModelManager::self()
 
 TextEmoticonsCore::EmojiModel *EmojiModelManager::emojiModel() const
 {
-    return mEmojiModel;
+    return d->mEmojiModel;
 }
 
 const QStringList &EmojiModelManager::recentIdentifier() const
 {
-    return mRecentIdentifier;
+    return d->mRecentIdentifier;
 }
 
 void EmojiModelManager::setRecentIdentifier(const QStringList &newRecentIdentifier)
 {
-    mRecentIdentifier = newRecentIdentifier;
-    writeRecentUsed();
-    Q_EMIT usedIdentifierChanged(mRecentIdentifier);
+    d->mRecentIdentifier = newRecentIdentifier;
+    d->writeRecentUsed();
+    Q_EMIT usedIdentifierChanged(d->mRecentIdentifier);
 }
 
 void EmojiModelManager::addIdentifier(const QString &identifier)
 {
-    if (int i = mRecentIdentifier.indexOf(identifier)) {
+    if (int i = d->mRecentIdentifier.indexOf(identifier)) {
         // Remove it for adding in top of list
         if (i != -1) {
-            mRecentIdentifier.removeAt(i);
+            d->mRecentIdentifier.removeAt(i);
         }
     }
-    mRecentIdentifier.prepend(identifier);
-    writeRecentUsed();
-    Q_EMIT usedIdentifierChanged(mRecentIdentifier);
+    d->mRecentIdentifier.prepend(identifier);
+    d->writeRecentUsed();
+    Q_EMIT usedIdentifierChanged(d->mRecentIdentifier);
 }
 
 CustomEmojiIconManager *EmojiModelManager::customEmojiIconManager() const
 {
-    return mEmojiModel->customEmojiIconManager();
+    return d->mEmojiModel->customEmojiIconManager();
 }
 
 void EmojiModelManager::setCustomEmojiIconManager(CustomEmojiIconManager *newCustomEmojiIconManager)
 {
-    mEmojiModel->setCustomEmojiIconManager(newCustomEmojiIconManager);
-}
-
-void EmojiModelManager::loadRecentUsed()
-{
-    KConfigGroup group(KSharedConfig::openConfig(), myEmoticonRecentUsedGroupName);
-    mRecentIdentifier = group.readEntry("Recents", QStringList());
-}
-
-void EmojiModelManager::writeRecentUsed()
-{
-    KConfigGroup group(KSharedConfig::openConfig(), myEmoticonRecentUsedGroupName);
-    group.writeEntry("Recents", mRecentIdentifier);
-    group.sync();
+    d->mEmojiModel->setCustomEmojiIconManager(newCustomEmojiIconManager);
 }
