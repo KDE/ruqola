@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:49+0000\n"
+"POT-Creation-Date: 2023-04-27 00:48+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2374,7 +2374,7 @@ msgstr "Den egna emojins namn och dess alias ska vara annorlunda."
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
-#: widgets/dialogs/createnewchannelwidget.cpp:32
+#: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
@@ -6281,34 +6281,34 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Skapa kanal"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:35
+#: widgets/dialogs/createnewchannelwidget.cpp:36
 #, kde-format
 msgid "Topic:"
 msgstr "Ämne:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:40
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Invite Users..."
 msgid "Invite users..."
 msgstr "Bjud in användare..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:39
+#: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
 msgid "Users:"
 msgstr "Användare:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:45
 #, kde-format
 msgid "All users in this team can write messages"
 msgstr "Alla användare i laget kan skriva meddelanden"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:44
+#: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
 msgid "Read-Only:"
 msgstr "Skrivskyddad:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:50
 #, kde-format
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
@@ -6317,22 +6317,22 @@ msgstr ""
 "Bara behöriga personer kan skriva nya meddelanden, men andra användare kan "
 "svara"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgid "Broadcast:"
 msgstr "Utsändning:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:53
+#: widgets/dialogs/createnewchannelwidget.cpp:55
 #, kde-format
 msgid "Only invited people can join"
 msgstr "Bara inbjudna kan gå med"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
 msgid "Private Room:"
 msgstr "Privat rum:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:61
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Krypterat rum:"

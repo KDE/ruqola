@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:49+0000\n"
-"PO-Revision-Date: 2023-04-14 10:21+0200\n"
+"POT-Creation-Date: 2023-04-27 00:48+0000\n"
+"PO-Revision-Date: 2023-04-26 11:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2377,7 +2377,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
-#: widgets/dialogs/createnewchannelwidget.cpp:32
+#: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
@@ -6300,33 +6300,33 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Kanaal aanmaken"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:35
+#: widgets/dialogs/createnewchannelwidget.cpp:36
 #, kde-format
 msgid "Topic:"
 msgstr "Onderwerp:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:40
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgid "Invite users..."
 msgstr "Gebruikers uitnodigen..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:39
+#: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
 msgid "Users:"
 msgstr "Gebruikers:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:45
 #, kde-format
 msgid "All users in this team can write messages"
 msgstr "Alle gebruikers in dit team kunnen berichten schrijven"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:44
+#: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
 msgid "Read-Only:"
 msgstr "Alleen-lezen:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:50
 #, kde-format
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
@@ -6335,22 +6335,22 @@ msgstr ""
 "Alleen geautoriseerde personen kunnen nieuwe berichten schrijven, maar de "
 "andere gebruikers zullen kunnen antwoorden"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgid "Broadcast:"
 msgstr "Broadcast:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:53
+#: widgets/dialogs/createnewchannelwidget.cpp:55
 #, kde-format
 msgid "Only invited people can join"
 msgstr "Alleen uitgenodigde mensen kunnen meedoen"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
 msgid "Private Room:"
 msgstr "Privéroom:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:61
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Versleutelde room:"
@@ -8585,7 +8585,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix animated gif in reactions"
-msgstr ""
+msgstr "Geanimeerde gif in reacties repareren"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:80
 #, kde-format

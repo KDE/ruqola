@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:49+0000\n"
+"POT-Creation-Date: 2023-04-27 00:48+0000\n"
 "PO-Revision-Date: 2023-03-29 16:17+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2360,7 +2360,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
-#: widgets/dialogs/createnewchannelwidget.cpp:32
+#: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
@@ -6107,55 +6107,55 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Vytvořit kanál"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:35
+#: widgets/dialogs/createnewchannelwidget.cpp:36
 #, kde-format
 msgid "Topic:"
 msgstr "Téma:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:40
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgid "Invite users..."
 msgstr "Pozvat uživatele..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:39
+#: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
 msgid "Users:"
 msgstr "Uživatelé:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:45
 #, kde-format
 msgid "All users in this team can write messages"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:44
+#: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
 msgid "Read-Only:"
 msgstr "Pouze ke čtení:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:50
 #, kde-format
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
 "able to reply"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgid "Broadcast:"
 msgstr "Rozhlášení:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:53
+#: widgets/dialogs/createnewchannelwidget.cpp:55
 #, kde-format
 msgid "Only invited people can join"
 msgstr ""
 
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
 msgid "Private Room:"
 msgstr "Soukromá místnost:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:61
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Šifrovaná místnost:"

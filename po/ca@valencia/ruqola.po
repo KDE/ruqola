@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:49+0000\n"
+"POT-Creation-Date: 2023-04-27 00:48+0000\n"
 "PO-Revision-Date: 2023-04-14 17:17+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2378,7 +2378,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
-#: widgets/dialogs/createnewchannelwidget.cpp:32
+#: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
@@ -6298,33 +6298,33 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Crea un canal"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:35
+#: widgets/dialogs/createnewchannelwidget.cpp:36
 #, kde-format
 msgid "Topic:"
 msgstr "Tema:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:38
+#: widgets/dialogs/createnewchannelwidget.cpp:40
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgid "Invite users..."
 msgstr "Convida usuaris..."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:39
+#: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
 msgid "Users:"
 msgstr "Usuaris:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:43
+#: widgets/dialogs/createnewchannelwidget.cpp:45
 #, kde-format
 msgid "All users in this team can write messages"
 msgstr "Tots els usuaris d'este equip poden escriure missatges"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:44
+#: widgets/dialogs/createnewchannelwidget.cpp:46
 #, kde-format
 msgid "Read-Only:"
 msgstr "Només de lectura:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:48
+#: widgets/dialogs/createnewchannelwidget.cpp:50
 #, kde-format
 msgid ""
 "Only authorized users can write new messages, but the other users will be "
@@ -6333,22 +6333,22 @@ msgstr ""
 "Només els usuaris autoritzats poden escriure missatges nous, però els altres "
 "usuaris podran respondre"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:51
 #, kde-format
 msgid "Broadcast:"
 msgstr "Difusió:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:53
+#: widgets/dialogs/createnewchannelwidget.cpp:55
 #, kde-format
 msgid "Only invited people can join"
 msgstr "Només els invitats poden unir-se"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
 msgid "Private Room:"
 msgstr "Sala privada:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:59
+#: widgets/dialogs/createnewchannelwidget.cpp:61
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Sala encriptada:"
