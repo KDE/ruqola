@@ -110,6 +110,7 @@
       <li xml:lang="ca">Missatge directe</li>
       <li xml:lang="ca-valencia">Missatge directe</li>
       <li xml:lang="cs">Přímá zpráva</li>
+      <li xml:lang="de">Direktnachricht</li>
       <li xml:lang="en-GB">Direct Message</li>
       <li xml:lang="es">Mensaje directo</li>
       <li xml:lang="eu">Zuzeneko mezua</li>
@@ -149,6 +150,7 @@
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
       <li xml:lang="cs">kanál</li>
+      <li xml:lang="de">Kanal</li>
       <li xml:lang="en-GB">channel</li>
       <li xml:lang="es">canal</li>
       <li xml:lang="eu">kanala</li>
