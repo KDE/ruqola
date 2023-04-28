@@ -23,6 +23,7 @@ void RoleTest::shouldHaveDefaultValue()
     QVERIFY(!r.isModerator());
     QVERIFY(!r.isLeader());
     QVERIFY(r.userId().isEmpty());
+    QVERIFY(r.userName().isEmpty());
     QVERIFY(!r.isValid());
     QVERIFY(!r.hasARole());
 }
@@ -59,11 +60,13 @@ void RoleTest::shouldLoadRoles_data()
     r.setIsOwner(true);
     r.setIsModerator(true);
     r.setIsLeader(true);
+    r.setUserName(QStringLiteral("bla"));
     QTest::addRow("role1") << QStringLiteral("role1") << r;
     Role r2;
     r2.setUserId(QStringLiteral("id2"));
     r2.setIsOwner(true);
     r2.setIsLeader(true);
+    r2.setUserName(QStringLiteral("bla"));
     QTest::addRow("role2") << QStringLiteral("role2") << r2;
 }
 

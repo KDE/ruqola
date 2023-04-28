@@ -35,8 +35,12 @@ public:
     void updateRole(const QString &str, bool b);
     Q_REQUIRED_RESULT bool hasARole() const;
 
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &newUserName);
+
 private:
     QString mUserId;
+    QString mUserName;
     bool mIsModerator = false;
     bool mIsLeader = false;
     bool mIsOwner = false;
