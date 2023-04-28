@@ -50,6 +50,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setTextFormat(Qt::RichText);
+    mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     mainLayout->addWidget(mLabelInfo, 0, Qt::AlignTop);
 }
 
