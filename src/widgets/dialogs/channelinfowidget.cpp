@@ -26,7 +26,6 @@ ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    mainLayout->addWidget(mChannelRolesInfoWidget);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
@@ -35,6 +34,8 @@ ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::channelDeleted, this, &ChannelInfoWidget::channelDeleted);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::fnameChanged, this, &ChannelInfoWidget::fnameChanged);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::roomNameValid, this, &ChannelInfoWidget::roomNameValid);
+    mainLayout->addWidget(mChannelRolesInfoWidget);
+    mainLayout->addStretch(1);
 }
 
 ChannelInfoWidget::~ChannelInfoWidget() = default;
