@@ -8,9 +8,14 @@
 
 #include "room.h"
 
+#include <QFormLayout>
+
 ChannelRolesInfoWidget::ChannelRolesInfoWidget(QWidget *parent)
     : QWidget{parent}
+    , mFormLayout(new QFormLayout(this))
 {
+    mFormLayout->setObjectName(QStringLiteral("mFormLayout"));
+    mFormLayout->setContentsMargins({});
 }
 
 ChannelRolesInfoWidget::~ChannelRolesInfoWidget() = default;

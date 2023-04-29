@@ -9,6 +9,7 @@
 #include <QWidget>
 
 class Room;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelRolesInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -17,4 +18,7 @@ public:
     ~ChannelRolesInfoWidget() override;
 
     void setRoom(Room *room);
+
+private:
+    QFormLayout *const mFormLayout;
 };
