@@ -20,5 +20,6 @@ public:
     void setRoom(Room *room);
 
 private:
+    void generateInfo(const QString &label, const QStringList &list);
     QFormLayout *const mFormLayout;
 };
