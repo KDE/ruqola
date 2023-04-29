@@ -10,14 +10,20 @@
 
 #include <KLocalizedString>
 #include <QFormLayout>
+#include <QGroupBox>
 #include <QLabel>
 
 ChannelRolesInfoWidget::ChannelRolesInfoWidget(QWidget *parent)
     : QWidget{parent}
-    , mFormLayout(new QFormLayout(this))
+    , mFormLayout(new QFormLayout())
 {
     mFormLayout->setObjectName(QStringLiteral("mFormLayout"));
-    mFormLayout->setContentsMargins({});
+    auto box = new QGroupBox(i18n("Roles"), this);
+    box->setLayout(mFormLayout);
+    auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+    mainLayout->addWidget(box);
 }
 
 ChannelRolesInfoWidget::~ChannelRolesInfoWidget() = default;
@@ -54,6 +60,13 @@ void ChannelRolesInfoWidget::setRoom(Room *room)
         if (!listLeaders.isEmpty()) {
             generateInfo(i18np("Leader:", "Leaders:", listLeaders.count()), listLeaders);
         }
+        if (!listOwners.isEmpty() || !listModerators.isEmpty() || !listLeaders.isEmpty()) {
+            show();
+        } else {
+            hide();
+        }
+    } else {
+        hide();
     }
 }
 
