@@ -25,21 +25,22 @@ ChannelRolesInfoWidget::~ChannelRolesInfoWidget() = default;
 void ChannelRolesInfoWidget::setRoom(Room *room)
 {
     if (room) {
-        const Roles roles = room->rolesForRooms();
+        const Roles rolesForRoom = room->rolesForRooms();
         QStringList listOwners;
-        for (const Role &role : roles.roles()) {
+        const auto roles = rolesForRoom.roles();
+        for (const Role &role : roles) {
             if (role.isOwner()) {
                 listOwners.append(role.userName());
             }
         }
         QStringList listModerators;
-        for (const Role &role : roles.roles()) {
+        for (const Role &role : roles) {
             if (role.isModerator()) {
                 listModerators.append(role.userName());
             }
         }
         QStringList listLeaders;
-        for (const Role &role : roles.roles()) {
+        for (const Role &role : roles) {
             if (role.isLeader()) {
                 listLeaders.append(role.userName());
             }
