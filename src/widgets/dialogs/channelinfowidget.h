@@ -15,6 +15,7 @@ class Room;
 class ChannelInfoReadOnlyWidget;
 class ChannelInfoEditableWidget;
 class RocketChatAccount;
+class ChannelRolesInfoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -37,4 +38,5 @@ private:
     QPointer<Room> mRoom;
     ChannelInfoEditableWidget *const mChannelInfoEditableWidget;
     ChannelInfoReadOnlyWidget *const mChannelInfoReadOnlyWidget;
+    ChannelRolesInfoWidget *const mChannelRolesInfoWidget;
 };

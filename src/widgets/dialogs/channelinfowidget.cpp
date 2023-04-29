@@ -7,6 +7,7 @@
 #include "channelinfowidget.h"
 #include "channelinfoeditablewidget.h"
 #include "channelinforeadonlywidget.h"
+#include "channelrolesinfowidget.h"
 #include "rocketchataccount.h"
 #include "room.h"
 
@@ -20,10 +21,12 @@ ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent
     , mStackedWidget(new QStackedWidget(this))
     , mChannelInfoEditableWidget(new ChannelInfoEditableWidget(account, this))
     , mChannelInfoReadOnlyWidget(new ChannelInfoReadOnlyWidget(account, this))
+    , mChannelRolesInfoWidget(new ChannelRolesInfoWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    mainLayout->addWidget(mChannelRolesInfoWidget);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
@@ -52,6 +55,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoWidget::
 void ChannelInfoWidget::setRoom(Room *room)
 {
     mRoom = room;
+    mChannelRolesInfoWidget->setRoom(room);
     auto *currentWidget = mStackedWidget->currentWidget();
     if (mRoom->canBeModify()) {
         mChannelInfoEditableWidget->setRoom(mRoom);

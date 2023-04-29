@@ -45,13 +45,13 @@ void ChannelRolesInfoWidget::setRoom(Room *room)
             }
         }
         if (!listOwners.isEmpty()) {
-            generateInfo(i18np("Owner", "Owners", listOwners.count()), listOwners);
+            generateInfo(i18np("Owner:", "Owners:", listOwners.count()), listOwners);
         }
         if (!listModerators.isEmpty()) {
-            generateInfo(i18np("Moderator", "Moderators", listModerators.count()), listModerators);
+            generateInfo(i18np("Moderator:", "Moderators:", listModerators.count()), listModerators);
         }
         if (!listLeaders.isEmpty()) {
-            generateInfo(i18np("Leader", "Leaders", listLeaders.count()), listLeaders);
+            generateInfo(i18np("Leader:", "Leaders:", listLeaders.count()), listLeaders);
         }
     }
 }
