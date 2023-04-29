@@ -393,6 +393,9 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/uploadfiledialog.h
     dialogs/uploadfilewidget.cpp
     dialogs/uploadfilewidget.h
+    dialogs/channelrolesinfowidget.h
+    dialogs/channelrolesinfowidget.cpp
+
     discussions/showdiscussionsdialog.cpp
     discussions/showdiscussionsdialog.h
     discussions/showdiscussionswidget.cpp
