@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-28 00:48+0000\n"
-"PO-Revision-Date: 2023-04-26 09:33+0200\n"
+"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"PO-Revision-Date: 2023-04-28 13:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -5719,10 +5719,9 @@ msgid "Select All"
 msgstr "Selecciona-ho tot"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Pronuncia el text"
+msgstr "Copia el text"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -8354,8 +8353,7 @@ msgid "Register New User"
 msgstr "Registra un usuari nou"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
@@ -8597,18 +8595,18 @@ msgstr ""
 msgid "Fix animated gif in reactions"
 msgstr "Corregeix els GIF animats a les reaccions"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:81
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de la darrera versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:89
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'aquesta versió del Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"

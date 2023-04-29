@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-28 00:48+0000\n"
-"PO-Revision-Date: 2023-04-26 15:17+0300\n"
+"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"PO-Revision-Date: 2023-04-28 08:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -5736,10 +5736,9 @@ msgid "Select All"
 msgstr "Вибрати все"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Декламувати текст"
+msgstr "Скопіювати текст"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -8406,8 +8405,7 @@ msgid "Register New User"
 msgstr "Реєстрація нового користувача"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
@@ -8648,17 +8646,17 @@ msgstr ""
 msgid "Fix animated gif in reactions"
 msgstr "Виправлено анімований gif у реакціях"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:81
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важливі зміни з часу випуску попередньої версії:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:89
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"

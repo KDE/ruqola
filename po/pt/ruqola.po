@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-28 00:48+0000\n"
-"PO-Revision-Date: 2023-04-17 17:16+0100\n"
+"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"PO-Revision-Date: 2023-04-28 12:31+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -5742,10 +5742,9 @@ msgid "Select All"
 msgstr "Seleccionar Tudo"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Falar o Texto"
+msgstr "Copiar o Texto"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -8383,8 +8382,7 @@ msgid "Register New User"
 msgstr "Registar um Novo Utilizador"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
@@ -8624,19 +8622,19 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix animated gif in reactions"
-msgstr ""
+msgstr "Correcção dos GIF's animados nas reacções"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:81
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificações importantes desde a última versão:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:89
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"

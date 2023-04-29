@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-28 00:48+0000\n"
-"PO-Revision-Date: 2023-04-14 23:23+0200\n"
+"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"PO-Revision-Date: 2023-04-28 23:21+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.90\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -5546,10 +5546,9 @@ msgid "Select All"
 msgstr "Selige toto"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Pronuncia texto"
+msgstr "Copia texto"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -8173,8 +8172,7 @@ msgid "Register New User"
 msgstr "Registra nove usator"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
@@ -8412,17 +8410,17 @@ msgstr ""
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:81
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificationes importante depost ultime version:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:89
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"

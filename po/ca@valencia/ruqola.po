@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-28 00:48+0000\n"
-"PO-Revision-Date: 2023-04-14 17:17+0200\n"
+"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"PO-Revision-Date: 2023-04-28 13:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -5720,10 +5720,9 @@ msgid "Select All"
 msgstr "Selecciona-ho tot"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Llig el text"
+msgstr "Copia el text"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -8356,8 +8355,7 @@ msgid "Register New User"
 msgstr "Registra un usuari nou"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
@@ -8597,20 +8595,20 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix animated gif in reactions"
-msgstr ""
+msgstr "Corregix els GIF animats en les reaccions"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:81
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de l'última versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:89
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
