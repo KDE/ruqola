@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:50+0000\n"
-"PO-Revision-Date: 2023-04-22 10:59+0100\n"
+"POT-Creation-Date: 2023-04-30 00:48+0000\n"
+"PO-Revision-Date: 2023-04-29 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -933,6 +933,7 @@ msgstr "Mentions"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
 msgid "Roles"
 msgstr "Roles"
@@ -2763,9 +2764,13 @@ msgid "Archived"
 msgstr "Archived"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#: widgets/dialogs/channelrolesinfowidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
-msgstr "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Owner:"
+msgstr[1] "Owner:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -5677,10 +5682,9 @@ msgid "Select All"
 msgstr "Select All"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Speak Text"
+msgstr "Copy Text"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -6159,6 +6163,22 @@ msgstr "Add Password"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Channel Password:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgid "Moderator:"
+msgid_plural "Moderators:"
+msgstr[0] "Moderator"
+msgstr[1] "Moderator"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Leader"
+msgid "Leader:"
+msgid_plural "Leaders:"
+msgstr[0] "Leader"
+msgstr[1] "Leader"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8302,8 +8322,7 @@ msgid "Register New User"
 msgstr "Register New User"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
@@ -8539,7 +8558,7 @@ msgstr "Fix emoji support (use new ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix animated gif in reactions"
-msgstr ""
+msgstr "Fix animated GIF in reactions"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:81
 #, kde-format

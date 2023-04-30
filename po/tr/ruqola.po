@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"POT-Creation-Date: 2023-04-30 00:48+0000\n"
 "PO-Revision-Date: 2023-04-28 14:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -933,6 +933,7 @@ msgstr "Değinmeler"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
 msgid "Roles"
 msgstr "Roller"
@@ -2750,9 +2751,13 @@ msgid "Archived"
 msgstr "Arşivlenmiş"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#: widgets/dialogs/channelrolesinfowidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
-msgstr "Sahip:"
+msgid_plural "Owners:"
+msgstr[0] "Sahip:"
+msgstr[1] "Sahip:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6151,6 +6156,22 @@ msgstr "Parola Ekle"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Kanal Parolası:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgid "Moderator:"
+msgid_plural "Moderators:"
+msgstr[0] "Moderatör"
+msgstr[1] "Moderatör"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Leader"
+msgid "Leader:"
+msgid_plural "Leaders:"
+msgstr[0] "Lider"
+msgstr[1] "Lider"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76

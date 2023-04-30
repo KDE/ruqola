@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:50+0000\n"
-"PO-Revision-Date: 2023-04-27 14:22+0200\n"
+"POT-Creation-Date: 2023-04-30 00:48+0000\n"
+"PO-Revision-Date: 2023-04-28 19:58+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -932,6 +932,7 @@ msgstr "Mentions"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
 msgid "Roles"
 msgstr "Rôles"
@@ -2785,9 +2786,13 @@ msgid "Archived"
 msgstr "Archivé"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#: widgets/dialogs/channelrolesinfowidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
-msgstr "Propriétaire :"
+msgid_plural "Owners:"
+msgstr[0] "Propriétaire :"
+msgstr[1] "Propriétaire :"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -5754,10 +5759,9 @@ msgid "Select All"
 msgstr "Tout sélectionner"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Énoncer le texte"
+msgstr "Copier le texte"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -6238,6 +6242,22 @@ msgstr "Ajouter un mot de passe"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Mot de passe du canal :"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgid "Moderator:"
+msgid_plural "Moderators:"
+msgstr[0] "Modérateur"
+msgstr[1] "Modérateur"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Leader"
+msgid "Leader:"
+msgid_plural "Leaders:"
+msgstr[0] "Chef"
+msgstr[1] "Chef"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8397,8 +8417,7 @@ msgid "Register New User"
 msgstr "Enregistrer un nouvel utilisateur"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "État"

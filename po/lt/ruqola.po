@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"POT-Creation-Date: 2023-04-30 00:48+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -977,6 +977,7 @@ msgstr ""
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Hide Room"
 msgid "Roles"
@@ -2895,10 +2896,15 @@ msgid "Archived"
 msgstr "Išarchyvuoti"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
+#: widgets/dialogs/channelrolesinfowidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "Owner"
 msgid "Owner:"
-msgstr "Savininkas"
+msgid_plural "Owners:"
+msgstr[0] "Savininkas"
+msgstr[1] "Savininkas"
+msgstr[2] "Savininkas"
+msgstr[3] "Savininkas"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6331,6 +6337,24 @@ msgstr "Pridėti slaptažodį"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Kanalo slaptažodis:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#, kde-format
+msgid "Moderator:"
+msgid_plural "Moderators:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#, kde-format
+msgid "Leader:"
+msgid_plural "Leaders:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76

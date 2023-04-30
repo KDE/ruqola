@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"POT-Creation-Date: 2023-04-30 00:48+0000\n"
 "PO-Revision-Date: 2023-04-28 07:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
@@ -938,6 +938,7 @@ msgstr "Omembe"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
 msgid "Roles"
 msgstr "Vloge"
@@ -2768,9 +2769,15 @@ msgid "Archived"
 msgstr "Arhivirano"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#: widgets/dialogs/channelrolesinfowidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
-msgstr "Lastnik:"
+msgid_plural "Owners:"
+msgstr[0] "Lastnik:"
+msgstr[1] "Lastnik:"
+msgstr[2] "Lastnik:"
+msgstr[3] "Lastnik:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6172,6 +6179,26 @@ msgstr "Dodaj geslo"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Geslo kanala:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgid "Moderator:"
+msgid_plural "Moderators:"
+msgstr[0] "Moderator"
+msgstr[1] "Moderator"
+msgstr[2] "Moderator"
+msgstr[3] "Moderator"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Leader"
+msgid "Leader:"
+msgid_plural "Leaders:"
+msgstr[0] "Vodja"
+msgstr[1] "Vodja"
+msgstr[2] "Vodja"
+msgstr[3] "Vodja"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76

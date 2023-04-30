@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:50+0000\n"
+"POT-Creation-Date: 2023-04-30 00:48+0000\n"
 "PO-Revision-Date: 2023-03-29 16:17+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -933,6 +933,7 @@ msgstr "Zmínky"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
 msgid "Roles"
 msgstr "Úlohy"
@@ -2760,9 +2761,14 @@ msgid "Archived"
 msgstr "Archivováno"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#: widgets/dialogs/channelrolesinfowidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
-msgstr "Vlastník:"
+msgid_plural "Owners:"
+msgstr[0] "Vlastník:"
+msgstr[1] "Vlastník:"
+msgstr[2] "Vlastník:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6015,6 +6021,24 @@ msgstr "Přidat heslo"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Heslo kanálu:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgid "Moderator:"
+msgid_plural "Moderators:"
+msgstr[0] "Moderátor"
+msgstr[1] "Moderátor"
+msgstr[2] "Moderátor"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Leader"
+msgid "Leader:"
+msgid_plural "Leaders:"
+msgstr[0] "Vedoucí"
+msgstr[1] "Vedoucí"
+msgstr[2] "Vedoucí"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
