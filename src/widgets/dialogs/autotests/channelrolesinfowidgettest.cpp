@@ -18,7 +18,7 @@ ChannelRolesInfoWidgetTest::ChannelRolesInfoWidgetTest(QObject *parent)
 void ChannelRolesInfoWidgetTest::shouldHaveDefaultValues()
 {
     ChannelRolesInfoWidget w;
-    auto mFormLayout = w.findChild<QFormLayout *>(QStringLiteral("mFormLayout"));
-    QVERIFY(mFormLayout);
-    QCOMPARE(mFormLayout->contentsMargins(), QMargins{});
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }

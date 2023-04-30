@@ -19,6 +19,7 @@ ChannelRolesInfoWidget::ChannelRolesInfoWidget(QWidget *parent)
 {
     mFormLayout->setObjectName(QStringLiteral("mFormLayout"));
     auto box = new QGroupBox(i18n("Roles"), this);
+    box->setObjectName(QStringLiteral("box"));
     box->setLayout(mFormLayout);
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
