@@ -14,7 +14,7 @@ class QMovie;
 struct LIBRUQOLAWIDGETS_TESTS_EXPORT RunningAnimatedImage {
     explicit RunningAnimatedImage(const QModelIndex &idx);
     ~RunningAnimatedImage();
-    RunningAnimatedImage(const RunningAnimatedImage &) = delete;
+    // RunningAnimatedImage(const RunningAnimatedImage &) = delete;
     RunningAnimatedImage(RunningAnimatedImage &&other) noexcept;
     RunningAnimatedImage &operator=(const RunningAnimatedImage &) = delete;
     RunningAnimatedImage &operator=(RunningAnimatedImage &&other);
