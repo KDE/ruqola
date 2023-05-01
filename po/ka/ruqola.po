@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-13 06:09+0200\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 04:33+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2765,13 +2765,12 @@ msgid "Archived"
 msgstr "დაარქივებული"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
-msgstr[0] "მეპატრონე:"
-msgstr[1] "მეპატრონე:"
+msgstr[0] "მფლობელი:"
+msgstr[1] "მფლობელი:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -5586,10 +5585,9 @@ msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "ტექსტის წაკითხვა"
+msgstr "ტექსტის კოპირება"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -6070,21 +6068,19 @@ msgstr "პაროლის დამატება"
 msgid "Channel Password:"
 msgstr "არხის პაროლი:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:58
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#: widgets/dialogs/channelrolesinfowidget.cpp:59
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "მოდერატორი"
-msgstr[1] "მოდერატორი"
+msgstr[0] "მოდერატორი:"
+msgstr[1] "მოდერატორები:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Leader"
+#: widgets/dialogs/channelrolesinfowidget.cpp:62
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "ლიდერი"
-msgstr[1] "ლიდერი"
+msgstr[0] "ლიდერი:"
+msgstr[1] "ლიდერი:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8212,11 +8208,10 @@ msgid "Register New User"
 msgstr "ახალი მომხმარებლის რეგისტრაცია"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
-msgstr "მდგომარეობა"
+msgstr "სტატუსი"
 
 #: widgets/ruqolamainwindow.cpp:1006
 #, kde-format
@@ -8441,29 +8436,33 @@ msgstr ""
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:36
+#: widgets/whatsnew/whatsnewwidget.cpp:31
+msgid "Show leader/moderator/owner in channel info."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"
 msgstr "ავატარის მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:37
+#: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:38
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:81
+#: widgets/whatsnew/whatsnewwidget.cpp:82
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "მნიშვნელოვანი ცვლილებები ბოლო ვერსიის შემდეგ:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:89
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola-ის ახალ ფუნქციებში შედის:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:98
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"

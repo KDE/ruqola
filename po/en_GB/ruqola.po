@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
 "PO-Revision-Date: 2023-04-29 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2764,7 +2764,7 @@ msgid "Archived"
 msgstr "Archived"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:55
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Owner:"
 msgid "Owner:"
@@ -6164,7 +6164,7 @@ msgstr "Add Password"
 msgid "Channel Password:"
 msgstr "Channel Password:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgid "Moderator:"
@@ -6172,7 +6172,7 @@ msgid_plural "Moderators:"
 msgstr[0] "Moderator"
 msgstr[1] "Moderator"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#: widgets/dialogs/channelrolesinfowidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "Leader"
 msgid "Leader:"
@@ -8548,29 +8548,33 @@ msgstr "Improve debug support (Allow to show current account permissions)"
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Add support for quoted text (text which starts by '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:36
+#: widgets/whatsnew/whatsnewwidget.cpp:31
+msgid "Show leader/moderator/owner in channel info."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"
 msgstr "Fix avatar support"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:37
+#: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Fix emoji support (use new ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:38
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix animated gif in reactions"
 msgstr "Fix animated GIF in reactions"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:81
+#: widgets/whatsnew/whatsnewwidget.cpp:82
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Important changes since last version:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:89
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Some of the new features in this release of Ruqola include:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:98
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Some bug fixing:"

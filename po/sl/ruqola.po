@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-28 07:31+0200\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 06:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
@@ -2769,15 +2769,14 @@ msgid "Archived"
 msgstr "Arhivirano"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Lastnik:"
-msgstr[1] "Lastnik:"
-msgstr[2] "Lastnik:"
-msgstr[3] "Lastnik:"
+msgstr[1] "Lastnika:"
+msgstr[2] "Lastniki:"
+msgstr[3] "Lastnikov:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6180,25 +6179,23 @@ msgstr "Dodaj geslo"
 msgid "Channel Password:"
 msgstr "Geslo kanala:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:58
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#: widgets/dialogs/channelrolesinfowidget.cpp:59
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderator"
-msgstr[1] "Moderator"
-msgstr[2] "Moderator"
-msgstr[3] "Moderator"
+msgstr[0] "Moderator:"
+msgstr[1] "Moderatorja;"
+msgstr[2] "Moderatorji:"
+msgstr[3] "Moderatorjev:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Leader"
+#: widgets/dialogs/channelrolesinfowidget.cpp:62
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
 msgstr[0] "Vodja"
-msgstr[1] "Vodja"
-msgstr[2] "Vodja"
-msgstr[3] "Vodja"
+msgstr[1] "Vodji"
+msgstr[2] "Vodje"
+msgstr[3] "Vodjj"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8596,29 +8593,33 @@ msgstr ""
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Dodaj podporo za besedilo v navednicah (besedilo, ki se začne z '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:36
+#: widgets/whatsnew/whatsnewwidget.cpp:31
+msgid "Show leader/moderator/owner in channel info."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"
 msgstr "Popravi podporo za avatar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:37
+#: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Popravi podporo čustvenčkom (uporabi novo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:38
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix animated gif in reactions"
 msgstr "Zamrzni animirane gife v odzivih"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:81
+#: widgets/whatsnew/whatsnewwidget.cpp:82
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Pomembne spremembe od zadnje različice:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:89
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:98
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"

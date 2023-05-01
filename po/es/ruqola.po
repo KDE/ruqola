@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # Automatically generated, 2019.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2019, 2020, 2021, 2022.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2019, 2020, 2021, 2022, 2023.
 # Manuel Alcaraz <manuelalcarazzam@gmail.com>, 2019.
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, %Y.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-15 18:02+0200\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 17:30+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2775,13 +2775,12 @@ msgid "Archived"
 msgstr "Archivado"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Propietario:"
-msgstr[1] "Propietario:"
+msgstr[1] "Propietarios:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -5726,10 +5725,9 @@ msgid "Select All"
 msgstr "Seleccionar todos"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Dictar texto"
+msgstr "Copiar texto"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -6209,21 +6207,19 @@ msgstr "Añadir contraseña"
 msgid "Channel Password:"
 msgstr "Contraseña del canal:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:58
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#: widgets/dialogs/channelrolesinfowidget.cpp:59
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderador"
-msgstr[1] "Moderador"
+msgstr[0] "Moderador:"
+msgstr[1] "Moderadores:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Leader"
+#: widgets/dialogs/channelrolesinfowidget.cpp:62
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Líder"
-msgstr[1] "Líder"
+msgstr[0] "Líder:"
+msgstr[1] "Líderes:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8378,8 +8374,7 @@ msgid "Register New User"
 msgstr "Registrar nuevo usuario"
 
 #: widgets/ruqolamainwindow.cpp:914
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
@@ -8606,31 +8601,35 @@ msgstr ""
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Soporte añadido para texto citado (texto que comienza por «>»)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:36
-msgid "Fix avatar support"
-msgstr "Arregla el soporte de avatares"
+#: widgets/whatsnew/whatsnewwidget.cpp:31
+msgid "Show leader/moderator/owner in channel info."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
-msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr ""
-"Arregla el soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
+msgid "Fix avatar support"
+msgstr "Arreglo del soporte de avatares"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
-msgid "Fix animated gif in reactions"
+msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
+"Arreglo del soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:81
+#: widgets/whatsnew/whatsnewwidget.cpp:39
+msgid "Fix animated gif in reactions"
+msgstr "Arreglo de los gif animados en las reacciones"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:82
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Cambios importantes desde la última versión:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:89
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:98
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
