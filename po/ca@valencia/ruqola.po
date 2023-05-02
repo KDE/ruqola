@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-01 00:52+0000\n"
-"PO-Revision-Date: 2023-04-28 13:02+0200\n"
+"PO-Revision-Date: 2023-05-01 10:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2777,12 +2777,11 @@ msgstr "Arxivada"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Propietari:"
-msgstr[1] "Propietari:"
+msgstr[1] "Propietaris:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6208,20 +6207,18 @@ msgid "Channel Password:"
 msgstr "Contrasenya del canal:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderador"
-msgstr[1] "Moderador"
+msgstr[0] "Moderador:"
+msgstr[1] "Moderadors:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Leader"
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Líder"
-msgstr[1] "Líder"
+msgstr[0] "Líder:"
+msgstr[1] "Líders:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76

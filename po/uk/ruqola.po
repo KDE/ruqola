@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-01 00:52+0000\n"
-"PO-Revision-Date: 2023-04-30 09:45+0300\n"
+"PO-Revision-Date: 2023-05-01 09:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -8659,7 +8659,7 @@ msgstr "Додано підтримку цитованого тексту (те�
 
 #: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
-msgstr ""
+msgstr "Показувати лідера, модератора та власника у даних каналу."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"

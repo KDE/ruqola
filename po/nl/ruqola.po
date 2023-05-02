@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-01 00:52+0000\n"
-"PO-Revision-Date: 2023-04-30 18:42+0200\n"
+"PO-Revision-Date: 2023-05-01 13:02+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8605,7 +8605,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
-msgstr ""
+msgstr "Leider/moderator/eigenaar tonen in kanaalinformatie."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"
