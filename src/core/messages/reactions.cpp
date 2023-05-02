@@ -81,12 +81,12 @@ Reactions Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManage
             for (int i = 0; i < array.count(); ++i) {
                 users.append(array.at(i).toString());
             }
-        }
-        if (!users.isEmpty()) {
-            Reaction r;
-            r.setReactionName(str, emojiManager);
-            r.setUserNames(users);
-            reacts.append(std::move(r));
+            if (!users.isEmpty()) {
+                Reaction r;
+                r.setReactionName(str, emojiManager);
+                r.setUserNames(users);
+                reacts.append(std::move(r));
+            }
         }
         users.clear();
     }
