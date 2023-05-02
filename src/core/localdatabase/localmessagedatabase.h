@@ -21,7 +21,7 @@ public:
     void deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId);
     void addMessage(const QString &accountName, const QString &_roomName, const Message &m);
 
-    std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
+    Q_REQUIRED_RESULT std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
 
     Q_REQUIRED_RESULT QVector<QString> loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const;
 
