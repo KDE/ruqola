@@ -116,6 +116,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     // We need to load all room after get subscription to update parameters
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+    // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 
     account->initializeAccount();
@@ -151,6 +152,7 @@ void RocketChatBackend::slotConnectedChanged()
     connect(restApi, &RocketChatRestApi::Connection::serverInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
     connect(restApi, &RocketChatRestApi::Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
 
+    // TODO add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
@@ -160,6 +162,7 @@ void RocketChatBackend::loadPublicSettingsAdministrator()
     if (!ddp->isConnected()) {
         return;
     }
+    // TODO add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings_administrator);
 }
 
