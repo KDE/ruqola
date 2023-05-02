@@ -826,7 +826,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
     mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
     mRoomFavorite->setEnabled(!loginPageActivated);
-    mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
+    if (mContextStatusMenu) {
+        mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
+    }
 #if HAVE_DATABASE_SUPPORT
     if (mShowDatabaseMessages) {
         mShowDatabaseMessages->setEnabled(!loginPageActivated);
@@ -950,27 +952,30 @@ void RuqolaMainWindow::slotStatusChanged()
 
 void RuqolaMainWindow::slotUpdateStatusMenu()
 {
-    const User::PresenceStatus status = mStatusComboBox->status();
-
-    mContextStatusMenu->setTitle(Utils::displaytextFromPresenceStatus(status));
-    mContextStatusMenu->setIcon(QIcon::fromTheme(Utils::iconFromPresenceStatus(status)));
+    if (mContextStatusMenu) {
+        const User::PresenceStatus status = mStatusComboBox->status();
+        mContextStatusMenu->setTitle(Utils::displaytextFromPresenceStatus(status));
+        mContextStatusMenu->setIcon(QIcon::fromTheme(Utils::iconFromPresenceStatus(status)));
+    }
 }
 
 void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
     mStatusProxyModel->sort(0);
 
-    // mContextStatusMenu->menuAction()->setVisible(true);
-    mContextStatusMenu->clear();
+    if (mContextStatusMenu) {
+        // mContextStatusMenu->menuAction()->setVisible(true);
+        mContextStatusMenu->clear();
 
-    for (int i = 0; i < mStatusProxyModel->rowCount(); i++) {
-        const QModelIndex index = mStatusProxyModel->index(i, 0);
-        QAction *action = mContextStatusMenu->addAction(index.data(Qt::DisplayRole).toString());
-        action->setIcon(index.data(Qt::DecorationRole).value<QIcon>());
+        for (int i = 0; i < mStatusProxyModel->rowCount(); i++) {
+            const QModelIndex index = mStatusProxyModel->index(i, 0);
+            QAction *action = mContextStatusMenu->addAction(index.data(Qt::DisplayRole).toString());
+            action->setIcon(index.data(Qt::DecorationRole).value<QIcon>());
 
-        connect(action, &QAction::triggered, this, [this, index] {
-            mStatusComboBox->setStatus(index.data(StatusModel::StatusRoles::Status).value<User::PresenceStatus>());
-        });
+            connect(action, &QAction::triggered, this, [this, index] {
+                mStatusComboBox->setStatus(index.data(StatusModel::StatusRoles::Status).value<User::PresenceStatus>());
+            });
+        }
     }
 }
 
