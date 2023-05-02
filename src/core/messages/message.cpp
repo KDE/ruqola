@@ -916,7 +916,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     message.mLocalTranslation = o[QStringLiteral("localTransation")].toString();
 
-    message.mMessageTranslation = MessageTranslation::deserialize(o[QStringLiteral("messageTranslation")].toArray());
+    message.mMessageTranslation = MessageTranslation::deserialize(o[QStringLiteral("messageTranslation")].toObject());
 
     return message;
 }

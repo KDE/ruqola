@@ -22,6 +22,9 @@ public:
     Q_REQUIRED_RESULT bool operator==(const MessagePinned &other) const;
     void parse(const QJsonObject &o);
 
+    static QJsonObject serialize(const MessagePinned &message);
+    static MessagePinned deserialize(const QJsonObject &o);
+
 private:
     QString mPinnedBy;
     bool mPinned = false;

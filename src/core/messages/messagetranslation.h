@@ -22,7 +22,7 @@ public:
     Q_REQUIRED_RESULT QString translatedStringFromLanguage(const QString &lang);
 
     static QJsonArray serialize(const MessageTranslation &translation);
-    static MessageTranslation deserialize(const QJsonArray &o);
+    static MessageTranslation deserialize(const QJsonObject &o);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
 

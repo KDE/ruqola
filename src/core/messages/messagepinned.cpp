@@ -39,9 +39,28 @@ void MessagePinned::parse(const QJsonObject &o)
     mPinnedBy = o.value(QLatin1String("pinnedBy")).toObject().value(QLatin1String("username")).toString();
 }
 
+QJsonObject MessagePinned::serialize(const MessagePinned &messagePinned)
+{
+    // TODO fix me
+    QJsonObject o;
+    o[QStringLiteral("pinned")] = messagePinned.pinned();
+    if (!messagePinned.pinnedBy().isEmpty()) {
+        o[QStringLiteral("pinnedBy")] = messagePinned.pinnedBy();
+    }
+    return o;
+}
+
 QDebug operator<<(QDebug d, const MessagePinned &t)
 {
     d << "isPinned " << t.pinned();
     d << "pinnedby " << t.pinnedBy();
     return d;
+}
+
+MessagePinned MessagePinned::deserialize(const QJsonObject &o)
+{
+    MessagePinned pinned;
+    pinned.setPinned(o[QStringLiteral("pinned")].toBool());
+    pinned.setPinnedBy(o[QStringLiteral("pinnedBy")].toString());
+    return pinned;
 }
