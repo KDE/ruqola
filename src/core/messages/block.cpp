@@ -132,7 +132,7 @@ QJsonObject Block::serialize(const Block &block)
     if (block.mVideoConferenceInfo.isValid()) {
         o[QStringLiteral("videoconferenceinfo")] = VideoConferenceInfo::serialize(block.mVideoConferenceInfo);
     } else {
-        qWarning() << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
+        qCWarning(RUQOLA_LOG) << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
     }
     return o;
 }
@@ -148,7 +148,7 @@ Block Block::deserialize(const QJsonObject &o)
     if (info.isValid()) {
         block.mVideoConferenceInfo = info;
     } else {
-        qWarning() << "info is invalid " << info;
+        qCWarning(RUQOLA_LOG) << "info is invalid " << info;
     }
     return block;
 }
