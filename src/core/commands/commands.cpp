@@ -8,7 +8,6 @@
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_commands_debug.h"
-#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -32,7 +31,7 @@ int Commands::count() const
 Command Commands::at(int index) const
 {
     if (index < 0 || index > mCommands.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        qCWarning(RUQOLA_COMMANDS_LOG) << "Invalid index " << index;
         return {};
     }
     return mCommands.at(index);
@@ -90,7 +89,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 mCommands.append(std::move(m));
             }
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current.type();
+            qCWarning(RUQOLA_COMMANDS_LOG) << "Problem when parsing commands" << current.type();
         }
     }
 }
