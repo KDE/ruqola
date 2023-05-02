@@ -19,8 +19,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : publi
 public:
     explicit MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperImage() override = default;
-    MessageAttachmentDelegateHelperImage(const MessageAttachmentDelegateHelperImage &) = delete;
-    MessageAttachmentDelegateHelperImage &operator=(const MessageAttachmentDelegateHelperImage &) = delete;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     Q_REQUIRED_RESULT QSize sizeHint(const MessageAttachment &msgAttach,
@@ -34,6 +32,7 @@ public:
                                             const QModelIndex &index) override;
 
 private:
+    Q_DISABLE_COPY(MessageAttachmentDelegateHelperImage)
     friend class MessageDelegateHelperImageTest;
 
     struct ImageLayout {

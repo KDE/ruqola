@@ -39,6 +39,7 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 private:
+    Q_DISABLE_COPY(MessageDelegateHelperReactions)
     struct ReactionLayout {
         QRectF reactionRect;
         QRectF countRect;
