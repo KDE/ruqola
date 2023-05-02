@@ -64,8 +64,21 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
 {
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
+    NotificationOptions options;
+    options.setAudioNotificationValue(o[QStringLiteral("audioNotificationValue")].toString());
+    options.setDisableNotifications(o[QStringLiteral("disableNotifications")].toBool());
+    options.setUnreadTrayIconAlert(o[QStringLiteral("unreadAlert")].toString());
+    options.setHideUnreadStatus(o[QStringLiteral("hideUnreadStatus")].toBool());
+    options.setMuteGroupMentions(o[QStringLiteral("muteGroupMentions")].toBool());
+    options.setHideMentionStatus(o[QStringLiteral("hideMentionStatus")].toBool());
+#if 0
+    obj[QStringLiteral("desktopNotifications")] = options.desktopNotifications().currentValue();
+    obj[QStringLiteral("mobilePushNotifications")] = options.mobilePushNotification().currentValue();
+    obj[QStringLiteral("emailNotifications")] = options.emailNotifications().currentValue();
+#endif
+
     // TODO
-    return {};
+    return options;
 }
 
 bool NotificationOptions::hideUnreadStatus() const
