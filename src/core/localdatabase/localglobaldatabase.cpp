@@ -62,6 +62,11 @@ void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QStr
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
         }
     }
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomName)
+    Q_UNUSED(type)
+    Q_UNUSED(timestamp)
 #endif
 }
 
@@ -78,6 +83,10 @@ void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QStr
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
     }
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomName)
+    Q_UNUSED(type)
 #endif
 }
 

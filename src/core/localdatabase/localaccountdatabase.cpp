@@ -45,6 +45,8 @@ void LocalAccountDatabase::updateAccount(const QString &accountName)
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
         }
     }
+#else
+    Q_UNUSED(accountName)
 #endif
 }
 
@@ -60,6 +62,8 @@ void LocalAccountDatabase::deleteAccount(const QString &accountName)
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
     }
+#else
+    Q_UNUSED(accountName)
 #endif
 }
 

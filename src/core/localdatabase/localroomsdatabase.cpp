@@ -47,6 +47,9 @@ void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         }
     }
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(room)
 #endif
 }
 
@@ -62,5 +65,8 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &r
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
     }
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomId)
 #endif
 }

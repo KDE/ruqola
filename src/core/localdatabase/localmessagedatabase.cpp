@@ -50,6 +50,10 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         }
     }
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomName)
+    Q_UNUSED(m)
 #endif
 }
 
@@ -65,6 +69,10 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     }
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomName)
+    Q_UNUSED(messageId)
 #endif
 }
 
