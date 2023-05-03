@@ -81,6 +81,9 @@ public:
 
     Q_REQUIRED_RESULT bool isTeam() const;
 
+    Q_REQUIRED_RESULT QString belongsTo() const;
+    void setBelongsTo(const QString &newBelongsTo);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void generateDisplayChannelType();
     TeamInfo mTeamInfo;
@@ -96,6 +99,7 @@ private:
     QString mDescription;
     QString mAnnouncement;
     QString mOwnerName;
+    QString mBelongsTo;
     qint64 mLastMessage = -1;
     qint64 mCreatedRoom = -1;
     int mMessageCount = -1;

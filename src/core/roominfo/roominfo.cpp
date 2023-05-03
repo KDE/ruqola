@@ -31,6 +31,7 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     if (object.contains(QLatin1String("t"))) {
         setChannelType(object[QStringLiteral("t")].toString());
     }
+    setBelongsTo(object[QStringLiteral("belongsTo")].toString());
     setDefaultRoom(object[QStringLiteral("default")].toBool(false));
     if (object.contains(QLatin1String("lastMessage"))) {
         setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object[QStringLiteral("lastMessage")].toObject()));
@@ -133,6 +134,16 @@ bool RoomInfo::isTeam() const
 void RoomInfo::generateDisplayChannelType()
 {
     mChannelTypeStr = convertChannelType(mChannelType, isTeam());
+}
+
+QString RoomInfo::belongsTo() const
+{
+    return mBelongsTo;
+}
+
+void RoomInfo::setBelongsTo(const QString &newBelongsTo)
+{
+    mBelongsTo = newBelongsTo;
 }
 
 const QString &RoomInfo::ownerName() const

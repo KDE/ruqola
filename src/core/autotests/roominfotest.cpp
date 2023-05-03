@@ -30,4 +30,5 @@ void RoomInfoTest::shouldHaveDefaultValues()
     QCOMPARE(w.lastMessage(), -1);
     QVERIFY(!w.featured());
     QVERIFY(w.ownerName().isEmpty());
+    QVERIFY(w.belongsTo().isEmpty());
 }
