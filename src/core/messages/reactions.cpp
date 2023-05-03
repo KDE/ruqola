@@ -34,12 +34,12 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
             for (int i = 0; i < array.count(); ++i) {
                 users.append(array.at(i).toString());
             }
-        }
-        if (!users.isEmpty()) {
-            Reaction r;
-            r.setReactionName(str, emojiManager);
-            r.setUserNames(users);
-            mReactions.append(std::move(r));
+            if (!users.isEmpty()) {
+                Reaction r;
+                r.setReactionName(str, emojiManager);
+                r.setUserNames(users);
+                mReactions.append(std::move(r));
+            }
         }
     }
 }
