@@ -42,7 +42,7 @@ void LocalAccountDatabase::updateAccount(const QString &accountName)
         // Add timestamp
         // Add Json
         if (!query.exec()) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
         }
     }
 #endif
