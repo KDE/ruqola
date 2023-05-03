@@ -59,13 +59,15 @@ QJsonArray MessageTranslation::serialize(const MessageTranslation &translation)
     return array;
 }
 
-MessageTranslation MessageTranslation::deserialize(const QJsonObject &o)
+MessageTranslation MessageTranslation::deserialize(const QJsonArray &array)
 {
     MessageTranslation translationMessage;
-    const QStringList keys = o.keys();
     QMap<QString, QString> translationStrings;
-    for (const QString &lang : keys) {
-        translationStrings.insert(lang, o.value(lang).toString());
+    for (int i = 0, total = array.count(); i < total; ++i) {
+        QJsonObject o = array.at(i).toObject();
+        if (o.count() == 1) {
+            translationStrings.insert(o.keys().at(0), o.value(o.keys().at(0)).toString());
+        }
     }
     translationMessage.setTranslatedString(translationStrings);
     return translationMessage;
