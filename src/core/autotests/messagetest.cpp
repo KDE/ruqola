@@ -406,6 +406,29 @@ void MessageTest::shouldSerializeData()
         MessageTranslation l;
         l.setTranslatedString({{QStringLiteral("foo"), QStringLiteral("bla")}});
         input.setMessageTranslation(l);
+
+        // LocalTranslation
+        input.setLocalTranslation(QStringLiteral("message fr"));
+
+        // Mention
+        QMap<QString, QString> mentions;
+        mentions.insert(QStringLiteral("bla1"), QStringLiteral("foo1"));
+        mentions.insert(QStringLiteral("bla2"), QStringLiteral("foo2"));
+        mentions.insert(QStringLiteral("bla3"), QStringLiteral("foo3"));
+        mentions.insert(QStringLiteral("bla4"), QStringLiteral("foo4"));
+        input.setMentions(mentions);
+
+        // Starred
+        MessageStarred starred;
+        starred.setIsStarred(true);
+        input.setMessageStarred(starred);
+
+        // MessagePinned
+        MessagePinned pinned;
+        pinned.setPinned(true);
+        pinned.setPinnedBy(QStringLiteral("kla"));
+        input.setMessagePinned(pinned);
+
         const QByteArray ba = Message::serialize(input);
         // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
         const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
