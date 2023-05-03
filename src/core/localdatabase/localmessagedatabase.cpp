@@ -55,7 +55,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
 
 void LocalMessageDatabase::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
 {
-#ifdef HAVE_DATABASE_SUPPORT
+#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, roomName, db)) {
         return;
