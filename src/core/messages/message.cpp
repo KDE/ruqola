@@ -854,8 +854,8 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
     message.mMessageStarred.setIsStarred(o[QStringLiteral("starred")].toBool());
-    message.mMessagePinned.setPinned(o[QStringLiteral("pinned")].toBool());
-    message.mMessagePinned.setPinnedBy(o[QStringLiteral("pinnedBy")].toString());
+
+    message.mMessagePinned = MessagePinned::deserialize(o[QStringLiteral("pinnedMessage")].toObject());
     message.mRole = o[QStringLiteral("role")].toString();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mEmoji = o[QStringLiteral("emoji")].toString();
@@ -951,10 +951,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("groupable")] = message.mGroupable;
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
     o[QStringLiteral("starred")] = message.mMessageStarred.isStarred();
-    o[QStringLiteral("pinned")] = message.mMessagePinned.pinned();
-    if (!message.mMessagePinned.pinnedBy().isEmpty()) {
-        o[QStringLiteral("pinnedBy")] = message.mMessagePinned.pinnedBy();
-    }
+
+    o[QStringLiteral("pinnedMessage")] = MessagePinned::serialize(message.mMessagePinned);
+
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
     }

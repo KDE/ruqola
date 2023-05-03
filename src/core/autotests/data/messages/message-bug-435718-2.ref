@@ -23,7 +23,9 @@
     "messageType": "NormalText",
     "name": "Rocket.Cat",
     "parseUrls": false,
-    "pinned": false,
+    "pinnedMessage": {
+        "pinned": false
+    },
     "roomID": "mLkrwMQaQ4uYtxvj8",
     "starred": false,
     "timestamp": 1618402509599,

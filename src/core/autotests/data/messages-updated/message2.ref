@@ -10,7 +10,9 @@
     "messageType": "NormalText",
     "name": "Laurent Montel",
     "parseUrls": false,
-    "pinned": false,
+    "pinnedMessage": {
+        "pinned": false
+    },
     "roomID": "kGtPa6bu7xHrS5xz6",
     "starred": true,
     "timestamp": 1520403997425,

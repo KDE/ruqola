@@ -9,7 +9,9 @@
     "messageID": "",
     "messageType": "NormalText",
     "parseUrls": false,
-    "pinned": false,
+    "pinnedMessage": {
+        "pinned": false
+    },
     "roomID": "",
     "starred": false,
     "timestamp": -1,

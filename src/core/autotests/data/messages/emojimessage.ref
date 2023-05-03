@@ -19,7 +19,9 @@
     "messageType": "NormalText",
     "name": "foo",
     "parseUrls": false,
-    "pinned": false,
+    "pinnedMessage": {
+        "pinned": false
+    },
     "roomID": "YQfvzcjA7ixMNhrcT",
     "starred": false,
     "timestamp": 1598257386339,

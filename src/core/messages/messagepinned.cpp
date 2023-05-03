@@ -41,7 +41,6 @@ void MessagePinned::parse(const QJsonObject &o)
 
 QJsonObject MessagePinned::serialize(const MessagePinned &messagePinned)
 {
-    // TODO fix me
     QJsonObject o;
     o[QStringLiteral("pinned")] = messagePinned.pinned();
     if (!messagePinned.pinnedBy().isEmpty()) {

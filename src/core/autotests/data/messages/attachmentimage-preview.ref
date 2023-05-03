@@ -22,7 +22,9 @@
     "messageType": "NormalText",
     "name": "mo",
     "parseUrls": false,
-    "pinned": false,
+    "pinnedMessage": {
+        "pinned": false
+    },
     "roomID": "Drjw54ftqGa4antMW",
     "starred": false,
     "timestamp": 1600647439539,

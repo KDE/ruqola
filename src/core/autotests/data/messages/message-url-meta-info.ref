@@ -10,7 +10,9 @@
     "messageType": "NormalText",
     "name": "bla",
     "parseUrls": false,
-    "pinned": false,
+    "pinnedMessage": {
+        "pinned": false
+    },
     "roomID": "roomId",
     "starred": false,
     "timestamp": 1519124970379,
