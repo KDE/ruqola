@@ -3905,7 +3905,8 @@ msgid "Archived"
 msgstr "Archiv"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
 msgstr "Eigentümer:"
 

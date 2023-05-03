@@ -6540,7 +6540,7 @@ msgstr "Mou a un equip"
 #: widgets/channellist/channellistview.cpp:281
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
-msgstr "Segur de convertir-ho a un equip? Açò no es pot desfer."
+msgstr "Segur de convertir-ho a un equip? Açò no es podrà desfer."
 
 #: widgets/channellist/channellistwidget.cpp:49
 #, kde-format
