@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-01 00:52+0000\n"
-"PO-Revision-Date: 2023-04-29 12:32+0100\n"
+"POT-Creation-Date: 2023-05-03 00:49+0000\n"
+"PO-Revision-Date: 2023-05-02 19:22+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -2765,12 +2765,11 @@ msgstr "Archived"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Owner:"
-msgstr[1] "Owner:"
+msgstr[1] "Owners:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -3428,7 +3427,7 @@ msgstr "Encryption"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:979
+#: widgets/ruqolamainwindow.cpp:984
 #, kde-format
 msgid "Message"
 msgstr "Message"
@@ -6165,20 +6164,18 @@ msgid "Channel Password:"
 msgstr "Channel Password:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderator"
-msgstr[1] "Moderator"
+msgstr[0] "Moderator:"
+msgstr[1] "Moderators:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Leader"
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Leader"
-msgstr[1] "Leader"
+msgstr[0] "Leader:"
+msgstr[1] "Leaders:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8307,7 +8304,7 @@ msgstr "Impossible to open log."
 msgid "Show Log"
 msgstr "Show Log"
 
-#: widgets/ruqolamainwindow.cpp:855
+#: widgets/ruqolamainwindow.cpp:857
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8316,18 +8313,18 @@ msgstr ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 
-#: widgets/ruqolamainwindow.cpp:856
+#: widgets/ruqolamainwindow.cpp:858
 #, kde-format
 msgid "Register New User"
 msgstr "Register New User"
 
-#: widgets/ruqolamainwindow.cpp:914
+#: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/ruqolamainwindow.cpp:1006
+#: widgets/ruqolamainwindow.cpp:1011
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8336,7 +8333,7 @@ msgstr ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1009
+#: widgets/ruqolamainwindow.cpp:1014
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Hide menu bar"
@@ -8550,7 +8547,7 @@ msgstr "Add support for quoted text (text which starts by '>')"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
-msgstr ""
+msgstr "Show leader/moderator/owner in channel info."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"
