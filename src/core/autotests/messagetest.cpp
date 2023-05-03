@@ -281,59 +281,144 @@ void MessageTest::shouldParseMessage()
 
 void MessageTest::shouldSerializeData()
 {
-    Message input;
+    {
+        Message input;
 
-    input.setMessageId(QStringLiteral("ff"));
-    input.setRoomId(QStringLiteral("room1"));
-    input.setText(QStringLiteral("message1"));
-    input.setTimeStamp(42);
-    input.setUsername(QStringLiteral("user1"));
-    input.setUserId(QStringLiteral("userid1"));
-    input.setUpdatedAt(45);
-    input.setEditedAt(89);
-    input.setEditedByUsername(QStringLiteral("editeduser1"));
-    input.setEditedByUserId(QStringLiteral("editedbyid1"));
-    input.setAlias(QStringLiteral("ali"));
-    input.setAvatar(QStringLiteral("avatar1"));
-    input.setSystemMessageType(QStringLiteral("type"));
-    input.setGroupable(true);
-    input.setParseUrls(true);
-    input.setRole(QStringLiteral("leader"));
-    input.setMessageType(Message::MessageType::NormalText);
-    // It will break as it's not supported yet
-    input.setIsStarred(true);
+        input.setMessageId(QStringLiteral("ff"));
+        input.setRoomId(QStringLiteral("room1"));
+        input.setText(QStringLiteral("message1"));
+        input.setTimeStamp(42);
+        input.setUsername(QStringLiteral("user1"));
+        input.setUserId(QStringLiteral("userid1"));
+        input.setUpdatedAt(45);
+        input.setEditedAt(89);
+        input.setEditedByUsername(QStringLiteral("editeduser1"));
+        input.setEditedByUserId(QStringLiteral("editedbyid1"));
+        input.setAlias(QStringLiteral("ali"));
+        input.setAvatar(QStringLiteral("avatar1"));
+        input.setSystemMessageType(QStringLiteral("type"));
+        input.setGroupable(true);
+        input.setParseUrls(true);
+        input.setRole(QStringLiteral("leader"));
+        input.setMessageType(Message::MessageType::NormalText);
+        // It will break as it's not supported yet
+        input.setIsStarred(true);
 
-    QVector<MessageAttachment> lstAttachement;
-    MessageAttachment attachment;
-    attachment.setDescription(QStringLiteral("foo1"));
-    attachment.setTitle(QStringLiteral("foo2"));
-    attachment.setLink(QStringLiteral("foo3"));
-    lstAttachement.append(std::move(attachment));
-    MessageAttachment attachment2;
-    attachment2.setDescription(QStringLiteral("foo5"));
-    attachment2.setTitle(QStringLiteral("foo6"));
-    attachment2.setLink(QStringLiteral("foo7"));
-    lstAttachement.append(std::move(attachment2));
-    input.setAttachments(lstAttachement);
+        QVector<MessageAttachment> lstAttachement;
+        MessageAttachment attachment;
+        attachment.setDescription(QStringLiteral("foo1"));
+        attachment.setTitle(QStringLiteral("foo2"));
+        attachment.setLink(QStringLiteral("foo3"));
+        lstAttachement.append(std::move(attachment));
+        MessageAttachment attachment2;
+        attachment2.setDescription(QStringLiteral("foo5"));
+        attachment2.setTitle(QStringLiteral("foo6"));
+        attachment2.setLink(QStringLiteral("foo7"));
+        lstAttachement.append(std::move(attachment2));
+        input.setAttachments(lstAttachement);
 
-    QVector<MessageUrl> lstUrls;
-    MessageUrl url1;
-    url1.setUrl(QStringLiteral("foo1"));
-    url1.setPageTitle(QStringLiteral("foo2"));
-    lstUrls.append(std::move(url1));
-    MessageUrl url2;
-    url2.setUrl(QStringLiteral("foo5"));
-    url2.setPageTitle(QStringLiteral("foo6"));
-    lstUrls.append(std::move(url2));
-    input.setUrls(lstUrls);
+        QVector<MessageUrl> lstUrls;
+        MessageUrl url1;
+        url1.setUrl(QStringLiteral("foo1"));
+        url1.setPageTitle(QStringLiteral("foo2"));
+        lstUrls.append(std::move(url1));
+        MessageUrl url2;
+        url2.setUrl(QStringLiteral("foo5"));
+        url2.setPageTitle(QStringLiteral("foo6"));
+        lstUrls.append(std::move(url2));
+        input.setUrls(lstUrls);
 
-    const QByteArray ba = Message::serialize(input);
-    // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
-    Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
-    QCOMPARE(input, output);
-    // TODO add Mentions
+        const QByteArray ba = Message::serialize(input);
+        // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        QCOMPARE(input, output);
+        // TODO add Mentions
 
-    QVERIFY(output.wasEdited());
+        QVERIFY(output.wasEdited());
+    }
+    {
+        Message input;
+
+        input.setMessageId(QStringLiteral("ff"));
+        input.setRoomId(QStringLiteral("room1"));
+        input.setText(QStringLiteral("message1"));
+        input.setTimeStamp(42);
+        input.setUsername(QStringLiteral("user1"));
+        input.setUserId(QStringLiteral("userid1"));
+        input.setUpdatedAt(45);
+        input.setEditedAt(89);
+        input.setEditedByUsername(QStringLiteral("editeduser1"));
+        input.setEditedByUserId(QStringLiteral("editedbyid1"));
+        input.setAlias(QStringLiteral("ali"));
+        input.setAvatar(QStringLiteral("avatar1"));
+        input.setSystemMessageType(QStringLiteral("type"));
+        input.setGroupable(true);
+        input.setParseUrls(true);
+        input.setRole(QStringLiteral("leader"));
+        input.setMessageType(Message::MessageType::NormalText);
+        // It will break as it's not supported yet
+        input.setIsStarred(true);
+
+        QVector<MessageAttachment> lstAttachement;
+        MessageAttachment attachment;
+        attachment.setDescription(QStringLiteral("foo1"));
+        attachment.setTitle(QStringLiteral("foo2"));
+        attachment.setLink(QStringLiteral("foo3"));
+        lstAttachement.append(std::move(attachment));
+        MessageAttachment attachment2;
+        attachment2.setDescription(QStringLiteral("foo5"));
+        attachment2.setTitle(QStringLiteral("foo6"));
+        attachment2.setLink(QStringLiteral("foo7"));
+        lstAttachement.append(std::move(attachment2));
+        input.setAttachments(lstAttachement);
+
+        QVector<MessageUrl> lstUrls;
+        MessageUrl url1;
+        url1.setUrl(QStringLiteral("foo1"));
+        url1.setPageTitle(QStringLiteral("foo2"));
+        lstUrls.append(std::move(url1));
+        MessageUrl url2;
+        url2.setUrl(QStringLiteral("foo5"));
+        url2.setPageTitle(QStringLiteral("foo6"));
+        lstUrls.append(std::move(url2));
+        input.setUrls(lstUrls);
+
+        // Reactions
+        QVector<Reaction> reacts;
+        {
+            Reaction a;
+            a.setUserNames({QStringLiteral("bla"), QStringLiteral("foo")});
+            a.setReactionName(QStringLiteral(":)"));
+            reacts.append(a);
+        }
+        {
+            Reaction a;
+            a.setUserNames({QStringLiteral("bli"), QStringLiteral("aa")});
+            a.setReactionName(QStringLiteral(":foo:"));
+            reacts.append(a);
+        }
+
+        Reactions reactions;
+        reactions.setReactions(reacts);
+        input.setReactions(reactions);
+
+        // Message Translation
+        MessageTranslation l;
+        l.setTranslatedString({{QStringLiteral("foo"), QStringLiteral("bla")}});
+        input.setMessageTranslation(l);
+        const QByteArray ba = Message::serialize(input);
+        // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        const bool compare = (input == output);
+        if (!compare) {
+            qDebug() << "input: " << input;
+            qDebug() << "output: " << output << QCborValue::fromCbor(ba).toMap().toJsonObject();
+        }
+        QCOMPARE(input, output);
+        // TODO add Mentions
+
+        QVERIFY(output.wasEdited());
+    }
 }
 
 void MessageTest::shouldParseJsonMessage_data()
