@@ -25,6 +25,7 @@ public:
         LastMessageDateTime,
         CreatedDateTime,
         LastMessageStr,
+        BelongsTo,
         CreatedStr,
         LastColumn = CreatedStr,
     };
