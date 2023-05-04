@@ -468,6 +468,16 @@ void MessageTest::shouldSerializeData()
         // Replies
         input.setReplies({QStringLiteral("reply1"), QStringLiteral("reply2")});
 
+        // Discussion
+        input.setDiscussionRoomId(QStringLiteral("discussion1"));
+        input.setDiscussionCount(55);
+        input.setDiscussionLastMessage(666);
+
+        // Thread
+        input.setThreadMessageId(QStringLiteral("thread1"));
+        input.setThreadLastMessage(7777);
+        input.setThreadCount(4);
+
         const QByteArray ba = Message::serialize(input);
         // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
         const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());

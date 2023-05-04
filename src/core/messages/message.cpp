@@ -826,8 +826,8 @@ Utils::AvatarInfo Message::avatarInfo() const
 Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     Message message(emojiManager);
-    message.mThreadCount = o[QStringLiteral("tcount")].toString().toInt();
-    message.mDiscussionCount = o[QStringLiteral("dcount")].toString().toInt();
+    message.mThreadCount = o[QStringLiteral("tcount")].toInt();
+    message.mDiscussionCount = o[QStringLiteral("dcount")].toInt();
     message.mDiscussionRoomId = o[QStringLiteral("drid")].toString();
     message.mThreadMessageId = o[QStringLiteral("tmid")].toString();
 
@@ -935,9 +935,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("editedAt")] = message.mEditedAt;
     if (message.mThreadLastMessage > -1) {
         o[QStringLiteral("tlm")] = message.mThreadLastMessage;
-    }
-    if (message.mDiscussionLastMessage > -1) {
-        o[QStringLiteral("dlm")] = message.mDiscussionLastMessage;
     }
 
     o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
@@ -1099,6 +1096,9 @@ QDebug operator<<(QDebug d, const Message &t)
     d << "mShowIgnoredMessage " << t.showIgnoredMessage();
     d << "mChannels " << t.channels();
     d << "mLocalTranslation " << t.localTranslation();
+    d << "mDiscussionCount " << t.discussionCount();
+    d << "mDiscussionLastMessage " << t.discussionLastMessage();
+
     for (int i = 0, total = t.blocks().count(); i < total; ++i) {
         d << "block :" << t.blocks().at(i);
     }
