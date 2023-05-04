@@ -22,6 +22,17 @@ void Block::parseBlock(const QJsonObject &block)
     }
 }
 
+QString Block::convertEnumToStr(BlockType newBlockType) const
+{
+    switch (newBlockType) {
+    case Unknown:
+        return {};
+    case VideoConf:
+        return QStringLiteral("video_conf");
+    }
+    return {};
+}
+
 Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
 {
     if (typeStr == QLatin1String("video_conf")) {
@@ -115,6 +126,7 @@ Block::BlockType Block::blockType() const
 void Block::setBlockType(BlockType newBlockType)
 {
     mBlockType = newBlockType;
+    mBlockStr = convertEnumToStr(mBlockType);
 }
 
 bool Block::operator==(const Block &other) const
