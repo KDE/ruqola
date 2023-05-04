@@ -438,8 +438,6 @@ void MessageTest::shouldSerializeData()
             qDebug() << "output: " << output << QCborValue::fromCbor(ba).toMap().toJsonObject();
         }
         QCOMPARE(input, output);
-        // TODO add Mentions
-
         QVERIFY(output.wasEdited());
     }
 }
