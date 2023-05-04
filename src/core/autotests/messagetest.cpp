@@ -372,6 +372,7 @@ void MessageTest::shouldSerializeData()
         lstAttachement.append(std::move(attachment2));
         input.setAttachments(lstAttachement);
 
+        // Urls
         QVector<MessageUrl> lstUrls;
         MessageUrl url1;
         url1.setUrl(QStringLiteral("foo1"));
@@ -418,6 +419,14 @@ void MessageTest::shouldSerializeData()
         mentions.insert(QStringLiteral("bla4"), QStringLiteral("foo4"));
         input.setMentions(mentions);
 
+        // Channels
+        QMap<QString, QString> channels;
+        channels.insert(QStringLiteral("channel1"), QStringLiteral("foo-1"));
+        channels.insert(QStringLiteral("channel2"), QStringLiteral("foo-2"));
+        channels.insert(QStringLiteral("channel3"), QStringLiteral("foo-3"));
+        channels.insert(QStringLiteral("channel4"), QStringLiteral("foo-4"));
+        input.setChannels(channels);
+
         // Starred
         MessageStarred starred;
         starred.setIsStarred(true);
@@ -428,6 +437,24 @@ void MessageTest::shouldSerializeData()
         pinned.setPinned(true);
         pinned.setPinnedBy(QStringLiteral("kla"));
         input.setMessagePinned(pinned);
+
+        // Blocks
+        QVector<Block> blocks;
+        {
+            Block b;
+            b.setBlockId(QStringLiteral("block-id1"));
+            b.setAppId(QStringLiteral("appid-1"));
+            b.setBlockType(Block::VideoConf);
+            blocks.append(b);
+        }
+        {
+            Block b;
+            b.setBlockId(QStringLiteral("block-id2"));
+            b.setAppId(QStringLiteral("appid-2"));
+            b.setBlockType(Block::VideoConf);
+            blocks.append(b);
+        }
+        input.setBlocks(blocks);
 
         const QByteArray ba = Message::serialize(input);
         // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
