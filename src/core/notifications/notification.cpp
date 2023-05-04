@@ -33,6 +33,7 @@ void Notification::createTrayIcon()
 {
     setToolTipTitle(QStringLiteral("Ruqola"));
     setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
+    setCategory(KStatusNotifierItem::Communications);
 }
 
 void Notification::clearNotification(const QString &account)
