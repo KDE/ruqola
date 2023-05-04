@@ -359,6 +359,7 @@ void MessageTest::shouldSerializeData()
         // It will break as it's not supported yet
         input.setIsStarred(true);
 
+        // Attachments
         QVector<MessageAttachment> lstAttachement;
         MessageAttachment attachment;
         attachment.setDescription(QStringLiteral("foo1"));
