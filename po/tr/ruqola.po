@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-03 00:49+0000\n"
+"POT-Creation-Date: 2023-05-04 00:47+0000\n"
 "PO-Revision-Date: 2023-05-01 12:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -573,7 +573,7 @@ msgstr "%1 ve %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
+#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
@@ -587,7 +587,7 @@ msgstr "Ad"
 #: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
+#: core/model/directoryroomsmodel.cpp:122 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
 msgstr "Tanımlayıcı"
@@ -696,17 +696,17 @@ msgstr "İleti Sayısı"
 msgid "Number of Users"
 msgstr "Kullanıcı Sayısı"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Topic"
 msgstr "Konu"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Read-only"
 msgstr "Saltokunur"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Default Room"
 msgstr "Öntanımlı Oda"
@@ -784,25 +784,30 @@ msgstr "IP"
 msgid "Login At"
 msgstr "Oturum Açma Tarihi"
 
-#: core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryroomsmodel.cpp:118
 #, kde-format
 msgid "Number Of Users"
 msgstr "Kullanıcı Sayısı"
 
-#: core/model/directoryroomsmodel.cpp:126
+#: core/model/directoryroomsmodel.cpp:128
 #, kde-format
 msgid "Last Message"
 msgstr "Son İleti"
 
-#: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:130 core/model/directoryteamsmodel.cpp:96
 #, kde-format
 msgid "Created"
 msgstr "Oluşturma"
 
-#: core/model/directoryroomsmodel.cpp:131
+#: core/model/directoryroomsmodel.cpp:133
 #, kde-format
 msgid "Channel Type"
 msgstr "Kanal Türü"
+
+#: core/model/directoryroomsmodel.cpp:135
+#, kde-format
+msgid "Belongs To"
+msgstr ""
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -1328,34 +1333,34 @@ msgstr "Bu kanalı engellediniz."
 msgid "Channel was blocked."
 msgstr "Kanal engellenmiş."
 
-#: core/roominfo/roominfo.cpp:108
+#: core/roominfo/roominfo.cpp:109
 #, kde-format
 msgid "Private Team"
 msgstr "Özel Takım"
 
-#: core/roominfo/roominfo.cpp:110
+#: core/roominfo/roominfo.cpp:111
 #, kde-format
 msgid "Group"
 msgstr "Grup"
 
-#: core/roominfo/roominfo.cpp:114
+#: core/roominfo/roominfo.cpp:115
 #, kde-format
 msgid "Public Team"
 msgstr "Genel Takım"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:116 widgets/ruqolaui.rc:23
+#: core/roominfo/roominfo.cpp:117 widgets/ruqolaui.rc:23
 #, kde-format
 msgid "Channel"
 msgstr "Kanal"
 
-#: core/roominfo/roominfo.cpp:119
+#: core/roominfo/roominfo.cpp:120
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
 #, kde-format
 msgid "Direct"
 msgstr "Doğrudan"
 
-#: core/roominfo/roominfo.cpp:121
+#: core/roominfo/roominfo.cpp:122
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format

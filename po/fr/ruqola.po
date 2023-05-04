@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-03 00:49+0000\n"
+"POT-Creation-Date: 2023-05-04 00:47+0000\n"
 "PO-Revision-Date: 2023-04-28 19:58+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -572,7 +572,7 @@ msgstr "%1 et %2"
 #: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
-#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
+#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
@@ -586,7 +586,7 @@ msgstr "Nom"
 #: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
+#: core/model/directoryroomsmodel.cpp:122 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
 msgstr "Identifiant"
@@ -695,17 +695,17 @@ msgstr "Nombre de messages"
 msgid "Number of Users"
 msgstr "Nombres d'utilisateurs"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Topic"
 msgstr "Sujet"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Read-only"
 msgstr "Lecture seule"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Default Room"
 msgstr "Salon par défaut"
@@ -783,25 +783,30 @@ msgstr "Ip"
 msgid "Login At"
 msgstr "Connexion à"
 
-#: core/model/directoryroomsmodel.cpp:116
+#: core/model/directoryroomsmodel.cpp:118
 #, kde-format
 msgid "Number Of Users"
 msgstr "Nombres d'utilisateurs"
 
-#: core/model/directoryroomsmodel.cpp:126
+#: core/model/directoryroomsmodel.cpp:128
 #, kde-format
 msgid "Last Message"
 msgstr "Dernier message"
 
-#: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:130 core/model/directoryteamsmodel.cpp:96
 #, kde-format
 msgid "Created"
 msgstr "Créé"
 
-#: core/model/directoryroomsmodel.cpp:131
+#: core/model/directoryroomsmodel.cpp:133
 #, kde-format
 msgid "Channel Type"
 msgstr "Type de canal"
+
+#: core/model/directoryroomsmodel.cpp:135
+#, kde-format
+msgid "Belongs To"
+msgstr ""
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -1331,34 +1336,34 @@ msgstr "Vous avez bloqué ce canal."
 msgid "Channel was blocked."
 msgstr "Le canal a été bloqué."
 
-#: core/roominfo/roominfo.cpp:108
+#: core/roominfo/roominfo.cpp:109
 #, kde-format
 msgid "Private Team"
 msgstr "Équipe privée"
 
-#: core/roominfo/roominfo.cpp:110
+#: core/roominfo/roominfo.cpp:111
 #, kde-format
 msgid "Group"
 msgstr "Groupe"
 
-#: core/roominfo/roominfo.cpp:114
+#: core/roominfo/roominfo.cpp:115
 #, kde-format
 msgid "Public Team"
 msgstr "Équipe publique"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:116 widgets/ruqolaui.rc:23
+#: core/roominfo/roominfo.cpp:117 widgets/ruqolaui.rc:23
 #, kde-format
 msgid "Channel"
 msgstr "Canal"
 
-#: core/roominfo/roominfo.cpp:119
+#: core/roominfo/roominfo.cpp:120
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
 #, kde-format
 msgid "Direct"
 msgstr "Direct"
 
-#: core/roominfo/roominfo.cpp:121
+#: core/roominfo/roominfo.cpp:122
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format
