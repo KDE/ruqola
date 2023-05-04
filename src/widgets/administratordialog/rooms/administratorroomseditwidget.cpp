@@ -37,7 +37,7 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     mainLayout->addWidget(mRoomAvatarWidget);
 
     mOwnerName->setObjectName(QStringLiteral("mOwnerName"));
-    mainLayout->addRow(i18n("Owner:"), mOwnerName);
+    mainLayout->addRow(i18n("Room's Creator:"), mOwnerName);
 
     mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
     mainLayout->addRow(i18n("Name:"), mLineEdit);
