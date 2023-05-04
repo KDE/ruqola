@@ -456,6 +456,9 @@ void MessageTest::shouldSerializeData()
         }
         input.setBlocks(blocks);
 
+        // Replies
+        input.setReplies({QStringLiteral("reply1"), QStringLiteral("reply2")});
+
         const QByteArray ba = Message::serialize(input);
         // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
         const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());

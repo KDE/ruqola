@@ -884,13 +884,9 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     QStringList replies;
     replies.reserve(repliesArray.count());
     for (int i = 0, total = repliesArray.count(); i < total; ++i) {
-        replies.append(urlsArray.at(i).toVariant().toString());
+        replies.append(repliesArray.at(i).toString());
     }
     message.setReplies(replies);
-
-    if (!message.mReplies.isEmpty()) {
-        o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
-    }
 
     QMap<QString, QString> mentions;
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
