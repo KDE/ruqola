@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-03-12 08:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -303,7 +303,7 @@ msgstr "Wyciągnij z archiwum"
 msgid "(Last Message: %1)"
 msgstr "(Ostatnia wiadomość: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1230,7 +1230,7 @@ msgstr "Dołączył do tego zespołu"
 msgid "(Autojoin)"
 msgstr "(sam dołączaj)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ma %2 nieprzeczytanych wiadomości"
@@ -2781,14 +2781,10 @@ msgid "Archived"
 msgstr "Zarchiwizowany"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Właściciel:"
-msgstr[1] "Właściciel:"
-msgstr[2] "Właściciel:"
+#| msgid "Room Avatar"
+msgid "Room's Creator:"
+msgstr "Awatar pokoju"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6242,6 +6238,15 @@ msgstr "Dodaj hasło"
 msgid "Channel Password:"
 msgstr "Hasło kanału:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Właściciel:"
+msgstr[1] "Właściciel:"
+msgstr[2] "Właściciel:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9428,9 +9433,6 @@ msgstr "Naprawa błędów"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "lukasz.wojnilowicz@gmail.com"
-
-#~ msgid "Room Avatar"
-#~ msgstr "Awatar pokoju"
 
 #~ msgid "TOTP Required"
 #~ msgstr "Wymagany TOTP"

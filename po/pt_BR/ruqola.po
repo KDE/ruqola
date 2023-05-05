@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-02-07 11:18-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -301,7 +301,7 @@ msgstr "Desarquivar"
 msgid "(Last Message: %1)"
 msgstr "(última mensagem: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, fuzzy, kde-format
@@ -1252,7 +1252,7 @@ msgstr "%2 adicionou %1 à conversa"
 msgid "(Autojoin)"
 msgstr "(Entrada automática)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 tem %2 mensagens não lidas"
@@ -2833,13 +2833,10 @@ msgid "Archived"
 msgstr "Arquivado"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Proprietário:"
-msgstr[1] "Proprietário:"
+#| msgid "Select Room Avatar"
+msgid "Room's Creator:"
+msgstr "Selecionar avatar da sala"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6293,6 +6290,14 @@ msgstr "Adicionar senha"
 msgid "Channel Password:"
 msgstr "Senha do canal:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Proprietário:"
+msgstr[1] "Proprietário:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9071,11 +9076,6 @@ msgstr "Correção de erros"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "elchevive@opensuse.org"
-
-#, fuzzy
-#~| msgid "Select Room Avatar"
-#~ msgid "Room Avatar"
-#~ msgstr "Selecionar avatar da sala"
 
 #~ msgid "TOTP Required"
 #~ msgstr "TOTP obrigatório"

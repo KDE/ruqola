@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-04-30 17:30+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -302,7 +302,7 @@ msgstr "Desarchivar"
 msgid "(Last Message: %1)"
 msgstr "(Último mensaje: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1228,7 +1228,7 @@ msgstr "Se unió a este equipo"
 msgid "(Autojoin)"
 msgstr "(Unirse automáticamente)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 tiene %2 mensaje sin leer"
@@ -2780,12 +2780,9 @@ msgid "Archived"
 msgstr "Archivado"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Propietario:"
-msgstr[1] "Propietarios:"
+msgid "Room's Creator:"
+msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6211,6 +6208,13 @@ msgstr "Añadir contraseña"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Contraseña del canal:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, kde-format
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Propietario:"
+msgstr[1] "Propietarios:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, kde-format

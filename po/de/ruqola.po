@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-04-26 20:10+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -302,7 +302,7 @@ msgstr "Archiv:"
 msgid "(Last Message: %1)"
 msgstr "(Letzte Nachricht: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, fuzzy, kde-format
@@ -1289,7 +1289,7 @@ msgstr "Umwandeln in Team"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 hat %2 ungelesene Nachrichten"
@@ -2885,13 +2885,10 @@ msgid "Archived"
 msgstr "Archiv"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Eigentümer:"
-msgstr[1] "Eigentümer:"
+#| msgid "Select Room Avatar"
+msgid "Room's Creator:"
+msgstr "Raum-Avatar auswählen"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6347,6 +6344,14 @@ msgstr "Passwort hinzufügen"
 msgid "Channel Password:"
 msgstr "Kanalpasswort:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Eigentümer:"
+msgstr[1] "Eigentümer:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9159,11 +9164,6 @@ msgstr "Fehlerkorrekturen"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "kde-i18n-de@kde.org"
-
-#, fuzzy
-#~| msgid "Select Room Avatar"
-#~ msgid "Room Avatar"
-#~ msgstr "Raum-Avatar auswählen"
 
 #~ msgid "Authentication required"
 #~ msgstr "Authentifizierung erforderlich"

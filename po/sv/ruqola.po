@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -299,7 +299,7 @@ msgstr "Packa upp"
 msgid "(Last Message: %1)"
 msgstr "(Senaste meddelande: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, fuzzy, kde-format
@@ -1235,7 +1235,7 @@ msgstr "Gick med i laget"
 msgid "(Autojoin)"
 msgstr "(automatiskt anslutning)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 har %2 olästa meddelanden"
@@ -2782,13 +2782,10 @@ msgid "Archived"
 msgstr "Arkiverat"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Ägare:"
-msgstr[1] "Ägare:"
+#| msgid "Room Avatar"
+msgid "Room's Creator:"
+msgstr "Rummets avatar"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6193,6 +6190,14 @@ msgstr "Lägg till lösenord"
 msgid "Channel Password:"
 msgstr "Kanallösenord:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Ägare:"
+msgstr[1] "Ägare:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9162,9 +9167,6 @@ msgstr "Felrättning"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "stefan.asserhall@bredband.net"
-
-#~ msgid "Room Avatar"
-#~ msgstr "Rummets avatar"
 
 #~ msgid "TOTP Required"
 #~ msgstr "TOTP krävs"

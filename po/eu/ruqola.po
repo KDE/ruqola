@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -301,7 +301,7 @@ msgstr "Artxibotik atera"
 msgid "(Last Message: %1)"
 msgstr "(Azken mezua: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1227,7 +1227,7 @@ msgstr "Talde honetara batu da"
 msgid "(Autojoin)"
 msgstr "(automatikoki batu)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1(e)k irakurri gabeko %2 mezu ditu"
@@ -2776,13 +2776,9 @@ msgid "Archived"
 msgstr "Artxibatuta"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Jabea:"
-msgstr[1] "Jabea:"
+#, kde-format
+msgid "Room's Creator:"
+msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6066,6 +6062,14 @@ msgstr ""
 #, kde-format
 msgid "Channel Password:"
 msgstr "Kanalaren pasahitza:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Jabea:"
+msgstr[1] "Jabea:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format

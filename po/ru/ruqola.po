@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -308,7 +308,7 @@ msgstr "Разархивировать"
 msgid "(Last Message: %1)"
 msgstr "(Последнее сообщение: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, fuzzy, kde-format
@@ -1250,7 +1250,7 @@ msgstr "Присоединился к этой команде"
 msgid "(Autojoin)"
 msgstr "(Автоприсоединение)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 — имеются непрочитанные сообщения (%2)"
@@ -2818,15 +2818,10 @@ msgid "Archived"
 msgstr "В архиве"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Владелец:"
-msgstr[1] "Владелец:"
-msgstr[2] "Владелец:"
-msgstr[3] "Владелец:"
+#| msgid "Room Avatar"
+msgid "Room's Creator:"
+msgstr "Аватар комнаты"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6232,6 +6227,16 @@ msgstr "Добавление пароля"
 msgid "Channel Password:"
 msgstr "Пароль канала:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Владелец:"
+msgstr[1] "Владелец:"
+msgstr[2] "Владелец:"
+msgstr[3] "Владелец:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9007,9 +9012,6 @@ msgstr "Исправление ошибок"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "translation-team@basealt.ru"
-
-#~ msgid "Room Avatar"
-#~ msgstr "Аватар комнаты"
 
 #, fuzzy
 #~ msgid "Read"

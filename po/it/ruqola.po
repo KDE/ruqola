@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-04-28 18:03+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -299,7 +299,7 @@ msgstr "Togli dall'archivio"
 msgid "(Last Message: %1)"
 msgstr "(Ultimo messaggio: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1226,7 +1226,7 @@ msgstr "Unito a questa squadra"
 msgid "(Autojoin)"
 msgstr "(Unisciti automaticamente)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ha %2 messaggi non letti"
@@ -2778,13 +2778,10 @@ msgid "Archived"
 msgstr "Archiviato"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Proprietario:"
-msgstr[1] "Proprietario:"
+#| msgid "Room Avatar"
+msgid "Room's Creator:"
+msgstr "Avatar della stanza"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6215,6 +6212,14 @@ msgstr "Aggiungi password"
 msgid "Channel Password:"
 msgstr "Password del canale:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Proprietario:"
+msgstr[1] "Proprietario:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9337,9 +9342,6 @@ msgstr "Alcune correzioni di bug:"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "smart2128vr@gmail.com,"
-
-#~ msgid "Room Avatar"
-#~ msgstr "Avatar della stanza"
 
 #~ msgid "TOTP Required"
 #~ msgstr "TOTP richiesto"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -307,7 +307,7 @@ msgstr "Arhiivist välja"
 msgid "(Last Message: %1)"
 msgstr "(Viimane sõnum: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1313,7 +1313,7 @@ msgstr "%2 lisas %1 vestlusse"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ei ole lugenud %2 sõnumit"
@@ -2944,13 +2944,10 @@ msgid "Archived"
 msgstr "Arhiiv"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Omanik"
-msgstr[1] "Omanik"
+#| msgid "Get Avatar"
+msgid "Room's Creator:"
+msgstr "Hangi avatar"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6428,6 +6425,14 @@ msgstr "Parooli lisamine"
 msgid "Channel Password:"
 msgstr "Kanali parool:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Omanik"
+msgstr[1] "Omanik"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9283,11 +9288,6 @@ msgstr "Vigade parandamine"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "qiilaq69@gmail.com"
-
-#, fuzzy
-#~| msgid "Get Avatar"
-#~ msgid "Room Avatar"
-#~ msgstr "Hangi avatar"
 
 #, fuzzy
 #~| msgid "Login OTP code required"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
 "PO-Revision-Date: 2023-04-20 14:28+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -301,7 +301,7 @@ msgstr "Peru arkistointi"
 msgid "(Last Message: %1)"
 msgstr "(Viimeisin viesti: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1283,7 +1283,7 @@ msgstr "%2 lisäsi henkilön %1 keskusteluun"
 msgid "(Autojoin)"
 msgstr "(Liity automaattisesti)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "Käyttäjällä %1 on %2 lukematonta viestiä"
@@ -2892,13 +2892,10 @@ msgid "Archived"
 msgstr "Arkistoitu"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
-#| msgid "Owner:"
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Omistaja:"
-msgstr[1] "Omistaja:"
+#| msgid "Select Room Avatar"
+msgid "Room's Creator:"
+msgstr "Näytä huoneen avatar"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6345,6 +6342,14 @@ msgstr "Lisää salasana"
 msgid "Channel Password:"
 msgstr "Kanavan salasana:"
 
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Owner:"
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Omistaja:"
+msgstr[1] "Omistaja:"
+
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Moderator"
@@ -9134,11 +9139,6 @@ msgstr "Virheenkorjaus"
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "translator@legisign.org"
-
-#, fuzzy
-#~| msgid "Select Room Avatar"
-#~ msgid "Room Avatar"
-#~ msgstr "Näytä huoneen avatar"
 
 #~ msgid "TOTP Required"
 #~ msgstr "TOTP vaaditaan"

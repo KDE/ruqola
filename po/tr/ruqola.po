@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
-"PO-Revision-Date: 2023-05-01 12:07+0300\n"
+"POT-Creation-Date: 2023-05-05 00:47+0000\n"
+"PO-Revision-Date: 2023-05-04 11:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -298,7 +298,7 @@ msgstr "Arşivden çıkar"
 msgid "(Last Message: %1)"
 msgstr "(Son İleti: %1)"
 
-#: core/messages/block.cpp:74 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -807,7 +807,7 @@ msgstr "Kanal Türü"
 #: core/model/directoryroomsmodel.cpp:135
 #, kde-format
 msgid "Belongs To"
-msgstr ""
+msgstr "Sahibi"
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -1224,7 +1224,7 @@ msgstr "Bu takıma katıldı"
 msgid "(Autojoin)"
 msgstr "(Otomatik Katılma)"
 
-#: core/notifications/notification.cpp:80
+#: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 kişisinin %2 okunmamış iletisi var"
@@ -2756,12 +2756,9 @@ msgid "Archived"
 msgstr "Arşivlenmiş"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
-msgid "Owner:"
-msgid_plural "Owners:"
-msgstr[0] "Sahip:"
-msgstr[1] "Sahipler:"
+msgid "Room's Creator:"
+msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6160,6 +6157,13 @@ msgstr "Parola Ekle"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Kanal Parolası:"
+
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
+#, kde-format
+msgid "Owner:"
+msgid_plural "Owners:"
+msgstr[0] "Sahip:"
+msgstr[1] "Sahipler:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
 #, kde-format
