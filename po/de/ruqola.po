@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-04-26 20:10+0200\n"
+"PO-Revision-Date: 2023-05-05 19:25+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -239,12 +239,12 @@ msgstr "Einen Benutzer einladen, diesem Kanal beizutreten"
 #: core/commands/command.cpp:94
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
-msgstr ""
+msgstr "Alle Benutzer dieses Kanals einladen, dem Kanal [#channel] beizutreten"
 
 #: core/commands/command.cpp:96
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
-msgstr ""
+msgstr "Alle Benutzer des Kanals [#channel] einladen, diesem Kanal beizutreten"
 
 #: core/commands/command.cpp:98
 #, kde-format
@@ -269,7 +269,7 @@ msgstr ""
 #: core/commands/command.cpp:106
 #, kde-format
 msgid "Direct message someone"
-msgstr ""
+msgstr "Direktnachricht an jemanden senden"
 
 #: core/commands/command.cpp:108
 #, kde-format
