@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-05 00:47+0000\n"
-"PO-Revision-Date: 2023-05-04 06:32+0300\n"
+"PO-Revision-Date: 2023-05-05 17:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2790,10 +2790,9 @@ msgid "Archived"
 msgstr "Архівоване"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Room Avatar"
+#, kde-format
 msgid "Room's Creator:"
-msgstr "Аватар кімнати"
+msgstr "Автор кімнати:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
