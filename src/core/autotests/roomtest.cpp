@@ -111,6 +111,16 @@ void RoomTest::shouldSerialized()
     input.setAutoTranslateLanguage(QStringLiteral("blss"));
     input.setAutoTranslate(true);
     input.setLastSeenAt(253);
+
+    // RetentionInfo
+    RetentionInfo info;
+    info.setEnabled(true);
+    info.setOverrideGlobal(true);
+    info.setExcludePinned(true);
+    info.setFilesOnly(true);
+    info.setMaxAge(12);
+    input.setRetentionInfo(info);
+
     const QByteArray ba = Room::serialize(&input);
     // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
