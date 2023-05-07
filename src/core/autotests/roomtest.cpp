@@ -84,51 +84,108 @@ void RoomTest::shouldHaveDefaultValue()
 // TODO add notification, userMentions too
 void RoomTest::shouldSerialized()
 {
-    Room input(nullptr);
-    input.setRoomId(QStringLiteral("foo"));
-    input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
-    input.setName(QStringLiteral("d"));
-    input.setAnnouncement(QStringLiteral("AA"));
-    input.setRoomCreatorUserName(QStringLiteral("pp"));
-    input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
-    input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
-    input.setJitsiTimeout(55);
-    input.setReadOnly(true);
-    input.setUnread(66);
-    input.setSelected(true);
-    input.setFavorite(true);
-    input.setAlert(true);
-    input.setOpen(true);
-    input.setBlocker(true);
-    input.setBlocked(true);
-    input.setArchived(true);
-    input.setDescription(QStringLiteral("dd"));
-    input.setUserMentions(3);
-    input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
-    input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
-    input.setJoinCodeRequired(true);
-    input.setAutoTranslateLanguage(QStringLiteral("blss"));
-    input.setAutoTranslate(true);
-    input.setLastSeenAt(253);
+    {
+        Room input(nullptr);
+        input.setRoomId(QStringLiteral("foo"));
+        input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
+        input.setName(QStringLiteral("d"));
+        input.setAnnouncement(QStringLiteral("AA"));
+        input.setRoomCreatorUserName(QStringLiteral("pp"));
+        input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
+        input.setTopic(QStringLiteral("topic"));
+        input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+        input.setJitsiTimeout(55);
+        input.setReadOnly(true);
+        input.setUnread(66);
+        input.setSelected(true);
+        input.setFavorite(true);
+        input.setAlert(true);
+        input.setOpen(true);
+        input.setBlocker(true);
+        input.setBlocked(true);
+        input.setArchived(true);
+        input.setDescription(QStringLiteral("dd"));
+        input.setUserMentions(3);
+        input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
+        input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
+        input.setJoinCodeRequired(true);
+        input.setAutoTranslateLanguage(QStringLiteral("blss"));
+        input.setAutoTranslate(true);
+        input.setLastSeenAt(253);
 
-    // RetentionInfo
-    RetentionInfo info;
-    info.setEnabled(true);
-    info.setOverrideGlobal(true);
-    info.setExcludePinned(true);
-    info.setFilesOnly(true);
-    info.setMaxAge(12);
-    input.setRetentionInfo(info);
+        // RetentionInfo
+        RetentionInfo info;
+        info.setEnabled(true);
+        info.setOverrideGlobal(true);
+        info.setExcludePinned(true);
+        info.setFilesOnly(true);
+        info.setMaxAge(12);
+        input.setRetentionInfo(info);
 
-    const QByteArray ba = Room::serialize(&input);
-    // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
-    // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
-    auto output = Room::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
-    // qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
-    // qDebug() << "input  " << input;
-    // qDebug() << "output  " << *output;
-    QVERIFY(input.isEqual(*output));
+        const QByteArray ba = Room::serialize(&input);
+        // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
+        // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        auto output = Room::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        // qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
+        // qDebug() << "input  " << input;
+        // qDebug() << "output  " << *output;
+        QVERIFY(input.isEqual(*output));
+    }
+    {
+        Room input(nullptr);
+        input.setRoomId(QStringLiteral("foo"));
+        input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
+        input.setName(QStringLiteral("p"));
+        input.setAnnouncement(QStringLiteral("AA"));
+        input.setRoomCreatorUserName(QStringLiteral("pp"));
+        input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
+        input.setTopic(QStringLiteral("topic"));
+        input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+        input.setJitsiTimeout(55);
+        input.setReadOnly(true);
+        input.setUnread(66);
+        input.setSelected(true);
+        input.setFavorite(true);
+        input.setAlert(true);
+        input.setOpen(true);
+        input.setBlocker(true);
+        input.setBlocked(true);
+        input.setArchived(true);
+        input.setDescription(QStringLiteral("dd"));
+        input.setUserMentions(3);
+        input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
+        input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
+        input.setJoinCodeRequired(true);
+        input.setAutoTranslateLanguage(QStringLiteral("blss"));
+        input.setAutoTranslate(true);
+        input.setLastSeenAt(253);
+
+        // RetentionInfo
+        RetentionInfo info;
+        info.setEnabled(true);
+        info.setOverrideGlobal(false);
+        info.setExcludePinned(false);
+        info.setFilesOnly(false);
+        info.setMaxAge(12);
+        input.setRetentionInfo(info);
+
+        // TeamInfo
+        TeamInfo teamInfo;
+        teamInfo.setTeamId(QStringLiteral("dddd"));
+        teamInfo.setMainTeam(true);
+        teamInfo.setAutoJoin(true);
+        teamInfo.setRoomsCount(12);
+        input.setTeamInfo(teamInfo);
+
+        const QByteArray ba = Room::serialize(&input);
+        // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
+        // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        auto output = Room::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        // qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
+        // qDebug() << "input  " << input;
+        // qDebug() << "output  " << *output;
+        QVERIFY(input.isEqual(*output));
+    }
 }
 
 void RoomTest::shouldEmitSignals()
