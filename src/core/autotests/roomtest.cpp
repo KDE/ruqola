@@ -64,6 +64,21 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.highlightsWord().isEmpty());
     QCOMPARE(input.lastMessageAt(), -1);
     QCOMPARE(input.numberMessages(), 0);
+
+    const RetentionInfo info = input.retentionInfo();
+    QVERIFY(!info.enabled());
+    QVERIFY(!info.overrideGlobal());
+    QVERIFY(!info.excludePinned());
+    QVERIFY(!info.filesOnly());
+    QCOMPARE(info.maxAge(), -1);
+
+    const TeamInfo teamInfo = input.teamInfo();
+    QVERIFY(teamInfo.teamId().isEmpty());
+    QVERIFY(!teamInfo.mainTeam());
+    QVERIFY(!teamInfo.autoJoin());
+    QVERIFY(!teamInfo.isValid());
+    QVERIFY(!teamInfo.hasTeamRoom());
+    QCOMPARE(teamInfo.roomsCount(), 0);
 }
 
 // TODO add notification, userMentions too
