@@ -7,6 +7,7 @@
 #include "ruqolamainwindow.h"
 #include "databasedialog/exploredatabasedialog.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
+#include "kconfigwidgets_version.h"
 #include "notificationhistorymanager.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -77,6 +78,10 @@
 #include <QWidgetAction>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QKeyCombination>
+#endif
+
+#if KCONFIGWIDGETS_VERSION >= QT_VERSION_CHECK(5, 107, 0)
+#include <KColorSchemeMenu>
 #endif
 
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
@@ -577,7 +582,11 @@ void RuqolaMainWindow::setupActions()
     }
 
     auto manager = new KColorSchemeManager(this);
+#if KCONFIGWIDGETS_VERSION < QT_VERSION_CHECK(5, 107, 0)
     ac->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
+#else
+    ac->addAction(QStringLiteral("colorscheme_menu"), KColorSchemeMenu::createMenu(manager, this));
+#endif
 
     mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, ac);
     ac->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
