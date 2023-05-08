@@ -60,11 +60,11 @@ QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 
     const AuthenticationInfo info = mAuthentications.at(index.row());
     switch (role) {
-    case Name:
+    case NameRole:
         return info.name();
-    case IconName:
+    case IconNameRole:
         return info.iconName();
-    case Type:
+    case TypeRole:
         return info.oauthType();
     }
 

@@ -28,9 +28,9 @@ QVariant NotificationPreferenceModel::data(const QModelIndex &index, int role) c
     NotificationPreferenceInfo preferenceInfo = mNotificationPreferenceList.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
-    case NotificationPreferenceI18n:
+    case NotificationPreferenceI18nRole:
         return preferenceInfo.displayText;
-    case NotificationPreference:
+    case NotificationPreferenceRole:
         return preferenceInfo.preference;
     }
 

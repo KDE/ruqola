@@ -15,9 +15,9 @@ class LIBRUQOLACORE_EXPORT LoginMethodModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum LoginRoles {
-        Name = Qt::UserRole + 1,
-        IconName,
-        Type,
+        NameRole = Qt::UserRole + 1,
+        IconNameRole,
+        TypeRole,
     };
     Q_ENUM(LoginRoles)
     explicit LoginMethodModel(QObject *parent = nullptr);

@@ -15,10 +15,10 @@ class LIBRUQOLACORE_EXPORT PermissionsModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum AdminPermissionsRoles {
-        Identifier,
-        Roles,
-        RolesStr,
-        LastColumn = RolesStr,
+        IdentifierRole,
+        RolesRole,
+        RolesStrRole,
+        LastColumn = RolesStrRole,
     };
     Q_ENUM(AdminPermissionsRoles)
 

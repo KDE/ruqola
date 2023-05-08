@@ -57,14 +57,14 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             case CompleterName:
                 return unicodeEmoti.identifier().mid(1);
             case Qt::DisplayRole: // for the completion popup (until we have a delegate)
-            case UnicodeEmoji:
+            case UnicodeEmojiRole:
                 return unicodeEmoti.unicode();
             case Category:
                 return unicodeEmoti.category();
-            case Icon:
+            case IconRole:
                 return {};
             case Qt::ToolTipRole:
-            case Identifier:
+            case IdentifierRole:
                 if (row.second == -1) {
                     return unicodeEmoti.identifier();
                 }
@@ -79,15 +79,15 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             case CompleterName:
                 return customEmoti.emojiIdentifier().mid(1);
             case Qt::DisplayRole:
-            case UnicodeEmoji:
+            case UnicodeEmojiRole:
                 return customEmoti.emojiIdentifier();
             case Category:
                 return i18n("Custom");
-            case Icon:
+            case IconRole:
             case Qt::DecorationRole:
                 return createCustomIcon(customEmoti.emojiIdentifier());
             case Qt::ToolTipRole:
-            case Identifier:
+            case IdentifierRole:
                 if (row.second == -1) {
                     return customEmoti.emojiIdentifier();
                 }
