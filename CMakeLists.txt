@@ -152,15 +152,6 @@ if (NOT WIN32 AND NOT APPLE)
 endif()
 
 
-find_package(KF${KF_MAJOR_VERSION}TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextAddonsWidgets PROPERTIES DESCRIPTION
-    "Add text addons widgets (ktextaddons)"
-    TYPE OPTIONAL
-)
-if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
-    set(HAVE_TEXT_ADDONS_WIDGETS_SUPPORT TRUE)
-endif()
-
 find_package(KF${KF_MAJOR_VERSION}XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF${KF_MAJOR_VERSION}Config ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF${KF_MAJOR_VERSION}KIO ${KF_MIN_VERSION} CONFIG REQUIRED)

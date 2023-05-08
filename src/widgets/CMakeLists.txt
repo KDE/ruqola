@@ -755,10 +755,6 @@ if (TARGET KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
     target_link_libraries(libruqolawidgets KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
 endif()
 
-if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
-    target_link_libraries(libruqolawidgets KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
-endif()
-
 target_link_libraries(libruqolawidgets
     Qt::Gui
     Qt::Widgets
