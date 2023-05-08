@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-05 00:47+0000\n"
-"PO-Revision-Date: 2023-04-28 18:03+0200\n"
+"PO-Revision-Date: 2023-05-05 18:46+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -809,7 +809,7 @@ msgstr "Tipo di canale"
 #: core/model/directoryroomsmodel.cpp:135
 #, kde-format
 msgid "Belongs To"
-msgstr ""
+msgstr "Appartiene a"
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -2778,10 +2778,9 @@ msgid "Archived"
 msgstr "Archiviato"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Room Avatar"
+#, kde-format
 msgid "Room's Creator:"
-msgstr "Avatar della stanza"
+msgstr "Creatore della stanza:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -6213,28 +6212,25 @@ msgid "Channel Password:"
 msgstr "Password del canale:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Proprietario:"
-msgstr[1] "Proprietario:"
+msgstr[1] "Proprietari:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderatore"
-msgstr[1] "Moderatore"
+msgstr[0] "Moderatore:"
+msgstr[1] "Moderatori:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Leader"
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Leader"
-msgstr[1] "Leader"
+msgstr[0] "Leader:"
+msgstr[1] "Leader:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -8616,7 +8612,7 @@ msgstr "Aggiungi il supporto per il testo citato (testo che inizia con '>')"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
-msgstr ""
+msgstr "Mostra leader/moderatore/proprietario nelle informazioni del canale."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix avatar support"
