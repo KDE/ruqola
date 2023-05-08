@@ -91,7 +91,6 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(w.audioNotificationValue().isEmpty());
 }
 
-// TODO add notification, userMentions too
 void RoomTest::shouldSerialized()
 {
     {
@@ -188,7 +187,6 @@ void RoomTest::shouldSerialized()
         input.setTeamInfo(teamInfo);
 
         // Notification
-
         NotificationOptions w;
         NotificationOptions::NotificationValue w1;
         w1.value = QStringLiteral("notification1");
