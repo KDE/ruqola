@@ -79,6 +79,16 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!teamInfo.isValid());
     QVERIFY(!teamInfo.hasTeamRoom());
     QCOMPARE(teamInfo.roomsCount(), 0);
+
+    const NotificationOptions w = input.notificationOptions();
+    QVERIFY(w.desktopNotifications().isEmpty());
+    QVERIFY(w.mobilePushNotification().isEmpty());
+    QVERIFY(w.emailNotifications().isEmpty());
+    QVERIFY(w.unreadTrayIconAlert().isEmpty());
+    QVERIFY(!w.disableNotifications());
+    QVERIFY(!w.hideUnreadStatus());
+    QVERIFY(!w.muteGroupMentions());
+    QVERIFY(w.audioNotificationValue().isEmpty());
 }
 
 // TODO add notification, userMentions too
@@ -176,6 +186,25 @@ void RoomTest::shouldSerialized()
         teamInfo.setAutoJoin(true);
         teamInfo.setRoomsCount(12);
         input.setTeamInfo(teamInfo);
+
+        // Notification
+
+        NotificationOptions w;
+        NotificationOptions::NotificationValue w1;
+        w1.value = QStringLiteral("notification1");
+        w.setDesktopNotifications(w1);
+        NotificationOptions::NotificationValue w2;
+        w2.value = QStringLiteral("notification2");
+        w.setMobilePushNotification(w2);
+        NotificationOptions::NotificationValue w3;
+        w3.value = QStringLiteral("notification3");
+        w.setEmailNotifications(w3);
+        w.setUnreadTrayIconAlert(QStringLiteral("ssssf"));
+        w.setDisableNotifications(false);
+        w.setHideUnreadStatus(true);
+        w.setMuteGroupMentions(true);
+        w.setAudioNotificationValue(QStringLiteral("test1"));
+        input.setNotificationOptions(w);
 
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());

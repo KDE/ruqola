@@ -71,13 +71,9 @@ NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
     options.setHideUnreadStatus(o[QStringLiteral("hideUnreadStatus")].toBool());
     options.setMuteGroupMentions(o[QStringLiteral("muteGroupMentions")].toBool());
     options.setHideMentionStatus(o[QStringLiteral("hideMentionStatus")].toBool());
-#if 0
-    obj[QStringLiteral("desktopNotifications")] = options.desktopNotifications().currentValue();
-    obj[QStringLiteral("mobilePushNotifications")] = options.mobilePushNotification().currentValue();
-    obj[QStringLiteral("emailNotifications")] = options.emailNotifications().currentValue();
-#endif
-
-    // TODO
+    options.setDesktopNotifications(NotificationValue(o[QStringLiteral("desktopNotifications")].toString(), QString()));
+    options.setMobilePushNotification(NotificationValue(o[QStringLiteral("mobilePushNotifications")].toString(), QString()));
+    options.setEmailNotifications(NotificationValue(o[QStringLiteral("emailNotifications")].toString(), QString()));
     return options;
 }
 
