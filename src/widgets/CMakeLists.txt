@@ -14,12 +14,11 @@ if (TARGET KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
 endif()
 
 
-if (NOT TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+# Laurent port to KLineEditEventHandler in qt6
 target_sources(libruqolawidgets PRIVATE
     misc/lineeditcatchreturnkey.cpp
     misc/lineeditcatchreturnkey.h
 )
-endif()
 
 
 target_sources(libruqolawidgets PRIVATE
