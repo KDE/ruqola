@@ -204,6 +204,9 @@ void RoomTest::shouldSerialized()
         // setParentRid
         input.setParentRid(QStringLiteral("parentId1"));
 
+        // Avatar
+        input.setAvatarETag(QStringLiteral("avatar1"));
+
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
         // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
