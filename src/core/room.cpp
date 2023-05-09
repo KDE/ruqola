@@ -1323,7 +1323,7 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
     const TeamInfo teaminfo = TeamInfo::deserialize(o);
     r->setTeamInfo(teaminfo);
 
-    // TODO add parent RID
+    r->setParentRid(o[QStringLiteral("prid")].toString());
 
     return r;
 }
@@ -1439,6 +1439,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     if (r->teamInfo().isValid()) {
         TeamInfo::serialize(r->teamInfo(), o);
+    }
+    if (!r->parentRid().isEmpty()) {
+        o[QStringLiteral("prid")] = r->parentRid();
     }
 
     if (toBinary) {

@@ -5,9 +5,6 @@
 */
 
 #include "roomtest.h"
-#include "model/filesforroomfilterproxymodel.h"
-#include "model/filesforroommodel.h"
-#include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -203,6 +200,9 @@ void RoomTest::shouldSerialized()
         w.setMuteGroupMentions(true);
         w.setAudioNotificationValue(QStringLiteral("test1"));
         input.setNotificationOptions(w);
+
+        // setParentRid
+        input.setParentRid(QStringLiteral("parentId1"));
 
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
