@@ -207,6 +207,10 @@ void RoomTest::shouldSerialized()
         // Avatar
         input.setAvatarETag(QStringLiteral("avatar1"));
 
+        // setE2EKey
+        input.setE2EKey(QStringLiteral("e2ekey-1"));
+        input.setE2eKeyId(QStringLiteral("e2ekey-id-1"));
+
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
         // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
