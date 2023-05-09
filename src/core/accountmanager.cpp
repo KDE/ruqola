@@ -39,7 +39,7 @@ bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
     if (account) {
         // const QString path{parseUrl.path()};
         const QString messageId = parseUrl.messageId();
-        // qDebug() << " parseUrl " << parseUrl;
+        qCDebug(RUQOLA_LOG) << " parseUrl " << parseUrl;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(account->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
