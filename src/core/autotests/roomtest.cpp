@@ -214,6 +214,12 @@ void RoomTest::shouldSerialized()
         // setEncrypted
         input.setEncrypted(true);
 
+        // setBroadcast
+        input.setBroadcast(true);
+
+        // setDisplaySystemMessageTypes
+        input.setDisplaySystemMessageTypes({QStringLiteral("bla"), QStringLiteral("foo")});
+
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
         // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));

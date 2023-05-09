@@ -1422,7 +1422,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         QJsonArray array;
         const int nbDisplaySystemMessageType = r->displaySystemMessageTypes().count();
         for (int i = 0; i < nbDisplaySystemMessageType; ++i) {
-            array.append(r->mutedUsers().at(i));
+            array.append(r->displaySystemMessageTypes().at(i));
         }
         o[QStringLiteral("systemMessages")] = array;
     }
