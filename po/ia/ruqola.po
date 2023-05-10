@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:48+0000\n"
-"PO-Revision-Date: 2023-04-30 21:45+0200\n"
+"POT-Creation-Date: 2023-05-10 00:47+0000\n"
+"PO-Revision-Date: 2023-05-09 11:51+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -1316,17 +1316,17 @@ msgstr "Chef"
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1518
+#: core/room.cpp:1521
 #, kde-format
 msgid "Channel is read only."
 msgstr "Canal es de sol lectura"
 
-#: core/room.cpp:1521
+#: core/room.cpp:1524
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Tu ha blocate iste canal."
 
-#: core/room.cpp:1524
+#: core/room.cpp:1527
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Canal esseva blocate."
@@ -2773,10 +2773,9 @@ msgid "Archived"
 msgstr "Archivate"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Select Room Avatar"
+#, kde-format
 msgid "Room's Creator:"
-msgstr "Selige avatar de Sala"
+msgstr "Creator de Sala"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
