@@ -226,6 +226,9 @@ void RoomTest::shouldSerialized()
         // setUpdatedAt
         input.setUpdatedAt(5555);
 
+        // setHighlightsWord
+        input.setHighlightsWord({QStringLiteral("highlight-bla"), QStringLiteral("highlight-foo")});
+
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
         // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));

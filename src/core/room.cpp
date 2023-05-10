@@ -1427,6 +1427,15 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QStringLiteral("systemMessages")] = array;
     }
 
+    if (!r->highlightsWord().isEmpty()) {
+        QJsonArray array;
+        const int nbHighlightsWord = r->highlightsWord().count();
+        for (int i = 0; i < nbHighlightsWord; ++i) {
+            array.append(r->highlightsWord().at(i));
+        }
+        o[QStringLiteral("userHighlights")] = array;
+    }
+
     if (!r->avatarETag().isEmpty()) {
         o[QStringLiteral("avatarETag")] = r->avatarETag();
     }
