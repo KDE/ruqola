@@ -220,6 +220,12 @@ void RoomTest::shouldSerialized()
         // setDisplaySystemMessageTypes
         input.setDisplaySystemMessageTypes({QStringLiteral("bla"), QStringLiteral("foo")});
 
+        // setNumberMessages
+        input.setNumberMessages(5);
+
+        // setUpdatedAt
+        input.setUpdatedAt(5555);
+
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
         // Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
