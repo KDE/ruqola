@@ -34,6 +34,7 @@ MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactio
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
     const qreal smallMargin = DelegatePaintUtil::margin() / 2.0;
     qreal x = reactionsRect.x();
+    qreal y = reactionsRect.y();
 
     for (const Reaction &reaction : reactions) {
         ReactionLayout layout;
@@ -65,13 +66,17 @@ MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactio
         layout.countStr = QString::number(reaction.count());
         const int countWidth = option.fontMetrics.horizontalAdvance(layout.countStr) + smallMargin;
         // [reactionRect] = [emojiOffset (margin)] [emojiWidth] [countWidth] [margin/2]
-        layout.reactionRect = QRectF(x, reactionsRect.y(), emojiWidth + countWidth + DelegatePaintUtil::margin(), reactionsRect.height());
+        layout.reactionRect = QRectF(x, y, emojiWidth + countWidth + DelegatePaintUtil::margin(), reactionsRect.height());
         layout.emojiOffset = smallMargin + 1;
         layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
         layout.reaction = reaction;
 
         layouts.append(layout);
         x += layout.reactionRect.width() + DelegatePaintUtil::margin();
+        if (x > reactionsRect.width()) {
+            x = reactionsRect.x();
+            y += reactionsRect.height() + DelegatePaintUtil::margin();
+        }
     }
     return layouts;
 }
@@ -89,7 +94,12 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
     if (reactions.isEmpty()) {
         return;
     }
-
+#if 0
+    painter->save();
+    painter->setPen(Qt::red);
+    painter->drawRect(reactionsRect);
+    painter->restore();
+#endif
     const QVector<ReactionLayout> layouts = layoutReactions(reactions, reactionsRect, option);
 
     const QPen origPen = painter->pen();
