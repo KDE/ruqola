@@ -748,7 +748,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
     const QModelIndex index = messageModel->indexForMessage(messageId);
     if (index.isValid()) {
         messageListView->scrollTo(index);
-    } else if (!messageDateTimeUtc.isEmpty()) {
+    } else /* if (!messageDateTimeUtc.isEmpty())*/ {
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:
@@ -773,7 +773,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
         info.oldestMessage = messageDateTimeUtc;
         info.inclusive = true;
-        info.count = 50000;
+        info.count = 5000;
         // qDebug() << " info " << info;
         job->setChannelHistoryInfo(info);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
