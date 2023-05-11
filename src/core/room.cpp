@@ -325,24 +325,24 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setParentRid(json[QStringLiteral("prid")].toString());
     }
     if (json.contains(QLatin1String("uids"))) {
-        const QJsonArray &uids = json[QStringLiteral("uids")].toArray();
-        const auto &u0 = uids[0].toString();
-        const auto &u1 = uids[1].toString();
+        const QJsonArray &uidsArray = json[QStringLiteral("uids")].toArray();
+        const auto &u0 = uidsArray[0].toString();
+        const auto &u1 = uidsArray[1].toString();
         setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
-    }
 
-    const QJsonArray uidsArray = json.value(QLatin1String("uids")).toArray();
-    QStringList lstUids;
-    lstUids.reserve(uidsArray.count());
-    for (int i = 0; i < uidsArray.count(); ++i) {
-        lstUids << uidsArray.at(i).toString();
+        QStringList lstUids;
+        lstUids.reserve(uidsArray.count());
+        for (int i = 0; i < uidsArray.count(); ++i) {
+            lstUids << uidsArray.at(i).toString();
+        }
+        setUids(lstUids);
     }
-    setUids(lstUids);
 
     const QJsonArray userNamesArray = json.value(QLatin1String("usernames")).toArray();
     QStringList lstUserNames;
-    lstUids.reserve(userNamesArray.count());
-    for (int i = 0; i < userNamesArray.count(); ++i) {
+    const int nbUserNamesArray = userNamesArray.count();
+    lstUserNames.reserve(nbUserNamesArray);
+    for (int i = 0; i < nbUserNamesArray; ++i) {
         lstUserNames << userNamesArray.at(i).toString();
     }
     setUserNames(lstUserNames);
