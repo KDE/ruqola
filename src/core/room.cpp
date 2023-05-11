@@ -1325,6 +1325,8 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
 
     r->setParentRid(o[QStringLiteral("prid")].toString());
 
+    // Add setUserNames
+
     return r;
 }
 
@@ -1452,6 +1454,8 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     if (!r->parentRid().isEmpty()) {
         o[QStringLiteral("prid")] = r->parentRid();
     }
+
+    // TODO setUserNames
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
