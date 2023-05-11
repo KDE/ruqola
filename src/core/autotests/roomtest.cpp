@@ -61,6 +61,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.highlightsWord().isEmpty());
     QCOMPARE(input.lastMessageAt(), -1);
     QCOMPARE(input.numberMessages(), 0);
+    QVERIFY(input.uids().isEmpty());
 
     const RetentionInfo info = input.retentionInfo();
     QVERIFY(!info.enabled());
@@ -228,6 +229,9 @@ void RoomTest::shouldSerialized()
 
         // setHighlightsWord
         input.setHighlightsWord({QStringLiteral("highlight-bla"), QStringLiteral("highlight-foo")});
+
+        // uids
+        input.setUids({QStringLiteral("uids-bla"), QStringLiteral("uids-foo")});
 
         const QByteArray ba = Room::serialize(&input);
         // qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
