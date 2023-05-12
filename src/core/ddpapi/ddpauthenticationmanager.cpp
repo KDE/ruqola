@@ -174,6 +174,9 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-invalid")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Invalid OTP code.";
                 setLoginStatus(LoginFailedInvalidOtp);
+            } else if (errorCode.isString() && errorCode.toString() == sl("error-user-is-not-activated")) {
+                qCWarning(RUQOLA_DDPAPI_LOG) << "User is not activated.";
+                setLoginStatus(LoginFailedUserNotActivated);
             } else {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Generic error during login. Couldn't process" << response;
                 setLoginStatus(GenericError);

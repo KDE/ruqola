@@ -205,6 +205,12 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
         showError(i18n("Login Failed: generic error"));
         mAuthenticationWidget->setVisible(false);
         break;
+    case DDPAuthenticationManager::LoginStatus::LoginFailedUserNotActivated:
+        mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
+        showError(i18n("Login Failed: User is not activated."));
+        mAuthenticationWidget->setVisible(false);
+        break;
     case DDPAuthenticationManager::LoginOtpAuthOngoing:
     case DDPAuthenticationManager::LogoutOngoing:
     case DDPAuthenticationManager::LogoutCleanUpOngoing:

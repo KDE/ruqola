@@ -51,6 +51,8 @@ Q_REQUIRED_RESULT QString currentLoginStatusText(RocketChatAccount *account)
         return i18n("A one-time password is required to complete the login procedure.");
     case DDPAuthenticationManager::LoginFailedInvalidOtp:
         return i18n("Login failed: Invalid OTP code.");
+    case DDPAuthenticationManager::LoginFailedUserNotActivated:
+        return i18n("Login failed: User is not activated.");
     case DDPAuthenticationManager::LogoutOngoing:
     case DDPAuthenticationManager::LogoutCleanUpOngoing:
     case DDPAuthenticationManager::LoggedOutAndCleanedUp:

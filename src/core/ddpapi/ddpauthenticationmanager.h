@@ -63,6 +63,7 @@ public:
         LogoutCleanUpOngoing,
         LoggedOutAndCleanedUp,
         FailedToLoginPluginProblem,
+        LoginFailedUserNotActivated,
         GenericError,
     };
     Q_ENUM(LoginStatus)

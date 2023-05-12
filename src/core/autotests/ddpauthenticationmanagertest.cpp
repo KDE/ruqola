@@ -369,3 +369,27 @@ void DDPAuthenticationManagerTest::testUnknownError()
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::GenericError);
 }
+
+void DDPAuthenticationManagerTest::testUserNotActivatedError()
+{
+    RocketChatAccount dummyAccount;
+    DDPAuthenticationManager authManager(dummyAccount.ddp());
+
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
+    QCOMPARE(spyStatusChanged.count(), 1);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+
+    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    {
+        "msg": "result",
+        "id": "0",
+        "error": {
+            "error": "error-user-is-not-activated"
+        }
+    })")));
+
+    QCOMPARE(spyStatusChanged.count(), 2);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedUserNotActivated);
+}

@@ -24,4 +24,5 @@ private Q_SLOTS:
     void testLoginWithOtpSuccess();
     void testLoginWithOtpFailure();
     void testUnknownError();
+    void testUserNotActivatedError();
 };
