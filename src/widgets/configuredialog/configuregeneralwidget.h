@@ -26,4 +26,5 @@ private:
     QCheckBox *const mEnableSystemTray;
     QCheckBox *const mEnableLogging;
     QCheckBox *const mShowHoverHightLights;
+    QCheckBox *const mAnimateGif;
 };

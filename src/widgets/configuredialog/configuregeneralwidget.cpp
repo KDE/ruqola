@@ -18,6 +18,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
     , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
     , mShowHoverHightLights(new QCheckBox(i18n("Show hover highlights"), this))
+    , mAnimateGif(new QCheckBox(i18n("Animate Gif Image"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,6 +42,9 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mShowHoverHightLights->setObjectName(QStringLiteral("mShowHoverHightLights"));
     mainLayout->addWidget(mShowHoverHightLights);
 
+    mAnimateGif->setObjectName(QStringLiteral("mAnimateGif"));
+    mainLayout->addWidget(mAnimateGif);
+
     mainLayout->addStretch(1);
 }
 
@@ -54,6 +58,7 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setEnableSystemTray(mEnableSystemTray->isChecked());
     RuqolaGlobalConfig::self()->setEnableLogging(mEnableLogging->isChecked());
     RuqolaGlobalConfig::self()->setShowHoverHighlights(mShowHoverHightLights->isChecked());
+    RuqolaGlobalConfig::self()->setAnimateGifImage(mAnimateGif->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -65,4 +70,5 @@ void ConfigureGeneralWidget::load()
     mEnableSystemTray->setChecked(RuqolaGlobalConfig::self()->enableSystemTray());
     mEnableLogging->setChecked(RuqolaGlobalConfig::self()->enableLogging());
     mShowHoverHightLights->setChecked(RuqolaGlobalConfig::self()->showHoverHighlights());
+    mAnimateGif->setChecked(RuqolaGlobalConfig::self()->animateGifImage());
 }

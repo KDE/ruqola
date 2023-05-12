@@ -7,9 +7,10 @@
 #include "messagedelegatehelperreactions.h"
 #include "common/delegatepaintutil.h"
 #include "emoticons/emojimanager.h"
+#include "model/messagemodel.h"
 #include "rocketchataccount.h"
+#include "ruqolaglobalconfig.h"
 #include "utils.h"
-#include <model/messagemodel.h>
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
@@ -128,7 +129,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
             }
             painter->drawText(r, reactionLayout.emojiString);
         } else {
-            if (reactionLayout.reaction.isAnimatedImage()) {
+            if (reactionLayout.reaction.isAnimatedImage() && RuqolaGlobalConfig::self()->animateGifImage()) {
                 const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
                 QPixmap scaledPixmap;

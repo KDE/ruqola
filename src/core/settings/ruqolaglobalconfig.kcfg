@@ -33,6 +33,9 @@
     <entry name="AccountOrder" type="StringList">
       <default></default>
     </entry>
+    <entry name="AnimateGifImage" type="Bool">
+      <default>true</default>
+    </entry>
   </group>
 
   <group name="Behavior">

@@ -57,4 +57,9 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mShowHoverHightLights);
     QVERIFY(mShowHoverHightLights->isChecked());
     QVERIFY(!mShowHoverHightLights->text().isEmpty());
+
+    auto mAnimateGif = w.findChild<QCheckBox *>(QStringLiteral("mAnimateGif"));
+    QVERIFY(mAnimateGif);
+    QVERIFY(mAnimateGif->isChecked());
+    QVERIFY(!mAnimateGif->text().isEmpty());
 }

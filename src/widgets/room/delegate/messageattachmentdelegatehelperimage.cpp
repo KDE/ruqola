@@ -10,6 +10,7 @@
 #include "messageimagedownloadjob.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
 
@@ -49,7 +50,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
         // Draw main pixmap (if shown)
         if (layout.isShown) {
             QPixmap scaledPixmap;
-            if (layout.isAnimatedImage) {
+            if (layout.isAnimatedImage && RuqolaGlobalConfig::self()->animateGifImage()) {
                 auto it = findRunningAnimatedImage(index);
                 if (it != mRunningAnimatedImages.end()) {
                     scaledPixmap = (*it).movie->currentPixmap();
