@@ -64,6 +64,9 @@ public:
         LoggedOutAndCleanedUp,
         FailedToLoginPluginProblem,
         LoginFailedUserNotActivated,
+        LoginFailedLoginBlockForIp,
+        LoginFailedLoginBlockedForUser,
+        LoginFailedLoginAppNotAllowedToLogin,
         GenericError,
     };
     Q_ENUM(LoginStatus)

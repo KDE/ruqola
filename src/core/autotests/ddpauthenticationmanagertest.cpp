@@ -393,3 +393,75 @@ void DDPAuthenticationManagerTest::testUserNotActivatedError()
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedUserNotActivated);
 }
+
+void DDPAuthenticationManagerTest::testLoginBlockForIpError()
+{
+    RocketChatAccount dummyAccount;
+    DDPAuthenticationManager authManager(dummyAccount.ddp());
+
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
+    QCOMPARE(spyStatusChanged.count(), 1);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+
+    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    {
+        "msg": "result",
+        "id": "0",
+        "error": {
+            "error": "error-login-blocked-for-ip"
+        }
+    })")));
+
+    QCOMPARE(spyStatusChanged.count(), 2);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginBlockForIp);
+}
+
+void DDPAuthenticationManagerTest::testLoginBlockedForUser()
+{
+    RocketChatAccount dummyAccount;
+    DDPAuthenticationManager authManager(dummyAccount.ddp());
+
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
+    QCOMPARE(spyStatusChanged.count(), 1);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+
+    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    {
+        "msg": "result",
+        "id": "0",
+        "error": {
+            "error": "error-login-blocked-for-user"
+        }
+    })")));
+
+    QCOMPARE(spyStatusChanged.count(), 2);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginBlockedForUser);
+}
+
+void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
+{
+    RocketChatAccount dummyAccount;
+    DDPAuthenticationManager authManager(dummyAccount.ddp());
+
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
+    QCOMPARE(spyStatusChanged.count(), 1);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+
+    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    {
+        "msg": "result",
+        "id": "0",
+        "error": {
+            "error": "error-app-user-is-not-allowed-to-login"
+        }
+    })")));
+
+    QCOMPARE(spyStatusChanged.count(), 2);
+    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginAppNotAllowedToLogin);
+}

@@ -177,6 +177,15 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             } else if (errorCode.isString() && errorCode.toString() == sl("error-user-is-not-activated")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "User is not activated.";
                 setLoginStatus(LoginFailedUserNotActivated);
+            } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-ip")) {
+                qCWarning(RUQOLA_DDPAPI_LOG) << "Login has been temporarily blocked For IP.";
+                setLoginStatus(LoginFailedLoginBlockForIp);
+            } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-user")) {
+                qCWarning(RUQOLA_DDPAPI_LOG) << "Login has been temporarily blocked For User.";
+                setLoginStatus(LoginFailedLoginBlockedForUser);
+            } else if (errorCode.isString() && errorCode.toString() == sl("error-app-user-is-not-allowed-to-login")) {
+                qCWarning(RUQOLA_DDPAPI_LOG) << "App user is not allowed to login.";
+                setLoginStatus(LoginFailedLoginAppNotAllowedToLogin);
             } else {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Generic error during login. Couldn't process" << response;
                 setLoginStatus(GenericError);

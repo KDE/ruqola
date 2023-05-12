@@ -53,6 +53,12 @@ Q_REQUIRED_RESULT QString currentLoginStatusText(RocketChatAccount *account)
         return i18n("Login failed: Invalid OTP code.");
     case DDPAuthenticationManager::LoginFailedUserNotActivated:
         return i18n("Login failed: User is not activated.");
+    case DDPAuthenticationManager::LoginFailedLoginBlockForIp:
+        return i18n("Login has been temporarily blocked For IP.");
+    case DDPAuthenticationManager::LoginFailedLoginBlockedForUser:
+        return i18n("Login has been temporarily blocked For User.");
+    case DDPAuthenticationManager::LoginFailedLoginAppNotAllowedToLogin:
+        return i18n("App user is not allowed to login.");
     case DDPAuthenticationManager::LogoutOngoing:
     case DDPAuthenticationManager::LogoutCleanUpOngoing:
     case DDPAuthenticationManager::LoggedOutAndCleanedUp:
