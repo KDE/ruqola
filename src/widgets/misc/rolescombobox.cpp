@@ -10,7 +10,6 @@ RolesComboBox::RolesComboBox(QWidget *parent)
     : QComboBox(parent)
     , mRolesModel(new RolesModel(this))
 {
-    setSizeAdjustPolicy(QComboBox::AdjustToContents);
     setModel(mRolesModel);
 }
 
@@ -24,6 +23,7 @@ void RolesComboBox::setRolesInfo(const QVector<RoleInfo> &roleInfo)
 void RolesComboBox::setRoles(const QStringList &lst)
 {
     mRolesModel->setRolesSelected(lst);
+    setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
 QStringList RolesComboBox::roles() const
