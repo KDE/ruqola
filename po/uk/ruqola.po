@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-12 00:48+0000\n"
+"POT-Creation-Date: 2023-05-13 00:47+0000\n"
 "PO-Revision-Date: 2023-05-05 17:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -5957,6 +5957,12 @@ msgstr "Увімкнути журнал"
 msgid "Show hover highlights"
 msgstr "Показати акценти при наведенні"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Paste Image"
+msgid "Animate Gif Image"
+msgstr "Вставити зображення"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title:window"
@@ -6807,7 +6813,7 @@ msgid "Display Image"
 msgstr "Показ зображення"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:243
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:244
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Копіювати зображення до буфера"
@@ -7109,12 +7115,34 @@ msgstr "Для завершення процедури входу слід вв�
 msgid "Login failed: Invalid OTP code."
 msgstr "Помилка під час спроби увійти: некоректний код OTP."
 
+#: widgets/misc/accountsoverviewwidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "User is not activated"
+msgid "Login failed: User is not activated."
+msgstr "Запис користувача не активовано"
+
+#: widgets/misc/accountsoverviewwidget.cpp:57
+#, kde-format
+msgid "Login has been temporarily blocked For IP."
+msgstr ""
+
 #: widgets/misc/accountsoverviewwidget.cpp:59
+#, kde-format
+msgid "Login has been temporarily blocked For User."
+msgstr ""
+
+#: widgets/misc/accountsoverviewwidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "App user is not allowed to login"
+msgid "App user is not allowed to login."
+msgstr "Користувачу програми не дозволено входити до системи"
+
+#: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
 msgid "Unknown state"
 msgstr "Невідомий стан"
 
-#: widgets/misc/accountsoverviewwidget.cpp:73
+#: widgets/misc/accountsoverviewwidget.cpp:81
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Без назви)"
@@ -8259,6 +8287,28 @@ msgstr "Виявлено проблему зі встановленням. Не 
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Помилка під час спроби увійти: загальна помилка"
+
+#: widgets/ruqolaloginwidget.cpp:211
+#, kde-format
+msgid "Login Failed: Login has been temporarily blocked For IP."
+msgstr ""
+
+#: widgets/ruqolaloginwidget.cpp:217
+#, kde-format
+msgid "Login Failed: Login has been temporarily blocked For User."
+msgstr ""
+
+#: widgets/ruqolaloginwidget.cpp:223
+#, fuzzy, kde-format
+#| msgid "User is not activated"
+msgid "Login Failed: User is not activated."
+msgstr "Запис користувача не активовано"
+
+#: widgets/ruqolaloginwidget.cpp:229
+#, fuzzy, kde-format
+#| msgid "App user is not allowed to login"
+msgid "Login Failed: App user is not allowed to login."
+msgstr "Користувачу програми не дозволено входити до системи"
 
 #: widgets/ruqolamainwindow.cpp:215
 #, kde-format

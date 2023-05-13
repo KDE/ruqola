@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-12 00:48+0000\n"
+"POT-Creation-Date: 2023-05-13 00:47+0000\n"
 "PO-Revision-Date: 2023-05-09 11:51+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -5765,6 +5765,12 @@ msgstr "Habilita registrar"
 msgid "Show hover highlights"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Paste Image"
+msgid "Animate Gif Image"
+msgstr "Colla imagine"
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title:window"
@@ -6593,7 +6599,7 @@ msgid "Display Image"
 msgstr "Monstra imagine"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:243
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:244
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copia image in area de transferentia"
@@ -6889,12 +6895,34 @@ msgstr ""
 msgid "Login failed: Invalid OTP code."
 msgstr "Authentication falleva: codice de OTP Invalide."
 
+#: widgets/misc/accountsoverviewwidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "User is not activated"
+msgid "Login failed: User is not activated."
+msgstr "Usator non es activate"
+
+#: widgets/misc/accountsoverviewwidget.cpp:57
+#, kde-format
+msgid "Login has been temporarily blocked For IP."
+msgstr ""
+
 #: widgets/misc/accountsoverviewwidget.cpp:59
+#, kde-format
+msgid "Login has been temporarily blocked For User."
+msgstr ""
+
+#: widgets/misc/accountsoverviewwidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "App user is not allowed to login"
+msgid "App user is not allowed to login."
+msgstr "Usator de app non es permittite a acceder"
+
+#: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
 msgid "Unknown state"
 msgstr "Stato incognite"
 
-#: widgets/misc/accountsoverviewwidget.cpp:73
+#: widgets/misc/accountsoverviewwidget.cpp:81
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Sin nomine)"
@@ -8021,6 +8049,28 @@ msgstr "Trovate Problema de Installation. Nulle plugin trovate hic."
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Authentication fallite: error generic"
+
+#: widgets/ruqolaloginwidget.cpp:211
+#, kde-format
+msgid "Login Failed: Login has been temporarily blocked For IP."
+msgstr ""
+
+#: widgets/ruqolaloginwidget.cpp:217
+#, kde-format
+msgid "Login Failed: Login has been temporarily blocked For User."
+msgstr ""
+
+#: widgets/ruqolaloginwidget.cpp:223
+#, fuzzy, kde-format
+#| msgid "User is not activated"
+msgid "Login Failed: User is not activated."
+msgstr "Usator non es activate"
+
+#: widgets/ruqolaloginwidget.cpp:229
+#, fuzzy, kde-format
+#| msgid "App user is not allowed to login"
+msgid "Login Failed: App user is not allowed to login."
+msgstr "Usator de app non es permittite a acceder"
 
 #: widgets/ruqolamainwindow.cpp:215
 #, kde-format
