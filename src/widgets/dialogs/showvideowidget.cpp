@@ -123,10 +123,12 @@ ShowVideoWidget::~ShowVideoWidget()
 
 void ShowVideoWidget::slotPositionChanged(qint64 progress)
 {
-    if (!mPositionSlider->isSliderDown())
-        mPositionSlider->setValue(progress / 1000);
+    const qint64 newValue = progress / 1000;
+    if (!mPositionSlider->isSliderDown()) {
+        mPositionSlider->setValue(newValue);
+    }
 
-    updateDurationInfo(progress / 1000);
+    updateDurationInfo(newValue);
 }
 
 void ShowVideoWidget::slotVolumeChanged(int position)
