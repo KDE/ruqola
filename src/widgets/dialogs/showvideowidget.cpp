@@ -225,7 +225,7 @@ void ShowVideoWidget::handleError()
 {
     mPlayButton->setEnabled(false);
     const QString errorString = mMediaPlayer->errorString();
-    QString message = i18n("Error: "); // i18n ?
+    QString message = i18n("Error: ");
     if (errorString.isEmpty()) {
         message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
     } else {
