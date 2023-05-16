@@ -132,6 +132,7 @@ void AdministratorServerInfoWidget::fillLicenses(const QJsonObject &obj)
     createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(QStringLiteral("auditing")));
     createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(QStringLiteral("canned-responses")));
     createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(QStringLiteral("engagement-dashboard")));
+    createItemFromLicense(licenseItem, i18n("Read Receipts"), listLicences.contains(QStringLiteral("message-read-receipt")));
 }
 
 void AdministratorServerInfoWidget::createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid)
