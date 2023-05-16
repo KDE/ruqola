@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-13 00:47+0000\n"
+"POT-Creation-Date: 2023-05-16 00:47+0000\n"
 "PO-Revision-Date: 2023-05-13 09:52+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -6565,7 +6565,7 @@ msgid "Sound: %1"
 msgstr "Zvok: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:226
-#: widgets/dialogs/showvideowidget.cpp:226
+#: widgets/dialogs/showvideowidget.cpp:228
 #, kde-format
 msgid "Error: "
 msgstr "Napaka: "

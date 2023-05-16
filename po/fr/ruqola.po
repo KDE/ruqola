@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-13 00:47+0000\n"
+"POT-Creation-Date: 2023-05-16 00:47+0000\n"
 "PO-Revision-Date: 2023-05-09 13:18+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -6628,7 +6628,7 @@ msgid "Sound: %1"
 msgstr "Son : %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:226
-#: widgets/dialogs/showvideowidget.cpp:226
+#: widgets/dialogs/showvideowidget.cpp:228
 #, kde-format
 msgid "Error: "
 msgstr "Erreur :"

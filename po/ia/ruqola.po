@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-13 00:47+0000\n"
-"PO-Revision-Date: 2023-05-09 11:51+0200\n"
+"POT-Creation-Date: 2023-05-16 00:47+0000\n"
+"PO-Revision-Date: 2023-05-15 18:38+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -5766,10 +5766,9 @@ msgid "Show hover highlights"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Paste Image"
+#, kde-format
 msgid "Animate Gif Image"
-msgstr "Colla imagine"
+msgstr "Anima imagine Gif"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6416,7 +6415,7 @@ msgid "Sound: %1"
 msgstr "Sono: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:226
-#: widgets/dialogs/showvideowidget.cpp:226
+#: widgets/dialogs/showvideowidget.cpp:228
 #, kde-format
 msgid "Error: "
 msgstr "Error: "
@@ -6896,10 +6895,9 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Authentication falleva: codice de OTP Invalide."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login failed: User is not activated."
-msgstr "Usator non es activate"
+msgstr "Accesso falleva: Usator non es activate"
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
@@ -6912,10 +6910,9 @@ msgid "Login has been temporarily blocked For User."
 msgstr ""
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "App user is not allowed to login."
-msgstr "Usator de app non es permittite a acceder"
+msgstr "Usator de app non es permittite a acceder."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -8061,16 +8058,14 @@ msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "Usator non es activate"
+msgstr "Accesso falleva: Usator non es activate"
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "Login Failed: App user is not allowed to login."
-msgstr "Usator de app non es permittite a acceder"
+msgstr "Accesso falleva: Usator de app non es permittite a acceder."
 
 #: widgets/ruqolamainwindow.cpp:215
 #, kde-format
