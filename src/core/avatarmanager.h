@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include "users/userbasejob.h"
 #include "utils.h"
 #include <QObject>
 class QTimer;
