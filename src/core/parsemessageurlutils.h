@@ -33,16 +33,16 @@ public:
 
     Q_REQUIRED_RESULT bool parseUrl(const QString &messageUrl);
 
-    const QString &messageId() const;
+    Q_REQUIRED_RESULT const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
-    const QString &roomId() const;
+    Q_REQUIRED_RESULT const QString &roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    const QString &serverHost() const;
+    Q_REQUIRED_RESULT const QString &serverHost() const;
     void setServerHost(const QString &newServerPath);
 
-    const QString &path() const;
+    Q_REQUIRED_RESULT const QString &path() const;
     void setPath(const QString &newPath);
 
     Q_REQUIRED_RESULT RoomIdType roomIdType() const;
