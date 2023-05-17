@@ -12,6 +12,7 @@
 #else
 #include <QCameraDevice>
 #include <QMediaDevices>
+#include <QVideoWidget>
 #endif
 #include <QComboBox>
 #include <QLabel>
@@ -22,12 +23,19 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     , mErrorLabel(new QLabel(this))
     , mCamera(new QCamera(this))
     , mListCamera(new QComboBox(this))
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    , mVideoWidget(new QVideoWidget(this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mListCamera->setObjectName(QStringLiteral("mListCamera"));
     mainLayout->addWidget(mListCamera);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mVideoWidget->setObjectName(QStringLiteral("mVideoWidget"));
+    mainLayout->addWidget(mVideoWidget);
+#endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mCamera->setObjectName(QStringLiteral("mCamera"));
@@ -65,6 +73,12 @@ void CreateVideoMessageWidget::updateCameras()
     }
 #endif
 }
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
+{
+}
+#endif
 
 void CreateVideoMessageWidget::startCamera()
 {
