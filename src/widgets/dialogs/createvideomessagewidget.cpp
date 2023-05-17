@@ -12,6 +12,7 @@
 #else
 #include <QCameraDevice>
 #include <QMediaDevices>
+#include <QMediaRecorder>
 #include <QVideoWidget>
 #endif
 #include <QComboBox>
