@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 00:47+0000\n"
+"POT-Creation-Date: 2023-05-17 00:47+0000\n"
 "PO-Revision-Date: 2023-05-15 21:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2289,7 +2289,7 @@ msgid "Administrator"
 msgstr "Yönetici"
 
 #: widgets/administratordialog/administratorwidget.cpp:48
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:309
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:310
 #, kde-format
 msgid "Server Info"
 msgstr "Sunucu Bilgisi"
@@ -2833,174 +2833,180 @@ msgstr "Hazır Yanıtlar"
 msgid "Engagement Dashboard"
 msgstr "Etkinlik Gösterge Tablosu"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:158
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
+#, fuzzy, kde-format
+#| msgid "Clear Recents"
+msgid "Read Receipts"
+msgstr "Son Kullanılanları Temizle"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
 msgid "Version"
 msgstr "Sürüm"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:160
 #, kde-format
 msgid "Deployment ID"
 msgstr "Konuşlanma Kimliği"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chat Uygulaması Kullanıcıları"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Away Users"
 msgstr "Uzaktaki Kullanıcılar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Toplam Karşıya Yükleme Boyutu"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Uploads"
 msgstr "Toplam Karşıya Yükleme"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Offline Users"
 msgstr "Çevrimdışı Kullanıcılar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Online Users"
 msgstr "Çevrimiçi Kullanıcılar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Activated Users"
 msgstr "Etkinleştirilmiş Kullanıcılar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Activated Guests"
 msgstr "Etkinleştirilmiş Konuklar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Pasifleştirilen Kullanıcılar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Channels"
 msgstr "Toplam Kanal"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Rooms"
 msgstr "Toplam Oda"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Toplam Özel Grup"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Toplam Doğrudan İleti Odası"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
 #, kde-format
 msgid "Total Threads"
 msgstr "Toplam İlmek"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
 msgid "Total Users"
 msgstr "Toplam Kullanıcı"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
 #, kde-format
 msgid "Total Discussions"
 msgstr "Toplam Tartışma"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Toplam Tek Kanal Odalar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
 #, kde-format
 msgid "Total Messages"
 msgstr "Toplam İleti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Kanallardaki Toplam İleti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Özel Gruplardaki Toplam İleti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Doğrudan İletilerdeki Toplam İleti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:203
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Toplam Bağlı Kullanıcı"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:236
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:281
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:282
 #, kde-format
 msgid "OS Release"
 msgstr "İşletim Sistemi Yayımı"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:238
 #, kde-format
 msgid "OS Type"
 msgstr "İşletim Sistemi Türü"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:238
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:299
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:300
 #, kde-format
 msgid "OS Platform"
 msgstr "İşletim Sistemi Platformu"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
 #, kde-format
 msgid "OS Total Memory"
 msgstr "İşletim Sistemi Toplam Bellek"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:241
 #, kde-format
 msgid "OS Free Memory"
 msgstr "İşletim Sistemi Boş Bellek"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
 #, kde-format
 msgid "Hash"
 msgstr "Sağlama"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:253
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:254
 #, kde-format
 msgid "Branch"
 msgstr "Dal"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:259
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:260
 #, kde-format
 msgid "Tag"
 msgstr "Etiket"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:265
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:266
 #, kde-format
 msgid "Author"
 msgstr "Yazar"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:271
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:272
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
@@ -3010,32 +3016,32 @@ msgstr "Yazar"
 msgid "Subject"
 msgstr "Konu"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:287
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:288
 #, kde-format
 msgid "Node Version"
 msgstr "Düğüm Sürümü"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:293
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:294
 #, kde-format
 msgid "Arch"
 msgstr "Mimari"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:314
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:315
 #, kde-format
 msgid "Usage"
 msgstr "Kullanım"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:319
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:320
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Çalışma Süresi Ortamı"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:329
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:330
 #, kde-format
 msgid "Commit"
 msgstr "İşleme"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:333
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:334
 #, kde-format
 msgid "Build Environment"
 msgstr "Yapı Ortamı"
@@ -8625,17 +8631,23 @@ msgstr ""
 msgid "Fix animated gif in reactions"
 msgstr "Tepkilerdeki canlandırmalı GIF'leri onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:82
+#: widgets/whatsnew/whatsnewwidget.cpp:40
+#, fuzzy
+#| msgid "Fix avatar support"
+msgid "Fix kf6 support"
+msgstr "Avatar desteğini onar"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:83
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Son sürümden bu yana önemli değişiklikler:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:91
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:99
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"
