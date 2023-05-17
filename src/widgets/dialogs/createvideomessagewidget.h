@@ -10,6 +10,7 @@
 #include <QWidget>
 class QLabel;
 class QCamera;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -20,6 +21,8 @@ public:
 private:
     void stopCamera();
     void startCamera();
+    void updateCameras();
     QLabel *const mErrorLabel;
     QCamera *const mCamera;
+    QComboBox *const mListCamera;
 };
