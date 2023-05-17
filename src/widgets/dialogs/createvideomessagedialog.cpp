@@ -11,6 +11,15 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+#include <KWindowConfig>
+#include <QWindow>
+
+namespace
+{
+static const char myConfigCreateVideoMessageDialogGroupName[] = "CreateVideoMessageDialog";
+}
 CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateVideoMessageWidget(new CreateVideoMessageWidget(this))
@@ -26,6 +35,25 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateVideoMessageDialog::reject);
     mainLayout->addWidget(buttonBox);
+    readConfig();
 }
 
-CreateVideoMessageDialog::~CreateVideoMessageDialog() = default;
+CreateVideoMessageDialog::~CreateVideoMessageDialog()
+{
+    writeConfig();
+}
+
+void CreateVideoMessageDialog::readConfig()
+{
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateVideoMessageDialogGroupName);
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
+}
+
+void CreateVideoMessageDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateVideoMessageDialogGroupName);
+    KWindowConfig::saveWindowSize(windowHandle(), group);
+}

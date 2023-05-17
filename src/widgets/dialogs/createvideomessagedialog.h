@@ -17,5 +17,7 @@ public:
     ~CreateVideoMessageDialog() override;
 
 private:
+    void readConfig();
+    void writeConfig();
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
