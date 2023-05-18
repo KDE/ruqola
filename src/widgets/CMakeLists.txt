@@ -326,6 +326,10 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createvideomessagedialog.h
     dialogs/createvideomessagewidget.cpp
     dialogs/createvideomessagewidget.h
+
+    dialogs/createsoundmessagewidget.h
+    dialogs/createsoundmessagewidget.cpp
+
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfodialog.h
     dialogs/directchannelinfowidget.cpp
