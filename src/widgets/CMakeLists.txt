@@ -330,6 +330,9 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createsoundmessagewidget.h
     dialogs/createsoundmessagewidget.cpp
 
+    dialogs/createsoundmessagedialog.h
+    dialogs/createsoundmessagedialog.cpp
+
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfodialog.h
     dialogs/directchannelinfowidget.cpp
