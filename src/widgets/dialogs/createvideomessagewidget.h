@@ -31,7 +31,6 @@ private:
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     void setCamera(const QCameraDevice &cameraDevice);
     QVideoWidget *const mVideoWidget;
-    QScopedPointer<QCamera> mCamera;
     QScopedPointer<QMediaRecorder> mMediaRecorder;
 #endif
     void record();
