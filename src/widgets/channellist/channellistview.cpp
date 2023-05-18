@@ -99,14 +99,17 @@ void ChannelListView::slotClicked(const QModelIndex &index)
 
 void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 {
-    const QModelIndex index = indexAt(event->pos());
-    if (!index.isValid()) {
+    const QModelIndex qmi = indexAt(event->pos());
+    if (!qmi.isValid()) {
         return;
     }
-    if (!index.parent().isValid()) {
+    if (!qmi.parent().isValid()) {
         return;
     }
     QMenu menu(this);
+    // Use QPersistentModelIndex as model might have changed by the time an action is triggered
+    // and will crash us if we use QModelIndex
+    QPersistentModelIndex index = qmi;
 
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
 
@@ -114,7 +117,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
     auto markAsChannel = new QAction(actionMarkAsText, &menu);
     connect(markAsChannel, &QAction::triggered, this, [=]() {
-        slotMarkAsChannel(index, isUnRead);
+        if (index.isValid()) {
+            slotMarkAsChannel(index, isUnRead);
+        }
     });
     menu.addAction(markAsChannel);
 
@@ -122,13 +127,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     const QString actionFavoriteText = isFavorite ? i18n("Unset as Favorite") : i18n("Set as Favorite");
     auto favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
     connect(favoriteAction, &QAction::triggered, this, [=]() {
-        slotChangeFavorite(index, isFavorite);
+        if (index.isValid()) {
+            slotChangeFavorite(index, isFavorite);
+        }
     });
     menu.addAction(favoriteAction);
 
     auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
     connect(hideChannel, &QAction::triggered, this, [=]() {
-        slotHideChannel(index, roomType);
+        if (index.isValid()) {
+            slotHideChannel(index, roomType);
+        }
     });
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
@@ -143,7 +152,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addSeparator();
                         auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
                         connect(convertToTeam, &QAction::triggered, this, [=]() {
-                            slotConvertToTeam(index, roomType);
+                            if (index.isValid()) {
+                                slotConvertToTeam(index, roomType);
+                            }
                         });
                         menu.addAction(convertToTeam);
                     }
@@ -152,7 +163,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addSeparator();
                         auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
                         connect(convertToChanne, &QAction::triggered, this, [=]() {
-                            slotConvertToChannel(index);
+                            if (index.isValid()) {
+                                slotConvertToChannel(index);
+                            }
                         });
                         menu.addAction(convertToChanne);
                     }
@@ -162,7 +175,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
                     connect(moveToTeam, &QAction::triggered, this, [=]() {
-                        slotMoveToTeam(index);
+                        if (index.isValid()) {
+                            slotMoveToTeam(index);
+                        }
                     });
                     menu.addAction(moveToTeam);
                 }
@@ -184,7 +199,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [=]() {
-            slotLeaveChannel(index, roomType);
+            if (index.isValid()) {
+                slotLeaveChannel(index, roomType);
+            }
         });
         menu.addAction(quitChannel);
     } else {
