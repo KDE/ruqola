@@ -78,6 +78,31 @@ void CreateVideoMessageWidget::updateCameras()
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 {
+#if 0
+    mCamera.reset(new QCamera(cameraDevice));
+    m_captureSession.setCamera(mCamera.data());
+
+    connect(mCamera.data(), &QCamera::activeChanged, this, &Camera::updateCameraActive);
+    connect(mCamera.data(), &QCamera::errorOccurred, this, &Camera::displayCameraError);
+
+    if (!m_mediaRecorder) {
+        m_mediaRecorder.reset(new QMediaRecorder);
+        m_captureSession.setRecorder(m_mediaRecorder.data());
+        connect(m_mediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
+                &Camera::updateRecorderState);
+        connect(m_mediaRecorder.data(), &QMediaRecorder::durationChanged, this,
+                &Camera::updateRecordTime);
+        connect(m_mediaRecorder.data(), &QMediaRecorder::errorChanged, this,
+                &Camera::displayRecorderError);
+    }
+
+    updateCameraActive(mCamera->isActive());
+    updateRecorderState(m_mediaRecorder->recorderState());
+
+    updateCaptureMode();
+
+    mCamera->start();
+#endif
 }
 #endif
 
@@ -89,4 +114,26 @@ void CreateVideoMessageWidget::startCamera()
 void CreateVideoMessageWidget::stopCamera()
 {
     mCamera->stop();
+}
+
+void CreateVideoMessageWidget::record()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    // mMediaRecorder->record();
+    // updateRecordTime();
+#endif
+}
+
+void CreateVideoMessageWidget::pause()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    // mMediaRecorder->pause();
+#endif
+}
+
+void CreateVideoMessageWidget::stop()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    // mMediaRecorder->stop();
+#endif
 }
