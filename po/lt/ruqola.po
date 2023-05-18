@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-17 00:47+0000\n"
+"POT-Creation-Date: 2023-05-18 00:48+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2377,7 +2377,7 @@ msgid "Administrator"
 msgstr ""
 
 #: widgets/administratordialog/administratorwidget.cpp:48
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:310
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:313
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
@@ -3000,17 +3000,11 @@ msgstr "Serverio versija:"
 msgid "Deployment ID"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Server"
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chat serveris"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Add Users"
-msgid "Away Users"
-msgstr "Pridėti naudotojus"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, fuzzy, kde-format
@@ -3023,159 +3017,171 @@ msgstr "Pridėti naudotojus"
 msgid "Total Uploads"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
-#, kde-format
-msgid "Offline Users"
-msgstr ""
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Online Users"
 msgstr "Pridėti naudotojus"
 
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#, fuzzy, kde-format
+#| msgid "Add Users"
+msgid "Away Users"
+msgstr "Pridėti naudotojus"
+
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#, kde-format
+msgid "Offline Users"
+msgstr ""
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#, fuzzy, kde-format
+#| msgid "Add Users"
+msgid "Busy Users"
+msgstr "Pridėti naudotojus"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Activated Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Activated Guests"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Deactivated Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Total Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Total Rooms"
 msgstr "Ištrinti kambarį"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
 msgid "Total Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Total Direct Message Rooms"
 msgstr "Ištrinti žinutę"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Total Threads"
 msgstr "Gijos"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Total Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Total Discussions"
 msgstr "Atverti diskusiją"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Total Omnichannel Rooms"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Total Messages"
 msgstr "Šifruota žinutė"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:203
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Total Messages in Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:204
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:205
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Total Messages in Direct Messages"
 msgstr "Ištrinti žinutę"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:203
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:206
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Total Connected Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:282
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:285
 #, kde-format
 msgid "OS Release"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:238
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:241
 #, kde-format
 msgid "OS Type"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:300
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:303
 #, kde-format
 msgid "OS Platform"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:243
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "OS Total Memory"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:241
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "OS Free Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:251
 #, kde-format
 msgid "Hash"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:254
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:257
 #, kde-format
 msgid "Branch"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:260
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:263
 #, kde-format
 msgid "Tag"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:266
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:269
 #, kde-format
 msgid "Author"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:272
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:275
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
@@ -3185,34 +3191,34 @@ msgstr ""
 msgid "Subject"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:288
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:291
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Node Version"
 msgstr "Serverio versija:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:294
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:297
 #, kde-format
 msgid "Arch"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:315
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:318
 #, kde-format
 msgid "Usage"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:320
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:323
 #, kde-format
 msgid "Runtime Environment"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:330
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:333
 #, fuzzy, kde-format
 #| msgid "Comment:"
 msgid "Commit"
 msgstr "Komentaras:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:334
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:337
 #, kde-format
 msgid "Build Environment"
 msgstr ""
@@ -6608,7 +6614,7 @@ msgstr "Paskyra"
 msgid "Server URL:"
 msgstr "Serverio URL:"
 
-#: widgets/dialogs/createvideomessagedialog.cpp:18
+#: widgets/dialogs/createvideomessagedialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title:window"
