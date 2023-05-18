@@ -42,7 +42,6 @@ add_ruqoladialog_test(channelpasswordwidgettest.cpp)
 add_ruqoladialog_test(channelpassworddialogtest.cpp)
 add_ruqoladialog_test(addusersinroomdialogtest.cpp)
 
-
 add_ruqoladialog_test(addusersinroomwidgettest.cpp)
 add_ruqoladialog_test(showthreadsdialogtest.cpp)
 add_ruqoladialog_test(inviteusersdialogtest.cpp)
@@ -76,3 +75,4 @@ add_ruqoladialog_test(playsoundwidgettest.cpp)
 add_ruqoladialog_test(roomavatarreadonlywidgettest.cpp)
 add_ruqoladialog_test(channelrolesinfowidgettest.cpp)
 add_ruqoladialog_test(createsoundmessagedialogtest.cpp)
+add_ruqoladialog_test(createsoundmessagewidgettest.cpp)
