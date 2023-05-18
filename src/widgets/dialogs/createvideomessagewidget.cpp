@@ -82,22 +82,22 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
     mCamera.reset(new QCamera(cameraDevice));
     m_captureSession.setCamera(mCamera.data());
 
-    connect(mCamera.data(), &QCamera::activeChanged, this, &Camera::updateCameraActive);
-    connect(mCamera.data(), &QCamera::errorOccurred, this, &Camera::displayCameraError);
+    connect(mCamera.data(), &QCamera::activeChanged, this, &CreateVideoMessageWidget::updateCameraActive);
+    connect(mCamera.data(), &QCamera::errorOccurred, this, &CreateVideoMessageWidget::displayCameraError);
 
-    if (!m_mediaRecorder) {
-        m_mediaRecorder.reset(new QMediaRecorder);
-        m_captureSession.setRecorder(m_mediaRecorder.data());
-        connect(m_mediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
-                &Camera::updateRecorderState);
-        connect(m_mediaRecorder.data(), &QMediaRecorder::durationChanged, this,
-                &Camera::updateRecordTime);
-        connect(m_mediaRecorder.data(), &QMediaRecorder::errorChanged, this,
-                &Camera::displayRecorderError);
+    if (!mMediaRecorder) {
+        mMediaRecorder.reset(new QMediaRecorder);
+        m_captureSession.setRecorder(mMediaRecorder.data());
+        connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
+                &CreateVideoMessageWidget::updateRecorderState);
+        connect(mMediaRecorder.data(), &QMediaRecorder::durationChanged, this,
+                &CreateVideoMessageWidget::updateRecordTime);
+        connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this,
+                &CreateVideoMessageWidget::displayRecorderError);
     }
 
     updateCameraActive(mCamera->isActive());
-    updateRecorderState(m_mediaRecorder->recorderState());
+    updateRecorderState(mMediaRecorder->recorderState());
 
     updateCaptureMode();
 
