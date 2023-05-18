@@ -6,11 +6,16 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class CreateSoundMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit CreateSoundMessageDialog(QWidget *parent = nullptr);
     ~CreateSoundMessageDialog() override;
+
+private:
+    void readConfig();
+    void writeConfig();
+    CreateSoundMessageWidget *const mCreateSoundMessageWidget;
 };
