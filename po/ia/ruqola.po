@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:48+0000\n"
-"PO-Revision-Date: 2023-05-15 18:38+0200\n"
+"POT-Creation-Date: 2023-05-19 00:46+0000\n"
+"PO-Revision-Date: 2023-05-18 15:07+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2851,10 +2851,9 @@ msgid "Engagement Dashboard"
 msgstr "Pannello de instrumentos de ingagiamento"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Clear Recents"
+#, kde-format
 msgid "Read Receipts"
-msgstr "Netta recentes"
+msgstr "Lege  receptas"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2897,10 +2896,9 @@ msgid "Offline Users"
 msgstr "Usatores foras de linea"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Away Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "Usatores absente"
+msgstr "Usatores occupate"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -6298,6 +6296,7 @@ msgstr "Nomine de conto:"
 msgid "Server URL:"
 msgstr "URL de servitor:"
 
+#: widgets/dialogs/createsoundmessagedialog.cpp:25
 #: widgets/dialogs/createvideomessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -8499,10 +8498,8 @@ msgid "Fix animated gif in reactions"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix kf6 support"
-msgstr "Corrige supporto de avatar"
+msgstr "Corrige supporto de kf6"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:83
 #, kde-format

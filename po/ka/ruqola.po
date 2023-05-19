@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:48+0000\n"
-"PO-Revision-Date: 2023-05-14 06:21+0200\n"
+"POT-Creation-Date: 2023-05-19 00:46+0000\n"
+"PO-Revision-Date: 2023-05-18 05:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2848,10 +2848,9 @@ msgid "Engagement Dashboard"
 msgstr "ჩართულობის დაფა"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Clear Recents"
+#, kde-format
 msgid "Read Receipts"
-msgstr "უახლესების გასუფთავება"
+msgstr "წაკითხულობის ანგარიშები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2894,10 +2893,9 @@ msgid "Offline Users"
 msgstr "გათიშული მომხმარებლები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Away Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "გასული მომხმარებლები"
+msgstr "დაკავებული მომხმარებლები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -6331,6 +6329,7 @@ msgstr "ანგარიშის სახელი:"
 msgid "Server URL:"
 msgstr "სერვერის URL:"
 
+#: widgets/dialogs/createsoundmessagedialog.cpp:25
 #: widgets/dialogs/createvideomessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -8520,10 +8519,8 @@ msgid "Fix animated gif in reactions"
 msgstr "რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix kf6 support"
-msgstr "ავატარის მხარდაჭერის გასწორება"
+msgstr "KF6-ის მხარდაჭერის გასწორება"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:83
 #, kde-format

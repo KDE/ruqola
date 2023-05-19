@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:48+0000\n"
+"POT-Creation-Date: 2023-05-19 00:46+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -6614,6 +6614,7 @@ msgstr "Paskyra"
 msgid "Server URL:"
 msgstr "Serverio URL:"
 
+#: widgets/dialogs/createsoundmessagedialog.cpp:25
 #: widgets/dialogs/createvideomessagedialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Delete Message"

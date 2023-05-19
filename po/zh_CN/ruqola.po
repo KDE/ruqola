@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:48+0000\n"
+"POT-Creation-Date: 2023-05-19 00:46+0000\n"
 "PO-Revision-Date: 2023-04-29 08:34\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6242,6 +6242,7 @@ msgstr ""
 msgid "Server URL:"
 msgstr ""
 
+#: widgets/dialogs/createsoundmessagedialog.cpp:25
 #: widgets/dialogs/createvideomessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"

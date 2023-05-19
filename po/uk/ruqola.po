@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-18 00:48+0000\n"
-"PO-Revision-Date: 2023-05-17 08:37+0300\n"
+"POT-Creation-Date: 2023-05-19 00:46+0000\n"
+"PO-Revision-Date: 2023-05-18 06:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2915,10 +2915,9 @@ msgid "Offline Users"
 msgstr "Користувачів поза мережею"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Away Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "Відсутніх користувачів"
+msgstr "Зайнятих користувачів"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -6497,6 +6496,7 @@ msgstr "Облікова назва:"
 msgid "Server URL:"
 msgstr "Адреса сервера:"
 
+#: widgets/dialogs/createsoundmessagedialog.cpp:25
 #: widgets/dialogs/createvideomessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
