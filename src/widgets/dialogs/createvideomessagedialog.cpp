@@ -31,9 +31,10 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     mCreateVideoMessageWidget->setObjectName(QStringLiteral("mCreateVideoMessageWidget"));
     mainLayout->addWidget(mCreateVideoMessageWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateVideoMessageDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateVideoMessageDialog::accept);
     mainLayout->addWidget(buttonBox);
     readConfig();
 }

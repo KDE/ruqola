@@ -29,9 +29,10 @@ CreateSoundMessageDialog::CreateSoundMessageDialog(QWidget *parent)
     mCreateSoundMessageWidget->setObjectName(QStringLiteral("mCreateSoundMessageWidget"));
     mainLayout->addWidget(mCreateSoundMessageWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateSoundMessageDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateSoundMessageDialog::accept);
     mainLayout->addWidget(buttonBox);
     readConfig();
 }
