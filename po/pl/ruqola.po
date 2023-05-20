@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-19 00:46+0000\n"
+"POT-Creation-Date: 2023-05-20 00:46+0000\n"
 "PO-Revision-Date: 2023-03-12 08:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -5765,70 +5765,70 @@ msgstr "Wypowiedz tekst"
 msgid "Mark as Read"
 msgstr "Oznacz jako przeczytaną"
 
-#: widgets/channellist/channellistview.cpp:114
+#: widgets/channellist/channellistview.cpp:117
 #, kde-format
 msgid "Mark As Read"
 msgstr "Oznacz jako przeczytany"
 
-#: widgets/channellist/channellistview.cpp:114
+#: widgets/channellist/channellistview.cpp:117
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Oznacz jako nieprzeczytana"
 
-#: widgets/channellist/channellistview.cpp:122
+#: widgets/channellist/channellistview.cpp:127
 #: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Ustaw jako ulubiony"
 
-#: widgets/channellist/channellistview.cpp:122
+#: widgets/channellist/channellistview.cpp:127
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Usuń z ulubionych"
 
-#: widgets/channellist/channellistview.cpp:129
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgid "Hide Channel"
 msgstr "Ukryj kanał"
 
-#: widgets/channellist/channellistview.cpp:144
-#: widgets/channellist/channellistview.cpp:276
+#: widgets/channellist/channellistview.cpp:153
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Convert to Team"
 msgstr "Przekształć na zespół"
 
-#: widgets/channellist/channellistview.cpp:153
+#: widgets/channellist/channellistview.cpp:164
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Przekształć na kanał"
 
-#: widgets/channellist/channellistview.cpp:163
+#: widgets/channellist/channellistview.cpp:176
 #, kde-format
 msgid "Move to Team"
 msgstr "Przenieś do zespołu"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:193
 #: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Ustawienia powiadomień..."
 
-#: widgets/channellist/channellistview.cpp:185
+#: widgets/channellist/channellistview.cpp:200
 #, kde-format
 msgid "Quit Channel"
 msgstr "Opuść kanał"
 
-#: widgets/channellist/channellistview.cpp:226
+#: widgets/channellist/channellistview.cpp:243
 #, kde-format
 msgid "Any team selected."
 msgstr "Wybrano dowolny zespół."
 
-#: widgets/channellist/channellistview.cpp:226
+#: widgets/channellist/channellistview.cpp:243
 #, kde-format
 msgid "Move To Team"
 msgstr "Przenieś do zespołu"
 
-#: widgets/channellist/channellistview.cpp:275
+#: widgets/channellist/channellistview.cpp:292
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Czy na pewno przekształcić na zespół? Nie będzie można tego wycofać."
