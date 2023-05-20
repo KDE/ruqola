@@ -5,12 +5,12 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "role.h"
 #include <QJsonObject>
 #include <QVector>
 
-class LIBRUQOLACORE_TESTS_EXPORT Roles
+class LIBRUQOLACORE_EXPORT Roles
 {
 public:
     Roles();
