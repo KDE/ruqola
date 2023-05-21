@@ -6,14 +6,30 @@
 
 #include "createsoundmessagewidget.h"
 #include <KLocalizedString>
-#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 
 CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     : QWidget{parent}
+    , mRecordButton(new QPushButton(this))
+    , mLabelDuration(new QLabel(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
+    mainLayout->addWidget(mRecordButton);
+    mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
+    mLabelDuration->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(mLabelDuration);
+    connect(mRecordButton, &QAbstractButton::clicked, this, &CreateSoundMessageWidget::slotRecord);
 }
 
 CreateSoundMessageWidget::~CreateSoundMessageWidget() = default;
+
+void CreateSoundMessageWidget::slotRecord()
+{
+    // TODO
+}
