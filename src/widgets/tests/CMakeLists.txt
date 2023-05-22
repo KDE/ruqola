@@ -28,3 +28,7 @@ target_link_libraries(testservererrorinfo_gui libruqolawidgets KF${KF_MAJOR_VERS
 add_executable(selectedmessagebackgroundanimation_gui selectedmessagebackgroundanimation_gui.cpp
     selectedmessagebackgroundanimationwidget.h selectedmessagebackgroundanimationwidget.cpp)
 target_link_libraries(selectedmessagebackgroundanimation_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
+
+####
+add_executable(testcreatesoundmessage_gui testcreatesoundmessage_gui.cpp)
+target_link_libraries(testcreatesoundmessage_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
