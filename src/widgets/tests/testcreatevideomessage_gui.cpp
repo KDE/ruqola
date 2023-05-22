@@ -7,9 +7,11 @@
 #include "dialogs/createvideomessagedialog.h"
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QStandardPaths>
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    QStandardPaths::setTestModeEnabled(true);
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
