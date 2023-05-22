@@ -17,5 +17,5 @@ public:
 
 private:
     void slotSendNotification();
-    QLineEdit *mLineEdit = nullptr;
+    QLineEdit *const mLineEdit;
 };

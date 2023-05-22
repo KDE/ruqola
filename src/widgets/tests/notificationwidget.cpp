@@ -11,9 +11,9 @@
 
 NotificationWidget::NotificationWidget(QWidget *parent)
     : QWidget(parent)
+    , mLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mLineEdit = new QLineEdit(this);
     mainLayout->addWidget(mLineEdit);
 
     auto sendNotification = new QPushButton(QStringLiteral("Send"), this);
