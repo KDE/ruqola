@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-20 00:46+0000\n"
-"PO-Revision-Date: 2023-05-06 15:44+0100\n"
+"PO-Revision-Date: 2023-05-21 15:00+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -2847,10 +2847,9 @@ msgid "Engagement Dashboard"
 msgstr "Engagement Dashboard"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Clear Recents"
+#, kde-format
 msgid "Read Receipts"
-msgstr "Clear Recents"
+msgstr "Read Receipts"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2893,10 +2892,9 @@ msgid "Offline Users"
 msgstr "Offline Users"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Away Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "Away Users"
+msgstr "Busy Users"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -5909,10 +5907,9 @@ msgid "Show hover highlights"
 msgstr "Show hover highlights"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Paste Image"
+#, kde-format
 msgid "Animate Gif Image"
-msgstr "Paste Image"
+msgstr "Animate GIF Image"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7037,26 +7034,24 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Login failed: Invalid OTP code."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login failed: User is not activated."
-msgstr "User is not activated"
+msgstr "Login failed: User is not activated."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "Login has been temporarily blocked For IP."
 
 #: widgets/misc/accountsoverviewwidget.cpp:59
 #, kde-format
 msgid "Login has been temporarily blocked For User."
-msgstr ""
+msgstr "Login has been temporarily blocked For User."
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "App user is not allowed to login."
-msgstr "App user is not allowed to login"
+msgstr "App user is not allowed to login."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -8196,24 +8191,22 @@ msgstr "Login Failed: generic error"
 #: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "Login Failed: Login has been temporarily blocked For IP."
 
 #: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
-msgstr ""
+msgstr "Login Failed: Login has been temporarily blocked For User."
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "User is not activated"
+msgstr "Login Failed: User is not activated."
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "Login Failed: App user is not allowed to login."
-msgstr "App user is not allowed to login"
+msgstr "Login Failed: App user is not allowed to login."
 
 #: widgets/ruqolamainwindow.cpp:215
 #, kde-format
@@ -8634,10 +8627,8 @@ msgid "Fix animated gif in reactions"
 msgstr "Fix animated GIF in reactions"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix kf6 support"
-msgstr "Fix avatar support"
+msgstr "Fix kf6 support"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:83
 #, kde-format
