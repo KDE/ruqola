@@ -8,11 +8,11 @@
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QPushButton>
+#include <QToolButton>
 
 CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     : QWidget{parent}
-    , mRecordButton(new QPushButton(this))
+    , mRecordButton(new QToolButton(this))
     , mLabelDuration(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);

@@ -16,27 +16,42 @@
 #include <QVideoWidget>
 #endif
 #include <QComboBox>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
-    , mErrorLabel(new QLabel(this))
-    , mCamera(new QCamera(this))
-    , mListCamera(new QComboBox(this))
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mVideoWidget(new QVideoWidget(this))
 #endif
+    , mErrorLabel(new QLabel(this))
+    , mCamera(new QCamera(this))
+    , mListCamera(new QComboBox(this))
+    , mRecordButton(new QToolButton(this))
+    , mDurationLabel(new QLabel(QStringLiteral("00:00"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mListCamera->setObjectName(QStringLiteral("mListCamera"));
     mainLayout->addWidget(mListCamera);
+
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mVideoWidget->setObjectName(QStringLiteral("mVideoWidget"));
-    mainLayout->addWidget(mVideoWidget);
+    mainLayout->addWidget(mVideoWidget, 1);
 #endif
+
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setContentsMargins({});
+    mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
+    hboxLayout->addWidget(mRecordButton);
+
+    mDurationLabel->setObjectName(QStringLiteral("mDurationLabel"));
+    hboxLayout->addWidget(mDurationLabel);
+    mainLayout->addLayout(hboxLayout);
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mCamera->setObjectName(QStringLiteral("mCamera"));

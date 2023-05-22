@@ -14,6 +14,7 @@ class QComboBox;
 class QVideoWidget;
 class QCameraDevice;
 class QMediaRecorder;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -25,15 +26,20 @@ private:
     void stopCamera();
     void startCamera();
     void updateCameras();
-    QLabel *const mErrorLabel;
-    QCamera *const mCamera;
-    QComboBox *const mListCamera;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     void setCamera(const QCameraDevice &cameraDevice);
-    QVideoWidget *const mVideoWidget;
-    QScopedPointer<QMediaRecorder> mMediaRecorder;
 #endif
     void record();
     void pause();
     void stop();
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QVideoWidget *const mVideoWidget;
+    QScopedPointer<QMediaRecorder> mMediaRecorder;
+#endif
+    QLabel *const mErrorLabel;
+    QCamera *const mCamera;
+    QComboBox *const mListCamera;
+    QToolButton *const mRecordButton;
+    QLabel *const mDurationLabel;
 };

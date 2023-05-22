@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class QPushButton;
+class QToolButton;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWidget : public QWidget
 {
@@ -18,6 +18,6 @@ public:
 
 private:
     void slotRecord();
-    QPushButton *const mRecordButton;
+    QToolButton *const mRecordButton;
     QLabel *const mLabelDuration;
 };
