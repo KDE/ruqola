@@ -58,7 +58,8 @@
             "displayName": "Build as release mode.",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "BUILD_WITH_QT6": "ON"		
+                "BUILD_WITH_QT6": "ON",
+		"BUILD_TESTING": "OFF"
             },
             "inherits": [
                 "base-qt6"
