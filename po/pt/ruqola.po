@@ -3511,7 +3511,7 @@ msgstr "Senha"
 #: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
-msgstr "Video-Conferência"
+msgstr "Vídeo-Conferência"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
