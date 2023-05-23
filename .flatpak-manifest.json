@@ -75,9 +75,6 @@
                     "url": "https://invent.kde.org/network/ruqola.git"
                 }
             ],
-            "config-opts": [
-                "-DBUILD_TESTING=OFF"
-            ],
             "cleanup": [
                 "/share/qlogging-categories5"
             ]
