@@ -8,6 +8,9 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QMediaCaptureSession>
+#endif
 class QLabel;
 class QCamera;
 class QComboBox;
@@ -15,6 +18,7 @@ class QVideoWidget;
 class QCameraDevice;
 class QMediaRecorder;
 class QToolButton;
+class QMediaCaptureSession;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -32,10 +36,12 @@ private:
     void record();
     void pause();
     void stop();
+    void updateRecordTime();
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QVideoWidget *const mVideoWidget;
     QScopedPointer<QMediaRecorder> mMediaRecorder;
+    QMediaCaptureSession mCaptureSession;
 #endif
     QLabel *const mErrorLabel;
     QCamera *const mCamera;

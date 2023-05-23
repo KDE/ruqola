@@ -21,6 +21,8 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 
+#include <KLocalizedString>
+
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
@@ -30,7 +32,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     , mCamera(new QCamera(this))
     , mListCamera(new QComboBox(this))
     , mRecordButton(new QToolButton(this))
-    , mDurationLabel(new QLabel(QStringLiteral("00:00"), this))
+    , mDurationLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -95,14 +97,14 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 {
 #if 0
     mCamera.reset(new QCamera(cameraDevice));
-    m_captureSession.setCamera(mCamera.data());
+    mCaptureSession.setCamera(mCamera.data());
 
     connect(mCamera.data(), &QCamera::activeChanged, this, &CreateVideoMessageWidget::updateCameraActive);
     connect(mCamera.data(), &QCamera::errorOccurred, this, &CreateVideoMessageWidget::displayCameraError);
 
     if (!mMediaRecorder) {
         mMediaRecorder.reset(new QMediaRecorder);
-        m_captureSession.setRecorder(mMediaRecorder.data());
+        mCaptureSession.setRecorder(mMediaRecorder.data());
         connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
                 &CreateVideoMessageWidget::updateRecorderState);
         connect(mMediaRecorder.data(), &QMediaRecorder::durationChanged, this,
@@ -134,21 +136,29 @@ void CreateVideoMessageWidget::stopCamera()
 void CreateVideoMessageWidget::record()
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    // mMediaRecorder->record();
-    // updateRecordTime();
+    mMediaRecorder->record();
+    updateRecordTime();
 #endif
 }
 
 void CreateVideoMessageWidget::pause()
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    // mMediaRecorder->pause();
+    mMediaRecorder->pause();
 #endif
 }
 
 void CreateVideoMessageWidget::stop()
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    // mMediaRecorder->stop();
+    mMediaRecorder->stop();
+#endif
+}
+
+void CreateVideoMessageWidget::updateRecordTime()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    const QString str = i18n("Recorded %1 sec").arg(mMediaRecorder->duration() / 1000);
+    mDurationLabel->setText(str);
 #endif
 }
