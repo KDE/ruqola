@@ -158,7 +158,7 @@ void CreateVideoMessageWidget::stop()
 void CreateVideoMessageWidget::updateRecordTime()
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    const QString str = i18n("Recorded %1 sec").arg(mMediaRecorder->duration() / 1000);
+    const QString str = i18n("Recorded %1 sec", mMediaRecorder->duration() / 1000);
     mDurationLabel->setText(str);
 #endif
 }
