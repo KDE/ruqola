@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:46+0000\n"
+"POT-Creation-Date: 2023-05-24 00:47+0000\n"
 "PO-Revision-Date: 2023-04-20 14:28+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6627,6 +6627,11 @@ msgstr "Palvelimen osoite:"
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Luo videoviesti"
+
+#: widgets/dialogs/createvideomessagewidget.cpp:161
+#, kde-format
+msgid "Recorded %1 sec"
+msgstr ""
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, fuzzy, kde-format

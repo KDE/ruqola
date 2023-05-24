@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:46+0000\n"
+"POT-Creation-Date: 2023-05-24 00:47+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -6621,6 +6621,11 @@ msgstr "Serverio URL:"
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Ištrinti žinutę"
+
+#: widgets/dialogs/createvideomessagewidget.cpp:161
+#, kde-format
+msgid "Recorded %1 sec"
+msgstr ""
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, fuzzy, kde-format
