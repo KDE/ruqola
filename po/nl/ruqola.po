@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-24 00:47+0000\n"
-"PO-Revision-Date: 2023-05-18 11:51+0200\n"
+"PO-Revision-Date: 2023-05-24 12:40+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6483,7 +6483,7 @@ msgstr "Videobericht aanmaken"
 #: widgets/dialogs/createvideomessagewidget.cpp:161
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr ""
+msgstr "%1 seconden opgenomen"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
