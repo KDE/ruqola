@@ -37,6 +37,7 @@ private:
     void pause();
     void stop();
     void updateRecordTime();
+    void displayRecorderError();
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QVideoWidget *const mVideoWidget;

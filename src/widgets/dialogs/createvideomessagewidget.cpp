@@ -123,6 +123,11 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 }
 #endif
 
+void CreateVideoMessageWidget::displayRecorderError()
+{
+    // TODO
+}
+
 void CreateVideoMessageWidget::startCamera()
 {
     mCamera->start();
