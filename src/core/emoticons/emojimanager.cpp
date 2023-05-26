@@ -282,7 +282,7 @@ void EmojiManager::replaceEmojis(QString *str)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const auto match = mReplacePattern.match(str, offset);
 #else
-        const auto match = mReplacePattern.match(QStringView(*str), offset);
+        const auto match = mReplacePattern.matchView(QStringView(*str), offset);
 #endif
         if (!match.hasMatch()) {
             break;
