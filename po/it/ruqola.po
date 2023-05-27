@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 00:47+0000\n"
-"PO-Revision-Date: 2023-05-05 18:46+0200\n"
+"POT-Creation-Date: 2023-05-27 00:47+0000\n"
+"PO-Revision-Date: 2023-05-24 17:15+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2856,10 +2856,9 @@ msgid "Engagement Dashboard"
 msgstr "Cruscotto di interazione"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Clear Recents"
+#, kde-format
 msgid "Read Receipts"
-msgstr "Pulisci recenti"
+msgstr "Richieste di conferma di lettura"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2902,10 +2901,9 @@ msgid "Offline Users"
 msgstr "Utenti non in linea"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Away Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "Qualsiasi utente"
+msgstr "Utenti occupati"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -5955,10 +5953,9 @@ msgid "Show hover highlights"
 msgstr "Mostra le evidenziazioni al passaggio del mouse"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Paste Image"
+#, kde-format
 msgid "Animate Gif Image"
-msgstr "Incolla immagine"
+msgstr "Immagine Gif animata"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6483,10 +6480,10 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Crea un messaggio video"
 
-#: widgets/dialogs/createvideomessagewidget.cpp:161
+#: widgets/dialogs/createvideomessagewidget.cpp:166
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr ""
+msgstr "Registrati %1 sec"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
@@ -7090,26 +7087,24 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Accesso non riuscito: codice OTP non valido."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login failed: User is not activated."
-msgstr "L'utente non è attivato"
+msgstr "Accesso non riuscito: l'utente non è attivato."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "L'accesso è stato temporaneamente bloccato per l'IP."
 
 #: widgets/misc/accountsoverviewwidget.cpp:59
 #, kde-format
 msgid "Login has been temporarily blocked For User."
-msgstr ""
+msgstr "L'accesso è stato temporaneamente bloccato per l'utente."
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "App user is not allowed to login."
-msgstr "All'applicazione utente non è consentito l'accesso"
+msgstr "All'utente dell'applicazione non è consentito l'accesso."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -8256,23 +8251,26 @@ msgstr "Accesso non riuscito: errore generico"
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
+"Accesso non riuscito: l'accesso è stato temporaneamente bloccato per l'IP."
 
 #: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
+"Accesso non riuscito: l'accesso è stato temporaneamente bloccato per "
+"l'utente."
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "L'utente non è attivato"
+msgstr "Accesso non riuscito: l'utente non è attivato."
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "Login Failed: App user is not allowed to login."
-msgstr "All'applicazione utente non è consentito l'accesso"
+msgstr ""
+"Accesso non riuscito: all'utente dell'applicazione non è consentito "
+"l'accesso."
 
 #: widgets/ruqolamainwindow.cpp:215
 #, kde-format
@@ -8696,10 +8694,8 @@ msgid "Fix animated gif in reactions"
 msgstr "Corregge la gif animata nelle reazioni"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix kf6 support"
-msgstr "Risolto il problema con il supporto dell'avatar"
+msgstr "Risolve il supporto kf6"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:83
 #, kde-format
