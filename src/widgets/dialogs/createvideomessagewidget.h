@@ -10,13 +10,13 @@
 #include <QWidget>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QMediaCaptureSession>
+#include <QMediaRecorder>
 #endif
 class QLabel;
 class QCamera;
 class QComboBox;
 class QVideoWidget;
 class QCameraDevice;
-class QMediaRecorder;
 class QToolButton;
 class QMediaCaptureSession;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
@@ -32,12 +32,15 @@ private:
     void updateCameras();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     void setCamera(const QCameraDevice &cameraDevice);
+    void updateRecorderState(QMediaRecorder::RecorderState state);
 #endif
     void record();
     void pause();
     void stop();
     void updateRecordTime();
     void displayRecorderError();
+    void updateCameraActive(bool active);
+    void displayCameraError();
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QVideoWidget *const mVideoWidget;
@@ -45,7 +48,7 @@ private:
     QMediaCaptureSession mCaptureSession;
 #endif
     QLabel *const mErrorLabel;
-    QCamera *const mCamera;
+    QScopedPointer<QCamera> mCamera;
     QComboBox *const mListCamera;
     QToolButton *const mRecordButton;
     QLabel *const mDurationLabel;

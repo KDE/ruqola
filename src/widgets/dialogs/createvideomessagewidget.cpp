@@ -73,6 +73,9 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mainLayout->addWidget(mErrorLabel);
     mErrorLabel->setVisible(false);
     updateCameras();
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    setCamera(QMediaDevices::defaultVideoInput());
+#endif
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
@@ -83,11 +86,6 @@ void CreateVideoMessageWidget::updateCameras()
     const QList<QCameraDevice> availableCameras = QMediaDevices::videoInputs();
     for (const QCameraDevice &cameraDevice : availableCameras) {
         mListCamera->addItem(cameraDevice.description(), QVariant::fromValue(cameraDevice));
-        //        QAction *videoDeviceAction = new QAction(cameraDevice.description(), videoDevicesGroup);
-        //        videoDeviceAction->setCheckable(true);
-        //        videoDeviceAction->setData(QVariant::fromValue(cameraDevice));
-        //        if (cameraDevice == QMediaDevices::defaultVideoInput())
-        //            videoDeviceAction->setChecked(true);
     }
 #endif
 }
@@ -95,7 +93,7 @@ void CreateVideoMessageWidget::updateCameras()
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 {
-#if 0
+#if 1
     mCamera.reset(new QCamera(cameraDevice));
     mCaptureSession.setCamera(mCamera.data());
 
@@ -116,12 +114,47 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
     updateCameraActive(mCamera->isActive());
     updateRecorderState(mMediaRecorder->recorderState());
 
-    updateCaptureMode();
-
     mCamera->start();
 #endif
 }
 #endif
+
+void CreateVideoMessageWidget::displayCameraError()
+{
+    // TODO
+}
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+void CreateVideoMessageWidget::updateRecorderState(QMediaRecorder::RecorderState state)
+{
+#if 0
+    switch (state) {
+    case QMediaRecorder::StoppedState:
+        ui->recordButton->setEnabled(true);
+        ui->pauseButton->setEnabled(true);
+        ui->stopButton->setEnabled(false);
+        ui->metaDataButton->setEnabled(true);
+        break;
+    case QMediaRecorder::PausedState:
+        ui->recordButton->setEnabled(true);
+        ui->pauseButton->setEnabled(false);
+        ui->stopButton->setEnabled(true);
+        ui->metaDataButton->setEnabled(false);
+        break;
+    case QMediaRecorder::RecordingState:
+        ui->recordButton->setEnabled(false);
+        ui->pauseButton->setEnabled(true);
+        ui->stopButton->setEnabled(true);
+        ui->metaDataButton->setEnabled(false);
+        break;
+    }
+#endif
+}
+#endif
+
+void CreateVideoMessageWidget::updateCameraActive(bool active)
+{
+}
 
 void CreateVideoMessageWidget::displayRecorderError()
 {
