@@ -20,7 +20,7 @@ RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
     connect(mWebSocket, &QWebSocket::disconnected, this, &RuqolaWebSocket::disconnected);
     connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::slotTextMessageReceived);
     connect(mWebSocket, &QWebSocket::sslErrors, this, &RuqolaWebSocket::sslErrors);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
     connect(mWebSocket, qOverload<QAbstractSocket::SocketError>(&QWebSocket::error), this, &RuqolaWebSocket::slotError);
 #else
     connect(mWebSocket, &QWebSocket::errorOccurred, this, &RuqolaWebSocket::slotError);
