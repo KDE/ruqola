@@ -73,7 +73,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mainLayout->addWidget(mErrorLabel);
     mErrorLabel->setVisible(false);
     updateCameras();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     setCamera(QMediaDevices::defaultVideoInput());
 #endif
 }
@@ -93,7 +93,7 @@ void CreateVideoMessageWidget::updateCameras()
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 {
-#if 1
+#if 0
     mCamera.reset(new QCamera(cameraDevice));
     mCaptureSession.setCamera(mCamera.data());
 
