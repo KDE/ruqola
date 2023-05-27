@@ -19,6 +19,7 @@ class QVideoWidget;
 class QCameraDevice;
 class QToolButton;
 class QMediaCaptureSession;
+class KMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -51,5 +52,7 @@ private:
     QScopedPointer<QCamera> mCamera;
     QComboBox *const mListCamera;
     QToolButton *const mRecordButton;
+    QToolButton *const mPauseButton;
     QLabel *const mDurationLabel;
+    KMessageWidget *const mMessageWidget;
 };

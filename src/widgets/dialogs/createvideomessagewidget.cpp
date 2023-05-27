@@ -15,6 +15,7 @@
 #include <QMediaRecorder>
 #include <QVideoWidget>
 #endif
+#include <KMessageWidget>
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -32,11 +33,21 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     , mCamera(new QCamera(this))
     , mListCamera(new QComboBox(this))
     , mRecordButton(new QToolButton(this))
+    , mPauseButton(new QToolButton(this))
     , mDurationLabel(new QLabel(this))
+    , mMessageWidget(new KMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mainLayout->addWidget(mMessageWidget);
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setWordWrap(true);
+
     mListCamera->setObjectName(QStringLiteral("mListCamera"));
     mainLayout->addWidget(mListCamera);
 
@@ -48,6 +59,10 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
     hboxLayout->setContentsMargins({});
+
+    mPauseButton->setObjectName(QStringLiteral("mPauseButton"));
+    hboxLayout->addWidget(mPauseButton);
+
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
     hboxLayout->addWidget(mRecordButton);
 
@@ -93,7 +108,6 @@ void CreateVideoMessageWidget::updateCameras()
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 {
-#if 0
     mCamera.reset(new QCamera(cameraDevice));
     mCaptureSession.setCamera(mCamera.data());
 
@@ -115,13 +129,17 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
     updateRecorderState(mMediaRecorder->recorderState());
 
     mCamera->start();
-#endif
 }
 #endif
 
 void CreateVideoMessageWidget::displayCameraError()
 {
-    // TODO
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    if (mCamera->error() != QCamera::NoError) {
+        mMessageWidget->setText(mCamera->errorString());
+        mMessageWidget->animatedShow();
+    }
+#endif
 }
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
