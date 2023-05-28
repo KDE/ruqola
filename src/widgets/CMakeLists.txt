@@ -322,10 +322,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createnewserverdialog.h
     dialogs/createnewserverwidget.cpp
     dialogs/createnewserverwidget.h
-    dialogs/createvideomessagedialog.cpp
-    dialogs/createvideomessagedialog.h
-    dialogs/createvideomessagewidget.cpp
-    dialogs/createvideomessagewidget.h
 
     dialogs/createsoundmessagewidget.h
     dialogs/createsoundmessagewidget.cpp
@@ -725,6 +721,15 @@ if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureautocorrectionwidget.h
         configuredialog/configureautocorrectionwidget.cpp
+    )
+endif()
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_sources(libruqolawidgets PRIVATE
+        dialogs/createvideomessagedialog.cpp
+        dialogs/createvideomessagedialog.h
+        dialogs/createvideomessagewidget.cpp
+        dialogs/createvideomessagewidget.h
     )
 endif()
 
