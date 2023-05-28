@@ -12,7 +12,6 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMediaDevices>
-#include <QMediaRecorder>
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <QVideoWidget>
@@ -56,6 +55,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
     hboxLayout->addWidget(mRecordButton);
+    connect(mRecordButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::record);
 
     mDurationLabel->setObjectName(QStringLiteral("mDurationLabel"));
     hboxLayout->addWidget(mDurationLabel);
@@ -140,11 +140,15 @@ void CreateVideoMessageWidget::updateRecorderState(QMediaRecorder::RecorderState
 
 void CreateVideoMessageWidget::updateCameraActive(bool active)
 {
+    // TODO update actions
 }
 
 void CreateVideoMessageWidget::displayRecorderError()
 {
-    // TODO
+    if (mMediaRecorder->error() != QMediaRecorder::NoError) {
+        mMessageWidget->setText(mMediaRecorder->errorString());
+        mMessageWidget->animatedShow();
+    }
 }
 
 void CreateVideoMessageWidget::startCamera()
