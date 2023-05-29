@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-29 00:47+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -6609,7 +6609,7 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "開始視訊聊天"
 
-#: widgets/dialogs/createvideomessagewidget.cpp:217
+#: widgets/dialogs/createvideomessagewidget.cpp:182
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""

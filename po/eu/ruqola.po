@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-29 00:47+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -6338,7 +6338,7 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Sortu bideo-mezua"
 
-#: widgets/dialogs/createvideomessagewidget.cpp:217
+#: widgets/dialogs/createvideomessagewidget.cpp:182
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
