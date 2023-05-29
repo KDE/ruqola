@@ -97,7 +97,7 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
         connect(mMediaRecorder.data(), &QMediaRecorder::errorChanged, this,
                 &CreateVideoMessageWidget::displayRecorderError);
     }
-
+    mCaptureSession.setVideoOutput(mVideoWidget);
     updateCameraActive(mCamera->isActive());
     updateRecorderState(mMediaRecorder->recorderState());
 
