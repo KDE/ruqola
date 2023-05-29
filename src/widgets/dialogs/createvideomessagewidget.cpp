@@ -52,6 +52,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
     mPauseButton->setObjectName(QStringLiteral("mPauseButton"));
     hboxLayout->addWidget(mPauseButton);
+    connect(mPauseButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::pause);
 
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
     hboxLayout->addWidget(mRecordButton);
