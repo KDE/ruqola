@@ -1,11 +1,11 @@
 # Simon Depiets <sdepiets@gmail.com>, 2019.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2022, 2023.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-29 00:47+0000\n"
+"POT-Creation-Date: 2023-05-30 00:46+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -6515,7 +6515,7 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Créer un message vidéo"
 
-#: widgets/dialogs/createvideomessagewidget.cpp:182
+#: widgets/dialogs/createvideomessagewidget.cpp:183
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 secondes enregistrées"
