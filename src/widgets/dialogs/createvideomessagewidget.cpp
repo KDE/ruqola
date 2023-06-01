@@ -53,7 +53,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
     mPauseButton->setObjectName(QStringLiteral("mPauseButton"));
     hboxLayout->addWidget(mPauseButton);
-    connect(mPauseButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::pause);
+    connect(mPauseButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::stop);
 
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
     hboxLayout->addWidget(mRecordButton);
@@ -94,6 +94,7 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 
     if (!mMediaRecorder) {
         mMediaRecorder.reset(new QMediaRecorder);
+        mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(QStringLiteral("test.video")));
         mCaptureSession.setRecorder(mMediaRecorder.data());
         connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
                 &CreateVideoMessageWidget::updateRecorderState);
