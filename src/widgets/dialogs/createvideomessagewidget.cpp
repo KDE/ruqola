@@ -6,6 +6,7 @@
 
 #include "createvideomessagewidget.h"
 #include <KMessageWidget>
+#include <QAudioInput>
 #include <QCamera>
 #include <QCameraDevice>
 #include <QComboBox>
@@ -84,6 +85,9 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 {
     mCamera.reset(new QCamera(cameraDevice));
     mCaptureSession.setCamera(mCamera.data());
+
+    mAudioInput.reset(new QAudioInput);
+    mCaptureSession.setAudioInput(mAudioInput.get());
 
     connect(mCamera.data(), &QCamera::activeChanged, this, &CreateVideoMessageWidget::updateCameraActive);
     connect(mCamera.data(), &QCamera::errorOccurred, this, &CreateVideoMessageWidget::displayCameraError);

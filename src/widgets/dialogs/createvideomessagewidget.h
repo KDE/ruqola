@@ -18,6 +18,7 @@ class QCameraDevice;
 class QToolButton;
 class QMediaCaptureSession;
 class KMessageWidget;
+class QAudioInput;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -41,6 +42,7 @@ private:
 
     QVideoWidget *const mVideoWidget;
     QScopedPointer<QMediaRecorder> mMediaRecorder;
+    QScopedPointer<QAudioInput> mAudioInput;
     QMediaCaptureSession mCaptureSession;
     QLabel *const mErrorLabel;
     QScopedPointer<QCamera> mCamera;
