@@ -18,6 +18,7 @@
 #include <QVideoWidget>
 
 #include <KLocalizedString>
+#include <QMediaFormat>
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
@@ -27,6 +28,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     , mListCamera(new QComboBox(this))
     , mRecordButton(new QToolButton(this))
     , mPauseButton(new QToolButton(this))
+    , mStopButton(new QToolButton(this))
     , mDurationLabel(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
 {
@@ -51,11 +53,18 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
     hboxLayout->setContentsMargins({});
 
+    mStopButton->setObjectName(QStringLiteral("mStopButton"));
+    mStopButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-stop")));
+    hboxLayout->addWidget(mStopButton);
+    connect(mStopButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::stop);
+
     mPauseButton->setObjectName(QStringLiteral("mPauseButton"));
+    mPauseButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
     hboxLayout->addWidget(mPauseButton);
-    connect(mPauseButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::stop);
+    connect(mPauseButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::pause);
 
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
+    mRecordButton->setIcon(QIcon::fromTheme(QStringLiteral("media-record")));
     hboxLayout->addWidget(mRecordButton);
     connect(mRecordButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::record);
 
@@ -94,7 +103,11 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 
     if (!mMediaRecorder) {
         mMediaRecorder.reset(new QMediaRecorder);
-        mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(QStringLiteral("test.video")));
+        //        QMediaFormat format;
+        //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
+        //        mMediaRecorder->setMediaFormat(format);
+        // Define url temporary file.
+        mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(QStringLiteral("/home/laurent/test.avi")));
         mCaptureSession.setRecorder(mMediaRecorder.data());
         connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
                 &CreateVideoMessageWidget::updateRecorderState);
@@ -120,28 +133,23 @@ void CreateVideoMessageWidget::displayCameraError()
 
 void CreateVideoMessageWidget::updateRecorderState(QMediaRecorder::RecorderState state)
 {
-#if 0
     switch (state) {
     case QMediaRecorder::StoppedState:
-        ui->recordButton->setEnabled(true);
-        ui->pauseButton->setEnabled(true);
-        ui->stopButton->setEnabled(false);
-        ui->metaDataButton->setEnabled(true);
+        mRecordButton->setEnabled(true);
+        mPauseButton->setEnabled(true);
+        mStopButton->setEnabled(false);
         break;
     case QMediaRecorder::PausedState:
-        ui->recordButton->setEnabled(true);
-        ui->pauseButton->setEnabled(false);
-        ui->stopButton->setEnabled(true);
-        ui->metaDataButton->setEnabled(false);
+        mRecordButton->setEnabled(true);
+        mPauseButton->setEnabled(false);
+        mStopButton->setEnabled(true);
         break;
     case QMediaRecorder::RecordingState:
-        ui->recordButton->setEnabled(false);
-        ui->pauseButton->setEnabled(true);
-        ui->stopButton->setEnabled(true);
-        ui->metaDataButton->setEnabled(false);
+        mRecordButton->setEnabled(false);
+        mPauseButton->setEnabled(true);
+        mStopButton->setEnabled(true);
         break;
     }
-#endif
 }
 
 void CreateVideoMessageWidget::updateCameraActive(bool active)
@@ -155,16 +163,6 @@ void CreateVideoMessageWidget::displayRecorderError()
         mMessageWidget->setText(mMediaRecorder->errorString());
         mMessageWidget->animatedShow();
     }
-}
-
-void CreateVideoMessageWidget::startCamera()
-{
-    mCamera->start();
-}
-
-void CreateVideoMessageWidget::stopCamera()
-{
-    mCamera->stop();
 }
 
 void CreateVideoMessageWidget::record()

@@ -27,8 +27,6 @@ public:
     ~CreateVideoMessageWidget() override;
 
 private:
-    void stopCamera();
-    void startCamera();
     void updateCameras();
     void setCamera(const QCameraDevice &cameraDevice);
     void updateRecorderState(QMediaRecorder::RecorderState state);
@@ -49,6 +47,7 @@ private:
     QComboBox *const mListCamera;
     QToolButton *const mRecordButton;
     QToolButton *const mPauseButton;
+    QToolButton *const mStopButton;
     QLabel *const mDurationLabel;
     KMessageWidget *const mMessageWidget;
 };
