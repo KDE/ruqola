@@ -54,7 +54,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     auto videoWidget = new QVideoWidget(this);
     videoWidget->setObjectName(QStringLiteral("videoWidget"));
 
-    mainLayout->addWidget(videoWidget);
+    mainLayout->addWidget(videoWidget, 1);
 
     QBoxLayout *controlLayout = new QHBoxLayout;
     controlLayout->setObjectName(QStringLiteral("controlLayout"));
