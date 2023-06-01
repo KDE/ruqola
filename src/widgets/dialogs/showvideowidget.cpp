@@ -101,6 +101,9 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::slotMuteChanged);
+#else
+    connect(mSoundButton, &QToolButton::clicked, mAudioOutput, &QAudioOutput::setMuted);
+    connect(mAudioOutput, &QAudioOutput::mutedChanged, this, &ShowVideoWidget::slotMuteChanged);
 #endif
     controlLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
@@ -136,7 +139,7 @@ void ShowVideoWidget::slotVolumeChanged(int position)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setVolume(position);
 #else
-    mAudioOutput->setVolume(position);
+    mAudioOutput->setVolume(position / 100.0);
 #endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }

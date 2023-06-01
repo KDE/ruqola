@@ -92,6 +92,9 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
+#else
+    connect(mSoundButton, &QToolButton::clicked, mAudioOutput, &QAudioOutput::setMuted);
+    connect(mAudioOutput, &QAudioOutput::mutedChanged, this, &PlaySoundWidget::muteChanged);
 #endif
     playerLayout->addWidget(mPositionSlider);
 
@@ -149,7 +152,7 @@ void PlaySoundWidget::slotVolumeChanged(int position)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setVolume(position);
 #else
-    mAudioOutput->setVolume(position);
+    mAudioOutput->setVolume(position / 100.0);
 #endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
