@@ -405,6 +405,9 @@ public:
     Q_REQUIRED_RESULT bool allowProfileChange() const;
     Q_REQUIRED_RESULT bool allowAvatarChanged() const;
 
+    Q_REQUIRED_RESULT bool audioRecorderEnabled() const;
+    Q_REQUIRED_RESULT bool videoRecorderEnabled() const;
+
     void enable2FaEmailJob(bool enable);
     void logoutFromOtherLocation();
     void createDirectMessages(const QStringList &usernames);

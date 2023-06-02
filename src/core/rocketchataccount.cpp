@@ -1878,6 +1878,16 @@ bool RocketChatAccount::allowAvatarChanged() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUserAvatarChange;
 }
 
+bool RocketChatAccount::audioRecorderEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AudioRecorderEnabled;
+}
+
+bool RocketChatAccount::videoRecorderEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::VideoRecorderEnabled;
+}
+
 bool RocketChatAccount::teamEnabled() const
 {
     return mRuqolaServerConfig->hasAtLeastVersion(3, 13, 0) && hasPermission(QStringLiteral("create-team"));
