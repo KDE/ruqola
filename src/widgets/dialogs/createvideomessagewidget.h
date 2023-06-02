@@ -16,7 +16,6 @@ class QComboBox;
 class QVideoWidget;
 class QCameraDevice;
 class QToolButton;
-class QMediaCaptureSession;
 class KMessageWidget;
 class QAudioInput;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
