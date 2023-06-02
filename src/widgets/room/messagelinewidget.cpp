@@ -5,8 +5,10 @@
 */
 
 #include "messagelinewidget.h"
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include "dialogs/createsoundmessagedialog.h"
 #include "dialogs/createvideomessagedialog.h"
+#endif
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
@@ -300,20 +302,24 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 
 void MessageLineWidget::slotSendSoundMessage()
 {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QPointer<CreateSoundMessageDialog> dlg = new CreateSoundMessageDialog(this);
     if (dlg->exec()) {
         // TODO send it
     }
     delete dlg;
+#endif
 }
 
 void MessageLineWidget::slotSendVideoMessage()
 {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QPointer<CreateVideoMessageDialog> dlg = new CreateVideoMessageDialog(this);
     if (dlg->exec()) {
         // TODO send it
     }
     delete dlg;
+#endif
 }
 
 void MessageLineWidget::slotSendFile()
