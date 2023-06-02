@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-30 00:46+0000\n"
+"POT-Creation-Date: 2023-06-02 00:48+0000\n"
 "PO-Revision-Date: 2023-05-24 12:40+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -6480,7 +6480,7 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Videobericht aanmaken"
 
-#: widgets/dialogs/createvideomessagewidget.cpp:183
+#: widgets/dialogs/createvideomessagewidget.cpp:186
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 seconden opgenomen"
@@ -6607,8 +6607,8 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Geluid: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:226
-#: widgets/dialogs/showvideowidget.cpp:228
+#: widgets/dialogs/playsoundwidget.cpp:229
+#: widgets/dialogs/showvideowidget.cpp:231
 #, kde-format
 msgid "Error: "
 msgstr "Fout: "
