@@ -323,11 +323,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createnewserverwidget.cpp
     dialogs/createnewserverwidget.h
 
-    dialogs/createsoundmessagewidget.h
-    dialogs/createsoundmessagewidget.cpp
-
-    dialogs/createsoundmessagedialog.h
-    dialogs/createsoundmessagedialog.cpp
 
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfodialog.h
@@ -730,6 +725,10 @@ if (QT_MAJOR_VERSION STREQUAL "6")
         dialogs/createvideomessagedialog.h
         dialogs/createvideomessagewidget.cpp
         dialogs/createvideomessagewidget.h
+        dialogs/createsoundmessagewidget.h
+        dialogs/createsoundmessagewidget.cpp
+        dialogs/createsoundmessagedialog.h
+        dialogs/createsoundmessagedialog.cpp
     )
 endif()
 
