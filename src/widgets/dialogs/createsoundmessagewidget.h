@@ -17,7 +17,11 @@ public:
     ~CreateSoundMessageWidget() override;
 
 private:
-    void slotRecord();
+    void stop();
+    void record();
+    void pause();
     QToolButton *const mRecordButton;
+    QToolButton *const mPauseButton;
+    QToolButton *const mStopButton;
     QLabel *const mLabelDuration;
 };
