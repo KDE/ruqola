@@ -97,6 +97,10 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::handleMimeData, this, &MessageLineWidget::handleMimeData);
 
     setFocusProxy(mMessageTextEdit);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    mVideoMessageButton->setVisible(false);
+    mSoundMessageButton->setVisible(false);
+#endif
 }
 
 MessageLineWidget::~MessageLineWidget() = default;
@@ -259,8 +263,10 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
 void MessageLineWidget::slotPublicSettingChanged()
 {
     mSendFile->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
     mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
+#endif
 }
 
 void MessageLineWidget::slotOwnUserPreferencesChanged()
