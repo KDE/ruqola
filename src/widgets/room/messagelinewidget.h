@@ -89,7 +89,7 @@ private:
     QString mQuoteText;
     EditingMode mMode = EditingMode::NewMessage;
     MessageTextEdit *const mMessageTextEdit;
-    QToolButton *const mSendFile;
+    QToolButton *const mSendFileButton;
     QToolButton *const mEmoticonButton;
     QToolButton *const mSendMessageButton;
     QToolButton *const mVideoMessageButton;

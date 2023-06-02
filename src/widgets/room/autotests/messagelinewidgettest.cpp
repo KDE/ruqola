@@ -34,10 +34,10 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     auto mMessageTextEdit = w.findChild<MessageTextEdit *>(QStringLiteral("mMessageTextEdit"));
     QVERIFY(mMessageTextEdit);
 
-    auto mSendFile = w.findChild<QToolButton *>(QStringLiteral("mSendFile"));
-    QVERIFY(mSendFile);
-    QVERIFY(!mSendFile->icon().isNull());
-    QVERIFY(mSendFile->autoRaise());
+    auto mSendFileButton = w.findChild<QToolButton *>(QStringLiteral("mSendFileButton"));
+    QVERIFY(mSendFileButton);
+    QVERIFY(!mSendFileButton->icon().isNull());
+    QVERIFY(mSendFileButton->autoRaise());
 
     auto mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
     QVERIFY(mEmoticonButton);

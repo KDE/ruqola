@@ -46,6 +46,11 @@ CreateVideoMessageDialog::~CreateVideoMessageDialog()
     writeConfig();
 }
 
+QString CreateVideoMessageDialog::temporaryFilePath() const
+{
+    return mCreateVideoMessageWidget->temporaryFilePath();
+}
+
 void CreateVideoMessageDialog::readConfig()
 {
     create(); // ensure a window is created

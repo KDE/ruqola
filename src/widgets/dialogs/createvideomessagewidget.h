@@ -26,6 +26,8 @@ public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
     ~CreateVideoMessageWidget() override;
 
+    Q_REQUIRED_RESULT QString temporaryFilePath() const;
+
 private:
     void updateCameras();
     void setCamera(const QCameraDevice &cameraDevice);

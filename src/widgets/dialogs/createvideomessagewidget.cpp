@@ -82,6 +82,12 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
 
+QString CreateVideoMessageWidget::temporaryFilePath() const
+{
+    // TODO
+    return {};
+}
+
 void CreateVideoMessageWidget::updateCameras()
 {
     const QList<QCameraDevice> availableCameras = QMediaDevices::videoInputs();

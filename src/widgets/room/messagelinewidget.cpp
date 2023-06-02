@@ -5,6 +5,8 @@
 */
 
 #include "messagelinewidget.h"
+#include "dialogs/createsoundmessagedialog.h"
+#include "dialogs/createvideomessagedialog.h"
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
@@ -34,7 +36,7 @@
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
     , mMessageTextEdit(new MessageTextEdit(this))
-    , mSendFile(new QToolButton(this))
+    , mSendFileButton(new QToolButton(this))
     , mEmoticonButton(new QToolButton(this))
     , mSendMessageButton(new QToolButton(this))
     , mVideoMessageButton(new QToolButton(this))
@@ -52,11 +54,11 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
     connect(mMessageTextEdit, &MessageTextEdit::textClicked, this, &MessageLineWidget::textEditClicked);
 
-    mSendFile->setAutoRaise(true);
-    mSendFile->setObjectName(QStringLiteral("mSendFile"));
-    mainLayout->addWidget(mSendFile);
-    mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
-    connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
+    mSendFileButton->setAutoRaise(true);
+    mSendFileButton->setObjectName(QStringLiteral("mSendFileButton"));
+    mainLayout->addWidget(mSendFileButton);
+    mSendFileButton->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
+    connect(mSendFileButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
     mVideoMessageButton->setAutoRaise(true);
     mVideoMessageButton->setObjectName(QStringLiteral("mVideoMessageButton"));
@@ -262,7 +264,7 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
 
 void MessageLineWidget::slotPublicSettingChanged()
 {
-    mSendFile->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
+    mSendFileButton->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
     mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
@@ -298,12 +300,20 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 
 void MessageLineWidget::slotSendSoundMessage()
 {
-    // TODO
+    QPointer<CreateSoundMessageDialog> dlg = new CreateSoundMessageDialog(this);
+    if (dlg->exec()) {
+        // TODO send it
+    }
+    delete dlg;
 }
 
 void MessageLineWidget::slotSendVideoMessage()
 {
-    // TODO
+    QPointer<CreateVideoMessageDialog> dlg = new CreateVideoMessageDialog(this);
+    if (dlg->exec()) {
+        // TODO send it
+    }
+    delete dlg;
 }
 
 void MessageLineWidget::slotSendFile()
