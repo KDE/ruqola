@@ -11,6 +11,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
 
@@ -31,6 +32,7 @@ CreateSoundMessageDialog::CreateSoundMessageDialog(QWidget *parent)
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Send"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateSoundMessageDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateSoundMessageDialog::accept);
     mainLayout->addWidget(buttonBox);

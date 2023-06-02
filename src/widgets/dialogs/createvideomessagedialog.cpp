@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 #include <KConfigGroup>
@@ -33,6 +34,7 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
+    buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Send"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateVideoMessageDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateVideoMessageDialog::accept);
     mainLayout->addWidget(buttonBox);
