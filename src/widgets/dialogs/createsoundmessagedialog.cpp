@@ -23,7 +23,7 @@ CreateSoundMessageDialog::CreateSoundMessageDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateSoundMessageWidget(new CreateSoundMessageWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Create Video Message"));
+    setWindowTitle(i18nc("@title:window", "Create Sound Message"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
