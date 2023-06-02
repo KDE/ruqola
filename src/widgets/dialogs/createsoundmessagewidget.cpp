@@ -6,6 +6,7 @@
 
 #include "createsoundmessagewidget.h"
 #include <KLocalizedString>
+#include <QAudioInput>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QToolButton>
@@ -17,6 +18,10 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     , mStopButton(new QToolButton(this))
     , mLabelDuration(new QLabel(this))
 {
+    mAudioRecorder = new QMediaRecorder(this);
+    mCaptureSession.setRecorder(mAudioRecorder);
+    mCaptureSession.setAudioInput(new QAudioInput(this));
+
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -39,21 +44,53 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
     mLabelDuration->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mLabelDuration);
+
+    connect(mAudioRecorder, &QMediaRecorder::durationChanged, this, &CreateSoundMessageWidget::updateRecordTime);
+    connect(mAudioRecorder, &QMediaRecorder::recorderStateChanged, this, &CreateSoundMessageWidget::updateRecorderState);
+    //    connect(mAudioRecorder, &QMediaRecorder::errorChanged, this,
+    //            &CreateSoundMessageWidget::displayErrorMessage);
 }
 
 CreateSoundMessageWidget::~CreateSoundMessageWidget() = default;
 
+void CreateSoundMessageWidget::updateRecordTime(qint64 duration)
+{
+    const QString str = i18n("Recorded %1 sec", duration / 1000);
+    mLabelDuration->setText(str);
+}
+
 void CreateSoundMessageWidget::stop()
 {
-    // TODO
+    mAudioRecorder->stop();
 }
 
 void CreateSoundMessageWidget::record()
 {
-    // TODO
+    mAudioRecorder->record();
 }
 
 void CreateSoundMessageWidget::pause()
 {
-    // TODO
+    mAudioRecorder->pause();
+}
+
+void CreateSoundMessageWidget::updateRecorderState(QMediaRecorder::RecorderState state)
+{
+    switch (state) {
+    case QMediaRecorder::StoppedState:
+        mRecordButton->setEnabled(true);
+        mPauseButton->setEnabled(true);
+        mStopButton->setEnabled(false);
+        break;
+    case QMediaRecorder::PausedState:
+        mRecordButton->setEnabled(true);
+        mPauseButton->setEnabled(false);
+        mStopButton->setEnabled(true);
+        break;
+    case QMediaRecorder::RecordingState:
+        mRecordButton->setEnabled(false);
+        mPauseButton->setEnabled(true);
+        mStopButton->setEnabled(true);
+        break;
+    }
 }

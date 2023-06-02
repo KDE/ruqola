@@ -6,6 +6,8 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QMediaCaptureSession>
+#include <QMediaRecorder>
 #include <QWidget>
 class QToolButton;
 class QLabel;
@@ -20,8 +22,12 @@ private:
     void stop();
     void record();
     void pause();
+    void updateRecorderState(QMediaRecorder::RecorderState state);
+    void updateRecordTime(qint64 duration);
     QToolButton *const mRecordButton;
     QToolButton *const mPauseButton;
     QToolButton *const mStopButton;
     QLabel *const mLabelDuration;
+    QMediaCaptureSession mCaptureSession;
+    QMediaRecorder *mAudioRecorder = nullptr;
 };
