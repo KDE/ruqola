@@ -37,6 +37,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     , mSendFile(new QToolButton(this))
     , mEmoticonButton(new QToolButton(this))
     , mSendMessageButton(new QToolButton(this))
+    , mVideoMessageButton(new QToolButton(this))
+    , mSoundMessageButton(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -55,6 +57,18 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mSendFile);
     mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
     connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
+
+    mVideoMessageButton->setAutoRaise(true);
+    mVideoMessageButton->setObjectName(QStringLiteral("mVideoMessageButton"));
+    mainLayout->addWidget(mVideoMessageButton);
+    mVideoMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-video")));
+    connect(mVideoMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendVideoMessage);
+
+    mSoundMessageButton->setAutoRaise(true);
+    mSoundMessageButton->setObjectName(QStringLiteral("mSoundMessageButton"));
+    mainLayout->addWidget(mSoundMessageButton);
+    mSoundMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("audio-input-microphone")));
+    connect(mSoundMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendSoundMessage);
 
     mEmoticonButton->setAutoRaise(true);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -245,6 +259,8 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
 void MessageLineWidget::slotPublicSettingChanged()
 {
     mSendFile->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
+    mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
+    mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
 }
 
 void MessageLineWidget::slotOwnUserPreferencesChanged()
@@ -272,6 +288,16 @@ QString MessageLineWidget::text() const
 MessageTextEdit *MessageLineWidget::messageTextEdit() const
 {
     return mMessageTextEdit;
+}
+
+void MessageLineWidget::slotSendSoundMessage()
+{
+    // TODO
+}
+
+void MessageLineWidget::slotSendVideoMessage()
+{
+    // TODO
 }
 
 void MessageLineWidget::slotSendFile()

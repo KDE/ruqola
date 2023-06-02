@@ -79,6 +79,8 @@ private:
     Q_REQUIRED_RESULT MessageModel *messageModel() const;
     void clearEditingMode();
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
+    void slotSendVideoMessage();
+    void slotSendSoundMessage();
 
     QString mRoomId;
     QString mThreadMessageId;
@@ -90,6 +92,8 @@ private:
     QToolButton *const mSendFile;
     QToolButton *const mEmoticonButton;
     QToolButton *const mSendMessageButton;
+    QToolButton *const mVideoMessageButton;
+    QToolButton *const mSoundMessageButton;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mReplyInThreadDialogBox = false;

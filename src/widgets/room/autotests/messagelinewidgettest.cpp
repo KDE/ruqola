@@ -50,6 +50,16 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSendMessageButton->icon().isNull());
     QVERIFY(mSendMessageButton->autoRaise());
 
+    auto mVideoMessageButton = w.findChild<QToolButton *>(QStringLiteral("mVideoMessageButton"));
+    QVERIFY(mVideoMessageButton);
+    QVERIFY(!mVideoMessageButton->icon().isNull());
+    QVERIFY(mVideoMessageButton->autoRaise());
+
+    auto mSoundMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSoundMessageButton"));
+    QVERIFY(mSoundMessageButton);
+    QVERIFY(!mSoundMessageButton->icon().isNull());
+    QVERIFY(mSoundMessageButton->autoRaise());
+
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.messageIdBeingEdited().isEmpty());
 
