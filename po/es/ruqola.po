@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-02 00:48+0000\n"
+"POT-Creation-Date: 2023-06-03 00:47+0000\n"
 "PO-Revision-Date: 2023-05-27 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1297,12 +1297,12 @@ msgstr "<strong>%1</strong> está escribiendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:2821
+#: core/rocketchataccount.cpp:2831
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: core/rocketchataccount.cpp:2822
+#: core/rocketchataccount.cpp:2832
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
@@ -6470,17 +6470,31 @@ msgstr "Nombre de la cuenta:"
 msgid "Server URL:"
 msgstr "URL del servidor:"
 
-#: widgets/dialogs/createsoundmessagedialog.cpp:25
-#: widgets/dialogs/createvideomessagedialog.cpp:27
+#: widgets/dialogs/createsoundmessagedialog.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Video Message"
+msgctxt "@title:window"
+msgid "Create Sound Message"
+msgstr "Crear mensaje de video"
+
+#: widgets/dialogs/createsoundmessagedialog.cpp:35
+#: widgets/dialogs/createvideomessagedialog.cpp:37
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: widgets/dialogs/createsoundmessagewidget.cpp:58
+#: widgets/dialogs/createvideomessagewidget.cpp:192
+#, kde-format
+msgid "Recorded %1 sec"
+msgstr "%1 segundos grabados"
+
+#: widgets/dialogs/createvideomessagedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Crear mensaje de video"
-
-#: widgets/dialogs/createvideomessagewidget.cpp:186
-#, kde-format
-msgid "Recorded %1 sec"
-msgstr "%1 segundos grabados"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
@@ -7791,27 +7805,27 @@ msgstr "El mensaje ha sido fijado"
 msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"
 
-#: widgets/room/messagelinewidget.cpp:105
+#: widgets/room/messagelinewidget.cpp:127
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "¿Desea convertir este texto grande en un adjunto?"
 
-#: widgets/room/messagelinewidget.cpp:106
+#: widgets/room/messagelinewidget.cpp:128
 #, kde-format
 msgid "Message Too Big"
 msgstr "El mensaje es demasiado grande"
 
-#: widgets/room/messagelinewidget.cpp:295
+#: widgets/room/messagelinewidget.cpp:343
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El archivo seleccionado es demasiado grande (Tamaño máximo %1)"
 
-#: widgets/room/messagelinewidget.cpp:295
+#: widgets/room/messagelinewidget.cpp:343
 #, kde-format
 msgid "File upload"
 msgstr "Subida del archivo"
 
-#: widgets/room/messagelinewidget.cpp:300
+#: widgets/room/messagelinewidget.cpp:348
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no autoriza este archivo (tipo mime no soportado)"
@@ -8681,35 +8695,39 @@ msgstr "Soporte añadido para texto citado (texto que comienza por «>»)"
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostrar líder/moderador/propietario en la información del canal."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:37
+#: widgets/whatsnew/whatsnewwidget.cpp:32
+msgid "Video/Sound Message support (kf6 only)."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"
 msgstr "Arreglo del soporte de avatares"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:38
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Arreglo del soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:39
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix animated gif in reactions"
 msgstr "Arreglo de los gif animados en las reacciones"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix kf6 support"
 msgstr "Arreglo del soporte de kf6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:83
+#: widgets/whatsnew/whatsnewwidget.cpp:84
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Cambios importantes desde la última versión:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:92
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:99
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
