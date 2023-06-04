@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:47+0000\n"
-"PO-Revision-Date: 2023-05-24 08:21+0300\n"
+"PO-Revision-Date: 2023-06-03 08:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -6497,18 +6497,16 @@ msgid "Server URL:"
 msgstr "Адреса сервера:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Створення відеоповідомлення"
+msgstr "Створення звукового повідомлення"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
 #: widgets/dialogs/createvideomessagedialog.cpp:37
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Надіслати"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
 #: widgets/dialogs/createvideomessagewidget.cpp:192
@@ -8750,7 +8748,7 @@ msgstr "Показувати лідера, модератора та власн�
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"

@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:47+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -3334,7 +3334,7 @@ msgstr "Autoriser un message d'état personnalisé"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Bloquer les tentatives de connexion en échec par nom d’utilisateur"
+msgstr "Bloquer les tentatives de connexion en échec par nom d'utilisateur"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
@@ -3394,7 +3394,7 @@ msgstr "Échecs de tentatives de connexion"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr "Nombre de tentatives infructueuses jusqu’au blocage par l’utilisateur"
+msgstr "Nombre de tentatives infructueuses jusqu'au blocage par l'utilisateur"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:127
 #, kde-format
@@ -3609,7 +3609,7 @@ msgstr "Fonctionnalités activées"
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
-"Suit les évènements personnalisés concernant les actions qu’un utilisateur "
+"Suit les évènements personnalisés concernant les actions qu'un utilisateur "
 "effectuent sur les messages."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
@@ -3628,7 +3628,7 @@ msgid ""
 "times, profile picture change, etc)."
 msgstr ""
 "Piste les évènements personnalisés concernant les actions relatives aux "
-"utilisateurs (Réinitialisation du mot de passe, modification de l’image de "
+"utilisateurs (Réinitialisation du mot de passe, modification de l'image de "
 "profil, etc.)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
@@ -3760,7 +3760,7 @@ msgid ""
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
 "Si cette option est activée, Rocket.Chat fera confiance afin que tout nom "
-"d’utilisateur provenant de « CAS » appartienne au même utilisateur sur "
+"d'utilisateur provenant de « CAS » appartienne au même utilisateur sur "
 "Rocket.Chat.\n"
 "Cela peut être nécessaire si un utilisateur est renommé sur « CAS ». "
 "Cependant, cela peut également permettre aux gens de prendre le contrôle de "
@@ -3785,7 +3785,7 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
-"Toujours synchroniser les données de l’utilisateur « CAS » externe avec les "
+"Toujours synchroniser les données de l'utilisateur « CAS » externe avec les "
 "attributs disponibles à la connexion.\n"
 "Remarque : Les attributs sont toujours synchronisés lors de la création du "
 "compte."
@@ -3811,15 +3811,15 @@ msgid ""
 "their team and department channel."
 msgstr ""
 "Utilisez cette entrée « JSON » pour créer des attributs internes (clés) à "
-"partir d’attributs externes (valeur).\n"
-"Les noms d’attributs externes encadrés avec un caractère « % » seront "
+"partir d'attributs externes (valeur).\n"
+"Les noms d'attributs externes encadrés avec un caractère « % » seront "
 "interpolés dans les chaînes de valeurs. <br/>Exemple, {« courriel » : "
 "« %courriel% », « nom » : « %prénom%, %nom% »} \n"
-"La carte d’attributs est toujours interpolée. Dans « CAS 1.0 », seul "
-"l’attribut « Nom-utilisateur » est disponible. Les attributs internes "
+"La carte d'attributs est toujours interpolée. Dans « CAS 1.0 », seul "
+"l'attribut « Nom-utilisateur » est disponible. Les attributs internes "
 "disponibles sont : Nom-utilisateur, nom, courriel, salons ; \n"
 "Le paramètre « salons » est une liste de salons à rejoindre, séparés par des "
-"virgules, lors de la création de l’utilisateur, par exemple : "
+"virgules, lors de la création de l'utilisateur, par exemple : "
 "{« chambres » : « %équipe%,%département% »} regrouperait les utilisateurs "
 "« CAS » lors de la création de leur équipe et du canal de service."
 
@@ -3910,7 +3910,7 @@ msgstr ""
 "Tous les courriels non lus sont chargés, marqués comme lus et traités. \n"
 "Cette option ne doit être activée que si la boîte aux lettres utilisée est "
 "destinée exclusivement pour accéder à Rocket.Chat \n"
-"et n’est pas lue / traitée « en parallèle » par des personnes réelles."
+"et n'est pas lue / traitée « en parallèle » par des personnes réelles."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
 #, kde-format
@@ -3918,8 +3918,8 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
-"[Attention] L’activation du mode « Débogage » afficherait votre « mot de "
-"passe textuel en clair » dans la console d’administration."
+"[Attention] L'activation du mode « Débogage » afficherait votre « mot de "
+"passe textuel en clair » dans la console d'administration."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
@@ -4471,9 +4471,9 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
-"L’utilisateur « LDAP » effectuant des recherches d’utilisateurs pour "
-"authentifier d’autres utilisateurs lors de leurs ouvertures de session. Il "
-"s’agit généralement d’un compte de service créé spécifiquement pour les "
+"L'utilisateur « LDAP » effectuant des recherches d'utilisateurs pour "
+"authentifier d'autres utilisateurs lors de leurs ouvertures de session. Il "
+"s'agit généralement d'un compte de service créé spécifiquement pour les "
 "intégrations avec des tierces parties. Veuillez utiliser un nom totalement "
 "qualifié, comme « cn=Administrator,cn=Users,dc=Example,dc=com »."
 
@@ -4513,7 +4513,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:86
 #, kde-format
 msgid "Idle Timeout (ms)"
-msgstr "Délai maximal d’inactivité (ms)"
+msgstr "Délai maximal d'inactivité (ms)"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
@@ -4630,7 +4630,7 @@ msgstr "Supprimer les métadonnées « EXIF » des fichiers pris en charge"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:31
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
-msgstr "Activer les vignettes d’images pour limiter la bande passante"
+msgstr "Activer les vignettes d'images pour limiter la bande passante"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
@@ -4668,7 +4668,7 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
-"Il s’agit d’une fonctionnalité obsolète. Elle pourrait ne pas fonctionner "
+"Il s'agit d'une fonctionnalité obsolète. Elle pourrait ne pas fonctionner "
 "comme prévu et ne pourra recevoir de nouvelles mises à jour."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
@@ -4722,13 +4722,13 @@ msgid ""
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
 "Déterminer quoi faire avec les messages des utilisateurs supprimant leur "
-"compte. Conserver les messages et le nom d’utilisateur : l’historique des "
-"messages et des fichiers de l’utilisateur sera supprimé des messages directs "
-"et sera conservé dans d’autres salons. Supprimer tous les messages : tous "
-"les messages et tous les fichiers de l’utilisateur seront supprimés de la "
-"base de données et il ne sera plus possible de localiser l’utilisateur. "
-"Supprimer le lien entre l’utilisateur et les messages : cette option "
-"associera tous les messages et tous les fichiers de l’utilisateur au robot "
+"compte. Conserver les messages et le nom d'utilisateur : l'historique des "
+"messages et des fichiers de l'utilisateur sera supprimé des messages directs "
+"et sera conservé dans d'autres salons. Supprimer tous les messages : tous "
+"les messages et tous les fichiers de l'utilisateur seront supprimés de la "
+"base de données et il ne sera plus possible de localiser l'utilisateur. "
+"Supprimer le lien entre l'utilisateur et les messages : cette option "
+"associera tous les messages et tous les fichiers de l'utilisateur au robot "
 "de Rocket.Chat et les messages directs vont être supprimés."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
@@ -4754,7 +4754,7 @@ msgstr "Période de regroupement (En secondes)"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid "Direct Messsage Maximum Users"
-msgstr "Nombre maximal d’utilisateurs de messages directs"
+msgstr "Nombre maximal d'utilisateurs de messages directs"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
@@ -4767,8 +4767,8 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
-"Supprime les métadonnées « EXIF  » des fichiers d’images (jpeg, tiff, etc.). "
-"Ce paramètre n’est pas rétroactif. Donc les fichiers téléchargés ayant été "
+"Supprime les métadonnées « EXIF  » des fichiers d'images (jpeg, tiff, etc.). "
+"Ce paramètre n'est pas rétroactif. Donc les fichiers téléchargés ayant été "
 "téléchargés avant la désactivation de ce paramètre posséderont des données "
 "« EXIF »."
 
@@ -4779,9 +4779,9 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
-"Les vignettes seront fournies à la place de l’image originale pour réduire "
-"l’utilisation de la bande passante. Les images à la résolution originale "
-"peuvent être téléchargées à l’aide de l’icône à côté du nom de la pièce "
+"Les vignettes seront fournies à la place de l'image originale pour réduire "
+"l'utilisation de la bande passante. Les images à la résolution originale "
+"peuvent être téléchargées à l'aide de l'icône à côté du nom de la pièce "
 "jointe."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
@@ -5453,7 +5453,7 @@ msgid ""
 "the user. If empty, no alias will be used."
 msgstr ""
 "Importez les messages de Slack avec un alias : %s est remplacé par le nom "
-"d’utilisateur de l’utilisateur. Si ce paramètre est vide, alors, aucun alias "
+"d'utilisateur de l'utilisateur. Si ce paramètre est vide, alors, aucun alias "
 "ne sera utilisé."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
@@ -5467,7 +5467,7 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
-"Ne propagez pas les messages des bots dont le nom correspond à l’expression "
+"Ne propagez pas les messages des bots dont le nom correspond à l'expression "
 "régulière ci-dessus. Si ce paramètre est laissé vide, tous les messages des "
 "bots seront propagés."
 
@@ -5524,7 +5524,7 @@ msgid ""
 msgstr ""
 "Ce paramètre désactive complètement le système de notifications, les sons, "
 "les notifications de bureau, les notifications mobiles et les courriels "
-"s’arrêteront !"
+"s'arrêteront !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -5533,7 +5533,7 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
-"Ce paramètre empêche toutes les instances d’envoyer les modifications d'état "
+"Ce paramètre empêche toutes les instances d'envoyer les modifications d'état "
 "des utilisateurs vers leurs clients en maintenant l'état de présence de tous "
 "les utilisateurs lors du premier chargement !"
 
@@ -5544,7 +5544,7 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
-"Ce paramètre empêche les instances de Rocket.Chat d’envoyer des évènements "
+"Ce paramètre empêche les instances de Rocket.Chat d'envoyer des évènements "
 "aux autres instances. Cela peut provoquer des problèmes de synchronisation "
 "et des comportements incohérents !"
 
@@ -5565,8 +5565,8 @@ msgid ""
 "missing information around the system!"
 msgstr ""
 "Ce paramètre arrête le traitement de toutes les statistiques rendant la page "
-"d’informations obsolète jusqu’à ce que quelqu’un clique sur le bouton de "
-"rafraîchissement. Cela peut conduire à d’autres informations manquantes au "
+"d'informations obsolète jusqu'à ce que quelqu'un clique sur le bouton de "
+"rafraîchissement. Cela peut conduire à d'autres informations manquantes au "
 "sein du système !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
@@ -5575,8 +5575,8 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
-"Ce paramètre arrête le traitement de toutes les demandes d’exportation des "
-"utilisateurs, de sorte qu’ils ne recevront pas le lien pour télécharger "
+"Ce paramètre arrête le traitement de toutes les demandes d'exportation des "
+"utilisateurs, de sorte qu'ils ne recevront pas le lien pour télécharger "
 "leurs données !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
@@ -5587,7 +5587,7 @@ msgid ""
 msgstr ""
 "Ce paramètre arrête la synchronisation de ce serveur avec le cloud de Rocket."
 "Chat. Il peut causer des problèmes avec les licences de marché et "
-"d’entreprise !"
+"d'entreprise !"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -5733,7 +5733,7 @@ msgid ""
 "host:port or username:password@turn:host:port."
 msgstr ""
 "Une liste des serveurs « STUN » et « TURN » séparés par des virgules. \n"
-"Le nom d’utilisateur, le mot de passe et le port sont autorisés au format "
+"Le nom d'utilisateur, le mot de passe et le port sont autorisés au format "
 "« nom-utilisateur : mot-de-passe@stun:host:port » ou « nom-utilisateur : mot-"
 "de-passe@turn:host:port »."
 
@@ -6316,7 +6316,7 @@ msgstr "Mettre en pause les mentions @tout et @ici"
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format
 msgid "Show badge for mentions"
-msgstr "Afficher un ’insigne pour les citations"
+msgstr "Afficher un 'insigne pour les citations"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:36
 #, kde-format
@@ -8116,7 +8116,7 @@ msgstr "Supprimer l'historique"
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
-"Un administrateur d’espace de travail doit installer et configurer des "
+"Un administrateur d'espace de travail doit installer et configurer des "
 "applications de conférence téléphonique."
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:47+0000\n"
-"PO-Revision-Date: 2023-05-24 12:56+0300\n"
+"PO-Revision-Date: 2023-06-03 12:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6420,18 +6420,16 @@ msgid "Server URL:"
 msgstr "Sunucu URL'si:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Video İletisi Oluştur"
+msgstr "Ses İletisi Oluştur"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
 #: widgets/dialogs/createvideomessagedialog.cpp:37
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Gönder"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
 #: widgets/dialogs/createvideomessagewidget.cpp:192
@@ -8644,7 +8642,7 @@ msgstr "Kanal bilgisinde lider/moderatör/sahip bilgisini göster"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Video/Ses İletisi desteği (yalnızca KF6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"

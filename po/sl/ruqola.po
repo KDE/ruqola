@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:47+0000\n"
-"PO-Revision-Date: 2023-05-24 08:54+0200\n"
+"PO-Revision-Date: 2023-06-03 09:02+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -6445,18 +6445,16 @@ msgid "Server URL:"
 msgstr "Url strežnika:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Ustvari video sporočilo"
+msgstr "Ustvari zvočno sporočilo"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
 #: widgets/dialogs/createvideomessagedialog.cpp:37
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Pošlji"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
 #: widgets/dialogs/createvideomessagewidget.cpp:192
@@ -8683,7 +8681,7 @@ msgstr "Pokaži vodjo/moderatorja/lastnika v informaciji o kanalu."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Podpora video/zvočnim sporočilom (samo Kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"
