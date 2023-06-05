@@ -37,6 +37,12 @@ CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)
 
 CreateVideoMessagePage::~CreateVideoMessagePage() = default;
 
+bool CreateVideoMessagePage::validatePage()
+{
+    // TODO
+    return true;
+}
+
 CreateMessagePage::CreateMessagePage(QWidget *parent)
     : QWizardPage(parent)
     , mShowVideoWidget(new ShowVideoWidget(this))

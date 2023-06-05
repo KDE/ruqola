@@ -36,6 +36,8 @@ public:
     explicit CreateVideoMessagePage(QWidget *parent = nullptr);
     ~CreateVideoMessagePage() override;
 
+    Q_REQUIRED_RESULT bool validatePage() override;
+
 private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
