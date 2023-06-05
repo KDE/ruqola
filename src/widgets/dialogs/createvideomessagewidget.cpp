@@ -18,6 +18,7 @@
 #include <QVideoWidget>
 
 #include <KLocalizedString>
+#include <QDir>
 #include <QMediaFormat>
 
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
@@ -82,10 +83,10 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
 
-QString CreateVideoMessageWidget::temporaryFilePath() const
+QUrl CreateVideoMessageWidget::temporaryFilePath() const
 {
-    // TODO
-    return {};
+    qDebug() << " XCCCCCCCCCCCCCCCCCCC" << mMediaRecorder->outputLocation();
+    return mTemporaryFile ? QUrl::fromLocalFile(mTemporaryFile->fileName()) : QUrl();
 }
 
 void CreateVideoMessageWidget::updateCameras()
@@ -109,11 +110,15 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 
     if (!mMediaRecorder) {
         mMediaRecorder.reset(new QMediaRecorder);
+        mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1String("/ruqola_XXXXXX")); // TODO fix extension
+        mTemporaryFile->setAutoRemove(false);
+        mTemporaryFile->open();
         //        QMediaFormat format;
         //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
         //        mMediaRecorder->setMediaFormat(format);
         // Define url temporary file.
-        mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(QStringLiteral("/home/laurent/test.avi")));
+        mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
+        qDebug() << " store " << mTemporaryFile->fileName();
         mCaptureSession.setRecorder(mMediaRecorder.data());
         connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
                 &CreateVideoMessageWidget::updateRecorderState);

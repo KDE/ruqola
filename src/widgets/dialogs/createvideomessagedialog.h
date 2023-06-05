@@ -16,7 +16,7 @@ public:
     explicit CreateVideoMessageDialog(QWidget *parent = nullptr);
     ~CreateVideoMessageDialog() override;
 
-    Q_REQUIRED_RESULT QString temporaryFilePath() const;
+    Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
 
 private:
     void readConfig();

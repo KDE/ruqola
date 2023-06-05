@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QDebug>
 #include <QUrl>
 #include <QWizard>
 class CreateMessagePage;
@@ -32,6 +33,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    void slotCurrentIdChanged(int id);
     enum CreateVideoMessageEnum {
         CreateVideo,
         CreateMessage,
@@ -49,6 +51,8 @@ public:
 
     Q_REQUIRED_RESULT bool validatePage() override;
 
+    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+
 private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
@@ -62,9 +66,13 @@ public:
 
     Q_REQUIRED_RESULT QString fileName() const;
     Q_REQUIRED_RESULT QString description() const;
+    void setFileNamePath(const QUrl &url);
+    Q_REQUIRED_RESULT QUrl fileNamePath() const;
 
 private:
     ShowVideoWidget *const mShowVideoWidget;
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };
+
+LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const CreateVideoMessageWizard::CreateVideoMessageInfo &t);

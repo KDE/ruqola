@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QMediaCaptureSession>
 #include <QMediaRecorder>
+#include <QTemporaryFile>
 #include <QWidget>
 class QLabel;
 class QCamera;
@@ -25,7 +26,7 @@ public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
     ~CreateVideoMessageWidget() override;
 
-    Q_REQUIRED_RESULT QString temporaryFilePath() const;
+    Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
 
 private:
     void updateCameras();
@@ -39,6 +40,7 @@ private:
     void updateCameraActive(bool active);
     void displayCameraError();
 
+    QTemporaryFile *mTemporaryFile = nullptr;
     QVideoWidget *const mVideoWidget;
     QScopedPointer<QMediaRecorder> mMediaRecorder;
     QScopedPointer<QAudioInput> mAudioInput;

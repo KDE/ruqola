@@ -15,6 +15,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KWindowConfig>
+#include <QUrl>
 #include <QWindow>
 
 namespace
@@ -46,7 +47,7 @@ CreateVideoMessageDialog::~CreateVideoMessageDialog()
     writeConfig();
 }
 
-QString CreateVideoMessageDialog::temporaryFilePath() const
+QUrl CreateVideoMessageDialog::temporaryFilePath() const
 {
     return mCreateVideoMessageWidget->temporaryFilePath();
 }

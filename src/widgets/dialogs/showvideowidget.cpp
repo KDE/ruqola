@@ -175,6 +175,11 @@ void ShowVideoWidget::setVideoUrl(const QUrl &url)
     mPlayButton->setEnabled(true);
 }
 
+QUrl ShowVideoWidget::videoUrl() const
+{
+    return mMediaPlayer->source();
+}
+
 void ShowVideoWidget::play()
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)

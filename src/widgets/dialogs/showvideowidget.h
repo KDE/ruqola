@@ -23,6 +23,7 @@ public:
     explicit ShowVideoWidget(QWidget *parent = nullptr);
     ~ShowVideoWidget() override;
     void setVideoUrl(const QUrl &videoPath);
+    Q_REQUIRED_RESULT QUrl videoUrl() const;
 
 private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
