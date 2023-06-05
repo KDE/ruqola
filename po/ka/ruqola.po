@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:47+0000\n"
-"PO-Revision-Date: 2023-05-18 05:53+0200\n"
+"PO-Revision-Date: 2023-06-04 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6330,24 +6330,22 @@ msgid "Server URL:"
 msgstr "სერვერის URL:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "ვიდეო-შეტყობინების შექმნა"
+msgstr "ხმოვანი შეტყობინების შექმნა"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
 #: widgets/dialogs/createvideomessagedialog.cpp:37
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "გაგზავნა"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
 #: widgets/dialogs/createvideomessagewidget.cpp:192
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr ""
+msgstr "ჩაწერილია %1 წმ"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:28
 #, kde-format
@@ -8527,7 +8525,7 @@ msgstr "არხის ინფორმაციაში ლიდერი�
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"
