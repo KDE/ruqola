@@ -306,6 +306,14 @@ void MessageLineWidget::slotSendSoundMessage()
     QPointer<CreateSoundMessageDialog> dlg = new CreateSoundMessageDialog(this);
     if (dlg->exec()) {
         // TODO send it
+#if 0
+        UploadFileDialog::UploadFileInfo result;
+        result.description = info.mDescription;
+        result.fileUrl = info.mFilePath;
+        result.deleteTemporaryFile = true;
+        // TODO add filename ?
+        sendFile(result);
+#endif
     }
     delete dlg;
 #endif
@@ -322,6 +330,7 @@ void MessageLineWidget::slotSendVideoMessage()
             result.description = info.mDescription;
             result.fileUrl = info.mFilePath;
             result.deleteTemporaryFile = true;
+            // TODO add filename ?
             sendFile(result);
         }
     }
