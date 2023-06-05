@@ -85,8 +85,8 @@ CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
 
 QUrl CreateVideoMessageWidget::temporaryFilePath() const
 {
-    qDebug() << " XCCCCCCCCCCCCCCCCCCC" << mMediaRecorder->outputLocation();
-    return mTemporaryFile ? QUrl::fromLocalFile(mTemporaryFile->fileName()) : QUrl();
+    // qDebug() << " XCCCCCCCCCCCCCCCCCCC" << mMediaRecorder->outputLocation() << " dd " << mMediaRecorder->actualLocation();
+    return mMediaRecorder->actualLocation();
 }
 
 void CreateVideoMessageWidget::updateCameras()
