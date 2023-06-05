@@ -7,11 +7,19 @@
 #include "createvideomessagewizard.h"
 #include "createvideomessagewidget.h"
 #include "showvideowidget.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KWindowConfig>
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>
+#include <QWindow>
 
+namespace
+{
+static const char myConfigCreateVideoMessageWizardGroupName[] = "CreateVideoMessageWizard";
+}
 CreateVideoMessageWizard::CreateVideoMessageWizard(QWidget *parent)
     : QWizard(parent)
     , mCreateVideoMessagePage(new CreateVideoMessagePage(this))
@@ -20,9 +28,28 @@ CreateVideoMessageWizard::CreateVideoMessageWizard(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Create Video Message"));
     setPage(CreateVideo, mCreateVideoMessagePage);
     setPage(CreateMessage, mCreateMessagePage);
+    readConfig();
 }
 
-CreateVideoMessageWizard::~CreateVideoMessageWizard() = default;
+CreateVideoMessageWizard::~CreateVideoMessageWizard()
+{
+    writeConfig();
+}
+
+void CreateVideoMessageWizard::readConfig()
+{
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateVideoMessageWizardGroupName);
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
+}
+
+void CreateVideoMessageWizard::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateVideoMessageWizardGroupName);
+    KWindowConfig::saveWindowSize(windowHandle(), group);
+}
 
 CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)
     : QWizardPage(parent)

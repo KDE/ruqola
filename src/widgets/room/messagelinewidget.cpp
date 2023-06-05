@@ -7,7 +7,7 @@
 #include "messagelinewidget.h"
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include "dialogs/createsoundmessagedialog.h"
-#include "dialogs/createvideomessagedialog.h"
+#include "dialogs/createvideomessagewizard.h"
 #endif
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
 #include "messagetextedit.h"
@@ -314,7 +314,7 @@ void MessageLineWidget::slotSendSoundMessage()
 void MessageLineWidget::slotSendVideoMessage()
 {
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-    QPointer<CreateVideoMessageDialog> dlg = new CreateVideoMessageDialog(this);
+    QPointer<CreateVideoMessageWizard> dlg = new CreateVideoMessageWizard(this);
     if (dlg->exec()) {
         // TODO send it
     }

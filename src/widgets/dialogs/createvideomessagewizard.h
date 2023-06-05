@@ -21,6 +21,8 @@ public:
     ~CreateVideoMessageWizard() override;
 
 private:
+    void readConfig();
+    void writeConfig();
     enum CreateVideoMessageEnum {
         CreateVideo,
         CreateMessage,
