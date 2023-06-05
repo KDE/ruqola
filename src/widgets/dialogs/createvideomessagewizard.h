@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QUrl>
 #include <QWizard>
 class CreateMessagePage;
 class CreateVideoMessagePage;
@@ -17,8 +18,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWizard : public QWizard
 {
     Q_OBJECT
 public:
+    struct CreateVideoMessageInfo {
+        QString mDescription;
+        QString mFileName;
+        QUrl mFilePath;
+    };
+
     explicit CreateVideoMessageWizard(QWidget *parent = nullptr);
     ~CreateVideoMessageWizard() override;
+
+    Q_REQUIRED_RESULT CreateVideoMessageInfo videoMessageInfo() const;
 
 private:
     void readConfig();
@@ -31,7 +40,7 @@ private:
     CreateMessagePage *const mCreateMessagePage;
 };
 
-class CreateVideoMessagePage : public QWizardPage
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessagePage : public QWizardPage
 {
     Q_OBJECT
 public:
@@ -44,12 +53,15 @@ private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
 
-class CreateMessagePage : public QWizardPage
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateMessagePage : public QWizardPage
 {
     Q_OBJECT
 public:
     explicit CreateMessagePage(QWidget *parent = nullptr);
     ~CreateMessagePage() override;
+
+    Q_REQUIRED_RESULT QString fileName() const;
+    Q_REQUIRED_RESULT QString description() const;
 
 private:
     ShowVideoWidget *const mShowVideoWidget;

@@ -36,6 +36,15 @@ CreateVideoMessageWizard::~CreateVideoMessageWizard()
     writeConfig();
 }
 
+CreateVideoMessageWizard::CreateVideoMessageInfo CreateVideoMessageWizard::videoMessageInfo() const
+{
+    CreateVideoMessageInfo info;
+    info.mDescription = mCreateMessagePage->description();
+    info.mFileName = mCreateMessagePage->fileName();
+    // TODO add url
+    return info;
+}
+
 void CreateVideoMessageWizard::readConfig()
 {
     create(); // ensure a window is created
@@ -97,6 +106,16 @@ CreateMessagePage::CreateMessagePage(QWidget *parent)
     mainLayout->addWidget(label);
 
     mainLayout->addWidget(mDescription);
+}
+
+QString CreateMessagePage::fileName() const
+{
+    return mFileName->text();
+}
+
+QString CreateMessagePage::description() const
+{
+    return mDescription->text();
 }
 
 CreateMessagePage::~CreateMessagePage() = default;
