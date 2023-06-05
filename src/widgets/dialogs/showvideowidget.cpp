@@ -177,7 +177,11 @@ void ShowVideoWidget::setVideoUrl(const QUrl &url)
 
 QUrl ShowVideoWidget::videoUrl() const
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    return QUrl(); // Unused in qt5
+#else
     return mMediaPlayer->source();
+#endif
 }
 
 void ShowVideoWidget::play()
