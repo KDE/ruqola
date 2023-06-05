@@ -7,6 +7,9 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWizard>
+class CreateMessagePage;
+class CreateVideoMessagePage;
+class CreateVideoMessageWidget;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWizard : public QWizard
 {
@@ -14,4 +17,29 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWizard : public QWizard
 public:
     explicit CreateVideoMessageWizard(QWidget *parent = nullptr);
     ~CreateVideoMessageWizard() override;
+
+private:
+    enum CreateVideoMessageEnum {
+        CreateVideo,
+        CreateMessage,
+    };
+};
+
+class CreateVideoMessagePage : public QWizardPage
+{
+    Q_OBJECT
+public:
+    explicit CreateVideoMessagePage(QWidget *parent = nullptr);
+    ~CreateVideoMessagePage() override;
+
+private:
+    CreateVideoMessageWidget *const mCreateVideoMessageWidget;
+};
+
+class CreateMessagePage : public QWizardPage
+{
+    Q_OBJECT
+public:
+    explicit CreateMessagePage(QWidget *parent = nullptr);
+    ~CreateMessagePage() override;
 };
