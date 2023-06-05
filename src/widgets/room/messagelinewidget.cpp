@@ -316,7 +316,14 @@ void MessageLineWidget::slotSendVideoMessage()
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QPointer<CreateVideoMessageWizard> dlg = new CreateVideoMessageWizard(this);
     if (dlg->exec()) {
-        // TODO send it
+        const CreateVideoMessageWizard::CreateVideoMessageInfo info = dlg->videoMessageInfo();
+        if (info.isValid()) {
+            UploadFileDialog::UploadFileInfo result;
+            result.description = info.mDescription;
+            result.fileUrl = info.mFilePath;
+            result.deleteTemporaryFile = true;
+            sendFile(result);
+        }
     }
     delete dlg;
 #endif

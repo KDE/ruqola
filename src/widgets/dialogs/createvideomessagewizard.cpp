@@ -149,3 +149,8 @@ QDebug operator<<(QDebug d, const CreateVideoMessageWizard::CreateVideoMessageIn
     d << " mDescription " << t.mDescription;
     return d;
 }
+
+bool CreateVideoMessageWizard::CreateVideoMessageInfo::isValid() const
+{
+    return mFilePath.isValid();
+}

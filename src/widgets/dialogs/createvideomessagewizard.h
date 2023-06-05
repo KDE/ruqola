@@ -23,6 +23,7 @@ public:
         QString mDescription;
         QString mFileName;
         QUrl mFilePath;
+        Q_REQUIRED_RESULT bool isValid() const;
     };
 
     explicit CreateVideoMessageWizard(QWidget *parent = nullptr);
