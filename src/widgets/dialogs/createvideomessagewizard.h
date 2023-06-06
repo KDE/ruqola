@@ -19,7 +19,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWizard : public QWizard
 {
     Q_OBJECT
 public:
-    struct CreateVideoMessageInfo {
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageInfo {
         QString mDescription;
         QString mFileName;
         QUrl mFilePath;
