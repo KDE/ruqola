@@ -54,6 +54,8 @@ public:
 
     Q_REQUIRED_RESULT QUrl fileNamePath() const;
 
+    Q_REQUIRED_RESULT bool isComplete() const override;
+
 private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };

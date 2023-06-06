@@ -28,6 +28,9 @@ public:
 
     Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
 
+Q_SIGNALS:
+    void recordDone();
+
 private:
     void updateCameras();
     void setCamera(const QCameraDevice &cameraDevice);

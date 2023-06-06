@@ -28,7 +28,7 @@ CreateSoundMessageWizard::~CreateSoundMessageWizard() = default;
 void CreateSoundMessageWizard::slotCurrentIdChanged(int id)
 {
     if (id == GenerateSoundMessage) {
-        // TODO mCreateMessagePage->setFileNamePath(mCreateVideoMessagePage->fileNamePath());
+        // TODO mGenerateSoundMessagePage->setFileNamePath(mCreateSoundMessagePage->fileNamePath());
     }
 }
 

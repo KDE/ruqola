@@ -18,5 +18,6 @@ CreateVideoMessageWizardTest::CreateVideoMessageWizardTest(QObject *parent)
 void CreateVideoMessageWizardTest::shouldHaveDefaultValues()
 {
     CreateVideoMessageWizard w(nullptr);
+    QVERIFY(!w.videoMessageInfo().isValid());
     // TODO
 }

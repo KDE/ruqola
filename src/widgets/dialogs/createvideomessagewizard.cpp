@@ -77,6 +77,7 @@ CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)
 
     mCreateVideoMessageWidget->setObjectName(QStringLiteral("mCreateVideoMessageWidget"));
     mainLayout->addWidget(mCreateVideoMessageWidget);
+    connect(mCreateVideoMessageWidget, &CreateVideoMessageWidget::recordDone, this, &CreateVideoMessagePage::completeChanged);
 }
 
 CreateVideoMessagePage::~CreateVideoMessagePage() = default;
@@ -86,10 +87,14 @@ QUrl CreateVideoMessagePage::fileNamePath() const
     return mCreateVideoMessageWidget->temporaryFilePath();
 }
 
+bool CreateVideoMessagePage::isComplete() const
+{
+    return !mCreateVideoMessageWidget->temporaryFilePath().isEmpty();
+}
+
 bool CreateVideoMessagePage::validatePage()
 {
-    // TODO
-    return true;
+    return !mCreateVideoMessageWidget->temporaryFilePath().isEmpty();
 }
 
 GenerateVideoMessagePage::GenerateVideoMessagePage(QWidget *parent)
@@ -105,6 +110,7 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(QWidget *parent)
     mainLayout->addWidget(mShowVideoWidget);
 
     auto label = new QLabel(i18n("Filename:"), this);
+    label->setObjectName(QStringLiteral("label-filename"));
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 
@@ -114,6 +120,7 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(QWidget *parent)
     mainLayout->addWidget(mFileName);
 
     label = new QLabel(i18n("Description:"), this);
+    label->setObjectName(QStringLiteral("label-description"));
     label->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(label);
 

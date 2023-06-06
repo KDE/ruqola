@@ -118,7 +118,7 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
         //        mMediaRecorder->setMediaFormat(format);
         // Define url temporary file.
         mMediaRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
-        qDebug() << " store " << mTemporaryFile->fileName();
+        // qDebug() << " store " << mTemporaryFile->fileName();
         mCaptureSession.setRecorder(mMediaRecorder.data());
         connect(mMediaRecorder.data(), &QMediaRecorder::recorderStateChanged, this,
                 &CreateVideoMessageWidget::updateRecorderState);
@@ -190,6 +190,7 @@ void CreateVideoMessageWidget::pause()
 void CreateVideoMessageWidget::stop()
 {
     mMediaRecorder->stop();
+    Q_EMIT recordDone();
 }
 
 void CreateVideoMessageWidget::updateRecordTime()
