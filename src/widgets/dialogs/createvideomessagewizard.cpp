@@ -23,7 +23,7 @@ static const char myConfigCreateVideoMessageWizardGroupName[] = "CreateVideoMess
 CreateVideoMessageWizard::CreateVideoMessageWizard(QWidget *parent)
     : QWizard(parent)
     , mCreateVideoMessagePage(new CreateVideoMessagePage(this))
-    , mCreateMessagePage(new CreateMessagePage(this))
+    , mCreateMessagePage(new GenerateVideoMessagePage(this))
 {
     setWindowTitle(i18nc("@title:window", "Create Video Message"));
     setPage(CreateVideo, mCreateVideoMessagePage);
@@ -92,7 +92,7 @@ bool CreateVideoMessagePage::validatePage()
     return true;
 }
 
-CreateMessagePage::CreateMessagePage(QWidget *parent)
+GenerateVideoMessagePage::GenerateVideoMessagePage(QWidget *parent)
     : QWizardPage(parent)
     , mShowVideoWidget(new ShowVideoWidget(this))
     , mFileName(new QLineEdit(this))
@@ -120,24 +120,24 @@ CreateMessagePage::CreateMessagePage(QWidget *parent)
     mainLayout->addWidget(mDescription);
 }
 
-CreateMessagePage::~CreateMessagePage() = default;
+GenerateVideoMessagePage::~GenerateVideoMessagePage() = default;
 
-QString CreateMessagePage::fileName() const
+QString GenerateVideoMessagePage::fileName() const
 {
     return mFileName->text();
 }
 
-QString CreateMessagePage::description() const
+QString GenerateVideoMessagePage::description() const
 {
     return mDescription->text();
 }
 
-void CreateMessagePage::setFileNamePath(const QUrl &url)
+void GenerateVideoMessagePage::setFileNamePath(const QUrl &url)
 {
     mShowVideoWidget->setVideoUrl(url);
 }
 
-QUrl CreateMessagePage::fileNamePath() const
+QUrl GenerateVideoMessagePage::fileNamePath() const
 {
     return mShowVideoWidget->videoUrl();
 }

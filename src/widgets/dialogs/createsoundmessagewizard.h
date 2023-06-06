@@ -6,6 +6,10 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWizard>
+class CreateSoundMessageWidget;
+class GenerateSoundMessagePage;
+class CreateSoundMessagePage;
+class QLineEdit;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWizard : public QWizard
 {
@@ -15,10 +19,13 @@ public:
     ~CreateSoundMessageWizard() override;
 
 private:
+    void slotCurrentIdChanged(int id);
     enum CreateSoundMessageEnum {
         CreateSound,
-        CreateMessage,
+        GenerateSoundMessage,
     };
+    CreateSoundMessagePage *const mCreateSoundMessagePage;
+    GenerateSoundMessagePage *const mGenerateSoundMessagePage;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessagePage : public QWizardPage
@@ -28,7 +35,9 @@ public:
     explicit CreateSoundMessagePage(QWidget *parent = nullptr);
     ~CreateSoundMessagePage() override;
 
-    //    Q_REQUIRED_RESULT bool validatePage() override;
+private:
+    CreateSoundMessageWidget *const mCreateSoundMessageWidget;
+    Q_REQUIRED_RESULT bool validatePage() override;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT GenerateSoundMessagePage : public QWizardPage
@@ -38,8 +47,12 @@ public:
     explicit GenerateSoundMessagePage(QWidget *parent = nullptr);
     ~GenerateSoundMessagePage() override;
 
-    //    Q_REQUIRED_RESULT QString fileName() const;
-    //    Q_REQUIRED_RESULT QString description() const;
+    Q_REQUIRED_RESULT QString fileName() const;
+    Q_REQUIRED_RESULT QString description() const;
     //    void setFileNamePath(const QUrl &url);
     //    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+private:
+    // § ShowVideoWidget *const mShowVideoWidget;
+    QLineEdit *const mFileName;
+    QLineEdit *const mDescription;
 };

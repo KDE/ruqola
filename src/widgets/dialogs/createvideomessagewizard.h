@@ -9,7 +9,7 @@
 #include <QDebug>
 #include <QUrl>
 #include <QWizard>
-class CreateMessagePage;
+class GenerateVideoMessagePage;
 class CreateVideoMessagePage;
 class CreateVideoMessageWidget;
 class ShowVideoWidget;
@@ -40,7 +40,7 @@ private:
         CreateMessage,
     };
     CreateVideoMessagePage *const mCreateVideoMessagePage;
-    CreateMessagePage *const mCreateMessagePage;
+    GenerateVideoMessagePage *const mCreateMessagePage;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessagePage : public QWizardPage
@@ -58,12 +58,12 @@ private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateMessagePage : public QWizardPage
+class LIBRUQOLAWIDGETS_TESTS_EXPORT GenerateVideoMessagePage : public QWizardPage
 {
     Q_OBJECT
 public:
-    explicit CreateMessagePage(QWidget *parent = nullptr);
-    ~CreateMessagePage() override;
+    explicit GenerateVideoMessagePage(QWidget *parent = nullptr);
+    ~GenerateVideoMessagePage() override;
 
     Q_REQUIRED_RESULT QString fileName() const;
     Q_REQUIRED_RESULT QString description() const;
