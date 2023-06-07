@@ -735,6 +735,9 @@ if (QT_MAJOR_VERSION STREQUAL "6")
 
         dialogs/createsoundmessagewizard.h
         dialogs/createsoundmessagewizard.cpp
+
+        dialogs/showsoundwidget.h
+        dialogs/showsoundwidget.cpp
     )
 endif()
 
