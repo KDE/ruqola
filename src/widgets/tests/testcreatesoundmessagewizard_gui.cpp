@@ -18,7 +18,6 @@ int main(int argc, char **argv)
 
     parser.process(app);
     auto d = new CreateSoundMessageWizard;
-    d->resize(800, 600);
     d->show();
 
     return app.exec();
