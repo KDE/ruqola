@@ -9,6 +9,7 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 CreateSoundMessageWizard::CreateSoundMessageWizard(QWidget *parent)
@@ -21,6 +22,7 @@ CreateSoundMessageWizard::CreateSoundMessageWizard(QWidget *parent)
     setPage(CreateSound, mCreateSoundMessagePage);
     setPage(GenerateSoundMessage, mGenerateSoundMessagePage);
     connect(this, &CreateSoundMessageWizard::currentIdChanged, this, &CreateSoundMessageWizard::slotCurrentIdChanged);
+    setButtonText(QWizard::FinishButton, i18n("Send"));
 }
 
 CreateSoundMessageWizard::~CreateSoundMessageWizard() = default;

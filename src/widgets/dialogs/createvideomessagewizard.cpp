@@ -13,6 +13,7 @@
 #include <KWindowConfig>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
 
@@ -30,6 +31,7 @@ CreateVideoMessageWizard::CreateVideoMessageWizard(QWidget *parent)
     setPage(CreateMessage, mCreateMessagePage);
     readConfig();
     connect(this, &CreateVideoMessageWizard::currentIdChanged, this, &CreateVideoMessageWizard::slotCurrentIdChanged);
+    setButtonText(QWizard::FinishButton, i18n("Send"));
 }
 
 CreateVideoMessageWizard::~CreateVideoMessageWizard()
