@@ -67,6 +67,7 @@ void CreateSoundMessageWidget::stop()
 void CreateSoundMessageWidget::record()
 {
     mAudioRecorder->record();
+    Q_EMIT recordDone();
 }
 
 void CreateSoundMessageWidget::pause()

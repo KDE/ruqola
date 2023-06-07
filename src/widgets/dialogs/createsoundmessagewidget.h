@@ -18,6 +18,9 @@ public:
     explicit CreateSoundMessageWidget(QWidget *parent = nullptr);
     ~CreateSoundMessageWidget() override;
 
+Q_SIGNALS:
+    void recordDone();
+
 private:
     void stop();
     void record();

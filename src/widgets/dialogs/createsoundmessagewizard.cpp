@@ -43,6 +43,7 @@ CreateSoundMessagePage::CreateSoundMessagePage(QWidget *parent)
 
     mCreateSoundMessageWidget->setObjectName(QStringLiteral("mCreateSoundMessageWidget"));
     mainLayout->addWidget(mCreateSoundMessageWidget);
+    connect(mCreateSoundMessageWidget, &CreateSoundMessageWidget::recordDone, this, &CreateSoundMessagePage::completeChanged);
 }
 
 bool CreateSoundMessagePage::validatePage()
