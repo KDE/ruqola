@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 00:47+0000\n"
+"POT-Creation-Date: 2023-06-07 00:47+0000\n"
 "PO-Revision-Date: 2023-05-27 13:06+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2663,7 +2663,8 @@ msgstr "Use Two Factor Authentication"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createvideomessagewizard.cpp:116
+#: widgets/dialogs/createsoundmessagewizard.cpp:74
+#: widgets/dialogs/createvideomessagewizard.cpp:122
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6428,6 +6429,7 @@ msgid "Server URL:"
 msgstr "Server URL:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
+#: widgets/dialogs/createsoundmessagewizard.cpp:20
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
@@ -6442,10 +6444,17 @@ msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
-#: widgets/dialogs/createvideomessagewidget.cpp:197
+#: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Recorded %1 sec"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:65
+#: widgets/dialogs/createvideomessagewizard.cpp:112
+#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
+#, kde-format
+msgid "Filename:"
+msgstr "Filename:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:29
 #: widgets/dialogs/createvideomessagewizard.cpp:28
@@ -6453,12 +6462,6 @@ msgstr "Recorded %1 sec"
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Create Video Message"
-
-#: widgets/dialogs/createvideomessagewizard.cpp:107
-#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, kde-format
-msgid "Filename:"
-msgstr "Filename:"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format

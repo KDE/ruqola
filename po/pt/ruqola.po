@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 00:47+0000\n"
+"POT-Creation-Date: 2023-06-07 00:47+0000\n"
 "PO-Revision-Date: 2023-06-03 10:46+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -2694,7 +2694,8 @@ msgstr "Usar a Autenticação em Dois Factores"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createvideomessagewizard.cpp:116
+#: widgets/dialogs/createsoundmessagewizard.cpp:74
+#: widgets/dialogs/createvideomessagewizard.cpp:122
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6495,6 +6496,7 @@ msgid "Server URL:"
 msgstr "URL do servidor:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
+#: widgets/dialogs/createsoundmessagewizard.cpp:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
@@ -6507,10 +6509,17 @@ msgid "Send"
 msgstr "Enviar"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
-#: widgets/dialogs/createvideomessagewidget.cpp:197
+#: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 segundos gravados"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:65
+#: widgets/dialogs/createvideomessagewizard.cpp:112
+#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
+#, kde-format
+msgid "Filename:"
+msgstr "Nome do ficheiro:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:29
 #: widgets/dialogs/createvideomessagewizard.cpp:28
@@ -6518,12 +6527,6 @@ msgstr "%1 segundos gravados"
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Criar uma Mensagem de Vídeo"
-
-#: widgets/dialogs/createvideomessagewizard.cpp:107
-#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, kde-format
-msgid "Filename:"
-msgstr "Nome do ficheiro:"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format

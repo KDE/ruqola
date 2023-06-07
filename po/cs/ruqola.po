@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 00:47+0000\n"
-"PO-Revision-Date: 2023-03-29 16:17+0200\n"
+"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"PO-Revision-Date: 2023-06-05 11:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -806,7 +806,7 @@ msgstr "Typ kanálu"
 #: core/model/directoryroomsmodel.cpp:135
 #, kde-format
 msgid "Belongs To"
-msgstr ""
+msgstr "Patří"
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -2659,7 +2659,8 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createvideomessagewizard.cpp:116
+#: widgets/dialogs/createsoundmessagewizard.cpp:74
+#: widgets/dialogs/createvideomessagewizard.cpp:122
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -2769,7 +2770,7 @@ msgstr "Archivováno"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
 #, kde-format
 msgid "Room's Creator:"
-msgstr ""
+msgstr "Tvůrce místnosti:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -2846,10 +2847,9 @@ msgid "Engagement Dashboard"
 msgstr ""
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Clear Recents"
+#, kde-format
 msgid "Read Receipts"
-msgstr "Vyprázdnit nedávné"
+msgstr ""
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2892,10 +2892,9 @@ msgid "Offline Users"
 msgstr "Odpojení uživatelé"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "Uživatelé"
+msgstr ""
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -5552,10 +5551,9 @@ msgid "Select All"
 msgstr "Vybrat vše"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Přečíst text"
+msgstr "Kopírovat text"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -5767,10 +5765,9 @@ msgid "Show hover highlights"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Paste Image"
+#, kde-format
 msgid "Animate Gif Image"
-msgstr "Vložit obrázek"
+msgstr "Animovat obrázky Gif"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6042,31 +6039,28 @@ msgid "Channel Password:"
 msgstr "Heslo kanálu:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Vlastník:"
-msgstr[1] "Vlastník:"
-msgstr[2] "Vlastník:"
+msgstr[1] "Vlastníci:"
+msgstr[2] "Vlastníci:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderátor"
-msgstr[1] "Moderátor"
-msgstr[2] "Moderátor"
+msgstr[0] "Moderátor:"
+msgstr[1] "Moderátoři:"
+msgstr[2] "Moderátoři:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Leader"
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Vedoucí"
-msgstr[1] "Vedoucí"
-msgstr[2] "Vedoucí"
+msgstr[0] "Vedoucí:"
+msgstr[1] "Vedoucí:"
+msgstr[2] "Vedoucí:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -6288,24 +6282,30 @@ msgid "Server URL:"
 msgstr "URL serveru:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#: widgets/dialogs/createsoundmessagewizard.cpp:20
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Vytvořit video zprávu"
+msgstr ""
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
 #: widgets/dialogs/createvideomessagedialog.cpp:38
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Odeslat"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
-#: widgets/dialogs/createvideomessagewidget.cpp:197
+#: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr ""
+msgstr "Nahráno %1 s"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:65
+#: widgets/dialogs/createvideomessagewizard.cpp:112
+#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
+#, kde-format
+msgid "Filename:"
+msgstr "Název souboru:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:29
 #: widgets/dialogs/createvideomessagewizard.cpp:28
@@ -6313,12 +6313,6 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Vytvořit video zprávu"
-
-#: widgets/dialogs/createvideomessagewizard.cpp:107
-#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, kde-format
-msgid "Filename:"
-msgstr "Název souboru:"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
@@ -6924,10 +6918,9 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Přihlášení selhalo: Neplatný kód OTP."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login failed: User is not activated."
-msgstr "Uživatel není aktivován"
+msgstr "Přihlášení selhalo: Uživatel není aktivován."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
@@ -6940,10 +6933,9 @@ msgid "Login has been temporarily blocked For User."
 msgstr ""
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "App user is not allowed to login."
-msgstr "Uživatel aplikace nemá povoleno se přihlásit"
+msgstr "Uživatel aplikace nemá povoleno se přihlásit."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -8071,16 +8063,14 @@ msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "Uživatel není aktivován"
+msgstr "Přihlášení selhalo: Uživatel není aktivován."
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "Login Failed: App user is not allowed to login."
-msgstr "Uživatel aplikace nemá povoleno se přihlásit"
+msgstr "Přihlášení selhalo: Uživatel aplikace nemá povoleno se přihlásit"
 
 #: widgets/ruqolamainwindow.cpp:215
 #, kde-format
@@ -8256,8 +8246,7 @@ msgid "Register New User"
 msgstr "Registrovat nového uživatele"
 
 #: widgets/ruqolamainwindow.cpp:925
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stav"
@@ -8502,7 +8491,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix kf6 support"
-msgstr ""
+msgstr "Oprava podpory kf6"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:84
 #, kde-format

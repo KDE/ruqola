@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 00:47+0000\n"
+"POT-Creation-Date: 2023-06-07 00:47+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2670,7 +2670,8 @@ msgstr "Erabili bi faktoreko kautotzea"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createvideomessagewizard.cpp:116
+#: widgets/dialogs/createsoundmessagewizard.cpp:74
+#: widgets/dialogs/createvideomessagewizard.cpp:122
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6333,6 +6334,7 @@ msgid "Server URL:"
 msgstr "Zerbitzariaren URL:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
+#: widgets/dialogs/createsoundmessagewizard.cpp:20
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
@@ -6347,10 +6349,17 @@ msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
-#: widgets/dialogs/createvideomessagewidget.cpp:197
+#: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:65
+#: widgets/dialogs/createvideomessagewizard.cpp:112
+#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
+#, kde-format
+msgid "Filename:"
+msgstr "Fitxategi-izena:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:29
 #: widgets/dialogs/createvideomessagewizard.cpp:28
@@ -6358,12 +6367,6 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Sortu bideo-mezua"
-
-#: widgets/dialogs/createvideomessagewizard.cpp:107
-#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, kde-format
-msgid "Filename:"
-msgstr "Fitxategi-izena:"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 00:47+0000\n"
+"POT-Creation-Date: 2023-06-07 00:47+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2782,7 +2782,8 @@ msgstr "Tapatybės nustatymo metodas"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createvideomessagewizard.cpp:116
+#: widgets/dialogs/createsoundmessagewizard.cpp:74
+#: widgets/dialogs/createvideomessagewizard.cpp:122
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6616,6 +6617,7 @@ msgid "Server URL:"
 msgstr "Serverio URL:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
+#: widgets/dialogs/createsoundmessagewizard.cpp:20
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title:window"
@@ -6629,10 +6631,18 @@ msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:58
-#: widgets/dialogs/createvideomessagewidget.cpp:197
+#: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:65
+#: widgets/dialogs/createvideomessagewizard.cpp:112
+#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "File:"
+msgid "Filename:"
+msgstr "Failas:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:29
 #: widgets/dialogs/createvideomessagewizard.cpp:28
@@ -6641,13 +6651,6 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Ištrinti žinutę"
-
-#: widgets/dialogs/createvideomessagewizard.cpp:107
-#: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "File:"
-msgid "Filename:"
-msgstr "Failas:"
 
 #: widgets/dialogs/directchannelinfodialog.cpp:19
 #, fuzzy, kde-format
