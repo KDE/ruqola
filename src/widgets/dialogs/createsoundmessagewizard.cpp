@@ -6,6 +6,7 @@
 
 #include "createsoundmessagewizard.h"
 #include "createsoundmessagewidget.h"
+#include "showsoundwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -56,14 +57,15 @@ CreateSoundMessagePage::~CreateSoundMessagePage() = default;
 
 GenerateSoundMessagePage::GenerateSoundMessagePage(QWidget *parent)
     : QWizardPage(parent)
+    , mShowSoundWidget(new ShowSoundWidget(this))
     , mFileName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
-    // mainLayout->addWidget(mShowVideoWidget);
+    mShowSoundWidget->setObjectName(QStringLiteral("mShowSoundWidget"));
+    mainLayout->addWidget(mShowSoundWidget);
 
     auto label = new QLabel(i18n("Filename:"), this);
     label->setTextFormat(Qt::PlainText);

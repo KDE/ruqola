@@ -5,13 +5,50 @@
 */
 #include "showsoundwidget.h"
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QSlider>
+#include <QStyle>
+#include <QToolButton>
 
 ShowSoundWidget::ShowSoundWidget(QWidget *parent)
     : QWidget{parent}
+    , mPlayButton(new QPushButton(this))
+    , mPositionSlider(new QSlider(Qt::Horizontal, this))
+    , mErrorLabel(new QLabel(this))
+    , mSoundButton(new QToolButton(this))
+    , mSoundSlider(new QSlider(Qt::Horizontal, this))
+    , mLabelDuration(new QLabel(this))
+    , mLabelPercentSound(new QLabel(this))
+
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
+
+    QBoxLayout *controlLayout = new QHBoxLayout;
+    controlLayout->setObjectName(QStringLiteral("controlLayout"));
+    controlLayout->setContentsMargins({});
+    mainLayout->addLayout(controlLayout);
+
+    mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
+    mPlayButton->setEnabled(false);
+    mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+
+    mErrorLabel->setTextFormat(Qt::PlainText);
+    mLabelDuration->setTextFormat(Qt::PlainText);
+    mLabelPercentSound->setTextFormat(Qt::PlainText);
+
+    controlLayout->addWidget(mPlayButton);
+    // connect(mPlayButton, &QAbstractButton::clicked, this, &ShowVideoWidget::play);
+
+    mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
+    mPositionSlider->setRange(0, 0);
+    controlLayout->addWidget(mPositionSlider);
+    controlLayout->addWidget(mLabelDuration);
+
     // TODO
 }
 
