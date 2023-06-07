@@ -41,4 +41,7 @@ endif()
 if (QT_MAJOR_VERSION STREQUAL "6")
     add_executable(testcreatevideomessagewizard_gui testcreatevideomessagewizard_gui.cpp)
     target_link_libraries(testcreatevideomessagewizard_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
+
+    add_executable(testcreatesoundmessagewizard_gui testcreatesoundmessagewizard_gui.cpp)
+    target_link_libraries(testcreatesoundmessagewizard_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
 endif()
