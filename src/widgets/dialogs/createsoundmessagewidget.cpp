@@ -7,6 +7,7 @@
 #include "createsoundmessagewidget.h"
 #include <KLocalizedString>
 #include <QAudioInput>
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QToolButton>
@@ -17,33 +18,41 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     , mPauseButton(new QToolButton(this))
     , mStopButton(new QToolButton(this))
     , mLabelDuration(new QLabel(this))
+    , mAudioRecorder(new QMediaRecorder(this))
+    , mDeviceComboBox(new QComboBox(this))
 {
-    mAudioRecorder = new QMediaRecorder(this);
     mCaptureSession.setRecorder(mAudioRecorder);
     mCaptureSession.setAudioInput(new QAudioInput(this));
 
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
+    mainLayout->addWidget(mDeviceComboBox);
+
+    auto soundWidgetLayout = new QHBoxLayout;
+    soundWidgetLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->addLayout(soundWidgetLayout);
+
     mStopButton->setObjectName(QStringLiteral("mStopButton"));
     mStopButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-stop")));
-    mainLayout->addWidget(mStopButton);
+    soundWidgetLayout->addWidget(mStopButton);
     connect(mStopButton, &QToolButton::clicked, this, &CreateSoundMessageWidget::stop);
 
     mPauseButton->setObjectName(QStringLiteral("mPauseButton"));
     mPauseButton->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
-    mainLayout->addWidget(mPauseButton);
+    soundWidgetLayout->addWidget(mPauseButton);
     connect(mPauseButton, &QToolButton::clicked, this, &CreateSoundMessageWidget::pause);
 
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
     mRecordButton->setIcon(QIcon::fromTheme(QStringLiteral("media-record")));
-    mainLayout->addWidget(mRecordButton);
+    soundWidgetLayout->addWidget(mRecordButton);
     connect(mRecordButton, &QToolButton::clicked, this, &CreateSoundMessageWidget::record);
 
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
     mLabelDuration->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(mLabelDuration);
+    soundWidgetLayout->addWidget(mLabelDuration);
 
     connect(mAudioRecorder, &QMediaRecorder::durationChanged, this, &CreateSoundMessageWidget::updateRecordTime);
     connect(mAudioRecorder, &QMediaRecorder::recorderStateChanged, this, &CreateSoundMessageWidget::updateRecorderState);

@@ -11,6 +11,7 @@
 #include <QWidget>
 class QToolButton;
 class QLabel;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -33,4 +34,5 @@ private:
     QLabel *const mLabelDuration;
     QMediaCaptureSession mCaptureSession;
     QMediaRecorder *mAudioRecorder = nullptr;
+    QComboBox *const mDeviceComboBox;
 };
