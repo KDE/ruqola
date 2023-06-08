@@ -42,7 +42,7 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
     mLabelPercentSound->setTextFormat(Qt::PlainText);
 
     controlLayout->addWidget(mPlayButton);
-    // connect(mPlayButton, &QAbstractButton::clicked, this, &ShowVideoWidget::play);
+    connect(mPlayButton, &QAbstractButton::clicked, this, &ShowSoundWidget::play);
 
     mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
     mPositionSlider->setRange(0, 0);
@@ -53,5 +53,20 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
 }
 
 ShowSoundWidget::~ShowSoundWidget()
+{
+}
+
+void ShowSoundWidget::setSoundUrl(const QUrl &videoPath)
+{
+    // TODO
+}
+
+QUrl ShowSoundWidget::soundUrl() const
+{
+    // TODO
+    return {};
+}
+
+void ShowSoundWidget::play()
 {
 }

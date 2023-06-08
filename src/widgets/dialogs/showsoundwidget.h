@@ -17,7 +17,11 @@ public:
     explicit ShowSoundWidget(QWidget *parent = nullptr);
     ~ShowSoundWidget() override;
 
+    void setSoundUrl(const QUrl &videoPath);
+    Q_REQUIRED_RESULT QUrl soundUrl() const;
+
 private:
+    void play();
     QPushButton *const mPlayButton;
     QSlider *const mPositionSlider;
     QLabel *const mErrorLabel;
