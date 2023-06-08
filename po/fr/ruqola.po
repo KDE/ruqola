@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"POT-Creation-Date: 2023-06-08 00:47+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -2685,8 +2685,8 @@ msgstr "Utiliser une authentification à deux facteurs"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:74
-#: widgets/dialogs/createvideomessagewizard.cpp:122
+#: widgets/dialogs/createsoundmessagewizard.cpp:79
+#: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6511,7 +6511,7 @@ msgid "Server URL:"
 msgstr "URL du serveur :"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#: widgets/dialogs/createsoundmessagewizard.cpp:20
+#: widgets/dialogs/createsoundmessagewizard.cpp:22
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
@@ -6520,7 +6520,9 @@ msgid "Create Sound Message"
 msgstr "Créer un message vidéo"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
+#: widgets/dialogs/createsoundmessagewizard.cpp:26
 #: widgets/dialogs/createvideomessagedialog.cpp:38
+#: widgets/dialogs/createvideomessagewizard.cpp:34
 #, kde-format
 msgid "Send"
 msgstr ""
@@ -6531,15 +6533,15 @@ msgstr ""
 msgid "Recorded %1 sec"
 msgstr "%1 secondes enregistrées"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:65
-#: widgets/dialogs/createvideomessagewizard.cpp:112
+#: widgets/dialogs/createsoundmessagewizard.cpp:70
+#: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
 msgid "Filename:"
 msgstr "Nom du fichier :"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:28
+#: widgets/dialogs/createvideomessagewizard.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"
