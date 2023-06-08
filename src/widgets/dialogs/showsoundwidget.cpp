@@ -5,8 +5,11 @@
 */
 #include "showsoundwidget.h"
 #include "ruqolaglobalconfig.h"
+#include <QAudioDevice>
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMediaDevices>
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>
@@ -21,11 +24,15 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
     , mLabelPercentSound(new QLabel(this))
-
+    , mDeviceComboBox(new QComboBox(this))
+    , mDevices(new QMediaDevices(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
+    mainLayout->addWidget(mDeviceComboBox);
 
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
 
@@ -69,10 +76,42 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
     QFontMetrics f(font());
     mLabelPercentSound->setFixedWidth(f.horizontalAdvance(QStringLiteral("MMM")));
     slotVolumeChanged(mSoundSlider->value());
+    connect(mDevices, &QMediaDevices::audioOutputsChanged, this, &ShowSoundWidget::updateAudioDevices);
+    connect(mDeviceComboBox, &QComboBox::activated, this, &ShowSoundWidget::deviceChanged);
+
+    initializeAudioComboBox();
 }
 
 ShowSoundWidget::~ShowSoundWidget()
 {
+}
+
+void ShowSoundWidget::deviceChanged(int index)
+{
+#if 0
+    m_generator->stop();
+    m_audioOutput->stop();
+    m_audioOutput->disconnect(this);
+    initializeAudio(mDeviceComboBox->itemData(index).value<QAudioDevice>());
+#endif
+}
+
+void ShowSoundWidget::updateAudioDevices()
+{
+    mDeviceComboBox->clear();
+    const QList<QAudioDevice> devices = mDevices->audioOutputs();
+    for (const QAudioDevice &deviceInfo : devices)
+        mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
+}
+
+void ShowSoundWidget::initializeAudioComboBox()
+{
+    const QAudioDevice &defaultDeviceInfo = mDevices->defaultAudioOutput();
+    mDeviceComboBox->addItem(defaultDeviceInfo.description(), QVariant::fromValue(defaultDeviceInfo));
+    for (auto &deviceInfo : mDevices->audioOutputs()) {
+        if (deviceInfo != defaultDeviceInfo)
+            mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
+    }
 }
 
 void ShowSoundWidget::slotMuteChanged(bool state)

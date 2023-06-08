@@ -10,6 +10,8 @@ class QPushButton;
 class QSlider;
 class QToolButton;
 class QLabel;
+class QComboBox;
+class QMediaDevices;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowSoundWidget : public QWidget
 {
     Q_OBJECT
@@ -24,6 +26,9 @@ private:
     void play();
     void slotVolumeChanged(int position);
     void slotMuteChanged(bool state);
+    void initializeAudioComboBox();
+    void updateAudioDevices();
+    void deviceChanged(int index);
     QPushButton *const mPlayButton;
     QSlider *const mPositionSlider;
     QLabel *const mErrorLabel;
@@ -31,4 +36,6 @@ private:
     QSlider *const mSoundSlider;
     QLabel *const mLabelDuration;
     QLabel *const mLabelPercentSound;
+    QComboBox *const mDeviceComboBox;
+    QMediaDevices *const mDevices;
 };
