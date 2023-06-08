@@ -7,6 +7,7 @@
 #include "showsoundwidgettest.h"
 #include "dialogs/showsoundwidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowSoundWidgetTest)
 ShowSoundWidgetTest::ShowSoundWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +17,8 @@ ShowSoundWidgetTest::ShowSoundWidgetTest(QObject *parent)
 void ShowSoundWidgetTest::shouldHaveDefaultValues()
 {
     ShowSoundWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }

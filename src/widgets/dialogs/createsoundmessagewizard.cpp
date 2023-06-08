@@ -6,6 +6,7 @@
 
 #include "createsoundmessagewizard.h"
 #include "createsoundmessagewidget.h"
+#include "playsoundwidget.h"
 #include "showsoundwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
@@ -57,7 +58,7 @@ CreateSoundMessagePage::~CreateSoundMessagePage() = default;
 
 GenerateSoundMessagePage::GenerateSoundMessagePage(QWidget *parent)
     : QWizardPage(parent)
-    , mShowSoundWidget(new ShowSoundWidget(this))
+    , mShowSoundWidget(new PlaySoundWidget(this))
     , mFileName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
 {

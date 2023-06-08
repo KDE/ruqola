@@ -10,7 +10,7 @@ class CreateSoundMessageWidget;
 class GenerateSoundMessagePage;
 class CreateSoundMessagePage;
 class QLineEdit;
-class ShowSoundWidget;
+class PlaySoundWidget;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWizard : public QWizard
 {
@@ -53,7 +53,7 @@ public:
     //    void setFileNamePath(const QUrl &url);
     //    Q_REQUIRED_RESULT QUrl fileNamePath() const;
 private:
-    ShowSoundWidget *const mShowSoundWidget;
+    PlaySoundWidget *const mShowSoundWidget;
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };

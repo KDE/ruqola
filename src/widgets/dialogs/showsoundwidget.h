@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QAudioSink>
 #include <QWidget>
 class QPushButton;
 class QSlider;
@@ -38,4 +39,5 @@ private:
     QLabel *const mLabelPercentSound;
     QComboBox *const mDeviceComboBox;
     QMediaDevices *const mDevices;
+    QScopedPointer<QAudioSink> mAudioOutput;
 };
