@@ -22,6 +22,8 @@ public:
 
 private:
     void play();
+    void slotVolumeChanged(int position);
+    void slotMuteChanged(bool state);
     QPushButton *const mPlayButton;
     QSlider *const mPositionSlider;
     QLabel *const mErrorLabel;
