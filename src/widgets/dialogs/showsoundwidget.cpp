@@ -28,7 +28,7 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
 
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
 
-    QBoxLayout *controlLayout = new QHBoxLayout;
+    auto controlLayout = new QHBoxLayout;
     controlLayout->setObjectName(QStringLiteral("controlLayout"));
     controlLayout->setContentsMargins({});
     mainLayout->addLayout(controlLayout);
@@ -49,7 +49,8 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
     controlLayout->addWidget(mPositionSlider);
     controlLayout->addWidget(mLabelDuration);
 
-    // TODO
+    controlLayout->addWidget(mSoundButton);
+    controlLayout->addWidget(mSoundSlider);
 }
 
 ShowSoundWidget::~ShowSoundWidget()
