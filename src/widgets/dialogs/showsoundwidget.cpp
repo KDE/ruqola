@@ -82,9 +82,7 @@ ShowSoundWidget::ShowSoundWidget(QWidget *parent)
     initializeAudioComboBox();
 }
 
-ShowSoundWidget::~ShowSoundWidget()
-{
-}
+ShowSoundWidget::~ShowSoundWidget() = default;
 
 void ShowSoundWidget::deviceChanged(int index)
 {
