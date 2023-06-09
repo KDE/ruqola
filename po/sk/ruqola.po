@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:47+0000\n"
+"POT-Creation-Date: 2023-06-09 00:48+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2769,7 +2769,7 @@ msgstr "Autentifikačná metóda"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:79
+#: widgets/dialogs/createsoundmessagewizard.cpp:80
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6622,7 +6622,7 @@ msgid "Server URL:"
 msgstr "URL serveru:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#: widgets/dialogs/createsoundmessagewizard.cpp:22
+#: widgets/dialogs/createsoundmessagewizard.cpp:23
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@title:window"
@@ -6630,20 +6630,20 @@ msgid "Create Sound Message"
 msgstr "Správa"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
-#: widgets/dialogs/createsoundmessagewizard.cpp:26
+#: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagedialog.cpp:38
 #: widgets/dialogs/createvideomessagewizard.cpp:34
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:58
+#: widgets/dialogs/createsoundmessagewidget.cpp:67
 #: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:70
+#: widgets/dialogs/createsoundmessagewizard.cpp:71
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, fuzzy, kde-format
