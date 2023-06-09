@@ -28,6 +28,7 @@ private:
     void pause();
     void updateRecorderState(QMediaRecorder::RecorderState state);
     void updateRecordTime(qint64 duration);
+    void initializeInput();
     QToolButton *const mRecordButton;
     QToolButton *const mPauseButton;
     QToolButton *const mStopButton;

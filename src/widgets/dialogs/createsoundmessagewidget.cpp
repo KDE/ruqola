@@ -6,10 +6,12 @@
 
 #include "createsoundmessagewidget.h"
 #include <KLocalizedString>
+#include <QAudioDevice>
 #include <QAudioInput>
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMediaDevices>
 #include <QToolButton>
 
 CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
@@ -58,9 +60,19 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     connect(mAudioRecorder, &QMediaRecorder::recorderStateChanged, this, &CreateSoundMessageWidget::updateRecorderState);
     //    connect(mAudioRecorder, &QMediaRecorder::errorChanged, this,
     //            &CreateSoundMessageWidget::displayErrorMessage);
+    initializeInput();
 }
 
 CreateSoundMessageWidget::~CreateSoundMessageWidget() = default;
+
+void CreateSoundMessageWidget::initializeInput()
+{
+    mDeviceComboBox->addItem(i18n("Default"), QVariant(QString()));
+    for (auto device : QMediaDevices::audioInputs()) {
+        auto name = device.description();
+        mDeviceComboBox->addItem(name, QVariant::fromValue(device));
+    }
+}
 
 void CreateSoundMessageWidget::updateRecordTime(qint64 duration)
 {
@@ -75,6 +87,7 @@ void CreateSoundMessageWidget::stop()
 
 void CreateSoundMessageWidget::record()
 {
+    mCaptureSession.audioInput()->setDevice(mDeviceComboBox->itemData(mDeviceComboBox->currentIndex()).value<QAudioDevice>());
     mAudioRecorder->record();
     Q_EMIT recordDone();
 }
