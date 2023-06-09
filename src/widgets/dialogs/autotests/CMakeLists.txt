@@ -78,6 +78,5 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     add_ruqoladialog_test(createsoundmessagedialogtest.cpp)
     add_ruqoladialog_test(createsoundmessagewidgettest.cpp)
     add_ruqoladialog_test(createvideomessagewizardtest.cpp)
-    add_ruqoladialog_test(showsoundwidgettest.cpp)
 
 endif()

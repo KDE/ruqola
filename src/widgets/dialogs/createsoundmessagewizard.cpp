@@ -7,7 +7,6 @@
 #include "createsoundmessagewizard.h"
 #include "createsoundmessagewidget.h"
 #include "playsoundwidget.h"
-#include "showsoundwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
