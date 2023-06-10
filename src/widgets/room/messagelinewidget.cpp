@@ -6,7 +6,7 @@
 
 #include "messagelinewidget.h"
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-#include "dialogs/createsoundmessagedialog.h"
+#include "dialogs/createsoundmessagewizard.h"
 #include "dialogs/createvideomessagewizard.h"
 #endif
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
@@ -303,7 +303,7 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 void MessageLineWidget::slotSendSoundMessage()
 {
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-    QPointer<CreateSoundMessageDialog> dlg = new CreateSoundMessageDialog(this);
+    QPointer<CreateSoundMessageWizard> dlg = new CreateSoundMessageWizard(this);
     if (dlg->exec()) {
         // TODO send it
 #if 0
