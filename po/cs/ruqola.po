@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:48+0000\n"
+"POT-Creation-Date: 2023-06-10 00:48+0000\n"
 "PO-Revision-Date: 2023-06-05 11:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -872,6 +872,7 @@ msgstr "Ignorovaná zpráva"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
+#: widgets/dialogs/createsoundmessagewidget.cpp:70
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"
@@ -2659,7 +2660,7 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:80
+#: widgets/dialogs/createsoundmessagewizard.cpp:79
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6282,27 +6283,27 @@ msgid "Server URL:"
 msgstr "URL serveru:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
-#: widgets/dialogs/createsoundmessagewizard.cpp:23
+#: widgets/dialogs/createsoundmessagewizard.cpp:22
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
-#: widgets/dialogs/createsoundmessagewizard.cpp:27
+#: widgets/dialogs/createsoundmessagewizard.cpp:26
 #: widgets/dialogs/createvideomessagedialog.cpp:38
 #: widgets/dialogs/createvideomessagewizard.cpp:34
 #, kde-format
 msgid "Send"
 msgstr "Odeslat"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:67
+#: widgets/dialogs/createsoundmessagewidget.cpp:79
 #: widgets/dialogs/createvideomessagewidget.cpp:198
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Nahráno %1 s"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:71
+#: widgets/dialogs/createsoundmessagewizard.cpp:70
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
