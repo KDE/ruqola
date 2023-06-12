@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-10 00:48+0000\n"
-"PO-Revision-Date: 2023-06-08 12:08+0300\n"
+"PO-Revision-Date: 2023-06-11 21:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: apps/main.cpp:51
 #, kde-format
 msgid "Ruqola"
-msgstr "Ruqola"
+msgstr "Roka"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -30,7 +30,7 @@ msgstr "Rocket Chat İstemcisi"
 #: apps/main.cpp:55
 #, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "Telif hakkı © 2020-2023 Ruqola yazarları"
+msgstr "Telif hakkı © 2020-2023 Roka yazarları"
 
 #: apps/main.cpp:57
 #, kde-format
@@ -5911,7 +5911,7 @@ msgstr "GIF Görselini Canlandır"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
-msgstr "Ruqola'yı Yapılandır"
+msgstr "Roka'yı Yapılandır"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
@@ -8607,17 +8607,17 @@ msgstr "Hesabın numarasını döndür."
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr "Ruqola'da neler yeni"
+msgstr "Roka'da neler yeni"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Haberleri Ruqola'da Göster)"
+msgstr "(Haberleri Roka'da Göster)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr "Ruqola'da neler yeni. %1"
+msgstr "Roka'da neler yeni. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
 msgid "Store Message in Local Database"
@@ -8678,7 +8678,7 @@ msgstr "Son sürümden bu yana önemli değişiklikler:"
 #: widgets/whatsnew/whatsnewwidget.cpp:92
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr "Ruqola'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
+msgstr "Roka'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format

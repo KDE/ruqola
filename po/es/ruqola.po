@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-10 00:48+0000\n"
-"PO-Revision-Date: 2023-05-27 17:28+0200\n"
+"PO-Revision-Date: 2023-06-10 17:34+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -6475,12 +6475,10 @@ msgstr "URL del servidor:"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:26
 #: widgets/dialogs/createsoundmessagewizard.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Crear mensaje de video"
+msgstr "Crear mensaje de audio"
 
 #: widgets/dialogs/createsoundmessagedialog.cpp:35
 #: widgets/dialogs/createsoundmessagewizard.cpp:26
@@ -6488,7 +6486,7 @@ msgstr "Crear mensaje de video"
 #: widgets/dialogs/createvideomessagewizard.cpp:34
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:79
 #: widgets/dialogs/createvideomessagewidget.cpp:198
@@ -8706,7 +8704,7 @@ msgstr "Mostrar líder/moderador/propietario en la información del canal."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Soporte para mensajes de audio/vídeo (solo en kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"
