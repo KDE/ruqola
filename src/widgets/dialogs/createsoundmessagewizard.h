@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QUrl>
 #include <QWizard>
 class CreateSoundMessageWidget;
 class GenerateSoundMessagePage;
@@ -16,8 +17,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWizard : public QWizard
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageInfo {
+        QString mDescription;
+        QString mFileName;
+        QUrl mFilePath;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
+
     explicit CreateSoundMessageWizard(QWidget *parent = nullptr);
     ~CreateSoundMessageWizard() override;
+
+    Q_REQUIRED_RESULT CreateSoundMessageInfo soundMessageInfo() const;
 
 private:
     void slotCurrentIdChanged(int id);
@@ -60,3 +70,5 @@ private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };
+
+LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const CreateSoundMessageWizard::CreateSoundMessageInfo &t);

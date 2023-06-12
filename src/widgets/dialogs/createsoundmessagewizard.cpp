@@ -26,6 +26,15 @@ CreateSoundMessageWizard::CreateSoundMessageWizard(QWidget *parent)
     setButtonText(QWizard::FinishButton, i18n("Send"));
 }
 
+CreateSoundMessageWizard::CreateSoundMessageInfo CreateSoundMessageWizard::soundMessageInfo() const
+{
+    CreateSoundMessageWizard::CreateSoundMessageInfo info;
+    info.mDescription = mGenerateSoundMessagePage->description();
+    info.mFileName = mGenerateSoundMessagePage->fileName();
+    info.mFilePath = mGenerateSoundMessagePage->fileNamePath();
+    return info;
+}
+
 CreateSoundMessageWizard::~CreateSoundMessageWizard() = default;
 
 void CreateSoundMessageWizard::slotCurrentIdChanged(int id)
@@ -95,6 +104,13 @@ GenerateSoundMessagePage::~GenerateSoundMessagePage() = default;
 
 void GenerateSoundMessagePage::setFileNamePath(const QUrl &url)
 {
+    // TODO
+}
+
+QUrl GenerateSoundMessagePage::fileNamePath() const
+{
+    // TODO
+    return {};
 }
 
 QString GenerateSoundMessagePage::fileName() const
@@ -107,8 +123,10 @@ QString GenerateSoundMessagePage::description() const
     return mDescription->text();
 }
 
-QUrl GenerateSoundMessagePage::fileNamePath() const
+QDebug operator<<(QDebug d, const CreateSoundMessageWizard::CreateSoundMessageInfo &t)
 {
-    // TODO
-    return {};
+    d << " mDescription " << t.mDescription;
+    d << " mFileName " << t.mFileName;
+    d << " mDescription " << t.mDescription;
+    return d;
 }

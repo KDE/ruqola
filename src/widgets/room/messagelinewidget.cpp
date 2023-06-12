@@ -305,15 +305,12 @@ void MessageLineWidget::slotSendSoundMessage()
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QPointer<CreateSoundMessageWizard> dlg = new CreateSoundMessageWizard(this);
     if (dlg->exec()) {
-        // TODO send it
-#if 0
+        const CreateSoundMessageWizard::CreateSoundMessageInfo info = dlg->soundMessageInfo();
         UploadFileDialog::UploadFileInfo result;
         result.description = info.mDescription;
         result.fileUrl = info.mFilePath;
         result.deleteTemporaryFile = true;
-        // TODO add filename ?
         sendFile(result);
-#endif
     }
     delete dlg;
 #endif
