@@ -28,7 +28,7 @@
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sl">Ruqola</name>
   <name xml:lang="sv">Ruqola</name>
-  <name xml:lang="tr">Ruqola</name>
+  <name xml:lang="tr">Roka</name>
   <name xml:lang="uk">Ruqola</name>
   <name xml:lang="x-test">xxRuqolaxx</name>
   <name xml:lang="zh-TW">Ruqola</name>
@@ -84,7 +84,7 @@
     <p xml:lang="ru">Ruqola — клиент для протокола Rocket.Chat.</p>
     <p xml:lang="sl">Ruqola je odjemalec za Rocket chat.</p>
     <p xml:lang="sv">Ruqola är en Rocket Chat klient.</p>
-    <p xml:lang="tr">Ruqola, Rocket.Chat için bir istemcidir.</p>
+    <p xml:lang="tr">Roka, Rocket.Chat için bir istemcidir.</p>
     <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
     <p xml:lang="x-test">xxRuqola is a client for Rocket.Chat.xx</p>
     <p>
@@ -763,7 +763,7 @@
       <li xml:lang="ru">Перетаскивание изображения из Ruqola на веб-сайт или в локальную папку</li>
       <li xml:lang="sl">Slika dnd iz ruqole na spletišče ali lokalno mapo</li>
       <li xml:lang="sv">Dra och släpp bild from Ruqola till webbplats eller lokal katalog</li>
-      <li xml:lang="tr">Ruqola'dan web sitesine veya yerel klasöre rahatsız etmeyin görseli</li>
+      <li xml:lang="tr">Roka'dan web sitesine veya yerel klasöre rahatsız etmeyin görseli</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="x-test">xxDnd image from ruqola to website or local folderxx</li>
       <li>Store message in local database so we can search in offline</li>
@@ -957,7 +957,7 @@
       <caption xml:lang="ru">Комната разговора в Ruqola</caption>
       <caption xml:lang="sl">Klepetalnica v Ruqoli</caption>
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
-      <caption xml:lang="tr">Ruqola'da sohbet odası</caption>
+      <caption xml:lang="tr">Roka'da sohbet odası</caption>
       <caption xml:lang="uk">Кімната спілкування у Ruqola</caption>
       <caption xml:lang="x-test">xxChat room in Ruqolaxx</caption>
       <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
