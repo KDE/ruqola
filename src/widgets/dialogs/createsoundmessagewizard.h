@@ -36,6 +36,8 @@ public:
     explicit CreateSoundMessagePage(QWidget *parent = nullptr);
     ~CreateSoundMessagePage() override;
 
+    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+
 private:
     CreateSoundMessageWidget *const mCreateSoundMessageWidget;
     Q_REQUIRED_RESULT bool validatePage() override;
@@ -50,8 +52,9 @@ public:
 
     Q_REQUIRED_RESULT QString fileName() const;
     Q_REQUIRED_RESULT QString description() const;
-    //    void setFileNamePath(const QUrl &url);
-    //    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+    void setFileNamePath(const QUrl &url);
+
 private:
     PlaySoundWidget *const mShowSoundWidget;
     QLineEdit *const mFileName;
