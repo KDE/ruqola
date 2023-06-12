@@ -81,6 +81,7 @@ private:
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendVideoMessage();
     void slotSendSoundMessage();
+    void slotPrivateSettingsChanged();
 
     QString mRoomId;
     QString mThreadMessageId;

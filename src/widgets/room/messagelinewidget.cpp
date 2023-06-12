@@ -278,9 +278,21 @@ void MessageLineWidget::slotOwnUserPreferencesChanged()
     mEmoticonButton->setVisible(mCurrentRocketChatAccount->ownUserPreferences().useEmojis());
 }
 
+void MessageLineWidget::slotPrivateSettingsChanged()
+{
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
+    mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
+#endif
+}
+
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
 {
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineWidget::slotPrivateSettingsChanged);
+    }
     mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineWidget::slotPrivateSettingsChanged);
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
 }
