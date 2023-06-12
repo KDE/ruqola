@@ -14,4 +14,6 @@ class CreateSoundMessageWizardTest : public QObject
 public:
     explicit CreateSoundMessageWizardTest(QObject *parent = nullptr);
     ~CreateSoundMessageWizardTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
