@@ -58,9 +58,7 @@ CreateSoundMessagePage::CreateSoundMessagePage(QWidget *parent)
 
 QUrl CreateSoundMessagePage::fileNamePath() const
 {
-    // TODO
-    return {};
-    // return mCreateSoundMessageWidget->temporaryFilePath();
+    return mCreateSoundMessageWidget->temporaryFilePath();
 }
 
 bool CreateSoundMessagePage::validatePage()
@@ -104,13 +102,12 @@ GenerateSoundMessagePage::~GenerateSoundMessagePage() = default;
 
 void GenerateSoundMessagePage::setFileNamePath(const QUrl &url)
 {
-    // TODO
+    mShowSoundWidget->setAudioUrl(url);
 }
 
 QUrl GenerateSoundMessagePage::fileNamePath() const
 {
-    // TODO
-    return {};
+    return mShowSoundWidget->audioUrl();
 }
 
 QString GenerateSoundMessagePage::fileName() const

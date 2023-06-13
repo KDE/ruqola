@@ -9,9 +9,11 @@
 #include <QAudioDevice>
 #include <QAudioInput>
 #include <QComboBox>
+#include <QDir>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMediaDevices>
+#include <QTemporaryFile>
 #include <QToolButton>
 
 CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
@@ -72,12 +74,28 @@ void CreateSoundMessageWidget::initializeInput()
         auto name = device.description();
         mDeviceComboBox->addItem(name, QVariant::fromValue(device));
     }
+
+    mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1String("/ruqola_XXXXXX")); // TODO fix extension
+    mTemporaryFile->setAutoRemove(false);
+    mTemporaryFile->open();
+    //        QMediaFormat format;
+    //        format.setFileFormat(QMediaFormat::FileFormat::AVI);
+    //        mMediaRecorder->setMediaFormat(format);
+    // Define url temporary file.
+    mAudioRecorder->setOutputLocation(QUrl::fromLocalFile(mTemporaryFile->fileName()));
+    // qDebug() << " store " << mTemporaryFile->fileName();
 }
 
 void CreateSoundMessageWidget::updateRecordTime(qint64 duration)
 {
     const QString str = i18n("Recorded %1 sec", duration / 1000);
     mLabelDuration->setText(str);
+}
+
+QUrl CreateSoundMessageWidget::temporaryFilePath() const
+{
+    // qDebug() << " XCCCCCCCCCCCCCCCCCCC" << mMediaRecorder->outputLocation() << " dd " << mMediaRecorder->actualLocation();
+    return mAudioRecorder->actualLocation();
 }
 
 void CreateSoundMessageWidget::stop()

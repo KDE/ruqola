@@ -11,6 +11,7 @@
 #include <QWidget>
 class QToolButton;
 class QLabel;
+class QTemporaryFile;
 class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWidget : public QWidget
 {
@@ -18,6 +19,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWidget : public QWidget
 public:
     explicit CreateSoundMessageWidget(QWidget *parent = nullptr);
     ~CreateSoundMessageWidget() override;
+
+    Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
 
 Q_SIGNALS:
     void recordDone();
@@ -36,4 +39,5 @@ private:
     QMediaCaptureSession mCaptureSession;
     QMediaRecorder *mAudioRecorder = nullptr;
     QComboBox *const mDeviceComboBox;
+    QTemporaryFile *mTemporaryFile = nullptr;
 };

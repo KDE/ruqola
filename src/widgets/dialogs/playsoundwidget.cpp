@@ -173,6 +173,15 @@ void PlaySoundWidget::muteChanged(bool state)
     mSoundButton->setIcon(state ? QIcon::fromTheme(QStringLiteral("player-volume-muted")) : QIcon::fromTheme(QStringLiteral("player-volume")));
 }
 
+QUrl PlaySoundWidget::audioUrl() const
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    return mMediaPlayer->source();
+#else
+    return mMediaPlayer->source();
+#endif
+}
+
 void PlaySoundWidget::setAudioUrl(const QUrl &url)
 {
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
