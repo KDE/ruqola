@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:48+0000\n"
+"POT-Creation-Date: 2023-06-13 00:47+0000\n"
 "PO-Revision-Date: 2023-05-27 13:06+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2664,7 +2664,7 @@ msgstr "Use Two Factor Authentication"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:79
+#: widgets/dialogs/createsoundmessagewizard.cpp:96
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6452,7 +6452,7 @@ msgstr ""
 msgid "Recorded %1 sec"
 msgstr "Recorded %1 sec"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:70
+#: widgets/dialogs/createsoundmessagewizard.cpp:86
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
@@ -7773,17 +7773,17 @@ msgstr "Do you want to convert this big text as attachment?"
 msgid "Message Too Big"
 msgstr "Message Too Big"
 
-#: widgets/room/messagelinewidget.cpp:359
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "File selected is too big (Maximum size %1)"
 
-#: widgets/room/messagelinewidget.cpp:359
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgid "File upload"
 msgstr "File upload"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:373
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Server does not authorise this file (invalid mime-type)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:48+0000\n"
+"POT-Creation-Date: 2023-06-13 00:47+0000\n"
 "PO-Revision-Date: 2023-06-04 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2665,7 +2665,7 @@ msgstr "2FA ავთენტიკაციის გამოყენებ�
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:79
+#: widgets/dialogs/createsoundmessagewizard.cpp:96
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6353,7 +6353,7 @@ msgstr "გაგზავნა"
 msgid "Recorded %1 sec"
 msgstr "ჩაწერილია %1 წმ"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:70
+#: widgets/dialogs/createsoundmessagewizard.cpp:86
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
@@ -7661,17 +7661,17 @@ msgstr "გადავაკეთო ეს დიდი ტექსტი �
 msgid "Message Too Big"
 msgstr "შეტყობინება ძალიან დიდია"
 
-#: widgets/room/messagelinewidget.cpp:359
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "მონიშნული ფაილი ძალიან დიდია (მაქსიმალური ზომაა %1)"
 
-#: widgets/room/messagelinewidget.cpp:359
+#: widgets/room/messagelinewidget.cpp:368
 #, kde-format
 msgid "File upload"
 msgstr "ფაილის ატვირთვა"
 
-#: widgets/room/messagelinewidget.cpp:364
+#: widgets/room/messagelinewidget.cpp:373
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype)"
