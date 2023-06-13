@@ -48,7 +48,6 @@ private:
     QScopedPointer<QMediaRecorder> mMediaRecorder;
     QScopedPointer<QAudioInput> mAudioInput;
     QMediaCaptureSession mCaptureSession;
-    QLabel *const mErrorLabel;
     QScopedPointer<QCamera> mCamera;
     QComboBox *const mListCamera;
     QToolButton *const mRecordButton;

@@ -6,6 +6,7 @@
 
 #include "createsoundmessagewidget.h"
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <QAudioDevice>
 #include <QAudioInput>
 #include <QComboBox>
@@ -24,6 +25,7 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     , mLabelDuration(new QLabel(this))
     , mAudioRecorder(new QMediaRecorder(this))
     , mDeviceComboBox(new QComboBox(this))
+    , mMessageWidget(new KMessageWidget(this))
 {
     mCaptureSession.setRecorder(mAudioRecorder);
     mCaptureSession.setAudioInput(new QAudioInput(this));
@@ -31,6 +33,13 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mainLayout->addWidget(mMessageWidget);
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setWordWrap(true);
 
     mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
     mainLayout->addWidget(mDeviceComboBox);
@@ -60,12 +69,20 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
 
     connect(mAudioRecorder, &QMediaRecorder::durationChanged, this, &CreateSoundMessageWidget::updateRecordTime);
     connect(mAudioRecorder, &QMediaRecorder::recorderStateChanged, this, &CreateSoundMessageWidget::updateRecorderState);
-    //    connect(mAudioRecorder, &QMediaRecorder::errorChanged, this,
-    //            &CreateSoundMessageWidget::displayErrorMessage);
+    connect(mAudioRecorder, &QMediaRecorder::errorChanged, this, &CreateSoundMessageWidget::displayRecorderError);
     initializeInput();
+    updateRecorderState(mAudioRecorder->recorderState());
 }
 
 CreateSoundMessageWidget::~CreateSoundMessageWidget() = default;
+
+void CreateSoundMessageWidget::displayRecorderError()
+{
+    if (mAudioRecorder->error() != QMediaRecorder::NoError) {
+        mMessageWidget->setText(mAudioRecorder->errorString());
+        mMessageWidget->animatedShow();
+    }
+}
 
 void CreateSoundMessageWidget::initializeInput()
 {

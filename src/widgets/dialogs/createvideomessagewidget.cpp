@@ -24,7 +24,6 @@
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
     , mVideoWidget(new QVideoWidget(this))
-    , mErrorLabel(new QLabel(this))
     , mCamera(new QCamera(this))
     , mListCamera(new QComboBox(this))
     , mRecordButton(new QToolButton(this))
@@ -73,10 +72,6 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     hboxLayout->addWidget(mDurationLabel);
     mainLayout->addLayout(hboxLayout);
 
-    mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
-    mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
-    mainLayout->addWidget(mErrorLabel);
-    mErrorLabel->setVisible(false);
     updateCameras();
     setCamera(QMediaDevices::defaultVideoInput());
 }
