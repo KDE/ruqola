@@ -61,10 +61,14 @@ QUrl CreateSoundMessagePage::fileNamePath() const
     return mCreateSoundMessageWidget->temporaryFilePath();
 }
 
+bool CreateSoundMessagePage::isComplete() const
+{
+    return !mCreateSoundMessageWidget->temporaryFilePath().isEmpty();
+}
+
 bool CreateSoundMessagePage::validatePage()
 {
-    // TODO
-    return true;
+    return !mCreateSoundMessageWidget->temporaryFilePath().isEmpty();
 }
 
 CreateSoundMessagePage::~CreateSoundMessagePage() = default;

@@ -48,9 +48,12 @@ public:
 
     Q_REQUIRED_RESULT QUrl fileNamePath() const;
 
+    Q_REQUIRED_RESULT bool validatePage() override;
+
+    Q_REQUIRED_RESULT bool isComplete() const override;
+
 private:
     CreateSoundMessageWidget *const mCreateSoundMessageWidget;
-    Q_REQUIRED_RESULT bool validatePage() override;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT GenerateSoundMessagePage : public QWizardPage
