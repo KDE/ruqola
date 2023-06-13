@@ -198,6 +198,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.filenameUrl = uploadFileInfo.fileUrl;
     info.roomId = mRoomId;
     info.threadMessageId = mThreadMessageId;
+    info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
 
     Q_EMIT createUploadJob(info);

@@ -63,7 +63,8 @@ bool UploadFileJob::start()
 
     QHttpPart filePart;
     filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"").arg(mUploadFileInfo.filenameUrl.fileName());
+    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"")
+                                     .arg(mUploadFileInfo.fileName.isEmpty() ? mUploadFileInfo.filenameUrl.fileName() : mUploadFileInfo.fileName);
     filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
     filePart.setBodyDevice(file);
@@ -74,8 +75,6 @@ bool UploadFileJob::start()
     msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
     msgPart.setBody(mUploadFileInfo.messageText.toUtf8());
     multiPart->append(msgPart);
-
-    // TODO filename ???
 
     if (!mUploadFileInfo.threadMessageId.isEmpty()) {
         QHttpPart msgPart;
