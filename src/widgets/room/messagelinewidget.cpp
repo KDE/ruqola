@@ -321,6 +321,7 @@ void MessageLineWidget::slotSendSoundMessage()
         UploadFileDialog::UploadFileInfo result;
         result.description = info.mDescription;
         result.fileUrl = info.mFilePath;
+        result.fileName = info.mFileName;
         result.deleteTemporaryFile = true;
         sendFile(result);
     }
@@ -339,7 +340,7 @@ void MessageLineWidget::slotSendVideoMessage()
             result.description = info.mDescription;
             result.fileUrl = info.mFilePath;
             result.deleteTemporaryFile = true;
-            // TODO add filename ?
+            result.fileName = info.mFileName;
             sendFile(result);
         }
     }

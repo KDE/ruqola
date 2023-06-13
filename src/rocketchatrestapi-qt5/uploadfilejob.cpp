@@ -75,6 +75,8 @@ bool UploadFileJob::start()
     msgPart.setBody(mUploadFileInfo.messageText.toUtf8());
     multiPart->append(msgPart);
 
+    // TODO filename ???
+
     if (!mUploadFileInfo.threadMessageId.isEmpty()) {
         QHttpPart msgPart;
         msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"tmid\"")));
