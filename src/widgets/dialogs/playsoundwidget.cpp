@@ -176,7 +176,8 @@ void PlaySoundWidget::muteChanged(bool state)
 QUrl PlaySoundWidget::audioUrl() const
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return mMediaPlayer->source();
+    // Code not used in qt5 :)
+    return {};
 #else
     return mMediaPlayer->source();
 #endif
