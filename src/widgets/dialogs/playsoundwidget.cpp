@@ -9,7 +9,9 @@
 
 #include <KLocalizedString>
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QAudioDevice>
+#endif
 #include <QComboBox>
 #include <QFontMetrics>
 #include <QHBoxLayout>
@@ -36,20 +38,21 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mLabelPercentSound(new QLabel(this))
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mAudioOutput(new QAudioOutput(this))
-#endif
     , mDeviceComboBox(new QComboBox(this))
+#endif
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setAudioOutput(mAudioOutput);
-#endif
     mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
     initializeAudioOutput();
+#endif
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mainLayout->addWidget(mDeviceComboBox);
+#endif
 
     auto playerLayout = new QHBoxLayout;
     playerLayout->setObjectName(QStringLiteral("playerLayout"));
@@ -136,17 +139,21 @@ PlaySoundWidget::~PlaySoundWidget()
 
 void PlaySoundWidget::initializeAudioOutput()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mDeviceComboBox->addItem(i18n("Default"), QVariant::fromValue(QAudioDevice()));
     for (const auto &deviceInfo : QMediaDevices::audioOutputs()) {
         mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
     }
     connect(mDeviceComboBox, &QComboBox::activated, this, &PlaySoundWidget::audioOutputChanged);
+#endif
 }
 
 void PlaySoundWidget::audioOutputChanged(int index)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     auto device = mDeviceComboBox->itemData(index).value<QAudioDevice>();
     mMediaPlayer->audioOutput()->setDevice(device);
+#endif
 }
 
 void PlaySoundWidget::slotPositionChanged(qint64 progress)
