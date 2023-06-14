@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
+"POT-Creation-Date: 2023-06-14 00:47+0000\n"
 "PO-Revision-Date: 2023-06-05 11:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -872,7 +872,7 @@ msgstr "Ignorovaná zpráva"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:70
+#: widgets/dialogs/createsoundmessagewidget.cpp:89
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"
@@ -2660,7 +2660,7 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:96
+#: widgets/dialogs/createsoundmessagewizard.cpp:98
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6297,13 +6297,13 @@ msgstr ""
 msgid "Send"
 msgstr "Odeslat"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:79
-#: widgets/dialogs/createvideomessagewidget.cpp:198
+#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createvideomessagewidget.cpp:193
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Nahráno %1 s"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:86
+#: widgets/dialogs/createsoundmessagewizard.cpp:88
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
@@ -6440,7 +6440,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Zvuk: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:229
+#: widgets/dialogs/playsoundwidget.cpp:239
 #: widgets/dialogs/showvideowidget.cpp:240
 #, kde-format
 msgid "Error: "
@@ -7610,17 +7610,17 @@ msgstr ""
 msgid "Message Too Big"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Vybraný soubor je příliš velký (maximální velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgid "File upload"
 msgstr "Odeslání souboru"
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:375
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""

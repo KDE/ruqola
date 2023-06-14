@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
+"POT-Creation-Date: 2023-06-14 00:47+0000\n"
 "PO-Revision-Date: 2023-05-27 13:06+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -873,7 +873,7 @@ msgstr "Ignored Message"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:70
+#: widgets/dialogs/createsoundmessagewidget.cpp:89
 #, kde-format
 msgid "Default"
 msgstr "Default"
@@ -2664,7 +2664,7 @@ msgstr "Use Two Factor Authentication"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:96
+#: widgets/dialogs/createsoundmessagewizard.cpp:98
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6446,13 +6446,13 @@ msgstr "Create Video Message"
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:79
-#: widgets/dialogs/createvideomessagewidget.cpp:198
+#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createvideomessagewidget.cpp:193
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Recorded %1 sec"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:86
+#: widgets/dialogs/createsoundmessagewizard.cpp:88
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
@@ -6588,7 +6588,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Sound: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:229
+#: widgets/dialogs/playsoundwidget.cpp:239
 #: widgets/dialogs/showvideowidget.cpp:240
 #, kde-format
 msgid "Error: "
@@ -7773,17 +7773,17 @@ msgstr "Do you want to convert this big text as attachment?"
 msgid "Message Too Big"
 msgstr "Message Too Big"
 
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "File selected is too big (Maximum size %1)"
 
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgid "File upload"
 msgstr "File upload"
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:375
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Server does not authorise this file (invalid mime-type)"

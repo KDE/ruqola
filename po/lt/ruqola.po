@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
+"POT-Creation-Date: 2023-06-14 00:47+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -915,7 +915,7 @@ msgstr ""
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:70
+#: widgets/dialogs/createsoundmessagewidget.cpp:89
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -2783,7 +2783,7 @@ msgstr "Tapatybės nustatymo metodas"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:96
+#: widgets/dialogs/createsoundmessagewizard.cpp:98
 #: widgets/dialogs/createvideomessagewizard.cpp:124
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6633,13 +6633,13 @@ msgstr "Ištrinti žinutę"
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:79
-#: widgets/dialogs/createvideomessagewidget.cpp:198
+#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createvideomessagewidget.cpp:193
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:86
+#: widgets/dialogs/createsoundmessagewizard.cpp:88
 #: widgets/dialogs/createvideomessagewizard.cpp:114
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, fuzzy, kde-format
@@ -6784,7 +6784,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Įrašyti failą"
 
-#: widgets/dialogs/playsoundwidget.cpp:229
+#: widgets/dialogs/playsoundwidget.cpp:239
 #: widgets/dialogs/showvideowidget.cpp:240
 #, kde-format
 msgid "Error: "
@@ -8053,17 +8053,17 @@ msgstr "Ar norite ištrinti šį priedą?"
 msgid "Message Too Big"
 msgstr "Žinutė prisegta"
 
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:368
+#: widgets/room/messagelinewidget.cpp:370
 #, kde-format
 msgid "File upload"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:373
+#: widgets/room/messagelinewidget.cpp:375
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
