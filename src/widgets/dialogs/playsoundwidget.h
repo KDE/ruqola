@@ -37,6 +37,7 @@ private:
     void updateDurationInfo(qint64 currentInfo);
     void slotVolumeChanged(int position);
     void handleError();
+    void initializeAudioOutput();
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
 #else

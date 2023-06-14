@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 
+#include <QAudioDevice>
 #include <QComboBox>
 #include <QFontMetrics>
 #include <QHBoxLayout>
@@ -41,6 +42,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mMediaPlayer->setAudioOutput(mAudioOutput);
 #endif
     mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
+    initializeAudioOutput();
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -129,6 +131,18 @@ PlaySoundWidget::~PlaySoundWidget()
 {
     RuqolaGlobalConfig::self()->setSoundVolume(mSoundSlider->value());
     RuqolaGlobalConfig::self()->save();
+}
+
+void PlaySoundWidget::initializeAudioOutput()
+{
+#if 0
+    const QAudioDevice &defaultDeviceInfo = m_devices->defaultAudioOutput();
+    mDeviceComboBox->addItem(defaultDeviceInfo.description(), QVariant::fromValue(defaultDeviceInfo));
+    for (auto &deviceInfo : m_devices->audioOutputs()) {
+        if (deviceInfo != defaultDeviceInfo)
+            mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
+    }
+#endif
 }
 
 void PlaySoundWidget::slotPositionChanged(qint64 progress)
