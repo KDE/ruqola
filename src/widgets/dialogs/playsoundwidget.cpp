@@ -14,6 +14,7 @@
 #include <QFontMetrics>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMediaDevices>
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>
@@ -135,14 +136,17 @@ PlaySoundWidget::~PlaySoundWidget()
 
 void PlaySoundWidget::initializeAudioOutput()
 {
-#if 0
-    const QAudioDevice &defaultDeviceInfo = m_devices->defaultAudioOutput();
-    mDeviceComboBox->addItem(defaultDeviceInfo.description(), QVariant::fromValue(defaultDeviceInfo));
-    for (auto &deviceInfo : m_devices->audioOutputs()) {
-        if (deviceInfo != defaultDeviceInfo)
-            mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
+    mDeviceComboBox->addItem(i18n("Default"), QVariant::fromValue(QAudioDevice()));
+    for (const auto &deviceInfo : QMediaDevices::audioOutputs()) {
+        mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
     }
-#endif
+    connect(mDeviceComboBox, &QComboBox::activated, this, &PlaySoundWidget::audioOutputChanged);
+}
+
+void PlaySoundWidget::audioOutputChanged(int index)
+{
+    auto device = mDeviceComboBox->itemData(index).value<QAudioDevice>();
+    mMediaPlayer->audioOutput()->setDevice(device);
 }
 
 void PlaySoundWidget::slotPositionChanged(qint64 progress)

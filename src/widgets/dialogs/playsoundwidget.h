@@ -38,6 +38,7 @@ private:
     void slotVolumeChanged(int position);
     void handleError();
     void initializeAudioOutput();
+    void audioOutputChanged(int index);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
 #else
