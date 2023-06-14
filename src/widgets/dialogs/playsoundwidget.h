@@ -14,6 +14,7 @@ class QPushButton;
 class QToolButton;
 class QSlider;
 class QLabel;
+class QComboBox;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 class QAudioOutput;
 #endif
@@ -53,4 +54,5 @@ private:
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QAudioOutput *const mAudioOutput;
 #endif
+    QComboBox *const mDeviceComboBox;
 };

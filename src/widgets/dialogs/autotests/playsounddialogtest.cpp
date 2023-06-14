@@ -7,6 +7,7 @@
 #include "playsounddialogtest.h"
 #include "dialogs/playsounddialog.h"
 #include "dialogs/playsoundwidget.h"
+#include <QComboBox>
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -31,4 +32,7 @@ void PlaySoundDialogTest::shouldHaveDefaultValues()
 
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    auto mDeviceComboBox = w.findChild<QComboBox *>(QStringLiteral("mDeviceComboBox"));
+    QVERIFY(mDeviceComboBox);
 }

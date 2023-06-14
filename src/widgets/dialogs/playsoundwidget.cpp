@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 
+#include <QComboBox>
 #include <QFontMetrics>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -34,13 +35,18 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mAudioOutput(new QAudioOutput(this))
 #endif
+    , mDeviceComboBox(new QComboBox(this))
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setAudioOutput(mAudioOutput);
 #endif
+    mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mainLayout->addWidget(mDeviceComboBox);
 
     auto playerLayout = new QHBoxLayout;
     playerLayout->setObjectName(QStringLiteral("playerLayout"));
