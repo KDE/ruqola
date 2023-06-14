@@ -13,6 +13,7 @@ class QPushButton;
 class QSlider;
 class QLabel;
 class QToolButton;
+class KMessageWidget;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 class QAudioOutput;
 #endif
@@ -44,7 +45,7 @@ private:
     QMediaPlayer *const mMediaPlayer;
     QPushButton *const mPlayButton;
     QSlider *const mPositionSlider;
-    QLabel *const mErrorLabel;
+    KMessageWidget *const mMessageWidget;
     QToolButton *const mSoundButton;
     QSlider *const mSoundSlider;
     QLabel *const mLabelDuration;

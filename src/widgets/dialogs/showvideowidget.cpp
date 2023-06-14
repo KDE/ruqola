@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 
+#include <KMessageWidget>
 #include <QLabel>
 #include <QPushButton>
 #include <QSlider>
@@ -31,7 +32,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
                                     ))
     , mPlayButton(new QPushButton(this))
     , mPositionSlider(new QSlider(Qt::Horizontal, this))
-    , mErrorLabel(new QLabel(this))
+    , mMessageWidget(new KMessageWidget(this))
     , mSoundButton(new QToolButton(this))
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
@@ -65,7 +66,6 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
 
-    mErrorLabel->setTextFormat(Qt::PlainText);
     mLabelDuration->setTextFormat(Qt::PlainText);
     mLabelPercentSound->setTextFormat(Qt::PlainText);
 
@@ -79,9 +79,13 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
 
-    mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
-    mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
-    mainLayout->addWidget(mErrorLabel);
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mainLayout->addWidget(mMessageWidget);
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setWordWrap(true);
+
     mMediaPlayer->setVideoOutput(videoWidget);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
@@ -165,7 +169,8 @@ void ShowVideoWidget::slotMuteChanged(bool state)
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)
 {
-    mErrorLabel->setText(QString());
+    mMessageWidget->setText(QString());
+    mMessageWidget->hide();
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setMedia(url);
@@ -243,5 +248,6 @@ void ShowVideoWidget::handleError()
     } else {
         message += errorString;
     }
-    mErrorLabel->setText(message);
+    mMessageWidget->setText(message);
+    mMessageWidget->animatedShow();
 }

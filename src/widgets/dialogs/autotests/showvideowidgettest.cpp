@@ -6,6 +6,7 @@
 
 #include "showvideowidgettest.h"
 #include "dialogs/showvideowidget.h"
+#include <KMessageWidget>
 #include <QLabel>
 #include <QPushButton>
 #include <QSlider>
@@ -42,8 +43,11 @@ void ShowVideoWidgetTest::shouldHaveDefaultValues()
     auto mPositionSlider = w.findChild<QSlider *>(QStringLiteral("mPositionSlider"));
     QVERIFY(mPositionSlider);
 
-    auto mErrorLabel = w.findChild<QLabel *>(QStringLiteral("mErrorLabel"));
-    QVERIFY(mErrorLabel);
+    auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
+    QVERIFY(mMessageWidget);
+    QVERIFY(!mMessageWidget->isCloseButtonVisible());
+    QVERIFY(!mMessageWidget->wordWrap());
+    QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Information);
 
     auto mSoundButton = w.findChild<QToolButton *>(QStringLiteral("mSoundButton"));
     QVERIFY(mSoundButton);

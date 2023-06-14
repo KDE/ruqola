@@ -8,6 +8,7 @@
 #include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
+#include <KMessageWidget>
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QAudioDevice>
@@ -36,7 +37,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mPositionSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
-    , mErrorLabel(new QLabel(this))
+    , mMessageWidget(new KMessageWidget(this))
     , mLabelPercentSound(new QLabel(this))
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mAudioOutput(new QAudioOutput(this))
@@ -60,13 +61,15 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     playerLayout->setObjectName(QStringLiteral("playerLayout"));
     playerLayout->setContentsMargins({});
     mainLayout->addLayout(playerLayout);
-    mainLayout->addWidget(mErrorLabel);
-
-    mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mainLayout->addWidget(mMessageWidget);
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setWordWrap(true);
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
     mLabelPercentSound->setObjectName(QStringLiteral("mLabelPercentSound"));
 
-    mErrorLabel->setTextFormat(Qt::PlainText);
     mLabelDuration->setTextFormat(Qt::PlainText);
     mLabelPercentSound->setTextFormat(Qt::PlainText);
 
@@ -275,5 +278,6 @@ void PlaySoundWidget::handleError()
     } else {
         message += errorString;
     }
-    mErrorLabel->setText(message);
+    mMessageWidget->setText(message);
+    mMessageWidget->animatedShow();
 }

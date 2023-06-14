@@ -6,6 +6,7 @@
 
 #include "playsoundwidgettest.h"
 #include "dialogs/playsoundwidget.h"
+#include <KMessageWidget>
 #include <QLabel>
 #include <QPushButton>
 #include <QSlider>
@@ -56,10 +57,11 @@ void PlaySoundWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabelDuration->text().isEmpty());
     QCOMPARE(mLabelDuration->textFormat(), Qt::PlainText);
 
-    auto mErrorLabel = w.findChild<QLabel *>(QStringLiteral("mErrorLabel"));
-    QVERIFY(mErrorLabel);
-    QVERIFY(mErrorLabel->text().isEmpty());
-    QCOMPARE(mErrorLabel->textFormat(), Qt::PlainText);
+    auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
+    QVERIFY(mMessageWidget);
+    QVERIFY(!mMessageWidget->isCloseButtonVisible());
+    QVERIFY(!mMessageWidget->wordWrap());
+    QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Information);
 
     auto mLabelPercentSound = w.findChild<QLabel *>(QStringLiteral("mLabelPercentSound"));
     QVERIFY(mLabelPercentSound);

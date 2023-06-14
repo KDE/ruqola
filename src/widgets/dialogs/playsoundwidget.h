@@ -15,6 +15,7 @@ class QToolButton;
 class QSlider;
 class QLabel;
 class QComboBox;
+class KMessageWidget;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 class QAudioOutput;
 #endif
@@ -51,7 +52,7 @@ private:
     QSlider *const mSoundSlider;
     QSlider *const mPositionSlider;
     QLabel *const mLabelDuration;
-    QLabel *const mErrorLabel;
+    KMessageWidget *const mMessageWidget;
     QLabel *const mLabelPercentSound;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QAudioOutput *const mAudioOutput;
