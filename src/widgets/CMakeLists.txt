@@ -721,14 +721,10 @@ endif()
 
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_sources(libruqolawidgets PRIVATE
-        dialogs/createvideomessagedialog.cpp
-        dialogs/createvideomessagedialog.h
         dialogs/createvideomessagewidget.cpp
         dialogs/createvideomessagewidget.h
         dialogs/createsoundmessagewidget.h
         dialogs/createsoundmessagewidget.cpp
-        dialogs/createsoundmessagedialog.h
-        dialogs/createsoundmessagedialog.cpp
 
         dialogs/createvideomessagewizard.h
         dialogs/createvideomessagewizard.cpp
