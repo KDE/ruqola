@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-15 00:46+0000\n"
 "PO-Revision-Date: 2023-06-03 13:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -879,6 +879,7 @@ msgstr "Missatge ignorat"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/playsoundwidget.cpp:148
 #, kde-format
 msgid "Default"
 msgstr "Predeterminat"
@@ -6631,8 +6632,8 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "So: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:239
-#: widgets/dialogs/showvideowidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:275
+#: widgets/dialogs/showvideowidget.cpp:245
 #, kde-format
 msgid "Error: "
 msgstr "S'ha produït un error: "

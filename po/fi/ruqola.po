@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-15 00:46+0000\n"
 "PO-Revision-Date: 2023-05-10 21:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -885,6 +885,7 @@ msgstr "Ohitettu viesti"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/playsoundwidget.cpp:148
 #, kde-format
 msgid "Default"
 msgstr "Oletus"
@@ -6492,8 +6493,8 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Ääni: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:239
-#: widgets/dialogs/showvideowidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:275
+#: widgets/dialogs/showvideowidget.cpp:245
 #, kde-format
 msgid "Error: "
 msgstr "Virhe:"
