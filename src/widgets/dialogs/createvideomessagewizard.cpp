@@ -6,6 +6,7 @@
 
 #include "createvideomessagewizard.h"
 #include "createvideomessagewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "showvideowidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -118,6 +119,9 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(QWidget *parent)
 
     mFileName->setObjectName(QStringLiteral("mFileName"));
     mDescription->setObjectName(QStringLiteral("mDescription"));
+
+    new LineEditCatchReturnKey(mFileName, this);
+    new LineEditCatchReturnKey(mDescription, this);
 
     mainLayout->addWidget(mFileName);
 

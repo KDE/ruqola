@@ -6,6 +6,7 @@
 
 #include "createsoundmessagewizard.h"
 #include "createsoundmessagewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "playsoundwidget.h"
 #include <KLocalizedString>
 #include <QLabel>
@@ -94,6 +95,9 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(QWidget *parent)
     mDescription->setObjectName(QStringLiteral("mDescription"));
 
     mainLayout->addWidget(mFileName);
+
+    new LineEditCatchReturnKey(mFileName, this);
+    new LineEditCatchReturnKey(mDescription, this);
 
     label = new QLabel(i18n("Description:"), this);
     label->setTextFormat(Qt::PlainText);
