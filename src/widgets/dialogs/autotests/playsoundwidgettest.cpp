@@ -60,7 +60,7 @@ void PlaySoundWidgetTest::shouldHaveDefaultValues()
     auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
     QVERIFY(mMessageWidget);
     QVERIFY(!mMessageWidget->isCloseButtonVisible());
-    QVERIFY(!mMessageWidget->wordWrap());
+    QVERIFY(mMessageWidget->wordWrap());
     QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Information);
 
     auto mLabelPercentSound = w.findChild<QLabel *>(QStringLiteral("mLabelPercentSound"));
