@@ -34,9 +34,6 @@ Dependencies:
     'frameworks/karchive': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
 
-# Laurent remove it at the moment on kf6
-#frameworks/purpose': '@latest-kf6'
-
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
@@ -62,6 +59,5 @@ Dependencies:
     'frameworks/kidletime': '@stable'
     'frameworks/knotifyconfig': '@stable'
     'frameworks/breeze-icons': '@stable'
-    'frameworks/purpose': '@stable'
     'frameworks/karchive': '@stable'
     'libraries/ktextaddons': '@stable'
