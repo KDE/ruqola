@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-15 00:46+0000\n"
+"POT-Creation-Date: 2023-06-16 00:46+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2775,8 +2775,8 @@ msgstr "身份驗證方式"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:98
-#: widgets/dialogs/createvideomessagewizard.cpp:124
+#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6605,38 +6605,34 @@ msgstr "帳戶名稱："
 msgid "Server URL:"
 msgstr "伺服器網址："
 
-#: widgets/dialogs/createsoundmessagedialog.cpp:26
-#: widgets/dialogs/createsoundmessagewizard.cpp:22
-#, fuzzy, kde-format
-#| msgid "Take a Video Message"
-msgctxt "@title:window"
-msgid "Create Sound Message"
-msgstr "開始視訊聊天"
-
-#: widgets/dialogs/createsoundmessagedialog.cpp:35
-#: widgets/dialogs/createsoundmessagewizard.cpp:26
-#: widgets/dialogs/createvideomessagedialog.cpp:38
-#: widgets/dialogs/createvideomessagewizard.cpp:34
-#, kde-format
-msgid "Send"
-msgstr ""
-
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
 #: widgets/dialogs/createvideomessagewidget.cpp:193
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:88
-#: widgets/dialogs/createvideomessagewizard.cpp:114
+#: widgets/dialogs/createsoundmessagewizard.cpp:23
+#, fuzzy, kde-format
+#| msgid "Take a Video Message"
+msgctxt "@title:window"
+msgid "Create Sound Message"
+msgstr "開始視訊聊天"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:27
+#: widgets/dialogs/createvideomessagewizard.cpp:35
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "Username:"
 msgid "Filename:"
 msgstr "使用者名稱："
 
-#: widgets/dialogs/createvideomessagedialog.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:29
+#: widgets/dialogs/createvideomessagewizard.cpp:30
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
 msgctxt "@title:window"

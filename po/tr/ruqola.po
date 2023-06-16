@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-15 00:46+0000\n"
+"POT-Creation-Date: 2023-06-16 00:46+0000\n"
 "PO-Revision-Date: 2023-06-11 21:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2652,8 +2652,8 @@ msgstr "İki Adımlı Kimlik Doğrulama Kullan"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:98
-#: widgets/dialogs/createvideomessagewizard.cpp:124
+#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6423,36 +6423,32 @@ msgstr "Hesap adı:"
 msgid "Server URL:"
 msgstr "Sunucu URL'si:"
 
-#: widgets/dialogs/createsoundmessagedialog.cpp:26
-#: widgets/dialogs/createsoundmessagewizard.cpp:22
-#, kde-format
-msgctxt "@title:window"
-msgid "Create Sound Message"
-msgstr "Ses İletisi Oluştur"
-
-#: widgets/dialogs/createsoundmessagedialog.cpp:35
-#: widgets/dialogs/createsoundmessagewizard.cpp:26
-#: widgets/dialogs/createvideomessagedialog.cpp:38
-#: widgets/dialogs/createvideomessagewizard.cpp:34
-#, kde-format
-msgid "Send"
-msgstr "Gönder"
-
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
 #: widgets/dialogs/createvideomessagewidget.cpp:193
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 saniye kaydedildi"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:88
-#: widgets/dialogs/createvideomessagewizard.cpp:114
+#: widgets/dialogs/createsoundmessagewizard.cpp:23
+#, kde-format
+msgctxt "@title:window"
+msgid "Create Sound Message"
+msgstr "Ses İletisi Oluştur"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:27
+#: widgets/dialogs/createvideomessagewizard.cpp:35
+#, kde-format
+msgid "Send"
+msgstr "Gönder"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
 msgid "Filename:"
 msgstr "Dosya adı:"
 
-#: widgets/dialogs/createvideomessagedialog.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:29
+#: widgets/dialogs/createvideomessagewizard.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"

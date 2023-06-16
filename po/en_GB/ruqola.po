@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-15 00:46+0000\n"
+"POT-Creation-Date: 2023-06-16 00:46+0000\n"
 "PO-Revision-Date: 2023-05-27 13:06+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2665,8 +2665,8 @@ msgstr "Use Two Factor Authentication"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:98
-#: widgets/dialogs/createvideomessagewizard.cpp:124
+#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6430,8 +6430,13 @@ msgstr "Account name:"
 msgid "Server URL:"
 msgstr "Server URL:"
 
-#: widgets/dialogs/createsoundmessagedialog.cpp:26
-#: widgets/dialogs/createsoundmessagewizard.cpp:22
+#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createvideomessagewidget.cpp:193
+#, kde-format
+msgid "Recorded %1 sec"
+msgstr "Recorded %1 sec"
+
+#: widgets/dialogs/createsoundmessagewizard.cpp:23
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
@@ -6439,29 +6444,20 @@ msgctxt "@title:window"
 msgid "Create Sound Message"
 msgstr "Create Video Message"
 
-#: widgets/dialogs/createsoundmessagedialog.cpp:35
-#: widgets/dialogs/createsoundmessagewizard.cpp:26
-#: widgets/dialogs/createvideomessagedialog.cpp:38
-#: widgets/dialogs/createvideomessagewizard.cpp:34
+#: widgets/dialogs/createsoundmessagewizard.cpp:27
+#: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
-#, kde-format
-msgid "Recorded %1 sec"
-msgstr "Recorded %1 sec"
-
-#: widgets/dialogs/createsoundmessagewizard.cpp:88
-#: widgets/dialogs/createvideomessagewizard.cpp:114
+#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
 msgid "Filename:"
 msgstr "Filename:"
 
-#: widgets/dialogs/createvideomessagedialog.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:29
+#: widgets/dialogs/createvideomessagewizard.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"
