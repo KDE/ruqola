@@ -111,20 +111,20 @@ void CreateSoundMessageWidget::updateRecordTime(qint64 duration)
 
 QUrl CreateSoundMessageWidget::temporaryFilePath() const
 {
-    // qDebug() << " XCCCCCCCCCCCCCCCCCCC" << mMediaRecorder->outputLocation() << " dd " << mMediaRecorder->actualLocation();
+    // qDebug() << "output location" << mMediaRecorder->outputLocation() << " dd " << mMediaRecorder->actualLocation();
     return mAudioRecorder->actualLocation();
 }
 
 void CreateSoundMessageWidget::stop()
 {
     mAudioRecorder->stop();
+    Q_EMIT recordDone();
 }
 
 void CreateSoundMessageWidget::record()
 {
     mCaptureSession.audioInput()->setDevice(mDeviceComboBox->itemData(mDeviceComboBox->currentIndex()).value<QAudioDevice>());
     mAudioRecorder->record();
-    Q_EMIT recordDone();
 }
 
 void CreateSoundMessageWidget::pause()
