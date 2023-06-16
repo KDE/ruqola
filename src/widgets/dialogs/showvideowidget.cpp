@@ -18,8 +18,10 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <QVideoWidget>
+
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QAudioOutput>
+#include <QComboBox>
 #endif
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
@@ -39,6 +41,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     , mLabelPercentSound(new QLabel(this))
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mAudioOutput(new QAudioOutput(this))
+    , mSoundDeviceComboBox(new QComboBox(this))
 #endif
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
@@ -48,6 +51,11 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mSoundDeviceComboBox->setObjectName(QStringLiteral("mSoundDeviceComboBox"));
+    mainLayout->addWidget(mSoundDeviceComboBox);
+    // TODO initialize it.
+#endif
 
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
 
