@@ -20,8 +20,10 @@
 #include <QVideoWidget>
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QAudioDevice>
 #include <QAudioOutput>
 #include <QComboBox>
+#include <QMediaDevices>
 #endif
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
@@ -128,12 +130,34 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     QFontMetrics f(font());
     mLabelPercentSound->setFixedWidth(f.horizontalAdvance(QStringLiteral("MMM")));
     slotVolumeChanged(mSoundSlider->value());
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    initializeAudioOutput();
+#endif
 }
 
 ShowVideoWidget::~ShowVideoWidget()
 {
     RuqolaGlobalConfig::self()->setSoundVolume(mSoundSlider->value());
     RuqolaGlobalConfig::self()->save();
+}
+
+void ShowVideoWidget::initializeAudioOutput()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mSoundDeviceComboBox->addItem(i18n("Default"), QVariant::fromValue(QAudioDevice()));
+    for (const auto &deviceInfo : QMediaDevices::audioOutputs()) {
+        mSoundDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
+    }
+    connect(mSoundDeviceComboBox, &QComboBox::activated, this, &ShowVideoWidget::audioOutputChanged);
+#endif
+}
+
+void ShowVideoWidget::audioOutputChanged(int index)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    const auto device = mSoundDeviceComboBox->itemData(index).value<QAudioDevice>();
+    mMediaPlayer->audioOutput()->setDevice(device);
+#endif
 }
 
 void ShowVideoWidget::slotPositionChanged(qint64 progress)

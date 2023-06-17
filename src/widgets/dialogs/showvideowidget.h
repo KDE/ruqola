@@ -41,6 +41,8 @@ private:
     void setPosition(int position);
     void handleError();
     void play();
+    void initializeAudioOutput();
+    void audioOutputChanged(int index);
 
     qint64 mDuration;
     QMediaPlayer *const mMediaPlayer;
