@@ -156,7 +156,7 @@ void PlaySoundWidget::initializeAudioOutput()
 void PlaySoundWidget::audioOutputChanged(int index)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    auto device = mDeviceComboBox->itemData(index).value<QAudioDevice>();
+    const auto device = mDeviceComboBox->itemData(index).value<QAudioDevice>();
     mMediaPlayer->audioOutput()->setDevice(device);
 #endif
 }
