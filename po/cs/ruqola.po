@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 00:48+0000\n"
+"POT-Creation-Date: 2023-06-18 00:54+0000\n"
 "PO-Revision-Date: 2023-06-05 11:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -874,6 +874,7 @@ msgstr "Ignorovaná zpráva"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:89
 #: widgets/dialogs/playsoundwidget.cpp:148
+#: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"
@@ -6438,7 +6439,7 @@ msgid "Sound: %1"
 msgstr "Zvuk: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:253
+#: widgets/dialogs/showvideowidget.cpp:277
 #, kde-format
 msgid "Error: "
 msgstr "Chyba: "

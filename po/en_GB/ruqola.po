@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 00:48+0000\n"
-"PO-Revision-Date: 2023-05-27 13:06+0100\n"
+"POT-Creation-Date: 2023-06-18 00:54+0000\n"
+"PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -875,6 +875,7 @@ msgstr "Ignored Message"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:89
 #: widgets/dialogs/playsoundwidget.cpp:148
+#: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
 msgid "Default"
 msgstr "Default"
@@ -6437,18 +6438,16 @@ msgid "Recorded %1 sec"
 msgstr "Recorded %1 sec"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Create Video Message"
+msgstr "Create Sound Message"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Send"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:89
 #: widgets/dialogs/createvideomessagewizard.cpp:115
@@ -6586,7 +6585,7 @@ msgid "Sound: %1"
 msgstr "Sound: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:253
+#: widgets/dialogs/showvideowidget.cpp:277
 #, kde-format
 msgid "Error: "
 msgstr "Error: "
@@ -8641,7 +8640,7 @@ msgstr "Show leader/moderator/owner in channel info."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Video/Sound Message support (kf6 only)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:38
 msgid "Fix avatar support"

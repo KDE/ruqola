@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 00:48+0000\n"
+"POT-Creation-Date: 2023-06-18 00:54+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -897,6 +897,7 @@ msgstr "Игнорируемое сообщение"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:89
 #: widgets/dialogs/playsoundwidget.cpp:148
+#: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
 msgid "Default"
 msgstr "По умолчанию"
@@ -6675,7 +6676,7 @@ msgid "Sound: %1"
 msgstr "Звук: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:253
+#: widgets/dialogs/showvideowidget.cpp:277
 #, kde-format
 msgid "Error: "
 msgstr "Ошибка: "
