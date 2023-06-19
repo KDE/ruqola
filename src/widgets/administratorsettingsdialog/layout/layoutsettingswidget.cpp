@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QSpinBox>
 
 LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
@@ -17,6 +18,7 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     , mAllowSpecialCharactersRoomNames(new QCheckBox(i18n("Allow Special Characters in Room Names"), this))
     , mMergePrivateGroupsWithChannels(new QCheckBox(i18n("Merge Private Groups with Channels"), this))
     , mGroupChannelsByType(new QCheckBox(i18n("Group channels by type"), this))
+    , mNumberUsersAutocompletion(new QSpinBox(this))
 {
     mDisplayRoles->setObjectName(QStringLiteral("mDisplayRoles"));
     mMainLayout->addWidget(mDisplayRoles);
@@ -41,6 +43,11 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     mGroupChannelsByType->setObjectName(QStringLiteral("mGroupChannelsByType"));
     mMainLayout->addWidget(mGroupChannelsByType);
     connectCheckBox(mGroupChannelsByType, QStringLiteral("UI_Group_Channels_By_Type"));
+
+    mNumberUsersAutocompletion->setObjectName(QStringLiteral("mNumberUsersAutocompletion"));
+    mNumberUsersAutocompletion->setObjectName(QStringLiteral("mTimeouts"));
+    mNumberUsersAutocompletion->setMaximum(99);
+    addSpinbox(i18n("Number of users' autocomplete suggestions"), mNumberUsersAutocompletion, QStringLiteral("Number_of_users_autocomplete_suggestions"));
 }
 
 LayoutSettingsWidget::~LayoutSettingsWidget() = default;
@@ -53,4 +60,5 @@ void LayoutSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mAllowSpecialCharactersRoomNames, mapSettings, false);
     initializeWidget(mMergePrivateGroupsWithChannels, mapSettings, true);
     initializeWidget(mGroupChannelsByType, mapSettings, true);
+    initializeWidget(mNumberUsersAutocompletion, mapSettings, 5);
 }

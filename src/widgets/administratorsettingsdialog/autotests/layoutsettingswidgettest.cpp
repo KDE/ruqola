@@ -6,6 +6,7 @@
 #include "layoutsettingswidgettest.h"
 #include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "settingswidgetshelper.h"
+#include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(LayoutSettingsWidgetTest)
 
@@ -52,4 +53,9 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mGroupChannelsByType->isChecked());
     QVERIFY(!mGroupChannelsByType->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGroupChannelsByType), QStringLiteral("UI_Group_Channels_By_Type"));
+
+    auto mNumberUsersAutocompletion = w.findChild<QSpinBox *>(QStringLiteral("mNumberUsersAutocompletion"));
+    QVERIFY(mNumberUsersAutocompletion);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mNumberUsersAutocompletion), QStringLiteral("Number_of_users_autocomplete_suggestions"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Number_of_users_autocomplete_suggestions"));
 }

@@ -24,4 +24,5 @@ private:
     QCheckBox *const mAllowSpecialCharactersRoomNames;
     QCheckBox *const mMergePrivateGroupsWithChannels;
     QCheckBox *const mGroupChannelsByType;
+    QSpinBox *const mNumberUsersAutocompletion;
 };
