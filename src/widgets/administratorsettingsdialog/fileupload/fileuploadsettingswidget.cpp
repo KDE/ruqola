@@ -19,6 +19,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mFileUploadsEnabled(new QCheckBox(i18n("Enabled File Upload"), this))
     , mProtectUploadedFiles(new QCheckBox(i18n("Protect Uploaded Files"), this))
     , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
+    , mRestrictFilesToRooms(new QCheckBox(i18n("Restrict files to rooms' members"), this))
     , mMaximumFileUploadSize(new QSpinBox(this))
     , mFileUploadsEnabledDirectMessages(new QCheckBox(i18n("File Uploads Enabled in Direct Messages"), this))
     , mAcceptedMediaTypes(new QLineEdit(this))
@@ -44,6 +45,11 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mRotateImagesUpload->setToolTip(i18n("Enabling this setting may cause image quality loss"));
     mMainLayout->addWidget(mRotateImagesUpload);
     connectCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
+
+    mRestrictFilesToRooms->setObjectName(QStringLiteral("mRestrictFilesToRooms"));
+    mRestrictFilesToRooms->setToolTip(i18n("Restrict the access of files uploaded on rooms to the rooms' members only"));
+    mMainLayout->addWidget(mRestrictFilesToRooms);
+    connectCheckBox(mRestrictFilesToRooms, QStringLiteral("FileUpload_Restrict_to_room_members"));
 
     mFileUploadsEnabledDirectMessages->setObjectName(QStringLiteral("mFileUploadsEnabledDirectMessages"));
     mMainLayout->addWidget(mFileUploadsEnabledDirectMessages);
@@ -78,7 +84,8 @@ void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
 {
     initializeWidget(mFileUploadsEnabled, mapSettings, true);
     initializeWidget(mProtectUploadedFiles, mapSettings, true);
-    initializeWidget(mRotateImagesUpload, mapSettings, true);
+    initializeWidget(mRotateImagesUpload, mapSettings, false);
+    initializeWidget(mRestrictFilesToRooms, mapSettings, true);
     initializeWidget(mMaximumFileUploadSize, mapSettings, 104857600);
     initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings, true);
     initializeWidget(mAcceptedMediaTypes, mapSettings, QString());

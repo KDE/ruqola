@@ -24,6 +24,7 @@ private:
     QCheckBox *const mFileUploadsEnabled;
     QCheckBox *const mProtectUploadedFiles;
     QCheckBox *const mRotateImagesUpload;
+    QCheckBox *const mRestrictFilesToRooms;
     QSpinBox *const mMaximumFileUploadSize;
     QCheckBox *const mFileUploadsEnabledDirectMessages;
     QLineEdit *const mAcceptedMediaTypes;

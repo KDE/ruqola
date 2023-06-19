@@ -47,6 +47,13 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mRotateImagesUpload->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRotateImagesUpload), QStringLiteral("FileUpload_RotateImages"));
 
+    auto mRestrictFilesToRooms = w.findChild<QCheckBox *>(QStringLiteral("mRestrictFilesToRooms"));
+    QVERIFY(mRestrictFilesToRooms);
+    QVERIFY(!mRestrictFilesToRooms->isChecked());
+    QVERIFY(!mRestrictFilesToRooms->text().isEmpty());
+    QVERIFY(!mRestrictFilesToRooms->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRestrictFilesToRooms), QStringLiteral("FileUpload_Restrict_to_room_members"));
+
     auto mMaximumFileUploadSize = w.findChild<QSpinBox *>(QStringLiteral("mMaximumFileUploadSize"));
     QVERIFY(mMaximumFileUploadSize);
     QVERIFY(!mMaximumFileUploadSize->toolTip().isEmpty());
