@@ -7,6 +7,7 @@
 #include "emailsettingswidgettest.h"
 #include "administratorsettingsdialog/email/emailsettingswidget.h"
 #include "settingswidgetshelper.h"
+#include <KPasswordLineEdit>
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
@@ -59,6 +60,13 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFromEmail->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFromEmail), QStringLiteral("From_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("From_Email"));
+
+    auto mSmtpPassword = w.findChild<KPasswordLineEdit *>(QStringLiteral("mSmtpPassword"));
+    QVERIFY(mSmtpPassword);
+    QVERIFY(mSmtpPassword->password().isEmpty());
+    QVERIFY(mSmtpPassword->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSmtpPassword), QStringLiteral("SMTP_Password"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SMTP_Password"));
 
     auto privacyLabel = w.findChild<QLabel *>(QStringLiteral("privacyLabel"));
     QVERIFY(privacyLabel);

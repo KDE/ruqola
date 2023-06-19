@@ -13,6 +13,7 @@ class QLineEdit;
 class QSpinBox;
 class QCheckBox;
 class QPlainTextEdit;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmailSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -26,9 +27,10 @@ private:
     QComboBox *const mSmtpProtocol;
     QLineEdit *const mSmtpHost;
     QSpinBox *const mSmtpPort;
-    QCheckBox *const mIgnoreTls;
-    QLineEdit *const mUserName;
-    QLineEdit *const mFromEmail;
+    QCheckBox *const mSmtpIgnoreTls;
+    QLineEdit *const mSmtpUserName;
+    QLineEdit *const mSmtpFromEmail;
+    KPasswordLineEdit *const mSmtpPassword;
     QCheckBox *const mShowMessageEmailNotification;
     QCheckBox *const mAddSenderReplyTo;
     QCheckBox *const mEnableDirectReply;
