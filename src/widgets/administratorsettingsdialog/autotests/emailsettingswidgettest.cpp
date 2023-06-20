@@ -198,4 +198,17 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSmtpProtocol);
     QCOMPARE(mSmtpProtocol->count(), 2);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSmtpProtocol), QStringLiteral("SMTP_Protocol"));
+
+    auto mPasswordChangedSubject = w.findChild<QLineEdit *>(QStringLiteral("mPasswordChangedSubject"));
+    QVERIFY(mPasswordChangedSubject);
+    QVERIFY(mPasswordChangedSubject->text().isEmpty());
+    QVERIFY(mPasswordChangedSubject->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPasswordChangedSubject), QStringLiteral("Password_Changed_Email_Subject"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Password_Changed_Email_Subject"));
+
+    auto mPasswordChangedBody = w.findChild<QPlainTextEdit *>(QStringLiteral("mPasswordChangedBody"));
+    QVERIFY(mPasswordChangedBody);
+    QVERIFY(mPasswordChangedBody->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPasswordChangedBody), QStringLiteral("Password_Changed_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Password_Changed_Email"));
 }

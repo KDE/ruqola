@@ -49,4 +49,7 @@ private:
 
     QLineEdit *const mInvitationSubject;
     QPlainTextEdit *const mInvitationBody;
+
+    QLineEdit *const mPasswordChangedSubject;
+    QPlainTextEdit *const mPasswordChangedBody;
 };

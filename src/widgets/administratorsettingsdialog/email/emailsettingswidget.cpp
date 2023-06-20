@@ -38,6 +38,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mEmailAddressChangedBody(new QPlainTextEdit(this))
     , mInvitationSubject(new QLineEdit(this))
     , mInvitationBody(new QPlainTextEdit(this))
+    , mPasswordChangedSubject(new QLineEdit(this))
+    , mPasswordChangedBody(new QPlainTextEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -152,6 +154,16 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mInvitationBody->setObjectName(QStringLiteral("mInvitationBody"));
     addPlainTextEdit(i18n("Body"), mInvitationBody, QStringLiteral("Invitation_Email"));
+
+    auto passwordChangedLabel = createBoldLabel(i18n("Password Changed"));
+    passwordChangedLabel->setObjectName(QStringLiteral("passwordChangedLabel"));
+    mMainLayout->addWidget(passwordChangedLabel);
+
+    mPasswordChangedSubject->setObjectName(QStringLiteral("mPasswordChangedSubject"));
+    addLineEdit(i18n("Subject"), mPasswordChangedSubject, QStringLiteral("Password_Changed_Email_Subject"));
+
+    mPasswordChangedBody->setObjectName(QStringLiteral("mPasswordChangedBody"));
+    addPlainTextEdit(i18n("Body"), mPasswordChangedBody, QStringLiteral("Password_Changed_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -184,4 +196,10 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
                      mapSettings,
                      QStringLiteral("<h2>{Welcome_to Site_Name}</h2><p>{Visit_Site_Url_and_try_the_best_open_source_chat_solution_available_today}</p><a "
                                     "class=\"btn\" href=\"[Site_URL]\">{Join_Chat}</a>"));
+
+    initializeWidget(mPasswordChangedSubject, mapSettings, QStringLiteral("{Password_Changed_Email_Subject}"));
+    initializeWidget(mPasswordChangedBody,
+                     mapSettings,
+                     QStringLiteral("<h2>{Hi},</h2><p>{Your_password_was_changed_by_an_admin}</p><p>{Your_temporary_password_is_password}</p><a class=\"btn\" "
+                                    "target=\"_blank\" href=\"[Site_URL]\">{Login}</a>"));
 }
