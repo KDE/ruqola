@@ -141,6 +141,11 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTimeUnblockUser);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimeUnblockUser), QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
 
+    auto mHowManyFailedAttemptsUntilBlockByIP = w.findChild<QSpinBox *>(QStringLiteral("mHowManyFailedAttemptsUntilBlockByIP"));
+    QVERIFY(mHowManyFailedAttemptsUntilBlockByIP);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHowManyFailedAttemptsUntilBlockByIP),
+             QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_By_Ip"));
+
     auto mSendEmailUserWhenUserActivated = w.findChild<QCheckBox *>(QStringLiteral("mSendEmailUserWhenUserActivated"));
     QVERIFY(mSendEmailUserWhenUserActivated);
     QVERIFY(!mSendEmailUserWhenUserActivated->isChecked());

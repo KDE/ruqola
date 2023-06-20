@@ -40,6 +40,8 @@ private:
     QCheckBox *const mBlockFailedLoginAttemptsUsername;
     QSpinBox *const mHowManyFailedAttemptsUntilBlockUser;
     QSpinBox *const mTimeUnblockUser;
+    QSpinBox *const mHowManyFailedAttemptsUntilBlockByIP;
+
     QCheckBox *const mSendEmailUserWhenUserActivated;
     QCheckBox *const mSendEmailUserWhenUserDeactivated;
     QCheckBox *const mRequireNameSignup;

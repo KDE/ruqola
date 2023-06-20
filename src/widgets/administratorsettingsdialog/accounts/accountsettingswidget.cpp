@@ -33,6 +33,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mBlockFailedLoginAttemptsUsername(new QCheckBox(i18n("Block Failed Login Attempts by Username"), this))
     , mHowManyFailedAttemptsUntilBlockUser(new QSpinBox(this))
     , mTimeUnblockUser(new QSpinBox(this))
+    , mHowManyFailedAttemptsUntilBlockByIP(new QSpinBox(this))
     , mSendEmailUserWhenUserActivated(new QCheckBox(i18n("Send Email to User when User is Activated"), this))
     , mSendEmailUserWhenUserDeactivated(new QCheckBox(i18n("Send Email to User when User is Deactivated"), this))
     , mRequireNameSignup(new QCheckBox(i18n("Require Name For Signup"), this))
@@ -126,6 +127,11 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mTimeUnblockUser->setObjectName(QStringLiteral("mTimeUnblockUser"));
     addSpinbox(i18n("Time to unblock User (In Minutes)"), mTimeUnblockUser, QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
 
+    mHowManyFailedAttemptsUntilBlockByIP->setObjectName(QStringLiteral("mHowManyFailedAttemptsUntilBlockByIP"));
+    addSpinbox(i18n("How many failed attempts until block by IP"),
+               mHowManyFailedAttemptsUntilBlockByIP,
+               QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_By_Ip"));
+
     auto regislationLabel = createBoldLabel(i18n("Registration"));
     regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
     mMainLayout->addWidget(regislationLabel);
@@ -206,6 +212,7 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mBlockFailedLoginAttemptsUsername, mapSettings, true);
     initializeWidget(mHowManyFailedAttemptsUntilBlockUser, mapSettings, 10);
     initializeWidget(mTimeUnblockUser, mapSettings, 5);
+    initializeWidget(mHowManyFailedAttemptsUntilBlockByIP, mapSettings, 50);
     initializeWidget(mSendEmailUserWhenUserActivated, mapSettings, true);
     initializeWidget(mSendEmailUserWhenUserDeactivated, mapSettings, true);
     initializeWidget(mRequireNameSignup, mapSettings, true);
