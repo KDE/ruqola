@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 00:54+0000\n"
+"POT-Creation-Date: 2023-06-20 00:52+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -761,7 +761,7 @@ msgid "link"
 msgstr "länk"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3047,11 +3047,11 @@ msgid "Author"
 msgstr "Upphovsman"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:275
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:138
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
 #, kde-format
 msgid "Subject"
 msgstr "Rubrik"
@@ -3498,6 +3498,7 @@ msgid "Rate Limiter"
 msgstr "Hastighetsbegränsare"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
@@ -3744,7 +3745,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
@@ -3804,80 +3805,80 @@ msgstr ""
 msgid "Default Provider"
 msgstr "Standardrum"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgid "IgnoreTLS"
 msgstr "Ignorera"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Allow Email Notifications"
 msgid "Show Message in Email Notification"
 msgstr "Tillåt e-postunderrättelser"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Enabled File Upload"
 msgid "Enable Direct Reply"
 msgstr "Aktivera filuppladdning"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
 #, kde-format
 msgid "Debug Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #, kde-format
 msgid "SMTP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:48
 #, kde-format
 msgid "smtp"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
 #, kde-format
 msgid "smtps"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Port"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:65
 #, kde-format
 msgid "Username"
 msgstr "Användarnamn"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "Email"
 msgid "From Email"
 msgstr "E-post"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Private"
 msgid "Privacy"
 msgstr "Privat"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
 #, fuzzy, kde-format
 #| msgid "Direct"
 msgid "Direct Reply"
 msgstr "Direkt"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:92
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3888,58 +3889,58 @@ msgid ""
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, fuzzy, kde-format
 #| msgid "Add password"
 msgid "Forgot password"
 msgstr "Lägg till lösenord"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:154
 #, kde-format
 msgid "Body"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Direct message someone"
 msgid "Direct Message Email Subject"
 msgstr "Skicka direktmeddelande till någon"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, kde-format
 msgid "Mention Email Subject"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Direct message someone"
 msgid "Mention All Email Subject"
 msgstr "Skicka direktmeddelande till någon"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Notification"
 msgid "Verification"
 msgstr "Underrättelse"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
 #, fuzzy, kde-format
 #| msgid "Allow Email Change"
 msgid "Email Address Changed"
 msgstr "Tillåt e-poständring"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:146
 #, fuzzy, kde-format
 #| msgid "Invalid integration"
 msgid "Invitation"
@@ -4014,32 +4015,43 @@ msgstr "Skydda uppladdade filer"
 msgid "Rotate images on upload"
 msgstr "Rotera bilder vid uppladdning"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
+#, kde-format
+msgid "Restrict files to rooms' members"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
 msgid "File Uploads Enabled in Direct Messages"
 msgstr "Filuppladdningar aktiverade i direkta meddelanden"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:35
 #, kde-format
 msgid "Set it to -1 to remove the file size limitation."
 msgstr "Ställ in till -1 för att ta bort storleksbegränsningen för filer."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:37
 #, kde-format
 msgid "Maximum File Upload Size (in bytes)"
 msgstr "Maximal uppladdningsstorlek för filer (i byte)"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:40
 #, kde-format
 msgid "Only authenticated users will have access"
 msgstr "Bara åtkomstkontrollerade användare har åtkomst"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:45
 #, kde-format
 msgid "Enabling this setting may cause image quality loss"
 msgstr "Att aktivera inställningen kan orsaka förlust av bildkvalitet"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:50
+#, kde-format
+msgid ""
+"Restrict the access of files uploaded on rooms to the rooms' members only"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
 msgid ""
 "Comma-separated list of media types. Leave it blank for accepting all media "
@@ -4048,14 +4060,14 @@ msgstr ""
 "Lista över medietyper åtskilda med kommatecken. Lämna den tom för att "
 "acceptera alla medietyper."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:54
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:58
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "Accepterade medietyper"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:63
 #, kde-format
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
@@ -4064,7 +4076,7 @@ msgstr ""
 "Lista över medietyper åtskilda med kommatecken. Inställningen har prioritet "
 "över Accepterade medietyper."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
 #, kde-format
 msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
@@ -4073,32 +4085,32 @@ msgstr ""
 "Json-webbsymbolhemlighet för uppladdning (använd för att kunna komma åt "
 "uppladdade filer utan behörighetskontroll)"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
 #, kde-format
 msgid "GridFS"
 msgstr "GridFS"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
 msgid "AmazonS3"
 msgstr "AmazonS3"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:74
 #, kde-format
 msgid "GoogleCloudStorage"
 msgstr "GoogleCloudStorage"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:75
 #, kde-format
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:76
 #, kde-format
 msgid "FileSystem"
 msgstr "FileSystem"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:78
 #, kde-format
 msgid "Storage Type"
 msgstr "Lagringstyp"
@@ -4364,34 +4376,39 @@ msgstr "Lokalt lösenord"
 msgid "Peer Password"
 msgstr "Motpartens lösenord"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:14
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
 #, kde-format
 msgid "Display Roles"
 msgstr "Visningsroller"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:16
 #, kde-format
 msgid "Use Real Name"
 msgstr "Använd verkligt namn"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
 #, kde-format
 msgid "Use Full Name Initials to Generate Default Avatar"
 msgstr "Använd det fullständiga namnets initialer för att skapa standardavatar"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Allow Special Characters in Room Names"
 msgstr "Tillåt specialtecken i rumsnamn"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
 #, kde-format
 msgid "Merge Private Groups with Channels"
 msgstr "Sammanfoga privata grupper med kanaler"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:20
 #, kde-format
 msgid "Group channels by type"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:50
+#, kde-format
+msgid "Number of users' autocomplete suggestions"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19

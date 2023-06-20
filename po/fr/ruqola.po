@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-18 00:54+0000\n"
+"POT-Creation-Date: 2023-06-20 00:52+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -751,7 +751,7 @@ msgid "link"
 msgstr "lien"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3051,11 +3051,11 @@ msgid "Author"
 msgstr "Auteur"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:275
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:138
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
 #, kde-format
 msgid "Subject"
 msgstr "Sujet"
@@ -3500,6 +3500,7 @@ msgid "Rate Limiter"
 msgstr "Limiteur de taux"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
@@ -3750,7 +3751,7 @@ msgstr ""
 "example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
@@ -3833,74 +3834,74 @@ msgstr ""
 msgid "Default Provider"
 msgstr "Fournisseur par défaut"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, kde-format
 msgid "IgnoreTLS"
 msgstr "Ignorer « TLS »"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
 msgid "Show Message in Email Notification"
 msgstr "Afficher le message dans la notification du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Add Sender to Reply-To"
 msgstr "Ajouter l'expéditeur dans « Répondre à »"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
 #, kde-format
 msgid "Enable Direct Reply"
 msgstr "Activer la réponse directe"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
 #, kde-format
 msgid "Debug Direct Reply"
 msgstr "Déboguer une réponse directe"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #, kde-format
 msgid "SMTP"
 msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:48
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Port"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:65
 #, kde-format
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:71
 #, kde-format
 msgid "From Email"
 msgstr "A partir du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, kde-format
 msgid "Privacy"
 msgstr "Confidentialité"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
 #, kde-format
 msgid "Direct Reply"
 msgstr "Réponse directe"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:92
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3917,7 +3918,7 @@ msgstr ""
 "destinée exclusivement pour accéder à Rocket.Chat \n"
 "et n'est pas lue / traitée « en parallèle » par des personnes réelles."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
@@ -3926,45 +3927,45 @@ msgstr ""
 "[Attention] L'activation du mode « Débogage » afficherait votre « mot de "
 "passe textuel en clair » dans la console d'administration."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Forgot password"
 msgstr "Mot de passe oublié"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:134
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:154
 #, kde-format
 msgid "Body"
 msgstr "Corps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, kde-format
 msgid "Direct Message Email Subject"
 msgstr "Objet du courriel d'un message direct"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, kde-format
 msgid "Mention Email Subject"
 msgstr "Citer l'objet du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:124
 #, kde-format
 msgid "Mention All Email Subject"
 msgstr "Citer la totalité de l'objet du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
 #, kde-format
 msgid "Verification"
 msgstr "Vérification"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
 #, kde-format
 msgid "Email Address Changed"
 msgstr "Modification de l'adresse de courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:146
 #, kde-format
 msgid "Invitation"
 msgstr "Invitation"
@@ -4040,36 +4041,47 @@ msgstr "Protéger les fichiers envoyés"
 msgid "Rotate images on upload"
 msgstr "Effectuer une rotation des images durant l'envoi"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
+#, kde-format
+msgid "Restrict files to rooms' members"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
 msgid "File Uploads Enabled in Direct Messages"
 msgstr "Les envois de fichiers sont activés dans les messages instantanés"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:35
 #, kde-format
 msgid "Set it to -1 to remove the file size limitation."
 msgstr ""
 "Définissez le à la valeur -1 pour la suppression de la limitation concernant "
 "la taille du fichier."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:37
 #, kde-format
 msgid "Maximum File Upload Size (in bytes)"
 msgstr "Taille maximale pour l'envoi de fichiers (En octets)"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:40
 #, kde-format
 msgid "Only authenticated users will have access"
 msgstr "Seules les personnes authentifiées auront un accès."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:45
 #, kde-format
 msgid "Enabling this setting may cause image quality loss"
 msgstr ""
 "L'activation de ce paramètre pourrait provoquer une perte de qualité de "
 "l'image."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:50
+#, kde-format
+msgid ""
+"Restrict the access of files uploaded on rooms to the rooms' members only"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
 msgid ""
 "Comma-separated list of media types. Leave it blank for accepting all media "
@@ -4078,14 +4090,14 @@ msgstr ""
 "Liste des types de média, séparés par des virgules. La laisser vide pour "
 "accepter tout type de média. "
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:54
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:58
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "Types acceptés de média"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:63
 #, kde-format
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
@@ -4094,7 +4106,7 @@ msgstr ""
 "Liste des types de média, séparés par des virgules. Ce paramètre a priorité "
 "sur les types de média acceptés. "
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
 #, kde-format
 msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
@@ -4103,32 +4115,32 @@ msgstr ""
 "Secret pour le jeton Internet « Json » pour l'envoi de fichiers (Utilisé "
 "pour pouvoir accéder aux fichiers envoyés sans authentification)."
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
 #, kde-format
 msgid "GridFS"
 msgstr "GridFS"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
 msgid "AmazonS3"
 msgstr "AmazonS3"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:74
 #, kde-format
 msgid "GoogleCloudStorage"
 msgstr "Stockage dans le cloud Google"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:75
 #, kde-format
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:76
 #, kde-format
 msgid "FileSystem"
 msgstr "Système de fichiers"
 
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:78
 #, kde-format
 msgid "Storage Type"
 msgstr "Type d'enregistrement"
@@ -4399,35 +4411,40 @@ msgstr "Mot de passe local"
 msgid "Peer Password"
 msgstr "Appairer le mot de passe"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:14
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
 #, kde-format
 msgid "Display Roles"
 msgstr "Afficher les rôles"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:16
 #, kde-format
 msgid "Use Real Name"
 msgstr "Utiliser le nom réel"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
 #, kde-format
 msgid "Use Full Name Initials to Generate Default Avatar"
 msgstr "Utiliser les initiales du nom complet pour générer l'avatar par défaut"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Allow Special Characters in Room Names"
 msgstr "Autoriser les caractères spéciaux fans dans les noms de salons"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
 #, kde-format
 msgid "Merge Private Groups with Channels"
 msgstr "Fusionner les groupes privés avec les canaux"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:20
 #, kde-format
 msgid "Group channels by type"
 msgstr "Regrouper les canaux par type"
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:50
+#, kde-format
+msgid "Number of users' autocomplete suggestions"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
