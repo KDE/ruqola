@@ -24,8 +24,6 @@ add_subdirectory(icons)
 
 add_subdirectory(apps)
 
-add_subdirectory(transferdata)
-
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES data/org.kde.ruqola.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES data/ruqola.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR} )

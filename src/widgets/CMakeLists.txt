@@ -704,6 +704,16 @@ target_sources(libruqolawidgets PRIVATE
     explorepermissionsdialog/explorepermissionswidget.cpp
     explorepermissionsdialog/explorepermissionswidgetfilterproxymodel.cpp
     explorepermissionsdialog/explorepermissionswidgetfilterproxymodel.h
+
+
+    importexportdata/exportdatawizard.h
+    importexportdata/exportdatawizard.cpp
+
+    importexportdata/exportdataselectaccountpage.h
+    importexportdata/exportdataselectaccountpage.cpp
+
+    importexportdata/exportdatafinishpage.h
+    importexportdata/exportdatafinishpage.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
@@ -848,6 +858,7 @@ if (BUILD_TESTING)
     add_subdirectory(databasedialog/autotests)
     add_subdirectory(whatsnew/autotests)
     add_subdirectory(explorepermissionsdialog/autotests)
+    add_subdirectory(importexportdata/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
