@@ -4,10 +4,13 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
+#include "config-ruqola.h"
 #include <QApplication>
 #include <QCommandLineParser>
 
 #include <KAboutData>
+#include <KCrash>
+#include <KLocalizedString>
 #include <QDirIterator>
 #include <QIcon>
 
@@ -42,7 +45,6 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
-    ruqolaOptions(&parser);
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
