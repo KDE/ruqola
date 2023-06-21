@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-20 00:52+0000\n"
+"POT-Creation-Date: 2023-06-21 00:47+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -751,7 +751,7 @@ msgid "link"
 msgstr "lien"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3051,11 +3051,12 @@ msgid "Author"
 msgstr "Auteur"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:275
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:153
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:163
 #, kde-format
 msgid "Subject"
 msgstr "Sujet"
@@ -3341,116 +3342,122 @@ msgstr "Autoriser un message d'état personnalisé"
 msgid "Block Failed Login Attempts by Username"
 msgstr "Bloquer les tentatives de connexion en échec par nom d'utilisateur"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Send Email to User when User is Activated"
 msgstr "Envoyer un courriel à l'utilisateur lors de son activation"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
 msgstr "Envoyer un courriel à l'utilisateur lors de sa désactivation"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
 msgid "Require Name For Signup"
 msgstr "Demander un nom pour l'inscription"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
 msgid "Require Password Confirmation"
 msgstr "Nécessite une confirmation de mot de passe"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Only Allow Verified Users to Login"
 msgstr "N'autoriser que les utilisateurs vérifiés à se connecter"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
 msgstr "Marquer un courriel pour les comptes externes vérifiés"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
 msgid "Manually Approve New Users"
 msgstr "Approuver manuellement les nouveaux utilisateurs"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use Default Blocked Domains List"
 msgstr "Utiliser la liste des domaines bloqués par défaut"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
 msgid "Use DNS Domain Check"
 msgstr "Utiliser la vérification de domaine « DNS »"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Expiration de la connexion en jours"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Échecs de tentatives de connexion"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Nombre de tentatives infructueuses jusqu'au blocage par l'utilisateur"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:127
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Temps pour le déblocage d'un utilisateur (En minutes)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "How Many Failed Attempts Until Block by User"
+msgid "How many failed attempts until block by IP"
+msgstr "Nombre de tentatives infructueuses jusqu'au blocage par l'utilisateur"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "Registration"
 msgstr "Enregistrement"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Veuillez vous assurer que vous avez une configuration « SMTP » correcte pour "
 "utiliser cette fonctionnalité"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Suggestion d'un préfixe par défaut de nom d'utilisateur"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr "Une liste séparée par des virgules de tous les domaines autorisés."
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:167
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Liste des domaines autorisés"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr "Une liste séparée par des virgules de tous les domaines bloqués."
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Liste des domaines bloqués"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "Une liste séparée par des virgules des noms d'utilisateurs bloqués (Non "
 "sensible à la casse.)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Liste des noms d'utilisateurs bloqués"
@@ -3500,7 +3507,7 @@ msgid "Rate Limiter"
 msgstr "Limiteur de taux"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
@@ -3751,7 +3758,7 @@ msgstr ""
 "example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:53
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
@@ -3859,49 +3866,49 @@ msgstr "Activer la réponse directe"
 msgid "Debug Direct Reply"
 msgstr "Déboguer une réponse directe"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
 #, kde-format
 msgid "SMTP"
 msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:50
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:60
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Port"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, kde-format
 msgid "From Email"
 msgstr "A partir du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:75
 #, kde-format
 msgid "Privacy"
 msgstr "Confidentialité"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:87
 #, kde-format
 msgid "Direct Reply"
 msgstr "Réponse directe"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:94
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3918,7 +3925,7 @@ msgstr ""
 "destinée exclusivement pour accéder à Rocket.Chat \n"
 "et n'est pas lue / traitée « en parallèle » par des personnes réelles."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
@@ -3927,48 +3934,55 @@ msgstr ""
 "[Attention] L'activation du mode « Débogage » afficherait votre « mot de "
 "passe textuel en clair » dans la console d'administration."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
 #, kde-format
 msgid "Forgot password"
 msgstr "Mot de passe oublié"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:111
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:134
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:144
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:154
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:156
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:166
 #, kde-format
 msgid "Body"
 msgstr "Corps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:120
 #, kde-format
 msgid "Direct Message Email Subject"
 msgstr "Objet du courriel d'un message direct"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
 #, kde-format
 msgid "Mention Email Subject"
 msgstr "Citer l'objet du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
 #, kde-format
 msgid "Mention All Email Subject"
 msgstr "Citer la totalité de l'objet du courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
 #, kde-format
 msgid "Verification"
 msgstr "Vérification"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:138
 #, kde-format
 msgid "Email Address Changed"
 msgstr "Modification de l'adresse de courriel"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
 #, kde-format
 msgid "Invitation"
 msgstr "Invitation"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid "Allow Password Change"
+msgid "Password Changed"
+msgstr "Autoriser une modification de mot de passe"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
