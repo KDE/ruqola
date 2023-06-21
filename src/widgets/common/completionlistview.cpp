@@ -132,3 +132,5 @@ void CompletionListView::slotCompletionAvailable()
         show();
     }
 }
+
+#include "moc_completionlistview.cpp"

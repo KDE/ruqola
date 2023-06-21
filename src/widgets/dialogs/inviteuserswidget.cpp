@@ -150,3 +150,5 @@ void InviteUsersWidget::fillComboBox()
     mMaxUses->addItem(i18n("No Limit"), 0);
     mMaxUses->setCurrentIndex(3);
 }
+
+#include "moc_inviteuserswidget.cpp"

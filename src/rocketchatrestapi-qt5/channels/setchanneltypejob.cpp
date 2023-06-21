@@ -102,3 +102,5 @@ QNetworkRequest SetChannelTypeJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_setchanneltypejob.cpp"

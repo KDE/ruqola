@@ -35,3 +35,5 @@ void EmoticonCategoryTest::shouldAssignValues()
     cat.setI18nName(namei18n);
     QCOMPARE(cat.i18nName(), namei18n);
 }
+
+#include "moc_emoticoncategorytest.cpp"

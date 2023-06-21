@@ -102,3 +102,5 @@ QStringList CreateNewDiscussionWidget::usersId() const
 {
     return mUsers->userIds();
 }
+
+#include "moc_createnewdiscussionwidget.cpp"

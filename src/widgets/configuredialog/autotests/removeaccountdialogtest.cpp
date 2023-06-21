@@ -31,3 +31,5 @@ void RemoveAccountDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(!d.removeLogs());
 }
+
+#include "moc_removeaccountdialogtest.cpp"

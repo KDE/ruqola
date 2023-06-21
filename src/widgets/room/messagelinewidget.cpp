@@ -545,3 +545,5 @@ void MessageLineWidget::textEditClicked()
         mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
     }
 }
+
+#include "moc_messagelinewidget.cpp"

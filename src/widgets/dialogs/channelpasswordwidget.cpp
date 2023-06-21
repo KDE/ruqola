@@ -41,3 +41,5 @@ void ChannelPasswordWidget::slotPasswordChanged(const QString &str)
 {
     Q_EMIT updateOkButton(!str.isEmpty());
 }
+
+#include "moc_channelpasswordwidget.cpp"

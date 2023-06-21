@@ -58,3 +58,5 @@ void ReportMessageWidget::setPreviewMessage(const QString &msg)
 {
     mMessagePreview->setText(msg);
 }
+
+#include "moc_reportmessagewidget.cpp"

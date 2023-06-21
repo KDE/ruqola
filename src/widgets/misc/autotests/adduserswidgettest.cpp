@@ -47,3 +47,5 @@ void AddUsersWidgetTest::shouldChangePlaceHolderText()
     auto mSearchUserLineEdit = w.findChild<AddUsersCompletionLineEdit *>(QStringLiteral("mSearchUserLineEdit"));
     QCOMPARE(mSearchUserLineEdit->placeholderText(), str);
 }
+
+#include "moc_adduserswidgettest.cpp"

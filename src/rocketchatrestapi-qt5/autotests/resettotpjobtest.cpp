@@ -74,3 +74,5 @@ void ResetTOTPJobTest::shouldNotStarting()
     job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_resettotpjobtest.cpp"

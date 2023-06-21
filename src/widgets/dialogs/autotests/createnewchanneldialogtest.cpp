@@ -37,3 +37,5 @@ void CreateNewChannelDialogTest::shouldHaveDefaultValues()
     QPushButton *mOkButton = button->button(QDialogButtonBox::Ok);
     QVERIFY(!mOkButton->isEnabled());
 }
+
+#include "moc_createnewchanneldialogtest.cpp"

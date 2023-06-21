@@ -140,3 +140,5 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mEmailAlertCombobox->setCurrentIndex(
         NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions.emailNotifications().currentValue()));
 }
+
+#include "moc_configurenotificationwidget.cpp"

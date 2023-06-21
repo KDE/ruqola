@@ -20,3 +20,5 @@ void LocalRoomsDatabaseTest::shouldDefaultValues()
     LocalRoomsDatabase logger;
     QCOMPARE(logger.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)"));
 }
+
+#include "moc_localroomsdatabasetest.cpp"

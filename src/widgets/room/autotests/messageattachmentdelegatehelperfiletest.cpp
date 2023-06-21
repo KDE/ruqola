@@ -60,3 +60,5 @@ void MessageDelegateHelperFileTest::shouldLayoutMultipleFiles()
     QVERIFY(layout2.y >= layout1.y + layout1.height);
 #endif
 }
+
+#include "moc_messageattachmentdelegatehelperfiletest.cpp"

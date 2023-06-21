@@ -111,3 +111,5 @@ QNetworkRequest ChannelMembersJob::request() const
 
     return request;
 }
+
+#include "moc_channelmembersjob.cpp"

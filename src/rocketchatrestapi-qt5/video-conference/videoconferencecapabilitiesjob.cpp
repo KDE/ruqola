@@ -64,3 +64,5 @@ QNetworkRequest VideoConferenceCapabilitiesJob::request() const
 
     return request;
 }
+
+#include "moc_videoconferencecapabilitiesjob.cpp"

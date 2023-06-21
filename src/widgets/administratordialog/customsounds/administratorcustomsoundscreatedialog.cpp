@@ -67,3 +67,5 @@ void AdministratorCustomSoundsCreateDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_administratorcustomsoundscreatedialog.cpp"

@@ -14,3 +14,5 @@ ChannelActionPopupMenuTest::ChannelActionPopupMenuTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_channelactionpopupmenutest.cpp"

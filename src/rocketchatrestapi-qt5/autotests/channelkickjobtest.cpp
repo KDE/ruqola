@@ -77,3 +77,5 @@ void ChannelKickJobTest::shouldNotStarting()
     job.setKickUserId(kickuser);
     QVERIFY(job.canStart());
 }
+
+#include "moc_channelkickjobtest.cpp"

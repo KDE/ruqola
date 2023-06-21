@@ -52,3 +52,5 @@ QDebug operator<<(QDebug d, const AuthenticationInfo &t)
     d << "Type: " << t.oauthType();
     return d;
 }
+
+#include "moc_authenticationinfo.cpp"

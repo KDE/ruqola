@@ -50,3 +50,5 @@ void ConfigureUserFeedbackWidget::load()
     mUserFeedbackWidget->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
 }
+
+#include "moc_configureuserfeedbackwidget.cpp"

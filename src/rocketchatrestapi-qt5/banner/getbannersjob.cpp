@@ -76,3 +76,5 @@ QNetworkRequest GetBannersJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_getbannersjob.cpp"

@@ -154,3 +154,5 @@ void DirectChannelInfoWidget::setUser(const User &user)
         mMainLayout->addRow(i18n("Email:"), emailsInfoLabel);
     }
 }
+
+#include "moc_directchannelinfowidget.cpp"

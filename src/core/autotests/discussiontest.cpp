@@ -24,3 +24,5 @@ void DiscussionTest::shouldHaveDefaultValue()
     QVERIFY(w.discussionRoomId().isEmpty());
     // TODO
 }
+
+#include "moc_discussiontest.cpp"

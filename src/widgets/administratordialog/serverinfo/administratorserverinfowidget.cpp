@@ -337,3 +337,5 @@ void AdministratorServerInfoWidget::loadServerInfo()
     buildItem->setText(0, i18n("Build Environment"));
     parseBuildInfo(buildItem);
 }
+
+#include "moc_administratorserverinfowidget.cpp"

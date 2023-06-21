@@ -74,3 +74,5 @@ void PruneMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myPruneMessagesDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_prunemessagesdialog.cpp"

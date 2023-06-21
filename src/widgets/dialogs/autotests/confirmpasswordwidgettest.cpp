@@ -33,3 +33,5 @@ void ConfirmPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }
+
+#include "moc_confirmpasswordwidgettest.cpp"

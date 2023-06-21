@@ -24,3 +24,5 @@ void CommandTest::shouldHaveDefaultValues()
     QVERIFY(!c.clientOnly());
     QVERIFY(!c.providesPreview());
 }
+
+#include "moc_commandtest.cpp"

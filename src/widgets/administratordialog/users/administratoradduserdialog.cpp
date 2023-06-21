@@ -54,3 +54,5 @@ void AdministratorAddUserDialog::setRoleInfo(const QVector<RoleInfo> &info)
 {
     mAdministratorWidget->setRoleInfo(info);
 }
+
+#include "moc_administratoradduserdialog.cpp"

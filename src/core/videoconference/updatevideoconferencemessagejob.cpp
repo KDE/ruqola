@@ -67,3 +67,5 @@ void UpdateVideoConferenceMessageJob::setRocketChatAccount(RocketChatAccount *ne
 {
     mRocketChatAccount = newRocketChatAccount;
 }
+
+#include "moc_updatevideoconferencemessagejob.cpp"

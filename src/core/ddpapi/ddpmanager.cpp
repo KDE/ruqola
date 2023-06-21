@@ -34,3 +34,5 @@ void DDPManager::processSubscriptionResult(int subId, const QJsonObject &result)
     // TODO: any generic preprocessing goes here
     processSubscriptionResultImpl(subId, result);
 }
+
+#include "moc_ddpmanager.cpp"

@@ -31,3 +31,5 @@ void ChannelPasswordDialogTest::shouldHaveDefaultValues()
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 }
+
+#include "moc_channelpassworddialogtest.cpp"

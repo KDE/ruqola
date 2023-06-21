@@ -90,3 +90,5 @@ bool UsersAutocompleteJob::UsersAutocompleterInfo::isValid() const
 {
     return !pattern.isEmpty();
 }
+
+#include "moc_usersautocompletejob.cpp"

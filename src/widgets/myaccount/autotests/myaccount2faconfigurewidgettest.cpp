@@ -51,3 +51,5 @@ void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
 }
+
+#include "moc_myaccount2faconfigurewidgettest.cpp"

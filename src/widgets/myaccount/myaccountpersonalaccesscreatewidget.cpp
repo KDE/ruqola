@@ -44,3 +44,5 @@ QString MyAccountPersonalAccessCreateWidget::tokenName() const
 {
     return mTokenName->text().trimmed();
 }
+
+#include "moc_myaccountpersonalaccesscreatewidget.cpp"

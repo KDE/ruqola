@@ -174,3 +174,5 @@ QDebug operator<<(QDebug d, const CustomEmoji &t)
     d << "EmojiIdentifier: " << t.emojiIdentifier();
     return d;
 }
+
+#include "moc_customemoji.cpp"

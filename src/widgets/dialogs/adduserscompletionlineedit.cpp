@@ -71,3 +71,5 @@ void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
     clear();
     connect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
 }
+
+#include "moc_adduserscompletionlineedit.cpp"

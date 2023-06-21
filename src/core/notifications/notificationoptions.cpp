@@ -216,3 +216,5 @@ bool NotificationOptions::NotificationValue::isEmpty() const
 {
     return preferenceOrigin.isEmpty() && value.isEmpty();
 }
+
+#include "moc_notificationoptions.cpp"

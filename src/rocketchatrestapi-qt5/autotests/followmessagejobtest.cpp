@@ -63,3 +63,5 @@ void FollowMessageJobTest::shouldNotStarting()
     job.setMessageId(messageId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_followmessagejobtest.cpp"

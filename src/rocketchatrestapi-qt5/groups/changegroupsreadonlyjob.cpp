@@ -89,3 +89,5 @@ QNetworkRequest ChangeGroupsReadonlyJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_changegroupsreadonlyjob.cpp"

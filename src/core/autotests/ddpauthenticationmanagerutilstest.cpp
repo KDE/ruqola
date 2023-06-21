@@ -83,3 +83,5 @@ void DDPAuthenticationManagerUtilsTest::shouldTestSendOtp()
                  QByteArray("[{\"totp\":{\"code\":\"foo42\",\"login\":{\"test\":\"test\"}}}]"));
     }
 }
+
+#include "moc_ddpauthenticationmanagerutilstest.cpp"

@@ -104,3 +104,5 @@ void MyAccount2FaConfigureWidget::initialize()
         mActivate2FAViaTOTPCheckbox->setVisible(mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled());
     }
 }
+
+#include "moc_myaccount2faconfigurewidget.cpp"

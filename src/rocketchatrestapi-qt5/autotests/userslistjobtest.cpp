@@ -51,3 +51,5 @@ void UsersListJobTest::shouldGenerateRequestUsername()
     QEXPECT_FAIL("", "Problem with argument", Continue);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.list?username=foo1")));
 }
+
+#include "moc_userslistjobtest.cpp"

@@ -249,3 +249,5 @@ void TextSelectionTest::textClear()
     selection.clear();
     QVERIFY(!selection.hasSelection());
 }
+
+#include "moc_textselectiontest.cpp"

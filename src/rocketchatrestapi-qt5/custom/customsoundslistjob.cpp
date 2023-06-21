@@ -66,3 +66,5 @@ bool CustomSoundsListJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_customsoundslistjob.cpp"

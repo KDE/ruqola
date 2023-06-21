@@ -322,3 +322,5 @@ const QVector<CustomEmoji> &EmojiManager::customEmojiList() const
 {
     return mCustomEmojiList;
 }
+
+#include "moc_emojimanager.cpp"

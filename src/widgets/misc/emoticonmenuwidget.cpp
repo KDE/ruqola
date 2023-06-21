@@ -36,3 +36,5 @@ QSize EmoticonMenuWidget::sizeHint() const
 {
     return minimumSize();
 }
+
+#include "moc_emoticonmenuwidget.cpp"

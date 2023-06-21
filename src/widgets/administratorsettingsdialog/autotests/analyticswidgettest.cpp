@@ -102,3 +102,5 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHideOutgoingLinks), QStringLiteral("PiwikAnalytics_domains"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("PiwikAnalytics_domains"));
 }
+
+#include "moc_analyticswidgettest.cpp"

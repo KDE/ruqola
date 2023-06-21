@@ -32,3 +32,5 @@ void ServerInfoDialogTest::shouldHaveDefaultValues()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_serverinfodialogtest.cpp"

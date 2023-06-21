@@ -84,3 +84,5 @@ void ChannelCloseJobTest::shouldNotStarting()
     job.setChannelType(ChannelCloseJob::ChannelType::Channel);
     QVERIFY(job.canStart());
 }
+
+#include "moc_channelclosejobtest.cpp"

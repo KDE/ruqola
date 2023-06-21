@@ -68,3 +68,5 @@ void BannerInfoTest::shouldBannerInfo_data()
         QTest::addRow("bannerinfo2") << QStringLiteral("bannerinfo2") << info;
     }
 }
+
+#include "moc_bannerinfotest.cpp"

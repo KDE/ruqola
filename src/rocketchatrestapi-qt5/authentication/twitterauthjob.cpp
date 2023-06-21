@@ -149,3 +149,5 @@ bool TwitterAuthJob::requireHttpAuthentication() const
 {
     return false;
 }
+
+#include "moc_twitterauthjob.cpp"

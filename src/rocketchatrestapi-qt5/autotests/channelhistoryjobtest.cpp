@@ -101,3 +101,5 @@ void ChannelHistoryJobTest::shouldNotStarting()
     job.setChannelHistoryInfo(historyInfo);
     QVERIFY(job.canStart());
 }
+
+#include "moc_channelhistoryjobtest.cpp"

@@ -91,3 +91,5 @@ bool GetPinnedMessagesJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_getpinnedmessagesjob.cpp"

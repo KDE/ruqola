@@ -80,3 +80,5 @@ void ChannelTest::shouldParseChannel()
     }
     QVERIFY(channelIsEqual);
 }
+
+#include "moc_channeltest.cpp"

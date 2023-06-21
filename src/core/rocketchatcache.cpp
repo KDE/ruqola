@@ -251,3 +251,5 @@ QString RocketChatCache::recordingImagePath(const QString &accountName) const
     const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".jpg");
     return filePath;
 }
+
+#include "moc_rocketchatcache.cpp"

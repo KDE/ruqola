@@ -69,3 +69,5 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
     }
     QVERIFY(lstRoles.isEmpty());
 }
+
+#include "moc_systemmessagesmodeltest.cpp"

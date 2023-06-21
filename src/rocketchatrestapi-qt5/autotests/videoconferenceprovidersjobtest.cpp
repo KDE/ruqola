@@ -34,3 +34,5 @@ void VideoConferenceProvidersJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.providers")));
     }
 }
+
+#include "moc_videoconferenceprovidersjobtest.cpp"

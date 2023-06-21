@@ -58,3 +58,5 @@ QNetworkRequest RolesListJob::request() const
 
     return request;
 }
+
+#include "moc_roleslistjob.cpp"

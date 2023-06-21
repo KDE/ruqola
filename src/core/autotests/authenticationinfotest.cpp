@@ -55,3 +55,5 @@ void AuthenticationInfoTest::shouldBeValid()
     info.setName(QString());
     QVERIFY(!info.isValid());
 }
+
+#include "moc_authenticationinfotest.cpp"

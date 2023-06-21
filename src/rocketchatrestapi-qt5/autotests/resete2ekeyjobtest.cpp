@@ -74,3 +74,5 @@ void ResetE2EKeyJobTest::shouldNotStarting()
     job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_resete2ekeyjobtest.cpp"

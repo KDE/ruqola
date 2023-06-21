@@ -33,3 +33,5 @@ void ConferenceCallDialogTest::shouldHaveDefaultValues()
     QVERIFY(!info.useCamera);
     QVERIFY(!info.useMic);
 }
+
+#include "moc_conferencecalldialogtest.cpp"

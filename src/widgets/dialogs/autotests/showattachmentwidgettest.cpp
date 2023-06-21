@@ -45,3 +45,5 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     auto mListAttachment = w.findChild<QListView *>(QStringLiteral("mListAttachment"));
     QVERIFY(mListAttachment);
 }
+
+#include "moc_showattachmentwidgettest.cpp"

@@ -93,3 +93,5 @@ QNetworkRequest GroupAddModeratorJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_groupaddmoderatorjob.cpp"

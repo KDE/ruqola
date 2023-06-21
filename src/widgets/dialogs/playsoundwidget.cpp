@@ -281,3 +281,5 @@ void PlaySoundWidget::handleError()
     mMessageWidget->setText(message);
     mMessageWidget->animatedShow();
 }
+
+#include "moc_playsoundwidget.cpp"

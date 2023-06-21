@@ -93,3 +93,5 @@ QNetworkRequest ChannelRemoveLeaderJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_channelremoveleaderjob.cpp"

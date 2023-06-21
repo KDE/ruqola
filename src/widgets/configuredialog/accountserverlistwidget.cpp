@@ -185,3 +185,5 @@ void AccountServerListWidgetItem::setNewAccount(bool newAccount)
 {
     mNewAccount = newAccount;
 }
+
+#include "moc_accountserverlistwidget.cpp"

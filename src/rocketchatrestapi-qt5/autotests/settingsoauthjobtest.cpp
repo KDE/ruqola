@@ -32,3 +32,5 @@ void SettingsOauthJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));
 }
+
+#include "moc_settingsoauthjobtest.cpp"

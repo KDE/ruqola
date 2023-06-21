@@ -74,3 +74,5 @@ void SetStatusJobTest::shouldNotStarting()
     job.setStatus(SetStatusJob::Away);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setstatusjobtest.cpp"

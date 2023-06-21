@@ -64,3 +64,5 @@ void BannersDismissJobTest::shouldNotStarting()
     job.setBannerId(bannerId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_bannersdismissjobtest.cpp"

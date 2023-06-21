@@ -32,3 +32,5 @@ void ChannelSearchNameLineResultWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mClearToolButton);
     QVERIFY(!mClearToolButton->toolTip().isEmpty());
 }
+
+#include "moc_channelsearchnamelineresultwidgettest.cpp"

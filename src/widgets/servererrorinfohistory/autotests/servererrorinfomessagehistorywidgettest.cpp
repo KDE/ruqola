@@ -49,3 +49,5 @@ void ServerErrorInfoMessageHistoryWidgetTest::shouldHaveDefaultValues()
     auto mServersComboBox = w.findChild<ServersComboBox *>(QStringLiteral("mServersComboBox"));
     QVERIFY(mServersComboBox);
 }
+
+#include "moc_servererrorinfomessagehistorywidgettest.cpp"

@@ -55,3 +55,5 @@ void InviteTreeView::removeClicked(const QString &identifier)
         Q_EMIT removeInvite(identifier);
     }
 }
+
+#include "moc_invitetreeview.cpp"

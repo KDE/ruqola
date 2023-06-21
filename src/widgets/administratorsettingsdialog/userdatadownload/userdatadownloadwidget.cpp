@@ -48,3 +48,5 @@ void UserDataDownloadWidget::initialize(const QMap<QString, QVariant> &mapSettin
     initializeWidget(mProcessingFrequency, mapSettings, 2);
     initializeWidget(mMessageLimitRequest, mapSettings, 1000);
 }
+
+#include "moc_userdatadownloadwidget.cpp"

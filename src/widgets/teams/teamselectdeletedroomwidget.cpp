@@ -63,3 +63,5 @@ QStringList TeamSelectDeletedRoomWidget::roomsId() const
     }
     return lst;
 }
+
+#include "moc_teamselectdeletedroomwidget.cpp"

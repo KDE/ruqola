@@ -35,3 +35,5 @@ void UploadFileDialogTest::shouldHaveDefaultValues()
     QPushButton *mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     QVERIFY(!mOkButton->isEnabled());
 }
+
+#include "moc_uploadfiledialogtest.cpp"

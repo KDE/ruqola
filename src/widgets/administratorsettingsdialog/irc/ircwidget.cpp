@@ -38,3 +38,5 @@ void IrcWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mCacheLimitOutBoundMessage, mapSettings, 200);
     initializeWidget(mLoginSuccessful, mapSettings, QStringLiteral("Welcome to the freenode Internet Relay Chat Network"));
 }
+
+#include "moc_ircwidget.cpp"

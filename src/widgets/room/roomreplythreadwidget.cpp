@@ -33,3 +33,5 @@ void RoomReplyThreadWidget::setMessageText(const QString &str)
     }
     setText(i18n("Reply in Thread for Message: \'%1\'", strToDisplay));
 }
+
+#include "moc_roomreplythreadwidget.cpp"

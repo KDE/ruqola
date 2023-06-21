@@ -58,3 +58,5 @@ void BannerInfoListSearchLineWidgetTest::shouldEmitFilterChanged()
     QTest::mouseClick(mOnlyUnReadCheckBox, Qt::LeftButton);
     QCOMPARE(filterChanged.count(), 1);
 }
+
+#include "moc_bannerinfolistsearchlinewidgettest.cpp"

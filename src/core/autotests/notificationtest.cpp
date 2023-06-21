@@ -41,3 +41,5 @@ void NotificationTest::shouldChangeStatus()
     w.updateNotification(false, 0, QStringLiteral("Bla"));
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
 }
+
+#include "moc_notificationtest.cpp"

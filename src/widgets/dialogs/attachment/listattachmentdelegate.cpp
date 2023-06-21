@@ -155,3 +155,5 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     layout.deleteAttachmentRect = QRect(option.rect.width() - 2 * iconSize - DelegatePaintUtil::margin(), option.rect.y(), iconSize, iconSize);
     return layout;
 }
+
+#include "moc_listattachmentdelegate.cpp"

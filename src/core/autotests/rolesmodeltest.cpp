@@ -18,3 +18,5 @@ void RolesModelTest::shouldHaveDefaultValues()
     RolesModel w;
     QCOMPARE(w.rowCount(), 0);
 }
+
+#include "moc_rolesmodeltest.cpp"

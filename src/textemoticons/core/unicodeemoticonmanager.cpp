@@ -131,3 +131,5 @@ UnicodeEmoticon UnicodeEmoticonManager::unicodeEmoticonForEmoji(const QString &e
     }
     return {};
 }
+
+#include "moc_unicodeemoticonmanager.cpp"

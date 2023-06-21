@@ -86,3 +86,5 @@ void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
     }
     mMenu->slotCustomContextMenuRequested(pos);
 }
+
+#include "moc_usersinroomlabel.cpp"

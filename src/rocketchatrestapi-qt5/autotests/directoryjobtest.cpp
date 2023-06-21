@@ -54,3 +54,5 @@ void DirectoryJobTest::shouldNotStarting()
     job.setDirectoryInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_directoryjobtest.cpp"

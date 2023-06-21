@@ -76,3 +76,5 @@ bool RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateIn
 {
     return !name.isEmpty();
 }
+
+#include "moc_roomsautocompleteavailableforteamsjob.cpp"

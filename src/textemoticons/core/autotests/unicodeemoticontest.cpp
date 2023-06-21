@@ -23,3 +23,5 @@ void UnicodeEmoticonTest::shouldHaveDefaultValues()
     QVERIFY(!w.isValid());
     QCOMPARE(w.order(), -1);
 }
+
+#include "moc_unicodeemoticontest.cpp"

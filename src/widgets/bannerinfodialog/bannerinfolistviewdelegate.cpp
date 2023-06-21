@@ -208,3 +208,5 @@ RocketChatAccount *BannerInfoListViewDelegate::rocketChatAccount(const QModelInd
     Q_UNUSED(index);
     return mRocketChatAccount;
 }
+
+#include "moc_bannerinfolistviewdelegate.cpp"

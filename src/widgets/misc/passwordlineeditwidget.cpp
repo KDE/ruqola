@@ -52,3 +52,5 @@ void PasswordLineEditWidget::slotResetPasswordButton()
         Q_EMIT resetPasswordRequested(email);
     }
 }
+
+#include "moc_passwordlineeditwidget.cpp"

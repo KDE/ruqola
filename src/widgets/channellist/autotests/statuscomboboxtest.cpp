@@ -30,3 +30,5 @@ void StatusComboboxTest::shouldSelectStatus()
     w.setStatus(User::PresenceStatus::PresenceAway);
     QCOMPARE(w.currentIndex(), 2);
 }
+
+#include "moc_statuscomboboxtest.cpp"

@@ -21,3 +21,5 @@ void RoomAvatarWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.size(), QSize(120, 120));
     QCOMPARE(w.iconSize(), QSize(100, 100));
 }
+
+#include "moc_roomavatarwidgettest.cpp"

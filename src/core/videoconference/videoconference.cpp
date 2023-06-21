@@ -100,3 +100,5 @@ QDebug operator<<(QDebug d, const VideoConference &t)
     d << "mAction " << t.action();
     return d;
 }
+
+#include "moc_videoconference.cpp"

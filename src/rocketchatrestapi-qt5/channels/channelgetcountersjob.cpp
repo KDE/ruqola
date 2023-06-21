@@ -76,3 +76,5 @@ bool ChannelGetCountersJob::hasQueryParameterSupport() const
 {
     return false;
 }
+
+#include "moc_channelgetcountersjob.cpp"

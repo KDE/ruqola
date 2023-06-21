@@ -530,3 +530,5 @@ QString RoomModel::sectionName(Section sectionId)
     }
     return QStringLiteral("ERROR");
 }
+
+#include "moc_roommodel.cpp"

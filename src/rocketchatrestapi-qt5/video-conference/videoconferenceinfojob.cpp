@@ -86,3 +86,5 @@ QNetworkRequest VideoConferenceInfoJob::request() const
 
     return request;
 }
+
+#include "moc_videoconferenceinfojob.cpp"

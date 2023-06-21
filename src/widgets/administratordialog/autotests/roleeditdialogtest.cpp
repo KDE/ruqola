@@ -32,3 +32,5 @@ void RoleEditDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(!d.roleEditDialogInfo().isValid());
 }
+
+#include "moc_roleeditdialogtest.cpp"

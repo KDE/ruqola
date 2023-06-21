@@ -115,3 +115,5 @@ void RoomsCleanHistoryJobTest::shouldNotStarting()
     job.setCleanHistoryInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_roomscleanhistoryjobtest.cpp"

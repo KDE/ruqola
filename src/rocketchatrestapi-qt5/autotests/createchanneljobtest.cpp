@@ -92,3 +92,5 @@ void CreateChannelJobTest::shouldNotStarting()
     job.setCreateChannelInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_createchanneljobtest.cpp"

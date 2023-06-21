@@ -75,3 +75,5 @@ void PinMessageJobTest::shouldGenerateJson()
     job.setPinMessage(false);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(messageId).toLatin1());
 }
+
+#include "moc_pinmessagejobtest.cpp"

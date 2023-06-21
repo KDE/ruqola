@@ -102,3 +102,5 @@ QJsonDocument PinMessageJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_pinmessagejob.cpp"

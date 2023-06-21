@@ -91,3 +91,5 @@ void RolesManagerTest::shouldUpdateRoles()
 
     QCOMPARE(spy.count(), numberOfEmitSignal);
 }
+
+#include "moc_rolesmanagertest.cpp"

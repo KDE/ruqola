@@ -21,3 +21,5 @@ void AdminRoomsModelTest::shouldHaveDefaultValues()
 }
 
 // TODO
+
+#include "moc_adminroomsmodeltest.cpp"

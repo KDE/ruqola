@@ -59,3 +59,5 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mNumberUsersAutocompletion), QStringLiteral("Number_of_users_autocomplete_suggestions"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Number_of_users_autocomplete_suggestions"));
 }
+
+#include "moc_layoutsettingswidgettest.cpp"

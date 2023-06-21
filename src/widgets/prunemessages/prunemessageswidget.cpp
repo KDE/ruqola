@@ -126,3 +126,5 @@ void PruneMessagesWidget::setRoomName(const QString &roomName)
 {
     mRoomName = roomName;
 }
+
+#include "moc_prunemessageswidget.cpp"

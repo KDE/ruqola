@@ -77,3 +77,5 @@ void CreateDirectMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateDirectMessagesDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_createdirectmessagesdialog.cpp"

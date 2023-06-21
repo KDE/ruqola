@@ -44,3 +44,5 @@ AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSounds
     info.name = mName->text().trimmed();
     return info;
 }
+
+#include "moc_administratorcustomsoundscreatewidget.cpp"

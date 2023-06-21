@@ -72,3 +72,5 @@ void RegeneratePersonalAccessTokenJobTest::shouldNotStarting()
     job.setTokenName(tokenName);
     QVERIFY(job.canStart());
 }
+
+#include "moc_regeneratepersonalaccesstokenjobtest.cpp"

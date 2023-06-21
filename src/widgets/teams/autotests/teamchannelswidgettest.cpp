@@ -36,3 +36,5 @@ void TeamChannelsWidgetTest::shouldHaveDefaultValues()
     auto mTeamChannelsCombobox = w.findChild<TeamChannelsComboBox *>(QStringLiteral("mTeamChannelsCombobox"));
     QVERIFY(mTeamChannelsCombobox);
 }
+
+#include "moc_teamchannelswidgettest.cpp"

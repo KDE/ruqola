@@ -70,3 +70,5 @@ void VideoConferenceMessageInfoManager::updateVideoConferenceInfo(const QString 
         mTimer->start();
     }
 }
+
+#include "moc_videoconferencemessageinfomanager.cpp"

@@ -70,3 +70,5 @@ void AdministratorCustomUserStatusCreateDialog::setUserStatusInfo(const Administ
     mCreateWidget->setUserStatusInfo(info);
     setWindowTitle(i18nc("@title:window", "Edit User Status"));
 }
+
+#include "moc_administratorcustomuserstatuscreatedialog.cpp"

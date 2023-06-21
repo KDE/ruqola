@@ -100,3 +100,5 @@ QLineEdit *AddUsersWidget::lineEdit() const
 {
     return mSearchUserLineEdit;
 }
+
+#include "moc_adduserswidget.cpp"

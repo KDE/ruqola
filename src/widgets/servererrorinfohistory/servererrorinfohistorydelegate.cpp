@@ -242,3 +242,5 @@ bool ServerErrorInfoHistoryDelegate::hasSelection() const
 {
     return mTextSelectionImpl->textSelection()->hasSelection();
 }
+
+#include "moc_servererrorinfohistorydelegate.cpp"

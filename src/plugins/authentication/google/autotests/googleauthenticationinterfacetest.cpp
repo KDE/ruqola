@@ -20,3 +20,5 @@ void GoogleAuthenticationInterfaceTest::shouldHaveDefaultValue()
     GoogleAuthenticationInterface w;
     QVERIFY(!w.account());
 }
+
+#include "moc_googleauthenticationinterfacetest.cpp"

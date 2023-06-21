@@ -39,3 +39,5 @@ void RoomsAutocompleteAvailableForTeamsJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.availableForTeams?name=foo"));
 }
+
+#include "moc_roomsautocompleteavailableforteamsjobtest.cpp"

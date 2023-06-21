@@ -95,3 +95,5 @@ void ChannelInfoReadOnlyWidget::connectReadOnlyWidget()
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(avatarInfo);
     mRoomAvatarWidget->setCurrentIconPath(iconUrlStr);
 }
+
+#include "moc_channelinforeadonlywidget.cpp"

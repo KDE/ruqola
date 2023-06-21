@@ -19,3 +19,5 @@ void AdminUsersModelTest::shouldHaveDefaultValues()
     AdminUsersModel m;
     // TODO
 }
+
+#include "moc_adminusersmodeltest.cpp"

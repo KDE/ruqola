@@ -24,3 +24,5 @@ void PluginAuthenticationInterface::setAccount(RocketChatAccount *account)
 {
     mAccount = account;
 }
+
+#include "moc_pluginauthenticationinterface.cpp"

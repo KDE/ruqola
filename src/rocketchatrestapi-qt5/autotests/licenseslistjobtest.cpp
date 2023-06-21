@@ -34,3 +34,5 @@ void LicensesListJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.get")));
     }
 }
+
+#include "moc_licenseslistjobtest.cpp"

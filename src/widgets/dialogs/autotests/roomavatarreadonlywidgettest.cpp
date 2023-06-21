@@ -20,3 +20,5 @@ void RoomAvatarReadOnlyWidgetTest::shouldHaveDefaultValues()
     RoomAvatarReadOnlyWidget w;
     QCOMPARE(w.sizeHint(), QSize(120, 120));
 }
+
+#include "moc_roomavatarreadonlywidgettest.cpp"

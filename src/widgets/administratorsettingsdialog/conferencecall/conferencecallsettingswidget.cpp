@@ -44,3 +44,5 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, QVariant> &map
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceProvidersJob job";
     }
 }
+
+#include "moc_conferencecallsettingswidget.cpp"

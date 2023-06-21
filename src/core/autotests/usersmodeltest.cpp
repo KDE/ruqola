@@ -47,3 +47,5 @@ void UsersModelTest::shouldRemoveUser()
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
 }
+
+#include "moc_usersmodeltest.cpp"

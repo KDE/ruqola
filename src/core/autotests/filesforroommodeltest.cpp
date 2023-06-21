@@ -91,3 +91,5 @@ void FilesForRoomModelTest::shouldVerifyData()
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), QStringLiteral("userid%1").arg(i));
     }
 }
+
+#include "moc_filesforroommodeltest.cpp"

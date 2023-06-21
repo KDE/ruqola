@@ -109,3 +109,5 @@ bool IgnoreUserJob::canStart() const
     }
     return true;
 }
+
+#include "moc_ignoreuserjob.cpp"

@@ -99,3 +99,5 @@ QJsonDocument SendMessageJob::json() const
     const QJsonDocument postData = QJsonDocument(message);
     return postData;
 }
+
+#include "moc_sendmessagejob.cpp"

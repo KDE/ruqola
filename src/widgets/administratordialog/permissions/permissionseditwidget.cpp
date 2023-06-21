@@ -39,3 +39,5 @@ QStringList PermissionsEditWidget::roles() const
 {
     return mRolesCombobox->roles();
 }
+
+#include "moc_permissionseditwidget.cpp"

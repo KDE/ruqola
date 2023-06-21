@@ -106,3 +106,5 @@ QNetworkRequest GroupsInviteJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_groupsinvitejob.cpp"

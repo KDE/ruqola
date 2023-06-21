@@ -46,3 +46,5 @@ void UsersForRoomFilterProxyModelTest::shouldAssignValue()
     QCOMPARE(proxy.rowCount(), 10);
     QCOMPARE(model.rowCount(), 10);
 }
+
+#include "moc_usersforroomfilterproxymodeltest.cpp"

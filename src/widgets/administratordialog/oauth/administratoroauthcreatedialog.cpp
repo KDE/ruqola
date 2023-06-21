@@ -70,3 +70,5 @@ void AdministratorOauthCreateDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorOauthCreateDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_administratoroauthcreatedialog.cpp"

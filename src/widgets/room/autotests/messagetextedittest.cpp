@@ -25,3 +25,5 @@ void MessageTextEditTest::shouldHaveDefautValues()
     QCOMPARE(w.text(), QStringLiteral(":emoji: "));
     QVERIFY(!w.acceptRichText());
 }
+
+#include "moc_messagetextedittest.cpp"

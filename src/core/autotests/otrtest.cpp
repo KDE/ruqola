@@ -54,3 +54,5 @@ void OtrTest::shouldParseOtr()
     QCOMPARE(otr.type(), otrtype);
     // TODO
 }
+
+#include "moc_otrtest.cpp"

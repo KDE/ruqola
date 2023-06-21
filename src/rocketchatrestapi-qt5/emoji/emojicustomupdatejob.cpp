@@ -151,3 +151,5 @@ bool EmojiCustomUpdateJob::EmojiInfo::isValid() const
     // Alias is optional
     return !name.isEmpty() && !fileNameUrl.isEmpty() && !emojiId.isEmpty();
 }
+
+#include "moc_emojicustomupdatejob.cpp"

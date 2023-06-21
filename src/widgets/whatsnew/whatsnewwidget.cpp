@@ -107,3 +107,5 @@ void WhatsNewWidget::updateInformations()
     message += QStringLiteral("</qt>");
     mLabelInfo->setText(message);
 }
+
+#include "moc_whatsnewwidget.cpp"

@@ -105,3 +105,5 @@ void LoginJobTest::shouldGenerateJson()
         QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"resume":"%1"})").arg(resume).toLatin1());
     }
 }
+
+#include "moc_loginjobtest.cpp"

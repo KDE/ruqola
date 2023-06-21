@@ -43,3 +43,5 @@ void ShowThreadsDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowThreadsDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showthreadsdialog.cpp"

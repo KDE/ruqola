@@ -23,3 +23,5 @@ DirectoryNotAuthorizedWidget::DirectoryNotAuthorizedWidget(QWidget *parent)
 }
 
 DirectoryNotAuthorizedWidget::~DirectoryNotAuthorizedWidget() = default;
+
+#include "moc_directorynotauthorizedwidget.cpp"

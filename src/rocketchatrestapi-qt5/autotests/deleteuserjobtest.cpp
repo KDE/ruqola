@@ -67,3 +67,5 @@ void DeleteUserJobTest::shouldNotStarting()
     job.setUserInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_deleteuserjobtest.cpp"

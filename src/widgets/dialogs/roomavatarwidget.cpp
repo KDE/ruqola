@@ -93,3 +93,5 @@ QString RoomAvatarWidget::roomAvatar() const
         return QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed);
     }
 }
+
+#include "moc_roomavatarwidget.cpp"

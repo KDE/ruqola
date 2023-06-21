@@ -112,3 +112,5 @@ bool GetThreadsJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_getthreadsjob.cpp"

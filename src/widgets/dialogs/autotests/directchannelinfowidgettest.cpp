@@ -27,3 +27,5 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAvatar);
     QVERIFY(mAvatar->text().isEmpty());
 }
+
+#include "moc_directchannelinfowidgettest.cpp"

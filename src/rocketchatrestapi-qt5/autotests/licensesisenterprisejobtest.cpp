@@ -34,3 +34,5 @@ void LicensesIsEnterpriseJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.isEnterprise")));
     }
 }
+
+#include "moc_licensesisenterprisejobtest.cpp"

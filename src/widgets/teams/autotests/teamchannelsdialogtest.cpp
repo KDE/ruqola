@@ -33,3 +33,5 @@ void TeamChannelsDialogTest::shouldHaveDefaultValues()
     auto mTeamChannelsWidget = d.findChild<TeamChannelsWidget *>(QStringLiteral("mTeamChannelsWidget"));
     QVERIFY(mTeamChannelsWidget);
 }
+
+#include "moc_teamchannelsdialogtest.cpp"

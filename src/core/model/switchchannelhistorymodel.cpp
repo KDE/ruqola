@@ -62,3 +62,5 @@ bool SwitchChannelHistoryModel::SwitchChannelInfo::operator==(const SwitchChanne
 {
     return other.mIdentifier == mIdentifier && other.mName == mName;
 }
+
+#include "moc_switchchannelhistorymodel.cpp"

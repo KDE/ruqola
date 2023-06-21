@@ -55,3 +55,5 @@ void LocalGlobalDatabaseTest::shouldStoreIdentifier()
 
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), LocalGlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
 }
+
+#include "moc_localglobaldatabasetest.cpp"

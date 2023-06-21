@@ -55,3 +55,5 @@ bool ChannelListJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+#include "moc_channellistjob.cpp"

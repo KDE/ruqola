@@ -274,3 +274,5 @@ RocketChatAccount *ListDiscussionDelegate::rocketChatAccount(const QModelIndex &
     Q_UNUSED(index);
     return mRocketChatAccount;
 }
+
+#include "moc_listdiscussiondelegate.cpp"

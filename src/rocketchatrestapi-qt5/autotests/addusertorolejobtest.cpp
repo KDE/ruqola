@@ -69,3 +69,5 @@ void AddUserToRoleJobTest::shouldNotStarting()
     job.setRoleName(rolename);
     QVERIFY(job.canStart());
 }
+
+#include "moc_addusertorolejobtest.cpp"

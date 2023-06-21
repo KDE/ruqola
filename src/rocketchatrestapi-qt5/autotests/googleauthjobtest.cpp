@@ -83,3 +83,5 @@ void GoogleAuthJobTest::shouldNotStarting()
     job.setExpireTokenInSeconds(expireToken);
     QVERIFY(job.canStart());
 }
+
+#include "moc_googleauthjobtest.cpp"

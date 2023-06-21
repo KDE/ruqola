@@ -85,3 +85,5 @@ void AutoTranslateConfigureWidget::setRoom(Room *room)
     slotAutoTranslateChanged();
     slotAutoTranslateLanguageChanged();
 }
+
+#include "moc_autotranslateconfigurewidget.cpp"

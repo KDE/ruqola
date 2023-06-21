@@ -25,3 +25,5 @@ void ChannelInfoEditableWidgetTest::shouldHaveDefaultValues()
     auto mRoomAvatarWidget = w.findChild<RoomAvatarWidget *>(QStringLiteral("mRoomAvatarWidget"));
     QVERIFY(mRoomAvatarWidget);
 }
+
+#include "moc_channelinfoeditablewidgettest.cpp"

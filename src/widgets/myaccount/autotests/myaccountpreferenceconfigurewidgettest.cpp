@@ -95,3 +95,5 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mReceiveLoginDetectionEmails->text().isEmpty());
     QVERIFY(!mReceiveLoginDetectionEmails->toolTip().isEmpty());
 }
+
+#include "moc_myaccountpreferenceconfigurewidgettest.cpp"

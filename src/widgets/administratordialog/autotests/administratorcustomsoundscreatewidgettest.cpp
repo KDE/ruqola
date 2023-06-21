@@ -30,3 +30,5 @@ void AdministratorCustomSoundsCreateWidgetTest::shouldHaveDefaultValues()
     auto mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
     QVERIFY(mSelectFile);
 }
+
+#include "moc_administratorcustomsoundscreatewidgettest.cpp"

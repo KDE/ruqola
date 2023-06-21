@@ -158,3 +158,5 @@ void DeviceInfoModel::removeElement(const QString &identifier)
         }
     }
 }
+
+#include "moc_deviceinfomodel.cpp"

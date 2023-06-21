@@ -58,3 +58,5 @@ void SearchChannelFilterProxyModelTest::shouldLoadChannelJSon()
 
     // TODO improve
 }
+
+#include "moc_searchchannelfilterproxymodeltest.cpp"

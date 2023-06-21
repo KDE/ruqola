@@ -63,3 +63,5 @@ void RoomFavoriteJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_roomfavoritejobtest.cpp"

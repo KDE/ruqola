@@ -114,3 +114,5 @@ void MyAccountManageDeviceConfigureWidget::slotDisconnectDevice(const QModelInde
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsLogoutMeJob job";
     }
 }
+
+#include "moc_myaccountmanagedeviceconfigurewidget.cpp"

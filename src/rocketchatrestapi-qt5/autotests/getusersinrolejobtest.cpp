@@ -61,3 +61,5 @@ void GetUsersInRoleJobTest::shouldNotStarting()
     job.setRoleId(QStringLiteral("ss"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_getusersinrolejobtest.cpp"

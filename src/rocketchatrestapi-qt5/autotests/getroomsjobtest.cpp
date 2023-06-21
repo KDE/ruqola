@@ -35,3 +35,5 @@ void GetRoomsJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.get")));
 }
+
+#include "moc_getroomsjobtest.cpp"

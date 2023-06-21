@@ -20,3 +20,5 @@ void EmoticonUnicodeUtilsTest::shouldHaveDefaultValues()
     QCOMPARE(TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier(), QStringLiteral("recents"));
     QCOMPARE(TextEmoticonsCore::EmoticonUnicodeUtils::customIdentifier(), QStringLiteral("customs"));
 }
+
+#include "moc_emoticonunicodeutilstest.cpp"

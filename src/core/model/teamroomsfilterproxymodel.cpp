@@ -50,3 +50,5 @@ void TeamRoomsFilterProxyModel::setSortByAutoJoin(bool sortByAutoJoin)
         invalidateFilter();
     }
 }
+
+#include "moc_teamroomsfilterproxymodel.cpp"

@@ -30,3 +30,5 @@ void DownloadAppsLanguagesParserTest::shouldParseFile()
     QVERIFY(parser.parse());
     QCOMPARE(parser.map().count(), identifier);
 }
+
+#include "moc_downloadappslanguagesparsertest.cpp"

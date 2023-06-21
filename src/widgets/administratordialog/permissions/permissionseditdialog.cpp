@@ -42,3 +42,5 @@ void PermissionsEditDialog::setRolesInfo(const QVector<RoleInfo> &rolesinfo)
 {
     mPermissionsWidget->setRolesInfo(rolesinfo);
 }
+
+#include "moc_permissionseditdialog.cpp"

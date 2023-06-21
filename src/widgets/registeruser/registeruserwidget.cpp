@@ -74,3 +74,5 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
     info.password = mPasswordLineEdit->password();
     return info;
 }
+
+#include "moc_registeruserwidget.cpp"

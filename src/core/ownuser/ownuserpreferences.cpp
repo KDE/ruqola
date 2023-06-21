@@ -248,3 +248,5 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mReceiveLoginDetectionEmail " << t.receiveLoginDetectionEmail();
     return d;
 }
+
+#include "moc_ownuserpreferences.cpp"

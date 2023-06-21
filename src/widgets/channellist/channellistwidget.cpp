@@ -321,3 +321,5 @@ void ChannelListWidget::applyChannelSelection()
         mSearchRoomLineEdit->clear();
     }
 }
+
+#include "moc_channellistwidget.cpp"

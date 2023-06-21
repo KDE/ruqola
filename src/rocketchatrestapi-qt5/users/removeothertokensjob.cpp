@@ -67,3 +67,5 @@ QJsonDocument RemoveOtherTokensJob::json() const
 {
     return {};
 }
+
+#include "moc_removeothertokensjob.cpp"

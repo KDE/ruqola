@@ -168,3 +168,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUpdateLatestAvailableVersion, mapSettings, QStringLiteral("0.0.0"));
     initializeWidget(mStreamCastAddress, mapSettings, QString());
 }
+
+#include "moc_generalsettingswidget.cpp"

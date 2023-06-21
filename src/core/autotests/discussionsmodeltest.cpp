@@ -119,3 +119,5 @@ void DiscussionsModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 }
+
+#include "moc_discussionsmodeltest.cpp"

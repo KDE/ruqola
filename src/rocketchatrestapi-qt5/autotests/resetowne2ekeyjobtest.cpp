@@ -59,3 +59,5 @@ void ResetOwnE2eKeyJobTest::shouldNotStarting()
     // QVERIFY(!job.canStart());
     QVERIFY(job.canStart());
 }
+
+#include "moc_resetowne2ekeyjobtest.cpp"

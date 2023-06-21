@@ -39,3 +39,5 @@ void UserRequestDataDownloadJobTest::shouldGenerateRequest()
     request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload?fullExport=true")));
 }
+
+#include "moc_userrequestdatadownloadjobtest.cpp"

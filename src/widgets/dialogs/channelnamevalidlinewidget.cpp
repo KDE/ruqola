@@ -77,3 +77,5 @@ QString ChannelNameValidLineWidget::text() const
 {
     return mChannelNameValidLineEdit->text();
 }
+
+#include "moc_channelnamevalidlinewidget.cpp"

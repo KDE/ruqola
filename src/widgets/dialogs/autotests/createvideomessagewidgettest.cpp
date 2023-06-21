@@ -33,3 +33,5 @@ void CreateVideoMessageWidgetTest::shouldHaveDefaultValues()
     auto mRecordButton = w.findChild<QToolButton *>(QStringLiteral("mRecordButton"));
     QVERIFY(mRecordButton);
 }
+
+#include "moc_createvideomessagewidgettest.cpp"

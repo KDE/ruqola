@@ -37,3 +37,5 @@ QStringList AddUsersInRoomWidget::userNames() const
 {
     return mAddUsersWidget->userNames();
 }
+
+#include "moc_addusersinroomwidget.cpp"

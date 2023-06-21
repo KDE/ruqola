@@ -46,3 +46,5 @@ void ChangeGroupsNameJobTest::shouldGenerateJson()
     job.setName(name);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","roomId":"%2"})").arg(name, roomId).toLatin1());
 }
+
+#include "moc_changegroupsnamejobtest.cpp"

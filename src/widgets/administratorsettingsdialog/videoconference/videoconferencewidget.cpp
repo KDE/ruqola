@@ -131,3 +131,5 @@ void VideoConferenceWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mJitsiApplicationSecret, mapSettings);
     initializeWidget(mJitsiLimitTokenJitsiRoom, mapSettings);
 }
+
+#include "moc_videoconferencewidget.cpp"

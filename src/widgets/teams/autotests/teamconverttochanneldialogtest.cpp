@@ -31,3 +31,5 @@ void TeamConvertToChannelDialogTest::shouldHaveDefaultValues()
     auto mTeamConvertToChannelWidget = d.findChild<TeamConvertToChannelWidget *>(QStringLiteral("mTeamConvertToChannelWidget"));
     QVERIFY(mTeamConvertToChannelWidget);
 }
+
+#include "moc_teamconverttochanneldialogtest.cpp"

@@ -55,3 +55,5 @@ void ConfigureAutoCorrectionWidget::load()
 {
     mAutoCorrectionWidget->loadConfig();
 }
+
+#include "moc_configureautocorrectionwidget.cpp"

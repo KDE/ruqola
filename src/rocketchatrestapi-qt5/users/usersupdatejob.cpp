@@ -97,3 +97,5 @@ QJsonDocument UsersUpdateJob::json() const
     auto t = mUpdateInfo.json();
     return t;
 }
+
+#include "moc_usersupdatejob.cpp"

@@ -32,3 +32,5 @@ void RoomInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.ownerName().isEmpty());
     QVERIFY(w.belongsTo().isEmpty());
 }
+
+#include "moc_roominfotest.cpp"

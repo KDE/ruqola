@@ -67,3 +67,5 @@ void SetUserActiveStatusJobTest::shouldNotStarting()
     job.setActivateUserId(statusUserid);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setuseractivestatusjobtest.cpp"

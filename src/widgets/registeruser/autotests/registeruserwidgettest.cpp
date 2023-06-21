@@ -44,3 +44,5 @@ void RegisterUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mRegisterButton->isEnabled());
     QVERIFY(!mRegisterButton->text().isEmpty());
 }
+
+#include "moc_registeruserwidgettest.cpp"

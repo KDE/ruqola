@@ -68,3 +68,5 @@ void PlaySoundWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLabelPercentSound->text().isEmpty());
     QCOMPARE(mLabelPercentSound->textFormat(), Qt::PlainText);
 }
+
+#include "moc_playsoundwidgettest.cpp"

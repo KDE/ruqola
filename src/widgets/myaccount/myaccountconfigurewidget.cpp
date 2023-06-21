@@ -107,3 +107,5 @@ void MyAccountConfigureWidget::initialize()
         mMyAccountPersonalAccessTokenConfigureWidget->initialize();
     }
 }
+
+#include "moc_myaccountconfigurewidget.cpp"

@@ -13,3 +13,5 @@ UsersInRoomLabelTest::UsersInRoomLabelTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_usersinroomlabeltest.cpp"

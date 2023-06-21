@@ -88,3 +88,5 @@ void OwnUserTest::shouldLoadOwnUser()
     }
     QVERIFY(equalOwner);
 }
+
+#include "moc_ownusertest.cpp"

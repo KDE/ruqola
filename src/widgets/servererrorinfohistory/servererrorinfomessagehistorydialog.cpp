@@ -61,3 +61,5 @@ void ServerErrorInfoMessageHistoryDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myServerErrorInfoMessageHistoryDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_servererrorinfomessagehistorydialog.cpp"

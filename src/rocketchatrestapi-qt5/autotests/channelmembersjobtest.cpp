@@ -74,3 +74,5 @@ void ChannelMembersJobTest::shouldNotStarting()
     job.setChannelType(ChannelMembersJob::ChannelType::Channel);
     QVERIFY(job.canStart());
 }
+
+#include "moc_channelmembersjobtest.cpp"

@@ -77,3 +77,5 @@ void MyAccount2FaDisableTotpWidget::slotRegenerateCode()
 {
     mRocketChatAccount->ddp()->regenerateCodes2fa(mDisableCodeLineEdit->text());
 }
+
+#include "moc_myaccount2fadisabletotpwidget.cpp"

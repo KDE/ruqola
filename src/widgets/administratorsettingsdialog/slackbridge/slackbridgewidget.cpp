@@ -73,3 +73,5 @@ void SlackBridgeWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mReactions, mapSettings, true);
     initializeWidget(mAPITokens, mapSettings);
 }
+
+#include "moc_slackbridgewidget.cpp"

@@ -70,3 +70,5 @@ void ArchiveChannelJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_archivechanneljobtest.cpp"

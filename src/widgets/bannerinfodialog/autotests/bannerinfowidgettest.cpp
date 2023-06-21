@@ -22,3 +22,5 @@ void BannerInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }
+
+#include "moc_bannerinfowidgettest.cpp"

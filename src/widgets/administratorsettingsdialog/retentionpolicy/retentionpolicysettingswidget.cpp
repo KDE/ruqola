@@ -112,3 +112,5 @@ void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &ma
     initializeWidget(mMaximumMessageChannels, mapSettings, 30);
     initializeWidget(mTimerPrecision, mapSettings, QStringLiteral("0"));
 }
+
+#include "moc_retentionpolicysettingswidget.cpp"

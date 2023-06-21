@@ -272,3 +272,5 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     }
     QVERIFY(compareCustom);
 }
+
+#include "moc_customuserstatusestest.cpp"

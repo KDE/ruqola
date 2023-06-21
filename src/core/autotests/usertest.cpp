@@ -250,3 +250,5 @@ void UserTest::shouldGetStatusIcon()
     user.setStatus(status);
     QCOMPARE(user.iconFromStatus(), iconFileName);
 }
+
+#include "moc_usertest.cpp"

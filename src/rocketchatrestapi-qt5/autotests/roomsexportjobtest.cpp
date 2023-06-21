@@ -104,3 +104,5 @@ void RoomsExportJobTest::shouldNotStarting()
     //    QVERIFY(job.canStart());
     // TODO
 }
+
+#include "moc_roomsexportjobtest.cpp"

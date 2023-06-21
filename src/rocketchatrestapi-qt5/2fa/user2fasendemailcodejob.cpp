@@ -89,3 +89,5 @@ QJsonDocument User2FASendEmailCodeJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_user2fasendemailcodejob.cpp"

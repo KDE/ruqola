@@ -260,3 +260,5 @@ void RuqolaServerConfigTest::shouldTestVersion()
     config.setServerVersion(serverVersion);
     QCOMPARE(config.hasAtLeastVersion(major, minor, patch), hasCorrectVersion);
 }
+
+#include "moc_ruqolaserverconfigtest.cpp"

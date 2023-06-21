@@ -51,3 +51,5 @@ void WebRtcSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mEnableDirectMessages, mapSettings, false);
     initializeWidget(mServer, mapSettings, QString());
 }
+
+#include "moc_webrtcsettingswidget.cpp"

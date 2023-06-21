@@ -19,3 +19,5 @@ void ClickableWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.name().isEmpty()); // See foo in constructor
     QVERIFY(w.identifier().isEmpty());
 }
+
+#include "moc_clickablewidgettest.cpp"

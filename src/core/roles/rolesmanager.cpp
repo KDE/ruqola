@@ -74,3 +74,5 @@ const QVector<RoleInfo> &RolesManager::roleInfo() const
 {
     return mRoleInfo;
 }
+
+#include "moc_rolesmanager.cpp"

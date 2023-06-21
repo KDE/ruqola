@@ -58,3 +58,5 @@ bool SearchMessageModel::stringNotFound() const
 {
     return mStringNotFound;
 }
+
+#include "moc_searchmessagemodel.cpp"

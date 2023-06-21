@@ -104,3 +104,5 @@ QJsonDocument TeamRemoveMembersJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_teamremovemembersjob.cpp"

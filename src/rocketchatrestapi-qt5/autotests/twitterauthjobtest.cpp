@@ -100,3 +100,5 @@ void TwitterAuthJobTest::shouldNotStarting()
     job.setAppSecret(appSecret);
     QVERIFY(job.canStart());
 }
+
+#include "moc_twitterauthjobtest.cpp"

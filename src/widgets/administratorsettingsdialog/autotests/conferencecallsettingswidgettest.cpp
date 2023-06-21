@@ -26,3 +26,5 @@ void ConferenceCallSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultProvider), QStringLiteral("VideoConf_Default_Provider"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("VideoConf_Default_Provider"));
 }
+
+#include "moc_conferencecallsettingswidgettest.cpp"

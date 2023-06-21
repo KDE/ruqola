@@ -46,3 +46,5 @@ void ChannelAddModeratorJobTest::shouldGenerateJson()
     job.setAddModeratorUserId(addUsedId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(addUsedId, roomId).toLatin1());
 }
+
+#include "moc_channeladdmoderatorjobtest.cpp"

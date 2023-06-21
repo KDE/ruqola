@@ -26,3 +26,5 @@ void ConfigureAccessibilityWidgetTest::shouldHaveDefaultValues()
     auto mTextToSpeechWidget = w.findChild<TextEditTextToSpeech::TextToSpeechConfigWidget *>(QStringLiteral("mTextToSpeechWidget"));
     QVERIFY(mTextToSpeechWidget);
 }
+
+#include "moc_configureaccessibilitywidgettest.cpp"

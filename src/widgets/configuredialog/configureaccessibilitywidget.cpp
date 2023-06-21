@@ -44,3 +44,5 @@ void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)
     }
     QWidget::showEvent(event);
 }
+
+#include "moc_configureaccessibilitywidget.cpp"

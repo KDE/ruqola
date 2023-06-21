@@ -91,3 +91,5 @@ void SaveRoomSettingsJobTest::shouldNotStarting()
     // We need to change a settings
     //     QVERIFY(job.canStart());
 }
+
+#include "moc_saveroomsettingsjobtest.cpp"

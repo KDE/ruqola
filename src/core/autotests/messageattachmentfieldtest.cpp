@@ -19,3 +19,5 @@ void MessageAttachmentFieldTest::shouldHaveDefaultValues()
     QVERIFY(field.title().isEmpty());
     QVERIFY(field.value().isEmpty());
 }
+
+#include "moc_messageattachmentfieldtest.cpp"

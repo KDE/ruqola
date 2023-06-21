@@ -30,3 +30,5 @@ void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.userIds().isEmpty());
     QVERIFY(w.userNames().isEmpty());
 }
+
+#include "moc_addusersinroomwidgettest.cpp"

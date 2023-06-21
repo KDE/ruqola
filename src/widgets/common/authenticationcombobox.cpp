@@ -22,3 +22,5 @@ void AuthenticationComboBox::switchRocketChatAccount(RocketChatAccount *account)
         addItem(QIcon::fromTheme(info.iconName()), info.name(), QVariant::fromValue(info.oauthType()));
     }
 }
+
+#include "moc_authenticationcombobox.cpp"

@@ -23,3 +23,5 @@ void ShowAttachmentComboBox::fillCombobox()
     addItem(i18n("Texts"), QStringLiteral("text"));
     addItem(i18n("Files"), QStringLiteral("application"));
 }
+
+#include "moc_showattachmentcombobox.cpp"

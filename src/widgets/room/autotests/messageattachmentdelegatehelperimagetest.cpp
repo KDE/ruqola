@@ -44,3 +44,5 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QVERIFY(layout.imageSize.height() < 500 * fakeWidget.devicePixelRatioF());
     delete listView;
 }
+
+#include "moc_messageattachmentdelegatehelperimagetest.cpp"

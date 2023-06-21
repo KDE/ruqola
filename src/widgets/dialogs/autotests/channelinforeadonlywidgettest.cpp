@@ -47,3 +47,5 @@ void ChannelInfoReadOnlyWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mDescriptionReadOnly->openExternalLinks());
 }
+
+#include "moc_channelinforeadonlywidgettest.cpp"

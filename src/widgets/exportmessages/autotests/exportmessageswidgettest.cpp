@@ -33,3 +33,5 @@ void ExportMessagesWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.roomExportInfo().isValid());
 }
+
+#include "moc_exportmessageswidgettest.cpp"

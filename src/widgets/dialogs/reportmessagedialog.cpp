@@ -72,3 +72,5 @@ void ReportMessageDialog::setPreviewMessage(const QString &msg)
 {
     mReportMessageWidget->setPreviewMessage(msg);
 }
+
+#include "moc_reportmessagedialog.cpp"

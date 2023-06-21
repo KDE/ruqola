@@ -107,3 +107,5 @@ QNetworkRequest ChannelInviteJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_channelinvitejob.cpp"

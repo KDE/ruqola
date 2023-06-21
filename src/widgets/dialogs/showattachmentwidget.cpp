@@ -100,3 +100,5 @@ QString ShowAttachmentWidget::displayShowMessageInRoom() const
     }
     return displayMessageStr;
 }
+
+#include "moc_showattachmentwidget.cpp"

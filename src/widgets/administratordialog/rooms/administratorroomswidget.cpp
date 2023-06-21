@@ -289,3 +289,5 @@ void AdministratorRoomsWidget::slotLoadElements(int offset, int count, const QSt
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsJob job";
     }
 }
+
+#include "moc_administratorroomswidget.cpp"

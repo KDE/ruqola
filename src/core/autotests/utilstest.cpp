@@ -169,3 +169,5 @@ void UtilsTest::shouldTestAvatarInfoValues()
     info.etag = QStringLiteral("foo");
     QCOMPARE(info.generateAvatarIdentifier(), QStringLiteral("bla-foo"));
 }
+
+#include "moc_utilstest.cpp"

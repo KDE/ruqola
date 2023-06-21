@@ -49,3 +49,5 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesWidget::roomExp
     info.dateTo = mToDate->dateTime();
     return info;
 }
+
+#include "moc_exportmessageswidget.cpp"

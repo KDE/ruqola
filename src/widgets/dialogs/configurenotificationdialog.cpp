@@ -34,3 +34,5 @@ void ConfigureNotificationDialog::setRoom(Room *room)
 {
     mConfigureNoticationWidget->setRoom(room);
 }
+
+#include "moc_configurenotificationdialog.cpp"

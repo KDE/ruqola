@@ -25,3 +25,5 @@ void StatusModelTest::shouldHaveDefaultValue()
 }
 
 // TODO add autotest about currentStatus changed !
+
+#include "moc_statusmodeltest.cpp"

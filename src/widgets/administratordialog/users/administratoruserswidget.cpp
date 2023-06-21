@@ -430,3 +430,5 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         }
     }
 }
+
+#include "moc_administratoruserswidget.cpp"

@@ -53,3 +53,5 @@ void RoleEditWidgetTest::shouldVerifyRoleEditDialogInfoValues()
     QVERIFY(!info.mTwoFactor);
     QVERIFY(!info.mIsProtected);
 }
+
+#include "moc_roleeditwidgettest.cpp"

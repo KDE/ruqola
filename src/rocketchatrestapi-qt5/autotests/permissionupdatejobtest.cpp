@@ -69,3 +69,5 @@ void PermissionUpdateJobTest::shouldNotStarting()
     job.setPermissions(lst);
     QVERIFY(job.canStart());
 }
+
+#include "moc_permissionupdatejobtest.cpp"

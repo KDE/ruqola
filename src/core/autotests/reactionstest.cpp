@@ -64,3 +64,5 @@ void ReactionsTest::shouldParseReactions()
     }
     QVERIFY(emojiIsEqual);
 }
+
+#include "moc_reactionstest.cpp"

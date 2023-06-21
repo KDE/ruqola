@@ -73,3 +73,5 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmailAlertCombobox);
 #endif
 }
+
+#include "moc_configurenotificationwidgettest.cpp"

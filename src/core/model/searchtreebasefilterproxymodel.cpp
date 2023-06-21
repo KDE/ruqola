@@ -25,3 +25,5 @@ void SearchTreeBaseFilterProxyModel::clearFilter()
 {
     setFilterFixedString(QString());
 }
+
+#include "moc_searchtreebasefilterproxymodel.cpp"

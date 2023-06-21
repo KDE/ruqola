@@ -32,3 +32,5 @@ void ServerErrorInfoMessageWidget::slotLinkActivated(const QString &contents)
         dlg.exec();
     }
 }
+
+#include "moc_servererrorinfomessagewidget.cpp"

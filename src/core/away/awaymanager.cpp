@@ -135,3 +135,5 @@ QDebug operator<<(QDebug d, const AwayManager &t)
     d << "mIdleTiming " << t.idleTiming();
     return d;
 }
+
+#include "moc_awaymanager.cpp"

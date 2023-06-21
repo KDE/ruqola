@@ -19,3 +19,5 @@ void DownloadAppsLanguagesInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.languageMap().isEmpty());
     QVERIFY(info.isEmpty());
 }
+
+#include "moc_downloadappslanguagesinfotest.cpp"

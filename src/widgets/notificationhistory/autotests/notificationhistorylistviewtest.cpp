@@ -18,3 +18,5 @@ void NotificationHistoryListViewTest::shouldHaveDefaultValues()
     NotificationHistoryListView w;
     QVERIFY(w.searchText().isEmpty());
 }
+
+#include "moc_notificationhistorylistviewtest.cpp"

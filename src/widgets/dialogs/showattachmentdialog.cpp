@@ -100,3 +100,5 @@ void ShowAttachmentDialog::setRoomType(Room::RoomType roomType)
 {
     mRoomType = roomType;
 }
+
+#include "moc_showattachmentdialog.cpp"

@@ -75,3 +75,5 @@ void GeneratePersonalAccessTokenJobTest::shouldNotStarting()
     job.setTokenName(tokenName);
     QVERIFY(job.canStart());
 }
+
+#include "moc_generatepersonalaccesstokenjobtest.cpp"

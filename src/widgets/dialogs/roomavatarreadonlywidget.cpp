@@ -23,3 +23,5 @@ void RoomAvatarReadOnlyWidget::setCurrentIconPath(const QString &iconUrlStr)
         setPixmap(icon.pixmap(100, 100));
     }
 }
+
+#include "moc_roomavatarreadonlywidget.cpp"

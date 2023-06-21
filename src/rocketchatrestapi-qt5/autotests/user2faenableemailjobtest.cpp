@@ -58,3 +58,5 @@ void User2FAEnableEmailJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_user2faenableemailjobtest.cpp"

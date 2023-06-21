@@ -447,3 +447,5 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d << "imageUrlPreview " << t.imageUrlPreview();
     return d;
 }
+
+#include "moc_messageattachment.cpp"

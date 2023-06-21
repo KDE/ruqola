@@ -31,3 +31,5 @@ void TeamSearchRoomDialogTest::shouldHaveDefaultValues()
     auto mTeamSearchRoomWidget = d.findChild<TeamSearchRoomWidget *>(QStringLiteral("mTeamSearchRoomWidget"));
     QVERIFY(mTeamSearchRoomWidget);
 }
+
+#include "moc_teamsearchroomdialogtest.cpp"

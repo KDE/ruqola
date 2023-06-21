@@ -23,3 +23,5 @@ void WebDavSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
 {
     initializeWidget(mEnabled, mapSettings, false);
 }
+
+#include "moc_webdavsettingswidget.cpp"

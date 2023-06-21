@@ -31,3 +31,5 @@ void ConfigureAccountWidget::load()
 {
     mConfigureAccountServerWidget->load();
 }
+
+#include "moc_configureaccountwidget.cpp"

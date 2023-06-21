@@ -93,3 +93,5 @@ void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mFileUploadJsonWebTokenSecret, mapSettings, QString());
     initializeWidget(mStorageType, mapSettings, QStringLiteral("GridFS"));
 }
+
+#include "moc_fileuploadsettingswidget.cpp"

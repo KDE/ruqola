@@ -23,3 +23,5 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
     QVERIFY(!w.loadSearchMessageInProgress());
     QVERIFY(w.stringNotFound());
 }
+
+#include "moc_searchmessagemodeltest.cpp"

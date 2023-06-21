@@ -135,3 +135,5 @@ QDebug operator<<(QDebug d, const CreateSoundMessageWizard::CreateSoundMessageIn
     d << " mDescription " << t.mDescription;
     return d;
 }
+
+#include "moc_createsoundmessagewizard.cpp"

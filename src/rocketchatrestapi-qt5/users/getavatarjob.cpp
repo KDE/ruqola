@@ -77,3 +77,5 @@ QString GetAvatarJob::jobName() const
 {
     return i18n("Get Avatar");
 }
+
+#include "moc_getavatarjob.cpp"

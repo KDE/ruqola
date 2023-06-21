@@ -91,3 +91,5 @@ void LDapSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationPassword), QStringLiteral("LDAP_Authentication_Password"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Authentication_Password"));
 }
+
+#include "moc_ldapsettingswidgettest.cpp"

@@ -76,3 +76,5 @@ void BannerInfosModel::insertBannerInfos(const BannerInfos &infos)
         endInsertRows();
     }
 }
+
+#include "moc_bannerinfosmodel.cpp"

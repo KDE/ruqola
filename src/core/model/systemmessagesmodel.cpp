@@ -105,3 +105,5 @@ QStringList SystemMessagesModel::systemMessagesSelected() const
     }
     return lst;
 }
+
+#include "moc_systemmessagesmodel.cpp"

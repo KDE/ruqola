@@ -60,3 +60,5 @@ void GetThreadMessagesJobTest::shouldNotStarting()
     job.setThreadMessageId(threadMessageId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_getthreadmessagesjobtest.cpp"

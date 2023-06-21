@@ -61,3 +61,5 @@ void GetDiscussionsJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_getdiscussionsjobtest.cpp"

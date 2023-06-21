@@ -38,3 +38,5 @@ void ExplorePermissionsDialogTest::shouldHaveDefaultValues()
     QVERIFY(mOwnRoles);
     QVERIFY(mOwnRoles->text().isEmpty());
 }
+
+#include "moc_explorepermissionsdialogtest.cpp"

@@ -35,3 +35,5 @@ void FetchMyKeysJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchMyKeys")));
 }
+
+#include "moc_fetchmykeysjobtest.cpp"

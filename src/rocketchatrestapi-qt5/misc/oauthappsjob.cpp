@@ -100,3 +100,5 @@ QNetworkRequest OauthAppsJob::request() const
 
     return request;
 }
+
+#include "moc_oauthappsjob.cpp"

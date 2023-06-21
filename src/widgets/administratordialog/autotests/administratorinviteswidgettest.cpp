@@ -29,3 +29,5 @@ void AdministratorInvitesWidgetTest::shouldHaveDefaultValues()
     auto mInviteTreeView = d.findChild<InviteTreeView *>(QStringLiteral("mInviteTreeWidget"));
     QVERIFY(mInviteTreeView);
 }
+
+#include "moc_administratorinviteswidgettest.cpp"

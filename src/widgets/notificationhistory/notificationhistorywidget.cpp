@@ -112,3 +112,5 @@ void NotificationHistoryWidget::addServerList(const QStringList &serverNames)
 {
     mServersComboBox->addServerList(serverNames);
 }
+
+#include "moc_notificationhistorywidget.cpp"

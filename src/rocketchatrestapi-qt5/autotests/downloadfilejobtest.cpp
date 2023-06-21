@@ -19,3 +19,5 @@ void DownloadFileJobTest::shouldHaveDefaultValue()
     // TODO
     // QVERIFY(!job.hasQueryParameterSupport());
 }
+
+#include "moc_downloadfilejobtest.cpp"

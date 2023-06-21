@@ -115,3 +115,5 @@ void AdministratorWidget::updateUiFromPermission()
         mTabWidget->setTabVisible(mTabWidget->indexOf(mOauthWidget), false);
     }
 }
+
+#include "moc_administratorwidget.cpp"

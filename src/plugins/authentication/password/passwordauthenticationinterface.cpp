@@ -39,3 +39,5 @@ void PasswordAuthenticationInterface::login()
         mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
     }
 }
+
+#include "moc_passwordauthenticationinterface.cpp"

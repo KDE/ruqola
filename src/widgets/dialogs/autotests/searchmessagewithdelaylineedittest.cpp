@@ -26,3 +26,5 @@ void SearchMessageWithDelayLineEditTest::shouldHaveDefaultValues()
     QVERIFY(mCompleterListModel);
     QCOMPARE(mCompleterListModel->rowCount(), 0);
 }
+
+#include "moc_searchmessagewithdelaylineedittest.cpp"

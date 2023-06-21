@@ -31,3 +31,5 @@ void EnterpriseSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mEnterpriseLicense, mapSettings, QString());
     initializeWidget(mStatus, mapSettings, QString());
 }
+
+#include "moc_enterprisesettingswidget.cpp"

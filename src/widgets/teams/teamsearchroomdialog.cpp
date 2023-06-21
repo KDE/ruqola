@@ -61,3 +61,5 @@ void TeamSearchRoomDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamSearchRoomDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_teamsearchroomdialog.cpp"

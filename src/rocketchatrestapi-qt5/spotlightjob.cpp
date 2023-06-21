@@ -80,3 +80,5 @@ bool SpotlightJob::canStart() const
     }
     return true;
 }
+
+#include "moc_spotlightjob.cpp"

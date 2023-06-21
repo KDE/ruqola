@@ -61,3 +61,5 @@ void OtrManager::slotEndOtr(const Otr &t)
 {
     mOtrList.removeAll(t);
 }
+
+#include "moc_otrmanager.cpp"

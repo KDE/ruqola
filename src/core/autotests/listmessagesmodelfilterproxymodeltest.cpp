@@ -21,3 +21,5 @@ void ListMessagesModelFilterProxyModelTest::shouldHaveDefaultValues()
     QCOMPARE(w.sortOrder(), Qt::DescendingOrder);
     QCOMPARE(w.filterRole(), ListMessagesModel::OriginalMessage);
 }
+
+#include "moc_listmessagesmodelfilterproxymodeltest.cpp"

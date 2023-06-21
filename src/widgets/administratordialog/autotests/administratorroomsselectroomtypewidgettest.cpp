@@ -49,3 +49,5 @@ void AdministratorRoomsSelectRoomTypeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTeamRooms->text().isEmpty());
     QVERIFY(!mTeamRooms->isChecked());
 }
+
+#include "moc_administratorroomsselectroomtypewidgettest.cpp"

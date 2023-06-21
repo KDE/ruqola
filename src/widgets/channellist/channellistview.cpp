@@ -490,3 +490,5 @@ void ChannelListView::slotRoomRemoved(const QString &roomId)
         selectNextChannel();
     }
 }
+
+#include "moc_channellistview.cpp"

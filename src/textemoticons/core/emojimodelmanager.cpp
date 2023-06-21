@@ -98,3 +98,5 @@ void EmojiModelManager::setCustomEmojiIconManager(CustomEmojiIconManager *newCus
 {
     d->mEmojiModel->setCustomEmojiIconManager(newCustomEmojiIconManager);
 }
+
+#include "moc_emojimodelmanager.cpp"

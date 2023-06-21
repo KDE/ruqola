@@ -138,3 +138,5 @@ QString SetStatusJob::errorMessage(const QString &str, const QJsonObject &detail
     }
     return RestApiAbstractJob::errorMessage(str, detail);
 }
+
+#include "moc_setstatusjob.cpp"

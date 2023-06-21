@@ -56,3 +56,5 @@ void FileAttachmentsTest::shouldLoadThreads()
 }
 
 #endif
+
+#include "moc_fileattachmentstest.cpp"

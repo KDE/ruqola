@@ -84,3 +84,5 @@ bool TeamsAutoCompleteJob::canStart() const
     }
     return true;
 }
+
+#include "moc_teamsautocompletejob.cpp"

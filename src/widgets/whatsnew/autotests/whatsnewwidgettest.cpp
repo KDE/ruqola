@@ -25,3 +25,5 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabelInfo);
     QVERIFY(mLabelInfo->text().isEmpty());
 }
+
+#include "moc_whatsnewwidgettest.cpp"

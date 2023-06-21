@@ -56,3 +56,5 @@ QNetworkRequest PrivateInfoJob::request() const
     addAuthRawHeader(req);
     return req;
 }
+
+#include "moc_privateinfojob.cpp"

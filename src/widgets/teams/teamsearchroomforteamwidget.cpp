@@ -93,3 +93,5 @@ QStringList TeamSearchRoomForTeamWidget::names() const
     }
     return addUsers;
 }
+
+#include "moc_teamsearchroomforteamwidget.cpp"

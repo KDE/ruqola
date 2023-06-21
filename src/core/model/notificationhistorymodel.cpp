@@ -96,3 +96,5 @@ void NotificationHistoryModel::addNotification(const NotificationInfo &info)
     beginInsertRows(QModelIndex(), numberOfElement, mNotificationInfo.count() - 1);
     endInsertRows();
 }
+
+#include "moc_notificationhistorymodel.cpp"

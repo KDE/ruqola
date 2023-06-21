@@ -42,3 +42,5 @@ void ShowMentionsMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showmentionsmessagesdialog.cpp"

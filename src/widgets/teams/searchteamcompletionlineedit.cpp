@@ -98,3 +98,5 @@ void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
     connect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT teamIdChanged(mTeamId.isEmpty());
 }
+
+#include "moc_searchteamcompletionlineedit.cpp"

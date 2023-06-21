@@ -62,3 +62,5 @@ QDebug operator<<(QDebug d, const AdministratorOauthCreateWidget::OauthCreateInf
     d << "redirectUrl : " << info.redirectUrl;
     return d;
 }
+
+#include "moc_administratoroauthcreatewidget.cpp"

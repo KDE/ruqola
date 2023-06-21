@@ -32,3 +32,5 @@ void ShowAttachmentDialogTest::shouldHaveDefaultValues()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_showattachmentdialogtest.cpp"

@@ -65,3 +65,5 @@ bool UsersPresenceJob::canStart() const
     }
     return true;
 }
+
+#include "moc_userspresencejob.cpp"

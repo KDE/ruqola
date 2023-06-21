@@ -60,3 +60,5 @@ void GroupsInviteJobTest::shouldGenerateUserIdJson()
     job.setInviteUserId(userId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
 }
+
+#include "moc_groupsinvitejobtest.cpp"

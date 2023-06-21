@@ -33,3 +33,5 @@ void AdministratorInviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }
+
+#include "moc_administratorinviteuserswidgettest.cpp"

@@ -29,3 +29,5 @@ void CompletionLineEdit::setCompletionModel(QAbstractItemModel *model)
 {
     mCompletionListView->setModel(model);
 }
+
+#include "moc_completionlineedit.cpp"

@@ -130,3 +130,5 @@ QDebug operator<<(QDebug d, const RunCommandJob::RunCommandInfo &t)
     d << " params " << t.params;
     return d;
 }
+
+#include "moc_runcommandjob.cpp"

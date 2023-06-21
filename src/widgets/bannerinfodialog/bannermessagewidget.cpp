@@ -67,3 +67,5 @@ void BannerMessageWidget::slotOpenUrl(const QString &url)
 {
     QDesktopServices::openUrl(QUrl(url));
 }
+
+#include "moc_bannermessagewidget.cpp"

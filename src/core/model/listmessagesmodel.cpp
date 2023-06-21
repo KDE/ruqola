@@ -99,3 +99,5 @@ void ListMessagesModel::setListMessageType(ListMessageType listMessageType)
         Q_EMIT listMessageTypeChanged();
     }
 }
+
+#include "moc_listmessagesmodel.cpp"

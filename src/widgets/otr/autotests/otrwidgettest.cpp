@@ -29,3 +29,5 @@ void OtrWidgetTest::shouldHaveDefaultValues()
     QVERIFY(refreshKeysAction);
     QVERIFY(!refreshKeysAction->text().isEmpty());
 }
+
+#include "moc_otrwidgettest.cpp"

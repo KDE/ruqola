@@ -66,3 +66,5 @@ void IrcFederationWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPeerPassword->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPeerPassword), QStringLiteral("IRC_Peer_Password"));
 }
+
+#include "moc_ircfederationwidgettest.cpp"

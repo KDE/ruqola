@@ -19,3 +19,5 @@ void CommandsModelTest::shouldHaveDefaultValues()
     CommandsModel d;
     QCOMPARE(d.rowCount(), 0);
 }
+
+#include "moc_commandsmodeltest.cpp"

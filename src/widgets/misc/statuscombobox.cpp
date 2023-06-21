@@ -38,3 +38,5 @@ void StatusCombobox::setUseOnlyStandardStatus()
     statusProxyModel->setSourceModel(new StatusModel(this));
     setModel(statusProxyModel);
 }
+
+#include "moc_statuscombobox.cpp"

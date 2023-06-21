@@ -39,3 +39,5 @@ void RemoveAccountDialog::setAccountName(const QString &accountName)
 {
     mRemoveAccountWidget->setAccountName(accountName);
 }
+
+#include "moc_removeaccountdialog.cpp"

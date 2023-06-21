@@ -111,3 +111,5 @@ bool CryptoSettings::operator==(const CryptoSettings &other) const
 {
     return mCrypt == other.mCrypt;
 }
+
+#include "moc_otr.cpp"

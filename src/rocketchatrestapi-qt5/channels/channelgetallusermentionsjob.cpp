@@ -90,3 +90,5 @@ bool ChannelGetAllUserMentionsJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_channelgetallusermentionsjob.cpp"

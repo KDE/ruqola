@@ -42,3 +42,5 @@ void CreateSoundMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabelDuration);
     QCOMPARE(mLabelDuration->textFormat(), Qt::PlainText);
 }
+
+#include "moc_createsoundmessagewidgettest.cpp"

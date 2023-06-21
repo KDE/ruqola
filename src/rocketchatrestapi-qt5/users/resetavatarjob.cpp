@@ -75,3 +75,5 @@ QJsonDocument ResetAvatarJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_resetavatarjob.cpp"

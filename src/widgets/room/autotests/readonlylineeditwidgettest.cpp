@@ -43,3 +43,5 @@ void ReadOnlyLineEditWidgetTest::shouldChangeText()
     w.setMessage(str);
     QCOMPARE(label->text(), str);
 }
+
+#include "moc_readonlylineeditwidgettest.cpp"

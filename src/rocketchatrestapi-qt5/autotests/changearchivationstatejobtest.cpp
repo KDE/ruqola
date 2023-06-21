@@ -66,3 +66,5 @@ void ChangeArchivationStateJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_changearchivationstatejobtest.cpp"

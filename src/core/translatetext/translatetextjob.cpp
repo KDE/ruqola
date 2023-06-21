@@ -55,3 +55,5 @@ QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t)
     d << "inputtext " << t.inputText;
     return d;
 }
+
+#include "moc_translatetextjob.cpp"

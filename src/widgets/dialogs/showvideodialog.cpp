@@ -62,3 +62,5 @@ void ShowVideoDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowVideoDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showvideodialog.cpp"

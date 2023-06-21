@@ -51,3 +51,5 @@ DirectoryNotAuthorizedWidget *DirectoryStackedWidget::directoryNotAutorizedWidge
 {
     return mDirectoryNotAutorizedWidget;
 }
+
+#include "moc_directorystackedwidget.cpp"

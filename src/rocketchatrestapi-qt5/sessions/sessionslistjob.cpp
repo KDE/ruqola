@@ -66,3 +66,5 @@ bool SessionsListJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_sessionslistjob.cpp"

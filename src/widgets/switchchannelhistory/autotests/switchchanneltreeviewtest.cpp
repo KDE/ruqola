@@ -24,3 +24,5 @@ void SwitchChannelTreeViewTest::shouldHaveDefaultValues()
     QCOMPARE(d.selectionBehavior(), QAbstractItemView::SelectRows);
     QCOMPARE(d.windowFlags(), Qt::Popup | Qt::FramelessWindowHint);
 }
+
+#include "moc_switchchanneltreeviewtest.cpp"

@@ -72,3 +72,5 @@ void DeviceInfoTest::shouldDeviceInfo_data()
         QTest::addRow("deviceinfo2") << QStringLiteral("deviceinfo2") << info;
     }
 }
+
+#include "moc_deviceinfotest.cpp"

@@ -24,3 +24,5 @@ void EmoticonListViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.contextMenuPolicy(), Qt::DefaultContextMenu);
     QCOMPARE(w.itemDelegate()->objectName(), QStringLiteral("emoticonDelegate"));
 }
+
+#include "moc_emoticonlistviewtest.cpp"

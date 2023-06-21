@@ -65,3 +65,5 @@ void DirectoryDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myDirectoryDialog);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_directorydialog.cpp"

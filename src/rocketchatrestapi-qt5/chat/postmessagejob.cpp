@@ -114,3 +114,5 @@ QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
+
+#include "moc_postmessagejob.cpp"

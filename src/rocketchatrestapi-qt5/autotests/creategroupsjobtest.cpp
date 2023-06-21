@@ -94,3 +94,5 @@ void CreateGroupsJobTest::shouldNotStarting()
     job.setCreateGroupsInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_creategroupsjobtest.cpp"

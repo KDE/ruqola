@@ -169,3 +169,5 @@ void CustomSoundsManagerTest::shouldParseCustomSounds()
     //    }
     QCOMPARE(w.customSoundsInfo().count(), numberOfSounds);
 }
+
+#include "moc_customsoundsmanagertest.cpp"

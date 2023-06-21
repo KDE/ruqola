@@ -88,3 +88,5 @@ void ConfigureAccountServerWidget::slotItemSelectionChanged()
     ui->moveUpServer->setEnabled(hasItemSelected && ui->accountServerListwidget->currentRow() != 0);
     ui->moveDownServer->setEnabled(hasItemSelected && ui->accountServerListwidget->currentRow() != ui->accountServerListwidget->count() - 1);
 }
+
+#include "moc_configureaccountserverwidget.cpp"

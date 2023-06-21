@@ -187,3 +187,5 @@ void GoogleJob::OAuthLoginMethodParameter()
 {
     Q_EMIT loginMethodCalled(m_accessToken, m_clientSecret);
 }
+
+#include "moc_googlejob.cpp"

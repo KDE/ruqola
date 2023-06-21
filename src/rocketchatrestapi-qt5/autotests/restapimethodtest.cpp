@@ -349,3 +349,5 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceCapabilities),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.capabilities")));
 }
+
+#include "moc_restapimethodtest.cpp"

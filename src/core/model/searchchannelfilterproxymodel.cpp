@@ -30,3 +30,5 @@ bool SearchChannelFilterProxyModel::lessThan(const QModelIndex &left, const QMod
         return false;
     }
 }
+
+#include "moc_searchchannelfilterproxymodel.cpp"

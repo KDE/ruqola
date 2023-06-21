@@ -66,3 +66,5 @@ QNetworkRequest EmojiCustomAllJob::request() const
     addAuthRawHeader(req);
     return req;
 }
+
+#include "moc_emojicustomalljob.cpp"

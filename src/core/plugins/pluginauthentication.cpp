@@ -12,3 +12,5 @@ PluginAuthentication::PluginAuthentication(QObject *parent)
 }
 
 PluginAuthentication::~PluginAuthentication() = default;
+
+#include "moc_pluginauthentication.cpp"

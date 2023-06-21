@@ -24,3 +24,5 @@ void SearchMessageFilterProxyModelTest::shouldHaveDefaultValue()
     QVERIFY(w.sourceModel());
     QCOMPARE(w.sourceModel(), &sourceModel);
 }
+
+#include "moc_searchmessagefilterproxymodeltest.cpp"

@@ -152,3 +152,5 @@ void CreateSoundMessageWidget::updateRecorderState(QMediaRecorder::RecorderState
         break;
     }
 }
+
+#include "moc_createsoundmessagewidget.cpp"

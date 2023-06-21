@@ -23,3 +23,5 @@ PluginTextInterface *ShareTextPlugin::createInterface(QObject *parent)
 }
 
 #include "sharetextplugin.moc"
+
+#include "moc_sharetextplugin.cpp"

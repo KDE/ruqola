@@ -41,3 +41,5 @@ void GetChannelRolesJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.roles?roomId=avat")));
 }
+
+#include "moc_getchannelrolesjobtest.cpp"

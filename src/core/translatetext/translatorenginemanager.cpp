@@ -53,3 +53,5 @@ void TranslatorEngineManager::slotTranslateDone()
     const QString result = mTranslatorEnginePlugin->resultTranslate();
     Q_EMIT translateDone(result);
 }
+
+#include "moc_translatorenginemanager.cpp"

@@ -69,3 +69,5 @@ void DeleteMessageJobTest::shouldNotStarting()
     job.setMessageId(text);
     QVERIFY(job.canStart());
 }
+
+#include "moc_deletemessagejobtest.cpp"

@@ -39,3 +39,5 @@ const QString &SearchTeamDialog::teamId() const
 {
     return mSearchTeamWidget->teamId();
 }
+
+#include "moc_searchteamdialog.cpp"

@@ -148,3 +148,5 @@ bool RoomsExportJob::RoomsExportInfo::isValid() const
     // Check from exportas type
     return fileFormat != RoomsExportInfo::FileFormat::Unknown && exportAs != RoomsExportInfo::ExportAs::Unknown && !roomId.isEmpty();
 }
+
+#include "moc_roomsexportjob.cpp"

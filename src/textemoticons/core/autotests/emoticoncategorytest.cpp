@@ -21,3 +21,5 @@ void EmoticonCategoryTest::shouldHaveDefaultValues()
     QVERIFY(w.i18nName().isEmpty());
     QCOMPARE(w.order(), 20);
 }
+
+#include "moc_emoticoncategorytest.cpp"

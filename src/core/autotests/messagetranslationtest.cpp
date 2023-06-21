@@ -20,3 +20,5 @@ void MessageTranslationTest::shouldHaveDefaultValues()
     QVERIFY(t.translatedString().isEmpty());
     QVERIFY(t.isEmpty());
 }
+
+#include "moc_messagetranslationtest.cpp"

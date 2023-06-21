@@ -53,3 +53,5 @@ void WebRtcSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mServer), QStringLiteral("WebRTC_Servers"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("WebRTC_Servers"));
 }
+
+#include "moc_webrtcsettingswidgettest.cpp"

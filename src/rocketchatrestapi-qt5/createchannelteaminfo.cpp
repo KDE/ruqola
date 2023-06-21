@@ -67,3 +67,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
     d << "infoType " << t.infoType;
     return d;
 }
+
+#include "moc_createchannelteaminfo.cpp"

@@ -139,3 +139,5 @@ void NotificationHistoryListView::copyMessageToClipboard(const QModelIndex &inde
     clip->setText(messageText, QClipboard::Clipboard);
     clip->setText(messageText, QClipboard::Selection);
 }
+
+#include "moc_notificationhistorylistview.cpp"

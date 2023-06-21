@@ -91,3 +91,5 @@ bool GetStarredMessagesJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_getstarredmessagesjob.cpp"

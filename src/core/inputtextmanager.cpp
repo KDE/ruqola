@@ -227,3 +227,5 @@ void InputTextManager::inputTextCompleter(const QJsonObject &obj)
         }
     }
 }
+
+#include "moc_inputtextmanager.cpp"

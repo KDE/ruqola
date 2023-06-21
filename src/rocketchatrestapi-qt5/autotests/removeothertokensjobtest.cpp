@@ -58,3 +58,5 @@ void RemoveOtherTokensJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_removeothertokensjobtest.cpp"

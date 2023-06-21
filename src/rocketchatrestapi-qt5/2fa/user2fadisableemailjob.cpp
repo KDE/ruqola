@@ -75,3 +75,5 @@ bool User2FADisableEmailJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_user2fadisableemailjob.cpp"

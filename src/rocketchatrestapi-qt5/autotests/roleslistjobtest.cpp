@@ -34,3 +34,5 @@ void RolesListJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.list")));
     }
 }
+
+#include "moc_roleslistjobtest.cpp"

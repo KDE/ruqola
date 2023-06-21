@@ -84,3 +84,5 @@ void LoginMethodModel::setAuthenticationInfos(const QVector<AuthenticationInfo> 
         endInsertRows();
     }
 }
+
+#include "moc_loginmethodmodel.cpp"

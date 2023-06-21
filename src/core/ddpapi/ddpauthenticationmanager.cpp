@@ -277,3 +277,5 @@ bool DDPAuthenticationManager::checkGenericError() const
 }
 
 #undef sl
+
+#include "moc_ddpauthenticationmanager.cpp"

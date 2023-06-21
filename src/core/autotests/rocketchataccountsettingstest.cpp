@@ -201,3 +201,5 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.accountEnabled());
     QVERIFY(chat.displayName().isEmpty());
 }
+
+#include "moc_rocketchataccountsettingstest.cpp"

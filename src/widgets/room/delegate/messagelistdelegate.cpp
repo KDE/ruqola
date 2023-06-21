@@ -784,3 +784,5 @@ void MessageListDelegate::switchMessageLayout()
     }
 #endif
 }
+
+#include "moc_messagelistdelegate.cpp"

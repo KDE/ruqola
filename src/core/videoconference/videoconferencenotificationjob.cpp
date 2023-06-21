@@ -94,3 +94,5 @@ void VideoConferenceNotificationJob::setVideoConference(const VideoConference &n
 {
     mVideoConference = newVideoConference;
 }
+
+#include "moc_videoconferencenotificationjob.cpp"

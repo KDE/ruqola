@@ -86,3 +86,5 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
         QTest::addRow("canceled") << QStringLiteral("canceled") << conference;
     }
 }
+
+#include "moc_videoconferencetest.cpp"

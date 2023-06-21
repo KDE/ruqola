@@ -78,3 +78,5 @@ void CreateNewChannelDialog::setFeatures(CreateNewChannelWidget::Features featur
 {
     mCreateNewChannelWidget->setFeatures(features);
 }
+
+#include "moc_createnewchanneldialog.cpp"

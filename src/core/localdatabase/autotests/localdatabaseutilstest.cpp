@@ -43,3 +43,5 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
     QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), QStringLiteral("DELETE FROM LOGS WHERE messageId = ?"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"));
 }
+
+#include "moc_localdatabaseutilstest.cpp"

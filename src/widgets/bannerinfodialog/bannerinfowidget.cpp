@@ -50,3 +50,5 @@ void BannerInfoWidget::initializeProxyModel()
     mBannerInfosFilterProxyModel->setFilterFixedString(mBannerInfoListSearchLineWidget->searchText());
     mBannerInfosFilterProxyModel->setShowUnread(mBannerInfoListSearchLineWidget->showOnlyUnread());
 }
+
+#include "moc_bannerinfowidget.cpp"

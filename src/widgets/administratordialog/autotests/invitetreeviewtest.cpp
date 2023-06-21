@@ -24,3 +24,5 @@ void InviteTreeViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
     QCOMPARE(w.selectionBehavior(), QAbstractItemView::SelectRows);
 }
+
+#include "moc_invitetreeviewtest.cpp"

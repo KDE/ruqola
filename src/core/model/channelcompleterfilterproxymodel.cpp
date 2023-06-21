@@ -35,3 +35,5 @@ bool ChannelCompleterFilterProxyModel::lessThan(const QModelIndex &left, const Q
         return false;
     }
 }
+
+#include "moc_channelcompleterfilterproxymodel.cpp"

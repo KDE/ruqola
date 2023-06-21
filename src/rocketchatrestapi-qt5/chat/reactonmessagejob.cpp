@@ -124,3 +124,5 @@ QString RocketChatRestApi::ReactOnMessageJob::errorMessage(const QString &str, c
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
+
+#include "moc_reactonmessagejob.cpp"

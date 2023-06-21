@@ -93,3 +93,5 @@ void GroupsKickJob::setKickUserId(const QString &kickUserId)
 {
     mKickUserId = kickUserId;
 }
+
+#include "moc_groupskickjob.cpp"

@@ -12,3 +12,5 @@ TextPluginManagerTest::TextPluginManagerTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_textpluginmanagertest.cpp"

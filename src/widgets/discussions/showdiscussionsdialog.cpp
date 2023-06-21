@@ -81,3 +81,5 @@ void ShowDiscussionsDialog::setModel(DiscussionsFilterProxyModel *model)
 {
     mShowDiscussionsWidget->setModel(model);
 }
+
+#include "moc_showdiscussionsdialog.cpp"

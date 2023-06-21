@@ -33,3 +33,5 @@ void AdministratorCustomEmojiCreateOrUpdateDialogTest::shouldHaveDefaultValues()
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 }
+
+#include "moc_administratorcustomemojicreateorupdatedialogtest.cpp"

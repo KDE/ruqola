@@ -46,3 +46,5 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
 }
+
+#include "moc_createnewserverwidgettest.cpp"

@@ -128,3 +128,5 @@ void AdminOauthModel::addMoreOauth(const OauthInfo &info)
     beginInsertRows(QModelIndex(), numberOfElement, numberOfElement);
     endInsertRows();
 }
+
+#include "moc_adminoauthmodel.cpp"

@@ -49,3 +49,5 @@ bool Colors::event(QEvent *e)
 #endif
     return QObject::event(e);
 }
+
+#include "moc_colors.cpp"

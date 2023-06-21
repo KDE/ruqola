@@ -20,3 +20,5 @@ void RuqolaTest::shouldHaveDefaultValue()
     Ruqola r(nullptr);
     QVERIFY(r.accountManager());
 }
+
+#include "moc_ruqolatest.cpp"

@@ -160,3 +160,5 @@ bool SetAvatarJob::SetAvatarInfo::isValid() const
 {
     return !mAvatarUrl.isEmpty() || !mImageUrl.isEmpty();
 }
+
+#include "moc_setavatarjob.cpp"

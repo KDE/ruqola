@@ -28,3 +28,5 @@ RocketChatAccount *ConverterTextAbstractJob::rocketChatAcount() const
 {
     return mRocketChatAcount;
 }
+
+#include "moc_convertertextabstractjob.cpp"

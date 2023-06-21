@@ -103,3 +103,5 @@ bool GeneratePersonalAccessTokenJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_generatepersonalaccesstokenjob.cpp"

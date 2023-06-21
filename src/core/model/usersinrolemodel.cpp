@@ -104,3 +104,5 @@ int UsersInRoleModel::total() const
 {
     return mUsers.total();
 }
+
+#include "moc_usersinrolemodel.cpp"

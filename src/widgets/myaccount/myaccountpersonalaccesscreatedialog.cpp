@@ -45,3 +45,5 @@ QString MyAccountPersonalAccessCreateDialog::tokenName() const
 {
     return mCreateWidget->tokenName();
 }
+
+#include "moc_myaccountpersonalaccesscreatedialog.cpp"

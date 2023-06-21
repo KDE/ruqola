@@ -18,3 +18,5 @@ void EmoticonCategoryButtonTest::shouldHaveDefaultValues()
     QVERIFY(w.isCheckable());
     QVERIFY(w.autoRaise());
 }
+
+#include "moc_emoticoncategorybuttontest.cpp"

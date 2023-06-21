@@ -47,3 +47,5 @@ void UsersInRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(hMainLayout);
     QCOMPARE(hMainLayout->contentsMargins(), QMargins{});
 }
+
+#include "moc_usersinroomwidgettest.cpp"

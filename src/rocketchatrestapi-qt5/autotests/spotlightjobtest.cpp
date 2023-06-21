@@ -39,3 +39,5 @@ void SpotlightJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/spotlight?query=avat")));
 }
+
+#include "moc_spotlightjobtest.cpp"

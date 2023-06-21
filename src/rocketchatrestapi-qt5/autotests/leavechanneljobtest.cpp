@@ -69,3 +69,5 @@ void LeaveChannelJobTest::shouldNotStarting()
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_leavechanneljobtest.cpp"

@@ -132,3 +132,5 @@ QDebug operator<<(QDebug d, const Channel &t)
 
     return d;
 }
+
+#include "moc_channel.cpp"

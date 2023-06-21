@@ -228,3 +228,5 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseDNSDomainCheck->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseDNSDomainCheck), QStringLiteral("Accounts_UseDNSDomainCheck"));
 }
+
+#include "moc_accountsettingswidgettest.cpp"

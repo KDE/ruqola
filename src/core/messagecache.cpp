@@ -88,3 +88,5 @@ bool MessageCache::startJob(RocketChatRestApi::RestApiAbstractJob *job)
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     return job->start();
 }
+
+#include "moc_messagecache.cpp"

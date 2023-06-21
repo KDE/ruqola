@@ -104,3 +104,5 @@ void SetAvatarJobTest::shouldNotStarting()
     job.setUserInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setavatarjobtest.cpp"

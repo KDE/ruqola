@@ -53,3 +53,5 @@ void RoomCounterInfoWidget::slotLinkActivated(const QString &contents)
         setVisible(false);
     }
 }
+
+#include "moc_roomcounterinfowidget.cpp"

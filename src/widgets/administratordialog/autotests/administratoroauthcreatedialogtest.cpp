@@ -37,3 +37,5 @@ void AdministratorOauthCreateDialogTest::shouldHaveDefaultValues()
     auto mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     QVERIFY(!mOkButton->isEnabled());
 }
+
+#include "moc_administratoroauthcreatedialogtest.cpp"

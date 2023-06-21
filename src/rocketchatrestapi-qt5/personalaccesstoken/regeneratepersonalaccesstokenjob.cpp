@@ -92,3 +92,5 @@ bool RegeneratePersonalAccessTokenJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_regeneratepersonalaccesstokenjob.cpp"

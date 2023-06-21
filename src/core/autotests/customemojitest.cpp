@@ -161,3 +161,5 @@ void CustomEmojiTest::shouldParseEmoji()
 //    QCOMPARE(emoji.emojiFileName(), expectedFileName);
 //    QCOMPARE(emoji.emojiUrl(serverUrl), expectedUrl);
 //}
+
+#include "moc_customemojitest.cpp"

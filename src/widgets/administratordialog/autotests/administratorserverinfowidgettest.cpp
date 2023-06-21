@@ -42,3 +42,5 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRefreshButton->text().isEmpty());
     QVERIFY(!mRefreshButton->toolTip().isEmpty());
 }
+
+#include "moc_administratorserverinfowidgettest.cpp"

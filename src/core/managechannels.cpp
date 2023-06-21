@@ -158,3 +158,5 @@ void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBas
         break;
     }
 }
+
+#include "moc_managechannels.cpp"

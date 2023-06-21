@@ -35,3 +35,5 @@ void RegisterUserDialogTest::shouldHaveDefaultValues()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_registeruserdialogtest.cpp"

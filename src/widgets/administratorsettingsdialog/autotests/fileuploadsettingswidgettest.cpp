@@ -90,3 +90,5 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mStorageType->count(), 5);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStorageType), QStringLiteral("FileUpload_Storage_Type"));
 }
+
+#include "moc_fileuploadsettingswidgettest.cpp"

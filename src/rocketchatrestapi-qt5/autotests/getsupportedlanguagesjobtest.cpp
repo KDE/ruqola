@@ -32,3 +32,5 @@ void GetSupportedLanguagesJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.getSupportedLanguages")));
 }
+
+#include "moc_getsupportedlanguagesjobtest.cpp"

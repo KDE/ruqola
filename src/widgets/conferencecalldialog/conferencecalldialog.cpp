@@ -40,3 +40,5 @@ void ConferenceCallDialog::setConferenceCallInfo(const ConferenceCallWidget::Con
 {
     mConferenceCallWidget->setConferenceCallInfo(infoCallStart);
 }
+
+#include "moc_conferencecalldialog.cpp"

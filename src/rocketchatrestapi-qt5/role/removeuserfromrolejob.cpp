@@ -113,3 +113,5 @@ QJsonDocument RemoveUserFromRoleJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_removeuserfromrolejob.cpp"

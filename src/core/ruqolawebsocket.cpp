@@ -113,3 +113,5 @@ void RuqolaWebSocket::slotError(QAbstractSocket::SocketError error)
 {
     Q_EMIT socketError(error, mWebSocket->errorString());
 }
+
+#include "moc_ruqolawebsocket.cpp"

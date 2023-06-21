@@ -112,3 +112,5 @@ bool UpdateAdminSettingsJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_updateadminsettingsjob.cpp"

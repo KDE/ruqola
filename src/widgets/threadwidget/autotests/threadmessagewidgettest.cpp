@@ -65,3 +65,5 @@ void ThreadMessageWidgetTest::shouldChangeThreadPreview()
     w.setThreadMessageInfo(info);
     QCOMPARE(mThreadPreview->text(), threadPreview);
 }
+
+#include "moc_threadmessagewidgettest.cpp"

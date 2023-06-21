@@ -92,3 +92,5 @@ void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mAlwaysSyncUserData, mapSettings, true);
     initializeWidget(mAttributeMap, mapSettings, QStringLiteral("{}"));
 }
+
+#include "moc_cassettingswidget.cpp"

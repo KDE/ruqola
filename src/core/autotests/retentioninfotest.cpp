@@ -54,3 +54,5 @@ void RetentionInfoTest::shouldLoadRetention()
     }
     QVERIFY(equalOwner);
 }
+
+#include "moc_retentioninfotest.cpp"

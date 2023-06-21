@@ -54,3 +54,5 @@ void ReportMessageDialogTest::shouldUpdateOkButton()
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     QVERIFY(okButton->isEnabled());
 }
+
+#include "moc_reportmessagedialogtest.cpp"

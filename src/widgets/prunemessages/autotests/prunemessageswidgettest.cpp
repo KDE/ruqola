@@ -89,3 +89,5 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mInfoLabel->text().isEmpty());
     QVERIFY(mInfoLabel->wordWrap());
 }
+
+#include "moc_prunemessageswidgettest.cpp"

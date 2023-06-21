@@ -327,3 +327,5 @@ void MessageModelTest::shouldFindPrevNextMessage()
     QCOMPARE(model.findNextMessageAfter(QStringLiteral("msgC"), isByMe).messageId(), QString());
     QCOMPARE(model.findNextMessageAfter(QStringLiteral("msgA"), isByMe).messageId(), QStringLiteral("msgC"));
 }
+
+#include "moc_messagemodeltest.cpp"

@@ -98,3 +98,5 @@ void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi:
         qCWarning(RUQOLAWIDGETS_LOG) << "identifier " << identifier << " not found.";
     }
 }
+
+#include "moc_uploadfileprogressstatuslistwidget.cpp"

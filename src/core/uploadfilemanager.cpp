@@ -70,3 +70,5 @@ void UploadFileManager::cancelJob(int identifier)
         job->abort();
     }
 }
+
+#include "moc_uploadfilemanager.cpp"

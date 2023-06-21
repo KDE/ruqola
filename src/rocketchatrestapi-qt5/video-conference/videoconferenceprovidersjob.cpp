@@ -59,3 +59,5 @@ QNetworkRequest VideoConferenceProvidersJob::request() const
 
     return request;
 }
+
+#include "moc_videoconferenceprovidersjob.cpp"

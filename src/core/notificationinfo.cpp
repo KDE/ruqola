@@ -228,3 +228,5 @@ bool NotificationInfo::operator==(const NotificationInfo &other) const
         && other.mRoomId == mRoomId && other.mChannelType == mChannelType && other.mTmId == mTmId && other.mDateTime == mDateTime
         && other.mPixmap.cacheKey() == mPixmap.cacheKey() && other.mNotificationType == mNotificationType;
 }
+
+#include "moc_notificationinfo.cpp"

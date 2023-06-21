@@ -193,3 +193,5 @@ void ConfigureSettingsDialog::load()
     mConfigureTextToSpeechWidget->load();
 #endif
 }
+
+#include "moc_configuresettingsdialog.cpp"

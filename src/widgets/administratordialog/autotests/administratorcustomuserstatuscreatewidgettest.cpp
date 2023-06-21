@@ -33,3 +33,5 @@ void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStatusCombobox);
     QVERIFY(!w.userStatusInfo().isValid());
 }
+
+#include "moc_administratorcustomuserstatuscreatewidgettest.cpp"

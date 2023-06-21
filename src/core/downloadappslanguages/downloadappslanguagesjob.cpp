@@ -63,3 +63,5 @@ void DownloadAppsLanguagesJob::setServerUrl(const QString &serverUrl)
 {
     mServerUrl = serverUrl;
 }
+
+#include "moc_downloadappslanguagesjob.cpp"

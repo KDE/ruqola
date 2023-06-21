@@ -76,3 +76,5 @@ QString ReceiveTypingNotificationManager::typingNotification(const QString &room
 {
     return generateNotification(mMapTypingNotifications.value(roomId));
 }
+
+#include "moc_receivetypingnotificationmanager.cpp"

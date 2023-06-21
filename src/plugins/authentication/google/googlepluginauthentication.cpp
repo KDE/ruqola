@@ -43,3 +43,5 @@ QString GooglePluginAuthentication::iconName() const
 }
 
 #include "googlepluginauthentication.moc"
+
+#include "moc_googlepluginauthentication.cpp"

@@ -18,3 +18,5 @@ void TeamRoomCompleterTest::shouldHaveDefaultValues()
     TeamRoomCompleter t;
     // TODO
 }
+
+#include "moc_teamroomcompletertest.cpp"

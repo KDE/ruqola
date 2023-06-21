@@ -432,3 +432,5 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
 
     changeText(newText, textPos);
 }
+
+#include "moc_messagetextedit.cpp"

@@ -18,3 +18,5 @@ void CustomEmojiIconManagerTest::shouldHaveDefaultValues()
     TextEmoticonsCore::CustomEmojiIconManager w;
     // TODO
 }
+
+#include "moc_customemojiiconmanagertest.cpp"

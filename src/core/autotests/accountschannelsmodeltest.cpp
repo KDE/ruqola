@@ -62,3 +62,5 @@ void AccountsChannelsModelTest::accountsAndChannels()
     Ruqola::self()->accountManager()->removeAccount(newAcctName);
     QCOMPARE(model.rowCount(), 1); // Only the default account remains
 }
+
+#include "moc_accountschannelsmodeltest.cpp"

@@ -94,3 +94,5 @@ QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
     }
     return displayMessageStr;
 }
+
+#include "moc_showdiscussionswidget.cpp"

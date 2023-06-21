@@ -152,3 +152,5 @@ bool DiscussionsModel::hasFullList() const
 {
     return mHasFullList;
 }
+
+#include "moc_discussionsmodel.cpp"

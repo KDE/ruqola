@@ -28,3 +28,5 @@ void WebShortcutTextInterface::setSelectedText(const QString &str)
 {
     mWebShortcutMenuManager->setSelectedText(str);
 }
+
+#include "moc_webshortcuttextinterface.cpp"

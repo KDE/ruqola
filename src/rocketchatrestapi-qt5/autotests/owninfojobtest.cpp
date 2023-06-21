@@ -31,3 +31,5 @@ void OwnInfoJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/me")));
 }
+
+#include "moc_owninfojobtest.cpp"

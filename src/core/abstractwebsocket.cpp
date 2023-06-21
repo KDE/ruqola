@@ -12,3 +12,5 @@ AbstractWebSocket::AbstractWebSocket(QObject *parent)
 }
 
 AbstractWebSocket::~AbstractWebSocket() = default;
+
+#include "moc_abstractwebsocket.cpp"

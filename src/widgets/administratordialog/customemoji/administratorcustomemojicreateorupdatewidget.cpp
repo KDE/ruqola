@@ -128,3 +128,5 @@ QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateOrUpdateWidget::
     d << "fileNameUrl " << t.fileNameUrl;
     return d;
 }
+
+#include "moc_administratorcustomemojicreateorupdatewidget.cpp"

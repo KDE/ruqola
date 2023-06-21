@@ -28,3 +28,5 @@ OtrWidget::OtrWidget(QWidget *parent)
 }
 
 OtrWidget::~OtrWidget() = default;
+
+#include "moc_otrwidget.cpp"

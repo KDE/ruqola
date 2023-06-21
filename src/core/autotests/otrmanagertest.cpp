@@ -20,3 +20,5 @@ void OtrManagerTest::shouldHaveDefaultValues()
     OtrManager w(nullptr);
     // TODO
 }
+
+#include "moc_otrmanagertest.cpp"

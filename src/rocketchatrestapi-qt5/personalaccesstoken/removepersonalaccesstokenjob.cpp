@@ -95,3 +95,5 @@ bool RemovePersonalAccessTokenJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_removepersonalaccesstokenjob.cpp"

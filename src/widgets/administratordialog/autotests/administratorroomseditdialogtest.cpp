@@ -19,3 +19,5 @@ void AdministratorRoomsEditDialogTest::shouldHaveDefaultValues()
     QCOMPARE(d.roomType(), AdministratorRoomsEditDialog::Channel);
     // TODO
 }
+
+#include "moc_administratorroomseditdialogtest.cpp"

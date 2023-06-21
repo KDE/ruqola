@@ -114,3 +114,5 @@ QString NotificationDesktopSoundPreferenceModel::currentPreference(int index) co
     const QString str = mNotificationDestktopSoundPreferenceList.at(index).preference;
     return str;
 }
+
+#include "moc_notificationdesktopsoundpreferencemodel.cpp"

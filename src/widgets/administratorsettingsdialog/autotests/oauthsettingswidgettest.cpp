@@ -270,3 +270,5 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDolphinSecret), QStringLiteral("Accounts_OAuth_Dolphin_secret"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Dolphin_secret"));
 }
+
+#include "moc_oauthsettingswidgettest.cpp"

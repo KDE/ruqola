@@ -77,3 +77,5 @@ void GetGroupRolesJob::onGetRequestResponse(const QString &replyErrorString, con
         addLoggerWarning(QByteArrayLiteral("GetGroupRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
+
+#include "moc_getgrouprolesjob.cpp"

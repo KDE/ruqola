@@ -43,3 +43,5 @@ void ShowPinnedMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowPinnedMessagesDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showpinnedmessagesdialog.cpp"

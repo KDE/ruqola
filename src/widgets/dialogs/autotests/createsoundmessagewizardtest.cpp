@@ -18,3 +18,5 @@ void CreateSoundMessageWizardTest::shouldHaveDefaultValues()
     CreateSoundMessageWizard w;
     // TODO
 }
+
+#include "moc_createsoundmessagewizardtest.cpp"

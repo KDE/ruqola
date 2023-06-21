@@ -101,3 +101,5 @@ void ChannelInfoPruneWidget::saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSet
         info.retentionOverrideGlobal = mOverrideGlobalRetentionPolicy->isChecked();
     }
 }
+
+#include "moc_channelinfoprunewidget.cpp"

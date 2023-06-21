@@ -77,3 +77,5 @@ int ListMessagesModelFilterProxyModel::numberOfMessages() const
 {
     return mModel->rowCount();
 }
+
+#include "moc_listmessagesmodelfilterproxymodel.cpp"

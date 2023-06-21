@@ -49,3 +49,5 @@ void ModifyStatusDialog::setMessageStatus(const QString &statusStr)
 {
     mModifyStatusWidget->setMessageStatus(statusStr);
 }
+
+#include "moc_modifystatusdialog.cpp"

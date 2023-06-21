@@ -71,3 +71,5 @@ QNetworkRequest ChannelInfoJob::request() const
 
     return request;
 }
+
+#include "moc_channelinfojob.cpp"

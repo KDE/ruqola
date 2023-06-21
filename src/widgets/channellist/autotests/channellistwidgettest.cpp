@@ -48,3 +48,5 @@ void ChannelListWidgetTest::searchRooms()
     //    QVERIFY(w.channelListView()->model());
     //    QCOMPARE(w.channelListView()->model()->filterRegExp().pattern(), QStringLiteral("all"));
 }
+
+#include "moc_channellistwidgettest.cpp"

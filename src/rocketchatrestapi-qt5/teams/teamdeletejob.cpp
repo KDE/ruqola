@@ -102,3 +102,5 @@ QJsonDocument TeamDeleteJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_teamdeletejob.cpp"

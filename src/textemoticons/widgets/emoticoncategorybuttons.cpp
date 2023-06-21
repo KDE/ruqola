@@ -92,3 +92,5 @@ void EmoticonCategoryButtons::setCategories(const QList<TextEmoticonsCore::Emoti
     Q_EMIT categorySelected(TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier());
     mWasLoaded = true;
 }
+
+#include "moc_emoticoncategorybuttons.cpp"

@@ -50,3 +50,5 @@ void DiscussionsTest::shouldLoadDiscussions()
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }
+
+#include "moc_discussionstest.cpp"

@@ -84,3 +84,5 @@ QNetworkRequest GroupsInfoJob::request() const
 
     return request;
 }
+
+#include "moc_groupsinfojob.cpp"

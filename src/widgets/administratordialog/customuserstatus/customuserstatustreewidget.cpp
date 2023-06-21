@@ -133,3 +133,5 @@ void CustomUserStatusTreeWidget::slotCustomContextMenuRequested(const QPoint &po
     }
     menu.exec(viewport()->mapToGlobal(pos));
 }
+
+#include "moc_customuserstatustreewidget.cpp"

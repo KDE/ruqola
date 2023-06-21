@@ -107,3 +107,5 @@ void AnalyticsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mAdditionalPiwikSites, mapSettings, {});
     initializeWidget(mHideOutgoingLinks, mapSettings, {});
 }
+
+#include "moc_analyticswidget.cpp"

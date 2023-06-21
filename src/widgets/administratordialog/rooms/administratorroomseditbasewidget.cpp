@@ -27,3 +27,5 @@ QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo
     d << "userOwnerName " << t.userOwnerName;
     return d;
 }
+
+#include "moc_administratorroomseditbasewidget.cpp"

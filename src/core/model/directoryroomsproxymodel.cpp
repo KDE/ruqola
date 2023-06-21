@@ -28,3 +28,5 @@ bool DirectoryRoomsProxyModel::lessThan(const QModelIndex &left, const QModelInd
     }
     return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }
+
+#include "moc_directoryroomsproxymodel.cpp"

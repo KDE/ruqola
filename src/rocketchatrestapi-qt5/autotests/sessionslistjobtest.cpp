@@ -73,3 +73,5 @@ void SessionsListJobTest::shouldGenerateRequest()
         QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
     }
 }
+
+#include "moc_sessionslistjobtest.cpp"

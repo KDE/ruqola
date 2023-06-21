@@ -70,3 +70,5 @@ void TeamConvertToChannelDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_teamconverttochanneldialog.cpp"

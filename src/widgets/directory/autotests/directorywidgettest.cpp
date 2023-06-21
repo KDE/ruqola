@@ -39,3 +39,5 @@ void DirectoryWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mTreeView->contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(mTreeView->header()->sectionsClickable());
 }
+
+#include "moc_directorywidgettest.cpp"

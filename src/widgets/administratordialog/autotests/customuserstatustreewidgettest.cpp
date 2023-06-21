@@ -24,3 +24,5 @@ void CustomUserStatusTreeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.header()->sectionsMoved());
     QVERIFY(!w.rootIsDecorated());
 }
+
+#include "moc_customuserstatustreewidgettest.cpp"

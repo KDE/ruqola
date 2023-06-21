@@ -214,3 +214,5 @@ void PermissionManagerTest::shouldUpdatePermissions()
         QVERIFY(equalPermission);
     }
 }
+
+#include "moc_permissionmanagertest.cpp"

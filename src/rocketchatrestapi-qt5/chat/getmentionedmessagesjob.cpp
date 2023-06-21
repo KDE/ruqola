@@ -91,3 +91,5 @@ bool GetMentionedMessagesJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_getmentionedmessagesjob.cpp"

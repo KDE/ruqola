@@ -34,3 +34,5 @@ void DirectoryStackedWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(w.directoryNotAutorizedWidget());
 }
+
+#include "moc_directorystackedwidgettest.cpp"

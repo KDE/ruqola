@@ -73,3 +73,5 @@ void AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged()
     }
     Q_EMIT filterChanged(filters);
 }
+
+#include "moc_administratorroomsselectroomtypewidget.cpp"

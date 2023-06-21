@@ -74,3 +74,5 @@ void UploadFileJobTest::shouldStart()
     job.setUploadFileInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_uploadfilejobtest.cpp"

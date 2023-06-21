@@ -96,3 +96,5 @@ bool MessageImageDownloadJob::MessageImageDownloadJobInfo::canStart() const
 {
     return !bigImagePath.isEmpty();
 }
+
+#include "moc_messageimagedownloadjob.cpp"

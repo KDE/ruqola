@@ -112,3 +112,5 @@ int DirectoryTeamsModel::total() const
 {
     return mRoomsInfo.total();
 }
+
+#include "moc_directoryteamsmodel.cpp"

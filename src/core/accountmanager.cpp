@@ -286,3 +286,5 @@ QStringList AccountManager::accountNamesSorted() const
     }
     return lst;
 }
+
+#include "moc_accountmanager.cpp"

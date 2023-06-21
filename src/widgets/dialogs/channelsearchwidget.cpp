@@ -66,3 +66,5 @@ void ChannelSearchWidget::slotClearRoom()
     mStackedWidget->setCurrentWidget(mChannelSearchNameLineEdit);
     Q_EMIT updateRoomName(false);
 }
+
+#include "moc_channelsearchwidget.cpp"

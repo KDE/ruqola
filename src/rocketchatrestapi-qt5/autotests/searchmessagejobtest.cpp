@@ -49,3 +49,5 @@ void searchMessageJobTest::shouldGenerateRequestWithLimit()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla&count=5")));
 }
+
+#include "moc_searchmessagejobtest.cpp"

@@ -31,3 +31,5 @@ void ServerErrorInfoHistoryManager::addServerErrorInfo(const ServerErrorInfo &in
     mServerErrorInfoHistoryModel->addServerErrorInfo(info);
     Q_EMIT newServerErrorInfo();
 }
+
+#include "moc_servererrorinfohistorymanager.cpp"

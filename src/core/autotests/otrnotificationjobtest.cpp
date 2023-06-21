@@ -18,3 +18,5 @@ void OtrNotificationJobTest::shouldHaveDefaultValues()
     OtrNotificationJob job;
     QVERIFY(!job.canStart());
 }
+
+#include "moc_otrnotificationjobtest.cpp"

@@ -691,3 +691,5 @@ void QueryParameters::setSearchString(const QString &newSearchString)
 {
     mSearchString = newSearchString;
 }
+
+#include "moc_restapiabstractjob.cpp"

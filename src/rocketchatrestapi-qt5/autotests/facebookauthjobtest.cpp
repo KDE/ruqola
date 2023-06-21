@@ -83,3 +83,5 @@ void FacebookAuthJobTest::shouldNotStarting()
     job.setExpireTokenInSeconds(expireToken);
     QVERIFY(job.canStart());
 }
+
+#include "moc_facebookauthjobtest.cpp"

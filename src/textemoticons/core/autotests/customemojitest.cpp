@@ -23,3 +23,5 @@ void CustomEmojiTest::shouldHaveDefaultValues()
     QCOMPARE(w.category(), TextEmoticonsCore::EmoticonUnicodeUtils::customIdentifier());
     QVERIFY(!w.isAnimatedEmoji());
 }
+
+#include "moc_customemojitest.cpp"

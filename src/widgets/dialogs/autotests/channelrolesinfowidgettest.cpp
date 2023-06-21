@@ -30,3 +30,5 @@ void ChannelRolesInfoWidgetTest::shouldHaveDefaultValues()
     auto mFormLayout = w.findChild<QFormLayout *>(QStringLiteral("mFormLayout"));
     QVERIFY(mFormLayout);
 }
+
+#include "moc_channelrolesinfowidgettest.cpp"

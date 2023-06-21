@@ -100,3 +100,5 @@ QString ChannelsConvertToTeamJob::generateErrorMessage(const QString &errorStr) 
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
+
+#include "moc_channelsconverttoteamjob.cpp"

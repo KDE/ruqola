@@ -19,3 +19,5 @@ void TeamCompleterTest::shouldHaveDefaultValues()
     TeamCompleter t;
     // TODO
 }
+
+#include "moc_teamcompletertest.cpp"

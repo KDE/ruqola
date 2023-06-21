@@ -47,3 +47,5 @@ void ChangeChannelReadonlyJobTest::shouldGenerateJson()
     job.setReadOnly(readOnly);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"readOnly":false,"roomId":"%1"})").arg(roomId).toLatin1());
 }
+
+#include "moc_changechannelreadonlyjobtest.cpp"

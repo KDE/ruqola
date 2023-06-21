@@ -31,3 +31,5 @@ void UsersPresenceJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
 }
+
+#include "moc_userspresencejobtest.cpp"

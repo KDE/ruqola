@@ -78,3 +78,5 @@ void UpdateMessageJobTest::shouldNotStarting()
     job.setUpdatedText(QStringLiteral("too"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_updatemessagejobtest.cpp"

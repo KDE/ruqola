@@ -83,3 +83,5 @@ PluginUtilData AuthenticationManager::createPluginMetaData(const KPluginMetaData
     pluginData.mIdentifier = metaData.pluginId();
     return pluginData;
 }
+
+#include "moc_authenticationmanager.cpp"

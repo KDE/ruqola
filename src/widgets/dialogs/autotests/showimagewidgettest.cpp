@@ -74,3 +74,5 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.imageInfo().isAnimatedImage);
     QVERIFY(!w.imageInfo().pixmap.isNull());
 }
+
+#include "moc_showimagewidgettest.cpp"

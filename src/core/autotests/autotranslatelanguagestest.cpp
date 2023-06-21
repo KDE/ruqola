@@ -21,3 +21,5 @@ void AutotranslateLanguagesTest::shouldHaveDefaultValues()
     QCOMPARE(w.count(), 0);
     QVERIFY(w.autotranslateLanguage().isEmpty());
 }
+
+#include "moc_autotranslatelanguagestest.cpp"

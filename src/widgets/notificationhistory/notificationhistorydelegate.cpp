@@ -334,3 +334,5 @@ bool NotificationHistoryDelegate::hasSelection() const
 {
     return mTextSelectionImpl->textSelection()->hasSelection();
 }
+
+#include "moc_notificationhistorydelegate.cpp"

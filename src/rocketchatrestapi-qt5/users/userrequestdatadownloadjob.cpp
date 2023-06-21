@@ -78,3 +78,5 @@ bool UserRequestDataDownloadJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+#include "moc_userrequestdatadownloadjob.cpp"

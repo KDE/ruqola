@@ -27,3 +27,5 @@ void ShareTextInterface::setSelectedText(const QString &str)
 {
     mPurposeMenuWidget->setSelectedText(str);
 }
+
+#include "moc_sharetextinterface.cpp"

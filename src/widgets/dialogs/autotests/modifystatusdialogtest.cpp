@@ -34,3 +34,5 @@ void ModifyStatusDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(w.messageStatus().isEmpty());
 }
+
+#include "moc_modifystatusdialogtest.cpp"

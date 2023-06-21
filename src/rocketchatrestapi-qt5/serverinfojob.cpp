@@ -93,3 +93,5 @@ void ServerInfoJob::setUseDeprecatedVersion(bool useDeprecatedVersion)
 {
     mUseDeprecatedVersion = useDeprecatedVersion;
 }
+
+#include "moc_serverinfojob.cpp"

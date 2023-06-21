@@ -110,3 +110,5 @@ UnityServiceManager *Notification::unityServiceManager()
 }
 
 #endif
+
+#include "moc_notification.cpp"

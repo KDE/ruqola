@@ -59,3 +59,5 @@ void AccountManagerTest::shouldReturnAccountFromAccountName()
     w.removeAccount(QStringLiteral("bla"));
     w.removeAccount(QStringLiteral("bli"));
 }
+
+#include "moc_accountmanagertest.cpp"

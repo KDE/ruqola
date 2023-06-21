@@ -14,3 +14,5 @@ RocketChatCacheTest::RocketChatCacheTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_rocketchatcachetest.cpp"

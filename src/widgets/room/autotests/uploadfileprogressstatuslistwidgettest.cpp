@@ -18,3 +18,5 @@ void UploadFileProgressStatusListWidgetTest::shouldHaveDefaultValues()
     UploadFileProgressStatusListWidget w;
     // TODO
 }
+
+#include "moc_uploadfileprogressstatuslistwidgettest.cpp"

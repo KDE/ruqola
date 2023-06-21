@@ -20,3 +20,5 @@ void TranslateTextJobTest::shouldHaveDefaultValues()
     TranslateTextJob job;
     QVERIFY(!job.info().isValid());
 }
+
+#include "moc_translatetextjobtest.cpp"

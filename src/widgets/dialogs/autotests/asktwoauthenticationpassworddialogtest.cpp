@@ -37,3 +37,5 @@ void AskTwoAuthenticationPasswordDialogTest::shouldHaveDefaultValues()
     QVERIFY(w.rocketChatAccount());
     QCOMPARE(w.rocketChatAccount()->accountName(), QStringLiteral("bla"));
 }
+
+#include "moc_asktwoauthenticationpassworddialogtest.cpp"

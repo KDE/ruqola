@@ -33,3 +33,5 @@ void AutoTranslateConfigureDialog::setRoom(Room *room)
 {
     mAutoTranslateConfigureWidget->setRoom(room);
 }
+
+#include "moc_autotranslateconfiguredialog.cpp"

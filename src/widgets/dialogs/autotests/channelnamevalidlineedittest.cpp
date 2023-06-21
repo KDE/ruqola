@@ -18,3 +18,5 @@ void ChannelNameValidLineEditTest::shouldHaveDefaultValue()
     ChannelNameValidLineEdit d(nullptr);
     QVERIFY(d.isClearButtonEnabled());
 }
+
+#include "moc_channelnamevalidlineedittest.cpp"

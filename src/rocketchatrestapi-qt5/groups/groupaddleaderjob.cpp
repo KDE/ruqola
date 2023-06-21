@@ -93,3 +93,5 @@ QNetworkRequest GroupAddLeaderJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_groupaddleaderjob.cpp"

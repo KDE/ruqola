@@ -215,3 +215,5 @@ void AccountsOverviewWidget::goToView(int index)
         }
     }
 }
+
+#include "moc_accountsoverviewwidget.cpp"

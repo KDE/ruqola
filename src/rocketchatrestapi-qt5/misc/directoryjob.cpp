@@ -123,3 +123,5 @@ bool DirectoryJob::DirectoryInfo::operator==(const DirectoryJob::DirectoryInfo &
 {
     return other.searchType == searchType && other.pattern == pattern;
 }
+
+#include "moc_directoryjob.cpp"

@@ -173,3 +173,5 @@ QDebug operator<<(QDebug d, const File &t)
     d << "TypeGroup: " << t.typeGroup();
     return d;
 }
+
+#include "moc_file.cpp"

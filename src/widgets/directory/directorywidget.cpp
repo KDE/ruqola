@@ -225,3 +225,5 @@ DirectoryWidget::DirectoryType DirectoryWidget::type() const
 {
     return mType;
 }
+
+#include "moc_directorywidget.cpp"

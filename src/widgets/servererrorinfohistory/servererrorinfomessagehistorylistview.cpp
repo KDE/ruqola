@@ -137,3 +137,5 @@ void ServerErrorInfoMessageHistoryListView::copyMessageToClipboard(const QModelI
     clip->setText(messageText, QClipboard::Clipboard);
     clip->setText(messageText, QClipboard::Selection);
 }
+
+#include "moc_servererrorinfomessagehistorylistview.cpp"

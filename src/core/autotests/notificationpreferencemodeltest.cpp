@@ -24,3 +24,5 @@ void NotificationPreferenceModelTest::shouldHaveDefaultValue()
 }
 
 // TODO add autotest about currentStatus changed !
+
+#include "moc_notificationpreferencemodeltest.cpp"

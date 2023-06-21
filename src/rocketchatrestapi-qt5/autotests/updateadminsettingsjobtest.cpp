@@ -70,3 +70,5 @@ void UpdateAdminSettingsJobTest::shouldNotStarting()
     job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_updateadminsettingsjobtest.cpp"

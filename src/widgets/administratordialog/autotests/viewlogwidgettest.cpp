@@ -27,3 +27,5 @@ void ViewLogWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPlainTextEdit);
     QVERIFY(mPlainTextEdit->isReadOnly());
 }
+
+#include "moc_viewlogwidgettest.cpp"

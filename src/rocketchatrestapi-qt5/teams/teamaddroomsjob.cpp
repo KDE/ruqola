@@ -113,3 +113,5 @@ QString TeamAddRoomsJob::generateErrorMessage(const QString &errorStr) const
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
+
+#include "moc_teamaddroomsjob.cpp"

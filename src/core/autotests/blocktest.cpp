@@ -69,3 +69,5 @@ void BlockTest::shouldSerializeData()
     const Block output = Block::deserialize(ba);
     QCOMPARE(input, output);
 }
+
+#include "moc_blocktest.cpp"

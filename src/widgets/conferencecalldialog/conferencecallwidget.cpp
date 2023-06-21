@@ -56,3 +56,5 @@ void ConferenceCallWidget::setConferenceCallInfo(const ConferenceCallStart &info
     mCameraButton->setChecked(infoCallStart.useCamera);
     mMicroButton->setChecked(infoCallStart.useMic);
 }
+
+#include "moc_conferencecallwidget.cpp"

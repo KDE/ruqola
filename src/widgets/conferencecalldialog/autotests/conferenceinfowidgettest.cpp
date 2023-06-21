@@ -23,3 +23,5 @@ void ConferenceInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFormLayout);
     QCOMPARE(mFormLayout->contentsMargins(), QMargins{});
 }
+
+#include "moc_conferenceinfowidgettest.cpp"

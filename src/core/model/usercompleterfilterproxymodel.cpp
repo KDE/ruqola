@@ -35,3 +35,5 @@ bool UserCompleterFilterProxyModel::lessThan(const QModelIndex &left, const QMod
         return false;
     }
 }
+
+#include "moc_usercompleterfilterproxymodel.cpp"

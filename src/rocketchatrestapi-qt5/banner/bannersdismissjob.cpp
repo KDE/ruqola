@@ -87,3 +87,5 @@ QJsonDocument BannersDismissJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_bannersdismissjob.cpp"

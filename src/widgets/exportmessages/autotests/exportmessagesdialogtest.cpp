@@ -35,3 +35,5 @@ void ExportMessagesDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(!d.roomExportInfo().isValid());
 }
+
+#include "moc_exportmessagesdialogtest.cpp"

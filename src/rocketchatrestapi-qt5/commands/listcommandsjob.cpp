@@ -57,3 +57,5 @@ QNetworkRequest ListCommandsJob::request() const
 
     return request;
 }
+
+#include "moc_listcommandsjob.cpp"

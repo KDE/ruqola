@@ -363,3 +363,5 @@ QVector<User> User::parseUsersList(const QJsonObject &object, const QVector<Role
     }
     return users;
 }
+
+#include "moc_user.cpp"

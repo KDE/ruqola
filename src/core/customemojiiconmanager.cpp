@@ -54,3 +54,5 @@ QString CustomEmojiIconManager::fileName(const QString &customIdentifier)
     }
     return {};
 }
+
+#include "moc_customemojiiconmanager.cpp"

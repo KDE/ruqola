@@ -63,3 +63,5 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
     auto mPermissionsWidget = w.findChild<PermissionsWidget *>(QStringLiteral("mPermissionsWidget"));
     QVERIFY(mPermissionsWidget);
 }
+
+#include "moc_administratorwidgettest.cpp"

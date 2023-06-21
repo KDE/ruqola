@@ -42,3 +42,5 @@ void PermissionsTest::shouldLoadPermissions()
     QCOMPARE(r.roles().count(), rolesCount);
 }
 #endif
+
+#include "moc_permissionstest.cpp"

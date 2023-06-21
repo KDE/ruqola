@@ -72,3 +72,5 @@ void InviteInfoTest::shouldParseInviteInfo()
     }
     QVERIFY(equal);
 }
+
+#include "moc_inviteinfotest.cpp"

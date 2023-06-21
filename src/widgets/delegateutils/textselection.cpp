@@ -317,3 +317,5 @@ void TextSelection::selectMessage(const QModelIndex &index)
         }
     }
 }
+
+#include "moc_textselection.cpp"

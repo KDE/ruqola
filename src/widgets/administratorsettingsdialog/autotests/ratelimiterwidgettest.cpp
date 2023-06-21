@@ -115,3 +115,5 @@ void RateLimiterWidgetTest::shouldHaveDefaultValues()
              QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Interval_Time"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Interval_Time"));
 }
+
+#include "moc_ratelimiterwidgettest.cpp"

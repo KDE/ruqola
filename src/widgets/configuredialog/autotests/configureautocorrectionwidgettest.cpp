@@ -22,3 +22,5 @@ void ConfigureAutoCorrectionWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     mainLayout->setContentsMargins({});
 }
+
+#include "moc_configureautocorrectionwidgettest.cpp"

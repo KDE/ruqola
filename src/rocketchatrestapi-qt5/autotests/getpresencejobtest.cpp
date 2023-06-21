@@ -41,3 +41,5 @@ void GetPresenceJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=%1").arg(info.userIdentifier)));
 }
+
+#include "moc_getpresencejobtest.cpp"

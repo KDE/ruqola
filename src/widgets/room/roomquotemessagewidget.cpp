@@ -27,3 +27,5 @@ void RoomQuoteMessageWidget::setMessageText(const QString &str)
 {
     setText(i18n("Quote Message: \'%1\'", str));
 }
+
+#include "moc_roomquotemessagewidget.cpp"

@@ -73,3 +73,5 @@ void CustomUserStatusListJobTest::shouldGenerateRequest()
         QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
     }
 }
+
+#include "moc_customuserstatuslistjobtest.cpp"

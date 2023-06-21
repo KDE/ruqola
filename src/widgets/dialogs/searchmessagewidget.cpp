@@ -125,3 +125,5 @@ void SearchMessageWidget::setRoom(Room *room)
 {
     mResultListWidget->setRoom(room);
 }
+
+#include "moc_searchmessagewidget.cpp"

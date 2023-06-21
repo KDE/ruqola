@@ -27,3 +27,5 @@ void TeamSearchRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(vboxLayout);
     QCOMPARE(vboxLayout->contentsMargins(), QMargins{});
 }
+
+#include "moc_teamsearchroomwidgettest.cpp"

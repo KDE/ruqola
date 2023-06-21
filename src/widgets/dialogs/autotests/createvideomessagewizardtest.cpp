@@ -21,3 +21,5 @@ void CreateVideoMessageWizardTest::shouldHaveDefaultValues()
     QVERIFY(!w.videoMessageInfo().isValid());
     // TODO
 }
+
+#include "moc_createvideomessagewizardtest.cpp"

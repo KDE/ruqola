@@ -35,3 +35,5 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLabel);
     QVERIFY(mSearchLabel->text().isEmpty());
 }
+
+#include "moc_searchmessagewidgettest.cpp"

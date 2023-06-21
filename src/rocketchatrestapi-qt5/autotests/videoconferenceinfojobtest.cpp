@@ -42,3 +42,5 @@ void VideoConferenceInfoJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.info?callId=%1").arg(callId)));
     }
 }
+
+#include "moc_videoconferenceinfojobtest.cpp"

@@ -79,3 +79,5 @@ QNetworkRequest GroupOpenJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_groupopenjob.cpp"

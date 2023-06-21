@@ -25,3 +25,5 @@ void UploadWidget::addButton()
     mUploadFileProgressStatusListWidget->addProgressStatusWidget(++identifier);
     // TODO
 }
+
+#include "moc_uploadwidget.cpp"

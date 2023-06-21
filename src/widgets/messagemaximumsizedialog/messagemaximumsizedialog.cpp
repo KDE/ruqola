@@ -44,3 +44,5 @@ QString MessageMaximumSizeDialog::fileName() const
 {
     return mMessageMaximumSizeWidget->fileName();
 }
+
+#include "moc_messagemaximumsizedialog.cpp"

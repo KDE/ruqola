@@ -93,3 +93,5 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
     mPlainTextEdit->blockSignals(false);
     mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
 }
+
+#include "moc_viewlogwidget.cpp"

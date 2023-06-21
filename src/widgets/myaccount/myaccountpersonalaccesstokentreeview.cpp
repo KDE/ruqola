@@ -60,3 +60,5 @@ void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &tokenNam
         Q_EMIT removeToken(tokenName);
     }
 }
+
+#include "moc_myaccountpersonalaccesstokentreeview.cpp"

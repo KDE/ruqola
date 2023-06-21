@@ -66,3 +66,5 @@ void TypingNotification::slotTimeout()
     // Send info about stopping typing.
     Q_EMIT informTypingStatus(mRoomId, false);
 }
+
+#include "moc_typingnotification.cpp"

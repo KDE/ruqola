@@ -21,3 +21,5 @@ void RoomQuoteMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.wordWrap());
     QVERIFY(!w.isVisible());
 }
+
+#include "moc_roomquotemessagewidgettest.cpp"

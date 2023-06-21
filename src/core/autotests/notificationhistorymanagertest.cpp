@@ -19,3 +19,5 @@ void NotificationHistoryManagerTest::shouldHaveDefaultValues()
     NotificationHistoryManager w;
     // TODO
 }
+
+#include "moc_notificationhistorymanagertest.cpp"

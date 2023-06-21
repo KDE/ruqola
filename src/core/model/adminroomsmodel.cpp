@@ -188,3 +188,5 @@ void AdminRoomsModel::removeElement(const QString &identifier)
         }
     }
 }
+
+#include "moc_adminroomsmodel.cpp"

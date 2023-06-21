@@ -96,3 +96,5 @@ bool TeamsListJob::canStart() const
     }
     return true;
 }
+
+#include "moc_teamslistjob.cpp"

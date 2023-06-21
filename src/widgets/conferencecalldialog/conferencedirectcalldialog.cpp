@@ -160,3 +160,5 @@ void ConferenceDirectCallDialog::setRoomId(const QString &newRoomId)
 {
     mRoomId = newRoomId;
 }
+
+#include "moc_conferencedirectcalldialog.cpp"

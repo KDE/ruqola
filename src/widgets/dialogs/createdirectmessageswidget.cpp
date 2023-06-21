@@ -66,3 +66,5 @@ void CreateDirectMessagesWidget::checkMaximumUsers(bool state)
     }
     Q_EMIT updateOkButton(result);
 }
+
+#include "moc_createdirectmessageswidget.cpp"

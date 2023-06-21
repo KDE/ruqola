@@ -45,3 +45,5 @@ void MyAccount2FaDisableTotpWidgetTest::shouldHaveDefaultValues()
     QVERIFY(regenerateCode);
     QVERIFY(!regenerateCode->text().isEmpty());
 }
+
+#include "moc_myaccount2fadisabletotpwidgettest.cpp"

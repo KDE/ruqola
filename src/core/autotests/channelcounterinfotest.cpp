@@ -57,3 +57,5 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter()
     }
     QVERIFY(equalOwner);
 }
+
+#include "moc_channelcounterinfotest.cpp"

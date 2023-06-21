@@ -19,3 +19,5 @@ void LicensesManagerTest::shouldHaveDefaultValues()
     QVERIFY(w.licenses().isEmpty());
     QVERIFY(!w.hasLicense(QStringLiteral("bla")));
 }
+
+#include "moc_licensesmanagertest.cpp"

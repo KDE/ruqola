@@ -132,3 +132,5 @@ void RateLimiterWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLimiteByConnectionRequestsAllowedPerMethod, mapSettings, 10);
     initializeWidget(mLimiteByConnectionIntervalTimePerMethod, mapSettings, 10000);
 }
+
+#include "moc_ratelimiterwidget.cpp"

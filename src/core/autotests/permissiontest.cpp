@@ -56,3 +56,5 @@ void PermissionTest::shouldLoadPermission()
     // qDebug() << " r " << r << " permission " << permission;
     QCOMPARE(r, permission);
 }
+
+#include "moc_permissiontest.cpp"

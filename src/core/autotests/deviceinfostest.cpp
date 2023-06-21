@@ -50,3 +50,5 @@ void DeviceInfosTest::shouldLoadDiscussions()
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }
+
+#include "moc_deviceinfostest.cpp"

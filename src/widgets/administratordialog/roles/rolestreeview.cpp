@@ -18,3 +18,5 @@ RolesTreeView::RolesTreeView(QWidget *parent)
 }
 
 RolesTreeView::~RolesTreeView() = default;
+
+#include "moc_rolestreeview.cpp"

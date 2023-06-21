@@ -65,3 +65,5 @@ void AdministratorDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_administratordialog.cpp"

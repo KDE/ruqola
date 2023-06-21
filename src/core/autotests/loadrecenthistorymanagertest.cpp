@@ -21,3 +21,5 @@ void LoadRecentHistoryManagerTest::shouldIncreaseTimer()
     const qint64 newTimeStamp = manager.generateNewStartTimeStamp(lastLoadingTimeStamp);
     QCOMPARE(newTimeStamp, lastLoadingTimeStamp - (86400 * 3 * 1000));
 }
+
+#include "moc_loadrecenthistorymanagertest.cpp"

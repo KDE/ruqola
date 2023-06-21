@@ -75,3 +75,5 @@ void RunCommandJobTest::shouldNotStarting()
     job.setRunCommandInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_runcommandjobtest.cpp"

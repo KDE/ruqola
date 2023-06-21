@@ -144,3 +144,5 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
 {
     // TODO
 }
+
+#include "moc_localmessagedatabasetest.cpp"

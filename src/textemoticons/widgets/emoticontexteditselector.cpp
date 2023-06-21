@@ -139,3 +139,5 @@ bool EmoticonTextEditSelector::customEmojiSupport() const
 {
     return d->mCustomEmojiSupport;
 }
+
+#include "moc_emoticontexteditselector.cpp"

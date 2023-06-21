@@ -50,3 +50,5 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
     QVERIFY(clipboardLocationAction);
     QVERIFY(!clipboardLocationAction->text().isEmpty());
 }
+
+#include "moc_showimagedialogtest.cpp"

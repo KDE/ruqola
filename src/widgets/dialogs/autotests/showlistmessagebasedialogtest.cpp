@@ -21,3 +21,5 @@ void ShowListMessageBaseDialogTest::shouldHaveDefaultValues()
     // TODO
     ShowListMessageBaseDialog w(nullptr);
 }
+
+#include "moc_showlistmessagebasedialogtest.cpp"

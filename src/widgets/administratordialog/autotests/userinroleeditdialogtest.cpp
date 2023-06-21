@@ -33,3 +33,5 @@ void UserInRoleEditDialogTest::shouldHaveDefaultValues()
     auto mUserInRoleEditWidget = d.findChild<UsersInRoleWidget *>(QStringLiteral("mUserInRoleEditWidget"));
     QVERIFY(mUserInRoleEditWidget);
 }
+
+#include "moc_userinroleeditdialogtest.cpp"

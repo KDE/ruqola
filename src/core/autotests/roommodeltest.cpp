@@ -473,3 +473,5 @@ void RoomModelTest::shouldInsertRoom()
 }
 
 // TODO add autotest for notification update.
+
+#include "moc_roommodeltest.cpp"

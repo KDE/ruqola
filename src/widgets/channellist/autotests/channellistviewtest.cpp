@@ -28,3 +28,5 @@ void ChannelListViewTest::shouldHaveDefaultValues()
     QVERIFY(w.filterModel());
     QCOMPARE(w.filterModel()->objectName(), QStringLiteral("mRoomFilterProxyModel"));
 }
+
+#include "moc_channellistviewtest.cpp"

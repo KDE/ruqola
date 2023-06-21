@@ -424,3 +424,5 @@ void EmojiManagerTest::replaceAsciiEmoji()
 
     QCOMPARE(input != original, replaced);
 }
+
+#include "moc_emojimanagertest.cpp"

@@ -49,3 +49,5 @@ void ServerInfoJobTest::shouldGenerateRequest()
         QCOMPARE(request.attribute(QNetworkRequest::Http2AllowedAttribute).toBool(), true);
     }
 }
+
+#include "moc_serverinfojobtest.cpp"

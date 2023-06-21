@@ -77,3 +77,5 @@ void ArchiveGroupsJobTest::shouldNotStarting()
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_archivegroupsjobtest.cpp"

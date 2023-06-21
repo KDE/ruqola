@@ -161,3 +161,5 @@ QIcon AdminCustomEmojiModel::createCustomIcon(const QString &identifier) const
     }
     return {};
 }
+
+#include "moc_admincustomemojimodel.cpp"

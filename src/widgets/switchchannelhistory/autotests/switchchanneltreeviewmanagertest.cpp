@@ -20,3 +20,5 @@ void SwitchChannelTreeViewManagerTest::shouldHaveDefaultValues()
     QVERIFY(m.switchChannelTreeView());
     QVERIFY(!m.channelSwitcherModel());
 }
+
+#include "moc_switchchanneltreeviewmanagertest.cpp"

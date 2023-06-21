@@ -40,3 +40,5 @@ void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTooManyUsers->text().isEmpty());
     QVERIFY(!mTooManyUsers->isVisible());
 }
+
+#include "moc_createdirectmessageswidgettest.cpp"

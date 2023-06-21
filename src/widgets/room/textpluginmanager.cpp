@@ -84,3 +84,5 @@ PluginTextUtilData TextPluginManager::createPluginMetaData(const KPluginMetaData
     pluginData.mIdentifier = metaData.pluginId();
     return pluginData;
 }
+
+#include "moc_textpluginmanager.cpp"

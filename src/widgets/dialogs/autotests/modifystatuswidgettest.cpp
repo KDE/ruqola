@@ -41,3 +41,5 @@ void ModifyStatusWidgetTest::changeStatusMessage()
     w.setMessageStatus(messages);
     QCOMPARE(w.messageStatus(), messages);
 }
+
+#include "moc_modifystatuswidgettest.cpp"

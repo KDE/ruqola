@@ -653,3 +653,5 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         loadSettings(currentConfObject);
     }
 }
+
+#include "moc_ruqolaserverconfig.cpp"

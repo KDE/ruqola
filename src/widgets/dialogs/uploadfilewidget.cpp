@@ -78,3 +78,5 @@ void UploadFileWidget::setAuthorizedMediaTypes(const QStringList &mediaTypes)
 {
     mSelectFile->setMimeTypeFilters(mediaTypes);
 }
+
+#include "moc_uploadfilewidget.cpp"

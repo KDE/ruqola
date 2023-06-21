@@ -56,3 +56,5 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     auto mBannerMessageWidget = w.findChild<BannerMessageWidget *>(QStringLiteral("mBannerMessageWidget"));
     QVERIFY(mBannerMessageWidget);
 }
+
+#include "moc_ruqolamainwidgettest.cpp"

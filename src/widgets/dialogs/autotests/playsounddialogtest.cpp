@@ -36,3 +36,5 @@ void PlaySoundDialogTest::shouldHaveDefaultValues()
     auto mDeviceComboBox = w.findChild<QComboBox *>(QStringLiteral("mDeviceComboBox"));
     QVERIFY(mDeviceComboBox);
 }
+
+#include "moc_playsounddialogtest.cpp"

@@ -20,3 +20,5 @@ void EmoticonListViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.viewMode(), QListView::IconMode);
     QCOMPARE(w.horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
 }
+
+#include "moc_emoticonlistviewtest.cpp"

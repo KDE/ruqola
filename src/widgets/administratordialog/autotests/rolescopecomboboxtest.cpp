@@ -18,3 +18,5 @@ void RoleScopeComboBoxTest::shouldHaveDefaultValues()
     RoleScopeComboBox w;
     QCOMPARE(w.count(), 2);
 }
+
+#include "moc_rolescopecomboboxtest.cpp"

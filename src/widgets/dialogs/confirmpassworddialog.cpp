@@ -41,3 +41,5 @@ QString ConfirmPasswordDialog::password() const
 {
     return mConfirmPasswordWidget->password();
 }
+
+#include "moc_confirmpassworddialog.cpp"

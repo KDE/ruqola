@@ -47,3 +47,5 @@ void ChannelPasswordWidgetTest::shouldEmitSignals()
     QVERIFY(spy.count() > 0);
     QVERIFY(!spy.at(0).at(0).toBool());
 }
+
+#include "moc_channelpasswordwidgettest.cpp"

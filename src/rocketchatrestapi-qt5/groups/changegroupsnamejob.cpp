@@ -93,3 +93,5 @@ QNetworkRequest ChangeGroupsNameJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_changegroupsnamejob.cpp"

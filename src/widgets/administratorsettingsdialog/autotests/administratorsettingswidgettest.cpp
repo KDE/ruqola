@@ -131,3 +131,5 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
     auto mIrcWidget = w.findChild<IrcWidget *>(QStringLiteral("mIrcWidget"));
     QVERIFY(mIrcWidget);
 }
+
+#include "moc_administratorsettingswidgettest.cpp"

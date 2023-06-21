@@ -196,3 +196,5 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mMessageErasureType->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessageErasureType), QStringLiteral("Message_ErasureType"));
 }
+
+#include "moc_messagesettingswidgettest.cpp"

@@ -78,3 +78,5 @@ QNetworkRequest ChannelDeleteJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_channeldeletejob.cpp"

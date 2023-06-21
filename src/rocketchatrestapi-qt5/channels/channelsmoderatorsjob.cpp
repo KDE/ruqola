@@ -71,3 +71,5 @@ QNetworkRequest ChannelsModeratorsJob::request() const
 
     return request;
 }
+
+#include "moc_channelsmoderatorsjob.cpp"

@@ -151,3 +151,5 @@ void UnicodeEmoticonListWidgetItem::setInfo(const TextEmoticonsCore::UnicodeEmot
 {
     mInfo = info;
 }
+
+#include "moc_unicodeemoticongui.cpp"

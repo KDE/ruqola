@@ -88,3 +88,5 @@ void SendMessageJobTest::shouldNotStarting()
     job.setSendMessageArguments(args);
     QVERIFY(job.canStart());
 }
+
+#include "moc_sendmessagejobtest.cpp"

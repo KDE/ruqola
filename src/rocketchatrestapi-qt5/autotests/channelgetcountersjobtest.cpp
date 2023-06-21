@@ -66,3 +66,5 @@ void ChannelGetCountersJobTest::shouldNotStarting()
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_channelgetcountersjobtest.cpp"

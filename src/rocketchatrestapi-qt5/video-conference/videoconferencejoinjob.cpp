@@ -97,3 +97,5 @@ bool VideoConferenceJoinJob::VideoConferenceJoinInfo::isValid() const
 {
     return !callId.isEmpty();
 }
+
+#include "moc_videoconferencejoinjob.cpp"

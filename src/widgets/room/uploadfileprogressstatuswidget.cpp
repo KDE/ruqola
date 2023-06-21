@@ -61,3 +61,5 @@ void UploadFileProgressStatusWidget::setValue(int value)
 {
     mProgressBar->setValue(value);
 }
+
+#include "moc_uploadfileprogressstatuswidget.cpp"

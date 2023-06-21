@@ -129,3 +129,5 @@ void DownloadFileJob::setMimeType(const QByteArray &mimeType)
 {
     mMimeType = mimeType;
 }
+
+#include "moc_downloadfilejob.cpp"

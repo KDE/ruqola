@@ -64,3 +64,5 @@ void RoleDeleteJobTest::shouldNotStarting()
     job.setRoleId(QStringLiteral("ss"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_roledeletejobtest.cpp"

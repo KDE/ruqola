@@ -58,3 +58,5 @@ QNetworkRequest ListOauthAppsJob::request() const
 
     return request;
 }
+
+#include "moc_listoauthappsjob.cpp"

@@ -45,3 +45,5 @@ void ExplorePermissionsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mOwnRoles->text().isEmpty());
     QCOMPARE(mOwnRoles->textInteractionFlags(), Qt::TextBrowserInteraction);
 }
+
+#include "moc_explorepermissionswidgettest.cpp"

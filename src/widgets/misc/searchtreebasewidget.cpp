@@ -141,3 +141,5 @@ void SearchTreeBaseWidget::initialize()
     mModel->initialize();
     slotLoadElements();
 }
+
+#include "moc_searchtreebasewidget.cpp"

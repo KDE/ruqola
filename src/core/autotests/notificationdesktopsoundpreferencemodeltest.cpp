@@ -24,3 +24,5 @@ void NotificationDesktopSoundPreferenceModelTest::shouldHaveDefaultValue()
 }
 
 // TODO add autotest about currentStatus changed !
+
+#include "moc_notificationdesktopsoundpreferencemodeltest.cpp"

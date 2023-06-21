@@ -63,3 +63,5 @@ void CustomUserStatusDeleteTestJob::shouldNotStarting()
     job.setCustomUserStatusId(statusId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_customuserstatusdeletetestjob.cpp"

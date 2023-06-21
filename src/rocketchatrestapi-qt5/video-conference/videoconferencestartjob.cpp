@@ -96,3 +96,5 @@ bool VideoConferenceStartJob::VideoConferenceStartInfo::isValid() const
 {
     return !roomId.isEmpty();
 }
+
+#include "moc_videoconferencestartjob.cpp"

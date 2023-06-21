@@ -20,3 +20,5 @@ void SelectedMessageBackgroundAnimationTest::shouldHaveDefaultValues()
     QVERIFY(!d.messageModel());
     QVERIFY(!d.modelIndex().isValid());
 }
+
+#include "moc_selectedmessagebackgroundanimationtest.cpp"

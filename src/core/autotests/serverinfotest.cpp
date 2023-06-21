@@ -73,3 +73,5 @@ void ServerInfoTest::shouldLoadServerInfo()
     }
     QVERIFY(result);
 }
+
+#include "moc_serverinfotest.cpp"

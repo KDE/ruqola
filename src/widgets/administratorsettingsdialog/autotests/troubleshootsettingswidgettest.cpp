@@ -76,3 +76,5 @@ void TroubleshootSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDisableWorkspaceSync->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDisableWorkspaceSync), QStringLiteral("Troubleshoot_Disable_Workspace_Sync"));
 }
+
+#include "moc_troubleshootsettingswidgettest.cpp"

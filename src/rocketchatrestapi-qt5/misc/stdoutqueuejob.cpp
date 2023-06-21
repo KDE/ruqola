@@ -58,3 +58,5 @@ QNetworkRequest StdoutQueueJob::request() const
 
     return request;
 }
+
+#include "moc_stdoutqueuejob.cpp"

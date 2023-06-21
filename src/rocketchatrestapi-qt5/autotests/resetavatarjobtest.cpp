@@ -67,3 +67,5 @@ void ResetAvatarJobTest::shouldNotStarting()
     job.setUserInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_resetavatarjobtest.cpp"

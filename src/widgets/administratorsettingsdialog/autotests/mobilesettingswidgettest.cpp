@@ -45,3 +45,5 @@ void MobileSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForceScreenLockAfter), QStringLiteral("Force_Screen_Lock_After"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Force_Screen_Lock_After"));
 }
+
+#include "moc_mobilesettingswidgettest.cpp"

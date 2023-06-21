@@ -20,3 +20,5 @@ void TeamRoomTest::shouldHaveDefaultValue()
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.fname().isEmpty());
 }
+
+#include "moc_teamroomtest.cpp"

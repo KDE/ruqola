@@ -110,3 +110,5 @@ QSize ChannelListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 {
     return QItemDelegate::sizeHint(option, index) + QSize(0, 2 * padding);
 }
+
+#include "moc_channellistdelegate.cpp"

@@ -68,3 +68,5 @@ bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
     return (mTypeGroup == typegroup) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
+
+#include "moc_filesforroomfilterproxymodel.cpp"

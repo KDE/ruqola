@@ -168,3 +168,5 @@ bool UploadFileJob::UploadFileInfo::isValid() const
 {
     return !roomId.isEmpty() && !filenameUrl.isEmpty();
 }
+
+#include "moc_uploadfilejob.cpp"

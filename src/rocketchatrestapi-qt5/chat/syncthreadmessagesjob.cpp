@@ -99,3 +99,5 @@ QNetworkRequest SyncThreadMessagesJob::request() const
     addAuthRawHeader(request);
     return request;
 }
+
+#include "moc_syncthreadmessagesjob.cpp"

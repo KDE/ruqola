@@ -46,3 +46,5 @@ void ServerInfoWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mServerUrl->textFormat(), Qt::RichText);
     QCOMPARE(mServerUrl->textInteractionFlags(), Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
 }
+
+#include "moc_serverinfowidgettest.cpp"

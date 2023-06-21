@@ -77,3 +77,5 @@ QJsonDocument DeleteUserJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_deleteuserjob.cpp"

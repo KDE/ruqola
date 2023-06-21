@@ -79,3 +79,5 @@ void SearchMessageDialog::setRoom(Room *room)
                          room->displayRoomName(),
                          mRocketChatAccount ? mRocketChatAccount->accountName() : QStringLiteral("account")));
 }
+
+#include "moc_searchmessagedialog.cpp"

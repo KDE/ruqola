@@ -216,3 +216,5 @@ void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mChannelActionPopupMenu->setCurrentRocketChatAccount(account);
 }
+
+#include "moc_roomheaderwidget.cpp"

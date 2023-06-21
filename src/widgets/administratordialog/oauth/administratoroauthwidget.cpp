@@ -109,3 +109,5 @@ void AdministratorOauthWidget::slotRemoveOauth(const QString &identifier)
     // TODO make sure that identifier removed
     mAdminOauthModel->removeOauth(identifier);
 }
+
+#include "moc_administratoroauthwidget.cpp"

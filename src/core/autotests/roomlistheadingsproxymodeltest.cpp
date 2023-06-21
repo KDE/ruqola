@@ -217,3 +217,5 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnSectionUpdates()
                                   QStringLiteral("Discuss 2")};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
 }
+
+#include "moc_roomlistheadingsproxymodeltest.cpp"

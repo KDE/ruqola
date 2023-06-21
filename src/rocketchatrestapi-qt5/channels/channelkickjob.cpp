@@ -93,3 +93,5 @@ void ChannelKickJob::setKickUserId(const QString &kickUserId)
 {
     mKickUserId = kickUserId;
 }
+
+#include "moc_channelkickjob.cpp"

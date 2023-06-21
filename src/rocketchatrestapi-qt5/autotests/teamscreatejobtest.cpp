@@ -94,3 +94,5 @@ void TeamsCreateJobTest::shouldNotStarting()
     job.setTeamsCreateJobInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamscreatejobtest.cpp"

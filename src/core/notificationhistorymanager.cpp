@@ -32,3 +32,5 @@ void NotificationHistoryManager::addNotification(const NotificationInfo &info)
     mNotificationHistoryModel->addNotification(info);
     Q_EMIT newNotification();
 }
+
+#include "moc_notificationhistorymanager.cpp"

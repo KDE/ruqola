@@ -145,3 +145,5 @@ void UsersForRoomModelTest::shouldParseUsers()
     QCOMPARE(rowABTInserted.count(), numberOfSignal);
     QCOMPARE(w.rowCount(), numberOfUsers);
 }
+
+#include "moc_usersforroommodeltest.cpp"

@@ -18,3 +18,5 @@ void MessageStarredTest::shouldHaveDefaultValue()
     MessageStarred m;
     QVERIFY(!m.isStarred());
 }
+
+#include "moc_messagestarredtest.cpp"

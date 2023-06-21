@@ -26,3 +26,5 @@ void CreateChannelTeamInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.encrypted);
     QVERIFY(!info.isValid());
 }
+
+#include "moc_createchannelteaminfotest.cpp"

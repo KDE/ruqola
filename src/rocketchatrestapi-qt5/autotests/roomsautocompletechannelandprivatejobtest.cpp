@@ -39,3 +39,5 @@ void RoomsAutocompleteChannelAndPrivateJobTest::shouldGenerateRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/rooms.autocomplete.channelAndPrivate?selector=%7B%22name%22: %22foo%22%7D"));
 }
+
+#include "moc_roomsautocompletechannelandprivatejobtest.cpp"

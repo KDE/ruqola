@@ -242,3 +242,5 @@ void AdministratorRolesWidget::slotRoleDeleteDone()
 {
     qCDebug(RUQOLAWIDGETS_LOG) << "slotRoleDeleteDone";
 }
+
+#include "moc_administratorroleswidget.cpp"

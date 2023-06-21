@@ -79,3 +79,5 @@ void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUr
         mTimer->start();
     }
 }
+
+#include "moc_avatarmanager.cpp"

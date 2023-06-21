@@ -40,3 +40,5 @@ QString ChannelPasswordDialog::password() const
 {
     return mChannelPasswordWidget->password();
 }
+
+#include "moc_channelpassworddialog.cpp"

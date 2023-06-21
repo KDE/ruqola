@@ -188,3 +188,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRo
     d << " mSettingsWillBeChanged " << t.mSettingsWillBeChanged;
     return d;
 }
+
+#include "moc_saveroomsettingsjob.cpp"

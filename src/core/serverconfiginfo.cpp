@@ -71,3 +71,5 @@ QString ServerConfigInfo::faviconUrl() const
     }
     return {};
 }
+
+#include "moc_serverconfiginfo.cpp"

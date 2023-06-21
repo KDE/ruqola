@@ -78,3 +78,5 @@ QString GetChannelRolesJob::jobName() const
 {
     return i18n("Extract Roles");
 }
+
+#include "moc_getchannelrolesjob.cpp"

@@ -70,3 +70,5 @@ void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()
     job.setRsaPublicKey(rsapublic);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setuserpublicandprivatekeysjobtest.cpp"

@@ -160,3 +160,5 @@ void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
     loop.processEvents();
     QVERIFY(mRoomReplyThreadWidget->isHidden());
 }
+
+#include "moc_roomwidgettest.cpp"

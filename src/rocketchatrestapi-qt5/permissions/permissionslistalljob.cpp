@@ -71,3 +71,5 @@ QNetworkRequest PermissionsListAllJob::request() const
 
     return request;
 }
+
+#include "moc_permissionslistalljob.cpp"

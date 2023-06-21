@@ -37,3 +37,5 @@ void MessageMaximumSizeDialogTest::shouldHaveDefaultValues()
     QVERIFY(d.description().isEmpty());
     QVERIFY(d.fileName().isEmpty());
 }
+
+#include "moc_messagemaximumsizedialogtest.cpp"

@@ -21,3 +21,5 @@ void ServerErrorInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.dateTime().isValid());
     QVERIFY(!info.identifier().isEmpty());
 }
+
+#include "moc_servererrorinfotest.cpp"

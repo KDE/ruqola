@@ -68,3 +68,5 @@ void StatusModelFilterProxyModel::setUseOnlyStandardStatus(bool useOnlyStandardS
 {
     mUseOnlyStandardStatus = useOnlyStandardStatus;
 }
+
+#include "moc_statusmodelfilterproxymodel.cpp"

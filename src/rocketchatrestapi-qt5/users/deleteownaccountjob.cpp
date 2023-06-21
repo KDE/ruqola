@@ -87,3 +87,5 @@ QJsonDocument DeleteOwnAccountJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_deleteownaccountjob.cpp"

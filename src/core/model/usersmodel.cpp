@@ -205,3 +205,5 @@ void UsersModel::updateUser(const QJsonObject &array)
         }
     }
 }
+
+#include "moc_usersmodel.cpp"

@@ -33,3 +33,5 @@ void AdministratorAddUserDialogTest::shouldHaveDefaultValues()
     QVERIFY(buttonOk);
     QVERIFY(!buttonOk->isEnabled());
 }
+
+#include "moc_administratoradduserdialogtest.cpp"

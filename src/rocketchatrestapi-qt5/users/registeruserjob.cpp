@@ -102,3 +102,5 @@ bool RegisterUserJob::RegisterUserInfo::isValid() const
 {
     return !username.trimmed().isEmpty() && !name.trimmed().isEmpty() && !email.trimmed().isEmpty() && !password.trimmed().isEmpty();
 }
+
+#include "moc_registeruserjob.cpp"

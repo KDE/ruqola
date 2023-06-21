@@ -111,3 +111,5 @@ void EmoticonListView::contextMenuEvent(QContextMenuEvent *event)
         }
     }
 }
+
+#include "moc_emoticonlistview.cpp"

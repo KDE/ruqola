@@ -101,3 +101,5 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(passwordPolicyLabel);
     QVERIFY(!passwordPolicyLabel->text().isEmpty());
 }
+
+#include "moc_passwordsettingswidgettest.cpp"

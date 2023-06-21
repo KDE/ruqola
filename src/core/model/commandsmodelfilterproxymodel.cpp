@@ -30,3 +30,5 @@ bool CommandsModelFilterProxyModel::lessThan(const QModelIndex &left, const QMod
         return false;
     }
 }
+
+#include "moc_commandsmodelfilterproxymodel.cpp"

@@ -81,3 +81,5 @@ void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
         }
     }
 }
+
+#include "moc_serverinfowidget.cpp"

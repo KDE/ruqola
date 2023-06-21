@@ -21,3 +21,5 @@ void GooglePluginAuthenticationTest::shouldHaveDefaultValue()
     QVERIFY(!w.name().isEmpty());
     QCOMPARE(w.type(), AuthenticationManager::OauthType::Google);
 }
+
+#include "moc_googlepluginauthenticationtest.cpp"

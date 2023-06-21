@@ -57,3 +57,5 @@ void ExploreDatabaseDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myExploreDatabaseDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_exploredatabasedialog.cpp"

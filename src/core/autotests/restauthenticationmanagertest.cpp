@@ -12,3 +12,5 @@ RESTAuthenticationManagerTest::RESTAuthenticationManagerTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_restauthenticationmanagertest.cpp"

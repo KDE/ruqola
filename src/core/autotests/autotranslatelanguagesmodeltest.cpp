@@ -20,3 +20,5 @@ void AutotranslateLanguagesModelTest::shouldHaveDefaultValues()
     AutotranslateLanguagesModel model;
     // TODO
 }
+
+#include "moc_autotranslatelanguagesmodeltest.cpp"

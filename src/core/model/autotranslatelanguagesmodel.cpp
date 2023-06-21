@@ -65,3 +65,5 @@ QString AutotranslateLanguagesModel::selectedLanguage(int index) const
 {
     return mAutoTranslateLanguages.autotranslateLanguage().at(index).language();
 }
+
+#include "moc_autotranslatelanguagesmodel.cpp"

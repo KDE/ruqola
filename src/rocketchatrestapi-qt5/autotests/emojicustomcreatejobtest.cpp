@@ -40,3 +40,5 @@ void EmojiCustomCreateJobTest::shouldGenerateJson()
     //    job.setEmojiId(emojiId);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emojiId":"%1"})").arg(emojiId).toLatin1());
 }
+
+#include "moc_emojicustomcreatejobtest.cpp"

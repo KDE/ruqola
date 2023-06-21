@@ -59,3 +59,5 @@ void SwitchChannelTreeView::showEvent(QShowEvent *event)
     reset();
     QTreeView::showEvent(event);
 }
+
+#include "moc_switchchanneltreeview.cpp"

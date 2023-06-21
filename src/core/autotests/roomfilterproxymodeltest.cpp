@@ -27,3 +27,5 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
     QVERIFY(w.sourceModel());
     QCOMPARE(w.sourceModel(), &sourceModel);
 }
+
+#include "moc_roomfilterproxymodeltest.cpp"

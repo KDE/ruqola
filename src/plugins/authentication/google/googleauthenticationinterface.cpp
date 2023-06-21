@@ -34,3 +34,5 @@ void GoogleAuthenticationInterface::slotLoginProvider(const QString &credentialT
 {
     mAccount->ddp()->authenticationManager()->loginOAuth(credentialToken, credentialSecret);
 }
+
+#include "moc_googleauthenticationinterface.cpp"

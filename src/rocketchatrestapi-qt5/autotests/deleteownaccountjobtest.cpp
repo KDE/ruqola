@@ -64,3 +64,5 @@ void DeleteOwnAccountJobTest::shouldNotStarting()
     job.setPassword(password);
     QVERIFY(job.canStart());
 }
+
+#include "moc_deleteownaccountjobtest.cpp"

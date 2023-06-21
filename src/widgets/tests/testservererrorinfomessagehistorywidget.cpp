@@ -30,3 +30,5 @@ TestServerErrorInfoMessageHistoryWidget::TestServerErrorInfoMessageHistoryWidget
         ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
     });
 }
+
+#include "moc_testservererrorinfomessagehistorywidget.cpp"

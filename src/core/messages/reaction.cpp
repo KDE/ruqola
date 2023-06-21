@@ -88,3 +88,5 @@ QDebug operator<<(QDebug d, const Reaction &t)
     d << "UserNames " << t.userNames();
     return d;
 }
+
+#include "moc_reaction.cpp"

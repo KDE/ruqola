@@ -344,3 +344,5 @@ QString MessageDelegateHelperText::searchText() const
 {
     return mSearchText;
 }
+
+#include "moc_messagedelegatehelpertext.cpp"

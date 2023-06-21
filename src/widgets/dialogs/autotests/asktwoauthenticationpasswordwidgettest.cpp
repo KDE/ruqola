@@ -30,3 +30,5 @@ void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTwoFactorAuthenticationPasswordLineEdit->rocketChatAccount());
     QVERIFY(!w.rocketChatAccount());
 }
+
+#include "moc_asktwoauthenticationpasswordwidgettest.cpp"

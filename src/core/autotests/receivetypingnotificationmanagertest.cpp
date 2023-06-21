@@ -79,3 +79,5 @@ void ReceiveTypingNotificationManagerTest::shouldAddNotifications()
     QVERIFY(manager.typingNotification(QStringLiteral("room5")).isEmpty());
     QCOMPARE(spy.count(), 0);
 }
+
+#include "moc_receivetypingnotificationmanagertest.cpp"

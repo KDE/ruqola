@@ -124,3 +124,5 @@ void AdminInviteModel::removeInvite(const QString &identifier)
         }
     }
 }
+
+#include "moc_admininvitemodel.cpp"

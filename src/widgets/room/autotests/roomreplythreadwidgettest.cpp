@@ -24,3 +24,5 @@ void RoomReplyThreadWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.wordWrap());
     QVERIFY(!w.isVisible());
 }
+
+#include "moc_roomreplythreadwidgettest.cpp"

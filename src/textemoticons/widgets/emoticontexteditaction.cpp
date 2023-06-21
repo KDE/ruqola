@@ -72,3 +72,5 @@ bool EmoticonTextEditAction::customEmojiSupport() const
 {
     return d->customEmojiSupport();
 }
+
+#include "moc_emoticontexteditaction.cpp"

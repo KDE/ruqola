@@ -20,3 +20,5 @@ void ServicePasswordTest::shouldHaveDefaultValues()
     QVERIFY(!p.email2faEnabled());
     QVERIFY(p.password().isEmpty());
 }
+
+#include "moc_servicepasswordtest.cpp"

@@ -69,3 +69,5 @@ void PostMessageJobTest::shouldNotStarting()
     job.setText(text);
     QVERIFY(job.canStart());
 }
+
+#include "moc_postmessagejobtest.cpp"

@@ -184,3 +184,5 @@ void MyAccountProfileConfigureWidget::save()
         mRocketChatAccount->updateOwnBasicInfo(updateInfo);
     }
 }
+
+#include "moc_myaccountprofileconfigurewidget.cpp"

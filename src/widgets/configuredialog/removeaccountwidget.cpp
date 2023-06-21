@@ -37,3 +37,5 @@ void RemoveAccountWidget::setAccountName(const QString &accountName)
 {
     mInfo->setText(i18n("Do you want to remove this account \'%1\'?", accountName));
 }
+
+#include "moc_removeaccountwidget.cpp"

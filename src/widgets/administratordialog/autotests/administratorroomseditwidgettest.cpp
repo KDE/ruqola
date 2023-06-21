@@ -76,3 +76,5 @@ void AdministratorRoomsEditWidgetTest::shouldHaveDefaultValues()
     auto mRoomAvatarWidget = w.findChild<RoomAvatarWidget *>(QStringLiteral("mRoomAvatarWidget"));
     QVERIFY(mRoomAvatarWidget);
 }
+
+#include "moc_administratorroomseditwidgettest.cpp"

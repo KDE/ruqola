@@ -36,3 +36,5 @@ void CreateNewServerDialogTest::shouldHaveDefaultValues()
     QVERIFY(info.userName.isEmpty());
     QVERIFY(info.serverUrl.isEmpty());
 }
+
+#include "moc_createnewserverdialogtest.cpp"

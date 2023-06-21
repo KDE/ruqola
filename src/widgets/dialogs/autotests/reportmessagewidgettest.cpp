@@ -39,3 +39,5 @@ void ReportMessageWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(w.message().isEmpty());
 }
+
+#include "moc_reportmessagewidgettest.cpp"

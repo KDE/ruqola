@@ -91,3 +91,5 @@ void TypingNotificationTest::shouldEmitTwoSignalWhenChangeRoom()
     QTest::qWait(50);
     QCOMPARE(signal.count(), 3); // Two signal send.
 }
+
+#include "moc_typingnotificationtest.cpp"

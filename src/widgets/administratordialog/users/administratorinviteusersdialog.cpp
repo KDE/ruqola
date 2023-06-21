@@ -38,3 +38,5 @@ QStringList AdministratorInviteUsersDialog::emails() const
 {
     return mInviteUsersWidget->emails();
 }
+
+#include "moc_administratorinviteusersdialog.cpp"

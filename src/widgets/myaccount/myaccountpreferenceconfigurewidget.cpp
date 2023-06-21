@@ -233,3 +233,5 @@ void MyAccountPreferenceConfigureWidget::setWasChanged()
 {
     mChanged = true;
 }
+
+#include "moc_myaccountpreferenceconfigurewidget.cpp"

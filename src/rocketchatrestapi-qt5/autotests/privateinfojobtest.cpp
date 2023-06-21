@@ -46,3 +46,5 @@ void PrivateInfoJobTest::shouldGenerateRequest()
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
 }
+
+#include "moc_privateinfojobtest.cpp"

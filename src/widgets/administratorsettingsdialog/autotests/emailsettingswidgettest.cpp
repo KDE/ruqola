@@ -212,3 +212,5 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPasswordChangedBody), QStringLiteral("Password_Changed_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Password_Changed_Email"));
 }
+
+#include "moc_emailsettingswidgettest.cpp"

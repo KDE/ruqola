@@ -19,3 +19,5 @@ void PasswordAuthenticationInterfaceTest::shouldHaveDefaultValue()
     PasswordAuthenticationInterface w;
     QVERIFY(!w.account());
 }
+
+#include "moc_passwordauthenticationinterfacetest.cpp"

@@ -135,3 +135,5 @@ void AdminCustomSoundModel::removeElement(const QString &identifier)
         }
     }
 }
+
+#include "moc_admincustomsoundmodel.cpp"

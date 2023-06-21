@@ -601,3 +601,5 @@ void MessageTest::shouldUpdateJsonMessage()
     }
     QVERIFY(compareMessage);
 }
+
+#include "moc_messagetest.cpp"

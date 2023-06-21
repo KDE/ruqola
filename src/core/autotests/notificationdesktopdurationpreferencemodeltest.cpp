@@ -24,3 +24,5 @@ void NotificationDesktopDurationPreferenceModelTest::shouldHaveDefaultValue()
 }
 
 // TODO add autotest about currentStatus changed !
+
+#include "moc_notificationdesktopdurationpreferencemodeltest.cpp"

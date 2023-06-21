@@ -39,3 +39,5 @@ void AskTwoAuthenticationPasswordWidget::setRocketChatAccount(RocketChatAccount 
 {
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(newRocketChatAccount);
 }
+
+#include "moc_asktwoauthenticationpasswordwidget.cpp"

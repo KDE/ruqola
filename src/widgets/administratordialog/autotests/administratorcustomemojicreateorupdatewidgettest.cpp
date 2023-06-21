@@ -98,3 +98,5 @@ void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldEmitSignal()
     updateOkButtonChanged.clear();
     QVERIFY(!mWarningLabel->isHidden());
 }
+
+#include "moc_administratorcustomemojicreateorupdatewidgettest.cpp"

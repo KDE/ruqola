@@ -152,3 +152,5 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mStreamCastAddress->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStreamCastAddress), QStringLiteral("Stream_Cast_Address"));
 }
+
+#include "moc_generalsettingswidgettest.cpp"

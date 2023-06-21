@@ -217,3 +217,5 @@ void SearchChannelModelTest::shouldClearModel()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,7"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,7"));
 }
+
+#include "moc_searchchannelmodeltest.cpp"

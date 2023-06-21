@@ -20,3 +20,5 @@ void DownloadAppsLanguagesJobTest::shouldHaveDefaultValues()
     QVERIFY(!job.canStart());
     QVERIFY(job.serverUrl().isEmpty());
 }
+
+#include "moc_downloadappslanguagesjobtest.cpp"

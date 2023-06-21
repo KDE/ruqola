@@ -63,3 +63,5 @@ bool FetchMyKeysJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+#include "moc_fetchmykeysjob.cpp"

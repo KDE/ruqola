@@ -31,3 +31,5 @@ void NotificationWidget::slotSendNotification()
         KNotification::event(KNotification::Notification, QStringLiteral("title:") + str, QStringLiteral("message:") + str.toHtmlEscaped(), QPixmap());
     }
 }
+
+#include "moc_notificationwidget.cpp"

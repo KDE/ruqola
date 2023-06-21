@@ -104,3 +104,5 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mTimerPrecision->count(), 4);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimerPrecision), QStringLiteral("RetentionPolicy_Precision"));
 }
+
+#include "moc_retentionpolicysettingswidgettest.cpp"

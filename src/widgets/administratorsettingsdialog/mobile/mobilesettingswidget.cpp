@@ -44,3 +44,5 @@ void MobileSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mForceScreenLock, mapSettings, true);
     initializeWidget(mForceScreenLockAfter, mapSettings, 1800);
 }
+
+#include "moc_mobilesettingswidget.cpp"

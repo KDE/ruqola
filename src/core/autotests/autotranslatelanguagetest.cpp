@@ -20,3 +20,5 @@ void AutotranslateLanguageTest::shouldHaveDefaultValue()
     QVERIFY(w.language().isEmpty());
     QVERIFY(w.displayLanguage().isEmpty());
 }
+
+#include "moc_autotranslatelanguagetest.cpp"

@@ -57,3 +57,5 @@ QNetworkRequest LicensesIsEnterpriseJob::request() const
 
     return request;
 }
+
+#include "moc_licensesisenterprisejob.cpp"

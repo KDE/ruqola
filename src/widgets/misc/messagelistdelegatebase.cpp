@@ -208,3 +208,5 @@ void MessageListDelegateBase::setSearchText(const QString &newSearchText)
         clearCache();
     }
 }
+
+#include "moc_messagelistdelegatebase.cpp"

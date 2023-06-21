@@ -140,3 +140,5 @@ void RoomHeaderWidgetTest::shouldEmitSignal()
     QTest::mouseClick(mSearchMessageButton, Qt::LeftButton);
     QCOMPARE(searchMessageSignal.count(), 1);
 }
+
+#include "moc_roomheaderwidgettest.cpp"

@@ -26,3 +26,5 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
 }
+
+#include "moc_channelinfowidgettest.cpp"

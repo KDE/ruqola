@@ -15,3 +15,5 @@ RoleScopeComboBox::RoleScopeComboBox(QWidget *parent)
 }
 
 RoleScopeComboBox::~RoleScopeComboBox() = default;
+
+#include "moc_rolescopecombobox.cpp"

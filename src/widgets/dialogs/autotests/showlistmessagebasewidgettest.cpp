@@ -41,3 +41,5 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessageListView);
     QCOMPARE(mMessageListView->mode(), MessageListView::Mode::Viewing);
 }
+
+#include "moc_showlistmessagebasewidgettest.cpp"

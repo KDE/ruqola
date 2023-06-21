@@ -124,3 +124,5 @@ QString DownloadAppsLanguagesManager::translatedString(const QString &language, 
     }
     return {};
 }
+
+#include "moc_downloadappslanguagesmanager.cpp"

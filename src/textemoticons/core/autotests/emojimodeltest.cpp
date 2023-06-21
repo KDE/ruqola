@@ -21,3 +21,5 @@ void EmojiModelTest::shouldHaveDefaultValues()
     QVERIFY(w.customEmojiList().isEmpty());
     QVERIFY(!w.customEmojiIconManager());
 }
+
+#include "moc_emojimodeltest.cpp"

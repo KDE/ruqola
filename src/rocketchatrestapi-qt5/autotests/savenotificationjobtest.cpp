@@ -117,3 +117,5 @@ void SaveNotificationJobTest::shouldNotStarting()
     job.setAudioNotificationValue(QStringLiteral("foo"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_savenotificationjobtest.cpp"

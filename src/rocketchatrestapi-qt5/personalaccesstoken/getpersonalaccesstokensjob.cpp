@@ -66,3 +66,5 @@ bool GetPersonalAccessTokensJob::hasQueryParameterSupport() const
 {
     return false;
 }
+
+#include "moc_getpersonalaccesstokensjob.cpp"

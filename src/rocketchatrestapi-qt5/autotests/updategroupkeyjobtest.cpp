@@ -65,3 +65,5 @@ void UpdateGroupKeyJobTest::shouldNotStarting()
     // TODO add update info
     // FIXME QVERIFY(job.canStart());
 }
+
+#include "moc_updategroupkeyjobtest.cpp"

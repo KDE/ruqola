@@ -69,3 +69,5 @@ void LogsSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mTraceMethodFilter, mapSettings, {});
     initializeWidget(mTraceSubscriptionFilter, mapSettings, {});
 }
+
+#include "moc_logssettingswidget.cpp"

@@ -36,3 +36,5 @@ void TeamInfoTest::shouldVerifyHasTeamRoom()
     info.setTeamId(QString());
     QVERIFY(!info.hasTeamRoom());
 }
+
+#include "moc_teaminfotest.cpp"

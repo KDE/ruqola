@@ -319,3 +319,5 @@ bool ChannelInfoEditableWidget::hasRetentionPermission() const
 {
     return mRocketChatAccount->hasPermission(QStringLiteral("edit-room-retention-policy"));
 }
+
+#include "moc_channelinfoeditablewidget.cpp"

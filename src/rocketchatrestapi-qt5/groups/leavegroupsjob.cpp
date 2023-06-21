@@ -78,3 +78,5 @@ QNetworkRequest LeaveGroupsJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_leavegroupsjob.cpp"

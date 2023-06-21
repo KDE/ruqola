@@ -29,3 +29,5 @@ void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
     auto mProxyModelModel = w.findChild<SearchTreeBaseFilterProxyModel *>(QStringLiteral("mCustomSoundProxyModel"));
     QVERIFY(mProxyModelModel);
 }
+
+#include "moc_administratorcustomsoundswidgettest.cpp"

@@ -35,3 +35,5 @@ void IrcWidgetTest::shouldHaveDefaultValues()
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_RegEx_successLogin"));
     // TODO
 }
+
+#include "moc_ircwidgettest.cpp"

@@ -86,3 +86,5 @@ QJsonDocument RoleDeleteJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_roledeletejob.cpp"

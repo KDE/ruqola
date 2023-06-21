@@ -64,3 +64,5 @@ void CommandsModel::setCommands(const Commands &commands)
         endInsertRows();
     }
 }
+
+#include "moc_commandsmodel.cpp"

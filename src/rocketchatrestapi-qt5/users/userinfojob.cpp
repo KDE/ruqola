@@ -70,3 +70,5 @@ bool UserInfoJob::canStart() const
     }
     return true;
 }
+
+#include "moc_userinfojob.cpp"

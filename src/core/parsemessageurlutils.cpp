@@ -142,3 +142,5 @@ QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
     d << "channelType " << t.channelType();
     return d;
 }
+
+#include "moc_parsemessageurlutils.cpp"

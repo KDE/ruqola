@@ -34,3 +34,5 @@ void TeamSelectDeletedRoomDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(d.roomsId().isEmpty());
 }
+
+#include "moc_teamselectdeletedroomdialogtest.cpp"

@@ -64,3 +64,5 @@ void InviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(generateNewLink);
     QVERIFY(!generateNewLink->text().isEmpty());
 }
+
+#include "moc_inviteuserswidgettest.cpp"

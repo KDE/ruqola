@@ -64,3 +64,5 @@ void SessionsLogoutMeJobTest::shouldNotStarting()
     job.setSessionId(sessionId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_sessionslogoutmejobtest.cpp"

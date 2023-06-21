@@ -93,3 +93,5 @@ void ExploreDatabaseWidget::slotLoad()
         }
     }
 }
+
+#include "moc_exploredatabasewidget.cpp"

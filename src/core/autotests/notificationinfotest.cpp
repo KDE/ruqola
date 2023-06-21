@@ -104,3 +104,5 @@ void NotificationInfoTest::shouldParseNotification()
 
     QVERIFY(info.isValid());
 }
+
+#include "moc_notificationinfotest.cpp"

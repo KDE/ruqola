@@ -33,3 +33,5 @@ void MyAccountPersonalAccessCreateWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTokenName->text().isEmpty());
     QVERIFY(mTokenName->isClearButtonEnabled());
 }
+
+#include "moc_myaccountpersonalaccesscreatewidgettest.cpp"

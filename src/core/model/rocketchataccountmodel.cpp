@@ -150,3 +150,5 @@ RocketChatAccount *RocketChatAccountModel::removeAccount(const QString &name)
     }
     return account;
 }
+
+#include "moc_rocketchataccountmodel.cpp"

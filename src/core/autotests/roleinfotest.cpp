@@ -62,3 +62,5 @@ void RoleInfoTest::shouldLoadRoles()
     r.parseRoleInfo(obj);
     QCOMPARE(r, role);
 }
+
+#include "moc_roleinfotest.cpp"

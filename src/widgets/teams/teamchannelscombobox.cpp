@@ -19,3 +19,5 @@ void TeamChannelsComboBox::init()
     addItem(i18n("All"));
     addItem(i18n("Autojoin"));
 }
+
+#include "moc_teamchannelscombobox.cpp"

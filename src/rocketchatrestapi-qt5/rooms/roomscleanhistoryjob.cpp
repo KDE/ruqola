@@ -130,3 +130,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::Clean
     d << "ignoreThreads " << t.ignoreThreads;
     return d;
 }
+
+#include "moc_roomscleanhistoryjob.cpp"

@@ -20,3 +20,5 @@ void VideoConferenceNotificationJobTest::shouldHaveDefaultValues()
     QVERIFY(!job.canStart());
     // TODO
 }
+
+#include "moc_videoconferencenotificationjobtest.cpp"

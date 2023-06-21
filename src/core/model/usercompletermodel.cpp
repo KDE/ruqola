@@ -75,3 +75,5 @@ QString UserCompleterModel::displayUserName(const User &user) const
     }
     return text;
 }
+
+#include "moc_usercompletermodel.cpp"

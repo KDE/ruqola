@@ -92,3 +92,5 @@ bool ResetTOTPJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_resettotpjob.cpp"

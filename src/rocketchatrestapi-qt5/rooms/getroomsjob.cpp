@@ -56,3 +56,5 @@ QNetworkRequest GetRoomsJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_getroomsjob.cpp"

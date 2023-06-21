@@ -71,3 +71,5 @@ void CustomUserStatusCreateTestJob::shouldNotStarting()
     job.setStatusCreateInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_customuserstatuscreatetestjob.cpp"

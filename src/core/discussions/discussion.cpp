@@ -141,3 +141,5 @@ void Discussion::setDiscussionRoomId(const QString &discussionRoomId)
 {
     mDiscussionRoomId = discussionRoomId;
 }
+
+#include "moc_discussion.cpp"

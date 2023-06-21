@@ -77,3 +77,5 @@ void SetGroupTypeJobTest::shouldNotStarting()
     job.setType(SetGroupTypeJob::Private);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setgrouptypejobtest.cpp"

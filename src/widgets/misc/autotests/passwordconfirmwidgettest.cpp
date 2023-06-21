@@ -49,3 +49,5 @@ void PasswordConfirmWidgetTest::shouldReturnNewPassword()
     mConfirmPasswordLineEdit->setPassword(QStringLiteral("bla"));
     QVERIFY(w.isNewPasswordConfirmed());
 }
+
+#include "moc_passwordconfirmwidgettest.cpp"

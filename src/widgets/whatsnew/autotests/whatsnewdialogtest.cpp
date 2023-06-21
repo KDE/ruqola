@@ -29,3 +29,5 @@ void WhatsNewDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_whatsnewdialogtest.cpp"

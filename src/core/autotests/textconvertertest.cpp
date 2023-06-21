@@ -518,3 +518,5 @@ void TextConverterTest::shouldShowSearchedText()
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, searchedText);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
 }
+
+#include "moc_textconvertertest.cpp"

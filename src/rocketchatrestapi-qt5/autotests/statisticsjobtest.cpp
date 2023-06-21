@@ -41,3 +41,5 @@ void StatisticsJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/statistics?refresh=true")));
     }
 }
+
+#include "moc_statisticsjobtest.cpp"

@@ -83,3 +83,5 @@ bool TeamInfoJob::canStart() const
     }
     return true;
 }
+
+#include "moc_teaminfojob.cpp"

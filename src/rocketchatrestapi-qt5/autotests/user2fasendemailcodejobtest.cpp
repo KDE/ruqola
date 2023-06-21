@@ -61,3 +61,5 @@ void User2FASendEmailCodeJobTest::shouldNotStarting()
     job.setUsernameOrEmail(QStringLiteral("emails"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_user2fasendemailcodejobtest.cpp"

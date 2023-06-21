@@ -22,3 +22,5 @@ void PermissionsTreeViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(w.header()->sectionsClickable());
 }
+
+#include "moc_permissionstreeviewtest.cpp"

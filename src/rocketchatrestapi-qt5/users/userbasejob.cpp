@@ -69,3 +69,5 @@ void UserBaseJob::generateJson(QJsonObject &jsonObj) const
         break;
     }
 }
+
+#include "moc_userbasejob.cpp"

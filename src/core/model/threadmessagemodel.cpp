@@ -62,3 +62,5 @@ void ThreadMessageModel::setPreviewMessage(const Message &message)
 {
     mPreviewMessage = message;
 }
+
+#include "moc_threadmessagemodel.cpp"

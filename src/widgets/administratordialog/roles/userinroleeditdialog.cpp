@@ -77,3 +77,5 @@ void UserInRoleEditDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myUserInRoleEditDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_userinroleeditdialog.cpp"

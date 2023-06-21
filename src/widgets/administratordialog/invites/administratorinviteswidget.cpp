@@ -100,3 +100,5 @@ void AdministratorInvitesWidget::slotRemoveInviteDone(const QString &identifier)
 {
     mAdminInviteModel->removeInvite(identifier);
 }
+
+#include "moc_administratorinviteswidget.cpp"

@@ -47,3 +47,5 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
         QVERIFY(info.isValid());
     }
 }
+
+#include "moc_accountroomsettingstest.cpp"

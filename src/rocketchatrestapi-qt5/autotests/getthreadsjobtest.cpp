@@ -74,3 +74,5 @@ void GetThreadsJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_getthreadsjobtest.cpp"

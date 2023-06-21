@@ -29,3 +29,5 @@ void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
     auto mSearchLineWidget = w.findChild<KTreeWidgetSearchLineWidget *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
 }
+
+#include "moc_administratorcustomuserstatuswidgettest.cpp"

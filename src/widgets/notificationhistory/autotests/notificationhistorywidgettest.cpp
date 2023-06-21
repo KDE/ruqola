@@ -52,3 +52,5 @@ void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
     auto mServersComboBox = w.findChild<ServersComboBox *>(QStringLiteral("mServersComboBox"));
     QVERIFY(mServersComboBox);
 }
+
+#include "moc_notificationhistorywidgettest.cpp"

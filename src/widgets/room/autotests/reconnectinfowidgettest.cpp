@@ -22,3 +22,5 @@ void ReconnectInfoWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QCOMPARE(w.reconnectSecondDelay(), -1);
 }
+
+#include "moc_reconnectinfowidgettest.cpp"

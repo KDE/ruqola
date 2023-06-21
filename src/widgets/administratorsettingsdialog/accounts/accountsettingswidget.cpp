@@ -227,3 +227,5 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUseDefaultBlockedDomainsList, mapSettings, true);
     initializeWidget(mUseDNSDomainCheck, mapSettings, false);
 }
+
+#include "moc_accountsettingswidget.cpp"

@@ -86,3 +86,5 @@ void MessageAttachmentTest::shouldAllowToDownloadAttachment()
     input.setLink(QStringLiteral("bla"));
     QVERIFY(input.canDownloadAttachment());
 }
+
+#include "moc_messageattachmenttest.cpp"

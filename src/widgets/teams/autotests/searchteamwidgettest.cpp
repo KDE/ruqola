@@ -32,3 +32,5 @@ void SearchTeamWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLine);
     QVERIFY(mSearchLine->text().isEmpty());
 }
+
+#include "moc_searchteamwidgettest.cpp"

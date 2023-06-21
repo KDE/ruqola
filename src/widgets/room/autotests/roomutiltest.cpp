@@ -35,3 +35,5 @@ void RoomUtilTest::shouldGeneratePermalink_data()
     QTest::addRow("direct") << QStringLiteral("msId") << QStringLiteral("roomId") << Room::RoomType::Direct << QStringLiteral("direct/roomId?msg=msId");
     QTest::addRow("group") << QStringLiteral("msId") << QStringLiteral("roomId") << Room::RoomType::Private << QStringLiteral("group/roomId?msg=msId");
 }
+
+#include "moc_roomutiltest.cpp"

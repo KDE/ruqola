@@ -121,3 +121,5 @@ int DirectoryUsersModel::total() const
 {
     return mUsers.total();
 }
+
+#include "moc_directoryusersmodel.cpp"

@@ -22,3 +22,5 @@ void ConfigureSettingsDialogTest::shouldHaveDefaultValues()
     QVERIFY(!w.windowTitle().isEmpty());
     // TODO (add more)
 }
+
+#include "moc_configuresettingsdialogtest.cpp"

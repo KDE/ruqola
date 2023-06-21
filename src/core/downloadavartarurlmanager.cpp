@@ -59,3 +59,5 @@ void DownloadAvartarUrlManager::setAvatarUrl(const QString &avatarUrl)
 {
     mAvatarUrl = avatarUrl;
 }
+
+#include "moc_downloadavartarurlmanager.cpp"

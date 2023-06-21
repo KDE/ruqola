@@ -23,3 +23,5 @@ void ListMessagesModelTest::shouldHaveDefaultValues()
     QCOMPARE(w.listMessageType(), ListMessagesModel::ListMessageType::Unknown);
     QCOMPARE(w.total(), -1);
 }
+
+#include "moc_listmessagesmodeltest.cpp"

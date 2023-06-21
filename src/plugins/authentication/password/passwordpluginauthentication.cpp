@@ -39,3 +39,5 @@ QString PasswordPluginAuthentication::iconName() const
 }
 
 #include "passwordpluginauthentication.moc"
+
+#include "moc_passwordpluginauthentication.cpp"

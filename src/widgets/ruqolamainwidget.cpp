@@ -211,3 +211,5 @@ void RuqolaMainWidget::showEvent(QShowEvent *event)
     };
     align(searchRoom, messageLine);
 }
+
+#include "moc_ruqolamainwidget.cpp"

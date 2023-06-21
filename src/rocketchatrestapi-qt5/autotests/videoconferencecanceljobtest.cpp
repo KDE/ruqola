@@ -61,3 +61,5 @@ void VideoConferenceCancelJobTest::shouldNotStarting()
     job.setCallId(QStringLiteral("bla"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_videoconferencecanceljobtest.cpp"

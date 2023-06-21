@@ -26,3 +26,5 @@ void RocketChatAccountFilterProxyModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.sourceModel(), &sourceModel);
     QVERIFY(w.accountOrder().isEmpty());
 }
+
+#include "moc_rocketchataccountfilterproxymodeltest.cpp"

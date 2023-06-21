@@ -22,3 +22,5 @@ void UpdateVideoConferenceMessageJobTest::shouldHaveDefaultValues()
     QVERIFY(!job.canStart());
     QVERIFY(!job.videoConferenceInfo().isValid());
 }
+
+#include "moc_updatevideoconferencemessagejobtest.cpp"

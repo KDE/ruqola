@@ -63,3 +63,5 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAnimateGif->isChecked());
     QVERIFY(!mAnimateGif->text().isEmpty());
 }
+
+#include "moc_configuregeneralwidgettest.cpp"

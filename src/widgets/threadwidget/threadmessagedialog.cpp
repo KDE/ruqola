@@ -62,3 +62,5 @@ void ThreadMessageDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myThreadMessageDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_threadmessagedialog.cpp"

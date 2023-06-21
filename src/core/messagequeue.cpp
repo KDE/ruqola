@@ -117,3 +117,5 @@ void MessageQueue::processQueue()
         mRocketChatAccount->ddp()->method(method, params);
     }
 }
+
+#include "moc_messagequeue.cpp"

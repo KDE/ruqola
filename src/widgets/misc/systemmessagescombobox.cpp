@@ -26,3 +26,5 @@ QStringList SystemMessagesComboBox::systemMessagesSelected() const
 {
     return mSystemMessagesModel->systemMessagesSelected();
 }
+
+#include "moc_systemmessagescombobox.cpp"

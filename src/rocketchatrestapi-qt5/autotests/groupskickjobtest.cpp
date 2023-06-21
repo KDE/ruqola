@@ -76,3 +76,5 @@ void GroupsKickJobTest::shouldNotStarting()
     job.setKickUserId(kickuser);
     QVERIFY(job.canStart());
 }
+
+#include "moc_groupskickjobtest.cpp"

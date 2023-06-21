@@ -35,3 +35,5 @@ const QString &SearchTeamWidget::teamId() const
 {
     return mSearchLine->teamId();
 }
+
+#include "moc_searchteamwidget.cpp"

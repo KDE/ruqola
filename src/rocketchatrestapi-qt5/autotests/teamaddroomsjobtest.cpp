@@ -71,3 +71,5 @@ void TeamAddRoomsJobTest::shouldNotStarting()
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamaddroomsjobtest.cpp"

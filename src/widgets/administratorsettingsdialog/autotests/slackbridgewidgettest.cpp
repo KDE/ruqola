@@ -71,3 +71,5 @@ void SlackBridgeWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAPITokens), QStringLiteral("SlackBridge_APIToken"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SlackBridge_APIToken"));
 }
+
+#include "moc_slackbridgewidgettest.cpp"

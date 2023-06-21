@@ -91,3 +91,5 @@ QNetworkRequest CreateDmJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_createdmjob.cpp"

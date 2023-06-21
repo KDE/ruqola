@@ -65,3 +65,5 @@ void SendInvitationEmailJobTest::shouldNotStarting()
     job.setEmails(emails);
     QVERIFY(job.canStart());
 }
+
+#include "moc_sendinvitationemailjobtest.cpp"

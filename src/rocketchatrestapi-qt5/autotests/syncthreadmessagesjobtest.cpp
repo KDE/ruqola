@@ -69,3 +69,5 @@ void SyncThreadMessagesJobTest::shouldNotStarting()
     job.setTimeStamp(timestamp);
     QVERIFY(job.canStart());
 }
+
+#include "moc_syncthreadmessagesjobtest.cpp"

@@ -21,3 +21,5 @@ void DownloadAppsLanguagesManagerTest::shouldHaveDefaultValues()
     QVERIFY(m.accountName().isEmpty());
     QVERIFY(m.serverVersion().isEmpty());
 }
+
+#include "moc_downloadappslanguagesmanagertest.cpp"

@@ -18,3 +18,5 @@ PermissionsTreeView::PermissionsTreeView(QWidget *parent)
 }
 
 PermissionsTreeView::~PermissionsTreeView() = default;
+
+#include "moc_permissionstreeview.cpp"

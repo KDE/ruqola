@@ -94,3 +94,5 @@ void DiscussionListView::slotSelectAll(const QModelIndex &index)
 {
     mListDiscussionDelegate->selectAll(listViewOptions(), index);
 }
+
+#include "moc_discussionlistview.cpp"

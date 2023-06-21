@@ -31,3 +31,5 @@ void ConferenceInfoDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(d.conferenceId().isEmpty());
 }
+
+#include "moc_conferenceinfodialogtest.cpp"

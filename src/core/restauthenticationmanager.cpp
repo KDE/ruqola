@@ -46,3 +46,5 @@ void RESTAuthenticationManager::logout()
 {
     mRestApiConnection->logout();
 }
+
+#include "moc_restauthenticationmanager.cpp"

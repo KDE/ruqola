@@ -91,3 +91,5 @@ bool ResetE2EKeyJob::requireTwoFactorAuthentication() const
 {
     return true;
 }
+
+#include "moc_resete2ekeyjob.cpp"

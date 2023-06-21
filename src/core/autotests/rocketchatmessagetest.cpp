@@ -337,3 +337,5 @@ void RocketChatMessageTest::videoConferenceConfirmed()
                                                                               43);
     compareFile(r.result, QStringLiteral("videoConferenceConfirmed"));
 }
+
+#include "moc_rocketchatmessagetest.cpp"

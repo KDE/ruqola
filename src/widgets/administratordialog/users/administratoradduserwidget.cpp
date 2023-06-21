@@ -148,3 +148,5 @@ void AdministratorAddUserWidget::setUser(const User &user)
         mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password")));
     }
 }
+
+#include "moc_administratoradduserwidget.cpp"

@@ -1111,3 +1111,5 @@ QString Message::dateTime() const
     const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(timeStamp());
     return currentDate.toString();
 }
+
+#include "moc_message.cpp"

@@ -234,3 +234,5 @@ void RoomWidgetBase::updateRoomReadOnly(Room *room)
         mReadOnlyLineEditWidget->setMessage(room->roomMessageInfo());
     }
 }
+
+#include "moc_roomwidgetbase.cpp"

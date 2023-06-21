@@ -75,3 +75,5 @@ QString ServerErrorInfo::dateTimeStr() const
 {
     return mDateTimeStr;
 }
+
+#include "moc_servererrorinfo.cpp"

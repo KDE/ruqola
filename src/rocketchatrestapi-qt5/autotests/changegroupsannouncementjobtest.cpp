@@ -47,3 +47,5 @@ void ChangeGroupsAnnouncementJobTest::shouldGenerateJson()
     job.setAnnouncement(announcement);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"announcement":"%1","roomId":"%2"})").arg(announcement, roomId).toLatin1());
 }
+
+#include "moc_changegroupsannouncementjobtest.cpp"

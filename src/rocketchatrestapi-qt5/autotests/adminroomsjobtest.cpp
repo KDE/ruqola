@@ -51,3 +51,5 @@ void AdminRoomsJobTest::shouldGenerateRequest()
     request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms?filter=%1&types[]=p&types[]=l").arg(info.filter)));
 }
+
+#include "moc_adminroomsjobtest.cpp"

@@ -93,3 +93,5 @@ QNetworkRequest SetJoinCodeChannelJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_setjoincodechanneljob.cpp"

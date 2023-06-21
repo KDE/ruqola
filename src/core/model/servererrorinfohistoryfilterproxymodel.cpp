@@ -45,3 +45,5 @@ void ServerErrorInfoHistoryFilterProxyModel::setAccountNameFilter(const QString 
         invalidate();
     }
 }
+
+#include "moc_servererrorinfohistoryfilterproxymodel.cpp"

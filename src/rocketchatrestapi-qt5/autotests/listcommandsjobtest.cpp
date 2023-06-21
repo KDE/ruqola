@@ -31,3 +31,5 @@ void ListCommandsJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/commands.list")));
 }
+
+#include "moc_listcommandsjobtest.cpp"

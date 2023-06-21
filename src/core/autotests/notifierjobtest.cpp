@@ -19,3 +19,5 @@ void NotifierJobTest::shouldHaveDefaultValues()
     NotifierJob notifier;
     QVERIFY(!notifier.info().isValid());
 }
+
+#include "moc_notifierjobtest.cpp"

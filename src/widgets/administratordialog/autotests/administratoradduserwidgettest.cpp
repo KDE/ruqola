@@ -66,3 +66,5 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
     auto mRolesComboBox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesComboBox"));
     QVERIFY(mRolesComboBox);
 }
+
+#include "moc_administratoradduserwidgettest.cpp"

@@ -72,3 +72,5 @@ void ConfigureGeneralWidget::load()
     mShowHoverHightLights->setChecked(RuqolaGlobalConfig::self()->showHoverHighlights());
     mAnimateGif->setChecked(RuqolaGlobalConfig::self()->animateGifImage());
 }
+
+#include "moc_configuregeneralwidget.cpp"

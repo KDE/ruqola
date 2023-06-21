@@ -56,3 +56,5 @@ void TeamsInfoJobTest::shouldNotStarting()
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamsinfojobtest.cpp"

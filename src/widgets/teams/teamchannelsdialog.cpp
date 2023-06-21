@@ -60,3 +60,5 @@ void TeamChannelsDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamChannelsDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_teamchannelsdialog.cpp"

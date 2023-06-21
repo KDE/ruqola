@@ -74,3 +74,5 @@ void MessageCacheTest::shouldLoadSingleMessage()
     QCOMPARE(msg->messageId(), messageId);
     QCOMPARE(cache.jobsStarted(), 1);
 }
+
+#include "moc_messagecachetest.cpp"

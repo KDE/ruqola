@@ -113,3 +113,5 @@ void ShowListMessageBaseWidget::slotSearchMessageTextChanged(const QString &str)
     mModel->listMessageModel()->setSearchText(str);
     mMessageListView->setSearchText(str);
 }
+
+#include "moc_showlistmessagebasewidget.cpp"

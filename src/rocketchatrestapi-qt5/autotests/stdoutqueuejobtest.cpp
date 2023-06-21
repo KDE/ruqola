@@ -34,3 +34,5 @@ void StdoutQueueJobTest::shouldGenerateRequest()
         QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/stdout.queue")));
     }
 }
+
+#include "moc_stdoutqueuejobtest.cpp"

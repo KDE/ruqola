@@ -101,3 +101,5 @@ void NotificationOptionsTest::shouldParseNotification()
     QCOMPARE(w.mobilePushNotification().currentValue(), mobilePushNotification);
     QCOMPARE(w.emailNotifications().currentValue(), emailNotifications);
 }
+
+#include "moc_notificationoptionstest.cpp"

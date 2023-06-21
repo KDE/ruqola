@@ -179,3 +179,5 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     // TODO
     mEncryptMessages->setVisible(false);
 }
+
+#include "moc_channelactionpopupmenu.cpp"

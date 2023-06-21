@@ -47,3 +47,5 @@ RoleEditWidget::RoleEditDialogInfo RoleEditDialog::roleEditDialogInfo() const
 {
     return mRoleEditWidget->roleEditDialogInfo();
 }
+
+#include "moc_roleeditdialog.cpp"

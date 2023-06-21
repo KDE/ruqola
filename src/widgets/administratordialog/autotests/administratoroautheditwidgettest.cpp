@@ -54,3 +54,5 @@ void AdministratorOauthEditWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAccessTokenUrl->text().isEmpty());
     QVERIFY(mAccessTokenUrl->isReadOnly());
 }
+
+#include "moc_administratoroautheditwidgettest.cpp"

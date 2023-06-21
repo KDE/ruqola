@@ -70,3 +70,5 @@ void EmoticonItemDelegate::removeRunningAnimatedImage(const QModelIndex &index) 
         mRunningAnimatedImages.erase(it);
     }
 }
+
+#include "moc_emoticonitemdelegate.cpp"

@@ -20,3 +20,5 @@ void PersonalAccessTokenInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.lastTokenPart().isEmpty());
     QVERIFY(!w.isValid());
 }
+
+#include "moc_personalaccesstokeninfotest.cpp"

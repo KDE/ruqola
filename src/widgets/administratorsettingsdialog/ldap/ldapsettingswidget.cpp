@@ -101,3 +101,5 @@ void LDapSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mIdleTimeouts, mapSettings, 1000);
     initializeWidget(mAuthenticationPassword, mapSettings);
 }
+
+#include "moc_ldapsettingswidget.cpp"

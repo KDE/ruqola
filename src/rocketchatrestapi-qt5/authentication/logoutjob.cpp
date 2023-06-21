@@ -57,3 +57,5 @@ bool LogoutJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+#include "moc_logoutjob.cpp"

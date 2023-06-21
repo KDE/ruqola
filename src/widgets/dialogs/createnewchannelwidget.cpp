@@ -121,3 +121,5 @@ void CreateNewChannelWidget::setFeatures(CreateNewChannelWidget::Features featur
     mEncryptedRoom->setVisible(visible);
     mMainLayout->labelForField(mEncryptedRoom)->setVisible(visible);
 }
+
+#include "moc_createnewchannelwidget.cpp"

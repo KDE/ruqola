@@ -135,3 +135,5 @@ bool EmojiProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right
         return leftOrder < rightOrder;
     }
 }
+
+#include "moc_emojiproxymodel.cpp"

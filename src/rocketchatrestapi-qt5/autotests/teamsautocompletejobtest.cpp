@@ -56,3 +56,5 @@ void TeamsAutoCompleteJobTest::shouldNotStarting()
     job.setName(name);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamsautocompletejobtest.cpp"

@@ -213,3 +213,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);
     initializeWidget(mMessageErasureType, mapSettings, QStringLiteral("Delete"));
 }
+
+#include "moc_messagesettingswidget.cpp"

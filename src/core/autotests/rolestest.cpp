@@ -71,3 +71,5 @@ void RolesTest::shouldLoadRoles()
     r.parseRole(obj);
     QCOMPARE(r.roles().count(), rolesCount);
 }
+
+#include "moc_rolestest.cpp"

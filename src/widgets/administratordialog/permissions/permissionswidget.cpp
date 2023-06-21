@@ -138,3 +138,5 @@ void PermissionsWidget::slotPermissionUpdateDone(const QJsonObject &obj)
     p.parsePermissions(obj, QStringLiteral("permissions"), mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
 }
+
+#include "moc_permissionswidget.cpp"

@@ -68,3 +68,5 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
 }
 
 // TODO test signal/slot
+
+#include "moc_messagelinewidgettest.cpp"

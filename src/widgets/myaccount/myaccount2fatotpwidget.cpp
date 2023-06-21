@@ -106,3 +106,5 @@ void MyAccount2FaTotpWidget::slotTotpResult(const QString &secret, const QString
     mTotpQrCode->setPixmap(QPixmap::fromImage(mQRCode->toImage(mQRCode->preferredSize(QGuiApplication::primaryScreen()->devicePixelRatio()).toSize())));
     Q_EMIT show2FaEnabledWidget();
 }
+
+#include "moc_myaccount2fatotpwidget.cpp"

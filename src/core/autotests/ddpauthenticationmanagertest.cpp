@@ -465,3 +465,5 @@ void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginAppNotAllowedToLogin);
 }
+
+#include "moc_ddpauthenticationmanagertest.cpp"

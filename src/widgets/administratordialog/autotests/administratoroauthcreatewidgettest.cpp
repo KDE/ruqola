@@ -35,3 +35,5 @@ void AdministratorOauthCreateWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRedirectUrl);
     QVERIFY(mRedirectUrl->text().isEmpty());
 }
+
+#include "moc_administratoroauthcreatewidgettest.cpp"

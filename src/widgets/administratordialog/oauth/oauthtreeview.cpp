@@ -116,3 +116,5 @@ void OauthTreeView::editClicked(const QModelIndex &index)
         delete dlg;
     }
 }
+
+#include "moc_oauthtreeview.cpp"

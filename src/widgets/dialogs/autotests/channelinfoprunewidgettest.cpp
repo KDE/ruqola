@@ -49,3 +49,5 @@ void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mMaximumAgeInDay->minimum(), 1);
     QCOMPARE(mMaximumAgeInDay->maximum(), 99999);
 }
+
+#include "moc_channelinfoprunewidgettest.cpp"

@@ -166,3 +166,5 @@ void MessageListViewBase::addTextPlugins(QMenu *menu, const QString &selectedTex
         interface->addAction(menu);
     }
 }
+
+#include "moc_messagelistviewbase.cpp"

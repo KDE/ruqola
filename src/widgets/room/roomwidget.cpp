@@ -898,3 +898,5 @@ void RoomWidget::slotRefreshOtrKeys()
 {
     // TODO
 }
+
+#include "moc_roomwidget.cpp"

@@ -93,3 +93,5 @@ QNetworkRequest ChannelAddModeratorJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_channeladdmoderatorjob.cpp"

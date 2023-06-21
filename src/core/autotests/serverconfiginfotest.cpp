@@ -25,3 +25,5 @@ void ServerConfigInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.logoUrl().isEmpty());
     QVERIFY(info.faviconUrl().isEmpty());
 }
+
+#include "moc_serverconfiginfotest.cpp"

@@ -52,3 +52,5 @@ void MessageUrlTest::shouldSerializeData()
         QCOMPARE(input, output);
     }
 }
+
+#include "moc_messageurltest.cpp"

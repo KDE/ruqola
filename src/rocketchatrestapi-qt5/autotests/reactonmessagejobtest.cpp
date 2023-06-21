@@ -75,3 +75,5 @@ void ReactOnMessageJobTest::shouldNotStarting()
     job.setEmoji(emoji);
     QVERIFY(job.canStart());
 }
+
+#include "moc_reactonmessagejobtest.cpp"

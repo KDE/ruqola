@@ -80,3 +80,5 @@ void VideoConferenceJoinJobTest::shouldNotStarting()
     job.setInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_videoconferencejoinjobtest.cpp"

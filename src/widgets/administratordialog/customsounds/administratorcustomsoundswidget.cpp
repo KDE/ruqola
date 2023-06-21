@@ -150,3 +150,5 @@ void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoin
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
 }
+
+#include "moc_administratorcustomsoundswidget.cpp"

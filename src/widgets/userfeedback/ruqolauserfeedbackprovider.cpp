@@ -48,3 +48,5 @@ RuqolaUserFeedbackProvider::RuqolaUserFeedbackProvider(QObject *parent)
 }
 
 RuqolaUserFeedbackProvider::~RuqolaUserFeedbackProvider() = default;
+
+#include "moc_ruqolauserfeedbackprovider.cpp"

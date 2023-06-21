@@ -64,3 +64,5 @@ void ShowVideoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLabelDuration);
     QVERIFY(mLabelDuration->text().isEmpty());
 }
+
+#include "moc_showvideowidgettest.cpp"

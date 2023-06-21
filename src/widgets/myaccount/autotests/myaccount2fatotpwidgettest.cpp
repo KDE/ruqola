@@ -44,3 +44,5 @@ void MyAccount2FaTotpWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!verifyButton->text().isEmpty());
     QVERIFY(!verifyButton->isEnabled());
 }
+
+#include "moc_myaccount2fatotpwidgettest.cpp"

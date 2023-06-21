@@ -69,3 +69,5 @@ void ServerMenu::slotUpdateAccountMenu()
         }
     }
 }
+
+#include "moc_servermenu.cpp"

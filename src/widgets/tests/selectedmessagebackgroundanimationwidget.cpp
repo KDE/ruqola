@@ -49,3 +49,5 @@ void SelectedMessageBackgroundAnimationLabel::paintEvent(QPaintEvent *event)
     QPainter p(this);
     p.fillRect(event->rect(), mBackgroundColor);
 }
+
+#include "moc_selectedmessagebackgroundanimationwidget.cpp"

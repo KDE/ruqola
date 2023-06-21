@@ -14,3 +14,5 @@ EmoticonCategoryButton::EmoticonCategoryButton(QWidget *parent)
 }
 
 EmoticonCategoryButton::~EmoticonCategoryButton() = default;
+
+#include "moc_emoticoncategorybutton.cpp"

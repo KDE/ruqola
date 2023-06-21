@@ -142,3 +142,5 @@ void RoomHeaderLabel::updateHeaderText()
     }
     updateSqueezedText();
 }
+
+#include "moc_roomheaderlabel.cpp"

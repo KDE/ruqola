@@ -53,3 +53,5 @@ void ModifyStatusWidget::setStatus(User::PresenceStatus status)
 {
     mStatusCombobox->setStatus(status);
 }
+
+#include "moc_modifystatuswidget.cpp"

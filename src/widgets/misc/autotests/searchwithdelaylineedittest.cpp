@@ -19,3 +19,5 @@ void SearchWithDelayLineEditTest::shouldHaveDefaultValues()
     QVERIFY(w.isClearButtonEnabled());
     QVERIFY(!w.placeholderText().isEmpty());
 }
+
+#include "moc_searchwithdelaylineedittest.cpp"

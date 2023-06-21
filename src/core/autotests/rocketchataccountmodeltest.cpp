@@ -169,3 +169,5 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QCOMPARE(modelResetSpy.count(), 0);
     QCOMPARE(modelABTReset.count(), 0);
 }
+
+#include "moc_rocketchataccountmodeltest.cpp"

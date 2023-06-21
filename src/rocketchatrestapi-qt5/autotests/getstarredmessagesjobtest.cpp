@@ -61,3 +61,5 @@ void GetStarredMessagesJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_getstarredmessagesjobtest.cpp"

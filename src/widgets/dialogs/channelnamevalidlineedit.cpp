@@ -100,3 +100,5 @@ QValidator::State ChannelNameValidLineEditValidator::validate(QString &input, in
 }
 
 ChannelNameValidLineEditValidator::~ChannelNameValidLineEditValidator() = default;
+
+#include "moc_channelnamevalidlineedit.cpp"

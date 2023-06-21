@@ -2034,3 +2034,5 @@ void Connection::statistics(bool refresh)
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start StatisticsJob";
     }
 }
+
+#include "moc_connection.cpp"

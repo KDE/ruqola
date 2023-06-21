@@ -108,3 +108,5 @@ AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roo
     // TODO mRoomAvatarWidget
     return info;
 }
+
+#include "moc_administratorroomseditwidget.cpp"

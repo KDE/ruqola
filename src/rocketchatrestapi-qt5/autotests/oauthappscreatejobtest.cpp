@@ -81,3 +81,5 @@ void OauthAppsCreateJobTest::shouldNotStarting()
     job.setOauthAppsCreateInfo(foo);
     QVERIFY(job.canStart());
 }
+
+#include "moc_oauthappscreatejobtest.cpp"

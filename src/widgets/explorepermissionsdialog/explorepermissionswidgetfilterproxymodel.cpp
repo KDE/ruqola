@@ -34,3 +34,5 @@ void ExplorePermissionsWidgetFilterProxyModel::setFilterString(const QString &st
     mFilterString = string;
     invalidate();
 }
+
+#include "moc_explorepermissionswidgetfilterproxymodel.cpp"

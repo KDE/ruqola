@@ -60,3 +60,5 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
     job.setInviteUserName(userName);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userName, roomId).toLatin1());
 }
+
+#include "moc_channelinvitejobtest.cpp"

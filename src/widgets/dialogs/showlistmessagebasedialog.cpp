@@ -63,3 +63,5 @@ void ShowListMessageBaseDialog::setRoom(Room *room)
 {
     mShowListMessage->setRoom(room);
 }
+
+#include "moc_showlistmessagebasedialog.cpp"

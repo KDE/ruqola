@@ -55,3 +55,5 @@ void GetCommandsJobTest::shouldNotStarting()
     job.setCommandName(commandName);
     QVERIFY(job.canStart());
 }
+
+#include "moc_getcommandsjobtest.cpp"

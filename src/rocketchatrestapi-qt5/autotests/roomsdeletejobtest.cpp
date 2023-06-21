@@ -64,3 +64,5 @@ void RoomsDeleteJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_roomsdeletejobtest.cpp"

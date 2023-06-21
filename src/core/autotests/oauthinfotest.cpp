@@ -26,3 +26,5 @@ void OauthInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.active());
     // TODO
 }
+
+#include "moc_oauthinfotest.cpp"

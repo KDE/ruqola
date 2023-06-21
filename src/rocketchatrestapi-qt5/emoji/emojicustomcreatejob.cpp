@@ -140,3 +140,5 @@ QString EmojiCustomCreateJob::errorMessage(const QString &str, const QJsonObject
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
+
+#include "moc_emojicustomcreatejob.cpp"

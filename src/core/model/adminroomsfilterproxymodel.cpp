@@ -57,3 +57,5 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
     }
     return false;
 }
+
+#include "moc_adminroomsfilterproxymodel.cpp"

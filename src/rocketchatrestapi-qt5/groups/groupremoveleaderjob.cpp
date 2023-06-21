@@ -93,3 +93,5 @@ QNetworkRequest GroupRemoveLeaderJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_groupremoveleaderjob.cpp"

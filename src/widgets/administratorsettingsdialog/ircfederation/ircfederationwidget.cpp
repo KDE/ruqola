@@ -69,3 +69,5 @@ void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLocalPassword, mapSettings, QStringLiteral("password"));
     initializeWidget(mPeerPassword, mapSettings, QStringLiteral("password"));
 }
+
+#include "moc_ircfederationwidget.cpp"

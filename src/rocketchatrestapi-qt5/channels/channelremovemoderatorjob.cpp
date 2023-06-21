@@ -103,3 +103,5 @@ QString ChannelRemoveModeratorJob::errorMessage(const QString &str, const QJsonO
 
     return RestApiAbstractJob::errorMessage(str, detail);
 }
+
+#include "moc_channelremovemoderatorjob.cpp"

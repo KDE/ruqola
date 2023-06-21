@@ -103,3 +103,5 @@ QString ChannelRemoveOwnerJob::errorMessage(const QString &str, const QJsonObjec
 
     return RestApiAbstractJob::errorMessage(str, detail);
 }
+
+#include "moc_channelremoveownerjob.cpp"

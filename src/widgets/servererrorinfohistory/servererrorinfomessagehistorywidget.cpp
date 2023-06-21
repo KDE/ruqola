@@ -97,3 +97,5 @@ void ServerErrorInfoMessageHistoryWidget::addServerList(const QStringList &serve
 {
     mServersComboBox->addServerList(serverNames);
 }
+
+#include "moc_servererrorinfomessagehistorywidget.cpp"

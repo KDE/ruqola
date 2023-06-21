@@ -21,3 +21,5 @@ void TeamNameLabelTest::shouldHaveDefaultValues()
     QVERIFY(w.text().isEmpty());
     QCOMPARE(w.textInteractionFlags(), Qt::TextBrowserInteraction);
 }
+
+#include "moc_teamnamelabeltest.cpp"

@@ -88,3 +88,5 @@ void CreateNewServerWidget::slotChangeOkButtonEnabled()
     Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerUrl->text().trimmed().isEmpty()
                           && !mUserName->text().trimmed().isEmpty());
 }
+
+#include "moc_createnewserverwidget.cpp"

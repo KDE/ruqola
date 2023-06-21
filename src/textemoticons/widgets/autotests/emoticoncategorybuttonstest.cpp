@@ -26,3 +26,5 @@ void EmoticonCategoryButtonsTest::shouldHaveDefaultValues()
     QVERIFY(mButtonGroup);
     QVERIFY(mButtonGroup->buttons().isEmpty());
 }
+
+#include "moc_emoticoncategorybuttonstest.cpp"

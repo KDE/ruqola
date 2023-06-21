@@ -61,3 +61,5 @@ void GetMentionedMessagesJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_getmentionedmessagesjobtest.cpp"

@@ -39,3 +39,5 @@ void UsersAutocompleteJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/users.autocomplete?selector=%7B%22term%22: %22foo%22%7D"));
 }
+
+#include "moc_usersautocompletejobtest.cpp"

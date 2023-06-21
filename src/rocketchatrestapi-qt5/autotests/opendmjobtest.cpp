@@ -63,3 +63,5 @@ void OpenDmJobTest::shouldNotStarting()
     job.setDirectUserId(username);
     QVERIFY(job.canStart());
 }
+
+#include "moc_opendmjobtest.cpp"

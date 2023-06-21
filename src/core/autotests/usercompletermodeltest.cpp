@@ -85,3 +85,5 @@ void UserCompleterModelTest::shouldVerifyData()
         QCOMPARE(w.data(w.index(i), UserCompleterModel::UserName).toString(), QStringLiteral("username%1").arg(i));
     }
 }
+
+#include "moc_usercompletermodeltest.cpp"

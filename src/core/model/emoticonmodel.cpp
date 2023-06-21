@@ -151,3 +151,5 @@ void EmoticonModel::addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmoj
 {
     // TODO
 }
+
+#include "moc_emoticonmodel.cpp"

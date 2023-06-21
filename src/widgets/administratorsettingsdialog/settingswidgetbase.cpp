@@ -368,3 +368,5 @@ QString SettingsWidgetBase::urlFromRelativePath(const QString &relativePath)
     }
     return {};
 }
+
+#include "moc_settingswidgetbase.cpp"

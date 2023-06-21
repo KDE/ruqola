@@ -30,3 +30,5 @@ void BannerInfoDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_bannerinfodialogtest.cpp"

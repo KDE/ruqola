@@ -102,3 +102,5 @@ void RoleTest::shouldVerifyHasRoles()
 }
 
 // Create autotest for updateRoless
+
+#include "moc_roletest.cpp"

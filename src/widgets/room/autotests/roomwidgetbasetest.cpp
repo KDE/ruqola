@@ -56,3 +56,5 @@ void RoomWidgetBaseTest::shouldHaveDefaultValues()
     QVERIFY(mRoomQuoteMessageWidget);
     QVERIFY(!mRoomQuoteMessageWidget->isVisible());
 }
+
+#include "moc_roomwidgetbasetest.cpp"

@@ -44,3 +44,5 @@ void ConferenceInfoDialog::setConferenceId(const QString &newConferenceId)
 {
     mConferenceInfoWidget->setConferenceId(newConferenceId);
 }
+
+#include "moc_conferenceinfodialog.cpp"

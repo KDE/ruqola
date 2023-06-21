@@ -165,3 +165,5 @@ bool FilesForRoomModel::hasFullList() const
 {
     return mHasFullList;
 }
+
+#include "moc_filesforroommodel.cpp"

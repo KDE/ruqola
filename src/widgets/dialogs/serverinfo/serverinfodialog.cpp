@@ -28,3 +28,5 @@ ServerInfoDialog::ServerInfoDialog(RocketChatAccount *account, QWidget *parent)
 }
 
 ServerInfoDialog::~ServerInfoDialog() = default;
+
+#include "moc_serverinfodialog.cpp"

@@ -24,3 +24,5 @@ void CustomUserStatusTest::shouldHaveDefaultValues()
     QCOMPARE(w.statusType(), User::PresenceStatus::Unknown);
     QCOMPARE(w.updatedAt(), -1);
 }
+
+#include "moc_customuserstatustest.cpp"

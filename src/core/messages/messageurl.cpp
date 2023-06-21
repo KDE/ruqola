@@ -76,3 +76,5 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d << "Description: " << t.description();
     return d;
 }
+
+#include "moc_messageurl.cpp"

@@ -89,3 +89,5 @@ QString GetSupportedLanguagesJob::errorMessage(const QString &str, const QJsonOb
     }
     return RestApiAbstractJob::errorMessage(str, detail);
 }
+
+#include "moc_getsupportedlanguagesjob.cpp"

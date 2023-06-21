@@ -31,3 +31,5 @@ void ServersComboBox::slotSelectAccount(int index)
         Q_EMIT accountSelected(accountName);
     }
 }
+
+#include "moc_serverscombobox.cpp"

@@ -20,3 +20,5 @@ void SystemMessagesComboBoxTest::shouldHaveDefaultValue()
     QVERIFY(w.count() > 0);
     QVERIFY(w.systemMessagesSelected().isEmpty());
 }
+
+#include "moc_systemmessagescomboboxtest.cpp"

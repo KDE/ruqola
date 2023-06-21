@@ -84,3 +84,5 @@ void RoomStartDiscussionJobTest::shouldNotStarting()
     job.setDiscussionName(discussionName);
     QVERIFY(job.canStart());
 }
+
+#include "moc_roomstartdiscussionjobtest.cpp"

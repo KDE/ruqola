@@ -190,3 +190,5 @@ void AdministratorCustomEmojiWidget::slotCustomContextMenuRequested(const QPoint
     }
     menu.exec(mTreeView->viewport()->mapToGlobal(pos));
 }
+
+#include "moc_administratorcustomemojiwidget.cpp"

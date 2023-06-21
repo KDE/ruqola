@@ -51,3 +51,5 @@ void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
     auto mCustomEmojiView = w.findChild<QListView *>(QStringLiteral("mCustomEmojiView"));
     QVERIFY(mCustomEmojiView);
 }
+
+#include "moc_emoticonmenuwidgettest.cpp"

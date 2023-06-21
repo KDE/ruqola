@@ -189,3 +189,5 @@ UsersSetPreferencesJob::UsersSetPreferencesInfo::State UsersSetPreferencesJob::U
 {
     return checked ? UsersSetPreferencesJob::UsersSetPreferencesInfo::Checked : UsersSetPreferencesJob::UsersSetPreferencesInfo::Unchecked;
 }
+
+#include "moc_userssetpreferencesjob.cpp"

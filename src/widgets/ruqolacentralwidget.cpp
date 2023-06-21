@@ -127,3 +127,5 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
     }
     Q_EMIT loginPageActivated(loginPage);
 }
+
+#include "moc_ruqolacentralwidget.cpp"

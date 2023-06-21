@@ -49,3 +49,5 @@ void ReactionTest::shouldShowReactionsToolTip()
     r.setUserNames(userNames);
     QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla, blo and bli reacted with :foo:"));
 }
+
+#include "moc_reactiontest.cpp"

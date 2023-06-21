@@ -94,3 +94,5 @@ QString BannerInfoListView::selectedText() const
 {
     return mBannerInfoListViewDelegate->selectedText();
 }
+
+#include "moc_bannerinfolistview.cpp"

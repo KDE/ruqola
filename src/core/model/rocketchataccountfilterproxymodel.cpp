@@ -50,3 +50,5 @@ void RocketChatAccountFilterProxyModel::setAccountOrder(const QStringList &newAc
         invalidate();
     }
 }
+
+#include "moc_rocketchataccountfilterproxymodel.cpp"

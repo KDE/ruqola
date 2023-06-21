@@ -18,3 +18,5 @@ void BannerInfoListViewTest::shouldHaveDefaultValues()
     BannerInfoListView w(nullptr);
     // TODO
 }
+
+#include "moc_bannerinfolistviewtest.cpp"

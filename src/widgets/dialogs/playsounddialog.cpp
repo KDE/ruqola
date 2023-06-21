@@ -34,3 +34,5 @@ void PlaySoundDialog::setAudioUrl(const QUrl &url)
     mSoundWidget->setAudioUrl(url);
     setWindowTitle(i18nc("@title:window", "Sound: %1", url.fileName()));
 }
+
+#include "moc_playsounddialog.cpp"

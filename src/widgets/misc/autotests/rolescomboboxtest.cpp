@@ -20,3 +20,5 @@ void RolesComboBoxTest::shouldHaveDefaultValues()
     QVERIFY(w.roles().isEmpty());
     // QCOMPARE(w.sizeAdjustPolicy(), QComboBox::AdjustToContents);
 }
+
+#include "moc_rolescomboboxtest.cpp"

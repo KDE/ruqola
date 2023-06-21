@@ -40,3 +40,5 @@ void ShowDiscussionsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mListDiscussions);
     QVERIFY(mListDiscussions->itemDelegate());
 }
+
+#include "moc_showdiscussionswidgettest.cpp"

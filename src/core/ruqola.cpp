@@ -119,3 +119,5 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
 {
     return mAccountManager->account();
 }
+
+#include "moc_ruqola.cpp"

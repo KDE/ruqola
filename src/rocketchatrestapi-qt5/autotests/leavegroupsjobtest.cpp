@@ -70,3 +70,5 @@ void LeaveGroupsJobTest::shouldNotStarting()
 
     QVERIFY(job.canStart());
 }
+
+#include "moc_leavegroupsjobtest.cpp"

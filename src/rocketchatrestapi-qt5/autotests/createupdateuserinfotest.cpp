@@ -32,3 +32,5 @@ void CreateUpdateUserInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.mVerified);
     QCOMPARE(info.mTypeInfo, RocketChatRestApi::CreateUpdateUserInfo::Create);
 }
+
+#include "moc_createupdateuserinfotest.cpp"

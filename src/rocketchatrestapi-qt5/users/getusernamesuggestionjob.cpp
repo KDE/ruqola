@@ -61,3 +61,5 @@ bool GetUsernameSuggestionJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+#include "moc_getusernamesuggestionjob.cpp"

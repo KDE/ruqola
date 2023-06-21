@@ -1095,3 +1095,5 @@ void RuqolaMainWindow::slotShowFavoriteRoom(bool checked)
 {
     mCurrentRocketChatAccount->setShowFavoriteRoom(checked);
 }
+
+#include "moc_ruqolamainwindow.cpp"

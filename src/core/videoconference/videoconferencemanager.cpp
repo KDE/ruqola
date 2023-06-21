@@ -88,3 +88,5 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
     job->setVideoConference(videoConference);
     job->start();
 }
+
+#include "moc_videoconferencemanager.cpp"

@@ -28,3 +28,5 @@ void CreateDirectMessagesDialogTest::shouldHaveDefaultValues()
     auto mCreateDirectMessagesWidget = w.findChild<CreateDirectMessagesWidget *>(QStringLiteral("mCreateDirectMessagesWidget"));
     QVERIFY(mCreateDirectMessagesWidget);
 }
+
+#include "moc_createdirectmessagesdialogtest.cpp"

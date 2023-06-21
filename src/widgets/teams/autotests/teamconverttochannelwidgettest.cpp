@@ -28,3 +28,5 @@ void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!deleteLabel->text().isEmpty());
     QVERIFY(deleteLabel->wordWrap());
 }
+
+#include "moc_teamconverttochannelwidgettest.cpp"

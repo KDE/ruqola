@@ -72,3 +72,5 @@ void InviteUsersDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myInviteUsersDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_inviteusersdialog.cpp"

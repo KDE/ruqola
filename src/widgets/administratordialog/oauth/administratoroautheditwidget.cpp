@@ -103,3 +103,5 @@ bool AdministratorOauthEditWidget::OauthEditInfo::isValid() const
     return !applicationName.trimmed().isEmpty() && !redirectUrl.trimmed().isEmpty() && !clientId.trimmed().isEmpty() && !clientSecret.trimmed().isEmpty()
         && !authorizationUrl.trimmed().isEmpty() && !accessTokenUrl.trimmed().isEmpty();
 }
+
+#include "moc_administratoroautheditwidget.cpp"

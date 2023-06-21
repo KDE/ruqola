@@ -69,3 +69,5 @@ void MarkRoomAsUnReadJobTest::shouldNotStarting()
     job.setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     QVERIFY(job.canStart());
 }
+
+#include "moc_markroomasunreadjobtest.cpp"

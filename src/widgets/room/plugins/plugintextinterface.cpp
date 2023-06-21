@@ -17,3 +17,5 @@ void PluginTextInterface::setSelectedText(const QString &str)
 {
     Q_UNUSED(str)
 }
+
+#include "moc_plugintextinterface.cpp"

@@ -184,3 +184,5 @@ void LoginMethodModelTest::shouldEmitLoginMethodChanged()
     w.setCurrentLoginMethod(1);
     QCOMPARE(loginMethodChanged.count(), 1);
 }
+
+#include "moc_loginmethodmodeltest.cpp"

@@ -30,3 +30,5 @@ void AdministratorOauthWidgetTest::shouldHaveDefaultValues()
     auto mOauthTreeWidget = d.findChild<OauthTreeView *>(QStringLiteral("mOauthTreeWidget"));
     QVERIFY(mOauthTreeWidget);
 }
+
+#include "moc_administratoroauthwidgettest.cpp"

@@ -83,3 +83,5 @@ void RoleUpdateJobTest::shouldNotStarting()
     job.setUpdateRoleInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_roleupdatejobtest.cpp"

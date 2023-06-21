@@ -98,3 +98,5 @@ void QueryParametersTest::shouldGenerateQuery()
         QCOMPARE(urlQuery.toString(), QStringLiteral("query=%7B%22name%22:%7B%22$regex%22:%22blabla%22,%22$options%22:%22i%22%7D%7D"));
     }
 }
+
+#include "moc_queryparameterstest.cpp"

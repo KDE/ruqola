@@ -59,3 +59,5 @@ void BannerInfoDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myBannerInfoDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_bannerinfodialog.cpp"

@@ -103,3 +103,5 @@ bool ChannelFilesJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_channelfilesjob.cpp"

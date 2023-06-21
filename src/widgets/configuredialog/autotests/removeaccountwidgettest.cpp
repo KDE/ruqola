@@ -33,3 +33,5 @@ void RemoveAccountWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mInfo);
     QVERIFY(mInfo->text().isEmpty());
 }
+
+#include "moc_removeaccountwidgettest.cpp"

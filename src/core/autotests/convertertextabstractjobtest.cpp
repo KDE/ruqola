@@ -33,3 +33,5 @@ void ConverterTextAbstractJobTest::shouldHaveDefaultValue()
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(!job.rocketChatAcount());
 }
+
+#include "moc_convertertextabstractjobtest.cpp"

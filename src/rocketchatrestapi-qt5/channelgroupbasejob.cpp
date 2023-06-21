@@ -69,3 +69,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelGroupBaseJob::Channe
     d << "channelInfoType " << t.channelGroupInfoType;
     return d;
 }
+
+#include "moc_channelgroupbasejob.cpp"

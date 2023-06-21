@@ -67,3 +67,5 @@ bool DirectoryBaseModel::hasFullList() const
 {
     return mHasFullList;
 }
+
+#include "moc_directorybasemodel.cpp"

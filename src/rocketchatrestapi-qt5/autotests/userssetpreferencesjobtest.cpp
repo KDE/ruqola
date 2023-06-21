@@ -78,3 +78,5 @@ void UsersSetPreferencesJobTest::shouldNotStarting()
     job.setUsersSetPreferencesInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_userssetpreferencesjobtest.cpp"

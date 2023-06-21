@@ -30,3 +30,5 @@ QStringList RolesComboBox::roles() const
 {
     return mRolesModel->rolesSelected();
 }
+
+#include "moc_rolescombobox.cpp"

@@ -124,3 +124,5 @@ void EmojiModel::setCustomEmojiIconManager(TextEmoticonsCore::CustomEmojiIconMan
 {
     mCustomEmojiIconManager = newCustomEmojiIconManager;
 }
+
+#include "moc_emojimodel.cpp"

@@ -35,3 +35,5 @@ void RestApiUtilTest::shouldUseV1Version()
 {
     QCOMPARE(RestApiUtil::apiUri(), QStringLiteral("/api/v1/"));
 }
+
+#include "moc_restapiutiltest.cpp"

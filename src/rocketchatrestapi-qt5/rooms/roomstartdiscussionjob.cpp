@@ -155,3 +155,5 @@ QString RoomStartDiscussionJob::generateErrorMessage(const QString &errorStr) co
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
+
+#include "moc_roomstartdiscussionjob.cpp"

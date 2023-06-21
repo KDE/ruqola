@@ -402,3 +402,5 @@ QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t)
     d << "result: " << t.result;
     return d;
 }
+
+#include "moc_rocketchatmessage.cpp"

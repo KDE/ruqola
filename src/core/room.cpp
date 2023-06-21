@@ -1591,3 +1591,5 @@ void Room::setDirectChannelUserId(const QString &uid)
         Q_EMIT directChannelUserIdChanged();
     }
 }
+
+#include "moc_room.cpp"

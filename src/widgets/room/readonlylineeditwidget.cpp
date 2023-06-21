@@ -29,3 +29,5 @@ void ReadOnlyLineEditWidget::setMessage(const QString &str)
 {
     mLabel->setText(str);
 }
+
+#include "moc_readonlylineeditwidget.cpp"

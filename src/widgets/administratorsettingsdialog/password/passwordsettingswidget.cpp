@@ -121,3 +121,5 @@ void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettin
     initializeWidget(mAtLeastOneSymbol, mapSettings, true);
     updateSettingsStatus(false);
 }
+
+#include "moc_passwordsettingswidget.cpp"

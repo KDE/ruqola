@@ -234,3 +234,5 @@ bool UsersForRoomModel::loadMoreUsersInProgress() const
 {
     return mLoadingInProgress;
 }
+
+#include "moc_usersforroommodel.cpp"

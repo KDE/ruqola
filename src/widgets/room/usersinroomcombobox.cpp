@@ -23,3 +23,5 @@ void UsersInRoomComboBox::fillCombobox()
     addItem(i18n("Away"), QStringLiteral("away"));
     addItem(i18n("Busy"), QStringLiteral("busy"));
 }
+
+#include "moc_usersinroomcombobox.cpp"

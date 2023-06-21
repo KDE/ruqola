@@ -62,3 +62,5 @@ void LogsSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionFilter), QStringLiteral("Log_Trace_Subscriptions_Filter"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Trace_Subscriptions_Filter"));
 }
+
+#include "moc_logssettingswidgettest.cpp"

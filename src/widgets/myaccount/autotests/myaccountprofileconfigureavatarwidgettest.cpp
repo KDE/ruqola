@@ -24,3 +24,5 @@ void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
     auto mAvatarImage = w.findChild<AvatarImage *>(QStringLiteral("mAvatarImage"));
     QVERIFY(mAvatarImage);
 }
+
+#include "moc_myaccountprofileconfigureavatarwidgettest.cpp"

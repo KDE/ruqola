@@ -119,3 +119,5 @@ bool GoogleAuthJob::requireHttpAuthentication() const
 {
     return false;
 }
+
+#include "moc_googleauthjob.cpp"

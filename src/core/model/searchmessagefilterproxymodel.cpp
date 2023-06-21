@@ -41,3 +41,5 @@ void SearchMessageFilterProxyModel::setSearchText(const QString &str)
 {
     mSearchMessageModel->setSearchText(str);
 }
+
+#include "moc_searchmessagefilterproxymodel.cpp"

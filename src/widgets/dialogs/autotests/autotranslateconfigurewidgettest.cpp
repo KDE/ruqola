@@ -44,3 +44,5 @@ void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.room());
 }
+
+#include "moc_autotranslateconfigurewidgettest.cpp"

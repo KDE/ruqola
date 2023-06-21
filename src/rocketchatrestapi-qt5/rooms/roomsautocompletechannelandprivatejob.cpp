@@ -81,3 +81,5 @@ bool RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateIn
     // FIXME
     return !name.isEmpty();
 }
+
+#include "moc_roomsautocompletechannelandprivatejob.cpp"

@@ -22,3 +22,5 @@ void RolesTreeViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
     QVERIFY(w.header()->sectionsClickable());
 }
+
+#include "moc_rolestreeviewtest.cpp"

@@ -61,3 +61,5 @@ void ExportMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myExportMessagesDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_exportmessagesdialog.cpp"

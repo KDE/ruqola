@@ -68,3 +68,5 @@ void MessageMaximumSizeWidgetTest::shouldEmitSignal()
     QCOMPARE(spyUpdateButton.count(), 1);
     QVERIFY(!spyUpdateButton.at(0).at(0).toBool());
 }
+
+#include "moc_messagemaximumsizewidgettest.cpp"

@@ -95,3 +95,5 @@ QVariant AdminRolesModel::data(const QModelIndex &index, int role) const
     }
     return {};
 }
+
+#include "moc_adminrolesmodel.cpp"

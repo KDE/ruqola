@@ -266,3 +266,5 @@ void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateChannelTeam
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CreateGroupsJob job";
     }
 }
+
+#include "moc_teamchannelswidget.cpp"

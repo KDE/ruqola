@@ -66,3 +66,5 @@ void ClickableLabel::mousePressEvent(QMouseEvent *event)
     Q_EMIT clicked();
     QLabel::mousePressEvent(event);
 }
+
+#include "moc_clickablewidget.cpp"

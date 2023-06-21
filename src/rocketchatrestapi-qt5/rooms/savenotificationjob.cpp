@@ -235,3 +235,5 @@ QJsonDocument SaveNotificationJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_savenotificationjob.cpp"

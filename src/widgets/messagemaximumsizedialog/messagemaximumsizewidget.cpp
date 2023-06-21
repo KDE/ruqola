@@ -47,3 +47,5 @@ QString MessageMaximumSizeWidget::fileName() const
 {
     return mFileName->text();
 }
+
+#include "moc_messagemaximumsizewidget.cpp"

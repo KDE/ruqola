@@ -69,3 +69,5 @@ void GroupOpenJobTest::shouldNotStarting()
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_groupopenjobtest.cpp"

@@ -81,3 +81,5 @@ void ConferenceInfoWidget::setConferenceId(const QString &newConferenceId)
 {
     mConferenceId = newConferenceId;
 }
+
+#include "moc_conferenceinfowidget.cpp"

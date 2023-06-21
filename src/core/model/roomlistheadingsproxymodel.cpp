@@ -272,3 +272,5 @@ auto RoomListHeadingsProxyModel::type(const QModelIndex &index) const -> IndexTy
 
     return IndexType::Channel;
 }
+
+#include "moc_roomlistheadingsproxymodel.cpp"

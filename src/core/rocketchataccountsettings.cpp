@@ -293,3 +293,5 @@ void RocketChatAccountSettings::removeSettings()
         qCWarning(RUQOLA_LOG) << "Impossible to delete config file: " << mSetting->fileName();
     }
 }
+
+#include "moc_rocketchataccountsettings.cpp"

@@ -80,3 +80,5 @@ void RolesModel::fillRoleSelected()
         qCWarning(RUQOLA_LOG) << "role is not implemented here " << copyList;
     }
 }
+
+#include "moc_rolesmodel.cpp"

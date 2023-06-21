@@ -90,3 +90,5 @@ QNetworkRequest GetDiscussionsJob::request() const
     addAuthRawHeader(request);
     return request;
 }
+
+#include "moc_getdiscussionsjob.cpp"

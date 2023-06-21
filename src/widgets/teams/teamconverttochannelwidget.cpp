@@ -40,3 +40,5 @@ void TeamConvertToChannelWidget::setTeamRooms(const QVector<TeamRoom> &rooms)
 {
     mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
 }
+
+#include "moc_teamconverttochannelwidget.cpp"

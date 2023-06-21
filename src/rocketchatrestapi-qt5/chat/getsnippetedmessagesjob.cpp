@@ -91,3 +91,5 @@ bool GetSnippetedMessagesJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_getsnippetedmessagesjob.cpp"

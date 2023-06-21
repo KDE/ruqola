@@ -77,3 +77,5 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAttributeMap), QStringLiteral("CAS_Sync_User_Data_FieldMap"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("CAS_Sync_User_Data_FieldMap"));
 }
+
+#include "moc_cassettingswidgettest.cpp"

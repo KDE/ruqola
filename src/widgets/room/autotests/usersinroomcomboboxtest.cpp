@@ -20,3 +20,5 @@ void UsersInRoomComboBoxTest::shouldHaveDefaultValues()
     QVERIFY(w.currentData().toString().isEmpty());
     // TODO
 }
+
+#include "moc_usersinroomcomboboxtest.cpp"

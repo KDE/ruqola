@@ -92,3 +92,5 @@ bool UpdateGroupKeyJob::UpdateGroupKeyInfo::isValid() const
 {
     return !uid.isEmpty() && !roomId.isEmpty() && !key.isEmpty();
 }
+
+#include "moc_updategroupkeyjob.cpp"

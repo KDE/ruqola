@@ -102,3 +102,5 @@ QNetworkRequest RemoveInviteJob::request() const
     addRequestAttribute(request, false);
     return request;
 }
+
+#include "moc_removeinvitejob.cpp"

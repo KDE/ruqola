@@ -102,3 +102,5 @@ void FindOrCreateInviteJobTest::shouldParseResult()
     }
     QVERIFY(messageIsEqual);
 }
+
+#include "moc_findorcreateinvitejobtest.cpp"

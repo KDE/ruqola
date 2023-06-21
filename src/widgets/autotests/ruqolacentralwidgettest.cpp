@@ -37,3 +37,5 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     auto mWhatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("mWhatsNewMessageWidget"));
     QVERIFY(mWhatsNewMessageWidget);
 }
+
+#include "moc_ruqolacentralwidgettest.cpp"

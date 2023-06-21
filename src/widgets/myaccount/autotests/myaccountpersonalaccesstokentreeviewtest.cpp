@@ -17,3 +17,5 @@ void MyAccountPersonalAccessTokenTreeViewTest::shouldHaveDefaultValues()
     QVERIFY(w.isSortingEnabled());
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);
 }
+
+#include "moc_myaccountpersonalaccesstokentreeviewtest.cpp"

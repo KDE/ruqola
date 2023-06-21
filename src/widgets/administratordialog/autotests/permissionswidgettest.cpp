@@ -42,3 +42,5 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
     auto permissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("permissionFilterProxyModel"));
     QVERIFY(permissionFilterProxyModel);
 }
+
+#include "moc_permissionswidgettest.cpp"

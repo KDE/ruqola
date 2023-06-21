@@ -147,3 +147,5 @@ void UsersInRoomFlowWidget::loadMoreUsers()
 {
     mCurrentRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
 }
+
+#include "moc_usersinroomflowwidget.cpp"

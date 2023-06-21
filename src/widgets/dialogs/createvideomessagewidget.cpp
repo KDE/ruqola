@@ -193,3 +193,5 @@ void CreateVideoMessageWidget::updateRecordTime()
     const QString str = i18n("Recorded %1 sec", mMediaRecorder->duration() / 1000);
     mDurationLabel->setText(str);
 }
+
+#include "moc_createvideomessagewidget.cpp"

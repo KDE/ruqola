@@ -19,3 +19,5 @@ void DownloadAvartarUrlManagerTest::shouldHaveDefaultValues()
     QVERIFY(!m.canStart());
     QVERIFY(m.avatarUrl().isEmpty());
 }
+
+#include "moc_downloadavartarurlmanagertest.cpp"

@@ -64,3 +64,5 @@ void UnFollowMessageJobTest::shouldNotStarting()
     job.setMessageId(messageId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_unfollowmessagejobtest.cpp"

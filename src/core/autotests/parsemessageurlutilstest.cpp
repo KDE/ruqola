@@ -86,3 +86,5 @@ void ParseMessageUrlUtilsTest::shouldParseUrl()
     QCOMPARE(w.channelType(), channelType);
     QCOMPARE(w.roomIdType(), roomIdType);
 }
+
+#include "moc_parsemessageurlutilstest.cpp"

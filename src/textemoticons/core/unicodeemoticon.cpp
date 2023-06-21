@@ -124,3 +124,5 @@ QDebug operator<<(QDebug d, const UnicodeEmoticon &t)
     d << "Key:" << t.key();
     return d;
 }
+
+#include "moc_unicodeemoticon.cpp"

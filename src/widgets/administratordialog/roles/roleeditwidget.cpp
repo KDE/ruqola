@@ -78,3 +78,5 @@ QDebug operator<<(QDebug d, const RoleEditWidget::RoleEditDialogInfo &info)
     d << "mIsProtected" << info.mIsProtected;
     return d;
 }
+
+#include "moc_roleeditwidget.cpp"

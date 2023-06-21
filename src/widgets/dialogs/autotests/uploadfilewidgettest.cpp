@@ -54,3 +54,5 @@ void UploadFileWidgetTest::shouldReturnEmptyResult()
     QVERIFY(w.description().isEmpty());
     QVERIFY(w.fileUrl().isEmpty());
 }
+
+#include "moc_uploadfilewidgettest.cpp"

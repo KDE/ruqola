@@ -166,3 +166,5 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
     }
     return {};
 }
+
+#include "moc_inputcompletermodel.cpp"

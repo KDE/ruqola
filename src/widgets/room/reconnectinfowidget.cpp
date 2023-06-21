@@ -69,3 +69,5 @@ void ReconnectInfoWidget::updateText()
 {
     setText(i18n("%1 seconds before reconnecting. %2", mCurrentDelay, QStringLiteral("<a href=\"try_reconnect\">%1</a>").arg(i18n("(Try Reconnect)"))));
 }
+
+#include "moc_reconnectinfowidget.cpp"

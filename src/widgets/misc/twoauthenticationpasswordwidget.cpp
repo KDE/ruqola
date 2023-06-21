@@ -61,3 +61,5 @@ void TwoAuthenticationPasswordWidget::setRocketChatAccount(RocketChatAccount *ne
 {
     mRocketChatAccount = newRocketChatAccount;
 }
+
+#include "moc_twoauthenticationpasswordwidget.cpp"

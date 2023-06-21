@@ -56,3 +56,5 @@ void GetBannersJobTest::shouldNotStarting()
 
     QVERIFY(job.canStart());
 }
+
+#include "moc_getbannersjobtest.cpp"

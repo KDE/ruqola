@@ -19,3 +19,5 @@ void PersonalAccessTokenInfosTest::shouldHaveDefaultValues()
     PersonalAccessTokenInfos w;
     // TODO
 }
+
+#include "moc_personalaccesstokeninfostest.cpp"

@@ -89,3 +89,5 @@ bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &s
 
     return sourceModel()->data(modelIndex, RoomModel::RoomOpen).toBool();
 }
+
+#include "moc_roomfilterproxymodel.cpp"

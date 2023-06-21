@@ -48,3 +48,5 @@ void UserInfoJobTest::shouldGenerateRequestUsername()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?username=foo1")));
 }
+
+#include "moc_userinfojobtest.cpp"

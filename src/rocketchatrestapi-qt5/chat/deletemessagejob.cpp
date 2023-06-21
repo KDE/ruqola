@@ -116,3 +116,5 @@ QString DeleteMessageJob::errorMessage(const QString &str, const QJsonObject &de
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
+
+#include "moc_deletemessagejob.cpp"

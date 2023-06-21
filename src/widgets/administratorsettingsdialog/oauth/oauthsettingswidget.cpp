@@ -280,3 +280,5 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mDolphinId, mapSettings, QString());
     initializeWidget(mDolphinSecret, mapSettings, QString());
 }
+
+#include "moc_oauthsettingswidget.cpp"

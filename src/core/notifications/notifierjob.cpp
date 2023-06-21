@@ -63,3 +63,5 @@ void NotifierJob::slotDefaultActionActivated()
     KWindowSystem::setCurrentXdgActivationToken(noti->xdgActivationToken());
     Q_EMIT switchToAccountAndRoomName(mInfo.accountName(), mInfo.roomId(), mInfo.channelType());
 }
+
+#include "moc_notifierjob.cpp"

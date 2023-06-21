@@ -72,3 +72,5 @@ void TeamDeleteJobTest::shouldNotStarting()
     job.setRoomsId(rooms);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamdeletejobtest.cpp"

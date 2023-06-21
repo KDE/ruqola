@@ -90,3 +90,5 @@ void ShowImageDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowImageDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showimagedialog.cpp"

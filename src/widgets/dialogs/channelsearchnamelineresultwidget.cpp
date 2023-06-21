@@ -40,3 +40,5 @@ void ChannelSearchNameLineResultWidget::setReadOnly(bool readOnly)
 {
     mClearToolButton->setVisible(!readOnly);
 }
+
+#include "moc_channelsearchnamelineresultwidget.cpp"

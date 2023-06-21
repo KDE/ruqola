@@ -34,3 +34,5 @@ void ConfigureFontWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFontChooser);
     QVERIFY(!mFontChooser->isEnabled());
 }
+
+#include "moc_configurefontwidgettest.cpp"

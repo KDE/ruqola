@@ -82,3 +82,5 @@ void CommandsTest::shouldLoadCommands()
     r.parseCommands(obj, nullptr); // TODO add support for permissions
     QCOMPARE(r.commandsCount(), commandsCount);
 }
+
+#include "moc_commandstest.cpp"

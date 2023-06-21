@@ -21,3 +21,5 @@ void TextSelectionImplTest::shouldHaveDefaultValues()
     QVERIFY(impl.textSelection());
     QVERIFY(!impl.mightStartDrag());
 }
+
+#include "moc_textselectionimpltest.cpp"

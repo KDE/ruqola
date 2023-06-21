@@ -39,3 +39,5 @@ void EmoticonTextEditSelectorTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.customEmojiSupport());
 }
+
+#include "moc_emoticontexteditselectortest.cpp"

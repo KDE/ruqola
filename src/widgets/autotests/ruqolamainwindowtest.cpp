@@ -94,3 +94,5 @@ void RuqolaMainWindowTest::shouldRestoreSizes()
         QCOMPARE(mSplitter->sizes(), actualSizes);
     }
 }
+
+#include "moc_ruqolamainwindowtest.cpp"

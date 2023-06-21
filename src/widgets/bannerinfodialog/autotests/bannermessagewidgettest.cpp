@@ -21,3 +21,5 @@ void BannerMessageWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QVERIFY(w.bannerInfos().isEmpty());
 }
+
+#include "moc_bannermessagewidgettest.cpp"

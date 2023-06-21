@@ -54,3 +54,5 @@ void UserDataDownloadWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessageLimitRequest), QStringLiteral("UserData_MessageLimitPerRequest"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("UserData_MessageLimitPerRequest"));
 }
+
+#include "moc_userdatadownloadwidgettest.cpp"

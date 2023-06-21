@@ -38,3 +38,5 @@ void BannerInfosFilterProxyModel::setShowUnread(bool newShowUnread)
         invalidateFilter();
     }
 }
+
+#include "moc_bannerinfosfilterproxymodel.cpp"

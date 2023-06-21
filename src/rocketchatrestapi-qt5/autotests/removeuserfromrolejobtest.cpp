@@ -69,3 +69,5 @@ void RemoveUserFromRoleJobTest::shouldNotStarting()
     job.setRoleName(rolename);
     QVERIFY(job.canStart());
 }
+
+#include "moc_removeuserfromrolejobtest.cpp"

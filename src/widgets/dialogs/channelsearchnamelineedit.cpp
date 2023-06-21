@@ -78,3 +78,5 @@ void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
     clear();
     connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
 }
+
+#include "moc_channelsearchnamelineedit.cpp"

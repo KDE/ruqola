@@ -23,3 +23,5 @@ PluginTextInterface *WebShortcutTextPlugin::createInterface(QObject *parent)
 }
 
 #include "webshortcuttextplugin.moc"
+
+#include "moc_webshortcuttextplugin.cpp"

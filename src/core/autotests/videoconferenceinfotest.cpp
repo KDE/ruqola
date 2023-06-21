@@ -87,3 +87,5 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo()
     }
     QVERIFY(result);
 }
+
+#include "moc_videoconferenceinfotest.cpp"

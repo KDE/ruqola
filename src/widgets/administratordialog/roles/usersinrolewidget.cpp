@@ -182,3 +182,5 @@ void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &s
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
     }
 }
+
+#include "moc_usersinrolewidget.cpp"

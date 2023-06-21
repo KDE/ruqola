@@ -62,3 +62,5 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
     auto mConfigureAvatarWidget = w.findChild<MyAccountProfileConfigureAvatarWidget *>(QStringLiteral("mConfigureAvatarWidget"));
     QVERIFY(mConfigureAvatarWidget);
 }
+
+#include "moc_myaccountprofileconfigurewidgettest.cpp"

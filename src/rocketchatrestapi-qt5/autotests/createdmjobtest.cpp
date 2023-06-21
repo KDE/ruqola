@@ -70,3 +70,5 @@ void CreateDmJobTest::shouldNotStarting()
     job.setUserNames({username});
     QVERIFY(job.canStart());
 }
+
+#include "moc_createdmjobtest.cpp"

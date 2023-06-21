@@ -31,3 +31,5 @@ void AdministratorUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 }
+
+#include "moc_administratoruserswidgettest.cpp"

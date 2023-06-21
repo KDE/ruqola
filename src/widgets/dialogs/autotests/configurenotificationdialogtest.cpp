@@ -31,3 +31,5 @@ void ConfigureNotificationDialogTest::shouldHaveDefaultValues()
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(buttonBox);
 }
+
+#include "moc_configurenotificationdialogtest.cpp"

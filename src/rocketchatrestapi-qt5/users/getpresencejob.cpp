@@ -67,3 +67,5 @@ bool GetPresenceJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+#include "moc_getpresencejob.cpp"

@@ -251,3 +251,5 @@ void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     mRocketChatAccount->requestNewPassword(email);
 }
+
+#include "moc_ruqolaloginwidget.cpp"

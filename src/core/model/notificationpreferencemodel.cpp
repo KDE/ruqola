@@ -87,3 +87,5 @@ QString NotificationPreferenceModel::currentPreference(int index) const
     const QString str = mNotificationPreferenceList.at(index).preference;
     return str;
 }
+
+#include "moc_notificationpreferencemodel.cpp"

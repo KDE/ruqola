@@ -35,3 +35,5 @@ void AdministratorCustomUserStatusCreateDialogTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.userStatusInfo().isValid());
 }
+
+#include "moc_administratorcustomuserstatuscreatedialogtest.cpp"

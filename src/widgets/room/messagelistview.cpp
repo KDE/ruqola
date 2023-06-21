@@ -827,3 +827,5 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
     Q_UNUSED(modelIndex)
 #endif
 }
+
+#include "moc_messagelistview.cpp"

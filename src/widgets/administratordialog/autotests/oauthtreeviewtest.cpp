@@ -23,3 +23,5 @@ void OauthTreeViewTest::shouldHaveDefaultValues()
     QCOMPARE(treeView.selectionBehavior(), QAbstractItemView::SelectRows);
     QCOMPARE(treeView.selectionMode(), QAbstractItemView::SingleSelection);
 }
+
+#include "moc_oauthtreeviewtest.cpp"

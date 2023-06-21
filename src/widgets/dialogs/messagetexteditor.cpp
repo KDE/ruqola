@@ -28,3 +28,5 @@ QSize MessageTextEditor::minimumSizeHint() const
     const int margin = int(document()->documentMargin());
     return {300, fontMetrics().height() * 2 + margin};
 }
+
+#include "moc_messagetexteditor.cpp"

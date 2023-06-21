@@ -38,3 +38,5 @@ void IgnoreUserJobTest::shouldGenerateRequest()
     // TODO add ignore == false
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.ignoreUser?rid=foo&userId=bla&ignore=true")));
 }
+
+#include "moc_ignoreuserjobtest.cpp"

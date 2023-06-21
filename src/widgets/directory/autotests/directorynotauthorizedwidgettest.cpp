@@ -28,3 +28,5 @@ void DirectoryNotAuthorizedWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!label->text().isEmpty());
     QCOMPARE(label->textFormat(), Qt::RichText);
 }
+
+#include "moc_directorynotauthorizedwidgettest.cpp"

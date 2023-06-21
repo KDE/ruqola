@@ -46,3 +46,5 @@ void GroupRemoveOwnerJobTest::shouldGenerateJson()
     job.setRemoveUserId(removeUserId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(removeUserId, roomId).toLatin1());
 }
+
+#include "moc_groupremoveownerjobtest.cpp"

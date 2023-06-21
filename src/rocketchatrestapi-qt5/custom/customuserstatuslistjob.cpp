@@ -65,3 +65,5 @@ bool CustomUserStatusListJob::hasQueryParameterSupport() const
 {
     return true;
 }
+
+#include "moc_customuserstatuslistjob.cpp"

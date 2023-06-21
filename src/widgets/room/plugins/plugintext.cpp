@@ -12,3 +12,5 @@ PluginText::PluginText(QObject *parent)
 }
 
 PluginText::~PluginText() = default;
+
+#include "moc_plugintext.cpp"

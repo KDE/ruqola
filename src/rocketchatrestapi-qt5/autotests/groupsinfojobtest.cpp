@@ -54,3 +54,5 @@ void GroupsInfoJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_groupsinfojobtest.cpp"

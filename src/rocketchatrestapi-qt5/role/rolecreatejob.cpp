@@ -100,3 +100,5 @@ QString RoleCreateJob::errorMessage(const QString &str, const QJsonObject &detai
 
     return RestApiAbstractJob::errorMessage(str, detail);
 }
+
+#include "moc_rolecreatejob.cpp"

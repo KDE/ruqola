@@ -24,3 +24,5 @@ void WebDavSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnabled->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("Webdav_Integration_Enabled"));
 }
+
+#include "moc_webdavsettingswidgettest.cpp"

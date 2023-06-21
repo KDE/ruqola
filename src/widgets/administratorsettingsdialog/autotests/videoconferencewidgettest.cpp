@@ -133,3 +133,5 @@ void VideoConferenceWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mJitsiLimitTokenJitsiRoom->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiLimitTokenJitsiRoom), QStringLiteral("Jitsi_Limit_Token_To_Room"));
 }
+
+#include "moc_videoconferencewidgettest.cpp"

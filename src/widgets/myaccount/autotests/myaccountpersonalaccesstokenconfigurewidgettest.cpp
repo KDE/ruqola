@@ -31,3 +31,5 @@ void MyAccountPersonalAccessTokenConfigureWidgetTest::shouldHaveDefaultValues()
     auto mPersonalAccessTokenTreeView = w.findChild<MyAccountPersonalAccessTokenTreeView *>(QStringLiteral("mPersonalAccessTokenTreeView"));
     QVERIFY(mPersonalAccessTokenTreeView);
 }
+
+#include "moc_myaccountpersonalaccesstokenconfigurewidgettest.cpp"

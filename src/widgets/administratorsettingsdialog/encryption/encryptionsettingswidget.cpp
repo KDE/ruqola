@@ -48,3 +48,5 @@ void EncryptionSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mEnableEncryptionPrivateRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableOtr, mapSettings);
 }
+
+#include "moc_encryptionsettingswidget.cpp"

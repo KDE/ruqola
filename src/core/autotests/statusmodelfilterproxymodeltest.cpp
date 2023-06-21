@@ -19,3 +19,5 @@ void StatusModelFilterProxyModelTest::shouldHaveDefaultValues()
     QVERIFY(!w.useOnlyStandardStatus());
     QVERIFY(w.allowOfflineSupport());
 }
+
+#include "moc_statusmodelfilterproxymodeltest.cpp"

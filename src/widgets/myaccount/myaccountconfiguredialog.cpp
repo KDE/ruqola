@@ -70,3 +70,5 @@ void MyAccountConfigureDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myMyAccountConfigureDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_myaccountconfiguredialog.cpp"

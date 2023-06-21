@@ -37,3 +37,5 @@ void AddUsersInRoomDialogTest::shouldHaveDefaultValues()
     QVERIFY(w.userIds().isEmpty());
     QVERIFY(w.userNames().isEmpty());
 }
+
+#include "moc_addusersinroomdialogtest.cpp"

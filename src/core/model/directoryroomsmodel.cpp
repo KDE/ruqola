@@ -151,3 +151,5 @@ int DirectoryRoomsModel::total() const
 {
     return mRoomsInfo.total();
 }
+
+#include "moc_directoryroomsmodel.cpp"

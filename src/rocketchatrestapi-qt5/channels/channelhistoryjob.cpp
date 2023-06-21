@@ -135,3 +135,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::ChannelHistoryJob::ChannelH
     d << "roomId " << t.roomId;
     return d;
 }
+
+#include "moc_channelhistoryjob.cpp"

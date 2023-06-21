@@ -79,3 +79,5 @@ void AdministratorCustomEmojiCreateOrUpdateDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomEmojiCreateDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_administratorcustomemojicreateorupdatedialog.cpp"

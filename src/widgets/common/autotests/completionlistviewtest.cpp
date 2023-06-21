@@ -19,3 +19,5 @@ void CompletionListViewTest::shouldHaveDefaultValues()
     QVERIFY(w.uniformItemSizes());
     QCOMPARE(w.windowType(), Qt::Popup);
 }
+
+#include "moc_completionlistviewtest.cpp"

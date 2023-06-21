@@ -51,3 +51,5 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableOtr->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableOtr), QStringLiteral("OTR_Enabled"));
 }
+
+#include "moc_encryptionsettingswidgettest.cpp"

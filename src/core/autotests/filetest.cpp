@@ -151,3 +151,5 @@ void FileTest::shouldParseFile()
     }
     QVERIFY(equal);
 }
+
+#include "moc_filetest.cpp"

@@ -69,3 +69,5 @@ QJsonDocument User2FAEnableEmailJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_user2faenableemailjob.cpp"

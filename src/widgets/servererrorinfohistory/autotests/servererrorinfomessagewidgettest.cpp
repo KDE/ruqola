@@ -21,3 +21,5 @@ void ServerErrorInfoMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Error);
 }
+
+#include "moc_servererrorinfomessagewidgettest.cpp"

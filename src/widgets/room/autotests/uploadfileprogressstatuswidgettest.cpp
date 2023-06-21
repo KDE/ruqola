@@ -52,3 +52,5 @@ void UploadFileProgressStatusWidgetTest::shouldChangeText()
     w.setUploadFileName(text);
     QCOMPARE(mFileName->text(), text);
 }
+
+#include "moc_uploadfileprogressstatuswidgettest.cpp"

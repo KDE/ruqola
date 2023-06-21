@@ -40,3 +40,5 @@ bool PersonalAccessTokenInfosFilterProxyModel::lessThan(const QModelIndex &left,
     }
     return QSortFilterProxyModel::lessThan(left, right);
 }
+
+#include "moc_personalaccesstokeninfosfilterproxymodel.cpp"

@@ -87,3 +87,5 @@ void RegisterUserJobTest::shouldNotStarting()
     job.setRegisterUserInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_registeruserjobtest.cpp"

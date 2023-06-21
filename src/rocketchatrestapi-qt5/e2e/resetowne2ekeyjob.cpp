@@ -71,3 +71,5 @@ QJsonDocument ResetOwnE2eKeyJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_resetowne2ekeyjob.cpp"

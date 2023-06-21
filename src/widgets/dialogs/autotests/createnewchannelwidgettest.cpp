@@ -38,3 +38,5 @@ void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
     auto mEncryptedRoom = w.findChild<QCheckBox *>(QStringLiteral("mEncryptedRoom"));
     QVERIFY(mEncryptedRoom);
 }
+
+#include "moc_createnewchannelwidgettest.cpp"

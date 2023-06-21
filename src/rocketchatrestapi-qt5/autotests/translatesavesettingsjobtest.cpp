@@ -90,3 +90,5 @@ void TranslateSaveSettingsJobTest::shouldNotStarting()
     job.setLanguage(targetLanguage);
     QVERIFY(job.canStart());
 }
+
+#include "moc_translatesavesettingsjobtest.cpp"

@@ -53,3 +53,5 @@ QNetworkRequest OwnInfoJob::request() const
 
     return request;
 }
+
+#include "moc_owninfojob.cpp"

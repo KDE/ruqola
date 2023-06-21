@@ -100,3 +100,5 @@ void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }
+
+#include "moc_addteamroomcompletionlineedit.cpp"

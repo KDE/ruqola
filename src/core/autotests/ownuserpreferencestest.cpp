@@ -75,3 +75,5 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo()
     }
     QVERIFY(result);
 }
+
+#include "moc_ownuserpreferencestest.cpp"

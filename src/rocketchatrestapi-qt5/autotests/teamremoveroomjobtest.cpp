@@ -70,3 +70,5 @@ void TeamRemoveRoomJobTest::shouldNotStarting()
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamremoveroomjobtest.cpp"

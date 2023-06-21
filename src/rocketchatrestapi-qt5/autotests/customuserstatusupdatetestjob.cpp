@@ -81,3 +81,5 @@ void CustomUserStatusUpdateTestJob::shouldNotStarting()
     job.setStatusUpdateInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_customuserstatusupdatetestjob.cpp"

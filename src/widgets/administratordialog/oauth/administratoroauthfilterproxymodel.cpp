@@ -24,3 +24,5 @@ bool AdministratorOauthFilterProxyModel::lessThan(const QModelIndex &left, const
     }
     return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }
+
+#include "moc_administratoroauthfilterproxymodel.cpp"

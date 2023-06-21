@@ -19,3 +19,5 @@ void WhatsNewMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
 }
+
+#include "moc_whatsnewmessagewidgettest.cpp"

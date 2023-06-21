@@ -134,3 +134,5 @@ void UsersCreateJobTest::shouldNotStarting()
 
     QVERIFY(job.canStart());
 }
+
+#include "moc_userscreatejobtest.cpp"

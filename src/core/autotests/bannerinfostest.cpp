@@ -47,3 +47,5 @@ void BannerInfosTest::shouldLoadBannerInfos()
     QCOMPARE(r.count(), bannersCount);
     QCOMPARE(r.bannerUnreadInformations().isEmpty(), !hasUnreadBanner);
 }
+
+#include "moc_bannerinfostest.cpp"

@@ -33,3 +33,5 @@ void TeamSelectDeletedRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit->text().isEmpty());
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 }
+
+#include "moc_teamselectdeletedroomwidgettest.cpp"

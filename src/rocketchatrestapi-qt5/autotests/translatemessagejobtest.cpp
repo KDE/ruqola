@@ -71,3 +71,5 @@ void TranslateMessageJobTest::shouldNotStarting()
     job.setTargetLanguage(targetLanguage);
     QVERIFY(job.canStart());
 }
+
+#include "moc_translatemessagejobtest.cpp"

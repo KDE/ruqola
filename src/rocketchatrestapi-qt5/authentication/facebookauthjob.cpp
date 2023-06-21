@@ -120,3 +120,5 @@ bool FacebookAuthJob::requireHttpAuthentication() const
 {
     return false;
 }
+
+#include "moc_facebookauthjob.cpp"

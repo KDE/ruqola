@@ -60,3 +60,5 @@ void ChannelsModeratorsJobTest::shouldNotStarting()
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_channelsmoderatorsjobtest.cpp"

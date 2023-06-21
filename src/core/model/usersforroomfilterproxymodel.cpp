@@ -81,3 +81,5 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     const QString statusType = sourceIndex.data(UsersForRoomModel::Status).toString();
     return (mStatusType == statusType) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
+
+#include "moc_usersforroomfilterproxymodel.cpp"

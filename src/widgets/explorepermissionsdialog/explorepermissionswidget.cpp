@@ -70,3 +70,5 @@ void ExplorePermissionsWidget::setOWnRoles(const QStringList &roleStr)
 {
     mOwnRoles->setText(QStringLiteral("<qt><b>Own Roles:</b> %1</qt>").arg(roleStr.join(QLatin1Char(','))));
 }
+
+#include "moc_explorepermissionswidget.cpp"

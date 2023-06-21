@@ -50,3 +50,5 @@ void ListInviteJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_listinvitejobtest.cpp"

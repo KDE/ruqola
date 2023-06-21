@@ -3013,3 +3013,5 @@ QVector<Permission> RocketChatAccount::permissions() const
 {
     return mPermissionManager.permissions();
 }
+
+#include "moc_rocketchataccount.cpp"

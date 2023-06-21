@@ -94,3 +94,5 @@ QString UsersCreateJob::errorMessage(const QString &str, const QJsonObject &deta
     }
     return RestApiAbstractJob::errorMessage(str, detail);
 }
+
+#include "moc_userscreatejob.cpp"

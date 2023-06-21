@@ -33,3 +33,5 @@ void PruneMessagesDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_prunemessagesdialogtest.cpp"

@@ -382,3 +382,5 @@ QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)
     d << " needToDownloadBigImage ? " << t.needToDownloadBigImage;
     return d;
 }
+
+#include "moc_showimagewidget.cpp"

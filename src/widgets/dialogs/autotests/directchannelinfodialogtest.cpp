@@ -33,3 +33,5 @@ void DirectChannelInfoDialogTest::shouldHaveDefaultValue()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(button);
 }
+
+#include "moc_directchannelinfodialogtest.cpp"

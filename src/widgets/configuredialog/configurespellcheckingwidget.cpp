@@ -30,3 +30,5 @@ void ConfigureSpellCheckingWidget::load()
 {
     // Nothing
 }
+
+#include "moc_configurespellcheckingwidget.cpp"

@@ -44,3 +44,5 @@ void SearchWithDelayLineEdit::slotSearchTextEdited()
     mSearchTimer->setSingleShot(true);
     mSearchTimer->start(mMilliseconds);
 }
+
+#include "moc_searchwithdelaylineedit.cpp"

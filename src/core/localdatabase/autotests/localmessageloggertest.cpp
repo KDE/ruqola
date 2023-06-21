@@ -149,3 +149,5 @@ void LocalMessageLoggerTest::shouldDefaultValues()
     QCOMPARE(logger.schemaDatabaseStr(),
              QStringLiteral("CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)"));
 }
+
+#include "moc_localmessageloggertest.cpp"

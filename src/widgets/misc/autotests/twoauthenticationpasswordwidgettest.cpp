@@ -32,3 +32,5 @@ void TwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }
+
+#include "moc_twoauthenticationpasswordwidgettest.cpp"

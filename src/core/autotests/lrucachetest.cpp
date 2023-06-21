@@ -120,3 +120,5 @@ void LRUCacheTest::shouldWorkWithUniquePtr()
     QCOMPARE(documentCache.size(), 0);
     QCOMPARE(deletions, 1);
 }
+
+#include "moc_lrucachetest.cpp"

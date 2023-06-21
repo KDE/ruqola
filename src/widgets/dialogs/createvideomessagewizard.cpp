@@ -167,3 +167,5 @@ bool CreateVideoMessageWizard::CreateVideoMessageInfo::isValid() const
 {
     return mFilePath.isValid();
 }
+
+#include "moc_createvideomessagewizard.cpp"

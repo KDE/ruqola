@@ -93,3 +93,5 @@ QNetworkRequest GroupAddOwnerJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_groupaddownerjob.cpp"

@@ -67,3 +67,5 @@ void NotificationHistoryDelegateTest::shouldCompareAccountInfo()
         QCOMPARE(info, info2);
     }
 }
+
+#include "moc_notificationhistorydelegatetest.cpp"

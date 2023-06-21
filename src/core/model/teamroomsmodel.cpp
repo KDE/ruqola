@@ -127,3 +127,5 @@ void TeamRoomsModel::setIsCheckable(bool isCheckable)
 {
     mIsCheckable = isCheckable;
 }
+
+#include "moc_teamroomsmodel.cpp"

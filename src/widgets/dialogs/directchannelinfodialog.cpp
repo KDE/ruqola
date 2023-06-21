@@ -40,3 +40,5 @@ void DirectChannelInfoDialog::setRoles(const QVector<RoleInfo> &newRoles)
 {
     mDirectChannelInfoWidget->setRoles(newRoles);
 }
+
+#include "moc_directchannelinfodialog.cpp"

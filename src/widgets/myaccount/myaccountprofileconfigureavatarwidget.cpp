@@ -107,3 +107,5 @@ void AvatarImage::setCurrentIconPath(const QString &currentPath)
     mCurrentIconPath = currentPath;
     setIcon(QIcon(mCurrentIconPath));
 }
+
+#include "moc_myaccountprofileconfigureavatarwidget.cpp"

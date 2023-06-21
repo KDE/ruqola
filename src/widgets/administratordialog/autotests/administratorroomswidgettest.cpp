@@ -36,3 +36,5 @@ void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
     auto mSelectRoomType = w.findChild<AdministratorRoomsSelectRoomTypeWidget *>(QStringLiteral("mSelectRoomType"));
     QVERIFY(mSelectRoomType);
 }
+
+#include "moc_administratorroomswidgettest.cpp"

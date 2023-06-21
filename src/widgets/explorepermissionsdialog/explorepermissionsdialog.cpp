@@ -66,3 +66,5 @@ void ExplorePermissionsDialog::setOWnRoles(const QStringList &roleStr)
 {
     mExporePermissionWidget->setOWnRoles(roleStr);
 }
+
+#include "moc_explorepermissionsdialog.cpp"

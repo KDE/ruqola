@@ -83,3 +83,5 @@ void ChannelRolesInfoWidget::generateInfo(const QString &labelStr, const QString
     labelInfo->setText(QStringLiteral("<qt><b>%1</b></qt>").arg(labelStr));
     mFormLayout->addRow(labelInfo, label);
 }
+
+#include "moc_channelrolesinfowidget.cpp"

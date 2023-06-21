@@ -30,3 +30,5 @@ void PermissionsEditWidgetTest::shouldHaveDefaultValues()
     auto mRolesCombobox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesCombobox"));
     QVERIFY(mRolesCombobox);
 }
+
+#include "moc_permissionseditwidgettest.cpp"

@@ -30,3 +30,5 @@ void ChannelNameValidLineWidgetTest::shouldHaveDefaultValues()
     auto mChannelNameLabel = w.findChild<QLabel *>(QStringLiteral("mChannelNameLabel"));
     QCOMPARE(mChannelNameLabel->textFormat(), Qt::PlainText);
 }
+
+#include "moc_channelnamevalidlinewidgettest.cpp"

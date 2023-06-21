@@ -38,3 +38,5 @@ QString ConfirmPasswordWidget::password() const
 {
     return mPasswordLineEdit->password();
 }
+
+#include "moc_confirmpasswordwidget.cpp"

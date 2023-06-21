@@ -104,3 +104,5 @@ void CreateNewDiscussionDialog::setMessageId(const QString &newMessageId)
 {
     mMessageId = newMessageId;
 }
+
+#include "moc_createnewdiscussiondialog.cpp"

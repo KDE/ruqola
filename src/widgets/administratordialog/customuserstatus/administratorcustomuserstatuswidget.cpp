@@ -30,3 +30,5 @@ void AdministratorCustomUserStatusWidget::initialize()
 {
     mCustomUserStatusTreeWidget->initialize();
 }
+
+#include "moc_administratorcustomuserstatuswidget.cpp"

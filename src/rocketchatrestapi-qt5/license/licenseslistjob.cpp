@@ -57,3 +57,5 @@ QNetworkRequest LicensesListJob::request() const
 
     return request;
 }
+
+#include "moc_licenseslistjob.cpp"

@@ -80,3 +80,5 @@ void CreateNewServerDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateNewAccountDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_createnewserverdialog.cpp"

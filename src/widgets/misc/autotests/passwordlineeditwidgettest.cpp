@@ -30,3 +30,5 @@ void PasswordLineEditWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mResetPasswordButton);
     QVERIFY(!mResetPasswordButton->text().isEmpty());
 }
+
+#include "moc_passwordlineeditwidgettest.cpp"

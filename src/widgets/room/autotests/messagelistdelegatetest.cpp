@@ -149,3 +149,5 @@ void MessageListDelegateTest::layoutChecks()
         QVERIFY(!layout.editedIconRect.intersects(layout.senderRect.toRect()));
     }
 }
+
+#include "moc_messagelistdelegatetest.cpp"

@@ -64,3 +64,5 @@ void User2FAEnableEmailJobTest::shouldNotStarting()
     job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_user2fadisableemailjobtest.cpp"

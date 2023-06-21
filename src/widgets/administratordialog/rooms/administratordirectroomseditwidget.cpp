@@ -52,3 +52,5 @@ void AdministratorDirectRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &new
     mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
     mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
 }
+
+#include "moc_administratordirectroomseditwidget.cpp"

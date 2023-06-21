@@ -99,3 +99,5 @@ QJsonDocument ChangeArchivationStateJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_changearchivationstatejob.cpp"

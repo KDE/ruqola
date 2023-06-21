@@ -24,3 +24,5 @@ void UserCompleterFilterProxyModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(w.sourceModel(), &source);
 }
+
+#include "moc_usercompleterfilterproxymodeltest.cpp"

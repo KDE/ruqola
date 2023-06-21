@@ -126,3 +126,5 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob:
 
     return d;
 }
+
+#include "moc_usersupdateownbasicinfojob.cpp"

@@ -205,3 +205,5 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
         }
     }
 }
+
+#include "moc_myaccountpersonalaccesstokenconfigurewidget.cpp"

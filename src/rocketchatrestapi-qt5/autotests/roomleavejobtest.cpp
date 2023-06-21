@@ -64,3 +64,5 @@ void RoomLeaveJobTest::shouldNotStarting()
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_roomleavejobtest.cpp"

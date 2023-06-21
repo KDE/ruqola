@@ -20,3 +20,5 @@ void ManagerDataPathsTest::shouldHaveDefaultValue()
     ManagerDataPaths p;
     // TODO
 }
+
+#include "moc_managerdatapathstest.cpp"

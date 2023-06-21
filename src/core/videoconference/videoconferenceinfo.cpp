@@ -296,3 +296,5 @@ QString VideoConferenceInfo::statusInformation() const
     }
     return {};
 }
+
+#include "moc_videoconferenceinfo.cpp"

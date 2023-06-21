@@ -72,3 +72,5 @@ void ServerErrorInfoHistoryModel::addServerErrorInfo(const ServerErrorInfo &info
     beginInsertRows(QModelIndex(), numberOfElement, mServerErrorInfo.count() - 1);
     endInsertRows();
 }
+
+#include "moc_servererrorinfohistorymodel.cpp"

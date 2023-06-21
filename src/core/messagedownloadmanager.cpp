@@ -12,3 +12,5 @@ MessageDownloadManager::MessageDownloadManager(QObject *parent)
 }
 
 MessageDownloadManager::~MessageDownloadManager() = default;
+
+#include "moc_messagedownloadmanager.cpp"

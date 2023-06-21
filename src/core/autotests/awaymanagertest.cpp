@@ -20,3 +20,5 @@ void AwayManagerTest::shouldHaveDefaultValues()
     QCOMPARE(m.idleTiming(), -1);
     // TODO
 }
+
+#include "moc_awaymanagertest.cpp"

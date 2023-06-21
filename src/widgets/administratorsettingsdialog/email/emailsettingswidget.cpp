@@ -203,3 +203,5 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
                      QStringLiteral("<h2>{Hi},</h2><p>{Your_password_was_changed_by_an_admin}</p><p>{Your_temporary_password_is_password}</p><a class=\"btn\" "
                                     "target=\"_blank\" href=\"[Site_URL]\">{Login}</a>"));
 }
+
+#include "moc_emailsettingswidget.cpp"

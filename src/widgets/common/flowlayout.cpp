@@ -196,3 +196,5 @@ int FlowLayout::doFlow(QRect rect, bool effective) const
 
     return y + highest - rect.y() + margins.bottom();
 }
+
+#include "moc_flowlayout.cpp"

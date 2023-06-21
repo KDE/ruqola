@@ -20,3 +20,5 @@ void MessagePinnedTest::shouldHaveDefaultValue()
     QVERIFY(!p.pinned());
     QVERIFY(p.pinnedBy().isEmpty());
 }
+
+#include "moc_messagepinnedtest.cpp"

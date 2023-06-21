@@ -54,3 +54,5 @@ void DeleteDmJobTest::shouldGenerateUserNameJson()
     job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
+
+#include "moc_deletedmjobtest.cpp"

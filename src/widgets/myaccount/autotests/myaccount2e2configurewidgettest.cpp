@@ -41,3 +41,5 @@ void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
     auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
     QVERIFY(mPasswordConfirmWidget);
 }
+
+#include "moc_myaccount2e2configurewidgettest.cpp"

@@ -41,3 +41,5 @@ bool BannerInfoListSearchLineWidget::showOnlyUnread() const
 {
     return mOnlyUnReadCheckBox->isChecked();
 }
+
+#include "moc_bannerinfolistsearchlinewidget.cpp"

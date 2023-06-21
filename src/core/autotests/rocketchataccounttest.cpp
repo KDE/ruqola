@@ -70,3 +70,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.videoConferenceManager());
     QVERIFY(w.videoConferenceMessageInfoManager());
 }
+
+#include "moc_rocketchataccounttest.cpp"

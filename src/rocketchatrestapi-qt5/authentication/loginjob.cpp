@@ -134,3 +134,5 @@ void LoginJob::setUserName(const QString &userName)
 {
     mUserName = userName;
 }
+
+#include "moc_loginjob.cpp"

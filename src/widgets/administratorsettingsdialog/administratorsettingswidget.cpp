@@ -216,3 +216,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mAnalyticsWidget->setEnabled(state);
     mIrcWidget->setEnabled(state);
 }
+
+#include "moc_administratorsettingswidget.cpp"

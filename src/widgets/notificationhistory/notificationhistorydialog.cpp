@@ -64,3 +64,5 @@ void NotificationHistoryDialog::addServerList(const QStringList &serverNames)
 {
     mNotificationHistoryWidget->addServerList(serverNames);
 }
+
+#include "moc_notificationhistorydialog.cpp"

@@ -505,3 +505,5 @@ void RoomTest::shouldParseRoomAndUpdateSubscription()
 }
 
 // TODO add more autotests signal and co.
+
+#include "moc_roomtest.cpp"

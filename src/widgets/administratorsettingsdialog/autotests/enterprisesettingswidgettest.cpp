@@ -32,3 +32,5 @@ void EnterpriseSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStatus->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStatus), QStringLiteral("Enterprise_License_Status"));
 }
+
+#include "moc_enterprisesettingswidgettest.cpp"

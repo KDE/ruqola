@@ -78,3 +78,5 @@ QString NotificationDesktopDurationPreferenceModel::currentPreference(int index)
     const QString str = mNotificationDestktopDurationPreferenceList.at(index).preference;
     return str;
 }
+
+#include "moc_notificationdesktopdurationpreferencemodel.cpp"

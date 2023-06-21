@@ -41,3 +41,5 @@ void AdministratorDirectRoomsEditWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mFeaturedCheckBox->isChecked());
     QVERIFY(!mFeaturedCheckBox->text().isEmpty());
 }
+
+#include "moc_administratordirectroomseditwidgettest.cpp"

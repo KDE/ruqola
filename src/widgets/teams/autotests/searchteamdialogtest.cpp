@@ -32,3 +32,5 @@ void SearchTeamDialogTest::shouldHaveDefaultValues()
     auto mSearchTeamWidget = d.findChild<SearchTeamWidget *>(QStringLiteral("mSearchTeamWidget"));
     QVERIFY(mSearchTeamWidget);
 }
+
+#include "moc_searchteamdialogtest.cpp"

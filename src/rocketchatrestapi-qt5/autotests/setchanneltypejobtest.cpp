@@ -77,3 +77,5 @@ void SetChannelTypeJobTest::shouldNotStarting()
     job.setType(SetChannelTypeJob::Private);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setchanneltypejobtest.cpp"

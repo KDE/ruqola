@@ -92,3 +92,5 @@ void RuqolaLoginWidgetTest::shouldShowLabelError()
     QCOMPARE(mFailedError->text(), QStringLiteral("bla"));
     QVERIFY(!mFailedError->isHidden());
 }
+
+#include "moc_ruqolaloginwidgettest.cpp"

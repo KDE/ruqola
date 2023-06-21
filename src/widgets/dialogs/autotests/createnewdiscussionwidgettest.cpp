@@ -62,3 +62,5 @@ void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessageTextEdit->toPlainText().isEmpty());
     QVERIFY(!mMessageTextEdit->acceptRichText());
 }
+
+#include "moc_createnewdiscussionwidgettest.cpp"

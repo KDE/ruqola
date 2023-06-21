@@ -72,3 +72,5 @@ void RemovePersonalAccessTokenJobTest::shouldNotStarting()
     job.setTokenName(tokenName);
     QVERIFY(job.canStart());
 }
+
+#include "moc_removepersonalaccesstokenjobtest.cpp"

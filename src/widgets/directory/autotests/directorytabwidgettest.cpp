@@ -34,3 +34,5 @@ void DirectoryTabWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(tab->directoryWidget()->type(), DirectoryWidget::Team);
     QVERIFY(tab);
 }
+
+#include "moc_directorytabwidgettest.cpp"

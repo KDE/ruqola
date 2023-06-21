@@ -31,3 +31,5 @@ void ChannelSearchWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mChannelSearchNameLineEdit);
     // TODO
 }
+
+#include "moc_channelsearchwidgettest.cpp"

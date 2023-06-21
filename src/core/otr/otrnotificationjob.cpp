@@ -145,3 +145,5 @@ void OtrNotificationJob::setOtr(const Otr &newOtr)
 {
     mOtr = newOtr;
 }
+
+#include "moc_otrnotificationjob.cpp"

@@ -184,3 +184,5 @@ void UsersInRoomMenu::setRoom(Room *room)
 {
     mRoom = room;
 }
+
+#include "moc_usersinroommenu.cpp"

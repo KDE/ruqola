@@ -63,3 +63,5 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserDialog::registe
 {
     return mRegisterUserWidget->registerUserInfo();
 }
+
+#include "moc_registeruserdialog.cpp"

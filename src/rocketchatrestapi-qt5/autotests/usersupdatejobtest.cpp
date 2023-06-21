@@ -100,3 +100,5 @@ void UsersUpdateJobTest::shouldNotStarting()
     job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }
+
+#include "moc_usersupdatejobtest.cpp"

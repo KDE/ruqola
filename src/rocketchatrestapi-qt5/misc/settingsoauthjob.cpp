@@ -58,3 +58,5 @@ QNetworkRequest SettingsOauthJob::request() const
 
     return request;
 }
+
+#include "moc_settingsoauthjob.cpp"

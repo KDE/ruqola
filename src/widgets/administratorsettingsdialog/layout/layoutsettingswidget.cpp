@@ -62,3 +62,5 @@ void LayoutSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mGroupChannelsByType, mapSettings, true);
     initializeWidget(mNumberUsersAutocompletion, mapSettings, 5);
 }
+
+#include "moc_layoutsettingswidget.cpp"

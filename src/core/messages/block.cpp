@@ -175,3 +175,5 @@ QDebug operator<<(QDebug d, const Block &t)
     d << "Video conf info " << t.videoConferenceInfo();
     return d;
 }
+
+#include "moc_block.cpp"

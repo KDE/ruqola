@@ -22,3 +22,5 @@ void CustomSoundInfoTest::shouldHaveDefaultValues()
     QVERIFY(!info.isValid());
     // TODO
 }
+
+#include "moc_customsoundinfotest.cpp"

@@ -20,3 +20,5 @@ void ThreadMessageModelTest::shouldHaveDefaultValues()
     ThreadMessageModel w;
     QVERIFY(w.threadMessageId().isEmpty());
 }
+
+#include "moc_threadmessagemodeltest.cpp"

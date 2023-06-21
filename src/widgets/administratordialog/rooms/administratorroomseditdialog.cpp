@@ -63,3 +63,5 @@ void AdministratorRoomsEditDialog::setRoomEditInfo(const AdministratorRoomsEditB
 {
     mAdministratorRoomEditWidget->setRoomEditInfo(newRoomEditInfo);
 }
+
+#include "moc_administratorroomseditdialog.cpp"

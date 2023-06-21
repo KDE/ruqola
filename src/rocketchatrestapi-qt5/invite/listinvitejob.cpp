@@ -64,3 +64,5 @@ bool ListInviteJob::canStart() const
     }
     return true;
 }
+
+#include "moc_listinvitejob.cpp"

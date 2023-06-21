@@ -632,3 +632,5 @@ void MessageModel::setSearchText(const QString &searchText)
 {
     mSearchText = searchText;
 }
+
+#include "moc_messagemodel.cpp"

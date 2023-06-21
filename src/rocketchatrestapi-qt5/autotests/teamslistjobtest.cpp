@@ -41,3 +41,5 @@ void TeamsListJobTest::shouldGenerateRequestUsername()
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.list")));
 }
+
+#include "moc_teamslistjobtest.cpp"

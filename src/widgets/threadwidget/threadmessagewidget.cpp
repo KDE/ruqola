@@ -163,3 +163,5 @@ void ThreadMessageWidget::dropEvent(QDropEvent *event)
         mRoomWidgetBase->messageLineWidget()->handleMimeData(mimeData);
     }
 }
+
+#include "moc_threadmessagewidget.cpp"

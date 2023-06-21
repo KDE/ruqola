@@ -34,3 +34,5 @@ void SearchMessageDialogTest::shouldHaveDefaultValues()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_searchmessagedialogtest.cpp"

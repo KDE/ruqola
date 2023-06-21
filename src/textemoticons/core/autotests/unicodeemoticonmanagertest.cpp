@@ -20,3 +20,5 @@ void UnicodeEmoticonManagerTest::shouldHaveDefaultValues()
     QVERIFY(!w.unicodeEmojiList().isEmpty());
     QVERIFY(!w.categories().isEmpty());
 }
+
+#include "moc_unicodeemoticonmanagertest.cpp"

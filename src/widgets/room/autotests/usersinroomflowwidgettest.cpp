@@ -23,3 +23,5 @@ void UsersInRoomFlowWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mFlowLayout->spacing(), 0);
     QCOMPARE(mFlowLayout->contentsMargins(), QMargins{});
 }
+
+#include "moc_usersinroomflowwidgettest.cpp"

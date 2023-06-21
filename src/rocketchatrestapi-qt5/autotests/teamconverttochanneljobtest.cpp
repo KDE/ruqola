@@ -68,3 +68,5 @@ void TeamConvertToChannelJobTest::shouldNotStarting()
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }
+
+#include "moc_teamconverttochanneljobtest.cpp"

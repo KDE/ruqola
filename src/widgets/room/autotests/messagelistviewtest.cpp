@@ -24,3 +24,5 @@ void MessageListViewTest::shouldHaveDefaultValues()
     QVERIFY(w.wordWrap());
     QCOMPARE(w.focusPolicy(), Qt::NoFocus);
 }
+
+#include "moc_messagelistviewtest.cpp"

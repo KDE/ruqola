@@ -792,3 +792,5 @@ void RocketChatBackend::slotUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-roles"), params);
     }
 }
+
+#include "moc_rocketchatbackend.cpp"

@@ -83,3 +83,5 @@ void RoleCreateJobTest::shouldNotStarting()
     job.setCreateRoleInfo(info);
     QVERIFY(job.canStart());
 }
+
+#include "moc_rolecreatejobtest.cpp"

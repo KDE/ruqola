@@ -38,3 +38,5 @@ void DirectoryTabWidget::fillTabs()
     mTeams->fillDirectory();
     mUsers->fillDirectory();
 }
+
+#include "moc_directorytabwidget.cpp"

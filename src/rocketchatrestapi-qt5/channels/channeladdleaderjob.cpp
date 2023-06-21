@@ -91,3 +91,5 @@ QNetworkRequest ChannelAddLeaderJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_channeladdleaderjob.cpp"

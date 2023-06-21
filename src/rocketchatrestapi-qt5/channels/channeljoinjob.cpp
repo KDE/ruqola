@@ -110,3 +110,5 @@ QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &deta
     }
     return ChannelGroupBaseJob::errorMessage(str, detail);
 }
+
+#include "moc_channeljoinjob.cpp"

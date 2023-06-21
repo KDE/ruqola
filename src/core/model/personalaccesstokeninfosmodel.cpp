@@ -111,3 +111,5 @@ void PersonalAccessTokenInfosModel::removeToken(const QString &tokenName)
         }
     }
 }
+
+#include "moc_personalaccesstokeninfosmodel.cpp"

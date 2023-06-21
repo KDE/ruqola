@@ -97,3 +97,5 @@ void StarMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(messageId).toLatin1());
 }
+
+#include "moc_starmessagejobtest.cpp"

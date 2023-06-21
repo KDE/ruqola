@@ -114,3 +114,5 @@ QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const Uti
     }
     return downScaled;
 }
+
+#include "moc_avatarcachemanager.cpp"

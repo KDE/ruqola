@@ -44,3 +44,5 @@ QDebug operator<<(QDebug d, const CustomEmoji &t)
     d << "category " << t.category();
     return d;
 }
+
+#include "moc_customemoji.cpp"

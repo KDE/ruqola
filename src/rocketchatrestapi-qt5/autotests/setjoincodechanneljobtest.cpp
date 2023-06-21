@@ -76,3 +76,5 @@ void SetJoinCodeChannelJobTest::shouldNotStarting()
     job.setJoinCode(joinCode);
     QVERIFY(job.canStart());
 }
+
+#include "moc_setjoincodechanneljobtest.cpp"

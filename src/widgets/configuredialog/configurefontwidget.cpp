@@ -45,3 +45,5 @@ void ConfigureFontWidget::load()
     mCustomFontCheck->setChecked(RuqolaGlobalConfig::self()->useCustomFont());
     mFontChooser->setFont(RuqolaGlobalConfig::self()->generalFont());
 }
+
+#include "moc_configurefontwidget.cpp"

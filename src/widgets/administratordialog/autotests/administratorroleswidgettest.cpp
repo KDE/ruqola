@@ -40,3 +40,5 @@ void AdministratorRolesWidgetTest::shouldHaveDefaultValues()
     auto mRoleFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("mRoleFilterProxyModel"));
     QVERIFY(mRoleFilterProxyModel);
 }
+
+#include "moc_administratorroleswidgettest.cpp"

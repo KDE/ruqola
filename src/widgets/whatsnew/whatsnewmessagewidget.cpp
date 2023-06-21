@@ -28,3 +28,5 @@ void WhatsNewMessageWidget::slotLinkActivated(const QString &contents)
         dlg.exec();
     }
 }
+
+#include "moc_whatsnewmessagewidget.cpp"

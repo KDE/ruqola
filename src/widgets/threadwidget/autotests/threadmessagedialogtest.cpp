@@ -32,3 +32,5 @@ void ThreadMessageDialogTest::shouldHaveDefaultValues()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }
+
+#include "moc_threadmessagedialogtest.cpp"

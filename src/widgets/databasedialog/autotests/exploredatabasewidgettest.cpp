@@ -44,3 +44,5 @@ void ExploreDatabaseWidgetTest::shouldHaveDefaultValues()
     auto mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
 }
+
+#include "moc_exploredatabasewidgettest.cpp"

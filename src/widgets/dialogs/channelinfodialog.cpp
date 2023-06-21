@@ -88,3 +88,5 @@ void ChannelInfoDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigChannelInfoDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_channelinfodialog.cpp"

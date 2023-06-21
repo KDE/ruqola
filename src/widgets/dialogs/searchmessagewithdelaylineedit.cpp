@@ -40,3 +40,5 @@ void SearchMessageWithDelayLineEdit::addCompletionItem(const QString &str)
         mCurrentRocketChatAccount->setSearchListCompletion(mListCompetion);
     }
 }
+
+#include "moc_searchmessagewithdelaylineedit.cpp"

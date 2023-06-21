@@ -18,3 +18,5 @@ void ShowAttachmentComboBoxTest::shouldHaveDefaultValues()
     ShowAttachmentComboBox w;
     QVERIFY(w.count() != 0);
 }
+
+#include "moc_showattachmentcomboboxtest.cpp"

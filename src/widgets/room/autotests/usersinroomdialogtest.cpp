@@ -31,3 +31,5 @@ void UsersInRoomDialogTest::shouldHaveDefaultValues()
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 }
+
+#include "moc_usersinroomdialogtest.cpp"

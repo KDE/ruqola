@@ -61,3 +61,5 @@ void WhatsNewDialog::updateInformations()
 {
     mWhatsNewWidget->updateInformations();
 }
+
+#include "moc_whatsnewdialog.cpp"

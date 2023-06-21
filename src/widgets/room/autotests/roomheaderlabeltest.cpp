@@ -19,3 +19,5 @@ void RoomHeaderLabelTest::shouldHaveDefaultValues()
     QVERIFY(w.fullText().isEmpty());
     // TODO
 }
+
+#include "moc_roomheaderlabeltest.cpp"

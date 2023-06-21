@@ -85,3 +85,5 @@ bool GetCommandsJob::canStart() const
     }
     return true;
 }
+
+#include "moc_getcommandsjob.cpp"

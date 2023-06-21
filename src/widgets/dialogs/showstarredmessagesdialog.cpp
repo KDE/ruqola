@@ -42,3 +42,5 @@ void ShowStarredMessagesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowStarredMessagesDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showstarredmessagesdialog.cpp"

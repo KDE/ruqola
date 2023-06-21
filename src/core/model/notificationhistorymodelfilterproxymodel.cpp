@@ -46,3 +46,5 @@ void NotificationHistoryModelFilterProxyModel::setAccountNameFilter(const QStrin
         invalidate();
     }
 }
+
+#include "moc_notificationhistorymodelfilterproxymodel.cpp"

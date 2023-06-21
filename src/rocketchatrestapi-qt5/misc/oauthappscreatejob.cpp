@@ -94,3 +94,5 @@ bool OauthAppsCreateJob::OauthAppsCreateInfo::isValid() const
 {
     return !redirectUri.isEmpty() && !name.isEmpty();
 }
+
+#include "moc_oauthappscreatejob.cpp"

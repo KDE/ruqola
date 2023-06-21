@@ -72,3 +72,5 @@ QNetworkRequest StatisticsJob::request() const
 
     return request;
 }
+
+#include "moc_statisticsjob.cpp"

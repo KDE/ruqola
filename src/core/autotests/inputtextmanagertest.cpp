@@ -140,3 +140,5 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     QCOMPARE(requestSpy.count(), 0);
     typeChangedSpy.clear();
 }
+
+#include "moc_inputtextmanagertest.cpp"

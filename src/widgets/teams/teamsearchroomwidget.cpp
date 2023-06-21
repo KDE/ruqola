@@ -26,3 +26,5 @@ QStringList TeamSearchRoomWidget::roomIds() const
 {
     return mTeamSearchRoomForTeamWidget->roomIds();
 }
+
+#include "moc_teamsearchroomwidget.cpp"

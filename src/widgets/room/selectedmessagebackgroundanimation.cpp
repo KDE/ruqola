@@ -67,3 +67,5 @@ MessageModel *SelectedMessageBackgroundAnimation::messageModel() const
 {
     return mModel;
 }
+
+#include "moc_selectedmessagebackgroundanimation.cpp"

@@ -88,3 +88,5 @@ QNetworkRequest ChannelOpenJob::request() const
     addRequestAttribute(request);
     return request;
 }
+
+#include "moc_channelopenjob.cpp"

@@ -102,3 +102,5 @@ QJsonDocument TeamLeaveRoomJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+#include "moc_teamleaveroomjob.cpp"

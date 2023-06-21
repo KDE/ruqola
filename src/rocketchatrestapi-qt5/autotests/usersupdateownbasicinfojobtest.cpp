@@ -92,3 +92,5 @@ void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
     // TODO
     QVERIFY(job.canStart());
 }
+
+#include "moc_usersupdateownbasicinfojobtest.cpp"

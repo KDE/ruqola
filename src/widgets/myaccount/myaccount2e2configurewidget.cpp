@@ -80,3 +80,5 @@ void MyAccount2e2ConfigureWidget::slotReset2E2KeyDone(const QJsonObject &replyOb
 {
     qDebug() << " replyObject " << replyObject;
 }
+
+#include "moc_myaccount2e2configurewidget.cpp"
