@@ -15,6 +15,8 @@ public:
     explicit ExportDataSelectAccountPage(QWidget *parent = nullptr);
     ~ExportDataSelectAccountPage() override;
 
+    void setAccountList(const QStringList &lst);
+
 private:
     ExportDataSelectAccountListWidget *const mExportDataSelectAccountListWidget;
 };

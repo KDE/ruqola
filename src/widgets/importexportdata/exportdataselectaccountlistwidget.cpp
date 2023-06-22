@@ -17,6 +17,8 @@ ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = defaul
 void ExportDataSelectAccountListWidget::setAccountList(const QStringList &lst)
 {
     for (const QString &accountName : lst) {
-        // TODO
+        auto item = new QListWidgetItem(this);
+        item->setText(accountName);
+        item->setCheckState(Qt::Unchecked);
     }
 }

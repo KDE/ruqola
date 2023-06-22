@@ -32,6 +32,7 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
     setPage(FinishPage, mExportDataFinishPage);
 
     readConfig();
+    loadAccountInfo();
 }
 
 ExportDataWizard::~ExportDataWizard()
@@ -52,6 +53,12 @@ void ExportDataWizard::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigExportDataWizardGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
+}
+
+void ExportDataWizard::loadAccountInfo()
+{
+    // TODO
+    mExportDataSelectAccountPage->setAccountList(QStringList());
 }
 
 #include "moc_exportdatawizard.cpp"

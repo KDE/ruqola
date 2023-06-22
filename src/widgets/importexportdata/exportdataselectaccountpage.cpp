@@ -27,4 +27,9 @@ ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
 
 ExportDataSelectAccountPage::~ExportDataSelectAccountPage() = default;
 
+void ExportDataSelectAccountPage::setAccountList(const QStringList &lst)
+{
+    mExportDataSelectAccountListWidget->setAccountList(lst);
+}
+
 #include "moc_exportdataselectaccountpage.cpp"
