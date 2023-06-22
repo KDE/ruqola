@@ -708,12 +708,12 @@ target_sources(libruqolawidgets PRIVATE
 
     importexportdata/exportdatawizard.h
     importexportdata/exportdatawizard.cpp
-
     importexportdata/exportdataselectaccountpage.h
     importexportdata/exportdataselectaccountpage.cpp
-
     importexportdata/exportdatafinishpage.h
     importexportdata/exportdatafinishpage.cpp
+    importexportdata/exportdataselectaccountlistwidget.h
+    importexportdata/exportdataselectaccountlistwidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
