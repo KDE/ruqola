@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-21 00:47+0000\n"
-"PO-Revision-Date: 2023-06-20 09:48+0200\n"
+"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"PO-Revision-Date: 2023-06-21 09:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3395,10 +3395,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Temps fins a desblocar l'usuari (en minuts)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "How Many Failed Attempts Until Block by User"
+#, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "El nombre d'intents fallits per usuari fins el bloqueig"
+msgstr "El nombre d'intents fallits fins el bloqueig per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3965,10 +3964,9 @@ msgid "Invitation"
 msgstr "Invitació"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Permet el canvi de contrasenya"
+msgstr "S'ha canviat la contrasenya"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -7072,6 +7070,13 @@ msgstr "JSON"
 #, kde-format
 msgid "Html"
 msgstr "HTML"
+
+#: widgets/importexportdata/exportdatawizard.cpp:26
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Export Accounts"
+msgstr "Comptes"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format

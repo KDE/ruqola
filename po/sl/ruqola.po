@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-21 00:47+0000\n"
-"PO-Revision-Date: 2023-06-20 06:42+0200\n"
+"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"PO-Revision-Date: 2023-06-21 09:14+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3390,10 +3390,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Čas za deblokiranje uporabnika (v minutah)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "How Many Failed Attempts Until Block by User"
+#, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "Koliko zgrešenih poskusov pred blokiranjem uporabnika"
+msgstr "Koliko zgrešenih poskusov pred blokiranjem na IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3956,10 +3955,9 @@ msgid "Invitation"
 msgstr "Povabilo"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Dovoli spremembo gesla"
+msgstr "Geslo spremenjeno"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -7058,6 +7056,13 @@ msgstr "JSON"
 #, kde-format
 msgid "Html"
 msgstr "Html"
+
+#: widgets/importexportdata/exportdatawizard.cpp:26
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Export Accounts"
+msgstr "Računi"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format

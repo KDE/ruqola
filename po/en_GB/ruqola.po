@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-21 00:47+0000\n"
+"POT-Creation-Date: 2023-06-22 00:48+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7026,6 +7026,13 @@ msgstr "JSON"
 #, kde-format
 msgid "Html"
 msgstr "HTML"
+
+#: widgets/importexportdata/exportdatawizard.cpp:26
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Export Accounts"
+msgstr "Accounts"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format

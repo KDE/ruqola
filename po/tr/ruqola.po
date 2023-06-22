@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-21 00:47+0000\n"
-"PO-Revision-Date: 2023-06-20 15:03+0300\n"
+"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"PO-Revision-Date: 2023-06-21 12:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3363,7 +3363,7 @@ msgstr "Başarısız Oturum Açma Denemeleri"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr "Kullanıcı Engellenmeden Önce Kaç Hatalı Giriş"
+msgstr "Kullanıcı engellenmeden önce kaç hatalı giriş denemesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, kde-format
@@ -3371,10 +3371,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Kullanıcı Engelini Kaldırma Süresi (Dakika)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "How Many Failed Attempts Until Block by User"
+#, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "Kullanıcı Engellenmeden Önce Kaç Hatalı Giriş"
+msgstr "IP engellenmeden önce kaç hatalı giriş denemesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3933,10 +3932,9 @@ msgid "Invitation"
 msgstr "Davet"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Parola Değişikliğine İzin Ver"
+msgstr "Parola Değiştirildi"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -7021,6 +7019,13 @@ msgstr "JSON"
 #, kde-format
 msgid "Html"
 msgstr "HTML"
+
+#: widgets/importexportdata/exportdatawizard.cpp:26
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Export Accounts"
+msgstr "Hesaplar"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
