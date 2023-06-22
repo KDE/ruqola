@@ -14,4 +14,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataSelectAccountListWidget : public Q
 public:
     explicit ExportDataSelectAccountListWidget(QWidget *parent = nullptr);
     ~ExportDataSelectAccountListWidget() override;
+
+    void setAccountList(const QStringList &lst);
 };

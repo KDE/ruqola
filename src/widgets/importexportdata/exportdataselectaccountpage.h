@@ -7,11 +7,14 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
-
+class ExportDataSelectAccountListWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataSelectAccountPage : public QWizardPage
 {
     Q_OBJECT
 public:
     explicit ExportDataSelectAccountPage(QWidget *parent = nullptr);
     ~ExportDataSelectAccountPage() override;
+
+private:
+    ExportDataSelectAccountListWidget *const mExportDataSelectAccountListWidget;
 };

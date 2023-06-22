@@ -5,13 +5,24 @@
 */
 
 #include "exportdataselectaccountpage.h"
+#include "exportdataselectaccountlistwidget.h"
+#include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 
 ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
     : QWizardPage(parent)
+    , mExportDataSelectAccountListWidget(new ExportDataSelectAccountListWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    auto label = new QLabel(i18n("Select Accounts:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
+
+    mExportDataSelectAccountListWidget->setObjectName(QStringLiteral("mExportDataSelectAccountListWidget"));
+    mainLayout->addWidget(mExportDataSelectAccountListWidget);
 }
 
 ExportDataSelectAccountPage::~ExportDataSelectAccountPage() = default;
