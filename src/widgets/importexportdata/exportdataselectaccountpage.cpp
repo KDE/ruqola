@@ -32,4 +32,9 @@ void ExportDataSelectAccountPage::setAccountList(const QStringList &lst)
     mExportDataSelectAccountListWidget->setAccountList(lst);
 }
 
+QStringList ExportDataSelectAccountPage::selectedAccounts() const
+{
+    return mExportDataSelectAccountListWidget->selectedAccounts();
+}
+
 #include "moc_exportdataselectaccountpage.cpp"

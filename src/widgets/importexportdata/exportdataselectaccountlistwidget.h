@@ -16,4 +16,6 @@ public:
     ~ExportDataSelectAccountListWidget() override;
 
     void setAccountList(const QStringList &lst);
+
+    Q_REQUIRED_RESULT QStringList selectedAccounts() const;
 };

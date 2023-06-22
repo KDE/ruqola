@@ -17,6 +17,8 @@ public:
 
     void setAccountList(const QStringList &lst);
 
+    Q_REQUIRED_RESULT QStringList selectedAccounts() const;
+
 private:
     ExportDataSelectAccountListWidget *const mExportDataSelectAccountListWidget;
 };

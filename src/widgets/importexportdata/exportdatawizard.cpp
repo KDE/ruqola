@@ -64,7 +64,6 @@ void ExportDataWizard::loadAccountInfo()
                     QStringList() << QStringLiteral("ruqola.conf"),
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
-    qDebug() << "11111 " << ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
     while (it.hasNext()) {
         const QString val = it.next();
         lst << val;

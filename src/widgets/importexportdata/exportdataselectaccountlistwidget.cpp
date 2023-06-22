@@ -24,3 +24,9 @@ void ExportDataSelectAccountListWidget::setAccountList(const QStringList &lst)
         item->setCheckState(Qt::Unchecked);
     }
 }
+
+QStringList ExportDataSelectAccountListWidget::selectedAccounts() const
+{
+    // TODO
+    return {};
+}

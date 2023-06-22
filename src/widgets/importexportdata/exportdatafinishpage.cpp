@@ -5,6 +5,8 @@
 */
 
 #include "exportdatafinishpage.h"
+#include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 
 ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
