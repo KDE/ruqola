@@ -859,6 +859,7 @@ if (BUILD_TESTING)
     add_subdirectory(whatsnew/autotests)
     add_subdirectory(explorepermissionsdialog/autotests)
     add_subdirectory(importexportdata/autotests)
+    add_subdirectory(importexportdata/tests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
