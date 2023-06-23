@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7146,7 +7146,13 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdatawizard.cpp:26
+#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#, fuzzy, kde-format
+#| msgid "Delete my Account"
+msgid "Select Accounts:"
+msgstr "Удалить мою учётную запись"
+
+#: widgets/importexportdata/exportdatawizard.cpp:28
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgctxt "@title:window"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 00:48+0000\n"
-"PO-Revision-Date: 2023-06-04 05:18+0200\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"PO-Revision-Date: 2023-06-22 08:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3377,10 +3377,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "მომხმარებლის განბლოკვის დრო (წუთებში)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "How Many Failed Attempts Until Block by User"
+#, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "მცდელობების რიცხვი, დაბლოკვამდე"
+msgstr "მცდელობების რიცხვი IP-ს დაბლოკვამდე"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3904,10 +3903,9 @@ msgid "Invitation"
 msgstr "მოწვევა"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "პაროლის შეცვლის დაშვება"
+msgstr "პაროლი შეიცვალა"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -6930,12 +6928,17 @@ msgstr "Json"
 msgid "Html"
 msgstr "Html"
 
-#: widgets/importexportdata/exportdatawizard.cpp:26
+#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
-#| msgid "Accounts"
+#| msgid "Delete my Account"
+msgid "Select Accounts:"
+msgstr "ჩემი ანგარიშის წაშლა"
+
+#: widgets/importexportdata/exportdatawizard.cpp:28
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "ანგარიშები"
+msgstr "ანგარიშების გატანა"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format

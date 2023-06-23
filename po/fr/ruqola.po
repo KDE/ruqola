@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -7111,7 +7111,13 @@ msgstr "Json"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdatawizard.cpp:26
+#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgid "Select Accounts:"
+msgstr "Supprimer le compte"
+
+#: widgets/importexportdata/exportdatawizard.cpp:28
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgctxt "@title:window"
@@ -9697,9 +9703,6 @@ msgstr "Quelques correction de bogues :"
 
 #~ msgid "john.doe"
 #~ msgstr "Jean Dupont"
-
-#~ msgid "Delete Account"
-#~ msgstr "Supprimer le compte"
 
 #~ msgid "Do you want to delete '%1' account?"
 #~ msgstr "Voulez-vous vraiment supprimer le compte « %1 » ?"

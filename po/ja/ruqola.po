@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -6831,7 +6831,12 @@ msgstr ""
 msgid "Html"
 msgstr ""
 
-#: widgets/importexportdata/exportdatawizard.cpp:26
+#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#, kde-format
+msgid "Select Accounts:"
+msgstr ""
+
+#: widgets/importexportdata/exportdatawizard.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"

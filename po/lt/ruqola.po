@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -7267,7 +7267,13 @@ msgstr ""
 msgid "Html"
 msgstr ""
 
-#: widgets/importexportdata/exportdatawizard.cpp:26
+#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgid "Select Accounts:"
+msgstr "Ištrinti paskyrą"
+
+#: widgets/importexportdata/exportdatawizard.cpp:28
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
@@ -9369,9 +9375,6 @@ msgstr "Klaidų pataisymai"
 
 #~ msgid "Discussion Name:"
 #~ msgstr "Diskusijos pavadinimas:"
-
-#~ msgid "Delete Account"
-#~ msgstr "Ištrinti paskyrą"
 
 #~ msgid "Do you want to delete '%1' account?"
 #~ msgstr "Ar norite ištrinti paskyrą \"%1\"?"

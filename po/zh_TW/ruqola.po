@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-22 00:48+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -7241,7 +7241,13 @@ msgstr ""
 msgid "Html"
 msgstr ""
 
-#: widgets/importexportdata/exportdatawizard.cpp:26
+#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgid "Select Accounts:"
+msgstr "刪除帳戶"
+
+#: widgets/importexportdata/exportdatawizard.cpp:28
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgctxt "@title:window"
@@ -9394,9 +9400,6 @@ msgstr "臭蟲修正"
 
 #~ msgid "john.doe"
 #~ msgstr "王.小明"
-
-#~ msgid "Delete Account"
-#~ msgstr "刪除帳戶"
 
 #~ msgid "Do you want to delete '%1' account?"
 #~ msgstr "您確定要刪除「%1」帳戶嗎？"
