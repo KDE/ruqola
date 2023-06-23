@@ -11,6 +11,9 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    // Use specific ruqola name for account name
+    app.setApplicationName(QStringLiteral("ruqola"));
+
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
