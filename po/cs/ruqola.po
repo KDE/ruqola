@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-02-24 15:15+0100\n"
+"PO-Revision-Date: 2023-06-22 13:09+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -2902,7 +2902,7 @@ msgstr "Informovali jste neplatnou adresu FROM."
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:309
 #, kde-format
 msgid "Invalid integration"
-msgstr "Nplatná integrace"
+msgstr "Neplatná integrace"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:311
 #, kde-format
@@ -8911,7 +8911,7 @@ msgstr "Hledat místnosti"
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Rooms"
-msgstr "Smazt místnosti"
+msgstr "Smazat místnosti"
 
 #: widgets/threadwidget/threadmessagedialog.cpp:26
 #, kde-format
