@@ -19,3 +19,5 @@ void ImportDataSelectAccountPageTest::shouldHaveDefaultValues()
     ImportDataSelectAccountPage w;
     // TODO
 }
+
+#include "moc_importdataselectaccountpagetest.cpp"

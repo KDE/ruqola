@@ -18,3 +18,5 @@ void ImportDataWizardTest::shouldHaveDefaultValues()
     ImportDataWizard w;
     // TODO
 }
+
+#include "moc_importdatawizardtest.cpp"

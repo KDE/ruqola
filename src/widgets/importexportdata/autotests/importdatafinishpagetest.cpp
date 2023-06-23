@@ -19,3 +19,5 @@ void ImportDataFinishPageTest::shouldHaveDefaultValues()
     ImportDataFinishPage w;
     // TODO
 }
+
+#include "moc_importdatafinishpagetest.cpp"
