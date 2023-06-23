@@ -804,6 +804,7 @@ target_link_libraries(libruqolawidgets
     KF${KF_MAJOR_VERSION}::ItemViews
     KF${KF_MAJOR_VERSION}::Prison
     KF${KF_MAJOR_VERSION}::KIOFileWidgets
+    KF${KF_MAJOR_VERSION}::Archive
     librocketchatrestapi-qt5
     libruqolacore
     KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets

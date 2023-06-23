@@ -8,12 +8,12 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QObject>
-
+class KZip;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportAccountJob : public QObject
 {
     Q_OBJECT
 public:
-    explicit ExportAccountJob(QObject *parent = nullptr);
+    explicit ExportAccountJob(const QString &fileName, QObject *parent = nullptr);
     ~ExportAccountJob() override;
 
     void start();
@@ -28,4 +28,5 @@ Q_SIGNALS:
 
 private:
     QStringList mListAccounts;
+    KZip *const mArchive;
 };

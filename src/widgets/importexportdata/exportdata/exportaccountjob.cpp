@@ -6,13 +6,21 @@
 
 #include "exportaccountjob.h"
 #include "ruqolawidgets_debug.h"
+#include <KZip>
 
-ExportAccountJob::ExportAccountJob(QObject *parent)
+ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
+    , mArchive(new KZip(fileName))
 {
 }
 
-ExportAccountJob::~ExportAccountJob() = default;
+ExportAccountJob::~ExportAccountJob()
+{
+    if (mArchive && mArchive->isOpen()) {
+        mArchive->close();
+    }
+    delete mArchive;
+}
 
 void ExportAccountJob::start()
 {
