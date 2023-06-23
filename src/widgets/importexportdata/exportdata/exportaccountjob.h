@@ -17,4 +17,13 @@ public:
     ~ExportAccountJob() override;
 
     void start();
+
+    Q_REQUIRED_RESULT QStringList listAccounts() const;
+    void setListAccounts(const QStringList &newListAccounts);
+
+Q_SIGNALS:
+    void exportDone();
+
+private:
+    QStringList mListAccounts;
 };

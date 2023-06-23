@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
-
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImportDataFinishPage : public QWizardPage
 {
     Q_OBJECT

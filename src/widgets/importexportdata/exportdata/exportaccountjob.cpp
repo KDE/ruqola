@@ -18,6 +18,17 @@ ExportAccountJob::~ExportAccountJob()
 void ExportAccountJob::start()
 {
     // TODO
+    deleteLater();
+}
+
+QStringList ExportAccountJob::listAccounts() const
+{
+    return mListAccounts;
+}
+
+void ExportAccountJob::setListAccounts(const QStringList &newListAccounts)
+{
+    mListAccounts = newListAccounts;
 }
 
 #include "moc_exportaccountjob.cpp"
