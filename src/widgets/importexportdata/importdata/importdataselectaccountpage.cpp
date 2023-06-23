@@ -13,3 +13,5 @@ ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
 ImportDataSelectAccountPage::~ImportDataSelectAccountPage()
 {
 }
+
+#include "moc_importdataselectaccountpage.cpp"

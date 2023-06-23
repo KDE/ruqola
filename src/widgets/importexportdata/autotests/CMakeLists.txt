@@ -17,3 +17,4 @@ add_ruqola_importexportdata_test(exportdatawizardtest.cpp)
 
 add_ruqola_importexportdata_test(importdatawizardtest.cpp)
 add_ruqola_importexportdata_test(importdataselectaccountpagetest.cpp)
+add_ruqola_importexportdata_test(importdatafinishpagetest.cpp)
