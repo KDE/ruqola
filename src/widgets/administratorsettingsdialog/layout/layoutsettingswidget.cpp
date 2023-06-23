@@ -45,7 +45,6 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     connectCheckBox(mGroupChannelsByType, QStringLiteral("UI_Group_Channels_By_Type"));
 
     mNumberUsersAutocompletion->setObjectName(QStringLiteral("mNumberUsersAutocompletion"));
-    mNumberUsersAutocompletion->setObjectName(QStringLiteral("mTimeouts"));
     mNumberUsersAutocompletion->setMaximum(99);
     addSpinbox(i18n("Number of users' autocomplete suggestions"), mNumberUsersAutocompletion, QStringLiteral("Number_of_users_autocomplete_suggestions"));
 }
