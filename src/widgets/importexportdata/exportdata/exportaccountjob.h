@@ -21,6 +21,8 @@ public:
     Q_REQUIRED_RESULT QStringList listAccounts() const;
     void setListAccounts(const QStringList &newListAccounts);
 
+    Q_REQUIRED_RESULT bool canStart() const;
+
 Q_SIGNALS:
     void exportDone();
 

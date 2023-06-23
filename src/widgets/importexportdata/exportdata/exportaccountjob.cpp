@@ -5,18 +5,22 @@
 */
 
 #include "exportaccountjob.h"
+#include "ruqolawidgets_debug.h"
 
 ExportAccountJob::ExportAccountJob(QObject *parent)
     : QObject{parent}
 {
 }
 
-ExportAccountJob::~ExportAccountJob()
-{
-}
+ExportAccountJob::~ExportAccountJob() = default;
 
 void ExportAccountJob::start()
 {
+    if (!canStart()) {
+        deleteLater();
+        qCDebug(RUQOLAWIDGETS_LOG) << " Account list is empty! ";
+        return;
+    }
     // TODO
     deleteLater();
 }
@@ -29,6 +33,11 @@ QStringList ExportAccountJob::listAccounts() const
 void ExportAccountJob::setListAccounts(const QStringList &newListAccounts)
 {
     mListAccounts = newListAccounts;
+}
+
+bool ExportAccountJob::canStart() const
+{
+    return !mListAccounts.isEmpty();
 }
 
 #include "moc_exportaccountjob.cpp"
