@@ -6,7 +6,10 @@
 
 #include "exportaccountjob.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <KZip>
+#include <QDir>
+#include <QStandardPaths>
 
 ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
@@ -29,16 +32,25 @@ void ExportAccountJob::start()
         qCDebug(RUQOLAWIDGETS_LOG) << " Account list is empty! ";
         return;
     }
-    // TODO
+    const bool result = mArchive->open(QIODevice::WriteOnly);
+    if (!result) {
+        deleteLater();
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
+        return;
+    }
+    // TODO Open archive as write
+    for (const auto &account : mListAccounts) {
+        // TODO
+    }
     deleteLater();
 }
 
-QStringList ExportAccountJob::listAccounts() const
+QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccounts() const
 {
     return mListAccounts;
 }
 
-void ExportAccountJob::setListAccounts(const QStringList &newListAccounts)
+void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
 {
     mListAccounts = newListAccounts;
 }
@@ -46,6 +58,28 @@ void ExportAccountJob::setListAccounts(const QStringList &newListAccounts)
 bool ExportAccountJob::canStart() const
 {
     return !mListAccounts.isEmpty();
+}
+
+void ExportAccountJob::storeDirectory(const QString &subDirectory, const QString &subfolderPath)
+{
+    const QDir directoryToStore(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + subDirectory);
+    if (directoryToStore.exists()) {
+        const bool addFolder = mArchive->addLocalDirectory(directoryToStore.path(), subfolderPath);
+        if (!addFolder) {
+            Q_EMIT exportFailed(i18n("Directory \"%1\" cannot be added to backup file.", directoryToStore.path()));
+        }
+    }
+}
+
+void ExportAccountJob::storeFile(const QString &subDirectory, const QString &subfolderPath)
+{
+    const QDir directoryToStore(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + subDirectory);
+    if (directoryToStore.exists()) {
+        const bool addFolder = mArchive->addLocalFile(directoryToStore.path(), subfolderPath);
+        if (!addFolder) {
+            Q_EMIT exportFailed(i18n("file \"%1\" cannot be added to backup file.", directoryToStore.path()));
+        }
+    }
 }
 
 #include "moc_exportaccountjob.cpp"

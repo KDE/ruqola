@@ -7,6 +7,7 @@
 #include "exportdatawizard.h"
 #include "exportdatafinishpage.h"
 #include "exportdataselectaccountpage.h"
+#include "importexportdata/importexportutils.h"
 #include "managerdatapaths.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -59,16 +60,19 @@ void ExportDataWizard::writeConfig()
 
 void ExportDataWizard::loadAccountInfo()
 {
-    QStringList lst;
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
                     QStringList() << QStringLiteral("ruqola.conf"),
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
+    QVector<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;
     while (it.hasNext()) {
         const QString val = it.next();
-        lst << val;
+        ImportExportUtils::AccountImportExportInfo info;
+        info.path = val;
+        info.accountName = QFileInfo(val).dir().dirName();
+        lstAccountInfo.append(info);
     }
-    mExportDataSelectAccountPage->setAccountList(lst);
+    mExportDataSelectAccountPage->setAccountList(lstAccountInfo);
 }
 
 #include "moc_exportdatawizard.cpp"

@@ -16,7 +16,7 @@ ExportAccountJobTest::ExportAccountJobTest(QObject *parent)
 
 void ExportAccountJobTest::shouldHaveDefaultValues()
 {
-    ExportAccountJob job({QString()});
+    ExportAccountJob job({});
     QVERIFY(!job.canStart());
     QVERIFY(job.listAccounts().isEmpty());
 }

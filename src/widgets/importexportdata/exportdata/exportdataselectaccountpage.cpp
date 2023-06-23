@@ -27,12 +27,12 @@ ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
 
 ExportDataSelectAccountPage::~ExportDataSelectAccountPage() = default;
 
-void ExportDataSelectAccountPage::setAccountList(const QStringList &lst)
+void ExportDataSelectAccountPage::setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst)
 {
     mExportDataSelectAccountListWidget->setAccountList(lst);
 }
 
-QStringList ExportDataSelectAccountPage::selectedAccounts() const
+QVector<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountPage::selectedAccounts() const
 {
     return mExportDataSelectAccountListWidget->selectedAccounts();
 }

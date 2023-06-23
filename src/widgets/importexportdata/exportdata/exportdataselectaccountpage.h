@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "importexportdata/importexportutils.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
 class ExportDataSelectAccountListWidget;
@@ -15,9 +16,9 @@ public:
     explicit ExportDataSelectAccountPage(QWidget *parent = nullptr);
     ~ExportDataSelectAccountPage() override;
 
-    void setAccountList(const QStringList &lst);
+    void setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst);
 
-    Q_REQUIRED_RESULT QStringList selectedAccounts() const;
+    Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
 
 private:
     ExportDataSelectAccountListWidget *const mExportDataSelectAccountListWidget;

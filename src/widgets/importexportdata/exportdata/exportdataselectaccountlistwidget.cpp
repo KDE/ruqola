@@ -15,17 +15,17 @@ ExportDataSelectAccountListWidget::ExportDataSelectAccountListWidget(QWidget *pa
 
 ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = default;
 
-void ExportDataSelectAccountListWidget::setAccountList(const QStringList &lst)
+void ExportDataSelectAccountListWidget::setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst)
 {
     qDebug() << " lst " << lst;
-    for (const QString &accountName : lst) {
+    for (const auto &accountName : lst) {
         auto item = new QListWidgetItem(this);
-        item->setText(accountName);
+        item->setText(accountName.accountName);
         item->setCheckState(Qt::Unchecked);
     }
 }
 
-QStringList ExportDataSelectAccountListWidget::selectedAccounts() const
+QVector<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountListWidget::selectedAccounts() const
 {
     QStringList selectAccountsList;
     const int numberOfItems(count());
@@ -35,7 +35,8 @@ QStringList ExportDataSelectAccountListWidget::selectedAccounts() const
             selectAccountsList.append(it->text());
         }
     }
-    return selectAccountsList;
+    // TODO
+    return {};
 }
 
 #include "moc_exportdataselectaccountlistwidget.cpp"
