@@ -27,6 +27,13 @@ void ExportDataSelectAccountListWidget::setAccountList(const QStringList &lst)
 
 QStringList ExportDataSelectAccountListWidget::selectedAccounts() const
 {
-    // TODO
-    return {};
+    QStringList selectAccountsList;
+    const int numberOfItems(count());
+    for (int i = 0; i < numberOfItems; ++i) {
+        QListWidgetItem *it = item(i);
+        if (it->checkState() == Qt::Checked) {
+            selectAccountsList.append(it->text());
+        }
+    }
+    return selectAccountsList;
 }
