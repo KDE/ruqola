@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "importexportdata/importdata/importdatawizard.h"
+#include "importexportdata/exportdata/exportdatawizard.h"
 #include <QApplication>
 #include <QCommandLineParser>
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     parser.addHelpOption();
 
     parser.process(app);
-    auto d = new ImportDataWizard;
+    auto d = new ExportDataWizard;
     d->show();
 
     return app.exec();
