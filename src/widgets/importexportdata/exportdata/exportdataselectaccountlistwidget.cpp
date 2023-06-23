@@ -37,3 +37,5 @@ QStringList ExportDataSelectAccountListWidget::selectedAccounts() const
     }
     return selectAccountsList;
 }
+
+#include "moc_exportdataselectaccountlistwidget.cpp"

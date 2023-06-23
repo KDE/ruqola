@@ -14,3 +14,5 @@ endmacro()
 add_ruqola_importexportdata_test(exportdatafinishpagetest.cpp)
 add_ruqola_importexportdata_test(exportdataselectaccountpagetest.cpp)
 add_ruqola_importexportdata_test(exportdatawizardtest.cpp)
+
+add_ruqola_importexportdata_test(importdatawizardtest.cpp)

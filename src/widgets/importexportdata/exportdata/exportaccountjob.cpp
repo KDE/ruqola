@@ -19,3 +19,5 @@ void ExportAccountJob::start()
 {
     // TODO
 }
+
+#include "moc_exportaccountjob.cpp"
