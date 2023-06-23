@@ -714,6 +714,8 @@ target_sources(libruqolawidgets PRIVATE
     importexportdata/exportdatafinishpage.cpp
     importexportdata/exportdataselectaccountlistwidget.h
     importexportdata/exportdataselectaccountlistwidget.cpp
+    importexportdata/exportaccountjob.h
+    importexportdata/exportaccountjob.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
