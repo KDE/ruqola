@@ -3,6 +3,7 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
+
 #include "importdatafinishpage.h"
 
 ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
