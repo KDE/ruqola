@@ -706,16 +706,16 @@ target_sources(libruqolawidgets PRIVATE
     explorepermissionsdialog/explorepermissionswidgetfilterproxymodel.h
 
 
-    importexportdata/exportdatawizard.h
-    importexportdata/exportdatawizard.cpp
-    importexportdata/exportdataselectaccountpage.h
-    importexportdata/exportdataselectaccountpage.cpp
-    importexportdata/exportdatafinishpage.h
-    importexportdata/exportdatafinishpage.cpp
-    importexportdata/exportdataselectaccountlistwidget.h
-    importexportdata/exportdataselectaccountlistwidget.cpp
-    importexportdata/exportaccountjob.h
-    importexportdata/exportaccountjob.cpp
+    importexportdata/exportdata/exportdatawizard.h
+    importexportdata/exportdata/exportdatawizard.cpp
+    importexportdata/exportdata/exportdataselectaccountpage.h
+    importexportdata/exportdata/exportdataselectaccountpage.cpp
+    importexportdata/exportdata/exportdatafinishpage.h
+    importexportdata/exportdata/exportdatafinishpage.cpp
+    importexportdata/exportdata/exportdataselectaccountlistwidget.h
+    importexportdata/exportdata/exportdataselectaccountlistwidget.cpp
+    importexportdata/exportdata/exportaccountjob.h
+    importexportdata/exportdata/exportaccountjob.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)

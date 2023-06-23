@@ -5,7 +5,7 @@
 */
 
 #include "exportdatafinishpagetest.h"
-#include "importexportdata/exportdatafinishpage.h"
+#include "importexportdata/exportdata/exportdatafinishpage.h"
 #include <QTest>
 
 QTEST_MAIN(ExportDataFinishPageTest)
