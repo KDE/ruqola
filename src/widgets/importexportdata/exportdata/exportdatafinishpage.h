@@ -19,6 +19,7 @@ public:
     void exportAccounts();
 
 private:
+    Q_REQUIRED_RESULT QString generateExportZipFileName() const;
     void slotExportDone();
     void slotExportFailed(const QString &msg);
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;

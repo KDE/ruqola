@@ -20,6 +20,11 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
 
 ExportDataFinishPage::~ExportDataFinishPage() = default;
 
+QString ExportDataFinishPage::generateExportZipFileName() const
+{
+    return {};
+}
+
 void ExportDataFinishPage::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
 {
     mListAccounts = newListAccounts;
@@ -27,7 +32,7 @@ void ExportDataFinishPage::setListAccounts(const QVector<ImportExportUtils::Acco
 
 void ExportDataFinishPage::exportAccounts()
 {
-    auto job = new ExportAccountJob(QString(), this);
+    auto job = new ExportAccountJob(generateExportZipFileName(), this);
     connect(job, &ExportAccountJob::exportDone, this, &ExportDataFinishPage::slotExportDone);
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
     job->setListAccounts(mListAccounts);

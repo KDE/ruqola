@@ -16,6 +16,11 @@ QString ImportExportUtils::localPath()
     return QStringLiteral("local");
 }
 
+QString ImportExportUtils::cachePath()
+{
+    return QStringLiteral("cache");
+}
+
 QString ImportExportUtils::logsPath()
 {
     return QStringLiteral("logs");

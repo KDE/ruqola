@@ -52,6 +52,12 @@ QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccoun
 
 void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExportInfo &info)
 {
+    // config files
+    storeDirectory(QStringLiteral("TODO"), info.accountName + ImportExportUtils::configPath());
+
+    // local files
+    storeDirectory(QStringLiteral("TODO"), info.accountName + ImportExportUtils::localPath());
+
     // TODO
 }
 

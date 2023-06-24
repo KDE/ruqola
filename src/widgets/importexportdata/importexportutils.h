@@ -19,6 +19,7 @@ Q_REQUIRED_RESULT QString configPath();
 Q_REQUIRED_RESULT QString localPath();
 Q_REQUIRED_RESULT QString logsPath();
 Q_REQUIRED_RESULT QString databasePath();
+Q_REQUIRED_RESULT QString cachePath();
 };
 QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t);
 Q_DECLARE_TYPEINFO(ImportExportUtils::AccountImportExportInfo, Q_MOVABLE_TYPE);
