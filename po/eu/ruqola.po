@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-24 00:50+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -4363,7 +4363,7 @@ msgstr "Bateratu talde pribatuak kanalekin"
 msgid "Group channels by type"
 msgstr "Talde-kanalak motaren arabera"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
 msgstr ""
@@ -6937,13 +6937,23 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
+#, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
+#, kde-format
+msgid "file \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
 msgid "Select Accounts:"
 msgstr "Ezabatu nire kontua"
 
-#: widgets/importexportdata/exportdatawizard.cpp:28
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgctxt "@title:window"

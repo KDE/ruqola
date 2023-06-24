@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-24 00:50+0000\n"
 "PO-Revision-Date: 2023-06-17 04:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4300,7 +4300,7 @@ msgstr ""
 msgid "Group channels by type"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
 msgstr ""
@@ -6834,12 +6834,22 @@ msgstr ""
 msgid "Html"
 msgstr ""
 
-#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
+#, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
+#, kde-format
+msgid "file \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
 msgid "Select Accounts:"
 msgstr ""
 
-#: widgets/importexportdata/exportdatawizard.cpp:28
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"

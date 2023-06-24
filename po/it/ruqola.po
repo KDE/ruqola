@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
-"PO-Revision-Date: 2023-06-05 08:15+0200\n"
+"POT-Creation-Date: 2023-06-24 00:50+0000\n"
+"PO-Revision-Date: 2023-06-22 17:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -3394,10 +3394,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Tempo per sbloccare l'utente (in minuti)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "How Many Failed Attempts Until Block by User"
+#, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "Quanti tentativi non riusciti fino al blocco per utente"
+msgstr "Quanti tentativi non riusciti fino al blocco per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3965,10 +3964,9 @@ msgid "Invitation"
 msgstr "Invito"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Consenti cambio della password"
+msgstr "Password modificata"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4042,7 +4040,7 @@ msgstr "Ruota l'immagine al caricamento"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Restrict files to rooms' members"
-msgstr ""
+msgstr "Limita i file ai membri delle stanze"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
@@ -4077,6 +4075,7 @@ msgstr ""
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
+"Limita l'accesso ai file caricati nelle stanze solo ai membri delle stanze"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
@@ -4437,10 +4436,10 @@ msgstr "Unisci i gruppi privati con i canali"
 msgid "Group channels by type"
 msgstr "Raggruppa i canali per tipo"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
-msgstr ""
+msgstr "Numero di suggerimenti di completamento automatico degli utenti"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -7074,18 +7073,27 @@ msgstr "Json"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
+#, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
+#, kde-format
+msgid "file \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "Select Accounts:"
 msgstr "Elimina account"
 
-#: widgets/importexportdata/exportdatawizard.cpp:28
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "Account"
+msgstr "Esporta account"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format

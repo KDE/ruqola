@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
-"PO-Revision-Date: 2023-06-22 09:09+0300\n"
+"POT-Creation-Date: 2023-06-24 00:50+0000\n"
+"PO-Revision-Date: 2023-06-23 16:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -4447,7 +4447,7 @@ msgstr "Об'єднати конфіденційні групи із канал�
 msgid "Group channels by type"
 msgstr "Групувати канали за типом"
 
-#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
 msgstr "Кількість пропозицій у автодоповненні імен користувачів"
@@ -7119,13 +7119,22 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdataselectaccountpage.cpp:20
-#, fuzzy, kde-format
-#| msgid "Delete Account"
-msgid "Select Accounts:"
-msgstr "Вилучити обліковий запис"
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
+#, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr ""
 
-#: widgets/importexportdata/exportdatawizard.cpp:28
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
+#, kde-format
+msgid "file \"%1\" cannot be added to backup file."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
+#, kde-format
+msgid "Select Accounts:"
+msgstr "Виберіть облікові записи:"
+
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
