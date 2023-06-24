@@ -38,16 +38,21 @@ void ExportAccountJob::start()
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
         return;
     }
-    // TODO Open archive as write
     for (const auto &account : mListAccounts) {
-        // TODO
+        exportAccount(account);
     }
+    Q_EMIT exportDone();
     deleteLater();
 }
 
 QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccounts() const
 {
     return mListAccounts;
+}
+
+void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExportInfo &info)
+{
+    // TODO
 }
 
 void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
