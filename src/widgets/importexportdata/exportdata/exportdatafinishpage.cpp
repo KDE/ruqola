@@ -5,6 +5,7 @@
 */
 
 #include "exportdatafinishpage.h"
+#include "exportaccountjob.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -18,5 +19,29 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
 }
 
 ExportDataFinishPage::~ExportDataFinishPage() = default;
+
+void ExportDataFinishPage::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
+{
+    mListAccounts = newListAccounts;
+}
+
+void ExportDataFinishPage::exportAccounts()
+{
+    auto job = new ExportAccountJob(QString(), this);
+    connect(job, &ExportAccountJob::exportDone, this, &ExportDataFinishPage::slotExportDone);
+    connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
+    job->setListAccounts(mListAccounts);
+    job->start();
+}
+
+void ExportDataFinishPage::slotExportDone()
+{
+    // TODO
+}
+
+void ExportDataFinishPage::slotExportFailed(const QString &msg)
+{
+    // TODO
+}
 
 #include "moc_exportdatafinishpage.cpp"

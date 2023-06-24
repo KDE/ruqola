@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "importexportdata/importexportutils.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
 
@@ -14,4 +15,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 public:
     explicit ExportDataFinishPage(QWidget *parent = nullptr);
     ~ExportDataFinishPage() override;
+    void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
+    void exportAccounts();
+
+private:
+    void slotExportDone();
+    void slotExportFailed(const QString &msg);
+    QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
 };
