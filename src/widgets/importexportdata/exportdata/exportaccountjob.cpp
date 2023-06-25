@@ -59,9 +59,11 @@ void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExpor
     qDebug() << " info.accountName + ImportExportUtils::configPath() " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
 
+#if 0
     // cache files
     const QString cachePath = info.accountName + QLatin1Char('/') + ImportExportUtils::cachePath();
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName, cachePath);
+#endif
 
     // local files
     const QString localPath = info.accountName + QStringLiteral("/logs/");
