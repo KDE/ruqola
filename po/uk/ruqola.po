@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:50+0000\n"
-"PO-Revision-Date: 2023-06-23 16:30+0300\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"PO-Revision-Date: 2023-06-24 08:02+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -7119,15 +7119,15 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
-
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
 #, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr "Каталог «%1» не вдалося додавати до файла резервної копії."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
+#, kde-format
 msgid "file \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "Не вдалося додати файл «%1» до файла резервної копії."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format

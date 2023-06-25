@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:50+0000\n"
-"PO-Revision-Date: 2023-06-24 01:46+0100\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"PO-Revision-Date: 2023-06-24 10:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -7096,15 +7096,15 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
-
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
 #, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr "Não é possível adicionar a pasta \"%1\" à cópia de segurança."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
+#, kde-format
 msgid "file \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "Não é possível adicionar o ficheiro \"%1\" à cópia de segurança."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format

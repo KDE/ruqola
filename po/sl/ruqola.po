@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-24 00:50+0000\n"
-"PO-Revision-Date: 2023-06-23 07:25+0200\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"PO-Revision-Date: 2023-06-24 07:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7057,15 +7057,15 @@ msgstr "JSON"
 msgid "Html"
 msgstr "Html"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:69
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
-
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
 #, kde-format
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr "Direktorija \"%1\" ni mogoče dodati v datoteko varovalne kopije."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
+#, kde-format
 msgid "file \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "datoteke \"%1\" ni mogoče dodati v datoteko varovalne kopije."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
