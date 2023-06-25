@@ -55,8 +55,10 @@ void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExpor
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
     qDebug() << " info.accountName + ImportExportUtils::configPath() " << configPath;
     // config files
-    storeDirectory(QStringLiteral("TODO"), configPath);
+    storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
 
+    // cache files
+    storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
     const QString localPath = info.accountName + QLatin1Char('/') + ImportExportUtils::localPath();
     qDebug() << " info.accountName + ImportExportUtils::configPath() " << localPath;
     // local files
@@ -77,7 +79,8 @@ bool ExportAccountJob::canStart() const
 
 void ExportAccountJob::storeDirectory(const QString &subDirectory, const QString &subfolderPath)
 {
-    const QDir directoryToStore(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + subDirectory);
+    const QDir directoryToStore(subDirectory);
+    qDebug() << " directoryToStore " << directoryToStore;
     if (directoryToStore.exists()) {
         const bool addFolder = mArchive->addLocalDirectory(directoryToStore.path(), subfolderPath);
         if (!addFolder) {
