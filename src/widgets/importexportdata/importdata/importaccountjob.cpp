@@ -5,19 +5,36 @@
 */
 
 #include "importaccountjob.h"
+#include <KZip>
 
-ImportAccountJob::ImportAccountJob(QObject *parent)
+ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
+    , mArchive(new KZip(fileName))
 {
 }
 
 ImportAccountJob::~ImportAccountJob()
 {
+    if (mArchive && mArchive->isOpen()) {
+        mArchive->close();
+    }
+    delete mArchive;
 }
 
 void ImportAccountJob::start()
 {
+    if (canStart()) {
+        deleteLater();
+        return;
+    }
     // TODO
+    deleteLater();
+}
+
+bool ImportAccountJob::canStart() const
+{
+    // TODO
+    return true;
 }
 
 #include "moc_importaccountjob.cpp"
