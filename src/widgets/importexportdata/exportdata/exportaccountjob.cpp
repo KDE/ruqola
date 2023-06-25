@@ -52,11 +52,15 @@ QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccoun
 
 void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExportInfo &info)
 {
+    const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
+    qDebug() << " info.accountName + ImportExportUtils::configPath() " << configPath;
     // config files
-    storeDirectory(QStringLiteral("TODO"), info.accountName + ImportExportUtils::configPath());
+    storeDirectory(QStringLiteral("TODO"), configPath);
 
+    const QString localPath = info.accountName + QLatin1Char('/') + ImportExportUtils::localPath();
+    qDebug() << " info.accountName + ImportExportUtils::configPath() " << localPath;
     // local files
-    storeDirectory(QStringLiteral("TODO"), info.accountName + ImportExportUtils::localPath());
+    storeDirectory(QStringLiteral("TODO"), localPath);
 
     // TODO
 }

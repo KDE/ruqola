@@ -80,7 +80,7 @@ void ExportDataWizard::slotCurrentIdChanged(int id)
 {
     if (id == FinishPage) {
         mExportDataFinishPage->setListAccounts(mExportDataSelectAccountPage->selectedAccounts());
-        qDebug() << " selected account " << mExportDataSelectAccountPage->selectedAccounts();
+        // qDebug() << " selected account " << mExportDataSelectAccountPage->selectedAccounts();
         mExportDataFinishPage->exportAccounts();
     }
 }
