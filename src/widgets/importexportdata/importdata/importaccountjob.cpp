@@ -5,6 +5,8 @@
 */
 
 #include "importaccountjob.h"
+#include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <KZip>
 
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
@@ -27,7 +29,15 @@ void ImportAccountJob::start()
         deleteLater();
         return;
     }
+    const bool result = mArchive->open(QIODevice::ReadOnly);
+    if (!result) {
+        deleteLater();
+        Q_EMIT importFailed(i18n("Impossible to open zip file."));
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
+        return;
+    }
     // TODO
+    Q_EMIT importDone();
     deleteLater();
 }
 

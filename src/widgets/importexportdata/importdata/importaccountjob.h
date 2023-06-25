@@ -22,6 +22,9 @@ public:
 
     Q_REQUIRED_RESULT QUrl zipPath() const;
     void setZipPath(const QUrl &newZipPath);
+Q_SIGNALS:
+    void importFailed(const QString &str);
+    void importDone();
 
 private:
     KZip *const mArchive;
