@@ -31,7 +31,6 @@ Q_SIGNALS:
 private:
     void storeDirectory(const QString &subDirectory, const QString &subfolderPath);
     void exportAccount(const ImportExportUtils::AccountImportExportInfo &info);
-    void storeFile(const QString &subDirectory, const QString &subfolderPath);
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     KZip *const mArchive;
 };

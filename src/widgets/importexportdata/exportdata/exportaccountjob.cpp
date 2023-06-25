@@ -29,12 +29,14 @@ void ExportAccountJob::start()
 {
     if (!canStart()) {
         deleteLater();
+        Q_EMIT exportFailed(i18n("Impossible to export data."));
         qCDebug(RUQOLAWIDGETS_LOG) << " Account list is empty! ";
         return;
     }
     const bool result = mArchive->open(QIODevice::WriteOnly);
     if (!result) {
         deleteLater();
+        Q_EMIT exportFailed(i18n("Impossible to create zip file."));
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
         return;
     }
@@ -85,17 +87,6 @@ void ExportAccountJob::storeDirectory(const QString &subDirectory, const QString
         const bool addFolder = mArchive->addLocalDirectory(directoryToStore.path(), subfolderPath);
         if (!addFolder) {
             Q_EMIT exportFailed(i18n("Directory \"%1\" cannot be added to backup file.", directoryToStore.path()));
-        }
-    }
-}
-
-void ExportAccountJob::storeFile(const QString &subDirectory, const QString &subfolderPath)
-{
-    const QDir directoryToStore(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + subDirectory);
-    if (directoryToStore.exists()) {
-        const bool addFolder = mArchive->addLocalFile(directoryToStore.path(), subfolderPath);
-        if (!addFolder) {
-            Q_EMIT exportFailed(i18n("file \"%1\" cannot be added to backup file.", directoryToStore.path()));
         }
     }
 }
