@@ -23,3 +23,4 @@ Q_REQUIRED_RESULT QString cachePath();
 };
 QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t);
 Q_DECLARE_TYPEINFO(ImportExportUtils::AccountImportExportInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_METATYPE(ImportExportUtils::AccountImportExportInfo)

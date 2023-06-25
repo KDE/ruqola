@@ -7,6 +7,7 @@
 #include "exportdatafinishpage.h"
 #include "exportaccountjob.h"
 #include <KLocalizedString>
+#include <QDateTime>
 #include <QDir>
 #include <QLabel>
 #include <QVBoxLayout>
