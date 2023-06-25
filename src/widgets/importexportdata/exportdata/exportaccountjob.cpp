@@ -52,19 +52,19 @@ QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccoun
 
 void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExportInfo &info)
 {
+    // config files
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
     qDebug() << " info.accountName + ImportExportUtils::configPath() " << configPath;
-    // config files
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
 
     // cache files
-    storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
-    const QString localPath = info.accountName + QLatin1Char('/') + ImportExportUtils::localPath();
-    qDebug() << " info.accountName + ImportExportUtils::configPath() " << localPath;
-    // local files
-    storeDirectory(QStringLiteral("TODO"), localPath);
+    const QString cachePath = info.accountName + QLatin1Char('/') + ImportExportUtils::cachePath();
+    storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName, cachePath);
 
-    // TODO
+    // local files
+    const QString localPath = info.accountName + QStringLiteral("/logs/");
+    qDebug() << " info.accountName + ImportExportUtils::localPath() " << localPath;
+    storeDirectory(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + info.accountName, localPath);
 }
 
 void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
