@@ -22,21 +22,21 @@ void ExportDataSelectAccountListWidget::setAccountList(const QVector<ImportExpor
         auto item = new QListWidgetItem(this);
         item->setText(accountName.accountName);
         item->setCheckState(Qt::Unchecked);
+        item->setData(ExportDataSelectAccountListWidget::DataAccount, QVariant::fromValue(accountName));
     }
 }
 
 QVector<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountListWidget::selectedAccounts() const
 {
-    QStringList selectAccountsList;
+    QVector<ImportExportUtils::AccountImportExportInfo> selectAccountsList;
     const int numberOfItems(count());
     for (int i = 0; i < numberOfItems; ++i) {
         QListWidgetItem *it = item(i);
         if (it->checkState() == Qt::Checked) {
-            selectAccountsList.append(it->text());
+            selectAccountsList.append(it->data(ExportDataSelectAccountListWidget::DataAccount).value<ImportExportUtils::AccountImportExportInfo>());
         }
     }
-    // TODO
-    return {};
+    return selectAccountsList;
 }
 
 #include "moc_exportdataselectaccountlistwidget.cpp"

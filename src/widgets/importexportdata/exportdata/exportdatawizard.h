@@ -22,6 +22,7 @@ private:
         SelectAccountPage,
         FinishPage,
     };
+    void slotCurrentIdChanged(int id);
     void readConfig();
     void writeConfig();
     void loadAccountInfo();

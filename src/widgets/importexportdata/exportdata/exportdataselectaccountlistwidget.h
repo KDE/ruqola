@@ -20,4 +20,9 @@ public:
     void setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst);
 
     Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
+
+private:
+    enum DataAccountEnum {
+        DataAccount = Qt::UserRole + 1,
+    };
 };

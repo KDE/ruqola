@@ -7,6 +7,7 @@
 #include "exportdatafinishpage.h"
 #include "exportaccountjob.h"
 #include <KLocalizedString>
+#include <QDir>
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -22,7 +23,7 @@ ExportDataFinishPage::~ExportDataFinishPage() = default;
 
 QString ExportDataFinishPage::generateExportZipFileName() const
 {
-    return {};
+    return QDir::homePath() + QLatin1Char('/') + QStringLiteral("ruqola-accountdata-%1.zip").arg(QDateTime::currentDateTime().toString());
 }
 
 void ExportDataFinishPage::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
@@ -41,12 +42,14 @@ void ExportDataFinishPage::exportAccounts()
 
 void ExportDataFinishPage::slotExportDone()
 {
+    qDebug() << " ExportDataFinishPage::slotExportDone()";
     // TODO
 }
 
 void ExportDataFinishPage::slotExportFailed(const QString &msg)
 {
     // TODO
+    qDebug() << " ExportDataFinishPage::slotExportFailed()" << msg;
 }
 
 #include "moc_exportdatafinishpage.cpp"

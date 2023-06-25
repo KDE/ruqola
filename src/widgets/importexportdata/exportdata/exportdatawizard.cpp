@@ -36,6 +36,7 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
 
     readConfig();
     loadAccountInfo();
+    connect(this, &ExportDataWizard::currentIdChanged, this, &ExportDataWizard::slotCurrentIdChanged);
 }
 
 ExportDataWizard::~ExportDataWizard()
@@ -73,6 +74,15 @@ void ExportDataWizard::loadAccountInfo()
         lstAccountInfo.append(info);
     }
     mExportDataSelectAccountPage->setAccountList(lstAccountInfo);
+}
+
+void ExportDataWizard::slotCurrentIdChanged(int id)
+{
+    if (id == FinishPage) {
+        mExportDataFinishPage->setListAccounts(mExportDataSelectAccountPage->selectedAccounts());
+        qDebug() << " selected account " << mExportDataSelectAccountPage->selectedAccounts();
+        mExportDataFinishPage->exportAccounts();
+    }
 }
 
 #include "moc_exportdatawizard.cpp"
