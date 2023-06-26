@@ -60,7 +60,8 @@ void ImportAccountJob::importAccount(QString accountName)
         const KArchiveEntry *configPathEntry = mArchive->directory()->entry(configPath);
         if (configPathEntry && configPathEntry->isDirectory()) {
             const auto configDirectory = static_cast<const KArchiveDirectory *>(configPathEntry);
-            copyToDirectory(configDirectory, QString()); // TODO
+            copyToDirectory(configDirectory,
+                            QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName); // TODO
             // TODO
         }
     }
@@ -70,7 +71,8 @@ void ImportAccountJob::importAccount(QString accountName)
         const KArchiveEntry *localPathEntry = mArchive->directory()->entry(localPath);
         if (localPathEntry && localPathEntry->isDirectory()) {
             const auto localPathDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
-            copyToDirectory(localPathDirectory, QString()); // TODO
+            copyToDirectory(localPathDirectory,
+                            QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName); // TODO
             // TODO
         }
     }
