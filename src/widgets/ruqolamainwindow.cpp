@@ -29,6 +29,8 @@
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/serverinfo/serverinfodialog.h"
 #include "directory/directorydialog.h"
+#include "importexportdata/exportdata/exportdatawizard.h"
+#include "importexportdata/importdata/importdatawizard.h"
 #include "localdatabase/localmessagelogger.h"
 #include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
@@ -50,6 +52,7 @@
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
 #include "whatsnew/whatsnewdialog.h"
+
 #include <KActionCollection>
 #include <KColorSchemeManager>
 #include <KConfigGroup>
@@ -1106,12 +1109,14 @@ void RuqolaMainWindow::slotShowFavoriteRoom(bool checked)
 
 void RuqolaMainWindow::slotImportAccounts()
 {
-    // TODO
+    ImportDataWizard dlg(this);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotExportAccounts()
 {
-    // TODO
+    ExportDataWizard dlg(this);
+    dlg.exec();
 }
 
 #include "moc_ruqolamainwindow.cpp"
