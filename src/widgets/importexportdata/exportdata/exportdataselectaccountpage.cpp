@@ -23,6 +23,9 @@ ExportDataSelectAccountPage::ExportDataSelectAccountPage(QWidget *parent)
 
     mExportDataSelectAccountListWidget->setObjectName(QStringLiteral("mExportDataSelectAccountListWidget"));
     mainLayout->addWidget(mExportDataSelectAccountListWidget);
+    connect(mExportDataSelectAccountListWidget, &ExportDataSelectAccountListWidget::selectedItemChanged, this, [this]() {
+        Q_EMIT completeChanged();
+    });
 }
 
 ExportDataSelectAccountPage::~ExportDataSelectAccountPage() = default;
@@ -35,6 +38,16 @@ void ExportDataSelectAccountPage::setAccountList(const QVector<ImportExportUtils
 QVector<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountPage::selectedAccounts() const
 {
     return mExportDataSelectAccountListWidget->selectedAccounts();
+}
+
+bool ExportDataSelectAccountPage::validatePage()
+{
+    return !mExportDataSelectAccountListWidget->selectedAccounts().isEmpty();
+}
+
+bool ExportDataSelectAccountPage::isComplete() const
+{
+    return !mExportDataSelectAccountListWidget->selectedAccounts().isEmpty();
 }
 
 #include "moc_exportdataselectaccountpage.cpp"

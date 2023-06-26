@@ -21,6 +21,9 @@ public:
 
     Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
 
+Q_SIGNALS:
+    void selectedItemChanged();
+
 private:
     enum DataAccountEnum {
         DataAccount = Qt::UserRole + 1,

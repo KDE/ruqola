@@ -20,6 +20,10 @@ public:
 
     Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
 
+    Q_REQUIRED_RESULT bool validatePage() override;
+
+    Q_REQUIRED_RESULT bool isComplete() const override;
+
 private:
     ExportDataSelectAccountListWidget *const mExportDataSelectAccountListWidget;
 };

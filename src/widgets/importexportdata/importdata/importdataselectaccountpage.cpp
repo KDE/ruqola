@@ -22,6 +22,11 @@ ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
     mainLayout->addLayout(hboxLayout);
 
     mUrlRequester->setObjectName(QStringLiteral("mUrlRequester"));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    mUrlRequester->setFilter(QStringLiteral("*.zip"));
+#else
+    mUrlRequester->setNameFilter(QStringLiteral("*.zip"));
+#endif
     connect(mUrlRequester, &KUrlRequester::urlSelected, this, [this]() {
         Q_EMIT completeChanged();
     });

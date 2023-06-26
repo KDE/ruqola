@@ -11,6 +11,7 @@
 ExportDataSelectAccountListWidget::ExportDataSelectAccountListWidget(QWidget *parent)
     : QListWidget(parent)
 {
+    connect(this, &ExportDataSelectAccountListWidget::itemChanged, this, &ExportDataSelectAccountListWidget::selectedItemChanged);
 }
 
 ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = default;
