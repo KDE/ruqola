@@ -56,18 +56,19 @@ void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExpor
 {
     // config files
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
-    qDebug() << " info.accountName + ImportExportUtils::configPath() " << configPath;
+    qCDebug(RUQOLAWIDGETS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
 
 #if 0
     // cache files
     const QString cachePath = info.accountName + QLatin1Char('/') + ImportExportUtils::cachePath();
+    qCDebug(RUQOLAWIDGETS_LOG) << " cachePath " << cachePath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName, cachePath);
 #endif
 
     // local files
     const QString localPath = info.accountName + QStringLiteral("/logs/");
-    qDebug() << " info.accountName + ImportExportUtils::localPath() " << localPath;
+    qCDebug(RUQOLAWIDGETS_LOG) << " localPath " << localPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + info.accountName, localPath);
 }
 
@@ -84,7 +85,7 @@ bool ExportAccountJob::canStart() const
 void ExportAccountJob::storeDirectory(const QString &subDirectory, const QString &subfolderPath)
 {
     const QDir directoryToStore(subDirectory);
-    qDebug() << " directoryToStore " << directoryToStore;
+    // qDebug() << " directoryToStore " << directoryToStore;
     if (directoryToStore.exists()) {
         const bool addFolder = mArchive->addLocalDirectory(directoryToStore.path(), subfolderPath);
         if (!addFolder) {
