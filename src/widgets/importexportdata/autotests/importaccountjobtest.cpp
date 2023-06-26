@@ -20,3 +20,5 @@ void ImportAccountJobTest::shouldHaveDefaultValues()
 
     // TODO
 }
+
+#include "moc_importaccountjobtest.cpp"

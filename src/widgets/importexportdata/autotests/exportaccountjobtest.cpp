@@ -20,3 +20,5 @@ void ExportAccountJobTest::shouldHaveDefaultValues()
     QVERIFY(!job.canStart());
     QVERIFY(job.listAccounts().isEmpty());
 }
+
+#include "moc_exportaccountjobtest.cpp"
