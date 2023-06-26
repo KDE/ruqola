@@ -7,6 +7,7 @@
 #include "importdatafinishpage.h"
 #include "importaccountjob.h"
 #include <KLocalizedString>
+#include <QDebug>
 #include <QLabel>
 #include <QUrl>
 #include <QVBoxLayout>
