@@ -14,10 +14,13 @@
 
 ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
+    , mInfos(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    // TODO add Label
+
+    mInfos->setObjectName(QStringLiteral("mInfos"));
+    mainLayout->addWidget(mInfos);
 }
 
 ExportDataFinishPage::~ExportDataFinishPage() = default;
@@ -49,6 +52,11 @@ void ExportDataFinishPage::slotExportDone()
 
 void ExportDataFinishPage::slotExportFailed(const QString &msg)
 {
+    QString currentText = mInfos->text();
+    if (!currentText.isEmpty()) {
+        currentText += QLatin1Char('\n');
+    }
+    mInfos->setText(currentText + msg);
     // TODO
     qDebug() << " ExportDataFinishPage::slotExportFailed()" << msg;
 }

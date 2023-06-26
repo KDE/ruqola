@@ -8,7 +8,7 @@
 #include "importexportdata/importexportutils.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
-
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -23,4 +23,5 @@ private:
     void slotExportDone();
     void slotExportFailed(const QString &msg);
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
+    QLabel *const mInfos;
 };
