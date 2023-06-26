@@ -10,7 +10,7 @@
 #include <QObject>
 
 class KZip;
-class KArchiveEntry;
+class KArchiveDirectory;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImportAccountJob : public QObject
 {
     Q_OBJECT
@@ -25,7 +25,7 @@ Q_SIGNALS:
     void importDone();
 
 private:
-    void copyToDirectory(const KArchiveEntry *entry, const QString &dest);
+    void copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest);
     void importAccount(const QString &accountName);
     KZip *const mArchive;
 };

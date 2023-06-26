@@ -5,6 +5,7 @@
 */
 
 #include "importaccountjob.h"
+#include "importexportdata/importexportutils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KZip>
@@ -49,12 +50,31 @@ void ImportAccountJob::start()
 
 void ImportAccountJob::importAccount(const QString &accountName)
 {
-    // TODO
+    {
+        // config files
+        const QString configPath = accountName + QLatin1Char('/') + ImportExportUtils::configPath();
+        const KArchiveEntry *configPathEntry = mArchive->directory()->entry(configPath);
+        if (configPathEntry && configPathEntry->isDirectory()) {
+            const auto configDirectory = static_cast<const KArchiveDirectory *>(configPathEntry);
+            copyToDirectory(configDirectory, QString()); // TODO
+            // TODO
+        }
+    }
+    {
+        // local files
+        const QString localPath = accountName + QStringLiteral("/logs/");
+        const KArchiveEntry *localPathEntry = mArchive->directory()->entry(localPath);
+        if (localPathEntry && localPathEntry->isDirectory()) {
+            const auto localPathDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
+            copyToDirectory(localPathDirectory, QString()); // TODO
+            // TODO
+        }
+    }
+    // TODO cache ?
 }
 
-void ImportAccountJob::copyToDirectory(const KArchiveEntry *entry, const QString &dest)
+void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest)
 {
-    const auto subfolderDir = static_cast<const KArchiveDirectory *>(entry);
     if (!subfolderDir->copyTo(dest)) {
         qCDebug(RUQOLAWIDGETS_LOG) << "directory cannot copy to " << dest;
     }
