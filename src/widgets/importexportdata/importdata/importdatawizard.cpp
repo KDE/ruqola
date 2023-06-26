@@ -9,6 +9,7 @@
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
 
@@ -22,6 +23,7 @@ ImportDataWizard::ImportDataWizard(QWidget *parent)
     , mImportDataSelectAccountPage(new ImportDataSelectAccountPage(this))
     , mImportDataFinishPage(new ImportDataFinishPage(this))
 {
+    setWindowTitle(i18nc("@title:window", "Import Accounts"));
     mImportDataSelectAccountPage->setObjectName(QStringLiteral("mImportDataSelectAccountPage"));
     mImportDataFinishPage->setObjectName(QStringLiteral("mImportDataSelectAccountPage"));
 
