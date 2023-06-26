@@ -10,6 +10,7 @@
 #include <KZip>
 #include <QDir>
 #include <QStandardPaths>
+#include <QTemporaryFile>
 
 ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
@@ -40,9 +41,15 @@ void ExportAccountJob::start()
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
         return;
     }
+    QTemporaryFile tmp;
+    tmp.open();
+    QTextStream text(&tmp);
     for (const auto &account : mListAccounts) {
         exportAccount(account);
+        text << account.accountName << '\n';
     }
+    tmp.close();
+    mArchive->addLocalFile(tmp.fileName(), QStringLiteral("accounts"));
     Q_EMIT exportDone();
     deleteLater();
 }
