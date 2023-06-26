@@ -23,6 +23,7 @@ private:
     };
     void readConfig();
     void writeConfig();
+    void slotCurrentIdChanged(int id);
     ImportDataSelectAccountPage *const mImportDataSelectAccountPage;
     ImportDataFinishPage *const mImportDataFinishPage;
 };

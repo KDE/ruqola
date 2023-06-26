@@ -13,6 +13,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 
+#include <QUrl>
 #include <QWindow>
 namespace
 {
@@ -30,12 +31,21 @@ ImportDataWizard::ImportDataWizard(QWidget *parent)
     setPage(SelectAccountPage, mImportDataSelectAccountPage);
     setPage(FinishPage, mImportDataFinishPage);
 
+    connect(this, &ImportDataWizard::currentIdChanged, this, &ImportDataWizard::slotCurrentIdChanged);
+
     readConfig();
 }
 
 ImportDataWizard::~ImportDataWizard()
 {
     writeConfig();
+}
+
+void ImportDataWizard::slotCurrentIdChanged(int id)
+{
+    if (id == FinishPage) {
+        mImportDataFinishPage->setZipFileUrl(mImportDataSelectAccountPage->zipFileUrl());
+    }
 }
 
 void ImportDataWizard::readConfig()
