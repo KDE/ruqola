@@ -30,6 +30,7 @@ static const KLazyLocalizedString ruqolaNewFeatures[] = {
     kli18n("Add support for quoted text (text which starts by \'>\')"),
     kli18n("Show leader/moderator/owner in channel info."),
     kli18n("Video/Sound Message support (kf6 only)."),
+    kli18n("Import/Export Accounts."),
 };
 static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqolaNewFeatures;
 

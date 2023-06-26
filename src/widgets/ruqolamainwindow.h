@@ -112,6 +112,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowDatabaseMessages();
 #endif
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowPermissions();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotImportAccounts();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
 
     bool mReallyClose{false};
 
@@ -161,4 +163,7 @@ private:
 #endif
     QAction *mMenuDebug = nullptr;
     QAction *mShowPermissions = nullptr;
+
+    QAction *mImportAccountsAction = nullptr;
+    QAction *mExportAccountsAction = nullptr;
 };

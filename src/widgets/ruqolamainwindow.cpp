@@ -613,6 +613,14 @@ void RuqolaMainWindow::setupActions()
     auto showWhatsNewAction = new QAction(QIcon::fromTheme(QStringLiteral("ruqola")), i18n("What's new"), this);
     ac->addAction(QStringLiteral("whatsnew_ruqola"), showWhatsNewAction);
     connect(showWhatsNewAction, &QAction::triggered, this, &RuqolaMainWindow::slotWhatsNew);
+
+    mImportAccountsAction = new QAction(i18n("Import Accounts"), this);
+    connect(mImportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotImportAccounts);
+    ac->addAction(QStringLiteral("import_accounts"), mImportAccountsAction);
+
+    mExportAccountsAction = new QAction(i18n("Export Accounts"), this);
+    connect(mExportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotExportAccounts);
+    ac->addAction(QStringLiteral("export_accounts"), mExportAccountsAction);
 }
 
 void RuqolaMainWindow::slotWhatsNew()
@@ -1094,6 +1102,16 @@ void RuqolaMainWindow::slotShowRoomAvatar(bool checked)
 void RuqolaMainWindow::slotShowFavoriteRoom(bool checked)
 {
     mCurrentRocketChatAccount->setShowFavoriteRoom(checked);
+}
+
+void RuqolaMainWindow::slotImportAccounts()
+{
+    // TODO
+}
+
+void RuqolaMainWindow::slotExportAccounts()
+{
+    // TODO
 }
 
 #include "moc_ruqolamainwindow.cpp"

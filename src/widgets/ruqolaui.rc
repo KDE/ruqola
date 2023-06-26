@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="43">
+<gui name="ruqola" version="44">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -40,6 +40,10 @@
    <Action name="show_notify_history" />
    <Separator/>
    <Action name="show_server_errors" />
+   <Separator/>
+   <Action name="import_accounts" />
+   <Separator/>
+   <Action name="export_accounts" />
    <Separator/>
    <Action name="show_rocketchat_information" />
    <Separator/>
