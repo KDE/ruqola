@@ -34,12 +34,19 @@ void ImportDataFinishPage::setZipFileUrl(const QUrl &url)
 
 void ImportDataFinishPage::slotImportDone()
 {
+    qDebug() << " ExportDataFinishPage::slotExportDone()";
     // TODO
 }
 
 void ImportDataFinishPage::slotImportFailed(const QString &msg)
 {
+    QString currentText = mInfos->text();
+    if (!currentText.isEmpty()) {
+        currentText += QLatin1Char('\n');
+    }
+    mInfos->setText(currentText + msg);
     // TODO
+    qDebug() << " ExportDataFinishPage::slotExportFailed()" << msg;
 }
 
 #include "moc_importdatafinishpage.cpp"
