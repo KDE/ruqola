@@ -9,6 +9,8 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KZip>
+#include <QDir>
+#include <QStandardPaths>
 
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
@@ -48,8 +50,10 @@ void ImportAccountJob::start()
     deleteLater();
 }
 
-void ImportAccountJob::importAccount(const QString &accountName)
+void ImportAccountJob::importAccount(QString accountName)
 {
+    accountName = verifyExistingAccount(accountName);
+    qDebug() << "accountName " << accountName;
     {
         // config files
         const QString configPath = accountName + QLatin1Char('/') + ImportExportUtils::configPath();
@@ -78,6 +82,15 @@ void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, co
     if (!subfolderDir->copyTo(dest)) {
         qCDebug(RUQOLAWIDGETS_LOG) << "directory cannot copy to " << dest;
     }
+}
+
+QString ImportAccountJob::verifyExistingAccount(QString accountName) const
+{
+    int i = 1;
+    while (QDir(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName).exists()) {
+        accountName = QStringLiteral("%1_%2").arg(accountName).arg(QString::number(i));
+    }
+    return accountName;
 }
 
 #include "moc_importaccountjob.cpp"

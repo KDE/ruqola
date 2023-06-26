@@ -26,6 +26,7 @@ Q_SIGNALS:
 
 private:
     void copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest);
-    void importAccount(const QString &accountName);
+    void importAccount(QString accountName);
+    Q_REQUIRED_RESULT QString verifyExistingAccount(QString accountName) const;
     KZip *const mArchive;
 };
