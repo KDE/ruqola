@@ -18,10 +18,7 @@ public:
     ~ImportAccountJob() override;
 
     void start();
-    Q_REQUIRED_RESULT bool canStart() const;
 
-    Q_REQUIRED_RESULT QUrl zipPath() const;
-    void setZipPath(const QUrl &newZipPath);
 Q_SIGNALS:
     void importFailed(const QString &str);
     void importDone();

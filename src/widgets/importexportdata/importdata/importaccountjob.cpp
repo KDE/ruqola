@@ -25,10 +25,6 @@ ImportAccountJob::~ImportAccountJob()
 
 void ImportAccountJob::start()
 {
-    if (canStart()) {
-        deleteLater();
-        return;
-    }
     const bool result = mArchive->open(QIODevice::ReadOnly);
     if (!result) {
         deleteLater();
@@ -39,12 +35,6 @@ void ImportAccountJob::start()
     // TODO
     Q_EMIT importDone();
     deleteLater();
-}
-
-bool ImportAccountJob::canStart() const
-{
-    // TODO
-    return true;
 }
 
 #include "moc_importaccountjob.cpp"
