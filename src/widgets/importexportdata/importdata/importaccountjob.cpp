@@ -32,6 +32,13 @@ void ImportAccountJob::start()
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
         return;
     }
+
+    const KArchiveDirectory *zipDir = mArchive->directory();
+    const KArchiveEntry *accountsEntry = zipDir->entry(QStringLiteral("accounts"));
+    if (accountsEntry && accountsEntry->isFile()) {
+        const auto accountsFile = static_cast<const KArchiveFile *>(accountsEntry);
+        // TODO read list of accounts
+    }
     // TODO
     Q_EMIT importDone();
     deleteLater();
