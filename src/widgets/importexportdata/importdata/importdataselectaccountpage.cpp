@@ -39,16 +39,20 @@ QUrl ImportDataSelectAccountPage::zipFileUrl() const
     return mUrlRequester->url();
 }
 
-bool ImportDataSelectAccountPage::validatePage()
+bool ImportDataSelectAccountPage::verifySelectedUrl() const
 {
     const auto url = mUrlRequester->url();
     return (url.isValid() && !url.toLocalFile().isEmpty());
 }
 
+bool ImportDataSelectAccountPage::validatePage()
+{
+    return verifySelectedUrl();
+}
+
 bool ImportDataSelectAccountPage::isComplete() const
 {
-    const auto url = mUrlRequester->url();
-    return (url.isValid() && !url.toLocalFile().isEmpty());
+    return verifySelectedUrl();
 }
 
 #include "moc_importdataselectaccountpage.cpp"

@@ -21,5 +21,6 @@ public:
     Q_REQUIRED_RESULT bool isComplete() const override;
 
 private:
+    Q_REQUIRED_RESULT bool verifySelectedUrl() const;
     KUrlRequester *const mUrlRequester;
 };
