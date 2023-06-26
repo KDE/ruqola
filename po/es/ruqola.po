@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-26 00:50+0000\n"
 "PO-Revision-Date: 2023-06-24 17:48+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -7071,15 +7071,22 @@ msgstr "Json"
 msgid "Html"
 msgstr "Html"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr "El directorio «%1» no puede añadirse a la copia de respaldo."
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:32
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to export data."
+msgstr "No se pudo abrir los registros."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to create zip file."
+msgstr "No se pudo abrir los registros."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
 #, kde-format
-msgid "file \"%1\" cannot be added to backup file."
-msgstr "El archivo «%1» no puede añadirse a la copia de respaldo."
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr "El directorio «%1» no puede añadirse a la copia de respaldo."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7091,6 +7098,12 @@ msgstr "Seleccionar cuentas:"
 msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Exportar cuentas"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:35
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to open zip file."
+msgstr "No se pudo abrir los registros."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8788,3 +8801,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
+
+#~ msgid "file \"%1\" cannot be added to backup file."
+#~ msgstr "El archivo «%1» no puede añadirse a la copia de respaldo."

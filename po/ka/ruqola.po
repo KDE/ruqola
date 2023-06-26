@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-26 00:50+0000\n"
 "PO-Revision-Date: 2023-06-24 07:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6928,15 +6928,22 @@ msgstr "Json"
 msgid "Html"
 msgstr "Html"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr "საქაღალდე \"%1\" მარქაფის ფაილში ვერ ჩაემატება."
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:32
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to export data."
+msgstr "ჟურნალის გახსნა შეუძლებელია."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to create zip file."
+msgstr "ჟურნალის გახსნა შეუძლებელია."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
 #, kde-format
-msgid "file \"%1\" cannot be added to backup file."
-msgstr ""
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr "საქაღალდე \"%1\" მარქაფის ფაილში ვერ ჩაემატება."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -6948,6 +6955,12 @@ msgstr "აირჩიეთ ანგარიშები:"
 msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "ანგარიშების გატანა"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:35
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to open zip file."
+msgstr "ჟურნალის გახსნა შეუძლებელია."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format

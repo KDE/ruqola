@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-26 00:50+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7192,14 +7192,20 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:32
 #, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
+msgid "Impossible to export data."
 msgstr ""
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
+msgid "Impossible to create zip file."
+msgstr "Falha ao extrair o arquivo de importação."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
 #, kde-format
-msgid "file \"%1\" cannot be added to backup file."
+msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -7214,6 +7220,11 @@ msgstr "Excluir conta"
 msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Conta"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:35
+#, kde-format
+msgid "Impossible to open zip file."
+msgstr ""
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, fuzzy, kde-format

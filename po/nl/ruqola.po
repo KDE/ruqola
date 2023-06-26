@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-26 00:50+0000\n"
 "PO-Revision-Date: 2023-06-24 12:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -7074,16 +7074,22 @@ msgstr "Json"
 msgid "Html"
 msgstr "Html"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr "Map \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:32
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to export data."
+msgstr "Log openen is onmogelijk"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to create zip file."
+msgstr "Log openen is onmogelijk"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
 #, kde-format
-msgid "file \"%1\" cannot be added to backup file."
-msgstr ""
-"bestand \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
+msgid "Directory \"%1\" cannot be added to backup file."
+msgstr "Map \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7095,6 +7101,12 @@ msgstr "Account selecteren:"
 msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Accounts exporteren"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:35
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to open zip file."
+msgstr "Log openen is onmogelijk"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8788,6 +8800,10 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~ msgid "file \"%1\" cannot be added to backup file."
+#~ msgstr ""
+#~ "bestand \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
 
 #~ msgid "Search"
 #~ msgstr "Zoeken"

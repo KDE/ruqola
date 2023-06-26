@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-26 00:50+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7350,14 +7350,20 @@ msgstr ""
 msgid "Html"
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:32
 #, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
+msgid "Impossible to export data."
 msgstr ""
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
+msgid "Impossible to create zip file."
+msgstr "Importfaili lahtipakkimine nurjus."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
 #, kde-format
-msgid "file \"%1\" cannot be added to backup file."
+msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -7372,6 +7378,11 @@ msgstr "Konto kustutamine"
 msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Konto"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:35
+#, kde-format
+msgid "Impossible to open zip file."
+msgstr ""
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, fuzzy, kde-format

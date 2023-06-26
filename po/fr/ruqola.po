@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-26 00:50+0000\n"
 "PO-Revision-Date: 2023-05-26 08:52+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -7111,14 +7111,21 @@ msgstr "Json"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:80
-#, kde-format
-msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:32
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to export data."
+msgstr "Impossible d'ouvrir un journal."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to create zip file."
+msgstr "Impossible d'ouvrir un journal."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:91
 #, kde-format
-msgid "file \"%1\" cannot be added to backup file."
+msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -7133,6 +7140,12 @@ msgstr "Supprimer le compte"
 msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Comptes"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:35
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to open zip file."
+msgstr "Impossible d'ouvrir un journal."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
