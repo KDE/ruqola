@@ -62,11 +62,14 @@ void ImportAccountJob::importAccount(QString accountName)
             const auto configDirectory = static_cast<const KArchiveDirectory *>(configPathEntry);
             const QStringList lst = configDirectory->entries();
             for (const QString &file : lst) {
-                // TODO
+                const KArchiveEntry *filePathEntry = mArchive->directory()->entry(configPath + QStringLiteral("/%1").arg(file));
+                if (filePathEntry && filePathEntry->isFile()) {
+                    const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
+                    filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName);
+                } else {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
+                }
             }
-            copyToDirectory(configDirectory,
-                            QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName); // TODO
-            // TODO
         }
     }
     {
