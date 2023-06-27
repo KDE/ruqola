@@ -64,7 +64,7 @@ void ImportAccountJob::start()
             const QString line = in.readLine();
             accountInfos.append(line);
         }
-        qDebug() << " list of accounts " << accountInfos;
+        qCDebug(RUQOLAWIDGETS_LOG) << " list of accounts " << accountInfos;
     }
     for (const auto &accountName : std::as_const(accountInfos)) {
         importAccount(accountName);
