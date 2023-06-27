@@ -44,7 +44,12 @@ void ImportAccountJob::start()
     if (accountsEntry && accountsEntry->isFile()) {
         const auto accountsFile = static_cast<const KArchiveFile *>(accountsEntry);
         QTemporaryDir accountFileTmp;
-        accountsFile->copyTo(accountFileTmp.path());
+        if (!accountsFile->copyTo(accountFileTmp.path())) {
+            qCWarning(RUQOLAWIDGETS_LOG) << " Impossible to copy to " << accountFileTmp.path();
+            Q_EMIT importFailed(i18n("Impossible to copy file"));
+            deleteLater();
+            return;
+        }
         // qDebug() << " accountFileTmp->fileName()" << accountFileTmp.path();
         QFile file(accountFileTmp.path() + QStringLiteral("/accounts"));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
