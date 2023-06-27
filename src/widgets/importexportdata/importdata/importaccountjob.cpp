@@ -60,6 +60,10 @@ void ImportAccountJob::importAccount(QString accountName)
         const KArchiveEntry *configPathEntry = mArchive->directory()->entry(configPath);
         if (configPathEntry && configPathEntry->isDirectory()) {
             const auto configDirectory = static_cast<const KArchiveDirectory *>(configPathEntry);
+            const QStringList lst = configDirectory->entries();
+            for (const QString &file : lst) {
+                // TODO
+            }
             copyToDirectory(configDirectory,
                             QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName); // TODO
             // TODO
