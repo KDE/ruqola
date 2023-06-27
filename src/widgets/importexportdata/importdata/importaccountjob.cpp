@@ -81,14 +81,16 @@ void ImportAccountJob::importAccount(QString accountName)
             const QStringList lst = localDirectory->entries();
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(localPath + QStringLiteral("/%1").arg(file));
-                if (filePathEntry && filePathEntry->isFile()) {
-                    const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
-                    filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
-                } else if (filePathEntry && filePathEntry->isDirectory()) {
-                    const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                    filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
-                } else {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
+                if (filePathEntry) {
+                    if (filePathEntry->isFile()) {
+                        const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
+                        filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
+                    } else if (filePathEntry->isDirectory()) {
+                        const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
+                        filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
+                    } else {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
+                    }
                 }
             }
         }
