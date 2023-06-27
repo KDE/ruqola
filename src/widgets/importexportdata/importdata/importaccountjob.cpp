@@ -44,7 +44,7 @@ void ImportAccountJob::start()
         // TODO read list of accounts
     }
     for (const auto &accountName : std::as_const(accountInfos)) {
-        // TODO
+        importAccount(accountName);
     }
     Q_EMIT importDone();
     deleteLater();
@@ -64,7 +64,7 @@ void ImportAccountJob::importAccount(QString accountName)
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(configPath + QStringLiteral("/%1").arg(file));
                 if (filePathEntry && filePathEntry->isFile()) {
-                    const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
+                    const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
                     filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName);
                 } else {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
@@ -77,10 +77,20 @@ void ImportAccountJob::importAccount(QString accountName)
         const QString localPath = accountName + QStringLiteral("/logs/");
         const KArchiveEntry *localPathEntry = mArchive->directory()->entry(localPath);
         if (localPathEntry && localPathEntry->isDirectory()) {
-            const auto localPathDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
-            copyToDirectory(localPathDirectory,
-                            QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName); // TODO
-            // TODO
+            const auto localDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
+            const QStringList lst = localDirectory->entries();
+            for (const QString &file : lst) {
+                const KArchiveEntry *filePathEntry = mArchive->directory()->entry(localPath + QStringLiteral("/%1").arg(file));
+                if (filePathEntry && filePathEntry->isFile()) {
+                    const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
+                    filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
+                } else if (filePathEntry && filePathEntry->isDirectory()) {
+                    const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
+                    filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
+                } else {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
+                }
+            }
         }
     }
     // TODO cache ?
