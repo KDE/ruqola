@@ -44,10 +44,15 @@ void ExportAccountJob::start()
     QTemporaryFile tmp;
     tmp.open();
     QTextStream text(&tmp);
+    QStringList listOfAccounts;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    text.setCodec("UTF-8");
+#endif
     for (const auto &account : mListAccounts) {
         exportAccount(account);
-        text << account.accountName << '\n';
+        listOfAccounts.append(account.accountName);
     }
+    text << listOfAccounts.join(QLatin1Char('\n'));
     tmp.close();
     mArchive->addLocalFile(tmp.fileName(), QStringLiteral("accounts"));
     Q_EMIT exportDone();
