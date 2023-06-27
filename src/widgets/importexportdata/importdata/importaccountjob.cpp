@@ -107,10 +107,14 @@ void ImportAccountJob::importAccount(QString accountName)
                 if (filePathEntry) {
                     if (filePathEntry->isFile()) {
                         const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
-                        filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
+                        if (!filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName)) {
+                            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to copy logs file ";
+                        }
                     } else if (filePathEntry->isDirectory()) {
                         const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                        filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName);
+                        if (!filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName)) {
+                            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to copy logs directory ";
+                        }
                     } else {
                         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
                     }
