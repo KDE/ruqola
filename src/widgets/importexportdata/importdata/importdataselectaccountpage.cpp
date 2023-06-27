@@ -30,6 +30,9 @@ ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
     connect(mUrlRequester, &KUrlRequester::urlSelected, this, [this]() {
         Q_EMIT completeChanged();
     });
+    connect(mUrlRequester, &KUrlRequester::textChanged, this, [this]() {
+        Q_EMIT completeChanged();
+    });
 
     auto label = new QLabel(i18n("Select Zip file:"), this);
     label->setObjectName(QStringLiteral("label"));
