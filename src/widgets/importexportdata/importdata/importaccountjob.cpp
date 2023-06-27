@@ -11,6 +11,7 @@
 #include <KZip>
 #include <QDir>
 #include <QStandardPaths>
+#include <QTemporaryFile>
 
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
@@ -41,7 +42,28 @@ void ImportAccountJob::start()
     QStringList accountInfos;
     if (accountsEntry && accountsEntry->isFile()) {
         const auto accountsFile = static_cast<const KArchiveFile *>(accountsEntry);
-        // TODO read list of accounts
+        auto accountFileTmp = new QTemporaryFile(this);
+        if (!accountFileTmp->open()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open temporary file";
+            Q_EMIT importFailed(i18n("Impossible to open temporary file"));
+            deleteLater();
+            return;
+        }
+        accountsFile->copyTo(accountFileTmp->fileName());
+        QFile file(accountFileTmp->fileName());
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open file";
+            Q_EMIT importFailed(i18n("Impossible to open file"));
+            deleteLater();
+            return;
+        }
+
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            const QString line = in.readLine();
+            accountInfos.append(line);
+        }
+        qDebug() << " list of accounts " << accountInfos;
     }
     for (const auto &accountName : std::as_const(accountInfos)) {
         importAccount(accountName);
