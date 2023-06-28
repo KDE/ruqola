@@ -11,16 +11,25 @@
 #include <QLabel>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <KMessageWidget>
 
 ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
+    , mMessageWidget(new KMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mInfos->setObjectName(QStringLiteral("mInfos"));
     mainLayout->addWidget(mInfos);
+
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setWordWrap(true);
+    mMessageWidget->setText(i18n("Accounts Exported."));
 }
 
 ImportDataFinishPage::~ImportDataFinishPage() = default;
@@ -35,8 +44,7 @@ void ImportDataFinishPage::setZipFileUrl(const QUrl &url)
 
 void ImportDataFinishPage::slotImportDone()
 {
-    qDebug() << " ExportDataFinishPage::slotExportDone()";
-    // TODO
+    mMessageWidget->animatedShow();
 }
 
 void ImportDataFinishPage::slotImportFailed(const QString &msg)

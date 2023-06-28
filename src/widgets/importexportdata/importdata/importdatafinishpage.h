@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
 class QLabel;
+class KMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -22,4 +23,5 @@ private:
     void slotImportFailed(const QString &msg);
 
     QLabel *const mInfos;
+    KMessageWidget *const mMessageWidget;
 };
