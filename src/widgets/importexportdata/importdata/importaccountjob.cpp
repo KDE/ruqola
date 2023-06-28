@@ -76,7 +76,7 @@ void ImportAccountJob::start()
 void ImportAccountJob::importAccount(QString accountName)
 {
     accountName = verifyExistingAccount(accountName);
-    qDebug() << "accountName " << accountName;
+    qCDebug(RUQOLAWIDGETS_LOG) << "accountName " << accountName;
     {
         // config files
         const QString configPath = accountName + QLatin1Char('/') + ImportExportUtils::configPath();
