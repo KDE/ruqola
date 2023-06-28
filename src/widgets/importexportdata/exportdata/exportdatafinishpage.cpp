@@ -7,6 +7,7 @@
 #include "exportdatafinishpage.h"
 #include "exportaccountjob.h"
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <QDateTime>
 #include <QDir>
 #include <QLabel>
@@ -15,12 +16,20 @@
 ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
+    , mMessageWidget(new KMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mInfos->setObjectName(QStringLiteral("mInfos"));
     mainLayout->addWidget(mInfos);
+
+    mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
+    mMessageWidget->setVisible(false);
+    mMessageWidget->setCloseButtonVisible(false);
+    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setWordWrap(true);
+    mMessageWidget->setText(i18n("Accounts Imported."));
 }
 
 ExportDataFinishPage::~ExportDataFinishPage() = default;
@@ -46,8 +55,7 @@ void ExportDataFinishPage::exportAccounts()
 
 void ExportDataFinishPage::slotExportDone()
 {
-    qDebug() << " ExportDataFinishPage::slotExportDone()";
-    // TODO
+    mMessageWidget->animatedShow();
 }
 
 void ExportDataFinishPage::slotExportFailed(const QString &msg)

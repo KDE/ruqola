@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWizardPage>
 class QLabel;
+class KMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -24,4 +25,5 @@ private:
     void slotExportFailed(const QString &msg);
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     QLabel *const mInfos;
+    KMessageWidget *const mMessageWidget;
 };
