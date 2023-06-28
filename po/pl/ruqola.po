@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2023-03-12 08:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -7137,7 +7137,7 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr "Nie udało się wydobyć pliku do importu."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7155,12 +7155,24 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Konta"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
+msgid "Impossible to copy file"
+msgstr "Nie udało się wydobyć pliku do importu."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
+msgid "Impossible to open file"
+msgstr "Nie udało się wydobyć pliku do importu."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Select File..."
 msgid "Select Zip file:"

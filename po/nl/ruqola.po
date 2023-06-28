@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
-"PO-Revision-Date: 2023-06-26 10:44+0200\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"PO-Revision-Date: 2023-06-27 11:49+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7084,7 +7084,7 @@ msgstr "Gegevens exporteren is onmogelijk."
 msgid "Impossible to create zip file."
 msgstr "Zip-bestand aanmaken is onmogelijk."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Map \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
@@ -7100,24 +7100,33 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Accounts exporteren"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Zip-bestand openen is onmogelijk."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, fuzzy, kde-format
-#| msgid "Select File..."
+#| msgid "Impossible to open zip file."
+msgid "Impossible to copy file"
+msgstr "Zip-bestand openen is onmogelijk."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Impossible to open zip file."
+msgid "Impossible to open file"
+msgstr "Zip-bestand openen is onmogelijk."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Bestand selecteren..."
+msgstr "Zip-bestand selecteren:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Accounts exporteren"
+msgstr "Accounts importeren"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8511,16 +8520,12 @@ msgid "What's new"
 msgstr "Wat is nieuw"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Accounts exporteren"
+msgstr "Accounts importeren"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "Accounts exporteren"
 
@@ -8794,11 +8799,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Ondersteuning voor video/geluidsbericht (alleen kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "Accounts exporteren"
+msgstr "Accounts im-/exporteren."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
-"PO-Revision-Date: 2023-06-26 10:08+0200\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"PO-Revision-Date: 2023-06-27 11:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7081,7 +7081,7 @@ msgstr "Impossible exportar les dades."
 msgid "Impossible to create zip file."
 msgstr "Impossible crear el fitxer Zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7098,24 +7098,33 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Exportació de comptes"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Impossible obrir el fitxer Zip."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, fuzzy, kde-format
-#| msgid "Select All"
+#| msgid "Impossible to open zip file."
+msgid "Impossible to copy file"
+msgstr "Impossible obrir el fitxer Zip."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Impossible to open zip file."
+msgid "Impossible to open file"
+msgstr "Impossible obrir el fitxer Zip."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Selecciona-ho tot"
+msgstr "Selecció del fitxer Zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Exportació de comptes"
+msgstr "Importació de comptes"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8513,16 +8522,12 @@ msgid "What's new"
 msgstr "Què hi ha de nou"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Exportació de comptes"
+msgstr "Importació de comptes"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "Exportació de comptes"
 
@@ -8795,11 +8800,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Implementació de missatges de vídeo/so (només KF6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "Exportació de comptes"
+msgstr "Importació/exportació de comptes."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"

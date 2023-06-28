@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
-"PO-Revision-Date: 2023-06-26 07:25+0200\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"PO-Revision-Date: 2023-06-27 06:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7067,7 +7067,7 @@ msgstr "Ni mogoče izvoziti podatkov."
 msgid "Impossible to create zip file."
 msgstr "Ni mogoče ustvariti datoteke zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Direktorija \"%1\" ni mogoče dodati v datoteko varovalne kopije."
@@ -7083,24 +7083,33 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Izvozi račune"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Ni mogoče odpreti datoteke zip."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, fuzzy, kde-format
-#| msgid "Select All"
+#| msgid "Impossible to open zip file."
+msgid "Impossible to copy file"
+msgstr "Ni mogoče odpreti datoteke zip."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Impossible to open zip file."
+msgid "Impossible to open file"
+msgstr "Ni mogoče odpreti datoteke zip."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Izberi vse"
+msgstr "Izberi datoteko Zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Izvozi račune"
+msgstr "Uvozi račune"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8499,16 +8508,12 @@ msgid "What's new"
 msgstr "Kaj je novega"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Izvozi račune"
+msgstr "Uvozi račune"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "Izvozi račune"
 
@@ -8779,11 +8784,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Podpora video/zvočnim sporočilom (samo Kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "Izvozi račune"
+msgstr "Uvozi/Izvozi račune."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"

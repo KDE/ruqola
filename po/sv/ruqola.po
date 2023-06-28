@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7092,7 +7092,7 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr "Misslyckades extrahera importfil."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7110,12 +7110,24 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Konton"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
+msgid "Impossible to copy file"
+msgstr "Misslyckades extrahera importfil."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
+msgid "Impossible to open file"
+msgstr "Misslyckades extrahera importfil."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Select File..."
 msgid "Select Zip file:"

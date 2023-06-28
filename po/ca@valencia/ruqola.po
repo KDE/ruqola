@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
-"PO-Revision-Date: 2023-06-03 13:22+0200\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"PO-Revision-Date: 2023-06-27 11:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -3395,10 +3395,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Temps fins a desblocar l'usuari (en minuts)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "How Many Failed Attempts Until Block by User"
+#, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "El nombre d'intents fallits per usuari fins el bloqueig"
+msgstr "El nombre d'intents fallits fins el bloqueig per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3965,10 +3964,9 @@ msgid "Invitation"
 msgstr "Invitació"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Permet el canvi de contrasenya"
+msgstr "S'ha canviat la contrasenya"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4042,7 +4040,7 @@ msgstr "Gira les imatges en pujar-les"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Restrict files to rooms' members"
-msgstr ""
+msgstr "Restringix els fitxers als membres de les sales"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
@@ -4075,6 +4073,8 @@ msgstr ""
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
+"Restringix l'accés als fitxers pujats a les sales només als membres de les "
+"sales"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
@@ -4438,7 +4438,7 @@ msgstr "Agrupa els canals per tipus"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
-msgstr ""
+msgstr "Nombre de suggeriments en la compleció automàtica dels usuaris"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -7073,53 +7073,59 @@ msgid "Html"
 msgstr "HTML"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to export data."
-msgstr "Impossible obrir el registre."
+msgstr "Impossible exportar les dades."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "Impossible obrir el registre."
+msgstr "Impossible crear el fitxer Zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
+"El directori «%1» no s'ha pogut afegir al fitxer de còpia de seguretat."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, fuzzy, kde-format
-#| msgid "Delete my Account"
+#, kde-format
 msgid "Select Accounts:"
-msgstr "Suprimix el meu compte"
+msgstr "Seleccioneu els comptes:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "Comptes"
+msgstr "Exportació de comptes"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#, kde-format
 msgid "Impossible to open zip file."
-msgstr "Impossible obrir el registre."
+msgstr "Impossible obrir el fitxer Zip."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, fuzzy, kde-format
-#| msgid "Select All"
+#| msgid "Impossible to open zip file."
+msgid "Impossible to copy file"
+msgstr "Impossible obrir el fitxer Zip."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Impossible to open zip file."
+msgid "Impossible to open file"
+msgstr "Impossible obrir el fitxer Zip."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Selecciona-ho tot"
+msgstr "Seleccioneu el fitxer Zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Comptes"
+msgstr "Importació de comptes"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8518,16 +8524,14 @@ msgid "What's new"
 msgstr "Què hi ha de nou"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Comptes"
+msgstr "Importació de comptes"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Export Accounts"
-msgstr "Comptes"
+msgstr "Exportació de comptes"
 
 #: widgets/ruqolamainwindow.cpp:656
 #, kde-format
@@ -8797,10 +8801,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Implementació de missatges de vídeo i so (només KF6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgid "Accounts"
 msgid "Import/Export Accounts."
-msgstr "Comptes"
+msgstr "Importació/exportació de comptes."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"

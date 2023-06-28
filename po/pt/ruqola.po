@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2023-06-24 10:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -7108,7 +7108,7 @@ msgstr "Não é possível abrir o registo."
 msgid "Impossible to create zip file."
 msgstr "Não é possível abrir o registo."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Não é possível adicionar a pasta \"%1\" à cópia de segurança."
@@ -7124,13 +7124,25 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Exportar as Contas"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, fuzzy, kde-format
 #| msgid "Impossible to open log."
 msgid "Impossible to open zip file."
 msgstr "Não é possível abrir o registo."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to copy file"
+msgstr "Não é possível abrir o registo."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Impossible to open log."
+msgid "Impossible to open file"
+msgstr "Não é possível abrir o registo."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Select All"
 msgid "Select Zip file:"

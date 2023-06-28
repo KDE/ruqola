@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-27 00:48+0000\n"
-"PO-Revision-Date: 2023-06-24 07:41+0200\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"PO-Revision-Date: 2023-06-27 09:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -6929,18 +6929,16 @@ msgid "Html"
 msgstr "Html"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to export data."
-msgstr "ჟურნალის გახსნა შეუძლებელია."
+msgstr "მონაცემების გატანა შეუძლებელია."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "ჟურნალის გახსნა შეუძლებელია."
+msgstr "Zip ფაილის შექმნა შეუძლებელია."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:99
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "საქაღალდე \"%1\" მარქაფის ფაილში ვერ ჩაემატება."
@@ -6956,25 +6954,33 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "ანგარიშების გატანა"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:34
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#, kde-format
 msgid "Impossible to open zip file."
-msgstr "ჟურნალის გახსნა შეუძლებელია."
+msgstr "Zip ფაილის გახსნა შეუძლებელია."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:34
+#: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, fuzzy, kde-format
-#| msgid "Select All"
+#| msgid "Impossible to open zip file."
+msgid "Impossible to copy file"
+msgstr "Zip ფაილის გახსნა შეუძლებელია."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#, fuzzy, kde-format
+#| msgid "Impossible to open zip file."
+msgid "Impossible to open file"
+msgstr "Zip ფაილის გახსნა შეუძლებელია."
+
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#, kde-format
 msgid "Select Zip file:"
-msgstr "ყველას მონიშვნა"
+msgstr "აირჩიეთ Zip ფაილი:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "ანგარიშების გატანა"
+msgstr "ანგარიშების შემოტანა"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8344,16 +8350,12 @@ msgid "What's new"
 msgstr "სიახლეები"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "ანგარიშების გატანა"
+msgstr "ანგარიშების შემოტანა"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "ანგარიშების გატანა"
 
@@ -8626,11 +8628,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "ანგარიშების გატანა"
+msgstr "ანგარიშების გატანა/შემოტანა."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
