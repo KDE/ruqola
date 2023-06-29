@@ -168,8 +168,10 @@ void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, co
 QString ImportAccountJob::verifyExistingAccount(QString accountName) const
 {
     int i = 1;
+    QString orginalAccountName = accountName;
     while (QDir(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName).exists()) {
-        accountName = QStringLiteral("%1_%2").arg(accountName).arg(QString::number(i));
+        accountName = QStringLiteral("%1_%2").arg(orginalAccountName).arg(QString::number(i));
+        ++i;
     }
     return accountName;
 }
