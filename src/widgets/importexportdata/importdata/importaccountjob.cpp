@@ -133,6 +133,13 @@ void ImportAccountJob::importAccount(QString accountName)
             }
         }
     }
+    {
+        const QString cachePath = oldAccountName + QStringLiteral("/cache/");
+        const KArchiveEntry *cachePathEntry = mArchive->directory()->entry(cachePath);
+        if (cachePathEntry && cachePathEntry->isDirectory()) {
+            // TODO
+        }
+    }
     // TODO cache ?
 }
 
