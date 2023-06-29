@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-06-29 00:47+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -7256,6 +7256,12 @@ msgstr ""
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Account name:"
+msgid "Accounts Imported."
+msgstr "帳戶名稱："
+
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
 #| msgid "Delete Account"
@@ -7283,6 +7289,12 @@ msgstr ""
 #, kde-format
 msgid "Impossible to open file"
 msgstr ""
+
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Accounts Exported."
+msgstr "帳戶名稱"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format

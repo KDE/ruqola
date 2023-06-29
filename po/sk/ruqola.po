@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-06-29 00:47+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -7293,6 +7293,12 @@ msgstr ""
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Accounts Imported."
+msgstr "Meno účtu"
+
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
 #| msgid "Delete Account"
@@ -7320,6 +7326,12 @@ msgstr ""
 #, kde-format
 msgid "Impossible to open file"
 msgstr ""
+
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgid "Accounts Exported."
+msgstr "Pridať účet"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format

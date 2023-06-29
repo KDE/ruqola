@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
-"PO-Revision-Date: 2023-06-27 06:45+0200\n"
+"POT-Creation-Date: 2023-06-29 00:47+0000\n"
+"PO-Revision-Date: 2023-06-28 09:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7072,6 +7072,12 @@ msgstr "Ni mogoče ustvariti datoteke zip."
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Direktorija \"%1\" ni mogoče dodati v datoteko varovalne kopije."
 
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Account name"
+msgid "Accounts Imported."
+msgstr "Ime računa"
+
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
 msgid "Select Accounts:"
@@ -7089,16 +7095,20 @@ msgid "Impossible to open zip file."
 msgstr "Ni mogoče odpreti datoteke zip."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Impossible to open zip file."
+#, kde-format
 msgid "Impossible to copy file"
-msgstr "Ni mogoče odpreti datoteke zip."
+msgstr "Ni mogoče kopirati datoteke"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "Impossible to open zip file."
+#, kde-format
 msgid "Impossible to open file"
-msgstr "Ni mogoče odpreti datoteke zip."
+msgstr "Ni mogoče odpreti datoteke"
+
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Accounts Exported."
+msgstr "Računi"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format

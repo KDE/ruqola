@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-06-29 00:47+0000\n"
 "PO-Revision-Date: 2023-06-17 04:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6849,6 +6849,11 @@ msgstr ""
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#, kde-format
+msgid "Accounts Imported."
+msgstr ""
+
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
 msgid "Select Accounts:"
@@ -6873,6 +6878,11 @@ msgstr ""
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
 #, kde-format
 msgid "Impossible to open file"
+msgstr ""
+
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
+#, kde-format
+msgid "Accounts Exported."
 msgstr ""
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37

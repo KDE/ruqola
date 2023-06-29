@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-06-29 00:47+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7162,6 +7162,12 @@ msgstr "Не удалось извлечь файл импорта."
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Accounts Imported."
+msgstr "Имя учётной записи"
+
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
@@ -7191,6 +7197,12 @@ msgstr "Не удалось извлечь файл импорта."
 #| msgid "Failed to extract import file."
 msgid "Impossible to open file"
 msgstr "Не удалось извлечь файл импорта."
+
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Accounts Exported."
+msgstr "Учётные записи"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
