@@ -6,7 +6,7 @@
 
 #include "importaccountjob.h"
 #include "importexportdata/importexportutils.h"
-#include "ruqolawidgets_debug.h"
+#include "ruqola_importexport_accounts_debug.h"
 #include <KLocalizedString>
 #include <KZip>
 #include <QDir>
@@ -34,7 +34,7 @@ void ImportAccountJob::start()
     if (!result) {
         deleteLater();
         Q_EMIT importFailed(i18n("Impossible to open zip file."));
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open zip file";
         return;
     }
 
@@ -45,7 +45,7 @@ void ImportAccountJob::start()
         const auto accountsFile = static_cast<const KArchiveFile *>(accountsEntry);
         QTemporaryDir accountFileTmp;
         if (!accountsFile->copyTo(accountFileTmp.path())) {
-            qCWarning(RUQOLAWIDGETS_LOG) << " Impossible to copy to " << accountFileTmp.path();
+            qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Impossible to copy to " << accountFileTmp.path();
             Q_EMIT importFailed(i18n("Impossible to copy file"));
             deleteLater();
             return;
@@ -53,7 +53,7 @@ void ImportAccountJob::start()
         // qDebug() << " accountFileTmp->fileName()" << accountFileTmp.path();
         QFile file(accountFileTmp.path() + QStringLiteral("/accounts"));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open file";
+            qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open file";
             Q_EMIT importFailed(i18n("Impossible to open file"));
             deleteLater();
             return;
@@ -64,7 +64,7 @@ void ImportAccountJob::start()
             const QString line = in.readLine();
             accountInfos.append(line);
         }
-        qCDebug(RUQOLAWIDGETS_LOG) << " list of accounts " << accountInfos;
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << accountInfos;
     }
     for (const auto &accountName : std::as_const(accountInfos)) {
         importAccount(accountName);
@@ -76,7 +76,7 @@ void ImportAccountJob::start()
 void ImportAccountJob::importAccount(QString accountName)
 {
     accountName = verifyExistingAccount(accountName);
-    qCDebug(RUQOLAWIDGETS_LOG) << "accountName " << accountName;
+    qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "accountName " << accountName;
     {
         // config files
         const QString configPath = accountName + QLatin1Char('/') + ImportExportUtils::configPath();
@@ -90,7 +90,7 @@ void ImportAccountJob::importAccount(QString accountName)
                     const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
                     filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName);
                 } else {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
+                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to import file ";
                 }
             }
         }
@@ -108,15 +108,15 @@ void ImportAccountJob::importAccount(QString accountName)
                     if (filePathEntry->isFile()) {
                         const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
                         if (!filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName)) {
-                            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to copy logs file ";
+                            qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs file ";
                         }
                     } else if (filePathEntry->isDirectory()) {
                         const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
                         if (!filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName)) {
-                            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to copy logs directory ";
+                            qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                         }
                     } else {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to import file ";
+                        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to import file ";
                     }
                 }
             }
@@ -128,7 +128,7 @@ void ImportAccountJob::importAccount(QString accountName)
 void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest)
 {
     if (!subfolderDir->copyTo(dest)) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "directory cannot copy to " << dest;
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "directory cannot copy to " << dest;
     }
 }
 

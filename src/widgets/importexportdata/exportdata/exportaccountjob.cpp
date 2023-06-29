@@ -5,7 +5,7 @@
 */
 
 #include "exportaccountjob.h"
-#include "ruqolawidgets_debug.h"
+#include "ruqola_importexport_accounts_debug.h"
 #include <KLocalizedString>
 #include <KZip>
 #include <QDir>
@@ -31,14 +31,14 @@ void ExportAccountJob::start()
     if (!canStart()) {
         deleteLater();
         Q_EMIT exportFailed(i18n("Impossible to export data."));
-        qCDebug(RUQOLAWIDGETS_LOG) << " Account list is empty! ";
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Account list is empty! ";
         return;
     }
     const bool result = mArchive->open(QIODevice::WriteOnly);
     if (!result) {
         deleteLater();
         Q_EMIT exportFailed(i18n("Impossible to create zip file."));
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to open zip file";
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open zip file";
         return;
     }
     QTemporaryFile tmp;
@@ -68,19 +68,19 @@ void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExpor
 {
     // config files
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
-    qCDebug(RUQOLAWIDGETS_LOG) << " configPath " << configPath;
+    qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
 
 #if 0
     // cache files
     const QString cachePath = info.accountName + QLatin1Char('/') + ImportExportUtils::cachePath();
-    qCDebug(RUQOLAWIDGETS_LOG) << " cachePath " << cachePath;
+    qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " cachePath " << cachePath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName, cachePath);
 #endif
 
     // local files
     const QString localPath = info.accountName + QStringLiteral("/logs/");
-    qCDebug(RUQOLAWIDGETS_LOG) << " localPath " << localPath;
+    qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + info.accountName, localPath);
 }
 
