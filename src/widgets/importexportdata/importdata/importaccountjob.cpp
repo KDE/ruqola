@@ -75,20 +75,25 @@ void ImportAccountJob::start()
 
 void ImportAccountJob::importAccount(QString accountName)
 {
+    const QString oldAccountName = accountName;
     accountName = verifyExistingAccount(accountName);
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "accountName " << accountName;
     {
         // config files
-        const QString configPath = accountName + QLatin1Char('/') + ImportExportUtils::configPath();
+        const QString configPath = oldAccountName + QLatin1Char('/') + ImportExportUtils::configPath();
         const KArchiveEntry *configPathEntry = mArchive->directory()->entry(configPath);
         if (configPathEntry && configPathEntry->isDirectory()) {
             const auto configDirectory = static_cast<const KArchiveDirectory *>(configPathEntry);
             const QStringList lst = configDirectory->entries();
+            const QString newConfigPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName;
+            QDir().mkpath(newConfigPath);
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(configPath + QStringLiteral("/%1").arg(file));
                 if (filePathEntry && filePathEntry->isFile()) {
                     const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
-                    filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName);
+                    if (!filePath->copyTo(newConfigPath)) {
+                        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy to ";
+                    }
                 } else {
                     qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to import file ";
                 }
@@ -97,22 +102,24 @@ void ImportAccountJob::importAccount(QString accountName)
     }
     {
         // local files
-        const QString localPath = accountName + QStringLiteral("/logs/");
+        const QString localPath = oldAccountName + QStringLiteral("/logs/");
         const KArchiveEntry *localPathEntry = mArchive->directory()->entry(localPath);
         if (localPathEntry && localPathEntry->isDirectory()) {
             const auto localDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
             const QStringList lst = localDirectory->entries();
+            const QString newLocalPath = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName;
+            QDir().mkpath(newLocalPath);
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(localPath + QStringLiteral("/%1").arg(file));
                 if (filePathEntry) {
                     if (filePathEntry->isFile()) {
                         const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
-                        if (!filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName)) {
+                        if (!filePath->copyTo(newLocalPath)) {
                             qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs file ";
                         }
                     } else if (filePathEntry->isDirectory()) {
                         const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                        if (!filePath->copyTo(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName)) {
+                        if (!filePath->copyTo(newLocalPath)) {
                             qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                         }
                     } else {
