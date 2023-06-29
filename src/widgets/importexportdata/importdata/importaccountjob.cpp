@@ -137,10 +137,25 @@ void ImportAccountJob::importAccount(QString accountName)
         const QString cachePath = oldAccountName + QStringLiteral("/cache/");
         const KArchiveEntry *cachePathEntry = mArchive->directory()->entry(cachePath);
         if (cachePathEntry && cachePathEntry->isDirectory()) {
-            // TODO
+            const auto cacheDirectory = static_cast<const KArchiveDirectory *>(cachePathEntry);
+            const QStringList lst = cacheDirectory->entries();
+            const QString newCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + accountName;
+            if (!QDir().mkpath(newCachePath)) {
+                qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to create directory " << newCachePath;
+            }
+            for (const QString &file : lst) {
+                const KArchiveEntry *filePathEntry = mArchive->directory()->entry(cachePath + QStringLiteral("/%1").arg(file));
+                if (filePathEntry->isDirectory()) {
+                    const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
+                    if (!filePath->copyTo(newCachePath)) {
+                        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
+                    }
+                } else {
+                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) <<" Missing import file ? " << lst;
+                }
+            }
         }
     }
-    // TODO cache ?
 }
 
 void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest)
