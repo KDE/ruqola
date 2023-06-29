@@ -75,7 +75,9 @@ void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExpor
     // cache files
     const QString cachePath = info.accountName + QLatin1Char('/') + ImportExportUtils::cachePath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " cachePath " << cachePath;
-    storeDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName, cachePath);
+    const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName + QLatin1Char('/');
+    qDebug() << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
+    storeDirectory(storeCachePath, cachePath);
 #endif
 
     // local files
