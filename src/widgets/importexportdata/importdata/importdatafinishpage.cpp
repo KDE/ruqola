@@ -28,7 +28,7 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     mMessageWidget->setCloseButtonVisible(false);
     mMessageWidget->setMessageType(KMessageWidget::Information);
     mMessageWidget->setWordWrap(true);
-    mMessageWidget->setText(i18n("Accounts Exported."));
+    mMessageWidget->setText(i18n("Accounts imported."));
     mainLayout->addWidget(mMessageWidget);
 }
 
