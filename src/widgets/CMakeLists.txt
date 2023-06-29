@@ -779,6 +779,8 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_thread
     DESCRIPTION "ruqola thread message widgets" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_password_widgets_debug.h IDENTIFIER RUQOLA_PASSWORD_WIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets.password
     DESCRIPTION "ruqola password widget" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolaimportexport_debug_SRCS HEADER ruqola_importexport_accounts_debug.h IDENTIFIER RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG CATEGORY_NAME org.kde.ruqola.widgets.importexportaccounts
+    DESCRIPTION "ruqola import export account" EXPORT RUQOLA)
 
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
