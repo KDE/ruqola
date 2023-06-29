@@ -40,6 +40,7 @@ Extra features:
 - Store message in local database so we can search in offline
 - Mark All Channels are read
 - Add notification history.
+- Add import export Accounts.
 
 
 
