@@ -36,6 +36,7 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
 
     readConfig();
     loadAccountInfo();
+    // Connect after loadAccountInfo
     connect(this, &ExportDataWizard::currentIdChanged, this, &ExportDataWizard::slotCurrentIdChanged);
 }
 
