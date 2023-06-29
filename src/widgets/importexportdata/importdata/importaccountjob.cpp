@@ -147,7 +147,7 @@ void ImportAccountJob::importAccount(QString accountName)
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(cachePath + QStringLiteral("/%1").arg(file));
                 if (filePathEntry->isDirectory()) {
                     const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                    if (!filePath->copyTo(newCachePath)) {
+                    if (!filePath->copyTo(newCachePath + QStringLiteral("/%1").arg(file))) {
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                     }
                 } else {
