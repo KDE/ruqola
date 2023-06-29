@@ -7,7 +7,6 @@
 #include "importdatafinishpage.h"
 #include "importaccountjob.h"
 #include <KLocalizedString>
-#include <QDebug>
 #include <QLabel>
 #include <QUrl>
 #include <QVBoxLayout>
@@ -55,8 +54,6 @@ void ImportDataFinishPage::slotImportFailed(const QString &msg)
         currentText += QLatin1Char('\n');
     }
     mInfos->setText(currentText + msg);
-    // TODO
-    qDebug() << " ExportDataFinishPage::slotExportFailed()" << msg;
 }
 
 #include "moc_importdatafinishpage.cpp"

@@ -5,7 +5,6 @@
 */
 
 #include "exportdataselectaccountlistwidget.h"
-#include <QDebug>
 #include <QListWidgetItem>
 
 ExportDataSelectAccountListWidget::ExportDataSelectAccountListWidget(QWidget *parent)
@@ -18,7 +17,6 @@ ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = defaul
 
 void ExportDataSelectAccountListWidget::setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst)
 {
-    // qDebug() << " lst " << lst;
     for (const auto &accountName : lst) {
         auto item = new QListWidgetItem(this);
         item->setText(accountName.accountName);
