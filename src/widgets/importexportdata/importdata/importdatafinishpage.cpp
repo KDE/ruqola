@@ -30,6 +30,7 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     mMessageWidget->setMessageType(KMessageWidget::Information);
     mMessageWidget->setWordWrap(true);
     mMessageWidget->setText(i18n("Accounts Exported."));
+    mainLayout->addWidget(mMessageWidget);
 }
 
 ImportDataFinishPage::~ImportDataFinishPage() = default;
