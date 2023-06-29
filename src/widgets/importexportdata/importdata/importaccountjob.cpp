@@ -86,7 +86,9 @@ void ImportAccountJob::importAccount(QString accountName)
             const auto configDirectory = static_cast<const KArchiveDirectory *>(configPathEntry);
             const QStringList lst = configDirectory->entries();
             const QString newConfigPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + accountName;
-            QDir().mkpath(newConfigPath);
+            if (!QDir().mkpath(newConfigPath)) {
+                qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to create directory " << newConfigPath;
+            }
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(configPath + QStringLiteral("/%1").arg(file));
                 if (filePathEntry && filePathEntry->isFile()) {
@@ -108,7 +110,9 @@ void ImportAccountJob::importAccount(QString accountName)
             const auto localDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
             const QStringList lst = localDirectory->entries();
             const QString newLocalPath = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + accountName;
-            QDir().mkpath(newLocalPath);
+            if (!QDir().mkpath(newLocalPath)) {
+                qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to create directory " << newLocalPath;
+            }
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(localPath + QStringLiteral("/%1").arg(file));
                 if (filePathEntry) {
