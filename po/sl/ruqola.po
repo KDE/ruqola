@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
-"PO-Revision-Date: 2023-06-28 09:38+0200\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"PO-Revision-Date: 2023-06-29 07:14+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7073,10 +7073,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Direktorija \"%1\" ni mogoče dodati v datoteko varovalne kopije."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Ime računa"
+msgstr "Računi uvoženi."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7104,11 +7103,10 @@ msgstr "Ni mogoče kopirati datoteke"
 msgid "Impossible to open file"
 msgstr "Ni mogoče odpreti datoteke"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Računi"
+msgstr "Računi izvoženi."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format

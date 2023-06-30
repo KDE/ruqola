@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -6986,7 +6986,7 @@ msgstr ""
 msgid "Impossible to open file"
 msgstr ""
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "Accounts Exported."

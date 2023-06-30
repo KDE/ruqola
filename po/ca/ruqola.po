@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
-"PO-Revision-Date: 2023-06-28 10:24+0200\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"PO-Revision-Date: 2023-06-29 09:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7088,10 +7088,9 @@ msgstr ""
 "El directori «%1» no s'ha pogut afegir al fitxer de còpia de seguretat."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Nom del compte"
+msgstr "S'han importat els comptes."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7119,11 +7118,10 @@ msgstr "Impossible copiar el fitxer"
 msgid "Impossible to open file"
 msgstr "Impossible obrir el fitxer"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Comptes"
+msgstr "S'han exportat els comptes."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format
@@ -8845,7 +8843,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgid "file \"%1\" cannot be added to backup file."
-#~ msgstr ""
-#~ "No s'ha pogut afegir el fitxer «%1» al fitxer de còpia de seguretat."

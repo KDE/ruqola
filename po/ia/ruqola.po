@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
-"PO-Revision-Date: 2023-06-21 16:14+0200\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"PO-Revision-Date: 2023-06-29 10:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -6909,26 +6909,23 @@ msgstr "Falleva a extraher file de importar"
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "Directorio  \"%1\" non pote esser addite al file de retrocopia."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Nomine de conto"
+msgstr "Contos importate."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, fuzzy, kde-format
-#| msgid "Delete my Account"
+#, kde-format
 msgid "Select Accounts:"
-msgstr "Dele mi conto"
+msgstr "Selige contos:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "Contos"
+msgstr "Exporta Contos"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
@@ -6945,13 +6942,12 @@ msgstr "Falleva a extraher file de importar"
 #, fuzzy, kde-format
 #| msgid "Failed to extract import file."
 msgid "Impossible to open file"
-msgstr "Falleva a extraher file de importar"
+msgstr "Impossibile aperir file '\"%1\""
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Contos"
+msgstr "Contos Exportate."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -6960,11 +6956,10 @@ msgid "Select Zip file:"
 msgstr "Selige toto"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Contos"
+msgstr "Importa Contos"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8348,16 +8343,14 @@ msgid "What's new"
 msgstr "Que es de novo"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Contos"
+msgstr "Importa Contos"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Export Accounts"
-msgstr "Contos"
+msgstr "Exporta Contos"
 
 #: widgets/ruqolamainwindow.cpp:656
 #, kde-format
@@ -8626,10 +8619,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgid "Accounts"
 msgid "Import/Export Accounts."
-msgstr "Contos"
+msgstr "Importa/Exporta Contos"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"

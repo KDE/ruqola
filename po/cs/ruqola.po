@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
-"PO-Revision-Date: 2023-06-28 15:36+0200\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"PO-Revision-Date: 2023-06-29 11:03+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -6902,10 +6902,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Adresář \"%1\" nelze přidat do souboru zálohy."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Název účtu"
+msgstr "Účty byly importovány."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -6933,11 +6932,10 @@ msgstr "Nelze zkopírovat soubor"
 msgid "Impossible to open file"
 msgstr "Nelze otevřít soubor"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Účty"
+msgstr "Účty byly exportovány."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
-"PO-Revision-Date: 2023-06-27 09:40+0200\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"PO-Revision-Date: 2023-06-29 06:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6944,10 +6944,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "საქაღალდე \"%1\" მარქაფის ფაილში ვერ ჩაემატება."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "ანგარიშის სახელი"
+msgstr "ანგარიშები შემოტანილია."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -6966,22 +6965,19 @@ msgid "Impossible to open zip file."
 msgstr "Zip ფაილის გახსნა შეუძლებელია."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Impossible to open zip file."
+#, kde-format
 msgid "Impossible to copy file"
-msgstr "Zip ფაილის გახსნა შეუძლებელია."
+msgstr "ფაილის კოპირება შეუძლებელია"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "Impossible to open zip file."
+#, kde-format
 msgid "Impossible to open file"
-msgstr "Zip ფაილის გახსნა შეუძლებელია."
+msgstr "ფაილის გახსნა შეუძლებელია"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#, kde-format
 msgid "Accounts Exported."
-msgstr "ანგარიშები"
+msgstr "ანგარიშები გატანილია."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format

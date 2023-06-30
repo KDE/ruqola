@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-29 00:47+0000\n"
-"PO-Revision-Date: 2023-06-22 17:11+0200\n"
+"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"PO-Revision-Date: 2023-06-29 10:32+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7074,33 +7074,29 @@ msgid "Html"
 msgstr "HTML"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to export data."
-msgstr "Impossibile aprire il registro."
+msgstr "Impossibile esportare i dati."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "Impossibile aprire il registro."
+msgstr "Impossibile creare il file zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "La cartella «%1» non può essere aggiunta alla copia di sicurezza."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Nome account"
+msgstr "Account importati."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgid "Select Accounts:"
-msgstr "Elimina account"
+msgstr "Seleziona account:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
 #, kde-format
@@ -7109,42 +7105,35 @@ msgid "Export Accounts"
 msgstr "Esporta account"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:36
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to open zip file."
-msgstr "Impossibile aprire il registro."
+msgstr "Impossibile aprire il file zip."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to copy file"
-msgstr "Impossibile aprire il registro."
+msgstr "Impossibile copiare il file"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to open file"
-msgstr "Impossibile aprire il registro."
+msgstr "Impossibile aprire il file"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Account"
+msgstr "Account esportati."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Select File..."
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Seleziona file..."
+msgstr "Seleziona file Zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Esporta account"
+msgstr "Importa account"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8540,16 +8529,12 @@ msgid "What's new"
 msgstr "Cosa c'è di nuovo"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Esporta account"
+msgstr "Importa account"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "Esporta account"
 
@@ -8821,11 +8806,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Supporto per messaggi video/audio (solo kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "Esporta account"
+msgstr "Importa/Esporta account."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
