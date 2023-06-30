@@ -66,8 +66,6 @@ void ExportDataFinishPage::slotExportFailed(const QString &msg)
         currentText += QLatin1Char('\n');
     }
     mInfos->setText(currentText + msg);
-    // TODO
-    qDebug() << " ExportDataFinishPage::slotExportFailed()" << msg;
 }
 
 #include "moc_exportdatafinishpage.cpp"
