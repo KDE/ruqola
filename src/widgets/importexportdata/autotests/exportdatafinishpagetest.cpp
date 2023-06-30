@@ -6,7 +6,10 @@
 
 #include "exportdatafinishpagetest.h"
 #include "importexportdata/exportdata/exportdatafinishpage.h"
+#include <KMessageWidget>
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(ExportDataFinishPageTest)
 ExportDataFinishPageTest::ExportDataFinishPageTest(QObject *parent)
@@ -17,7 +20,19 @@ ExportDataFinishPageTest::ExportDataFinishPageTest(QObject *parent)
 void ExportDataFinishPageTest::shouldHaveDefaultValues()
 {
     ExportDataFinishPage w;
-    // TODO
+    auto mInfos = w.findChild<QLabel *>(QStringLiteral("mInfos"));
+    QVERIFY(mInfos);
+    QVERIFY(mInfos->text().isEmpty());
+
+    auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
+    QVERIFY(mMessageWidget);
+    QVERIFY(!mMessageWidget->isCloseButtonVisible());
+    QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Information);
+    QVERIFY(!mMessageWidget->text().isEmpty());
+    QVERIFY(mMessageWidget->wordWrap());
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
 }
 
 #include "moc_exportdatafinishpagetest.cpp"
