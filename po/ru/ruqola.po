@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7200,9 +7200,9 @@ msgstr "Не удалось извлечь файл импорта."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
-#| msgid "Accounts"
-msgid "Accounts Exported."
-msgstr "Учётные записи"
+#| msgid "Account Name"
+msgid "Accounts imported."
+msgstr "Имя учётной записи"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -8962,6 +8962,11 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Исправление ошибок"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgid "Accounts Exported."
+#~ msgstr "Учётные записи"
 
 #~ msgid "Search"
 #~ msgstr "Поиск"

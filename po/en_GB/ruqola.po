@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7083,9 +7083,9 @@ msgstr "Impossible to open log."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
-#| msgid "Accounts"
-msgid "Accounts Exported."
-msgstr "Accounts"
+#| msgid "Account name"
+msgid "Accounts imported."
+msgstr "Account name"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -8794,6 +8794,11 @@ msgstr "Some of the new features in this release of Ruqola include:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Some bug fixing:"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgid "Accounts Exported."
+#~ msgstr "Accounts"
 
 #~ msgid "Search"
 #~ msgstr "Search"

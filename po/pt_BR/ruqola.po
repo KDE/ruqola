@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7246,9 +7246,9 @@ msgstr "Falha ao extrair o arquivo de importação."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
-#| msgid "Account"
-msgid "Accounts Exported."
-msgstr "Conta"
+#| msgid "Account name:"
+msgid "Accounts imported."
+msgstr "Nome da conta:"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -9004,6 +9004,11 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Correção de erros"
+
+#, fuzzy
+#~| msgid "Account"
+#~ msgid "Accounts Exported."
+#~ msgstr "Conta"
 
 #~ msgid "Search"
 #~ msgstr "Pesquisar"

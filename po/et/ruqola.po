@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7404,9 +7404,9 @@ msgstr "Importfaili lahtipakkimine nurjus."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
-#| msgid "Account"
-msgid "Accounts Exported."
-msgstr "Konto"
+#| msgid "Account name:"
+msgid "Accounts imported."
+msgstr "Konto nimi:"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -9247,6 +9247,11 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Vigade parandamine"
+
+#, fuzzy
+#~| msgid "Account"
+#~ msgid "Accounts Exported."
+#~ msgstr "Konto"
 
 #~ msgid "Search"
 #~ msgstr "Otsing"

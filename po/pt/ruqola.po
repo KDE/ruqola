@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2023-06-24 10:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -7150,9 +7150,9 @@ msgstr "Não é possível abrir o registo."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
-#| msgid "Accounts"
-msgid "Accounts Exported."
-msgstr "Contas"
+#| msgid "Account name"
+msgid "Accounts imported."
+msgstr "Nome da conta"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -8886,6 +8886,11 @@ msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgid "Accounts Exported."
+#~ msgstr "Contas"
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr "Não é possível adicionar o ficheiro \"%1\" à cópia de segurança."

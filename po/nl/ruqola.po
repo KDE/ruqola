@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2023-06-29 10:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -7121,9 +7121,10 @@ msgid "Impossible to open file"
 msgstr "Bestand openen is onmogelijk"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
-#, kde-format
-msgid "Accounts Exported."
-msgstr "Geëxporteerde accounts."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts imported."
+msgstr "Geïmporteerde accounts."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format
@@ -8842,6 +8843,9 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~ msgid "Accounts Exported."
+#~ msgstr "Geëxporteerde accounts."
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr ""

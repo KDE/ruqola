@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2023-06-25 15:40+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -7163,9 +7163,9 @@ msgstr "Impossible d'ouvrir un journal."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
 #, fuzzy, kde-format
-#| msgid "Accounts"
-msgid "Accounts Exported."
-msgstr "Comptes"
+#| msgid "Account name"
+msgid "Accounts imported."
+msgstr "Nom du compte"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, fuzzy, kde-format
@@ -8907,6 +8907,11 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgid "Accounts Exported."
+#~ msgstr "Comptes"
 
 #~ msgid "Search"
 #~ msgstr "Chercher"

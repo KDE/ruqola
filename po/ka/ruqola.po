@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:48+0000\n"
+"POT-Creation-Date: 2023-07-01 00:48+0000\n"
 "PO-Revision-Date: 2023-06-29 06:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6975,9 +6975,10 @@ msgid "Impossible to open file"
 msgstr "ფაილის გახსნა შეუძლებელია"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
-#, kde-format
-msgid "Accounts Exported."
-msgstr "ანგარიშები გატანილია."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts imported."
+msgstr "ანგარიშები შემოტანილია."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format
@@ -8669,6 +8670,9 @@ msgstr "Ruqola-ის ახალ ფუნქციებში შედი�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
+
+#~ msgid "Accounts Exported."
+#~ msgstr "ანგარიშები გატანილია."
 
 #~ msgid "Search"
 #~ msgstr "ძებნა"
