@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-05-26 08:52+0200\n"
+"PO-Revision-Date: 2023-06-29 09:44+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1723,7 +1723,7 @@ msgid ""
 msgstr ""
 "Convertir &deux caractères majuscules en une majuscule et un caractère "
 "minuscule \n"
-" (Par exemple, « PArfait to Parfait)"
+" (Par exemple, « PArfait » vers « Parfait »)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:375
