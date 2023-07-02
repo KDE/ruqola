@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-01 00:48+0000\n"
-"PO-Revision-Date: 2023-06-29 10:21+0200\n"
+"PO-Revision-Date: 2023-07-01 11:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7121,10 +7121,9 @@ msgid "Impossible to open file"
 msgstr "Bestand openen is onmogelijk"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Accounts imported."
-msgstr "Geïmporteerde accounts."
+msgstr "Accounts geïmporteerd."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
 #, kde-format

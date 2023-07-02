@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-01 00:48+0000\n"
-"PO-Revision-Date: 2023-06-24 17:48+0200\n"
+"PO-Revision-Date: 2023-07-01 17:15+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7072,16 +7072,14 @@ msgid "Html"
 msgstr "Html"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to export data."
-msgstr "No se pudo abrir los registros."
+msgstr "No se pudo exportar datos."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "No se pudo abrir los registros."
+msgstr "No se pudo crear el archivo zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
@@ -7089,10 +7087,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "El directorio «%1» no puede añadirse a la copia de respaldo."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Nombre de la cuenta"
+msgstr "Cuentas importadas."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7106,42 +7103,35 @@ msgid "Export Accounts"
 msgstr "Exportar cuentas"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:36
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to open zip file."
-msgstr "No se pudo abrir los registros."
+msgstr "No se pudo abrir el archivo zip."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to copy file"
-msgstr "No se pudo abrir los registros."
+msgstr "No se pudo copiar el archivo"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to open file"
-msgstr "No se pudo abrir los registros."
+msgstr "No se pudo abrir el archivo"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts imported."
-msgstr "Nombre de la cuenta"
+msgstr "Cuentas importadas."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Seleccionar todos"
+msgstr "Seleccionar archivo zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Exportar cuentas"
+msgstr "Importar cuentas"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8542,16 +8532,12 @@ msgid "What's new"
 msgstr "¿Qué hay de nuevo?"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Exportar cuentas"
+msgstr "Importar cuentas"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "Exportar cuentas"
 
@@ -8822,11 +8808,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Soporte para mensajes de audio/vídeo (solo en kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "Exportar cuentas"
+msgstr "Importar/Exportar cuentas."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
@@ -8860,11 +8843,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#, fuzzy
-#~| msgid "Accounts"
-#~ msgid "Accounts Exported."
-#~ msgstr "Cuentas"
-
-#~ msgid "file \"%1\" cannot be added to backup file."
-#~ msgstr "El archivo «%1» no puede añadirse a la copia de respaldo."
