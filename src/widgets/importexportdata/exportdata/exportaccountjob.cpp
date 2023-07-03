@@ -66,18 +66,33 @@ QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccoun
 
 void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExportInfo &info)
 {
+    exportConfig(info);
+
+    exportCache(info);
+
+    exportLogs(info);
+}
+
+void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExportInfo &info)
+{
     // config files
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
+}
 
+void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportInfo &info)
+{
     // cache files
     const QString cachePath = info.accountName + QLatin1Char('/') + ImportExportUtils::cachePath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " cachePath " << cachePath;
     const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName + QLatin1Char('/');
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
     storeDirectory(storeCachePath, cachePath);
+}
 
+void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportInfo &info)
+{
     // local files
     const QString localPath = info.accountName + QStringLiteral("/logs/");
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
