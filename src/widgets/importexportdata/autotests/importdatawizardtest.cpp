@@ -23,9 +23,7 @@ void ImportDataWizardTest::shouldHaveDefaultValues()
     QVERIFY(mImportDataSelectAccountPage);
 
     auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(QStringLiteral("mImportDataSelectAccountPage"));
-    QVERIFY(mImportDataFinishPage)
-
-    // TODO
+    QVERIFY(mImportDataFinishPage);
 }
 
 #include "moc_importdatawizardtest.cpp"
