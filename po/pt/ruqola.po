@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-01 00:48+0000\n"
-"PO-Revision-Date: 2023-06-24 10:19+0100\n"
+"PO-Revision-Date: 2023-07-03 01:12+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -7097,16 +7097,14 @@ msgid "Html"
 msgstr "HTML"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to export data."
-msgstr "Não é possível abrir o registo."
+msgstr "Não é possível exportar os dados."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "Não é possível abrir o registo."
+msgstr "Não é possível criar o ficheiro ZIP."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
 #, kde-format
@@ -7114,10 +7112,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Não é possível adicionar a pasta \"%1\" à cópia de segurança."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Imported."
-msgstr "Nome da conta"
+msgstr "As Contas Foram Importadas."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7131,42 +7128,35 @@ msgid "Export Accounts"
 msgstr "Exportar as Contas"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:36
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to open zip file."
-msgstr "Não é possível abrir o registo."
+msgstr "Não é possível abrir o ficheiro ZIP."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to copy file"
-msgstr "Não é possível abrir o registo."
+msgstr "Não é possível copiar o ficheiro"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "Impossible to open log."
+#, kde-format
 msgid "Impossible to open file"
-msgstr "Não é possível abrir o registo."
+msgstr "Não é possível abrir o ficheiro"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts imported."
-msgstr "Nome da conta"
+msgstr "As contas foram importadas."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Seleccionar Tudo"
+msgstr "Seleccionar o ficheiro ZIP:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Exportar as Contas"
+msgstr "Importar as Contas"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -8567,16 +8557,12 @@ msgid "What's new"
 msgstr "Novidades"
 
 #: widgets/ruqolamainwindow.cpp:620
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Exportar as Contas"
+msgstr "Importar as Contas"
 
 #: widgets/ruqolamainwindow.cpp:624
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Accounts"
 msgstr "Exportar as Contas"
 
@@ -8848,11 +8834,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr "Suporte para Mensagens de Vídeo/Áudio (apenas no KF6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Export Accounts"
 msgid "Import/Export Accounts."
-msgstr "Exportar as Contas"
+msgstr "Importar/Exportar as Contas."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
@@ -8886,11 +8869,3 @@ msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
-
-#, fuzzy
-#~| msgid "Accounts"
-#~ msgid "Accounts Exported."
-#~ msgstr "Contas"
-
-#~ msgid "file \"%1\" cannot be added to backup file."
-#~ msgstr "Não é possível adicionar o ficheiro \"%1\" à cópia de segurança."
