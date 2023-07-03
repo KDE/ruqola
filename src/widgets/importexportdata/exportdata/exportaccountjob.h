@@ -27,6 +27,8 @@ public:
 Q_SIGNALS:
     void exportDone();
     void exportFailed(const QString &errorMsg);
+    void exportCacheData(const ImportExportUtils::AccountImportExportInfo &info);
+    void exportLogsData(const ImportExportUtils::AccountImportExportInfo &info);
 
 private:
     void storeDirectory(const QString &subDirectory, const QString &subfolderPath);

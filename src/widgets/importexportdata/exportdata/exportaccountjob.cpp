@@ -16,6 +16,8 @@ ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
     , mArchive(new KZip(fileName))
 {
+    connect(this, &ExportAccountJob::exportCacheData, this, &ExportAccountJob::exportCache);
+    connect(this, &ExportAccountJob::exportLogsData, this, &ExportAccountJob::exportLogs);
 }
 
 ExportAccountJob::~ExportAccountJob()
@@ -67,10 +69,6 @@ QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccoun
 void ExportAccountJob::exportAccount(const ImportExportUtils::AccountImportExportInfo &info)
 {
     exportConfig(info);
-
-    exportCache(info);
-
-    exportLogs(info);
 }
 
 void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExportInfo &info)
@@ -79,6 +77,7 @@ void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExport
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
+    Q_EMIT exportCacheData(info);
 }
 
 void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportInfo &info)
@@ -89,6 +88,7 @@ void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportI
     const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName + QLatin1Char('/');
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
     storeDirectory(storeCachePath, cachePath);
+    Q_EMIT exportLogsData(info);
 }
 
 void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportInfo &info)
