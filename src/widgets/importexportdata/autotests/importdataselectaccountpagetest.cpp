@@ -7,6 +7,7 @@
 #include "importdataselectaccountpagetest.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include <KUrlRequester>
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -25,6 +26,12 @@ void ImportDataSelectAccountPageTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    QVERIFY(w.zipFileUrl().isEmpty());
 }
 
 #include "moc_importdataselectaccountpagetest.cpp"
