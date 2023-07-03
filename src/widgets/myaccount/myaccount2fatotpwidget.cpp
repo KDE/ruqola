@@ -19,12 +19,17 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <prison/Prison>
 #else
+#include <Prison/Barcode>
 #include <Prison/Prison>
 #endif
 
 MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     , mQRCode(Prison::createBarcode(Prison::QRCode))
+#else
+    , mQRCode(new Prison::Barcode(Prison::QRCode))
+#endif
     , mTotpQrCode(new QLabel(this))
     , mQrCoreLabel(new QLabel(this))
     , mVerifyQrCode(new QLineEdit(this))

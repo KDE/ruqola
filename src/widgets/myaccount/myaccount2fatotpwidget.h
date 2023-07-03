@@ -10,7 +10,11 @@
 class QLabel;
 namespace Prison
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class AbstractBarcode;
+#else
+class Barcode;
+#endif
 }
 class RocketChatAccount;
 class QLineEdit;
@@ -29,7 +33,11 @@ private:
     void slotVerify();
     void slotTotpInvalid();
     void slotTotpValid(const QStringList &listCodes);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Prison::AbstractBarcode *const mQRCode;
+#else
+    Prison::Barcode *const mQRCode;
+#endif
     QLabel *const mTotpQrCode;
     QLabel *const mQrCoreLabel;
     QLineEdit *const mVerifyQrCode;
