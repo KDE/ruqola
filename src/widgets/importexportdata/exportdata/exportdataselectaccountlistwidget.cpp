@@ -10,6 +10,7 @@
 ExportDataSelectAccountListWidget::ExportDataSelectAccountListWidget(QWidget *parent)
     : QListWidget(parent)
 {
+    setAlternatingRowColors(true);
     connect(this, &ExportDataSelectAccountListWidget::itemChanged, this, &ExportDataSelectAccountListWidget::selectedItemChanged);
 }
 

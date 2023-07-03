@@ -21,3 +21,5 @@ add_ruqola_importexportdata_test(importdataselectaccountpagetest.cpp)
 add_ruqola_importexportdata_test(importdatafinishpagetest.cpp)
 add_ruqola_importexportdata_test(importaccountjobtest.cpp)
 add_ruqola_importexportdata_test(importexportutilstest.cpp)
+
+add_ruqola_importexportdata_test(exportdataselectaccountlistwidgettest.cpp)
