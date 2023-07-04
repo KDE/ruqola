@@ -14,7 +14,6 @@
 #else
 #include <Purpose/Menu>
 #endif
-
 #include <QJsonArray>
 #include <QTemporaryFile>
 #include <QUrl>
