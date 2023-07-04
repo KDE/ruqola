@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-01 00:48+0000\n"
+"POT-Creation-Date: 2023-07-04 00:48+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7027,19 +7027,19 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, fuzzy, kde-format
 #| msgid "Impossible to open log."
 msgid "Impossible to export data."
 msgstr "Impossible to open log."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
 #, fuzzy, kde-format
 #| msgid "Impossible to open log."
 msgid "Impossible to create zip file."
 msgstr "Impossible to open log."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7285,13 +7285,13 @@ msgstr ""
 "You can also use one of your backup codes."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:61
 #, kde-format
 msgid "Enter authentication code"
 msgstr "Enter authentication code"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:60
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:65
 #, kde-format
 msgid "Verify"
 msgstr "Verify"
@@ -7302,18 +7302,18 @@ msgid "Regenerate Code"
 msgstr "Regenerate Code"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Invalid two factor code."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Check Two Factor Code"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:39
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:44
 #, kde-format
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
@@ -7324,7 +7324,7 @@ msgstr ""
 "below.\n"
 " If you can't scan the QR code, you may enter code manually instead:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:86
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7337,7 +7337,7 @@ msgstr ""
 "If you lose access to your authenticator app, you can use one of these codes "
 "to log in."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:88
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Backup Codes"
 msgstr "Backup Codes"

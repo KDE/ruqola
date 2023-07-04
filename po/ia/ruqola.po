@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-01 00:48+0000\n"
+"POT-Creation-Date: 2023-07-04 00:48+0000\n"
 "PO-Revision-Date: 2023-07-02 22:12+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -6895,17 +6895,17 @@ msgstr "Json"
 msgid "Html"
 msgstr "Html"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
 msgid "Impossible to export data."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
 #, kde-format
 msgid "Impossible to create zip file."
 msgstr "Impossibile crear le file zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Directorio  \"%1\" non pote esser addite al file de retrocopia."
@@ -7145,13 +7145,13 @@ msgstr ""
 "Tu anque pote usar un de tu codices de retrocopiar."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:61
 #, kde-format
 msgid "Enter authentication code"
 msgstr "Inserta Codice de authentication"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:60
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:65
 #, kde-format
 msgid "Verify"
 msgstr "Verifica"
@@ -7162,18 +7162,18 @@ msgid "Regenerate Code"
 msgstr "Regenera Codice"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Codice a duo factores invalide."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Marca Codice a duo factores"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:39
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:44
 #, kde-format
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
@@ -7185,7 +7185,7 @@ msgstr ""
 "Si tu non pote scander le codice QR, tu poterea in loco insertar codice "
 "manualmente:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:86
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7198,7 +7198,7 @@ msgstr ""
 "Si tu perde accesso a tu app authenticator, tu pote usar un de iste codices "
 "pro acceder."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:88
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Backup Codes"
 msgstr "Codices de retrocopiar (backup)"

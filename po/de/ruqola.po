@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-01 00:48+0000\n"
+"POT-Creation-Date: 2023-07-04 00:48+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -7251,17 +7251,17 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
 msgid "Impossible to export data."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
 #, kde-format
 msgid "Impossible to create zip file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7498,14 +7498,14 @@ msgid ""
 msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Enter authentication code"
 msgstr "Anmeldeverfahren"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:60
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "Verified"
 msgid "Verify"
@@ -7517,19 +7517,19 @@ msgid "Regenerate Code"
 msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "Invalid date provided."
 msgid "Invalid two factor code."
 msgstr "Ungültiges Datum angegeben."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr ""
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:39
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:44
 #, kde-format
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
@@ -7537,7 +7537,7 @@ msgid ""
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:86
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7546,7 +7546,7 @@ msgid ""
 "to log in."
 msgstr ""
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:88
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgid "Backup Codes"

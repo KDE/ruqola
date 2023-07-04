@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-01 00:48+0000\n"
+"POT-Creation-Date: 2023-07-04 00:48+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7146,18 +7146,18 @@ msgstr "JSON"
 msgid "Html"
 msgstr "HTML"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:33
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
 msgid "Impossible to export data."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
 #, fuzzy, kde-format
 #| msgid "Failed to extract import file."
 msgid "Impossible to create zip file."
 msgstr "Не удалось извлечь файл импорта."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:104
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7407,14 +7407,14 @@ msgstr ""
 "Также возможно использовать один из резервных кодов."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:56
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Enter Authentication Code"
 msgid "Enter authentication code"
 msgstr "Введите код аутентификации"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:60
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:65
 #, kde-format
 msgid "Verify"
 msgstr "Проверить"
@@ -7425,18 +7425,18 @@ msgid "Regenerate Code"
 msgstr "Пересоздать код"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Неверный двухфакторный код."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Проверить двухфакторный код"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:39
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:44
 #, kde-format
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
@@ -7448,7 +7448,7 @@ msgstr ""
 " Если нет возможности выполнить сканирование QR-кода, возможно ввести код "
 "вручную:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:86
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7461,7 +7461,7 @@ msgstr ""
 "В случае потери доступа к приложению для аутентификации будет возможно "
 "воспользоваться одним из этих кодов для входа."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:88
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid "Backup Codes"
 msgstr "Резервные коды"
