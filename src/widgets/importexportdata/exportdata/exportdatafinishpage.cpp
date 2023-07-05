@@ -27,6 +27,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     mainLayout->addWidget(mInfos);
 
     mDetails->setObjectName(QStringLiteral("mDetails"));
+    mDetails->setReadOnly(true);
 
     mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
     mMessageWidget->setVisible(false);

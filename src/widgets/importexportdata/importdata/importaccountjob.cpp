@@ -13,6 +13,7 @@
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
+#include <QTimer>
 
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QObject{parent}
@@ -40,7 +41,6 @@ void ImportAccountJob::start()
 
     const KArchiveDirectory *zipDir = mArchive->directory();
     const KArchiveEntry *accountsEntry = zipDir->entry(QStringLiteral("accounts"));
-    QStringList accountInfos;
     if (accountsEntry && accountsEntry->isFile()) {
         const auto accountsFile = static_cast<const KArchiveFile *>(accountsEntry);
         QTemporaryDir accountFileTmp;
@@ -62,13 +62,25 @@ void ImportAccountJob::start()
         QTextStream in(&file);
         while (!in.atEnd()) {
             const QString line = in.readLine();
-            accountInfos.append(line);
+            mAccountInfos.append(line);
         }
-        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << accountInfos;
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << mAccountInfos;
     }
-    for (const auto &accountName : std::as_const(accountInfos)) {
-        importAccount(accountName);
+    QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
+}
+
+void ImportAccountJob::importAccounts()
+{
+    if (mAccountIndex < mAccountInfos.count()) {
+        const auto account = mAccountInfos.at(mAccountIndex);
+        importAccount(account);
+    } else {
+        finishImportAccounts();
     }
+}
+
+void ImportAccountJob::finishImportAccounts()
+{
     Q_EMIT importDone();
     deleteLater();
 }
@@ -156,6 +168,8 @@ void ImportAccountJob::importAccount(QString accountName)
             }
         }
     }
+    mAccountIndex++;
+    QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
 }
 
 void ImportAccountJob::copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest)

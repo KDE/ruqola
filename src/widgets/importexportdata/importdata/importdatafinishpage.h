@@ -9,6 +9,7 @@
 #include <QWizardPage>
 class QLabel;
 class KMessageWidget;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -21,7 +22,9 @@ public:
 private:
     void slotImportDone();
     void slotImportFailed(const QString &msg);
+    void slotImportInfo(const QString &msg);
 
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
+    QPlainTextEdit *const mDetails;
 };

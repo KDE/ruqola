@@ -6,10 +6,11 @@
 
 #include "importdatafinishpagetest.h"
 #include "importexportdata/importdata/importdatafinishpage.h"
+#include <KMessageWidget>
+#include <QLabel>
+#include <QPlainTextEdit>
 #include <QTest>
 #include <QVBoxLayout>
-#include <QLabel>
-#include <KMessageWidget>
 
 QTEST_MAIN(ImportDataFinishPageTest)
 
@@ -33,6 +34,11 @@ void ImportDataFinishPageTest::shouldHaveDefaultValues()
     auto mMessageWidget = w.findChild<KMessageWidget *>(QStringLiteral("mMessageWidget"));
     QVERIFY(mMessageWidget);
     QVERIFY(!mMessageWidget->isCloseButtonVisible());
+
+    auto mDetails = w.findChild<QPlainTextEdit *>(QStringLiteral("mDetails"));
+    QVERIFY(mDetails);
+    QVERIFY(mDetails->toPlainText().isEmpty());
+    QVERIFY(mDetails->isReadOnly());
 }
 
 #include "moc_importdatafinishpagetest.cpp"

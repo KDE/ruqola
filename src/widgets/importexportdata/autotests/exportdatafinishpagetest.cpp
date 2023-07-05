@@ -38,6 +38,7 @@ void ExportDataFinishPageTest::shouldHaveDefaultValues()
     auto mDetails = w.findChild<QPlainTextEdit *>(QStringLiteral("mDetails"));
     QVERIFY(mDetails);
     QVERIFY(mDetails->toPlainText().isEmpty());
+    QVERIFY(mDetails->isReadOnly());
 }
 
 #include "moc_exportdatafinishpagetest.cpp"

@@ -7,15 +7,17 @@
 #include "importdatafinishpage.h"
 #include "importaccountjob.h"
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <QLabel>
+#include <QPlainTextEdit>
 #include <QUrl>
 #include <QVBoxLayout>
-#include <KMessageWidget>
 
 ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
+    , mDetails(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -30,6 +32,10 @@ ImportDataFinishPage::ImportDataFinishPage(QWidget *parent)
     mMessageWidget->setWordWrap(true);
     mMessageWidget->setText(i18n("Accounts imported."));
     mainLayout->addWidget(mMessageWidget);
+
+    mDetails->setObjectName(QStringLiteral("mDetails"));
+    mDetails->setReadOnly(true);
+    mainLayout->addWidget(mDetails);
 }
 
 ImportDataFinishPage::~ImportDataFinishPage() = default;
@@ -39,12 +45,18 @@ void ImportDataFinishPage::setZipFileUrl(const QUrl &url)
     auto job = new ImportAccountJob(url.toLocalFile(), this);
     connect(job, &ImportAccountJob::importDone, this, &ImportDataFinishPage::slotImportDone);
     connect(job, &ImportAccountJob::importFailed, this, &ImportDataFinishPage::slotImportFailed);
+    connect(job, &ImportAccountJob::importInfo, this, &ImportDataFinishPage::slotImportInfo);
     job->start();
 }
 
 void ImportDataFinishPage::slotImportDone()
 {
     mMessageWidget->animatedShow();
+}
+
+void ImportDataFinishPage::slotImportInfo(const QString &msg)
+{
+    mDetails->appendPlainText(msg);
 }
 
 void ImportDataFinishPage::slotImportFailed(const QString &msg)
