@@ -116,7 +116,7 @@ void ImportAccountJob::importAccount(QString accountName)
     }
     {
         // local files
-        const QString localPath = oldAccountName + QStringLiteral("/logs/");
+        const QString localPath = oldAccountName + QLatin1Char('/') + ImportExportUtils::logsPath();
         const KArchiveEntry *localPathEntry = mArchive->directory()->entry(localPath);
         if (localPathEntry && localPathEntry->isDirectory()) {
             const auto localDirectory = static_cast<const KArchiveDirectory *>(localPathEntry);
@@ -146,7 +146,7 @@ void ImportAccountJob::importAccount(QString accountName)
         }
     }
     {
-        const QString cachePath = oldAccountName + QStringLiteral("/cache/");
+        const QString cachePath = oldAccountName + QLatin1Char('/') + ImportExportUtils::cachePath();
         const KArchiveEntry *cachePathEntry = mArchive->directory()->entry(cachePath);
         if (cachePathEntry && cachePathEntry->isDirectory()) {
             const auto cacheDirectory = static_cast<const KArchiveDirectory *>(cachePathEntry);
@@ -168,6 +168,8 @@ void ImportAccountJob::importAccount(QString accountName)
             }
         }
     }
+    // TODO import database
+
     mAccountIndex++;
     QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
 }
