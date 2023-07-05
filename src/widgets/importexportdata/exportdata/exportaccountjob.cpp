@@ -90,8 +90,8 @@ void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExport
     const QString configPath = info.accountName + QLatin1Char('/') + ImportExportUtils::configPath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
-    Q_EMIT exportCacheData(info);
     Q_EMIT exportInfo(i18n("Account %1: export config done.", info.accountName));
+    Q_EMIT exportCacheData(info);
 }
 
 void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportInfo &info)
@@ -102,8 +102,8 @@ void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportI
     const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + info.accountName + QLatin1Char('/');
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
     storeDirectory(storeCachePath, cachePath);
-    Q_EMIT exportLogsData(info);
     Q_EMIT exportInfo(i18n("Account %1: export cache done.", info.accountName));
+    Q_EMIT exportLogsData(info);
 }
 
 void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportInfo &info)
