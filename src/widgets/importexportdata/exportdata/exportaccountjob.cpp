@@ -117,6 +117,11 @@ void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportIn
     exportAccount();
 }
 
+void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExportInfo &info)
+{
+    // TODO
+}
+
 void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
 {
     mListAccounts = newListAccounts;

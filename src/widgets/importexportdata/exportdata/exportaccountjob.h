@@ -38,6 +38,7 @@ private:
     void exportConfig(const ImportExportUtils::AccountImportExportInfo &info);
     void exportCache(const ImportExportUtils::AccountImportExportInfo &info);
     void exportLogs(const ImportExportUtils::AccountImportExportInfo &info);
+    void exportDatabase(const ImportExportUtils::AccountImportExportInfo &info);
     void finishExportAccount();
     void exportAccount();
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
