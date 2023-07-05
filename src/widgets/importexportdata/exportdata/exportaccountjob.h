@@ -27,6 +27,8 @@ public:
 Q_SIGNALS:
     void exportDone();
     void exportFailed(const QString &errorMsg);
+    void exportInfo(const QString &msg);
+
     void exportCacheData(const ImportExportUtils::AccountImportExportInfo &info);
     void exportLogsData(const ImportExportUtils::AccountImportExportInfo &info);
 
@@ -36,6 +38,7 @@ private:
     void exportConfig(const ImportExportUtils::AccountImportExportInfo &info);
     void exportCache(const ImportExportUtils::AccountImportExportInfo &info);
     void exportLogs(const ImportExportUtils::AccountImportExportInfo &info);
+    void finishExportAccount();
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     KZip *const mArchive;
 };

@@ -43,6 +43,15 @@ void ExportAccountJob::start()
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open zip file";
         return;
     }
+
+    for (const auto &account : mListAccounts) {
+        exportAccount(account);
+    }
+    finishExportAccount();
+}
+
+void ExportAccountJob::finishExportAccount()
+{
     QTemporaryFile tmp;
     tmp.open();
     QTextStream text(&tmp);
@@ -51,12 +60,12 @@ void ExportAccountJob::start()
     text.setCodec("UTF-8");
 #endif
     for (const auto &account : mListAccounts) {
-        exportAccount(account);
         listOfAccounts.append(account.accountName);
     }
     text << listOfAccounts.join(QLatin1Char('\n'));
     tmp.close();
     mArchive->addLocalFile(tmp.fileName(), QStringLiteral("accounts"));
+
     Q_EMIT exportDone();
     deleteLater();
 }
@@ -78,6 +87,7 @@ void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExport
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + QStringLiteral("/ruqola/") + info.accountName, configPath);
     Q_EMIT exportCacheData(info);
+    Q_EMIT exportInfo(i18n("Account %1: export config done.", info.accountName));
 }
 
 void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportInfo &info)
@@ -89,6 +99,7 @@ void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportI
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
     storeDirectory(storeCachePath, cachePath);
     Q_EMIT exportLogsData(info);
+    Q_EMIT exportInfo(i18n("Account %1: export cache done.", info.accountName));
 }
 
 void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportInfo &info)
@@ -97,6 +108,8 @@ void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportIn
     const QString localPath = info.accountName + QStringLiteral("/logs/");
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + info.accountName, localPath);
+    Q_EMIT exportInfo(i18n("Account %1: export logs done.", info.accountName));
+    finishExportAccount();
 }
 
 void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
