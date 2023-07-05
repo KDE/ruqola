@@ -109,7 +109,7 @@ void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportI
 void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportInfo &info)
 {
     // local files
-    const QString localPath = info.accountName + QStringLiteral("/logs/");
+    const QString localPath = info.accountName + QLatin1Char('/') + ImportExportUtils::logsPath();
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + info.accountName, localPath);
     Q_EMIT exportInfo(i18n("Account %1: export logs done.", info.accountName));
