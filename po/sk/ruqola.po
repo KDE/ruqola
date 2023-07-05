@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-04 00:48+0000\n"
+"POT-Creation-Date: 2023-07-05 01:00+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1514,28 +1514,28 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:26
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Share Text..."
 msgstr "Názov kanála"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "Share"
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:75
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:74
 #, kde-format
 msgid "File was shared."
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:78
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:77
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""

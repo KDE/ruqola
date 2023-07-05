@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-04 00:48+0000\n"
+"POT-Creation-Date: 2023-07-05 01:00+0000\n"
 "PO-Revision-Date: 2023-07-02 22:12+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1431,27 +1431,27 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Aperi session/Contrasigno"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:26
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:25
 #, kde-format
 msgid "Share Text..."
 msgstr "Compartir texto..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Il ha un problema a impartir le documento: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "Share"
 msgstr "Comparti"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:75
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:74
 #, kde-format
 msgid "File was shared."
 msgstr "File esseva compartite."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:78
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:77
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Tu pote trovar le nove requesta a:<br /><a href='%1'>%1</a> </qt>"
