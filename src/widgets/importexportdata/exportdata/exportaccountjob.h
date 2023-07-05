@@ -39,6 +39,9 @@ private:
     void exportCache(const ImportExportUtils::AccountImportExportInfo &info);
     void exportLogs(const ImportExportUtils::AccountImportExportInfo &info);
     void finishExportAccount();
+    void exportAccount();
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
+    int mAccountIndex = 0;
+    QStringList mAccountNames;
     KZip *const mArchive;
 };

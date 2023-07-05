@@ -44,10 +44,18 @@ void ExportAccountJob::start()
         return;
     }
 
-    for (const auto &account : mListAccounts) {
+    exportAccount();
+}
+
+void ExportAccountJob::exportAccount()
+{
+    if (mAccountIndex < mListAccounts.count()) {
+        const auto account = mListAccounts.at(mAccountIndex);
+        mAccountNames.append(account.accountName);
         exportAccount(account);
+    } else {
+        finishExportAccount();
     }
-    finishExportAccount();
 }
 
 void ExportAccountJob::finishExportAccount()
@@ -55,14 +63,10 @@ void ExportAccountJob::finishExportAccount()
     QTemporaryFile tmp;
     tmp.open();
     QTextStream text(&tmp);
-    QStringList listOfAccounts;
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     text.setCodec("UTF-8");
 #endif
-    for (const auto &account : mListAccounts) {
-        listOfAccounts.append(account.accountName);
-    }
-    text << listOfAccounts.join(QLatin1Char('\n'));
+    text << mAccountNames.join(QLatin1Char('\n'));
     tmp.close();
     mArchive->addLocalFile(tmp.fileName(), QStringLiteral("accounts"));
 
@@ -109,7 +113,8 @@ void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportIn
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/") + info.accountName, localPath);
     Q_EMIT exportInfo(i18n("Account %1: export logs done.", info.accountName));
-    finishExportAccount();
+    mAccountIndex++;
+    exportAccount();
 }
 
 void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
