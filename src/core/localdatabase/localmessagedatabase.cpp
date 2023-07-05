@@ -79,6 +79,12 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
 // TODO add autotests
 QVector<QString> LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const
 {
+#if 0
+    SELECT id, nom, email
+    FROM utilisateurs
+    LIMIT 5 OFFSET 5;
+#endif
+
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
     const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
