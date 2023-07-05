@@ -8,6 +8,7 @@
 #include "importexportdata/exportdata/exportdatafinishpage.h"
 #include <KMessageWidget>
 #include <QLabel>
+#include <QPlainTextEdit>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -33,6 +34,10 @@ void ExportDataFinishPageTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+
+    auto mDetails = w.findChild<QPlainTextEdit *>(QStringLiteral("mDetails"));
+    QVERIFY(mDetails);
+    QVERIFY(mDetails->toPlainText().isEmpty());
 }
 
 #include "moc_exportdatafinishpagetest.cpp"

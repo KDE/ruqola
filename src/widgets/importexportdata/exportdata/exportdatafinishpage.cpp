@@ -11,18 +11,22 @@
 #include <QDateTime>
 #include <QDir>
 #include <QLabel>
+#include <QPlainTextEdit>
 #include <QVBoxLayout>
 
 ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
+    , mDetails(new QPlainTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mInfos->setObjectName(QStringLiteral("mInfos"));
     mainLayout->addWidget(mInfos);
+
+    mDetails->setObjectName(QStringLiteral("mDetails"));
 
     mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
     mMessageWidget->setVisible(false);
@@ -31,6 +35,8 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     mMessageWidget->setWordWrap(true);
     mMessageWidget->setText(i18n("Accounts Imported."));
     mainLayout->addWidget(mMessageWidget);
+
+    mainLayout->addWidget(mDetails);
 }
 
 ExportDataFinishPage::~ExportDataFinishPage() = default;
@@ -50,6 +56,7 @@ void ExportDataFinishPage::exportAccounts()
     auto job = new ExportAccountJob(generateExportZipFileName(), this);
     connect(job, &ExportAccountJob::exportDone, this, &ExportDataFinishPage::slotExportDone);
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
+    connect(job, &ExportAccountJob::exportInfo, this, &ExportDataFinishPage::slotExportInfo);
     job->setListAccounts(mListAccounts);
     job->start();
 }
@@ -66,6 +73,11 @@ void ExportDataFinishPage::slotExportFailed(const QString &msg)
         currentText += QLatin1Char('\n');
     }
     mInfos->setText(currentText + msg);
+}
+
+void ExportDataFinishPage::slotExportInfo(const QString &msg)
+{
+    mDetails->appendPlainText(msg);
 }
 
 #include "moc_exportdatafinishpage.cpp"

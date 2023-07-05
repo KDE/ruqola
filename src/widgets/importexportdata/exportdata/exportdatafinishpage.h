@@ -10,6 +10,7 @@
 #include <QWizardPage>
 class QLabel;
 class KMessageWidget;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -23,7 +24,9 @@ private:
     Q_REQUIRED_RESULT QString generateExportZipFileName() const;
     void slotExportDone();
     void slotExportFailed(const QString &msg);
+    void slotExportInfo(const QString &msg);
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
+    QPlainTextEdit *const mDetails;
 };
