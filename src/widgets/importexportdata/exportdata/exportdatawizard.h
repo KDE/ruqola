@@ -26,6 +26,7 @@ private:
     void readConfig();
     void writeConfig();
     void loadAccountInfo();
+    void exportAccounts();
     ExportDataSelectAccountPage *const mExportDataSelectAccountPage;
     ExportDataFinishPage *const mExportDataFinishPage;
 };

@@ -15,7 +15,11 @@
 #include <KWindowConfig>
 
 #include <QDirIterator>
+#include <QTimer>
 #include <QWindow>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 namespace
 {
@@ -82,8 +86,13 @@ void ExportDataWizard::slotCurrentIdChanged(int id)
     if (id == FinishPage) {
         mExportDataFinishPage->setListAccounts(mExportDataSelectAccountPage->selectedAccounts());
         // qDebug() << " selected account " << mExportDataSelectAccountPage->selectedAccounts();
-        mExportDataFinishPage->exportAccounts();
+        QTimer::singleShot(200ms, this, &ExportDataWizard::exportAccounts);
     }
+}
+
+void ExportDataWizard::exportAccounts()
+{
+    mExportDataFinishPage->exportAccounts();
 }
 
 #include "moc_exportdatawizard.cpp"
