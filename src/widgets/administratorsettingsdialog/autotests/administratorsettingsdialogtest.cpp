@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorSettingsDialogTest)
@@ -15,6 +16,7 @@ QTEST_MAIN(AdministratorSettingsDialogTest)
 AdministratorSettingsDialogTest::AdministratorSettingsDialogTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AdministratorSettingsDialogTest::shouldHaveDefaultValues()

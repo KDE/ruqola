@@ -8,12 +8,14 @@
 #include "directory/directorydialog.h"
 #include "directory/directorytabwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(DirectoryDialogTest)
 DirectoryDialogTest::DirectoryDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void DirectoryDialogTest::shouldHaveDefaultValues()

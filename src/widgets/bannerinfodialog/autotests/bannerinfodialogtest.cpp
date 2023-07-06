@@ -8,6 +8,7 @@
 #include "bannerinfodialog/bannerinfodialog.h"
 #include "bannerinfodialog/bannerinfowidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -15,6 +16,7 @@ QTEST_MAIN(BannerInfoDialogTest)
 BannerInfoDialogTest::BannerInfoDialogTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void BannerInfoDialogTest::shouldHaveDefaultValues()
