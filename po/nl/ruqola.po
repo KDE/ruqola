@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2023-07-01 11:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -7084,12 +7084,30 @@ msgstr "Gegevens exporteren is onmogelijk."
 msgid "Impossible to create zip file."
 msgstr "Zip-bestand aanmaken is onmogelijk."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export config done."
+msgstr "Geëxporteerde accounts."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export cache done."
+msgstr "Geëxporteerde accounts."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export logs done."
+msgstr "Geëxporteerde accounts."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Map \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, kde-format
 msgid "Accounts Imported."
 msgstr "Geïmporteerde accounts."
@@ -7105,7 +7123,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Accounts exporteren"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Zip-bestand openen is onmogelijk."
@@ -7120,7 +7138,7 @@ msgstr "Bestand kopiëren is onmogelijk"
 msgid "Impossible to open file"
 msgstr "Bestand openen is onmogelijk"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
 msgid "Accounts imported."
 msgstr "Accounts geïmporteerd."
@@ -8842,9 +8860,6 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
-
-#~ msgid "Accounts Exported."
-#~ msgstr "Geëxporteerde accounts."
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr ""

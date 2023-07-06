@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2023-07-01 09:04+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -7129,12 +7129,30 @@ msgstr "Не вдалося експортувати дані."
 msgid "Impossible to create zip file."
 msgstr "Не вдалося створити файл zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export config done."
+msgstr "Облікові записи експортовано."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export cache done."
+msgstr "Облікові записи експортовано."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export logs done."
+msgstr "Облікові записи експортовано."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Каталог «%1» не вдалося додавати до файла резервної копії."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, kde-format
 msgid "Accounts Imported."
 msgstr "Облікові записи імпортовано."
@@ -7150,7 +7168,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Експортування облікових записів"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Не вдалося відкрити файл zip."
@@ -7165,7 +7183,7 @@ msgstr "Не вдалося скопіювати файл"
 msgid "Impossible to open file"
 msgstr "Не вдалося відкрити файл"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
 msgid "Accounts imported."
 msgstr "Облікові записи імпортовано."
@@ -8895,9 +8913,6 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
-
-#~ msgid "Accounts Exported."
-#~ msgstr "Облікові записи експортовано."
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr "Не вдалося додати файл «%1» до файла резервної копії."

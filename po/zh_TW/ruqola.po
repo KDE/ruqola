@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -7251,12 +7251,30 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account %1: export config done."
+msgstr "帳戶名稱"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account %1: export cache done."
+msgstr "帳戶名稱"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account %1: export logs done."
+msgstr "帳戶名稱"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Accounts Imported."
@@ -7275,7 +7293,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "帳戶名稱"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
@@ -7290,7 +7308,7 @@ msgstr ""
 msgid "Impossible to open file"
 msgstr ""
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Accounts imported."
@@ -9125,11 +9143,6 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "臭蟲修正"
-
-#, fuzzy
-#~| msgid "Account Name"
-#~ msgid "Accounts Exported."
-#~ msgstr "帳戶名稱"
 
 #, fuzzy
 #~| msgid "Search User..."

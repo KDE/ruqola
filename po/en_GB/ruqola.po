@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7039,12 +7039,30 @@ msgstr "Impossible to open log."
 msgid "Impossible to create zip file."
 msgstr "Impossible to open log."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account %1: export config done."
+msgstr "Accounts"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account %1: export cache done."
+msgstr "Accounts"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account %1: export logs done."
+msgstr "Accounts"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Account name"
 msgid "Accounts Imported."
@@ -7063,7 +7081,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Accounts"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, fuzzy, kde-format
 #| msgid "Impossible to open log."
 msgid "Impossible to open zip file."
@@ -7081,7 +7099,7 @@ msgstr "Impossible to open log."
 msgid "Impossible to open file"
 msgstr "Impossible to open log."
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
 #| msgid "Account name"
 msgid "Accounts imported."
@@ -8794,11 +8812,6 @@ msgstr "Some of the new features in this release of Ruqola include:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Some bug fixing:"
-
-#, fuzzy
-#~| msgid "Accounts"
-#~ msgid "Accounts Exported."
-#~ msgstr "Accounts"
 
 #~ msgid "Search"
 #~ msgstr "Search"

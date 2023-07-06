@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2023-07-01 12:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7030,12 +7030,30 @@ msgstr "Veriyi dışa aktarmak olanaksız."
 msgid "Impossible to create zip file."
 msgstr "Zip dosyası oluşturmak olanaksız."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export config done."
+msgstr "Hesaplar dışa aktarıldı."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export cache done."
+msgstr "Hesaplar dışa aktarıldı."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export logs done."
+msgstr "Hesaplar dışa aktarıldı."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" dizini yedek dosyasına eklenemedi."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, kde-format
 msgid "Accounts Imported."
 msgstr "Hesaplar içe aktarıldı."
@@ -7051,7 +7069,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Hesapları Dışa Aktar"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Zip dosyasını açmak olanaksız."
@@ -7066,7 +7084,7 @@ msgstr "Dosyayı kopyalamak olanaksız"
 msgid "Impossible to open file"
 msgstr "Dosyayı açmak olanaksız"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
 msgid "Accounts imported."
 msgstr "Hesaplar içe aktarıldı."
@@ -8787,9 +8805,6 @@ msgstr "Roka'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"
-
-#~ msgid "Accounts Exported."
-#~ msgstr "Hesaplar dışa aktarıldı."
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr "\"%1\" dosyası yedek dosyasına eklenemedi."

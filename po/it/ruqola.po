@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2023-06-29 10:32+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -7083,12 +7083,30 @@ msgstr "Impossibile esportare i dati."
 msgid "Impossible to create zip file."
 msgstr "Impossibile creare il file zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export config done."
+msgstr "Account esportati."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export cache done."
+msgstr "Account esportati."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export logs done."
+msgstr "Account esportati."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "La cartella «%1» non può essere aggiunta alla copia di sicurezza."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, kde-format
 msgid "Accounts Imported."
 msgstr "Account importati."
@@ -7104,7 +7122,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Esporta account"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Impossibile aprire il file zip."
@@ -7119,7 +7137,7 @@ msgstr "Impossibile copiare il file"
 msgid "Impossible to open file"
 msgstr "Impossibile aprire il file"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
 #| msgid "Accounts Imported."
 msgid "Accounts imported."
@@ -8842,9 +8860,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
-
-#~ msgid "Accounts Exported."
-#~ msgstr "Account esportati."
 
 #~ msgid "Search"
 #~ msgstr "Cerca"

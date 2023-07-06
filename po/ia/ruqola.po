@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2023-07-02 22:12+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -6905,12 +6905,30 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr "Impossibile crear le file zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export config done."
+msgstr "Contos Exportate."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export cache done."
+msgstr "Contos Exportate."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts Exported."
+msgid "Account %1: export logs done."
+msgstr "Contos Exportate."
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Directorio  \"%1\" non pote esser addite al file de retrocopia."
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, kde-format
 msgid "Accounts Imported."
 msgstr "Contos importate."
@@ -6926,7 +6944,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Exporta Contos"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
@@ -6941,7 +6959,7 @@ msgstr "Impossibile copiar file"
 msgid "Impossible to open file"
 msgstr "Impossibile aperir file"
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
 msgid "Accounts imported."
 msgstr "Contos importate."
@@ -8648,9 +8666,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcun correction de faltas (bug)"
-
-#~ msgid "Accounts Exported."
-#~ msgstr "Contos Exportate."
 
 #~ msgid "Search"
 #~ msgstr "Cerca"

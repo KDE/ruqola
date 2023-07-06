@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7092,12 +7092,30 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr "Misslyckades extrahera importfil."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account %1: export config done."
+msgstr "Konton"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account %1: export cache done."
+msgstr "Konton"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Account %1: export logs done."
+msgstr "Konton"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Accounts Imported."
@@ -7116,7 +7134,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Konton"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
@@ -7133,7 +7151,7 @@ msgstr "Misslyckades extrahera importfil."
 msgid "Impossible to open file"
 msgstr "Misslyckades extrahera importfil."
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Accounts imported."
@@ -8884,11 +8902,6 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Felrättning"
-
-#, fuzzy
-#~| msgid "Accounts"
-#~ msgid "Accounts Exported."
-#~ msgstr "Konton"
 
 #~ msgid "Search"
 #~ msgstr "Sök"

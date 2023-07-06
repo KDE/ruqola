@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 01:00+0000\n"
+"POT-Creation-Date: 2023-07-06 00:59+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -7288,12 +7288,30 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:119
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgid "Account %1: export config done."
+msgstr "Pridať účet"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgid "Account %1: export cache done."
+msgstr "Pridať účet"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgid "Account %1: export logs done."
+msgstr "Pridať účet"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:32
+#: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Accounts Imported."
@@ -7312,7 +7330,7 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Pridať účet"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:36
+#: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
@@ -7327,7 +7345,7 @@ msgstr ""
 msgid "Impossible to open file"
 msgstr ""
 
-#: widgets/importexportdata/importdata/importdatafinishpage.cpp:31
+#: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Accounts imported."
@@ -9167,11 +9185,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Add Account"
-#~ msgid "Accounts Exported."
-#~ msgstr "Pridať účet"
 
 #, fuzzy
 #~| msgid "Search File..."
