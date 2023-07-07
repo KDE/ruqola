@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 00:59+0000\n"
+"POT-Creation-Date: 2023-07-07 00:50+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7127,7 +7127,7 @@ msgstr "Kontonamn:"
 msgid "Select Accounts:"
 msgstr "Ta bort konto"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgctxt "@title:window"
@@ -8525,7 +8525,9 @@ msgid "Server Settings..."
 msgstr "Serverinställningar..."
 
 #: widgets/ruqolamainwindow.cpp:496
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Directory..."
+msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Katalog..."
 

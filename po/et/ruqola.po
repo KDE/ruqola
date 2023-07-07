@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 00:59+0000\n"
+"POT-Creation-Date: 2023-07-07 00:50+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7396,7 +7396,7 @@ msgstr "Konto nimi:"
 msgid "Select Accounts:"
 msgstr "Konto kustutamine"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, fuzzy, kde-format
 #| msgid "Account"
 msgctxt "@title:window"
@@ -8872,6 +8872,7 @@ msgstr "Serveri teave ..."
 
 #: widgets/ruqolamainwindow.cpp:496
 #, kde-format
+msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr ""
 

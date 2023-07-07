@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 00:59+0000\n"
+"POT-Creation-Date: 2023-07-07 00:50+0000\n"
 "PO-Revision-Date: 2023-07-03 11:39\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6874,7 +6874,7 @@ msgstr ""
 msgid "Select Accounts:"
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
@@ -8211,6 +8211,7 @@ msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:496
 #, kde-format
+msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr ""
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 00:59+0000\n"
+"POT-Creation-Date: 2023-07-07 00:50+0000\n"
 "PO-Revision-Date: 2023-06-29 09:44+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -7153,7 +7153,7 @@ msgstr "Nom du compte"
 msgid "Select Accounts:"
 msgstr "Sélectionner des comptes :"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
@@ -8540,7 +8540,9 @@ msgid "Server Settings..."
 msgstr "Configuration du serveur..."
 
 #: widgets/ruqolamainwindow.cpp:496
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Directory..."
+msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Dossier..."
 

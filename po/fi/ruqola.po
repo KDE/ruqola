@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 00:59+0000\n"
+"POT-Creation-Date: 2023-07-07 00:50+0000\n"
 "PO-Revision-Date: 2023-05-10 21:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6981,7 +6981,7 @@ msgstr "Tilin nimi"
 msgid "Select Accounts:"
 msgstr "Poista tili"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgctxt "@title:window"
@@ -8362,7 +8362,9 @@ msgid "Server Settings..."
 msgstr "Palvelinasetukset…"
 
 #: widgets/ruqolamainwindow.cpp:496
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Directory..."
+msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Kansio…"
 

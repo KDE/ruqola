@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 00:59+0000\n"
+"POT-Creation-Date: 2023-07-07 00:50+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -7323,7 +7323,7 @@ msgstr "Meno účtu"
 msgid "Select Accounts:"
 msgstr "Odstrániť účet"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:29
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@title:window"
@@ -8800,6 +8800,7 @@ msgstr "Informácie o serveri"
 
 #: widgets/ruqolamainwindow.cpp:496
 #, kde-format
+msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr ""
 
