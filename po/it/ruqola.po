@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-07 00:50+0000\n"
-"PO-Revision-Date: 2023-06-29 10:32+0200\n"
+"PO-Revision-Date: 2023-07-06 14:07+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7084,22 +7084,19 @@ msgid "Impossible to create zip file."
 msgstr "Impossibile creare il file zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "Accounts Exported."
+#, kde-format
 msgid "Account %1: export config done."
-msgstr "Account esportati."
+msgstr "Account %1: esportazione della configurazione completata."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
-#, fuzzy, kde-format
-#| msgid "Accounts Exported."
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "Account esportati."
+msgstr "Account %1: esportazione della cache completata."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
-#, fuzzy, kde-format
-#| msgid "Accounts Exported."
+#, kde-format
 msgid "Account %1: export logs done."
-msgstr "Account esportati."
+msgstr "Account %1: esportazione dei registri completata."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
@@ -7138,8 +7135,7 @@ msgid "Impossible to open file"
 msgstr "Impossibile aprire il file"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Accounts imported."
 msgstr "Account importati."
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-07 00:50+0000\n"
-"PO-Revision-Date: 2023-07-06 13:20+0300\n"
+"PO-Revision-Date: 2023-07-07 11:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8442,8 +8442,7 @@ msgid "Server Settings..."
 msgstr "Sunucu Ayarları..."
 
 #: widgets/ruqolamainwindow.cpp:496
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Dizin..."

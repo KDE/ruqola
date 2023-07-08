@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-07 00:50+0000\n"
-"PO-Revision-Date: 2023-07-02 07:02+0200\n"
+"PO-Revision-Date: 2023-07-07 07:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3972,7 +3972,7 @@ msgstr "ატვირთვისას სურათების მოტ�
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Restrict files to rooms' members"
-msgstr ""
+msgstr "ფაილების შეზღუდვა ოთახის წევრებზე"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
@@ -4004,7 +4004,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
-msgstr ""
+msgstr "ოთახში ატვირთულ ფაილზე წვდომის მხოლოდ ამ ოთახის წევრებზე შეზღუდვა"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
@@ -4356,7 +4356,7 @@ msgstr "ჯგუფური არხები ტიპის მიხედ
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
-msgstr ""
+msgstr "მომხმარებლის ავტომატური შევსების მინიშნებების რაოდენობა"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -6939,22 +6939,19 @@ msgid "Impossible to create zip file."
 msgstr "Zip ფაილის შექმნა შეუძლებელია."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "Accounts Exported."
+#, kde-format
 msgid "Account %1: export config done."
-msgstr "ანგარიშები გატანილია."
+msgstr "ანგარიში %1: კონფიგურაციის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
-#, fuzzy, kde-format
-#| msgid "Accounts Exported."
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "ანგარიშები გატანილია."
+msgstr "ანგარიში %1: კეშის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
-#, fuzzy, kde-format
-#| msgid "Accounts Exported."
+#, kde-format
 msgid "Account %1: export logs done."
-msgstr "ანგარიშები გატანილია."
+msgstr "ანგარიში %1: ჟურნალის გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
@@ -8028,6 +8025,8 @@ msgstr "ისტორიის წაშლა"
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
+"სამუშაო სივრცის ადმინისტრატორმა საკონფერენციო ზარის აპები უნდა დააყენოს და "
+"მოირგოს."
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format
@@ -8326,11 +8325,10 @@ msgid "Server Settings..."
 msgstr "სერვერის მორგება..."
 
 #: widgets/ruqolamainwindow.cpp:496
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
-msgstr "საქაღალდე  ..."
+msgstr "საქაღალდე..."
 
 #: widgets/ruqolamainwindow.cpp:517
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-07 00:50+0000\n"
-"PO-Revision-Date: 2023-07-06 11:58+0200\n"
+"PO-Revision-Date: 2023-07-07 07:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -8497,8 +8497,7 @@ msgid "Server Settings..."
 msgstr "Configura el servidor..."
 
 #: widgets/ruqolamainwindow.cpp:496
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Directori..."
