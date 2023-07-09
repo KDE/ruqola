@@ -5,6 +5,7 @@
 */
 
 #include "rocketchataccountsettings.h"
+#include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
 #include "ruqola_password_core_debug.h"
@@ -291,6 +292,12 @@ void RocketChatAccountSettings::removeSettings()
     QFile f(mSetting->fileName());
     if (!f.remove()) {
         qCWarning(RUQOLA_LOG) << "Impossible to delete config file: " << mSetting->fileName();
+    }
+
+    const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + mAccountName + QLatin1Char('/');
+    QDir dir(storeCachePath);
+    if (!dir.removeRecursively()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to delete cache dir: " << storeCachePath;
     }
 }
 
