@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-07 00:50+0000\n"
-"PO-Revision-Date: 2023-07-03 01:12+0100\n"
+"PO-Revision-Date: 2023-07-08 12:55+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -7109,18 +7109,17 @@ msgstr "Não é possível criar o ficheiro ZIP."
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
 #, kde-format
 msgid "Account %1: export config done."
-msgstr ""
+msgstr "Conta %1: a exportação da configuração terminou."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "As Contas Foram Importadas."
+msgstr "Conta %1: a exportação da 'cache' terminou."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
 #, kde-format
 msgid "Account %1: export logs done."
-msgstr ""
+msgstr "Conta %1: a exportação dos registos terminou."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
@@ -8523,8 +8522,7 @@ msgid "Server Settings..."
 msgstr "Configuração do Servidor..."
 
 #: widgets/ruqolamainwindow.cpp:496
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Directório..."
