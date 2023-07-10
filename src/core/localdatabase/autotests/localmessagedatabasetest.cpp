@@ -153,9 +153,10 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN
-    // auto tableModel = logger.createMessageModel(accountName(), QStringLiteral("does not exist"));
+    auto tableModel = logger.createMessageModel(accountName(), roomName());
     // THEN
-    // QVERIFY(!tableModel);
+    QVERIFY(tableModel);
+    QCOMPARE(tableModel->rowCount(), 20);
 }
 
 #include "moc_localmessagedatabasetest.cpp"
