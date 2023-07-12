@@ -16,7 +16,7 @@
 #include <QTimer>
 
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
-    : QObject{parent}
+    : QThread{parent}
     , mArchive(new KZip(fileName))
 {
 }
@@ -29,7 +29,7 @@ ImportAccountJob::~ImportAccountJob()
     delete mArchive;
 }
 
-void ImportAccountJob::start()
+void ImportAccountJob::run()
 {
     const bool result = mArchive->open(QIODevice::ReadOnly);
     if (!result) {
@@ -82,6 +82,7 @@ void ImportAccountJob::importAccounts()
 void ImportAccountJob::finishImportAccounts()
 {
     Q_EMIT importDone();
+    Q_EMIT importInfo(i18n("Import Done.") + QLatin1Char('\n'));
     deleteLater();
 }
 

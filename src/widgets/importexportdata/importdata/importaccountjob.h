@@ -7,18 +7,19 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QObject>
+#include <QThread>
 
 class KZip;
 class KArchiveDirectory;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ImportAccountJob : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ImportAccountJob : public QThread
 {
     Q_OBJECT
 public:
     explicit ImportAccountJob(const QString &fileName, QObject *parent = nullptr);
     ~ImportAccountJob() override;
 
-    void start();
+protected:
+    void run() override;
 
 Q_SIGNALS:
     void importFailed(const QString &str);

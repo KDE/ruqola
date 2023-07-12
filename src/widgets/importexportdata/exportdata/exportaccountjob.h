@@ -8,21 +8,22 @@
 #include "importexportdata/importexportutils.h"
 #include "libruqolawidgets_private_export.h"
 
-#include <QObject>
+#include <QThread>
 class KZip;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportAccountJob : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportAccountJob : public QThread
 {
     Q_OBJECT
 public:
     explicit ExportAccountJob(const QString &fileName, QObject *parent = nullptr);
     ~ExportAccountJob() override;
 
-    void start();
-
     Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> listAccounts() const;
     void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
 
     Q_REQUIRED_RESULT bool canStart() const;
+
+protected:
+    void run() override;
 
 Q_SIGNALS:
     void exportDone();

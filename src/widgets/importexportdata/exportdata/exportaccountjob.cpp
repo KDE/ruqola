@@ -13,7 +13,7 @@
 #include <QTemporaryFile>
 
 ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
-    : QObject{parent}
+    : QThread{parent}
     , mArchive(new KZip(fileName))
 {
     connect(this, &ExportAccountJob::exportCacheData, this, &ExportAccountJob::exportCache);
@@ -28,7 +28,7 @@ ExportAccountJob::~ExportAccountJob()
     delete mArchive;
 }
 
-void ExportAccountJob::start()
+void ExportAccountJob::run()
 {
     if (!canStart()) {
         deleteLater();
@@ -70,6 +70,7 @@ void ExportAccountJob::finishExportAccount()
     tmp.close();
     mArchive->addLocalFile(tmp.fileName(), QStringLiteral("accounts"));
 
+    Q_EMIT exportInfo(i18n("Export Done.") + QLatin1Char('\n'));
     Q_EMIT exportDone();
     deleteLater();
 }
