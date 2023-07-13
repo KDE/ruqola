@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2023-07-03 11:39\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6844,22 +6844,27 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, kde-format
+msgid "Export Done."
+msgstr ""
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -6893,6 +6898,11 @@ msgstr ""
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
 #, kde-format
 msgid "Impossible to open file"
+msgstr ""
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, kde-format
+msgid "Import Done."
 msgstr ""
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2023-07-08 12:55+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -7106,22 +7106,28 @@ msgstr "Não é possível exportar os dados."
 msgid "Impossible to create zip file."
 msgstr "Não é possível criar o ficheiro ZIP."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgid "Export Accounts"
+msgid "Export Done."
+msgstr "Exportar as Contas"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "Conta %1: a exportação da configuração terminou."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "Conta %1: a exportação da 'cache' terminou."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "Conta %1: a exportação dos registos terminou."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Não é possível adicionar a pasta \"%1\" à cópia de segurança."
@@ -7156,6 +7162,12 @@ msgstr "Não é possível copiar o ficheiro"
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Não é possível abrir o ficheiro"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgid "Import Accounts"
+msgid "Import Done."
+msgstr "Importar as Contas"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2023-07-03 12:01+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -6896,23 +6896,29 @@ msgstr "Nelze exportovat data."
 msgid "Impossible to create zip file."
 msgstr "Nelze vytvořit soubor zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgid "Export Accounts"
+msgid "Export Done."
+msgstr "Exportovat účty"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, fuzzy, kde-format
 #| msgid "Accounts Imported."
 msgid "Account %1: export cache done."
 msgstr "Účty byly importovány."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Adresář \"%1\" nelze přidat do souboru zálohy."
@@ -6947,6 +6953,12 @@ msgstr "Nelze zkopírovat soubor"
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Nelze otevřít soubor"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgid "Import Accounts"
+msgid "Import Done."
+msgstr "Importovat účty"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format

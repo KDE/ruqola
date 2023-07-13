@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2023-07-07 06:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -7067,22 +7067,28 @@ msgstr "Ni mogoče izvoziti podatkov."
 msgid "Impossible to create zip file."
 msgstr "Ni mogoče ustvariti datoteke zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgid "Export Accounts"
+msgid "Export Done."
+msgstr "Izvozi račune"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "Računi %1: konfiguracija izvoza izvedena."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "Računi %1: izvoz predpomnilnika izveden."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "Računi %1: dnevniki izvoza izdelani."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Direktorija \"%1\" ni mogoče dodati v datoteko varovalne kopije."
@@ -7117,6 +7123,12 @@ msgstr "Ni mogoče kopirati datoteke"
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Ni mogoče odpreti datoteke"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgid "Import Accounts"
+msgid "Import Done."
+msgstr "Uvozi račune"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format

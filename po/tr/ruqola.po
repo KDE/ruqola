@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2023-07-07 11:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7030,22 +7030,28 @@ msgstr "Veriyi dışa aktarmak olanaksız."
 msgid "Impossible to create zip file."
 msgstr "Zip dosyası oluşturmak olanaksız."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgid "Export Accounts"
+msgid "Export Done."
+msgstr "Hesapları Dışa Aktar"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
 msgstr "Hesap %1: Yapılandırma dışa aktarıldı."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
 msgstr "Hesap %1: Önbellek dışa aktarıldı."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
 msgstr "Hesap %1: Günlükler dışa aktarıldı."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" dizini yedek dosyasına eklenemedi."
@@ -7080,6 +7086,12 @@ msgstr "Dosyayı kopyalamak olanaksız"
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Dosyayı açmak olanaksız"
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgid "Import Accounts"
+msgid "Import Done."
+msgstr "Hesaplar İçe Aktar"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -7092,25 +7092,31 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr "Misslyckades extrahera importfil."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Export Done."
+msgstr "Konton"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "Account %1: export config done."
 msgstr "Konton"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "Account %1: export cache done."
 msgstr "Konton"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "Account %1: export logs done."
 msgstr "Konton"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7150,6 +7156,12 @@ msgstr "Misslyckades extrahera importfil."
 #| msgid "Failed to extract import file."
 msgid "Impossible to open file"
 msgstr "Misslyckades extrahera importfil."
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Import Done."
+msgstr "Konton"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format

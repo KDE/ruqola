@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -7277,28 +7277,35 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Account"
+msgid "Export Done."
+msgstr "Paskyra"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Account %1: export config done."
 msgstr "Paskyra"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Account %1: export cache done."
 msgstr "Paskyra"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Account %1: export logs done."
 msgstr "Paskyra"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7337,6 +7344,13 @@ msgstr ""
 #, kde-format
 msgid "Impossible to open file"
 msgstr ""
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Account"
+msgid "Import Done."
+msgstr "Paskyra"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format

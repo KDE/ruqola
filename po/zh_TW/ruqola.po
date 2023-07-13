@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-07 00:50+0000\n"
+"POT-Creation-Date: 2023-07-13 00:49+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -7251,25 +7251,31 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:93
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Export Done."
+msgstr "帳戶名稱"
+
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Account %1: export config done."
 msgstr "帳戶名稱"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:105
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Account %1: export cache done."
 msgstr "帳戶名稱"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:115
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Account %1: export logs done."
 msgstr "帳戶名稱"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr ""
@@ -7307,6 +7313,12 @@ msgstr ""
 #, kde-format
 msgid "Impossible to open file"
 msgstr ""
+
+#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Import Done."
+msgstr "帳戶名稱"
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
