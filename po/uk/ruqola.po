@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-13 00:49+0000\n"
-"PO-Revision-Date: 2023-07-07 08:41+0300\n"
+"PO-Revision-Date: 2023-07-13 08:34+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -7130,10 +7130,9 @@ msgid "Impossible to create zip file."
 msgstr "Не вдалося створити файл zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "Експортувати облікові записи"
+msgstr "Експортування виконано."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
@@ -7187,10 +7186,9 @@ msgid "Impossible to open file"
 msgstr "Не вдалося відкрити файл"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "Імпортувати облікові записи"
+msgstr "Імпортування виконано."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format

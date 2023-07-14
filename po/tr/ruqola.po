@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-13 00:49+0000\n"
-"PO-Revision-Date: 2023-07-07 11:05+0300\n"
+"PO-Revision-Date: 2023-07-13 13:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7031,10 +7031,9 @@ msgid "Impossible to create zip file."
 msgstr "Zip dosyası oluşturmak olanaksız."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "Hesapları Dışa Aktar"
+msgstr "Dışa aktarma tamamlandı."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
@@ -7088,10 +7087,9 @@ msgid "Impossible to open file"
 msgstr "Dosyayı açmak olanaksız"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "Hesaplar İçe Aktar"
+msgstr "İçe aktarma tamamlandı."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
