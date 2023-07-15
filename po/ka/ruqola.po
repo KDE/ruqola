@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-13 00:49+0000\n"
-"PO-Revision-Date: 2023-07-07 07:25+0200\n"
+"PO-Revision-Date: 2023-07-14 06:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6939,10 +6939,9 @@ msgid "Impossible to create zip file."
 msgstr "Zip ფაილის შექმნა შეუძლებელია."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "ანგარიშების გატანა"
+msgstr "გატანა დასრულდა."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
@@ -6996,10 +6995,9 @@ msgid "Impossible to open file"
 msgstr "ფაილის გახსნა შეუძლებელია"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "ანგარიშების შემოტანა"
+msgstr "შემოტანა დასრულდა."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
