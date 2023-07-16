@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-13 00:49+0000\n"
-"PO-Revision-Date: 2023-07-07 07:13+0200\n"
+"PO-Revision-Date: 2023-07-13 10:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -7083,10 +7083,9 @@ msgid "Impossible to create zip file."
 msgstr "Impossible crear el fitxer Zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "Exportació de comptes"
+msgstr "S'ha efectuat l'exportació."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
@@ -7141,10 +7140,9 @@ msgid "Impossible to open file"
 msgstr "Impossible obrir el fitxer"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "Importació de comptes"
+msgstr "S'ha efectuat la importació."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
