@@ -42,6 +42,11 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
 
 ExportDataFinishPage::~ExportDataFinishPage() = default;
 
+bool ExportDataFinishPage::isComplete() const
+{
+    return mExportDone;
+}
+
 QString ExportDataFinishPage::generateExportZipFileName() const
 {
     return QDir::homePath() + QLatin1Char('/') + QStringLiteral("ruqola-accountdata-%1.zip").arg(QDateTime::currentDateTime().toString());
@@ -49,6 +54,9 @@ QString ExportDataFinishPage::generateExportZipFileName() const
 
 void ExportDataFinishPage::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
 {
+    // We will export => it's not done yet
+    mExportDone = false;
+    Q_EMIT completeChanged();
     mListAccounts = newListAccounts;
 }
 
@@ -58,6 +66,10 @@ void ExportDataFinishPage::exportAccounts()
     connect(job, &ExportAccountJob::exportDone, this, &ExportDataFinishPage::slotExportDone);
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
     connect(job, &ExportAccountJob::exportInfo, this, &ExportDataFinishPage::slotExportInfo);
+    connect(job, &ExportAccountJob::finished, this, [this]() {
+        mExportDone = true;
+        Q_EMIT completeChanged();
+    });
     job->setListAccounts(mListAccounts);
     job->start();
 }

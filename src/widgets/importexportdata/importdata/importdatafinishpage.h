@@ -19,6 +19,8 @@ public:
 
     void setZipFileUrl(const QUrl &url);
 
+    Q_REQUIRED_RESULT bool isComplete() const override;
+
 private:
     void slotImportDone();
     void slotImportFailed(const QString &msg);
@@ -27,4 +29,5 @@ private:
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
     QPlainTextEdit *const mDetails;
+    bool mImportDone = false;
 };

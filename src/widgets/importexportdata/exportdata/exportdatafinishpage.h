@@ -20,6 +20,8 @@ public:
     void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
     void exportAccounts();
 
+    Q_REQUIRED_RESULT bool isComplete() const override;
+
 private:
     Q_REQUIRED_RESULT QString generateExportZipFileName() const;
     void slotExportDone();
@@ -29,4 +31,5 @@ private:
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
     QPlainTextEdit *const mDetails;
+    bool mExportDone = false;
 };

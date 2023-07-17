@@ -42,11 +42,22 @@ ImportDataFinishPage::~ImportDataFinishPage() = default;
 
 void ImportDataFinishPage::setZipFileUrl(const QUrl &url)
 {
+    mImportDone = false;
+    Q_EMIT completeChanged();
     auto job = new ImportAccountJob(url.toLocalFile(), this);
     connect(job, &ImportAccountJob::importDone, this, &ImportDataFinishPage::slotImportDone);
     connect(job, &ImportAccountJob::importFailed, this, &ImportDataFinishPage::slotImportFailed);
     connect(job, &ImportAccountJob::importInfo, this, &ImportDataFinishPage::slotImportInfo);
+    connect(job, &ImportAccountJob::finished, this, [this]() {
+        mImportDone = true;
+        Q_EMIT completeChanged();
+    });
     job->start();
+}
+
+bool ImportDataFinishPage::isComplete() const
+{
+    return mImportDone;
 }
 
 void ImportDataFinishPage::slotImportDone()
