@@ -80,7 +80,6 @@ bool LocalDatabaseBase::checkDataBase(const QString &accountName, const QString 
                                        << roomName << "database file " << dbName;
         return false;
     }
-    Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
     return true;
 }
