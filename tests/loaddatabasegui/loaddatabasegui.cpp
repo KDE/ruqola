@@ -17,6 +17,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QSqlRecord>
 #include <QSqlTableModel>
 #include <QStandardPaths>
@@ -34,6 +35,7 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     , mLocalMessageDatabase(new LocalMessageDatabase())
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
+    , mNumberElement(new QSpinBox(this))
     , mMessageModel(new MessageModel()) // TODO allow to delete it
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -48,6 +50,9 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mRoomName);
 
+    hboxLayout->addWidget(mNumberElement);
+    mNumberElement->setRange(-1, 9999);
+
     auto pushButton = new QPushButton(QStringLiteral("Load"), this);
     hboxLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &LoadDataBaseGui::slotLoad);
@@ -59,6 +64,7 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
 void LoadDataBaseGui::slotLoad()
 {
     if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
+        // TODO use mNumberElement
         auto tableModel = mLocalMessageDatabase->createMessageModel(mAccountName->text(), mRoomName->text());
         qDebug() << " tableModel " << tableModel.get();
         QVector<Message> listMessages;

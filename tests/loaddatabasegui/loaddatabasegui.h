@@ -13,6 +13,7 @@
 class MessageListView;
 class QLineEdit;
 class MessageModel;
+class QSpinBox;
 class LoadDataBaseGui : public QWidget
 {
     Q_OBJECT
@@ -26,5 +27,6 @@ private:
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
     QLineEdit *const mAccountName;
     QLineEdit *const mRoomName;
+    QSpinBox *const mNumberElement;
     MessageModel *const mMessageModel;
 };
