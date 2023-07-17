@@ -617,11 +617,11 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("whatsnew_ruqola"), showWhatsNewAction);
     connect(showWhatsNewAction, &QAction::triggered, this, &RuqolaMainWindow::slotWhatsNew);
 
-    mImportAccountsAction = new QAction(i18n("Import Accounts"), this);
+    mImportAccountsAction = new QAction(QIcon::fromTheme(QStringLiteral("document-import")), i18n("Import Accounts"), this);
     connect(mImportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotImportAccounts);
     ac->addAction(QStringLiteral("import_accounts"), mImportAccountsAction);
 
-    mExportAccountsAction = new QAction(i18n("Export Accounts"), this);
+    mExportAccountsAction = new QAction(QIcon::fromTheme(QStringLiteral("document-export")), i18n("Export Accounts"), this);
     connect(mExportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotExportAccounts);
     ac->addAction(QStringLiteral("export_accounts"), mExportAccountsAction);
 }
