@@ -11,6 +11,7 @@
 #include "ruqola_database_debug.h"
 
 #include <QDir>
+#include <QJsonDocument>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
@@ -77,7 +78,7 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
 }
 
 // TODO add autotests
-QVector<QString> LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const
+QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const
 {
 #if 0
     SELECT id, nom, email
@@ -112,13 +113,16 @@ QVector<QString> LocalMessageDatabase::loadMessages(const QString &accountName, 
     resultQuery.bindValue(QStringLiteral(":endId"), endId);
     resultQuery.bindValue(QStringLiteral(":limit"), numberElements);
     resultQuery.exec();
-    QVector<QString> result;
+
+    QVector<Message> listMessages;
     while (resultQuery.next()) {
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
-        result.append(json);
+        const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+        const Message msg = Message::deserialize(doc.object());
+        listMessages.append(std::move(msg));
     }
 
-    return result;
+    return listMessages;
 }
 
 std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
