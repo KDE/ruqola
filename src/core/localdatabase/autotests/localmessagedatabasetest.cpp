@@ -161,21 +161,28 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
 
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
 {
-    QTest::addColumn<int>("startId");
-    QTest::addColumn<int>("endId");
+    QTest::addColumn<long>("startId");
+    QTest::addColumn<long>("endId");
     QTest::addColumn<int>("numberElement");
     QTest::addColumn<int>("result");
 
-    QTest::addRow("test1") << -1 << -1 << 5 << 5;
+    QTest::addRow("test1") << -1l << -1l << 5 << 5;
 
-    QTest::addRow("ask-more-elements") << -1 << -1 << 25 << 20;
-    QTest::addRow("ask-equal-elements") << -1 << -1 << 20 << 20;
+    QTest::addRow("ask-more-elements") << -1l << -1l << 25 << 20;
+    QTest::addRow("ask-equal-elements") << -1l << -1l << 20 << 20;
+    QTest::addRow("ask-no-element") << -1l << -1l << 0 << 0;
+
+    // Time stand start
+    QTest::addRow("timestand-start1") << 1623100790000 << -1l << 0 << 0;
+    QTest::addRow("timestand-start2") << 1623100790000 << -1l << 1 << 1;
+    QTest::addRow("timestand-start3") << 1623100790000 << -1l << 2 << 2;
+    QTest::addRow("timestand-start4") << 1623100790000 << -1l << 10 << 2;
 }
 
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
 {
-    QFETCH(int, startId);
-    QFETCH(int, endId);
+    QFETCH(long, startId);
+    QFETCH(long, endId);
     QFETCH(int, numberElement);
     QFETCH(int, result);
 

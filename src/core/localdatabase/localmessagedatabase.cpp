@@ -45,6 +45,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
         QSqlQuery query(LocalDatabaseUtils::insertReplaceMessages(), db);
         query.addBindValue(m.messageId());
         query.addBindValue(m.timeStamp());
+        qDebug() << " m.timeStamp() " << m.timeStamp();
         // TODO look at why we can't save a binary ?
         query.addBindValue(Message::serialize(m, false)); // TODO binary or not ?
         if (!query.exec()) {
