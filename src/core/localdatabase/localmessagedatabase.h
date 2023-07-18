@@ -25,6 +25,8 @@ public:
 
     Q_REQUIRED_RESULT QVector<Message> loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const;
 
+    Q_REQUIRED_RESULT static Message convertJsonToMessage(const QString &json);
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };

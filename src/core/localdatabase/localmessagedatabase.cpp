@@ -117,12 +117,17 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName, 
     QVector<Message> listMessages;
     while (resultQuery.next()) {
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
-        const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-        const Message msg = Message::deserialize(doc.object());
-        listMessages.append(std::move(msg));
+        listMessages.append(convertJsonToMessage(json));
     }
 
     return listMessages;
+}
+
+Message LocalMessageDatabase::convertJsonToMessage(const QString &json)
+{
+    const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    const Message msg = Message::deserialize(doc.object());
+    return msg;
 }
 
 std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const

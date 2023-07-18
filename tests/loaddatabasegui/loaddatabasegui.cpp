@@ -74,13 +74,7 @@ void LoadDataBaseGui::slotLoad()
                 const QSqlRecord record = tableModel->record(row);
                 // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
                 const QString json = record.value(int(Fields::Json)).toString();
-                qDebug() << " json111 " << json.toUtf8();
-                QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-                qDebug() << " doc " << doc;
-                qDebug() << " json " << QCborValue::fromCbor(json.toUtf8()).toMap();
-                const Message msg = Message::deserialize(doc.object());
-                qDebug() << " msg " << msg;
-                listMessages.append(std::move(msg));
+                listMessages.append(LocalMessageDatabase::convertJsonToMessage(json));
                 if (row == rows - 1 && tableModel->canFetchMore()) {
                     tableModel->fetchMore();
                     rows = tableModel->rowCount();
