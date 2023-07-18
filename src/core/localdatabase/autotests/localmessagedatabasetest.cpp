@@ -159,4 +159,22 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
     QCOMPARE(tableModel->rowCount(), 20);
 }
 
+void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
+{
+    // GIVEN
+    LocalMessageDatabase logger;
+    for (int i = 0; i < 20; ++i) {
+        Message message1;
+        message1.setText(QString::fromUtf8("Message text: %1").arg(i));
+        message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
+        message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50 + i, 50)).toMSecsSinceEpoch());
+        message1.setMessageId(QStringLiteral("msg-%1").arg(i));
+        logger.addMessage(accountName(), roomName(), message1);
+    }
+    // WHEN
+    const QVector<Message> messages = logger.loadMessages(accountName(), roomName(), -1, -1, 25);
+
+    // THEN
+    QCOMPARE(messages.count(), 20);
+}
 #include "moc_localmessagedatabasetest.cpp"

@@ -23,7 +23,8 @@ public:
 
     Q_REQUIRED_RESULT std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
 
-    Q_REQUIRED_RESULT QVector<Message> loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const;
+    Q_REQUIRED_RESULT QVector<Message>
+    loadMessages(const QString &accountName, const QString &_roomName, int startId = -1, int endId = -1, int numberElements = -1) const;
 
     Q_REQUIRED_RESULT static Message convertJsonToMessage(const QString &json);
 

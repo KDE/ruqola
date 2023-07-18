@@ -106,12 +106,27 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName, 
 
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
-    const QString query = QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId LIMIT :limit");
+    QString query = QStringLiteral("SELECT * FROM MESSAGES");
+    if (startId != -1) {
+        query += QStringLiteral(" WHERE timestamp >= :startId");
+        if (endId != -1) {
+            query += QStringLiteral(" AND timestamp <= :endId");
+        }
+    }
+    if (numberElements != -1) {
+        query += QStringLiteral(" LIMIT :limit");
+    }
     QSqlQuery resultQuery(db);
     resultQuery.prepare(query);
-    resultQuery.bindValue(QStringLiteral(":startId"), startId);
-    resultQuery.bindValue(QStringLiteral(":endId"), endId);
-    resultQuery.bindValue(QStringLiteral(":limit"), numberElements);
+    if (startId != -1) {
+        resultQuery.bindValue(QStringLiteral(":startId"), startId);
+        if (endId != -1) {
+            resultQuery.bindValue(QStringLiteral(":endId"), endId);
+        }
+    }
+    if (numberElements != -1) {
+        resultQuery.bindValue(QStringLiteral(":limit"), numberElements);
+    }
     resultQuery.exec();
 
     QVector<Message> listMessages;
