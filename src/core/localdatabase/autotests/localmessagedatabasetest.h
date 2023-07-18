@@ -19,5 +19,7 @@ private Q_SLOTS:
     void shouldDeleteMessages();
     void shouldReturnNullIfDoesNotExist();
     void shouldExtractMessages();
+
     void shouldExtractSpecificNumberOfMessages();
+    void shouldExtractSpecificNumberOfMessages_data();
 };

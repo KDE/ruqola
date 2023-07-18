@@ -159,8 +159,26 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
     QCOMPARE(tableModel->rowCount(), 20);
 }
 
+void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
+{
+    QTest::addColumn<int>("startId");
+    QTest::addColumn<int>("endId");
+    QTest::addColumn<int>("numberElement");
+    QTest::addColumn<int>("result");
+
+    QTest::addRow("test1") << -1 << -1 << 5 << 5;
+
+    QTest::addRow("ask-more-elements") << -1 << -1 << 25 << 20;
+    QTest::addRow("ask-equal-elements") << -1 << -1 << 20 << 20;
+}
+
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
 {
+    QFETCH(int, startId);
+    QFETCH(int, endId);
+    QFETCH(int, numberElement);
+    QFETCH(int, result);
+
     // GIVEN
     LocalMessageDatabase logger;
     for (int i = 0; i < 20; ++i) {
@@ -172,9 +190,9 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN
-    const QVector<Message> messages = logger.loadMessages(accountName(), roomName(), -1, -1, 25);
+    const QVector<Message> messages = logger.loadMessages(accountName(), roomName(), startId, endId, numberElement);
 
     // THEN
-    QCOMPARE(messages.count(), 20);
+    QCOMPARE(messages.count(), result);
 }
 #include "moc_localmessagedatabasetest.cpp"
