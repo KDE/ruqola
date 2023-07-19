@@ -10,16 +10,12 @@
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include <QApplication>
-#include <QCborMap>
 #include <QDebug>
 #include <QHBoxLayout>
-#include <QJsonDocument>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QSpinBox>
-#include <QSqlRecord>
-#include <QSqlTableModel>
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
@@ -52,6 +48,7 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
 
     hboxLayout->addWidget(mNumberElement);
     mNumberElement->setRange(-1, 9999);
+    mNumberElement->setValue(-1);
 
     auto pushButton = new QPushButton(QStringLiteral("Load"), this);
     hboxLayout->addWidget(pushButton);
@@ -64,26 +61,10 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
 void LoadDataBaseGui::slotLoad()
 {
     if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
-        // TODO use mNumberElement
-        auto tableModel = mLocalMessageDatabase->createMessageModel(mAccountName->text(), mRoomName->text());
-        qDebug() << " tableModel " << tableModel.get();
-        QVector<Message> listMessages;
-        if (tableModel) {
-            int rows = tableModel->rowCount();
-            for (int row = 0; row < rows; ++row) {
-                const QSqlRecord record = tableModel->record(row);
-                // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
-                const QString json = record.value(int(Fields::Json)).toString();
-                listMessages.append(LocalMessageDatabase::convertJsonToMessage(json));
-                if (row == rows - 1 && tableModel->canFetchMore()) {
-                    tableModel->fetchMore();
-                    rows = tableModel->rowCount();
-                }
-            }
-            qDebug() << " listMessages " << listMessages.count();
-            mMessageModel->clear();
-            mMessageModel->addMessages(listMessages);
-        }
+        const auto listMessages = mLocalMessageDatabase->loadMessages(mAccountName->text(), mRoomName->text(), -1, -1, mNumberElement->value());
+        // qDebug() << " listMessages " << listMessages.count();
+        mMessageModel->clear();
+        mMessageModel->addMessages(listMessages);
     }
 }
 
