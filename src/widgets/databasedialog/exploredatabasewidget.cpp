@@ -68,6 +68,9 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     mStartDateTime->setEnabled(false);
     mEndDateTime->setEnabled(false);
 
+    connect(mUseStartDateTime, &QCheckBox::clicked, mStartDateTime, &QDateTimeEdit::setEnabled);
+    connect(mUseEndDateTime, &QCheckBox::clicked, mEndDateTime, &QDateTimeEdit::setEnabled);
+
     hboxLayout->addWidget(new QLabel(QStringLiteral("Number Of Elements"), this));
     hboxLayout->addWidget(mNumberOfMessages);
 
@@ -87,8 +90,16 @@ void ExploreDatabaseWidget::slotLoad()
 {
     const QString roomName = mRoomName->text().trimmed();
     if (!roomName.isEmpty()) {
+        qint64 startId = -1;
+        qint64 endId = -1;
+        if (mUseStartDateTime->isChecked()) {
+            startId = mStartDateTime->dateTime().toMSecsSinceEpoch();
+        }
+        if (mUseEndDateTime->isChecked()) {
+            endId = mEndDateTime->dateTime().toMSecsSinceEpoch();
+        }
         const QVector<Message> listMessages =
-            mLocalMessageDatabase->loadMessages(mRocketChatAccount->accountName(), roomName, -1, -1, mNumberOfMessages->value());
+            mLocalMessageDatabase->loadMessages(mRocketChatAccount->accountName(), roomName, startId, endId, mNumberOfMessages->value());
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
     } else {
