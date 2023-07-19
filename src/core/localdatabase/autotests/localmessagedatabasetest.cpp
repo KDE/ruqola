@@ -178,6 +178,10 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
     QTest::addRow("timestand-start3") << (qint64)1623100790000 << (qint64)-1 << (qint64)2 << (qint64)2;
     QTest::addRow("timestand-start4") << (qint64)1623100790000 << (qint64)-1 << (qint64)10 << (qint64)2;
     QTest::addRow("timestand-start5") << (qint64)1623100790000 << (qint64)-1 << (qint64)3 << (qint64)2;
+
+    // Start 1623099710000 end 1623100850000
+    QTest::addRow("timestand-start1-end1") << (qint64)1623099710000 << (qint64)1623099710000 << (qint64)5 << (qint64)1;
+    QTest::addRow("timestand-start1-end2") << (qint64)1623099710000 << (qint64)1623100850000 << (qint64)30 << (qint64)20;
 }
 
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
