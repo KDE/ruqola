@@ -9136,15 +9136,3 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#~ msgid "View mode:"
-#~ msgstr "Mode de vista:"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "Cozy"
-#~ msgstr "Confortable"
-
-#~ msgid "Compact"
-#~ msgstr "Compacta"
