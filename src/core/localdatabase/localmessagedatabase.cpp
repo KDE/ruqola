@@ -112,7 +112,7 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
         const QString fileName = dbFileName(accountName, roomName);
-        qDebug() << " fileName " << fileName;
+        // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};
         }
@@ -131,6 +131,10 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
     resultQuery.prepare(query);
     if (startId != -1) {
         resultQuery.bindValue(QStringLiteral(":startId"), startId);
+        if (endId != -1) {
+            resultQuery.bindValue(QStringLiteral(":endId"), endId);
+        }
+    } else {
         if (endId != -1) {
             resultQuery.bindValue(QStringLiteral(":endId"), endId);
         }

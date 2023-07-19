@@ -166,22 +166,29 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
     QTest::addColumn<qint64>("numberElement");
     QTest::addColumn<qint64>("result");
 
-    QTest::addRow("test1") << (qint64)-1 << (qint64)-1 << (qint64)5 << (qint64)5;
+    QTest::addRow("test1") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(5) << static_cast<qint64>(5);
 
-    QTest::addRow("ask-more-elements") << (qint64)-1 << (qint64)-1 << (qint64)25 << (qint64)20;
-    QTest::addRow("ask-equal-elements") << (qint64)-1 << (qint64)-1 << (qint64)20 << (qint64)20;
-    QTest::addRow("ask-no-element") << (qint64)-1 << (qint64)-1 << (qint64)0 << (qint64)0;
+    QTest::addRow("ask-more-elements") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(25) << static_cast<qint64>(20);
+    QTest::addRow("ask-equal-elements") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(20) << static_cast<qint64>(20);
+    QTest::addRow("ask-no-element") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(0) << static_cast<qint64>(0);
 
     // Time stand start
-    QTest::addRow("timestand-start1") << (qint64)1623100790000 << (qint64)-1 << (qint64)0 << (qint64)0;
-    QTest::addRow("timestand-start2") << (qint64)1623100790000 << (qint64)-1 << (qint64)1 << (qint64)1;
-    QTest::addRow("timestand-start3") << (qint64)1623100790000 << (qint64)-1 << (qint64)2 << (qint64)2;
-    QTest::addRow("timestand-start4") << (qint64)1623100790000 << (qint64)-1 << (qint64)10 << (qint64)2;
-    QTest::addRow("timestand-start5") << (qint64)1623100790000 << (qint64)-1 << (qint64)3 << (qint64)2;
+    QTest::addRow("timestand-start1") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(0) << static_cast<qint64>(0);
+    QTest::addRow("timestand-start2") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(1) << static_cast<qint64>(1);
+    QTest::addRow("timestand-start3") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(2) << static_cast<qint64>(2);
+    QTest::addRow("timestand-start4") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << static_cast<qint64>(10) << static_cast<qint64>(2);
+    QTest::addRow("timestand-start5") << static_cast<qint64>(1623100790000) << static_cast<qint64>(-1) << (qint64)3 << static_cast<qint64>(2);
 
     // Start 1623099710000 end 1623100850000
-    QTest::addRow("timestand-start1-end1") << (qint64)1623099710000 << (qint64)1623099710000 << (qint64)5 << (qint64)1;
-    QTest::addRow("timestand-start1-end2") << (qint64)1623099710000 << (qint64)1623100850000 << (qint64)30 << (qint64)20;
+    QTest::addRow("timestand-start1-end1") << static_cast<qint64>(1623099710000) << static_cast<qint64>(1623099710000) << static_cast<qint64>(5)
+                                           << static_cast<qint64>(1);
+    QTest::addRow("timestand-start1-end2") << static_cast<qint64>(1623099710000) << static_cast<qint64>(1623100850000) << static_cast<qint64>(30)
+                                           << static_cast<qint64>(20);
+
+    // End
+    QTest::addRow("timestand-end1") << static_cast<qint64>(-1) << static_cast<qint64>(1623099710000) << static_cast<qint64>(5) << static_cast<qint64>(1);
+    QTest::addRow("timestand-end3") << static_cast<qint64>(-1) << (qint64)(QDateTime(QDate(2021, 6, 7), QTime(23, 1 + 3, 50)).toMSecsSinceEpoch())
+                                    << static_cast<qint64>(5) << (qint64)4;
 }
 
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
@@ -230,13 +237,16 @@ void LocalMessageDatabaseTest::shouldGenerateQuery_data()
     QTest::addColumn<qint64>("numberElement");
     QTest::addColumn<QString>("result");
 
-    QTest::addRow("test1") << (qint64)-1 << (qint64)-1 << (qint64)5 << QStringLiteral("SELECT * FROM MESSAGES LIMIT :limit");
-    QTest::addRow("test2") << (qint64)-1 << (qint64)-1 << (qint64)-1 << QStringLiteral("SELECT * FROM MESSAGES");
-    QTest::addRow("test3") << (qint64)5 << (qint64)-1 << (qint64)-1 << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId");
-    QTest::addRow("test4") << (qint64)-1 << (qint64)5 << (qint64)-1 << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp <= :endId");
-    QTest::addRow("test5") << (qint64)5 << (qint64)5 << (qint64)-1
+    QTest::addRow("test1") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(5)
+                           << QStringLiteral("SELECT * FROM MESSAGES LIMIT :limit");
+    QTest::addRow("test2") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(-1) << QStringLiteral("SELECT * FROM MESSAGES");
+    QTest::addRow("test3") << static_cast<qint64>(5) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId");
+    QTest::addRow("test4") << static_cast<qint64>(-1) << static_cast<qint64>(5) << static_cast<qint64>(-1)
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp <= :endId");
+    QTest::addRow("test5") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(-1)
                            << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId");
-    QTest::addRow("test6") << (qint64)5 << (qint64)5 << (qint64)30
+    QTest::addRow("test6") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(30)
                            << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId LIMIT :limit");
 }
 
