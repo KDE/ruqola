@@ -13,15 +13,9 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QSqlRecord>
-#include <QSqlTableModel>
+#include <QSpinBox>
 #include <QVBoxLayout>
-// Same as in localmessagedatabase.cpp
-enum class Fields {
-    MessageId,
-    TimeStamp,
-    Json,
-}; // in the same order as the table
+
 // debug dialogbox => don't translate it
 ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
@@ -29,8 +23,14 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessageDatabase())
     , mRoomName(new QLineEdit(this))
+    , mNumberOfMessages(new QSpinBox(this))
     , mMessageModel(new MessageModel(QStringLiteral("no_room"), account, nullptr, this))
 {
+    mNumberOfMessages->setObjectName(QStringLiteral("mNumberOfMessages"));
+    mNumberOfMessages->setRange(-1, 9999);
+    mNumberOfMessages->setValue(-1);
+    mNumberOfMessages->setSpecialValueText(QStringLiteral("All messages"));
+
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -48,6 +48,8 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mRoomName);
+    hboxLayout->addWidget(new QLabel(QStringLiteral("Number Of Elements"), this));
+    hboxLayout->addWidget(mNumberOfMessages);
 
     auto pushButton = new QPushButton(QStringLiteral("Load"), this);
     pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -65,32 +67,12 @@ void ExploreDatabaseWidget::slotLoad()
 {
     const QString roomName = mRoomName->text().trimmed();
     if (!roomName.isEmpty()) {
-        auto tableModel = mLocalMessageDatabase->createMessageModel(mRocketChatAccount->accountName(), roomName);
-        QVector<Message> listMessages;
-        if (tableModel) {
-            int rows = tableModel->rowCount();
-            for (int row = 0; row < rows; ++row) {
-                const QSqlRecord record = tableModel->record(row);
-                // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
-                const QString json = record.value(int(Fields::Json)).toString();
-                // qDebug() << " json111 " << json.toUtf8();
-                const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-                // qDebug() << " doc " << doc;
-                // qDebug() << " json " << QCborValue::fromCbor(json.toUtf8()).toMap();
-                const Message msg = Message::deserialize(doc.object());
-                // qDebug() << " msg " << msg;
-                listMessages.append(std::move(msg));
-                if (row == rows - 1 && tableModel->canFetchMore()) {
-                    tableModel->fetchMore();
-                    rows = tableModel->rowCount();
-                }
-            }
-            // qDebug() << " listMessages " << listMessages.count();
-            mMessageModel->clear();
-            mMessageModel->addMessages(listMessages);
-        } else {
-            KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
-        }
+        const QVector<Message> listMessages =
+            mLocalMessageDatabase->loadMessages(mRocketChatAccount->accountName(), roomName, -1, -1, mNumberOfMessages->value());
+        mMessageModel->clear();
+        mMessageModel->addMessages(listMessages);
+    } else {
+        KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
     }
 }
 

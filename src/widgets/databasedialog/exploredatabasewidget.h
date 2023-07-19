@@ -12,6 +12,7 @@ class RocketChatAccount;
 class MessageListView;
 class QLineEdit;
 class MessageModel;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseWidget : public QWidget
 {
     Q_OBJECT
@@ -25,5 +26,6 @@ private:
     MessageListView *const mMessageListView;
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
     QLineEdit *const mRoomName;
+    QSpinBox *const mNumberOfMessages;
     MessageModel *const mMessageModel;
 };
