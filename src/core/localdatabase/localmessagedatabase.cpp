@@ -91,6 +91,8 @@ QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qin
             query += QStringLiteral(" WHERE timestamp <= :endId");
         }
     }
+    query += QStringLiteral(" ORDER BY timestamp DESC");
+
     if (numberElements != -1) {
         query += QStringLiteral(" LIMIT :limit");
     }
@@ -144,7 +146,10 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
     if (numberElements != -1) {
         resultQuery.bindValue(QStringLiteral(":limit"), numberElements);
     }
-    resultQuery.exec();
+    if (!resultQuery.exec()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << " Impossible to execute query: " << resultQuery.lastError() << " query: " << query;
+        return {};
+    }
 
     QVector<Message> listMessages;
     while (resultQuery.next()) {

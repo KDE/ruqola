@@ -238,16 +238,17 @@ void LocalMessageDatabaseTest::shouldGenerateQuery_data()
     QTest::addColumn<QString>("result");
 
     QTest::addRow("test1") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(5)
-                           << QStringLiteral("SELECT * FROM MESSAGES LIMIT :limit");
-    QTest::addRow("test2") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(-1) << QStringLiteral("SELECT * FROM MESSAGES");
+                           << QStringLiteral("SELECT * FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit");
+    QTest::addRow("test2") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
+                           << QStringLiteral("SELECT * FROM MESSAGES ORDER BY timestamp DESC");
     QTest::addRow("test3") << static_cast<qint64>(5) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId");
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC");
     QTest::addRow("test4") << static_cast<qint64>(-1) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp <= :endId");
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC");
     QTest::addRow("test5") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId");
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC");
     QTest::addRow("test6") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(30)
-                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId LIMIT :limit");
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit");
 }
 
 #include "moc_localmessagedatabasetest.cpp"
