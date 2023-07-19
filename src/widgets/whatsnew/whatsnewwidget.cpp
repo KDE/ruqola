@@ -13,7 +13,7 @@
 
 // enter items for the "Important changes" list here:
 static const KLazyLocalizedString ruqolaChanges[] = {
-    kli18n("Store Message in Local Database"),
+    kli18n("Store Message in Local Database (experimental)"),
     // TODO
 };
 static const int numRuqolaChanges = sizeof ruqolaChanges / sizeof *ruqolaChanges;
