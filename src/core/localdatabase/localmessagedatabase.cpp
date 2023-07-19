@@ -45,7 +45,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
         QSqlQuery query(LocalDatabaseUtils::insertReplaceMessages(), db);
         query.addBindValue(m.messageId());
         query.addBindValue(m.timeStamp());
-        qDebug() << " m.timeStamp() " << m.timeStamp();
+        // qDebug() << " m.timeStamp() " << m.timeStamp();
         // TODO look at why we can't save a binary ?
         query.addBindValue(Message::serialize(m, false)); // TODO binary or not ?
         if (!query.exec()) {
@@ -79,7 +79,8 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
 }
 
 // TODO add autotests
-QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const
+QVector<Message>
+LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
 {
 #if 0
     SELECT id, nom, email

@@ -161,30 +161,31 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
 
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages_data()
 {
-    QTest::addColumn<long>("startId");
-    QTest::addColumn<long>("endId");
-    QTest::addColumn<int>("numberElement");
-    QTest::addColumn<int>("result");
+    QTest::addColumn<qint64>("startId");
+    QTest::addColumn<qint64>("endId");
+    QTest::addColumn<qint64>("numberElement");
+    QTest::addColumn<qint64>("result");
 
-    QTest::addRow("test1") << -1l << -1l << 5 << 5;
+    QTest::addRow("test1") << (qint64)-1 << (qint64)-1 << (qint64)5 << (qint64)5;
 
-    QTest::addRow("ask-more-elements") << -1l << -1l << 25 << 20;
-    QTest::addRow("ask-equal-elements") << -1l << -1l << 20 << 20;
-    QTest::addRow("ask-no-element") << -1l << -1l << 0 << 0;
+    QTest::addRow("ask-more-elements") << (qint64)-1 << (qint64)-1 << (qint64)25 << (qint64)20;
+    QTest::addRow("ask-equal-elements") << (qint64)-1 << (qint64)-1 << (qint64)20 << (qint64)20;
+    QTest::addRow("ask-no-element") << (qint64)-1 << (qint64)-1 << (qint64)0 << (qint64)0;
 
     // Time stand start
-    QTest::addRow("timestand-start1") << 1623100790000 << -1l << 0 << 0;
-    QTest::addRow("timestand-start2") << 1623100790000 << -1l << 1 << 1;
-    QTest::addRow("timestand-start3") << 1623100790000 << -1l << 2 << 2;
-    QTest::addRow("timestand-start4") << 1623100790000 << -1l << 10 << 2;
+    QTest::addRow("timestand-start1") << (qint64)1623100790000 << (qint64)-1 << (qint64)0 << (qint64)0;
+    QTest::addRow("timestand-start2") << (qint64)1623100790000 << (qint64)-1 << (qint64)1 << (qint64)1;
+    QTest::addRow("timestand-start3") << (qint64)1623100790000 << (qint64)-1 << (qint64)2 << (qint64)2;
+    QTest::addRow("timestand-start4") << (qint64)1623100790000 << (qint64)-1 << (qint64)10 << (qint64)2;
+    QTest::addRow("timestand-start5") << (qint64)1623100790000 << (qint64)-1 << (qint64)3 << (qint64)2;
 }
 
 void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
 {
-    QFETCH(long, startId);
-    QFETCH(long, endId);
-    QFETCH(int, numberElement);
-    QFETCH(int, result);
+    QFETCH(qint64, startId);
+    QFETCH(qint64, endId);
+    QFETCH(qint64, numberElement);
+    QFETCH(qint64, result);
 
     // GIVEN
     LocalMessageDatabase logger;
