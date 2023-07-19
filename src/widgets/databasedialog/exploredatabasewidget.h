@@ -13,6 +13,8 @@ class MessageListView;
 class QLineEdit;
 class MessageModel;
 class QSpinBox;
+class QDateTimeEdit;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseWidget : public QWidget
 {
     Q_OBJECT
@@ -27,5 +29,9 @@ private:
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
     QLineEdit *const mRoomName;
     QSpinBox *const mNumberOfMessages;
+    QCheckBox *const mUseStartDateTime;
+    QDateTimeEdit *const mStartDateTime;
+    QCheckBox *const mUseEndDateTime;
+    QDateTimeEdit *const mEndDateTime;
     MessageModel *const mMessageModel;
 };

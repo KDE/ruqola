@@ -10,6 +10,8 @@
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include <KMessageBox>
+#include <QCheckBox>
+#include <QDateTimeEdit>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -24,12 +26,21 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mLocalMessageDatabase(new LocalMessageDatabase())
     , mRoomName(new QLineEdit(this))
     , mNumberOfMessages(new QSpinBox(this))
+    , mUseStartDateTime(new QCheckBox(QStringLiteral("Start"), this))
+    , mStartDateTime(new QDateTimeEdit(this))
+    , mUseEndDateTime(new QCheckBox(QStringLiteral("End"), this))
+    , mEndDateTime(new QDateTimeEdit(this))
     , mMessageModel(new MessageModel(QStringLiteral("no_room"), account, nullptr, this))
 {
     mNumberOfMessages->setObjectName(QStringLiteral("mNumberOfMessages"));
     mNumberOfMessages->setRange(-1, 9999);
     mNumberOfMessages->setValue(-1);
     mNumberOfMessages->setSpecialValueText(QStringLiteral("All messages"));
+
+    mUseStartDateTime->setObjectName(QStringLiteral("mUseStartDateTime"));
+    mStartDateTime->setObjectName(QStringLiteral("mStartDateTime"));
+    mUseEndDateTime->setObjectName(QStringLiteral("mUseEndDateTime"));
+    mEndDateTime->setObjectName(QStringLiteral("mEndDateTime"));
 
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     auto mainLayout = new QVBoxLayout(this);
@@ -48,6 +59,15 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mRoomName);
+
+    hboxLayout->addWidget(mUseStartDateTime);
+    hboxLayout->addWidget(mStartDateTime);
+    hboxLayout->addWidget(mUseEndDateTime);
+    hboxLayout->addWidget(mEndDateTime);
+
+    mStartDateTime->setEnabled(false);
+    mEndDateTime->setEnabled(false);
+
     hboxLayout->addWidget(new QLabel(QStringLiteral("Number Of Elements"), this));
     hboxLayout->addWidget(mNumberOfMessages);
 
