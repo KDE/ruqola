@@ -104,6 +104,8 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
     SELECT id, nom, email
     FROM utilisateurs
     LIMIT 5 OFFSET 5;
+
+    // Use sorting ASC or DESC
 #endif
 
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
