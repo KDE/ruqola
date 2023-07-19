@@ -207,4 +207,37 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
     // THEN
     QCOMPARE(messages.count(), result);
 }
+
+void LocalMessageDatabaseTest::shouldGenerateQuery()
+{
+    QFETCH(qint64, startId);
+    QFETCH(qint64, endId);
+    QFETCH(qint64, numberElement);
+    QFETCH(QString, result);
+
+    // GIVEN
+    // WHEN
+    const QString queryStr = LocalMessageDatabase::generateQueryStr(startId, endId, numberElement);
+
+    // THEN
+    QCOMPARE(queryStr, result);
+}
+
+void LocalMessageDatabaseTest::shouldGenerateQuery_data()
+{
+    QTest::addColumn<qint64>("startId");
+    QTest::addColumn<qint64>("endId");
+    QTest::addColumn<qint64>("numberElement");
+    QTest::addColumn<QString>("result");
+
+    QTest::addRow("test1") << (qint64)-1 << (qint64)-1 << (qint64)5 << QStringLiteral("SELECT * FROM MESSAGES LIMIT :limit");
+    QTest::addRow("test2") << (qint64)-1 << (qint64)-1 << (qint64)-1 << QStringLiteral("SELECT * FROM MESSAGES");
+    QTest::addRow("test3") << (qint64)5 << (qint64)-1 << (qint64)-1 << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId");
+    QTest::addRow("test4") << (qint64)-1 << (qint64)5 << (qint64)-1 << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp <= :endId");
+    QTest::addRow("test5") << (qint64)5 << (qint64)5 << (qint64)-1
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId");
+    QTest::addRow("test6") << (qint64)5 << (qint64)5 << (qint64)30
+                           << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId LIMIT :limit");
+}
+
 #include "moc_localmessagedatabasetest.cpp"

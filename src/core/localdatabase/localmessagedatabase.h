@@ -28,6 +28,8 @@ public:
 
     Q_REQUIRED_RESULT static Message convertJsonToMessage(const QString &json);
 
+    Q_REQUIRED_RESULT static QString generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements);
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };

@@ -78,7 +78,25 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
 #endif
 }
 
-// TODO add autotests
+QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
+{
+    QString query = QStringLiteral("SELECT * FROM MESSAGES");
+    if (startId != -1) {
+        query += QStringLiteral(" WHERE timestamp >= :startId");
+        if (endId != -1) {
+            query += QStringLiteral(" AND timestamp <= :endId");
+        }
+    } else {
+        if (endId != -1) {
+            query += QStringLiteral(" WHERE timestamp <= :endId");
+        }
+    }
+    if (numberElements != -1) {
+        query += QStringLiteral(" LIMIT :limit");
+    }
+    return query;
+}
+
 QVector<Message>
 LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
 {
@@ -108,16 +126,7 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
 
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
-    QString query = QStringLiteral("SELECT * FROM MESSAGES");
-    if (startId != -1) {
-        query += QStringLiteral(" WHERE timestamp >= :startId");
-        if (endId != -1) {
-            query += QStringLiteral(" AND timestamp <= :endId");
-        }
-    }
-    if (numberElements != -1) {
-        query += QStringLiteral(" LIMIT :limit");
-    }
+    const QString query = LocalMessageDatabase::generateQueryStr(startId, endId, numberElements);
     QSqlQuery resultQuery(db);
     resultQuery.prepare(query);
     if (startId != -1) {

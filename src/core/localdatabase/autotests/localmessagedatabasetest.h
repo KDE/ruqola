@@ -22,4 +22,7 @@ private Q_SLOTS:
 
     void shouldExtractSpecificNumberOfMessages();
     void shouldExtractSpecificNumberOfMessages_data();
+
+    void shouldGenerateQuery();
+    void shouldGenerateQuery_data();
 };
