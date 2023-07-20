@@ -442,7 +442,6 @@ public:
 
     Q_REQUIRED_RESULT bool hideRoles() const;
     Q_REQUIRED_RESULT bool displayAvatars() const;
-    Q_REQUIRED_RESULT QString loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
     Q_REQUIRED_RESULT bool teamEnabled() const;
     void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
 

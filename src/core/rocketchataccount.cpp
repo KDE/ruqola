@@ -1682,36 +1682,6 @@ bool RocketChatAccount::attachmentIsInLocalCache(const QString &url)
     return mCache->attachmentIsInLocalCache(url);
 }
 
-QString RocketChatAccount::loadMessagesHistory(const QString &roomID, qint64 numberOfMessages)
-{
-    MessageModel *roomMessageModel = messageModelForRoom(roomID);
-    if (roomMessageModel->rowCount() > numberOfMessages) {
-        return roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessages);
-    }
-    if (roomMessageModel) {
-        const auto realNumberOfMessages = numberOfMessages - roomMessageModel->rowCount() + 2;
-        if (realNumberOfMessages > 0) {
-            QJsonArray params;
-            params.append(QJsonValue(roomID));
-            // Load history
-            const qint64 endDateTime = roomMessageModel->lastTimestamp();
-
-            QJsonObject dateObjectEnd;
-            dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
-
-            params.append(dateObjectEnd);
-
-            params.append(realNumberOfMessages); // Max number of messages to load;
-
-            QJsonObject dateObjectStart;
-            qDebug() << "roomModel->lastTimestamp()" << roomMessageModel->lastTimestamp() << " ROOMID " << roomID << " numberOfMessages " << numberOfMessages;
-            qDebug() << " params" << params;
-            ddp()->loadHistory(params);
-        }
-    }
-    return {};
-}
-
 void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 timeStep)
 {
     MessageModel *roomModel = messageModelForRoom(roomID);
