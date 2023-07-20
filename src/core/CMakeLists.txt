@@ -511,6 +511,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_videoconf
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_database_debug.h IDENTIFIER RUQOLA_DATABASE_LOG
     CATEGORY_NAME org.kde.ruqola.database DESCRIPTION "ruqola database support" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_loadhistory_debug.h IDENTIFIER RUQOLA_LOAD_HISTORY_LOG
+    CATEGORY_NAME org.kde.ruqola.loadhistory DESCRIPTION "ruqola load history" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
