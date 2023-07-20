@@ -1744,7 +1744,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
             params.append(QJsonValue(175)); // Max number of messages to load;
 
             QJsonObject dateObjectStart;
-            qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID << " timeStep " << timeStep;
+            qDebug() << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID << " timeStep " << timeStep;
             // dateObjectStart[QStringLiteral("$date")] = QJsonValue(timeStep);
             // params.append(dateObjectStart);
             qDebug() << " params" << params;
@@ -1760,7 +1760,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
             params.append(QJsonValue(50)); // Max number of messages to load;
 
             QJsonObject dateObjectStart;
-            // qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+            // qDebug() << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID;
             dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
             params.append(std::move(dateObjectStart));
         }
