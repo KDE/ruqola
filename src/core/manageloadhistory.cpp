@@ -8,6 +8,7 @@
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "ruqola_loadhistory_debug.h"
+#include "ruqolaglobalconfig.h"
 
 ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
@@ -27,6 +28,10 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
     params.append(QJsonValue(roomID));
     // Load history
     if (initial || roomModel->isEmpty()) {
+        if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+            // TODO
+        }
+
         params.append(QJsonValue(QJsonValue::Null));
         params.append(QJsonValue(50)); // Max number of messages to load;
         QJsonObject dateObject;
@@ -64,6 +69,6 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
         dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
         params.append(std::move(dateObjectStart));
     }
-    // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history " << params;
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
     mAccount->ddp()->loadHistory(params);
 }
