@@ -18,7 +18,7 @@ ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent
 
 ManageLoadHistory::~ManageLoadHistory() = default;
 
-void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &roomID, bool initial, qint64 timeStep)
+void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &roomID, bool initial, qint64 timeStamp)
 {
     Q_ASSERT(roomModel);
 
@@ -29,7 +29,7 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
     // Load history
     if (initial || roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-            // TODO
+            // TODO load from cache.
         }
 
         params.append(QJsonValue(QJsonValue::Null));
@@ -38,7 +38,9 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
         dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
         params.append(dateObject);
-    } else if (timeStep != 0) {
+    } else if (timeStamp != 0) {
+        params.append(timeStamp);
+
         QJsonObject dateObjectEnd;
         dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
 
@@ -47,11 +49,6 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
         params.append(dateObjectEnd);
 
         params.append(QJsonValue(175)); // Max number of messages to load;
-
-        QJsonObject dateObjectStart;
-        qDebug() << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID << " timeStep " << timeStep;
-        // dateObjectStart[QStringLiteral("$date")] = QJsonValue(timeStep);
-        // params.append(dateObjectStart);
         qDebug() << " params" << params;
     } else {
         const qint64 startDateTime = roomModel->generateNewStartTimeStamp(endDateTime);

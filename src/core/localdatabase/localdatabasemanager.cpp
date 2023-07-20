@@ -10,6 +10,7 @@
 #include "localmessagedatabase.h"
 #include "localmessagelogger.h"
 #include "localroomsdatabase.h"
+#include "room.h"
 #include "ruqolaglobalconfig.h"
 
 LocalDatabaseManager::LocalDatabaseManager()
@@ -28,9 +29,9 @@ void LocalDatabaseManager::addMessage(const QString &accountName, const QString 
     mMessageLogger->addMessage(accountName, roomName, m);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mMessagesDatabase->addMessage(accountName, roomName, m);
+        // Update timestamp.
+        mGlobalDatabase->updateTimeStamp(accountName, roomName, m.timeStamp(), LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
     }
-    // Update timestamp.
-    // mGlobalDatabase->updateTimeStamp(accountName, roomName, m.timeStamp()); ???
 }
 
 void LocalDatabaseManager::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
@@ -54,6 +55,7 @@ void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mRoomsDatabase->addRoom(accountName, room);
+        // TODO mGlobalDatabase->updateTimeStamp(accountName, room->roomId(), room->timeStamp(), LocalGlobalDatabase::TimeStampType::RoomTimeStamp);
     }
 }
 
@@ -61,6 +63,8 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QString 
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mRoomsDatabase->deleteRoom(accountName, roomId);
+        // Remove timestamp.
+        mGlobalDatabase->removeTimeStamp(accountName, roomId, LocalGlobalDatabase::TimeStampType::RoomTimeStamp);
     }
 }
 

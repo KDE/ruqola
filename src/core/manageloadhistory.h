@@ -16,7 +16,7 @@ public:
     explicit ManageLoadHistory(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageLoadHistory() override;
 
-    void loadHistory(MessageModel *roomModel, const QString &roomID, bool initial, qint64 timeStep);
+    void loadHistory(MessageModel *roomModel, const QString &roomID, bool initial, qint64 timeStamp);
 
 private:
     RocketChatAccount *const mAccount;
