@@ -13,6 +13,8 @@
 
 class QSqlTableModel;
 class Message;
+class RocketChatAccount;
+class EmojiManager;
 class LIBRUQOLACORE_EXPORT LocalMessageDatabase : public LocalDatabaseBase
 {
 public:
@@ -23,12 +25,19 @@ public:
 
     Q_REQUIRED_RESULT std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
 
-    Q_REQUIRED_RESULT QVector<Message>
-    loadMessages(const QString &accountName, const QString &_roomName, qint64 startId = -1, qint64 endId = -1, qint64 numberElements = -1) const;
+    Q_REQUIRED_RESULT QVector<Message> loadMessages(const QString &accountName,
+                                                    const QString &_roomName,
+                                                    qint64 startId = -1,
+                                                    qint64 endId = -1,
+                                                    qint64 numberElements = -1,
+                                                    EmojiManager *emojiManager = nullptr) const;
 
-    Q_REQUIRED_RESULT static Message convertJsonToMessage(const QString &json);
+    Q_REQUIRED_RESULT static Message convertJsonToMessage(const QString &json, EmojiManager *emojiManager);
 
     Q_REQUIRED_RESULT static QString generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements);
+
+    Q_REQUIRED_RESULT QVector<Message>
+    loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const;
 
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;

@@ -8,6 +8,7 @@
 #include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "messages/message.h"
+#include "rocketchataccount.h"
 #include "ruqola_database_debug.h"
 
 #include <QDir>
@@ -100,7 +101,18 @@ QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qin
 }
 
 QVector<Message>
-LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
+LocalMessageDatabase::loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
+{
+    Q_ASSERT(account);
+    return loadMessages(account->accountName(), _roomName, startId, endId, numberElements, account->emojiManager());
+}
+
+QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
+                                                    const QString &_roomName,
+                                                    qint64 startId,
+                                                    qint64 endId,
+                                                    qint64 numberElements,
+                                                    EmojiManager *emojiManager) const
 {
 #if 0
     SELECT id, nom, email
@@ -154,16 +166,16 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
     QVector<Message> listMessages;
     while (resultQuery.next()) {
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
-        listMessages.append(convertJsonToMessage(json)); // TODO add emojimanager support
+        listMessages.append(convertJsonToMessage(json, emojiManager));
     }
 
     return listMessages;
 }
 
-Message LocalMessageDatabase::convertJsonToMessage(const QString &json)
+Message LocalMessageDatabase::convertJsonToMessage(const QString &json, EmojiManager *emojiManager)
 {
     const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-    const Message msg = Message::deserialize(doc.object() /*TODO add emoji support*/);
+    const Message msg = Message::deserialize(doc.object(), emojiManager);
     return msg;
 }
 
