@@ -445,6 +445,8 @@ target_sources(libruqolacore PRIVATE
     customemojiiconmanager.h
     customemojiiconmanager.cpp
 
+    manageloadhistory.h
+    manageloadhistory.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
