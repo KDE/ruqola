@@ -8,7 +8,9 @@
 
 #include "libruqolacore_export.h"
 #include "localglobaldatabase.h"
+#include "messages/message.h"
 #include <QString>
+#include <QVector>
 #include <memory>
 class LocalMessageLogger;
 class LocalMessageDatabase;
@@ -31,6 +33,9 @@ public:
     void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, LocalGlobalDatabase::TimeStampType type);
     void removeTimeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type);
     Q_REQUIRED_RESULT qint64 timeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type);
+
+    Q_REQUIRED_RESULT QVector<Message>
+    loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements) const;
 
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;

@@ -36,6 +36,12 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QStri
     mMessagesDatabase->deleteMessage(accountName, roomName, messageId);
 }
 
+QVector<Message>
+LocalDatabaseManager::loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements) const
+{
+    return mMessagesDatabase->loadMessages(accountName, roomName, startId, endId, numberElements);
+}
+
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     mRoomsDatabase->addRoom(accountName, room);
