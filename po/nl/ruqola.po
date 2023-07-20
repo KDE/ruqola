@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-13 00:49+0000\n"
+"POT-Creation-Date: 2023-07-20 00:49+0000\n"
 "PO-Revision-Date: 2023-07-13 12:34+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -8798,7 +8798,9 @@ msgid "What's new in Ruqola. %1"
 msgstr "Wat is er nieuw in Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
-msgid "Store Message in Local Database"
+#, fuzzy
+#| msgid "Store Message in Local Database"
+msgid "Store Message in Local Database (experimental)"
 msgstr "Berichten in lokale database opslaan"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
