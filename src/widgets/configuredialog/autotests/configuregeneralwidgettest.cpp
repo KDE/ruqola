@@ -62,6 +62,11 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAnimateGif);
     QVERIFY(mAnimateGif->isChecked());
     QVERIFY(!mAnimateGif->text().isEmpty());
+
+    auto mStoreMessageInDataBase = w.findChild<QCheckBox *>(QStringLiteral("mStoreMessageInDataBase"));
+    QVERIFY(mStoreMessageInDataBase);
+    QVERIFY(!mStoreMessageInDataBase->isChecked());
+    QVERIFY(!mStoreMessageInDataBase->text().isEmpty());
 }
 
 #include "moc_configuregeneralwidgettest.cpp"

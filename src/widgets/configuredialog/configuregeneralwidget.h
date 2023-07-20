@@ -27,4 +27,5 @@ private:
     QCheckBox *const mEnableLogging;
     QCheckBox *const mShowHoverHightLights;
     QCheckBox *const mAnimateGif;
+    QCheckBox *const mStoreMessageInDataBase;
 };

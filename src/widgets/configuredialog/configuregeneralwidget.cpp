@@ -19,6 +19,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
     , mShowHoverHightLights(new QCheckBox(i18n("Show hover highlights"), this))
     , mAnimateGif(new QCheckBox(i18n("Animate Gif Image"), this))
+    , mStoreMessageInDataBase(new QCheckBox(i18n("Store"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -45,6 +46,9 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mAnimateGif->setObjectName(QStringLiteral("mAnimateGif"));
     mainLayout->addWidget(mAnimateGif);
 
+    mStoreMessageInDataBase->setObjectName(QStringLiteral("mStoreMessageInDataBase"));
+    mainLayout->addWidget(mStoreMessageInDataBase);
+
     mainLayout->addStretch(1);
 }
 
@@ -59,6 +63,7 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setEnableLogging(mEnableLogging->isChecked());
     RuqolaGlobalConfig::self()->setShowHoverHighlights(mShowHoverHightLights->isChecked());
     RuqolaGlobalConfig::self()->setAnimateGifImage(mAnimateGif->isChecked());
+    RuqolaGlobalConfig::self()->setStoreMessageInDataBase(mStoreMessageInDataBase->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -71,6 +76,7 @@ void ConfigureGeneralWidget::load()
     mEnableLogging->setChecked(RuqolaGlobalConfig::self()->enableLogging());
     mShowHoverHightLights->setChecked(RuqolaGlobalConfig::self()->showHoverHighlights());
     mAnimateGif->setChecked(RuqolaGlobalConfig::self()->animateGifImage());
+    mStoreMessageInDataBase->setChecked(RuqolaGlobalConfig::self()->storeMessageInDataBase());
 }
 
 #include "moc_configuregeneralwidget.cpp"
