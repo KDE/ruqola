@@ -114,6 +114,7 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
                                                     qint64 numberElements,
                                                     EmojiManager *emojiManager) const
 {
+#if HAVE_DATABASE_SUPPORT
 #if 0
     SELECT id, nom, email
     FROM utilisateurs
@@ -168,7 +169,15 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
         listMessages.append(convertJsonToMessage(json, emojiManager));
     }
-
+#else
+    QVector<Message> listMessages;
+    Q_UNUSED(accountName)
+    Q_UNUSED(_roomName)
+    Q_UNUSED(startId)
+    Q_UNUSED(endId)
+    Q_UNUSED(numberElements)
+    Q_UNUSED(emojiManager)
+#endif
     return listMessages;
 }
 
