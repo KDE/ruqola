@@ -7,11 +7,14 @@
 #pragma once
 #include "libruqola_private_export.h"
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT ManageLoadHistory : public QObject
 {
     Q_OBJECT
 public:
-    explicit ManageLoadHistory(QObject *parent = nullptr);
+    explicit ManageLoadHistory(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageLoadHistory() override;
+
+private:
+    RocketChatAccount *const mAccount;
 };

@@ -6,8 +6,9 @@
 
 #include "manageloadhistory.h"
 
-ManageLoadHistory::ManageLoadHistory(QObject *parent)
+ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
+    , mAccount(account)
 {
 }
 
