@@ -11,6 +11,7 @@
 
 #include "attachments/file.h"
 #include "libruqolacore_export.h"
+#include "messages/message.h"
 #include "user.h"
 #include <QJsonObject>
 #include <QObject>
@@ -51,6 +52,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
     LIBRUQOLACORE_NO_EXPORT void tryAutoLogin();
     LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
+    LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
 
     QVector<User> mUsers;
     QVector<File> mFiles;
