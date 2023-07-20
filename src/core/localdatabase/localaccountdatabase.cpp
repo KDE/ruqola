@@ -34,7 +34,6 @@ QString LocalAccountDatabase::schemaDataBase() const
 
 void LocalAccountDatabase::updateAccount(const QString &accountName)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(LocalDatabaseUtils::updateAccount(), db);
@@ -45,14 +44,10 @@ void LocalAccountDatabase::updateAccount(const QString &accountName)
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
         }
     }
-#else
-    Q_UNUSED(accountName)
-#endif
 }
 
 void LocalAccountDatabase::deleteAccount(const QString &accountName)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return;
@@ -62,14 +57,10 @@ void LocalAccountDatabase::deleteAccount(const QString &accountName)
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
     }
-#else
-    Q_UNUSED(accountName)
-#endif
 }
 
 qint64 LocalAccountDatabase::timeStamp(const QString &accountName)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return -1;
@@ -81,15 +72,10 @@ qint64 LocalAccountDatabase::timeStamp(const QString &accountName)
         value = query.value(0).toLongLong();
     }
     return value;
-#else
-    Q_UNUSED(accountName)
-    return -1;
-#endif
 }
 
 QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return {};
@@ -101,8 +87,4 @@ QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)
         value = query.value(0).toByteArray();
     }
     return value;
-#else
-    Q_UNUSED(accountName)
-    return {};
-#endif
 }

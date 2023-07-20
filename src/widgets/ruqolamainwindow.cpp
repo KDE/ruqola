@@ -456,12 +456,10 @@ void RuqolaMainWindow::setupActions()
         ac->addAction(QStringLiteral("debug_menu"), mMenuDebug);
         auto menu = new QMenu(this);
         mMenuDebug->setMenu(menu);
-#if HAVE_DATABASE_SUPPORT
         mShowDatabaseMessages = new QAction(QStringLiteral("Show Database Messages"), this);
         connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
         ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
         menu->addAction(mShowDatabaseMessages);
-#endif
         mShowPermissions = new QAction(QStringLiteral("Show Permissions"), this);
         connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
         ac->addAction(QStringLiteral("show_permissions"), mShowPermissions);
@@ -770,14 +768,12 @@ void RuqolaMainWindow::slotRoomListSortAlphabetically()
     mCurrentRocketChatAccount->setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
 }
 
-#if HAVE_DATABASE_SUPPORT
 void RuqolaMainWindow::slotShowDatabaseMessages()
 {
     // Use only when we want to debug and has database support
     ExploreDatabaseDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
-#endif
 
 void RuqolaMainWindow::slotShowPermissions()
 {
@@ -849,11 +845,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     if (mContextStatusMenu) {
         mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
     }
-#if HAVE_DATABASE_SUPPORT
     if (mShowDatabaseMessages) {
         mShowDatabaseMessages->setEnabled(!loginPageActivated);
     }
-#endif
     if (mShowPermissions) {
         mShowPermissions->setEnabled(!loginPageActivated);
     }

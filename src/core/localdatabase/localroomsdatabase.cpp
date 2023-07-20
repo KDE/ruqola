@@ -5,7 +5,6 @@
 */
 
 #include "localroomsdatabase.h"
-#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "room.h"
 #include "ruqola_database_debug.h"
@@ -36,7 +35,6 @@ QString LocalRoomsDatabase::schemaDataBase() const
 
 void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceRoom(), db);
@@ -47,15 +45,10 @@ void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         }
     }
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(room)
-#endif
 }
 
 void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &roomId)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return;
@@ -65,8 +58,4 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &r
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
     }
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(roomId)
-#endif
 }

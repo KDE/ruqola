@@ -63,12 +63,6 @@ macro(ruqola_target_precompile_headers)
 endmacro()
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
-
-option(EXPERIMENTAL_DATABASE_SUPPORT "Experimental database support (experimental)" FALSE)
-if (EXPERIMENTAL_DATABASE_SUPPORT)
-	set(HAVE_DATABASE_SUPPORT TRUE)
-endif()
-
 if (NOT WIN32 AND NOT APPLE)
     option(UNITY_SUPPORT "Build unity support" TRUE)
 else()

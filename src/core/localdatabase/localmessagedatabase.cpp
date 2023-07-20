@@ -5,7 +5,6 @@
 */
 
 #include "localmessagedatabase.h"
-#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "messages/message.h"
 #include "rocketchataccount.h"
@@ -40,7 +39,6 @@ QString LocalMessageDatabase::schemaDataBase() const
 
 void LocalMessageDatabase::addMessage(const QString &accountName, const QString &roomName, const Message &m)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (initializeDataBase(accountName, roomName, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceMessages(), db);
@@ -53,16 +51,10 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         }
     }
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(roomName)
-    Q_UNUSED(m)
-#endif
 }
 
 void LocalMessageDatabase::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, roomName, db)) {
         return;
@@ -72,11 +64,6 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     }
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(roomName)
-    Q_UNUSED(messageId)
-#endif
 }
 
 QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements)
@@ -114,7 +101,6 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
                                                     qint64 numberElements,
                                                     EmojiManager *emojiManager) const
 {
-#if HAVE_DATABASE_SUPPORT
 #if 0
     SELECT id, nom, email
     FROM utilisateurs
@@ -169,15 +155,6 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
         listMessages.append(convertJsonToMessage(json, emojiManager));
     }
-#else
-    QVector<Message> listMessages;
-    Q_UNUSED(accountName)
-    Q_UNUSED(_roomName)
-    Q_UNUSED(startId)
-    Q_UNUSED(endId)
-    Q_UNUSED(numberElements)
-    Q_UNUSED(emojiManager)
-#endif
     return listMessages;
 }
 

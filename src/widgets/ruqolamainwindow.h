@@ -108,9 +108,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowFavoriteRoom(bool checked);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowServerInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotWhatsNew();
-#if HAVE_DATABASE_SUPPORT
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowDatabaseMessages();
-#endif
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowPermissions();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotImportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
@@ -158,9 +156,7 @@ private:
     QAction *mShowRocketChatServerInfo = nullptr;
     QAction *mRoomAvatar = nullptr;
     QAction *mRoomFavorite = nullptr;
-#if HAVE_DATABASE_SUPPORT
     QAction *mShowDatabaseMessages = nullptr;
-#endif
     QAction *mMenuDebug = nullptr;
     QAction *mShowPermissions = nullptr;
 

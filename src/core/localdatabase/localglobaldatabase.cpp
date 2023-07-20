@@ -5,7 +5,6 @@
 */
 
 #include "localglobaldatabase.h"
-#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
@@ -51,7 +50,6 @@ QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, cons
 
 void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         const QString identifier = generateIdentifier(accountName, roomName, type);
@@ -62,17 +60,10 @@ void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QStr
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
         }
     }
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(roomName)
-    Q_UNUSED(type)
-    Q_UNUSED(timestamp)
-#endif
 }
 
 void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return;
@@ -83,16 +74,10 @@ void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QStr
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
     }
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(roomName)
-    Q_UNUSED(type)
-#endif
 }
 
 qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
 {
-#if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
         return -1;
@@ -105,10 +90,4 @@ qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString 
         value = query.value(0).toLongLong();
     }
     return value;
-#else
-    Q_UNUSED(accountName)
-    Q_UNUSED(roomName)
-    Q_UNUSED(type)
-    return -1;
-#endif
 }

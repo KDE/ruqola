@@ -54,20 +54,6 @@
             ]
         },
         {
-            "name": "dev-qt6-database",
-            "displayName": "Build against qt6 with database support (experimental)",
-            "binaryDir": "${sourceDir}/build-qt6-database",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-                "BUILD_WITH_QT6": "ON",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-                "EXPERIMENTAL_DATABASE_SUPPORT": "ON"
-            },
-            "inherits": [
-                "base-qt6"
-            ]
-        },
-        {
             "name": "release-qt6",
             "displayName": "Build as release mode.",
             "cacheVariables": {
@@ -177,10 +163,6 @@
         }
     ],
     "buildPresets": [
-        {
-            "name": "dev-qt6-database",
-            "configurePreset": "dev-qt6-database"
-        },
         {
             "name": "dev",
             "configurePreset": "dev"
