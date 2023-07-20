@@ -154,7 +154,7 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
     QVector<Message> listMessages;
     while (resultQuery.next()) {
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
-        listMessages.append(convertJsonToMessage(json));
+        listMessages.append(convertJsonToMessage(json)); // TODO add emojimanager support
     }
 
     return listMessages;
@@ -163,7 +163,7 @@ LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_r
 Message LocalMessageDatabase::convertJsonToMessage(const QString &json)
 {
     const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-    const Message msg = Message::deserialize(doc.object());
+    const Message msg = Message::deserialize(doc.object() /*TODO add emoji support*/);
     return msg;
 }
 
