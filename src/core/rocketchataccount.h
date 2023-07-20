@@ -87,6 +87,7 @@ class UploadFileManager;
 class VideoConferenceManager;
 class VideoConferenceMessageInfoManager;
 class LocalDatabaseManager;
+class ManageLoadHistory;
 
 namespace RocketChatRestApi
 {
@@ -254,6 +255,8 @@ public:
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
+
+    LocalDatabaseManager *localDatabaseManager() const;
 
     DDPClient *ddp();
     Q_REQUIRED_RESULT RoomModel *roomModel() const;
@@ -706,6 +709,7 @@ private:
     VideoConferenceManager *const mVideoConferenceManager;
     VideoConferenceMessageInfoManager *const mVideoConferenceMessageInfoManager;
     std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
+    ManageLoadHistory *const mManageLoadHistory;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

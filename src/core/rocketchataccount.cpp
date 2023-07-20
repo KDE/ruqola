@@ -55,6 +55,7 @@
 #include "listmessages.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "managechannels.h"
+#include "manageloadhistory.h"
 #include "messagecache.h"
 #include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
@@ -116,6 +117,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mVideoConferenceManager(new VideoConferenceManager(this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this))
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
+    , mManageLoadHistory(new ManageLoadHistory(this, this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -1691,51 +1693,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         if (!initial && (room->numberMessages() == roomModel->rowCount())) {
             return;
         }
-        // TODO add autotest for it !
-        QJsonArray params;
-        params.append(QJsonValue(roomID));
-        // Load history
-        const qint64 endDateTime = roomModel->lastTimestamp();
-        if (initial || roomModel->isEmpty()) {
-            params.append(QJsonValue(QJsonValue::Null));
-            params.append(QJsonValue(50)); // Max number of messages to load;
-            QJsonObject dateObject;
-            // qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-            dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
-            params.append(dateObject);
-        } else if (timeStep != 0) {
-            QJsonObject dateObjectEnd;
-            dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
-
-            // qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime) << "
-            // ROOMID" << roomID;
-            params.append(dateObjectEnd);
-
-            params.append(QJsonValue(175)); // Max number of messages to load;
-
-            QJsonObject dateObjectStart;
-            qDebug() << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID << " timeStep " << timeStep;
-            // dateObjectStart[QStringLiteral("$date")] = QJsonValue(timeStep);
-            // params.append(dateObjectStart);
-            qDebug() << " params" << params;
-        } else {
-            const qint64 startDateTime = roomModel->generateNewStartTimeStamp(endDateTime);
-            QJsonObject dateObjectEnd;
-            dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
-
-            // qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime) << "
-            // ROOMID" << roomID;
-            params.append(dateObjectEnd);
-
-            params.append(QJsonValue(50)); // Max number of messages to load;
-
-            QJsonObject dateObjectStart;
-            // qDebug() << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID;
-            dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
-            params.append(std::move(dateObjectStart));
-        }
-        // qDebug() << " load history " << params;
-        ddp()->loadHistory(params);
+        mManageLoadHistory->loadHistory(roomModel, roomID, initial, timeStep);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
     }
@@ -2411,6 +2369,11 @@ void RocketChatAccount::checkLicenses()
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
     }
+}
+
+LocalDatabaseManager *RocketChatAccount::localDatabaseManager() const
+{
+    return mLocalDatabaseManager.get();
 }
 
 VideoConferenceMessageInfoManager *RocketChatAccount::videoConferenceMessageInfoManager() const
