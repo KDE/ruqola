@@ -179,7 +179,7 @@ public:
     void pinMessage(const QString &messageId, bool pinned);
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT QUrl attachmentUrlFromLocalCache(const QString &url);
-    void loadHistory(const QString &roomID, bool initial = false, qint64 timeStep = 0);
+    void loadHistory(const QString &roomID, bool initial = false, qint64 timeStamp = 0);
     void channelAndPrivateAutocomplete(const QString &pattern);
 
     void roomFiles(const QString &roomId, Room::RoomType channelType = Room::RoomType::Unknown);

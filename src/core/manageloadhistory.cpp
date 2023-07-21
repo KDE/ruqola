@@ -5,6 +5,7 @@
 */
 
 #include "manageloadhistory.h"
+#include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "ruqola_loadhistory_debug.h"
@@ -18,18 +19,25 @@ ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent
 
 ManageLoadHistory::~ManageLoadHistory() = default;
 
-void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &roomID, bool initial, qint64 timeStamp)
+void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
 {
-    Q_ASSERT(roomModel);
+    Q_ASSERT(info.roomModel);
 
-    const qint64 endDateTime = roomModel->lastTimestamp();
+    const qint64 endDateTime = info.roomModel->lastTimestamp();
     // TODO add autotest for it !
     QJsonArray params;
-    params.append(QJsonValue(roomID));
+    params.append(QJsonValue(info.roomID));
     // Load history
-    if (initial || roomModel->isEmpty()) {
+    if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-            // TODO load from cache.
+            const QString accountName{mAccount->accountName()};
+            const QVector<Message> lstMessages = mAccount->localDatabaseManager()->loadMessages(accountName, info.roomID, -1, -1, 50);
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomID << " number of message " << lstMessages.count();
+            if (lstMessages.count() < 50) {
+                // Load more from network.
+            } else {
+                // Check on network if message change. => we need to add timestamp.
+            }
         }
 
         params.append(QJsonValue(QJsonValue::Null));
@@ -38,8 +46,8 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
         dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
         params.append(dateObject);
-    } else if (timeStamp != 0) {
-        params.append(timeStamp);
+    } else if (info.timeStamp != 0) {
+        params.append(info.timeStamp);
 
         QJsonObject dateObjectEnd;
         dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
@@ -51,7 +59,7 @@ void ManageLoadHistory::loadHistory(MessageModel *roomModel, const QString &room
         params.append(QJsonValue(175)); // Max number of messages to load;
         qDebug() << " params" << params;
     } else {
-        const qint64 startDateTime = roomModel->generateNewStartTimeStamp(endDateTime);
+        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
         QJsonObject dateObjectEnd;
         dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
 

@@ -1684,7 +1684,7 @@ bool RocketChatAccount::attachmentIsInLocalCache(const QString &url)
     return mCache->attachmentIsInLocalCache(url);
 }
 
-void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 timeStep)
+void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 timeStamp)
 {
     MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
@@ -1693,7 +1693,12 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         if (!initial && (room->numberMessages() == roomModel->rowCount())) {
             return;
         }
-        mManageLoadHistory->loadHistory(roomModel, roomID, initial, timeStep);
+        ManageLoadHistory::ManageLoadHistoryInfo info;
+        info.roomModel = roomModel;
+        info.roomID = roomID;
+        info.initial = initial;
+        info.timeStamp = timeStamp;
+        mManageLoadHistory->loadHistory(info);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
     }
