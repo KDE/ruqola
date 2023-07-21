@@ -16,7 +16,7 @@ public:
     struct ManageLoadHistoryInfo {
         MessageModel *roomModel = nullptr;
         QString roomName;
-        QString roomID;
+        QString roomId;
         bool initial = false;
         qint64 timeStamp = -1;
         qint64 lastSeenAt = -1;
@@ -28,6 +28,8 @@ public:
     void loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info);
 
 private:
+    void syncMessage(const QString &roomId, qint64 lastSeenAt);
+    void slotSyncMessages(const QJsonObject &obj, const QString &roomId);
     RocketChatAccount *const mAccount;
 };
 Q_DECLARE_TYPEINFO(ManageLoadHistory::ManageLoadHistoryInfo, Q_MOVABLE_TYPE);

@@ -1695,7 +1695,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         }
         ManageLoadHistory::ManageLoadHistoryInfo info;
         info.roomModel = roomModel;
-        info.roomID = roomID;
+        info.roomId = roomID;
         info.initial = initial;
         info.timeStamp = timeStamp;
         info.roomName = room->displayFName();

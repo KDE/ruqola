@@ -5,6 +5,8 @@
 */
 
 #include "manageloadhistory.h"
+#include "chat/syncmessagesjob.h"
+#include "connection.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
@@ -19,6 +21,23 @@ ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent
 
 ManageLoadHistory::~ManageLoadHistory() = default;
 
+void ManageLoadHistory::syncMessage(const QString &roomId, qint64 lastSeenAt)
+{
+    auto job = new RocketChatRestApi::SyncMessagesJob(this);
+    job->setRoomId(roomId);
+    job->setLastUpdate(QDateTime::fromMSecsSinceEpoch(lastSeenAt));
+    mAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLoadHistory::slotSyncMessages);
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start SyncMessagesJob job";
+    }
+}
+
+void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &roomId)
+{
+    qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
+}
+
 void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
 {
     Q_ASSERT(info.roomModel);
@@ -26,20 +45,23 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
     const qint64 endDateTime = info.roomModel->lastTimestamp();
     // TODO add autotest for it !
     QJsonArray params;
-    params.append(QJsonValue(info.roomID));
+    params.append(QJsonValue(info.roomId));
     // Load history
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+#if 0 // TODO activate
             const QString accountName{mAccount->accountName()};
             const QVector<Message> lstMessages = mAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50);
-            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomID << " number of message " << lstMessages.count();
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
+                syncMessage(info.roomId, info.lastSeenAt);
             } else {
                 // Load more from network.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
             }
+#endif
         }
 
         params.append(QJsonValue(QJsonValue::Null));
@@ -83,7 +105,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
 QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t)
 {
     d << " roomName " << t.roomName;
-    d << " roomID " << t.roomID;
+    d << " roomID " << t.roomId;
     d << " initial " << t.initial;
     d << " timeStamp " << t.timeStamp;
     d << " lastSeenAt " << t.lastSeenAt;
