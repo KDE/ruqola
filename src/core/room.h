@@ -119,6 +119,7 @@ public:
      * @return Room object, The room constructed from Json
      */
     static std::unique_ptr<Room> deserialize(const QJsonObject &source);
+    static void deserialize(Room *r, const QJsonObject &o);
 
     /**
      * @brief Constructs QBytearray from Room object

@@ -1221,11 +1221,8 @@ void Room::setEncrypted(bool encrypted)
     }
 }
 
-std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
+void Room::deserialize(Room *r, const QJsonObject &o)
 {
-    // FIXME
-    auto r = std::make_unique<Room>(nullptr);
-
     r->setRoomId(o[QStringLiteral("rid")].toString());
     r->setChannelType(Room::roomTypeFromString(o[QStringLiteral("t")].toString()));
     r->setName(o[QStringLiteral("name")].toString());
@@ -1325,8 +1322,21 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
 
     r->setParentRid(o[QStringLiteral("prid")].toString());
 
-    // Add setUserNames
+    const QJsonArray userNamesArray = o.value(QLatin1String("usernames")).toArray();
+    QStringList lstUserNames;
+    const int nbUserNamesArray = userNamesArray.count();
+    lstUserNames.reserve(nbUserNamesArray);
+    for (int i = 0; i < nbUserNamesArray; ++i) {
+        lstUserNames << userNamesArray.at(i).toString();
+    }
+    r->setUserNames(lstUserNames);
+}
 
+// For autotest only
+std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
+{
+    auto r = std::make_unique<Room>(nullptr);
+    deserialize(r.get(), o);
     return r;
 }
 
@@ -1455,7 +1465,14 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QStringLiteral("prid")] = r->parentRid();
     }
 
-    // TODO setUserNames
+    if (!r->userNames().isEmpty()) {
+        QJsonArray array;
+        const int nbUserNames = r->userNames().count();
+        for (int i = 0; i < nbUserNames; ++i) {
+            array.append(r->userNames().at(i));
+        }
+        o[QStringLiteral("usernames")] = array;
+    }
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
