@@ -85,9 +85,9 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 
     const QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
     if (!removed.isEmpty()) {
+        // TODO implement it.
         qDebug() << " room removed " << removed;
     }
-    // TODO implement it.
 
     const QJsonArray updated = obj.value(QLatin1String("update")).toArray();
     // qDebug() << " updated : "<< updated;
@@ -103,8 +103,8 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms subscriptions:") + d.toJson());
         }
         if (roomType == QLatin1Char('c') // Chat
-            || roomType == QLatin1Char('p') /*Private chat*/
-            || roomType == QLatin1Char('d')) { // Direct chat) {
+            || roomType == QLatin1Char('p') // Private chat
+            || roomType == QLatin1Char('d')) { // Direct chat
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
                 model->addRoom(room);
