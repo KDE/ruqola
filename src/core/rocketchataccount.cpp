@@ -1698,6 +1698,8 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         info.roomID = roomID;
         info.initial = initial;
         info.timeStamp = timeStamp;
+        info.roomName = room->displayFName();
+        info.lastSeenAt = room->lastSeenAt();
         mManageLoadHistory->loadHistory(info);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
