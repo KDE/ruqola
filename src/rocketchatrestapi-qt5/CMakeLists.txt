@@ -137,6 +137,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     chat/unfollowmessagejob.h
     chat/updatemessagejob.cpp
     chat/updatemessagejob.h
+    chat/syncmessagesjob.h
+    chat/syncmessagesjob.cpp
     commands/getcommandsjob.cpp
     commands/getcommandsjob.h
     commands/listcommandsjob.cpp
