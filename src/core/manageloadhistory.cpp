@@ -44,7 +44,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
         params.append(QJsonValue(50)); // Max number of messages to load;
         QJsonObject dateObject;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-        dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
+        dateObject[QStringLiteral("$date")] = QJsonValue(info.lastSeenAt);
         params.append(dateObject);
     } else if (info.timeStamp != 0) {
         params.append(info.timeStamp);
@@ -76,4 +76,15 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
     mAccount->ddp()->loadHistory(params);
+}
+
+QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t)
+{
+    d << " roomName " << t.roomName;
+    d << " roomID " << t.roomID;
+    d << " initial " << t.initial;
+    d << " timeStamp " << t.timeStamp;
+    d << " lastSeenAt " << t.lastSeenAt;
+    d << " roomModel " << t.roomModel;
+    return d;
 }

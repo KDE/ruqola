@@ -15,9 +15,11 @@ class LIBRUQOLACORE_TESTS_EXPORT ManageLoadHistory : public QObject
 public:
     struct ManageLoadHistoryInfo {
         MessageModel *roomModel = nullptr;
+        QString roomName;
         QString roomID;
         bool initial = false;
         qint64 timeStamp = -1;
+        qint64 lastSeenAt = -1;
     };
 
     explicit ManageLoadHistory(RocketChatAccount *account, QObject *parent = nullptr);
@@ -29,3 +31,4 @@ private:
     RocketChatAccount *const mAccount;
 };
 Q_DECLARE_TYPEINFO(ManageLoadHistory::ManageLoadHistoryInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t);
