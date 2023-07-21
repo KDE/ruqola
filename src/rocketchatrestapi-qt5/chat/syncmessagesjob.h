@@ -32,6 +32,9 @@ public:
 
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
+    Q_REQUIRED_RESULT QDateTime lastUpdate() const;
+    void setLastUpdate(const QDateTime &newLastUpdate);
+
 Q_SIGNALS:
     void syncMessagesDone(const QJsonObject &obj, const QString &roomId);
 
@@ -39,5 +42,6 @@ private:
     Q_DISABLE_COPY(SyncMessagesJob)
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
+    QDateTime mLastUpdate;
 };
 }

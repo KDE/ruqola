@@ -33,6 +33,10 @@ bool SyncMessagesJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SyncMessagesJob: mRoomId is empty";
         return false;
     }
+    if (!mLastUpdate.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SyncMessagesJob: mLastUpdate is invalid";
+        return false;
+    }
     return true;
 }
 
@@ -45,7 +49,7 @@ bool SyncMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("SyncMessagesJob: Ask All threads in room"));
+    addStartRestApiInfo(QByteArrayLiteral("SyncMessagesJob: sync messages in room"));
     return true;
 }
 
@@ -59,6 +63,16 @@ void SyncMessagesJob::onGetRequestResponse(const QString &replyErrorString, cons
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SyncMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QDateTime SyncMessagesJob::lastUpdate() const
+{
+    return mLastUpdate;
+}
+
+void SyncMessagesJob::setLastUpdate(const QDateTime &newLastUpdate)
+{
+    mLastUpdate = newLastUpdate;
 }
 
 QString SyncMessagesJob::roomId() const
@@ -76,6 +90,7 @@ QNetworkRequest SyncMessagesJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSyncMessages);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("lastUpdate"), mLastUpdate.toString(Qt::ISODate));
 
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
