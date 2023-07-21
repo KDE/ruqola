@@ -174,6 +174,10 @@ public:
     Q_REQUIRED_RESULT QStringList mediaBlackList() const;
     void setMediaBlackList(const QStringList &newMediaBlackList);
 
+    Q_REQUIRED_RESULT QByteArray serialize(bool toBinary = true);
+
+    void deserialize(const QJsonObject &source);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();

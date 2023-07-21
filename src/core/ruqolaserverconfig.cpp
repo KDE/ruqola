@@ -7,6 +7,8 @@
 #include "ruqolaserverconfig.h"
 #include "ruqola_debug.h"
 #include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QRegularExpression>
 #include <QStringList>
 
@@ -191,9 +193,12 @@ void RuqolaServerConfig::setMessageAllowConvertLongMessagesToAttachment(bool new
 void RuqolaServerConfig::privateSettingsUpdated(const QJsonArray &updateArray)
 {
     if (updateArray.count() == 2) {
-        if (updateArray.at(0).toString() == QLatin1String("updated")) {
+        const QString updateArrayInfo{updateArray.at(0).toString()};
+        if (updateArrayInfo == QLatin1String("updated")) {
             loadSettings(updateArray.at(1).toObject());
             qDebug() << "Update settings " << *this;
+        } else {
+            qCWarning(RUQOLA_LOG) << "UpdateArray info unknown: " << updateArrayInfo;
         }
     } else {
         qCWarning(RUQOLA_LOG) << "Error in privateSettingsUpdated " << updateArray;
@@ -531,6 +536,25 @@ QStringList RuqolaServerConfig::mediaBlackList() const
 void RuqolaServerConfig::setMediaBlackList(const QStringList &newMediaBlackList)
 {
     mMediaBlackList = newMediaBlackList;
+}
+
+QByteArray RuqolaServerConfig::serialize(bool toBinary)
+{
+    QJsonDocument d;
+    QJsonObject o;
+    // TODO
+
+    if (toBinary) {
+        return QCborValue::fromJsonValue(o).toCbor();
+    }
+
+    d.setObject(o);
+    return d.toJson(QJsonDocument::Indented);
+}
+
+void RuqolaServerConfig::deserialize(const QJsonObject &source)
+{
+    // TODO
 }
 
 QStringList RuqolaServerConfig::mediaWhiteList() const
