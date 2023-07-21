@@ -420,12 +420,8 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
     subscribe(QStringLiteral("stream-notify-room"), params2);
     const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessageBulk")))};
     subscribe(QStringLiteral("stream-notify-room"), params3);
-#if 0 // Old event deprecated from RC 4.0
-    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("typing")))};
+    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
     subscribe(QStringLiteral("stream-notify-room"), params4);
-#endif
-    const QJsonArray params5{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
-    subscribe(QStringLiteral("stream-notify-room"), params5);
 }
 
 quint64 DDPClient::openDirectChannel(const QString &userId)
