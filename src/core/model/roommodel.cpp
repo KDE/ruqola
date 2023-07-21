@@ -161,7 +161,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 
 Room *RoomModel::createNewRoom()
 {
-    Room *r = new Room(mRocketChatAccount, this);
+    auto r = new Room(mRocketChatAccount, this);
     connect(r, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
     connect(r, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
     connect(r, &Room::openChanged, this, &RoomModel::needToUpdateNotification);
