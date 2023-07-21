@@ -31,12 +31,14 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
             const QString accountName{mAccount->accountName()};
-            const QVector<Message> lstMessages = mAccount->localDatabaseManager()->loadMessages(accountName, info.roomID, -1, -1, 50);
+            const QVector<Message> lstMessages = mAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50);
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomID << " number of message " << lstMessages.count();
-            if (lstMessages.count() < 50) {
-                // Load more from network.
-            } else {
+            if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
+            } else {
+                // Load more from network.
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
             }
         }
 
