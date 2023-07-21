@@ -88,3 +88,5 @@ QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t)
     d << " roomModel " << t.roomModel;
     return d;
 }
+
+#include "moc_manageloadhistory.cpp"

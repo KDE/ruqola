@@ -20,3 +20,5 @@ void ExportDataSelectAccountListWidgetTest::shouldHaveDefaultValues()
     ExportDataSelectAccountListWidget w;
     // TODO
 }
+
+#include "moc_exportdataselectaccountlistwidgettest.cpp"

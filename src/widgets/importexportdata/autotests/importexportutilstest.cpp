@@ -21,3 +21,5 @@ void ImportExportUtilsTest::shouldReturnValues()
     QCOMPARE(ImportExportUtils::logsPath(), QStringLiteral("logs"));
     QCOMPARE(ImportExportUtils::databasePath(), QStringLiteral("database"));
 }
+
+#include "moc_importexportutilstest.cpp"
