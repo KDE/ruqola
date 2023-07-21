@@ -85,7 +85,7 @@ public:
 
     void updateSubscription(const QJsonArray &array);
     void updateRoom(const QJsonObject &array);
-    Room *addRoom(const QJsonObject &room);
+    void addRoom(const QJsonObject &room);
 
     Q_REQUIRED_RESULT Room::TeamRoomInfo roomFromTeamId(const QString &teamId);
 

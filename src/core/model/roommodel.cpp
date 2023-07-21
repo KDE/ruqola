@@ -217,15 +217,14 @@ QString RoomModel::insertRoom(const QJsonObject &room)
     return {};
 }
 
-Room *RoomModel::addRoom(const QJsonObject &room)
+void RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_ROOMS_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
-    if (addRoom(r)) {
-        return r;
+    if (!addRoom(r)) {
+        qCDebug(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
     }
-    return nullptr;
 }
 
 Room::TeamRoomInfo RoomModel::roomFromTeamId(const QString &teamId)
