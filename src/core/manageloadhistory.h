@@ -30,7 +30,7 @@ public:
 private:
     void syncMessage(const QString &roomId, qint64 lastSeenAt);
     void slotSyncMessages(const QJsonObject &obj, const QString &roomId);
-    RocketChatAccount *const mAccount;
+    RocketChatAccount *const mRocketChatAccount;
 };
 Q_DECLARE_TYPEINFO(ManageLoadHistory::ManageLoadHistoryInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t);

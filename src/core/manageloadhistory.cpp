@@ -15,7 +15,7 @@
 
 ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
-    , mAccount(account)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -26,7 +26,7 @@ void ManageLoadHistory::syncMessage(const QString &roomId, qint64 lastSeenAt)
     auto job = new RocketChatRestApi::SyncMessagesJob(this);
     job->setRoomId(roomId);
     job->setLastUpdate(QDateTime::fromMSecsSinceEpoch(lastSeenAt));
-    mAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLoadHistory::slotSyncMessages);
     if (!job->start()) {
         qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start SyncMessagesJob job";
@@ -50,8 +50,8 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #if 0 // TODO activate
-            const QString accountName{mAccount->accountName()};
-            const QVector<Message> lstMessages = mAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50);
+            const QString accountName{mRocketChatAccount->accountName()};
+            const QVector<Message> lstMessages = mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50);
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
@@ -99,7 +99,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
-    mAccount->ddp()->loadHistory(params);
+    mRocketChatAccount->ddp()->loadHistory(params);
 }
 
 QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t)
