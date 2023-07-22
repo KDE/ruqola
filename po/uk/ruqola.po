@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:50+0000\n"
-"PO-Revision-Date: 2023-07-20 07:40+0300\n"
+"POT-Creation-Date: 2023-07-22 00:50+0000\n"
+"PO-Revision-Date: 2023-07-21 08:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -814,7 +814,7 @@ msgstr "Тип каналу"
 msgid "Belongs To"
 msgstr "Належить"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -978,55 +978,55 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:443
+#: core/model/roommodel.cpp:442
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:448
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:451
+#: core/model/roommodel.cpp:450
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:455
+#: core/model/roommodel.cpp:454
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:517
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:518
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:522
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:524
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:526
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -1304,12 +1304,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2764
+#: core/rocketchataccount.cpp:2771
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2772
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -1329,17 +1329,17 @@ msgstr "Лідер"
 msgid "Moderator"
 msgstr "Модератор"
 
-#: core/room.cpp:1534
+#: core/room.cpp:1551
 #, kde-format
 msgid "Channel is read only."
 msgstr "Канал призначено лише для читання."
 
-#: core/room.cpp:1537
+#: core/room.cpp:1554
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Вас заблоковано на цьому каналі."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1557
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Канал заблоковано."
@@ -6011,7 +6011,7 @@ msgstr "Анімувати зображення Gif"
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
 msgid "Use local dataBase"
-msgstr ""
+msgstr "Скористатися локальною базою даних"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format

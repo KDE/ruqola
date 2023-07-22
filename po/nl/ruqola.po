@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:50+0000\n"
-"PO-Revision-Date: 2023-07-20 10:36+0200\n"
+"POT-Creation-Date: 2023-07-22 00:50+0000\n"
+"PO-Revision-Date: 2023-07-21 23:23+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -811,7 +811,7 @@ msgstr "Kanaaltype"
 msgid "Belongs To"
 msgstr "Behoort toe aan"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -973,55 +973,55 @@ msgstr "Twee-factor-authenticatie"
 msgid "Last token part"
 msgstr "Laatste gedeelte token"
 
-#: core/model/roommodel.cpp:443
+#: core/model/roommodel.cpp:442
 #, kde-format
 msgid "Teams Room"
 msgstr "Teamsroom"
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:448
 #, kde-format
 msgid "Private Room"
 msgstr "Privéroom"
 
-#: core/model/roommodel.cpp:451
+#: core/model/roommodel.cpp:450
 #, kde-format
 msgid "Discussion Room"
 msgstr "Discussieroom"
 
-#: core/model/roommodel.cpp:455
+#: core/model/roommodel.cpp:454
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanaalroom"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Unread"
 msgstr "Ongelezen"
 
-#: core/model/roommodel.cpp:517
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:518
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:522
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussies"
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:524
 #, kde-format
 msgid "Private Messages"
 msgstr "Privé berichten"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:526
 #, kde-format
 msgid "Unknown"
 msgstr "Onbekend"
@@ -1300,12 +1300,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2764
+#: core/rocketchataccount.cpp:2771
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2772
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -1325,17 +1325,17 @@ msgstr "Leader"
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1534
+#: core/room.cpp:1551
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanaal is alleen-lezen."
 
-#: core/room.cpp:1537
+#: core/room.cpp:1554
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "U hebt dit kanaal geblokkeerd."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1557
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanaal was geblokkeerd."
@@ -5995,7 +5995,7 @@ msgstr "Gif-afbeelding animeren"
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
 msgid "Use local dataBase"
-msgstr ""
+msgstr "Lokale database gebruiken"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format

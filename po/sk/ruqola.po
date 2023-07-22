@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:50+0000\n"
+"POT-Creation-Date: 2023-07-22 00:50+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -849,7 +849,7 @@ msgstr "Názov kanála"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1022,60 +1022,60 @@ msgstr "Autentifikačná metóda"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:443
+#: core/model/roommodel.cpp:442
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Teams Room"
 msgstr "Predvolené"
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:448
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Private Room"
 msgstr "Súkromné:"
 
-#: core/model/roommodel.cpp:451
+#: core/model/roommodel.cpp:450
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Discussion Room"
 msgstr "Hľadať súbor..."
 
-#: core/model/roommodel.cpp:455
+#: core/model/roommodel.cpp:454
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Channel Room"
 msgstr "Názov kanála"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:514
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Vlákna"
 
-#: core/model/roommodel.cpp:517
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:518
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:522
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:524
 #, kde-format
 msgid "Private Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:526
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -1371,13 +1371,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2764
+#: core/rocketchataccount.cpp:2771
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2772
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1397,17 +1397,17 @@ msgstr "Leader"
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1534
+#: core/room.cpp:1551
 #, kde-format
 msgid "Channel is read only."
 msgstr ""
 
-#: core/room.cpp:1537
+#: core/room.cpp:1554
 #, kde-format
 msgid "You have blocked this channel."
 msgstr ""
 
-#: core/room.cpp:1540
+#: core/room.cpp:1557
 #, kde-format
 msgid "Channel was blocked."
 msgstr ""

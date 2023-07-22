@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:50+0000\n"
+"POT-Creation-Date: 2023-07-22 00:50+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -839,7 +839,7 @@ msgstr "Tipo de Canal"
 msgid "Belongs To"
 msgstr "Pertence a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1001,55 +1001,55 @@ msgstr "Autenticação em Dois Factores"
 msgid "Last token part"
 msgstr "Última parte do código"
 
-#: core/model/roommodel.cpp:443
+#: core/model/roommodel.cpp:442
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala das Equipas"
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:448
 #, kde-format
 msgid "Private Room"
 msgstr "Sala Privada"
 
-#: core/model/roommodel.cpp:451
+#: core/model/roommodel.cpp:450
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de Discussão"
 
-#: core/model/roommodel.cpp:455
+#: core/model/roommodel.cpp:454
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala do Canal"
 
-#: core/model/roommodel.cpp:515
+#: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Unread"
 msgstr "Não Lido"
 
-#: core/model/roommodel.cpp:517
+#: core/model/roommodel.cpp:516
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:518
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Equipas"
 
-#: core/model/roommodel.cpp:523
+#: core/model/roommodel.cpp:522
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussões"
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:524
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensagens Privadas"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:526
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -1327,12 +1327,12 @@ msgstr "O <strong>%1</strong> está a escrever..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:2764
+#: core/rocketchataccount.cpp:2771
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2772
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
@@ -1352,17 +1352,17 @@ msgstr "Chefe"
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1534
+#: core/room.cpp:1551
 #, kde-format
 msgid "Channel is read only."
 msgstr "O canal está apenas para leitura."
 
-#: core/room.cpp:1537
+#: core/room.cpp:1554
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Você bloqueou este canal."
 
-#: core/room.cpp:1540
+#: core/room.cpp:1557
 #, kde-format
 msgid "Channel was blocked."
 msgstr "O canal foi bloqueado."
