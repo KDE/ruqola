@@ -728,6 +728,9 @@ target_sources(libruqolawidgets PRIVATE
 
     importexportdata/importexportutils.h
     importexportdata/importexportutils.cpp
+
+    offlinewidget/offlinewidget.h
+    offlinewidget/offlinewidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
