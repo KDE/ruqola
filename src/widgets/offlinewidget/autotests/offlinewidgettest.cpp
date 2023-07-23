@@ -19,4 +19,5 @@ void OffLineWidgetTest::shouldHaveDefaultValues()
     OffLineWidget w;
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
+    QVERIFY(!w.text().isEmpty());
 }

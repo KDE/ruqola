@@ -5,6 +5,7 @@
 */
 
 #include "offlinewidget.h"
+#include <KLocalizedString>
 
 OffLineWidget::OffLineWidget(QWidget *parent)
     : KMessageWidget{parent}
@@ -12,6 +13,8 @@ OffLineWidget::OffLineWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
+    // TODO correct i18n ?
+    setText(i18n("We use offline mode."));
 }
 
 OffLineWidget::~OffLineWidget() = default;
