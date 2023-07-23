@@ -40,7 +40,9 @@ void SyncMessagesJobTest::shouldGenerateRequest()
     job.setLastUpdate(lastUpdate);
     QNetworkRequest request = job.request();
     QCOMPARE(request.url(),
-             QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncMessages?roomId=%1&lastUpdate=%2").arg(roomId).arg(lastUpdate.toString(Qt::ISODate))));
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncMessages?roomId=%1&lastUpdate=%2")
+                      .arg(roomId)
+                      .arg(lastUpdate.toUTC().toString(Qt::ISODateWithMs))));
 }
 
 void SyncMessagesJobTest::shouldNotStarting()
