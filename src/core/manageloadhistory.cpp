@@ -57,6 +57,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
                 // Check on network if message change. => we need to add timestamp.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
                 syncMessage(info.roomId, info.lastSeenAt);
+                return;
             } else {
                 // Load more from network.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
