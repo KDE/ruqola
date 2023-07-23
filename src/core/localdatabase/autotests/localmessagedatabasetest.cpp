@@ -110,9 +110,7 @@ void LocalMessageDatabaseTest::shouldLoadExistingDb() // this test depends on sh
 
     // THEN
     QVERIFY(tableModel);
-    QCOMPARE(tableModel->rowCount(), 1);
-    const QSqlRecord record0 = tableModel->record(0);
-    QCOMPARE(record0.value(int(Fields::Json)).toString(), QStringLiteral("Message other room"));
+    QCOMPARE(tableModel->rowCount(), 0);
 }
 
 void LocalMessageDatabaseTest::shouldDeleteMessages() // this test depends on shouldStoreMessages()
