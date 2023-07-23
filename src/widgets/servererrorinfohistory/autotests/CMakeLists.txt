@@ -6,7 +6,7 @@ macro(add_ruqola_servererrorinfohistory_test _source)
     add_executable(${_name} ${_test} ${_name}.h)
     add_test(NAME ${_name} COMMAND ${_name} )
     ecm_mark_as_test(${_name})
-    target_link_libraries(${_name} Qt::Test libruqolacore libruqolawidgets)
+    target_link_libraries(${_name} Qt::Test libruqolawidgets)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 

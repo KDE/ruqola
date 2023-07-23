@@ -12,7 +12,7 @@ target_sources(ruqola_sharetextplugin PRIVATE
     purposemenuwidget.h
 )
 target_link_libraries(ruqola_sharetextplugin
-    libruqolacore libruqolawidgets
+    libruqolawidgets
     KF${KF_MAJOR_VERSION}::Purpose
     KF${KF_MAJOR_VERSION}::PurposeWidgets
 )
