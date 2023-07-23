@@ -10,3 +10,5 @@ macro(add_ruqola_offlinewidget_test _source)
     target_link_libraries(${_name} Qt::Test libruqolawidgets)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
+
+add_ruqola_offlinewidget_test(offlinewidgettest.cpp)
