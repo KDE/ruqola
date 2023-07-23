@@ -6,6 +6,7 @@
 
 #include "roomwidgettest.h"
 #include "model/roommodel.h"
+#include "offlinewidget/offlinewidget.h"
 #include "otr/otrwidget.h"
 #include "rocketchataccount.h"
 #include "room/messagelinewidget.h"
@@ -83,6 +84,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
 
     auto mOtrWidget = w.findChild<OtrWidget *>(QStringLiteral("mOtrWidget"));
     QVERIFY(mOtrWidget);
+
+    auto mOffLineWidget = w.findChild<OffLineWidget *>(QStringLiteral("mOffLineWidget"));
+    QVERIFY(mOffLineWidget);
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)

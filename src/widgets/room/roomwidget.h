@@ -22,6 +22,7 @@ class Room;
 class RoomWidgetBase;
 class ReconnectInfoWidget;
 class OtrWidget;
+class OffLineWidget;
 
 namespace TextEditTextToSpeech
 {
@@ -112,6 +113,7 @@ private:
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *const mRoomReconnectInfoWidget;
     OtrWidget *const mOtrWidget;
+    OffLineWidget *const mOffLineWidget;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

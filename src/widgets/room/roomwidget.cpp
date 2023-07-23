@@ -31,6 +31,8 @@
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
 
+#include "offlinewidget/offlinewidget.h"
+
 #include "otr/otrwidget.h"
 #include "reconnectinfowidget.h"
 #include "roomcounterinfowidget.h"
@@ -69,6 +71,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
     , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
     , mOtrWidget(new OtrWidget(this))
+    , mOffLineWidget(new OffLineWidget(this))
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
@@ -98,7 +101,10 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
     connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
 
+    mOffLineWidget->setObjectName(QStringLiteral("mOffLineWidget"));
+
     roomWidgetLayout->addWidget(mOtrWidget);
+    roomWidgetLayout->addWidget(mOffLineWidget);
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
     roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
 
