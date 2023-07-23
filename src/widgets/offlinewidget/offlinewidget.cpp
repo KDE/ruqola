@@ -7,10 +7,11 @@
 #include "offlinewidget.h"
 
 OffLineWidget::OffLineWidget(QWidget *parent)
-    : QWidget{parent}
+    : KMessageWidget{parent}
 {
+    setVisible(false);
+    setCloseButtonVisible(false);
+    setMessageType(Information);
 }
 
-OffLineWidget::~OffLineWidget()
-{
-}
+OffLineWidget::~OffLineWidget() = default;

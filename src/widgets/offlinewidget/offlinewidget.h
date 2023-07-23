@@ -6,9 +6,10 @@
 
 #pragma once
 
-#include <QWidget>
+#include "libruqolawidgets_private_export.h"
+#include <KMessageWidget>
 
-class OffLineWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT OffLineWidget : public KMessageWidget
 {
     Q_OBJECT
 public:
