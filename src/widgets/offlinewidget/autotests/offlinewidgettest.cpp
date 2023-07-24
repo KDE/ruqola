@@ -21,3 +21,5 @@ void OffLineWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QVERIFY(!w.text().isEmpty());
 }
+
+#include "moc_offlinewidgettest.cpp"

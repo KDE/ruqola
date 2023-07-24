@@ -18,3 +18,5 @@ void ManageLoadHistoryTest::shouldHaveDefaultValues()
     ManageLoadHistory d(nullptr);
     // TODO
 }
+
+#include "moc_manageloadhistorytest.cpp"

@@ -17,3 +17,5 @@ OffLineWidget::OffLineWidget(QWidget *parent)
 }
 
 OffLineWidget::~OffLineWidget() = default;
+
+#include "moc_offlinewidget.cpp"
