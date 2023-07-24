@@ -42,8 +42,8 @@ void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
     utils.parse(obj);
 
-    // TODO utils.deletedMessages()
     mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(utils.updatesMessages());
+    mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(utils.deletedMessages(), roomId);
 }
 
 void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
