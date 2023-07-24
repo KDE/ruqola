@@ -40,6 +40,8 @@ public:
 
     void loadPublicSettingsAdministrator();
 
+    void addMessageFromLocalDataBase(const QVector<Message> &messages);
+
 private:
     Q_DISABLE_COPY(RocketChatBackend)
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);

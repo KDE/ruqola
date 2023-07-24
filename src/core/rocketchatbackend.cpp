@@ -187,6 +187,10 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
     }
 }
 
+void RocketChatBackend::addMessageFromLocalDataBase(const QVector<Message> &messages)
+{
+}
+
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
 {
     QHash<MessageModel *, QVector<Message>> dispatcher;
