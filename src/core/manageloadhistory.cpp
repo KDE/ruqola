@@ -8,6 +8,7 @@
 #include "chat/syncmessagesjob.h"
 #include "connection.h"
 #include "localdatabase/localdatabasemanager.h"
+#include "manageloadhistoryparsesyncmessagesutils.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
@@ -38,25 +39,11 @@ void ManageLoadHistory::syncMessage(const QString &roomId, qint64 lastSeenAt)
 void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &roomId)
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
-    // TODO add/remove messages parsing
-    QVector<Message> removedMessages;
-    const QJsonObject result = obj[QStringLiteral("result")].toObject();
-    const QJsonArray deleteArray = result[QStringLiteral("deleted")].toArray();
-    for (int i = 0, total = deleteArray.size(); i < total; ++i) {
-        // TODO
-    }
-    // TODO
+    ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
+    utils.parse(obj);
 
-    QVector<Message> updatedMessages;
-    const QJsonArray updatedArray = result[QStringLiteral("updated")].toArray();
-    for (int i = 0, total = updatedArray.size(); i < total; ++i) {
-        QJsonObject o = updatedArray.at(i).toObject();
-        Message m(mRocketChatAccount->emojiManager());
-        m.parseMessage(o, true);
-        updatedMessages.append(m);
-    }
-    qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " Add more updated messages " << updatedMessages.count();
-    mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(updatedMessages);
+    // TODO utils.deletedMessages()
+    mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(utils.updatesMessages());
 }
 
 void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
