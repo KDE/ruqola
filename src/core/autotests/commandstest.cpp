@@ -32,6 +32,18 @@ void CommandsTest::shouldLoadCommands_data()
     QTest::addRow("command3") << QStringLiteral("command3") << 3;
 }
 
+void CommandsTest::shouldLoadCommands()
+{
+    QFETCH(QString, name);
+    QFETCH(int, commandsCount);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/commands/") + name + QLatin1String(".json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    Commands r;
+    r.parseCommands(obj, nullptr); // TODO add support for permissions
+    QCOMPARE(r.commandsCount(), commandsCount);
+}
+
 void CommandsTest::shouldLoadPermissions()
 {
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/commands/command3.json");
@@ -69,18 +81,6 @@ void CommandsTest::shouldLoadPermissions()
         qDebug() << " result   " << r.commands();
     }
     QVERIFY(equalResult);
-}
-
-void CommandsTest::shouldLoadCommands()
-{
-    QFETCH(QString, name);
-    QFETCH(int, commandsCount);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/commands/") + name + QLatin1String(".json");
-    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-
-    Commands r;
-    r.parseCommands(obj, nullptr); // TODO add support for permissions
-    QCOMPARE(r.commandsCount(), commandsCount);
 }
 
 #include "moc_commandstest.cpp"
