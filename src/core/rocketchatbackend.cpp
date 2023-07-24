@@ -189,6 +189,26 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
 
 void RocketChatBackend::addMessageFromLocalDataBase(const QVector<Message> &messages)
 {
+    if (messages.isEmpty()) {
+        return;
+    }
+    MessageModel *messageModel = nullptr;
+    for (const auto &message : messages) {
+        if (!messageModel) {
+            const QString roomId = message.roomId();
+            messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+        }
+        updateVideoConferenceInfo(message);
+        if (messageModel) {
+            if (!message.threadMessageId().isEmpty()) {
+                mRocketChatAccount->updateThreadMessageList(message);
+                // qDebug() << " Update thread message";
+            }
+        } else {
+            qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << message.roomId() << " It's a bug for sure.";
+        }
+    }
+    messageModel->addMessages(messages);
 }
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)

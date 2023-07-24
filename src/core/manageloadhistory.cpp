@@ -10,6 +10,7 @@
 #include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
+#include "rocketchatbackend.h"
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 
@@ -38,6 +39,24 @@ void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
     // TODO add/remove messages parsing
+    QVector<Message> removedMessages;
+    const QJsonObject result = obj[QStringLiteral("result")].toObject();
+    const QJsonArray deleteArray = result[QStringLiteral("deleted")].toArray();
+    for (int i = 0, total = deleteArray.size(); i < total; ++i) {
+        // TODO
+    }
+    // TODO
+
+    QVector<Message> updatedMessages;
+    const QJsonArray updatedArray = result[QStringLiteral("updated")].toArray();
+    for (int i = 0, total = updatedArray.size(); i < total; ++i) {
+        QJsonObject o = updatedArray.at(i).toObject();
+        Message m(mRocketChatAccount->emojiManager());
+        m.parseMessage(o, true);
+        updatedMessages.append(m);
+    }
+    qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " Add more updated messages " << updatedMessages.count();
+    mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(updatedMessages);
 }
 
 void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
@@ -59,6 +78,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
             if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
+                mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(lstMessages);
                 syncMessage(info.roomId, info.lastSeenAt);
                 return;
             } else {
