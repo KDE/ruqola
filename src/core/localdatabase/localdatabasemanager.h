@@ -35,7 +35,7 @@ public:
     Q_REQUIRED_RESULT qint64 timeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type);
 
     Q_REQUIRED_RESULT QVector<Message>
-    loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements) const;
+    loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements, EmojiManager *emojiManager) const;
 
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;

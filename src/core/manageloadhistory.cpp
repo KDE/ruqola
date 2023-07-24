@@ -52,7 +52,8 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE // TODO activate
             const QString accountName{mRocketChatAccount->accountName()};
-            const QVector<Message> lstMessages = mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50);
+            const QVector<Message> lstMessages =
+                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50, mRocketChatAccount->emojiManager());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
