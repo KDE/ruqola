@@ -316,7 +316,6 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     const QString collection = object.value(QLatin1String("collection")).toString();
     // qDebug() << " void RocketChatBackend::slotAdded(const QJsonObject &object)" << object;
     if (collection == QLatin1String("stream-room-messages")) {
-        qDebug() << " XWXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX stream-room-messages " << object;
         qCDebug(RUQOLA_LOG) << mRocketChatAccount->accountName() << ":stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
         const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
