@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 00:50+0000\n"
-"PO-Revision-Date: 2023-07-13 10:54+0200\n"
+"POT-Creation-Date: 2023-07-24 07:34+0000\n"
+"PO-Revision-Date: 2023-07-21 08:14+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3500,7 +3500,7 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:429
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
@@ -5993,7 +5993,7 @@ msgstr "Anima les imatges GIF"
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
 msgid "Use local dataBase"
-msgstr ""
+msgstr "Utilitza una base de dades local"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7696,6 +7696,11 @@ msgstr "Ves al missatge"
 msgid "Copy Message"
 msgstr "Copia el missatge"
 
+#: widgets/offlinewidget/offlinewidget.cpp:16
+#, kde-format
+msgid "Network is offline mode."
+msgstr ""
+
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
 msgid "Otr Activated"
@@ -8189,17 +8194,17 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:230
+#: widgets/room/roomwidget.cpp:236
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:231
+#: widgets/room/roomwidget.cpp:237
 #, kde-format
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:429
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8806,10 +8811,8 @@ msgid "What's new in Ruqola. %1"
 msgstr "Què hi ha de nou a Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
-#, fuzzy
-#| msgid "Store Message in Local Database"
 msgid "Store Message in Local Database (experimental)"
-msgstr "Emmagatzema el missatge en la base de dades local"
+msgstr "Emmagatzema els missatges en la base de dades local (experimental)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"

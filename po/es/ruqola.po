@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 00:50+0000\n"
-"PO-Revision-Date: 2023-07-01 17:15+0200\n"
+"POT-Creation-Date: 2023-07-24 07:34+0000\n"
+"PO-Revision-Date: 2023-07-22 11:46+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3499,7 +3499,7 @@ msgid "Password"
 msgstr "Contraseña"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:429
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferencia de vídeo"
@@ -5994,7 +5994,7 @@ msgstr "Animar imagen Gif"
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
 msgid "Use local dataBase"
-msgstr ""
+msgstr "Usar base de datos local"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7087,26 +7087,24 @@ msgid "Impossible to create zip file."
 msgstr "No se pudo crear el archivo zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "Exportar cuentas"
+msgstr "Exportación completa."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
-msgstr ""
+msgstr "Cuenta %1: exportación de configuración completa."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "Cuentas importadas."
+msgstr "Cuenta %1: exportación de caché completa."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
-msgstr ""
+msgstr "Cuenta %1: exportación de registros completa."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
@@ -7145,10 +7143,9 @@ msgid "Impossible to open file"
 msgstr "No se pudo abrir el archivo"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "Importar cuentas"
+msgstr "Importación completa."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
@@ -7698,6 +7695,11 @@ msgstr "Ir al mensaje"
 msgid "Copy Message"
 msgstr "Copiar mensaje"
 
+#: widgets/offlinewidget/offlinewidget.cpp:16
+#, kde-format
+msgid "Network is offline mode."
+msgstr ""
+
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
 msgid "Otr Activated"
@@ -8191,17 +8193,17 @@ msgstr "Respondiendo en un hilo"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responder en el hilo al mensaje: «%1»"
 
-#: widgets/room/roomwidget.cpp:230
+#: widgets/room/roomwidget.cpp:236
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "¿De verdad quiere eliminar el historial?"
 
-#: widgets/room/roomwidget.cpp:231
+#: widgets/room/roomwidget.cpp:237
 #, kde-format
 msgid "Remove History"
 msgstr "Eliminar historial"
 
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:429
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8515,8 +8517,7 @@ msgid "Server Settings..."
 msgstr "Preferencias del servidor..."
 
 #: widgets/ruqolamainwindow.cpp:494
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Directorio..."
@@ -8810,10 +8811,8 @@ msgid "What's new in Ruqola. %1"
 msgstr "¿Que hay de nuevo en Ruqola?. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
-#, fuzzy
-#| msgid "Store Message in Local Database"
 msgid "Store Message in Local Database (experimental)"
-msgstr "Almacenar mensaje en base de datos local"
+msgstr "Almacenar mensaje en base de datos local (experimental)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"

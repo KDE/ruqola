@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 00:50+0000\n"
+"POT-Creation-Date: 2023-07-24 07:34+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3655,7 +3655,7 @@ msgid "Password"
 msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:429
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -7935,6 +7935,11 @@ msgstr "Správa"
 msgid "Copy Message"
 msgstr "Správa"
 
+#: widgets/offlinewidget/offlinewidget.cpp:16
+#, kde-format
+msgid "Network is offline mode."
+msgstr ""
+
 #: widgets/otr/otrwidget.cpp:18
 #, fuzzy, kde-format
 #| msgid "Enter Username"
@@ -8472,17 +8477,17 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Správa"
 
-#: widgets/room/roomwidget.cpp:230
+#: widgets/room/roomwidget.cpp:236
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:231
+#: widgets/room/roomwidget.cpp:237
 #, kde-format
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:429
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
