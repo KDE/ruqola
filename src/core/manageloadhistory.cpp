@@ -37,6 +37,7 @@ void ManageLoadHistory::syncMessage(const QString &roomId, qint64 lastSeenAt)
 void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &roomId)
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
+    // TODO add/remove messages parsing
 }
 
 void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
