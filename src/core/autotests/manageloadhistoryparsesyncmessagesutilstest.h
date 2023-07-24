@@ -14,6 +14,9 @@ class ManageLoadHistoryParseSyncMessagesUtilsTest : public QObject
 public:
     explicit ManageLoadHistoryParseSyncMessagesUtilsTest(QObject *parent = nullptr);
     ~ManageLoadHistoryParseSyncMessagesUtilsTest() override = default;
+
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldParseSyncMessages_data();
+    void shouldParseSyncMessages();
 };
