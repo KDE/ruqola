@@ -42,6 +42,8 @@ public:
 
     void addMessageFromLocalDataBase(const QVector<Message> &messages);
 
+    void removeMessageFromLocalDatabase(const QVector<Message> &messages, const QString &roomId);
+
 private:
     Q_DISABLE_COPY(RocketChatBackend)
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);

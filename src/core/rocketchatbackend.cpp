@@ -187,6 +187,25 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
     }
 }
 
+void RocketChatBackend::removeMessageFromLocalDatabase(const QVector<Message> &messages, const QString &roomId)
+{
+    if (messages.isEmpty()) {
+        return;
+    }
+    auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+    for (const auto &message : messages) {
+        const QString messageId{message.messageId()};
+        messageModel->deleteMessage(messageId);
+        Room *room = mRocketChatAccount->room(roomId);
+        if (room) {
+            mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
+        }
+        // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
+        MessageModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
+        threadMessageModel->deleteMessage(messageId);
+    }
+}
+
 void RocketChatBackend::addMessageFromLocalDataBase(const QVector<Message> &messages)
 {
     if (messages.isEmpty()) {
@@ -208,7 +227,9 @@ void RocketChatBackend::addMessageFromLocalDataBase(const QVector<Message> &mess
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << message.roomId() << " It's a bug for sure.";
         }
     }
-    messageModel->addMessages(messages);
+    if (messageModel) {
+        messageModel->addMessages(messages);
+    }
 }
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
