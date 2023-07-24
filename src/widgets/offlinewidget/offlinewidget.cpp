@@ -13,8 +13,7 @@ OffLineWidget::OffLineWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
-    // TODO correct i18n ?
-    setText(i18n("We use offline mode."));
+    setText(i18n("Network is offline mode."));
 }
 
 OffLineWidget::~OffLineWidget() = default;
