@@ -15,5 +15,9 @@ ManageLoadHistoryParseSyncMessagesUtilsTest::ManageLoadHistoryParseSyncMessagesU
 
 void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldHaveDefaultValues()
 {
-    // TODO
+    ManageLoadHistoryParseSyncMessagesUtils w(nullptr);
+    QVERIFY(w.deletedMessages().isEmpty());
+    QVERIFY(w.updatesMessages().isEmpty());
 }
+
+#include "moc_manageloadhistoryparsesyncmessagesutilstest.cpp"
