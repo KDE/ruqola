@@ -44,7 +44,6 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
         // TODO
     }
     mDeletedMessages = std::move(removedMessages);
-    // TODO
 
     QVector<Message> updatedMessages;
     const QJsonArray updatedArray = result[QStringLiteral("updated")].toArray();
