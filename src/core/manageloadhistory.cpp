@@ -13,6 +13,7 @@
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 
+// #define USE_LOCALDATABASE 1
 ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
@@ -49,7 +50,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
     // Load history
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-#if 0 // TODO activate
+#ifdef USE_LOCALDATABASE // TODO activate
             const QString accountName{mRocketChatAccount->accountName()};
             const QVector<Message> lstMessages = mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50);
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
