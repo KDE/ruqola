@@ -183,6 +183,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QJsonObject &currentConfObject);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QVariant &value);
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;

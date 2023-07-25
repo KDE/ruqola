@@ -402,6 +402,7 @@ void RuqolaServerConfig::assignSettingValue(bool value, ServerConfigFeatureType 
 
 void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
 {
+    // qDebug() << " currentConfObject " << currentConfObject;
     const QString id = currentConfObject[QStringLiteral("_id")].toString();
     const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
     static const QRegularExpression regExp(QStringLiteral("^Accounts_OAuth_\\w+"));
@@ -538,12 +539,137 @@ void RuqolaServerConfig::setMediaBlackList(const QStringList &newMediaBlackList)
     mMediaBlackList = newMediaBlackList;
 }
 
+QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const QVariant &value)
+{
+    QJsonObject v;
+    v[QStringLiteral("_id")] = identifier;
+    if (value.canConvert<int>()) {
+        v[QStringLiteral("value")] = value.toInt();
+    } else if (value.canConvert<bool>()) {
+        v[QStringLiteral("value")] = value.toBool();
+    } else {
+        v[QStringLiteral("value")] = value.toString();
+    }
+    return v;
+}
+
 QByteArray RuqolaServerConfig::serialize(bool toBinary)
 {
     QJsonDocument d;
     QJsonObject o;
-    // TODO
+    QJsonArray array;
+    array.append(createJsonObject(QStringLiteral("uniqueID"), mUniqueId));
+    array.append(createJsonObject(QStringLiteral("Jitsi_Enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabled)));
+    array.append(
+        createJsonObject(QStringLiteral("Jitsi_Enable_Teams"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabledTeams)));
+    array.append(createJsonObject(QStringLiteral("Jitsi_Enable_Channels"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::JitsiEnabledChannels)));
+    array.append(createJsonObject(QStringLiteral("Jitsi_Domain"), jitsiMeetUrl()));
+    array.append(createJsonObject(QStringLiteral("Jitsi_URL_Room_Prefix"), jitsiMeetPrefix()));
+    array.append(createJsonObject(QStringLiteral("FileUpload_Storage_Type"), fileUploadStorageType()));
+    array.append(
+        createJsonObject(QStringLiteral("Message_AllowEditing"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEditingMessage)));
+    array.append(createJsonObject(QStringLiteral("Message_AllowEditing_BlockEditInMinutes"), blockEditingMessageInMinutes()));
+    array.append(createJsonObject(QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"), blockDeletingMessageInMinutes()));
+    array.append(createJsonObject(QStringLiteral("OTR_Enable"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::OtrEnabled)));
+    array.append(createJsonObject(QStringLiteral("Site_Url"), mSiteUrl));
+    array.append(createJsonObject(QStringLiteral("Site_Name"), siteName()));
+    array.append(createJsonObject(QStringLiteral("E2E_Enable"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::EncryptionEnabled)));
+    array.append(
+        createJsonObject(QStringLiteral("Message_AllowPinning"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessagePinning)));
+    array.append(createJsonObject(QStringLiteral("Message_AllowStarring"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessageStarring)));
+    array.append(createJsonObject(QStringLiteral("Message_AllowDeleting"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowMessageDeleting)));
+    array.append(createJsonObject(QStringLiteral("Threads_enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::ThreadsEnabled)));
+    array.append(
+        createJsonObject(QStringLiteral("Discussion_enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::DiscussionEnabled)));
+    array.append(createJsonObject(QStringLiteral("AutoTranslate_Enabled"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AutoTranslateEnabled)));
+    array.append(
+        createJsonObject(QStringLiteral("FileUpload_Enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::UploadFileEnabled)));
+    array.append(createJsonObject(QStringLiteral("AutoTranslate_GoogleAPIKey"), autoTranslateGoogleKey()));
+    array.append(
+        createJsonObject(QStringLiteral("Broadcasting_enabled"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::BroadCastEnabled)));
+    array.append(createJsonObject(QStringLiteral("Message_VideoRecorderEnabled"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::VideoRecorderEnabled)));
+    array.append(createJsonObject(QStringLiteral("Message_AudioRecorderEnabled"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AudioRecorderEnabled)));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowDeleteOwnAccount"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowDeleteOwnAccount)));
+    array.append(createJsonObject(QStringLiteral("Accounts_PasswordReset"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowPasswordReset)));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailChange"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEmailChange)));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowPasswordChange"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowPasswordChange)));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowUsernameChange"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUsernameChange)));
 
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowUserProfileChange"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUserProfileChange)));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowUserAvatarChange"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowUserAvatarChange)));
+    array.append(createJsonObject(QStringLiteral("LDAP_Enable"), static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::LdapEnabled)));
+    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enabled"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnabled)));
+    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_By_Email_Enabled"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled)));
+    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_By_TOTP_Enabled"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled)));
+    array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback"),
+                                  static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback)));
+
+#if 0
+} else if (id.contains(regExp)) {
+    if (value.toBool()) {
+        addOauthService(id);
+    }
+} else if (id == QLatin1String("FileUpload_MaxFileSize")) {
+    setFileMaxFileSize(value.toULongLong());
+} else if (id == QLatin1String("Assets_logo")) {
+    setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+} else if (id == QLatin1String("Assets_favicon")) {
+    setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+} else if (id == QLatin1String("Accounts_RegistrationForm")) {
+    setAllowRegistrationFrom(value.toString());
+} else if (id == QLatin1String("Accounts_LoginExpiration")) {
+    setLoginExpiration(value.toInt());
+} else if (id == QLatin1String("UTF8_Channel_Names_Validation")) {
+    setChannelNameValidation(value.toString());
+} else if (id == QLatin1String("UTF8_User_Names_Validation")) {
+    setUserNameValidation(value.toString());
+} else if (id == QLatin1String("Message_MaxAllowedSize")) {
+    setMessageMaximumAllowedSize(value.toInt());
+} else if (id == QLatin1String("Message_AllowConvertLongMessagesToAttachment")) {
+    setMessageAllowConvertLongMessagesToAttachment(value.toBool());
+} else if (id == QLatin1String("UI_Use_Real_Name")) {
+    setUseRealName(value.toBool());
+} else if (id == QLatin1String("Accounts_AllowInvisibleStatusOption")) {
+    setAccountsAllowInvisibleStatusOption(value.toBool());
+} else if (id == QLatin1String("UserData_EnableDownload")) {
+    setUserDataDownloadEnabled(value.toBool());
+} else if (id == QLatin1String("Device_Management_Enable_Login_Emails")) {
+    setDeviceManagementEnableLoginEmails(value.toBool());
+} else if (id == QLatin1String("Device_Management_Allow_Login_Email_preference")) {
+    setDeviceManagementAllowLoginEmailpreference(value.toBool());
+} else if (id == QLatin1String("Message_GroupingPeriod")) {
+    setMessageGroupingPeriod(value.toInt());
+} else if (id == QLatin1String("DirectMesssage_maxUsers")) {
+    setDirectMessageMaximumUser(value.toInt());
+} else if (id == QLatin1String("Message_QuoteChainLimit")) {
+    setMessageQuoteChainLimit(value.toInt());
+} else if (id == QLatin1String("Accounts_AllowUserStatusMessageChange")) {
+    setAllowCustomStatusMessage(value.toBool());
+} else if (id == QLatin1String("FileUpload_MediaTypeWhiteList")) {
+    setMediaWhiteList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
+} else if (id == QLatin1String("FileUpload_MediaTypeBlackList")) {
+    setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
+} else {
+    qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
+}
+
+#endif
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
