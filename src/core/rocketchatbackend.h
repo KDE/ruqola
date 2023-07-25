@@ -42,7 +42,7 @@ public:
 
     void addMessageFromLocalDataBase(const QVector<Message> &messages);
 
-    void removeMessageFromLocalDatabase(const QVector<Message> &messages, const QString &roomId);
+    void removeMessageFromLocalDatabase(const QStringList &messageIds, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)

@@ -187,14 +187,14 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
     }
 }
 
-void RocketChatBackend::removeMessageFromLocalDatabase(const QVector<Message> &messages, const QString &roomId)
+void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messageIds, const QString &roomId)
 {
-    if (messages.isEmpty()) {
+    if (messageIds.isEmpty()) {
         return;
     }
     auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
-    for (const auto &message : messages) {
-        const QString messageId{message.messageId()};
+    for (const auto &message : messageIds) {
+        const QString messageId{message};
         messageModel->deleteMessage(messageId);
         Room *room = mRocketChatAccount->room(roomId);
         if (room) {

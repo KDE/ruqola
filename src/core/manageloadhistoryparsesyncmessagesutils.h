@@ -17,8 +17,8 @@ public:
     explicit ManageLoadHistoryParseSyncMessagesUtils(RocketChatAccount *account);
     ~ManageLoadHistoryParseSyncMessagesUtils();
 
-    Q_REQUIRED_RESULT QVector<Message> deletedMessages() const;
-    void setDeletedMessages(const QVector<Message> &newDeletedMessages);
+    Q_REQUIRED_RESULT QStringList deletedMessages() const;
+    void setDeletedMessages(const QStringList &newDeletedMessages);
 
     Q_REQUIRED_RESULT QVector<Message> updatesMessages() const;
     void setUpdatesMessages(const QVector<Message> &newUpdatesMessages);
@@ -26,7 +26,7 @@ public:
     void parse(const QJsonObject &obj);
 
 private:
-    QVector<Message> mDeletedMessages;
+    QStringList mDeletedMessages;
     QVector<Message> mUpdatesMessages;
     RocketChatAccount *const mRocketChatAccount;
 };

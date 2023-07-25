@@ -14,12 +14,12 @@ ManageLoadHistoryParseSyncMessagesUtils::ManageLoadHistoryParseSyncMessagesUtils
 
 ManageLoadHistoryParseSyncMessagesUtils::~ManageLoadHistoryParseSyncMessagesUtils() = default;
 
-QVector<Message> ManageLoadHistoryParseSyncMessagesUtils::deletedMessages() const
+QStringList ManageLoadHistoryParseSyncMessagesUtils::deletedMessages() const
 {
     return mDeletedMessages;
 }
 
-void ManageLoadHistoryParseSyncMessagesUtils::setDeletedMessages(const QVector<Message> &newDeletedMessages)
+void ManageLoadHistoryParseSyncMessagesUtils::setDeletedMessages(const QStringList &newDeletedMessages)
 {
     mDeletedMessages = newDeletedMessages;
 }
@@ -36,14 +36,12 @@ void ManageLoadHistoryParseSyncMessagesUtils::setUpdatesMessages(const QVector<M
 
 void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
 {
-    // TODO add/remove messages parsing
-    QVector<Message> removedMessages;
     const QJsonObject result = obj[QStringLiteral("result")].toObject();
     const QJsonArray deleteArray = result[QStringLiteral("deleted")].toArray();
     for (int i = 0, total = deleteArray.size(); i < total; ++i) {
-        // TODO
+        const QJsonObject o = deleteArray.at(i).toObject();
+        mDeletedMessages.append(o[QStringLiteral("_id")].toString());
     }
-    mDeletedMessages = std::move(removedMessages);
 
     QVector<Message> updatedMessages;
     const QJsonArray updatedArray = result[QStringLiteral("updated")].toArray();
