@@ -29,6 +29,7 @@ void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldParseSyncMessages_data()
 
     QTest::addRow("empty") << QStringLiteral("empty.json") << 0 << 0;
     QTest::addRow("test1") << QStringLiteral("test1.json") << 1 << 0;
+    QTest::addRow("test2") << QStringLiteral("test2.json") << 1 << 2;
 }
 
 void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldParseSyncMessages()
