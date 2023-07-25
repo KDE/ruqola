@@ -619,55 +619,35 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled)));
     array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback"),
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback)));
+    array.append(createJsonObject(QStringLiteral("Assets_logo"), logoUrl()));
+    array.append(createJsonObject(QStringLiteral("Assets_favicon"), faviconUrl()));
+    array.append(createJsonObject(QStringLiteral("Accounts_LoginExpiration"), loginExpiration()));
+    array.append(createJsonObject(QStringLiteral("UTF8_Channel_Names_Validation"), channelNameValidation()));
+    array.append(createJsonObject(QStringLiteral("UTF8_User_Names_Validation"), userNameValidation()));
+    array.append(createJsonObject(QStringLiteral("Message_MaxAllowedSize"), messageMaximumAllowedSize()));
+    array.append(createJsonObject(QStringLiteral("Message_AllowConvertLongMessagesToAttachment"), messageAllowConvertLongMessagesToAttachment()));
+    array.append(createJsonObject(QStringLiteral("UI_Use_Real_Name"), useRealName()));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowInvisibleStatusOption"), accountsAllowInvisibleStatusOption()));
+    array.append(createJsonObject(QStringLiteral("UserData_EnableDownload"), userDataDownloadEnabled()));
+    array.append(createJsonObject(QStringLiteral("Device_Management_Enable_Login_Emails"), deviceManagementEnableLoginEmails()));
+    array.append(createJsonObject(QStringLiteral("Device_Management_Allow_Login_Email_preference"), deviceManagementAllowLoginEmailpreference()));
+    array.append(createJsonObject(QStringLiteral("Message_GroupingPeriod"), messageGroupingPeriod()));
+    array.append(createJsonObject(QStringLiteral("DirectMesssage_maxUsers"), directMessageMaximumUser()));
+    array.append(createJsonObject(QStringLiteral("Message_QuoteChainLimit"), messageQuoteChainLimit()));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowUserStatusMessageChange"), allowCustomStatusMessage()));
+    array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeWhiteList"), mMediaWhiteList.join(QLatin1Char(','))));
+    array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
 
 #if 0
 } else if (id.contains(regExp)) {
     if (value.toBool()) {
         addOauthService(id);
     }
-} else if (id == QLatin1String("FileUpload_MaxFileSize")) {
-    setFileMaxFileSize(value.toULongLong());
-} else if (id == QLatin1String("Assets_logo")) {
-    setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
-} else if (id == QLatin1String("Assets_favicon")) {
-    setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
 } else if (id == QLatin1String("Accounts_RegistrationForm")) {
     setAllowRegistrationFrom(value.toString());
-} else if (id == QLatin1String("Accounts_LoginExpiration")) {
-    setLoginExpiration(value.toInt());
-} else if (id == QLatin1String("UTF8_Channel_Names_Validation")) {
-    setChannelNameValidation(value.toString());
-} else if (id == QLatin1String("UTF8_User_Names_Validation")) {
-    setUserNameValidation(value.toString());
-} else if (id == QLatin1String("Message_MaxAllowedSize")) {
-    setMessageMaximumAllowedSize(value.toInt());
-} else if (id == QLatin1String("Message_AllowConvertLongMessagesToAttachment")) {
-    setMessageAllowConvertLongMessagesToAttachment(value.toBool());
-} else if (id == QLatin1String("UI_Use_Real_Name")) {
-    setUseRealName(value.toBool());
-} else if (id == QLatin1String("Accounts_AllowInvisibleStatusOption")) {
-    setAccountsAllowInvisibleStatusOption(value.toBool());
-} else if (id == QLatin1String("UserData_EnableDownload")) {
-    setUserDataDownloadEnabled(value.toBool());
-} else if (id == QLatin1String("Device_Management_Enable_Login_Emails")) {
-    setDeviceManagementEnableLoginEmails(value.toBool());
-} else if (id == QLatin1String("Device_Management_Allow_Login_Email_preference")) {
-    setDeviceManagementAllowLoginEmailpreference(value.toBool());
-} else if (id == QLatin1String("Message_GroupingPeriod")) {
-    setMessageGroupingPeriod(value.toInt());
-} else if (id == QLatin1String("DirectMesssage_maxUsers")) {
-    setDirectMessageMaximumUser(value.toInt());
-} else if (id == QLatin1String("Message_QuoteChainLimit")) {
-    setMessageQuoteChainLimit(value.toInt());
-} else if (id == QLatin1String("Accounts_AllowUserStatusMessageChange")) {
-    setAllowCustomStatusMessage(value.toBool());
-} else if (id == QLatin1String("FileUpload_MediaTypeWhiteList")) {
-    setMediaWhiteList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
-} else if (id == QLatin1String("FileUpload_MediaTypeBlackList")) {
-    setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
-} else {
-    qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
-}
+
+} else if (id == QLatin1String("FileUpload_MaxFileSize")) {
+    setFileMaxFileSize(value.toULongLong());
 
 #endif
     if (toBinary) {
