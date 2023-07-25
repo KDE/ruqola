@@ -547,6 +547,8 @@ QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, cons
         v[QStringLiteral("value")] = value.toInt();
     } else if (value.canConvert<bool>()) {
         v[QStringLiteral("value")] = value.toBool();
+        //    } else if (value.canConvert<qulonglong>()) {
+        //        v[QStringLiteral("value")] = value.value<qulonglong>();
     } else {
         v[QStringLiteral("value")] = value.toString();
     }
@@ -555,7 +557,6 @@ QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, cons
 
 QByteArray RuqolaServerConfig::serialize(bool toBinary)
 {
-    QJsonDocument d;
     QJsonObject o;
     QJsonArray array;
     array.append(createJsonObject(QStringLiteral("uniqueID"), mUniqueId));
@@ -638,6 +639,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeWhiteList"), mMediaWhiteList.join(QLatin1Char(','))));
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
 
+    o[QStringLiteral("result")] = array;
 #if 0
 } else if (id.contains(regExp)) {
     if (value.toBool()) {
@@ -653,7 +655,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
-
+    QJsonDocument d;
     d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
 }
