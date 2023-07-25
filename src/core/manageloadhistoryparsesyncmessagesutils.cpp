@@ -36,6 +36,8 @@ void ManageLoadHistoryParseSyncMessagesUtils::setUpdatesMessages(const QVector<M
 
 void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
 {
+    mDeletedMessages.clear();
+    mUpdatesMessages.clear();
     const QJsonObject result = obj[QStringLiteral("result")].toObject();
     const QJsonArray deleteArray = result[QStringLiteral("deleted")].toArray();
     for (int i = 0, total = deleteArray.size(); i < total; ++i) {
