@@ -660,9 +660,14 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     return d.toJson(QJsonDocument::Indented);
 }
 
-void RuqolaServerConfig::deserialize(const QJsonObject &source)
+void RuqolaServerConfig::deserialize(const QJsonObject &obj)
 {
-    // TODO
+    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
+    mServerConfigFeatureTypes = ServerConfigFeatureType::None;
+    for (QJsonValueRef currentConfig : configs) {
+        const QJsonObject currentConfObject = currentConfig.toObject();
+        loadSettings(currentConfObject);
+    }
 }
 
 QStringList RuqolaServerConfig::mediaWhiteList() const
