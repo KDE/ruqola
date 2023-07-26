@@ -38,7 +38,8 @@ private:
     QString mIdentifier;
     QString mDateTimeStr;
 };
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Q_DECLARE_METATYPE(ServerErrorInfo)
+#endif
 Q_DECLARE_TYPEINFO(ServerErrorInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerErrorInfo &t);

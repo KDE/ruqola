@@ -55,7 +55,9 @@ private:
     OtrType mType = OtrType::Unknown;
     CryptoSettings mCrypto;
 };
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Q_DECLARE_METATYPE(Otr)
+#endif
 Q_DECLARE_TYPEINFO(Otr, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Otr &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CryptoSettings &t);

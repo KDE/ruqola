@@ -73,6 +73,8 @@ private:
     bool mComplete = false;
     qint64 mUploadedAt = -1;
 };
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Q_DECLARE_METATYPE(File)
+#endif
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);

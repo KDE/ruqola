@@ -94,7 +94,8 @@ private:
     bool mShowFavorite = true;
     bool mReceiveLoginDetectionEmail = false;
 };
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Q_DECLARE_METATYPE(OwnUserPreferences)
+#endif
 Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);

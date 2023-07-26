@@ -66,6 +66,8 @@ private:
     QString mUserName;
     ChannelType mType = ChannelType::Unknown;
 };
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Q_DECLARE_METATYPE(Channel)
+#endif
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channel &t);
