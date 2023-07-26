@@ -1378,6 +1378,7 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     mRuqolaServerConfig->parsePublicSettings(obj);
+    // TODO localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), /* timeStamp*/);
     fillOauthModel();
     // Download logo/favicon if possible
     (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->logoUrl().url);
