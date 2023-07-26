@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT RuqolaServerConfig
 {
     Q_GADGET
 public:
-    struct ConfigWithDefaultValue {
+    struct LIBRUQOLACORE_EXPORT ConfigWithDefaultValue {
         QString url;
         QString defaultUrl;
         Q_REQUIRED_RESULT bool isEmpty() const
