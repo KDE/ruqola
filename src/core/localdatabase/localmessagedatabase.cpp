@@ -173,7 +173,7 @@ std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const Q
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
         const QString fileName = dbFileName(accountName, roomName);
-        qDebug() << " fileName " << fileName;
+        // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};
         }

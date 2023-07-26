@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localglobaldatabase.h"
+#include "globaldatabase.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
@@ -19,21 +19,24 @@ enum class GlobalFields {
     TimeStamp,
 }; // in the same order as the table
 
-LocalGlobalDatabase::LocalGlobalDatabase()
+GlobalDatabase::GlobalDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localGlobalDatabasePath(), LocalDatabaseBase::DatabaseType::Global)
 {
 }
 
-LocalGlobalDatabase::~LocalGlobalDatabase() = default;
+GlobalDatabase::~GlobalDatabase() = default;
 
-QString LocalGlobalDatabase::schemaDataBase() const
+QString GlobalDatabase::schemaDataBase() const
 {
     return QString::fromLatin1(s_schemaGlobalDataBase);
 }
 
-QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type)
+QString GlobalDatabase::generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type)
 {
     QString identifier;
+    if (accountName.isEmpty()) {
+        return identifier;
+    }
     switch (type) {
     case TimeStampType::MessageTimeStamp:
         identifier = QStringLiteral("messages-");
@@ -45,10 +48,14 @@ QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, cons
         identifier = QStringLiteral("account-");
         break;
     }
-    return identifier + accountName + QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
+    identifier += accountName;
+    if (!roomName.isEmpty()) {
+        identifier += QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
+    }
+    return identifier;
 }
 
-void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
+void GlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
@@ -62,7 +69,7 @@ void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QStr
     }
 }
 
-void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
+void GlobalDatabase::removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
 {
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {
@@ -76,7 +83,7 @@ void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QStr
     }
 }
 
-qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
+qint64 GlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
 {
     QSqlDatabase db;
     if (!checkDataBase(accountName, db)) {

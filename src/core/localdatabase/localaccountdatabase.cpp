@@ -32,14 +32,14 @@ QString LocalAccountDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaAccountDataBase);
 }
 
-void LocalAccountDatabase::updateAccount(const QString &accountName)
+void LocalAccountDatabase::updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(LocalDatabaseUtils::updateAccount(), db);
         query.addBindValue(accountName);
-        // Add timestamp
-        // Add Json
+        query.addBindValue(timeStamp);
+        query.addBindValue(ba);
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
         }

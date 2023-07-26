@@ -439,8 +439,8 @@ target_sources(libruqolacore PRIVATE
     localdatabase/localaccountdatabase.h
     localdatabase/localaccountdatabase.cpp
 
-    localdatabase/localglobaldatabase.h
-    localdatabase/localglobaldatabase.cpp
+    localdatabase/globaldatabase.h
+    localdatabase/globaldatabase.cpp
 
     customemojiiconmanager.h
     customemojiiconmanager.cpp

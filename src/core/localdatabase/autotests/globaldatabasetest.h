@@ -8,14 +8,17 @@
 
 #include <QObject>
 
-class LocalGlobalDatabaseTest : public QObject
+class GlobalDatabaseTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit LocalGlobalDatabaseTest(QObject *parent = nullptr);
-    ~LocalGlobalDatabaseTest() override = default;
+    explicit GlobalDatabaseTest(QObject *parent = nullptr);
+    ~GlobalDatabaseTest() override = default;
 
 private Q_SLOTS:
     void initTestCase();
     void shouldStoreIdentifier();
+
+    void shouldGenerateIdentifier();
+    void shouldGenerateIdentifier_data();
 };
