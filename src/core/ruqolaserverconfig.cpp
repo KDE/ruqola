@@ -342,24 +342,31 @@ AuthenticationManager::OauthTypes RuqolaServerConfig::serverOauthTypes() const
     return mServerOauthTypes;
 }
 
-QString RuqolaServerConfig::logoUrl() const
+RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::logoUrl() const
 {
     return mLogoUrl;
 }
 
-void RuqolaServerConfig::setLogoUrl(const QString &url)
+void RuqolaServerConfig::setLogoUrl(const RuqolaServerConfig::ConfigWithDefaultValue &url)
 {
     mLogoUrl = url;
 }
 
-QString RuqolaServerConfig::faviconUrl() const
+RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::faviconUrl() const
 {
     return mFaviconUrl;
 }
 
-void RuqolaServerConfig::setFaviconUrl(const QString &url)
+void RuqolaServerConfig::setFaviconUrl(const RuqolaServerConfig::ConfigWithDefaultValue &url)
 {
     mFaviconUrl = url;
+}
+
+QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t)
+{
+    d << " Value " << t.url;
+    d << " Default Value " << t.defaultUrl;
+    return d;
 }
 
 QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
@@ -398,6 +405,14 @@ void RuqolaServerConfig::assignSettingValue(bool value, ServerConfigFeatureType 
     } else {
         mServerConfigFeatureTypes &= ~type;
     }
+}
+
+RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDefaultValue(const QJsonObject &o)
+{
+    RuqolaServerConfig::ConfigWithDefaultValue value;
+    value.defaultUrl = o[QStringLiteral("defaultUrl")].toString();
+    value.url = o[QStringLiteral("url")].toString();
+    return value;
 }
 
 void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
@@ -463,9 +478,9 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AudioRecorderEnabled);
     } else if (id == QLatin1String("Assets_logo")) {
-        setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+        setLogoUrl(parseConfigWithDefaultValue(value.toJsonObject()));
     } else if (id == QLatin1String("Assets_favicon")) {
-        setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+        setFaviconUrl(parseConfigWithDefaultValue(value.toJsonObject()));
     } else if (id == QLatin1String("Accounts_AllowDeleteOwnAccount")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowDeleteOwnAccount);
     } else if (id == QLatin1String("Accounts_RegistrationForm")) {
@@ -544,6 +559,25 @@ QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, cons
     QJsonObject v;
     v[QStringLiteral("_id")] = identifier;
     v[QStringLiteral("value")] = value;
+    return v;
+}
+
+QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const RuqolaServerConfig::ConfigWithDefaultValue &value)
+{
+    QJsonObject v;
+    v[QStringLiteral("_id")] = identifier;
+    QJsonObject customUrl;
+    customUrl[QStringLiteral("defaultUrl")] = value.defaultUrl;
+    customUrl[QStringLiteral("url")] = value.url;
+    v[QStringLiteral("value")] = customUrl;
+    return v;
+}
+
+QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, qint64 value)
+{
+    QJsonObject v;
+    v[QStringLiteral("_id")] = identifier;
+    v[QStringLiteral("value")] = static_cast<qint64>(value);
     return v;
 }
 
@@ -628,13 +662,6 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled)));
     array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback"),
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback)));
-    // TODO fix me!
-#if 0
-} else if (id == QLatin1String("Assets_logo")) {
-    setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
-} else if (id == QLatin1String("Assets_favicon")) {
-    setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
-#endif
     array.append(createJsonObject(QStringLiteral("Assets_logo"), logoUrl()));
     array.append(createJsonObject(QStringLiteral("Assets_favicon"), faviconUrl()));
     array.append(createJsonObject(QStringLiteral("Accounts_LoginExpiration"), loginExpiration()));
@@ -653,6 +680,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("Accounts_AllowUserStatusMessageChange"), allowCustomStatusMessage()));
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeWhiteList"), mMediaWhiteList.join(QLatin1Char(','))));
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
+    array.append(createJsonObject(QStringLiteral("FileUpload_MaxFileSize"), mFileMaxFileSize));
 
     o[QStringLiteral("result")] = array;
 #if 0
@@ -662,9 +690,6 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     }
 } else if (id == QLatin1String("Accounts_RegistrationForm")) {
     setAllowRegistrationFrom(value.toString());
-
-} else if (id == QLatin1String("FileUpload_MaxFileSize")) {
-    setFileMaxFileSize(value.toULongLong());
 
 #endif
     if (toBinary) {
@@ -804,6 +829,11 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }
+}
+
+bool RuqolaServerConfig::ConfigWithDefaultValue::operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const
+{
+    return other.url == url && other.defaultUrl == defaultUrl;
 }
 
 bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const

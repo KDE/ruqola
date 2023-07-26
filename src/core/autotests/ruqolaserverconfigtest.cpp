@@ -66,8 +66,11 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const int minutesDeletingMessage = 15;
     const QString siteName = QStringLiteral("sitename");
     const QString siteUrl = QStringLiteral("siteurl");
-    const QString logoUrl = QStringLiteral("path/to/logo");
-    const QString faviconUrl = QStringLiteral("path/to/favicon");
+
+    RuqolaServerConfig::ConfigWithDefaultValue logoUrl;
+    logoUrl.url = QStringLiteral("path/to/logo");
+    RuqolaServerConfig::ConfigWithDefaultValue faviconUrl;
+    faviconUrl.url = QStringLiteral("path/to/favicon");
 
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);

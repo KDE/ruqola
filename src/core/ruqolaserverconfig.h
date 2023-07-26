@@ -14,6 +14,16 @@ class LIBRUQOLACORE_EXPORT RuqolaServerConfig
 {
     Q_GADGET
 public:
+    struct ConfigWithDefaultValue {
+        QString url;
+        QString defaultUrl;
+        Q_REQUIRED_RESULT bool isEmpty() const
+        {
+            return url.isEmpty() && defaultUrl.isEmpty();
+        }
+        Q_REQUIRED_RESULT bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
+    };
+
     RuqolaServerConfig();
 
     enum ServerConfigFeatureType {
@@ -110,11 +120,11 @@ public:
     Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
     void setFileMaxFileSize(qint64 fileMaxFileSize);
 
-    Q_REQUIRED_RESULT QString logoUrl() const;
-    void setLogoUrl(const QString &logoUrl);
+    Q_REQUIRED_RESULT RuqolaServerConfig::ConfigWithDefaultValue logoUrl() const;
+    void setLogoUrl(const ConfigWithDefaultValue &logoUrl);
 
-    Q_REQUIRED_RESULT QString faviconUrl() const;
-    void setFaviconUrl(const QString &faviconUrl);
+    Q_REQUIRED_RESULT RuqolaServerConfig::ConfigWithDefaultValue faviconUrl() const;
+    void setFaviconUrl(const RuqolaServerConfig::ConfigWithDefaultValue &faviconUrl);
 
     void setAllowRegistrationFrom(const QString &registrationFromValue);
 
@@ -188,6 +198,10 @@ private:
     Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QString &value);
     Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, bool value);
     Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, int value);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, qint64 value);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier,
+                                                                                  const RuqolaServerConfig::ConfigWithDefaultValue &value);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static RuqolaServerConfig::ConfigWithDefaultValue parseConfigWithDefaultValue(const QJsonObject &o);
 
     QString mUniqueId;
     QString mJitsiMeetUrl;
@@ -217,8 +231,8 @@ private:
     QStringList mMediaWhiteList;
     QStringList mMediaBlackList;
 
-    QString mLogoUrl;
-    QString mFaviconUrl;
+    ConfigWithDefaultValue mLogoUrl;
+    ConfigWithDefaultValue mFaviconUrl;
     int mLoginExpiration = -1;
     int mMessageMaximumAllowedSize = -1;
     int mMessageGroupingPeriod = -1;
@@ -233,3 +247,4 @@ private:
     bool mAllowCustomStatusMessage = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
