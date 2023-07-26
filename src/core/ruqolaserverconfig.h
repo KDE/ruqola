@@ -178,12 +178,17 @@ public:
 
     void deserialize(const QJsonObject &source);
 
+    Q_REQUIRED_RESULT bool operator==(const RuqolaServerConfig &other) const;
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QJsonObject &currentConfObject);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QVariant &value);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QString &value);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, bool value);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, int value);
+
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;

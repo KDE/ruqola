@@ -539,19 +539,27 @@ void RuqolaServerConfig::setMediaBlackList(const QStringList &newMediaBlackList)
     mMediaBlackList = newMediaBlackList;
 }
 
-QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const QVariant &value)
+QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const QString &value)
 {
     QJsonObject v;
     v[QStringLiteral("_id")] = identifier;
-    if (value.canConvert<int>()) {
-        v[QStringLiteral("value")] = value.toInt();
-    } else if (value.canConvert<bool>()) {
-        v[QStringLiteral("value")] = value.toBool();
-        //    } else if (value.canConvert<qulonglong>()) {
-        //        v[QStringLiteral("value")] = value.value<qulonglong>();
-    } else {
-        v[QStringLiteral("value")] = value.toString();
-    }
+    v[QStringLiteral("value")] = value;
+    return v;
+}
+
+QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, bool value)
+{
+    QJsonObject v;
+    v[QStringLiteral("_id")] = identifier;
+    v[QStringLiteral("value")] = value;
+    return v;
+}
+
+QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, int value)
+{
+    QJsonObject v;
+    v[QStringLiteral("_id")] = identifier;
+    v[QStringLiteral("value")] = value;
     return v;
 }
 
@@ -620,6 +628,13 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled)));
     array.append(createJsonObject(QStringLiteral("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback"),
                                   static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback)));
+    // TODO fix me!
+#if 0
+} else if (id == QLatin1String("Assets_logo")) {
+    setLogoUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+} else if (id == QLatin1String("Assets_favicon")) {
+    setFaviconUrl(value.toJsonObject()[QStringLiteral("url")].toString());
+#endif
     array.append(createJsonObject(QStringLiteral("Assets_logo"), logoUrl()));
     array.append(createJsonObject(QStringLiteral("Assets_favicon"), faviconUrl()));
     array.append(createJsonObject(QStringLiteral("Accounts_LoginExpiration"), loginExpiration()));
@@ -789,6 +804,28 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }
+}
+
+bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
+{
+    return mUniqueId == other.mUniqueId && mJitsiMeetUrl == other.mJitsiMeetUrl && mJitsiMeetPrefix == other.mJitsiMeetPrefix
+        && mFileUploadStorageType == other.mFileUploadStorageType && mSiteUrl == other.mSiteUrl && mSiteName == other.mSiteName
+        && mServerVersionStr == other.mServerVersionStr && mAutoTranslateGoogleKey == other.mAutoTranslateGoogleKey
+        && mChannelNameValidation == other.mChannelNameValidation && mUserNameValidation == other.mUserNameValidation
+        && mServerOauthTypes == other.mServerOauthTypes && mRuqolaOauthTypes == other.mRuqolaOauthTypes
+        && mBlockEditingMessageInMinutes == other.mBlockEditingMessageInMinutes && mBlockDeletingMessageInMinutes == other.mBlockDeletingMessageInMinutes
+        && mServerVersionMajor == other.mServerVersionMajor && mServerVersionMinor == other.mServerVersionMinor
+        && mServerVersionPatch == other.mServerVersionPatch && mFileMaxFileSize == other.mFileMaxFileSize
+        && mNeedAdaptNewSubscriptionRC60 == other.mNeedAdaptNewSubscriptionRC60
+        && mMessageAllowConvertLongMessagesToAttachment == other.mMessageAllowConvertLongMessagesToAttachment && mUIUseRealName == other.mUIUseRealName
+        && mServerConfigFeatureTypes == other.mServerConfigFeatureTypes && mMediaWhiteList == other.mMediaWhiteList && mMediaBlackList == other.mMediaBlackList
+        && mLogoUrl == other.mLogoUrl && mFaviconUrl == other.mFaviconUrl && mLoginExpiration == other.mLoginExpiration
+        && mMessageMaximumAllowedSize == other.mMessageMaximumAllowedSize && mMessageGroupingPeriod == other.mMessageGroupingPeriod
+        && mDirectMessageMaximumUser == other.mDirectMessageMaximumUser && mMessageQuoteChainLimit == other.mMessageQuoteChainLimit
+        && mHasEnterpriseSupport == other.mHasEnterpriseSupport && mAccountsAllowInvisibleStatusOption == other.mAccountsAllowInvisibleStatusOption
+        && mUserDataDownloadEnabled == other.mUserDataDownloadEnabled && mDeviceManagementEnableLoginEmails == other.mDeviceManagementEnableLoginEmails
+        && mDeviceManagementAllowLoginEmailpreference == other.mDeviceManagementAllowLoginEmailpreference
+        && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage;
 }
 
 #include "moc_ruqolaserverconfig.cpp"

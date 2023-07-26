@@ -30,4 +30,7 @@ private Q_SLOTS:
 
     void shouldTestVersion_data();
     void shouldTestVersion();
+
+    void shouldSerializeConfig_data();
+    void shouldSerializeConfig();
 };

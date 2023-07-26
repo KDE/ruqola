@@ -5,6 +5,7 @@
 */
 
 #include "ruqolaserverconfigtest.h"
+#include "ruqola_autotest_helper.h"
 #include "ruqolaserverconfig.h"
 
 #include <QTest>
@@ -259,6 +260,40 @@ void RuqolaServerConfigTest::shouldTestVersion()
     RuqolaServerConfig config;
     config.setServerVersion(serverVersion);
     QCOMPARE(config.hasAtLeastVersion(major, minor, patch), hasCorrectVersion);
+}
+
+void RuqolaServerConfigTest::shouldSerializeConfig_data()
+{
+    QTest::addColumn<QString>("name");
+
+    QTest::newRow("empty") << QStringLiteral("empty.json");
+    QTest::newRow("test1") << QStringLiteral("test1.json");
+}
+
+void RuqolaServerConfigTest::shouldSerializeConfig()
+{
+    QFETCH(QString, name);
+
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/serverconfig/%1").arg(name);
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    RuqolaServerConfig config;
+    config.parsePublicSettings(obj);
+
+    const QByteArray ba = config.serialize(false);
+
+    const QJsonDocument doc = QJsonDocument::fromJson(ba);
+    const QJsonObject newObj = doc.object();
+
+    RuqolaServerConfig newConfig;
+    newConfig.deserialize(newObj);
+
+    bool compare = (config == newConfig);
+    if (!compare) {
+        qDebug() << "config " << config;
+        qDebug() << "newConfig " << newConfig;
+    }
+    QVERIFY(compare);
 }
 
 #include "moc_ruqolaserverconfigtest.cpp"
