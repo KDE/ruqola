@@ -1,0 +1,4 @@
+When ruqola will be only qt6:
+- Rename Q_MOVABLE_TYPE to Q_RELOCATABLE_TYPE
+   (git grep -l Q_MOVABLE_TYPE | xargs perl -pi -e 's,Q_MOVABLE_TYPE,Q_RELOCATABLE_TYPE,')
+
