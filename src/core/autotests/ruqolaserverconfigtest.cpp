@@ -53,6 +53,11 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
 
     QVERIFY(config.mediaBlackList().isEmpty());
     QVERIFY(config.mediaWhiteList().isEmpty());
+
+    RuqolaServerConfig::ConfigWithDefaultValue defaultValue;
+    QVERIFY(defaultValue.url.isEmpty());
+    QVERIFY(defaultValue.defaultUrl.isEmpty());
+    QVERIFY(defaultValue.isEmpty());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
