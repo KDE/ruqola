@@ -112,8 +112,6 @@ target_sources(libruqolacore PRIVATE
     managerdatapaths.h
     messagecache.cpp
     messagecache.h
-    messagedownloadmanager.cpp
-    messagedownloadmanager.h
     messagequeue.cpp
     messagequeue.h
     messages/messageattachment.cpp
