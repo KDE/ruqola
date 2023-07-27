@@ -190,6 +190,8 @@ public:
 
     Q_REQUIRED_RESULT bool operator==(const RuqolaServerConfig &other) const;
 
+    void loadAccountSettingsFromLocalDataBase(const QByteArray &ba);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();

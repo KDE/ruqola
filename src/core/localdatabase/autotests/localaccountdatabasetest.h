@@ -17,4 +17,6 @@ public:
 private Q_SLOTS:
     void initTestCase();
     void shouldHaveDefaultValues();
+    void shouldStoreAccountSettings();
+    void shouldRemoveAccountSettings();
 };

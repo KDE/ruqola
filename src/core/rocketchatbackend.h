@@ -44,7 +44,7 @@ public:
 
     void removeMessageFromLocalDatabase(const QStringList &messageIds, const QString &roomId);
 
-    void loadPublicSettings();
+    void loadPublicSettings(qint64 timeStamp = -1);
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)

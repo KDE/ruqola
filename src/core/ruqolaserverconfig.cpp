@@ -858,4 +858,11 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage;
 }
 
+void RuqolaServerConfig::loadAccountSettingsFromLocalDataBase(const QByteArray &ba)
+{
+    const QJsonDocument doc = QJsonDocument::fromJson(ba);
+    const QJsonObject newObj = doc.object();
+    deserialize(newObj);
+}
+
 #include "moc_ruqolaserverconfig.cpp"

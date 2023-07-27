@@ -27,13 +27,15 @@ ManageLocalDatabase::~ManageLocalDatabase() = default;
 void ManageLocalDatabase::loadAccountSettings()
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " loadAccountSettings ";
+    qint64 timeStamp = -1;
 #ifdef USE_LOCALDATABASE // TODO activate
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(mRocketChatAccount->accountName());
     if (!ba.isEmpty()) {
-        // TODO deserialize info.
+        mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
+        // TOOD load info from server. => todo timeStamp
     }
 #endif
-    mRocketChatAccount->rocketChatBackend()->loadPublicSettings();
+    mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
 }
 
 void ManageLocalDatabase::syncMessage(const QString &roomId, qint64 lastSeenAt)

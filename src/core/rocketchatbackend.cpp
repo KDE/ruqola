@@ -157,10 +157,13 @@ void RocketChatBackend::slotConnectedChanged()
     mRocketChatAccount->loadAccountSettings();
 }
 
-void RocketChatBackend::loadPublicSettings()
+void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
 {
     auto ddp = mRocketChatAccount->ddp();
     // TODO add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
+    if (timeStamp != -1) {
+        // TODO
+    }
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
