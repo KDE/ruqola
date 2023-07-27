@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:34+0000\n"
-"PO-Revision-Date: 2023-07-21 08:14+0300\n"
+"POT-Creation-Date: 2023-07-27 00:46+0000\n"
+"PO-Revision-Date: 2023-07-24 20:04+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1302,12 +1302,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2771
+#: core/rocketchataccount.cpp:2772
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2772
+#: core/rocketchataccount.cpp:2773
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -3201,7 +3201,7 @@ msgstr "Reinicia la clau E2E"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:274
 #, kde-format
 msgid "Reset Totp"
-msgstr "Reinicia el TOTP"
+msgstr "Reinicia TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #, kde-format
@@ -3239,14 +3239,14 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
-"Reiniciar el TOTP de dos factors actual desconnectarà l'usuari. Després, "
+"Reiniciar TOTP de dos factors actual desconnectarà l'usuari. Després, "
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid "Reset TOTP"
-msgstr "Reinicia el TOTP"
+msgstr "Reinicia TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
@@ -7699,7 +7699,7 @@ msgstr "Copia el missatge"
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "La xarxa està en mode desconnectat."
 
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
