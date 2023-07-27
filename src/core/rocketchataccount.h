@@ -87,7 +87,7 @@ class UploadFileManager;
 class VideoConferenceManager;
 class VideoConferenceMessageInfoManager;
 class LocalDatabaseManager;
-class ManageLoadHistory;
+class ManageLocalDatabase;
 
 namespace RocketChatRestApi
 {
@@ -709,7 +709,7 @@ private:
     VideoConferenceManager *const mVideoConferenceManager;
     VideoConferenceMessageInfoManager *const mVideoConferenceMessageInfoManager;
     std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
-    ManageLoadHistory *const mManageLoadHistory;
+    ManageLocalDatabase *const mManageLoadHistory;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

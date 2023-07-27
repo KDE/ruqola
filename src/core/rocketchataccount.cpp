@@ -55,7 +55,7 @@
 #include "listmessages.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "managechannels.h"
-#include "manageloadhistory.h"
+#include "managelocaldatabase.h"
 #include "messagecache.h"
 #include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
@@ -117,7 +117,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mVideoConferenceManager(new VideoConferenceManager(this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this))
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
-    , mManageLoadHistory(new ManageLoadHistory(this, this))
+    , mManageLoadHistory(new ManageLocalDatabase(this, this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -1694,7 +1694,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         if (!initial && (room->numberMessages() == roomModel->rowCount())) {
             return;
         }
-        ManageLoadHistory::ManageLoadHistoryInfo info;
+        ManageLocalDatabase::ManageLoadHistoryInfo info;
         info.roomModel = roomModel;
         info.roomId = roomID;
         info.initial = initial;

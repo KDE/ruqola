@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "manageloadhistory.h"
+#include "managelocaldatabase.h"
 #include "chat/syncmessagesjob.h"
 #include "connection.h"
 #include "localdatabase/localdatabasemanager.h"
@@ -16,27 +16,27 @@
 #include "ruqolaglobalconfig.h"
 
 // #define USE_LOCALDATABASE 1
-ManageLoadHistory::ManageLoadHistory(RocketChatAccount *account, QObject *parent)
+ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
 {
 }
 
-ManageLoadHistory::~ManageLoadHistory() = default;
+ManageLocalDatabase::~ManageLocalDatabase() = default;
 
-void ManageLoadHistory::syncMessage(const QString &roomId, qint64 lastSeenAt)
+void ManageLocalDatabase::syncMessage(const QString &roomId, qint64 lastSeenAt)
 {
     auto job = new RocketChatRestApi::SyncMessagesJob(this);
     job->setRoomId(roomId);
     job->setLastUpdate(QDateTime::fromMSecsSinceEpoch(lastSeenAt));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLoadHistory::slotSyncMessages);
+    connect(job, &RocketChatRestApi::SyncMessagesJob::syncMessagesDone, this, &ManageLocalDatabase::slotSyncMessages);
     if (!job->start()) {
         qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start SyncMessagesJob job";
     }
 }
 
-void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &roomId)
+void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QString &roomId)
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
@@ -46,7 +46,7 @@ void ManageLoadHistory::slotSyncMessages(const QJsonObject &obj, const QString &
     mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(utils.deletedMessages(), roomId);
 }
 
-void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info)
+void ManageLocalDatabase::loadHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info)
 {
     Q_ASSERT(info.roomModel);
 
@@ -61,7 +61,8 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
             const QString accountName{mRocketChatAccount->accountName()};
             const QVector<Message> lstMessages =
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50, mRocketChatAccount->emojiManager());
-            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName << " number of message " << lstMessages.count();
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
+                                             << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
@@ -113,7 +114,7 @@ void ManageLoadHistory::loadHistory(const ManageLoadHistory::ManageLoadHistoryIn
     mRocketChatAccount->ddp()->loadHistory(params);
 }
 
-QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t)
+QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t)
 {
     d << " roomName " << t.roomName;
     d << " roomID " << t.roomId;
@@ -124,4 +125,4 @@ QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t)
     return d;
 }
 
-#include "moc_manageloadhistory.cpp"
+#include "moc_managelocaldatabase.cpp"

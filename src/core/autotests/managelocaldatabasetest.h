@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class ManageLoadHistoryTest : public QObject
+class ManageLocalDatabaseTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ManageLoadHistoryTest(QObject *parent = nullptr);
-    ~ManageLoadHistoryTest() override = default;
+    explicit ManageLocalDatabaseTest(QObject *parent = nullptr);
+    ~ManageLocalDatabaseTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -445,8 +445,8 @@ target_sources(libruqolacore PRIVATE
     customemojiiconmanager.h
     customemojiiconmanager.cpp
 
-    manageloadhistory.h
-    manageloadhistory.cpp
+    managelocaldatabase.h
+    managelocaldatabase.cpp
 
     manageloadhistoryparsesyncmessagesutils.h
     manageloadhistoryparsesyncmessagesutils.cpp

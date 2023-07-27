@@ -9,7 +9,7 @@
 #include <QObject>
 class RocketChatAccount;
 class MessageModel;
-class LIBRUQOLACORE_TESTS_EXPORT ManageLoadHistory : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT ManageLocalDatabase : public QObject
 {
     Q_OBJECT
 public:
@@ -22,15 +22,15 @@ public:
         qint64 lastSeenAt = -1;
     };
 
-    explicit ManageLoadHistory(RocketChatAccount *account, QObject *parent = nullptr);
-    ~ManageLoadHistory() override;
+    explicit ManageLocalDatabase(RocketChatAccount *account, QObject *parent = nullptr);
+    ~ManageLocalDatabase() override;
 
-    void loadHistory(const ManageLoadHistory::ManageLoadHistoryInfo &info);
+    void loadHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info);
 
 private:
     void syncMessage(const QString &roomId, qint64 lastSeenAt);
     void slotSyncMessages(const QJsonObject &obj, const QString &roomId);
     RocketChatAccount *const mRocketChatAccount;
 };
-Q_DECLARE_TYPEINFO(ManageLoadHistory::ManageLoadHistoryInfo, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ManageLoadHistory::ManageLoadHistoryInfo &t);
+Q_DECLARE_TYPEINFO(ManageLocalDatabase::ManageLoadHistoryInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t);
