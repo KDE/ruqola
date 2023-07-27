@@ -58,6 +58,12 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(defaultValue.url.isEmpty());
     QVERIFY(defaultValue.defaultUrl.isEmpty());
     QVERIFY(defaultValue.isEmpty());
+
+    defaultValue.url = QStringLiteral("dd");
+    QVERIFY(defaultValue.isEmpty());
+
+    defaultValue.defaultUrl = QStringLiteral("dd1");
+    QVERIFY(!defaultValue.isEmpty());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

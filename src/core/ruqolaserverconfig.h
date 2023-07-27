@@ -19,7 +19,7 @@ public:
         QString defaultUrl;
         Q_REQUIRED_RESULT bool isEmpty() const
         {
-            return url.isEmpty() && defaultUrl.isEmpty();
+            return url.isEmpty() || defaultUrl.isEmpty();
         }
         Q_REQUIRED_RESULT bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
     };
