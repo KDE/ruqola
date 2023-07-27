@@ -60,6 +60,7 @@ void LocalDatabaseManager::updateAccount(const QString &accountName, const QByte
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mAccountDatabase->updateAccount(accountName, ba, timeStamp);
+        mGlobalDatabase->updateTimeStamp(accountName, QString(), timeStamp, GlobalDatabase::TimeStampType::AccountTimeStamp);
     }
 }
 
@@ -67,6 +68,7 @@ void LocalDatabaseManager::deleteAccount(const QString &accountName)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mAccountDatabase->deleteAccount(accountName);
+        mGlobalDatabase->removeTimeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
     }
 }
 
