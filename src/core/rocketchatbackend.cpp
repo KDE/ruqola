@@ -10,6 +10,7 @@
 #include "rocketchatbackend.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
+#include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
@@ -153,6 +154,12 @@ void RocketChatBackend::slotConnectedChanged()
     connect(restApi, &RocketChatRestApi::Connection::serverInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
     connect(restApi, &RocketChatRestApi::Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
 
+    mRocketChatAccount->loadAccountSettings();
+}
+
+void RocketChatBackend::loadPublicSettings()
+{
+    auto ddp = mRocketChatAccount->ddp();
     // TODO add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }

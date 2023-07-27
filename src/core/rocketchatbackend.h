@@ -44,6 +44,8 @@ public:
 
     void removeMessageFromLocalDatabase(const QStringList &messageIds, const QString &roomId);
 
+    void loadPublicSettings();
+
 private:
     Q_DISABLE_COPY(RocketChatBackend)
     LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);

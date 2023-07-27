@@ -25,7 +25,9 @@ public:
     explicit ManageLocalDatabase(RocketChatAccount *account, QObject *parent = nullptr);
     ~ManageLocalDatabase() override;
 
-    void loadHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info);
+    void loadMessagesHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info);
+
+    void loadAccountSettings();
 
 private:
     void syncMessage(const QString &roomId, qint64 lastSeenAt);

@@ -24,6 +24,18 @@ ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *pa
 
 ManageLocalDatabase::~ManageLocalDatabase() = default;
 
+void ManageLocalDatabase::loadAccountSettings()
+{
+    qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " loadAccountSettings ";
+#ifdef USE_LOCALDATABASE // TODO activate
+    const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(mRocketChatAccount->accountName());
+    if (!ba.isEmpty()) {
+        // TODO deserialize info.
+    }
+#endif
+    mRocketChatAccount->rocketChatBackend()->loadPublicSettings();
+}
+
 void ManageLocalDatabase::syncMessage(const QString &roomId, qint64 lastSeenAt)
 {
     auto job = new RocketChatRestApi::SyncMessagesJob(this);
@@ -46,7 +58,7 @@ void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QString
     mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(utils.deletedMessages(), roomId);
 }
 
-void ManageLocalDatabase::loadHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info)
+void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageLoadHistoryInfo &info)
 {
     Q_ASSERT(info.roomModel);
 

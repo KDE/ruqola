@@ -1701,10 +1701,15 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         info.timeStamp = timeStamp;
         info.roomName = room->displayFName();
         info.lastSeenAt = room->lastSeenAt();
-        mManageLoadHistory->loadHistory(info);
+        mManageLoadHistory->loadMessagesHistory(info);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
     }
+}
+
+void RocketChatAccount::loadAccountSettings()
+{
+    mManageLoadHistory->loadAccountSettings();
 }
 
 void RocketChatAccount::setServerVersion(const QString &version)

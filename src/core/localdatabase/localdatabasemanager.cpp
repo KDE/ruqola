@@ -72,6 +72,14 @@ void LocalDatabaseManager::deleteAccount(const QString &accountName)
     }
 }
 
+QByteArray LocalDatabaseManager::jsonAccount(const QString &accountName)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        return mAccountDatabase->jsonAccount(accountName);
+    }
+    return {};
+}
+
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {

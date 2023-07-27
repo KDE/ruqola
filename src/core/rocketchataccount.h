@@ -520,6 +520,7 @@ public:
     Q_REQUIRED_RESULT QUrl faviconLogoUrlFromLocalCache(const QString &url);
     void addMessageToDataBase(const QString &roomName, const Message &message);
     void deleteMessageFromDatabase(const QString &roomName, const QString &messageId);
+    void loadAccountSettings();
 
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
