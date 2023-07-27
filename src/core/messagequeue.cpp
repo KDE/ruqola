@@ -25,51 +25,11 @@ MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
 
 MessageQueue::~MessageQueue()
 {
-#if 0
-    QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
-    qCDebug(RUQOLA_LOG) << "Caching Unsent messages to... " << cacheDir.path();
-    if (!cacheDir.exists(cacheDir.path())) {
-        if (!cacheDir.mkpath(cacheDir.path())) {
-            qCWarning(RUQOLA_LOG) << "Problem for creating cachedir " << cacheDir;
-        }
-    }
-    QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
-    if (f.open(QIODevice::WriteOnly)) {
-        QDataStream out(&f);
-        QQueue<QPair<QString, QJsonDocument> > queue = mRocketChatAccount->ddp()->messageQueue();
-        for (QQueue<QPair<QString, QJsonDocument> >::iterator it = queue.begin(), end = queue.end(); it != end; ++it) {
-            const QPair<QString, QJsonDocument> pair = *it;
-            const QByteArray ba = serialize(pair);
-            out.writeBytes(ba.constData(), ba.size());
-        }
-    }
-#endif
 }
 
 void MessageQueue::loadCache()
 {
     connect(mRocketChatAccount->ddp()->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
-#if 0
-    QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
-    // load unsent messages cache
-    if (QFile::exists(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")))) {
-        QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
-        if (f.open(QIODevice::ReadOnly)) {
-            QDataStream in(&f);
-            while (!f.atEnd()) {
-                char *byteArray;
-                quint32 length;
-                in.readBytes(byteArray, length);
-                const QByteArray ba = QByteArray::fromRawData(byteArray, length);
-                QPair<QString, QJsonDocument> pair = MessageQueue::fromJson(QJsonDocument::fromBinaryData(ba).object());
-
-                QString method = pair.first;
-                QJsonDocument params = pair.second;
-                mRocketChatAccount->ddp()->messageQueue().enqueue(qMakePair(method, params));
-            }
-        }
-    }
-#endif
 }
 
 QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
