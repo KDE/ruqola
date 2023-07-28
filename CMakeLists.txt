@@ -39,6 +39,7 @@ include(ECMGenerateHeaders)
 include(ECMSetupVersion)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
+option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
 
 if (OPTION_BUILD_PYTHON_BINDINGS)
    set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
@@ -172,8 +173,10 @@ if (Qt${QT_MAJOR_VERSION}Keychain_VERSION VERSION_LESS 0.14.99)
      MESSAGE(STATUS "Qt${QT_MAJOR_VERSION}KeyChain version is less 0.14.99. It will not support KWallet 6... It will not able to load password. Please update it.")
 endif()
 
-find_package(SeleniumWebDriverATSPI)
-set_package_properties(SeleniumWebDriverATSPI PROPERTIES PURPOSE "Needed for GUI tests" URL "https://invent.kde.org/sdk/selenium-webdriver-at-spi" TYPE OPTIONAL)
+if (OPTION_SELENIUMWEBDRIVER_SUPPORT)
+    find_package(SeleniumWebDriverATSPI)
+    set_package_properties(SeleniumWebDriverATSPI PROPERTIES PURPOSE "Needed for GUI tests" URL "https://invent.kde.org/sdk/selenium-webdriver-at-spi" TYPE OPTIONAL)
+endif()
 
 set(KUSERFEEDBACK_SUFFIX)
 if (QT_MAJOR_VERSION STREQUAL "6")
