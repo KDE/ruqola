@@ -31,7 +31,7 @@ void LocalAccountDatabaseTest::initTestCase()
 void LocalAccountDatabaseTest::shouldHaveDefaultValues()
 {
     LocalAccountDatabase accountDataBase;
-    QCOMPARE(accountDataBase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)"));
+    QCOMPARE(accountDataBase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)"));
 }
 
 void LocalAccountDatabaseTest::shouldStoreAccountSettings()
@@ -39,8 +39,7 @@ void LocalAccountDatabaseTest::shouldStoreAccountSettings()
     {
         LocalAccountDatabase accountDataBase;
         QByteArray ba = "{}";
-        qint64 timeStamp = 1234;
-        accountDataBase.updateAccount(accountName(), ba, timeStamp);
+        accountDataBase.updateAccount(accountName(), ba);
 
         // WHEN
         QByteArray getInfo = accountDataBase.jsonAccount(accountName());
@@ -51,8 +50,7 @@ void LocalAccountDatabaseTest::shouldStoreAccountSettings()
     {
         LocalAccountDatabase accountDataBase;
         QByteArray ba = "{bla:\"bli\"}";
-        qint64 timeStamp = 12346;
-        accountDataBase.updateAccount(accountName(), ba, timeStamp);
+        accountDataBase.updateAccount(accountName(), ba);
 
         // WHEN
         QByteArray getInfo = accountDataBase.jsonAccount(accountName());
@@ -67,8 +65,7 @@ void LocalAccountDatabaseTest::shouldRemoveAccountSettings()
     {
         LocalAccountDatabase accountDataBase;
         QByteArray ba = "{}";
-        qint64 timeStamp = 1234;
-        accountDataBase.updateAccount(accountName(), ba, timeStamp);
+        accountDataBase.updateAccount(accountName(), ba);
         // WHEN
         const QByteArray getInfo = accountDataBase.jsonAccount(accountName());
 

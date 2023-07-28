@@ -15,10 +15,9 @@ public:
     ~LocalAccountDatabase() override;
 
     void deleteAccount(const QString &accountName);
-    void updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp);
+    void updateAccount(const QString &accountName, const QByteArray &ba);
 
     Q_REQUIRED_RESULT QByteArray jsonAccount(const QString &accountName);
-    Q_REQUIRED_RESULT qint64 timeStamp(const QString &accountName);
 
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;

@@ -13,7 +13,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
 enum class AccountFields {
     AccountName,
     TimeStamp,
@@ -32,13 +32,12 @@ QString LocalAccountDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaAccountDataBase);
 }
 
-void LocalAccountDatabase::updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp)
+void LocalAccountDatabase::updateAccount(const QString &accountName, const QByteArray &ba)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(LocalDatabaseUtils::updateAccount(), db);
         query.addBindValue(accountName);
-        query.addBindValue(timeStamp);
         query.addBindValue(ba);
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
@@ -57,21 +56,6 @@ void LocalAccountDatabase::deleteAccount(const QString &accountName)
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
     }
-}
-
-qint64 LocalAccountDatabase::timeStamp(const QString &accountName)
-{
-    QSqlDatabase db;
-    if (!checkDataBase(accountName, db)) {
-        return -1;
-    }
-    QSqlQuery query(QStringLiteral("SELECT timestamp FROM ACCOUNT WHERE accountName = \"%1\"").arg(accountName), db);
-    qint64 value = -1;
-    // We have one element
-    if (query.first()) {
-        value = query.value(0).toLongLong();
-    }
-    return value;
 }
 
 QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)

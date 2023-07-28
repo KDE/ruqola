@@ -59,7 +59,7 @@ QVector<Message> LocalDatabaseManager::loadMessages(const QString &accountName,
 void LocalDatabaseManager::updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mAccountDatabase->updateAccount(accountName, ba, timeStamp);
+        mAccountDatabase->updateAccount(accountName, ba);
         mGlobalDatabase->updateTimeStamp(accountName, QString(), timeStamp, GlobalDatabase::TimeStampType::AccountTimeStamp);
     }
 }
