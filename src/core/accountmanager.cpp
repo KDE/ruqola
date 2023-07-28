@@ -245,6 +245,17 @@ QString AccountManager::currentAccount() const
 void AccountManager::removeLogs(const QString &accountName)
 {
     const QString directory = LocalDatabaseUtils::localMessageLoggerPath() + accountName;
+    removeDirectory(directory);
+}
+
+void AccountManager::removeDatabaseAccount(const QString &accountName)
+{
+    const QString directory = LocalDatabaseUtils::localAccountDatabasePath() + accountName;
+    removeDirectory(directory);
+}
+
+void AccountManager::removeDirectory(const QString &directory)
+{
     QDir dir(directory);
     if (dir.exists()) {
         if (!dir.removeRecursively()) {
@@ -258,6 +269,8 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
     auto account = mRocketChatAccountModel->removeAccount(accountName);
     if (mRocketChatAccountModel->accountNumber() > 0) {
         mCurrentAccount = mRocketChatAccountModel->account(0);
+        removeDatabaseAccount(accountName);
+        // TODO remove others files
         if (removeLogFiles) {
             removeLogs(accountName);
         }
