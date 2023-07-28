@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-27 00:46+0000\n"
+"POT-Creation-Date: 2023-07-28 00:47+0000\n"
 "PO-Revision-Date: 2023-07-21 07:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1297,12 +1297,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2772
+#: core/rocketchataccount.cpp:2777
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2773
+#: core/rocketchataccount.cpp:2778
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."

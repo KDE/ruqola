@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-27 00:46+0000\n"
+"POT-Creation-Date: 2023-07-28 00:47+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1327,12 +1327,12 @@ msgstr "O <strong>%1</strong> está a escrever..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:2772
+#: core/rocketchataccount.cpp:2777
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: core/rocketchataccount.cpp:2773
+#: core/rocketchataccount.cpp:2778
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."

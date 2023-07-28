@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-27 00:46+0000\n"
+"POT-Creation-Date: 2023-07-28 00:47+0000\n"
 "PO-Revision-Date: 2023-07-23 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1293,12 +1293,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2772
+#: core/rocketchataccount.cpp:2777
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2773
+#: core/rocketchataccount.cpp:2778
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
