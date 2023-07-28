@@ -88,7 +88,7 @@ QString LocalDatabaseUtils::deleteAccount()
 
 QString LocalDatabaseUtils::updateAccount()
 {
-    return QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)");
+    return QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)");
 }
 
 QString LocalDatabaseUtils::insertReplaceGlobal()
