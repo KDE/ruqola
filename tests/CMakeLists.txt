@@ -7,3 +7,7 @@ add_subdirectory(uploadfilewidgetlist)
 add_subdirectory(notificationhistorygui)
 add_subdirectory(loaddatabasegui)
 add_subdirectory(whatsnewdialoggui)
+# Selenium GUI tests
+if (SeleniumWebDriverATSPI_FOUND)
+    add_subdirectory(selenium-tests)
+endif()
