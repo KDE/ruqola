@@ -33,7 +33,6 @@ Dependencies:
     'frameworks/breeze-icons': '@latest-kf6'
     'frameworks/karchive': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
-    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
@@ -62,4 +61,8 @@ Dependencies:
     'frameworks/breeze-icons': '@stable'
     'frameworks/karchive': '@stable'
     'libraries/ktextaddons': '@stable'
-    'sdk/selenium-webdriver-at-spi': '@latest'
+
+- 'on': ['Linux/Qt6', 'Linux/Qt5']
+  'require':
+    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
+
