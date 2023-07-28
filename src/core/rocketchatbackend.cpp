@@ -170,14 +170,20 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
 }
 
-void RocketChatBackend::loadPublicSettingsAdministrator()
+void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)
 {
     auto ddp = mRocketChatAccount->ddp();
     if (!ddp->isConnected()) {
         return;
     }
-    // TODO add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
-    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings_administrator);
+    // https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
+    QJsonObject params;
+    if (timeStamp != -1) {
+        // "params": [ { "$date": 1480377601 } ]
+        params[QStringLiteral("$date")] = timeStamp;
+    }
+    qDebug() << " params " << params;
+    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings_administrator);
 }
 
 void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)

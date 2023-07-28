@@ -38,7 +38,7 @@ public:
     void clearFilesList();
     Q_REQUIRED_RESULT QVector<File> files() const;
 
-    void loadPublicSettingsAdministrator();
+    void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
 
     void addMessageFromLocalDataBase(const QVector<Message> &messages);
 

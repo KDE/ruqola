@@ -138,6 +138,7 @@ AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
 
 void AdministratorSettingsWidget::loadSettings()
 {
+    // Load from database ?
     mRocketChatAccount->rocketChatBackend()->loadPublicSettingsAdministrator();
 }
 
