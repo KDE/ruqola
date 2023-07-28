@@ -24,7 +24,7 @@ class SmokeTests(unittest.TestCase):
             pass
 
     def test_addTrainTrip(self):
-        self.driver.find_element(by=AppiumBy.NAME, value="Add Server...").click()
+        self.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="QApplication.MainWindow#1.mainToolBar.QToolButton").click()
 
 if __name__ == '__main__':
     unittest.main()
