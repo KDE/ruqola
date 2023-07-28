@@ -160,11 +160,14 @@ void RocketChatBackend::slotConnectedChanged()
 void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
 {
     auto ddp = mRocketChatAccount->ddp();
-    // TODO add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
+    // https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-public-settings
+    QJsonObject params;
     if (timeStamp != -1) {
-        // TODO
+        // "params": [ { "$date": 1480377601 } ]
+        params[QStringLiteral("$date")] = timeStamp;
     }
-    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
+    qDebug() << " params " << params;
+    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
 }
 
 void RocketChatBackend::loadPublicSettingsAdministrator()
