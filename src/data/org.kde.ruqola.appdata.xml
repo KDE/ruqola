@@ -27,7 +27,7 @@
   <name xml:lang="ru">Ruqola</name>
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sl">Ruqola</name>
-  <name xml:lang="sv">Ruqola</name>
+  <name xml:lang="sv">Ruqola </name>
   <name xml:lang="tr">Ruqola</name>
   <name xml:lang="uk">Ruqola</name>
   <name xml:lang="x-test">xxRuqolaxx</name>
@@ -886,6 +886,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
       <li xml:lang="pl">Dodanie obsługi dla zautomatyzowanego poprawiania tekstu</li>
       <li xml:lang="sl">Dodaj podporo za samodejno popravljanje besedila</li>
+      <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
       <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
     </ul>
