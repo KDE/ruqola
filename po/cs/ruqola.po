@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-28 00:47+0000\n"
+"POT-Creation-Date: 2023-07-29 00:45+0000\n"
 "PO-Revision-Date: 2023-07-03 12:01+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1296,12 +1296,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2777
+#: core/rocketchataccount.cpp:2778
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2778
+#: core/rocketchataccount.cpp:2779
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6902,10 +6902,9 @@ msgid "Impossible to create zip file."
 msgstr "Nelze vytvořit soubor zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "Exportovat účty"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
@@ -6913,10 +6912,9 @@ msgid "Account %1: export config done."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "Účty byly importovány."
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
@@ -6960,10 +6958,9 @@ msgid "Impossible to open file"
 msgstr "Nelze otevřít soubor"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "Importovat účty"
+msgstr ""
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
@@ -8298,11 +8295,10 @@ msgid "Server Settings..."
 msgstr "Nastavení serveru..."
 
 #: widgets/ruqolamainwindow.cpp:494
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
-msgstr "Adresář..."
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:515
 #, kde-format
@@ -8588,10 +8584,8 @@ msgid "What's new in Ruqola. %1"
 msgstr "Co je nového v aplikaci Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
-#, fuzzy
-#| msgid "Store Message in Local Database"
 msgid "Store Message in Local Database (experimental)"
-msgstr "Ukládat zprávy v místní databázi"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
