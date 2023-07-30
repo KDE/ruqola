@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-07-28 13:45+0200\n"
+"PO-Revision-Date: 2023-07-29 15:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -1491,7 +1491,7 @@ msgstr "Anpassa text-till-tal"
 #: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
-msgstr ""
+msgstr "God morgon, det här är testen för att verifiera inställningarna."
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
@@ -3118,7 +3118,7 @@ msgstr "Fältet __field__ krävs."
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:392
 #, kde-format
 msgid "This is not a Livechat room"
-msgstr "Det här är inte ett rum för direktchatt"
+msgstr "Det här är inte ett LiveChat-rum"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:394
 #, kde-format
@@ -3861,7 +3861,7 @@ msgstr "Utplaceringsid"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, kde-format
 msgid "Rocket.Chat App Users"
-msgstr "Användare av Rocket Chat-app"
+msgstr "Användare av Rocket.Chat-app"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
@@ -3941,7 +3941,7 @@ msgstr "Antal diskussioner"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Total Omnichannel Rooms"
-msgstr ""
+msgstr "Totalt antal rum i omnikanal"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
@@ -4188,9 +4188,9 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 "Nollställning av den nuvarande E2E-nyckeln loggar ut användaren. När "
-"användaren loggar in igen, skapar Rocket Chat en ny nyckel och återställer "
+"användaren loggar in igen, skapar Rocket.Chat en ny nyckel och återställer "
 "användarens åtkomst till ett eventuellt krypterat rum som har en eller flera "
-"medlemmar uppkopplade. På grund av E2E-krypteringens natur, kan inte Rocket "
+"medlemmar uppkopplade. På grund av E2E-krypteringens natur, kan inte Rocket."
 "Chat återställa åtkomst till ett eventuellt krypterat rum inte har några "
 "medlemmar uppkopplade."
 
@@ -4283,17 +4283,17 @@ msgstr "Tillåt lösenordsändring för användare av OAuth"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Tillåt osynlig status"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Glöm användarsession när fönstret stängs"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
 #, kde-format
 msgid "Enable collect log in data"
-msgstr ""
+msgstr "Aktivera samla logg i data"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, kde-format
@@ -4303,7 +4303,7 @@ msgstr "Utgångstid för inloggning i dagar"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr ""
+msgstr "Misslyckade inloggningsförsök"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4389,12 +4389,12 @@ msgstr "Företag"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "User Data Download"
-msgstr ""
+msgstr "Nerladdning av användardata"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "Slack Bridge"
-msgstr ""
+msgstr "Slack-brygga"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
@@ -4415,17 +4415,17 @@ msgstr "Felsök"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "WebRTC"
-msgstr ""
+msgstr "WebRTC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analyser"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #, kde-format
@@ -4458,6 +4458,8 @@ msgstr "Aktiverade funktioner"
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"Spårar egna händelser relaterade till åtgärder en användare utför med "
+"meddelanden."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
@@ -4465,6 +4467,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Spårar egna händelser relaterade till åtgärder för en kanal eller grupp "
+"(skapa, lämna, ta bort)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
@@ -4472,21 +4476,23 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Spårar egna händelser relaterade till åtgärder för användare "
+"(nollställningstider för lösenord, ändring av profilbild, etc.)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google-analyser"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Spårningsidentifikation"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
 msgid "Piwik Analytics"
-msgstr ""
+msgstr "Piwik-analyser"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
 #, kde-format
@@ -4494,6 +4500,8 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"Webbadressen där Piwik vistas. Säkerställ att det avslutande snedstrecket "
+"ingår. Exempel: //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
@@ -4504,6 +4512,7 @@ msgstr "Webbadress"
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
 msgstr ""
+"Platsidentifikation att använda för att identifiera platsen. Exempel: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -4513,22 +4522,22 @@ msgstr "Klientidentifikation"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
 msgid "Additional Piwik Sites"
-msgstr ""
+msgstr "Ytterligare Piwik-platser"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "Lägg till platsdomänen i början av sidrubriken vid spårning"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "Spåra besökare över alla underdomäner"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
 msgid "Hide Outgoing Links"
-msgstr ""
+msgstr "Dölj utgående länkar"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -4545,33 +4554,35 @@ msgstr "Aktiverad"
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, kde-format
 msgid "Trust CAS Username"
-msgstr ""
+msgstr "Lita på CAS-användarnamn"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
 #, kde-format
 msgid "Allow user creation"
-msgstr ""
+msgstr "Tillåt skapa användare"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
 #, kde-format
 msgid "Always Sync User Data"
-msgstr ""
+msgstr "Synkronisera alltid användardata"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
 msgid "SSO Base URL"
-msgstr ""
+msgstr "SSO-baserad webbadress"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
+"Baswebbadressen för den externa SSO-tjänsten, t.ex. https://sso.exempel."
+"odefinierad/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr ""
+msgstr "SSO-inloggningswebbadress"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4579,6 +4590,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"Inloggningswebbadressen för den externa SSO-tjänsten, t.ex. https://sso."
+"exempel.odefinierad/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
@@ -4595,16 +4608,21 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"När aktiverad, litar Rocket.Chat på att alla användarnamn från CAS hör till "
+"samma användare på Rocket.Chat.\n"
+"Det kan behövas om en användare har bytt namn på CAS, men kan också låta "
+"personer ta kontroll över Rocket.Chat-konton genom att byta namn på sina "
+"egna CAS-användare."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
-msgstr ""
+msgstr "Tillåt skapa CAS-användare från data tillhandahållen av CAS-biljetten."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "Attributhantering"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -4613,11 +4631,14 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Synkronisera alltid extern CAS-användardata med tillgängliga attribut vid "
+"inloggning.\n"
+"Observera: Attribut synkroniseras ändå alltid när kontot skapas."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
 msgid "Attribute Map"
-msgstr ""
+msgstr "Attributavbildning"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
 #, kde-format
@@ -4634,36 +4655,46 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Använd JSON-indata för att skapa interna attribut (nyckelord) från externa "
+"attribut (värden).\n"
+"Externa attributnamn omgivna av '%' interpoleras i värdesträngar.<br/"
+">Exempel, {\"email\":\"%email%\", \"name\":\"%firstname%, %lastname%\"}\n"
+"Attributavbildningen interpoleras alltid. I CAS 1.0 är bara attributet "
+"username tillgängligt. Tillgängliga interna attribut är: usernamne, name, "
+"email, rooms.\n"
+"rooms är en lista med rum åtskilda av kommatecken att gå med i när användare "
+"skapas, t.ex. skulle {\"rooms\": \"%team%,%department%\"} göra att CAS-"
+"användare går med i kanalerna team och department."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
 #, kde-format
 msgid "Default Provider"
-msgstr ""
+msgstr "Förvald leverantör"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
-msgstr ""
+msgstr "IgnoreraTLS"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
 msgid "Show Message in Email Notification"
-msgstr ""
+msgstr "Visa meddelanden i e-postunderrättelse"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Lägg till avsändare att svara till"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
 msgid "Enable Direct Reply"
-msgstr ""
+msgstr "Aktivera direktsvar"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Debug Direct Reply"
-msgstr ""
+msgstr "Felsök direktsvar"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #, kde-format
@@ -4705,7 +4736,7 @@ msgstr "Integritet"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
 #, kde-format
 msgid "Direct Reply"
-msgstr "Direkt svar"
+msgstr "Direktsvar"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:89
 #, kde-format
@@ -4717,6 +4748,12 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Observera] Om \"Direktsvar\" är aktiverat, hanterar Rocket.Chat den "
+"inställda e-postlådan.\n"
+"All oläst e-post hämtas, markeras som läst och behandlad.\n"
+"\"Direktsvar\" ska bara aktiveras om den använda postlådan är enbart avsedd "
+"för åtkomst av Rocket.Chat\n"
+"och inte läses/behandlas \"i parallell\" av människor."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
 #, kde-format
@@ -4724,6 +4761,8 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[Varning] Att aktivera felsökning skulle visa ditt lösenordet med vanlig "
+"text i administratörsterminalen."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
@@ -4741,17 +4780,17 @@ msgstr "Text"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
 #, kde-format
 msgid "Direct Message Email Subject"
-msgstr ""
+msgstr "Direktmeddelande e-postrubrik"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Nämn e-postrubrik"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, kde-format
 msgid "Mention All Email Subject"
-msgstr ""
+msgstr "Nämn alla e-postrubriker"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
 #, kde-format
@@ -4814,7 +4853,7 @@ msgid ""
 "If your workspace is registered and license is provided by Rocket.Chat Cloud "
 "you don't need to manually update the license here."
 msgstr ""
-"Om din arbetsrymd är registrerad och licens tillhandahålls av Rocket Chat-"
+"Om din arbetsrymd är registrerad och licens tillhandahålls av Rocket.Chat-"
 "molnet behöver du inte uppdatera licensen manuellt här."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:21
@@ -4934,7 +4973,7 @@ msgstr "Aktivera favoritrum"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "UTF8-namn Slugify"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -4944,7 +4983,7 @@ msgstr "Aktivera uppdateringskontroll"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "Skicka statistik till Rocket.Chat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:42
 #, kde-format
@@ -5040,7 +5079,7 @@ msgstr "Uppdatera"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Uppdatera senast tillgängliga version"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -5052,10 +5091,10 @@ msgid ""
 "both visible only for administrators."
 msgstr ""
 "Tittar automatiskt efter nya uppdateringar och viktiga meddelanden från "
-"utvecklarna av Rocket Chat och tar emot underrättelser när de är "
+"utvecklarna av Rocket.Chat och tar emot underrättelser när de är "
 "tillgängliga.\n"
 "Underrättelsen visas en gång per ny version som ett klickbart baner och ett "
-"meddelande från Rocket Chat-botten,\n"
+"meddelande från Rocket.Chat-botten,\n"
 "båda enbart synliga för systemadministratörer."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
@@ -5069,6 +5108,8 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"Ställer in förvald tidszon som används när instrumentpaneler visas eller e-"
+"post skickas"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
 #, kde-format
@@ -5083,12 +5124,12 @@ msgstr "Egen tidszon"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Användarens nuvarande tidszon"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Förvald tidszon för rapportering"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
 #, kde-format
@@ -5107,11 +5148,16 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Maximalt antal medlemmar i ett rum när underrättelser för alla meddelanden "
+"inaktiveras. Användare kan fortfarande individuellt ändra inställningar per "
+"rum för att ta emot alla underrättelser (0 för att inaktivera)."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
+"Maximalt antal medlemmar i rum innan  alla meddelandeunderrättelser "
+"inaktiveras"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5119,7 +5165,7 @@ msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
 msgstr ""
-"Försök att integrera IRC-stöd. Ändring av värdet kräver att Rocket Chat "
+"Försök att integrera IRC-stöd. Ändring av värdet kräver att Rocket.Chat "
 "startas om."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
@@ -5263,12 +5309,12 @@ msgstr "Tidsgräns för overksam (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Spåra metodanrop"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
 #, kde-format
 msgid "Trace subscription calls"
-msgstr ""
+msgstr "Spåra prenumerationsanrop"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -5276,11 +5322,13 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"En kanal som tar emot alla funna undantag. Lämna tom för att ignorera "
+"undantag."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
 msgid "Log Exceptions to Channel"
-msgstr ""
+msgstr "Logga undantag i kanal"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
 #, kde-format
@@ -5305,7 +5353,7 @@ msgstr "Loggnivå"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, kde-format
 msgid "Log View Limit"
-msgstr ""
+msgstr "Loggvisningsgräns"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
@@ -5314,12 +5362,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"Texten här utvärderas som ett reguljärt uttryck (new RegExp('text')). Lämna "
+"den tom för att spåra alla anrop."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, kde-format
 msgid "Trace method filter"
-msgstr ""
+msgstr "Metodspårningsfilter"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
@@ -5365,12 +5415,12 @@ msgstr "Videoinspelning aktiverad"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
 #, kde-format
 msgid "Remove EXIF metadata from supported files"
-msgstr ""
+msgstr "Ta bort EXIF-metadata från filer som stöds"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
-msgstr ""
+msgstr "Aktivera miniatyrbilder för att spara bandbredd"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
 #, kde-format
@@ -5403,6 +5453,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"Detta är en föråldrad funktion. Det kanske inte fungerar som förväntat och "
+"kommer inte att få nya uppdateringar."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format
@@ -5426,7 +5478,7 @@ msgstr "Säkra portar"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
 #, kde-format
 msgid "Message Attachments"
-msgstr ""
+msgstr "Meddelandebilagor"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
 #, kde-format
@@ -5434,6 +5486,8 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"Tar bort EXIF-metadata från bildfiler (jpeg, tiff, etc). Inställningen är "
+"inte retroaktiv, så filer uppladdade medan den är inaktiverad, har EXIF-data."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, kde-format
@@ -5442,16 +5496,19 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
+"Miniatyrbilder levereras istället för originalbilden för att reducera "
+"bandbreddsanvändning. Bilder med originalupplösning kan laddas ner med "
+"ikonen intill bilagans namn."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
-msgstr ""
+msgstr "Miniatyrbildens maximala bredd (i bildpunkter)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
-msgstr ""
+msgstr "Miniatyrbildens maximala höjd (i bildpunkter)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
 #, kde-format
@@ -5461,17 +5518,17 @@ msgstr "Ljudmeddelande"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid "Audio Message Bit Rate"
-msgstr ""
+msgstr "Bithastighet för ljudmeddelande"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
 msgid "Allow Save Media to Gallery"
-msgstr ""
+msgstr "Tillåt att media sparas i galleri"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
 #, kde-format
 msgid "Force screen lock"
-msgstr ""
+msgstr "Tvinga skärmlåsning"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
 #, kde-format
@@ -5484,6 +5541,8 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"När aktiverad, tvingas användarna använda PINKOD/BIOMETRI/ANSIKTSID för att "
+"låsa upp programmet."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -5491,11 +5550,13 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"Tid i sekunder innan lösenordet begärs igen efter den senaste sessionen har "
+"avslutats."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
 msgid "Force Screen Lock After"
-msgstr ""
+msgstr "Tvinga skärmlåsning efter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
@@ -5548,21 +5609,23 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"Om du bara vill att Apple-inloggning ska vara aktiverad på mobiltelefon, kan "
+"alla fält lämnas tomma."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "OAuth Apple-identifierare"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
 #, kde-format
 msgid "OAuth Apple Iss"
-msgstr ""
+msgstr "OAuth Apple-Iss"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:72
 #, kde-format
 msgid "OAuth Apple Kid"
-msgstr ""
+msgstr "OAuth Apple-kid"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
@@ -6019,12 +6082,12 @@ msgstr "Verkställ"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr "SlackBridge ut aktiverad"
+msgstr "Slack-brygga ut aktiverad"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr "SlackBridge ut allt"
+msgstr "Slack-brygga ut allt"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
 #, kde-format
@@ -6039,13 +6102,13 @@ msgstr "Låt Rocket.Chat kommunicera direkt med Slack."
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
 msgid "API Tokens"
-msgstr ""
+msgstr "Programmeringsgränssnittssymboler"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
-"Välj om SlackBridge också ska skicka dina meddelanden tillbaka till Slack"
+"Välj om Slack-bryggan också ska skicka dina meddelanden tillbaka till Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
@@ -6061,11 +6124,13 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"Importera meddelanden från Slack med ett alias: %s ersätts med användarens "
+"användarnamn. Om det är tomt, används inget alias."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
 msgid "Alias Format"
-msgstr ""
+msgstr "Aliasformat"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
 #, kde-format
@@ -6073,6 +6138,8 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Propagera inte meddelanden från robotar vars namn matchar det reguljära "
+"uttrycket ovan. Om det lämnas tomt, propageras alla meddelanden från robotar."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
@@ -6102,7 +6169,7 @@ msgstr "Inaktivera sessionsövervakning"
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "Inaktivera LiveChat aktivitetsövervakning"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
 #, kde-format
@@ -6112,12 +6179,12 @@ msgstr "Inaktivera statistikgenerering"
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
 #, kde-format
 msgid "Disable Data Exporter Processor"
-msgstr ""
+msgstr "Inaktivera dataexportbehandling"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
 msgid "Disable Workspace Sync"
-msgstr ""
+msgstr "Inaktivera synkronisering av arbetsyta"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6125,6 +6192,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Inställningen stänger av underrättelsesystemet helt: ljud, "
+"skrivbordsunderrättelser, mobilunderrättelser, och e-post stoppas."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6133,6 +6202,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Inställningen förhindrar alla instanser från att skicka användarnas "
+"statusändringar till deras klienter, så alla användare behåller nuvarande "
+"status från första inläsning."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -6141,6 +6213,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Inställningen förhindrar instanser av Rocket.Chat från att skicka händelser "
+"till övriga instanser. Det kan orsaka synkroniseringsproblem och felaktigt "
+"beteende."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6148,6 +6223,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"Inställningen stoppar behandling av LiveChat besökssessioner, vilket gör att "
+"statistiken slutar fungera korrekt."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -6156,6 +6233,10 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Inställningen stoppar behandling av all statistik, vilket gör att "
+"informationssidan är föråldrad ända till någon klickar på "
+"uppdateringsknappen, och kan orsaka att annan information saknas överallt i "
+"systemet."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6163,6 +6244,8 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"Inställningen stoppar behandling av alla exportbegäran från användare, så de "
+"inte tar emot länken för att ladda ner data."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -6170,6 +6253,8 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"Inställningen stoppar synkronisering av servern med Rocket.Chats moln, och "
+"kan orsaka problem med marknads- och företagslicenser."
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -6314,6 +6399,9 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"An lista med STUN- och TURN-servrar åtskilda med kommatecken.\n"
+"Användarnamn, lösenord och port tillåts med formatet användarnamn:"
+"lösenord@stun:värddator:port eller användarnamn:lösenord@turn:värddator:port."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
@@ -6540,7 +6628,7 @@ msgstr "Aktivera loggning"
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
 msgid "Show hover highlights"
-msgstr ""
+msgstr "Visa färgläggning med muspekaren"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
@@ -6807,22 +6895,22 @@ msgstr "Dölj status för olästa rum"
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute @all and @here mentions"
-msgstr ""
+msgstr "Tysta omnämnanden med @all och @here"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format
 msgid "Show badge for mentions"
-msgstr ""
+msgstr "Visa bricka för omnämnanden"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:36
 #, kde-format
 msgid "Receive alerts"
-msgstr ""
+msgstr "Ta emot varningar"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:55
 #, kde-format
 msgid "Display badge for direct mentions only"
-msgstr ""
+msgstr "Visa bara bricka för direkta omnämnanden"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
@@ -7670,9 +7758,9 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 "Alternativet tar bort den nuvarande E2E-nyckeln och loggar ut. När du loggar "
-"in igen, skapar Rocket Chat en ny nyckel åt dig och återställer åtkomst till "
+"in igen, skapar Rocket.Chat en ny nyckel åt dig och återställer åtkomst till "
 "ett eventuellt krypterat rum som har en eller flera medlemmar uppkopplade. "
-"På grund av E2E-krypteringens natur, kan inte Rocket Chat återställa åtkomst "
+"På grund av E2E-krypteringens natur, kan inte Rocket.Chat återställa åtkomst "
 "till ett eventuellt krypterat rum inte har några medlemmar uppkopplade."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
