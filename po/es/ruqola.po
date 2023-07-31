@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-29 00:45+0000\n"
-"PO-Revision-Date: 2023-07-22 11:46+0200\n"
+"PO-Revision-Date: 2023-07-29 11:31+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7698,7 +7698,7 @@ msgstr "Copiar mensaje"
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "La red está en modo sin conexión."
 
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
