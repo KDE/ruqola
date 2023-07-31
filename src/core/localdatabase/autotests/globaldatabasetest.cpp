@@ -47,9 +47,9 @@ void GlobalDatabaseTest::shouldStoreIdentifier()
     // GIVEN
     GlobalDatabase globalDataBase;
     int roomNameValue = 55;
-    globalDataBase.updateTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
     int roomNameOtherValue = 12;
-    globalDataBase.updateTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
 
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
 

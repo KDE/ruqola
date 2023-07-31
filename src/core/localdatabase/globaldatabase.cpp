@@ -58,7 +58,7 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QSt
     return identifier;
 }
 
-void GlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
+void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {

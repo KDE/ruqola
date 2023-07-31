@@ -20,7 +20,7 @@ public:
     GlobalDatabase();
     ~GlobalDatabase() override;
 
-    void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, GlobalDatabase::TimeStampType type);
+    void insertOrReplaceTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, GlobalDatabase::TimeStampType type);
 
     Q_REQUIRED_RESULT QString generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type);
     void removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
