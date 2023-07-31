@@ -33,9 +33,8 @@ void ManageLocalDatabase::loadAccountSettings()
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
     if (!ba.isEmpty()) {
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
-        // TOOD load info from server. => todo timeStamp.
+        timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
     }
-    timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
 #endif
     mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
 }

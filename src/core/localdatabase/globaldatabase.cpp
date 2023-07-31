@@ -49,6 +49,9 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QSt
         break;
     }
     identifier += accountName;
+    if (roomName.isEmpty() && type != TimeStampType::AccountTimeStamp) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Missing roomName! It's a bug!!!";
+    }
     if (!roomName.isEmpty()) {
         identifier += QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
     }
