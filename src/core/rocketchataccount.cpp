@@ -1511,6 +1511,8 @@ void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 void RocketChatAccount::privateSettingsUpdated(const QJsonArray &replyArray)
 {
     mRuqolaServerConfig->privateSettingsUpdated(replyArray);
+    // TODO uses timeStamp
+    localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), -1 /*TODO fix timeStamp*/);
     Q_EMIT privateSettingsChanged();
 }
 
