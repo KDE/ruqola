@@ -6,6 +6,7 @@
 
 #include "localdatabaseutils.h"
 
+#include <QDateTime>
 #include <QStandardPaths>
 
 QString LocalDatabaseUtils::fixRoomName(QString roomName)
@@ -104,4 +105,9 @@ QString LocalDatabaseUtils::deleteMessageFromLogs()
 QString LocalDatabaseUtils::insertReplaceMessageFromLogs()
 {
     return QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)");
+}
+
+qint64 LocalDatabaseUtils::currentTimeStamp()
+{
+    return QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
 }
