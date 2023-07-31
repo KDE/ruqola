@@ -60,7 +60,9 @@ void LocalDatabaseManager::updateAccount(const QString &accountName, const QByte
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mAccountDatabase->updateAccount(accountName, ba);
-        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, QString(), timeStamp, GlobalDatabase::TimeStampType::AccountTimeStamp);
+        if (timeStamp > -1) {
+            mGlobalDatabase->insertOrReplaceTimeStamp(accountName, QString(), timeStamp, GlobalDatabase::TimeStampType::AccountTimeStamp);
+        }
     }
 }
 
