@@ -54,6 +54,7 @@
 #include "license/licensesisenterprisejob.h"
 #include "listmessages.h"
 #include "localdatabase/localdatabasemanager.h"
+#include "localdatabase/localdatabaseutils.h"
 #include "managechannels.h"
 #include "managelocaldatabase.h"
 #include "messagecache.h"
@@ -1378,7 +1379,7 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     mRuqolaServerConfig->parsePublicSettings(obj);
-    localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), -1 /*TODO fix timeStamp*/);
+    localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
 
     fillOauthModel();
     // Download logo/favicon if possible
@@ -1511,8 +1512,7 @@ void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
 void RocketChatAccount::privateSettingsUpdated(const QJsonArray &replyArray)
 {
     mRuqolaServerConfig->privateSettingsUpdated(replyArray);
-    // TODO uses timeStamp
-    localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), -1 /*TODO fix timeStamp*/);
+    localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
     Q_EMIT privateSettingsChanged();
 }
 
