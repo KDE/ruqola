@@ -54,6 +54,9 @@ void GlobalDatabaseTest::shouldStoreIdentifier()
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
 
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+
+    // -1 if timeStamp doesn't exist
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::AccountTimeStamp), -1);
 }
 
 void GlobalDatabaseTest::shouldGenerateIdentifier()
