@@ -144,6 +144,16 @@ set_package_properties(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PROPERTIES DESC
     TYPE OPTIONAL
 )
 
+find_package(KF${KF_MAJOR_VERSION}TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF${KF_MAJOR_VERSION}TextUtils PROPERTIES DESCRIPTION
+    "Add utils text functions (ktextaddons)"
+    TYPE OPTIONAL
+)
+
+if (TARGET KF${KF_MAJOR_VERSION}::TextUtils)
+   set(HAVE_TEXT_UTILS TRUE)
+endif()
+
 if (NOT WIN32 AND NOT APPLE)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()

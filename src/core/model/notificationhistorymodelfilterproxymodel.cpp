@@ -5,7 +5,12 @@
 */
 
 #include "notificationhistorymodelfilterproxymodel.h"
+#include "config-ruqola.h"
 #include "notificationhistorymodel.h"
+
+#if HAVE_TEXT_UTILS
+#include <TextUtils/ConvertText>
+#endif
 
 NotificationHistoryModelFilterProxyModel::NotificationHistoryModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
@@ -16,7 +21,11 @@ NotificationHistoryModelFilterProxyModel::~NotificationHistoryModelFilterProxyMo
 
 void NotificationHistoryModelFilterProxyModel::setFilterString(const QString &string)
 {
+#if HAVE_TEXT_UTILS
+    mFilterString = TextUtils::ConvertText::normalize(string);
+#else
     mFilterString = string;
+#endif
     invalidate();
 }
 
@@ -30,7 +39,16 @@ bool NotificationHistoryModelFilterProxyModel::filterAcceptsRow(int source_row, 
         }
     }
     auto match = [&](int role) {
-        return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+        if (mFilterString.isEmpty()) {
+            return true;
+        };
+#if HAVE_TEXT_UTILS
+        const QString str = TextUtils::ConvertText::normalize(modelIndex.data(role).toString());
+        return str.contains(mFilterString, Qt::CaseInsensitive);
+#else
+        const QString str = modelIndex.data(role).toString();
+        return str.contains(mFilterString, Qt::CaseInsensitive);
+#endif
     };
     if (!match(NotificationHistoryModel::RoomName) && !match(NotificationHistoryModel::AccountName) && !match(NotificationHistoryModel::SenderName)
         && !match(NotificationHistoryModel::MessageStr)) {

@@ -567,6 +567,12 @@ if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     )
 endif()
 
+if (HAVE_TEXT_UTILS)
+    target_link_libraries(libruqolacore
+        KF${KF_MAJOR_VERSION}::TextUtils
+    )
+endif()
+
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::IconThemes)
 endif()
