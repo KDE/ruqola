@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldStoreAccountSettings();
     void shouldRemoveAccountSettings();
+    void shouldVerifyDbFileName();
 };

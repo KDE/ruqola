@@ -249,4 +249,11 @@ void LocalMessageDatabaseTest::shouldGenerateQuery_data()
                            << QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit");
 }
 
+void LocalMessageDatabaseTest::shouldVerifyDbFileName()
+{
+    LocalMessageDatabase accountDataBase;
+    QCOMPARE(accountDataBase.dbFileName(accountName()),
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/messages/myAccount/myAccount.sqlite"));
+}
+
 #include "moc_localmessagedatabasetest.cpp"

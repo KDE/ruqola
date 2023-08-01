@@ -34,6 +34,13 @@ void LocalAccountDatabaseTest::shouldHaveDefaultValues()
     QCOMPARE(accountDataBase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)"));
 }
 
+void LocalAccountDatabaseTest::shouldVerifyDbFileName()
+{
+    LocalAccountDatabase accountDataBase;
+    QCOMPARE(accountDataBase.dbFileName(accountName()),
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/account/myAccount/myAccount.sqlite"));
+}
+
 void LocalAccountDatabaseTest::shouldStoreAccountSettings()
 {
     {

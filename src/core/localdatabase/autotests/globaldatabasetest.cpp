@@ -85,4 +85,11 @@ void GlobalDatabaseTest::shouldGenerateIdentifier_data()
     QTest::addRow("test3") << QStringLiteral("account3") << QString() << GlobalDatabase::TimeStampType::AccountTimeStamp << QStringLiteral("account-account3");
 }
 
+void GlobalDatabaseTest::shouldVerifyDbFileName()
+{
+    GlobalDatabase accountDataBase;
+    QCOMPARE(accountDataBase.dbFileName(accountName()),
+             QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/global/myAccount/myAccount.sqlite"));
+}
+
 #include "moc_globaldatabasetest.cpp"
