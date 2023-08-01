@@ -15,7 +15,7 @@
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 
-// #define USE_LOCALDATABASE 1
+#define USE_LOCALDATABASE 1
 ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
@@ -31,9 +31,11 @@ void ManageLocalDatabase::loadAccountSettings()
 #ifdef USE_LOCALDATABASE // TODO activate
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
+    qDebug() << " ba*********************" << ba;
     if (!ba.isEmpty()) {
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
         timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
+        qDebug() << " timeStamp *********************************" << timeStamp;
     }
 #endif
     mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
