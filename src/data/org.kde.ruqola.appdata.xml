@@ -28,7 +28,7 @@
   <name xml:lang="ru">Ruqola</name>
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sl">Ruqola</name>
-  <name xml:lang="sv">Ruqola</name>
+  <name xml:lang="sv">Ruqola </name>
   <name xml:lang="tr">Roka</name>
   <name xml:lang="uk">Ruqola</name>
   <name xml:lang="x-test">xxRuqolaxx</name>
@@ -730,6 +730,7 @@
       <li xml:lang="pl">Wideokonferencja</li>
       <li xml:lang="pt">Vídeo-Conferência</li>
       <li xml:lang="sl">Video konferenca</li>
+      <li xml:lang="sv">Videokonferens</li>
       <li xml:lang="tr">Video Konferans</li>
       <li xml:lang="uk">Відеоконференція</li>
       <li xml:lang="x-test">xxVideo Conferencexx</li>
@@ -969,6 +970,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
       <li xml:lang="pt">Adição do suporte para a correcção automática do texto</li>
       <li xml:lang="sl">Dodaj podporo za samodejno popravljanje besedila</li>
+      <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
       <li xml:lang="tr">Metin otomatik düzeltme için destek ekle</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
       <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
