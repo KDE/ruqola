@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-29 00:45+0000\n"
+"POT-Creation-Date: 2023-08-01 00:46+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1299,12 +1299,12 @@ msgstr "<strong>%1</strong> tekleatzen ari da..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> idaten ari dira..."
 
-#: core/rocketchataccount.cpp:2778
+#: core/rocketchataccount.cpp:2780
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:2779
+#: core/rocketchataccount.cpp:2781
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
