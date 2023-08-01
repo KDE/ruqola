@@ -30,7 +30,7 @@ QString LocalDatabaseBase::dbFileName(const QString &accountName, const QString 
 
 QString LocalDatabaseBase::dbFileName(const QString &accountName) const
 {
-    const QString dirPath = mBasePath;
+    const QString dirPath = mBasePath + accountName;
     return dirPath + QLatin1Char('/') + accountName + QStringLiteral(".sqlite");
 }
 
