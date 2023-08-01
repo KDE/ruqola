@@ -37,13 +37,16 @@ void NotificationHistoryGui::slotSendNotification()
 {
     const QString plainText = mTextEdit->toPlainText();
     if (!plainText.isEmpty()) {
-        NotificationInfo info;
-        info.setAccountName(QStringLiteral("accountName")); // TODO
-        info.setDateTime(QDateTime::currentDateTime().toString());
-
         const QByteArray content = plainText.toUtf8();
         QJsonParseError error;
         const auto doc = QJsonDocument::fromJson(content, &error);
+        if (error.error) {
+            qDebug() << " error " << error.errorString();
+            return;
+        }
+        NotificationInfo info;
+        info.setAccountName(QStringLiteral("accountName")); // TODO
+        info.setDateTime(QDateTime::currentDateTime().toString());
         info.parseNotification(doc.array());
         qDebug() << " info " << info;
         NotificationHistoryManager::self()->addNotification(info);
