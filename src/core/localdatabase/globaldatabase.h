@@ -3,10 +3,11 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
+#pragma once
 
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
-#pragma once
+#include <QObject>
 
 class LIBRUQOLACORE_EXPORT GlobalDatabase : public LocalDatabaseBase
 {
@@ -30,3 +31,4 @@ public:
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };
+Q_DECLARE_METATYPE(GlobalDatabase::TimeStampType)
