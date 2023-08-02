@@ -89,7 +89,7 @@ void GlobalDatabase::removeTimeStamp(const QString &accountName, const QString &
 qint64 GlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
 {
     QSqlDatabase db;
-    if (!checkDataBase(accountName, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return -1;
     }
     const QString identifier = generateIdentifier(accountName, roomName, type);
