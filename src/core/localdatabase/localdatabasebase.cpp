@@ -54,6 +54,7 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
         break;
     case DatabaseType::Account:
         prefix = QStringLiteral("accounts-");
+        break;
     case DatabaseType::Rooms:
         prefix = QStringLiteral("rooms-");
         break;
@@ -66,7 +67,6 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::Logger:
         break;
     }
-
     return prefix + name;
 }
 
