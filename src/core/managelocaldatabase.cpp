@@ -74,7 +74,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     // Load history
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-#ifdef USE_LOCALDATABASE // TODO activate
+#ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
             const QVector<Message> lstMessages =
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, -1, 50, mRocketChatAccount->emojiManager());
