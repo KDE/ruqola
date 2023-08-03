@@ -28,7 +28,7 @@ void ManageLocalDatabase::loadAccountSettings()
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " loadAccountSettings ";
     qint64 timeStamp = -1;
-#ifdef USE_LOCALDATABASE // TODO activate
+#ifdef USE_LOCALDATABASE
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
     if (!ba.isEmpty()) {
@@ -68,7 +68,6 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     Q_ASSERT(info.roomModel);
 
     const qint64 endDateTime = info.roomModel->lastTimestamp();
-    // TODO add autotest for it !
     QJsonArray params;
     params.append(QJsonValue(info.roomId));
     // Load history
