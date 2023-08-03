@@ -2031,7 +2031,8 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (ruqolaServerConfig()->blockEditingMessageInMinutes() == 0) {
         return true;
     }
-    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
+    constexpr int minute = 60 * 1000;
+    return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * minute) > QDateTime::currentMSecsSinceEpoch();
 }
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
@@ -2051,7 +2052,8 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     if (ruqolaServerConfig()->blockDeletingMessageInMinutes() == 0) { // TODO verify it
         return true;
     }
-    return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
+    constexpr int minutes = 60 * 1000;
+    return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
 }
 
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
