@@ -31,11 +31,11 @@ void ManageLocalDatabase::loadAccountSettings()
 #ifdef USE_LOCALDATABASE // TODO activate
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
-    qDebug() << " ba*********************" << ba;
     if (!ba.isEmpty()) {
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Account info load from database";
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
         timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
-        qDebug() << " timeStamp *********************************" << timeStamp;
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp: " << timeStamp;
     }
 #endif
     mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
