@@ -6,6 +6,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <Prison/Barcode>
 #include <QWidget>
 class QLabel;
 namespace Prison
@@ -36,7 +37,7 @@ private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Prison::AbstractBarcode *const mQRCode;
 #else
-    Prison::Barcode *const mQRCode;
+    std::optional<Prison::Barcode> mQRCode;
 #endif
     QLabel *const mTotpQrCode;
     QLabel *const mQrCoreLabel;

@@ -28,7 +28,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     , mQRCode(Prison::createBarcode(Prison::QRCode))
 #else
-    , mQRCode(new Prison::Barcode(Prison::QRCode))
+    , mQRCode(Prison::Barcode::create(Prison::QRCode))
 #endif
     , mTotpQrCode(new QLabel(this))
     , mQrCoreLabel(new QLabel(this))
@@ -81,7 +81,9 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
 
 MyAccount2FaTotpWidget::~MyAccount2FaTotpWidget()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     delete mQRCode;
+#endif
 }
 
 void MyAccount2FaTotpWidget::slotTotpValid(const QStringList &listCodes)
