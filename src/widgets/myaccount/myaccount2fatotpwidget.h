@@ -6,8 +6,10 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <Prison/Barcode>
 #include <QWidget>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <Prison/Barcode>
+#endif
 class QLabel;
 namespace Prison
 {
