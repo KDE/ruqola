@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7460,13 +7460,13 @@ msgid "Regenerate Code"
 msgstr "Пересоздать код"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Неверный двухфакторный код."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Проверить двухфакторный код"
@@ -7483,7 +7483,7 @@ msgstr ""
 " Если нет возможности выполнить сканирование QR-кода, возможно ввести код "
 "вручную:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7496,7 +7496,7 @@ msgstr ""
 "В случае потери доступа к приложению для аутентификации будет возможно "
 "воспользоваться одним из этих кодов для входа."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
 #, kde-format
 msgid "Backup Codes"
 msgstr "Резервные коды"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-07-24 20:04+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -7370,13 +7370,13 @@ msgid "Regenerate Code"
 msgstr "Regenera el codi"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Codi no vàlid de dos factors."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Comprovació del codi de dos factors"
@@ -7392,7 +7392,7 @@ msgstr ""
 "davall.\n"
 " Si no podeu escanejar el codi QR, també podeu introduir manualment el codi:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7405,7 +7405,7 @@ msgstr ""
 "Si perdeu l'accés a l'aplicació d'autenticació, podreu utilitzar un d'estos "
 "codis per a iniciar la sessió."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
 #, kde-format
 msgid "Backup Codes"
 msgstr "Còpia de seguretat dels codis"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7659,14 +7659,14 @@ msgid "Regenerate Code"
 msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, fuzzy, kde-format
 #| msgid "Invalid date provided."
 msgid "Invalid two factor code."
 msgstr "Vigane kuupäev."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr ""
@@ -7679,7 +7679,7 @@ msgid ""
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7688,7 +7688,7 @@ msgid ""
 "to log in."
 msgstr ""
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgid "Backup Codes"

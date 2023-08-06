@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-07-29 11:31+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -7368,13 +7368,13 @@ msgid "Regenerate Code"
 msgstr "Regenerar código"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Código de dos factores inválido."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Comprobar código de dos factores"
@@ -7391,7 +7391,7 @@ msgstr ""
 "Si no puede escanear el código QR, puede introducir el código de manera "
 "manual:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7404,7 +7404,7 @@ msgstr ""
 "Si pierde acceso a su aplicación de autenticación, podrá usar uno de estos "
 "código para acceder. "
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
 #, kde-format
 msgid "Backup Codes"
 msgstr "Códigos de seguridad"

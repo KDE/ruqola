@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-07-21 07:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -7211,13 +7211,13 @@ msgid "Regenerate Code"
 msgstr "კოდის თავიდან გენერაცია"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "არასწორი 2FA კოდი."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "გადაამოწმეთ თქვენი 2FA kodi"
@@ -7230,7 +7230,7 @@ msgid ""
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7243,7 +7243,7 @@ msgstr ""
 "თუ დაკარგავთ თქვენს ავთენტიკატორის აპთან წვდომას, შესასვლელად ამ კოდებიდან "
 "ერთ-ერთის გამოყენება შეგეძლებათ."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
 #, kde-format
 msgid "Backup Codes"
 msgstr "მარქაფი კოდები"

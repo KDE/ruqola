@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-07-24 12:25+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -7370,13 +7370,13 @@ msgid "Regenerate Code"
 msgstr "Code opnieuw genereren"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Ongeldige twee-factorcode."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:99
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Twee-factorcode controleren"
@@ -7393,7 +7393,7 @@ msgstr ""
 " Als u de QR-code niet kunt scannen, kunt u mogelijk de code, in plaats "
 "daarvan, handmatig invoeren:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:91
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7406,7 +7406,7 @@ msgstr ""
 "Als u toegang tot uw authenticatie-toepassing verliest, kunt u een van deze "
 "codes gebruiken om u aan te melden."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
 #, kde-format
 msgid "Backup Codes"
 msgstr "Backup-codes"
