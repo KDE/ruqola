@@ -820,11 +820,13 @@ void RuqolaServerConfig::setUseRealName(bool newUIUseRealName)
     mUIUseRealName = newUIUseRealName;
 }
 
-void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
+void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj, bool update)
 {
     // qDebug() << " void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)" << obj;
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
-    mServerConfigFeatureTypes = ServerConfigFeatureType::None;
+    if (!update) {
+        mServerConfigFeatureTypes = ServerConfigFeatureType::None;
+    }
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);

@@ -23,6 +23,17 @@
 
 #include <QJsonArray>
 
+void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *account)
+{
+    // qDebug() << " obj " << obj;
+    account->parseUpdatePublicSettings(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
     // qDebug() << " obj " << obj;
@@ -165,9 +176,12 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
         params[QStringLiteral("$date")] = timeStamp;
+        qDebug() << " params " << params;
+        ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_updatePublicsettings);
+
+    } else {
+        ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
     }
-    qDebug() << " params " << params;
-    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
 }
 
 void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)

@@ -115,7 +115,7 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
-    void parsePublicSettings(const QJsonObject &obj);
+    void parsePublicSettings(const QJsonObject &obj, bool update);
 
     Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
     void setFileMaxFileSize(qint64 fileMaxFileSize);

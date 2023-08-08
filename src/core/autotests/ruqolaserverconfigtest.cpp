@@ -292,7 +292,7 @@ void RuqolaServerConfigTest::shouldSerializeConfig()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RuqolaServerConfig config;
-    config.parsePublicSettings(obj);
+    config.parsePublicSettings(obj, false);
 
     const QByteArray ba = config.serialize(false);
 

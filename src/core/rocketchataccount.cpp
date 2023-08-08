@@ -1376,9 +1376,20 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
     }
 }
 
+void RocketChatAccount::parseUpdatePublicSettings(const QJsonObject &obj)
+{
+    mRuqolaServerConfig->parsePublicSettings(obj, true);
+    parsePublicSettings();
+}
+
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
-    mRuqolaServerConfig->parsePublicSettings(obj);
+    mRuqolaServerConfig->parsePublicSettings(obj, false);
+    parsePublicSettings();
+}
+
+void RocketChatAccount::parsePublicSettings()
+{
     localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
 
     fillOauthModel();

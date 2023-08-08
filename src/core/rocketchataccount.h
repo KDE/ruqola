@@ -280,6 +280,8 @@ public:
     Q_REQUIRED_RESULT RuqolaLogger *ruqolaLogger() const;
 
     void parsePublicSettings(const QJsonObject &obj);
+    // Method used when we update settings after loading data from Database
+    void parseUpdatePublicSettings(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT RuqolaServerConfig *ruqolaServerConfig() const;
 
@@ -644,6 +646,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotAwayStatusChanged(bool away);
     LIBRUQOLACORE_NO_EXPORT void slotJobFailed(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void checkLicenses();
+    LIBRUQOLACORE_NO_EXPORT void parsePublicSettings();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
