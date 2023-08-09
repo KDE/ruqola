@@ -18,7 +18,6 @@
 #include "ruqolawidgets_debug.h"
 #include "selectedmessagebackgroundanimation.h"
 #include "threadwidget/threadmessagedialog.h"
-#include <texttranslator_version.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -36,6 +35,7 @@
 #if HAVE_TEXT_TRANSLATOR
 #include "translatetext/translatetextjob.h"
 #include "translatetext/translatorenginemanager.h"
+#include <texttranslator_version.h>
 
 #include <TextTranslator/TranslatorMenu>
 #endif
