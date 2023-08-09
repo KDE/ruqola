@@ -59,7 +59,7 @@ void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QString
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
     utils.parse(obj);
 
-    mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(utils.updatesMessages());
+    mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(utils.updatesMessages());
     mRocketChatAccount->rocketChatBackend()->removeMessageFromLocalDatabase(utils.deletedMessages(), roomId);
 }
 
@@ -82,8 +82,11 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             if (lstMessages.count() == 50) {
                 // Check on network if message change. => we need to add timestamp.
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database + update messages";
-                mRocketChatAccount->rocketChatBackend()->addMessageFromLocalDataBase(lstMessages);
-                syncMessage(info.roomId, info.lastSeenAt);
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+                // FIXME: don't use  info.lastSeenAt until we store room information in database
+                // We need to use last message timeStamp
+                const qint64 endDateTime = info.roomModel->lastTimestamp();
+                syncMessage(info.roomId, /*info.lastSeenAt*/ endDateTime);
                 return;
             } else {
                 // Load more from network.

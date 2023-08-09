@@ -239,7 +239,7 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messag
     }
 }
 
-void RocketChatBackend::addMessageFromLocalDataBase(const QVector<Message> &messages)
+void RocketChatBackend::addMessagesFromLocalDataBase(const QVector<Message> &messages)
 {
     if (messages.isEmpty()) {
         return;
