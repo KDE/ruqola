@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-07-02 11:45+0200\n"
+"PO-Revision-Date: 2023-08-07 17:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -4211,7 +4211,7 @@ msgstr "Reinicia la clau E2E"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:267
 #, kde-format
 msgid "Reset Totp"
-msgstr "Reinicia el TOTP"
+msgstr "Reinicia TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:343
 #, kde-format
@@ -4249,14 +4249,14 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
-"Reiniciar el TOTP de dos factors actual desconnectarà l'usuari. Després, "
+"Reiniciar TOTP de dos factors actual desconnectarà l'usuari. Després, "
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:398
 #: widgets/administratordialog/users/administratoruserswidget.cpp:429
 #, kde-format
 msgid "Reset TOTP"
-msgstr "Reinicia el TOTP"
+msgstr "Reinicia TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:429
 #, kde-format
@@ -7996,7 +7996,7 @@ msgstr "Elimina el testimoni personal"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid "Personal Token Regenerated"
-msgstr "S'ha regenerat el testimoni personal."
+msgstr "S'ha regenerat el testimoni personal"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:40
 #, kde-format

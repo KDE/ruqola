@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-02-08 11:44+0100\n"
+"PO-Revision-Date: 2023-08-08 06:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -4728,6 +4728,8 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[ფრთხილად] გამართვის რეჟიმის ჩართვის შედეგად ადმინის კონსოლში თქვენს 'პაროლს "
+"ღია ტექსტით' დაინახავთ."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
@@ -7723,6 +7725,10 @@ msgid ""
 "If you lose access to your authenticator app, you can use one of these codes "
 "to log in."
 msgstr ""
+"დარწმუნდთ, რომ თქვენი კოდების ასლი გაქვთ:\n"
+"%1\n"
+"თუ დაკარგავთ თქვენს ავთენტიკატორის აპთან წვდომას, შესასვლელად ამ კოდებიდან "
+"ერთ-ერთის გამოყენება შეგეძლებათ."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
@@ -7810,6 +7816,9 @@ msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
+"<qt>გთხოვთ, თქვენი კოდი რაც შეიძლება საიმედოდ შეინახოთ, რადგან მას მეტჯერ "
+"ვეღარ იხილავთ.<br><b>Token:</b> %1<br><b>თქვენი მომხმარებლის ID-ა:</b> %2</"
+"qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
 #, kde-format
