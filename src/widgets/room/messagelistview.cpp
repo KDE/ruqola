@@ -18,6 +18,7 @@
 #include "ruqolawidgets_debug.h"
 #include "selectedmessagebackgroundanimation.h"
 #include "threadwidget/threadmessagedialog.h"
+#include <texttranslator_version.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -814,7 +815,12 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
                 // qDebug() << " str" << str;
                 job->deleteLater();
             });
+#if TEXTTRANSLATE_VERSION < QT_VERSION_CHECK(1, 4, 40)
             connect(job, &TranslateTextJob::translateFailed, this, [this, job](bool, const QString &errorMessage) {
+#else
+            connect(job, &TranslateTextJob::translateFailed, this, [this, job](const QString &errorMessage) {
+#endif
+
                 KMessageBox::error(this, errorMessage, i18n("Translator Error"));
                 job->deleteLater();
             });

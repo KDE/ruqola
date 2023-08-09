@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
+#include <texttranslator_version.h>
 namespace TextTranslator
 {
 class TranslatorEnginePlugin;
@@ -27,7 +28,11 @@ public:
 Q_SIGNALS:
     void updateTranslateEngine();
     void translateDone(const QString &translatedText);
+#if TEXTTRANSLATE_VERSION < QT_VERSION_CHECK(1, 4, 40)
     void translateFailed(bool result, const QString &errorMessage = QString());
+#else
+    void translateFailed(const QString &errorMessage = QString());
+#endif
 
 private:
     void initializeTranslateEngine();
