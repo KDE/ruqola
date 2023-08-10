@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-08-10 00:46+0000\n"
 "PO-Revision-Date: 2023-07-29 11:31+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1374,7 +1374,8 @@ msgstr "Directo"
 msgid "Omnichannel"
 msgstr "Omnicanal"
 
-#: core/translatetext/translatetextjob.cpp:31
+#: core/translatetext/translatetextjob.cpp:32
+#: core/translatetext/translatetextjob.cpp:34
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr "Falta información de traductor. Es un error"
@@ -5766,7 +5767,7 @@ msgstr "Buscar..."
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:295
+#: widgets/room/messagelistview.cpp:296
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -5793,7 +5794,7 @@ msgid "Mark As Unread"
 msgstr "Marcar como no leído"
 
 #: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:283
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Definir como favorito"
@@ -6126,7 +6127,7 @@ msgid "Channel Info about '%1'"
 msgstr "Información del canal sobre «%1»"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:290
 #, kde-format
 msgid "Delete"
 msgstr "Borrar"
@@ -7010,7 +7011,7 @@ msgstr "Abrir discusión"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:499
+#: widgets/room/messagelistview.cpp:500
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7683,13 +7684,13 @@ msgid "Notification"
 msgstr "Notificación"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:484
+#: widgets/room/messagelistview.cpp:485
 #, kde-format
 msgid "Go to Message"
 msgstr "Ir al mensaje"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:266
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7963,110 +7964,110 @@ msgstr "Subida del archivo"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no autoriza este archivo (tipo mime no soportado)"
 
-#: widgets/room/messagelistview.cpp:91
+#: widgets/room/messagelistview.cpp:92
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Se ha unido a un nuevo mensaje directo"
 
-#: widgets/room/messagelistview.cpp:93
+#: widgets/room/messagelistview.cpp:94
 #, kde-format
 msgid "Start of conversation"
 msgstr "Inicio de conversación"
 
-#: widgets/room/messagelistview.cpp:273
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Unpin Message"
 msgstr "No fijar mensaje"
 
-#: widgets/room/messagelistview.cpp:273
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Pin Message"
 msgstr "Fijar mensaje"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:283
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Eliminar de favoritos"
 
-#: widgets/room/messagelistview.cpp:300
+#: widgets/room/messagelistview.cpp:301
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Marcar mensaje como no leído"
 
-#: widgets/room/messagelistview.cpp:305
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Mostrar hilo completo"
 
-#: widgets/room/messagelistview.cpp:310
+#: widgets/room/messagelistview.cpp:311
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:316
 #, kde-format
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:321
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Copiar enlace al mensaje"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:334
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Dejar de seguir mensaje"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:334
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Seguir mensaje"
 
-#: widgets/room/messagelistview.cpp:346
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgid "Copy URL"
 msgstr "Copiar URL"
 
-#: widgets/room/messagelistview.cpp:354
+#: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Iniciar una discusión"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Responder en el hilo"
 
-#: widgets/room/messagelistview.cpp:421
+#: widgets/room/messagelistview.cpp:422
 #, kde-format
 msgid "Show Original Message"
 msgstr "Mostrar mensaje original"
 
-#: widgets/room/messagelistview.cpp:421
+#: widgets/room/messagelistview.cpp:422
 #, kde-format
 msgid "Translate Message"
 msgstr "Traducir mensaje"
 
-#: widgets/room/messagelistview.cpp:506
+#: widgets/room/messagelistview.cpp:507
 #, kde-format
 msgid "Report Message"
 msgstr "Notificar mensaje"
 
-#: widgets/room/messagelistview.cpp:674
+#: widgets/room/messagelistview.cpp:675
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "¿Desea borrar este mensaje?"
 
-#: widgets/room/messagelistview.cpp:675
+#: widgets/room/messagelistview.cpp:676
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Borrar mensaje"
 
-#: widgets/room/messagelistview.cpp:818
+#: widgets/room/messagelistview.cpp:824
 #, kde-format
 msgid "Translator Error"
 msgstr "Error de traductor"

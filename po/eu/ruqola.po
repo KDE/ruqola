@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-08-10 00:46+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1373,7 +1373,8 @@ msgstr "Zuzenekoa"
 msgid "Omnichannel"
 msgstr "Orotarako kanala"
 
-#: core/translatetext/translatetextjob.cpp:31
+#: core/translatetext/translatetextjob.cpp:32
+#: core/translatetext/translatetextjob.cpp:34
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr "Itzultzailearen informazioa falta da. Akats bat da"
@@ -5615,7 +5616,7 @@ msgstr "Bilatu..."
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:295
+#: widgets/room/messagelistview.cpp:296
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -5643,7 +5644,7 @@ msgid "Mark As Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
 #: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:283
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
@@ -5982,7 +5983,7 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:289
+#: widgets/room/messagelistview.cpp:290
 #, kde-format
 msgid "Delete"
 msgstr "Ezabatu"
@@ -6875,7 +6876,7 @@ msgstr "Ireki elkarrizketa"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:499
+#: widgets/room/messagelistview.cpp:500
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7531,13 +7532,13 @@ msgid "Notification"
 msgstr "Jakinarazpena"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:484
+#: widgets/room/messagelistview.cpp:485
 #, kde-format
 msgid "Go to Message"
 msgstr "Joan mezura"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:266
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7810,112 +7811,112 @@ msgstr "Fitxategiak zama-igotzea"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:91
+#: widgets/room/messagelistview.cpp:92
 #, fuzzy, kde-format
 #| msgid "File sharing not allowed in direct messages"
 msgid "You have joined a new direct message"
 msgstr "Fitxategi partekatzea ez dago baimenduta zuzeneko mezuetan"
 
-#: widgets/room/messagelistview.cpp:93
+#: widgets/room/messagelistview.cpp:94
 #, fuzzy, kde-format
 #| msgid "%1 has joined the conversation"
 msgid "Start of conversation"
 msgstr "%1 elkarrizketara bat da"
 
-#: widgets/room/messagelistview.cpp:273
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Unpin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:273
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Pin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:283
 #, kde-format
 msgid "Remove as Favorite"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:300
+#: widgets/room/messagelistview.cpp:301
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Markatu mezua «Irakurri gabeko» gisa"
 
-#: widgets/room/messagelistview.cpp:305
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Show Full Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:310
+#: widgets/room/messagelistview.cpp:311
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:316
 #, kde-format
 msgid "Quote"
 msgstr "Aipua"
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:321
 #, kde-format
 msgid "Copy Link To Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:334
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:334
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:346
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgid "Copy URL"
 msgstr "Kopiatu URL"
 
-#: widgets/room/messagelistview.cpp:354
+#: widgets/room/messagelistview.cpp:355
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Hasi elkarrizketa bat"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:362
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:421
+#: widgets/room/messagelistview.cpp:422
 #, kde-format
 msgid "Show Original Message"
 msgstr "Erakutsi jatorrizko mezua"
 
-#: widgets/room/messagelistview.cpp:421
+#: widgets/room/messagelistview.cpp:422
 #, kde-format
 msgid "Translate Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:506
+#: widgets/room/messagelistview.cpp:507
 #, kde-format
 msgid "Report Message"
 msgstr "Mezuaren berri ematea"
 
-#: widgets/room/messagelistview.cpp:674
+#: widgets/room/messagelistview.cpp:675
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:675
+#: widgets/room/messagelistview.cpp:676
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ezabatu mezua"
 
-#: widgets/room/messagelistview.cpp:818
+#: widgets/room/messagelistview.cpp:824
 #, kde-format
 msgid "Translator Error"
 msgstr ""
