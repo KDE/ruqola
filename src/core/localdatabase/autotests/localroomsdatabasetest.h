@@ -16,5 +16,8 @@ public:
     ~LocalRoomsDatabaseTest() override = default;
 
 private Q_SLOTS:
+    void initTestCase();
     void shouldDefaultValues();
+    void shouldVerifyDbFileName();
+    void shouldStoreRoomsSettings();
 };
