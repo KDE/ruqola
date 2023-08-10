@@ -10,7 +10,6 @@
 #include "rocketchatbackend.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
-#include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
@@ -26,7 +25,8 @@
 void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
     // qDebug() << " obj " << obj;
-    account->parseUpdatePublicSettings(obj);
+    // Update it.
+    account->parsePublicSettings(obj, true);
 
     // qCDebug(RUQOLA_LOG) << " configs"<<configs;
     if (account->ruqolaLogger()) {
@@ -37,7 +37,7 @@ void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *acc
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
     // qDebug() << " obj " << obj;
-    account->parsePublicSettings(obj);
+    account->parsePublicSettings(obj, false);
 
     // qCDebug(RUQOLA_LOG) << " configs"<<configs;
     if (account->ruqolaLogger()) {
