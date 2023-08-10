@@ -5,6 +5,7 @@
 */
 #include "localroomsdatabasetest.h"
 #include "localdatabase/localroomsdatabase.h"
+#include "room.h"
 #include <QFile>
 #include <QStandardPaths>
 #include <QTest>
@@ -44,15 +45,15 @@ void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
 {
     {
-        //        LocalRoomsDatabase accountDataBase;
-        //        QByteArray ba = "{}";
-        //        accountDataBase.addRoom(accountName(), ba);
+        LocalRoomsDatabase roomDataBase;
+        QByteArray ba = "{}";
+        // roomDataBase.addRoom(accountName(), ba); // TODO
 
         //        // WHEN
-        //        QByteArray getInfo = accountDataBase.(accountName());
+        QByteArray getInfo = roomDataBase.jsonRoom(accountName(), QString()); // TODO
 
-        //        // THEN
-        //        QCOMPARE(getInfo, ba);
+        // THEN
+        QCOMPARE(getInfo, ba);
     }
 }
 

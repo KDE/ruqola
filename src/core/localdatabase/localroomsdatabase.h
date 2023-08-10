@@ -16,6 +16,8 @@ public:
     void addRoom(const QString &accountName, Room *room);
     void deleteRoom(const QString &accountName, const QString &roomId);
 
+    Q_REQUIRED_RESULT QByteArray jsonRoom(const QString &accountName, const QString &roomId);
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };

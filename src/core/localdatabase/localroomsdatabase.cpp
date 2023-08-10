@@ -59,3 +59,18 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &r
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
     }
 }
+
+QByteArray LocalRoomsDatabase::jsonRoom(const QString &accountName, const QString &roomId)
+{
+    QSqlDatabase db;
+    if (!initializeDataBase(accountName, db)) {
+        return {};
+    }
+    QSqlQuery query(QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\" AND ").arg(roomId), db);
+    QByteArray value;
+    // We have one element
+    if (query.first()) {
+        value = query.value(0).toByteArray();
+    }
+    return value;
+}
