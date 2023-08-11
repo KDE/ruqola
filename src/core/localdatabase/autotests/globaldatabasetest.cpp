@@ -46,9 +46,9 @@ void GlobalDatabaseTest::shouldStoreIdentifier()
 {
     // GIVEN
     GlobalDatabase globalDataBase;
-    int roomNameValue = 55;
+    const int roomNameValue = 55;
     globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
-    int roomNameOtherValue = 12;
+    const int roomNameOtherValue = 12;
     globalDataBase.insertOrReplaceTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
 
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
@@ -95,9 +95,9 @@ void GlobalDatabaseTest::shouldVerifyDbFileName()
 void GlobalDatabaseTest::shouldRemoveTimeStamp()
 {
     GlobalDatabase globalDataBase;
-    int roomNameValue = 55;
+    const int roomNameValue = 55;
     globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
-    int roomNameOtherValue = 12;
+    const int roomNameOtherValue = 12;
     globalDataBase.insertOrReplaceTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
 
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
