@@ -46,6 +46,7 @@ void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
 {
     {
         LocalRoomsDatabase roomDataBase;
+        // TODO load room
         QByteArray ba = "{}";
         // roomDataBase.addRoom(accountName(), ba); // TODO
 

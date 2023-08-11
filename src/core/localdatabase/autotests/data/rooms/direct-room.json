@@ -1,0 +1,28 @@
+{
+    "_id": "aKxRc3ALW3KzmPJBr",
+    "rid": "Dic5wZD4Zu9ze5gk3uKK39zoewTkdacidH",
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "alessandro"
+    },
+    "fname": "Laurent Montel",
+    "name": "laurent",
+    "t": "d",
+    "open": true,
+    "alert": false,
+    "unread": 0,
+    "userMentions": 0,
+    "groupMentions": 0,
+    "ts": {
+        "$date": 1575322438005
+    },
+    "desktopNotifications": "mentions",
+    "mobilePushNotifications": "mentions",
+    "emailNotifications": "mentions",
+    "_updatedAt": {
+        "$date": 1575322438005
+    },
+    "ls": {
+        "$date": 1575322438005
+    }
+}
