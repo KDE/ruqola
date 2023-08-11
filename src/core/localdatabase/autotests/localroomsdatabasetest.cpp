@@ -54,11 +54,15 @@ void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
         const QByteArray ba = Room::serialize(&r, false);
         roomDataBase.addRoom(accountName(), &r);
 
-        //        // WHEN
-        QByteArray getInfo = roomDataBase.jsonRoom(accountName(), r.roomId());
+        // WHEN
+        const QByteArray getInfo = roomDataBase.jsonRoom(accountName(), r.roomId());
 
         // THEN
         QCOMPARE(getInfo, ba);
+        Room r1;
+        const auto doc = QJsonDocument::fromJson(getInfo);
+        Room::deserialize(&r1, doc.object());
+        QCOMPARE(r1, r);
     }
 }
 

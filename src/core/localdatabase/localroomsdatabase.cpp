@@ -40,7 +40,7 @@ void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
         QSqlQuery query(LocalDatabaseUtils::insertReplaceRoom(), db);
         query.addBindValue(room->roomId());
         query.addBindValue(room->updatedAt()); // TODO ?
-        query.addBindValue(Room::serialize(room)); // TODO use binary ?
+        query.addBindValue(Room::serialize(room, false)); // TODO use binary ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         }
@@ -64,9 +64,10 @@ QByteArray LocalRoomsDatabase::jsonRoom(const QString &accountName, const QStrin
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Could not initialize database from " << accountName << " roomId " << roomId;
         return {};
     }
-    QSqlQuery query(QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\" AND ").arg(roomId), db);
+    QSqlQuery query(QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\"").arg(roomId), db);
     QByteArray value;
     // We have one element
     if (query.first()) {
