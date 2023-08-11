@@ -79,7 +79,7 @@ void GlobalDatabase::removeTimeStamp(const QString &accountName, const QString &
         return;
     }
     const QString identifier = generateIdentifier(accountName, roomName, type);
-    QSqlQuery query(QStringLiteral("DELETE FROM GLOBAL WHERE %1 = ?").arg(identifier), db);
+    QSqlQuery query(QStringLiteral("DELETE FROM GLOBAL WHERE identifier = ?"), db);
     query.addBindValue(identifier);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
