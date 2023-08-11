@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 RoomsInfoJob::RoomsInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -20,6 +21,19 @@ RoomsInfoJob::~RoomsInfoJob() = default;
 
 bool RoomsInfoJob::requireHttpAuthentication() const
 {
+    return true;
+}
+
+bool RoomsInfoJob::canStart() const
+{
+    if (mRoomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsInfoJob: mRoomId is not valid.";
+        return false;
+    }
+
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
     return true;
 }
 
@@ -48,12 +62,28 @@ void RoomsInfoJob::onGetRequestResponse(const QString &replyErrorString, const Q
     }
 }
 
+QString RoomsInfoJob::roomId() const
+{
+    return mRoomId;
+}
+
+void RoomsInfoJob::setRoomId(const QString &newRoomId)
+{
+    mRoomId = newRoomId;
+}
+
 QNetworkRequest RoomsInfoJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsInfo);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsInfo);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
+    addRequestAttribute(request, false);
+
     addAuthRawHeader(request);
-    addRequestAttribute(request);
     return request;
 }
 

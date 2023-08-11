@@ -25,11 +25,17 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &newRoomId);
+
+    Q_REQUIRED_RESULT bool canStart() const override;
+
 Q_SIGNALS:
     void roomsInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RoomsInfoJob)
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    QString mRoomId;
 };
 }
