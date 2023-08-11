@@ -6,6 +6,7 @@
 #include "localroomsdatabasetest.h"
 #include "localdatabase/localroomsdatabase.h"
 #include "room.h"
+#include "ruqola_autotest_helper.h"
 #include <QFile>
 #include <QStandardPaths>
 #include <QTest>
@@ -45,13 +46,16 @@ void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
 {
     {
+        const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rooms/direct-room.json");
+        const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
         LocalRoomsDatabase roomDataBase;
-        // TODO load room
-        QByteArray ba = "{}";
-        // roomDataBase.addRoom(accountName(), ba); // TODO
+        Room r;
+        r.parseSubscriptionRoom(fields);
+        const QByteArray ba = Room::serialize(&r, false);
+        roomDataBase.addRoom(accountName(), &r);
 
         //        // WHEN
-        QByteArray getInfo = roomDataBase.jsonRoom(accountName(), QString()); // TODO
+        QByteArray getInfo = roomDataBase.jsonRoom(accountName(), r.roomId());
 
         // THEN
         QCOMPARE(getInfo, ba);
