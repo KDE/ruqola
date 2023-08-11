@@ -92,4 +92,30 @@ void GlobalDatabaseTest::shouldVerifyDbFileName()
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/global/myAccount/myAccount.sqlite"));
 }
 
+void GlobalDatabaseTest::shouldRemoveTimeStamp()
+{
+    GlobalDatabase globalDataBase;
+    int roomNameValue = 55;
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+    int roomNameOtherValue = 12;
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, GlobalDatabase::TimeStampType::MessageTimeStamp);
+
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
+
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+
+    // Remove it.
+    globalDataBase.removeTimeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
+
+    // OTher still exists
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+
+    globalDataBase.removeTimeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::AccountTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
+
+    globalDataBase.removeTimeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
+}
+
 #include "moc_globaldatabasetest.cpp"

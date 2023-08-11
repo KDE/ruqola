@@ -22,4 +22,6 @@ private Q_SLOTS:
     void shouldGenerateIdentifier();
     void shouldGenerateIdentifier_data();
     void shouldVerifyDbFileName();
+
+    void shouldRemoveTimeStamp();
 };
