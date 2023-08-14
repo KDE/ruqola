@@ -126,7 +126,6 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             if (lstMessages.count() == 50) {
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 return;
-                // Ok
             } else if (!lstMessages.isEmpty()) {
                 // TODO load diff messages => 50 - lstMessages.count()
             } else {
