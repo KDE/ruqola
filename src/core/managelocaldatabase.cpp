@@ -90,6 +90,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 return;
             } else {
                 // Load more from network.
+                // TODO load missing messages from network
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
             }
 #endif
@@ -115,6 +116,24 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         qDebug() << " params" << params;
     } else {
         const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
+        if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+#ifdef USE_LOCALDATABASE
+            // TODO
+            const QString accountName{mRocketChatAccount->accountName()};
+            const QVector<Message> lstMessages =
+                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
+                                             << " number of message " << lstMessages.count();
+            if (lstMessages.count() == 50) {
+                // Ok
+            } else if (!lstMessages.isEmpty()) {
+                // TODO load diff messages => 50 - lstMessages.count()
+            } else {
+                // Load all from network.
+            }
+
+#endif
+        }
         QJsonObject dateObjectEnd;
         dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
 
