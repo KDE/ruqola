@@ -66,6 +66,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mRecordButton->setObjectName(QStringLiteral("mRecordButton"));
     mRecordButton->setIcon(QIcon::fromTheme(QStringLiteral("media-record")));
     hboxLayout->addWidget(mRecordButton);
+    mRecordButton->setEnabled(false);
     connect(mRecordButton, &QToolButton::clicked, this, &CreateVideoMessageWidget::record);
 
     mDurationLabel->setObjectName(QStringLiteral("mDurationLabel"));
@@ -74,6 +75,10 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 
     updateCameras();
     setCamera(QMediaDevices::defaultVideoInput());
+    if (QMediaDevices::defaultVideoInput().isNull()) {
+        mRecordButton->setEnabled(false);
+        mPauseButton->setEnabled(false);
+    }
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
@@ -160,7 +165,13 @@ void CreateVideoMessageWidget::updateRecorderState(QMediaRecorder::RecorderState
 
 void CreateVideoMessageWidget::updateCameraActive(bool active)
 {
-    // TODO update actions
+    if (active) {
+        mRecordButton->setEnabled(false);
+        mStopButton->setEnabled(true);
+    } else {
+        mRecordButton->setEnabled(true);
+        mStopButton->setEnabled(false);
+    }
 }
 
 void CreateVideoMessageWidget::displayRecorderError()
