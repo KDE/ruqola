@@ -19,7 +19,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
     , mShowHoverHightLights(new QCheckBox(i18n("Show hover highlights"), this))
     , mAnimateGif(new QCheckBox(i18n("Animate Gif Image"), this))
-    , mStoreMessageInDataBase(new QCheckBox(i18n("Use local dataBase"), this))
+    , mStoreMessageInDataBase(new QCheckBox(i18n("Use local dataBase (experimental)"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
