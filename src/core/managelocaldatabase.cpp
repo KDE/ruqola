@@ -118,13 +118,14 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE
-            // TODO
             const QString accountName{mRocketChatAccount->accountName()};
             const QVector<Message> lstMessages =
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+                return;
                 // Ok
             } else if (!lstMessages.isEmpty()) {
                 // TODO load diff messages => 50 - lstMessages.count()
