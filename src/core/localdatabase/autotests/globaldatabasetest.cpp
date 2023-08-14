@@ -116,6 +116,12 @@ void GlobalDatabaseTest::shouldRemoveTimeStamp()
 
     globalDataBase.removeTimeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp);
     QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), GlobalDatabase::TimeStampType::MessageTimeStamp), -1);
+
+    // RoomTimeStamp
+    globalDataBase.insertOrReplaceTimeStamp(accountName(), roomName(), roomNameValue, GlobalDatabase::TimeStampType::RoomTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::RoomTimeStamp), roomNameValue);
+    globalDataBase.removeTimeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::RoomTimeStamp);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), GlobalDatabase::TimeStampType::RoomTimeStamp), -1);
 }
 
 #include "moc_globaldatabasetest.cpp"
