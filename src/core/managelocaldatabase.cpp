@@ -124,12 +124,13 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
             if (lstMessages.count() == 50) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database";
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 return;
             } else if (!lstMessages.isEmpty()) {
                 // TODO load diff messages => 50 - lstMessages.count()
             } else {
-                // Load all from network.
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
             }
 
 #endif
