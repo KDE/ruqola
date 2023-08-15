@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-08-07 17:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -5991,9 +5991,10 @@ msgid "Animate Gif Image"
 msgstr "Anima les imatges GIF"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgid "Use local dataBase"
-msgstr "Usa una base de dades local"
+#, fuzzy, kde-format
+#| msgid "Store Message in Local Database (experimental)"
+msgid "Use local dataBase (experimental)"
+msgstr "Emmagatzema els missatges a la base de dades local (experimental)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6513,7 +6514,7 @@ msgid "Server URL:"
 msgstr "URL del servidor:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "S'han enregistrat %1 s"
@@ -7114,8 +7115,9 @@ msgstr ""
 "El directori «%1» no s'ha pogut afegir al fitxer de còpia de seguretat."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, kde-format
-msgid "Accounts Imported."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "S'han importat els comptes."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -8880,3 +8882,6 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
+
+#~ msgid "Use local dataBase"
+#~ msgstr "Usa una base de dades local"

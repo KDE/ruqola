@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-08-02 12:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -5773,7 +5773,7 @@ msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
-msgid "Use local dataBase"
+msgid "Use local dataBase (experimental)"
 msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
@@ -6283,7 +6283,7 @@ msgid "Server URL:"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -6877,7 +6877,7 @@ msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, kde-format
-msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20

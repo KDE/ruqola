@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-07-24 17:00+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -6010,9 +6010,11 @@ msgid "Animate Gif Image"
 msgstr "Анімувати зображення Gif"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgid "Use local dataBase"
-msgstr "Скористатися локальною базою даних"
+#, fuzzy, kde-format
+#| msgid "Store Message in Local Database (experimental)"
+msgid "Use local dataBase (experimental)"
+msgstr ""
+"Зберігати повідомлення у локальній базі даних (експериментальна можливість)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6539,7 +6541,7 @@ msgid "Server URL:"
 msgstr "Адреса сервера:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Записано %1 сек."
@@ -7161,8 +7163,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Каталог «%1» не вдалося додавати до файла резервної копії."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, kde-format
-msgid "Accounts Imported."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "Облікові записи імпортовано."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -8933,6 +8936,9 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgid "Use local dataBase"
+#~ msgstr "Скористатися локальною базою даних"
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr "Не вдалося додати файл «%1» до файла резервної копії."

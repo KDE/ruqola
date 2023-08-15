@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-07-24 19:12+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -5961,9 +5961,10 @@ msgid "Animate Gif Image"
 msgstr "Animiraj gif sliko"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgid "Use local dataBase"
-msgstr "Uporabi lokalno podatkovno zbirko"
+#, fuzzy, kde-format
+#| msgid "Store Message in Local Database (experimental)"
+msgid "Use local dataBase (experimental)"
+msgstr "Shrani sporočilo v lokalni zbirki (eksperimentalno)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6485,7 +6486,7 @@ msgid "Server URL:"
 msgstr "Url strežnika:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Posneto %1 sec"
@@ -7099,8 +7100,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Direktorija \"%1\" ni mogoče dodati v datoteko varovalne kopije."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, kde-format
-msgid "Accounts Imported."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "Računi uvoženi."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -8862,6 +8864,9 @@ msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
+
+#~ msgid "Use local dataBase"
+#~ msgstr "Uporabi lokalno podatkovno zbirko"
 
 #~ msgid "file \"%1\" cannot be added to backup file."
 #~ msgstr "datoteke \"%1\" ni mogoče dodati v datoteko varovalne kopije."

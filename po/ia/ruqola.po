@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -5817,7 +5817,7 @@ msgstr "Anima imagine Gif"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
-msgid "Use local dataBase"
+msgid "Use local dataBase (experimental)"
 msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
@@ -6337,7 +6337,7 @@ msgid "Server URL:"
 msgstr "URL de servitor:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -6937,8 +6937,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Directorio  \"%1\" non pote esser addite al file de retrocopia."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, kde-format
-msgid "Accounts Imported."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "Contos importate."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20

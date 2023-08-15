@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-07-25 13:34+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -5994,9 +5994,10 @@ msgid "Animate Gif Image"
 msgstr "Immagine Gif animata"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgid "Use local dataBase"
-msgstr "Usa la banca dati locale"
+#, fuzzy, kde-format
+#| msgid "Store Message in Local Database (experimental)"
+msgid "Use local dataBase (experimental)"
+msgstr "Memorizza il messaggio nella banca dati locale (sperimentale)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6515,7 +6516,7 @@ msgid "Server URL:"
 msgstr "URL del server:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Registrati %1 sec"
@@ -7115,8 +7116,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "La cartella «%1» non può essere aggiunta alla copia di sicurezza."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, kde-format
-msgid "Accounts Imported."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "Account importati."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -8878,6 +8880,9 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
+
+#~ msgid "Use local dataBase"
+#~ msgstr "Usa la banca dati locale"
 
 #~ msgid "Search"
 #~ msgstr "Cerca"

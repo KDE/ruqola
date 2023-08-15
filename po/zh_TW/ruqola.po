@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -6105,7 +6105,7 @@ msgstr "圖片"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
-msgid "Use local dataBase"
+msgid "Use local dataBase (experimental)"
 msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
@@ -6643,7 +6643,7 @@ msgid "Server URL:"
 msgstr "伺服器網址："
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -7289,7 +7289,7 @@ msgstr ""
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Account name:"
-msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "帳戶名稱："
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20

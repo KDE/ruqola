@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-08-08 06:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -5852,9 +5852,10 @@ msgid "Animate Gif Image"
 msgstr "GIF გამოსახულებების ანიმაცია"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgid "Use local dataBase"
-msgstr "ლოკალური ბაზის გამოყენება"
+#, fuzzy, kde-format
+#| msgid "Store Message in Local Database (experimental)"
+msgid "Use local dataBase (experimental)"
+msgstr "შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6370,7 +6371,7 @@ msgid "Server URL:"
 msgstr "სერვერის URL:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "ჩაწერილია %1 წმ"
@@ -6970,8 +6971,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "საქაღალდე \"%1\" მარქაფის ფაილში ვერ ჩაემატება."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, kde-format
-msgid "Accounts Imported."
+#, fuzzy, kde-format
+#| msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "ანგარიშები შემოტანილია."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
@@ -8708,6 +8710,9 @@ msgstr "Ruqola-ის ახალ ფუნქციებში შედი�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
+
+#~ msgid "Use local dataBase"
+#~ msgstr "ლოკალური ბაზის გამოყენება"
 
 #~ msgid "Search"
 #~ msgstr "ძებნა"

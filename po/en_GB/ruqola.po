@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-11 00:45+0000\n"
+"POT-Creation-Date: 2023-08-15 00:45+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -5949,9 +5949,10 @@ msgid "Animate Gif Image"
 msgstr "Animate GIF Image"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, kde-format
-msgid "Use local dataBase"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Store Message in Local Database"
+msgid "Use local dataBase (experimental)"
+msgstr "Store Message in Local Database"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6469,7 +6470,7 @@ msgid "Server URL:"
 msgstr "Server URL:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:108
-#: widgets/dialogs/createvideomessagewidget.cpp:193
+#: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Recorded %1 sec"
@@ -7077,7 +7078,7 @@ msgstr ""
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
 #| msgid "Account name"
-msgid "Accounts Imported."
+msgid "Accounts Exported."
 msgstr "Account name"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
