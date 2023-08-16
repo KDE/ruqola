@@ -237,6 +237,7 @@ bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
                                                        const QStyleOptionViewItem &option,
                                                        QMenu *menu)
 {
+    Q_UNUSED(globalPos);
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
     if (layout.isShown) {
         const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));
