@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QMenu>
 #include <QPointer>
+#include <QTextStream>
 
 ViewLogPlainTextEdit::ViewLogPlainTextEdit(QWidget *parent)
     : QPlainTextEdit(parent)
