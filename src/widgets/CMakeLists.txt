@@ -194,6 +194,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/analytics/analyticswidget.cpp
     administratorsettingsdialog/analytics/analyticswidget.h
 
+    administratordialog/logs/viewlogplaintextedit.h
+    administratordialog/logs/viewlogplaintextedit.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h

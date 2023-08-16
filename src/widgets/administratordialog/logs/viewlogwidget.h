@@ -7,7 +7,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class QPlainTextEdit;
+class ViewLogPlainTextEdit;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ViewLogWidget : public QWidget
 {
@@ -25,7 +25,7 @@ private:
     void slotInsertStdOutInfo(const QString &str);
     void insertLine(const QString &str);
     QStringList mStdoutBeforeLoadingHistory;
-    QPlainTextEdit *const mPlainTextEdit;
+    ViewLogPlainTextEdit *const mPlainTextEdit;
     RocketChatAccount *const mRocketChatAccount;
     quint64 mStdoutIdentifier = 0;
     bool mWasInitialized = false;

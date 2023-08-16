@@ -10,14 +10,15 @@
 #include "misc/stdoutqueuejob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include "viewlogplaintextedit.h"
+
 #include <QJsonArray>
-#include <QPlainTextEdit>
 #include <QScrollBar>
 #include <QVBoxLayout>
 
 ViewLogWidget::ViewLogWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mPlainTextEdit(new QPlainTextEdit(this))
+    , mPlainTextEdit(new ViewLogPlainTextEdit(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);

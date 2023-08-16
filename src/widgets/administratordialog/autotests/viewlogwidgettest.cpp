@@ -5,8 +5,8 @@
 */
 
 #include "viewlogwidgettest.h"
+#include "administratordialog/logs/viewlogplaintextedit.h"
 #include "administratordialog/logs/viewlogwidget.h"
-#include <QPlainTextEdit>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -23,7 +23,7 @@ void ViewLogWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mPlainTextEdit = w.findChild<QPlainTextEdit *>(QStringLiteral("mPlainTextEdit"));
+    auto mPlainTextEdit = w.findChild<ViewLogPlainTextEdit *>(QStringLiteral("mPlainTextEdit"));
     QVERIFY(mPlainTextEdit);
     QVERIFY(mPlainTextEdit->isReadOnly());
 }
