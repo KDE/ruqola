@@ -10,6 +10,7 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QMenu>
+#include <QPointer>
 
 ViewLogPlainTextEdit::ViewLogPlainTextEdit(QWidget *parent)
     : QPlainTextEdit(parent)

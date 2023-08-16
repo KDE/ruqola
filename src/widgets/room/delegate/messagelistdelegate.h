@@ -30,6 +30,7 @@ class AvatarCacheManager;
 class TextSelectionImpl;
 class MessageBlockDelegateHelperBase;
 class Block;
+class QMenu;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
