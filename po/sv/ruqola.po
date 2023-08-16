@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:45+0000\n"
-"PO-Revision-Date: 2023-08-01 12:05+0200\n"
+"PO-Revision-Date: 2023-08-15 06:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -5954,10 +5954,9 @@ msgid "Animate Gif Image"
 msgstr "Animera GIF-bild"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Store Message in Local Database (experimental)"
+#, kde-format
 msgid "Use local dataBase (experimental)"
-msgstr "Lagra meddelanden i lokal databas (experimentellt)"
+msgstr "Använd lokal databas (experimentellt)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7075,10 +7074,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Katalogen \"%1\" kan inte läggas till i säkerhetskopia."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Konton importerade."
+msgstr "Konton exporterade."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format

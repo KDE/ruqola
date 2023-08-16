@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:45+0000\n"
-"PO-Revision-Date: 2023-07-24 12:25+0200\n"
+"PO-Revision-Date: 2023-08-15 16:52+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -5994,10 +5994,9 @@ msgid "Animate Gif Image"
 msgstr "Gif-afbeelding animeren"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Store Message in Local Database (experimental)"
+#, kde-format
 msgid "Use local dataBase (experimental)"
-msgstr "Berichten in lokale database opslaan (experimenteel)"
+msgstr "Lokale database gebruiken (experimenteel)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7117,10 +7116,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Map \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Geïmporteerde accounts."
+msgstr "Accounts geëxporteerd."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format

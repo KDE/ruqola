@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:45+0000\n"
-"PO-Revision-Date: 2023-08-11 13:47+0300\n"
+"PO-Revision-Date: 2023-08-15 05:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5940,10 +5940,9 @@ msgid "Animate Gif Image"
 msgstr "GIF Görselini Canlandır"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Store Message in Local Database (experimental)"
+#, kde-format
 msgid "Use local dataBase (experimental)"
-msgstr "İletileri Yerel Veritabanında Depola (Deneysel)"
+msgstr "Yerel veritabanı kullan (deneysel)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7063,10 +7062,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "\"%1\" dizini yedek dosyasına eklenemedi."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Hesaplar içe aktarıldı."
+msgstr "Hesaplar dışa aktarıldı."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
