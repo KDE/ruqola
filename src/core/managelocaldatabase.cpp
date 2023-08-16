@@ -67,7 +67,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 {
     Q_ASSERT(info.roomModel);
 
-    const qint64 endDateTime = info.roomModel->lastTimestamp();
+    qint64 endDateTime = info.roomModel->lastTimestamp();
     QJsonArray params;
     params.append(QJsonValue(info.roomId));
     // Load history
@@ -116,6 +116,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         qDebug() << " params" << params;
     } else {
         const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
+        int downloadMessage = 50;
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
@@ -123,11 +124,15 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomName, -1, startDateTime, 50, mRocketChatAccount->emojiManager());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " accountName " << accountName << " roomID " << info.roomId << " info.roomName " << info.roomName
                                              << " number of message " << lstMessages.count();
-            if (lstMessages.count() == 50) {
+            if (lstMessages.count() == downloadMessage) {
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database";
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
                 return;
             } else if (!lstMessages.isEmpty()) {
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+                downloadMessage -= lstMessages.count();
+                // Update lastTimeStamp
+                endDateTime = info.roomModel->lastTimestamp();
                 // TODO load diff messages => 50 - lstMessages.count()
             } else {
                 qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
@@ -142,7 +147,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
         params.append(dateObjectEnd);
 
-        params.append(QJsonValue(50)); // Max number of messages to load;
+        params.append(QJsonValue(downloadMessage)); // Max number of messages to load;
 
         QJsonObject dateObjectStart;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID;
