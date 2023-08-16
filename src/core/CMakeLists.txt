@@ -587,6 +587,10 @@ if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
     target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
 endif()
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(libruqolacore KF6::StatusNotifierItem)
+endif()
+
 set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
 )

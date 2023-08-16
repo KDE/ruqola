@@ -32,6 +32,7 @@ Dependencies:
     'frameworks/knotifyconfig': '@latest-kf6'
     'frameworks/breeze-icons': '@latest-kf6'
     'frameworks/karchive': '@latest-kf6'
+    'frameworks/kstatusnotifieritem': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
