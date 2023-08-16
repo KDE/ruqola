@@ -272,12 +272,14 @@ bool MessageAttachmentDelegateHelperBase::contextMenu(const QPoint &pos,
                                                       const QPoint &globalPos,
                                                       const MessageAttachment &msgAttach,
                                                       QRect attachmentsRect,
-                                                      const QStyleOptionViewItem &option)
+                                                      const QStyleOptionViewItem &option,
+                                                      QMenu *menu)
 {
     Q_UNUSED(msgAttach);
     Q_UNUSED(attachmentsRect);
     Q_UNUSED(pos);
     Q_UNUSED(option);
     Q_UNUSED(globalPos);
+    Q_UNUSED(menu);
     return false;
 }

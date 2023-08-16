@@ -13,10 +13,10 @@
 
 #include <QPersistentModelIndex>
 #include <QSize>
-class QTextDocument;
 
 #include <memory>
 
+class QTextDocument;
 class QPainter;
 class QRect;
 class QModelIndex;
@@ -27,6 +27,7 @@ class QHelpEvent;
 class Message;
 class QListView;
 class RocketChatAccount;
+class QMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperBase : public MessageDelegateHelperBase
 {
 public:
@@ -49,8 +50,12 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
-    virtual bool
-    contextMenu(const QPoint &pos, const QPoint &globalPos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option);
+    virtual bool contextMenu(const QPoint &pos,
+                             const QPoint &globalPos,
+                             const MessageAttachment &msgAttach,
+                             QRect attachmentsRect,
+                             const QStyleOptionViewItem &option,
+                             QMenu *menu);
 
 protected:
     Q_REQUIRED_RESULT virtual QPoint

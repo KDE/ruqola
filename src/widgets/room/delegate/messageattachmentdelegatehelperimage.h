@@ -60,7 +60,8 @@ private:
                                        const QPoint &globalPos,
                                        const MessageAttachment &msgAttach,
                                        QRect attachmentsRect,
-                                       const QStyleOptionViewItem &option) override;
+                                       const QStyleOptionViewItem &option,
+                                       QMenu *menu) override;
 
 private:
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos,

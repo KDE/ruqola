@@ -310,17 +310,28 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
         menu.exec(info.globalPos);
         return true;
     }
+    return false;
+}
+
+void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &option,
+                                                const QModelIndex &index,
+                                                const MessageListDelegate::MenuInfo &info,
+                                                QMenu *menu)
+{
+    const MessageListLayoutBase::Layout layout = doLayout(option, index);
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    if (!message) {
+        return;
+    }
     const auto attachments = message->attachments();
     int i = 0;
     for (const MessageAttachment &msgAttach : attachments) {
         MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-        if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option)) {
-            return true;
+        if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option, menu)) {
+            return;
         }
         ++i;
     }
-
-    return false;
 }
 
 QString MessageListDelegate::selectedText() const
