@@ -20,4 +20,6 @@ protected:
 
 private:
     void slotSaveAsFile();
+    void saveTextAs(const QString &text, const QString &filter, QWidget *parent, const QUrl &url = {}, const QString &caption = {});
+    Q_REQUIRED_RESULT bool saveToFile(const QString &filename, const QString &text);
 };
