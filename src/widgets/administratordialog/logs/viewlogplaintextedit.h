@@ -17,4 +17,7 @@ public:
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
+
+private:
+    void slotSaveAsFile();
 };
