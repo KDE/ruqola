@@ -317,6 +317,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
         if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option)) {
             return true;
         }
+        ++i;
     }
 
     return false;
