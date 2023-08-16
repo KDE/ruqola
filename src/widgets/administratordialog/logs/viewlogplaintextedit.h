@@ -14,4 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ViewLogPlainTextEdit : public QPlainTextEdit
 public:
     explicit ViewLogPlainTextEdit(QWidget *parent = nullptr);
     ~ViewLogPlainTextEdit() override;
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *event) override;
 };
