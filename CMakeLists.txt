@@ -154,6 +154,17 @@ if (TARGET KF${KF_MAJOR_VERSION}::TextUtils)
    set(HAVE_TEXT_UTILS TRUE)
 endif()
 
+
+find_package(KF${KF_MAJOR_VERSION}TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF${KF_MAJOR_VERSION}TextCustomEditor PROPERTIES DESCRIPTION
+    "Add text custom editor (ktextaddons)"
+    TYPE OPTIONAL
+)
+
+if (TARGET KF${KF_MAJOR_VERSION}::TextCustomEditor)
+   set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
+endif()
+
 if (NOT WIN32 AND NOT APPLE)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()

@@ -5,6 +5,7 @@
 */
 
 #include "viewlogwidget.h"
+#include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "misc/stdoutqueuejob.h"
@@ -74,7 +75,11 @@ void ViewLogWidget::slotInsertStdOutInfo(const QString &str)
 
 void ViewLogWidget::insertLine(const QString &str)
 {
+#if HAVE_TEXT_CUSTOM_EDITOR
+    mPlainTextEdit->editor()->appendHtml(QStringLiteral("<p white-space:pre\">%1</p>").arg(str));
+#else
     mPlainTextEdit->appendHtml(QStringLiteral("<p white-space:pre\">%1</p>").arg(str));
+#endif
 }
 
 void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
@@ -92,7 +97,11 @@ void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
     }
     mStdoutBeforeLoadingHistory.clear();
     mPlainTextEdit->blockSignals(false);
+#if HAVE_TEXT_CUSTOM_EDITOR
+    mPlainTextEdit->editor()->verticalScrollBar()->setValue(mPlainTextEdit->editor()->verticalScrollBar()->maximum());
+#else
     mPlainTextEdit->verticalScrollBar()->setValue(mPlainTextEdit->verticalScrollBar()->maximum());
+#endif
 }
 
 #include "moc_viewlogwidget.cpp"

@@ -844,6 +844,12 @@ if (HAVE_TEXT_TO_SPEECH)
     )
 endif()
 
+if (HAVE_TEXT_CUSTOM_EDITOR)
+    target_link_libraries(libruqolawidgets
+        KF${KF_MAJOR_VERSION}::TextCustomEditor
+    )
+endif()
+
 if (NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF${KF_MAJOR_VERSION}::WindowSystem)
 endif()
