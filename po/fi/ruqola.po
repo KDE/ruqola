@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 00:45+0000\n"
+"POT-Creation-Date: 2023-08-17 00:46+0000\n"
 "PO-Revision-Date: 2023-05-10 21:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2560,6 +2560,25 @@ msgstr "Haluatko varmasti poistaa tämän kutsun?"
 #, kde-format
 msgid "Remove Invite"
 msgstr "Poista kutsu"
+
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save as &File"
+msgstr "Tallenna tiedosto"
+
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#, kde-format
+msgid ""
+"Could not write the file %1:\n"
+"\"%2\" is the detailed error description."
+msgstr ""
+
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save File Error"
+msgstr "Tallenna tiedosto"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -5619,7 +5638,7 @@ msgstr "Etsi…"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:297
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -5647,7 +5666,7 @@ msgid "Mark As Unread"
 msgstr "Merkitse lukematta olevaksi"
 
 #: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:284
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Aseta suosikiksi"
@@ -5986,7 +6005,7 @@ msgid "Channel Info about '%1'"
 msgstr "Tietoa kanavasta ”%1”"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:290
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Delete"
 msgstr "Poista"
@@ -6713,7 +6732,7 @@ msgid "Display Image"
 msgstr "Näytä kuva"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:244
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopioi kuva leikepöydälle"
@@ -6875,7 +6894,7 @@ msgstr "Avaa keskustelu"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:500
+#: widgets/room/messagelistview.cpp:501
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7558,13 +7577,13 @@ msgid "Notification"
 msgstr "Ilmoitus"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:485
+#: widgets/room/messagelistview.cpp:486
 #, kde-format
 msgid "Go to Message"
 msgstr "Siirry viestiin"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:266
+#: widgets/room/messagelistview.cpp:267
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7778,36 +7797,36 @@ msgstr "Käyttäjän tiedot"
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:471
+#: widgets/room/delegate/messagelistdelegate.cpp:483
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:478
+#: widgets/room/delegate/messagelistdelegate.cpp:490
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:478
+#: widgets/room/delegate/messagelistdelegate.cpp:490
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:719
 #, kde-format
 msgid "Following"
 msgstr "Seuraa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:711
+#: widgets/room/delegate/messagelistdelegate.cpp:723
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Viesti on kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:727
 #, kde-format
 msgid "Message has been starred"
 msgstr "Viesti on merkitty tähdellä"
@@ -7847,100 +7866,100 @@ msgstr "Liityit uuteen suoraviestiin"
 msgid "Start of conversation"
 msgstr "Keskustelun alku"
 
-#: widgets/room/messagelistview.cpp:274
+#: widgets/room/messagelistview.cpp:275
 #, kde-format
 msgid "Unpin Message"
 msgstr "Poista viestin kiinnitys"
 
-#: widgets/room/messagelistview.cpp:274
+#: widgets/room/messagelistview.cpp:275
 #, kde-format
 msgid "Pin Message"
 msgstr "Kiinnitä viesti"
 
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:284
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Poista suosikeista"
 
-#: widgets/room/messagelistview.cpp:301
+#: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Merkitse viesti lukematta olevaksi"
 
-#: widgets/room/messagelistview.cpp:306
+#: widgets/room/messagelistview.cpp:307
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Näytä koko säie"
 
-#: widgets/room/messagelistview.cpp:311
+#: widgets/room/messagelistview.cpp:312
 #, kde-format
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:317
 #, kde-format
 msgid "Quote"
 msgstr "Lainaus"
 
-#: widgets/room/messagelistview.cpp:321
+#: widgets/room/messagelistview.cpp:322
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Kopioi linkki viestiin"
 
-#: widgets/room/messagelistview.cpp:334
+#: widgets/room/messagelistview.cpp:335
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Lakkaa seuraamasta viestiä"
 
-#: widgets/room/messagelistview.cpp:334
+#: widgets/room/messagelistview.cpp:335
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Seuraa viestiä"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:348
 #, kde-format
 msgid "Copy URL"
 msgstr "Kopioi verkko-osoite"
 
-#: widgets/room/messagelistview.cpp:355
+#: widgets/room/messagelistview.cpp:356
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Aloita keskustelu"
 
-#: widgets/room/messagelistview.cpp:362
+#: widgets/room/messagelistview.cpp:363
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Vastaa säikeeseen"
 
-#: widgets/room/messagelistview.cpp:422
+#: widgets/room/messagelistview.cpp:423
 #, kde-format
 msgid "Show Original Message"
 msgstr "Näytä alkuperäinen viesti"
 
-#: widgets/room/messagelistview.cpp:422
+#: widgets/room/messagelistview.cpp:423
 #, kde-format
 msgid "Translate Message"
 msgstr "Käännä viesti"
 
-#: widgets/room/messagelistview.cpp:507
+#: widgets/room/messagelistview.cpp:508
 #, kde-format
 msgid "Report Message"
 msgstr "Ilmoita viestistä"
 
-#: widgets/room/messagelistview.cpp:675
+#: widgets/room/messagelistview.cpp:676
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Haluatko poistaa tämän viestin?"
 
-#: widgets/room/messagelistview.cpp:676
+#: widgets/room/messagelistview.cpp:677
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Poista viesti"
 
-#: widgets/room/messagelistview.cpp:824
+#: widgets/room/messagelistview.cpp:825
 #, kde-format
 msgid "Translator Error"
 msgstr "Käännösvirhe"
@@ -8948,11 +8967,6 @@ msgstr "Joitakin virheenkorjauksia:"
 #~| msgid "Save &As..."
 #~ msgid "Save As..."
 #~ msgstr "Tallenna &nimellä…"
-
-#, fuzzy
-#~| msgid "Save File"
-#~ msgid "Save File Error"
-#~ msgstr "Tallenna tiedosto"
 
 #, fuzzy
 #~| msgid "Translation"
