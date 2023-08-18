@@ -194,7 +194,9 @@ set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
                                    TYPE REQUIRED)
 
 if (Qt${QT_MAJOR_VERSION}Keychain_VERSION VERSION_LESS 0.14.99)
-     MESSAGE(STATUS "Qt${QT_MAJOR_VERSION}KeyChain version is less 0.14.99. It will not support KWallet 6... It will not able to load password. Please update it.")
+    if (QT_MAJOR_VERSION STREQUAL "6")
+        MESSAGE(STATUS "Qt${QT_MAJOR_VERSION}KeyChain version is less 0.14.99. It will not support KWallet 6... It will not able to load password. Please update it.")
+    endif()
 endif()
 
 if (OPTION_SELENIUMWEBDRIVER_SUPPORT)
