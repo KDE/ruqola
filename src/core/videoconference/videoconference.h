@@ -50,6 +50,8 @@ private:
     QString mUserId;
     Action mAction = Unknown;
 };
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Q_DECLARE_METATYPE(VideoConference)
+#endif
 Q_DECLARE_TYPEINFO(VideoConference, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConference &t);
