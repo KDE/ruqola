@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2647,20 +2647,23 @@ msgstr ""
 msgid "Remove Invite"
 msgstr "Odstrániť účet"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Save as &File"
 msgstr "Hľadať súbor..."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Save File Error"

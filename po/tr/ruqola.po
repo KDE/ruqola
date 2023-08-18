@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
-"PO-Revision-Date: 2023-08-15 05:10+0300\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
+"PO-Revision-Date: 2023-08-17 12:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2541,13 +2541,14 @@ msgstr "Bu daveti silmek istediğinize emin misiniz?"
 msgid "Remove Invite"
 msgstr "Daveti Kaldır"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
-#, fuzzy, kde-format
-#| msgid "Save File"
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
+#, kde-format
 msgid "Save as &File"
-msgstr "Dosyayı Kaydet"
+msgstr "&Dosya Olarak Kaydet"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
@@ -2556,7 +2557,8 @@ msgstr ""
 "%1 dosyasına yazılamadı:\n"
 "Ayrıntılı hata açıklaması: \"%2\"."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, kde-format
 msgid "Save File Error"
 msgstr "Dosyayı Kaydet Hatası"

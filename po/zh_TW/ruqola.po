@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2649,20 +2649,23 @@ msgstr "您確定要刪除此聊天室嗎？"
 msgid "Remove Invite"
 msgstr "移出收藏"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
 #, fuzzy, kde-format
 #| msgid "Video Chat"
 msgid "Save as &File"
 msgstr "視訊聊天"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, fuzzy, kde-format
 #| msgid "Video Chat"
 msgid "Save File Error"

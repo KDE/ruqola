@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
 "PO-Revision-Date: 2023-06-29 09:44+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -2576,13 +2576,15 @@ msgstr "Voulez-vous vraiment supprimer cet invité ?"
 msgid "Remove Invite"
 msgstr "Supprimer un invité"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgid "Save as &File"
 msgstr "Enregistrer un fichier"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
@@ -2591,7 +2593,8 @@ msgstr ""
 "Impossible d'écrire le fichier %1 : \n"
 "La description détaillée de l'erreur est « %2 »."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, kde-format
 msgid "Save File Error"
 msgstr "Enregistrer une erreur de fichier"

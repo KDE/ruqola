@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
-"PO-Revision-Date: 2023-08-15 09:35+0200\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
+"PO-Revision-Date: 2023-08-17 09:14+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -2557,13 +2557,14 @@ msgstr "Ali ste prepričani, da želite izbrisati to povabilo?"
 msgid "Remove Invite"
 msgstr "Odstrani povabilo"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
-#, fuzzy, kde-format
-#| msgid "Save File"
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
+#, kde-format
 msgid "Save as &File"
-msgstr "Shrani datoteko"
+msgstr "Shrani kot datoteko"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
@@ -2572,7 +2573,8 @@ msgstr ""
 "Ni bilo mogoče pisati datoteke %1:\n"
 "\"%2\" je podroben opis napake."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, kde-format
 msgid "Save File Error"
 msgstr "Napaka shranjevanja datoteke"

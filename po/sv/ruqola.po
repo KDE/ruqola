@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
-"PO-Revision-Date: 2023-08-15 06:33+0200\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
+"PO-Revision-Date: 2023-08-17 08:51+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2545,13 +2545,14 @@ msgstr "Är du säker på att du vill ta bort inbjudan?"
 msgid "Remove Invite"
 msgstr "Ta bort inbjudan"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
-#, fuzzy, kde-format
-#| msgid "Save File"
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
+#, kde-format
 msgid "Save as &File"
-msgstr "Spara fil"
+msgstr "Spara som &fil"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
@@ -2560,7 +2561,8 @@ msgstr ""
 "Kunde inte skriva till filen %1:\n"
 "Den detaljerade felbeskrivningen är \"%2\"."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, kde-format
 msgid "Save File Error"
 msgstr "Fel vid spara fil"

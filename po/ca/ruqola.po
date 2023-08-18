@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
-"PO-Revision-Date: 2023-08-15 10:45+0200\n"
+"POT-Creation-Date: 2023-08-18 00:45+0000\n"
+"PO-Revision-Date: 2023-08-17 13:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2565,24 +2565,27 @@ msgstr "Esteu segur que voleu suprimir aquesta invitació?"
 msgid "Remove Invite"
 msgstr "Elimina la invitació"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:27
-#, fuzzy, kde-format
-#| msgid "Save File"
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
+#, kde-format
 msgid "Save as &File"
-msgstr "Desa el fitxer"
+msgstr "Desa com a &fitxer"
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:53
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
 #, kde-format
 msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"No s'ha pogut escriure el fitxer %1:\n"
+"«%2» és la descripció detallada de l'error."
 
-#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
-#, fuzzy, kde-format
-#| msgid "Save File"
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
+#: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
+#, kde-format
 msgid "Save File Error"
-msgstr "Desa el fitxer"
+msgstr "Error en desar el fitxer"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
