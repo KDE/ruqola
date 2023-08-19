@@ -1,12 +1,12 @@
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 # Simon Depiets <sdepiets@gmail.com>, 2019.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:45+0000\n"
-"PO-Revision-Date: 2023-06-29 09:44+0200\n"
+"POT-Creation-Date: 2023-08-19 00:45+0000\n"
+"PO-Revision-Date: 2023-08-17 17:37+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.07.90\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -6050,10 +6050,9 @@ msgid "Animate Gif Image"
 msgstr "Animer l'image au format « GIF »"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Store Message in Local Database"
+#, kde-format
 msgid "Use local dataBase (experimental)"
-msgstr "Enregistrer un messages dans la base de données locale"
+msgstr "Utiliser la base de données locale (Expérimental)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -7150,28 +7149,24 @@ msgid "Impossible to create zip file."
 msgstr "Impossible de créer un fichier au format « ZIP »."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export Accounts"
+#, kde-format
 msgid "Export Done."
-msgstr "Exporter des comptes"
+msgstr "Exportation effectuée."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Account %1: export config done."
-msgstr "Comptes"
+msgstr "Compte %1 : exportation de la configuration effectuée."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "Comptes"
+msgstr "Compte %1 : exportation du cache effectuée."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Account %1: export logs done."
-msgstr "Comptes"
+msgstr "Compte %1 : exportation des journaux effectuée."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
@@ -7179,10 +7174,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Impossible d'ajouter le dossier « %1 » au fichier d'archive."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Nom du compte"
+msgstr "Exportation effectuée."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -7211,18 +7205,16 @@ msgid "Impossible to open file"
 msgstr "Impossible d'ouvrir un fichier"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import Accounts"
+#, kde-format
 msgid "Import Done."
-msgstr "Importer des comptes"
+msgstr "Importation effectuée."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts imported."
-msgstr "Nom du compte"
+msgstr "Importation des comptes effectuée."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
 #, kde-format
 msgid "Select Zip file:"
 msgstr "Sélectionner un fichier au format « ZIP »..."
@@ -7770,7 +7762,7 @@ msgstr "Copier le message"
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "Le réseau est en mode déconnecté."
 
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
@@ -8587,8 +8579,7 @@ msgid "Server Settings..."
 msgstr "Configuration du serveur..."
 
 #: widgets/ruqolamainwindow.cpp:494
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Dossier..."
@@ -8883,10 +8874,8 @@ msgid "What's new in Ruqola. %1"
 msgstr "Quoi de neuf dans Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
-#, fuzzy
-#| msgid "Store Message in Local Database"
 msgid "Store Message in Local Database (experimental)"
-msgstr "Enregistrer un messages dans la base de données locale"
+msgstr "Enregistrer un messages dans la base de données locale (Expérimental)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:45+0000\n"
+"POT-Creation-Date: 2023-08-19 00:45+0000\n"
 "PO-Revision-Date: 2023-07-25 13:34+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -7180,7 +7180,7 @@ msgstr "Importazione completata."
 msgid "Accounts imported."
 msgstr "Account importati."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
 #, kde-format
 msgid "Select Zip file:"
 msgstr "Seleziona file Zip:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:45+0000\n"
+"POT-Creation-Date: 2023-08-19 00:45+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7262,7 +7262,7 @@ msgstr "Учётные записи"
 msgid "Accounts imported."
 msgstr "Имя учётной записи"
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:37
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
 #, fuzzy, kde-format
 #| msgid "Select All"
 msgid "Select Zip file:"
