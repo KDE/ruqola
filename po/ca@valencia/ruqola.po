@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-19 00:45+0000\n"
-"PO-Revision-Date: 2023-08-15 10:45+0200\n"
+"PO-Revision-Date: 2023-08-17 13:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2568,10 +2568,9 @@ msgstr "Elimina la invitació"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save as &File"
-msgstr "Guarda el fitxer"
+msgstr "Anomena i guarda com a fi&txer"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
@@ -2580,13 +2579,14 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"No s'ha pogut escriure el fitxer %1:\n"
+"«%2» és la descripció detallada de l'error."
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Guarda el fitxer"
+msgstr "S'ha produït un error en guardar el fitxer"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -3749,7 +3749,7 @@ msgstr "URL base de SSO"
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
-"L'URL base del servei SSO extern, p. ex. https://sso.example.undef/sso/"
+"L'URL base del servei SSO extern, p. ex., https://sso.example.undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
@@ -3762,7 +3762,7 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
-"L'URL d'inici de sessió del servei SSO extern, p. ex. https://sso.example."
+"L'URL d'inici de sessió del servei SSO extern, p. ex., https://sso.example."
 "undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
@@ -4481,7 +4481,7 @@ msgstr "Intenta utilitzar LDAP per a l'autenticació."
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
 #, kde-format
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
-msgstr "Port per a accedir a LDAP, p. ex. 389 o 636 per al LDAPS"
+msgstr "Port per a accedir a LDAP, p. ex., 389 o 636 per al LDAPS"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:44
 #, kde-format
