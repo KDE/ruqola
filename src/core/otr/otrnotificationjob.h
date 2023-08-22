@@ -32,7 +32,6 @@ Q_SIGNALS:
     void endOtr(const Otr &t);
 
 private:
-    void slotActivateNotificationAction(unsigned int val);
     void slotAcceptOtr();
     void slotRejectOtr();
     [[nodiscard]] QString generateText();

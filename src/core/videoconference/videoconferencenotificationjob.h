@@ -30,7 +30,6 @@ Q_SIGNALS:
     void rejectVideoConference();
 
 private:
-    void slotActivateNotificationAction(unsigned int val);
     void inComingCall();
     [[nodiscard]] QString generateText() const;
     VideoConference mVideoConference;

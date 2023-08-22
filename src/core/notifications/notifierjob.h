@@ -27,6 +27,5 @@ Q_SIGNALS:
     void sendReply(const QString &message, const QString &roomId, const QString &tmId);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void slotDefaultActionActivated();
     NotificationInfo mInfo;
 };
