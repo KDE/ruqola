@@ -51,28 +51,40 @@ void VideoConferenceNotificationJob::inComingCall()
     notification->setTitle(i18n("InComing Call"));
     // notification->setIconName(QStringLiteral("network-connect"));
     notification->setText(generateText());
+
+#if QT_VERSION_MAJOR == 6
+    auto acceptAction = notification->addAction(i18n("Accept"));
+    connect(acceptAction, &KNotificationAction::activated, this, [this] {
+        Q_EMIT acceptVideoConference();
+        deleteLater();
+    });
+
+    auto rejectAction = notification->addAction(i18n("Reject"));
+    connect(rejectAction, &KNotificationAction::activated, this, [this] {
+        Q_EMIT rejectVideoConference();
+        deleteLater();
+    });
+#else
     const QStringList lstActions{i18n("Accept"), i18n("Reject")};
     notification->setActions(lstActions);
+    connect(notification, &KNotification::activated, this, [this](uint val) {
+        // Index == 0 => is the default action. We don't have it.
+        switch (val) {
+        case 0:
+            break;
+        case 1:
+            Q_EMIT acceptVideoConference();
+            break;
+        case 2:
+            Q_EMIT rejectVideoConference();
+            break;
+        }
+        deleteLater();
+    });
+#endif
 
-    connect(notification, &KNotification::activated, this, &VideoConferenceNotificationJob::slotActivateNotificationAction);
     connect(notification, &KNotification::closed, this, &VideoConferenceNotificationJob::deleteLater);
     notification->sendEvent();
-}
-
-void VideoConferenceNotificationJob::slotActivateNotificationAction(unsigned int val)
-{
-    // Index == 0 => is the default action. We don't have it.
-    switch (val) {
-    case 0:
-        break;
-    case 1:
-        Q_EMIT acceptVideoConference();
-        break;
-    case 2:
-        Q_EMIT rejectVideoConference();
-        break;
-    }
-    deleteLater();
 }
 
 bool VideoConferenceNotificationJob::canStart() const
