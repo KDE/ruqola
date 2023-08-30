@@ -5,6 +5,7 @@
 */
 
 #include "configureaccessibilitywidget.h"
+#include "textedittexttospeech_version.h"
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 #include <QShowEvent>
@@ -33,7 +34,9 @@ void ConfigureAccessibilityWidget::save()
 
 void ConfigureAccessibilityWidget::load()
 {
-    // nothing
+#if TEXTEDITTEXTTOSPEECH_VERSION >= QT_VERSION_CHECK(1, 4, 46)
+    mTextToSpeechWidget->initializeSettings();
+#endif
 }
 
 void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)
