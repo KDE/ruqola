@@ -12,10 +12,18 @@
 
 WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     : QWidget{parent}
+    , mVersionComboBox(new QComboBox(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    auto label = new QLabel(i18n("Version:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
+
+    mVersionComboBox->setObjectName(QStringLiteral("mVersionComboBox"));
+    mainLayout->addWidget(mVersionComboBox);
 }
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;

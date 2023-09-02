@@ -5,6 +5,8 @@
 */
 #include "whatsnewcomboboxwidgettest.h"
 #include "whatsnew/whatsnewcomboboxwidget.h"
+#include <QComboBox>
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(WhatsNewComboBoxWidgetTest)
@@ -20,5 +22,11 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
-    // TODO
+
+    auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
+    QVERIFY(mVersionComboBox);
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }
