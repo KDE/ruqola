@@ -32,7 +32,8 @@ WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
 
 void WhatsNewComboBoxWidget::fillCombobox()
 {
-    // TODO
+    mVersionComboBox->addItem(i18n("All Version"));
+    mVersionComboBox->addItem(i18n("2.0"));
 }
 
 #include "moc_whatsnewcomboboxwidget.cpp"
