@@ -22,6 +22,8 @@ public:
     explicit WhatsNewComboBoxWidget(QWidget *parent = nullptr);
     ~WhatsNewComboBoxWidget() override;
 
+    void initializeVersion();
+
 Q_SIGNALS:
     void versionChanged(WhatsNewComboBoxWidget::VersionType type);
 

@@ -61,6 +61,8 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mLabelInfo->setTextFormat(Qt::RichText);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     mainLayout->addWidget(mLabelInfo, 0, Qt::AlignTop);
+    connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
+    mWhatsNewComboBoxWidget->initializeVersion();
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
@@ -81,6 +83,11 @@ QString WhatsNewWidget::newFeaturesMD5()
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
     return QLatin1String(md5.result().toBase64());
+}
+
+void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type)
+{
+    // TODO
 }
 
 void WhatsNewWidget::updateInformations()

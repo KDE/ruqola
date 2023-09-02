@@ -6,9 +6,9 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "whatsnewcomboboxwidget.h"
 #include <QWidget>
 class QLabel;
-class WhatsNewComboBoxWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
 {
     Q_OBJECT
@@ -20,6 +20,7 @@ public:
     void updateInformations();
 
 private:
+    void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
     QLabel *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;
 };

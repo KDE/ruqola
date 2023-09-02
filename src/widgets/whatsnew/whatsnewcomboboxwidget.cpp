@@ -27,10 +27,6 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     mainLayout->addStretch(1);
     fillCombobox();
     connect(mVersionComboBox, &QComboBox::currentIndexChanged, this, &WhatsNewComboBoxWidget::slotCurrentIndexChanged);
-    const int index = mVersionComboBox->findData(Version2_0);
-    if (index != -1) {
-        mVersionComboBox->setCurrentIndex(index);
-    }
 }
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
@@ -39,6 +35,14 @@ void WhatsNewComboBoxWidget::fillCombobox()
 {
     mVersionComboBox->addItem(i18n("All Version"), AllVersion);
     mVersionComboBox->addItem(i18n("2.0"), Version2_0);
+}
+
+void WhatsNewComboBoxWidget::initializeVersion()
+{
+    const int index = mVersionComboBox->findData(Version2_0);
+    if (index != -1) {
+        mVersionComboBox->setCurrentIndex(index);
+    }
 }
 
 void WhatsNewComboBoxWidget::slotCurrentIndexChanged(int index)

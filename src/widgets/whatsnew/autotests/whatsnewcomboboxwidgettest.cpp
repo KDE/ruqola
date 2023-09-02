@@ -36,6 +36,7 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
 void WhatsNewComboBoxWidgetTest::shouldInitializeComboBox()
 {
     WhatsNewComboBoxWidget w;
+    w.initializeVersion();
     auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
     QCOMPARE(mVersionComboBox->currentData(), WhatsNewComboBoxWidget::Version2_0);
 }
@@ -47,15 +48,15 @@ void WhatsNewComboBoxWidgetTest::shouldEmitVersionChanged()
 
     auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
     mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::AllVersion));
-    QCOMPARE(versionChanged.count(), 1);
+    QCOMPARE(versionChanged.count(), 0);
 
     // Same => not emitted.
     mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::AllVersion));
-    QCOMPARE(versionChanged.count(), 1);
+    QCOMPARE(versionChanged.count(), 0);
 
     // Different => emitted.
     mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::Version2_0));
-    QCOMPARE(versionChanged.count(), 2);
+    QCOMPARE(versionChanged.count(), 1);
 }
 
 #include "moc_whatsnewcomboboxwidgettest.cpp"
