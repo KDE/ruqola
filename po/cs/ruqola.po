@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-19 00:45+0000\n"
-"PO-Revision-Date: 2023-07-03 12:01+0200\n"
+"PO-Revision-Date: 2023-08-10 15:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2552,10 +2552,9 @@ msgstr ""
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save as &File"
-msgstr "Uložit soubor"
+msgstr "Uložit jako &soubor"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
@@ -2564,13 +2563,14 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"Nelze zapsat soubor %1:\n"
+"Podrobný popis chyby: %2."
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Uložit soubor"
+msgstr "Chyba ukládání souboru"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -6927,7 +6927,7 @@ msgstr "Nelze vytvořit soubor zip."
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
 #, kde-format
 msgid "Export Done."
-msgstr ""
+msgstr "Export byl dokončen."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
@@ -6950,10 +6950,9 @@ msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Adresář \"%1\" nelze přidat do souboru zálohy."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Účty byly importovány."
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
@@ -6984,7 +6983,7 @@ msgstr "Nelze otevřít soubor"
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
 #, kde-format
 msgid "Import Done."
-msgstr ""
+msgstr "Import byl dokončen."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, kde-format
@@ -7508,7 +7507,7 @@ msgstr "Kopírovat zprávu"
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "Síť je v režimu offline"
 
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
@@ -8322,7 +8321,7 @@ msgstr "Nastavení serveru..."
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
-msgstr ""
+msgstr "Adresář..."
 
 #: widgets/ruqolamainwindow.cpp:515
 #, kde-format
