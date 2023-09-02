@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewwidgettest.h"
+#include "whatsnew/whatsnewcomboboxwidget.h"
 #include "whatsnew/whatsnewwidget.h"
 #include <QLabel>
 #include <QTest>
@@ -24,6 +25,9 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
     auto mLabelInfo = w.findChild<QLabel *>(QStringLiteral("mLabelInfo"));
     QVERIFY(mLabelInfo);
     QVERIFY(mLabelInfo->text().isEmpty());
+
+    auto mWhatsNewComboBoxWidget = w.findChild<WhatsNewComboBoxWidget *>(QStringLiteral("mWhatsNewComboBoxWidget"));
+    QVERIFY(mWhatsNewComboBoxWidget);
 }
 
 #include "moc_whatsnewwidgettest.cpp"

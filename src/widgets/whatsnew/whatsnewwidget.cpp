@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewwidget.h"
+#include "whatsnewcomboboxwidget.h"
 
 #include <KLazyLocalizedString>
 
@@ -47,10 +48,14 @@ static const int numRuqolaBugfixing = sizeof ruqolaBugfixing / sizeof *ruqolaBug
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
     , mLabelInfo(new QLabel(this))
+    , mWhatsNewComboBoxWidget(new WhatsNewComboBoxWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mWhatsNewComboBoxWidget->setObjectName(QStringLiteral("mWhatsNewComboBoxWidget"));
+    mainLayout->addWidget(mWhatsNewComboBoxWidget);
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setTextFormat(Qt::RichText);
