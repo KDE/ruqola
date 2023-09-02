@@ -7,13 +7,13 @@
 #include "whatsnewcomboboxwidget.h"
 #include <KLocalizedString>
 #include <QComboBox>
+#include <QHBoxLayout>
 #include <QLabel>
-#include <QVBoxLayout>
 
 WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     : QWidget{parent}
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 }

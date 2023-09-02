@@ -6,6 +6,7 @@
 #include "whatsnewcomboboxwidgettest.h"
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(WhatsNewComboBoxWidgetTest)
 
 WhatsNewComboBoxWidgetTest::WhatsNewComboBoxWidgetTest(QObject *parent)
@@ -16,5 +17,8 @@ WhatsNewComboBoxWidgetTest::WhatsNewComboBoxWidgetTest(QObject *parent)
 void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
 {
     WhatsNewComboBoxWidget w;
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     // TODO
 }
