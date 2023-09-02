@@ -30,3 +30,5 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }
+
+#include "moc_whatsnewcomboboxwidgettest.cpp"

@@ -137,3 +137,5 @@ bool ViewLogPlainTextEdit::saveToFile(const QString &filename, const QString &te
 }
 
 #endif
+
+#include "moc_viewlogplaintextedit.cpp"
