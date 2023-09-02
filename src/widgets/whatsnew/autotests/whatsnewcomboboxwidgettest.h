@@ -16,4 +16,6 @@ public:
     ~WhatsNewComboBoxWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldInitializeComboBox();
+    void shouldEmitVersionChanged();
 };

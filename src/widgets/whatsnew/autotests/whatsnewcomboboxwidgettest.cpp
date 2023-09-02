@@ -7,8 +7,10 @@
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include <QComboBox>
 #include <QLabel>
+#include <QSignalSpy>
 #include <QTest>
 #include <QVBoxLayout>
+
 QTEST_MAIN(WhatsNewComboBoxWidgetTest)
 
 WhatsNewComboBoxWidgetTest::WhatsNewComboBoxWidgetTest(QObject *parent)
@@ -29,6 +31,31 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
+}
+
+void WhatsNewComboBoxWidgetTest::shouldInitializeComboBox()
+{
+    WhatsNewComboBoxWidget w;
+    auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
+    QCOMPARE(mVersionComboBox->currentData(), WhatsNewComboBoxWidget::Version2_0);
+}
+
+void WhatsNewComboBoxWidgetTest::shouldEmitVersionChanged()
+{
+    WhatsNewComboBoxWidget w;
+    QSignalSpy versionChanged(&w, &WhatsNewComboBoxWidget::versionChanged);
+
+    auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
+    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::AllVersion));
+    QCOMPARE(versionChanged.count(), 1);
+
+    // Same => not emitted.
+    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::AllVersion));
+    QCOMPARE(versionChanged.count(), 1);
+
+    // Different => emitted.
+    mVersionComboBox->setCurrentIndex(mVersionComboBox->findData(WhatsNewComboBoxWidget::Version2_0));
+    QCOMPARE(versionChanged.count(), 2);
 }
 
 #include "moc_whatsnewcomboboxwidgettest.cpp"

@@ -13,10 +13,20 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewComboBoxWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum VersionType {
+        AllVersion,
+        Version2_0,
+    };
+    Q_ENUM(VersionType)
+
     explicit WhatsNewComboBoxWidget(QWidget *parent = nullptr);
     ~WhatsNewComboBoxWidget() override;
 
+Q_SIGNALS:
+    void versionChanged(WhatsNewComboBoxWidget::VersionType type);
+
 private:
     void fillCombobox();
+    void slotCurrentIndexChanged(int index);
     QComboBox *const mVersionComboBox;
 };

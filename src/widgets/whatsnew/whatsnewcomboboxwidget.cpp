@@ -26,14 +26,25 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     mainLayout->addWidget(mVersionComboBox);
     mainLayout->addStretch(1);
     fillCombobox();
+    connect(mVersionComboBox, &QComboBox::currentIndexChanged, this, &WhatsNewComboBoxWidget::slotCurrentIndexChanged);
+    const int index = mVersionComboBox->findData(Version2_0);
+    if (index != -1) {
+        mVersionComboBox->setCurrentIndex(index);
+    }
 }
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
 
 void WhatsNewComboBoxWidget::fillCombobox()
 {
-    mVersionComboBox->addItem(i18n("All Version"));
-    mVersionComboBox->addItem(i18n("2.0"));
+    mVersionComboBox->addItem(i18n("All Version"), AllVersion);
+    mVersionComboBox->addItem(i18n("2.0"), Version2_0);
+}
+
+void WhatsNewComboBoxWidget::slotCurrentIndexChanged(int index)
+{
+    const VersionType type = mVersionComboBox->itemData(index).value<VersionType>();
+    Q_EMIT versionChanged(type);
 }
 
 #include "moc_whatsnewcomboboxwidget.cpp"
