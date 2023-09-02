@@ -17,5 +17,6 @@ public:
     ~WhatsNewComboBoxWidget() override;
 
 private:
+    void fillCombobox();
     QComboBox *const mVersionComboBox;
 };

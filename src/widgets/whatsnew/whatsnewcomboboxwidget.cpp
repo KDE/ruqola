@@ -25,8 +25,14 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     mVersionComboBox->setObjectName(QStringLiteral("mVersionComboBox"));
     mainLayout->addWidget(mVersionComboBox);
     mainLayout->addStretch(1);
+    fillCombobox();
 }
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
+
+void WhatsNewComboBoxWidget::fillCombobox()
+{
+    // TODO
+}
 
 #include "moc_whatsnewcomboboxwidget.cpp"
