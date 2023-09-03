@@ -13,17 +13,16 @@
 #include <QVBoxLayout>
 
 // enter items for the "Important changes" list here:
-static const KLazyLocalizedString ruqolaChanges[] = {
+static const KLazyLocalizedString ruqolaChangesV2_0[] = {
     kli18n("Store Message in Local Database (experimental)"),
-    // TODO
 };
-static const int numRuqolaChanges = sizeof ruqolaChanges / sizeof *ruqolaChanges;
+static const int numRuqolaChanges2_0 = sizeof ruqolaChangesV2_0 / sizeof *ruqolaChangesV2_0;
 
 // enter items for the "new features" list here, so the main body of
 // the welcome page can be left untouched (probably much easier for
 // the translators). Note that the <li>...</li> tags are added
 // automatically below:
-static const KLazyLocalizedString ruqolaNewFeatures[] = {
+static const KLazyLocalizedString ruqolaNewFeatures2_0[] = {
     kli18n("Download Server Icon from Server"),
     kli18n("Show Server Error Info in Specific DialogBox"),
     kli18n("Allow to Copy Image in Clipboard"),
@@ -33,17 +32,16 @@ static const KLazyLocalizedString ruqolaNewFeatures[] = {
     kli18n("Video/Sound Message support (kf6 only)."),
     kli18n("Import/Export Accounts."),
 };
-static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqolaNewFeatures;
+static const int numRuqolaNewFeatures2_0 = sizeof ruqolaNewFeatures2_0 / sizeof *ruqolaNewFeatures2_0;
 
 // enter items for the "Important changes" list here:
-static const KLazyLocalizedString ruqolaBugfixing[] = {
+static const KLazyLocalizedString ruqolaBugfixing2_0[] = {
     kli18n("Fix avatar support"),
     kli18n("Fix emoji support (use new ktextaddons/textemoticons)"),
     kli18n("Fix animated gif in reactions"),
     kli18n("Fix kf6 support"),
-    // TODO
 };
-static const int numRuqolaBugfixing = sizeof ruqolaBugfixing / sizeof *ruqolaBugfixing;
+static const int numRuqolaBugfixing2_0 = sizeof ruqolaBugfixing2_0 / sizeof *ruqolaBugfixing2_0;
 
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
@@ -75,15 +73,17 @@ WhatsNewComboBoxWidget::VersionType WhatsNewWidget::currentVersion() const
 // static
 QString WhatsNewWidget::newFeaturesMD5()
 {
+    // TODO use last version
+    // => update each time that we change version
     QByteArray str;
-    for (int i = 0; i < numRuqolaChanges; ++i) {
-        str += ruqolaChanges[i].untranslatedText();
+    for (int i = 0; i < numRuqolaChanges2_0; ++i) {
+        str += ruqolaChangesV2_0[i].untranslatedText();
     }
-    for (int i = 0; i < numRuqolaNewFeatures; ++i) {
-        str += ruqolaNewFeatures[i].untranslatedText();
+    for (int i = 0; i < numRuqolaNewFeatures2_0; ++i) {
+        str += ruqolaNewFeatures2_0[i].untranslatedText();
     }
-    for (int i = 0; i < numRuqolaBugfixing; ++i) {
-        str += ruqolaBugfixing[i].untranslatedText();
+    for (int i = 0; i < numRuqolaBugfixing2_0; ++i) {
+        str += ruqolaBugfixing2_0[i].untranslatedText();
     }
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
@@ -98,27 +98,27 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
 void WhatsNewWidget::updateInformations()
 {
     QString message = QStringLiteral("<qt>");
-    if (numRuqolaChanges > 0) {
+    if (numRuqolaChanges2_0 > 0) {
         message += QStringLiteral("<b>") + i18n("Important changes since last version:") + QStringLiteral("</b>");
         message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaChanges; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaChanges[i].toString());
+        for (int i = 0; i < numRuqolaChanges2_0; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaChangesV2_0[i].toString());
         }
         message += QStringLiteral("</ul>");
     }
-    if (numRuqolaNewFeatures > 0) {
+    if (numRuqolaNewFeatures2_0 > 0) {
         message += QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
         message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaNewFeatures; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures[i].toString());
+        for (int i = 0; i < numRuqolaNewFeatures2_0; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_0[i].toString());
         }
         message += QStringLiteral("</ul>");
     }
-    if (numRuqolaBugfixing > 0) {
+    if (numRuqolaBugfixing2_0 > 0) {
         message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
         message += QStringLiteral("<ul>");
-        for (int i = 0; i < numRuqolaBugfixing; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing[i].toString());
+        for (int i = 0; i < numRuqolaBugfixing2_0; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_0[i].toString());
         }
         message += QStringLiteral("</ul>");
     }
