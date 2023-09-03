@@ -20,6 +20,7 @@ public:
     void updateInformations();
 
 private:
+    Q_REQUIRED_RESULT WhatsNewComboBoxWidget::VersionType currentVersion() const;
     void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
     QLabel *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;

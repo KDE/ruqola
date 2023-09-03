@@ -67,6 +67,11 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
 
 WhatsNewWidget::~WhatsNewWidget() = default;
 
+WhatsNewComboBoxWidget::VersionType WhatsNewWidget::currentVersion() const
+{
+    return WhatsNewComboBoxWidget::Version2_0;
+}
+
 // static
 QString WhatsNewWidget::newFeaturesMD5()
 {
