@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 00:45+0000\n"
+"POT-Creation-Date: 2023-09-03 00:46+0000\n"
 "PO-Revision-Date: 2023-08-17 14:15+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -8814,6 +8814,23 @@ msgstr "Account-informatie"
 msgid "Return the number of account."
 msgstr "Het nummer van het account teruggeven."
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Version:"
+msgstr "Versie"
+
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "All Version"
+msgstr "Versie"
+
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
+#, kde-format
+msgid "2.0"
+msgstr ""
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -8830,74 +8847,74 @@ msgstr "(Nieuws in Ruqola tonen)"
 msgid "What's new in Ruqola. %1"
 msgstr "Wat is er nieuw in Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:16
+#: widgets/whatsnew/whatsnewwidget.cpp:17
 msgid "Store Message in Local Database (experimental)"
 msgstr "Berichten in lokale database opslaan (experimenteel)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:26
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
 msgstr "Pictogram van server downloaden van server"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Informatie over serverfout tonen in specifiek dialoogvak "
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Afbeelding naar klembord kopiëren toestaan"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Ondersteunt voor debuggen verbeteren (sta toe de huidige toegangsrechten te "
 "bekijken)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 "Ondersteuning toevoegen voor aangehaalde tekst (tekst die begint met '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Leider/moderator/eigenaar tonen in kanaalinformatie."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Ondersteuning voor video/geluidsbericht (alleen kf6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
 msgstr "Accounts im-/exporteren."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:39
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix avatar support"
 msgstr "Ondersteuning voor avatar repareren"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Ondersteuning voor emoji repareren (nieuwe ktextaddons/textemoticons "
 "gebruiken)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
 msgstr "Geanimeerde gif in reacties repareren"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 msgid "Fix kf6 support"
 msgstr "Ondersteuning voor kf6 repareren"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:85
+#: widgets/whatsnew/whatsnewwidget.cpp:97
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Belangrijke wijzigingen sinds de laatste versie:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:93
+#: widgets/whatsnew/whatsnewwidget.cpp:105
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:113
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
