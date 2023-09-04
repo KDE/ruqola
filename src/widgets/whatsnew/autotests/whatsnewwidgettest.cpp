@@ -6,9 +6,11 @@
 #include "whatsnewwidgettest.h"
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include "whatsnew/whatsnewwidget.h"
+#include <KSeparator>
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
 QTEST_MAIN(WhatsNewWidgetTest)
 WhatsNewWidgetTest::WhatsNewWidgetTest(QWidget *parent)
     : QWidget{parent}
@@ -28,6 +30,9 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
 
     auto mWhatsNewComboBoxWidget = w.findChild<WhatsNewComboBoxWidget *>(QStringLiteral("mWhatsNewComboBoxWidget"));
     QVERIFY(mWhatsNewComboBoxWidget);
+
+    auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
+    QVERIFY(separator);
 }
 
 #include "moc_whatsnewwidgettest.cpp"

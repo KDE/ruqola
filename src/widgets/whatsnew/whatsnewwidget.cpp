@@ -7,6 +7,7 @@
 #include "whatsnewcomboboxwidget.h"
 
 #include <KLazyLocalizedString>
+#include <KSeparator>
 
 #include <QCryptographicHash>
 #include <QLabel>
@@ -54,6 +55,10 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
 
     mWhatsNewComboBoxWidget->setObjectName(QStringLiteral("mWhatsNewComboBoxWidget"));
     mainLayout->addWidget(mWhatsNewComboBoxWidget);
+
+    auto separator = new KSeparator(this);
+    separator->setObjectName(QStringLiteral("separator"));
+    mainLayout->addWidget(separator);
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setTextFormat(Qt::RichText);
