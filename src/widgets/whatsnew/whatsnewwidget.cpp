@@ -11,6 +11,7 @@
 
 #include <QCryptographicHash>
 #include <QLabel>
+#include <QScrollArea>
 #include <QVBoxLayout>
 
 // enter items for the "Important changes" list here:
@@ -63,9 +64,14 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setTextFormat(Qt::RichText);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
-    mainLayout->addWidget(mLabelInfo, 0, Qt::AlignTop);
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
     mWhatsNewComboBoxWidget->initializeVersion();
+
+    auto scrollArea = new QScrollArea(this);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setObjectName(QStringLiteral("scrollArea"));
+    scrollArea->setWidget(mLabelInfo);
+    mainLayout->addWidget(scrollArea, 0, Qt::AlignTop);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;

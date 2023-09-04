@@ -8,6 +8,7 @@
 #include "whatsnew/whatsnewwidget.h"
 #include <KSeparator>
 #include <QLabel>
+#include <QScrollArea>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -33,6 +34,10 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
 
     auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
     QVERIFY(separator);
+
+    auto scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
+    QVERIFY(scrollArea);
+    QCOMPARE(scrollArea->widgetResizable(), true);
 }
 
 #include "moc_whatsnewwidgettest.cpp"
