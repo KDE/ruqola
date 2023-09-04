@@ -95,12 +95,17 @@ QString WhatsNewWidget::newFeaturesMD5()
     return QLatin1String(md5.result().toBase64());
 }
 
+void WhatsNewWidget::updateInformations()
+{
+    mLabelInfo->setText(createVersionInformations());
+}
+
 void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type)
 {
     // TODO
 }
 
-void WhatsNewWidget::updateInformations()
+QString WhatsNewWidget::createVersionInformations() const
 {
     QString message = QStringLiteral("<qt>");
     if (numRuqolaChanges2_0 > 0) {
@@ -128,7 +133,7 @@ void WhatsNewWidget::updateInformations()
         message += QStringLiteral("</ul>");
     }
     message += QStringLiteral("</qt>");
-    mLabelInfo->setText(message);
+    return message;
 }
 
 #include "moc_whatsnewwidget.cpp"
