@@ -7,6 +7,7 @@
  */
 
 #include "ruqolautils.h"
+#include "ruqola_debug.h"
 #include "utils.h"
 #include <QDesktopServices>
 #include <QUrl>
@@ -32,7 +33,9 @@ QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)
 void RuqolaUtils::openUrl(const QString &url)
 {
     const QUrl clickedUrl = QUrl::fromUserInput(url);
-    QDesktopServices::openUrl(clickedUrl);
+    if (!QDesktopServices::openUrl(clickedUrl)) {
+        qCWarning(RUQOLA_LOG) << "Impossible to open " << clickedUrl;
+    }
 }
 
 #include "moc_ruqolautils.cpp"
