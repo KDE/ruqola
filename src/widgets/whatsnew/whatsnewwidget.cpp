@@ -109,7 +109,9 @@ void WhatsNewWidget::updateInformations()
 
 void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type)
 {
-    // TODO
+    if (type == WhatsNewComboBoxWidget::Version2_0 || type == WhatsNewComboBoxWidget::AllVersion) {
+        mLabelInfo->setText(createVersionInformations());
+    }
 }
 
 QString WhatsNewWidget::createVersionInformations() const
