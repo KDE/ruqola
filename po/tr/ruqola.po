@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-08-17 12:44+0300\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"PO-Revision-Date: 2023-09-03 21:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -856,7 +856,7 @@ msgstr "İlmekli İletiler"
 #: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
-msgstr "Okunmamış İlmekli İletiler"
+msgstr "Okunmayan İlmekli İletiler"
 
 #: core/model/messagemodel.cpp:221
 #, kde-format
@@ -994,7 +994,7 @@ msgstr "Kanal Odası"
 #: core/model/roommodel.cpp:514
 #, kde-format
 msgid "Unread"
-msgstr "Okunmamış"
+msgstr "Okunmayan"
 
 #: core/model/roommodel.cpp:516
 #, kde-format
@@ -1230,7 +1230,7 @@ msgstr "(Otomatik Katılma)"
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
-msgstr "%1 kişisinin %2 okunmamış iletisi var"
+msgstr "%1 kişisinin %2 okunmayan iletisi var"
 
 #: core/notifications/notifierjob.cpp:27
 #, kde-format
@@ -2143,12 +2143,12 @@ msgstr "Geçersiz Abonelik"
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
 msgid "Unread message not authorized."
-msgstr "Okunmamış ileti yetkilendirilmemiş."
+msgstr "Okunmayan ileti yetkilendirilmemiş."
 
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:63
 #, kde-format
 msgid "There are no messages to mark unread."
-msgstr "Okunmamış olarak imlenecek ileti yok."
+msgstr "Okunmadı olarak imlenecek ileti yok."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:97
 #, kde-format
@@ -3895,11 +3895,12 @@ msgid ""
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
 "[Dikkat!] \"Doğrudan Yanıt\" etkinleştirilmişse Rocket.Chat yapılandırılan e-"
-"posta kutusunu denetleyecektir.\n"
-"Tüm okunmamış e-postalar alınır, okundu olarak imlenir ve işlenir.\n"
+"posta kutusunu\n"
+" denetleyecektir. Tüm okunmayan e-postalar alınır, okundu olarak imlenir ve "
+"işlenir.\n"
 "\"Doğrudan Yanıt\", yalnızca posta kutusu Rocket.Chat tarafından kullanılmak "
-"üzere açılmışsa ve başka\n"
-"birisi tarafından kullanılmayacaksa etkinleştirilmelidir."
+"üzere açılmışsa\n"
+"ve başka birisi tarafından kullanılmayacaksa etkinleştirilmelidir."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:102
 #, kde-format
@@ -4222,7 +4223,7 @@ msgstr "Yalnızca kullanıcı ve grup değinmeleri"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
 #, kde-format
 msgid "Unread Count"
-msgstr "Okunmamış Sayısı"
+msgstr "Okunmayan Sayısı"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
 #, kde-format
@@ -4232,7 +4233,7 @@ msgstr "Yalnızca değinmeler"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, kde-format
 msgid "Unread Count for Direct Messages"
-msgstr "Doğrudan İletiler için Okunmamış Sayısı"
+msgstr "Doğrudan İletiler için Okunmayan Sayısı"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
 #, kde-format
@@ -5724,7 +5725,7 @@ msgstr "Afiş Bilgisi"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:16
 #, kde-format
 msgid "Show Unread"
-msgstr "Okunmamışları Göster"
+msgstr "Okunmayanları Göster"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
@@ -5760,7 +5761,7 @@ msgstr "Okundu Olarak İmle"
 #: widgets/channellist/channellistview.cpp:117
 #, kde-format
 msgid "Mark As Unread"
-msgstr "Okunmamış Olarak İmle"
+msgstr "Okunmadı Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:127
 #: widgets/room/messagelistview.cpp:284
@@ -6282,7 +6283,7 @@ msgstr "Bildirimi Devre Dışı Bırak"
 #: widgets/dialogs/configurenotificationwidget.cpp:23
 #, kde-format
 msgid "Hide Unread Room Status"
-msgstr "Okunmamış Oda Durumunu Gizle"
+msgstr "Okunmayan Oda Durumunu Gizle"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
@@ -7963,7 +7964,7 @@ msgstr "Sık Kullanılanlardan Kaldır"
 #: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgid "Mark Message As Unread"
-msgstr "İletiyi Okunmamış Olarak İmle"
+msgstr "İletiyi Okunmadı Olarak İmle"
 
 #: widgets/room/messagelistview.cpp:307
 #, kde-format
@@ -8103,7 +8104,7 @@ msgstr "(Okundu Olarak İmle)"
 #: widgets/room/roomcounterinfowidget.cpp:40
 #, kde-format
 msgid "(Jump to first Unread)"
-msgstr "(İlk Okunmamışa Git)"
+msgstr "(İlk Okunmayana Atla)"
 
 #: widgets/room/roomheaderlabel.cpp:67
 #, kde-format
@@ -8412,7 +8413,7 @@ msgstr "Geçerli Sunucu Oturumunu Kapat"
 #: widgets/ruqolamainwindow.cpp:401
 #, kde-format
 msgid "Jump to Next Unread Channel"
-msgstr "Sonraki Okunmamış Kanala Atla"
+msgstr "Sonraki Okunmayan Kanala Atla"
 
 #: widgets/ruqolamainwindow.cpp:406
 #, kde-format
@@ -8437,7 +8438,7 @@ msgstr "Takım Oluştur..."
 #: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Unread on Top"
-msgstr "Okunmamışlar Tepede"
+msgstr "Okunmayanlar En Üstte"
 
 #: widgets/ruqolamainwindow.cpp:434
 #, kde-format
@@ -8762,21 +8763,19 @@ msgid "Return the number of account."
 msgstr "Hesabın numarasını döndür."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Sürüm"
+msgstr "Sürüm:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Sürüm"
+msgstr "Tüm Sürümler"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
 #, kde-format
 msgid "2.0"
-msgstr ""
+msgstr "2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8798,68 +8797,68 @@ msgstr "Roka'da neler yeni. %1"
 msgid "Store Message in Local Database (experimental)"
 msgstr "İletileri Yerel Veritabanında Depola (Deneysel)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
 msgstr "Sunucu Simgesini Sunucudan İndir"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Belirli İletişim Kutularında Sunucu Hatası Bilgilerini Göster"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Panodaki Görseli Kopyalamaya İzin Ver"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Hata ayıklama desteğini iyileştir (Geçerli hesap izinlerini göstermeye izin "
 "ver)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Alıntı metinler için destek ekle ('>' ile başlayan metinler)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Kanal bilgisinde lider/moderatör/sahip bilgisini göster"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Video/Ses İletisi desteği (yalnızca KF6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Import/Export Accounts."
 msgstr "Hesaplar İçe/Dışa Aktar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
 msgstr "Avatar desteğini onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Emoji desteğini düzelt (yeni ktextaddons/textemoticons kitaplığını kullan)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix animated gif in reactions"
 msgstr "Tepkilerdeki canlandırmalı GIF'leri onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix kf6 support"
 msgstr "KF6 desteğini onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Son sürümden bu yana önemli değişiklikler:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:110
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Roka'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:113
+#: widgets/whatsnew/whatsnewwidget.cpp:118
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"

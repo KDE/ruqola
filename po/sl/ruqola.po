@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-08-17 09:14+0200\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"PO-Revision-Date: 2023-09-03 08:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -8802,21 +8802,19 @@ msgid "Return the number of account."
 msgstr "Vrnite številko računa."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Različica"
+msgstr "Različica:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Različica"
+msgstr "Vse različice"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
 #, kde-format
 msgid "2.0"
-msgstr ""
+msgstr "2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8838,66 +8836,66 @@ msgstr "Kaj je novega v aplikaciji Ruqola. %1"
 msgid "Store Message in Local Database (experimental)"
 msgstr "Shrani sporočilo v lokalni zbirki (eksperimentalno)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
 msgstr "Prenesi ikono strežnika iz strežnika"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Prikaži informacijo on napaki na strežniku v pogovornem oknu"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Dovoli kopiranje slike na odložišče"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Izboljšaj podporo razhroščevanju (Dovoli prikaz trenutnih dovoljenj računa)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Dodaj podporo za besedilo v navednicah (besedilo, ki se začne z '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Pokaži vodjo/moderatorja/lastnika v informaciji o kanalu."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Podpora video/zvočnim sporočilom (samo Kf6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Import/Export Accounts."
 msgstr "Uvozi/Izvozi račune."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
 msgstr "Popravi podporo za avatar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Popravi podporo čustvenčkom (uporabi novo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix animated gif in reactions"
 msgstr "Zamrzni animirane gife v odzivih"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix kf6 support"
 msgstr "Popravi podporo kf6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Pomembne spremembe od zadnje različice:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:110
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:113
+#: widgets/whatsnew/whatsnewwidget.cpp:118
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"

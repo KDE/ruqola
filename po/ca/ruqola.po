@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-08-17 13:22+0200\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"PO-Revision-Date: 2023-09-03 10:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -8816,21 +8816,19 @@ msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Versió"
+msgstr "Versió:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Versió"
+msgstr "Totes les versions"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
 #, kde-format
 msgid "2.0"
-msgstr ""
+msgstr "2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8852,70 +8850,70 @@ msgstr "Què hi ha de nou al Ruqola. %1"
 msgid "Store Message in Local Database (experimental)"
 msgstr "Emmagatzema els missatges a la base de dades local (experimental)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
 msgstr "Baixa la icona del servidor des del servidor"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 "Mostra la informació d'error del servidor en un quadre de diàleg específic"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permet copiar la imatge al porta-retalls"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Millora la implementació de la depuració (permet mostrar els permisos "
 "actuals dels comptes)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Afegeix la implementació per al text citat (text que comença amb «>»)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostra el líder/moderador/propietari a la informació del canal."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Implementació de missatges de vídeo/so (només KF6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Import/Export Accounts."
 msgstr "Importació/exportació de comptes."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
 msgstr "Corregeix la implementació dels avatars"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Corregeix la implementació dels emoji (usa el ktextaddons/textemoticons nou)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix animated gif in reactions"
 msgstr "Corregeix els GIF animats a les reaccions"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix kf6 support"
 msgstr "Corregeix la implementació dels KF6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de la darrera versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:110
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'aquesta versió del Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:113
+#: widgets/whatsnew/whatsnewwidget.cpp:118
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"

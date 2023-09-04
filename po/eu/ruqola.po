@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:46+0000\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -8696,69 +8696,69 @@ msgstr ""
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 #, fuzzy
 #| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Kopiatu irudia arbelera"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 #, fuzzy
 #| msgid "Accounts"
 msgid "Import/Export Accounts."
 msgstr "Kontuak"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix kf6 support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:110
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:113
+#: widgets/whatsnew/whatsnewwidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"

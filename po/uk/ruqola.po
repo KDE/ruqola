@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:46+0000\n"
-"PO-Revision-Date: 2023-08-17 09:12+0300\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"PO-Revision-Date: 2023-09-03 09:54+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -8870,21 +8870,19 @@ msgid "Return the number of account."
 msgstr "Повернути номер облікового запису."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Версія"
+msgstr "Версія:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Версія"
+msgstr "Усі версії"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
 #, kde-format
 msgid "2.0"
-msgstr ""
+msgstr "2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8907,68 +8905,68 @@ msgid "Store Message in Local Database (experimental)"
 msgstr ""
 "Зберігати повідомлення у локальній базі даних (експериментальна можливість)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
 msgstr "Отримувати піктограму сервера з сервера"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Показувати дані помилки сервера у відповідному вікні"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Дозволити копіювання зображення до буфера"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Удосконалено підтримку діагностики (уможливлено показ поточних права доступу "
 "облікового запису)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Показувати лідера, модератора та власника у даних каналу."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Import/Export Accounts."
 msgstr "Імпортувати/Експортувати облікові записи."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:39
 msgid "Fix avatar support"
 msgstr "Виправлено підтримку аватарів"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix animated gif in reactions"
 msgstr "Виправлено анімований gif у реакціях"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix kf6 support"
 msgstr "Виправлено підтримку kf6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:97
+#: widgets/whatsnew/whatsnewwidget.cpp:102
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важливі зміни з часу випуску попередньої версії:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:105
+#: widgets/whatsnew/whatsnewwidget.cpp:110
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:113
+#: widgets/whatsnew/whatsnewwidget.cpp:118
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
