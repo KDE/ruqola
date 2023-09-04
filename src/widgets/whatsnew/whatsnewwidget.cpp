@@ -10,8 +10,8 @@
 #include <KSeparator>
 
 #include <QCryptographicHash>
-#include <QLabel>
 #include <QScrollArea>
+#include <QTextEdit>
 #include <QVBoxLayout>
 
 // enter items for the "Important changes" list here:
@@ -47,7 +47,7 @@ static const int numRuqolaBugfixing2_0 = sizeof ruqolaBugfixing2_0 / sizeof *ruq
 
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
-    , mLabelInfo(new QLabel(this))
+    , mLabelInfo(new QTextEdit(this))
     , mWhatsNewComboBoxWidget(new WhatsNewComboBoxWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -62,17 +62,11 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mainLayout->addWidget(separator);
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
-    mLabelInfo->setTextFormat(Qt::RichText);
+    mLabelInfo->setReadOnly(true);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
     mWhatsNewComboBoxWidget->initializeVersion();
-
-    auto scrollArea = new QScrollArea(this);
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setObjectName(QStringLiteral("scrollArea"));
-    scrollArea->setWidget(mLabelInfo);
-    mainLayout->addWidget(scrollArea, 0, Qt::AlignTop);
-    mainLayout->addStretch(1);
+    mainLayout->addWidget(mLabelInfo);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
@@ -104,13 +98,13 @@ QString WhatsNewWidget::newFeaturesMD5()
 
 void WhatsNewWidget::updateInformations()
 {
-    mLabelInfo->setText(createVersionInformations());
+    mLabelInfo->setHtml(createVersionInformations());
 }
 
 void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type)
 {
     if (type == WhatsNewComboBoxWidget::Version2_0 || type == WhatsNewComboBoxWidget::AllVersion) {
-        mLabelInfo->setText(createVersionInformations());
+        mLabelInfo->setHtml(createVersionInformations());
     }
 }
 

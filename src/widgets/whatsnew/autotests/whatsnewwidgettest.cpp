@@ -7,9 +7,9 @@
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include "whatsnew/whatsnewwidget.h"
 #include <KSeparator>
-#include <QLabel>
 #include <QScrollArea>
 #include <QTest>
+#include <QTextEdit>
 #include <QVBoxLayout>
 
 QTEST_MAIN(WhatsNewWidgetTest)
@@ -25,19 +25,15 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mLabelInfo = w.findChild<QLabel *>(QStringLiteral("mLabelInfo"));
+    auto mLabelInfo = w.findChild<QTextEdit *>(QStringLiteral("mLabelInfo"));
     QVERIFY(mLabelInfo);
-    QVERIFY(mLabelInfo->text().isEmpty());
+    QVERIFY(mLabelInfo->toPlainText().isEmpty());
 
     auto mWhatsNewComboBoxWidget = w.findChild<WhatsNewComboBoxWidget *>(QStringLiteral("mWhatsNewComboBoxWidget"));
     QVERIFY(mWhatsNewComboBoxWidget);
 
     auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
     QVERIFY(separator);
-
-    auto scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
-    QVERIFY(scrollArea);
-    QCOMPARE(scrollArea->widgetResizable(), true);
 }
 
 #include "moc_whatsnewwidgettest.cpp"
