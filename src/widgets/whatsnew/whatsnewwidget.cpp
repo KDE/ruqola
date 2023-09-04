@@ -72,6 +72,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     scrollArea->setObjectName(QStringLiteral("scrollArea"));
     scrollArea->setWidget(mLabelInfo);
     mainLayout->addWidget(scrollArea, 0, Qt::AlignTop);
+    mainLayout->addStretch(1);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
