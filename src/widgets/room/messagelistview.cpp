@@ -352,6 +352,44 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return action;
     }();
 
+    auto userInfoActions = [&]() -> QList<QAction *> {
+        QList<QAction *> listActions;
+        auto options = listViewOptions();
+        options.rect = visualRect(index);
+        options.index = index;
+        QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
+        if (url.isEmpty())
+            return {};
+        if (url.startsWith(QLatin1String("ruqola:/user/"))) {
+            url.remove(QStringLiteral("ruqola:/user/"));
+            if (url == QLatin1String("here") || url == QLatin1String("all")) {
+                return {};
+            }
+        } else {
+            return {};
+        }
+        auto action = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
+        connect(action, &QAction::triggered, this, [url, this]() {
+            slotShowUserInfo(url);
+        });
+        listActions.append(action);
+        if (info.editMode) {
+            if (info.roomType != Room::RoomType::Direct) {
+                if (mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
+                    auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
+                    connect(startPrivateConversationAction, &QAction::triggered, this, [this, url]() {
+                        slotStartPrivateConversation(url);
+                    });
+                    auto separator = new QAction(&menu);
+                    separator->setSeparator(true);
+                    listActions.append(separator);
+                    listActions.append(startPrivateConversationAction);
+                }
+            }
+        }
+        return listActions;
+    }();
+
     if (mMode == Mode::Editing) {
         auto startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
@@ -510,7 +548,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotReportMessage(index);
     });
     menu.addAction(reportMessageAction);
-
+    if (!userInfoActions.isEmpty()) {
+        menu.addSeparator();
+        for (auto action : userInfoActions) {
+            menu.addAction(action);
+        }
+    }
     if (Ruqola::self()->debug()) {
         addDebugMenu(menu, index);
     }
