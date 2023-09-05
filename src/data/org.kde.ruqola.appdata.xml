@@ -529,7 +529,7 @@
       <li xml:lang="ru">Показ сведений о непрочитанных сообщениях</li>
       <li xml:lang="sl">Prikaz informacij neprebranih sporočil</li>
       <li xml:lang="sv">Visa information om olästa meddelanden</li>
-      <li xml:lang="tr">Okunmamış ileti bilgisi gösterme</li>
+      <li xml:lang="tr">Okunmayan ileti bilgisi gösterme</li>
       <li xml:lang="uk">Показ відомостей щодо непрочитаних повідомлень</li>
       <li xml:lang="x-test">xxShow unread message informationxx</li>
       <li>Allow to block/unblock users</li>
