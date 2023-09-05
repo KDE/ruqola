@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"POT-Creation-Date: 2023-09-05 00:45+0000\n"
 "PO-Revision-Date: 2023-08-17 13:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -8850,74 +8850,74 @@ msgstr "(Mostra les novetats de Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Què hi ha de nou a Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:17
+#: widgets/whatsnew/whatsnewwidget.cpp:19
 msgid "Store Message in Local Database (experimental)"
 msgstr "Emmagatzema els missatges en la base de dades local (experimental)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:26
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Download Server Icon from Server"
 msgstr "Baixa la icona del servidor des del servidor"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Mostra la informació d'error del servidor en un diàleg específic"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permet copiar la imatge en el porta-retalls"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Millora la implementació de la depuració (permet mostrar els permisos "
 "actuals dels comptes)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Afig la implementació per al text citat (text que comença amb «>»)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostra el líder/moderador/propietari en la informació del canal."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Implementació de missatges de vídeo i so (només KF6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Import/Export Accounts."
 msgstr "Importació/exportació de comptes."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:39
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix avatar support"
 msgstr "Corregix la implementació dels avatars"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Corregix la implementació dels emoji (utilitza el ktextaddons/textemoticons "
 "nou)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 msgid "Fix animated gif in reactions"
 msgstr "Corregix els GIF animats en les reaccions"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:44
 msgid "Fix kf6 support"
 msgstr "Corregix la implementació dels KF6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:115
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de l'última versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:110
+#: widgets/whatsnew/whatsnewwidget.cpp:123
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:118
+#: widgets/whatsnew/whatsnewwidget.cpp:131
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-04 00:46+0000\n"
-"PO-Revision-Date: 2023-08-18 06:28+0200\n"
+"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"PO-Revision-Date: 2023-09-04 05:57+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -8646,21 +8646,19 @@ msgid "Return the number of account."
 msgstr "ანგარიშების რაოდენობის დაბრუნება."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "ვერსია"
+msgstr "ვერსია:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "ვერსია"
+msgstr "ყველა ვერსია"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
 #, kde-format
 msgid "2.0"
-msgstr ""
+msgstr "2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8678,72 +8676,72 @@ msgstr "(სიახლეების Ruqola-ში ჩვენება)"
 msgid "What's new in Ruqola. %1"
 msgstr "Ruqola-ის სიახლეები. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:17
+#: widgets/whatsnew/whatsnewwidget.cpp:19
 msgid "Store Message in Local Database (experimental)"
 msgstr "შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:26
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Download Server Icon from Server"
 msgstr "სერვერის ხატულის სერვერიდან გადმოწერა"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Allow to Copy Image in Clipboard"
 msgstr "გამოსახულების ბუფერში კოპირების დაშვება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების ჩვენების "
 "დაშვება)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 "ციტირებული ტექსტის (ტექსტის, რომელიც '>'-ით იწყება) მხარდაჭერის დამატება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Show leader/moderator/owner in channel info."
 msgstr "არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Import/Export Accounts."
 msgstr "ანგარიშების გატანა/შემოტანა."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:39
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix avatar support"
 msgstr "ავატარის მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 msgid "Fix animated gif in reactions"
 msgstr "რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:44
 msgid "Fix kf6 support"
 msgstr "KF6-ის მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:115
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "მნიშვნელოვანი ცვლილებები ბოლო ვერსიის შემდეგ:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:110
+#: widgets/whatsnew/whatsnewwidget.cpp:123
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola-ის ახალ ფუნქციებში შედის:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:118
+#: widgets/whatsnew/whatsnewwidget.cpp:131
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"

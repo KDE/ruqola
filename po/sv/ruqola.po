@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"POT-Creation-Date: 2023-09-05 00:45+0000\n"
 "PO-Revision-Date: 2023-09-03 09:44+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -8794,70 +8794,70 @@ msgstr "(Visa nyheter i Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Vad är nytt i Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:17
+#: widgets/whatsnew/whatsnewwidget.cpp:19
 msgid "Store Message in Local Database (experimental)"
 msgstr "Lagra meddelanden i lokal databas (experimentellt)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:26
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Download Server Icon from Server"
 msgstr "Ladda ner serverikon från server"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Visa information om serverfel i specifik dialogruta"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Tillåt att kopiera bild till klippbordet"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Förbättra felsökningsstöd (tillåt att nuvarande kontos rättigheter visas)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Lägg till stöd för citerad text (text som börjar med '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Visa ledare, moderator, ägare i kanalinformation"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Stöd för video- och ljudmeddelanden (bara kf6)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Import/Export Accounts."
 msgstr "Importera och exportera konton"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:39
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix avatar support"
 msgstr "Rätta avatarstöd"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Rätta emojistöd (använd ny ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 msgid "Fix animated gif in reactions"
 msgstr "Rätta animerade GIF i reaktioner"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:44
 msgid "Fix kf6 support"
 msgstr "Fixa kf6-stöd"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:102
+#: widgets/whatsnew/whatsnewwidget.cpp:115
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Viktiga ändringar sedan föregående version:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:110
+#: widgets/whatsnew/whatsnewwidget.cpp:123
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Vissa av de nya funktionerna i den här utgåvan av Ruqola omfattar:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:118
+#: widgets/whatsnew/whatsnewwidget.cpp:131
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "En del felrättning:"
