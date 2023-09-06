@@ -28,11 +28,7 @@ void TranslateTextJob::translate()
         translatorEngine->setTo(mInfo.to);
         translatorEngine->translate();
     } else {
-#if TEXTTRANSLATE_VERSION < QT_VERSION_CHECK(1, 4, 40)
-        Q_EMIT translateFailed(false, i18n("Missing translator info. It's a bug"));
-#else
         Q_EMIT translateFailed(i18n("Missing translator info. It's a bug"));
-#endif
         qCDebug(RUQOLA_LOG) << " Invalid translate info " << mInfo;
     }
 }

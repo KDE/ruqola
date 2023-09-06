@@ -5,15 +5,10 @@
 */
 
 #include "purposemenuwidget.h"
-#include "purpose_version.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <Purpose/AlternativesModel>
-#if PURPOSE_VERSION < QT_VERSION_CHECK(5, 104, 0)
-#include <PurposeWidgets/Menu>
-#else
 #include <Purpose/Menu>
-#endif
 #include <QJsonArray>
 #include <QTemporaryFile>
 #include <QUrl>

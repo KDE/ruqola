@@ -8,7 +8,6 @@
 #include <KUrlRequester>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <kio_version.h>
 
 ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
     : QWizardPage(parent)
@@ -23,11 +22,7 @@ ImportDataSelectAccountPage::ImportDataSelectAccountPage(QWidget *parent)
     mainLayout->addLayout(hboxLayout);
 
     mUrlRequester->setObjectName(QStringLiteral("mUrlRequester"));
-#if KIO_VERSION < QT_VERSION_CHECK(5, 108, 0)
-    mUrlRequester->setFilter(QStringLiteral("*.zip"));
-#else
     mUrlRequester->setNameFilter(QStringLiteral("*.zip"));
-#endif
     connect(mUrlRequester, &KUrlRequester::urlSelected, this, [this]() {
         Q_EMIT completeChanged();
     });

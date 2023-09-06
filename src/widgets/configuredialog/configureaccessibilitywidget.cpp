@@ -34,9 +34,7 @@ void ConfigureAccessibilityWidget::save()
 
 void ConfigureAccessibilityWidget::load()
 {
-#if TEXTEDITTEXTTOSPEECH_VERSION >= QT_VERSION_CHECK(1, 4, 46)
     mTextToSpeechWidget->initializeSettings();
-#endif
 }
 
 void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)

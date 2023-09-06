@@ -8,7 +8,6 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QObject>
-#include <texttranslator_version.h>
 class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
     Q_OBJECT
@@ -29,11 +28,7 @@ public:
 
 Q_SIGNALS:
     void translateDone(const QString &translatedText);
-#if TEXTTRANSLATE_VERSION < QT_VERSION_CHECK(1, 4, 40)
-    void translateFailed(bool result, const QString &errorMessage = QString());
-#else
     void translateFailed(const QString &errorMessage = QString());
-#endif
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeTranslateEngine();
