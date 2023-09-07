@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:46+0000\n"
+"POT-Creation-Date: 2023-09-07 00:45+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -771,7 +771,7 @@ msgstr "Desactivada"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:527
+#: widgets/ruqolamainwindow.cpp:524
 #, kde-format
 msgid "Status"
 msgstr "Estado"
@@ -1401,8 +1401,7 @@ msgstr "Directa"
 msgid "Omnichannel"
 msgstr "Omnicanal"
 
-#: core/translatetext/translatetextjob.cpp:32
-#: core/translatetext/translatetextjob.cpp:34
+#: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr "Faltam dados do tradutor. Isto é um erro"
@@ -1412,7 +1411,7 @@ msgstr "Faltam dados do tradutor. Isto é um erro"
 msgid "User"
 msgstr "Utilizador"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:482
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:479
 #, kde-format
 msgid "Administrator"
 msgstr "Administrador"
@@ -1465,27 +1464,27 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Utilizador/Senha"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:25
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, kde-format
 msgid "Share Text..."
 msgstr "Partilhar o Texto..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Ocorreu um problema ao partilhar o documento: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "Share"
 msgstr "Partilhar"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:74
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "O ficheiro foi partilhado."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:77
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Poderá encontrar o novo pedido em:<br /><a href='%1'>%1</a> </qt>"
@@ -2256,78 +2255,6 @@ msgstr "Parâmetros inválidos"
 msgid "Error trying to send email %1"
 msgstr "Erro ao tentar enviar o e-mail %1"
 
-#: textemoticons/core/unicodeemoticonmanager.cpp:42
-#, kde-format
-msgid "Symbols"
-msgstr "Símbolos"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:44
-#, kde-format
-msgid "Activity"
-msgstr "Actividade"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:46
-#, kde-format
-msgid "Objects"
-msgstr "Objectos"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:48
-#, kde-format
-msgid "Nature"
-msgstr "Natureza"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:50
-#, kde-format
-msgid "Food"
-msgstr "Comida"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:52
-#, kde-format
-msgid "People"
-msgstr "Pessoas"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:54
-#, kde-format
-msgid "Travel"
-msgstr "Viagem"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:56
-#, kde-format
-msgid "Regional"
-msgstr "Regional"
-
-#: textemoticons/core/unicodeemoticonmanager.cpp:58
-#, kde-format
-msgid "Flags"
-msgstr "Bandeiras"
-
-#: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, kde-format
-msgctxt "Previously used emojis"
-msgid "History"
-msgstr "Histórico"
-
-#: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "Personalizados"
-
-#: textemoticons/widgets/emoticonlistview.cpp:107
-#, kde-format
-msgid "Clear Recents"
-msgstr "Limpar as Recentes"
-
-#: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, kde-format
-msgid "Add Smiley"
-msgstr "Adicionar Smiley"
-
-#: textemoticons/widgets/emoticontexteditselector.cpp:83
-#, kde-format
-msgid "Search Emoticon..."
-msgstr "Procurar um Ícone Emotivo..."
-
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -2548,7 +2475,7 @@ msgstr "Editar o Estado do Utilizador"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:534
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:531
 #, kde-format
 msgid "Status:"
 msgstr "Estado:"
@@ -3509,7 +3436,7 @@ msgstr "Encriptação"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:991
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
@@ -7202,7 +7129,7 @@ msgstr "Importação Terminada."
 msgid "Accounts imported."
 msgstr "As contas foram importadas."
 
-#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
+#: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:33
 #, kde-format
 msgid "Select Zip file:"
 msgstr "Seleccionar o ficheiro ZIP:"
@@ -8119,7 +8046,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Remover a Mensagem"
 
-#: widgets/room/messagelistview.cpp:868
+#: widgets/room/messagelistview.cpp:863
 #, kde-format
 msgid "Translator Error"
 msgstr "Erro do Tradutor"
@@ -8472,179 +8399,179 @@ msgstr ""
 "A Autenticação Falhou: Não é permitido ao utilizador da aplicação autenticar-"
 "se."
 
-#: widgets/ruqolamainwindow.cpp:218
+#: widgets/ruqolamainwindow.cpp:215
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Mostrar as Notificações Novas"
 
-#: widgets/ruqolamainwindow.cpp:388
+#: widgets/ruqolamainwindow.cpp:385
 #, kde-format
 msgid "Add Server..."
 msgstr "Adicionar um Servidor..."
 
-#: widgets/ruqolamainwindow.cpp:393
+#: widgets/ruqolamainwindow.cpp:390
 #, kde-format
 msgid "Server Info..."
 msgstr "Informação do Servidor..."
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:394
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Sair do Servidor Actual"
 
-#: widgets/ruqolamainwindow.cpp:401
+#: widgets/ruqolamainwindow.cpp:398
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Ir para o Canal Não-Lido Seguinte"
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:403
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Criar um Novo Canal..."
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:407
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Criar Mensagens Directas..."
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:411
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Criar uma Discussão..."
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:415
 #, kde-format
 msgid "Create Team..."
 msgstr "Criar uma Equipa..."
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgid "Unread on Top"
 msgstr "Não-Lidas no Topo"
 
-#: widgets/ruqolamainwindow.cpp:434
+#: widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "By Last Message"
 msgstr "Pela Última Mensagem"
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:437
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabeticamente"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostrar o Registo do Canal"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Mostrar os Erros do Servidor"
 
-#: widgets/ruqolamainwindow.cpp:469
+#: widgets/ruqolamainwindow.cpp:466
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Marcar Todos os Canais como Lidos"
 
-#: widgets/ruqolamainwindow.cpp:474
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registar um Novo Utilizador..."
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:475
 #, kde-format
 msgid "My Account..."
 msgstr "A Minha Conta..."
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:480
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrador..."
 
-#: widgets/ruqolamainwindow.cpp:489
+#: widgets/ruqolamainwindow.cpp:486
 #, kde-format
 msgid "Server Settings..."
 msgstr "Configuração do Servidor..."
 
-#: widgets/ruqolamainwindow.cpp:494
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Directório..."
 
-#: widgets/ruqolamainwindow.cpp:515
+#: widgets/ruqolamainwindow.cpp:512
 #, kde-format
 msgid "&Next Server"
 msgstr "Servidor Segui&nte"
 
-#: widgets/ruqolamainwindow.cpp:520
+#: widgets/ruqolamainwindow.cpp:517
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor &Anterior"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Canal Seleccionado Anterior"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:555
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Canal Seleccionado Seguinte"
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:589
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostrar o Histórico de Notificações"
 
-#: widgets/ruqolamainwindow.cpp:600
+#: widgets/ruqolamainwindow.cpp:593
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Mostrar a Informação do Rocket.Chat"
 
-#: widgets/ruqolamainwindow.cpp:604
+#: widgets/ruqolamainwindow.cpp:597
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Mostrar o Avatar da Sala"
 
-#: widgets/ruqolamainwindow.cpp:609
+#: widgets/ruqolamainwindow.cpp:602
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Mostrar a Sala Favorita"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:607
 #, kde-format
 msgid "What's new"
 msgstr "Novidades"
 
-#: widgets/ruqolamainwindow.cpp:618
+#: widgets/ruqolamainwindow.cpp:611
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importar as Contas"
 
-#: widgets/ruqolamainwindow.cpp:622
+#: widgets/ruqolamainwindow.cpp:615
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportar as Contas"
 
-#: widgets/ruqolamainwindow.cpp:654
+#: widgets/ruqolamainwindow.cpp:647
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Criar uma Equipa"
 
-#: widgets/ruqolamainwindow.cpp:809
+#: widgets/ruqolamainwindow.cpp:802
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Não é possível abrir o registo."
 
-#: widgets/ruqolamainwindow.cpp:809
+#: widgets/ruqolamainwindow.cpp:802
 #, kde-format
 msgid "Show Log"
 msgstr "Mostrar o Registo"
 
-#: widgets/ruqolamainwindow.cpp:871
+#: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8653,18 +8580,18 @@ msgstr ""
 "Enviámos-lhe um e-mail para confirmar o seu registo.\n"
 "Se não receber em breve um e-mail, por favor regresse e tente de novo."
 
-#: widgets/ruqolamainwindow.cpp:872
+#: widgets/ruqolamainwindow.cpp:865
 #, kde-format
 msgid "Register New User"
 msgstr "Registar um Novo Utilizador"
 
-#: widgets/ruqolamainwindow.cpp:930
+#: widgets/ruqolamainwindow.cpp:923
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estado"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1018
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8673,7 +8600,7 @@ msgstr ""
 "<qt>Isto irá esconder a barra do menu por completo. Podê-la-á mostrar de "
 "novo se escrever %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1028
+#: widgets/ruqolamainwindow.cpp:1021
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Esconder o menu"
@@ -8936,17 +8863,61 @@ msgstr "Correcção dos GIF's animados nas reacções"
 msgid "Fix kf6 support"
 msgstr "Correcção do suporte para as KF6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:115
+#: widgets/whatsnew/whatsnewwidget.cpp:116
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificações importantes desde a última versão:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:123
+#: widgets/whatsnew/whatsnewwidget.cpp:124
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:131
+#: widgets/whatsnew/whatsnewwidget.cpp:132
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
+
+#~ msgid "Symbols"
+#~ msgstr "Símbolos"
+
+#~ msgid "Activity"
+#~ msgstr "Actividade"
+
+#~ msgid "Objects"
+#~ msgstr "Objectos"
+
+#~ msgid "Nature"
+#~ msgstr "Natureza"
+
+#~ msgid "Food"
+#~ msgstr "Comida"
+
+#~ msgid "People"
+#~ msgstr "Pessoas"
+
+#~ msgid "Travel"
+#~ msgstr "Viagem"
+
+#~ msgid "Regional"
+#~ msgstr "Regional"
+
+#~ msgid "Flags"
+#~ msgstr "Bandeiras"
+
+#~ msgctxt "Previously used emojis"
+#~ msgid "History"
+#~ msgstr "Histórico"
+
+#~ msgctxt "'Custom' is a category of emoji"
+#~ msgid "Custom"
+#~ msgstr "Personalizados"
+
+#~ msgid "Clear Recents"
+#~ msgstr "Limpar as Recentes"
+
+#~ msgid "Add Smiley"
+#~ msgstr "Adicionar Smiley"
+
+#~ msgid "Search Emoticon..."
+#~ msgstr "Procurar um Ícone Emotivo..."
