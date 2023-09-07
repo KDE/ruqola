@@ -62,7 +62,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
     mWhatsNewComboBoxWidget->initializeVersion();
     mainLayout->addWidget(mLabelInfo);
-    // mWhatsNewComboBoxWidget->setVisible(false);
+    mWhatsNewComboBoxWidget->setVisible(false);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
