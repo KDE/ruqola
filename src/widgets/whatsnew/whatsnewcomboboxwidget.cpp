@@ -42,15 +42,26 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
 
 WhatsNewComboBoxWidget::~WhatsNewComboBoxWidget() = default;
 
-void WhatsNewComboBoxWidget::fillCombobox()
+QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewComboBoxWidget::VersionType type)
 {
-    mVersionComboBox->addItem(i18n("All Version"), AllVersion);
-    mVersionComboBox->addItem(i18n("2.0"), Version2_0);
+    switch (type) {
+    case AllVersion:
+        return i18n("All Version");
+    case Version2_0:
+        return i18n("Version 2.0");
+    }
+    return {};
 }
 
-void WhatsNewComboBoxWidget::initializeVersion()
+void WhatsNewComboBoxWidget::fillCombobox()
 {
-    const int index = mVersionComboBox->findData(Version2_0);
+    mVersionComboBox->addItem(convertVersionEnumToString(AllVersion), AllVersion);
+    mVersionComboBox->addItem(convertVersionEnumToString(Version2_0), Version2_0);
+}
+
+void WhatsNewComboBoxWidget::initializeVersion(WhatsNewComboBoxWidget::VersionType type)
+{
+    const int index = mVersionComboBox->findData(type);
     if (index != -1) {
         mVersionComboBox->setCurrentIndex(index);
     }

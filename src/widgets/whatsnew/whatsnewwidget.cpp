@@ -60,7 +60,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mLabelInfo->setReadOnly(true);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
-    mWhatsNewComboBoxWidget->initializeVersion();
+    mWhatsNewComboBoxWidget->initializeVersion(currentVersion());
     mainLayout->addWidget(mLabelInfo);
     // mWhatsNewComboBoxWidget->setVisible(false);
 }
