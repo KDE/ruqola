@@ -7,7 +7,6 @@
 #include "whatsnewcomboboxwidget.h"
 
 #include <KLazyLocalizedString>
-#include <KSeparator>
 
 #include <QCryptographicHash>
 #include <QScrollArea>
@@ -57,17 +56,13 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mWhatsNewComboBoxWidget->setObjectName(QStringLiteral("mWhatsNewComboBoxWidget"));
     mainLayout->addWidget(mWhatsNewComboBoxWidget);
 
-    auto separator = new KSeparator(this);
-    separator->setObjectName(QStringLiteral("separator"));
-    mainLayout->addWidget(separator);
-
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setReadOnly(true);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
     mWhatsNewComboBoxWidget->initializeVersion();
     mainLayout->addWidget(mLabelInfo);
-    mWhatsNewComboBoxWidget->setVisible(false);
+    // mWhatsNewComboBoxWidget->setVisible(false);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;

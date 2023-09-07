@@ -6,7 +6,6 @@
 #include "whatsnewwidgettest.h"
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include "whatsnew/whatsnewwidget.h"
-#include <KSeparator>
 #include <QScrollArea>
 #include <QTest>
 #include <QTextEdit>
@@ -31,9 +30,6 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
 
     auto mWhatsNewComboBoxWidget = w.findChild<WhatsNewComboBoxWidget *>(QStringLiteral("mWhatsNewComboBoxWidget"));
     QVERIFY(mWhatsNewComboBoxWidget);
-
-    auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
-    QVERIFY(separator);
 }
 
 #include "moc_whatsnewwidgettest.cpp"

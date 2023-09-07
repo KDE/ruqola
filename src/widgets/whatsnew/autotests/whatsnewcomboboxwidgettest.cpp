@@ -5,6 +5,7 @@
 */
 #include "whatsnewcomboboxwidgettest.h"
 #include "whatsnew/whatsnewcomboboxwidget.h"
+#include <KSeparator>
 #include <QComboBox>
 #include <QLabel>
 #include <QSignalSpy>
@@ -21,9 +22,13 @@ WhatsNewComboBoxWidgetTest::WhatsNewComboBoxWidgetTest(QObject *parent)
 void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
 {
     WhatsNewComboBoxWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    QVERIFY(hboxLayout);
+    QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
     auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
     QVERIFY(mVersionComboBox);
@@ -31,6 +36,9 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
+
+    auto separator = w.findChild<KSeparator *>(QStringLiteral("separator"));
+    QVERIFY(separator);
 }
 
 void WhatsNewComboBoxWidgetTest::shouldInitializeComboBox()

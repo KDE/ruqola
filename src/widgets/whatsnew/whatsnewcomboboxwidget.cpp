@@ -6,6 +6,7 @@
 
 #include "whatsnewcomboboxwidget.h"
 #include <KLocalizedString>
+#include <KSeparator>
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -14,17 +15,27 @@ WhatsNewComboBoxWidget::WhatsNewComboBoxWidget(QWidget *parent)
     : QWidget{parent}
     , mVersionComboBox(new QComboBox(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setContentsMargins({});
+    mainLayout->addLayout(hboxLayout);
+
     auto label = new QLabel(i18n("Version:"), this);
     label->setObjectName(QStringLiteral("label"));
-    mainLayout->addWidget(label);
+    hboxLayout->addWidget(label);
 
     mVersionComboBox->setObjectName(QStringLiteral("mVersionComboBox"));
-    mainLayout->addWidget(mVersionComboBox);
-    mainLayout->addStretch(1);
+    hboxLayout->addWidget(mVersionComboBox);
+    hboxLayout->addStretch(1);
+
+    auto separator = new KSeparator(this);
+    separator->setObjectName(QStringLiteral("separator"));
+    mainLayout->addWidget(separator);
+
     fillCombobox();
     connect(mVersionComboBox, &QComboBox::currentIndexChanged, this, &WhatsNewComboBoxWidget::slotCurrentIndexChanged);
 }
