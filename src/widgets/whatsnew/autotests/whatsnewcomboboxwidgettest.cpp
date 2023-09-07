@@ -44,7 +44,7 @@ void WhatsNewComboBoxWidgetTest::shouldHaveDefaultValues()
 void WhatsNewComboBoxWidgetTest::shouldInitializeComboBox()
 {
     WhatsNewComboBoxWidget w;
-    w.initializeVersion();
+    w.initializeVersion(WhatsNewComboBoxWidget::Version2_0);
     auto mVersionComboBox = w.findChild<QComboBox *>(QStringLiteral("mVersionComboBox"));
     QCOMPARE(mVersionComboBox->currentData(), WhatsNewComboBoxWidget::Version2_0);
 }

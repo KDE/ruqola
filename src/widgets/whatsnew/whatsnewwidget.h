@@ -21,9 +21,6 @@ public:
     void updateInformations();
 
 private:
-    struct VersionInfo {
-        int numChanges = 0;
-    };
     Q_REQUIRED_RESULT QString createVersionInformations() const;
     Q_REQUIRED_RESULT WhatsNewComboBoxWidget::VersionType currentVersion() const;
     void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
