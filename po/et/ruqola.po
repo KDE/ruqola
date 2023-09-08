@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
+"POT-Creation-Date: 2023-09-08 02:24+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -162,10 +162,9 @@ msgid "New version available %1"
 msgstr ""
 
 #: core/bannerinfo/bannerinfos.cpp:64
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgid "(link)"
-msgstr "Kopeeri link"
+msgstr ""
 
 #: core/commands/command.cpp:52
 #, fuzzy, kde-format
@@ -326,9 +325,9 @@ msgstr "%1 lahkus kanalilt"
 
 #: core/messages/message.cpp:527
 #, fuzzy, kde-format
-#| msgid "%2 added %1 to the conversation"
+#| msgid "%1 has left the channel"
 msgid "%1 left this Team"
-msgstr "%2 lisas %1 vestlusse"
+msgstr "%1 lahkus kanalilt"
 
 #: core/messages/message.cpp:530
 #, kde-format
@@ -520,9 +519,9 @@ msgstr "Eemalda toast"
 
 #: core/messages/message.cpp:611
 #, fuzzy, kde-format
-#| msgid "Delete"
+#| msgid "%1 reacted with %2"
 msgid "%1 deleted #%2"
-msgstr "Kustuta"
+msgstr "%1 reageeris: %2"
 
 #: core/messages/message.cpp:613
 #, fuzzy, kde-format
@@ -542,9 +541,9 @@ msgstr ""
 
 #: core/messages/message.cpp:619
 #, fuzzy, kde-format
-#| msgid "%2 added %1 to the conversation"
+#| msgid "%1 has joined the channel"
 msgid "%1 joined this Team"
-msgstr "%2 lisas %1 vestlusse"
+msgstr "%1 liitus kanaliga"
 
 #: core/messages/message.cpp:621
 #, fuzzy, kde-format
@@ -1307,9 +1306,9 @@ msgstr "Videosõnum"
 
 #: core/model/systemmessagesmodel.cpp:68
 #, fuzzy, kde-format
-#| msgid "%2 added %1 to the conversation"
+#| msgid "Remove from Room"
 msgid "Joined this Team"
-msgstr "%2 lisas %1 vestlusse"
+msgstr "Eemalda toast"
 
 #: core/model/teamroomsmodel.cpp:32
 #, kde-format
@@ -2722,11 +2721,10 @@ msgid "Save File Error"
 msgstr "Faili salvestamine"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search Threads..."
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Oauth Apps"
-msgstr "Lõimede otsimine ..."
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:30
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:34
@@ -2736,11 +2734,10 @@ msgid "Redirect Url:"
 msgstr "Serveri URL:"
 
 #: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search Threads..."
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Oauth Apps"
-msgstr "Lõimede otsimine ..."
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:37
 #, kde-format
@@ -3460,10 +3457,9 @@ msgid "E2E key for %1 has been reset."
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
-#, fuzzy, kde-format
-#| msgid "Get Avatar"
+#, kde-format
 msgid "Reset E2E"
-msgstr "Hangi avatar"
+msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:394
 #, kde-format
@@ -3474,10 +3470,9 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
-#, fuzzy, kde-format
-#| msgid "Get Avatar"
+#, kde-format
 msgid "Reset TOTP"
-msgstr "Hangi avatar"
+msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
@@ -3534,10 +3529,9 @@ msgid "Allow Anonymous Read"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Allow Password Change for OAuth Users"
-msgstr "Parool"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
@@ -4156,10 +4150,9 @@ msgid "Mention Email Subject"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Mention All Email Subject"
-msgstr "Otsesõnum kellelegi"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
 #, fuzzy, kde-format
@@ -4426,10 +4419,9 @@ msgid "All messages"
 msgstr "Kõik sõnumid"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
-#, fuzzy, kde-format
-#| msgid "Add User In Room"
+#, kde-format
 msgid "User mentions only"
-msgstr "Lisa tuppa kasutaja"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
 #, fuzzy, kde-format
@@ -4869,22 +4861,19 @@ msgid "Enter 0 to disable blocking."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "All Messages"
+#, kde-format
 msgid "Block Message Editing After (n) Minutes"
-msgstr "Kõik sõnumid"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "All Messages"
+#, kde-format
 msgid "Block Message Deleting After (n) Minutes."
-msgstr "Kõik sõnumid"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "All Messages"
+#, kde-format
 msgid "Block Message Deleting After (n) Minutes"
-msgstr "Kõik sõnumid"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:65
 #, kde-format
@@ -5007,9 +4996,9 @@ msgstr "Kinnista sõnum"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
 #, fuzzy, kde-format
-#| msgid "Pin Message"
+#| msgid "All Messages"
 msgid "Audio Message Bit Rate"
-msgstr "Kinnista sõnum"
+msgstr "Kõik sõnumid"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
@@ -5145,10 +5134,9 @@ msgid "OAuth Apple Id"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Search Threads..."
+#, kde-format
 msgid "OAuth Apple Iss"
-msgstr "Lõimede otsimine ..."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:72
 #, kde-format
@@ -5171,10 +5159,9 @@ msgid "Id"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Secret"
-msgstr "Google"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
@@ -5351,9 +5338,9 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:29
 #, fuzzy, kde-format
-#| msgid "Invalid password"
+#| msgid "Password"
 msgid "Password History"
-msgstr "Vigane parool"
+msgstr "Parool"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:34
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:47
@@ -5375,9 +5362,9 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:42
 #, fuzzy, kde-format
-#| msgid "Invalid password"
+#| msgid "Password"
 msgid "Password Policy"
-msgstr "Vigane parool"
+msgstr "Parool"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:52
 #, kde-format
@@ -5454,10 +5441,9 @@ msgid "Enforce that a password contain at least one special character."
 msgstr "Parool ei vasta serveri vähemalt ühe erimärgi kasutamise reeglile"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "No Limit"
+#, kde-format
 msgid "Enable Rate Limiter"
-msgstr "Piiramata"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:16
 #, kde-format
@@ -5471,10 +5457,9 @@ msgid "Limit by User"
 msgstr "Kasutajate loend"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "List of Users"
+#, kde-format
 msgid "Limit by Connection"
-msgstr "Kasutajate loend"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:26
 #, fuzzy, kde-format
@@ -5483,22 +5468,19 @@ msgid "Limit by User per Method"
 msgstr "Kasutajate loend"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "List of Users"
+#, kde-format
 msgid "Limit by Connection per Method"
-msgstr "Kasutajate loend"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "No Limit"
+#, kde-format
 msgid "API Rate Limiter"
-msgstr "Piiramata"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "No Limit"
+#, kde-format
 msgid "DDP Rate Limit"
-msgstr "Piiramata"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
 #, kde-format
@@ -5560,9 +5542,9 @@ msgstr "Faili kustutamine"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
 #, fuzzy, kde-format
-#| msgid "Create Channel"
+#| msgid "Search Channel..."
 msgid "Applies to channels"
-msgstr "Kanali loomine"
+msgstr "Kanali otsimine ..."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
 #, kde-format
@@ -5571,9 +5553,10 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:26
 #, fuzzy, kde-format
-#| msgid "File sharing not allowed in direct messages"
+#| msgctxt "@title:window"
+#| msgid "Create Video Message"
 msgid "Applies to direct messages"
-msgstr "Otsesõnumites ei ole failide jagamine lubatud"
+msgstr "Videosõnumi loomine"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:38
 #, kde-format
@@ -5842,10 +5825,9 @@ msgid "Enable in Channels"
 msgstr "Välju kanalilt"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Delete Room"
+#, kde-format
 msgid "Enable for Teams"
-msgstr "Toa kustutamine"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:31
 #, kde-format
@@ -6148,16 +6130,14 @@ msgid "Conference Call Information"
 msgstr "Kanali teave"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "Serveri URL:"
+msgstr ""
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Delete Room"
+#, kde-format
 msgid "Provider:"
-msgstr "Toa kustutamine"
+msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:24
 #, kde-format
@@ -6166,10 +6146,11 @@ msgid "Up"
 msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Download"
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr ""
+msgstr "Laadi alla"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6209,10 +6190,9 @@ msgid "Show hover highlights"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Save Image"
+#, kde-format
 msgid "Animate Gif Image"
-msgstr "Pildi salvestamine"
+msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -6246,10 +6226,10 @@ msgstr ""
 #: widgets/configuredialog/configuresettingsdialog.cpp:90
 #: widgets/configuredialog/configuresettingsdialog.cpp:96
 #, fuzzy, kde-format
-#| msgid "Invalid description"
+#| msgid "Authentication Method"
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
-msgstr "Vigane kirjeldus"
+msgstr "Autentimisviis"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
@@ -6485,15 +6465,15 @@ msgstr "Kasutaja on juba omanik"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, fuzzy, kde-format
-#| msgid "Invalid date provided."
+#| msgid "Invalid Account"
 msgid "Invalid characters found."
-msgstr "Vigane kuupäev."
+msgstr "Vigane konto"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
 #, fuzzy, kde-format
-#| msgid "Invalid date provided."
+#| msgid "Invalid Account"
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Vigane kuupäev."
+msgstr "Vigane konto"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
@@ -6539,9 +6519,9 @@ msgstr ""
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, fuzzy, kde-format
-#| msgid "Create Channel"
+#| msgid "Search Channel..."
 msgid "Select a channel"
-msgstr "Kanali loomine"
+msgstr "Kanali otsimine ..."
 
 #: widgets/dialogs/configurenotificationdialog.cpp:17
 #, kde-format
@@ -6578,10 +6558,9 @@ msgid "Receive alerts"
 msgstr ""
 
 #: widgets/dialogs/configurenotificationwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Display badge for direct mentions only"
-msgstr "Näita mainimisi ..."
+msgstr ""
 
 #: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
@@ -7307,7 +7286,7 @@ msgstr "Diskussiooni avamine"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:501
+#: widgets/room/messagelistview.cpp:539
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7391,27 +7370,24 @@ msgstr "Importfaili lahtipakkimine nurjus."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
 #, fuzzy, kde-format
-#| msgid "Account"
+#| msgid "Report Message"
 msgid "Export Done."
-msgstr "Konto"
+msgstr "Anna sõnumist teada"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgid "Account %1: export config done."
-msgstr "Konto"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "Konto"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgid "Account %1: export logs done."
-msgstr "Konto"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
@@ -7420,9 +7396,9 @@ msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
-#| msgid "Account name:"
+#| msgid "Account"
 msgid "Accounts Exported."
-msgstr "Konto nimi:"
+msgstr "Konto"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
@@ -7443,22 +7419,19 @@ msgid "Impossible to open zip file."
 msgstr ""
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Failed to extract import file."
+#, kde-format
 msgid "Impossible to copy file"
-msgstr "Importfaili lahtipakkimine nurjus."
+msgstr ""
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "Failed to extract import file."
+#, kde-format
 msgid "Impossible to open file"
-msgstr "Importfaili lahtipakkimine nurjus."
+msgstr ""
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgid "Import Done."
-msgstr "Konto"
+msgstr ""
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
@@ -7746,16 +7719,15 @@ msgid "E2E Encryption"
 msgstr ""
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:58
-#, fuzzy, kde-format
-#| msgid "Search File..."
+#, kde-format
 msgid "Manage Device"
-msgstr "Faili otsimine ..."
+msgstr ""
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
 #, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#| msgid "Personal Access Tokens are currently disabled"
 msgid "Personal Access Token"
-msgstr "Diskussioonide otsimine ..."
+msgstr "Personaalsed ligipääsu pääsmikud on praegu keelatud"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, fuzzy, kde-format
@@ -7785,11 +7757,10 @@ msgid "Disconnect"
 msgstr "Pole ühendatud"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Remove from Room"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Personal Token"
-msgstr "Eemalda toast"
+msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, fuzzy, kde-format
@@ -7812,16 +7783,14 @@ msgid ""
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Personal Token Created"
-msgstr "Diskussioonide otsimine ..."
+msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Personal Token removed."
-msgstr "Diskussioonide otsimine ..."
+msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
 #, fuzzy, kde-format
@@ -8022,7 +7991,7 @@ msgid "Notification"
 msgstr "Märguanded"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:486
+#: widgets/room/messagelistview.cpp:524
 #, kde-format
 msgid "Go to Message"
 msgstr "Liikumine sõnumile"
@@ -8246,12 +8215,13 @@ msgid "Download Image..."
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:290
-#: widgets/room/usersinroommenu.cpp:86
+#: widgets/room/messagelistview.cpp:371 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Kasutaja teave"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:299
+#: widgets/room/messagelistview.cpp:379
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
@@ -8395,44 +8365,44 @@ msgstr "Kõik sõnumid"
 msgid "Copy URL"
 msgstr "Kopeeri link"
 
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:394
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Alusta diskussiooni"
 
-#: widgets/room/messagelistview.cpp:363
+#: widgets/room/messagelistview.cpp:401
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
-#: widgets/room/messagelistview.cpp:423
+#: widgets/room/messagelistview.cpp:461
 #, kde-format
 msgid "Show Original Message"
 msgstr "Algsõnumi näitamine"
 
-#: widgets/room/messagelistview.cpp:423
+#: widgets/room/messagelistview.cpp:461
 #, kde-format
 msgid "Translate Message"
 msgstr "Tõlgi sõnum"
 
-#: widgets/room/messagelistview.cpp:508
+#: widgets/room/messagelistview.cpp:546
 #, kde-format
 msgid "Report Message"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/messagelistview.cpp:676
+#: widgets/room/messagelistview.cpp:719
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/room/messagelistview.cpp:677
+#: widgets/room/messagelistview.cpp:720
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Sõnumi kustutamine"
 
-#: widgets/room/messagelistview.cpp:825
+#: widgets/room/messagelistview.cpp:868
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translator Error"
@@ -8881,10 +8851,9 @@ msgid "Show Channel Log"
 msgstr "Ühtegi kanalit ei leitud"
 
 #: widgets/ruqolamainwindow.cpp:450
-#, fuzzy, kde-format
-#| msgid "Channel Info"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Kanali teave"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:469
 #, fuzzy, kde-format
@@ -8946,10 +8915,9 @@ msgid "Next Selected Channel"
 msgstr "Kanali loomine"
 
 #: widgets/ruqolamainwindow.cpp:596
-#, fuzzy, kde-format
-#| msgid "Disable Notification:"
+#, kde-format
 msgid "Show Notify History"
-msgstr "Märguande keelamine:"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:600
 #, fuzzy, kde-format
@@ -9080,10 +9048,9 @@ msgid "Server Error Informations"
 msgstr "Kanali teave"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Channel Info"
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Kanali teave"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
@@ -9223,22 +9190,23 @@ msgstr "Kontoteave"
 msgid "Return the number of account."
 msgstr "Kontonumbri näitamine"
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Version:"
 msgstr "Versioon %1"
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "All Version"
 msgstr "Versioon %1"
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
-#, kde-format
-msgid "2.0"
-msgstr ""
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Version %1"
+msgid "Version 2.0"
+msgstr "Versioon %1"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9257,94 +9225,91 @@ msgstr "Näita mainimisi ..."
 msgid "What's new in Ruqola. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:19
+#: widgets/whatsnew/whatsnewwidget.cpp:18
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Allow to Copy Image in Clipboard"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:35
-#, fuzzy
-#| msgid "Account"
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
-msgstr "Konto"
+msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix avatar support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:44
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 #, fuzzy
 #| msgid "Android support"
 msgid "Fix kf6 support"
 msgstr "Androidi toetus"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:115
+#: widgets/whatsnew/whatsnewwidget.cpp:111
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:123
+#: widgets/whatsnew/whatsnewwidget.cpp:119
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:131
+#: widgets/whatsnew/whatsnewwidget.cpp:127
 #, fuzzy, kde-format
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Vigade parandamine"
 
-#~ msgid "Search"
-#~ msgstr "Otsing"
-
-#~ msgid "Recent"
-#~ msgstr "Hiljutised"
-
 #~ msgid "Snippered Messages"
 #~ msgstr "Lõigendsõnumid"
 
-#~ msgid "Show Snippered Messages..."
-#~ msgstr "Näita lõigendsõnumeid"
+#, fuzzy
+#~| msgid "Private:"
+#~ msgid "Rate:"
+#~ msgstr "Privaatne:"
+
+#~ msgid "Close"
+#~ msgstr "Sulge"
 
 #, fuzzy
-#~| msgid "Room is read-only."
-#~ msgid "Room is Empty."
-#~ msgstr "Tuba on kirjutuskaitstud."
+#~| msgid "Configure Notification..."
+#~ msgid "Configure..."
+#~ msgstr "Seadista märguandeid ..."
 
 #, fuzzy
 #~| msgid "Invalid description"
@@ -9352,19 +9317,14 @@ msgstr "Vigade parandamine"
 #~ msgstr "Vigane kirjeldus"
 
 #, fuzzy
-#~| msgid "Report Message"
-#~ msgid "Export..."
-#~ msgstr "Anna sõnumist teada"
-
-#, fuzzy
 #~| msgid "Add Account"
 #~ msgid "Ad&vanced Autocorrection"
 #~ msgstr "Konto lisamine"
 
 #, fuzzy
-#~| msgid "Delete Room"
+#~| msgid "Invalid password"
 #~ msgid "&Enable word replacement"
-#~ msgstr "Toa kustutamine"
+#~ msgstr "Vigane parool"
 
 #, fuzzy
 #~| msgid "Reply"
@@ -9407,23 +9367,8 @@ msgstr "Vigade parandamine"
 #~ msgstr "Kohandatud olek:"
 
 #, fuzzy
-#~| msgid "Add..."
-#~ msgid "..."
-#~ msgstr "Lisa ..."
-
-#, fuzzy
 #~| msgid "Custom Status:"
 #~ msgid "Custom Writable Path:"
-#~ msgstr "Kohandatud olek:"
-
-#, fuzzy
-#~| msgid "Custom Status:"
-#~ msgid "Select Custom Writable Path"
-#~ msgstr "Kohandatud olek:"
-
-#, fuzzy
-#~| msgid "Custom Status:"
-#~ msgid "Select Custom System Path"
 #~ msgstr "Kohandatud olek:"
 
 #, fuzzy
@@ -9447,20 +9392,6 @@ msgstr "Vigade parandamine"
 #~ msgstr "Vali kõik"
 
 #, fuzzy
-#~| msgid "Private:"
-#~ msgid "Rate:"
-#~ msgstr "Privaatne:"
-
-#~ msgid "Close"
-#~ msgstr "Sulge"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgid "Configure..."
-#~ msgstr "Ruqola seadistamine"
-
-#, fuzzy
 #~| msgid "Version %1"
 #~ msgid "Persian"
 #~ msgstr "Versioon %1"
@@ -9471,11 +9402,10 @@ msgstr "Vigade parandamine"
 #~ msgstr "Fail:"
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
+#~| msgid "Configure Account"
 #~ msgctxt "@title:window"
 #~ msgid "Configure Engine"
-#~ msgstr "Ruqola seadistamine"
+#~ msgstr "Konto seadistamine"
 
 #, fuzzy
 #~| msgctxt "@title:window"
@@ -9483,8 +9413,6 @@ msgstr "Vigade parandamine"
 #~ msgid "Libre Translate"
 #~ msgstr "Automaattõlke seadistamine"
 
-#, fuzzy
-#~| msgid "Server Url:"
 #~ msgid "Server Url:"
 #~ msgstr "Serveri URL:"
 
@@ -9501,10 +9429,10 @@ msgstr "Vigade parandamine"
 #~ msgstr "Automaattõlke seadistamine"
 
 #, fuzzy
-#~| msgid "Translation"
+#~| msgid "Translate Message"
 #~ msgctxt "@title:window"
 #~ msgid "Translator Debug"
-#~ msgstr "Tõlge"
+#~ msgstr "Tõlgi sõnum"
 
 #, fuzzy
 #~| msgid "Save As Text..."
@@ -9532,6 +9460,28 @@ msgstr "Vigade parandamine"
 #~ msgid "Translate error"
 #~ msgstr "Tõlge"
 
+#~ msgid "Search"
+#~ msgstr "Otsing"
+
+#~ msgid "Recent"
+#~ msgstr "Hiljutised"
+
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Näita lõigendsõnumeid"
+
+#, fuzzy
+#~| msgid "Room is read-only."
+#~ msgid "Room is Empty."
+#~ msgstr "Tuba on kirjutuskaitstud."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Marek Laane"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "qiilaq69@gmail.com"
+
 #, fuzzy
 #~| msgid "Role '%3' was added to %1 by %2"
 #~ msgid "User added to team: %1 by %2"
@@ -9547,8 +9497,18 @@ msgstr "Vigade parandamine"
 #~ msgid "Read Only"
 #~ msgstr "Kirjutuskaitstud:"
 
+#, fuzzy
+#~| msgid "Authentication Method"
+#~ msgid "Authentication required"
+#~ msgstr "Autentimisviis"
+
 #~ msgid "Search Users..."
 #~ msgstr "Otsi kasutajaid ..."
+
+#, fuzzy
+#~| msgid "Mute Group Mentions:"
+#~ msgid "Mute Group Mentions"
+#~ msgstr "Gruppides mainimiste vaigistamine:"
 
 #~ msgid "User Name:"
 #~ msgstr "Kasutajanimi:"
@@ -9556,67 +9516,16 @@ msgstr "Vigade parandamine"
 #~ msgid "Server Version:"
 #~ msgstr "Serveri versioon:"
 
-#, fuzzy
-#~| msgid "Search Channel..."
-#~ msgid "Search Channels..."
-#~ msgstr "Kanali otsimine ..."
-
 #~ msgid "Account Name"
 #~ msgstr "Konto nimi"
 
-#, fuzzy
-#~| msgid "Default"
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "Vaikimisi"
-
-#, fuzzy
-#~| msgid "Mute Group Mentions:"
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Gruppides mainimiste vaigistamine:"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Marek Laane"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "qiilaq69@gmail.com"
-
-#, fuzzy
-#~| msgid "Login OTP code required"
-#~ msgid "TOTP Required"
-#~ msgstr "Vajalik on ühekordse sisselogimise kood (OTP)"
-
-#, fuzzy
-#~| msgid "Authentication Method"
-#~ msgid "Authentication required"
-#~ msgstr "Autentimisviis"
-
-#, fuzzy
-#~| msgid "ReadOnly:"
-#~ msgid "Read"
-#~ msgstr "Kirjutuskaitstud:"
-
-#~ msgid "Audio:"
-#~ msgstr "Heli:"
+#~ msgid "Encrypted message: %1"
+#~ msgstr "Krüptitud sõnum: %1"
 
 #, fuzzy
 #~| msgid "Remove from Room"
 #~ msgid "Removed %1 from this Team"
 #~ msgstr "Eemalda toast"
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Snippered Messages"
-#~ msgstr "Lõigendsõnumite näitamine"
-
-#, fuzzy
-#~| msgid "Disable Notification:"
-#~ msgid "Mobile Notification:"
-#~ msgstr "Märguande keelamine:"
-
-#~ msgid "Encrypted message: %1"
-#~ msgstr "Krüptitud sõnum: %1"
 
 #, fuzzy
 #~| msgid "Add User In Room"
@@ -9624,20 +9533,26 @@ msgstr "Vigade parandamine"
 #~ msgid "Add User in Role"
 #~ msgstr "Lisa tuppa kasutaja"
 
-#, fuzzy
-#~| msgid "Get Avatar"
-#~ msgid "Select Room To Delete:"
-#~ msgstr "Hangi avatar"
+#~ msgctxt "@title:window"
+#~ msgid "Show Snippered Messages"
+#~ msgstr "Lõigendsõnumite näitamine"
+
+#~ msgid "Audio:"
+#~ msgstr "Heli:"
+
+#~ msgid "Return lists of accounts"
+#~ msgstr "Kontode loendi näitamine"
+
+#~ msgid "Start with specific account"
+#~ msgstr "Käivitamine konkreetse kontoga"
+
+#~ msgid "Lists the available options for user feedback"
+#~ msgstr "Kasutaja tagasiside saadaolevate valikute loend"
 
 #, fuzzy
 #~| msgid "Search Users..."
 #~ msgid "Search Users"
 #~ msgstr "Otsi kasutajaid ..."
-
-#, fuzzy
-#~| msgid "Search Threads..."
-#~ msgid "Search Teams"
-#~ msgstr "Lõimede otsimine ..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Search Channel"
@@ -9649,29 +9564,20 @@ msgstr "Vigade parandamine"
 #~ msgstr "Ühtegi lõime ei leitud"
 
 #, fuzzy
-#~| msgid "All Messages"
-#~ msgid "Follow Message..."
-#~ msgstr "Kõik sõnumid"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Kontode loendi näitamine"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Käivitamine konkreetse kontoga"
-
-#, fuzzy
-#~| msgid "All Messages"
-#~ msgid "Show Message"
-#~ msgstr "Kõik sõnumid"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Kasutaja tagasiside saadaolevate valikute loend"
+#~| msgid "Search Threads..."
+#~ msgid "Search Teams"
+#~ msgstr "Lõimede otsimine ..."
 
 #~ msgid "UserName:"
 #~ msgstr "Kasutajanimi:"
 
 #~ msgid "Error"
 #~ msgstr "Tõrge"
+
+#, fuzzy
+#~| msgid "Get Avatar"
+#~ msgid "Select Room To Delete:"
+#~ msgstr "Hangi avatar"
 
 #~ msgid "Save Video"
 #~ msgstr "Salvesta video"
@@ -9800,9 +9706,6 @@ msgstr "Vigade parandamine"
 
 #~ msgid "About"
 #~ msgstr "Teave"
-
-#~ msgid "Configure Account"
-#~ msgstr "Konto seadistamine"
 
 #~ msgid "Log out"
 #~ msgstr "Logi välja"

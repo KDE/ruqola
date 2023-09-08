@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-05 00:45+0000\n"
-"PO-Revision-Date: 2023-07-13 22:26+0200\n"
+"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"PO-Revision-Date: 2023-03-03 12:22+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -28,9 +28,10 @@ msgid "Rocket Chat Client"
 msgstr "Cliente de Rocket Chat (Conversation in directo de Rocchetta)"
 
 #: apps/main.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2022 Ruqola authors"
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "Copyright © 2020-2023 Autores de Ruqola"
+msgstr "Copyright © 2020-2022 Autores de Ruqola"
 
 #: apps/main.cpp:57
 #, kde-format
@@ -71,7 +72,7 @@ msgstr "Kevin Funk"
 #: apps/main.cpp:68
 #, kde-format
 msgid "Bug fixing"
-msgstr "Fixar faltas (bug)"
+msgstr "Correction de faltas (bug)"
 
 #: apps/main.cpp:64
 #, kde-format
@@ -161,7 +162,7 @@ msgstr "Nove version disponibile %1"
 #: core/bannerinfo/bannerinfos.cpp:64
 #, kde-format
 msgid "(link)"
-msgstr "(ligamine)"
+msgstr "(link)"
 
 #: core/commands/command.cpp:52
 #, kde-format
@@ -747,7 +748,7 @@ msgstr "Stato"
 #: core/model/bannerinfosmodel.cpp:52
 #, kde-format
 msgid "link"
-msgstr "ligamine"
+msgstr "Ligamine"
 
 #: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
@@ -1353,7 +1354,7 @@ msgstr "Equipa Public"
 #: core/roominfo/roominfo.cpp:117 widgets/ruqolaui.rc:23
 #, kde-format
 msgid "Channel"
-msgstr "Canal"
+msgstr "Canale"
 
 #: core/roominfo/roominfo.cpp:120
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:14
@@ -2009,7 +2010,7 @@ msgstr "Isto non es un sala de Livechat"
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr ""
-"Perconal Access Tokens (Indicios de Accesso Personal) es currentemente "
+"Personal Access Tokens (Indicios de Accesso Personal) es currentemente "
 "dishabilitate"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:396
@@ -2133,13 +2134,13 @@ msgid "Invalid Password"
 msgstr "Contrasigno invalide"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The required '%1' param provided does not match any channel"
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
-"Le parametro requirite \\\"roomId\\\" o \"\\roomName\\\" fornite non ha "
-"correspondentia con alcun canal"
+"Le parametro requirite '%1' fornite non ha correspondentia con alcun canal"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2172,9 +2173,10 @@ msgid "Channel can not convert to Team."
 msgstr "Canal non pote converter a Equipa."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A token with this name already exists"
 msgid "Team already exists."
-msgstr "Equipa ja existe."
+msgstr "Un indicio (token) con iste nomine ja existe"
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2182,13 +2184,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Tu non ha permission a adder iste canal al equipa"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The required '%1' param provided does not match any channel"
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
 msgstr ""
-"Le parametro requirite \\\"roomId\\\" o \"\\roomName\\\" fornite non ha "
-"correspondentia con alcun equipos"
+"Le parametro requirite '%1' fornite non ha correspondentia con alcun canal"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -2276,13 +2278,15 @@ msgid "Flags"
 msgstr "Bandieras (Flags)"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Historia o Chronologia"
+msgstr "Remove Chronologia"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalisate"
@@ -2293,14 +2297,17 @@ msgid "Clear Recents"
 msgstr "Netta recentes"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Role"
 msgid "Add Smiley"
-msgstr "Adde smiley (emoticone)"
+msgstr "Adde Rolo"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search room..."
 msgid "Search Emoticon..."
-msgstr "Cerca Emoticon..."
+msgstr "Cerca Sala..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -2802,9 +2809,10 @@ msgid "Archived"
 msgstr "Archivate"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Avatar"
 msgid "Room's Creator:"
-msgstr "Creator de Sala"
+msgstr "Avatar de Sala"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -2880,9 +2888,10 @@ msgid "Engagement Dashboard"
 msgstr "Pannello de instrumentos de ingagiamento"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear Recents"
 msgid "Read Receipts"
-msgstr "Lege  receptas"
+msgstr "Netta recentes"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2925,9 +2934,10 @@ msgid "Offline Users"
 msgstr "Usatores foras de linea"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Away Users"
 msgid "Busy Users"
-msgstr "Usatores occupate"
+msgstr "Usatores absente"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -3336,9 +3346,10 @@ msgid "Enable collect log in data"
 msgstr "Habilita colliger registros in datos"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status Message:"
 msgid "Allow Custom Status Message"
-msgstr "Permitte Message de stato personalisate"
+msgstr "Message de stato:"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, kde-format
@@ -3361,9 +3372,10 @@ msgid "Require Name For Signup"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Require Password Change"
 msgid "Require Password Confirmation"
-msgstr "Require confirmation de contrasigno"
+msgstr "Require modification de contrasigno"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
@@ -3416,9 +3428,10 @@ msgid "How many failed attempts until block by IP"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register"
 msgid "Registration"
-msgstr "Registration"
+msgstr "Registro"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
 #, kde-format
@@ -3456,9 +3469,10 @@ msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Block User"
 msgid "Blocked Username List"
-msgstr "Lista de nomine de Usator blocate"
+msgstr "Bloca Usator"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3474,7 +3488,7 @@ msgstr "Contos"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Encryption"
-msgstr "Cryptation"
+msgstr "Encryption"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
@@ -3525,7 +3539,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr "IRC"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -3862,7 +3876,7 @@ msgstr "Ex E-posta"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:75
 #, kde-format
 msgid "Privacy"
-msgstr "Confidentialitate"
+msgstr "Intimitate"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:87
 #, kde-format
@@ -3932,9 +3946,10 @@ msgid "Invitation"
 msgstr "Invitation"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow Password Change"
 msgid "Password Changed"
-msgstr "Contrasigno modificate"
+msgstr "Permitte modification de contrasigno"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4297,9 +4312,10 @@ msgid "The cache limit for outbound message handling."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search permissions..."
 msgid "Regular Expressions"
-msgstr "Expressiones regular"
+msgstr "Cerca Permissiones..."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
@@ -4570,9 +4586,10 @@ msgid "Audio Recorder Enabled"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Auto-Translate"
 msgid "Enable Auto-Translate"
-msgstr "Habilita Auto-Traduction"
+msgstr "Auto-Traduction"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
 #, kde-format
@@ -4619,9 +4636,10 @@ msgid "Safe Ports"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
 msgid "Maximum Number of Chained Quotes"
-msgstr ""
+msgstr "Numero Max de usages"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
@@ -4629,9 +4647,11 @@ msgid "Keep Messages and User Name"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
 msgid "Delete All Messages"
-msgstr "Dele omne Messages"
+msgstr "Dele Messages"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
@@ -4651,9 +4671,10 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message has been pinned"
 msgid "Message Erasure Type"
-msgstr ""
+msgstr "Message ha essite appunctate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
@@ -4668,9 +4689,10 @@ msgid "Grouping Period (in seconds)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct Message Email Subject"
 msgid "Direct Messsage Maximum Users"
-msgstr ""
+msgstr "Subjecto de e-posta de message directe"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
@@ -4719,9 +4741,10 @@ msgid "Auto-Translate"
 msgstr "Auto-Traduction"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "DeepL"
 msgid "Deepl"
-msgstr "Deepl"
+msgstr "DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
@@ -4729,9 +4752,10 @@ msgid "Microsoft"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Provider:"
 msgid "Service Provider"
-msgstr "Fornitor de servicio"
+msgstr "Fornitor (Provider):"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
@@ -4739,9 +4763,10 @@ msgid "DeepL API Key"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Google Id"
 msgid "Google API Key"
-msgstr "Clave de API de Google"
+msgstr "Id de Google"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
@@ -5620,9 +5645,10 @@ msgid "Select All"
 msgstr "Selige toto"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Speak Text"
 msgid "Copy Text"
-msgstr "Copia texto"
+msgstr "Pronuncia texto"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -5762,7 +5788,7 @@ msgstr ""
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:41
 #, kde-format
 msgid "Camera"
-msgstr "Camera"
+msgstr ""
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
@@ -5836,7 +5862,7 @@ msgstr ""
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
 #, kde-format
 msgid "Animate Gif Image"
-msgstr "Anima imagine Gif"
+msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -5905,9 +5931,11 @@ msgid "Remove Account"
 msgstr "Remove conto"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Remove Custom Sound"
 msgid "Remove logs stored on disk"
-msgstr "Remove registros memorisate sur disco"
+msgstr "Remove sono personalisate"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -5915,10 +5943,12 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Tu vole remover iste conto '%1''"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "User Info"
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr "Information de Base de Datos"
+msgstr "Information de usator"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -6082,9 +6112,10 @@ msgid "Prune"
 msgstr "Puta"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Maximum message age in days (default: 300):"
 msgid "Maximum message age in days (default: 30):"
-msgstr "Etate maxime de message in dies (predefinite: 30):"
+msgstr "Etate maxime de message in dies (predefinite: 300):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
@@ -6097,9 +6128,10 @@ msgid "Invalid characters found."
 msgstr "Characteres  invalide trovate."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invalid characters found."
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Characteres  invalide trovate.: (Characteres valide: %1)"
+msgstr "Characteres  invalide trovate."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
@@ -6113,25 +6145,28 @@ msgid "Channel Password:"
 msgstr "Contrasigno de canal:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Owner:"
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Proprietario:"
-msgstr[1] "Proprietarios:"
+msgstr[1] "Proprietario:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Moderator"
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderator:"
-msgstr[1] "Moderatores:"
+msgstr[0] "Moderator"
+msgstr[1] "Moderator"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Leader"
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Chef:"
-msgstr[1] "Chefes:"
+msgstr[0] "Chef"
+msgstr[1] "Chef"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -6217,9 +6252,10 @@ msgid "Create Direct Messages - %1"
 msgstr "Crea messages directe - %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Any team selected."
 msgid "Too many users selected."
-msgstr "Troppe usatores seligite."
+msgstr "Ulle equipa seligite."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
@@ -6366,16 +6402,18 @@ msgid "Recorded %1 sec"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Video Message"
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Crea message  de sono"
+msgstr "Crea message video"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
 msgid "Send"
-msgstr "Invia"
+msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:89
 #: widgets/dialogs/createvideomessagewizard.cpp:115
@@ -6784,10 +6822,12 @@ msgid "Upload File"
 msgstr "Incarga file"
 
 #: widgets/dialogs/uploadfiledialog.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
 msgctxt "@title:window"
 msgid "Upload Image"
-msgstr "Incarga imagine"
+msgstr "Monstra imagine"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -6796,9 +6836,10 @@ msgid "Directory - %1"
 msgstr "Directorio - %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Generate link is not authorized in this channel."
 msgid "You are not authorized to view this page."
-msgstr "Tu non non es authorisate a vider iste pagina."
+msgstr "Generar Ligamine non es authorisate in iste canal."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
@@ -6858,7 +6899,7 @@ msgstr "Aperi Discussion"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:501
+#: widgets/room/messagelistview.cpp:539
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6888,7 +6929,8 @@ msgstr[0] "%1 Discussion in sala (Total: %2)"
 msgstr[1] "%1 Discussiones in sala (Total: %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Permissions"
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Permissiones"
@@ -6930,51 +6972,55 @@ msgid "Impossible to export data."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Failed to extract import file."
 msgid "Impossible to create zip file."
-msgstr "Impossibile crear le file zip."
+msgstr "Falleva a extraher file de importar"
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Export..."
 msgid "Export Done."
-msgstr "Exportation Facite"
+msgstr "Exporta..."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
-msgstr "Conto %1:  Exportation de configuration facite."
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
-msgstr "Conto %1: Exportation de cache facite."
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
-msgstr "Conto %1: Exportation de registros (logs) facite."
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
-msgstr "Directorio  \"%1\" non pote esser addite al file de retrocopia."
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
-#| msgid "Accounts Imported."
+#| msgid "Accounts"
 msgid "Accounts Exported."
-msgstr "Contos importate."
+msgstr "Contos"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete my Account"
 msgid "Select Accounts:"
-msgstr "Selige contos:"
+msgstr "Dele mi conto"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accounts"
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "Exporta Contos"
+msgstr "Contos"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
@@ -6984,33 +7030,37 @@ msgstr ""
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, kde-format
 msgid "Impossible to copy file"
-msgstr "Impossibile copiar file"
+msgstr ""
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
 #, kde-format
 msgid "Impossible to open file"
-msgstr "Impossibile aperir file"
+msgstr ""
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Import..."
 msgid "Import Done."
-msgstr "Importation Facite."
+msgstr "Importa..."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account name"
 msgid "Accounts imported."
-msgstr "Contos importate."
+msgstr "Nomine de conto"
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select All"
 msgid "Select Zip file:"
-msgstr "Selige file Zip:"
+msgstr "Selige toto"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accounts"
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Importa Contos"
+msgstr "Contos"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -7076,9 +7126,10 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Authentication falleva: codice de OTP Invalide."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User is not activated"
 msgid "Login failed: User is not activated."
-msgstr "Accesso falleva: Usator non es activate"
+msgstr "Usator non es activate"
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
@@ -7091,9 +7142,10 @@ msgid "Login has been temporarily blocked For User."
 msgstr ""
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "App user is not allowed to login"
 msgid "App user is not allowed to login."
-msgstr "Usator de app non es permittite a acceder."
+msgstr "Usator de app non es permittite a acceder"
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -7133,9 +7185,10 @@ msgid "Server"
 msgstr "Servitor"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "My Account..."
 msgid "Filter Account..."
-msgstr "Filtra conto ..."
+msgstr "Mi conto ..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7309,7 +7362,7 @@ msgstr "Nulle dispositivo  trovate"
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 dispositivo (Total: %2)"
-msgstr[1] "%1 usatores (Total: %2)"
+msgstr[1] "%1 dispositivos (Total: %2)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, kde-format
@@ -7526,7 +7579,7 @@ msgid "Notification"
 msgstr "Notification"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:486
+#: widgets/room/messagelistview.cpp:524
 #, kde-format
 msgid "Go to Message"
 msgstr "Vade a message"
@@ -7621,7 +7674,7 @@ msgstr "Registra usator"
 #: widgets/registeruser/registeruserwidget.cpp:18
 #, kde-format
 msgid "Register"
-msgstr "Registra"
+msgstr "Registro"
 
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
@@ -7726,23 +7779,26 @@ msgid "Join"
 msgstr "Uni te"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Discarga imagine"
+msgstr "Monstra imagine"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr "Discarga imagine..."
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:290
-#: widgets/room/usersinroommenu.cpp:86
+#: widgets/room/messagelistview.cpp:371 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Information de usator"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:299
+#: widgets/room/messagelistview.cpp:379
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Initia un Conversation Private"
@@ -7807,14 +7863,16 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Maximum message age in direct messages"
 msgid "You have joined a new direct message"
-msgstr ""
+msgstr "Etate de Message Maxime  in messages directe"
 
 #: widgets/room/messagelistview.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start Conversation"
 msgid "Start of conversation"
-msgstr "Initio de Conversation"
+msgstr "Initia Conversation"
 
 #: widgets/room/messagelistview.cpp:275
 #, kde-format
@@ -7873,51 +7931,52 @@ msgstr "Seque message"
 msgid "Copy URL"
 msgstr "Copia URL"
 
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:394
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Initia un discussion"
 
-#: widgets/room/messagelistview.cpp:363
+#: widgets/room/messagelistview.cpp:401
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
 
-#: widgets/room/messagelistview.cpp:423
+#: widgets/room/messagelistview.cpp:461
 #, kde-format
 msgid "Show Original Message"
 msgstr "Monstra message original"
 
-#: widgets/room/messagelistview.cpp:423
+#: widgets/room/messagelistview.cpp:461
 #, kde-format
 msgid "Translate Message"
 msgstr "Traduce Message"
 
-#: widgets/room/messagelistview.cpp:508
+#: widgets/room/messagelistview.cpp:546
 #, kde-format
 msgid "Report Message"
 msgstr "Reporta Message"
 
-#: widgets/room/messagelistview.cpp:676
+#: widgets/room/messagelistview.cpp:719
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Tu vole deler ite message?"
 
-#: widgets/room/messagelistview.cpp:677
+#: widgets/room/messagelistview.cpp:720
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Dele Messages"
 
-#: widgets/room/messagelistview.cpp:825
+#: widgets/room/messagelistview.cpp:868
 #, kde-format
 msgid "Translator Error"
 msgstr "Error de traductor"
 
 #: widgets/room/messagetextedit.cpp:194
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save Image"
 msgid "Paste Image"
-msgstr "Colla imagine"
+msgstr "Salveguarda imagine"
 
 #: widgets/room/messagetextedit.cpp:201
 #, kde-format
@@ -8195,14 +8254,16 @@ msgid "Account name"
 msgstr "Nomine de conto"
 
 #: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Username:"
 msgid "Username or Email:"
-msgstr "Nomine de usator o E-Posta:"
+msgstr "Nomine de usator:"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Username"
 msgid "Username or email"
-msgstr "Nomine de usator o E-Posta"
+msgstr "Nomine de Usator"
 
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
@@ -8244,14 +8305,16 @@ msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User is not activated"
 msgid "Login Failed: User is not activated."
-msgstr "Accesso falleva: Usator non es activate"
+msgstr "Usator non es activate"
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "App user is not allowed to login"
 msgid "Login Failed: App user is not allowed to login."
-msgstr "Accesso falleva: Usator de app non es permittite a acceder."
+msgstr "Usator de app non es permittite a acceder"
 
 #: widgets/ruqolamainwindow.cpp:218
 #, kde-format
@@ -8321,7 +8384,7 @@ msgstr "Monstra registro de canal"
 #: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgid "Show Server Errors"
-msgstr "Monstra errores de servitor"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:469
 #, kde-format
@@ -8349,7 +8412,8 @@ msgid "Server Settings..."
 msgstr "Preferentias de servitor..."
 
 #: widgets/ruqolamainwindow.cpp:494
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Directory..."
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Directorio..."
@@ -8397,17 +8461,19 @@ msgstr "Monstra Sala Favorite"
 #: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "What's new"
-msgstr "Que es de novo"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:618
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accounts"
 msgid "Import Accounts"
-msgstr "Importa Contos"
+msgstr "Contos"
 
 #: widgets/ruqolamainwindow.cpp:622
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Accounts"
 msgid "Export Accounts"
-msgstr "Exporta Contos"
+msgstr "Contos"
 
 #: widgets/ruqolamainwindow.cpp:654
 #, kde-format
@@ -8421,9 +8487,10 @@ msgid "Impossible to open log."
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:809
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Channel Log"
 msgid "Show Log"
-msgstr "Monstra registro"
+msgstr "Monstra registro de canal"
 
 #: widgets/ruqolamainwindow.cpp:871
 #, kde-format
@@ -8441,7 +8508,8 @@ msgid "Register New User"
 msgstr "Registra nove usator"
 
 #: widgets/ruqolamainwindow.cpp:930
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
@@ -8488,7 +8556,7 @@ msgstr "Vista"
 #: widgets/ruqolaui.rc:70
 #, kde-format
 msgid "&Help"
-msgstr "Ad&juta"
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:74
@@ -8497,20 +8565,22 @@ msgid "Main Toolbar"
 msgstr "Barra de instrumento principal"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Information de Error de Servitor"
+msgstr "Errores e Information"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
 msgid "(Show Errors)"
-msgstr "(Monstra Errores)"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
 msgid "Server errors reported. %1"
-msgstr "Errores de Servitor reportate. %1"
+msgstr "Servitor non trovate: %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -8532,7 +8602,7 @@ msgstr "Autouni"
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Channels"
-msgstr "Canales de Equipa"
+msgstr "Canales de equipa"
 
 #: widgets/teams/teamchannelswidget.cpp:59
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
@@ -8627,22 +8697,23 @@ msgstr "Information de conto"
 msgid "Return the number of account."
 msgstr "Rtorna le numero de conto."
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Version:"
 msgstr "Version"
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "All Version"
 msgstr "Version"
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
-#, kde-format
-msgid "2.0"
-msgstr ""
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Version 2.0"
+msgstr "Version"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8651,108 +8722,128 @@ msgid "What's new in Ruqola"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "(Show Less Info...)"
 msgid "(Show News in Ruqola)"
-msgstr "(Monstra Novas in Ruqola)"
+msgstr "(Monstra Minus Info...)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:19
+#: widgets/whatsnew/whatsnewwidget.cpp:18
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
+#, fuzzy
+#| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Permitte Copiar image in area de transferentia"
+msgstr "Copia image in area de transferentia"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:35
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
-msgstr "Importa/Exporta Contos"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:40
+msgid "Fix avatar support"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:41
-msgid "Fix avatar support"
-msgstr "Corrige supporto de avatar"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:44
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 msgid "Fix kf6 support"
-msgstr "Corrige supporto de kf6"
+msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:115
+#: widgets/whatsnew/whatsnewwidget.cpp:111
 #, kde-format
 msgid "Important changes since last version:"
-msgstr "Modificationes importante depost ultime version:"
+msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:123
+#: widgets/whatsnew/whatsnewwidget.cpp:119
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:131
-#, kde-format
+#: widgets/whatsnew/whatsnewwidget.cpp:127
+#, fuzzy, kde-format
+#| msgid "Bug fixing"
 msgid "Some bug fixing:"
-msgstr "Alcun correction de faltas (bug)"
-
-#~ msgid "Search"
-#~ msgstr "Cerca"
-
-#~ msgid "Recent"
-#~ msgstr "Recente"
+msgstr "Correction de faltas (bug)"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Messages taliate con cisorios"
 
-#~ msgid "Show Snippered Messages..."
-#~ msgstr "Monstra Messages taliate con cisorios ..."
+#~ msgid "Stop"
+#~ msgstr "Stoppa"
 
-#~ msgid "View mode:"
-#~ msgstr "Modo de vista:"
+#~ msgid "Pause"
+#~ msgstr "Pausa"
 
-#~ msgid "Normal"
-#~ msgstr "Normal"
+#~ msgid "Play"
+#~ msgstr "Reproduce"
 
-#~ msgid "Compact"
-#~ msgstr "Compacte"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Text-To-Speech"
+#~ msgstr "Configura Texto-a-Discurso (TextToSpeech)"
 
-#~ msgid "Room is Empty."
-#~ msgstr "Sala es vacue."
+#~ msgid "Morning, this is the test for testing settings."
+#~ msgstr "Mattino, iste es le test pro essayar preferentias."
 
-#~ msgid "Error from '%1' account"
-#~ msgstr "Error ex conto '%1'"
+#~ msgid "Test"
+#~ msgstr "Essaya"
+
+#~ msgid "Volume:"
+#~ msgstr "Volumine:"
+
+#~ msgid "Rate:"
+#~ msgstr "Frequentia:"
+
+#~ msgid "Pitch:"
+#~ msgstr "Accorda:"
+
+#~ msgid "Engine:"
+#~ msgstr "Motor:"
+
+#~ msgid "Voice:"
+#~ msgstr "Voce:"
+
+#~ msgid "Close"
+#~ msgstr "Claude"
+
+#~ msgid "Configure..."
+#~ msgstr "Configura..."
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "Archivo non pote esser aperite per leger. "
@@ -8762,12 +8853,6 @@ msgstr "Alcun correction de faltas (bug)"
 
 #~ msgid "Replacement and exception for language:"
 #~ msgstr "Reimplaciamento e exception pro linguage:"
-
-#~ msgid "Export..."
-#~ msgstr "Exporta..."
-
-#~ msgid "Import..."
-#~ msgstr "Importa..."
 
 #~ msgid "Ad&vanced Autocorrection"
 #~ msgstr "Autocorrection a&vantiate"
@@ -8820,7 +8905,7 @@ msgstr "Alcun correction de faltas (bug)"
 #~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
 #~ msgstr ""
 #~ "Converte &prime littera de un phrase automaticamente a majuscole\n"
-#~ "(p.ex. \"mi domo. in iste citate\" deveni \"mi domo. In iste citate\")"
+#~ "(p.ex. \"mi modo. in iste citate\" deveni \"mi domo. In iste citate\")"
 
 #~ msgid ""
 #~ "All words are checked for the common mistake of holding the shift key "
@@ -8903,6 +8988,9 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "By Default"
 #~ msgstr "Predefinite"
 
+#~ msgid "\""
+#~ msgstr "\""
+
 #~ msgid "Ending Quote:"
 #~ msgstr "Citation final:"
 
@@ -8911,6 +8999,9 @@ msgstr "Alcun correction de faltas (bug)"
 
 #~ msgid "Replace &single quotes with typographical quotes"
 #~ msgstr "Reimplacia &singule virgulettas con virgulettas typographic"
+
+#~ msgid "'"
+#~ msgstr "'"
 
 #~ msgid "Ending Quotes:"
 #~ msgstr "Terminar Citatione:"
@@ -8922,19 +9013,16 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgstr "Etiquetta de Texto (TextLabel)"
 
 #~ msgid "Custom System Path:"
-#~ msgstr "Percurso de systema personalisate:"
+#~ msgstr "Percurso de Systema personalisate:"
 
-#~ msgid "..."
-#~ msgstr "..."
+#~ msgid "Writable Path:"
+#~ msgstr "Percurso scribibile:"
+
+#~ msgid "System Path:"
+#~ msgstr "Percurso de systema:"
 
 #~ msgid "Custom Writable Path:"
-#~ msgstr "Percurso scribibile personalisate:"
-
-#~ msgid "Select Custom Writable Path"
-#~ msgstr "Selige Percurso Scribibile personalisate:"
-
-#~ msgid "Select Custom System Path"
-#~ msgstr "Selige Percurso de systema personalisate:"
+#~ msgstr "Percurso de scriptura personalisate:"
 
 #~ msgid "LibreOffice Autocorrection"
 #~ msgstr "Autocorrection de LibreOffice"
@@ -8990,46 +9078,11 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Select"
 #~ msgstr "Selige"
 
-#~ msgid "Stop"
-#~ msgstr "Stoppa"
-
-#~ msgid "Pause"
-#~ msgstr "Pausa"
-
-#~ msgid "Play"
-#~ msgstr "Reproduce"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Text-To-Speech"
-#~ msgstr "Configura Texto-a-Discurso (TextToSpeech)"
-
-#, fuzzy
-#~ msgid "Test"
-#~ msgstr "Essaya"
-
-#~ msgid "Volume:"
-#~ msgstr "Tomo:"
-
-#~ msgid "Rate:"
-#~ msgstr "Frequentia:"
-
-#~ msgid "Pitch:"
-#~ msgstr "Accorda:"
-
-#~ msgid "Engine:"
-#~ msgstr "Motor:"
-
-#~ msgid "Voice:"
-#~ msgstr "Voce:"
-
-#~ msgid "Close"
-#~ msgstr "Claude"
-
-#~ msgid "Configure..."
-#~ msgstr "Configura..."
-
 #~ msgid "Detect language"
 #~ msgstr "Releva linguage"
+
+#~ msgid "Hmong"
+#~ msgstr "Hmong"
 
 #~ msgid "Bosnian"
 #~ msgstr "Bosniano"
@@ -9037,37 +9090,30 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "English"
 #~ msgstr "Anglese"
 
-#, fuzzy
 #~ msgid "Chinese (Simplified)"
-#~ msgstr "Chinese Simplificate)"
+#~ msgstr "Chinese (Simplificate)"
 
-#, fuzzy
 #~ msgid "Chinese (Traditional)"
-#~ msgstr "Chinese Traditional)"
+#~ msgstr "Chinese (Traditional)"
 
-#, fuzzy
 #~ msgid "Dutch"
 #~ msgstr "Hollandese "
 
 #~ msgid "French"
 #~ msgstr "Francese"
 
-#, fuzzy
 #~ msgid "German"
 #~ msgstr "Germano "
 
-#, fuzzy
 #~ msgid "Greek"
 #~ msgstr "Greco"
 
 #~ msgid "Italian"
 #~ msgstr "Italiano "
 
-#, fuzzy
 #~ msgid "Japanese"
 #~ msgstr "Japonese "
 
-#, fuzzy
 #~ msgid "Korean"
 #~ msgstr "Coreano "
 
@@ -9077,22 +9123,18 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Russian"
 #~ msgstr "Russo"
 
-#, fuzzy
 #~ msgid "Spanish"
 #~ msgstr "Espaniol "
 
-#, fuzzy
 #~ msgid "Afrikaans"
 #~ msgstr "Afrikaans"
 
 #~ msgid "Albanian"
 #~ msgstr "Albanese"
 
-#, fuzzy
 #~ msgid "Arabic"
 #~ msgstr "Arabic"
 
-#, fuzzy
 #~ msgid "Armenian"
 #~ msgstr "Armenio "
 
@@ -9138,7 +9180,6 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Haitian Creole"
 #~ msgstr "Creolo Haitiano"
 
-#, fuzzy
 #~ msgid "Hebrew"
 #~ msgstr "Hebreo"
 
@@ -9154,9 +9195,8 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Indonesian"
 #~ msgstr "Indonesiano "
 
-#, fuzzy
 #~ msgid "Irish"
-#~ msgstr "Irlandese"
+#~ msgstr "Irlandese "
 
 #~ msgid "Latvian"
 #~ msgstr "Letton"
@@ -9197,14 +9237,12 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Swahili"
 #~ msgstr "Swahili"
 
-#, fuzzy
 #~ msgid "Swedish"
-#~ msgstr "Svedese"
+#~ msgstr "Svedo"
 
 #~ msgid "Thai"
 #~ msgstr "Thai"
 
-#, fuzzy
 #~ msgid "Turkish"
 #~ msgstr "Turc"
 
@@ -9240,30 +9278,30 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgstr ""
 #~ "Error: incapace a extraher information addional de Bing ex version de web"
 
-#~ msgid "DeepL"
-#~ msgstr "DeepL"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
 #~ msgctxt "@title:window"
 #~ msgid "Configure Engine"
-#~ msgstr "Configura"
+#~ msgstr "Configura  motor"
 
-#, fuzzy
+#~ msgid "Use Free License Key"
+#~ msgstr "Una clave de licentia libere"
+
 #~ msgid "Api Key:"
 #~ msgstr "Clave API:"
+
+#~ msgid "Server needs Api Key."
+#~ msgstr "Server necessita Clave de Api"
 
 #~ msgid "Libre Translate"
 #~ msgstr "Traduce Libre"
 
+#~ msgid "Server required Api Key"
+#~ msgstr "Server requiriva Clave de Api"
+
 #~ msgid "Server Url:"
 #~ msgstr "URL de servitor:"
 
-#, fuzzy
-#~| msgid "Server not found: %1"
 #~ msgid "Server url is not defined."
-#~ msgstr "Servitor non trovate: %1"
+#~ msgstr "Url de Servitor non definite."
 
 #~ msgid "Lingva"
 #~ msgstr "Lingva"
@@ -9284,9 +9322,8 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Error: Unable to extract Yandex SID from web version."
 #~ msgstr "Error: incapace a extraher SID de Yandex ex version de web."
 
-#, fuzzy
 #~ msgid "You used same language for 'from' and 'to' language."
-#~ msgstr "Tu sa le mesme linguage ex e per un linguage"
+#~ msgstr "Tu usava le mesme linguage per 'ex' e 'a'  linguage."
 
 #~ msgctxt "@title:window"
 #~ msgid "Configure Translator"
@@ -9296,8 +9333,6 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Translator Debug"
 #~ msgstr "Debug de traductor"
 
-#, fuzzy
-#~| msgid "Save &As..."
 #~ msgid "Save As..."
 #~ msgstr "Salveguarda como..."
 
@@ -9329,9 +9364,6 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Debug"
 #~ msgstr "Cribra (debug)"
 
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
 #~ msgid "Configure"
 #~ msgstr "Configura"
 
@@ -9352,26 +9384,29 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Translate error"
 #~ msgstr "Traduce error"
 
-#~ msgid "User added to team: %1 by %2"
-#~ msgstr "Usator addite a equipa: %1 per %2"
+#~ msgid "Search"
+#~ msgstr "Cerca"
 
-#~ msgid "User removed to team: %1 by %2"
-#~ msgstr "Usator removite ex equipa: %1per %2"
+#~ msgid "Recent"
+#~ msgstr "Recente"
 
-#~ msgid "Read Only"
-#~ msgstr "Solmente de lectura"
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Monstra Messages taliate con cisorios ..."
 
-#~ msgid "User Name:"
-#~ msgstr "Nomine de usator:"
+#~ msgid "Room is Empty."
+#~ msgstr "Sala es vacue."
 
-#, fuzzy
-#~| msgid "Default"
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "Predefinite"
+#~ msgid "Error from '%1' account"
+#~ msgstr "Error ex conto '%1'"
 
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Silentia Mentiones de Gruppo"
+#~ msgid "View mode:"
+#~ msgstr "Modo de vista:"
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Compact"
+#~ msgstr "Compacte"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
@@ -9381,68 +9416,43 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Your emails"
 #~ msgstr "g.sora@tiscali.it"
 
-#~ msgid "TOTP Required"
-#~ msgstr "TOTP Requirite"
+#~ msgid "User added to team: %1 by %2"
+#~ msgstr "Usator addite a equipa: %1 per %2"
+
+#~ msgid "User removed to team: %1 by %2"
+#~ msgstr "Usator removite ex equipa: %1per %2"
+
+#~ msgid "Read Only"
+#~ msgstr "Solmente de lectura"
 
 #~ msgid "Authentication required"
 #~ msgstr "Authentication requirite"
 
-#, fuzzy
-#~| msgid "From:"
-#~ msgid "From"
-#~ msgstr "Ex:"
+#~ msgid "Mute Group Mentions"
+#~ msgstr "Silentia Mentiones de Gruppo"
 
-#, fuzzy
-#~| msgid "To:"
-#~ msgid "To"
-#~ msgstr "A:"
+#~ msgid "User Name:"
+#~ msgstr "Nomine de usator:"
 
-#, fuzzy
-#~| msgid "Read Only"
-#~ msgid "Read"
-#~ msgstr "Solmente de lectura"
-
-#~ msgid "Audio:"
-#~ msgstr "Audio:"
+#~ msgid "Encrypted message: %1"
+#~ msgstr "Message Cryptate: %1"
 
 #~ msgid "Removed %1 from this Team"
 #~ msgstr "Removite %1 ex Equipa"
 
 #~ msgctxt "@title:window"
-#~ msgid "Show Snippered Messages"
-#~ msgstr "Monstra Messages taliate con cisorios "
-
-#~ msgid "Mobile Notification:"
-#~ msgstr "Notification de Mobile:"
-
-#~ msgid "Encrypted message: %1"
-#~ msgstr "Message Cryptate: %1"
+#~ msgid "Add User in Role"
+#~ msgstr "Adde Usator in Rolo"
 
 #~ msgid "Disable"
 #~ msgstr "Dishabilita"
 
 #~ msgctxt "@title:window"
-#~ msgid "Add User in Role"
-#~ msgstr "Adde Usator in Rolo"
+#~ msgid "Show Snippered Messages"
+#~ msgstr "Monstra Messages taliate con cisorios "
 
-#~ msgid "Select Room To Delete:"
-#~ msgstr "Selige Sala a Deler:"
-
-#~ msgid "Search Users"
-#~ msgstr "Cerca Usatores"
-
-#~ msgid "Search Teams"
-#~ msgstr "Cerca Equipas"
-
-#~ msgctxt "@title:window"
-#~ msgid "Search Channel"
-#~ msgstr "Cerca canal"
-
-#~ msgid "No result found"
-#~ msgstr "Necun exito trovate"
-
-#~ msgid "Follow Message..."
-#~ msgstr "Seque message..."
+#~ msgid "Audio:"
+#~ msgstr "Audio:"
 
 #~ msgid "Return lists of accounts"
 #~ msgstr "Retorna listas de conto"
@@ -9450,12 +9460,23 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgid "Start with specific account"
 #~ msgstr "Initia con conto specific"
 
-#~| msgid "Follow Message"
-#~ msgid "Show Message"
-#~ msgstr "Monstra message"
-
 #~ msgid "Lists the available options for user feedback"
 #~ msgstr "Lista le optiones disponibile per responsa al usator"
 
+#~ msgid "Search Users"
+#~ msgstr "Cerca Usatores"
+
+#~ msgid "No result found"
+#~ msgstr "Necun exito trovate"
+
+#~ msgid "Search Teams"
+#~ msgstr "Cerca Equipas"
+
 #~ msgid "UserName:"
 #~ msgstr "Nomine de usator:"
+
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgid "Select Room To Delete:"
+#~ msgstr "Selige Sala a Deler:"
