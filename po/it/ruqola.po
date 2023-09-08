@@ -1,14 +1,14 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 # Paolo Zamponi <feus73@gmail.com>, 2019, 2020, 2021.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 00:45+0000\n"
-"PO-Revision-Date: 2023-08-17 15:02+0200\n"
+"POT-Creation-Date: 2023-09-08 00:46+0000\n"
+"PO-Revision-Date: 2023-09-04 09:03+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -8742,22 +8742,21 @@ msgstr "Informazioni sull'account"
 msgid "Return the number of account."
 msgstr "Restituisce il numero di account."
 
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Version"
-msgid "Version:"
-msgstr "Versione"
-
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Version"
-msgid "All Version"
-msgstr "Versione"
-
-#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:37
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, kde-format
-msgid "2.0"
-msgstr ""
+msgid "Version:"
+msgstr "Versione:"
+
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
+#, kde-format
+msgid "All Version"
+msgstr "Tutte le versioni"
+
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Version 2.0"
+msgstr "Versione"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8775,76 +8774,79 @@ msgstr "(Mostra le novità in Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Cosa c'è di nuovo in Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:19
+#: widgets/whatsnew/whatsnewwidget.cpp:18
 msgid "Store Message in Local Database (experimental)"
 msgstr "Memorizza il messaggio nella banca dati locale (sperimentale)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
 msgstr "Scarica l'icona del server dal server"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Mostra informazioni sull'errore del server in una finestra specifica"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Consenti di copiare l'immagine negli appunti"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Migliora il supporto per il debug (consenti di mostrare le autorizzazioni "
 "dell'account attuale)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Aggiungi il supporto per il testo citato (testo che inizia con '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostra leader/moderatore/proprietario nelle informazioni del canale."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Supporto per messaggi video/audio (solo kf6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:35
+#: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
 msgstr "Importa/Esporta account."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix avatar support"
 msgstr "Risolto il problema con il supporto dell'avatar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Correggi il supporto delle emoji (usa i nuovi ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
 msgstr "Corregge la gif animata nelle reazioni"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:44
+#: widgets/whatsnew/whatsnewwidget.cpp:43
 msgid "Fix kf6 support"
 msgstr "Risolve il supporto kf6"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:116
+#: widgets/whatsnew/whatsnewwidget.cpp:111
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modifiche importanti dalla versione precedente:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:124
+#: widgets/whatsnew/whatsnewwidget.cpp:119
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Alcune delle nuove funzionalità di questa versione di Ruqola includono:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:132
+#: widgets/whatsnew/whatsnewwidget.cpp:127
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
+
+#~ msgid "2.0"
+#~ msgstr "2.0"
 
 #~ msgid "Symbols"
 #~ msgstr "Simboli"
