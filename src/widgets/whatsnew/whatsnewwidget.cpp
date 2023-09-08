@@ -135,4 +135,15 @@ QString WhatsNewWidget::createVersionInformations() const
     return message;
 }
 
+QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const
+{
+    switch (type) {
+    case WhatsNewComboBoxWidget::VersionType::AllVersion:
+        return {};
+    case WhatsNewComboBoxWidget::VersionType::Version2_0:
+        return QStringLiteral("--- %1 ---\n").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
+    }
+    return {};
+}
+
 #include "moc_whatsnewwidget.cpp"

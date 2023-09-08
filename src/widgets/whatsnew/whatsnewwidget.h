@@ -21,6 +21,7 @@ public:
     void updateInformations();
 
 private:
+    Q_REQUIRED_RESULT QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
     Q_REQUIRED_RESULT QString createVersionInformations() const;
     Q_REQUIRED_RESULT WhatsNewComboBoxWidget::VersionType currentVersion() const;
     void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
