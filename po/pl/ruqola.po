@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 00:46+0000\n"
+"POT-Creation-Date: 2023-09-09 00:46+0000\n"
 "PO-Revision-Date: 2023-03-12 08:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -8369,6 +8369,27 @@ msgstr[0] "%1 użytkownik w pokoju (Razem: %2)"
 msgstr[1] "%1 użytkowników w pokoju (Razem: %2)"
 msgstr[2] "%1 użytkowników w pokoju (Razem: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Zwróć listę kont"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Rozpocznij z danym kontem"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgid "Show Message"
+msgstr "Podążaj za wiadomością"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Wymień dostępne możliwości informacji zwrotnej"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9762,20 +9783,6 @@ msgstr "Naprawa błędów"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Podążaj za wiadomością..."
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Zwróć listę kont"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Rozpocznij z danym kontem"
-
-#, fuzzy
-#~| msgid "Follow Message"
-#~ msgid "Show Message"
-#~ msgstr "Podążaj za wiadomością"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Wymień dostępne możliwości informacji zwrotnej"
 
 #~ msgid "UserName:"
 #~ msgstr "Nazwa użytkownika:"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 00:46+0000\n"
-"PO-Revision-Date: 2023-09-03 09:54+0300\n"
+"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"PO-Revision-Date: 2023-09-08 08:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -8345,6 +8345,26 @@ msgstr[1] "%1 користувачі у кімнаті (загалом: %2)"
 msgstr[2] "%1 користувачів у кімнаті (загалом: %2)"
 msgstr[3] "%1 користувач у кімнаті (загалом: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Повернути список облікових записів"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Запустити із вказаним обліковим записом"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, kde-format
+msgid "Show Message"
+msgstr "Показати повідомлення"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Показати доступні варіанти для відгуків користувача"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -8808,10 +8828,9 @@ msgid "All Version"
 msgstr "Усі версії"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Версія"
+msgstr "Версія 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9692,18 +9711,6 @@ msgstr "Виправлення деяких вад:"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Стежити за повідомленням…"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Повернути список облікових записів"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Запустити із вказаним обліковим записом"
-
-#~ msgid "Show Message"
-#~ msgstr "Показати повідомлення"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Показати доступні варіанти для відгуків користувача"
 
 #~ msgid "UserName:"
 #~ msgstr "Користувач:"

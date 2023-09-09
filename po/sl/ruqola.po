@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 00:46+0000\n"
-"PO-Revision-Date: 2023-09-03 08:49+0200\n"
+"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"PO-Revision-Date: 2023-09-08 06:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -8282,6 +8282,28 @@ msgstr[1] "%1 uporabnika v sobi (skupaj: %2)"
 msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
 msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, fuzzy, kde-format
+#| msgid "Return the number of account."
+msgid "Return lists of accounts"
+msgstr "Vrnite številko računa."
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgid "Show Message"
+msgstr "Sledi sporočilu"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr ""
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -8740,10 +8762,9 @@ msgid "All Version"
 msgstr "Vse različice"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Različica"
+msgstr "Različica 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
