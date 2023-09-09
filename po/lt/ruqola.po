@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -8593,6 +8593,27 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Grąžinti paskyrų sąrašus"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Pradėti naudojant tam tikrą paskyrą"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Show Message"
+msgstr "Šifruota žinutė"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr ""
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9351,12 +9372,6 @@ msgstr "Klaidų pataisymai"
 #~ msgctxt "@title:window"
 #~ msgid "Add User in Role"
 #~ msgstr "Informacija apie serverį..."
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Grąžinti paskyrų sąrašus"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Pradėti naudojant tam tikrą paskyrą"
 
 #, fuzzy
 #~| msgid "Search Messages..."

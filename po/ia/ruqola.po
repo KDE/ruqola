@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2023-03-03 12:22+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -8238,6 +8238,27 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 Usator in sala (Total: %2)"
 msgstr[1] "%1 Usatores in sala (Total: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Retorna listas de conto"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Initia con conto specific"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgid "Show Message"
+msgstr "Seque message"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Lista le optiones disponibile per responsa al usator"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9453,15 +9474,6 @@ msgstr "Correction de faltas (bug)"
 
 #~ msgid "Audio:"
 #~ msgstr "Audio:"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Retorna listas de conto"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Initia con conto specific"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Lista le optiones disponibile per responsa al usator"
 
 #~ msgid "Search Users"
 #~ msgstr "Cerca Usatores"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2023-08-08 06:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -8255,6 +8255,28 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 msgstr[1] "მომხმარებელი ოთახში: %1 (სულ: %2)"
+
+#: widgets/ruqolacommandlineoptions.h:14
+#, fuzzy, kde-format
+#| msgid "Return the number of account."
+msgid "Return lists of accounts"
+msgstr "ანგარიშების რაოდენობის დაბრუნება."
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr ""
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgid "Show Message"
+msgstr "შეტყობინების მიყოლა"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr ""
 
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format

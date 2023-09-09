@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -8580,6 +8580,27 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "回到帳戶列表"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "使用指定帳戶啟動"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Show Message"
+msgstr "檢舉訊息"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr ""
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9347,12 +9368,6 @@ msgstr "臭蟲修正"
 
 #~ msgid "Audio:"
 #~ msgstr "音訊："
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "回到帳戶列表"
-
-#~ msgid "Start with specific account"
-#~ msgstr "使用指定帳戶啟動"
 
 #, fuzzy
 #~| msgid "Search User..."

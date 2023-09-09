@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
-"PO-Revision-Date: 2023-01-13 13:49+0200\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
+"PO-Revision-Date: 2023-09-08 22:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -31,10 +31,9 @@ msgid "Rocket Chat Client"
 msgstr "Клієнт спілкування Rocket"
 
 #: apps/main.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2022 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "© Автори Ruqola, 2020–2022"
+msgstr "© Автори Ruqola, 2020–2023"
 
 #: apps/main.cpp:57
 #, kde-format
@@ -813,7 +812,7 @@ msgstr "Тип каналу"
 #: core/model/directoryroomsmodel.cpp:135
 #, kde-format
 msgid "Belongs To"
-msgstr ""
+msgstr "Належить"
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -1409,7 +1408,7 @@ msgstr "На виклик не надано відповіді"
 #: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call ended"
-msgstr ""
+msgstr "Виклик завершено"
 
 #: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
@@ -2144,12 +2143,13 @@ msgid "Invalid Password"
 msgstr "Некоректний пароль"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
-msgstr "Вказаний обов'язковий параметр «%1» не відповідає жодному каналу"
+msgstr ""
+"Вказаний обов'язковий параметр «roomId» або «roomName» не відповідає жодному "
+"каналу"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2159,7 +2159,7 @@ msgstr "Цей користувач не перебуває у цій ролі."
 #: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
-msgstr ""
+msgstr "Це комерційна можливість"
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -2182,10 +2182,9 @@ msgid "Channel can not convert to Team."
 msgstr "Не вдалося перетворити канал на команду."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Жетон із такою назвою вже існує"
+msgstr "Така команда вже існує."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2194,12 +2193,13 @@ msgstr ""
 "У вас немає достатніх прав доступу для додавання цього каналу до команди"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr "Вказаний обов'язковий параметр «%1» не відповідає жодному каналу"
+msgstr ""
+"Вказаний обов'язковий параметр «roomId» або «roomName» не відповідає жодній "
+"команді"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -2287,18 +2287,16 @@ msgid "Flags"
 msgstr "Прапорці"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Вилучити журнал"
+msgstr "Журнал"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Нетиповий"
+msgstr "Нетипові"
 
 #: textemoticons/widgets/emoticonlistview.cpp:107
 #, kde-format
@@ -2306,17 +2304,14 @@ msgid "Clear Recents"
 msgstr "Спорожнити список нещодавніх"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "Додавання ролі"
+msgstr "Додати емоційку"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:83
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Шукати кімнату…"
+msgstr "Шукати емоційку…"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -2580,10 +2575,9 @@ msgstr "Вилучення запрошення"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:35
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:91
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save as &File"
-msgstr "Збереження файла"
+msgstr "Зберегти як &файл"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
@@ -2824,10 +2818,9 @@ msgid "Archived"
 msgstr "Архівоване"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Room Avatar"
+#, kde-format
 msgid "Room's Creator:"
-msgstr "Аватар кімнати"
+msgstr "Автор кімнати:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -2905,10 +2898,9 @@ msgid "Engagement Dashboard"
 msgstr "Панель залученості"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Clear Recents"
+#, kde-format
 msgid "Read Receipts"
-msgstr "Спорожнити список нещодавніх"
+msgstr "Підтвердження прочитання"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
@@ -2951,10 +2943,9 @@ msgid "Offline Users"
 msgstr "Користувачів поза мережею"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Away Users"
+#, kde-format
 msgid "Busy Users"
-msgstr "Відсутніх користувачів"
+msgstr "Зайнятих користувачів"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
@@ -3364,62 +3355,61 @@ msgid "Enable collect log in data"
 msgstr "Увімкнути збирання журналу у даних"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "Повідомлення стану:"
+msgstr "Дозволити нетипове повідомлення стану"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Невдалі спроби увійти"
+msgstr "Блокувати запис користувача за невдалі спроби увійти"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Send Email to User when User is Activated"
 msgstr ""
+"Надсилати повідомлення ел. пошти користувачеві, коли користувача активовано"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
 msgstr ""
+"Надсилати повідомлення ел. пошти користувачеві, коли користувача деактивовано"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
 msgid "Require Name For Signup"
-msgstr ""
+msgstr "Потрібне ім'я для входу"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Require Password Change"
+#, kde-format
 msgid "Require Password Confirmation"
-msgstr "Вимога зміни пароля"
+msgstr "Потрібне підтвердження пароля"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Only Allow Verified Users to Login"
-msgstr ""
+msgstr "Дозволяти входити лише перевіреним користувачам"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
-msgstr ""
+msgstr "Позначати пошту для перевірених зовнішніх облікових записів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
 msgid "Manually Approve New Users"
-msgstr ""
+msgstr "Затверджувати нових користувачів вручну"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "Використовувати типовий список заблокованих доменів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "Перевірка доменів DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
 #, kde-format
@@ -3434,64 +3424,66 @@ msgstr "Невдалі спроби увійти"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr ""
+msgstr "Кількість помилкових спроб до блокування користувача"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
-msgstr ""
+msgstr "Час розблоковування користувача (у хвилинах)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
 #, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr ""
+msgstr "Кількість помилкових спроб до блокування за IP-адресою"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgid "Registration"
-msgstr "Зареєструвати"
+msgstr "Реєстрація"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
+"Щоб скористатися цією можливістю, переконайтеся, що параметри SMTP вказано "
+"правильно"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
+msgstr "Пропозиція типового префікса імені користувача"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "Список відокремлених комами дозволених доменів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
 #, kde-format
 msgid "Allowed Domains List"
-msgstr ""
+msgstr "Список дозволених доменів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "Список відокремлених комами заблокованих доменів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
 #, kde-format
 msgid "Blocked Domains List"
-msgstr ""
+msgstr "Список заблокованих доменів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Список відокремлених комами імен заблокованих користувачів (з урахуванням "
+"регістру символів)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Заблокувати користувача"
+msgstr "Список заблокованих імен користувачів"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3558,7 +3550,7 @@ msgstr "Федеративний IRC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -4010,10 +4002,9 @@ msgid "Invitation"
 msgstr "Запрошення"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Дозволити зміну пароля"
+msgstr "Пароль змінено"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4088,7 +4079,7 @@ msgstr "Обертати зображення при вивантаженні"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:22
 #, kde-format
 msgid "Restrict files to rooms' members"
-msgstr ""
+msgstr "Обмежити файли для учасників кімнати"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:24
 #, kde-format
@@ -4120,6 +4111,8 @@ msgstr "Позначення цього пункту може призвести
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
+"Обмежити доступ до файлів, які вивантажено до кімнати, лише учасниками "
+"кімнати"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
 #, kde-format
@@ -4381,12 +4374,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Трансляція"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Адреса трансляції"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4394,28 +4387,29 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"IP-адреса або вузол центральної трансляції Rocket.Chat. Приклади: "
+"192.168.1.1:3000 або localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "Обмеження кешу для обробки вихідних повідомлень."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "Шукати права доступу…"
+msgstr "Формальні вирази"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "Виводити після успішного з'єднання на сервер IRC."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Вхід здійснено"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4479,7 +4473,7 @@ msgstr "Групувати канали за типом"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:49
 #, kde-format
 msgid "Number of users' autocomplete suggestions"
-msgstr ""
+msgstr "Кількість пропозицій у автодоповненні імен користувачів"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -4692,10 +4686,9 @@ msgid "Audio Recorder Enabled"
 msgstr "Увімкнено засіб записування звуку"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "Enable Auto-Translate"
-msgstr "Автоматичний переклад"
+msgstr "Увімкнути автоматичний переклад"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
 #, kde-format
@@ -4746,27 +4739,24 @@ msgid "Safe Ports"
 msgstr "Безпечні порти"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Maximum Number of Chained Quotes"
-msgstr "Максимальна кількість використань"
+msgstr "Максимальна кількість цитат у ланцюжку"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Keep Messages and User Name"
-msgstr ""
+msgstr "Зберігати повідомлення та ім'я користувача"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete All Messages"
-msgstr "Вилучення повідомлення"
+msgstr "Вилучити усі повідомлення"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Remove Link Between User and Messages"
-msgstr ""
+msgstr "Вилучати зв'язок між користувачем і повідомленнями"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
@@ -4779,12 +4769,19 @@ msgid ""
 "between user and messages: This option will assign all messages and files of "
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
+"Визначити, що робити з повідомленнями користувачів, які вилучили власний "
+"обліковий запис. Зберігати повідомлення та ім'я користувача: журнал "
+"повідомлень і файлів користувача буде вилучено з безпосередніх повідомлень і "
+"буде збережено в інших кімнатах. Вилучити усі повідомлення: з бази даних "
+"буде вилучено усі повідомлення і файли, пошук даних користувача стане "
+"неможливим. Вилучити зв'язок між користувачем і повідомленнями: усі "
+"повідомлення і файли користувача буде пов'язано із ботом Rocket.Chat, а "
+"безпосередні повідомлення буде вилучено."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message Erasure Type"
-msgstr "Повідомлення пришпилено"
+msgstr "Тип вилучення повідомлень"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
@@ -4792,17 +4789,19 @@ msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
+"Повідомлення буде згруповано з попереднім повідомленням, якщо обидва "
+"належать одному користувачеві і проміжок часу між ними є меншим за вказаний "
+"час у секундах."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid "Grouping Period (in seconds)"
-msgstr ""
+msgstr "Період групування (у секундах)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Message Email Subject"
+#, kde-format
 msgid "Direct Messsage Maximum Users"
-msgstr "Тема безпосереднього повідомлення"
+msgstr "Максимальна кількість користувачів безпосереднього повідомлення"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
@@ -4858,38 +4857,34 @@ msgid "Auto-Translate"
 msgstr "Автоматичний переклад"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid "DeepL"
+#, kde-format
 msgid "Deepl"
-msgstr "DeepL"
+msgstr "Deepl"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Micro Off"
+#, kde-format
 msgid "Microsoft"
-msgstr "Мікрофон вимкнено"
+msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Provider:"
+#, kde-format
 msgid "Service Provider"
-msgstr "Надавач:"
+msgstr "Надавач послуг"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
 msgid "DeepL API Key"
-msgstr ""
+msgstr "Ключ API DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgid "Google Id"
+#, kde-format
 msgid "Google API Key"
-msgstr "Ід. Google"
+msgstr "Ключ API Google"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
 msgid "Microsoft API Key"
-msgstr ""
+msgstr "Ключ API Microsoft"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -5816,10 +5811,9 @@ msgid "Select All"
 msgstr "Вибрати все"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Декламувати текст"
+msgstr "Скопіювати текст"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -5954,16 +5948,14 @@ msgid "Micro Off"
 msgstr "Мікрофон вимкнено"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Micro On"
+#, kde-format
 msgid "Micro"
-msgstr "Мікрофон увімкнено"
+msgstr "Мікрофон"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Camera On"
+#, kde-format
 msgid "Camera"
-msgstr "Камеру увімкнено"
+msgstr "Камера"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
@@ -6037,12 +6029,12 @@ msgstr "Показати акценти при наведенні"
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
 #, kde-format
 msgid "Animate Gif Image"
-msgstr ""
+msgstr "Анімувати зображення Gif"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
 msgid "Use local dataBase (experimental)"
-msgstr ""
+msgstr "Використати локальну базу даних (експеримент)"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
@@ -6106,11 +6098,9 @@ msgid "Remove Account"
 msgstr "Вилучення облікового запису"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Custom Sound"
+#, kde-format
 msgid "Remove logs stored on disk"
-msgstr "Вилучення нетипового звуку"
+msgstr "Вилучити журнал, що зберігається на диску"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -6118,12 +6108,10 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Хочете вилучити обліковий запис «%1»?"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "User Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr "Інформація про користувача"
+msgstr "Інформація щодо бази даних"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -6287,10 +6275,9 @@ msgid "Prune"
 msgstr "Спрощення"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Maximum message age in days (default: 300):"
+#, kde-format
 msgid "Maximum message age in days (default: 30):"
-msgstr "Максимальний вік повідомлення у днях (типове значення — 300):"
+msgstr "Максимальний вік повідомлення у днях (типове значення — 30):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
@@ -6303,10 +6290,9 @@ msgid "Invalid characters found."
 msgstr "Виявлено некоректні символи."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Invalid characters found."
+#, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Виявлено некоректні символи."
+msgstr "Виявлено некоректні символи. (Коректні символи: %1)"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
@@ -6320,34 +6306,31 @@ msgid "Channel Password:"
 msgstr "Пароль каналу:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
-msgstr[0] "Власник:"
-msgstr[1] "Власник:"
-msgstr[2] "Власник:"
+msgstr[0] "Власники:"
+msgstr[1] "Власники:"
+msgstr[2] "Власники:"
 msgstr[3] "Власник:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Модератор"
-msgstr[1] "Модератор"
-msgstr[2] "Модератор"
-msgstr[3] "Модератор"
+msgstr[0] "Модератори:"
+msgstr[1] "Модератори:"
+msgstr[2] "Модератори:"
+msgstr[3] "Модератор:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Leader"
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Лідер"
-msgstr[1] "Лідер"
-msgstr[2] "Лідер"
-msgstr[3] "Лідер"
+msgstr[0] "Лідери:"
+msgstr[1] "Лідери:"
+msgstr[2] "Лідери:"
+msgstr[3] "Лідер:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -6434,10 +6417,9 @@ msgid "Create Direct Messages - %1"
 msgstr "Створення безпосередніх повідомлень – %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Any team selected."
+#, kde-format
 msgid "Too many users selected."
-msgstr "Не вибрано жодної команди."
+msgstr "Позначено надто багато користувачів."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
@@ -6582,21 +6564,19 @@ msgstr "Адреса сервера:"
 #: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr ""
+msgstr "Записано %1 сек."
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Створення відеоповідомлення"
+msgstr "Створення звукового повідомлення"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Надіслати"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:89
 #: widgets/dialogs/createvideomessagewizard.cpp:115
@@ -7021,12 +7001,10 @@ msgid "Upload File"
 msgstr "Вивантаження файла"
 
 #: widgets/dialogs/uploadfiledialog.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
-msgstr "Показ зображення"
+msgstr "Вивантаження зображення"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -7035,10 +7013,9 @@ msgid "Directory - %1"
 msgstr "Каталог – %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Generate link is not authorized in this channel."
+#, kde-format
 msgid "You are not authorized to view this page."
-msgstr "Створення посилань на цьому каналі заборонено."
+msgstr "Вас не уповноважено на перегляд цієї сторінки."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
@@ -7134,8 +7111,7 @@ msgstr[2] "%1 обговорень у кімнаті (загалом: %2)"
 msgstr[3] "%1 обговорення у кімнаті (загалом: %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Права доступу"
@@ -7174,98 +7150,89 @@ msgstr "HTML"
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
 msgid "Impossible to export data."
-msgstr ""
+msgstr "Не вдалося експортувати дані."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
-#, fuzzy, kde-format
-#| msgid "Failed to extract import file."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "Не вдалося видобути імпортований файл."
+msgstr "Не вдалося створити файл zip."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgid "Export Done."
-msgstr "Експортувати…"
+msgstr "Експортування виконано."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
-msgstr ""
+msgstr "Обліковий запис %1: виконано експортування налаштувань."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
-msgstr ""
+msgstr "Обліковий запис %1: виконано експортування кешу."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
-msgstr ""
+msgstr "Обліковий запис %1: виконано експортування журналу."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "Каталог «%1» не вдалося додавати до файла резервної копії."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Accounts Exported."
-msgstr "Облікові записи"
+msgstr "Облікові записи експортовано."
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgid "Select Accounts:"
-msgstr "Вилучити обліковий запис"
+msgstr "Виберіть облікові записи:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "Облікові записи"
+msgstr "Експортування облікових записів"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
-msgstr ""
+msgstr "Не вдалося відкрити файл zip."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, kde-format
 msgid "Impossible to copy file"
-msgstr ""
+msgstr "Не вдалося скопіювати файл"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
 #, kde-format
 msgid "Impossible to open file"
-msgstr ""
+msgstr "Не вдалося відкрити файл"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import..."
+#, kde-format
 msgid "Import Done."
-msgstr "Імпортувати…"
+msgstr "Імпортування виконано."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts imported."
-msgstr "Облікова назва"
+msgstr "Облікові записи імпортовано."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
-#, fuzzy, kde-format
-#| msgid "Select File..."
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Вибрати файл…"
+msgstr "Виберіть файл zip:"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Облікові записи"
+msgstr "Імпортування облікових записів"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -7329,26 +7296,24 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Помилка під час спроби увійти: некоректний код OTP."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login failed: User is not activated."
-msgstr "Запис користувача не активовано"
+msgstr "Не вдалося увійти: запис користувача не активовано."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "Вхід користувача було тимчасово заблоковано для IP."
 
 #: widgets/misc/accountsoverviewwidget.cpp:59
 #, kde-format
 msgid "Login has been temporarily blocked For User."
-msgstr ""
+msgstr "Вхід користувача було тимчасово заблоковано для користувача."
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "App user is not allowed to login."
-msgstr "Користувачу програми не дозволено входити до системи"
+msgstr "Користувачу програми не дозволено входити до системи."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -7388,10 +7353,9 @@ msgid "Server"
 msgstr "Сервер"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "Обліковий запис…"
+msgstr "Фільтрувати обліковий запис…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7805,7 +7769,7 @@ msgstr "Копіювати повідомлення"
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "Мережа у автономному режимі."
 
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
@@ -7990,17 +7954,15 @@ msgid "Join"
 msgstr "Приєднатися"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Показ зображення"
+msgstr "Отримати зображення"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr ""
+msgstr "Отримати зображення…"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:290
 #: widgets/room/messagelistview.cpp:371 widgets/room/usersinroommenu.cpp:86
@@ -8075,19 +8037,17 @@ msgstr "Вивантаження файла"
 #: widgets/room/messagelinewidget.cpp:375
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
-msgstr ""
+msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
 
 #: widgets/room/messagelistview.cpp:92
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Максимальний вік повідомлень у безпосередніх повідомленнях"
+msgstr "Ви долучилися до нового безпосереднього обміну повідомленнями"
 
 #: widgets/room/messagelistview.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Почати спілкування"
+msgstr "Початок спілкування"
 
 #: widgets/room/messagelistview.cpp:275
 #, kde-format
@@ -8188,10 +8148,9 @@ msgid "Translator Error"
 msgstr "Помилка під час перекладу"
 
 #: widgets/room/messagetextedit.cpp:194
-#, fuzzy, kde-format
-#| msgid "Save Image"
+#, kde-format
 msgid "Paste Image"
-msgstr "Збереження зображення"
+msgstr "Вставити зображення"
 
 #: widgets/room/messagetextedit.cpp:201
 #, kde-format
@@ -8327,6 +8286,8 @@ msgstr "Вилучити журнал"
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
+"Адміністратор робочого простору має встановити і налаштувати програми для "
+"викликів-конференцій."
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format
@@ -8457,6 +8418,27 @@ msgstr[1] "%1 користувачі у кімнаті (загалом: %2)"
 msgstr[2] "%1 користувачів у кімнаті (загалом: %2)"
 msgstr[3] "%1 користувач у кімнаті (загалом: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Повернути список облікових записів"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Запустити із вказаним обліковим записом"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgid "Show Message"
+msgstr "Стежити за повідомленням"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Показати доступні варіанти для відгуків користувача"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -8473,16 +8455,14 @@ msgid "Account name"
 msgstr "Облікова назва"
 
 #: widgets/ruqolaloginwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Користувач:"
+msgstr "Користувач або адреса ел. пошти:"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Користувач"
+msgstr "Ім'я користувача або адреса ел. пошти"
 
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
@@ -8516,24 +8496,25 @@ msgstr "Помилка під час спроби увійти: загальна
 #: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "Не вдалося увійти: вхід користувача було тимчасово заблоковано для IP."
 
 #: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
+"Не вдалося увійти: вхід користувача було тимчасово заблоковано для "
+"користувача."
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "Запис користувача не активовано"
+msgstr "Не вдалося увійти: запис користувача не активовано."
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "Login Failed: App user is not allowed to login."
-msgstr "Користувачу програми не дозволено входити до системи"
+msgstr ""
+"Не вдалося увійти: користувачу програми не дозволено входити до системи."
 
 #: widgets/ruqolamainwindow.cpp:218
 #, kde-format
@@ -8603,7 +8584,7 @@ msgstr "Показати журнал каналу"
 #: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgid "Show Server Errors"
-msgstr ""
+msgstr "Показати помилки сервера"
 
 #: widgets/ruqolamainwindow.cpp:469
 #, kde-format
@@ -8631,8 +8612,7 @@ msgid "Server Settings..."
 msgstr "Параметри сервера…"
 
 #: widgets/ruqolamainwindow.cpp:494
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Каталог…"
@@ -8680,19 +8660,17 @@ msgstr "Показувати улюблену кімнату"
 #: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "What's new"
-msgstr ""
+msgstr "Що нового?"
 
 #: widgets/ruqolamainwindow.cpp:618
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Облікові записи"
+msgstr "Імпортувати облікові записи"
 
 #: widgets/ruqolamainwindow.cpp:622
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Export Accounts"
-msgstr "Облікові записи"
+msgstr "Експортувати облікові записи"
 
 #: widgets/ruqolamainwindow.cpp:654
 #, kde-format
@@ -8703,13 +8681,12 @@ msgstr "Створення команди"
 #: widgets/ruqolamainwindow.cpp:809
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "Не вдалося відкрити журнал."
 
 #: widgets/ruqolamainwindow.cpp:809
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Показати журнал каналу"
+msgstr "Показати журнал"
 
 #: widgets/ruqolamainwindow.cpp:871
 #, kde-format
@@ -8728,8 +8705,7 @@ msgid "Register New User"
 msgstr "Реєстрація нового користувача"
 
 #: widgets/ruqolamainwindow.cpp:930
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
@@ -8776,7 +8752,7 @@ msgstr "Перегляд"
 #: widgets/ruqolaui.rc:70
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Довідка"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:74
@@ -8785,22 +8761,20 @@ msgid "Main Toolbar"
 msgstr "Головна панель"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Помилки і відомості"
+msgstr "Дані щодо помилок сервера"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
 msgid "(Show Errors)"
-msgstr ""
+msgstr "(Показати помилки)"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server version: %1"
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Версія сервера: %1"
+msgstr "Повідомлено про помилки сервера. %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -8918,111 +8892,106 @@ msgid "Return the number of account."
 msgstr "Повернути номер облікового запису."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Версія"
+msgstr "Версія:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Версія"
+msgstr "Усі версії"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Версія"
+msgstr "Версія 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "Що нового у Ruqola"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Показати менше відомостей…)"
+msgstr "(Показати новини щодо Ruqola)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr ""
+msgstr "Що нового у Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:18
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
+"Зберігати повідомлення у локальній базі даних (експериментальна можливість)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
-msgstr ""
+msgstr "Отримувати піктограму сервера з сервера"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr ""
+msgstr "Показувати дані помилки сервера у відповідному вікні"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:29
-#, fuzzy
-#| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Копіювати зображення до буфера"
+msgstr "Дозволити копіювання зображення до буфера"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
+"Удосконалено підтримку діагностики (уможливлено показ поточних права доступу "
+"облікового запису)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr ""
+msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
-msgstr ""
+msgstr "Показувати лідера, модератора та власника у даних каналу."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
-msgstr ""
+msgstr "Імпортувати/Експортувати облікові записи."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix avatar support"
-msgstr ""
+msgstr "Виправлено підтримку аватарів"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
+"Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
-msgstr ""
+msgstr "Виправлено анімований gif у реакціях"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:43
-#, fuzzy
-#| msgid "Android support"
 msgid "Fix kf6 support"
-msgstr "Підтримка Android"
+msgstr "Виправлено підтримку kf6"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:111
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Важливі зміни з часу випуску попередньої версії:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:119
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:127
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
+#, kde-format
 msgid "Some bug fixing:"
-msgstr "Виправлення вад"
+msgstr "Виправлення деяких вад:"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Подрібнені повідомлення"
@@ -9692,15 +9661,6 @@ msgstr "Виправлення вад"
 
 #~ msgid "Audio:"
 #~ msgstr "Аудіо:"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Повернути список облікових записів"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Запустити із вказаним обліковим записом"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Показати доступні варіанти для відгуків користувача"
 
 #~ msgid "Search Users"
 #~ msgstr "Шукати користувачів…"

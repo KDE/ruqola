@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8696,6 +8696,27 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Kontode loendi näitamine"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Käivitamine konkreetse kontoga"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgid "Show Message"
+msgstr "Kõik sõnumid"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Kasutaja tagasiside saadaolevate valikute loend"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9539,15 +9560,6 @@ msgstr "Vigade parandamine"
 
 #~ msgid "Audio:"
 #~ msgstr "Heli:"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Kontode loendi näitamine"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Käivitamine konkreetse kontoga"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Kasutaja tagasiside saadaolevate valikute loend"
 
 #, fuzzy
 #~| msgid "Search Users..."

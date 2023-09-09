@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2023-05-10 21:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -8251,6 +8251,27 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Palauta luettelo tileistä"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Aloita tietyllä tilillä"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "Follow Message"
+msgid "Show Message"
+msgstr "Seuraa viestiä"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Luettelee eri käyttäjäpalautemahdollisuudet"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9483,15 +9504,6 @@ msgstr "Virheenkorjaus"
 
 #~ msgid "Audio:"
 #~ msgstr "Ääni:"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Palauta luettelo tileistä"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Aloita tietyllä tilillä"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Luettelee eri käyttäjäpalautemahdollisuudet"
 
 #, fuzzy
 #~| msgid "Search Users..."

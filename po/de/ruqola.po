@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 02:24+0000\n"
+"POT-Creation-Date: 2023-09-09 02:25+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -29,10 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket-Chat-Client"
 
 #: apps/main.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2022 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "Copyright © 2017-2022 Ruqola-Autoren"
+msgstr "Copyright © 2017-2023 Ruqola-Autoren"
 
 #: apps/main.cpp:57
 #, kde-format
@@ -8560,6 +8559,27 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 Benutzer in Raum (Gesamt: %2)"
 msgstr[1] "%1 Benutzer in Raum (Gesamt: %2)"
 
+#: widgets/ruqolacommandlineoptions.h:14
+#, kde-format
+msgid "Return lists of accounts"
+msgstr "Liste der Zugänge zurückgeben"
+
+#: widgets/ruqolacommandlineoptions.h:15
+#, kde-format
+msgid "Start with specific account"
+msgstr "Mit angegebenem Zugang starten"
+
+#: widgets/ruqolacommandlineoptions.h:16
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgid "Show Message"
+msgstr "Alle Nachrichten"
+
+#: widgets/ruqolacommandlineoptions.h:19
+#, kde-format
+msgid "Lists the available options for user feedback"
+msgstr "Zeigt die verfügbaren Einstellungen zum Benutzer-Feedback an"
+
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
@@ -9415,15 +9435,6 @@ msgstr "Fehlerkorrekturen"
 
 #~ msgid "Audio:"
 #~ msgstr "Audio:"
-
-#~ msgid "Return lists of accounts"
-#~ msgstr "Liste der Zugänge zurückgeben"
-
-#~ msgid "Start with specific account"
-#~ msgstr "Mit angegebenem Zugang starten"
-
-#~ msgid "Lists the available options for user feedback"
-#~ msgstr "Zeigt die verfügbaren Einstellungen zum Benutzer-Feedback an"
 
 #~ msgid "Search Users"
 #~ msgstr "Benutzer suchen"
