@@ -821,7 +821,6 @@ target_link_libraries(libruqolawidgets
     KF${KF_MAJOR_VERSION}::Archive
     librocketchatrestapi-qt5
     libruqolacore
-    KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets
 )
 
 if (HAVE_TEXT_TRANSLATOR)
@@ -829,6 +828,11 @@ if (HAVE_TEXT_TRANSLATOR)
         KF${KF_MAJOR_VERSION}::TextTranslator
     )
 endif()
+
+if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
+	target_link_libraries(libruqolawidgets
+		KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
+endif()	
 
 if (HAVE_TEXT_AUTOCORRECTION)
     target_link_libraries(libruqolawidgets
