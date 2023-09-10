@@ -2294,15 +2294,13 @@ msgid "Flags"
 msgstr "Étiquettes"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Supprimer l'historique"
+msgstr "Historique"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personnalisé"
@@ -2313,17 +2311,14 @@ msgid "Clear Recents"
 msgstr "Effacer les éléments récents"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "Ajouter un rôle"
+msgstr "Ajouter une émoticône"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:83
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Rechercher un salon..."
+msgstr "Rechercher une émoticône..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -8409,12 +8404,14 @@ msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
 msgstr[1] "%1 messages dans le salon (total : %2)"
 
 #: widgets/ruqolacommandlineoptions.h:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Return lists of accounts"
 msgid "Return lists of accounts"
 msgstr "Renvoyer des listes de comptes"
 
 #: widgets/ruqolacommandlineoptions.h:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Start with specific account"
 msgid "Start with specific account"
 msgstr "Démarrer avec un compte spécifique"
 
@@ -8425,7 +8422,8 @@ msgid "Show Message"
 msgstr "Suivre un message"
 
 #: widgets/ruqolacommandlineoptions.h:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Lists the available options for user feedback"
 msgid "Lists the available options for user feedback"
 msgstr "Liste les options disponibles pour le retour utilisateur"
 

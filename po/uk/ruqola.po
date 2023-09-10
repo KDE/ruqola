@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 02:25+0000\n"
-"PO-Revision-Date: 2023-09-08 22:57+0300\n"
+"PO-Revision-Date: 2023-09-09 23:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -8429,10 +8429,9 @@ msgid "Start with specific account"
 msgstr "Запустити із вказаним обліковим записом"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Show Message"
-msgstr "Стежити за повідомленням"
+msgstr "Показати повідомлення"
 
 #: widgets/ruqolacommandlineoptions.h:19
 #, kde-format
