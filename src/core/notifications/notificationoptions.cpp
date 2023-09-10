@@ -49,15 +49,15 @@ void NotificationOptions::setAudioNotificationValue(const QString &audioNotifica
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    obj[QStringLiteral("audioNotificationValue")] = options.audioNotificationValue();
-    obj[QStringLiteral("disableNotifications")] = options.disableNotifications();
-    obj[QStringLiteral("desktopNotifications")] = options.desktopNotifications().currentValue();
-    obj[QStringLiteral("mobilePushNotifications")] = options.mobilePushNotification().currentValue();
-    obj[QStringLiteral("emailNotifications")] = options.emailNotifications().currentValue();
-    obj[QStringLiteral("unreadAlert")] = options.unreadTrayIconAlert();
-    obj[QStringLiteral("hideUnreadStatus")] = options.hideUnreadStatus();
-    obj[QStringLiteral("muteGroupMentions")] = options.muteGroupMentions();
-    obj[QStringLiteral("hideMentionStatus")] = options.hideMentionStatus();
+    obj[QLatin1String("audioNotificationValue")] = options.audioNotificationValue();
+    obj[QLatin1String("disableNotifications")] = options.disableNotifications();
+    obj[QLatin1String("desktopNotifications")] = options.desktopNotifications().currentValue();
+    obj[QLatin1String("mobilePushNotifications")] = options.mobilePushNotification().currentValue();
+    obj[QLatin1String("emailNotifications")] = options.emailNotifications().currentValue();
+    obj[QLatin1String("unreadAlert")] = options.unreadTrayIconAlert();
+    obj[QLatin1String("hideUnreadStatus")] = options.hideUnreadStatus();
+    obj[QLatin1String("muteGroupMentions")] = options.muteGroupMentions();
+    obj[QLatin1String("hideMentionStatus")] = options.hideMentionStatus();
     return obj;
 }
 
@@ -65,15 +65,15 @@ NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
 {
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
     NotificationOptions options;
-    options.setAudioNotificationValue(o[QStringLiteral("audioNotificationValue")].toString());
-    options.setDisableNotifications(o[QStringLiteral("disableNotifications")].toBool());
-    options.setUnreadTrayIconAlert(o[QStringLiteral("unreadAlert")].toString());
-    options.setHideUnreadStatus(o[QStringLiteral("hideUnreadStatus")].toBool());
-    options.setMuteGroupMentions(o[QStringLiteral("muteGroupMentions")].toBool());
-    options.setHideMentionStatus(o[QStringLiteral("hideMentionStatus")].toBool());
-    options.setDesktopNotifications(NotificationValue(o[QStringLiteral("desktopNotifications")].toString(), QString()));
-    options.setMobilePushNotification(NotificationValue(o[QStringLiteral("mobilePushNotifications")].toString(), QString()));
-    options.setEmailNotifications(NotificationValue(o[QStringLiteral("emailNotifications")].toString(), QString()));
+    options.setAudioNotificationValue(o[QLatin1String("audioNotificationValue")].toString());
+    options.setDisableNotifications(o[QLatin1String("disableNotifications")].toBool());
+    options.setUnreadTrayIconAlert(o[QLatin1String("unreadAlert")].toString());
+    options.setHideUnreadStatus(o[QLatin1String("hideUnreadStatus")].toBool());
+    options.setMuteGroupMentions(o[QLatin1String("muteGroupMentions")].toBool());
+    options.setHideMentionStatus(o[QLatin1String("hideMentionStatus")].toBool());
+    options.setDesktopNotifications(NotificationValue(o[QLatin1String("desktopNotifications")].toString(), QString()));
+    options.setMobilePushNotification(NotificationValue(o[QLatin1String("mobilePushNotifications")].toString(), QString()));
+    options.setEmailNotifications(NotificationValue(o[QLatin1String("emailNotifications")].toString(), QString()));
     return options;
 }
 
@@ -199,7 +199,7 @@ bool NotificationOptions::NotificationValue::operator==(const NotificationValue 
 
 QString NotificationOptions::NotificationValue::currentValue() const
 {
-    if (preferenceOrigin == QStringLiteral("subscription") && !value.isEmpty()) {
+    if (preferenceOrigin == QLatin1String("subscription") && !value.isEmpty()) {
         return value;
     }
     // Keep compatibility

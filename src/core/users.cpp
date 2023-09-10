@@ -42,9 +42,9 @@ User &Users::operator[](int i)
 
 void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
 {
-    const int usersCount = obj[QStringLiteral("count")].toInt();
-    mOffset = obj[QStringLiteral("offset")].toInt();
-    mTotal = obj[QStringLiteral("total")].toInt();
+    const int usersCount = obj[QLatin1String("count")].toInt();
+    mOffset = obj[QLatin1String("offset")].toInt();
+    mTotal = obj[QLatin1String("total")].toInt();
     parseListUsers(obj, type, roleInfo);
     mUsersCount += usersCount;
 }
@@ -108,9 +108,9 @@ void Users::setUsers(const QVector<User> &rooms)
 
 void Users::parseUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
 {
-    mUsersCount = obj[QStringLiteral("count")].toInt();
-    mOffset = obj[QStringLiteral("offset")].toInt();
-    mTotal = obj[QStringLiteral("total")].toInt();
+    mUsersCount = obj[QLatin1String("count")].toInt();
+    mOffset = obj[QLatin1String("offset")].toInt();
+    mTotal = obj[QLatin1String("total")].toInt();
     mUsers.clear();
     parseListUsers(obj, type, roleInfo);
 }

@@ -81,7 +81,7 @@ void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
 {
     QVector<OauthInfo> lstOauth;
-    const QJsonArray array = obj[QStringLiteral("oauthApps")].toArray();
+    const QJsonArray array = obj[QLatin1String("oauthApps")].toArray();
     const auto arrayCount{array.count()};
     lstOauth.reserve(arrayCount);
     for (auto i = 0; i < arrayCount; ++i) {

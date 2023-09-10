@@ -35,7 +35,7 @@ void ChangeGroupsAnnouncementJob::onPostRequestResponse(const QString &replyErro
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChangeGroupsDescriptionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeGroupsAnnouncement();
     } else {

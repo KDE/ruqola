@@ -40,7 +40,7 @@ void VideoConferenceProvidersJob::onGetRequestResponse(const QString &replyError
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceProvidersJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         // {"data":[{"key":"jitsi","label":"Jitsi"}]
         Q_EMIT videoConferenceProvidersDone(replyObject);

@@ -85,7 +85,7 @@ void SettingsWidgetBase::updateSettings(const QString &settingName,
 void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName)
 {
     qDebug() << "AccountSettingsWidget::slotAdminSettingsDone " << obj;
-    if (obj[QStringLiteral("success")].toBool()) {
+    if (obj[QLatin1String("success")].toBool()) {
         // Disable apply button
         if (!buttonObjectName.isEmpty()) {
             Q_EMIT changedDone(buttonObjectName);

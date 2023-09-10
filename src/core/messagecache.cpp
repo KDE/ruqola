@@ -73,7 +73,7 @@ void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QStri
 
 void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QString &messageId)
 {
-    const QJsonObject msgObject = obj[QStringLiteral("message")].toObject();
+    const QJsonObject msgObject = obj[QLatin1String("message")].toObject();
     Q_ASSERT(!msgObject.isEmpty());
     auto message = new Message;
     message->parseMessage(msgObject, true);

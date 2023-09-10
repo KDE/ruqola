@@ -34,7 +34,7 @@ bool SetStatusJob::start()
 void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setStatusDone();
     } else {
@@ -133,7 +133,7 @@ QJsonDocument SetStatusJob::json() const
 
 QString SetStatusJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QStringLiteral("error-status-not-allowed")) {
+    if (str == QLatin1String("error-status-not-allowed")) {
         return i18n("Invisible status is disabled");
     }
     return RestApiAbstractJob::errorMessage(str, detail);

@@ -100,13 +100,13 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(QJsonValue(50)); // Max number of messages to load;
         QJsonObject dateObject;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-        dateObject[QStringLiteral("$date")] = QJsonValue(info.lastSeenAt);
+        dateObject[QLatin1String("$date")] = QJsonValue(info.lastSeenAt);
         params.append(dateObject);
     } else if (info.timeStamp != 0) {
         params.append(info.timeStamp);
 
         QJsonObject dateObjectEnd;
-        dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
+        dateObjectEnd[QLatin1String("$date")] = QJsonValue(endDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
@@ -141,7 +141,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 #endif
         }
         QJsonObject dateObjectEnd;
-        dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
+        dateObjectEnd[QLatin1String("$date")] = QJsonValue(endDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
@@ -151,7 +151,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 
         QJsonObject dateObjectStart;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << endDateTime << " ROOMID " << roomID;
-        dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
+        dateObjectStart[QLatin1String("$date")] = QJsonValue(startDateTime);
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;

@@ -149,8 +149,8 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     QMap<QString, QVariant> mapSettings;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
-        const QString id = currentConfObject[QStringLiteral("_id")].toString();
-        const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
+        const QString id = currentConfObject[QLatin1String("_id")].toString();
+        const QVariant value = currentConfObject[QLatin1String("value")].toVariant();
         // qDebug() << "id  " << id << " value " << value;
         mapSettings.insert(id, value);
     }

@@ -53,7 +53,7 @@ void AdminUsersModel::removeElement(const QString &identifier)
 void AdminUsersModel::updateElement(const QJsonObject &userObj)
 {
     const int roomCount = mUsers.count();
-    const QJsonObject obj = userObj[QStringLiteral("user")].toObject();
+    const QJsonObject obj = userObj[QLatin1String("user")].toObject();
     const QString identifier{obj.value(QStringLiteral("_id")).toString()};
     for (int i = 0; i < roomCount; ++i) {
         if (mUsers.at(i).userId() == identifier) {

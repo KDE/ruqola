@@ -81,7 +81,7 @@ void EmojiCustomUpdateJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT emojiCustomUpdateDone(replyObject);
     } else {
@@ -108,7 +108,7 @@ void EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
+        if (replyObject[QLatin1String("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomUpdateDone(replyObject);
         } else {

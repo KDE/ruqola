@@ -34,7 +34,7 @@ bool CustomUserStatusUpdateJob::start()
 void CustomUserStatusUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customUserUpdateDone();
     } else {
@@ -82,9 +82,9 @@ QNetworkRequest CustomUserStatusUpdateJob::request() const
 QJsonDocument CustomUserStatusUpdateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QStringLiteral("_id")] = mStatusUpdateInfo.identifier;
-    jsonObj[QStringLiteral("name")] = mStatusUpdateInfo.name;
-    jsonObj[QStringLiteral("statusType")] = mStatusUpdateInfo.statusType;
+    jsonObj[QLatin1String("_id")] = mStatusUpdateInfo.identifier;
+    jsonObj[QLatin1String("name")] = mStatusUpdateInfo.name;
+    jsonObj[QLatin1String("statusType")] = mStatusUpdateInfo.statusType;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

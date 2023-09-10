@@ -53,7 +53,7 @@ bool GetMentionedMessagesJob::start()
 void GetMentionedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("getMentionedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getMentionedMessagesDone(replyObject, mRoomId);
     } else {

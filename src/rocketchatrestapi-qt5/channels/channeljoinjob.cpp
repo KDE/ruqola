@@ -37,14 +37,14 @@ void ChannelJoinJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setChannelJoinDone(channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         // Invalid password
-        const QString errorType = replyObject[QStringLiteral("errorType")].toString();
+        const QString errorType = replyObject[QLatin1String("errorType")].toString();
         if (errorType == QLatin1String("error-code-invalid")) {
             Q_EMIT missingChannelPassword(channelGroupInfo());
         } else if (errorType == QLatin1String("error-room-archived")) {

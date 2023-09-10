@@ -95,7 +95,7 @@ void Role::parseRole(const QJsonObject &obj)
     const QJsonObject uObj = obj.value(QLatin1String("u")).toObject();
     mUserId = uObj.value(QLatin1String("_id")).toString();
     mUserName = uObj.value(QLatin1String("username")).toString();
-    const QJsonArray roleArray = obj[QStringLiteral("roles")].toArray();
+    const QJsonArray roleArray = obj[QLatin1String("roles")].toArray();
     for (int i = 0; i < roleArray.count(); ++i) {
         const QString str = roleArray.at(i).toString();
         updateRole(str, true);

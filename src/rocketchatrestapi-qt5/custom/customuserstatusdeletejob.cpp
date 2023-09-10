@@ -34,7 +34,7 @@ bool CustomUserStatusDeleteJob::start()
 void CustomUserStatusDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT userStatusDeletedDone();
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest CustomUserStatusDeleteJob::request() const
 QJsonDocument CustomUserStatusDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QStringLiteral("customUserStatusId")] = mCustomUserStatusId;
+    jsonObj[QLatin1String("customUserStatusId")] = mCustomUserStatusId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

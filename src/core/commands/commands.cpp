@@ -39,16 +39,16 @@ Command Commands::at(int index) const
 
 void Commands::parseMoreCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
 {
-    const int commandsCount = commandsObj[QStringLiteral("count")].toInt();
-    mOffset = commandsObj[QStringLiteral("offset")].toInt();
-    mTotal = commandsObj[QStringLiteral("total")].toInt();
+    const int commandsCount = commandsObj[QLatin1String("count")].toInt();
+    mOffset = commandsObj[QLatin1String("offset")].toInt();
+    mTotal = commandsObj[QLatin1String("total")].toInt();
     parseListCommands(commandsObj, account);
     mCommandsCount += commandsCount;
 }
 
 void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
 {
-    const QJsonArray commandsArray = commandsObj[QStringLiteral("commands")].toArray();
+    const QJsonArray commandsArray = commandsObj[QLatin1String("commands")].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
     const QString lang = QLocale().name();
     for (const QJsonValue &current : commandsArray) {
@@ -126,9 +126,9 @@ void Commands::setCommands(const QVector<Command> &commands)
 
 void Commands::parseCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
 {
-    mCommandsCount = commandsObj[QStringLiteral("count")].toInt();
-    mOffset = commandsObj[QStringLiteral("offset")].toInt();
-    mTotal = commandsObj[QStringLiteral("total")].toInt();
+    mCommandsCount = commandsObj[QLatin1String("count")].toInt();
+    mOffset = commandsObj[QLatin1String("offset")].toInt();
+    mTotal = commandsObj[QLatin1String("total")].toInt();
     mCommands.clear();
     parseListCommands(commandsObj, account);
 }

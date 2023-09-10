@@ -38,8 +38,8 @@ void MessageAttachmentField::setValue(const QString &value)
 QJsonObject MessageAttachmentField::serialize(const MessageAttachmentField &message)
 {
     QJsonObject obj;
-    obj[QStringLiteral("title")] = message.title();
-    obj[QStringLiteral("value")] = message.value();
+    obj[QLatin1String("title")] = message.title();
+    obj[QLatin1String("value")] = message.value();
     return obj;
 }
 

@@ -37,9 +37,9 @@ CustomSoundInfo CustomSoundsInfo::at(int index) const
 
 void CustomSoundsInfo::parseMoreCustomSounds(const QJsonObject &obj)
 {
-    const int adminRoomsCount = obj[QStringLiteral("count")].toInt();
-    mOffset = obj[QStringLiteral("offset")].toInt();
-    mTotal = obj[QStringLiteral("total")].toInt();
+    const int adminRoomsCount = obj[QLatin1String("count")].toInt();
+    mOffset = obj[QLatin1String("offset")].toInt();
+    mTotal = obj[QLatin1String("total")].toInt();
     parseListCustomSound(obj);
     mRoomsCount += adminRoomsCount;
 }
@@ -82,9 +82,9 @@ void CustomSoundsInfo::setRoomsCount(int count)
 
 void CustomSoundsInfo::parseCustomSounds(const QJsonObject &obj)
 {
-    mRoomsCount = obj[QStringLiteral("count")].toInt();
-    mOffset = obj[QStringLiteral("offset")].toInt();
-    mTotal = obj[QStringLiteral("total")].toInt();
+    mRoomsCount = obj[QLatin1String("count")].toInt();
+    mOffset = obj[QLatin1String("offset")].toInt();
+    mTotal = obj[QLatin1String("total")].toInt();
     mCustomSoundInfos.clear();
     parseListCustomSound(obj);
 }

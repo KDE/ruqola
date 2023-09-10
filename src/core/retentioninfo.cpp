@@ -86,22 +86,22 @@ bool RetentionInfo::operator!=(RetentionInfo other) const
 QJsonObject RetentionInfo::serialize(RetentionInfo retention)
 {
     QJsonObject obj;
-    obj[QStringLiteral("enabled")] = retention.enabled();
-    obj[QStringLiteral("overrideGlobal")] = retention.overrideGlobal();
-    obj[QStringLiteral("excludePinned")] = retention.excludePinned();
-    obj[QStringLiteral("filesOnly")] = retention.filesOnly();
-    obj[QStringLiteral("maxAge")] = retention.maxAge();
+    obj[QLatin1String("enabled")] = retention.enabled();
+    obj[QLatin1String("overrideGlobal")] = retention.overrideGlobal();
+    obj[QLatin1String("excludePinned")] = retention.excludePinned();
+    obj[QLatin1String("filesOnly")] = retention.filesOnly();
+    obj[QLatin1String("maxAge")] = retention.maxAge();
     return obj;
 }
 
 RetentionInfo RetentionInfo::deserialize(const QJsonObject &obj)
 {
     RetentionInfo info;
-    info.setEnabled(obj[QStringLiteral("enabled")].toBool());
-    info.setOverrideGlobal(obj[QStringLiteral("overrideGlobal")].toBool());
-    info.setExcludePinned(obj[QStringLiteral("excludePinned")].toBool());
-    info.setFilesOnly(obj[QStringLiteral("filesOnly")].toBool());
-    info.setMaxAge(obj[QStringLiteral("maxAge")].toInt(-1));
+    info.setEnabled(obj[QLatin1String("enabled")].toBool());
+    info.setOverrideGlobal(obj[QLatin1String("overrideGlobal")].toBool());
+    info.setExcludePinned(obj[QLatin1String("excludePinned")].toBool());
+    info.setFilesOnly(obj[QLatin1String("filesOnly")].toBool());
+    info.setMaxAge(obj[QLatin1String("maxAge")].toInt(-1));
 
     return info;
 }

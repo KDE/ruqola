@@ -35,9 +35,9 @@ bool OauthAppsCreateJob::start()
 void OauthAppsCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("OauthAppsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT oauthAppsCreateDone(replyObject[QStringLiteral("application")].toObject());
+        Q_EMIT oauthAppsCreateDone(replyObject[QLatin1String("application")].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("OauthAppsCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

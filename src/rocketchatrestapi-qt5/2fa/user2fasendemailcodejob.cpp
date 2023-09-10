@@ -39,7 +39,7 @@ void User2FASendEmailCodeJob::onPostRequestResponse(const QString &replyErrorStr
 
     // const QJsonObject replyObject = replyJson.object();
     // qDebug() << "replyObject  "<< replyObject;
-    // if (replyObject[QStringLiteral("success")].toBool()) {
+    // if (replyObject[QLatin1String("success")].toBool()) {
     // } else {
     // emitFailedMessage(replyObject, reply);
     // addLoggerWarning(QByteArrayLiteral("User2FASendEmailCodeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

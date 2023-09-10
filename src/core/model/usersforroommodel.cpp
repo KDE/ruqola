@@ -139,17 +139,17 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
     if (restapi) {
         mTotal = root[QLatin1String("total")].toInt();
         mOffset = root[QLatin1String("offset")].toInt();
-        const QJsonArray members = root[QStringLiteral("members")].toArray();
+        const QJsonArray members = root[QLatin1String("members")].toArray();
         QVector<User> users;
         users.reserve(members.count());
         for (const QJsonValue &current : members) {
             if (current.type() == QJsonValue::Object) {
                 const QJsonObject userObject = current.toObject();
-                const QString userName = userObject[QStringLiteral("username")].toString();
-                const QString name = userObject[QStringLiteral("name")].toString();
-                const QString id = userObject[QStringLiteral("_id")].toString();
-                const double utcOffset = userObject[QStringLiteral("utcOffset")].toDouble();
-                const QString status = userObject[QStringLiteral("status")].toString();
+                const QString userName = userObject[QLatin1String("username")].toString();
+                const QString name = userObject[QLatin1String("name")].toString();
+                const QString id = userObject[QLatin1String("_id")].toString();
+                const double utcOffset = userObject[QLatin1String("utcOffset")].toDouble();
+                const QString status = userObject[QLatin1String("status")].toString();
                 User user;
                 user.setName(name);
                 user.setUserName(userName);
@@ -170,7 +170,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
     } else {
         const QJsonObject result = root[QLatin1String("result")].toObject();
         if (!result.isEmpty()) {
-            const QJsonArray records = result[QStringLiteral("records")].toArray();
+            const QJsonArray records = result[QLatin1String("records")].toArray();
             mTotal = result[QLatin1String("total")].toInt();
             mOffset = root[QLatin1String("offset")].toInt(); // TODO verify if a day we use no rest api
 
@@ -179,9 +179,9 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
             for (const QJsonValue &current : records) {
                 if (current.type() == QJsonValue::Object) {
                     const QJsonObject userObject = current.toObject();
-                    const QString userName = userObject[QStringLiteral("username")].toString();
-                    const QString name = userObject[QStringLiteral("name")].toString();
-                    const QString id = userObject[QStringLiteral("_id")].toString();
+                    const QString userName = userObject[QLatin1String("username")].toString();
+                    const QString name = userObject[QLatin1String("name")].toString();
+                    const QString id = userObject[QLatin1String("_id")].toString();
                     User user;
                     user.setName(name);
                     user.setUserName(userName);

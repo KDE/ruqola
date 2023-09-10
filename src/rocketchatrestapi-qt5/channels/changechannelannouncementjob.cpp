@@ -34,7 +34,7 @@ void ChangeChannelAnnouncementJob::onPostRequestResponse(const QString &replyErr
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change announcement success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeAnnouncementDone();
     } else {

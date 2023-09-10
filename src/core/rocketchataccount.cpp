@@ -1185,9 +1185,9 @@ void RocketChatAccount::setNameChanged(const QJsonArray &array)
     // QJsonArray([{"_id":"Z5TPBsWrmjAWCKGBC","name":"LifeLine","username":"LifeLine-GM"}])
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject obj = array.at(i).toObject();
-        const QString id = obj[QStringLiteral("_id")].toString();
-        const QString name = obj[QStringLiteral("name")].toString();
-        const QString username = obj[QStringLiteral("username")].toString();
+        const QString id = obj[QLatin1String("_id")].toString();
+        const QString name = obj[QLatin1String("name")].toString();
+        const QString username = obj[QLatin1String("username")].toString();
         // TODO
     }
 }
@@ -1550,7 +1550,7 @@ void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
     const auto count{contents.count()};
     for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = contents.at(i).toObject();
-        const QString infoStr = obj[QStringLiteral("string")].toString();
+        const QString infoStr = obj[QLatin1String("string")].toString();
         // qDebug() << " infoStr " << infoStr;
         Q_EMIT insertStdOutInfo(infoStr);
     }
@@ -2641,45 +2641,45 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
         const QStringList keys = updateJson.keys();
         OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
         for (const QString &key : keys) {
-            if (key == QStringLiteral("settings.preferences.highlights")) {
+            if (key == QLatin1String("settings.preferences.highlights")) {
                 const QJsonArray highlightsArray = updateJson.value(key).toArray();
                 ownUserPreferences.updateHighlightWords(highlightsArray);
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QStringLiteral("settings.preferences.enableAutoAway")) {
+            } else if (key == QLatin1String("settings.preferences.enableAutoAway")) {
                 ownUserPreferences.setEnableAutoAway(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-            } else if (key == QStringLiteral("settings.preferences.convertAsciiEmoji")) {
+            } else if (key == QLatin1String("settings.preferences.convertAsciiEmoji")) {
                 ownUserPreferences.setConvertAsciiEmoji(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QStringLiteral("settings.preferences.hideRoles")) {
+            } else if (key == QLatin1String("settings.preferences.hideRoles")) {
                 ownUserPreferences.setHideRoles(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QStringLiteral("settings.preferences.displayAvatars")) {
+            } else if (key == QLatin1String("settings.preferences.displayAvatars")) {
                 ownUserPreferences.setDisplayAvatars(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QStringLiteral("settings.preferences.messageViewMode")) {
+            } else if (key == QLatin1String("settings.preferences.messageViewMode")) {
                 ownUserPreferences.setMessageViewMode(updateJson.value(key).toInt());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QStringLiteral("settings.preferences.sidebarViewMode")) { // Channel List view mode
+            } else if (key == QLatin1String("settings.preferences.sidebarViewMode")) { // Channel List view mode
                 // TODO
-            } else if (key == QStringLiteral("settings.preferences.sidebarShowUnread")) {
+            } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
-            } else if (key == QStringLiteral("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
+            } else if (key == QLatin1String("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
-            } else if (key == QStringLiteral("settings.preferences.sidebarShowFavorites")) {
+            } else if (key == QLatin1String("settings.preferences.sidebarShowFavorites")) {
                 ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
-            } else if (key == QStringLiteral("settings.preferences.sidebarSortby")) {
+            } else if (key == QLatin1String("settings.preferences.sidebarSortby")) {
                 const QString value = updateJson.value(key).toString();
                 if (value == QLatin1String("activity")) {
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
