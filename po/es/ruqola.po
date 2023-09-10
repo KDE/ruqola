@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 00:46+0000\n"
-"PO-Revision-Date: 2023-09-02 17:34+0200\n"
+"PO-Revision-Date: 2023-09-09 17:41+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -8290,26 +8290,24 @@ msgstr[0] "%1 usuario en la sala (Total: %2)"
 msgstr[1] "%1 usuarios en la sala (Total: %2)"
 
 #: widgets/ruqolacommandlineoptions.h:14
-#, fuzzy, kde-format
-#| msgid "Return the number of account."
+#, kde-format
 msgid "Return lists of accounts"
-msgstr "Devolver el número de cuenta"
+msgstr "Devolver la lista de cuentas"
 
 #: widgets/ruqolacommandlineoptions.h:15
 #, kde-format
 msgid "Start with specific account"
-msgstr ""
+msgstr "Iniciar con una cuenta específica"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Show Message"
-msgstr "Seguir mensaje"
+msgstr "Mostrar mensaje"
 
 #: widgets/ruqolacommandlineoptions.h:19
 #, kde-format
 msgid "Lists the available options for user feedback"
-msgstr ""
+msgstr "Mostrar las opciones disponibles para comentarios de usuario"
 
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
@@ -8768,22 +8766,19 @@ msgid "Return the number of account."
 msgstr "Devolver el número de cuenta"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Versión"
+msgstr "Versión:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Versión"
+msgstr "Todas las versiones"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Versión"
+msgstr "Versión 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8870,47 +8865,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "Symbols"
-#~ msgstr "Símbolos"
-
-#~ msgid "Activity"
-#~ msgstr "Actividad"
-
-#~ msgid "Objects"
-#~ msgstr "Objetos"
-
-#~ msgid "Nature"
-#~ msgstr "Naturaleza"
-
-#~ msgid "Food"
-#~ msgstr "Comida"
-
-#~ msgid "People"
-#~ msgstr "Gente"
-
-#~ msgid "Travel"
-#~ msgstr "Viaje"
-
-#~ msgid "Regional"
-#~ msgstr "Regional"
-
-#~ msgid "Flags"
-#~ msgstr "Banderas"
-
-#~ msgctxt "Previously used emojis"
-#~ msgid "History"
-#~ msgstr "Historial"
-
-#~ msgctxt "'Custom' is a category of emoji"
-#~ msgid "Custom"
-#~ msgstr "Personalizado"
-
-#~ msgid "Clear Recents"
-#~ msgstr "Eliminar recientes"
-
-#~ msgid "Add Smiley"
-#~ msgstr "Añadir emoticono"
-
-#~ msgid "Search Emoticon..."
-#~ msgstr "Buscar emoticonos..."

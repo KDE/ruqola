@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 00:46+0000\n"
-"PO-Revision-Date: 2023-09-04 05:57+0200\n"
+"PO-Revision-Date: 2023-09-09 09:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -8127,26 +8127,24 @@ msgstr[0] "მომხმარებელი ოთახში: %1 (სუ�
 msgstr[1] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 
 #: widgets/ruqolacommandlineoptions.h:14
-#, fuzzy, kde-format
-#| msgid "Return the number of account."
+#, kde-format
 msgid "Return lists of accounts"
-msgstr "ანგარიშების რაოდენობის დაბრუნება."
+msgstr "ანგარიშების სიის დაბრუნება"
 
 #: widgets/ruqolacommandlineoptions.h:15
 #, kde-format
 msgid "Start with specific account"
-msgstr ""
+msgstr "მითითებული ანგარიშით გაშვება"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Show Message"
-msgstr "შეტყობინების მიყოლა"
+msgstr "შეტყობინების ჩვენება"
 
 #: widgets/ruqolacommandlineoptions.h:19
 #, kde-format
 msgid "Lists the available options for user feedback"
-msgstr ""
+msgstr "მომხმარებლის უკუკავშირის ხელმისაწვდომი ვარიანტები"
 
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
@@ -8606,10 +8604,9 @@ msgid "All Version"
 msgstr "ყველა ვერსია"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "ვერსია"
+msgstr "ვერსია 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format

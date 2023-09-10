@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 00:46+0000\n"
-"PO-Revision-Date: 2023-09-03 09:44+0200\n"
+"PO-Revision-Date: 2023-09-09 12:58+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -8254,10 +8254,9 @@ msgid "Start with specific account"
 msgstr "Starta med specifikt konto"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Show Message"
-msgstr "Följ meddelande"
+msgstr "Visa meddelande"
 
 #: widgets/ruqolacommandlineoptions.h:19
 #, kde-format
@@ -8723,10 +8722,9 @@ msgid "All Version"
 msgstr "Alla versioner"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Version"
+msgstr "Version 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format

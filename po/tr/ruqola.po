@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-09 00:46+0000\n"
-"PO-Revision-Date: 2023-09-08 04:57+0300\n"
+"PO-Revision-Date: 2023-09-09 13:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -8240,26 +8240,24 @@ msgstr[0] "Odada %1 kullanıcı (Toplam: %2)"
 msgstr[1] "Odada %1 kullanıcı (Toplam: %2)"
 
 #: widgets/ruqolacommandlineoptions.h:14
-#, fuzzy, kde-format
-#| msgid "Return the number of account."
+#, kde-format
 msgid "Return lists of accounts"
-msgstr "Hesabın numarasını döndür."
+msgstr "Hesaplar listesini döndür"
 
 #: widgets/ruqolacommandlineoptions.h:15
 #, kde-format
 msgid "Start with specific account"
-msgstr ""
+msgstr "Belirli bir hesapla başla"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Show Message"
-msgstr "İletiyi Takip Et"
+msgstr "İletiyi Göster"
 
 #: widgets/ruqolacommandlineoptions.h:19
 #, kde-format
 msgid "Lists the available options for user feedback"
-msgstr ""
+msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri listeler"
 
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
