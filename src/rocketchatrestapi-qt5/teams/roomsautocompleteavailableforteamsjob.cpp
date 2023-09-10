@@ -40,7 +40,7 @@ bool RoomsAutocompleteAvailableForTeamsJob::start()
 void RoomsAutocompleteAvailableForTeamsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
     } else {

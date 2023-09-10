@@ -35,7 +35,7 @@ void TeamsCreateJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamCreateDone();
     } else {

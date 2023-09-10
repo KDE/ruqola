@@ -52,7 +52,7 @@ bool GetThreadsJob::start()
 void GetThreadsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetThreadsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getThreadsDone(replyObject, mRoomId);
     } else {

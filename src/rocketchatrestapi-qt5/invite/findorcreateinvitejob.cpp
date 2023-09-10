@@ -37,7 +37,7 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
     } else {
@@ -49,11 +49,11 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
 FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)
 {
     FindOrCreateInviteJob::InviteUsersInfo info;
-    info.url = QUrl(replyObject[QStringLiteral("url")].toString());
-    info.userId = replyObject[QStringLiteral("userId")].toString();
-    info.roomId = replyObject[QStringLiteral("rid")].toString();
-    info.expireDateTime = QDateTime::fromString(replyObject[QStringLiteral("expires")].toString(), Qt::ISODate).toString();
-    info.maxUses = replyObject[QStringLiteral("maxUses")].toInt();
+    info.url = QUrl(replyObject[QLatin1String("url")].toString());
+    info.userId = replyObject[QLatin1String("userId")].toString();
+    info.roomId = replyObject[QLatin1String("rid")].toString();
+    info.expireDateTime = QDateTime::fromString(replyObject[QLatin1String("expires")].toString(), Qt::ISODate).toString();
+    info.maxUses = replyObject[QLatin1String("maxUses")].toInt();
     return info;
 }
 

@@ -33,7 +33,7 @@ void ResetOwnE2eKeyJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetOwnE2eKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetE2eKeyDone(replyObject);
     } else {

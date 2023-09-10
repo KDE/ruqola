@@ -40,10 +40,10 @@ bool UserRequestDataDownloadJob::start()
 void UserRequestDataDownloadJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         // qDebug() << " replyObject " << replyObject;
         addLoggerInfo(QByteArrayLiteral("UserRequestDataDownloadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        const QString result = replyObject[QStringLiteral("result")].toString();
+        const QString result = replyObject[QLatin1String("result")].toString();
         Q_EMIT userRequestDataDownloadDone(result);
     } else {
         emitFailedMessage(replyErrorString, replyObject);

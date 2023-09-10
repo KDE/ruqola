@@ -20,33 +20,33 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {
     // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("name"))) {
-        setName(object[QStringLiteral("name")].toString());
+        setName(object[QLatin1String("name")].toString());
     }
-    setTopic(object[QStringLiteral("topic")].toString());
-    setDescription(object[QStringLiteral("description")].toString());
-    setAnnouncement(object[QStringLiteral("announcement")].toString());
+    setTopic(object[QLatin1String("topic")].toString());
+    setDescription(object[QLatin1String("description")].toString());
+    setAnnouncement(object[QLatin1String("announcement")].toString());
     if (object.contains(QLatin1String("msgs"))) {
-        setMessageCount(object[QStringLiteral("msgs")].toInt());
+        setMessageCount(object[QLatin1String("msgs")].toInt());
     }
     if (object.contains(QLatin1String("t"))) {
-        setChannelType(object[QStringLiteral("t")].toString());
+        setChannelType(object[QLatin1String("t")].toString());
     }
-    setBelongsTo(object[QStringLiteral("belongsTo")].toString());
-    setDefaultRoom(object[QStringLiteral("default")].toBool(false));
+    setBelongsTo(object[QLatin1String("belongsTo")].toString());
+    setDefaultRoom(object[QLatin1String("default")].toBool(false));
     if (object.contains(QLatin1String("lastMessage"))) {
-        setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object[QStringLiteral("lastMessage")].toObject()));
+        setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object[QLatin1String("lastMessage")].toObject()));
     }
     if (object.contains(QLatin1String("ts"))) {
         setCreatedRoom(Utils::parseIsoDate(QStringLiteral("ts"), object));
     }
-    setIdentifier(object[QStringLiteral("_id")].toString());
-    setReadOnly(object[QStringLiteral("ro")].toBool());
+    setIdentifier(object[QLatin1String("_id")].toString());
+    setReadOnly(object[QLatin1String("ro")].toBool());
 
-    setFeatured(object[QStringLiteral("featured")].toBool(false));
+    setFeatured(object[QLatin1String("featured")].toBool(false));
     if (object.contains(QLatin1String("usersCount"))) {
-        setUsersCount(object[QStringLiteral("usersCount")].toInt());
+        setUsersCount(object[QLatin1String("usersCount")].toInt());
     }
-    const QJsonArray userNamesArray = object[QStringLiteral("usernames")].toArray();
+    const QJsonArray userNamesArray = object[QLatin1String("usernames")].toArray();
     const QVariantList userNamesList = userNamesArray.toVariantList();
     mUserNames.reserve(userNamesList.count());
     for (const auto &var : userNamesList) {

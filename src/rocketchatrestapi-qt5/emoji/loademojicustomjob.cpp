@@ -36,7 +36,7 @@ void LoadEmojiCustomJob::onGetRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT loadEmojiCustomDone(replyObject);
     } else {

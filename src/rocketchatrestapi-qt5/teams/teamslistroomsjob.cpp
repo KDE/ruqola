@@ -41,7 +41,7 @@ bool TeamsListRoomsJob::start()
 void TeamsListRoomsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamsListRoomsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamListRoomsDone(replyObject);
     } else {

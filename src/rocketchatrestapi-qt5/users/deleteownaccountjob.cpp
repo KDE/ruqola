@@ -33,7 +33,7 @@ bool DeleteOwnAccountJob::start()
 void DeleteOwnAccountJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("DeleteOwnAccountJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteOwnAccountDone();
     } else {

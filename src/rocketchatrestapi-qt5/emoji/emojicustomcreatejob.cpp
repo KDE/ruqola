@@ -79,7 +79,7 @@ void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
+        if (replyObject[QLatin1String("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("EmojiCustomCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomCreateDone(replyObject);
         } else {

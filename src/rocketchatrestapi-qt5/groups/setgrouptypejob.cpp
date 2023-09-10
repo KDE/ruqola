@@ -35,7 +35,7 @@ void SetGroupTypeJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetGroupTypeJob: Success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setGroupTypeDone();
     } else {

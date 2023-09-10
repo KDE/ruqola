@@ -197,10 +197,10 @@ void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, cons
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
 {
     // JSon-level error
-    const QString errorType = replyObject[QStringLiteral("errorType")].toString();
+    const QString errorType = replyObject[QLatin1String("errorType")].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
-        const QString trStr = errorMessage(errorType, replyObject[QStringLiteral("details")].toObject());
+        const QString trStr = errorMessage(errorType, replyObject[QLatin1String("details")].toObject());
         if (!trStr.isEmpty()) {
             return trStr;
         } else {
@@ -208,7 +208,7 @@ QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
             return i18n("Unauthorized");
         }
     } else {
-        const QString error = replyObject[QStringLiteral("error")].toString();
+        const QString error = replyObject[QLatin1String("error")].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
         return generateErrorMessage(error);
     }

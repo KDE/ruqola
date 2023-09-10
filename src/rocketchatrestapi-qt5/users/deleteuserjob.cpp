@@ -35,7 +35,7 @@ void DeleteUserJob::onPostRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
     qDebug() << "replyObject " << replyObject;
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("DeleteUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteUserDone();
     } else {

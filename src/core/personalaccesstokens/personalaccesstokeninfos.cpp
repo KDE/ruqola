@@ -53,7 +53,7 @@ void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(const QVector<Persona
 void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &obj)
 {
     mPersonalAccessTokenInfos.clear();
-    const QJsonArray tokensArray = obj[QStringLiteral("tokens")].toArray();
+    const QJsonArray tokensArray = obj[QLatin1String("tokens")].toArray();
     const auto tokensArrayCount = tokensArray.count();
     mPersonalAccessTokenInfos.reserve(tokensArrayCount);
     for (auto i = 0; i < tokensArrayCount; ++i) {

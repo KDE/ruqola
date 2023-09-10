@@ -15,16 +15,16 @@ CustomUserStatuses::~CustomUserStatuses() = default;
 
 void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &customStatusObj)
 {
-    mCustomUserCount = customStatusObj[QStringLiteral("count")].toInt();
-    mOffset = customStatusObj[QStringLiteral("offset")].toInt();
-    mTotal = customStatusObj[QStringLiteral("total")].toInt();
+    mCustomUserCount = customStatusObj[QLatin1String("count")].toInt();
+    mOffset = customStatusObj[QLatin1String("offset")].toInt();
+    mTotal = customStatusObj[QLatin1String("total")].toInt();
     mCustomUserses.clear();
     parseListCustomUserStatuses(customStatusObj);
 }
 
 void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customStatusObj)
 {
-    const QJsonArray customsUserArray = customStatusObj[QStringLiteral("statuses")].toArray();
+    const QJsonArray customsUserArray = customStatusObj[QLatin1String("statuses")].toArray();
     mCustomUserses.reserve(mCustomUserses.count() + customsUserArray.count());
     for (const QJsonValue &current : customsUserArray) {
         if (current.type() == QJsonValue::Object) {

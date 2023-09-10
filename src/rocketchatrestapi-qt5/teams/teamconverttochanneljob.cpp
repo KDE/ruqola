@@ -36,7 +36,7 @@ void TeamConvertToChannelJob::onPostRequestResponse(const QString &replyErrorStr
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamConvertToChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamConvertToChannelDone();
     } else {

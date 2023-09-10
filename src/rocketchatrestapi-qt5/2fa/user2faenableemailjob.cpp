@@ -32,7 +32,7 @@ bool User2FAEnableEmailJob::start()
 void User2FAEnableEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("User2FAEnableEmail: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT enableEmailDone();
     } else {

@@ -13,7 +13,7 @@ QJsonArray DDPAuthenticationManagerUtils::loginResume(const QString &token)
 {
     QJsonArray array;
     QJsonObject resumeObject;
-    resumeObject[QStringLiteral("resume")] = token;
+    resumeObject[QLatin1String("resume")] = token;
     array.append(resumeObject);
     return array;
 }
@@ -22,12 +22,12 @@ QJsonArray DDPAuthenticationManagerUtils::loginLdap(const QString &user, const Q
 {
     QJsonArray array;
     QJsonObject ldapObject;
-    ldapObject[QStringLiteral("ldap")] = true;
-    ldapObject[QStringLiteral("username")] = user;
+    ldapObject[QLatin1String("ldap")] = true;
+    ldapObject[QLatin1String("username")] = user;
 
     // Ldap seems to new supported hashPassword... To bad.
-    ldapObject[QStringLiteral("ldapPass")] = password;
-    ldapObject[QStringLiteral("ldapOptions")] = QJsonObject();
+    ldapObject[QLatin1String("ldapPass")] = password;
+    ldapObject[QLatin1String("ldapOptions")] = QJsonObject();
     array.append(ldapObject);
     return array;
 }
@@ -38,9 +38,9 @@ QJsonArray DDPAuthenticationManagerUtils::loginOAuth(const QString &credentialTo
     QJsonObject oauthObject;
 
     QJsonObject oauthCredentialObject;
-    oauthCredentialObject[QStringLiteral("credentialToken")] = credentialToken;
-    oauthCredentialObject[QStringLiteral("credentialSecret")] = credentialSecret;
-    oauthObject[QStringLiteral("oauth")] = oauthCredentialObject;
+    oauthCredentialObject[QLatin1String("credentialToken")] = credentialToken;
+    oauthCredentialObject[QLatin1String("credentialSecret")] = credentialSecret;
+    oauthObject[QLatin1String("oauth")] = oauthCredentialObject;
     array.append(oauthObject);
     return array;
 }
@@ -49,8 +49,8 @@ QJsonObject DDPAuthenticationManagerUtils::hashPassword(const QString &password)
 {
     QJsonObject passwordObject;
     const QByteArray sha256pw = Utils::convertSha256Password(password);
-    passwordObject[QStringLiteral("algorithm")] = QStringLiteral("sha-256");
-    passwordObject[QStringLiteral("digest")] = QString::fromLatin1(sha256pw);
+    passwordObject[QLatin1String("algorithm")] = QStringLiteral("sha-256");
+    passwordObject[QLatin1String("digest")] = QString::fromLatin1(sha256pw);
     return passwordObject;
 }
 
@@ -61,14 +61,14 @@ QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QStri
 
     QJsonObject userObject;
     if (user.contains(QLatin1Char('@'))) {
-        userObject[QStringLiteral("email")] = user;
+        userObject[QLatin1String("email")] = user;
     } else {
-        userObject[QStringLiteral("username")] = user;
+        userObject[QLatin1String("username")] = user;
     }
-    loginObject[QStringLiteral("user")] = userObject;
+    loginObject[QLatin1String("user")] = userObject;
 
     const QJsonObject passwordObject = hashPassword(password);
-    loginObject[QStringLiteral("password")] = passwordObject;
+    loginObject[QLatin1String("password")] = passwordObject;
 
     array.append(loginObject);
     return array;
@@ -80,9 +80,9 @@ QJsonArray DDPAuthenticationManagerUtils::sendOTP(const QString &otpCode, const 
     QJsonObject otp;
 
     QJsonObject totpObject;
-    totpObject[QStringLiteral("code")] = otpCode;
-    totpObject[QStringLiteral("login")] = lastLoginPayload;
-    otp[QStringLiteral("totp")] = totpObject;
+    totpObject[QLatin1String("code")] = otpCode;
+    totpObject[QLatin1String("login")] = lastLoginPayload;
+    otp[QLatin1String("totp")] = totpObject;
     array.append(otp);
     return array;
 }

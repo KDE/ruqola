@@ -137,12 +137,12 @@ bool Block::operator==(const Block &other) const
 QJsonObject Block::serialize(const Block &block)
 {
     QJsonObject o;
-    o[QStringLiteral("blockId")] = block.blockId();
-    o[QStringLiteral("callId")] = block.callId();
-    o[QStringLiteral("appId")] = block.appId();
-    o[QStringLiteral("type")] = block.blockTypeStr();
+    o[QLatin1String("blockId")] = block.blockId();
+    o[QLatin1String("callId")] = block.callId();
+    o[QLatin1String("appId")] = block.appId();
+    o[QLatin1String("type")] = block.blockTypeStr();
     if (block.mVideoConferenceInfo.isValid()) {
-        o[QStringLiteral("videoconferenceinfo")] = VideoConferenceInfo::serialize(block.mVideoConferenceInfo);
+        o[QLatin1String("videoconferenceinfo")] = VideoConferenceInfo::serialize(block.mVideoConferenceInfo);
     } else {
         qCWarning(RUQOLA_LOG) << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
     }

@@ -45,7 +45,7 @@ bool RegisterUserJob::start()
 void RegisterUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RegisterUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT registerUserDone();
     } else {
@@ -66,7 +66,7 @@ void RegisterUserJob::setRegisterUserInfo(const RegisterUserInfo &registerUserIn
 
 QString RegisterUserJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QStringLiteral("error-invalid-email")) {
+    if (str == QLatin1String("error-invalid-email")) {
         const QString email = detail.value(QLatin1String("email")).toString();
         return i18n("Invalid Email \'%1\'.", email);
     }

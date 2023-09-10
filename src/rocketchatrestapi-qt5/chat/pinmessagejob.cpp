@@ -35,7 +35,7 @@ void PinMessageJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("PinMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         if (mPinMessage) {
             Q_EMIT pinMessageDone();

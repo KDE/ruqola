@@ -21,18 +21,18 @@ bool BannerInfo::isValid() const
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
     QStringList lst;
-    const QJsonArray array = object[QStringLiteral("textArguments")].toArray();
+    const QJsonArray array = object[QLatin1String("textArguments")].toArray();
     lst.reserve(array.count());
     for (const QJsonValue &current : array) {
         lst.append(current.toString());
     }
     mTextArguments = lst;
-    mText = object[QStringLiteral("text")].toString();
-    mTitle = object[QStringLiteral("title")].toString();
-    mLink = object[QStringLiteral("link")].toString();
-    mIdentifier = object[QStringLiteral("id")].toString();
-    mPriority = object[QStringLiteral("priority")].toInt(-1);
-    mRead = object[QStringLiteral("read")].toBool(false);
+    mText = object[QLatin1String("text")].toString();
+    mTitle = object[QLatin1String("title")].toString();
+    mLink = object[QLatin1String("link")].toString();
+    mIdentifier = object[QLatin1String("id")].toString();
+    mPriority = object[QLatin1String("priority")].toInt(-1);
+    mRead = object[QLatin1String("read")].toBool(false);
     //    if (mPriority != -1) {
     //        qWarning() << " priority != -1 " << object;
     //    }

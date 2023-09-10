@@ -39,9 +39,9 @@ bool GetUsernameSuggestionJob::start()
 void GetUsernameSuggestionJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        const QString result = replyObject[QStringLiteral("result")].toString();
+        const QString result = replyObject[QLatin1String("result")].toString();
         Q_EMIT getUsernameSuggestionDone(result);
     } else {
         emitFailedMessage(replyErrorString, replyObject);

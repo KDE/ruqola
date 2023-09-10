@@ -35,7 +35,7 @@ void CreateGroupsJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CreateGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT createGroupsDone(replyObject);
     } else {

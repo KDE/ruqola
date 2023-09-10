@@ -36,7 +36,7 @@ void GroupOpenJob::onPostRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GroupOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupOpenDone(replyObject, channelGroupInfo());
     } else {

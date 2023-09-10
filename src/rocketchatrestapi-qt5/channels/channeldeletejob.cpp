@@ -35,7 +35,7 @@ void ChannelDeleteJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deletechannelDone(channelGroupInfo().identifier);
     } else {

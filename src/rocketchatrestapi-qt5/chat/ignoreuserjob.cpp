@@ -40,7 +40,7 @@ bool IgnoreUserJob::start()
 void IgnoreUserJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT ignoreUserDone(replyObject, mRoomId);
     } else {

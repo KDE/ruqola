@@ -69,7 +69,7 @@ QString GetGroupRolesJob::jobName() const
 void GetGroupRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetGroupRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupRolesDone(replyObject, channelGroupInfo());
     } else {

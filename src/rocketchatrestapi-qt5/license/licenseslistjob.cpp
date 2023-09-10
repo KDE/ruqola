@@ -39,7 +39,7 @@ void LicensesListJob::onGetRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("LicensesListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT licensesListDone(replyObject);
     } else {

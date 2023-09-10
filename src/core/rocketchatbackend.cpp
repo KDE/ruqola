@@ -128,7 +128,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     // We need to load all room after get subscription to update parameters
     QJsonObject params;
     // TODO use timeStamp too
-    params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+    params[QLatin1String("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     // Add timestamp https://developer.rocket.chat/reference/api/realtime-api/method-calls/get-rooms
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 
@@ -175,7 +175,7 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     QJsonObject params;
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
-        params[QStringLiteral("$date")] = timeStamp;
+        params[QLatin1String("$date")] = timeStamp;
         qDebug() << " params " << params;
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_updatePublicsettings);
 
@@ -194,7 +194,7 @@ void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)
     QJsonObject params;
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
-        params[QStringLiteral("$date")] = timeStamp;
+        params[QLatin1String("$date")] = timeStamp;
     }
     qDebug() << " params " << params;
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings_administrator);
@@ -323,7 +323,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         connect(restApi, &RocketChatRestApi::Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
         QJsonObject params;
         // TODO use timeStamp too
-        params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+        params[QLatin1String("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
         std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
             getsubscription_parsing(obj, account);
@@ -399,7 +399,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
         const QString username = fields.value(QLatin1String("username")).toString();
         if (username == mRocketChatAccount->settings()->userName()) {
-            mRocketChatAccount->settings()->setUserId(object[QStringLiteral("id")].toString());
+            mRocketChatAccount->settings()->setUserId(object[QLatin1String("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
         } else {
             // TODO add current user ? me ?
@@ -458,7 +458,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
 
 void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
-    const QString collection = object[QStringLiteral("collection")].toString();
+    const QString collection = object[QLatin1String("collection")].toString();
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
     const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
 
@@ -615,7 +615,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             if (messageModel) {
-                const QString messageId = contents.at(0).toObject()[QStringLiteral("_id")].toString();
+                const QString messageId = contents.at(0).toObject()[QLatin1String("_id")].toString();
                 messageModel->deleteMessage(messageId);
                 Room *room = mRocketChatAccount->room(roomId);
                 if (room) {

@@ -751,21 +751,21 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 {
     quint64 registerId = m_uid;
     QJsonObject json;
-    json[QStringLiteral("msg")] = QStringLiteral("sub");
-    json[QStringLiteral("id")] = QString::number(m_uid);
-    json[QStringLiteral("name")] = collection;
+    json[QLatin1String("msg")] = QStringLiteral("sub");
+    json[QLatin1String("id")] = QString::number(m_uid);
+    json[QLatin1String("name")] = collection;
 
     QJsonArray newParams = params;
 
     if (mRocketChatAccount->needAdaptNewSubscriptionRC60()) {
         QJsonArray args;
         QJsonObject obj;
-        obj[QStringLiteral("useCollection")] = false;
-        obj[QStringLiteral("args")] = args;
+        obj[QLatin1String("useCollection")] = false;
+        obj[QLatin1String("args")] = args;
         newParams.append(std::move(obj));
     }
 
-    json[QStringLiteral("params")] = newParams;
+    json[QLatin1String("params")] = newParams;
     // qDebug() << "subscribe: json " << json;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
@@ -902,12 +902,12 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == QLatin1String("nosub")) {
             const QString id = root.value(QStringLiteral("id")).toString();
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
-            const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
+            const QJsonObject errorObj = root[QLatin1String("error")].toObject();
             if (!errorObj.isEmpty()) {
                 qWarning() << mRocketChatAccount->accountName() << "Error unsubscribing from" << id;
-                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj[QStringLiteral("error")].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj[QStringLiteral("message")].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj[QStringLiteral("reason")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj[QLatin1String("error")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj[QLatin1String("message")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj[QLatin1String("reason")].toString();
                 qWarning() << mRocketChatAccount->accountName() << "-- Error found END --";
             }
         } else {
@@ -956,9 +956,9 @@ void DDPClient::onWSConnected()
     QJsonArray supportedVersions;
     supportedVersions.append(QLatin1String("1"));
     QJsonObject protocol;
-    protocol[QStringLiteral("msg")] = QStringLiteral("connect");
-    protocol[QStringLiteral("version")] = QStringLiteral("1");
-    protocol[QStringLiteral("support")] = supportedVersions;
+    protocol[QLatin1String("msg")] = QStringLiteral("connect");
+    protocol[QLatin1String("version")] = QStringLiteral("1");
+    protocol[QLatin1String("support")] = supportedVersions;
     const QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
@@ -1000,13 +1000,13 @@ void DDPClient::onWSclosed()
 void DDPClient::pong()
 {
     QJsonObject pong;
-    pong[QStringLiteral("msg")] = QStringLiteral("pong");
+    pong[QLatin1String("msg")] = QStringLiteral("pong");
     mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
 }
 
 void DDPClient::executeSubsCallBack(const QJsonObject &root)
 {
-    const QJsonArray subs = root[QStringLiteral("subs")].toArray();
+    const QJsonArray subs = root[QLatin1String("subs")].toArray();
     if (!subs.isEmpty()) {
         const quint64 id = subs.at(0).toString().toULongLong();
         if (m_callbackHash.contains(id)) {

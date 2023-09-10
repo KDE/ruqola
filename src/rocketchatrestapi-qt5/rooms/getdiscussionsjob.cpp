@@ -52,7 +52,7 @@ bool GetDiscussionsJob::start()
 void GetDiscussionsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getDiscussionsDone(replyObject, mRoomId);
     } else {

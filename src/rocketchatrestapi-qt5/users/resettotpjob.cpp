@@ -35,7 +35,7 @@ bool ResetTOTPJob::start()
 void ResetTOTPJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetTOTPJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetTOTPDone();
     } else {
@@ -83,7 +83,7 @@ QNetworkRequest ResetTOTPJob::request() const
 QJsonDocument ResetTOTPJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QStringLiteral("userId")] = mResetUserId;
+    jsonObj[QLatin1String("userId")] = mResetUserId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -39,7 +39,7 @@ void SendMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SendMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendMessageDone();
     } else {

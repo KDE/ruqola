@@ -33,7 +33,7 @@ bool SetUserActiveStatusJob::start()
 void SetUserActiveStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetUserActiveStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setUserActiveStatusDone(replyObject);
     } else {

@@ -35,7 +35,7 @@ void SetUserPublicAndPrivateKeysJob::onPostRequestResponse(const QString &replyE
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addKeyToChainDone();
     } else {

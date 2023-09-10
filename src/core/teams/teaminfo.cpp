@@ -23,14 +23,14 @@ void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
 void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
 {
     if (teams.isValid()) {
-        obj[QStringLiteral("teamId")] = teams.teamId();
-        obj[QStringLiteral("teamMain")] = teams.mainTeam();
+        obj[QLatin1String("teamId")] = teams.teamId();
+        obj[QLatin1String("teamMain")] = teams.mainTeam();
         if (teams.autoJoin()) {
-            obj[QStringLiteral("teamDefault")] = true;
+            obj[QLatin1String("teamDefault")] = true;
         }
         const auto roomsCount = teams.roomsCount();
         if (roomsCount > 0) {
-            obj[QStringLiteral("roomsCount")] = roomsCount;
+            obj[QLatin1String("roomsCount")] = roomsCount;
         }
     }
 }
@@ -38,10 +38,10 @@ void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
 TeamInfo TeamInfo::deserialize(const QJsonObject &obj)
 {
     TeamInfo info;
-    info.setMainTeam(obj[QStringLiteral("teamMain")].toBool());
-    info.setTeamId(obj[QStringLiteral("teamId")].toString());
-    info.setAutoJoin(obj[QStringLiteral("teamDefault")].toBool());
-    info.setRoomsCount(obj[QStringLiteral("roomsCount")].toInt(0));
+    info.setMainTeam(obj[QLatin1String("teamMain")].toBool());
+    info.setTeamId(obj[QLatin1String("teamId")].toString());
+    info.setAutoJoin(obj[QLatin1String("teamDefault")].toBool());
+    info.setRoomsCount(obj[QLatin1String("roomsCount")].toInt(0));
     return info;
 }
 

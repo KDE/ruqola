@@ -78,7 +78,7 @@ void DDPAuthenticationManagerUtilsTest::shouldTestSendOtp()
     {
         const QString codeOtp = QStringLiteral(R"(foo42)");
         QJsonObject lastLoginPayLoad;
-        lastLoginPayLoad[QStringLiteral("test")] = QStringLiteral("test");
+        lastLoginPayLoad[QLatin1String("test")] = QStringLiteral("test");
         QCOMPARE(QJsonDocument(DDPAuthenticationManagerUtils::sendOTP(codeOtp, lastLoginPayLoad)).toJson(QJsonDocument::Compact),
                  QByteArray("[{\"totp\":{\"code\":\"foo42\",\"login\":{\"test\":\"test\"}}}]"));
     }

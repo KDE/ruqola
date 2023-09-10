@@ -257,12 +257,12 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
 
 void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
 {
-    if (registrationFromValue == QStringLiteral("Public")) {
+    if (registrationFromValue == QLatin1String("Public")) {
         mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
-    } else if (registrationFromValue == QStringLiteral("Disabled")) {
+    } else if (registrationFromValue == QLatin1String("Disabled")) {
         // Nothing => disabled
         ;
-    } else if (registrationFromValue == QStringLiteral("Secret URL")) {
+    } else if (registrationFromValue == QLatin1String("Secret URL")) {
         qCWarning(RUQOLA_LOG) << " Registration Secret Url not implemented";
     }
 }
@@ -410,16 +410,16 @@ void RuqolaServerConfig::assignSettingValue(bool value, ServerConfigFeatureType 
 RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDefaultValue(const QJsonObject &o)
 {
     RuqolaServerConfig::ConfigWithDefaultValue value;
-    value.defaultUrl = o[QStringLiteral("defaultUrl")].toString();
-    value.url = o[QStringLiteral("url")].toString();
+    value.defaultUrl = o[QLatin1String("defaultUrl")].toString();
+    value.url = o[QLatin1String("url")].toString();
     return value;
 }
 
 void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
 {
     // qDebug() << " currentConfObject " << currentConfObject;
-    const QString id = currentConfObject[QStringLiteral("_id")].toString();
-    const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
+    const QString id = currentConfObject[QLatin1String("_id")].toString();
+    const QVariant value = currentConfObject[QLatin1String("value")].toVariant();
     static const QRegularExpression regExp(QStringLiteral("^Accounts_OAuth_\\w+"));
     if (id == QLatin1String("uniqueID")) {
         setUniqueId(value.toString());
@@ -557,43 +557,43 @@ void RuqolaServerConfig::setMediaBlackList(const QStringList &newMediaBlackList)
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const QString &value)
 {
     QJsonObject v;
-    v[QStringLiteral("_id")] = identifier;
-    v[QStringLiteral("value")] = value;
+    v[QLatin1String("_id")] = identifier;
+    v[QLatin1String("value")] = value;
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const RuqolaServerConfig::ConfigWithDefaultValue &value)
 {
     QJsonObject v;
-    v[QStringLiteral("_id")] = identifier;
+    v[QLatin1String("_id")] = identifier;
     QJsonObject customUrl;
-    customUrl[QStringLiteral("defaultUrl")] = value.defaultUrl;
-    customUrl[QStringLiteral("url")] = value.url;
-    v[QStringLiteral("value")] = customUrl;
+    customUrl[QLatin1String("defaultUrl")] = value.defaultUrl;
+    customUrl[QLatin1String("url")] = value.url;
+    v[QLatin1String("value")] = customUrl;
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, qint64 value)
 {
     QJsonObject v;
-    v[QStringLiteral("_id")] = identifier;
-    v[QStringLiteral("value")] = static_cast<qint64>(value);
+    v[QLatin1String("_id")] = identifier;
+    v[QLatin1String("value")] = static_cast<qint64>(value);
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, bool value)
 {
     QJsonObject v;
-    v[QStringLiteral("_id")] = identifier;
-    v[QStringLiteral("value")] = value;
+    v[QLatin1String("_id")] = identifier;
+    v[QLatin1String("value")] = value;
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, int value)
 {
     QJsonObject v;
-    v[QStringLiteral("_id")] = identifier;
-    v[QStringLiteral("value")] = value;
+    v[QLatin1String("_id")] = identifier;
+    v[QLatin1String("value")] = value;
     return v;
 }
 
@@ -682,7 +682,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
     array.append(createJsonObject(QStringLiteral("FileUpload_MaxFileSize"), mFileMaxFileSize));
 
-    o[QStringLiteral("result")] = array;
+    o[QLatin1String("result")] = array;
 #if 0
 } else if (id.contains(regExp)) {
     if (value.toBool()) {

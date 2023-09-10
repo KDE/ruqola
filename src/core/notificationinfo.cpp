@@ -145,14 +145,14 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
 {
     // qDebug() << " NotificationInfo::parseNotification(const QJsonArray &contents)" << contents;
     const QJsonObject obj = contents.at(0).toObject();
-    setTitle(obj[QStringLiteral("title")].toString());
+    setTitle(obj[QLatin1String("title")].toString());
     const QJsonObject payloadObj = obj.value(QLatin1String("payload")).toObject();
     if (!payloadObj.isEmpty()) {
-        setMessageId(payloadObj[QStringLiteral("_id")].toString());
-        setRoomId(payloadObj[QStringLiteral("rid")].toString());
-        setRoomName(payloadObj[QStringLiteral("name")].toString());
-        setChannelType(payloadObj[QStringLiteral("type")].toString());
-        setTmId(payloadObj[QStringLiteral("tmid")].toString());
+        setMessageId(payloadObj[QLatin1String("_id")].toString());
+        setRoomId(payloadObj[QLatin1String("rid")].toString());
+        setRoomName(payloadObj[QLatin1String("name")].toString());
+        setChannelType(payloadObj[QLatin1String("type")].toString());
+        setTmId(payloadObj[QLatin1String("tmid")].toString());
         const QJsonObject senderObj = payloadObj.value(QLatin1String("sender")).toObject();
         if (!senderObj.isEmpty()) {
             setSenderId(senderObj.value(QLatin1String("_id")).toString());
@@ -164,15 +164,15 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
         const QJsonObject messageObj = payloadObj.value(QLatin1String("message")).toObject();
         if (messageObj.isEmpty()) {
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing message";
-            setMessage(obj[QStringLiteral("text")].toString());
+            setMessage(obj[QLatin1String("text")].toString());
         } else {
-            if (messageObj[QStringLiteral("t")].toString() == QLatin1String("videoconf")) {
+            if (messageObj[QLatin1String("t")].toString() == QLatin1String("videoconf")) {
                 mNotificationType = ConferenceCall;
             } else {
-                setMessage(messageObj[QStringLiteral("msg")].toString());
+                setMessage(messageObj[QLatin1String("msg")].toString());
                 if (message().isEmpty()) {
                     // Fallback to text
-                    setMessage(obj[QStringLiteral("text")].toString());
+                    setMessage(obj[QLatin1String("text")].toString());
                 }
             }
         }

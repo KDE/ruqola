@@ -53,12 +53,12 @@ void FacebookAuthJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
-        const QJsonObject dataObject = replyObject[QStringLiteral("data")].toObject();
+    if (replyObject[QLatin1String("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
+        const QJsonObject dataObject = replyObject[QLatin1String("data")].toObject();
 
         if (dataObject.contains(QLatin1String("authToken")) && dataObject.contains(QLatin1String("userId"))) {
-            const QString authToken = dataObject[QStringLiteral("authToken")].toString();
-            const QString userId = dataObject[QStringLiteral("userId")].toString();
+            const QString authToken = dataObject[QLatin1String("authToken")].toString();
+            const QString userId = dataObject[QLatin1String("userId")].toString();
             Q_EMIT facebookDone(authToken, userId);
         }
     } else {

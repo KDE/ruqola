@@ -38,15 +38,15 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
 {
     mDeletedMessages.clear();
     mUpdatesMessages.clear();
-    const QJsonObject result = obj[QStringLiteral("result")].toObject();
-    const QJsonArray deleteArray = result[QStringLiteral("deleted")].toArray();
+    const QJsonObject result = obj[QLatin1String("result")].toObject();
+    const QJsonArray deleteArray = result[QLatin1String("deleted")].toArray();
     for (int i = 0, total = deleteArray.size(); i < total; ++i) {
         const QJsonObject o = deleteArray.at(i).toObject();
-        mDeletedMessages.append(o[QStringLiteral("_id")].toString());
+        mDeletedMessages.append(o[QLatin1String("_id")].toString());
     }
 
     QVector<Message> updatedMessages;
-    const QJsonArray updatedArray = result[QStringLiteral("updated")].toArray();
+    const QJsonArray updatedArray = result[QLatin1String("updated")].toArray();
     for (int i = 0, total = updatedArray.size(); i < total; ++i) {
         const QJsonObject o = updatedArray.at(i).toObject();
         Message m(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);

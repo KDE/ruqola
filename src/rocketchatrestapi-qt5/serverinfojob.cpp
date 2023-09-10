@@ -58,7 +58,7 @@ void ServerInfoJob::onGetRequestResponse(const QString &replyErrorString, const 
 {
     const QJsonObject replyObject = replyJson.object();
     // TODO send replyObject too. Need by administrator server info.
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         QString versionStr;
         if (mUseDeprecatedVersion) {
             const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();

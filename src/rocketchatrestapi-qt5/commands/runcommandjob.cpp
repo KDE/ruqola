@@ -35,7 +35,7 @@ void RunCommandJob::onPostRequestResponse(const QString &replyErrorString, const
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RunCommandJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT runCommandDone();
     } else {

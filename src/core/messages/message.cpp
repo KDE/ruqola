@@ -74,7 +74,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
-        if (type == QStringLiteral("videoconf")) {
+        if (type == QLatin1String("videoconf")) {
             mMessageType = VideoConference;
             // qDebug() << " VIDEO " << o;
         } else {
@@ -826,40 +826,40 @@ Utils::AvatarInfo Message::avatarInfo() const
 Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     Message message(emojiManager);
-    message.mThreadCount = o[QStringLiteral("tcount")].toInt();
-    message.mDiscussionCount = o[QStringLiteral("dcount")].toInt();
-    message.mDiscussionRoomId = o[QStringLiteral("drid")].toString();
-    message.mThreadMessageId = o[QStringLiteral("tmid")].toString();
+    message.mThreadCount = o[QLatin1String("tcount")].toInt();
+    message.mDiscussionCount = o[QLatin1String("dcount")].toInt();
+    message.mDiscussionRoomId = o[QLatin1String("drid")].toString();
+    message.mThreadMessageId = o[QLatin1String("tmid")].toString();
 
     if (o.contains(QLatin1String("tlm"))) {
-        message.mThreadLastMessage = static_cast<qint64>(o[QStringLiteral("tlm")].toDouble());
+        message.mThreadLastMessage = static_cast<qint64>(o[QLatin1String("tlm")].toDouble());
     }
     if (o.contains(QLatin1String("dlm"))) {
-        message.mDiscussionLastMessage = static_cast<qint64>(o[QStringLiteral("dlm")].toDouble());
+        message.mDiscussionLastMessage = static_cast<qint64>(o[QLatin1String("dlm")].toDouble());
     }
 
-    message.mMessageId = o[QStringLiteral("messageID")].toString();
-    message.mRoomId = o[QStringLiteral("roomID")].toString();
-    message.mText = o[QStringLiteral("message")].toString();
-    message.setTimeStamp(static_cast<qint64>(o[QStringLiteral("timestamp")].toDouble()));
-    message.mUsername = o[QStringLiteral("username")].toString();
-    message.mName = o[QStringLiteral("name")].toString();
-    message.mUserId = o[QStringLiteral("userID")].toString();
-    message.mUpdatedAt = static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble());
-    message.setEditedAt(static_cast<qint64>(o[QStringLiteral("editedAt")].toDouble()));
-    message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
-    message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
-    message.mAlias = o[QStringLiteral("alias")].toString();
-    message.mAvatar = o[QStringLiteral("avatar")].toString();
-    message.mGroupable = o[QStringLiteral("groupable")].toBool();
-    message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
-    message.mMessageStarred.setIsStarred(o[QStringLiteral("starred")].toBool());
+    message.mMessageId = o[QLatin1String("messageID")].toString();
+    message.mRoomId = o[QLatin1String("roomID")].toString();
+    message.mText = o[QLatin1String("message")].toString();
+    message.setTimeStamp(static_cast<qint64>(o[QLatin1String("timestamp")].toDouble()));
+    message.mUsername = o[QLatin1String("username")].toString();
+    message.mName = o[QLatin1String("name")].toString();
+    message.mUserId = o[QLatin1String("userID")].toString();
+    message.mUpdatedAt = static_cast<qint64>(o[QLatin1String("updatedAt")].toDouble());
+    message.setEditedAt(static_cast<qint64>(o[QLatin1String("editedAt")].toDouble()));
+    message.mEditedByUsername = o[QLatin1String("editedByUsername")].toString();
+    message.mEditedByUserId = o[QLatin1String("editedByUserID")].toString();
+    message.mAlias = o[QLatin1String("alias")].toString();
+    message.mAvatar = o[QLatin1String("avatar")].toString();
+    message.mGroupable = o[QLatin1String("groupable")].toBool();
+    message.mParseUrls = o[QLatin1String("parseUrls")].toBool();
+    message.mMessageStarred.setIsStarred(o[QLatin1String("starred")].toBool());
 
-    message.mMessagePinned = MessagePinned::deserialize(o[QStringLiteral("pinnedMessage")].toObject());
-    message.mRole = o[QStringLiteral("role")].toString();
-    message.mSystemMessageType = o[QStringLiteral("type")].toString();
-    message.mEmoji = o[QStringLiteral("emoji")].toString();
-    message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
+    message.mMessagePinned = MessagePinned::deserialize(o[QLatin1String("pinnedMessage")].toObject());
+    message.mRole = o[QLatin1String("role")].toString();
+    message.mSystemMessageType = o[QLatin1String("type")].toString();
+    message.mEmoji = o[QLatin1String("emoji")].toString();
+    message.mMessageType = o[QLatin1String("messageType")].toVariant().value<MessageType>();
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
@@ -910,9 +910,9 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         message.mBlocks.append(std::move(block));
     }
 
-    message.mLocalTranslation = o[QStringLiteral("localTransation")].toString();
+    message.mLocalTranslation = o[QLatin1String("localTransation")].toString();
 
-    message.mMessageTranslation = MessageTranslation::deserialize(o[QStringLiteral("messageTranslation")].toArray());
+    message.mMessageTranslation = MessageTranslation::deserialize(o[QLatin1String("messageTranslation")].toArray());
 
     return message;
 }
@@ -922,40 +922,40 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     QJsonDocument d;
     QJsonObject o;
 
-    o[QStringLiteral("messageID")] = message.mMessageId;
-    o[QStringLiteral("roomID")] = message.mRoomId;
-    o[QStringLiteral("message")] = message.mText;
-    o[QStringLiteral("timestamp")] = message.mTimeStamp;
-    o[QStringLiteral("username")] = message.mUsername;
+    o[QLatin1String("messageID")] = message.mMessageId;
+    o[QLatin1String("roomID")] = message.mRoomId;
+    o[QLatin1String("message")] = message.mText;
+    o[QLatin1String("timestamp")] = message.mTimeStamp;
+    o[QLatin1String("username")] = message.mUsername;
     if (!message.mName.isEmpty()) {
-        o[QStringLiteral("name")] = message.mName;
+        o[QLatin1String("name")] = message.mName;
     }
-    o[QStringLiteral("userID")] = message.mUserId;
-    o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
-    o[QStringLiteral("editedAt")] = message.mEditedAt;
+    o[QLatin1String("userID")] = message.mUserId;
+    o[QLatin1String("updatedAt")] = message.mUpdatedAt;
+    o[QLatin1String("editedAt")] = message.mEditedAt;
     if (message.mThreadLastMessage > -1) {
-        o[QStringLiteral("tlm")] = message.mThreadLastMessage;
+        o[QLatin1String("tlm")] = message.mThreadLastMessage;
     }
 
-    o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
-    o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
-    o[QStringLiteral("alias")] = message.mAlias;
-    o[QStringLiteral("avatar")] = message.mAvatar;
-    o[QStringLiteral("groupable")] = message.mGroupable;
-    o[QStringLiteral("parseUrls")] = message.mParseUrls;
-    o[QStringLiteral("starred")] = message.mMessageStarred.isStarred();
+    o[QLatin1String("editedByUsername")] = message.mEditedByUsername;
+    o[QLatin1String("editedByUserID")] = message.mEditedByUserId;
+    o[QLatin1String("alias")] = message.mAlias;
+    o[QLatin1String("avatar")] = message.mAvatar;
+    o[QLatin1String("groupable")] = message.mGroupable;
+    o[QLatin1String("parseUrls")] = message.mParseUrls;
+    o[QLatin1String("starred")] = message.mMessageStarred.isStarred();
 
-    o[QStringLiteral("pinnedMessage")] = MessagePinned::serialize(message.mMessagePinned);
+    o[QLatin1String("pinnedMessage")] = MessagePinned::serialize(message.mMessagePinned);
 
     if (!message.mRole.isEmpty()) {
-        o[QStringLiteral("role")] = message.mRole;
+        o[QLatin1String("role")] = message.mRole;
     }
     if (!message.mEmoji.isEmpty()) {
-        o[QStringLiteral("emoji")] = message.mEmoji;
+        o[QLatin1String("emoji")] = message.mEmoji;
     }
 
-    o[QStringLiteral("type")] = message.mSystemMessageType;
-    o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
+    o[QLatin1String("type")] = message.mSystemMessageType;
+    o[QLatin1String("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
 
     // Attachments
     if (!message.mAttachments.isEmpty()) {
@@ -964,7 +964,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         for (int i = 0; i < nbAttachment; ++i) {
             array.append(MessageAttachment::serialize(message.mAttachments.at(i)));
         }
-        o[QStringLiteral("attachments")] = array;
+        o[QLatin1String("attachments")] = array;
     }
 
     // Mentions
@@ -978,7 +978,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
             mention.insert(QLatin1String("username"), i.key());
             array.append(std::move(mention));
         }
-        o[QStringLiteral("mentions")] = array;
+        o[QLatin1String("mentions")] = array;
     }
 
     // Channels
@@ -992,7 +992,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
             channel.insert(QLatin1String("channel"), j.key());
             array.append(std::move(channel));
         }
-        o[QStringLiteral("channels")] = array;
+        o[QLatin1String("channels")] = array;
     }
     // Urls
     if (!message.mUrls.isEmpty()) {
@@ -1001,31 +1001,31 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         for (int i = 0; i < nbUrls; ++i) {
             array.append(MessageUrl::serialize(message.mUrls.at(i)));
         }
-        o[QStringLiteral("urls")] = array;
+        o[QLatin1String("urls")] = array;
     }
 
     if (!message.reactions().isEmpty()) {
-        o[QStringLiteral("reactions")] = Reactions::serialize(message.reactions());
+        o[QLatin1String("reactions")] = Reactions::serialize(message.reactions());
     }
 
     if (message.mThreadCount > 0) {
-        o[QStringLiteral("tcount")] = message.mThreadCount;
-        o[QStringLiteral("tlm")] = message.mThreadLastMessage;
+        o[QLatin1String("tcount")] = message.mThreadCount;
+        o[QLatin1String("tlm")] = message.mThreadLastMessage;
     }
 
     if (message.mDiscussionCount > 0) {
-        o[QStringLiteral("dcount")] = message.mDiscussionCount;
-        o[QStringLiteral("dlm")] = message.mDiscussionLastMessage;
+        o[QLatin1String("dcount")] = message.mDiscussionCount;
+        o[QLatin1String("dlm")] = message.mDiscussionLastMessage;
     }
     if (!message.mDiscussionRoomId.isEmpty()) {
-        o[QStringLiteral("drid")] = message.mDiscussionRoomId;
+        o[QLatin1String("drid")] = message.mDiscussionRoomId;
     }
 
     if (!message.mThreadMessageId.isEmpty()) {
-        o[QStringLiteral("tmid")] = message.mThreadMessageId;
+        o[QLatin1String("tmid")] = message.mThreadMessageId;
     }
     if (!message.mReplies.isEmpty()) {
-        o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
+        o[QLatin1String("replies")] = QJsonArray::fromStringList(message.mReplies);
     }
 
     if (!message.mBlocks.isEmpty()) {
@@ -1034,13 +1034,13 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         for (int i = 0; i < nBlocks; ++i) {
             blockArray.append(Block::serialize(message.mBlocks.at(i)));
         }
-        o[QStringLiteral("blocks")] = blockArray;
+        o[QLatin1String("blocks")] = blockArray;
     }
     if (!message.mLocalTranslation.isEmpty()) {
-        o[QStringLiteral("localTransation")] = message.mLocalTranslation;
+        o[QLatin1String("localTransation")] = message.mLocalTranslation;
     }
     if (!message.mMessageTranslation.isEmpty()) {
-        o[QStringLiteral("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
+        o[QLatin1String("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
     }
 
     if (toBinary) {

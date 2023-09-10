@@ -36,8 +36,8 @@ QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 {
     QPair<QString, QJsonDocument> pair;
 
-    pair.first = object[QStringLiteral("method")].toString();
-    QJsonArray arr = object[QStringLiteral("params")].toArray();
+    pair.first = object[QLatin1String("method")].toString();
+    QJsonArray arr = object[QLatin1String("params")].toArray();
     pair.second = QJsonDocument(arr);
     return pair;
 }
@@ -46,7 +46,7 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 {
     QJsonObject o;
 
-    o[QStringLiteral("method")] = QJsonValue(pair.first);
+    o[QLatin1String("method")] = QJsonValue(pair.first);
 
     QJsonArray arr;
     if (pair.second.isArray()) {
@@ -55,7 +55,7 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
         arr.append(pair.second.object());
     }
 
-    o[QStringLiteral("params")] = QJsonValue(arr);
+    o[QLatin1String("params")] = QJsonValue(arr);
 
     return QCborValue::fromJsonValue(o).toCbor();
 }

@@ -38,7 +38,7 @@ bool UsersPresenceJob::start()
 void UsersPresenceJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QStringLiteral("success")].toBool()) {
+    if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersPresenceDone(replyObject);
     } else {

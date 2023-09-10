@@ -89,16 +89,16 @@ DeviceInfo DeviceInfos::at(int index) const
 void DeviceInfos::parseDeviceInfos(const QJsonObject &deviceInfosObj)
 {
     mDeviceInfosList.clear();
-    mDeviceInfosCount = deviceInfosObj[QStringLiteral("count")].toInt();
-    mOffset = deviceInfosObj[QStringLiteral("offset")].toInt();
-    mTotal = deviceInfosObj[QStringLiteral("total")].toInt();
+    mDeviceInfosCount = deviceInfosObj[QLatin1String("count")].toInt();
+    mOffset = deviceInfosObj[QLatin1String("offset")].toInt();
+    mTotal = deviceInfosObj[QLatin1String("total")].toInt();
     mDeviceInfosList.reserve(mDeviceInfosCount);
     parseDeviceInfosObj(deviceInfosObj);
 }
 
 void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
 {
-    const QJsonArray discussionsArray = deviceInfosObj[QStringLiteral("sessions")].toArray();
+    const QJsonArray discussionsArray = deviceInfosObj[QLatin1String("sessions")].toArray();
     for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
@@ -113,9 +113,9 @@ void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
 
 void DeviceInfos::parseMoreDeviceInfos(const QJsonObject &deviceInfosObj)
 {
-    const int deviceInfosCount = deviceInfosObj[QStringLiteral("count")].toInt();
-    mOffset = deviceInfosObj[QStringLiteral("offset")].toInt();
-    mTotal = deviceInfosObj[QStringLiteral("total")].toInt();
+    const int deviceInfosCount = deviceInfosObj[QLatin1String("count")].toInt();
+    mOffset = deviceInfosObj[QLatin1String("offset")].toInt();
+    mTotal = deviceInfosObj[QLatin1String("total")].toInt();
     parseDeviceInfosObj(deviceInfosObj);
     mDeviceInfosCount += deviceInfosCount;
 }
