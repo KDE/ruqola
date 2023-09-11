@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
+#include "room/plugintextmessagewidget.h"
 #include "room/readonlylineeditwidget.h"
 #include "room/reconnectinfowidget.h"
 #include "room/roomcounterinfowidget.h"
@@ -87,6 +88,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
 
     auto mOffLineWidget = w.findChild<OffLineWidget *>(QStringLiteral("mOffLineWidget"));
     QVERIFY(mOffLineWidget);
+
+    auto mPluginTextMessateWidget = w.findChild<PluginTextMessageWidget *>(QStringLiteral("mPluginTextMessateWidget"));
+    QVERIFY(mPluginTextMessateWidget);
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)

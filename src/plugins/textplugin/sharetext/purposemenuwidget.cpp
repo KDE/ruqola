@@ -67,17 +67,13 @@ void PurposeMenuWidget::slotInitializeShareMenu()
 void PurposeMenuWidget::slotShareActionFinished(const QJsonObject &output, int error, const QString &message)
 {
     if (error) {
-        KMessageBox::error(nullptr, i18n("There was a problem sharing the document: %1", message), i18n("Share"));
+        Q_EMIT errorMessage(i18n("There was a problem sharing the document: %1", message));
     } else {
         const QString url = output[QLatin1String("url")].toString();
         if (url.isEmpty()) {
-            KMessageBox::information(nullptr, i18n("File was shared."));
+            Q_EMIT successMessage(i18n("File was shared."));
         } else {
-            KMessageBox::information(nullptr,
-                                     i18n("<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>", url),
-                                     QString(),
-                                     QString(),
-                                     KMessageBox::AllowLink);
+            Q_EMIT successMessage(i18n("<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"));
         }
     }
 }

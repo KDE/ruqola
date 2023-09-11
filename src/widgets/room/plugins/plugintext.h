@@ -17,4 +17,8 @@ public:
     ~PluginText() override;
 
     virtual PluginTextInterface *createInterface(QObject *parent) = 0;
+
+Q_SIGNALS:
+    void errorMessage(const QString &message);
+    void successMessage(const QString &message);
 };

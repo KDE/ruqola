@@ -23,6 +23,7 @@ class RoomWidgetBase;
 class ReconnectInfoWidget;
 class OtrWidget;
 class OffLineWidget;
+class PluginTextMessageWidget;
 
 namespace TextEditTextToSpeech
 {
@@ -112,6 +113,7 @@ private:
     UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *const mRoomReconnectInfoWidget;
+    PluginTextMessageWidget *const mPluginTextMessateWidget;
     OtrWidget *const mOtrWidget;
     OffLineWidget *const mOffLineWidget;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;

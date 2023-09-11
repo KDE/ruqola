@@ -89,6 +89,8 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
     connect(mMessageListView, &MessageListView::textToSpeech, this, &RoomWidgetBase::textToSpeech);
 
+    connect(mMessageListView, &MessageListView::errorMessage, this, &RoomWidgetBase::errorMessage);
+    connect(mMessageListView, &MessageListView::successMessage, this, &RoomWidgetBase::successMessage);
     setAcceptDrops(true);
 }
 

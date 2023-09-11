@@ -44,6 +44,8 @@ Q_SIGNALS:
     void loadHistory();
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
     void textToSpeech(const QString &messageText);
+    void errorMessage(const QString &message);
+    void successMessage(const QString &message);
 
 private:
     void slotClearNotification();

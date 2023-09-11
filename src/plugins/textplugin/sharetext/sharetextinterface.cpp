@@ -13,6 +13,8 @@ ShareTextInterface::ShareTextInterface(QObject *parent)
     : PluginTextInterface(parent)
     , mPurposeMenuWidget(new PurposeMenuWidget(this))
 {
+    connect(mPurposeMenuWidget, &PurposeMenuWidget::errorMessage, this, &ShareTextInterface::errorMessage);
+    connect(mPurposeMenuWidget, &PurposeMenuWidget::successMessage, this, &ShareTextInterface::successMessage);
 }
 
 ShareTextInterface::~ShareTextInterface() = default;

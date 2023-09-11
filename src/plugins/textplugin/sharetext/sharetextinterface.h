@@ -19,6 +19,10 @@ public:
 
     void setSelectedText(const QString &str) override;
 
+Q_SIGNALS:
+    void errorMessage(const QString &message);
+    void successMessage(const QString &message);
+
 private:
     PurposeMenuWidget *const mPurposeMenuWidget;
 };
