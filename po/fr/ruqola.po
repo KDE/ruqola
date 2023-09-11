@@ -8331,26 +8331,22 @@ msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
 msgstr[1] "%1 messages dans le salon (total : %2)"
 
 #: widgets/ruqolacommandlineoptions.h:14
-#, fuzzy, kde-format
-#| msgid "Return lists of accounts"
+#, kde-format
 msgid "Return lists of accounts"
 msgstr "Renvoyer des listes de comptes"
 
 #: widgets/ruqolacommandlineoptions.h:15
-#, fuzzy, kde-format
-#| msgid "Start with specific account"
+#, kde-format
 msgid "Start with specific account"
 msgstr "Démarrer avec un compte spécifique"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Show Message"
 msgstr "Afficher un message"
 
 #: widgets/ruqolacommandlineoptions.h:19
-#, fuzzy, kde-format
-#| msgid "Lists the available options for user feedback"
+#, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Liste les options disponibles pour le retour utilisateur"
 
