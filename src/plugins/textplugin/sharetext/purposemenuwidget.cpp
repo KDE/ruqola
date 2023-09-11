@@ -73,7 +73,7 @@ void PurposeMenuWidget::slotShareActionFinished(const QJsonObject &output, int e
         if (url.isEmpty()) {
             Q_EMIT successMessage(i18n("File was shared."));
         } else {
-            Q_EMIT successMessage(i18n("<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"));
+            Q_EMIT successMessage(i18n("<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>", url));
         }
     }
 }
