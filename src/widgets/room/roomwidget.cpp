@@ -24,6 +24,7 @@
 #include "exportmessages/exportmessagesdialog.h"
 #include "messagelinewidget.h"
 #include "messagelistview.h"
+#include "plugintextmessagewidget.h"
 #include "prunemessages/prunemessagesdialog.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
@@ -70,6 +71,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
     , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
+    , mPluginTextMessateWidget(new PluginTextMessageWidget(this))
     , mOtrWidget(new OtrWidget(this))
     , mOffLineWidget(new OffLineWidget(this))
 #if HAVE_TEXT_TO_SPEECH
@@ -97,16 +99,22 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     mRoomReconnectInfoWidget->setObjectName(QStringLiteral("mRoomReconnectInfoWidget"));
 
+    mPluginTextMessateWidget->setObjectName(QStringLiteral("mPluginTextMessateWidget"));
+
     mOtrWidget->setObjectName(QStringLiteral("mOtrWidget"));
     connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
     connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
 
     mOffLineWidget->setObjectName(QStringLiteral("mOffLineWidget"));
 
+    connect(mRoomWidgetBase, &RoomWidgetBase::errorMessage, mPluginTextMessateWidget, &PluginTextMessageWidget::slotShareError);
+    connect(mRoomWidgetBase, &RoomWidgetBase::successMessage, mPluginTextMessateWidget, &PluginTextMessageWidget::slotShareSuccess);
+
     roomWidgetLayout->addWidget(mOtrWidget);
     roomWidgetLayout->addWidget(mOffLineWidget);
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
     roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
+    roomWidgetLayout->addWidget(mPluginTextMessateWidget);
 
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));

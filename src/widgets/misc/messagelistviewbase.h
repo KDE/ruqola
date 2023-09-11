@@ -21,6 +21,10 @@ public:
     void updateVerticalPageStep();
     void maybeScrollToBottom();
 
+Q_SIGNALS:
+    void errorMessage(const QString &message);
+    void successMessage(const QString &message);
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
 

@@ -28,6 +28,8 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
 
     const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
     for (PluginText *plugin : plugins) {
+        connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
+        connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
         mPluginTextInterface.append(plugin->createInterface(this));
     }
 }

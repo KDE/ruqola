@@ -601,6 +601,9 @@ target_sources(libruqolawidgets PRIVATE
     room/selectedmessagebackgroundanimation.h
     room/selectedmessagebackgroundanimation.cpp
 
+    room/plugintextmessagewidget.h
+    room/plugintextmessagewidget.cpp
+
     ruqolacentralwidget.cpp
     ruqolacentralwidget.h
     ruqolacommandlineoptions.cpp

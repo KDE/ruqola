@@ -25,6 +25,10 @@ public:
 
     void setSelectedText(const QString &str);
 
+Q_SIGNALS:
+    void errorMessage(const QString &message);
+    void successMessage(const QString &message);
+
 private:
     void slotInitializeShareMenu();
     void slotShareActionFinished(const QJsonObject &output, int error, const QString &message);

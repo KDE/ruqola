@@ -19,7 +19,10 @@ ShareTextPlugin::~ShareTextPlugin() = default;
 
 PluginTextInterface *ShareTextPlugin::createInterface(QObject *parent)
 {
-    return new ShareTextInterface(parent);
+    auto shareTextInterface = new ShareTextInterface(parent);
+    connect(shareTextInterface, &ShareTextInterface::errorMessage, this, &ShareTextPlugin::errorMessage);
+    connect(shareTextInterface, &ShareTextInterface::successMessage, this, &ShareTextPlugin::successMessage);
+    return shareTextInterface;
 }
 
 #include "sharetextplugin.moc"
