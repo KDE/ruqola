@@ -5,12 +5,17 @@
 */
 
 #include "plugintextmessagewidget.h"
+#include <QDesktopServices>
+#include <QUrl>
 
 PluginTextMessageWidget::PluginTextMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
     setVisible(false);
     setCloseButtonVisible(true);
+    connect(this, &KMessageWidget::linkActivated, this, [](const QString &contents) {
+        QDesktopServices::openUrl(QUrl(contents));
+    });
 }
 
 PluginTextMessageWidget::~PluginTextMessageWidget() = default;
