@@ -72,7 +72,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://invent.kde.org/network/ruqola.git"
+                    "url": "https://invent.kde.org/network/ruqola.git",
+		    "branch": "2.0"
                 }
             ],
             "config-opts": [
