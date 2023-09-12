@@ -87,8 +87,8 @@ void CreateSoundMessageWidget::displayRecorderError()
 void CreateSoundMessageWidget::initializeInput()
 {
     mDeviceComboBox->addItem(i18n("Default"), QVariant(QString()));
-    for (auto device : QMediaDevices::audioInputs()) {
-        auto name = device.description();
+    for (const auto &device : QMediaDevices::audioInputs()) {
+        const auto name = device.description();
         mDeviceComboBox->addItem(name, QVariant::fromValue(device));
     }
 
