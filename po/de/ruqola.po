@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1511,18 +1511,13 @@ msgstr "Als Text speichern ..."
 msgid "There was a problem sharing the document: %1"
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
-msgid "Share"
-msgstr ""
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, fuzzy, kde-format
 #| msgid "File is too large"
 msgid "File was shared."
 msgstr "Die Datei ist zu groß"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -3584,7 +3579,7 @@ msgid "Password"
 msgstr "Passwort"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgid "Video Conference"
@@ -8367,17 +8362,17 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Nachricht"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:244
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Möchten Sie den Verlauf wirklich öffnen?"
 
-#: widgets/room/roomwidget.cpp:237
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Remove History"
 msgstr "Verlauf löschen"
 
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

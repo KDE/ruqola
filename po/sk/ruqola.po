@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1525,17 +1525,12 @@ msgstr "Názov kanála"
 msgid "There was a problem sharing the document: %1"
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
-msgid "Share"
-msgstr ""
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr ""
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -3601,7 +3596,7 @@ msgid "Password"
 msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -8424,17 +8419,17 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Správa"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:244
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:237
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

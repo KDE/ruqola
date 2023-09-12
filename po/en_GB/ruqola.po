@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1443,17 +1443,12 @@ msgstr "Share Text..."
 msgid "There was a problem sharing the document: %1"
 msgstr "There was a problem sharing the document: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
-msgid "Share"
-msgstr "Share"
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "File was shared."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
@@ -3436,7 +3431,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Conference"
@@ -8111,17 +8106,17 @@ msgstr "Replying in a thread"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Reply in Thread for Message: '%1'"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:244
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Do you want really remove history?"
 
-#: widgets/room/roomwidget.cpp:237
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Remove History"
 msgstr "Remove History"
 
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8830,6 +8825,9 @@ msgstr "Some of the new features in this release of Ruqola include:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Some bug fixing:"
+
+#~ msgid "Share"
+#~ msgstr "Share"
 
 #~ msgid "Symbols"
 #~ msgstr "Symbols"

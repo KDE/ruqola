@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-09-08 08:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1451,17 +1451,12 @@ msgstr "Оприлюднити текст…"
 msgid "There was a problem sharing the document: %1"
 msgstr "Під час спроби оприлюднити документ виникла проблема: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
-msgid "Share"
-msgstr "Оприлюднити"
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "Файл оприлюднено."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новий запит можна знайти тут:<br /><a href='%1'>%1</a> </qt>"
@@ -3464,7 +3459,7 @@ msgid "Password"
 msgstr "Пароль"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Video Conference"
 msgstr "Відеоконференція"
@@ -8198,17 +8193,17 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:244
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:237
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Remove History"
 msgstr "Вилучити журнал"
 
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8918,6 +8913,9 @@ msgstr "Серед нових можливостей у цьому випуск�
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
+
+#~ msgid "Share"
+#~ msgstr "Оприлюднити"
 
 #~ msgid "2.0"
 #~ msgstr "2.0"

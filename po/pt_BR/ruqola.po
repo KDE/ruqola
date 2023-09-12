@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1468,17 +1468,12 @@ msgstr "Compartilhar texto..."
 msgid "There was a problem sharing the document: %1"
 msgstr "Ocorreu um problema ao compartilhar o documento: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
-msgid "Share"
-msgstr "Compartilhar"
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "O arquivo foi compartilhado."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -3507,7 +3502,7 @@ msgid "Password"
 msgstr "Senha"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgid "Video Conference"
@@ -8290,17 +8285,17 @@ msgstr "Respondendo em um tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responder no tópico para mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:244
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente excluir o histórico?"
 
-#: widgets/room/roomwidget.cpp:237
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Remove History"
 msgstr "Excluir histórico"
 
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9031,6 +9026,9 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Correção de erros"
+
+#~ msgid "Share"
+#~ msgstr "Compartilhar"
 
 #~ msgid "Symbols"
 #~ msgstr "Símbolos"

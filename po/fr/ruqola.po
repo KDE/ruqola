@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-08-18 10:46+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -1448,17 +1448,12 @@ msgstr "Partager du texte..."
 msgid "There was a problem sharing the document: %1"
 msgstr "Il y a eu un problème durant le partage du document : %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
-msgid "Share"
-msgstr "Partager"
-
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "Le fichier a été partagé."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -3463,7 +3458,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Video Conference"
 msgstr "Vidéo conférence"
@@ -8185,17 +8180,17 @@ msgstr "Réponse dans le fil de discussions"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Répondre dans le fil de discussion pour le message : « %1 »"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:244
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
-#: widgets/room/roomwidget.cpp:237
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Remove History"
 msgstr "Supprimer l'historique"
 
-#: widgets/room/roomwidget.cpp:429
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8915,6 +8910,9 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Quelques correction de bogues :"
+
+#~ msgid "Share"
+#~ msgstr "Partager"
 
 #~ msgid "Symbols"
 #~ msgstr "Symboles"
