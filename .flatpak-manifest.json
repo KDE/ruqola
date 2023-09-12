@@ -66,14 +66,27 @@
             ]
         },
         {
+            "name": "ktextaddons",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "url": "https://invent.kde.org/libraries/ktextaddons.git",
+                    "type": "git",
+                    "branch": "1.5"
+                }
+            ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ]
+        },
+        {
             "name": "ruqola",
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://invent.kde.org/network/ruqola.git",
-		    "branch": "2.0"
+                    "url": "https://invent.kde.org/network/ruqola.git"
                 }
             ],
             "config-opts": [
