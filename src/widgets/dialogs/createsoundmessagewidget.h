@@ -23,6 +23,9 @@ public:
 
     Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
 
+    void loadSettings();
+    void saveSettings();
+
 Q_SIGNALS:
     void recordDone();
 

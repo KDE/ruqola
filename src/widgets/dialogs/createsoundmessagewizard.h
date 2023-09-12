@@ -31,6 +31,8 @@ public:
 
 private:
     void slotCurrentIdChanged(int id);
+    void slotAccepted();
+
     enum CreateSoundMessageEnum {
         CreateSound,
         GenerateSoundMessage,
@@ -51,6 +53,9 @@ public:
     Q_REQUIRED_RESULT bool validatePage() override;
 
     Q_REQUIRED_RESULT bool isComplete() const override;
+
+    void loadSettings();
+    void saveSettings();
 
 private:
     CreateSoundMessageWidget *const mCreateSoundMessageWidget;
