@@ -25,7 +25,7 @@ CreateSoundMessageWizard::CreateSoundMessageWizard(QWidget *parent)
     setPage(GenerateSoundMessage, mGenerateSoundMessagePage);
     connect(this, &CreateSoundMessageWizard::currentIdChanged, this, &CreateSoundMessageWizard::slotCurrentIdChanged);
     setButtonText(QWizard::FinishButton, i18n("Send"));
-    connect(this, &CreateSoundMessageWizard::accept, this, &CreateSoundMessageWizard::slotAccepted);
+    connect(this, &CreateSoundMessageWizard::finished, this, &CreateSoundMessageWizard::slotAccepted);
     mCreateSoundMessagePage->loadSettings();
 }
 

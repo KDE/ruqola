@@ -88,7 +88,13 @@ void CreateSoundMessageWidget::loadSettings()
     KConfigGroup group(KSharedConfig::openConfig(), mySoundGroupName);
     const QByteArray deviceIdentifier = group.readEntry("SoundDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
-        // TODO initialize combobox
+        for (int i = 0; i < mDeviceComboBox->count(); ++i) {
+            const QAudioDevice audioDevice = mDeviceComboBox->itemData(i).value<QAudioDevice>();
+            if (audioDevice.id() == deviceIdentifier) {
+                mDeviceComboBox->setCurrentIndex(i);
+                break;
+            }
+        }
     }
 }
 
