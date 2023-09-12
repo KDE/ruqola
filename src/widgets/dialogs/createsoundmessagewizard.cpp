@@ -25,6 +25,14 @@ CreateSoundMessageWizard::CreateSoundMessageWizard(QWidget *parent)
     setPage(GenerateSoundMessage, mGenerateSoundMessagePage);
     connect(this, &CreateSoundMessageWizard::currentIdChanged, this, &CreateSoundMessageWizard::slotCurrentIdChanged);
     setButtonText(QWizard::FinishButton, i18n("Send"));
+    connect(this, &CreateSoundMessageWizard::accept, this, &CreateSoundMessageWizard::slotAccepted);
+    mCreateSoundMessagePage->loadSettings();
+}
+
+void CreateSoundMessageWizard::slotAccepted()
+{
+    mCreateSoundMessagePage->saveSettings();
+    accepted();
 }
 
 CreateSoundMessageWizard::CreateSoundMessageInfo CreateSoundMessageWizard::soundMessageInfo() const
@@ -65,6 +73,16 @@ QUrl CreateSoundMessagePage::fileNamePath() const
 bool CreateSoundMessagePage::isComplete() const
 {
     return !mCreateSoundMessageWidget->temporaryFilePath().isEmpty();
+}
+
+void CreateSoundMessagePage::loadSettings()
+{
+    mCreateSoundMessageWidget->loadSettings();
+}
+
+void CreateSoundMessagePage::saveSettings()
+{
+    mCreateSoundMessageWidget->saveSettings();
 }
 
 bool CreateSoundMessagePage::validatePage()

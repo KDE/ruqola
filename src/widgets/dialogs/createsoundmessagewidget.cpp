@@ -5,8 +5,10 @@
 */
 
 #include "createsoundmessagewidget.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageWidget>
+#include <KSharedConfig>
 #include <QAudioDevice>
 #include <QAudioInput>
 #include <QComboBox>
@@ -16,6 +18,11 @@
 #include <QMediaDevices>
 #include <QTemporaryFile>
 #include <QToolButton>
+
+namespace
+{
+const char mySoundGroupName[] = "Message Sound";
+}
 
 CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     : QWidget{parent}
@@ -75,6 +82,25 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
 }
 
 CreateSoundMessageWidget::~CreateSoundMessageWidget() = default;
+
+void CreateSoundMessageWidget::loadSettings()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), mySoundGroupName);
+    const QByteArray deviceIdentifier = group.readEntry("SoundDevice", QByteArray());
+    if (!deviceIdentifier.isEmpty()) {
+        // TODO initialize combobox
+    }
+}
+
+void CreateSoundMessageWidget::saveSettings()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), mySoundGroupName);
+    const auto device = mDeviceComboBox->itemData(mDeviceComboBox->currentIndex()).value<QAudioDevice>();
+    if (!device.isNull()) {
+        const QByteArray deviceIdentifier = device.id();
+        group.writeEntry("SoundDevice", deviceIdentifier);
+    }
+}
 
 void CreateSoundMessageWidget::displayRecorderError()
 {
