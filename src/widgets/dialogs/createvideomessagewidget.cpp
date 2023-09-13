@@ -17,10 +17,16 @@
 #include <QVBoxLayout>
 #include <QVideoWidget>
 
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDir>
 #include <QMediaFormat>
 
+namespace
+{
+const char myVideoGroupName[] = "Message Video";
+}
 CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     : QWidget(parent)
     , mVideoWidget(new QVideoWidget(this))
@@ -82,6 +88,31 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
+
+void CreateVideoMessageWidget::loadSettings()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myVideoGroupName);
+    const QByteArray deviceIdentifier = group.readEntry("VideoDevice", QByteArray());
+    if (!deviceIdentifier.isEmpty()) {
+        for (int i = 0; i < mListCamera->count(); ++i) {
+            const QCameraDevice videoDevice = mListCamera->itemData(i).value<QCameraDevice>();
+            if (videoDevice.id() == deviceIdentifier) {
+                mListCamera->setCurrentIndex(i);
+                break;
+            }
+        }
+    }
+}
+
+void CreateVideoMessageWidget::saveSettings()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myVideoGroupName);
+    const auto device = mListCamera->itemData(mListCamera->currentIndex()).value<QCameraDevice>();
+    if (!device.isNull()) {
+        const QByteArray deviceIdentifier = device.id();
+        group.writeEntry("VideoDevice", deviceIdentifier);
+    }
+}
 
 QUrl CreateVideoMessageWidget::temporaryFilePath() const
 {
