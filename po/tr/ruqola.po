@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"POT-Creation-Date: 2023-09-13 02:35+0000\n"
 "PO-Revision-Date: 2023-09-03 21:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -882,7 +882,7 @@ msgstr "Yok Sayılan İleti"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/createsoundmessagewidget.cpp:121
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -2692,7 +2692,7 @@ msgstr "İki Adımlı Kimlik Doğrulama Kullan"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6518,7 +6518,7 @@ msgstr "Hesap Adı:"
 msgid "Server URL:"
 msgstr "Sunucu URL'si:"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createsoundmessagewidget.cpp:140
 #: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
@@ -6538,7 +6538,7 @@ msgstr "Video İletisi Oluştur"
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"POT-Creation-Date: 2023-09-13 02:35+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -909,7 +909,7 @@ msgstr ""
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/createsoundmessagewidget.cpp:121
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -2795,7 +2795,7 @@ msgstr "Tapatybės nustatymo metodas"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6644,7 +6644,7 @@ msgstr "Paskyra"
 msgid "Server URL:"
 msgstr "Serverio URL:"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createsoundmessagewidget.cpp:140
 #: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
@@ -6663,7 +6663,7 @@ msgstr "Ištrinti žinutę"
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, fuzzy, kde-format

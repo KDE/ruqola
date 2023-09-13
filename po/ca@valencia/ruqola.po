@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 02:26+0000\n"
+"POT-Creation-Date: 2023-09-13 02:35+0000\n"
 "PO-Revision-Date: 2023-09-09 09:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -878,7 +878,7 @@ msgstr "Missatge ignorat"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/createsoundmessagewidget.cpp:121
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -2696,7 +2696,7 @@ msgstr "Utilitza una autenticació de dos factors"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -4476,7 +4476,7 @@ msgstr "Intenta utilitzar LDAP per a l'autenticació."
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
 #, kde-format
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
-msgstr "Port per a accedir a LDAP, p. ex., 389 o 636 per al LDAPS"
+msgstr "Port per a accedir a LDAP, p. ex., 389 o 636 per a LDAPS"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:44
 #, kde-format
@@ -6530,7 +6530,7 @@ msgstr "Nom del compte:"
 msgid "Server URL:"
 msgstr "URL del servidor:"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createsoundmessagewidget.cpp:140
 #: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
@@ -6548,7 +6548,7 @@ msgstr "Crea un missatge de so"
 msgid "Send"
 msgstr "Envia"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
@@ -8935,6 +8935,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgid "Share"
-#~ msgstr "Compartix"
