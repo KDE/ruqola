@@ -85,6 +85,9 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
         mRecordButton->setEnabled(false);
         mPauseButton->setEnabled(false);
     }
+    connect(mListCamera, &QComboBox::activated, this, [this]() {
+        setCamera(mListCamera->itemData(mListCamera->currentIndex()).value<QCameraDevice>());
+    });
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
