@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 00:46+0000\n"
+"POT-Creation-Date: 2023-09-13 00:46+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -873,7 +873,7 @@ msgstr "Ignored Message"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/createsoundmessagewidget.cpp:121
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -2612,7 +2612,7 @@ msgstr "Use Two Factor Authentication"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6414,7 +6414,7 @@ msgstr "Account name:"
 msgid "Server URL:"
 msgstr "Server URL:"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createsoundmessagewidget.cpp:140
 #: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
@@ -6432,7 +6432,7 @@ msgstr "Create Sound Message"
 msgid "Send"
 msgstr "Send"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format

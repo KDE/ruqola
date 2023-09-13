@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 00:46+0000\n"
+"POT-Creation-Date: 2023-09-13 00:46+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -903,7 +903,7 @@ msgstr "Mensagem Ignorada"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:89
+#: widgets/dialogs/createsoundmessagewidget.cpp:121
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -2642,7 +2642,7 @@ msgstr "Usar a Autenticação em Dois Factores"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/createsoundmessagewizard.cpp:102
+#: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:128
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
@@ -6480,7 +6480,7 @@ msgstr "Nome da conta:"
 msgid "Server URL:"
 msgstr "URL do servidor:"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:108
+#: widgets/dialogs/createsoundmessagewidget.cpp:140
 #: widgets/dialogs/createvideomessagewidget.cpp:204
 #, kde-format
 msgid "Recorded %1 sec"
@@ -6498,7 +6498,7 @@ msgstr "Criar uma Mensagem de Áudio"
 msgid "Send"
 msgstr "Enviar"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:89
+#: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:115
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
