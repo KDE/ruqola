@@ -35,6 +35,7 @@ private:
     void readConfig();
     void writeConfig();
     void slotCurrentIdChanged(int id);
+    void slotAccepted();
     enum CreateVideoMessageEnum {
         CreateVideo,
         CreateMessage,
@@ -55,6 +56,9 @@ public:
     Q_REQUIRED_RESULT QUrl fileNamePath() const;
 
     Q_REQUIRED_RESULT bool isComplete() const override;
+
+    void loadSettings();
+    void saveSettings();
 
 private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;

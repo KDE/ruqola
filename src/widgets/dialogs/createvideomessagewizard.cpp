@@ -33,11 +33,19 @@ CreateVideoMessageWizard::CreateVideoMessageWizard(QWidget *parent)
     readConfig();
     connect(this, &CreateVideoMessageWizard::currentIdChanged, this, &CreateVideoMessageWizard::slotCurrentIdChanged);
     setButtonText(QWizard::FinishButton, i18n("Send"));
+    connect(this, &CreateVideoMessageWizard::finished, this, &CreateVideoMessageWizard::slotAccepted);
+    mCreateVideoMessagePage->loadSettings();
 }
 
 CreateVideoMessageWizard::~CreateVideoMessageWizard()
 {
     writeConfig();
+}
+
+void CreateVideoMessageWizard::slotAccepted()
+{
+    mCreateVideoMessagePage->saveSettings();
+    accepted();
 }
 
 void CreateVideoMessageWizard::slotCurrentIdChanged(int id)
@@ -84,6 +92,16 @@ CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)
 }
 
 CreateVideoMessagePage::~CreateVideoMessagePage() = default;
+
+void CreateVideoMessagePage::loadSettings()
+{
+    mCreateVideoMessageWidget->loadSettings();
+}
+
+void CreateVideoMessagePage::saveSettings()
+{
+    mCreateVideoMessageWidget->saveSettings();
+}
 
 QUrl CreateVideoMessagePage::fileNamePath() const
 {
