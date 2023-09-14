@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-13 00:46+0000\n"
+"POT-Creation-Date: 2023-09-14 00:45+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2718,7 +2718,7 @@ msgstr "身份驗證方式"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
-#: widgets/dialogs/createvideomessagewizard.cpp:128
+#: widgets/dialogs/createvideomessagewizard.cpp:146
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6583,7 +6583,7 @@ msgid "Server URL:"
 msgstr "伺服器網址："
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:140
-#: widgets/dialogs/createvideomessagewidget.cpp:204
+#: widgets/dialogs/createvideomessagewidget.cpp:238
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -6602,7 +6602,7 @@ msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:107
-#: widgets/dialogs/createvideomessagewizard.cpp:115
+#: widgets/dialogs/createvideomessagewizard.cpp:133
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "Username:"

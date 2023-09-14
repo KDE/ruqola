@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-13 00:46+0000\n"
+"POT-Creation-Date: 2023-09-14 00:45+0000\n"
 "PO-Revision-Date: 2023-09-09 17:41+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2623,7 +2623,7 @@ msgstr "Usar autenticación de dos factores"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
-#: widgets/dialogs/createvideomessagewizard.cpp:128
+#: widgets/dialogs/createvideomessagewizard.cpp:146
 #: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -6457,7 +6457,7 @@ msgid "Server URL:"
 msgstr "URL del servidor:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:140
-#: widgets/dialogs/createvideomessagewidget.cpp:204
+#: widgets/dialogs/createvideomessagewidget.cpp:238
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 segundos grabados"
@@ -6475,7 +6475,7 @@ msgid "Send"
 msgstr "Enviar"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:107
-#: widgets/dialogs/createvideomessagewizard.cpp:115
+#: widgets/dialogs/createvideomessagewizard.cpp:133
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
 #, kde-format
 msgid "Filename:"
