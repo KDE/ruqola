@@ -8072,26 +8072,24 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: widgets/ruqolacommandlineoptions.h:14
-#, fuzzy, kde-format
-#| msgid "Return the number of account."
+#, kde-format
 msgid "Return lists of accounts"
-msgstr "Vrátit číslo účtu."
+msgstr "Zobrazit seznam účtů"
 
 #: widgets/ruqolacommandlineoptions.h:15
 #, kde-format
 msgid "Start with specific account"
-msgstr ""
+msgstr "Spustit s určitým účtem"
 
 #: widgets/ruqolacommandlineoptions.h:16
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Show Message"
-msgstr "Sledovat zprávu"
+msgstr "Zobrazit zprávu"
 
 #: widgets/ruqolacommandlineoptions.h:19
 #, kde-format
 msgid "Lists the available options for user feedback"
-msgstr ""
+msgstr "Seznam dostupných voleb pro uživatelskou zpětnou vazbu"
 
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
@@ -8536,22 +8534,19 @@ msgid "Return the number of account."
 msgstr "Vrátit číslo účtu."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
-msgstr "Verze"
+msgstr "Verze:"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "All Version"
-msgstr "Verze"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Verze"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8635,50 +8630,3 @@ msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
-
-#~ msgid "Share"
-#~ msgstr "Sdílet"
-
-#~ msgid "Symbols"
-#~ msgstr "Symboly"
-
-#~ msgid "Activity"
-#~ msgstr "Aktivita"
-
-#~ msgid "Objects"
-#~ msgstr "Objekty"
-
-#~ msgid "Nature"
-#~ msgstr "Příroda"
-
-#~ msgid "Food"
-#~ msgstr "Jídlo"
-
-#~ msgid "People"
-#~ msgstr "Lidé"
-
-#~ msgid "Travel"
-#~ msgstr "Cestování"
-
-#~ msgid "Regional"
-#~ msgstr "Místní"
-
-#~ msgid "Flags"
-#~ msgstr "Příznaky"
-
-#~ msgctxt "Previously used emojis"
-#~ msgid "History"
-#~ msgstr "Historie"
-
-#~ msgctxt "'Custom' is a category of emoji"
-#~ msgid "Custom"
-#~ msgstr "Vlastní"
-
-#~ msgid "Clear Recents"
-#~ msgstr "Vyprázdnit nedávné"
-
-#~ msgid "Add Smiley"
-#~ msgstr "Přidat emotikon"
-
-#~ msgid "Search Emoticon..."
-#~ msgstr "Hledat emotikon..."
