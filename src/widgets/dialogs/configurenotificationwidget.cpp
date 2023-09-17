@@ -21,7 +21,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     : QWidget(parent)
     , mDisableNotification(new QCheckBox(i18n("Disable Notification"), this))
     , mHideUnreadRoomStatus(new QCheckBox(i18n("Hide Unread Room Status"), this))
-    , mMuteGroupMentions(new QCheckBox(i18n("Mute @all and @here mentions"), this))
+    , mMuteGroupMentions(new QCheckBox(i18n("Mute %1 and %2 mentions", QStringLiteral("@all"), QStringLiteral("@here")), this))
     , mShowBadgeMentions(new QCheckBox(i18n("Show badge for mentions"), this))
     , mDesktopAlertCombobox(new QComboBox(this))
     , mDesktopSoundCombobox(new QComboBox(this))
