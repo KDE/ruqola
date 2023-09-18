@@ -13,4 +13,5 @@ namespace RoomUtil
 {
 Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString generateUserLink(const QString &userName);
 Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString generatePermalink(const QString &messageId, const QString &roomId, Room::RoomType channelType);
+Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT bool validUser(const QString &userName);
 }

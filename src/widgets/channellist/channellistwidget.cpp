@@ -7,6 +7,7 @@
 #include "channellistwidget.h"
 #include "channellistview.h"
 #include "model/roomfilterproxymodel.h"
+#include "room/roomutil.h"
 #include "ruqolawidgets_debug.h"
 
 #include "accountmanager.h"
@@ -277,7 +278,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 mCurrentRocketChatAccount->openChannel(roomOrUserId, RocketChatAccount::ChannelTypeInfo::RoomId);
             }
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
-            if (roomOrUserId == QLatin1String("here") || roomOrUserId == QLatin1String("all")) {
+            if (!RoomUtil::validUser(roomOrUserId)) {
                 return;
             }
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
