@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 00:45+0000\n"
+"POT-Creation-Date: 2023-09-18 00:45+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -6084,9 +6084,10 @@ msgid "Hide Unread Room Status"
 msgstr "Cela stato de sala non legite"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, kde-format
-msgid "Mute @all and @here mentions"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Mute Group Mentions"
+msgid "Mute %1 and %2 mentions"
+msgstr "Silentia Mentiones de Gruppo"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format
@@ -9360,9 +9361,6 @@ msgstr "Alcun correction de faltas (bug)"
 #~ msgctxt "Default tts engine"
 #~ msgid "Default"
 #~ msgstr "Predefinite"
-
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Silentia Mentiones de Gruppo"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

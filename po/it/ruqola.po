@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 00:45+0000\n"
+"POT-Creation-Date: 2023-09-18 00:45+0000\n"
 "PO-Revision-Date: 2023-09-09 09:38+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -6261,8 +6261,9 @@ msgid "Hide Unread Room Status"
 msgstr "Nascondi lo stato non letto della stanza"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, kde-format
-msgid "Mute @all and @here mentions"
+#, fuzzy, kde-format
+#| msgid "Mute @all and @here mentions"
+msgid "Mute %1 and %2 mentions"
 msgstr "Silenzia le menzioni @all e @here"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
