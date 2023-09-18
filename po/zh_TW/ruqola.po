@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 02:25+0000\n"
+"POT-Creation-Date: 2023-09-18 02:33+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -6438,9 +6438,10 @@ msgid "Hide Unread Room Status"
 msgstr "隱藏未讀的聊天室狀態："
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, kde-format
-msgid "Mute @all and @here mentions"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Mute Groups Mention:"
+msgid "Mute %1 and %2 mentions"
+msgstr "靜音群組提及："
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, fuzzy, kde-format
@@ -9341,11 +9342,6 @@ msgstr "臭蟲修正"
 #~| msgid "Authentication Method"
 #~ msgid "Authentication required"
 #~ msgstr "身份驗證方式"
-
-#, fuzzy
-#~| msgid "Mute Groups Mention:"
-#~ msgid "Mute Group Mentions"
-#~ msgstr "靜音群組提及："
 
 #~ msgid "Account Name"
 #~ msgstr "帳戶名稱"

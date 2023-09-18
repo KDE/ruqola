@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 02:25+0000\n"
+"POT-Creation-Date: 2023-09-18 02:33+0000\n"
 "PO-Revision-Date: 2023-08-10 15:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -6147,7 +6147,7 @@ msgstr "Ignorovat nepřečtené zprávy"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
-msgid "Mute @all and @here mentions"
+msgid "Mute %1 and %2 mentions"
 msgstr ""
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25

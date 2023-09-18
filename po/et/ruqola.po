@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 02:25+0000\n"
+"POT-Creation-Date: 2023-09-18 02:33+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -6537,9 +6537,10 @@ msgid "Hide Unread Room Status"
 msgstr "Lugemata sõnumite toa oleku peitmine:"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, kde-format
-msgid "Mute @all and @here mentions"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Mute Group Mentions:"
+msgid "Mute %1 and %2 mentions"
+msgstr "Gruppides mainimiste vaigistamine:"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, fuzzy, kde-format
@@ -9520,11 +9521,6 @@ msgstr "Vigade parandamine"
 
 #~ msgid "Search Users..."
 #~ msgstr "Otsi kasutajaid ..."
-
-#, fuzzy
-#~| msgid "Mute Group Mentions:"
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Gruppides mainimiste vaigistamine:"
 
 #~ msgid "User Name:"
 #~ msgstr "Kasutajanimi:"

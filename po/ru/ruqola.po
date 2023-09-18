@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 02:25+0000\n"
+"POT-Creation-Date: 2023-09-18 02:33+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -6385,9 +6385,10 @@ msgid "Hide Unread Room Status"
 msgstr "Скрыть статус непрочитанного в комнате"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, kde-format
-msgid "Mute @all and @here mentions"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Mute Group Mentions"
+msgid "Mute %1 and %2 mentions"
+msgstr "Отключить упоминания группы"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, fuzzy, kde-format
@@ -9318,9 +9319,6 @@ msgstr "Исправление ошибок"
 
 #~ msgid "Authentication required"
 #~ msgstr "Требуется аутентификация"
-
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Отключить упоминания группы"
 
 #~ msgid "User Name:"
 #~ msgstr "Имя пользователя:"
