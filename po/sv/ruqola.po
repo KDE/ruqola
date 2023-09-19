@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 02:33+0000\n"
-"PO-Revision-Date: 2023-09-09 12:58+0200\n"
+"POT-Creation-Date: 2023-09-19 02:29+0000\n"
+"PO-Revision-Date: 2023-09-18 21:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -5829,22 +5829,22 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Är du säker på att du vill konvertera till lag? Det går inte att ångra."
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtrera kanaler (Ctrl+K)"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Search Channels"
 msgstr "Sök kanaler"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "Föregående kanal"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Next Channel"
 msgstr "Nästa kanal"
@@ -6294,10 +6294,9 @@ msgid "Hide Unread Room Status"
 msgstr "Dölj status för olästa rum"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mute @all and @here mentions"
+#, kde-format
 msgid "Mute %1 and %2 mentions"
-msgstr "Tysta omnämnanden med @all och @here"
+msgstr "Tysta omnämnanden med %1 och %2"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format

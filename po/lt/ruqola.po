@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 02:33+0000\n"
+"POT-Creation-Date: 2023-09-19 02:29+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -5948,25 +5948,25 @@ msgstr "Šalinti iš kambario"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Filter channels (CTRL + K)"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search Channels"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Previous Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Channel"
