@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:45+0000\n"
-"PO-Revision-Date: 2023-09-09 09:21+0200\n"
+"POT-Creation-Date: 2023-09-19 00:45+0000\n"
+"PO-Revision-Date: 2023-09-18 11:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -5794,22 +5794,22 @@ msgstr "Mou a un equip"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es podrà desfer."
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtre de canals (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Search Channels"
 msgstr "Busca de canals"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "Canal anterior"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Next Channel"
 msgstr "Canal següent"
@@ -6259,10 +6259,9 @@ msgid "Hide Unread Room Status"
 msgstr "Oculta l'estat sense llegir de la sala"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mute @all and @here mentions"
+#, kde-format
 msgid "Mute %1 and %2 mentions"
-msgstr "Silencia les mencions @all i @here"
+msgstr "Silencia les mencions %1 i %2"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format

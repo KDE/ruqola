@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:45+0000\n"
-"PO-Revision-Date: 2023-09-08 08:37+0300\n"
+"POT-Creation-Date: 2023-09-19 00:45+0000\n"
+"PO-Revision-Date: 2023-09-18 22:43+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -5812,22 +5812,22 @@ msgstr ""
 "Ви справді хочете перетворити це на команду? Наслідки дії не можна буде "
 "скасувати."
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Фільтрувати канали (Ctrl + K)"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Search Channels"
 msgstr "Пошук каналів"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "Попередній канал"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Next Channel"
 msgstr "Наступний канал"
@@ -6283,10 +6283,9 @@ msgid "Hide Unread Room Status"
 msgstr "Приховування стану непрочитаного у кімнаті"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mute @all and @here mentions"
+#, kde-format
 msgid "Mute %1 and %2 mentions"
-msgstr "Вимкнути згадки @all і @here"
+msgstr "Вимкнути згадки %1 і %2"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:45+0000\n"
+"POT-Creation-Date: 2023-09-19 00:45+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -5894,24 +5894,24 @@ msgstr "移除"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search Channel"
 msgid "Filter channels (CTRL + K)"
 msgstr "搜尋頻道"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Search Channel"
 msgid "Search Channels"
 msgstr "搜尋頻道"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "上一個頻道"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Next Channel"

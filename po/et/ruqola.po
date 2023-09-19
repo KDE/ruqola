@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:45+0000\n"
+"POT-Creation-Date: 2023-09-19 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -5981,24 +5981,24 @@ msgstr "Eemalda toast"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search Rooms (CTRL + K)"
 msgid "Filter channels (CTRL + K)"
 msgstr "Toa otsimine (Ctrl+K)"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Search Channel"
 msgid "Search Channels"
 msgstr "Kanali otsimine"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "Eelmine kanal"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Channel"

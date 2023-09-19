@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:45+0000\n"
-"PO-Revision-Date: 2023-09-09 07:10+0200\n"
+"POT-Creation-Date: 2023-09-19 00:45+0000\n"
+"PO-Revision-Date: 2023-09-18 06:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -5763,22 +5763,22 @@ msgstr ""
 "Ali ste prepričani, da ga želite pretvoriti v ekipo? Tega ni mogoče "
 "razveljaviti."
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtriraj kanale (krmilka+K)"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Search Channels"
 msgstr "Išči kanale"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "Prejšnji kanal"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Next Channel"
 msgstr "Naslednji kanal"
@@ -6234,10 +6234,9 @@ msgid "Hide Unread Room Status"
 msgstr "Skrij stanje neprebrane sobe"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mute @all and @here mentions"
+#, kde-format
 msgid "Mute %1 and %2 mentions"
-msgstr "Utišaj vse omembe @all in @here"
+msgstr "Utišaj %1 in omembe %2"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format

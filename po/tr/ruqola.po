@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:45+0000\n"
+"POT-Creation-Date: 2023-09-19 00:45+0000\n"
 "PO-Revision-Date: 2023-09-09 13:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -5743,22 +5743,22 @@ msgstr "Takıma Taşı"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Takıma dönüştürmek istediğinize emin misiniz? Bu işlem geri alınamaz."
 
-#: widgets/channellist/channellistwidget.cpp:50
+#: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Kanalları süz (Kontrol + K)"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Search Channels"
 msgstr "Kanalları Ara"
 
-#: widgets/channellist/channellistwidget.cpp:64
+#: widgets/channellist/channellistwidget.cpp:65
 #, kde-format
 msgid "Previous Channel"
 msgstr "Önceki Kanal"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:73
 #, kde-format
 msgid "Next Channel"
 msgstr "Sonraki Kanal"
