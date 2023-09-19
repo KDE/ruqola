@@ -197,6 +197,9 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/logs/viewlogplaintextedit.h
     administratordialog/logs/viewlogplaintextedit.cpp
 
+    administratordialog/registration/registrationwidget.h
+    administratordialog/registration/registrationwidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
