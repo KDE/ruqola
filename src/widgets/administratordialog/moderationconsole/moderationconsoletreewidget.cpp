@@ -25,7 +25,7 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
 {
     mModel = new DeviceInfoModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search device..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
