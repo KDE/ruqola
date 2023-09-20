@@ -22,6 +22,7 @@ class PermissionsWidget;
 class AdministratorRolesWidget;
 class RocketChatAccount;
 class AdministratorOauthWidget;
+class AdministratorModerationConsoleWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
@@ -45,5 +46,6 @@ private:
     PermissionsWidget *const mPermissionsWidget;
     AdministratorRolesWidget *const mRolesWidget;
     AdministratorOauthWidget *const mOauthWidget;
+    AdministratorModerationConsoleWidget *const mAdministratorModerationConsoleWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -11,10 +11,14 @@
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include "administratordialog/invites/administratorinviteswidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
+#include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
+#include "administratordialog/oauth/administratoroauthwidget.h"
 #include "administratordialog/permissions/permissionswidget.h"
+#include "administratordialog/roles/administratorroleswidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include "administratordialog/users/administratoruserswidget.h"
+
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -62,6 +66,15 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mPermissionsWidget = w.findChild<PermissionsWidget *>(QStringLiteral("mPermissionsWidget"));
     QVERIFY(mPermissionsWidget);
+
+    auto mRolesWidget = w.findChild<AdministratorRolesWidget *>(QStringLiteral("mRolesWidget"));
+    QVERIFY(mRolesWidget);
+
+    auto mOauthWidget = w.findChild<AdministratorOauthWidget *>(QStringLiteral("mOauthWidget"));
+    QVERIFY(mOauthWidget);
+
+    auto mAdministratorModerationConsoleWidget = w.findChild<AdministratorModerationConsoleWidget *>(QStringLiteral("mAdministratorModerationConsoleWidget"));
+    QVERIFY(mAdministratorModerationConsoleWidget);
 }
 
 #include "moc_administratorwidgettest.cpp"

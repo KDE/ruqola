@@ -6,6 +6,7 @@
 
 #include "administratorwidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
+#include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
 #include "administratordialog/oauth/administratoroauthwidget.h"
 #include "administratordialog/permissions/permissionswidget.h"
 #include "administratordialog/roles/administratorroleswidget.h"
@@ -35,6 +36,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mPermissionsWidget(new PermissionsWidget(account, this))
     , mRolesWidget(new AdministratorRolesWidget(account, this))
     , mOauthWidget(new AdministratorOauthWidget(account, this))
+    , mAdministratorModerationConsoleWidget(new AdministratorModerationConsoleWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -76,6 +78,9 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
 
     mOauthWidget->setObjectName(QStringLiteral("mOauthWidget"));
     mTabWidget->addTab(mOauthWidget, i18n("Oauth"));
+
+    mAdministratorModerationConsoleWidget->setObjectName(QStringLiteral("mAdministratorModerationConsoleWidget"));
+    mTabWidget->addTab(mAdministratorModerationConsoleWidget, i18n("Moderation Console"));
 }
 
 AdministratorWidget::~AdministratorWidget() = default;
@@ -98,6 +103,7 @@ void AdministratorWidget::initialize()
     if (mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
         mOauthWidget->initialize();
     }
+    // TODO mAdministratorModerationConsoleWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()
@@ -114,6 +120,7 @@ void AdministratorWidget::updateUiFromPermission()
     if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mOauthWidget), false);
     }
+    // TODO make visible 'mAdministratorModerationConsoleWidget' if RC >= 6.2
 }
 
 #include "moc_administratorwidget.cpp"
