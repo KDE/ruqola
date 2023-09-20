@@ -20,6 +20,8 @@ void ModerationInfoTest::shouldHaveDefaultValues()
     QVERIFY(i.userName().isEmpty());
     QVERIFY(i.msgId().isEmpty());
     QCOMPARE(i.count(), 0);
+    QVERIFY(!i.isUserDeleted());
+    QVERIFY(i.message().isEmpty());
 }
 
 #include "moc_moderationinfotest.cpp"

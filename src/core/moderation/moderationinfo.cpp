@@ -15,6 +15,9 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
     d << "name " << t.name();
     d << "username " << t.userName();
     d << "msgId " << t.msgId();
+    d << "mCount " << t.count();
+    d << "mIsUserDeleted " << t.isUserDeleted();
+    d << "mMessage " << t.message();
     return d;
 }
 
@@ -23,7 +26,8 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
 // "success":true,"total":1})
 bool ModerationInfo::operator==(const ModerationInfo &other) const
 {
-    return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mUserId == other.mUserId && mCount == other.mCount;
+    return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mUserId == other.mUserId && mCount == other.mCount
+        && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage;
 }
 
 void ModerationInfo::parseModerationInfo(const QJsonObject &o)
@@ -33,6 +37,8 @@ void ModerationInfo::parseModerationInfo(const QJsonObject &o)
     mUserName = o[QLatin1String("username")].toString();
     mMsgId = o[QLatin1String("msgId")].toString();
     mCount = o[QLatin1String("count")].toInt();
+    mIsUserDeleted = o[QLatin1String("isUserDeleted")].toBool();
+    mMessage = o[QLatin1String("message")].toString();
     // TODO Utils::parseIsoDate(QStringLiteral("ts"), o);
     // TODO
 }
@@ -85,4 +91,24 @@ int ModerationInfo::count() const
 void ModerationInfo::setCount(int newCount)
 {
     mCount = newCount;
+}
+
+bool ModerationInfo::isUserDeleted() const
+{
+    return mIsUserDeleted;
+}
+
+void ModerationInfo::setIsUserDeleted(bool newIsUserDeleted)
+{
+    mIsUserDeleted = newIsUserDeleted;
+}
+
+QString ModerationInfo::message() const
+{
+    return mMessage;
+}
+
+void ModerationInfo::setMessage(const QString &newMessage)
+{
+    mMessage = newMessage;
 }

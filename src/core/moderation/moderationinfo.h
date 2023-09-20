@@ -35,12 +35,20 @@ public:
     Q_REQUIRED_RESULT int count() const;
     void setCount(int newCount);
 
+    Q_REQUIRED_RESULT bool isUserDeleted() const;
+    void setIsUserDeleted(bool newIsUserDeleted);
+
+    Q_REQUIRED_RESULT QString message() const;
+    void setMessage(const QString &newMessage);
+
 private:
     QString mUserId;
     QString mName;
     QString mUserName;
     QString mMsgId;
+    QString mMessage;
     int mCount = 0;
+    bool mIsUserDeleted = false;
 };
 
 Q_DECLARE_METATYPE(ModerationInfo)
