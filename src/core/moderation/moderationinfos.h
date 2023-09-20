@@ -36,13 +36,13 @@ public:
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT ModerationInfo at(int index) const;
 
-    void parseModerationInfos(const QJsonObject &discussionsObj);
+    void parseModerationInfos(const QJsonObject &ModerationInfosObj);
     void parseMoreModerationInfos(const QJsonObject &ModerationInfosObj);
 
     ModerationInfo takeAt(int index);
 
 private:
-    void parseModerationInfosObj(const QJsonObject &discussionsObj);
+    void parseModerationInfosObj(const QJsonObject &ModerationInfosObj);
     QVector<ModerationInfo> mModerationInfosList;
     int mModerationInfosCount = 0;
     int mOffset = 0;
