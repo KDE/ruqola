@@ -274,6 +274,8 @@ target_sources(libruqolacore PRIVATE
     model/servererrorinfohistorymodel.cpp
     model/servererrorinfohistoryfilterproxymodel.cpp
     model/servererrorinfohistoryfilterproxymodel.h
+    model/moderationmodel.cpp
+    model/moderationmodel.h
 
 
     notificationinfo.cpp
