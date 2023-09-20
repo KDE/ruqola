@@ -7,6 +7,7 @@
 #include "administratormoderationconsolewidget.h"
 #include "connection.h"
 #include "moderation/moderationreportsbyusersjob.h"
+#include "moderationconsoletreewidget.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -14,10 +15,15 @@
 
 AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mModerationConsoleTreeWidget(new ModerationConsoleTreeWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+
+    mModerationConsoleTreeWidget->setObjectName(QStringLiteral("mModerationConsoleTreeWidget"));
+    mainLayout->addWidget(mModerationConsoleTreeWidget);
 
     auto moderationJob = new RocketChatRestApi::ModerationReportsByUsersJob(this);
     connect(moderationJob, &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone, this, [this](const QJsonObject &obj) {

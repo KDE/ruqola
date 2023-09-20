@@ -201,10 +201,11 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/registration/registrationwidget.cpp
 
     administratordialog/moderationconsole/administratormoderationconsolewidget.h
-    administratordialog/moderationconsole/administratormoderationconsolewidget.cpp    
-
+    administratordialog/moderationconsole/administratormoderationconsolewidget.cpp
     administratordialog/moderationconsole/administratormoderationrangewidget.h
     administratordialog/moderationconsole/administratormoderationrangewidget.cpp
+    administratordialog/moderationconsole/moderationconsoletreewidget.cpp
+    administratordialog/moderationconsole/moderationconsoletreewidget.h
 
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp

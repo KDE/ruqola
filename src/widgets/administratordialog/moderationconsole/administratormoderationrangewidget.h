@@ -6,7 +6,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class ModerationConsoleTreeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationRangeWidget : public QWidget
 {
     Q_OBJECT
