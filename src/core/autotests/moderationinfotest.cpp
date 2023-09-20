@@ -15,7 +15,11 @@ ModerationInfoTest::ModerationInfoTest(QObject *parent)
 void ModerationInfoTest::shouldHaveDefaultValues()
 {
     ModerationInfo i;
-    // TODO
+    QVERIFY(i.userId().isEmpty());
+    QVERIFY(i.name().isEmpty());
+    QVERIFY(i.userName().isEmpty());
+    QVERIFY(i.msgId().isEmpty());
+    QCOMPARE(i.count(), 0);
 }
 
 #include "moc_moderationinfotest.cpp"
