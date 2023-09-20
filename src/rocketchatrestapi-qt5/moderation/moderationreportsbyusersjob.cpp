@@ -31,7 +31,7 @@ bool ModerationReportsByUsersJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("ModerationReportsByUsersJob: Ask for licenses list"));
+    addStartRestApiInfo(QByteArrayLiteral("ModerationReportsByUsersJob: Ask for moderation message"));
     return true;
 }
 
@@ -41,7 +41,7 @@ void ModerationReportsByUsersJob::onGetRequestResponse(const QString &replyError
 
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationReportsByUsersJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT licensesListDone(replyObject);
+        Q_EMIT moderationReportByUserDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ModerationReportsByUsersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -50,7 +50,7 @@ void ModerationReportsByUsersJob::onGetRequestResponse(const QString &replyError
 
 QNetworkRequest ModerationReportsByUsersJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::LicensesGet);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReportsByUsers);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

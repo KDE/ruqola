@@ -26,7 +26,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void licensesListDone(const QJsonObject &obj);
+    void moderationReportByUserDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ModerationReportsByUsersJob)
