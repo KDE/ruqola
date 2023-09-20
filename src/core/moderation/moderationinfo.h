@@ -19,6 +19,28 @@ public:
     Q_REQUIRED_RESULT bool operator==(const ModerationInfo &other) const;
 
     void parseModerationInfo(const QJsonObject &replyObject);
+
+    Q_REQUIRED_RESULT QString userId() const;
+    void setUserId(const QString &newUserId);
+
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &newName);
+
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &newUserName);
+
+    Q_REQUIRED_RESULT QString msgId() const;
+    void setMsgId(const QString &newMsgId);
+
+    Q_REQUIRED_RESULT int count() const;
+    void setCount(int newCount);
+
+private:
+    QString mUserId;
+    QString mName;
+    QString mUserName;
+    QString mMsgId;
+    int mCount = 0;
 };
 
 Q_DECLARE_METATYPE(ModerationInfo)
