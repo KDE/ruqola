@@ -558,6 +558,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("video-conference.providers");
     case RestApiUtil::RestApiUrlType::VideoConferenceCapabilities:
         return QStringLiteral("video-conference.capabilities");
+    case RestApiUtil::RestApiUrlType::ModerationReportsByUsers:
+        return QStringLiteral("moderation.reportsByUsers");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
