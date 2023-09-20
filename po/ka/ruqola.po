@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 00:45+0000\n"
-"PO-Revision-Date: 2023-09-09 09:32+0200\n"
+"PO-Revision-Date: 2023-09-19 05:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6119,10 +6119,9 @@ msgid "Hide Unread Room Status"
 msgstr "წაუკითხავი ოთახის სტატუსის დამალვა"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mute @all and @here mentions"
+#, kde-format
 msgid "Mute %1 and %2 mentions"
-msgstr "@all და @here ხსენებების დადუმება"
+msgstr "%1-ის და %2-ის ხსენებების დადუმება"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format
