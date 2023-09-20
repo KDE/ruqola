@@ -13,3 +13,14 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
     // TODO
     return d;
 }
+
+bool ModerationInfo::operator==(const ModerationInfo &other) const
+{
+    // TODO
+    return false;
+}
+
+void ModerationInfo::parseModerationInfo(const QJsonObject &replyObject)
+{
+    // TODO
+}

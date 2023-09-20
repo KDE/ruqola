@@ -8,12 +8,17 @@
 
 #include "libruqolacore_export.h"
 #include <QDebug>
+#include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT ModerationInfo
 {
 public:
     ModerationInfo();
     ~ModerationInfo() = default;
+
+    Q_REQUIRED_RESULT bool operator==(const ModerationInfo &other) const;
+
+    void parseModerationInfo(const QJsonObject &replyObject);
 };
 
 Q_DECLARE_METATYPE(ModerationInfo)
