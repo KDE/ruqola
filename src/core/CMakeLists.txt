@@ -448,6 +448,9 @@ target_sources(libruqolacore PRIVATE
 
     manageloadhistoryparsesyncmessagesutils.h
     manageloadhistoryparsesyncmessagesutils.cpp
+
+    moderation/moderationinfo.h
+    moderation/moderationinfo.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
