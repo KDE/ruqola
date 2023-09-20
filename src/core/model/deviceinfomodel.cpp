@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 DeviceInfoModel::DeviceInfoModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

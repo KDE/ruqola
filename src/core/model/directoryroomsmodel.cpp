@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 DirectoryRoomsModel::DirectoryRoomsModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

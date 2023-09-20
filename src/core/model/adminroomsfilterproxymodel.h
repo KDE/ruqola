@@ -8,7 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "searchtreebasefilterproxymodel.h"
-class DirectoryBaseModel;
+class CustomBaseModel;
 class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public SearchTreeBaseFilterProxyModel
 {
     Q_OBJECT
@@ -26,7 +26,7 @@ public:
     Q_FLAGS(FilterRoom FilterRooms)
     Q_DECLARE_FLAGS(FilterRooms, FilterRoom)
 
-    explicit AdminRoomsFilterProxyModel(DirectoryBaseModel *model = nullptr, QObject *parent = nullptr);
+    explicit AdminRoomsFilterProxyModel(CustomBaseModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
 
     void setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters);

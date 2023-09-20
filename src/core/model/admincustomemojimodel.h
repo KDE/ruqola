@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "directorybasemodel.h"
+#include "custombasemodel.h"
 #include "emoticons/customemojisinfo.h"
 #include "libruqolacore_export.h"
 class RocketChatAccount;
 
-class LIBRUQOLACORE_EXPORT AdminCustomEmojiModel : public DirectoryBaseModel
+class LIBRUQOLACORE_EXPORT AdminCustomEmojiModel : public CustomBaseModel
 {
     Q_OBJECT
 public:

@@ -10,7 +10,7 @@
 class QLabel;
 class SearchWithDelayLineEdit;
 class QTreeView;
-class DirectoryBaseModel;
+class CustomBaseModel;
 class QVBoxLayout;
 class SearchTreeBaseFilterProxyModel;
 class RocketChatAccount;
@@ -38,7 +38,7 @@ protected:
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
-    DirectoryBaseModel *mModel = nullptr;
+    CustomBaseModel *mModel = nullptr;
     SearchTreeBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
     RocketChatAccount *const mRocketChatAccount;

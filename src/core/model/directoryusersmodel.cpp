@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 DirectoryUsersModel::DirectoryUsersModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

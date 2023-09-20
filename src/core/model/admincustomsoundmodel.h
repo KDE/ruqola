@@ -6,11 +6,11 @@
 
 #pragma once
 
+#include "custombasemodel.h"
 #include "customsound/customsoundsinfo.h"
-#include "directorybasemodel.h"
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT AdminCustomSoundModel : public DirectoryBaseModel
+class LIBRUQOLACORE_EXPORT AdminCustomSoundModel : public CustomBaseModel
 {
     Q_OBJECT
 public:

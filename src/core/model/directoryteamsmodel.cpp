@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 DirectoryTeamsModel::DirectoryTeamsModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

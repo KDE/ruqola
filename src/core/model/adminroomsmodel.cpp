@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 AdminRoomsModel::AdminRoomsModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

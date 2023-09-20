@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "directorybasemodel.h"
+#include "custombasemodel.h"
 #include "libruqolacore_export.h"
 #include "roles/roleinfo.h"
 #include "users.h"
 
-class LIBRUQOLACORE_EXPORT DirectoryUsersModel : public DirectoryBaseModel
+class LIBRUQOLACORE_EXPORT DirectoryUsersModel : public CustomBaseModel
 {
     Q_OBJECT
 public:

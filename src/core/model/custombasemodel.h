@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
-class LIBRUQOLACORE_EXPORT DirectoryBaseModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT CustomBaseModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit DirectoryBaseModel(QObject *parent = nullptr);
-    ~DirectoryBaseModel() override;
+    explicit CustomBaseModel(QObject *parent = nullptr);
+    ~CustomBaseModel() override;
 
     Q_REQUIRED_RESULT virtual int total() const = 0;
 
@@ -44,7 +44,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    Q_DISABLE_COPY(DirectoryBaseModel)
+    Q_DISABLE_COPY(CustomBaseModel)
     bool mLoadMoreInProgress = false;
     bool mHasFullList = false;
     int mTotal = -1;

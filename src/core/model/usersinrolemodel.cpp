@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 UsersInRoleModel::UsersInRoleModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

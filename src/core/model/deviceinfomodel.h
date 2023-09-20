@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "directorybasemodel.h"
+#include "custombasemodel.h"
 #include "libruqolacore_export.h"
 #include "managedevices/deviceinfos.h"
 
-class LIBRUQOLACORE_EXPORT DeviceInfoModel : public DirectoryBaseModel
+class LIBRUQOLACORE_EXPORT DeviceInfoModel : public CustomBaseModel
 {
     Q_OBJECT
 public:

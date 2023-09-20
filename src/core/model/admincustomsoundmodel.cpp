@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 AdminCustomSoundModel::AdminCustomSoundModel(QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
 {
 }
 

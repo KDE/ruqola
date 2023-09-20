@@ -11,7 +11,7 @@
 #include <QIcon>
 
 AdminCustomEmojiModel::AdminCustomEmojiModel(RocketChatAccount *account, QObject *parent)
-    : DirectoryBaseModel(parent)
+    : CustomBaseModel(parent)
     , mRocketChatAccount(account)
 {
 }

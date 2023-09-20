@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "directorybasemodel.h"
+#include "custombasemodel.h"
 #include "libruqolacore_export.h"
 #include "roominfo/roomsinfo.h"
 
-class LIBRUQOLACORE_EXPORT DirectoryTeamsModel : public DirectoryBaseModel
+class LIBRUQOLACORE_EXPORT DirectoryTeamsModel : public CustomBaseModel
 {
     Q_OBJECT
 public:

@@ -7,7 +7,7 @@
 #include "searchtreebasewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
-#include "model/directorybasemodel.h"
+#include "model/custombasemodel.h"
 
 #include <KLocalizedString>
 #include <QHeaderView>
@@ -94,9 +94,9 @@ void SearchTreeBaseWidget::hideColumns()
 
 void SearchTreeBaseWidget::connectModel()
 {
-    connect(mModel, &DirectoryBaseModel::hasFullListChanged, this, &SearchTreeBaseWidget::updateLabel);
-    connect(mModel, &DirectoryBaseModel::totalChanged, this, &SearchTreeBaseWidget::updateLabel);
-    connect(mModel, &DirectoryBaseModel::loadingInProgressChanged, this, &SearchTreeBaseWidget::updateLabel);
+    connect(mModel, &CustomBaseModel::hasFullListChanged, this, &SearchTreeBaseWidget::updateLabel);
+    connect(mModel, &CustomBaseModel::totalChanged, this, &SearchTreeBaseWidget::updateLabel);
+    connect(mModel, &CustomBaseModel::loadingInProgressChanged, this, &SearchTreeBaseWidget::updateLabel);
 }
 
 void SearchTreeBaseWidget::finishSearching()
