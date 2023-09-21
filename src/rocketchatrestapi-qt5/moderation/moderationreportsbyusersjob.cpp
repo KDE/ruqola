@@ -53,6 +53,16 @@ void ModerationReportsByUsersJob::onGetRequestResponse(const QString &replyError
     }
 }
 
+ModerationReportsByUsersJob::ModerationReportsByUsersInfo ModerationReportsByUsersJob::moderationReportsByUsersInfo() const
+{
+    return mModerationReportsByUsersInfo;
+}
+
+void ModerationReportsByUsersJob::setModerationReportsByUsersInfo(const ModerationReportsByUsersInfo &newModerationReportsByUsersInfo)
+{
+    mModerationReportsByUsersInfo = newModerationReportsByUsersInfo;
+}
+
 QNetworkRequest ModerationReportsByUsersJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReportsByUsers);

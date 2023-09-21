@@ -16,6 +16,15 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT ModerationReportsByUsersJob : public RestA
 {
     Q_OBJECT
 public:
+    struct ModerationReportsByUsersInfo {
+        QDateTime mLatest;
+        QDateTime mOldest;
+        [[nodiscard]] bool isValid() const
+        {
+            return mLatest.isValid() && mOldest.isValid();
+        }
+    };
+
     explicit ModerationReportsByUsersJob(QObject *parent = nullptr);
     ~ModerationReportsByUsersJob() override;
 
@@ -27,11 +36,15 @@ public:
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
+    [[nodiscard]] ModerationReportsByUsersInfo moderationReportsByUsersInfo() const;
+    void setModerationReportsByUsersInfo(const ModerationReportsByUsersInfo &newModerationReportsByUsersInfo);
+
 Q_SIGNALS:
     void moderationReportByUserDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ModerationReportsByUsersJob)
     LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    ModerationReportsByUsersInfo mModerationReportsByUsersInfo;
 };
 }
