@@ -13,7 +13,6 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
 
     auto fromLabel = new QLabel(i18n("From:"), this);
     fromLabel->setObjectName(QStringLiteral("fromLabel"));

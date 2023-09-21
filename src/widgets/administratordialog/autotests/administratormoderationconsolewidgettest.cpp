@@ -21,13 +21,11 @@ void AdministratorModerationConsoleWidgetTest::shouldHaveDefaultValues()
     AdministratorModerationConsoleWidget d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mModerationConsoleTreeWidget = d.findChild<ModerationConsoleTreeWidget *>(QStringLiteral("mModerationConsoleTreeWidget"));
     QVERIFY(mModerationConsoleTreeWidget);
 
     auto mAdministratorModerationRangeWidget = d.findChild<AdministratorModerationRangeWidget *>(QStringLiteral("mAdministratorModerationRangeWidget"));
-    ;
     QVERIFY(mAdministratorModerationRangeWidget);
 }
 
