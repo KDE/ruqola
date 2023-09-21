@@ -18,6 +18,7 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
     d << "mCount " << t.count();
     d << "mIsUserDeleted " << t.isUserDeleted();
     d << "mMessage " << t.message();
+    d << "mCreatedAt " << t.createdAt();
     return d;
 }
 
@@ -27,7 +28,7 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
 bool ModerationInfo::operator==(const ModerationInfo &other) const
 {
     return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mUserId == other.mUserId && mCount == other.mCount
-        && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage;
+        && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage && mCreatedAt == other.mCreatedAt;
 }
 
 void ModerationInfo::parseModerationInfo(const QJsonObject &o)
@@ -39,8 +40,27 @@ void ModerationInfo::parseModerationInfo(const QJsonObject &o)
     mCount = o[QLatin1String("count")].toInt();
     mIsUserDeleted = o[QLatin1String("isUserDeleted")].toBool();
     mMessage = o[QLatin1String("message")].toString();
-    // TODO Utils::parseIsoDate(QStringLiteral("ts"), o);
+    setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
     // TODO
+}
+
+void ModerationInfo::setCreatedAt(qint64 newCreatedAt)
+{
+    mCreatedAt = newCreatedAt;
+    if (mCreatedAt != -1) {
+        QLocale l;
+        mCreateAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedAt), QLocale::LongFormat);
+    }
+}
+
+qint64 ModerationInfo::createdAt() const
+{
+    return mCreatedAt;
+}
+
+const QString &ModerationInfo::createAtDisplayDateTime() const
+{
+    return mCreateAtDisplayDateTime;
 }
 
 QString ModerationInfo::userId() const

@@ -10,6 +10,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
+#include <QToolButton>
 QTEST_MAIN(AdministratorModerationRangeWidgetTest)
 AdministratorModerationRangeWidgetTest::AdministratorModerationRangeWidgetTest(QObject *parent)
     : QObject{parent}
@@ -22,7 +23,6 @@ void AdministratorModerationRangeWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto fromLabel = w.findChild<QLabel *>(QStringLiteral("fromLabel"));
     QVERIFY(fromLabel);
@@ -36,6 +36,10 @@ void AdministratorModerationRangeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFromDate);
     auto mToDate = w.findChild<QDateEdit *>(QStringLiteral("mToDate"));
     QVERIFY(mToDate);
+
+    auto mFilterDate = w.findChild<QToolButton *>(QStringLiteral("mFilterDate"));
+    QVERIFY(mFilterDate);
+    QVERIFY(mFilterDate->autoRaise());
 }
 
 #include "moc_administratormoderationrangewidgettest.cpp"

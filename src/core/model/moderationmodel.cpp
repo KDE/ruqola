@@ -80,7 +80,7 @@ QVariant ModerationModel::data(const QModelIndex &index, int role) const
     case ModerationInfoRoles::UserDeleted:
         return moderationInfo.isUserDeleted();
     case ModerationInfoRoles::ReportDate:
-        return {}; // TODO
+        return moderationInfo.createAtDisplayDateTime();
     case ModerationInfoRoles::RoomName:
         return {}; // TODO
     }

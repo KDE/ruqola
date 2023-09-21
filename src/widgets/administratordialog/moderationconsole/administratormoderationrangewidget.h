@@ -8,6 +8,7 @@
 #include <QWidget>
 class ModerationConsoleTreeWidget;
 class QDateEdit;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationRangeWidget : public QWidget
 {
     Q_OBJECT
@@ -16,6 +17,8 @@ public:
     ~AdministratorModerationRangeWidget() override;
 
 private:
+    void initializeMenu();
     QDateEdit *const mFromDate;
     QDateEdit *const mToDate;
+    QToolButton *const mFilterDate;
 };

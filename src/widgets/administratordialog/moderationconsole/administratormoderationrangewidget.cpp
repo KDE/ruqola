@@ -5,20 +5,30 @@
 */
 #include "administratormoderationrangewidget.h"
 #include <KLocalizedString>
+#include <QAction>
 #include <QDateEdit>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMenu>
+#include <QToolButton>
 
 AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *parent)
     : QWidget{parent}
     , mFromDate(new QDateEdit(this))
     , mToDate(new QDateEdit(this))
+    , mFilterDate(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mFromDate->setObjectName(QStringLiteral("mFromDate"));
     mToDate->setObjectName(QStringLiteral("mToDate"));
+
+    mFilterDate->setObjectName(QStringLiteral("mFilterDate"));
+    mFilterDate->setAutoRaise(true);
+    mFilterDate->setPopupMode(QToolButton::InstantPopup);
+    mFilterDate->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
+    // connect(mChannelActionPopupMenu, &ChannelActionPopupMenu::actionRequested, this, &RoomHeaderWidget::actionRequested);
 
     auto fromLabel = new QLabel(i18n("From:"), this);
     fromLabel->setObjectName(QStringLiteral("fromLabel"));
@@ -30,8 +40,25 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     mainLayout->addWidget(mFromDate);
     mainLayout->addWidget(toLabel);
     mainLayout->addWidget(mToDate);
+    mainLayout->addWidget(mFilterDate);
+    mainLayout->addStretch();
 }
 
 AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = default;
+
+void AdministratorModerationRangeWidget::initializeMenu()
+{
+    auto *menu = new QMenu(mFilterDate);
+
+#if 0
+    mPruneMessages = new QAction(i18n("Prune Messages..."), this);
+    mMenu->addAction(mPruneMessages);
+    connect(mPruneMessages, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::PruneMessages);
+    });
+#endif
+    mFilterDate->setMenu(menu);
+    // TODO
+}
 
 #include "moc_administratormoderationrangewidget.cpp"

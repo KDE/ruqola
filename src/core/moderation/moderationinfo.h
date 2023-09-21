@@ -41,12 +41,19 @@ public:
     [[nodiscard]] QString message() const;
     void setMessage(const QString &newMessage);
 
+    [[nodiscard]] const QString &createAtDisplayDateTime() const;
+
+    [[nodiscard]] qint64 createdAt() const;
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void setCreatedAt(qint64 newCreatedAt);
+    qint64 mCreatedAt = -1;
     QString mUserId;
     QString mName;
     QString mUserName;
     QString mMsgId;
     QString mMessage;
+    QString mCreateAtDisplayDateTime;
     int mCount = 0;
     bool mIsUserDeleted = false;
 };
