@@ -24,5 +24,5 @@ protected:
 private:
     void slotDeviceRemoved(const QString &emojiId);
     void slotDisconnectDevice(const QModelIndex &index);
-    Q_REQUIRED_RESULT QString displayShowMessage() const;
+    [[nodiscard]] QString displayShowMessage() const;
 };

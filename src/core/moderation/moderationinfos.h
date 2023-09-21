@@ -20,21 +20,21 @@ public:
 
     void clear();
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int newOffset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int newTotal);
 
-    Q_REQUIRED_RESULT int moderationInfosCount() const;
+    [[nodiscard]] int moderationInfosCount() const;
     void setModerationInfosCount(int newModerationInfosCount);
 
-    Q_REQUIRED_RESULT const QVector<ModerationInfo> &moderationInfosList() const;
+    [[nodiscard]] const QVector<ModerationInfo> &moderationInfosList() const;
     void setModerationInfosList(const QVector<ModerationInfo> &newModerationInfosList);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT ModerationInfo at(int index) const;
+    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] ModerationInfo at(int index) const;
 
     void parseModerationInfos(const QJsonObject &moderationInfosObj);
     void parseMoreModerationInfos(const QJsonObject &moderationInfosObj);

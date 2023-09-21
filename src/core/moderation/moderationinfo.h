@@ -16,29 +16,29 @@ public:
     ModerationInfo();
     ~ModerationInfo() = default;
 
-    Q_REQUIRED_RESULT bool operator==(const ModerationInfo &other) const;
+    [[nodiscard]] bool operator==(const ModerationInfo &other) const;
 
     void parseModerationInfo(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &newUserId);
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &newName);
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);
 
-    Q_REQUIRED_RESULT QString msgId() const;
+    [[nodiscard]] QString msgId() const;
     void setMsgId(const QString &newMsgId);
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
     void setCount(int newCount);
 
-    Q_REQUIRED_RESULT bool isUserDeleted() const;
+    [[nodiscard]] bool isUserDeleted() const;
     void setIsUserDeleted(bool newIsUserDeleted);
 
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QString message() const;
     void setMessage(const QString &newMessage);
 
 private:
