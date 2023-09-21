@@ -9,9 +9,9 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/moderationmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
+#include "moderation/moderationreportsbyusersjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
-#include "sessions/sessionslistjob.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
@@ -51,7 +51,7 @@ QString ModerationConsoleTreeWidget::displayShowMessage() const
 
 void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto job = new RocketChatRestApi::SessionsListJob(this);
+    auto job = new RocketChatRestApi::ModerationReportsByUsersJob(this);
 
     RocketChatRestApi::QueryParameters parameters;
     //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
@@ -71,12 +71,12 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
-        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &ModerationConsoleTreeWidget::slotLoadMoreElementDone);
+        connect(job, &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone, this, &ModerationConsoleTreeWidget::slotLoadMoreElementDone);
     } else {
-        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &ModerationConsoleTreeWidget::slotSearchDone);
+        connect(job, &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone, this, &ModerationConsoleTreeWidget::slotSearchDone);
     }
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsListJob job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
     }
 }
 
