@@ -87,18 +87,18 @@ void ModerationConsoleTreeWidget::slotDeviceRemoved(const QString &emojiId)
 
 void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-#if 0
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         QMenu menu(this);
+#if 0
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Disconnect"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
             slotDisconnectDevice(modelIndex);
         });
+#endif
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
-#endif
 }
 
 void ModerationConsoleTreeWidget::slotDisconnectDevice(const QModelIndex &index)
