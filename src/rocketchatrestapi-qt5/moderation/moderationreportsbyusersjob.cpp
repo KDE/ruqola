@@ -23,6 +23,11 @@ bool ModerationReportsByUsersJob::requireHttpAuthentication() const
     return true;
 }
 
+bool ModerationReportsByUsersJob::hasQueryParameterSupport() const
+{
+    return true;
+}
+
 bool ModerationReportsByUsersJob::start()
 {
     if (!canStart()) {

@@ -25,6 +25,8 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+
 Q_SIGNALS:
     void moderationReportByUserDone(const QJsonObject &obj);
 
