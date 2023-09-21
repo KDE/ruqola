@@ -49,14 +49,11 @@ AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = defa
 void AdministratorModerationRangeWidget::initializeMenu()
 {
     auto *menu = new QMenu(mFilterDate);
-
-#if 0
-    mPruneMessages = new QAction(i18n("Prune Messages..."), this);
-    mMenu->addAction(mPruneMessages);
-    connect(mPruneMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(RoomHeaderWidget::PruneMessages);
+    auto todayAction = new QAction(i18n("Today"), menu);
+    menu->addAction(todayAction);
+    connect(todayAction, &QAction::triggered, this, [this]() {
+        // TODO
     });
-#endif
     mFilterDate->setMenu(menu);
     // TODO
 }
