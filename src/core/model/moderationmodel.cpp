@@ -19,29 +19,25 @@ int ModerationModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mDeviceInfos.count();
+    return mModerationInfos.count();
 }
 
 QVariant ModerationModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<DeviceInfoRoles>(section)) {
-        case DeviceInfoRoles::Identifier:
+        switch (static_cast<ModerationInfoRoles>(section)) {
+        case ModerationInfoRoles::Name:
+            return i18n("Name");
+        case ModerationInfoRoles::UserId:
+        case ModerationInfoRoles::MessageId:
+        case ModerationInfoRoles::UserDeleted:
             return {};
-        case DeviceInfoRoles::Host:
-            return i18n("Host");
-        case DeviceInfoRoles::Os:
-            return i18n("Os");
-        case DeviceInfoRoles::Client:
-            return i18n("Client");
-        case DeviceInfoRoles::SessionId:
-            return i18n("Session Id");
-        case DeviceInfoRoles::Ip:
-            return i18n("Ip");
-        case DeviceInfoRoles::UserId:
-            return {};
-        case DeviceInfoRoles::LoginAt:
-            return i18n("Login At");
+        case ModerationInfoRoles::Message:
+            return i18n("Message");
+        case ModerationInfoRoles::UserName:
+            return i18n("UserName");
+        case ModerationInfoRoles::Count:
+            return i18n("Count");
         }
     }
     return {};
@@ -50,56 +46,54 @@ QVariant ModerationModel::headerData(int section, Qt::Orientation orientation, i
 int ModerationModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(DeviceInfoRoles::LastColumn) + 1;
+    return static_cast<int>(ModerationInfoRoles::LastColumn) + 1;
 }
 
 QVariant ModerationModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mDeviceInfos.count()) {
+    if (index.row() < 0 || index.row() >= mModerationInfos.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const DeviceInfo &deviceInfo = mDeviceInfos.at(index.row());
+    const ModerationInfo &moderationInfo = mModerationInfos.at(index.row());
     const int col = index.column();
-    switch (static_cast<DeviceInfoRoles>(col)) {
-    case DeviceInfoRoles::Identifier:
-        return deviceInfo.identifier();
-    case DeviceInfoRoles::Host:
-        return deviceInfo.host();
-    case DeviceInfoRoles::SessionId:
-        return deviceInfo.sessionId();
-    case DeviceInfoRoles::Ip:
-        return deviceInfo.ip();
-    case DeviceInfoRoles::UserId:
-        return deviceInfo.userId();
-    case DeviceInfoRoles::LoginAt:
-        return deviceInfo.loginAtDisplay();
-    case DeviceInfoRoles::Os:
-        return deviceInfo.os();
-    case DeviceInfoRoles::Client:
-        return deviceInfo.client();
+    switch (static_cast<ModerationInfoRoles>(col)) {
+    case ModerationInfoRoles::UserId:
+        return moderationInfo.userId();
+    case ModerationInfoRoles::Name:
+        return moderationInfo.name();
+    case ModerationInfoRoles::Message:
+        return moderationInfo.message();
+    case ModerationInfoRoles::UserName:
+        return moderationInfo.userName();
+    case ModerationInfoRoles::MessageId:
+        return moderationInfo.msgId();
+    case ModerationInfoRoles::Count:
+        return moderationInfo.count();
+    case ModerationInfoRoles::UserDeleted:
+        return moderationInfo.isUserDeleted();
     }
     return {};
 }
 
 int ModerationModel::total() const
 {
-    return mDeviceInfos.count();
+    return mModerationInfos.count();
 }
 
 void ModerationModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
-        mDeviceInfos.clear();
+        beginRemoveRows(QModelIndex(), 0, mModerationInfos.count() - 1);
+        mModerationInfos.clear();
         endRemoveRows();
     }
-    mDeviceInfos.parseDeviceInfos(obj);
-    if (!mDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
+    mModerationInfos.parseModerationInfos(obj);
+    if (!mModerationInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
         endInsertRows();
     }
     checkFullList();
@@ -108,55 +102,57 @@ void ModerationModel::parseElements(const QJsonObject &obj)
 
 void ModerationModel::checkFullList()
 {
-    setHasFullList(mDeviceInfos.count() == mDeviceInfos.total());
+    setHasFullList(mModerationInfos.count() == mModerationInfos.total());
 }
 
-const DeviceInfos &ModerationModel::deviceInfos() const
+const ModerationInfos &ModerationModel::moderationInfos() const
 {
-    return mDeviceInfos;
+    return mModerationInfos;
 }
 
-void ModerationModel::setDeviceInfos(const DeviceInfos &newDeviceInfos)
+void ModerationModel::setModerationInfos(const ModerationInfos &newDeviceInfos)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
-        mDeviceInfos.clear();
+        beginRemoveRows(QModelIndex(), 0, mModerationInfos.count() - 1);
+        mModerationInfos.clear();
         endRemoveRows();
     }
-    if (!mDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
-        mDeviceInfos = newDeviceInfos;
+    if (!mModerationInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
+        mModerationInfos = newDeviceInfos;
         endInsertRows();
     }
 }
 
 void ModerationModel::addMoreElements(const QJsonObject &obj)
 {
-    const int numberOfElement = mDeviceInfos.count();
-    mDeviceInfos.parseDeviceInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mDeviceInfos.count() - 1);
+    const int numberOfElement = mModerationInfos.count();
+    mModerationInfos.parseModerationInfos(obj);
+    beginInsertRows(QModelIndex(), numberOfElement, mModerationInfos.count() - 1);
     endInsertRows();
     checkFullList();
 }
 
 QList<int> ModerationModel::hideColumns() const
 {
-    return {DeviceInfoRoles::Identifier, DeviceInfoRoles::UserId, DeviceInfoRoles::SessionId};
+    return {ModerationInfoRoles::UserDeleted, ModerationInfoRoles::UserId, ModerationInfoRoles::MessageId};
 }
 
 void ModerationModel::removeElement(const QString &identifier)
 {
-    const int userCount = mDeviceInfos.count();
+#if 0
+    const int userCount = mModerationInfos.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mDeviceInfos.at(i).sessionId() == identifier) {
+        if (mModerationInfos.at(i).sessionId() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
-            mDeviceInfos.takeAt(i);
-            mDeviceInfos.setTotal(mDeviceInfos.count()); // Update total
+            mModerationInfos.takeAt(i);
+            mModerationInfos.setTotal(mModerationInfos.count()); // Update total
             endRemoveRows();
             Q_EMIT totalChanged();
             break;
         }
     }
+#endif
 }
 
 #include "moc_moderationmodel.cpp"

@@ -8,24 +8,23 @@
 
 #include "custombasemodel.h"
 #include "libruqolacore_export.h"
-#include "managedevices/deviceinfos.h"
+#include "moderation/moderationinfos.h"
 
 class LIBRUQOLACORE_EXPORT ModerationModel : public CustomBaseModel
 {
     Q_OBJECT
 public:
-    enum DeviceInfoRoles {
-        Os,
-        Client,
-        Host,
-        Identifier,
-        SessionId,
-        Ip,
+    enum ModerationInfoRoles {
+        Count,
+        Name,
+        UserName,
+        Message,
+        UserDeleted,
         UserId,
-        LoginAt,
-        LastColumn = LoginAt,
+        MessageId,
+        LastColumn = MessageId,
     };
-    Q_ENUM(DeviceInfoRoles)
+    Q_ENUM(ModerationInfoRoles)
 
     explicit ModerationModel(QObject *parent = nullptr);
     ~ModerationModel() override;
@@ -42,11 +41,11 @@ public:
 
     void removeElement(const QString &identifier) override;
 
-    Q_REQUIRED_RESULT const DeviceInfos &deviceInfos() const;
-    void setDeviceInfos(const DeviceInfos &newDeviceInfos);
+    Q_REQUIRED_RESULT const ModerationInfos &moderationInfos() const;
+    void setModerationInfos(const ModerationInfos &newDeviceInfos);
 
 private:
     Q_DISABLE_COPY(ModerationModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
-    DeviceInfos mDeviceInfos;
+    ModerationInfos mModerationInfos;
 };
