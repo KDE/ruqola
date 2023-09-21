@@ -5,6 +5,7 @@
 */
 
 #include "administratormoderationconsolewidget.h"
+#include "administratormoderationrangewidget.h"
 #include "moderationconsoletreewidget.h"
 #include "rocketchataccount.h"
 
@@ -14,11 +15,15 @@
 AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mModerationConsoleTreeWidget(new ModerationConsoleTreeWidget(account, this))
+    , mAdministratorModerationRangeWidget(new AdministratorModerationRangeWidget(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mAdministratorModerationRangeWidget->setObjectName(QStringLiteral("mAdministratorModerationRangeWidget"));
+    mainLayout->addWidget(mAdministratorModerationRangeWidget);
 
     mModerationConsoleTreeWidget->setObjectName(QStringLiteral("mModerationConsoleTreeWidget"));
     mainLayout->addWidget(mModerationConsoleTreeWidget);

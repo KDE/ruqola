@@ -4,7 +4,9 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratormoderationrangewidget.h"
+#include <KLocalizedString>
 #include <QHBoxLayout>
+#include <QLabel>
 
 AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *parent)
     : QWidget{parent}
@@ -12,6 +14,15 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    auto fromLabel = new QLabel(i18n("From:"), this);
+    fromLabel->setObjectName(QStringLiteral("fromLabel"));
+
+    auto toLabel = new QLabel(i18n("To:"), this);
+    fromLabel->setObjectName(QStringLiteral("toLabel"));
+
+    mainLayout->addWidget(fromLabel);
+    mainLayout->addWidget(toLabel);
 }
 
 AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = default;
