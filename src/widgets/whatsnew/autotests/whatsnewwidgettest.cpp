@@ -26,7 +26,7 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
 
     auto mLabelInfo = w.findChild<QTextEdit *>(QStringLiteral("mLabelInfo"));
     QVERIFY(mLabelInfo);
-    QVERIFY(mLabelInfo->toPlainText().isEmpty());
+    QVERIFY(!mLabelInfo->toPlainText().isEmpty());
 
     auto mWhatsNewComboBoxWidget = w.findChild<WhatsNewComboBoxWidget *>(QStringLiteral("mWhatsNewComboBoxWidget"));
     QVERIFY(mWhatsNewComboBoxWidget);
