@@ -17,14 +17,14 @@ public:
     explicit SendInvitationEmailJob(QObject *parent = nullptr);
     ~SendInvitationEmailJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QStringList emails() const;
+    [[nodiscard]] QStringList emails() const;
     void setEmails(const QStringList &newEmails);
 
 Q_SIGNALS:

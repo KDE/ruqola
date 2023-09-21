@@ -14,11 +14,11 @@ class LIBRUQOLACORE_EXPORT MessageAttachmentField
 public:
     MessageAttachmentField();
     ~MessageAttachmentField();
-    Q_REQUIRED_RESULT bool operator==(const MessageAttachmentField &other) const;
-    Q_REQUIRED_RESULT QString title() const;
+    [[nodiscard]] bool operator==(const MessageAttachmentField &other) const;
+    [[nodiscard]] QString title() const;
     void setTitle(const QString &title);
 
-    Q_REQUIRED_RESULT QString value() const;
+    [[nodiscard]] QString value() const;
     void setValue(const QString &value);
 
     static QJsonObject serialize(const MessageAttachmentField &message);

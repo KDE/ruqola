@@ -17,10 +17,10 @@ public:
     explicit AwayManager(RocketChatAccount *const account, QObject *parent = nullptr);
     ~AwayManager() override;
 
-    Q_REQUIRED_RESULT bool enabled() const;
+    [[nodiscard]] bool enabled() const;
     void setEnabled(bool newEnabled);
 
-    Q_REQUIRED_RESULT int idleTiming() const;
+    [[nodiscard]] int idleTiming() const;
     void setIdleTiming(int newIdleTiming);
 
     void updateSettings();
@@ -31,8 +31,8 @@ Q_SIGNALS:
 private:
     void slotResumeFromIdle();
     void slotIdleTimeoutReached(int timerId);
-    Q_REQUIRED_RESULT int calculateRemainingTime() const;
-    Q_REQUIRED_RESULT int timeValue() const;
+    [[nodiscard]] int calculateRemainingTime() const;
+    [[nodiscard]] int timeValue() const;
     RocketChatAccount *const mRocketChatAccount;
     int mTimerId = -1;
     int mIdleTiming = -1;

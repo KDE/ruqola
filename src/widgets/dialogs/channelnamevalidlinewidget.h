@@ -18,7 +18,7 @@ public:
     explicit ChannelNameValidLineWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelNameValidLineWidget() override;
 
-    Q_REQUIRED_RESULT QString text() const;
+    [[nodiscard]] QString text() const;
 Q_SIGNALS:
     void channelIsValid(bool valid);
 

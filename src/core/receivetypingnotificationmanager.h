@@ -18,7 +18,7 @@ public:
 
     void insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping);
 
-    Q_REQUIRED_RESULT QString typingNotification(const QString &roomId) const;
+    [[nodiscard]] QString typingNotification(const QString &roomId) const;
 
     void clearTypingNotification();
 Q_SIGNALS:
@@ -27,6 +27,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ReceiveTypingNotificationManager)
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames) const;
     QMap<QString, QStringList> mMapTypingNotifications;
 };

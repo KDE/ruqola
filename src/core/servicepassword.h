@@ -15,16 +15,16 @@ class LIBRUQOLACORE_EXPORT ServicePassword
 public:
     ServicePassword();
     ~ServicePassword();
-    Q_REQUIRED_RESULT bool operator==(const ServicePassword &other) const;
+    [[nodiscard]] bool operator==(const ServicePassword &other) const;
     void parseService(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT bool email2faEnabled() const;
+    [[nodiscard]] bool email2faEnabled() const;
     void setEmail2faEnabled(bool email2faEnabled);
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
 
-    Q_REQUIRED_RESULT bool totp() const;
+    [[nodiscard]] bool totp() const;
     void setTotp(bool totp);
 
 private:

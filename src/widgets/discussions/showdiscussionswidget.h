@@ -34,7 +34,7 @@ Q_SIGNALS:
 private:
     void slotSearchMessageTextChanged(const QString &str);
     void updateLabel();
-    Q_REQUIRED_RESULT QString displayShowDiscussionInRoom() const;
+    [[nodiscard]] QString displayShowDiscussionInRoom() const;
     QLineEdit *const mSearchDiscussionLineEdit;
     QLabel *const mDiscussionInfoLabel;
     DiscussionListView *const mListDiscussionsListView;

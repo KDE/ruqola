@@ -25,22 +25,22 @@ public:
     explicit ChannelMembersJob(QObject *parent = nullptr);
     ~ChannelMembersJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT ChannelType channelType() const;
+    [[nodiscard]] ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelMembersJob::ChannelType channelType);
 
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
     void channelMembersDone(const QJsonObject &replyObjectj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
 protected:
-    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
+    [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
 
 private:
     Q_DISABLE_COPY(ChannelMembersJob)

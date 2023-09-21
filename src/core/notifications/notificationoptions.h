@@ -26,9 +26,9 @@ public:
         }
         QString value;
         QString preferenceOrigin;
-        Q_REQUIRED_RESULT bool operator==(const NotificationValue &other) const;
-        Q_REQUIRED_RESULT QString currentValue() const;
-        Q_REQUIRED_RESULT bool isEmpty() const;
+        [[nodiscard]] bool operator==(const NotificationValue &other) const;
+        [[nodiscard]] QString currentValue() const;
+        [[nodiscard]] bool isEmpty() const;
     };
 
     enum NotificationType {
@@ -39,41 +39,41 @@ public:
     };
     Q_ENUM(NotificationType)
 
-    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
+    [[nodiscard]] bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool value);
 
-    Q_REQUIRED_RESULT bool disableNotifications() const;
+    [[nodiscard]] bool disableNotifications() const;
     void setDisableNotifications(bool disableNotifications);
 
-    Q_REQUIRED_RESULT QString unreadTrayIconAlert() const;
+    [[nodiscard]] QString unreadTrayIconAlert() const;
     void setUnreadTrayIconAlert(const QString &unreadTrayIconAlert);
 
-    Q_REQUIRED_RESULT NotificationValue emailNotifications() const;
+    [[nodiscard]] NotificationValue emailNotifications() const;
     void setEmailNotifications(const NotificationValue &emailNotifications);
 
-    Q_REQUIRED_RESULT NotificationValue mobilePushNotification() const;
+    [[nodiscard]] NotificationValue mobilePushNotification() const;
     void setMobilePushNotification(const NotificationValue &mobilePushNotification);
 
-    Q_REQUIRED_RESULT NotificationValue desktopNotifications() const;
+    [[nodiscard]] NotificationValue desktopNotifications() const;
     void setDesktopNotifications(const NotificationValue &desktopNotifications);
 
-    Q_REQUIRED_RESULT QString audioNotificationValue() const;
+    [[nodiscard]] QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
-    Q_REQUIRED_RESULT static QJsonObject serialize(const NotificationOptions &message);
-    Q_REQUIRED_RESULT static NotificationOptions deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const NotificationOptions &message);
+    [[nodiscard]] static NotificationOptions deserialize(const QJsonObject &o);
 
     void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);
 
     NotificationOptions &operator=(const NotificationOptions &other) = default;
-    Q_REQUIRED_RESULT bool operator==(const NotificationOptions &other) const;
-    Q_REQUIRED_RESULT bool operator!=(const NotificationOptions &other) const;
+    [[nodiscard]] bool operator==(const NotificationOptions &other) const;
+    [[nodiscard]] bool operator!=(const NotificationOptions &other) const;
 
-    Q_REQUIRED_RESULT bool muteGroupMentions() const;
+    [[nodiscard]] bool muteGroupMentions() const;
     void setMuteGroupMentions(bool muteGroupMentions);
 
-    Q_REQUIRED_RESULT bool hideMentionStatus() const;
+    [[nodiscard]] bool hideMentionStatus() const;
     void setHideMentionStatus(bool newMhideMentionStatus);
 
 private:

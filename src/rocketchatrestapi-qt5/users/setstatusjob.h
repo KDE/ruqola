@@ -18,27 +18,27 @@ public:
     ~SetStatusJob() override;
     enum StatusType { OnLine, Away, Offline, Busy, Unknown };
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString statusMessage() const;
+    [[nodiscard]] QString statusMessage() const;
     void setStatusMessage(const QString &statusMessage);
 
-    Q_REQUIRED_RESULT StatusType status() const;
+    [[nodiscard]] StatusType status() const;
     void setStatus(StatusType status);
 
-    Q_REQUIRED_RESULT QString statusUserId() const;
+    [[nodiscard]] QString statusUserId() const;
     void setStatusUserId(const QString &statusUserId);
 
 Q_SIGNALS:
     void setStatusDone();
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(SetStatusJob)

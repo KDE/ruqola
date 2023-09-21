@@ -27,7 +27,7 @@ protected:
     void updateLabel() override;
 
 private:
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    [[nodiscard]] QString displayShowMessageInRoom() const;
     void slotDeleteGroupsDone(const QString &identifier);
     void slotDeletechannelDone(const QString &identifier);
     void slotDeleteDirectMessageDone(const QString &identifier);
@@ -37,7 +37,7 @@ private:
     void slotSaveRoomSettingsDone(const QString &roomId);
     void slotGetRoomSettingsDone(const QJsonObject &obj);
     void slotGetRoomSettingsModifyDone(const QJsonObject &obj, Room::RoomType roomType);
-    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
+    [[nodiscard]] RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
     convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType, const QString &roomIdentifier);
 
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;

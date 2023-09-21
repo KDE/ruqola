@@ -22,15 +22,12 @@ public:
               QRect attachmentsRect,
               const QModelIndex &index,
               const QStyleOptionViewItem &option) const override;
-    Q_REQUIRED_RESULT QSize sizeHint(const MessageAttachment &msgAttach,
-                                     const QModelIndex &index,
-                                     int maxWidth,
-                                     const QStyleOptionViewItem &option) const override;
-    Q_REQUIRED_RESULT bool handleMouseEvent(const MessageAttachment &msgAttach,
-                                            QMouseEvent *mouseEvent,
-                                            QRect attachmentsRect,
-                                            const QStyleOptionViewItem &option,
-                                            const QModelIndex &index) override;
+    [[nodiscard]] QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    [[nodiscard]] bool handleMouseEvent(const MessageAttachment &msgAttach,
+                                        QMouseEvent *mouseEvent,
+                                        QRect attachmentsRect,
+                                        const QStyleOptionViewItem &option,
+                                        const QModelIndex &index) override;
 
 private:
     struct FileLayout {
@@ -43,12 +40,10 @@ private:
         int height;
         QString link;
     };
-    Q_REQUIRED_RESULT FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    [[nodiscard]] FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
     void handleDownloadClicked(const QString &link, QWidget *widget);
     friend class MessageDelegateHelperFileTest;
     const QIcon mDownloadIcon;
-    Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos,
-                                                const MessageAttachment &msgAttach,
-                                                QRect attachmentsRect,
-                                                const QStyleOptionViewItem &option) override;
+    [[nodiscard]] QPoint
+    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
 };

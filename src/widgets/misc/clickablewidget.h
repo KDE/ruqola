@@ -31,10 +31,10 @@ public:
     explicit ClickableWidget(const QString &userName, QWidget *parent = nullptr);
     ~ClickableWidget() override;
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &userId);
 
 Q_SIGNALS:

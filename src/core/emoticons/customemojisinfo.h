@@ -15,21 +15,21 @@ class LIBRUQOLACORE_EXPORT CustomEmojisInfo
 public:
     CustomEmojisInfo();
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT CustomEmoji at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] CustomEmoji at(int index) const;
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
     void parseCustomEmojis(const QJsonObject &obj);
     void parseMoreCustomEmojis(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT int roomsCount() const;
+    [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
     const QVector<CustomEmoji> &customSoundInfos() const;

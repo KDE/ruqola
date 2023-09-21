@@ -24,17 +24,17 @@ public:
     ~LoginMethodModel() override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);
     void clear();
 
-    Q_REQUIRED_RESULT AuthenticationManager::OauthType loginType(int index);
+    [[nodiscard]] AuthenticationManager::OauthType loginType(int index);
 
-    Q_REQUIRED_RESULT int currentLoginMethod() const;
+    [[nodiscard]] int currentLoginMethod() const;
     void setCurrentLoginMethod(int currentLoginMethod);
 
-    Q_REQUIRED_RESULT QVector<AuthenticationInfo> authentications() const;
+    [[nodiscard]] QVector<AuthenticationInfo> authentications() const;
 
 Q_SIGNALS:
     void currentLoginMethodChanged();

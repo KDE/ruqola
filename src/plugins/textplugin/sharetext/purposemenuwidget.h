@@ -20,8 +20,8 @@ public:
     explicit PurposeMenuWidget(QObject *parent = nullptr);
     ~PurposeMenuWidget() override;
 
-    Q_REQUIRED_RESULT QByteArray text();
-    Q_REQUIRED_RESULT QMenu *menu() const;
+    [[nodiscard]] QByteArray text();
+    [[nodiscard]] QMenu *menu() const;
 
     void setSelectedText(const QString &str);
 

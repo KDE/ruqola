@@ -29,30 +29,30 @@ public:
     };
     QueryParameters();
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
     void setCount(int count);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT QMap<QString, SortOrder> sorting() const;
+    [[nodiscard]] QMap<QString, SortOrder> sorting() const;
     void setSorting(const QMap<QString, SortOrder> &sorting);
 
-    Q_REQUIRED_RESULT QString type() const;
+    [[nodiscard]] QString type() const;
     void setType(const QString &type);
 
-    Q_REQUIRED_RESULT QMap<QString, QString> custom() const;
+    [[nodiscard]] QMap<QString, QString> custom() const;
     void setCustom(const QMap<QString, QString> &custom);
 
     static void generateQueryParameter(const QueryParameters &queryParameters, QUrlQuery &urlQuery);
 
-    Q_REQUIRED_RESULT const QString &searchString() const;
+    [[nodiscard]] const QString &searchString() const;
     void setSearchString(const QString &newSearchString);
 
     void setFilter(const QString &filter);
-    Q_REQUIRED_RESULT QString filter() const;
+    [[nodiscard]] QString filter() const;
 
 private:
     int mOffset = -1;
@@ -70,19 +70,19 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiAbstractJob : public QObject
 public:
     explicit RestApiAbstractJob(QObject *parent = nullptr);
     ~RestApiAbstractJob() override;
-    Q_REQUIRED_RESULT QNetworkAccessManager *networkAccessManager() const;
+    [[nodiscard]] QNetworkAccessManager *networkAccessManager() const;
     void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
 
-    Q_REQUIRED_RESULT RocketChatRestApi::RestApiMethod *restApiMethod() const;
+    [[nodiscard]] RocketChatRestApi::RestApiMethod *restApiMethod() const;
     void setRestApiMethod(RocketChatRestApi::RestApiMethod *restApiMethod);
 
-    Q_REQUIRED_RESULT QString authToken() const;
+    [[nodiscard]] QString authToken() const;
     void setAuthToken(const QString &authToken);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT bool hasAuthenticationValue() const;
+    [[nodiscard]] bool hasAuthenticationValue() const;
 
     virtual bool start() = 0;
     virtual bool requireHttpAuthentication() const = 0;
@@ -91,7 +91,7 @@ public:
     virtual bool hasQueryParameterSupport() const;
 
     void setEnforcePasswordFallback(bool enforce);
-    Q_REQUIRED_RESULT bool enforcePasswordFallback() const;
+    [[nodiscard]] bool enforcePasswordFallback() const;
 
     RocketChatRestApi::AbstractLogger *restApiLogger() const;
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *restApiLogger);
@@ -100,23 +100,23 @@ public:
     void addLoggerWarning(const QByteArray &str);
     void addStartRestApiInfo(const QByteArray &str);
 
-    Q_REQUIRED_RESULT virtual bool canStart() const;
+    [[nodiscard]] virtual bool canStart() const;
 
     virtual QNetworkRequest request() const = 0;
 
-    Q_REQUIRED_RESULT QueryParameters queryParameters() const;
+    [[nodiscard]] QueryParameters queryParameters() const;
     void setQueryParameters(const QueryParameters &queryParameters);
 
     void addQueryParameter(QUrlQuery &urlQuery) const;
     void addRequestAttribute(QNetworkRequest &request, bool addContentTypeHeader = true) const;
 
-    Q_REQUIRED_RESULT const QString &authMethod() const;
+    [[nodiscard]] const QString &authMethod() const;
     void setAuthMethod(const QString &newAuthMethod);
 
-    Q_REQUIRED_RESULT const QString &authCode() const;
+    [[nodiscard]] const QString &authCode() const;
     void setAuthCode(const QString &newAuthCode);
 
-    Q_REQUIRED_RESULT QDateTime updatedSince() const;
+    [[nodiscard]] QDateTime updatedSince() const;
     void setUpdatedSince(const QDateTime &newUpdatedSince);
 
 Q_SIGNALS:
@@ -125,14 +125,14 @@ Q_SIGNALS:
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
 
-    Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
+    [[nodiscard]] QString errorStr(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT QJsonDocument convertToJsonDocument(QNetworkReply *reply);
+    [[nodiscard]] QJsonDocument convertToJsonDocument(QNetworkReply *reply);
     void emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
-    Q_REQUIRED_RESULT virtual QString errorMessage(const QString &str, const QJsonObject &detail);
-    Q_REQUIRED_RESULT virtual QString jobName() const;
-    Q_REQUIRED_RESULT virtual QString generateErrorMessage(const QString &errorStr) const;
+    [[nodiscard]] virtual QString errorMessage(const QString &str, const QJsonObject &detail);
+    [[nodiscard]] virtual QString jobName() const;
+    [[nodiscard]] virtual QString generateErrorMessage(const QString &errorStr) const;
 
     // The main methods used for sending requests to the server
     void submitGetRequest();

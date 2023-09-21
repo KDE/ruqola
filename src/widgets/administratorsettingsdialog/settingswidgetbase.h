@@ -54,8 +54,8 @@ protected:
     void initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
     void initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue);
 
-    Q_REQUIRED_RESULT QLabel *createBoldLabel(const QString &text);
-    Q_REQUIRED_RESULT QString urlFromRelativePath(const QString &relativePath);
+    [[nodiscard]] QLabel *createBoldLabel(const QString &text);
+    [[nodiscard]] QString urlFromRelativePath(const QString &relativePath);
 
     RocketChatAccount *const mAccount;
 

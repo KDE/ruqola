@@ -17,17 +17,17 @@ public:
     explicit SetUserActiveStatusJob(QObject *parent = nullptr);
     ~SetUserActiveStatusJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT bool activate() const;
+    [[nodiscard]] bool activate() const;
     void setActivate(bool newActivate);
 
-    Q_REQUIRED_RESULT const QString &activateUserId() const;
+    [[nodiscard]] const QString &activateUserId() const;
     void setActivateUserId(const QString &newActivateUserId);
 
 Q_SIGNALS:

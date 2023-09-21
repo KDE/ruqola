@@ -19,43 +19,43 @@ public:
     OwnUserPreferences();
     ~OwnUserPreferences();
     void parsePreferences(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT bool operator==(const OwnUserPreferences &other) const;
-    Q_REQUIRED_RESULT QStringList highlightWords() const;
+    [[nodiscard]] bool operator==(const OwnUserPreferences &other) const;
+    [[nodiscard]] QStringList highlightWords() const;
     void setHighlightWords(const QStringList &highlightWords);
 
-    Q_REQUIRED_RESULT QString emailNotificationMode() const;
+    [[nodiscard]] QString emailNotificationMode() const;
     void setEmailNotificationMode(const QString &emailNotificationMode);
 
-    Q_REQUIRED_RESULT QString desktopNotifications() const;
+    [[nodiscard]] QString desktopNotifications() const;
     void setDesktopNotifications(const QString &desktopNotifications);
 
-    Q_REQUIRED_RESULT bool convertAsciiEmoji() const;
+    [[nodiscard]] bool convertAsciiEmoji() const;
     void setConvertAsciiEmoji(bool convertAsciiEmoji);
 
-    Q_REQUIRED_RESULT bool useEmojis() const;
+    [[nodiscard]] bool useEmojis() const;
     void setUseEmojis(bool useEmojis);
 
-    Q_REQUIRED_RESULT bool hideRoles() const;
+    [[nodiscard]] bool hideRoles() const;
     void setHideRoles(bool hideRoles);
 
-    Q_REQUIRED_RESULT bool displayAvatars() const;
+    [[nodiscard]] bool displayAvatars() const;
     void setDisplayAvatars(bool hideAvatars);
 
-    Q_REQUIRED_RESULT int idleTimeLimit() const;
+    [[nodiscard]] int idleTimeLimit() const;
     void setIdleTimeLimit(int newIdleTimeLimit);
 
-    Q_REQUIRED_RESULT bool enableAutoAway() const;
+    [[nodiscard]] bool enableAutoAway() const;
     void setEnableAutoAway(bool newEnableAutoAway);
 
     void updateHighlightWords(const QJsonArray &highlightsArray);
 
     void setPushNotifications(const QString &pushNotifications);
-    Q_REQUIRED_RESULT QString pushNotifications() const;
+    [[nodiscard]] QString pushNotifications() const;
 
-    Q_REQUIRED_RESULT int messageViewMode() const;
+    [[nodiscard]] int messageViewMode() const;
     void setMessageViewMode(int newMessageViewMode);
 
-    Q_REQUIRED_RESULT bool showUnread() const;
+    [[nodiscard]] bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
     enum class RoomListSortOrder {
@@ -64,16 +64,16 @@ public:
         Alphabetically,
     };
     Q_ENUM(RoomListSortOrder)
-    Q_REQUIRED_RESULT RoomListSortOrder roomListSortOrder() const;
+    [[nodiscard]] RoomListSortOrder roomListSortOrder() const;
     void setRoomListSortOrder(RoomListSortOrder roomListSortOrder);
 
-    Q_REQUIRED_RESULT bool showRoomAvatar() const;
+    [[nodiscard]] bool showRoomAvatar() const;
     void setShowRoomAvatar(bool newShowRoomAvatar);
 
-    Q_REQUIRED_RESULT bool showFavorite() const;
+    [[nodiscard]] bool showFavorite() const;
     void setShowFavorite(bool newShowFavorite);
 
-    Q_REQUIRED_RESULT bool receiveLoginDetectionEmail() const;
+    [[nodiscard]] bool receiveLoginDetectionEmail() const;
     void setReceiveLoginDetectionEmail(bool newReceiveLoginDetectionEmail);
 
 private:

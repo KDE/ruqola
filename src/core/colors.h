@@ -20,9 +20,9 @@ public:
 
     Colors();
 
-    Q_REQUIRED_RESULT KColorScheme schemeView() const;
+    [[nodiscard]] KColorScheme schemeView() const;
 
-    Q_REQUIRED_RESULT KColorScheme schemeWindow() const;
+    [[nodiscard]] KColorScheme schemeWindow() const;
 
 Q_SIGNALS:
     void needToUpdateColors();

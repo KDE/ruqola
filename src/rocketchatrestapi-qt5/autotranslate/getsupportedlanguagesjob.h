@@ -19,22 +19,22 @@ public:
     explicit GetSupportedLanguagesJob(QObject *parent = nullptr);
     ~GetSupportedLanguagesJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool needTargetLanguage() const;
+    [[nodiscard]] bool needTargetLanguage() const;
     void setNeedTargetLanguage(bool newNeedTargetLanguage);
 
 Q_SIGNALS:
     void getSupportedLanguagesDone(const QJsonObject &obj);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(GetSupportedLanguagesJob)

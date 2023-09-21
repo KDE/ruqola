@@ -25,7 +25,7 @@ struct UnreadAlert {
     bool alert = false;
 };
 
-Q_REQUIRED_RESULT QString currentLoginStatusText(RocketChatAccount *account)
+[[nodiscard]] QString currentLoginStatusText(RocketChatAccount *account)
 {
     if (!account->ddp()->isConnected()) {
         return i18n("Not connected");
@@ -67,14 +67,14 @@ Q_REQUIRED_RESULT QString currentLoginStatusText(RocketChatAccount *account)
     return i18n("Unknown state");
 }
 
-Q_REQUIRED_RESULT UnreadAlert currentUnreadAlert(RocketChatAccount *account)
+[[nodiscard]] UnreadAlert currentUnreadAlert(RocketChatAccount *account)
 {
     UnreadAlert ua;
     account->roomModel()->getUnreadAlertFromAccount(ua.alert, ua.unread);
     return ua;
 }
 
-Q_REQUIRED_RESULT QString currentText(RocketChatAccount *account)
+[[nodiscard]] QString currentText(RocketChatAccount *account)
 {
     QString text = account->displayName();
     if (text.isEmpty()) {

@@ -26,7 +26,7 @@ public:
     explicit CreateVideoMessageWidget(QWidget *parent = nullptr);
     ~CreateVideoMessageWidget() override;
 
-    Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
+    [[nodiscard]] QUrl temporaryFilePath() const;
 
     void loadSettings();
     void saveSettings();

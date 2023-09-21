@@ -31,10 +31,10 @@ public:
     explicit AdminOauthModel(QObject *parent = nullptr);
     ~AdminOauthModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     const QVector<OauthInfo> &adminOauth() const;
     void setAdminOauth(const QVector<OauthInfo> &newAdminInvites);

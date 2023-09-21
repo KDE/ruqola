@@ -24,19 +24,19 @@ public:
     explicit GetThreadsJob(QObject *parent = nullptr);
     ~GetThreadsJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    Q_REQUIRED_RESULT TheadSearchType searchType() const;
+    [[nodiscard]] TheadSearchType searchType() const;
     void setSearchType(TheadSearchType newSearchType);
 
 Q_SIGNALS:

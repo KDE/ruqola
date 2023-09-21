@@ -13,19 +13,19 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageUrl
     Q_GADGET
 public:
     MessageUrl();
-    Q_REQUIRED_RESULT bool operator==(const MessageUrl &other) const;
+    [[nodiscard]] bool operator==(const MessageUrl &other) const;
     static QJsonObject serialize(const MessageUrl &url);
     static MessageUrl deserialize(const QJsonObject &o);
 
-    Q_REQUIRED_RESULT QString url() const;
+    [[nodiscard]] QString url() const;
     void setUrl(const QString &url);
 
-    Q_REQUIRED_RESULT QString pageTitle() const;
+    [[nodiscard]] QString pageTitle() const;
     void setPageTitle(const QString &pageTitle);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
 private:

@@ -21,7 +21,7 @@ public:
         QString quotePermalink;
         QString quoteText;
         int scrollbarPosition = -1;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
     AccountRoomSettings();
     ~AccountRoomSettings();
@@ -30,9 +30,9 @@ public:
 
     void add(const QString &roomId, const PendingTypedInfo &info);
 
-    Q_REQUIRED_RESULT PendingTypedInfo value(const QString &roomId);
+    [[nodiscard]] PendingTypedInfo value(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
 private:
     QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;

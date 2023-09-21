@@ -22,7 +22,7 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    Q_REQUIRED_RESULT QString displayShowMessage() const;
+    [[nodiscard]] QString displayShowMessage() const;
     void slotModifyCustomEmoji(const QModelIndex &index);
     void slotAddCustomEmoji();
     void slotRemoveCustomEmoji(const QModelIndex &index);

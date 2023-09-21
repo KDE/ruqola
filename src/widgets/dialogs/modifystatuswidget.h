@@ -19,8 +19,8 @@ public:
     explicit ModifyStatusWidget(QWidget *parent = nullptr);
     ~ModifyStatusWidget() override;
 
-    Q_REQUIRED_RESULT QString messageStatus() const;
-    Q_REQUIRED_RESULT User::PresenceStatus status() const;
+    [[nodiscard]] QString messageStatus() const;
+    [[nodiscard]] User::PresenceStatus status() const;
 
     void setStatus(User::PresenceStatus status);
     void setMessageStatus(const QString &statusStr);

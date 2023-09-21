@@ -17,21 +17,21 @@ class TextSelection;
 class QStyleOptionViewItem;
 namespace MessageDelegateUtils
 {
-Q_REQUIRED_RESULT std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
+[[nodiscard]] std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
 
-Q_REQUIRED_RESULT bool generateToolTip(const QTextDocument *doc, const QPoint &pos, QString &formattedTooltip);
+[[nodiscard]] bool generateToolTip(const QTextDocument *doc, const QPoint &pos, QString &formattedTooltip);
 
 void generateToolTip(const QString &toolTip, const QString &href, QString &formattedTooltip);
 
-Q_REQUIRED_RESULT bool useItalicsForMessage(const QModelIndex &index);
+[[nodiscard]] bool useItalicsForMessage(const QModelIndex &index);
 
-Q_REQUIRED_RESULT bool pendingMessage(const QModelIndex &index);
-Q_REQUIRED_RESULT QVector<QAbstractTextDocumentLayout::Selection> selection(TextSelection *selection,
-                                                                            QTextDocument *doc,
-                                                                            const QModelIndex &index,
-                                                                            const QStyleOptionViewItem &option,
-                                                                            const MessageAttachment &msgAttach = {},
-                                                                            bool isAMessage = true);
+[[nodiscard]] bool pendingMessage(const QModelIndex &index);
+[[nodiscard]] QVector<QAbstractTextDocumentLayout::Selection> selection(TextSelection *selection,
+                                                                        QTextDocument *doc,
+                                                                        const QModelIndex &index,
+                                                                        const QStyleOptionViewItem &option,
+                                                                        const MessageAttachment &msgAttach = {},
+                                                                        bool isAMessage = true);
 
 void drawSelection(QTextDocument *doc,
                    QRect rect,
@@ -45,10 +45,10 @@ void drawSelection(QTextDocument *doc,
 
 void setClipboardSelection(TextSelection *selection);
 
-Q_REQUIRED_RESULT QSizeF dprAwareSize(const QPixmap &pixmap);
+[[nodiscard]] QSizeF dprAwareSize(const QPixmap &pixmap);
 
-Q_REQUIRED_RESULT qreal basicMargin();
-Q_REQUIRED_RESULT QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option);
-Q_REQUIRED_RESULT QSize textSizeHint(QTextDocument *doc, qreal *pBaseLine);
-Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index);
+[[nodiscard]] qreal basicMargin();
+[[nodiscard]] QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option);
+[[nodiscard]] QSize textSizeHint(QTextDocument *doc, qreal *pBaseLine);
+[[nodiscard]] bool showIgnoreMessages(const QModelIndex &index);
 }

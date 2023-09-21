@@ -23,47 +23,47 @@ public:
     explicit RocketChatAccountSettings(const QString &accountFileName = QString(), QObject *parent = nullptr);
     ~RocketChatAccountSettings() override;
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QString authToken() const;
+    [[nodiscard]] QString authToken() const;
     void setAuthToken(const QString &authToken);
 
     // account info
-    Q_REQUIRED_RESULT QString serverUrl() const;
+    [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    Q_REQUIRED_RESULT QString accountName() const;
+    [[nodiscard]] QString accountName() const;
     void setAccountName(const QString &accountName);
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString twoFactorAuthenticationCode() const;
+    [[nodiscard]] QString twoFactorAuthenticationCode() const;
     void setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode);
 
     void logout();
-    Q_REQUIRED_RESULT QString cacheBasePath();
+    [[nodiscard]] QString cacheBasePath();
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
 
     void removeSettings();
 
-    Q_REQUIRED_RESULT qint64 expireToken() const;
+    [[nodiscard]] qint64 expireToken() const;
     void setExpireToken(qint64 expireToken);
 
-    Q_REQUIRED_RESULT bool tokenExpired() const;
+    [[nodiscard]] bool tokenExpired() const;
 
-    Q_REQUIRED_RESULT bool accountEnabled() const;
+    [[nodiscard]] bool accountEnabled() const;
     void setAccountEnabled(bool accountEnabled);
 
-    Q_REQUIRED_RESULT QString lastSelectedRoom() const;
+    [[nodiscard]] QString lastSelectedRoom() const;
     void setLastSelectedRoom(const QString &roomId);
 
-    Q_REQUIRED_RESULT QString displayName() const;
+    [[nodiscard]] QString displayName() const;
     void setDisplayName(const QString &displayName);
 
 Q_SIGNALS:

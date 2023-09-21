@@ -23,7 +23,7 @@ public:
     void setModel(ListMessagesModelFilterProxyModel *model);
 
     void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoom(Room *room);
 
 Q_SIGNALS:

@@ -15,5 +15,5 @@ public:
     explicit DirectoryRoomsProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
     ~DirectoryRoomsProxyModel() override;
 
-    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

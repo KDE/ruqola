@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateGroupKeyJob : public RestApiAbstract
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateGroupKeyInfo {
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
         QString uid;
         QString roomId;
         // TODO use struct for key ?
@@ -25,14 +25,14 @@ public:
     explicit UpdateGroupKeyJob(QObject *parent = nullptr);
     ~UpdateGroupKeyJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT const UpdateGroupKeyInfo &updateGroupInfo() const;
+    [[nodiscard]] const UpdateGroupKeyInfo &updateGroupInfo() const;
     void setUpdateGroupInfo(const UpdateGroupKeyInfo &newUpdateGroupInfo);
 
 Q_SIGNALS:

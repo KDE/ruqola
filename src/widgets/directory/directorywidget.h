@@ -26,7 +26,7 @@ public:
 
     void fillDirectory();
 
-    Q_REQUIRED_RESULT DirectoryType type() const;
+    [[nodiscard]] DirectoryType type() const;
 
 protected:
     void showEvent(QShowEvent *event) override;
@@ -38,8 +38,8 @@ private:
     void slotOpen(const QModelIndex &index);
     void slotSearchRequested(const QString &str);
     void slotSearchCleared();
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
-    Q_REQUIRED_RESULT QString noFoundInfo() const;
+    [[nodiscard]] QString displayShowMessageInRoom() const;
+    [[nodiscard]] QString noFoundInfo() const;
     void finishSearching();
     const DirectoryType mType;
     bool mWasInitialized = false;

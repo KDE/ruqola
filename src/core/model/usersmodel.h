@@ -25,20 +25,20 @@ public:
     explicit UsersModel(QObject *parent = nullptr);
     ~UsersModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void addUser(const User &userFromUserId);
     void removeUser(const QString &userId);
 
     void updateUser(const QJsonObject &array);
-    Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &name) const;
+    [[nodiscard]] QString userStatusIconFileName(const QString &name) const;
 
-    Q_REQUIRED_RESULT User::PresenceStatus status(const QString &userId) const;
-    Q_REQUIRED_RESULT User fullUserInfo(const QString &userName) const;
-    Q_REQUIRED_RESULT bool userIsOffline(const QString &name) const;
+    [[nodiscard]] User::PresenceStatus status(const QString &userId) const;
+    [[nodiscard]] User fullUserInfo(const QString &userName) const;
+    [[nodiscard]] bool userIsOffline(const QString &name) const;
 
-    Q_REQUIRED_RESULT QString userStatusStr(const QString &name) const;
+    [[nodiscard]] QString userStatusStr(const QString &name) const;
 Q_SIGNALS:
     void userStatusChanged(const User &user);
     void userNameChanged(const User &user);

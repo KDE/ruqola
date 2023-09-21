@@ -21,19 +21,19 @@ public:
         QString threadMessageId;
         QString triggerId;
         QString params;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
     explicit RunCommandJob(QObject *parent = nullptr);
     ~RunCommandJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT RunCommandInfo runCommandInfo() const;
+    [[nodiscard]] RunCommandInfo runCommandInfo() const;
     void setRunCommandInfo(const RunCommandInfo &runCommandInfo);
 
     static RunCommandInfo parseString(const QString &str, const QString &roomId, const QString &tmid);

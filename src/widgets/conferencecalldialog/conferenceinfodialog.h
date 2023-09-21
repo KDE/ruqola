@@ -19,7 +19,7 @@ public:
 
     void initializeInfo();
 
-    Q_REQUIRED_RESULT QString conferenceId() const;
+    [[nodiscard]] QString conferenceId() const;
     void setConferenceId(const QString &newConferenceId);
 
 private:

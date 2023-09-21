@@ -18,19 +18,18 @@ public:
     virtual ~MessageBlockDelegateHelperBase();
 
     virtual void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
-    Q_REQUIRED_RESULT virtual bool
+    [[nodiscard]] virtual bool
     handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) = 0;
 
     virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option);
 
-    Q_REQUIRED_RESULT bool
-    maybeStartDrag(const Block &block, QMouseEvent *event, QRect blocksRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    [[nodiscard]] bool maybeStartDrag(const Block &block, QMouseEvent *event, QRect blocksRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     void drawDescription(const Block &block, QRect descriptionRect, QPainter *painter, int topPos, const QModelIndex &index, const QStyleOptionViewItem &option)
         const;
 
     virtual QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
 
 protected:
-    Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const Block &block, int width) const;
-    Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const Block &block, int width) const;
+    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const Block &block, int width) const;
+    [[nodiscard]] QSize documentDescriptionForIndexSize(const Block &block, int width) const;
 };

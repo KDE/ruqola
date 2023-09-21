@@ -16,12 +16,12 @@ public:
     explicit ConverterTextAbstractJob(RocketChatAccount *account, QObject *parent = nullptr);
     ~ConverterTextAbstractJob() override;
 
-    Q_REQUIRED_RESULT QString messageId() const;
+    [[nodiscard]] QString messageId() const;
     void setMessageId(const QString &messageId);
 
     virtual void start() = 0;
 
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAcount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAcount() const;
 
 protected:
     QString mMessageId;

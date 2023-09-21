@@ -19,14 +19,14 @@ public:
     explicit SelectedMessageBackgroundAnimation(MessageModel *model, QObject *parent = nullptr);
     ~SelectedMessageBackgroundAnimation() override;
 
-    Q_REQUIRED_RESULT QColor backgroundColor() const;
+    [[nodiscard]] QColor backgroundColor() const;
     void setBackgroundColor(const QColor &newBackgroundColor);
 
     void start();
 
-    Q_REQUIRED_RESULT MessageModel *messageModel() const;
+    [[nodiscard]] MessageModel *messageModel() const;
 
-    Q_REQUIRED_RESULT QPersistentModelIndex modelIndex() const;
+    [[nodiscard]] QPersistentModelIndex modelIndex() const;
     void setModelIndex(const QPersistentModelIndex &newModelIndex);
 
 Q_SIGNALS:

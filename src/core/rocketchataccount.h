@@ -145,12 +145,12 @@ public:
     };
     Q_ENUM(RoleType)
 
-    Q_REQUIRED_RESULT QList<TextEmoticonsCore::CustomEmoji> customEmojies() const;
+    [[nodiscard]] QList<TextEmoticonsCore::CustomEmoji> customEmojies() const;
 
     void reconnectToServer();
-    Q_REQUIRED_RESULT Room::TeamRoomInfo roomFromTeamId(const QString &teamId) const;
+    [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QString &teamId) const;
 
-    Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
+    [[nodiscard]] QString getUserCurrentMessage(const QString &roomId);
     void setUserCurrentMessage(const QString &message, const QString &roomId);
     void textEditing(const QString &roomId, bool clearNotification);
     void leaveRoom(const QString &identifier, Room::RoomType channelType);
@@ -177,8 +177,8 @@ public:
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     void starMessage(const QString &messageId, bool starred);
     void pinMessage(const QString &messageId, bool pinned);
-    Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
-    Q_REQUIRED_RESULT QUrl attachmentUrlFromLocalCache(const QString &url);
+    [[nodiscard]] QString avatarUrl(const Utils::AvatarInfo &info);
+    [[nodiscard]] QUrl attachmentUrlFromLocalCache(const QString &url);
     void loadHistory(const QString &roomID, bool initial = false, qint64 timeStamp = 0);
     void channelAndPrivateAutocomplete(const QString &pattern);
 
@@ -186,11 +186,11 @@ public:
     void addUserToRoom(const QString &username, const QString &roomId, Room::RoomType channelType);
     void changeDefaultAuthentication(int index);
     void messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression = false);
-    Q_REQUIRED_RESULT InputTextManager *inputTextManager() const;
+    [[nodiscard]] InputTextManager *inputTextManager() const;
 
-    Q_REQUIRED_RESULT InputTextManager *inputThreadMessageTextManager() const;
+    [[nodiscard]] InputTextManager *inputThreadMessageTextManager() const;
 
-    Q_REQUIRED_RESULT QVector<Permission> permissions() const;
+    [[nodiscard]] QVector<Permission> permissions() const;
 
     void blockUser(const QString &userId, bool block);
     void deleteFileMessage(const QString &roomId, const QString &fileId, Room::RoomType channelType);
@@ -229,13 +229,13 @@ public:
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
-    Q_REQUIRED_RESULT MessageModel *messageModelForRoom(const QString &roomID);
+    [[nodiscard]] MessageModel *messageModelForRoom(const QString &roomID);
     void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
     void loadMoreListMessages(const QString &roomId);
     void getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
 
-    Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
+    [[nodiscard]] QUrl urlForLink(const QString &link) const;
     void setUserStatusChanged(const QJsonArray &array);
 
     void setShowRoomAvatar(bool checked);
@@ -259,47 +259,47 @@ public:
     LocalDatabaseManager *localDatabaseManager() const;
 
     DDPClient *ddp();
-    Q_REQUIRED_RESULT RoomModel *roomModel() const;
-    Q_REQUIRED_RESULT LoginMethodModel *loginMethodModel() const;
-    Q_REQUIRED_RESULT bool editingMode() const;
-    Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
-    Q_REQUIRED_RESULT OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
+    [[nodiscard]] RoomModel *roomModel() const;
+    [[nodiscard]] LoginMethodModel *loginMethodModel() const;
+    [[nodiscard]] bool editingMode() const;
+    [[nodiscard]] bool sortUnreadOnTop() const;
+    [[nodiscard]] OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
 
-    Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
+    [[nodiscard]] DDPAuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::Connection *restApi();
 
-    Q_REQUIRED_RESULT Room *room(const QString &roomId);
+    [[nodiscard]] Room *room(const QString &roomId);
 
     // Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
 
-    Q_REQUIRED_RESULT MessageQueue *messageQueue() const;
+    [[nodiscard]] MessageQueue *messageQueue() const;
 
-    Q_REQUIRED_RESULT RocketChatBackend *rocketChatBackend() const;
+    [[nodiscard]] RocketChatBackend *rocketChatBackend() const;
 
-    Q_REQUIRED_RESULT RuqolaLogger *ruqolaLogger() const;
+    [[nodiscard]] RuqolaLogger *ruqolaLogger() const;
 
     void parsePublicSettings(const QJsonObject &obj, bool update);
 
-    Q_REQUIRED_RESULT RuqolaServerConfig *ruqolaServerConfig() const;
+    [[nodiscard]] RuqolaServerConfig *ruqolaServerConfig() const;
 
     void setUserName(const QString &username);
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
 
     void setAccountName(const QString &accountname);
-    Q_REQUIRED_RESULT QString accountName() const;
+    [[nodiscard]] QString accountName() const;
 
     void setUserId(const QString &userID);
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
 
     void setPassword(const QString &password);
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
 
     void setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode);
-    Q_REQUIRED_RESULT QString twoFactorAuthenticationCode() const;
+    [[nodiscard]] QString twoFactorAuthenticationCode() const;
 
     void setAuthToken(const QString &token);
-    Q_REQUIRED_RESULT QString authToken() const;
+    [[nodiscard]] QString authToken() const;
 
     void setServerUrl(const QString &serverUrl);
 
@@ -307,11 +307,11 @@ public:
     void parseOtr(const QJsonArray &contents);
 
     void setServerVersion(const QString &version);
-    Q_REQUIRED_RESULT QString serverVersion() const;
+    [[nodiscard]] QString serverVersion() const;
 
-    Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
-    Q_REQUIRED_RESULT EmojiManager *emojiManager() const;
-    Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
+    [[nodiscard]] bool needAdaptNewSubscriptionRC60() const;
+    [[nodiscard]] EmojiManager *emojiManager() const;
+    [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
     void membersInRoom(const QString &roomId, Room::RoomType channelType);
     void parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
@@ -320,7 +320,7 @@ public:
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
-    Q_REQUIRED_RESULT SearchMessageModel *searchMessageModel() const;
+    [[nodiscard]] SearchMessageModel *searchMessageModel() const;
 
     void updateUser(const QJsonObject &object);
 
@@ -328,133 +328,133 @@ public:
 
     void rolesChanged(const QJsonArray &contents);
 
-    Q_REQUIRED_RESULT FilesForRoomModel *filesModelForRoom() const;
+    [[nodiscard]] FilesForRoomModel *filesModelForRoom() const;
 
-    Q_REQUIRED_RESULT DiscussionsModel *discussionsModel() const;
+    [[nodiscard]] DiscussionsModel *discussionsModel() const;
 
     void updateThreadMessageList(const Message &m);
 
     void initializeAccount();
-    Q_REQUIRED_RESULT bool allowEditingMessages() const;
-    Q_REQUIRED_RESULT bool isMessageEditable(const Message &message) const;
+    [[nodiscard]] bool allowEditingMessages() const;
+    [[nodiscard]] bool isMessageEditable(const Message &message) const;
 
-    Q_REQUIRED_RESULT bool otrEnabled() const;
+    [[nodiscard]] bool otrEnabled() const;
 
-    Q_REQUIRED_RESULT ListMessagesModel *listMessageModel() const;
-    Q_REQUIRED_RESULT ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
-    Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
-    Q_REQUIRED_RESULT QString serverUrl() const;
-    Q_REQUIRED_RESULT StatusModel *statusModel() const;
+    [[nodiscard]] ListMessagesModel *listMessageModel() const;
+    [[nodiscard]] ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
+    [[nodiscard]] ServerConfigInfo *serverConfigInfo() const;
+    [[nodiscard]] QString serverUrl() const;
+    [[nodiscard]] StatusModel *statusModel() const;
 
     void customUsersStatus();
 
-    Q_REQUIRED_RESULT bool jitsiEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
+    [[nodiscard]] bool jitsiEnabled() const;
+    [[nodiscard]] bool allowMessagePinningEnabled() const;
+    [[nodiscard]] bool allowMessageStarringEnabled() const;
+    [[nodiscard]] bool allowMessageDeletingEnabled() const;
 
-    Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
-    Q_REQUIRED_RESULT bool threadsEnabled() const;
+    [[nodiscard]] bool autoTranslateEnabled() const;
+    [[nodiscard]] bool threadsEnabled() const;
 
-    Q_REQUIRED_RESULT bool discussionEnabled() const;
-    Q_REQUIRED_RESULT QString recordingVideoPath() const;
-    Q_REQUIRED_RESULT QString recordingImagePath() const;
+    [[nodiscard]] bool discussionEnabled() const;
+    [[nodiscard]] QString recordingVideoPath() const;
+    [[nodiscard]] QString recordingImagePath() const;
 
-    Q_REQUIRED_RESULT User fullUserInfo(const QString &userName) const;
+    [[nodiscard]] User fullUserInfo(const QString &userName) const;
 
     void setAccountEnabled(bool enabled);
-    Q_REQUIRED_RESULT bool accountEnabled() const;
+    [[nodiscard]] bool accountEnabled() const;
 
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
-    Q_REQUIRED_RESULT AccountRoomSettings *accountRoomSettings() const;
+    [[nodiscard]] AccountRoomSettings *accountRoomSettings() const;
 
-    Q_REQUIRED_RESULT bool isMessageDeletable(const Message &message) const;
+    [[nodiscard]] bool isMessageDeletable(const Message &message) const;
     void joinDiscussion(const QString &roomId, const QString &joinCode);
     void setNameChanged(const QJsonArray &array);
     void setOwnStatus(const User &user);
-    Q_REQUIRED_RESULT User::PresenceStatus presenceStatus() const;
+    [[nodiscard]] User::PresenceStatus presenceStatus() const;
 
     void getListCommands();
-    Q_REQUIRED_RESULT bool runCommand(const QString &msg, const QString &roomId, const QString &tmid = QString());
+    [[nodiscard]] bool runCommand(const QString &msg, const QString &roomId, const QString &tmid = QString());
 
     void avatarChanged(const QJsonArray &contents);
     void markMessageAsUnReadFrom(const QString &messageId);
     void markRoomAsUnRead(const QString &roomId);
     void sendUserEmailCode();
     void requestNewPassword(const QString &email);
-    Q_REQUIRED_RESULT bool allowDeleteOwnAccount() const;
-    Q_REQUIRED_RESULT bool registrationFromEnabled() const;
+    [[nodiscard]] bool allowDeleteOwnAccount() const;
+    [[nodiscard]] bool registrationFromEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void deleteOwnAccount(const QString &password);
 
-    Q_REQUIRED_RESULT bool allowEmailChange() const;
+    [[nodiscard]] bool allowEmailChange() const;
 
-    Q_REQUIRED_RESULT bool allowPasswordChange() const;
+    [[nodiscard]] bool allowPasswordChange() const;
 
-    Q_REQUIRED_RESULT bool allowUsernameChange() const;
+    [[nodiscard]] bool allowUsernameChange() const;
 
     void updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo &info);
-    Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
+    [[nodiscard]] RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void parseOwnInfoDone(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT OwnUser ownUser() const;
+    [[nodiscard]] OwnUser ownUser() const;
 
     void cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo &info);
 
-    Q_REQUIRED_RESULT bool broadCastEnabled() const;
-    Q_REQUIRED_RESULT bool encryptionEnabled() const;
-    Q_REQUIRED_RESULT bool uploadFileEnabled() const;
-    Q_REQUIRED_RESULT bool isAdministrator() const;
-    Q_REQUIRED_RESULT bool allowProfileChange() const;
-    Q_REQUIRED_RESULT bool allowAvatarChanged() const;
+    [[nodiscard]] bool broadCastEnabled() const;
+    [[nodiscard]] bool encryptionEnabled() const;
+    [[nodiscard]] bool uploadFileEnabled() const;
+    [[nodiscard]] bool isAdministrator() const;
+    [[nodiscard]] bool allowProfileChange() const;
+    [[nodiscard]] bool allowAvatarChanged() const;
 
-    Q_REQUIRED_RESULT bool audioRecorderEnabled() const;
-    Q_REQUIRED_RESULT bool videoRecorderEnabled() const;
+    [[nodiscard]] bool audioRecorderEnabled() const;
+    [[nodiscard]] bool videoRecorderEnabled() const;
 
     void enable2FaEmailJob(bool enable);
     void logoutFromOtherLocation();
     void createDirectMessages(const QStringList &usernames);
     void setDisplayName(const QString &displayName);
-    Q_REQUIRED_RESULT QString displayName() const;
+    [[nodiscard]] QString displayName() const;
 
     void deleteCustomUserStatus(const QJsonArray &replyArray);
 
     void updateCustomUserStatus(const QJsonArray &replyArray);
-    Q_REQUIRED_RESULT CustomUserStatuses customUserStatuses() const;
+    [[nodiscard]] CustomUserStatuses customUserStatuses() const;
 
     void removeCustomUserStatus(const QString &customUserStatusId);
     void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
-    Q_REQUIRED_RESULT QStringList highlightWords() const;
+    [[nodiscard]] QStringList highlightWords() const;
     void resetAvatar();
     void setAvatarUrl(const QString &url);
     void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
-    Q_REQUIRED_RESULT bool hasPermission(const QString &permissionId) const;
-    Q_REQUIRED_RESULT QStringList permissions(const QString &permissionId) const;
+    [[nodiscard]] bool hasPermission(const QString &permissionId) const;
+    [[nodiscard]] QStringList permissions(const QString &permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
-    Q_REQUIRED_RESULT QStringList ownUserPermission() const;
+    [[nodiscard]] QStringList ownUserPermission() const;
     void downloadAppsLanguages();
-    Q_REQUIRED_RESULT bool hasAutotranslateSupport() const;
-    Q_REQUIRED_RESULT OwnUserPreferences ownUserPreferences() const;
-    Q_REQUIRED_RESULT bool ldapEnabled() const;
+    [[nodiscard]] bool hasAutotranslateSupport() const;
+    [[nodiscard]] OwnUserPreferences ownUserPreferences() const;
+    [[nodiscard]] bool ldapEnabled() const;
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
     void deleteUser(const QJsonArray &replyArray);
     MessageCache *messageCache() const;
 
-    Q_REQUIRED_RESULT bool hideRoles() const;
-    Q_REQUIRED_RESULT bool displayAvatars() const;
-    Q_REQUIRED_RESULT bool teamEnabled() const;
+    [[nodiscard]] bool hideRoles() const;
+    [[nodiscard]] bool displayAvatars() const;
+    [[nodiscard]] bool teamEnabled() const;
     void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
 
     void deleteEmojiCustom(const QJsonArray &replyArray);
     void addUpdateEmojiCustomList(const QJsonArray &replyArray);
     void setImageUrl(const QUrl &url);
     void updateAvatarCache(const Utils::AvatarInfo &info);
-    Q_REQUIRED_RESULT bool userIsOffline(const QString &name);
-    Q_REQUIRED_RESULT QString userStatusStr(const QString &name);
-    Q_REQUIRED_RESULT OtrManager *otrManager() const;
+    [[nodiscard]] bool userIsOffline(const QString &name);
+    [[nodiscard]] QString userStatusStr(const QString &name);
+    [[nodiscard]] OtrManager *otrManager() const;
 
     // Custom Sound
     void deleteCustomSound(const QJsonArray &replyArray);
@@ -469,55 +469,55 @@ public:
     // Permissions
     void permissionUpdated(const QJsonArray &replyArray);
 
-    Q_REQUIRED_RESULT const QVector<RoleInfo> &roleInfo() const;
+    [[nodiscard]] const QVector<RoleInfo> &roleInfo() const;
 
-    Q_REQUIRED_RESULT CustomSoundsManager *customSoundManager() const;
+    [[nodiscard]] CustomSoundsManager *customSoundManager() const;
 
-    Q_REQUIRED_RESULT bool attachmentIsInLocalCache(const QString &url);
+    [[nodiscard]] bool attachmentIsInLocalCache(const QString &url);
     void privateSettingsUpdated(const QJsonArray &replyArray);
     void updateUserInRoom(const QJsonObject &roomData);
     void updateUserData(const QJsonArray &contents);
-    Q_REQUIRED_RESULT bool twoFactorAuthenticationEnabled() const;
-    Q_REQUIRED_RESULT bool twoFactorAuthenticationByEmailEnabled() const;
-    Q_REQUIRED_RESULT bool twoFactorAuthenticationByTOTPEnabled() const;
+    [[nodiscard]] bool twoFactorAuthenticationEnabled() const;
+    [[nodiscard]] bool twoFactorAuthenticationByEmailEnabled() const;
+    [[nodiscard]] bool twoFactorAuthenticationByTOTPEnabled() const;
     void generate2FaTotp(const QJsonObject &obj);
     void totpVerify(const QJsonObject &obj);
     void totpDisabledVerify(const QJsonObject &root);
 
-    Q_REQUIRED_RESULT const QStringList &searchListCompletion() const;
+    [[nodiscard]] const QStringList &searchListCompletion() const;
     void setSearchListCompletion(const QStringList &newSearchListCompletion);
 
     void setOauthAppAdded(const QJsonObject &obj);
 
     void setOauthAppUpdated(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT SwitchChannelHistoryModel *switchChannelHistoryModel() const;
+    [[nodiscard]] SwitchChannelHistoryModel *switchChannelHistoryModel() const;
 
-    Q_REQUIRED_RESULT bool twoFactorAuthenticationEnforcePasswordFallback() const;
+    [[nodiscard]] bool twoFactorAuthenticationEnforcePasswordFallback() const;
     UploadFileManager *uploadFileManager() const;
 
-    Q_REQUIRED_RESULT int messageMaximumAllowedSize() const;
-    Q_REQUIRED_RESULT bool messageAllowConvertLongMessagesToAttachment() const;
+    [[nodiscard]] int messageMaximumAllowedSize() const;
+    [[nodiscard]] bool messageAllowConvertLongMessagesToAttachment() const;
 
-    Q_REQUIRED_RESULT bool allowPasswordReset() const;
-    Q_REQUIRED_RESULT const BannerInfos &bannerInfos() const;
+    [[nodiscard]] bool allowPasswordReset() const;
+    [[nodiscard]] const BannerInfos &bannerInfos() const;
 
-    Q_REQUIRED_RESULT bool useRealName() const;
+    [[nodiscard]] bool useRealName() const;
 
-    Q_REQUIRED_RESULT int messageViewMode() const;
-    Q_REQUIRED_RESULT bool hasLicense(const QString &name);
+    [[nodiscard]] int messageViewMode() const;
+    [[nodiscard]] bool hasLicense(const QString &name);
     void parseLicenses(const QJsonArray &replyArray);
     // Only for test
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
-    Q_REQUIRED_RESULT bool sortFavoriteChannels() const;
+    [[nodiscard]] bool sortFavoriteChannels() const;
     void setShowFavoriteRoom(bool checked);
     void parseVideoConference(const QJsonArray &contents);
-    Q_REQUIRED_RESULT VideoConferenceManager *videoConferenceManager() const;
+    [[nodiscard]] VideoConferenceManager *videoConferenceManager() const;
 
-    Q_REQUIRED_RESULT VideoConferenceMessageInfoManager *videoConferenceMessageInfoManager() const;
+    [[nodiscard]] VideoConferenceMessageInfoManager *videoConferenceMessageInfoManager() const;
 
-    Q_REQUIRED_RESULT QUrl faviconLogoUrlFromLocalCache(const QString &url);
+    [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
     void addMessageToDataBase(const QString &roomName, const Message &message);
     void deleteMessageFromDatabase(const QString &roomName, const QString &messageId);
     void loadAccountSettings();

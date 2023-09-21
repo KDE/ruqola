@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAutocompleteAvailableForTeamsJob : pu
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsAutocompleteChannelAndPrivateInfo {
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
         QString name;
         QString exception;
     };
@@ -25,13 +25,13 @@ public:
     explicit RoomsAutocompleteAvailableForTeamsJob(QObject *parent = nullptr);
     ~RoomsAutocompleteAvailableForTeamsJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT RoomsAutocompleteChannelAndPrivateInfo roomsCompleterInfo() const;
+    [[nodiscard]] RoomsAutocompleteChannelAndPrivateInfo roomsCompleterInfo() const;
     void setRoomsCompleterInfo(const RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo);
 
 Q_SIGNALS:

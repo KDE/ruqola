@@ -46,13 +46,13 @@ public:
 
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *logger);
 
-    Q_REQUIRED_RESULT QString userId() const;
-    Q_REQUIRED_RESULT QString authToken() const;
+    [[nodiscard]] QString userId() const;
+    [[nodiscard]] QString authToken() const;
     void setUserId(const QString &userId);
     void setAuthToken(const QString &authToken);
 
     // Assign/get server url
-    Q_REQUIRED_RESULT QString serverUrl() const;
+    [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
     void setUserName(const QString &userName);

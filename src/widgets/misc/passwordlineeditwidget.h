@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordLineEditWidget : public QWidget
 public:
     explicit PasswordLineEditWidget(QWidget *parent = nullptr);
     ~PasswordLineEditWidget() override;
-    Q_REQUIRED_RESULT KPasswordLineEdit *passwordLineEdit() const;
+    [[nodiscard]] KPasswordLineEdit *passwordLineEdit() const;
 
     void setAllowPasswordReset(bool allowPassword);
 

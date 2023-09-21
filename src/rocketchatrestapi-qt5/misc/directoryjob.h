@@ -27,22 +27,22 @@ public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT DirectoryInfo {
         SearchType searchType = SearchType::Unknown;
         QString pattern;
-        Q_REQUIRED_RESULT bool canStart() const;
-        Q_REQUIRED_RESULT bool operator==(const DirectoryInfo &other) const;
+        [[nodiscard]] bool canStart() const;
+        [[nodiscard]] bool operator==(const DirectoryInfo &other) const;
     };
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT DirectoryInfo directoryInfo() const;
+    [[nodiscard]] DirectoryInfo directoryInfo() const;
     void setDirectoryInfo(const DirectoryInfo &directoryInfo);
 
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
     void directoryDone(const QJsonObject &obj);

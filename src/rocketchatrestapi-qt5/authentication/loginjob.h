@@ -18,23 +18,23 @@ public:
     explicit LoginJob(QObject *parent = nullptr);
     ~LoginJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QNetworkRequest request() const override;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString resume() const;
+    [[nodiscard]] QString resume() const;
     void setResume(const QString &resume);
 
-    Q_REQUIRED_RESULT QString code() const;
+    [[nodiscard]] QString code() const;
     void setCode(const QString &code);
 
 Q_SIGNALS:

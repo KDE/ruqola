@@ -14,20 +14,20 @@ public:
     ListMessages();
     void parseMessages(const QJsonObject &messagesObj, const QString &arrayName = QStringLiteral("messages"));
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT int messagesCount() const;
+    [[nodiscard]] int messagesCount() const;
     void setMessagesCount(int listMessagesCount);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Message at(int index) const;
-    Q_REQUIRED_RESULT QVector<Message> listMessages() const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] Message at(int index) const;
+    [[nodiscard]] QVector<Message> listMessages() const;
 
 private:
     QVector<Message> mListMessages;

@@ -19,10 +19,10 @@ public:
     ~VideoConferenceNotificationJob() override;
 
     void start();
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
     void setRocketChatAccount(RocketChatAccount *account);
 
-    Q_REQUIRED_RESULT VideoConference videoConference() const;
+    [[nodiscard]] VideoConference videoConference() const;
     void setVideoConference(const VideoConference &newVideoConference);
 
 Q_SIGNALS:
@@ -32,7 +32,7 @@ Q_SIGNALS:
 private:
     void slotActivateNotificationAction(unsigned int val);
     void inComingCall();
-    Q_REQUIRED_RESULT QString generateText() const;
+    [[nodiscard]] QString generateText() const;
     VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

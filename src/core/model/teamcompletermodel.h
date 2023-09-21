@@ -24,8 +24,8 @@ public:
     explicit TeamCompleterModel(QObject *parent = nullptr);
     ~TeamCompleterModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
     void insertTeams(const QVector<TeamCompleter> &rooms);

@@ -20,16 +20,16 @@ public:
     explicit AddUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersWidget() override;
 
-    Q_REQUIRED_RESULT QStringList userIds() const;
+    [[nodiscard]] QStringList userIds() const;
 
     void setPlaceholderText(const QString &str);
 
-    Q_REQUIRED_RESULT QString placeHolderText() const;
+    [[nodiscard]] QString placeHolderText() const;
 
-    Q_REQUIRED_RESULT QStringList userNames() const;
-    Q_REQUIRED_RESULT int numberOfUsers() const;
+    [[nodiscard]] QStringList userNames() const;
+    [[nodiscard]] int numberOfUsers() const;
 
-    Q_REQUIRED_RESULT QLineEdit *lineEdit() const;
+    [[nodiscard]] QLineEdit *lineEdit() const;
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);

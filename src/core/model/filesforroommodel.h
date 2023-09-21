@@ -35,25 +35,25 @@ public:
     explicit FilesForRoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~FilesForRoomModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void setFiles(const QVector<File> &files);
 
     FileAttachments *fileAttachments() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId);
     void addMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
     void initialize();
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
+    [[nodiscard]] bool hasFullList() const;
     void setHasFullList(bool state);
 
-    Q_REQUIRED_RESULT bool loadMoreFilesInProgress() const;
+    [[nodiscard]] bool loadMoreFilesInProgress() const;
     void setLoadMoreFilesInProgress(bool loadMoreFilesInProgress);
 
 Q_SIGNALS:

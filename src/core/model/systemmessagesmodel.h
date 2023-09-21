@@ -20,7 +20,7 @@ public:
     Q_ENUM(SystemMessagesRoles)
     explicit SystemMessagesModel(QObject *parent = nullptr);
     ~SystemMessagesModel() override;
-    Q_REQUIRED_RESULT QStringList systemMessagesSelected() const;
+    [[nodiscard]] QStringList systemMessagesSelected() const;
     void setMessagesSystem(const QStringList &lst);
 
 private:

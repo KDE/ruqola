@@ -24,14 +24,14 @@ public:
     explicit UserCompleterModel(QObject *parent = nullptr);
     ~UserCompleterModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
     void insertUsers(const QVector<User> &users);
 
 private:
-    Q_REQUIRED_RESULT QString displayUserName(const User &user) const;
+    [[nodiscard]] QString displayUserName(const User &user) const;
     Q_DISABLE_COPY(UserCompleterModel)
     QVector<User> mUsers;
 };

@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerDialog : public QDialog
 public:
     explicit CreateNewServerDialog(QWidget *parent = nullptr);
     ~CreateNewServerDialog() override;
-    Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo() const;
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     void setExistingAccountName(const QStringList &lst);
 

@@ -18,7 +18,7 @@ public:
     explicit TeamConvertToChannelDialog(QWidget *parent = nullptr);
     ~TeamConvertToChannelDialog() override;
 
-    Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
+    [[nodiscard]] QStringList roomIdsToDelete() const;
     void setTeamRooms(const QVector<TeamRoom> &rooms);
 
     void setTeamName(const QString &name);

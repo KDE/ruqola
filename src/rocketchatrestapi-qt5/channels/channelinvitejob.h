@@ -17,18 +17,18 @@ public:
     explicit ChannelInviteJob(QObject *parent = nullptr);
     ~ChannelInviteJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString inviteUserId() const;
+    [[nodiscard]] QString inviteUserId() const;
     void setInviteUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QString inviteUserName() const;
+    [[nodiscard]] QString inviteUserName() const;
     void setInviteUserName(const QString &userName);
 
 Q_SIGNALS:

@@ -19,7 +19,7 @@ public:
 
     void setCustomSoundInfo(const AdministratorCustomSoundsCreateWidget::CustomSoundInfo &info);
 
-    Q_REQUIRED_RESULT AdministratorCustomSoundsCreateWidget::CustomSoundInfo customSoundInfo() const;
+    [[nodiscard]] AdministratorCustomSoundsCreateWidget::CustomSoundInfo customSoundInfo() const;
 
 private:
     void readConfig();

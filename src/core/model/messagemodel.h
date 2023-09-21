@@ -102,9 +102,9 @@ public:
      * @param parent, it is void
      * @return int, The number of messages in QVector mAllMessages
      */
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
     /**
@@ -112,35 +112,35 @@ public:
      *
      * @return qint64 The last timestamp
      */
-    Q_REQUIRED_RESULT qint64 lastTimestamp() const;
+    [[nodiscard]] qint64 lastTimestamp() const;
 
     void deleteMessage(const QString &messageId);
 
-    Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
+    [[nodiscard]] qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
     void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
     void clear();
 
     void changeShowOriginalMessage(const QString &messageId, bool showOriginal);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
 
     void activate();
     void deactivate();
 
-    Q_REQUIRED_RESULT Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
-    Q_REQUIRED_RESULT Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
-    Q_REQUIRED_RESULT Message findMessageById(const QString &messageId) const;
-    Q_REQUIRED_RESULT QModelIndex indexForMessage(const QString &messageId) const;
+    [[nodiscard]] Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
+    [[nodiscard]] Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
+    [[nodiscard]] Message findMessageById(const QString &messageId) const;
+    [[nodiscard]] QModelIndex indexForMessage(const QString &messageId) const;
 
-    Q_REQUIRED_RESULT QString messageIdFromIndex(int rowIndex);
+    [[nodiscard]] QString messageIdFromIndex(int rowIndex);
 
-    Q_REQUIRED_RESULT QString searchText() const;
+    [[nodiscard]] QString searchText() const;
     void setSearchText(const QString &searchText);
 
-    Q_REQUIRED_RESULT Message threadMessage(const QString &threadMessageId) const;
+    [[nodiscard]] Message threadMessage(const QString &threadMessageId) const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
@@ -153,16 +153,16 @@ private:
     LIBRUQOLACORE_NO_EXPORT void addMessage(const Message &message);
 
     LIBRUQOLACORE_NO_EXPORT void refresh();
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QString &threadMessageId) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QString &userId) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
-                                                                         const QString &userName,
-                                                                         const QStringList &highlightWords,
-                                                                         const QString &searchedText) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QString &threadMessageId) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QVector<Message>::iterator findMessage(const QString &messageId);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QString &threadMessageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QString &userId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
+                                                                     const QString &userName,
+                                                                     const QStringList &highlightWords,
+                                                                     const QString &searchedText) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QString &threadMessageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QVector<Message>::iterator findMessage(const QString &messageId);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
 
     QString mSearchText;
     QString mRoomId;

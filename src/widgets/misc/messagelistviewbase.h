@@ -38,7 +38,7 @@ protected:
 
     virtual bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
     virtual bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
-    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
+    [[nodiscard]] QStyleOptionViewItem listViewOptions() const;
 
     void addTextPlugins(QMenu *menu, const QString &selectedText);
 

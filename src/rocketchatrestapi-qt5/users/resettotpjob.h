@@ -17,15 +17,15 @@ public:
     explicit ResetTOTPJob(QObject *parent = nullptr);
     ~ResetTOTPJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
-    Q_REQUIRED_RESULT const QString &resetUserId() const;
+    [[nodiscard]] const QString &resetUserId() const;
     void setResetUserId(const QString &newResetUserId);
 
 Q_SIGNALS:

@@ -16,7 +16,7 @@ public:
     explicit AdministratorCustomUserStatusCreateDialog(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusCreateDialog() override;
 
-    Q_REQUIRED_RESULT AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusInfo() const;
+    [[nodiscard]] AdministratorCustomUserStatusCreateWidget::UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
 
 private:

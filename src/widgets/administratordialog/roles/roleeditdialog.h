@@ -16,7 +16,7 @@ public:
     ~RoleEditDialog() override;
 
     void setRoleEditDialogInfo(const RoleEditWidget::RoleEditDialogInfo &info);
-    Q_REQUIRED_RESULT RoleEditWidget::RoleEditDialogInfo roleEditDialogInfo() const;
+    [[nodiscard]] RoleEditWidget::RoleEditDialogInfo roleEditDialogInfo() const;
 
 private:
     RoleEditWidget *const mRoleEditWidget;

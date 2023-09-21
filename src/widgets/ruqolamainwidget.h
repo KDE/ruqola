@@ -23,9 +23,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 public:
     explicit RuqolaMainWidget(QWidget *parent = nullptr);
     ~RuqolaMainWidget() override;
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
-    Q_REQUIRED_RESULT Room::RoomType roomType() const;
+    [[nodiscard]] Room::RoomType roomType() const;
     Room *room() const;
 
     void selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType);

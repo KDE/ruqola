@@ -17,11 +17,11 @@ public:
     ~FilesForRoomFilterProxyModel() override;
 
     void setFilterString(const QString &string);
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
+    [[nodiscard]] bool hasFullList() const;
 
-    Q_REQUIRED_RESULT int attachmentCount() const;
+    [[nodiscard]] int attachmentCount() const;
 
     void setTypeGroup(const QString &typeGroup);
     void resetTypeGroup();

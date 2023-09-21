@@ -25,8 +25,8 @@ public:
     explicit RocketChatAccountModel(QObject *parent = nullptr);
     ~RocketChatAccountModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void insertAccount(RocketChatAccount *account);
     RocketChatAccount *removeAccount(const QString &name);
@@ -35,14 +35,14 @@ public:
 
     void setAccounts(const QVector<RocketChatAccount *> &accounts);
 
-    Q_REQUIRED_RESULT RocketChatAccount *account(int index) const;
+    [[nodiscard]] RocketChatAccount *account(int index) const;
 
-    Q_REQUIRED_RESULT RocketChatAccount *account(const QString &accountName) const;
+    [[nodiscard]] RocketChatAccount *account(const QString &accountName) const;
 
-    Q_REQUIRED_RESULT int accountNumber() const;
-    Q_REQUIRED_RESULT QStringList accountsName() const;
+    [[nodiscard]] int accountNumber() const;
+    [[nodiscard]] QStringList accountsName() const;
 
-    Q_REQUIRED_RESULT RocketChatAccount *accountFromServerUrl(const QString &serverUrl) const;
+    [[nodiscard]] RocketChatAccount *accountFromServerUrl(const QString &serverUrl) const;
 Q_SIGNALS:
     void accountNumberChanged();
 

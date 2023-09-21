@@ -19,15 +19,15 @@ public:
     ~AbstractWebSocket() override;
 
     virtual void openUrl(const QUrl &url) = 0;
-    Q_REQUIRED_RESULT virtual qint64 sendTextMessage(const QString &message) = 0;
+    [[nodiscard]] virtual qint64 sendTextMessage(const QString &message) = 0;
     virtual bool isValid() const = 0;
     virtual void flush() = 0;
     virtual void close() = 0;
-    Q_REQUIRED_RESULT virtual QAbstractSocket::SocketError error() const = 0;
-    Q_REQUIRED_RESULT virtual QString errorString() const = 0;
-    Q_REQUIRED_RESULT virtual QUrl requestUrl() const = 0;
-    Q_REQUIRED_RESULT virtual QWebSocketProtocol::CloseCode closeCode() const = 0;
-    Q_REQUIRED_RESULT virtual QString closeReason() const = 0;
+    [[nodiscard]] virtual QAbstractSocket::SocketError error() const = 0;
+    [[nodiscard]] virtual QString errorString() const = 0;
+    [[nodiscard]] virtual QUrl requestUrl() const = 0;
+    [[nodiscard]] virtual QWebSocketProtocol::CloseCode closeCode() const = 0;
+    [[nodiscard]] virtual QString closeReason() const = 0;
     virtual qint64 sendBinaryMessage(const QByteArray &data) = 0;
     virtual void ignoreSslErrors() = 0;
 

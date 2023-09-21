@@ -25,7 +25,7 @@ public:
 
     void initializeVersion(VersionType type);
 
-    Q_REQUIRED_RESULT static QString convertVersionEnumToString(WhatsNewComboBoxWidget::VersionType type);
+    [[nodiscard]] static QString convertVersionEnumToString(WhatsNewComboBoxWidget::VersionType type);
 
 Q_SIGNALS:
     void versionChanged(WhatsNewComboBoxWidget::VersionType type);

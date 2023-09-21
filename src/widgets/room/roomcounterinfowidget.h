@@ -17,7 +17,7 @@ public:
     explicit RoomCounterInfoWidget(QWidget *parent = nullptr);
     ~RoomCounterInfoWidget() override;
 
-    Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
+    [[nodiscard]] ChannelCounterInfo channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
 
 Q_SIGNALS:

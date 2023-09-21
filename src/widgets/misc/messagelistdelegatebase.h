@@ -22,29 +22,29 @@ public:
     ~MessageListDelegateBase() override;
 
     void clearCache();
-    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    [[nodiscard]] bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    [[nodiscard]] bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    Q_REQUIRED_RESULT const QString &searchText() const;
+    [[nodiscard]] const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
-    Q_REQUIRED_RESULT QString selectedText() const;
+    [[nodiscard]] QString selectedText() const;
 
-    Q_REQUIRED_RESULT bool hasSelection() const;
+    [[nodiscard]] bool hasSelection() const;
 
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
 protected:
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const Block &block) const override;
-    Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
+    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
+    [[nodiscard]] QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
 
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
-    Q_REQUIRED_RESULT virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
+    [[nodiscard]] virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
 
     TextSelectionImpl *const mTextSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;

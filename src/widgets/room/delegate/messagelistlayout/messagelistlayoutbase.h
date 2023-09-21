@@ -92,11 +92,11 @@ public:
         bool messageIsFollowing = false;
     };
 
-    Q_REQUIRED_RESULT virtual MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const = 0;
+    [[nodiscard]] virtual MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const = 0;
 
-    Q_REQUIRED_RESULT virtual QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const = 0;
+    [[nodiscard]] virtual QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const = 0;
 
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 protected:

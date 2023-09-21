@@ -17,10 +17,10 @@ public:
     explicit OtrNotificationJob(QObject *parent = nullptr);
     ~OtrNotificationJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
 
     void start();
-    Q_REQUIRED_RESULT const Otr &otr() const;
+    [[nodiscard]] const Otr &otr() const;
     void setOtr(const Otr &newOtr);
 
     void setRocketChatAccount(RocketChatAccount *account);
@@ -35,7 +35,7 @@ private:
     void slotActivateNotificationAction(unsigned int val);
     void slotAcceptOtr();
     void slotRejectOtr();
-    Q_REQUIRED_RESULT QString generateText();
+    [[nodiscard]] QString generateText();
     Otr mOtr;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

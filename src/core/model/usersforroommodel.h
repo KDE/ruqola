@@ -32,30 +32,30 @@ public:
 
     void clear();
     int rowCount(const QModelIndex &parent = {}) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);
     void setUserStatusChanged(const User &newuser);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
+    [[nodiscard]] bool hasFullList() const;
     void setHasFullList(bool hasFullList);
-    Q_REQUIRED_RESULT int usersCount() const;
+    [[nodiscard]] int usersCount() const;
 
     void setLoadMoreUsersInProgress(bool inProgress);
-    Q_REQUIRED_RESULT bool loadMoreUsersInProgress() const;
+    [[nodiscard]] bool loadMoreUsersInProgress() const;
 Q_SIGNALS:
     void hasFullListChanged();
     void userStatusChanged(const QString &userId);
     void loadingInProgressChanged();
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QVector<User> mUsers;
     int mTotal = 0;

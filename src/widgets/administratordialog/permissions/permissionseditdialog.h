@@ -18,7 +18,7 @@ public:
     ~PermissionsEditDialog() override;
 
     void setRoles(const QStringList &lst);
-    Q_REQUIRED_RESULT QStringList roles() const;
+    [[nodiscard]] QStringList roles() const;
 
     void setRolesInfo(const QVector<RoleInfo> &rolesinfo);
 

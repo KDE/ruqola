@@ -17,7 +17,7 @@ public:
     explicit ExportMessagesDialog(QWidget *parent = nullptr);
     ~ExportMessagesDialog() override;
 
-    Q_REQUIRED_RESULT RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
+    [[nodiscard]] RocketChatRestApi::RoomsExportJob::RoomsExportInfo roomExportInfo() const;
 
 private:
     void readConfig();

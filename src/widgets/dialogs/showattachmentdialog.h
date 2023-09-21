@@ -21,9 +21,9 @@ public:
     void setModel(FilesForRoomFilterProxyModel *model);
 
     void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
 
-    Q_REQUIRED_RESULT Room::RoomType roomType() const;
+    [[nodiscard]] Room::RoomType roomType() const;
     void setRoomType(Room::RoomType roomType);
 
 private:

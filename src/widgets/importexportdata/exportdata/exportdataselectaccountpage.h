@@ -18,11 +18,11 @@ public:
 
     void setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst);
 
-    Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
+    [[nodiscard]] QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
 
-    Q_REQUIRED_RESULT bool validatePage() override;
+    [[nodiscard]] bool validatePage() override;
 
-    Q_REQUIRED_RESULT bool isComplete() const override;
+    [[nodiscard]] bool isComplete() const override;
 
 private:
     ExportDataSelectAccountListWidget *const mExportDataSelectAccountListWidget;

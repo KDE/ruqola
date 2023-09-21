@@ -19,7 +19,7 @@ public:
 
     void addActions(const QList<QAction *> &lst);
 
-    Q_REQUIRED_RESULT QWidget *parentWidget() const;
+    [[nodiscard]] QWidget *parentWidget() const;
     void setParentWidget(QWidget *newParentWidget);
 
     void selectForward();
@@ -28,9 +28,9 @@ public:
 
     void addSwitchChannel(const QString &name, const QString &identifier);
 
-    Q_REQUIRED_RESULT SwitchChannelTreeView *switchChannelTreeView() const;
+    [[nodiscard]] SwitchChannelTreeView *switchChannelTreeView() const;
 
-    Q_REQUIRED_RESULT SwitchChannelHistoryModel *channelSwitcherModel() const;
+    [[nodiscard]] SwitchChannelHistoryModel *channelSwitcherModel() const;
     void setChannelSwitcherModel(SwitchChannelHistoryModel *newChannelSwitcherModel);
 
 Q_SIGNALS:

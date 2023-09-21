@@ -55,7 +55,7 @@ public:
 
     CustomEmojiIconManager *customEmojiIconManager() const;
 
-    Q_REQUIRED_RESULT bool debug() const;
+    [[nodiscard]] bool debug() const;
 
 Q_SIGNALS:
     void translatorMenuChanged();

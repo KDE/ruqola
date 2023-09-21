@@ -60,32 +60,32 @@ public:
 
     void setShowThreadContext(bool b);
 
-    Q_REQUIRED_RESULT bool hasSelection() const;
-    Q_REQUIRED_RESULT QString selectedText() const;
+    [[nodiscard]] bool hasSelection() const;
+    [[nodiscard]] QString selectedText() const;
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
     void clearTextDocumentCache();
 
     void clearSelection();
 
-    Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const;
+    [[nodiscard]] QString urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const;
 
-    Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info);
+    [[nodiscard]] bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info);
 
     void attachmentContextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info, QMenu *menu);
 
     void setSearchText(const QString &newSearchText);
 
-    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    [[nodiscard]] QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
     /// @note Ownership is not transferred
-    Q_REQUIRED_RESULT MessageAttachmentDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
+    [[nodiscard]] MessageAttachmentDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
 
-    Q_REQUIRED_RESULT MessageBlockDelegateHelperBase *blocksHelper(const Block &block) const;
+    [[nodiscard]] MessageBlockDelegateHelperBase *blocksHelper(const Block &block) const;
 
-    Q_REQUIRED_RESULT MessageDelegateHelperText *helperText() const;
+    [[nodiscard]] MessageDelegateHelperText *helperText() const;
 
-    Q_REQUIRED_RESULT MessageDelegateHelperReactions *helperReactions() const;
+    [[nodiscard]] MessageDelegateHelperReactions *helperReactions() const;
 
     void removeMessageCache(const QString &messageId, const QStringList &attachmentIdList);
 
@@ -98,9 +98,9 @@ private:
     void slotUpdateColors();
     void switchMessageLayout();
 
-    Q_REQUIRED_RESULT MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    [[nodiscard]] MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
-    Q_REQUIRED_RESULT bool isSystemMessage(const Message *message) const;
+    [[nodiscard]] bool isSystemMessage(const Message *message) const;
 
     friend class MessageListDelegateTest;
 

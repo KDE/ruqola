@@ -19,10 +19,10 @@ public:
 
     static SyntaxHighlightingManager *self();
 
-    Q_REQUIRED_RESULT bool syntaxHighlightingInitialized() const;
+    [[nodiscard]] bool syntaxHighlightingInitialized() const;
 
-    Q_REQUIRED_RESULT KSyntaxHighlighting::Definition def(const QString &name) const;
-    Q_REQUIRED_RESULT KSyntaxHighlighting::Definition defaultDef() const;
+    [[nodiscard]] KSyntaxHighlighting::Definition def(const QString &name) const;
+    [[nodiscard]] KSyntaxHighlighting::Definition defaultDef() const;
 
     KSyntaxHighlighting::Repository &repo() const;
 

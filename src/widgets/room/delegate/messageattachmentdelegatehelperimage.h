@@ -21,15 +21,12 @@ public:
     ~MessageAttachmentDelegateHelperImage() override = default;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
-    Q_REQUIRED_RESULT QSize sizeHint(const MessageAttachment &msgAttach,
-                                     const QModelIndex &index,
-                                     int maxWidth,
-                                     const QStyleOptionViewItem &option) const override;
-    Q_REQUIRED_RESULT bool handleMouseEvent(const MessageAttachment &msgAttach,
-                                            QMouseEvent *mouseEvent,
-                                            QRect attachmentsRect,
-                                            const QStyleOptionViewItem &option,
-                                            const QModelIndex &index) override;
+    [[nodiscard]] QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    [[nodiscard]] bool handleMouseEvent(const MessageAttachment &msgAttach,
+                                        QMouseEvent *mouseEvent,
+                                        QRect attachmentsRect,
+                                        const QStyleOptionViewItem &option,
+                                        const QModelIndex &index) override;
 
 private:
     Q_DISABLE_COPY(MessageAttachmentDelegateHelperImage)
@@ -49,25 +46,21 @@ private:
         bool isShown = true;
         bool isAnimatedImage = false;
     };
-    Q_REQUIRED_RESULT ImageLayout layoutImage(const MessageAttachment &msgAttach,
-                                              const QStyleOptionViewItem &option,
-                                              int attachmentsWidth,
-                                              int attachmentsHeight) const;
+    [[nodiscard]] ImageLayout
+    layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 
-    Q_REQUIRED_RESULT std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
+    [[nodiscard]] std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;
-    Q_REQUIRED_RESULT bool contextMenu(const QPoint &pos,
-                                       const QPoint &globalPos,
-                                       const MessageAttachment &msgAttach,
-                                       QRect attachmentsRect,
-                                       const QStyleOptionViewItem &option,
-                                       QMenu *menu) override;
+    [[nodiscard]] bool contextMenu(const QPoint &pos,
+                                   const QPoint &globalPos,
+                                   const MessageAttachment &msgAttach,
+                                   QRect attachmentsRect,
+                                   const QStyleOptionViewItem &option,
+                                   QMenu *menu) override;
 
 private:
-    Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos,
-                                                const MessageAttachment &msgAttach,
-                                                QRect attachmentsRect,
-                                                const QStyleOptionViewItem &option) override;
+    [[nodiscard]] QPoint
+    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
     mutable PixmapCache mPixmapCache;
     mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
 };

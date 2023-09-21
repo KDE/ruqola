@@ -12,9 +12,9 @@ class LIBRUQOLACORE_TESTS_EXPORT DownloadAppsLanguagesInfo
 {
 public:
     DownloadAppsLanguagesInfo();
-    Q_REQUIRED_RESULT bool parse(const QJsonObject &language, const QString &id);
-    Q_REQUIRED_RESULT QMap<QString, QMap<QString, QString>> languageMap() const;
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool parse(const QJsonObject &language, const QString &id);
+    [[nodiscard]] QMap<QString, QMap<QString, QString>> languageMap() const;
+    [[nodiscard]] bool isEmpty() const;
 
 private:
     // QMap<lang, <id, value>>

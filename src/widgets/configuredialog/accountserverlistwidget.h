@@ -14,10 +14,10 @@ class AccountServerListWidgetItem : public QListWidgetItem
 public:
     explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
     ~AccountServerListWidgetItem() override;
-    Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo() const;
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &accountInfo);
 
-    Q_REQUIRED_RESULT bool newAccount() const;
+    [[nodiscard]] bool newAccount() const;
     void setNewAccount(bool newAccount);
 
 private:

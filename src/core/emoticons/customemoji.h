@@ -19,42 +19,42 @@ public:
 
     void parseEmoji(const QJsonObject &emoji, bool useIsoDate = false);
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &identifier);
 
-    Q_REQUIRED_RESULT QString extension() const;
+    [[nodiscard]] QString extension() const;
     void setExtension(const QString &extension);
 
     void setName(const QString &name);
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
 
-    Q_REQUIRED_RESULT bool operator==(const CustomEmoji &other) const;
+    [[nodiscard]] bool operator==(const CustomEmoji &other) const;
 
     CustomEmoji &operator=(const CustomEmoji &other) = default;
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT QStringList aliases() const;
+    [[nodiscard]] QStringList aliases() const;
     void setAliases(const QStringList &aliases);
 
-    Q_REQUIRED_RESULT QString emojiIdentifier() const;
+    [[nodiscard]] QString emojiIdentifier() const;
     void setEmojiIdentifier(const QString &emojiIdentifier);
 
-    Q_REQUIRED_RESULT QString cachedHtml() const;
+    [[nodiscard]] QString cachedHtml() const;
 
     void clearCachedHtml();
-    Q_REQUIRED_RESULT bool hasEmoji(const QString &identifier) const;
+    [[nodiscard]] bool hasEmoji(const QString &identifier) const;
 
-    Q_REQUIRED_RESULT qint64 updatedAt() const;
+    [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
 
-    Q_REQUIRED_RESULT bool isAnimatedImage() const;
+    [[nodiscard]] bool isAnimatedImage() const;
 
-    Q_REQUIRED_RESULT QString emojiUrl(const QString &serverUrl) const;
-    Q_REQUIRED_RESULT QString emojiFileName() const;
+    [[nodiscard]] QString emojiUrl(const QString &serverUrl) const;
+    [[nodiscard]] QString emojiFileName() const;
 
-    Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
-    Q_REQUIRED_RESULT QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
+    [[nodiscard]] QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
+    [[nodiscard]] QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
 
 private:
     QString mEmojiIdentifier;

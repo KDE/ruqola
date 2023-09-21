@@ -18,7 +18,7 @@ public:
 
     void setFilterString(const QString &string);
 
-    Q_REQUIRED_RESULT bool sortByAutoJoin() const;
+    [[nodiscard]] bool sortByAutoJoin() const;
     void setSortByAutoJoin(bool sortByAutoJoin);
 
 protected:

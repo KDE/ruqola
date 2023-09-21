@@ -17,71 +17,71 @@ class LIBRUQOLACORE_EXPORT RoomInfo
 public:
     RoomInfo();
     ~RoomInfo();
-    Q_REQUIRED_RESULT bool operator==(const RoomInfo &other) const;
+    [[nodiscard]] bool operator==(const RoomInfo &other) const;
     void parseRoomInfo(const QJsonObject &object);
 
-    Q_REQUIRED_RESULT bool defaultRoom() const;
+    [[nodiscard]] bool defaultRoom() const;
     void setDefaultRoom(bool defaultRoom);
 
-    Q_REQUIRED_RESULT int usersCount() const;
+    [[nodiscard]] int usersCount() const;
     void setUsersCount(int usersCount);
 
-    Q_REQUIRED_RESULT int messageCount() const;
+    [[nodiscard]] int messageCount() const;
     void setMessageCount(int messageCount);
 
-    Q_REQUIRED_RESULT QString channelType() const;
+    [[nodiscard]] QString channelType() const;
     void setChannelType(const QString &channelType);
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &identifier);
 
-    Q_REQUIRED_RESULT QString topic() const;
+    [[nodiscard]] QString topic() const;
     void setTopic(const QString &topic);
 
-    Q_REQUIRED_RESULT bool readOnly() const;
+    [[nodiscard]] bool readOnly() const;
     void setReadOnly(bool readOnly);
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
-    Q_REQUIRED_RESULT QStringList users() const;
+    [[nodiscard]] QStringList users() const;
     void setUsers(const QStringList &users);
 
-    Q_REQUIRED_RESULT QString channelTypeStr() const;
+    [[nodiscard]] QString channelTypeStr() const;
 
-    Q_REQUIRED_RESULT QString roomName() const;
+    [[nodiscard]] QString roomName() const;
 
-    Q_REQUIRED_RESULT const TeamInfo &teamInfo() const;
+    [[nodiscard]] const TeamInfo &teamInfo() const;
     void setTeamInfo(const TeamInfo &newTeamInfo);
 
-    Q_REQUIRED_RESULT qint64 lastMessage() const;
+    [[nodiscard]] qint64 lastMessage() const;
     void setLastMessage(qint64 newLastMessage);
 
-    Q_REQUIRED_RESULT QString lastMessageDisplayDateTimeStr() const;
+    [[nodiscard]] QString lastMessageDisplayDateTimeStr() const;
 
-    Q_REQUIRED_RESULT qint64 createdRoom() const;
+    [[nodiscard]] qint64 createdRoom() const;
     void setCreatedRoom(qint64 newCreatedRoom);
 
-    Q_REQUIRED_RESULT QString createdRoomDisplayDateTimeStr() const;
+    [[nodiscard]] QString createdRoomDisplayDateTimeStr() const;
 
-    Q_REQUIRED_RESULT bool featured() const;
+    [[nodiscard]] bool featured() const;
     void setFeatured(bool newFeatured);
 
-    Q_REQUIRED_RESULT const QString &description() const;
+    [[nodiscard]] const QString &description() const;
     void setDescription(const QString &newDescription);
 
-    Q_REQUIRED_RESULT const QString &announcement() const;
+    [[nodiscard]] const QString &announcement() const;
     void setAnnouncement(const QString &newAnnouncement);
 
-    Q_REQUIRED_RESULT const QString &ownerName() const;
+    [[nodiscard]] const QString &ownerName() const;
     void setOwnerName(const QString &newOwnerName);
 
-    Q_REQUIRED_RESULT bool isTeam() const;
+    [[nodiscard]] bool isTeam() const;
 
-    Q_REQUIRED_RESULT QString belongsTo() const;
+    [[nodiscard]] QString belongsTo() const;
     void setBelongsTo(const QString &newBelongsTo);
 
 private:

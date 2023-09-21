@@ -17,14 +17,14 @@ public:
     explicit ChannelAddModeratorJob(QObject *parent = nullptr);
     ~ChannelAddModeratorJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT QString addModeratorUserId() const;
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] QString addModeratorUserId() const;
     void setAddModeratorUserId(const QString &addModeratorUserId);
 
 Q_SIGNALS:

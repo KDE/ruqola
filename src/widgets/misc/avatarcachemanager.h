@@ -22,13 +22,13 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
-    Q_REQUIRED_RESULT QPixmap makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
-    Q_REQUIRED_RESULT QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
+    [[nodiscard]] QPixmap makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
+    [[nodiscard]] QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
 public Q_SLOTS:
     void slotAvatarChanged(const Utils::AvatarInfo &info);
 
 private:
-    Q_REQUIRED_RESULT qreal checkIfNeededToClearCache(const QWidget *widget) const;
+    [[nodiscard]] qreal checkIfNeededToClearCache(const QWidget *widget) const;
 
     // DPR-dependent cache of avatars
     struct AvatarCache {

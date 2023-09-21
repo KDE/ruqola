@@ -21,31 +21,31 @@ public:
         QString roomId;
         QString userId;
         QString expireDateTime;
-        Q_REQUIRED_RESULT bool operator==(const InviteUsersInfo &other) const;
+        [[nodiscard]] bool operator==(const InviteUsersInfo &other) const;
     };
     explicit FindOrCreateInviteJob(QObject *parent = nullptr);
     ~FindOrCreateInviteJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT int maxUses() const;
+    [[nodiscard]] int maxUses() const;
     void setMaxUses(int maxUses);
 
-    Q_REQUIRED_RESULT int numberOfDays() const;
+    [[nodiscard]] int numberOfDays() const;
     void setNumberOfDays(int numberOfDays);
 
-    Q_REQUIRED_RESULT FindOrCreateInviteJob::InviteUsersInfo parseResult(const QJsonObject &replyObject);
+    [[nodiscard]] FindOrCreateInviteJob::InviteUsersInfo parseResult(const QJsonObject &replyObject);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 Q_SIGNALS:
     void findOrCreateInviteDone(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);

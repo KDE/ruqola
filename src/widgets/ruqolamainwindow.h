@@ -43,12 +43,12 @@ public:
     void parseCommandLine(QCommandLineParser *parser);
 
 protected:
-    Q_REQUIRED_RESULT bool queryClose() override;
+    [[nodiscard]] bool queryClose() override;
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateChannels() const;
-    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateDirectMessages() const;
-    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateTeams() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateChannels() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateDirectMessages() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateTeams() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterUserSuccessed();
     LIBRUQOLAWIDGETS_NO_EXPORT void setupActions();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
@@ -102,7 +102,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdministratorServerSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRocketChatInformation();
-    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool hasBannerInfo() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasBannerInfo() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRoomAvatar(bool checked);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowFavoriteRoom(bool checked);

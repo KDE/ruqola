@@ -19,7 +19,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 public:
     explicit RegisterUserWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~RegisterUserWidget() override;
-    Q_REQUIRED_RESULT RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
+    [[nodiscard]] RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 
 Q_SIGNALS:
     void updateOkButton(bool b);

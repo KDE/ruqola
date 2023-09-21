@@ -19,16 +19,16 @@ public:
     explicit GetChannelRolesJob(QObject *parent = nullptr);
     ~GetChannelRolesJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
 protected:
-    Q_REQUIRED_RESULT QString jobName() const override;
+    [[nodiscard]] QString jobName() const override;
 
 Q_SIGNALS:
     void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);

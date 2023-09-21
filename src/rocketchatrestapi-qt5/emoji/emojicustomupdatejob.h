@@ -22,16 +22,16 @@ public:
         QString alias;
         QString name;
         QUrl fileNameUrl;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT const EmojiInfo &emojiInfo() const;
+    [[nodiscard]] const EmojiInfo &emojiInfo() const;
     void setEmojiInfo(const EmojiInfo &newEmojiInfo);
 
 Q_SIGNALS:

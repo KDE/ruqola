@@ -20,21 +20,21 @@ public:
 
     void slotSelectAll(const QModelIndex &index);
 
-    Q_REQUIRED_RESULT const QString &searchText() const;
+    [[nodiscard]] const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
-    Q_REQUIRED_RESULT QString selectedText() const;
+    [[nodiscard]] QString selectedText() const;
 
 protected:
-    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
-    Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 Q_SIGNALS:
     void showMessage(const QModelIndex &index);
     void textToSpeech(const QString &str);
 
 private:
-    Q_REQUIRED_RESULT QString selectedText(const QModelIndex &index);
+    [[nodiscard]] QString selectedText(const QModelIndex &index);
     void slotTextToSpeech(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotClearList();

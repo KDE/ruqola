@@ -17,14 +17,14 @@ public:
     explicit GroupRemoveLeaderJob(QObject *parent = nullptr);
     ~GroupRemoveLeaderJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT QString removeUserId() const;
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] QString removeUserId() const;
     void setRemoveUserId(const QString &removeUserId);
 
 Q_SIGNALS:

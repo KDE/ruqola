@@ -17,15 +17,15 @@ public:
     explicit RemovePersonalAccessTokenJob(QObject *parent = nullptr);
     ~RemovePersonalAccessTokenJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
+    [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT const QString &tokenName() const;
+    [[nodiscard]] const QString &tokenName() const;
     void setTokenName(const QString &newTokenName);
 
 Q_SIGNALS:

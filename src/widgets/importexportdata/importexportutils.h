@@ -16,11 +16,11 @@ struct AccountImportExportInfo {
     QString accountName;
 };
 
-Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString configPath();
-Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString localPath();
-Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString logsPath();
-Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString databasePath();
-Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_TESTS_EXPORT QString cachePath();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString configPath();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString localPath();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString logsPath();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString databasePath();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString cachePath();
 };
 LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t);
 Q_DECLARE_TYPEINFO(ImportExportUtils::AccountImportExportInfo, Q_MOVABLE_TYPE);

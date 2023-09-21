@@ -19,20 +19,20 @@ public:
     explicit RoomFavoriteJob(QObject *parent = nullptr);
     ~RoomFavoriteJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool favorite() const;
+    [[nodiscard]] bool favorite() const;
     void setFavorite(bool favorite);
 
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 Q_SIGNALS:
     void changeFavoriteDone();
 

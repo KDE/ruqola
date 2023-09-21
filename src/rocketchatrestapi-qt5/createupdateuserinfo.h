@@ -34,8 +34,8 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
     bool mSendWelcomeEmail = false;
     bool mSetRandomPassword = false;
     bool mVerified = false;
-    Q_REQUIRED_RESULT bool isValid() const;
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] bool isValid() const;
+    [[nodiscard]] QJsonDocument json() const;
 };
 
 struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateUserInfo : public CreateUpdateUserInfo {

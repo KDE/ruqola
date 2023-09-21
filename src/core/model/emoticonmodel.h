@@ -29,14 +29,14 @@ public:
     explicit EmoticonModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~EmoticonModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    Q_REQUIRED_RESULT QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmoticons() const;
+    [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmoticons() const;
 
     void setUnicodeEmoticons(const QList<TextEmoticonsCore::UnicodeEmoticon> &emoticons);
 
-    Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
+    [[nodiscard]] const QVector<CustomEmoji> &customEmojiList() const;
     void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
 
     void deleteEmojiCustom(const QStringList &lst);
@@ -44,7 +44,7 @@ public:
     void addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList);
 
 private:
-    Q_REQUIRED_RESULT QIcon createCustomIcon(const QString &name) const;
+    [[nodiscard]] QIcon createCustomIcon(const QString &name) const;
     Q_DISABLE_COPY(EmoticonModel)
     QList<TextEmoticonsCore::UnicodeEmoticon> mEmoticons;
     QVector<CustomEmoji> mCustomEmojiList;

@@ -16,24 +16,24 @@ class LIBRUQOLACORE_TESTS_EXPORT Discussions
 public:
     Discussions();
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
+    [[nodiscard]] QVector<Discussion> discussions() const;
     void setDiscussions(const QVector<Discussion> &discussions);
 
     void parseDiscussions(const QJsonObject &array);
 
     void parseMoreDiscussions(const QJsonObject &discussionsObj);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
-    Q_REQUIRED_RESULT int discussionsCount() const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] Discussion at(int index) const;
+    [[nodiscard]] int discussionsCount() const;
     void setDiscussionsCount(int discussionsCount);
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
     void append(const Discussion &discussion);

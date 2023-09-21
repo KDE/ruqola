@@ -32,16 +32,16 @@ public:
     void parseListMessages(const QJsonObject &obj);
     void loadMoreListMessages(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT bool loadMoreListMessagesInProgress() const;
+    [[nodiscard]] bool loadMoreListMessagesInProgress() const;
     void setLoadMoreListMessagesInProgress(bool inProgress);
 
     void setHasFullList(bool state);
-    Q_REQUIRED_RESULT bool hasFullList() const;
+    [[nodiscard]] bool hasFullList() const;
 
-    Q_REQUIRED_RESULT ListMessageType listMessageType() const;
+    [[nodiscard]] ListMessageType listMessageType() const;
     void setListMessageType(ListMessagesModel::ListMessageType listMessageType);
 
 Q_SIGNALS:

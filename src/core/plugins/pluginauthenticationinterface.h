@@ -18,7 +18,7 @@ public:
 
     virtual void login() = 0;
 
-    Q_REQUIRED_RESULT RocketChatAccount *account() const;
+    [[nodiscard]] RocketChatAccount *account() const;
     void setAccount(RocketChatAccount *account);
 
 Q_SIGNALS:

@@ -19,7 +19,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesDialog : public QDialog
 public:
     explicit PruneMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PruneMessagesDialog() override;
-    Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
+    [[nodiscard]] RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
     void setRoomName(const QString &roomName);
 

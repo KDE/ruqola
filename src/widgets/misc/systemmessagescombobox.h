@@ -17,7 +17,7 @@ public:
     explicit SystemMessagesComboBox(QWidget *parent = nullptr);
     ~SystemMessagesComboBox() override;
     void setMessagesSystem(const QStringList &lst);
-    Q_REQUIRED_RESULT QStringList systemMessagesSelected() const;
+    [[nodiscard]] QStringList systemMessagesSelected() const;
 
 Q_SIGNALS:
     void settingsChanged();

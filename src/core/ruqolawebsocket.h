@@ -19,14 +19,14 @@ public:
 
     void openUrl(const QUrl &url) override;
     qint64 sendTextMessage(const QString &message) override;
-    Q_REQUIRED_RESULT bool isValid() const override;
+    [[nodiscard]] bool isValid() const override;
     void flush() override;
     void close() override;
-    Q_REQUIRED_RESULT QAbstractSocket::SocketError error() const override;
-    Q_REQUIRED_RESULT QString errorString() const override;
-    Q_REQUIRED_RESULT QUrl requestUrl() const override;
-    Q_REQUIRED_RESULT QWebSocketProtocol::CloseCode closeCode() const override;
-    Q_REQUIRED_RESULT QString closeReason() const override;
+    [[nodiscard]] QAbstractSocket::SocketError error() const override;
+    [[nodiscard]] QString errorString() const override;
+    [[nodiscard]] QUrl requestUrl() const override;
+    [[nodiscard]] QWebSocketProtocol::CloseCode closeCode() const override;
+    [[nodiscard]] QString closeReason() const override;
     qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
 

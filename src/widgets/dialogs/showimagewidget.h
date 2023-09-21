@@ -33,7 +33,7 @@ public:
     ~ShowImageWidget() override;
 
     void setImageInfo(const ImageInfo &info);
-    Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
+    [[nodiscard]] const ShowImageWidget::ImageInfo &imageInfo() const;
 
     void saveAs();
 
@@ -62,17 +62,17 @@ public:
 
     void clearContents();
 
-    Q_REQUIRED_RESULT qreal minimumZoom() const;
-    Q_REQUIRED_RESULT qreal maximumZoom() const;
+    [[nodiscard]] qreal minimumZoom() const;
+    [[nodiscard]] qreal maximumZoom() const;
 
-    Q_REQUIRED_RESULT qreal zoom() const;
+    [[nodiscard]] qreal zoom() const;
     void setZoom(qreal zoom, QPointF centerPos = {});
 
     void setImageInfo(const ShowImageWidget::ImageInfo &info);
-    Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
+    [[nodiscard]] const ShowImageWidget::ImageInfo &imageInfo() const;
 
     void updatePixmap(const QPixmap &pix, const QString &path);
-    Q_REQUIRED_RESULT QPixmap pixmap() const;
+    [[nodiscard]] QPixmap pixmap() const;
 public Q_SLOTS:
     void zoomIn(QPointF centerPos = {});
     void zoomOut(QPointF centerPos = {});

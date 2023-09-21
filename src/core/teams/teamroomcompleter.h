@@ -14,17 +14,17 @@ class LIBRUQOLACORE_EXPORT TeamRoomCompleter
 {
 public:
     TeamRoomCompleter();
-    Q_REQUIRED_RESULT bool operator==(const TeamRoomCompleter &other) const;
+    [[nodiscard]] bool operator==(const TeamRoomCompleter &other) const;
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QString fname() const;
+    [[nodiscard]] QString fname() const;
     void setFname(const QString &fname);
 
     void parse(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &identifier);
 
 private:

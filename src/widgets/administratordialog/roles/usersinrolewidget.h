@@ -16,10 +16,10 @@ public:
     explicit UsersInRoleWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~UsersInRoleWidget() override;
 
-    Q_REQUIRED_RESULT const QString &roleId() const;
+    [[nodiscard]] const QString &roleId() const;
     void setRoleId(const QString &newRoleId);
 
-    Q_REQUIRED_RESULT const QString &roleName() const;
+    [[nodiscard]] const QString &roleName() const;
     void setRoleName(const QString &newRoleName);
 
 protected:
@@ -38,7 +38,7 @@ private:
     void slotRemoveUser(const QModelIndex &index);
     void slotRemoveUsersFromRoleDone(const QJsonObject &replyObject);
     void slotAddUsersToRoleDone(const QJsonObject &replyObject);
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    [[nodiscard]] QString displayShowMessageInRoom() const;
     QString mRoleId;
     QString mRoleName;
 };

@@ -34,11 +34,11 @@ public:
     explicit AdministratorAddUserWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorAddUserWidget() override;
 
-    Q_REQUIRED_RESULT RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
+    [[nodiscard]] RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
 
     void setUser(const User &user);
 
-    Q_REQUIRED_RESULT RocketChatRestApi::UpdateUserInfo updateInfo() const;
+    [[nodiscard]] RocketChatRestApi::UpdateUserInfo updateInfo() const;
     void setRoleInfo(const QVector<RoleInfo> &info);
 Q_SIGNALS:
     void updateButtonOk(bool b);

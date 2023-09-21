@@ -16,10 +16,10 @@ public:
     explicit FlowLayout(QWidget *parent = nullptr);
     ~FlowLayout() override;
 
-    Q_REQUIRED_RESULT int horizontalSpacing() const;
+    [[nodiscard]] int horizontalSpacing() const;
     void setHorizontalSpacing(int horizontalSpacing);
 
-    Q_REQUIRED_RESULT int verticalSpacing() const;
+    [[nodiscard]] int verticalSpacing() const;
     void setVerticalSpacing(int verticalSpacing);
 
     QSize sizeHint() const override;
@@ -28,11 +28,11 @@ public:
     void addItem(QLayoutItem *item) override;
     QLayoutItem *itemAt(int index) const override;
     QLayoutItem *takeAt(int index) override;
-    Q_REQUIRED_RESULT int count() const override;
+    [[nodiscard]] int count() const override;
 
-    Q_REQUIRED_RESULT Qt::Orientations expandingDirections() const override;
-    Q_REQUIRED_RESULT bool hasHeightForWidth() const override;
-    Q_REQUIRED_RESULT int heightForWidth(int width) const override;
+    [[nodiscard]] Qt::Orientations expandingDirections() const override;
+    [[nodiscard]] bool hasHeightForWidth() const override;
+    [[nodiscard]] int heightForWidth(int width) const override;
 
     void setGeometry(const QRect &rect) override;
 

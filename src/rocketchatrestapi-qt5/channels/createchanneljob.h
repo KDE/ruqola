@@ -19,15 +19,15 @@ public:
     explicit CreateChannelJob(QObject *parent = nullptr);
     ~CreateChannelJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateChannelTeamInfo createChannelInfo() const;
+    [[nodiscard]] CreateChannelTeamInfo createChannelInfo() const;
     void setCreateChannelInfo(const CreateChannelTeamInfo &createChannelInfo);
 
 Q_SIGNALS:
@@ -35,7 +35,7 @@ Q_SIGNALS:
     void addJoinCodeToChannel(const QString &channelId, const QString &password);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(CreateChannelJob)

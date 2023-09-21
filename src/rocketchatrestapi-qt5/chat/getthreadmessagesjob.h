@@ -19,18 +19,18 @@ public:
     explicit GetThreadMessagesJob(QObject *parent = nullptr);
     ~GetThreadMessagesJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString threadMessageId() const;
+    [[nodiscard]] QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 Q_SIGNALS:
     void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
 

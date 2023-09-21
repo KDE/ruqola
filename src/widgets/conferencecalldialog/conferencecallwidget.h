@@ -21,7 +21,7 @@ public:
     explicit ConferenceCallWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceCallWidget() override;
 
-    Q_REQUIRED_RESULT ConferenceCallStart conferenceCallInfo() const;
+    [[nodiscard]] ConferenceCallStart conferenceCallInfo() const;
     void setConferenceCallInfo(const ConferenceCallStart &infoCallStart);
 
 private:

@@ -19,14 +19,14 @@ public:
     explicit PermissionUpdateJob(QObject *parent = nullptr);
     ~PermissionUpdateJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT const QMap<QString, QStringList> &permissions() const;
+    [[nodiscard]] const QMap<QString, QStringList> &permissions() const;
     void setPermissions(const QMap<QString, QStringList> &newPermissions);
 
 Q_SIGNALS:

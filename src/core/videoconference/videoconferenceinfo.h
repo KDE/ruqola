@@ -27,56 +27,56 @@ public:
     ~VideoConferenceInfo();
     void parse(const QJsonObject &content);
 
-    Q_REQUIRED_RESULT QString url() const;
+    [[nodiscard]] QString url() const;
     void setUrl(const QString &newUrl);
 
-    Q_REQUIRED_RESULT int status() const;
+    [[nodiscard]] int status() const;
     void setStatus(int newStatus);
 
-    Q_REQUIRED_RESULT bool ringing() const;
+    [[nodiscard]] bool ringing() const;
     void setRinging(bool newRinging);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT qint64 createdAtDateTime() const;
+    [[nodiscard]] qint64 createdAtDateTime() const;
     void setCreatedAtDateTime(qint64 newCreatedAtDateTime);
 
-    Q_REQUIRED_RESULT qint64 endedAtDateTime() const;
+    [[nodiscard]] qint64 endedAtDateTime() const;
     void setEndedAtDateTime(qint64 newEndedAtDateTime);
 
-    Q_REQUIRED_RESULT VideoConferenceType conferenceType() const;
+    [[nodiscard]] VideoConferenceType conferenceType() const;
     void setConferenceType(VideoConferenceType newConferenceType);
 
-    Q_REQUIRED_RESULT QString providerName() const;
+    [[nodiscard]] QString providerName() const;
     void setProviderName(const QString &newProviderName);
 
-    Q_REQUIRED_RESULT bool operator==(const VideoConferenceInfo &other) const;
+    [[nodiscard]] bool operator==(const VideoConferenceInfo &other) const;
 
-    Q_REQUIRED_RESULT QVector<User> users() const;
+    [[nodiscard]] QVector<User> users() const;
     void setUsers(const QVector<User> &newUsers);
 
-    Q_REQUIRED_RESULT QString statusInformation() const;
+    [[nodiscard]] QString statusInformation() const;
 
-    Q_REQUIRED_RESULT QString messageId() const;
+    [[nodiscard]] QString messageId() const;
     void setMessageId(const QString &newMessageId);
 
-    Q_REQUIRED_RESULT QString blockId() const;
+    [[nodiscard]] QString blockId() const;
     void setBlockId(const QString &newBlockId);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT bool canJoin() const;
+    [[nodiscard]] bool canJoin() const;
 
-    Q_REQUIRED_RESULT QString title() const;
+    [[nodiscard]] QString title() const;
 
     static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
     static VideoConferenceInfo deserialize(const QJsonObject &o);
 
-    Q_REQUIRED_RESULT static QString convertEnumToString(const VideoConferenceInfo &info);
+    [[nodiscard]] static QString convertEnumToString(const VideoConferenceInfo &info);
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
     QString mBlockId;
     QString mUrl;

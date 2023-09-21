@@ -22,13 +22,13 @@ public:
     ManagerDataPaths();
     static ManagerDataPaths *self();
 
-    Q_REQUIRED_RESULT QString path(PathType type, const QString &accountName, const QString &subdirectory = QString()) const;
+    [[nodiscard]] QString path(PathType type, const QString &accountName, const QString &subdirectory = QString()) const;
 
-    Q_REQUIRED_RESULT QString accountConfigFileName(const QString &accountName) const;
-    Q_REQUIRED_RESULT QString accountAvatarConfigPath(const QString &accountName) const;
+    [[nodiscard]] QString accountConfigFileName(const QString &accountName) const;
+    [[nodiscard]] QString accountAvatarConfigPath(const QString &accountName) const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializePaths();
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;
-    Q_REQUIRED_RESULT QString accountConfigPath(const QString &accountName) const;
+    [[nodiscard]] QString accountConfigPath(const QString &accountName) const;
 };

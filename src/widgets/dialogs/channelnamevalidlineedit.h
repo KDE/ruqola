@@ -20,7 +20,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEditValidator : public Q
 public:
     explicit ChannelNameValidLineEditValidator(const QRegularExpression &re, QObject *parent = nullptr);
     ~ChannelNameValidLineEditValidator() override;
-    Q_REQUIRED_RESULT QValidator::State validate(QString &input, int &pos) const override;
+    [[nodiscard]] QValidator::State validate(QString &input, int &pos) const override;
 Q_SIGNALS:
     void textIsValid(bool isValid) const;
 };

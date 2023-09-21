@@ -20,7 +20,7 @@ public:
     ~RolesManager() override;
     void parseRoles(const QJsonObject &obj);
     void updateRoles(const QJsonArray &contents);
-    Q_REQUIRED_RESULT const QVector<RoleInfo> &roleInfo() const;
+    [[nodiscard]] const QVector<RoleInfo> &roleInfo() const;
 
 Q_SIGNALS:
     void rolesChanged();

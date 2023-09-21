@@ -20,13 +20,13 @@ public:
     explicit PermissionsListAllJob(QObject *parent = nullptr);
     ~PermissionsListAllJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT const QDateTime &updatedSince() const;
+    [[nodiscard]] const QDateTime &updatedSince() const;
     void setUpdatedSince(const QDateTime &newUpdatedSince);
 
 Q_SIGNALS:

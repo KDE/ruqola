@@ -24,10 +24,10 @@ public:
     explicit TeamRoomsModel(QObject *parent = nullptr);
     ~TeamRoomsModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    Q_REQUIRED_RESULT QVector<TeamRoom> teamRooms() const;
+    [[nodiscard]] QVector<TeamRoom> teamRooms() const;
     void setTeamRooms(const QVector<TeamRoom> &teamRooms);
 
     void setRoomChanged(const TeamRoom &teamRoom);
@@ -37,7 +37,7 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    Q_REQUIRED_RESULT bool isCheckable() const;
+    [[nodiscard]] bool isCheckable() const;
     void setIsCheckable(bool isCheckable);
 
 private:

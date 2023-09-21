@@ -21,7 +21,7 @@ public:
     explicit PruneMessagesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PruneMessagesWidget() override;
 
-    Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
+    [[nodiscard]] RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 
     void setRoomName(const QString &roomName);
 Q_SIGNALS:

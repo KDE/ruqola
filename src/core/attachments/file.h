@@ -19,43 +19,43 @@ public:
     File(const File &other) = default;
 
     void parseFile(const QJsonObject &json, bool restApi);
-    Q_REQUIRED_RESULT QString fileName() const;
+    [[nodiscard]] QString fileName() const;
     void setFileName(const QString &fileName);
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
-    Q_REQUIRED_RESULT bool operator==(const File &other) const;
+    [[nodiscard]] bool operator==(const File &other) const;
 
     File &operator=(const File &other) = default;
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QString url() const;
+    [[nodiscard]] QString url() const;
     void setUrl(const QString &url);
 
-    Q_REQUIRED_RESULT QString mimeType() const;
+    [[nodiscard]] QString mimeType() const;
     void setMimeType(const QString &mimeType);
 
-    Q_REQUIRED_RESULT qint64 uploadedAt() const;
+    [[nodiscard]] qint64 uploadedAt() const;
     void setUploadedAt(qint64 uploadedAt);
 
-    Q_REQUIRED_RESULT QString fileId() const;
+    [[nodiscard]] QString fileId() const;
     void setFileId(const QString &fileId);
 
-    Q_REQUIRED_RESULT QString rid() const;
+    [[nodiscard]] QString rid() const;
     void setRid(const QString &rid);
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString uploadedDateTimeStr() const;
+    [[nodiscard]] QString uploadedDateTimeStr() const;
 
-    Q_REQUIRED_RESULT bool complete() const;
+    [[nodiscard]] bool complete() const;
     void setComplete(bool complete);
 
-    Q_REQUIRED_RESULT QString typeGroup() const;
+    [[nodiscard]] QString typeGroup() const;
     void setTypeGroup(const QString &typeGroup);
 
 private:

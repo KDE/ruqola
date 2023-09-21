@@ -17,11 +17,11 @@ public:
     struct LIBRUQOLACORE_EXPORT ConfigWithDefaultValue {
         QString url;
         QString defaultUrl;
-        Q_REQUIRED_RESULT bool isEmpty() const
+        [[nodiscard]] bool isEmpty() const
         {
             return url.isEmpty() || defaultUrl.isEmpty();
         }
-        Q_REQUIRED_RESULT bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
+        [[nodiscard]] bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
     };
 
     RuqolaServerConfig();
@@ -62,133 +62,133 @@ public:
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureTypes)
 
-    Q_REQUIRED_RESULT QString uniqueId() const;
+    [[nodiscard]] QString uniqueId() const;
     void setUniqueId(const QString &uniqueId);
 
-    Q_REQUIRED_RESULT QString jitsiMeetUrl() const;
+    [[nodiscard]] QString jitsiMeetUrl() const;
     void setJitsiMeetUrl(const QString &jitsiMeetUrl);
 
-    Q_REQUIRED_RESULT QString jitsiMeetPrefix() const;
+    [[nodiscard]] QString jitsiMeetPrefix() const;
     void setJitsiMeetPrefix(const QString &jitsiMeetPrefix);
 
-    Q_REQUIRED_RESULT QString fileUploadStorageType() const;
+    [[nodiscard]] QString fileUploadStorageType() const;
     void setFileUploadStorageType(const QString &type);
 
     void setBlockEditingMessageInMinutes(int minutes);
-    Q_REQUIRED_RESULT int blockEditingMessageInMinutes() const;
+    [[nodiscard]] int blockEditingMessageInMinutes() const;
 
     void setBlockDeletingMessageInMinutes(int minutes);
-    Q_REQUIRED_RESULT int blockDeletingMessageInMinutes() const;
+    [[nodiscard]] int blockDeletingMessageInMinutes() const;
 
-    Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
+    [[nodiscard]] bool needAdaptNewSubscriptionRC60() const;
 
     void setServerVersion(const QString &version);
-    Q_REQUIRED_RESULT QString serverVersion() const;
+    [[nodiscard]] QString serverVersion() const;
 
     void addOauthService(const QString &service);
 
-    Q_REQUIRED_RESULT AuthenticationManager::OauthTypes serverOauthTypes() const;
+    [[nodiscard]] AuthenticationManager::OauthTypes serverOauthTypes() const;
 
-    Q_REQUIRED_RESULT bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
+    [[nodiscard]] bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
 
-    Q_REQUIRED_RESULT bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
-    Q_REQUIRED_RESULT bool canShowOauthService(AuthenticationManager::OauthType type) const;
+    [[nodiscard]] bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
+    [[nodiscard]] bool canShowOauthService(AuthenticationManager::OauthType type) const;
     void addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type);
-    Q_REQUIRED_RESULT AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
+    [[nodiscard]] AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
 
-    Q_REQUIRED_RESULT QString siteUrl() const;
+    [[nodiscard]] QString siteUrl() const;
     void setSiteUrl(const QString &siteUrl);
 
-    Q_REQUIRED_RESULT QString siteName() const;
+    [[nodiscard]] QString siteName() const;
     void setSiteName(const QString &siteName);
 
-    Q_REQUIRED_RESULT bool hasAtLeastVersion(int major, int minor, int patch) const;
+    [[nodiscard]] bool hasAtLeastVersion(int major, int minor, int patch) const;
 
-    Q_REQUIRED_RESULT QString serverVersionStr() const;
+    [[nodiscard]] QString serverVersionStr() const;
 
-    Q_REQUIRED_RESULT int serverVersionMajor() const;
+    [[nodiscard]] int serverVersionMajor() const;
 
-    Q_REQUIRED_RESULT int serverVersionMinor() const;
+    [[nodiscard]] int serverVersionMinor() const;
 
-    Q_REQUIRED_RESULT int serverVersionPatch() const;
+    [[nodiscard]] int serverVersionPatch() const;
 
-    Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
+    [[nodiscard]] QString autoTranslateGoogleKey() const;
     void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
 
     void parsePublicSettings(const QJsonObject &obj, bool update);
 
-    Q_REQUIRED_RESULT qint64 fileMaxFileSize() const;
+    [[nodiscard]] qint64 fileMaxFileSize() const;
     void setFileMaxFileSize(qint64 fileMaxFileSize);
 
-    Q_REQUIRED_RESULT RuqolaServerConfig::ConfigWithDefaultValue logoUrl() const;
+    [[nodiscard]] RuqolaServerConfig::ConfigWithDefaultValue logoUrl() const;
     void setLogoUrl(const ConfigWithDefaultValue &logoUrl);
 
-    Q_REQUIRED_RESULT RuqolaServerConfig::ConfigWithDefaultValue faviconUrl() const;
+    [[nodiscard]] RuqolaServerConfig::ConfigWithDefaultValue faviconUrl() const;
     void setFaviconUrl(const RuqolaServerConfig::ConfigWithDefaultValue &faviconUrl);
 
     void setAllowRegistrationFrom(const QString &registrationFromValue);
 
-    Q_REQUIRED_RESULT RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
+    [[nodiscard]] RuqolaServerConfig::ServerConfigFeatureTypes serverConfigFeatureTypes() const;
     void setServerConfigFeatureTypes(ServerConfigFeatureTypes serverConfigFeatureTypes);
 
-    Q_REQUIRED_RESULT int loginExpiration() const;
+    [[nodiscard]] int loginExpiration() const;
     void setLoginExpiration(int loginExpiration);
 
     void setUserNameValidation(const QString &str);
-    Q_REQUIRED_RESULT const QString &userNameValidation() const;
+    [[nodiscard]] const QString &userNameValidation() const;
 
     void setChannelNameValidation(const QString &str);
-    Q_REQUIRED_RESULT const QString &channelNameValidation() const;
+    [[nodiscard]] const QString &channelNameValidation() const;
 
-    Q_REQUIRED_RESULT int messageMaximumAllowedSize() const;
+    [[nodiscard]] int messageMaximumAllowedSize() const;
     void setMessageMaximumAllowedSize(int newMessageMaximumAllowedSize);
 
-    Q_REQUIRED_RESULT bool messageAllowConvertLongMessagesToAttachment() const;
+    [[nodiscard]] bool messageAllowConvertLongMessagesToAttachment() const;
     void setMessageAllowConvertLongMessagesToAttachment(bool newMessageAllowConvertLongMessagesToAttachment);
 
     void privateSettingsUpdated(const QJsonArray &replyArray);
 
-    Q_REQUIRED_RESULT bool useRealName() const;
+    [[nodiscard]] bool useRealName() const;
     void setUseRealName(bool newUIUseRealName);
 
-    Q_REQUIRED_RESULT bool hasEnterpriseSupport() const;
+    [[nodiscard]] bool hasEnterpriseSupport() const;
     void setHasEnterpriseSupport(bool newHasEnterpriseSupport);
 
-    Q_REQUIRED_RESULT bool accountsAllowInvisibleStatusOption() const;
+    [[nodiscard]] bool accountsAllowInvisibleStatusOption() const;
     void setAccountsAllowInvisibleStatusOption(bool newAccountsAllowInvisibleStatusOption);
 
-    Q_REQUIRED_RESULT bool userDataDownloadEnabled() const;
+    [[nodiscard]] bool userDataDownloadEnabled() const;
     void setUserDataDownloadEnabled(bool newUserDataDownloadEnabled);
 
-    Q_REQUIRED_RESULT bool deviceManagementEnableLoginEmails() const;
+    [[nodiscard]] bool deviceManagementEnableLoginEmails() const;
     void setDeviceManagementEnableLoginEmails(bool newDeviceManagementEnableLoginEmails);
 
-    Q_REQUIRED_RESULT bool deviceManagementAllowLoginEmailpreference() const;
+    [[nodiscard]] bool deviceManagementAllowLoginEmailpreference() const;
     void setDeviceManagementAllowLoginEmailpreference(bool newDeviceManagementAllowLoginEmailpreference);
 
-    Q_REQUIRED_RESULT int messageGroupingPeriod() const;
+    [[nodiscard]] int messageGroupingPeriod() const;
     void setMessageGroupingPeriod(int newMessageGroupingPeriod);
 
-    Q_REQUIRED_RESULT int directMessageMaximumUser() const;
+    [[nodiscard]] int directMessageMaximumUser() const;
     void setDirectMessageMaximumUser(int newDirectMessageMaximumUser);
 
-    Q_REQUIRED_RESULT int messageQuoteChainLimit() const;
+    [[nodiscard]] int messageQuoteChainLimit() const;
     void setMessageQuoteChainLimit(int newMessageQuoteChainLimit);
 
-    Q_REQUIRED_RESULT bool allowCustomStatusMessage() const;
+    [[nodiscard]] bool allowCustomStatusMessage() const;
     void setAllowCustomStatusMessage(bool newAllowCustomStatusMessage);
 
-    Q_REQUIRED_RESULT QStringList mediaWhiteList() const;
+    [[nodiscard]] QStringList mediaWhiteList() const;
     void setMediaWhiteList(const QStringList &newMediaWhiteList);
 
-    Q_REQUIRED_RESULT QStringList mediaBlackList() const;
+    [[nodiscard]] QStringList mediaBlackList() const;
     void setMediaBlackList(const QStringList &newMediaBlackList);
 
-    Q_REQUIRED_RESULT QByteArray serialize(bool toBinary = true);
+    [[nodiscard]] QByteArray serialize(bool toBinary = true);
 
     void deserialize(const QJsonObject &source);
 
-    Q_REQUIRED_RESULT bool operator==(const RuqolaServerConfig &other) const;
+    [[nodiscard]] bool operator==(const RuqolaServerConfig &other) const;
 
     void loadAccountSettingsFromLocalDataBase(const QByteArray &ba);
 
@@ -197,13 +197,13 @@ private:
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QJsonObject &currentConfObject);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QString &value);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, bool value);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, int value);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, qint64 value);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier,
-                                                                                  const RuqolaServerConfig::ConfigWithDefaultValue &value);
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT static RuqolaServerConfig::ConfigWithDefaultValue parseConfigWithDefaultValue(const QJsonObject &o);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QString &value);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, bool value);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, int value);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, qint64 value);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier,
+                                                                              const RuqolaServerConfig::ConfigWithDefaultValue &value);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static RuqolaServerConfig::ConfigWithDefaultValue parseConfigWithDefaultValue(const QJsonObject &o);
 
     QString mUniqueId;
     QString mJitsiMeetUrl;

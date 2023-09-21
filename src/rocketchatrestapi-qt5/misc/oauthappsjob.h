@@ -19,18 +19,18 @@ public:
     explicit OauthAppsJob(QObject *parent = nullptr);
     ~OauthAppsJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT const QString &appId() const;
+    [[nodiscard]] const QString &appId() const;
     void setAppId(const QString &newAppId);
 
-    Q_REQUIRED_RESULT const QString &clientId() const;
+    [[nodiscard]] const QString &clientId() const;
     void setClientId(const QString &newClientId);
 
 Q_SIGNALS:

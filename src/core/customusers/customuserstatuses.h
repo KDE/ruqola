@@ -18,18 +18,18 @@ public:
     CustomUserStatuses();
     ~CustomUserStatuses();
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT CustomUserStatus at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] CustomUserStatus at(int index) const;
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT QVector<CustomUserStatus> customUserses() const;
+    [[nodiscard]] QVector<CustomUserStatus> customUserses() const;
     void setCustomUserses(const QVector<CustomUserStatus> &customUserses);
 
     void parseCustomUserStatuses(const QJsonObject &customStatusObj);

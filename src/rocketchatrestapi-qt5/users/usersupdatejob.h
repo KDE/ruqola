@@ -19,19 +19,19 @@ public:
     explicit UsersUpdateJob(QObject *parent = nullptr);
     ~UsersUpdateJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT UpdateUserInfo updateInfo() const;
+    [[nodiscard]] UpdateUserInfo updateInfo() const;
     void setUpdateInfo(const UpdateUserInfo &updateInfo);
-    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
+    [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
     void usersUpdateDone(const QJsonObject &obj);

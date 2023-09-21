@@ -19,15 +19,15 @@ public:
     explicit NotificationPreferences(QObject *parent = nullptr);
     ~NotificationPreferences() override;
 
-    Q_REQUIRED_RESULT NotificationPreferenceModel *emailNotificationModel() const;
+    [[nodiscard]] NotificationPreferenceModel *emailNotificationModel() const;
 
-    Q_REQUIRED_RESULT NotificationPreferenceModel *mobileNotificationModel() const;
+    [[nodiscard]] NotificationPreferenceModel *mobileNotificationModel() const;
 
-    Q_REQUIRED_RESULT NotificationPreferenceModel *desktopNotificationModel() const;
+    [[nodiscard]] NotificationPreferenceModel *desktopNotificationModel() const;
 
-    Q_REQUIRED_RESULT NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
+    [[nodiscard]] NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
 
-    Q_REQUIRED_RESULT NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
+    [[nodiscard]] NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
     static NotificationPreferences *self();
 
 private:

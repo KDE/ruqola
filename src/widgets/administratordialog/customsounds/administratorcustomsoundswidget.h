@@ -22,7 +22,7 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    Q_REQUIRED_RESULT QString displayShowMessage() const;
+    [[nodiscard]] QString displayShowMessage() const;
     void slotModifyCustomSound(const QModelIndex &index);
     void slotAddCustomSound();
     void slotRemoveCustomSound(const QModelIndex &index);

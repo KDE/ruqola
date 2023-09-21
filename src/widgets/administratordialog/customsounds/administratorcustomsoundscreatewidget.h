@@ -24,7 +24,7 @@ public:
 
     void setCustomSoundInfo(const CustomSoundInfo &info);
 
-    Q_REQUIRED_RESULT AdministratorCustomSoundsCreateWidget::CustomSoundInfo customSoundInfo() const;
+    [[nodiscard]] AdministratorCustomSoundsCreateWidget::CustomSoundInfo customSoundInfo() const;
 
 private:
     QLineEdit *const mName;

@@ -19,33 +19,33 @@ public:
 
     void parseDeviceInfo(const QJsonObject &object);
 
-    Q_REQUIRED_RESULT bool operator==(const DeviceInfo &other) const;
+    [[nodiscard]] bool operator==(const DeviceInfo &other) const;
 
-    Q_REQUIRED_RESULT const QString &identifier() const;
+    [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
-    Q_REQUIRED_RESULT const QString &host() const;
+    [[nodiscard]] const QString &host() const;
     void setHost(const QString &newHost);
 
-    Q_REQUIRED_RESULT const QString &sessionId() const;
+    [[nodiscard]] const QString &sessionId() const;
     void setSessionId(const QString &newSessionId);
 
-    Q_REQUIRED_RESULT const QString &ip() const;
+    [[nodiscard]] const QString &ip() const;
     void setIp(const QString &newIp);
 
-    Q_REQUIRED_RESULT const QString &userId() const;
+    [[nodiscard]] const QString &userId() const;
     void setUserId(const QString &newUserId);
 
-    Q_REQUIRED_RESULT qint64 loginAt() const;
+    [[nodiscard]] qint64 loginAt() const;
     void setLoginAt(qint64 newLoginAt);
 
-    Q_REQUIRED_RESULT const QString &client() const;
+    [[nodiscard]] const QString &client() const;
     void setClient(const QString &newClient);
 
-    Q_REQUIRED_RESULT const QString &os() const;
+    [[nodiscard]] const QString &os() const;
     void setOs(const QString &newOs);
 
-    Q_REQUIRED_RESULT QString loginAtDisplay() const;
+    [[nodiscard]] QString loginAtDisplay() const;
 
 private:
     QString mIdentifier;

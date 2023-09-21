@@ -14,7 +14,7 @@ class MessageImageDownloadJob : public QObject
     Q_OBJECT
 public:
     struct MessageImageDownloadJobInfo {
-        Q_REQUIRED_RESULT bool canStart() const;
+        [[nodiscard]] bool canStart() const;
         QString bigImagePath;
         bool needToDownloadBigImage = false;
         QWidget *parentWidget = nullptr;
@@ -23,13 +23,13 @@ public:
     explicit MessageImageDownloadJob(QObject *parent = nullptr);
     ~MessageImageDownloadJob() override;
 
-    Q_REQUIRED_RESULT MessageImageDownloadJobInfo info() const;
+    [[nodiscard]] MessageImageDownloadJobInfo info() const;
     void setInfo(const MessageImageDownloadJobInfo &newInfo);
 
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
 
     void start();
 

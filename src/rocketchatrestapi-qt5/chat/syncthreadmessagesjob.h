@@ -19,19 +19,19 @@ public:
     explicit SyncThreadMessagesJob(QObject *parent = nullptr);
     ~SyncThreadMessagesJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString threadMessageId() const;
+    [[nodiscard]] QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
     // TODO use QTime ?
-    Q_REQUIRED_RESULT QString timeStamp() const;
+    [[nodiscard]] QString timeStamp() const;
     void setTimeStamp(const QString &timeStamp);
 
 Q_SIGNALS:

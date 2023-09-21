@@ -19,10 +19,10 @@ public:
     explicit ConferenceDirectCallDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceDirectCallDialog() override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT bool allowRinging() const;
+    [[nodiscard]] bool allowRinging() const;
     void setAllowRinging(bool newAllowRinging);
 
 private:

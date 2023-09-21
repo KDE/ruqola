@@ -19,7 +19,7 @@ public:
     explicit CreateNewServerWidget(QWidget *parent = nullptr);
     ~CreateNewServerWidget() override;
 
-    Q_REQUIRED_RESULT AccountManager::AccountManagerInfo accountInfo();
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo();
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
     void setExistingAccountName(const QStringList &lst);

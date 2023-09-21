@@ -20,20 +20,20 @@ public:
 
     void parsePermissions(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT QStringList roles(const QString &permissionId) const;
-    Q_REQUIRED_RESULT int permissionCount() const;
-    Q_REQUIRED_RESULT bool contains(const QString &permissionId) const;
+    [[nodiscard]] QStringList roles(const QString &permissionId) const;
+    [[nodiscard]] int permissionCount() const;
+    [[nodiscard]] bool contains(const QString &permissionId) const;
 
-    Q_REQUIRED_RESULT bool updatePermission(const QJsonArray &updateArray);
+    [[nodiscard]] bool updatePermission(const QJsonArray &updateArray);
     void parseUpdatePermission(const QJsonArray &removeArray);
 
-    Q_REQUIRED_RESULT const Permission permission(const QString &permissionId) const;
+    [[nodiscard]] const Permission permission(const QString &permissionId) const;
 
     // Only for debugging permissions. (debug mode)
-    Q_REQUIRED_RESULT QVector<Permission> permissions() const;
+    [[nodiscard]] QVector<Permission> permissions() const;
 
 private:
-    Q_REQUIRED_RESULT bool storePermission(const QString &id);
+    [[nodiscard]] bool storePermission(const QString &id);
     void parseRemovePermission(const QJsonArray &removeArray);
     QMap<QString, Permission> mMapPermissions;
 };

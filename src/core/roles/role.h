@@ -15,27 +15,27 @@ class LIBRUQOLACORE_EXPORT Role
 public:
     Role();
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT bool isModerator() const;
+    [[nodiscard]] bool isModerator() const;
     void setIsModerator(bool isModerator);
 
-    Q_REQUIRED_RESULT bool isLeader() const;
+    [[nodiscard]] bool isLeader() const;
     void setIsLeader(bool isLeader);
 
-    Q_REQUIRED_RESULT bool isOwner() const;
+    [[nodiscard]] bool isOwner() const;
     void setIsOwner(bool isOwner);
 
     void parseRole(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT bool operator==(const Role &other) const;
+    [[nodiscard]] bool operator==(const Role &other) const;
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
     void updateRole(const QString &str, bool b);
-    Q_REQUIRED_RESULT bool hasARole() const;
+    [[nodiscard]] bool hasARole() const;
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);
 
 private:

@@ -17,27 +17,27 @@ public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT SetAvatarInfo {
         QString mAvatarUrl;
         QUrl mImageUrl;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
 
     explicit SetAvatarJob(QObject *parent = nullptr);
     ~SetAvatarJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT SetAvatarInfo avatarInfo() const;
+    [[nodiscard]] SetAvatarInfo avatarInfo() const;
     void setAvatarInfo(const SetAvatarInfo &avatarInfo);
 
 Q_SIGNALS:
     void setAvatarDone();
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(SetAvatarJob)

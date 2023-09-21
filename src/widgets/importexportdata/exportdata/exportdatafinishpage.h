@@ -20,10 +20,10 @@ public:
     void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
     void exportAccounts();
 
-    Q_REQUIRED_RESULT bool isComplete() const override;
+    [[nodiscard]] bool isComplete() const override;
 
 private:
-    Q_REQUIRED_RESULT QString generateExportZipFileName() const;
+    [[nodiscard]] QString generateExportZipFileName() const;
     void slotExportDone();
     void slotExportFailed(const QString &msg);
     void slotExportInfo(const QString &msg);

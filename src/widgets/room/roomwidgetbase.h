@@ -27,13 +27,13 @@ public:
     explicit RoomWidgetBase(MessageListView::Mode mode, QWidget *parent = nullptr);
     ~RoomWidgetBase() override;
 
-    Q_REQUIRED_RESULT MessageListView *messageListView() const;
+    [[nodiscard]] MessageListView *messageListView() const;
 
-    Q_REQUIRED_RESULT MessageLineWidget *messageLineWidget() const;
+    [[nodiscard]] MessageLineWidget *messageLineWidget() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
     void updateListView();

@@ -16,16 +16,16 @@ class LIBRUQOLACORE_EXPORT Permissions
 public:
     Permissions();
 
-    Q_REQUIRED_RESULT QVector<Permission> permissions() const;
+    [[nodiscard]] QVector<Permission> permissions() const;
     void setPermissions(const QVector<Permission> &permissions);
 
     void parsePermissions(const QJsonObject &obj, const QString &str = {}, const QVector<RoleInfo> &roleInfo = {});
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
     void clear();
 
-    Q_REQUIRED_RESULT Permission at(int index) const;
+    [[nodiscard]] Permission at(int index) const;
 
 private:
     QVector<Permission> mPermissions;

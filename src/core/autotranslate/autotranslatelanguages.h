@@ -16,13 +16,13 @@ class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguages
 public:
     AutotranslateLanguages();
 
-    Q_REQUIRED_RESULT QVector<AutotranslateLanguage> autotranslateLanguage() const;
+    [[nodiscard]] QVector<AutotranslateLanguage> autotranslateLanguage() const;
     void setAutotranslateLanguages(const QVector<AutotranslateLanguage> &autotranslateLanguage);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] int count() const;
     void clear();
-    Q_REQUIRED_RESULT AutotranslateLanguage at(int index) const;
+    [[nodiscard]] AutotranslateLanguage at(int index) const;
 
     void parseLanguages(const QJsonObject &obj);
 

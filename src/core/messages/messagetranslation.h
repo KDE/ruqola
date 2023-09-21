@@ -14,17 +14,17 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageTranslation
 public:
     MessageTranslation();
     void parse(const QJsonObject &o);
-    Q_REQUIRED_RESULT bool operator==(const MessageTranslation &other) const;
+    [[nodiscard]] bool operator==(const MessageTranslation &other) const;
 
-    Q_REQUIRED_RESULT QMap<QString, QString> translatedString() const;
+    [[nodiscard]] QMap<QString, QString> translatedString() const;
     void setTranslatedString(const QMap<QString, QString> &translatedString);
 
-    Q_REQUIRED_RESULT QString translatedStringFromLanguage(const QString &lang);
+    [[nodiscard]] QString translatedStringFromLanguage(const QString &lang);
 
     static QJsonArray serialize(const MessageTranslation &translation);
     static MessageTranslation deserialize(const QJsonArray &o);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
 private:
     QMap<QString, QString> mTranslatedString;

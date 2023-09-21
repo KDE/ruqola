@@ -27,7 +27,7 @@ public:
     explicit ChannelInfoEditableWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoEditableWidget() override;
     void setRoom(Room *room);
-    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
+    [[nodiscard]] RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
     void updateEditableChannelInfo();
     void connectEditableWidget();
@@ -44,7 +44,7 @@ private:
     void slotTeamListRoomsDone(const QJsonObject &obj);
     void selectRoomToDelete(const QString &teamId);
     void deleteTeam(const QString &teamId, const QStringList &roomdId);
-    Q_REQUIRED_RESULT bool hasRetentionPermission() const;
+    [[nodiscard]] bool hasRetentionPermission() const;
     QPointer<Room> mRoom;
 
     QLineEdit *const mName;

@@ -20,17 +20,17 @@ public:
     };
     Users();
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT User at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] User at(int index) const;
 
-    Q_REQUIRED_RESULT User &operator[](int i);
+    [[nodiscard]] User &operator[](int i);
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
     User takeAt(int index);
@@ -38,10 +38,10 @@ public:
     void parseUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
     void parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
 
-    Q_REQUIRED_RESULT QVector<User> users() const;
+    [[nodiscard]] QVector<User> users() const;
     void setUsers(const QVector<User> &rooms);
 
-    Q_REQUIRED_RESULT int usersCount() const;
+    [[nodiscard]] int usersCount() const;
     void setUsersCount(int adminroomsCount);
 
     void insertUser(int index, const User &user);

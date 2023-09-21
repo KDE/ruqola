@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_EXPORT ReportMessageDialog : public QDialog
 public:
     explicit ReportMessageDialog(QWidget *parent = nullptr);
     ~ReportMessageDialog() override;
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QString message() const;
     void setPreviewMessage(const QString &msg);
 
 private:

@@ -23,9 +23,9 @@ public:
             Unchecked = 2,
         };
 
-        Q_REQUIRED_RESULT bool isValid() const;
-        Q_REQUIRED_RESULT static bool convertToBool(State state);
-        Q_REQUIRED_RESULT static State convertToState(bool checked);
+        [[nodiscard]] bool isValid() const;
+        [[nodiscard]] static bool convertToBool(State state);
+        [[nodiscard]] static State convertToState(bool checked);
         QString userId;
         QString newRoomNotification;
         QString newMessageNotification;
@@ -48,21 +48,21 @@ public:
     explicit UsersSetPreferencesJob(QObject *parent = nullptr);
     ~UsersSetPreferencesJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT UsersSetPreferencesInfo usersSetPreferencesInfo() const;
+    [[nodiscard]] UsersSetPreferencesInfo usersSetPreferencesInfo() const;
     void setUsersSetPreferencesInfo(const UsersSetPreferencesInfo &usersSetPreferencesInfo);
 
 Q_SIGNALS:
     void usersSetPreferencesDone(const QJsonObject &replyObject);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(UsersSetPreferencesJob)

@@ -16,24 +16,24 @@ public:
     explicit DeleteMessageJob(QObject *parent = nullptr);
     ~DeleteMessageJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString messageId() const;
+    [[nodiscard]] QString messageId() const;
     void setMessageId(const QString &msgId);
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 Q_SIGNALS:
     void deleteMessageDone();
 
 protected:
-    Q_REQUIRED_RESULT QString jobName() const override;
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString jobName() const override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(DeleteMessageJob)

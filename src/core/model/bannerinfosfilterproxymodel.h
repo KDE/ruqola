@@ -17,7 +17,7 @@ public:
     explicit BannerInfosFilterProxyModel(QObject *parent = nullptr);
     ~BannerInfosFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT bool showUnread() const;
+    [[nodiscard]] bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
 protected:

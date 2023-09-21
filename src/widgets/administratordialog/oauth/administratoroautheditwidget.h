@@ -24,12 +24,12 @@ public:
         QString authorizationUrl;
         QString accessTokenUrl;
         bool active = false;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
     explicit AdministratorOauthEditWidget(QWidget *parent = nullptr);
     ~AdministratorOauthEditWidget() override;
 
-    Q_REQUIRED_RESULT OauthEditInfo oauthInfo() const;
+    [[nodiscard]] OauthEditInfo oauthInfo() const;
     void setOauthInfo(const OauthEditInfo &info);
 Q_SIGNALS:
     void enableOkButton(bool enabled);

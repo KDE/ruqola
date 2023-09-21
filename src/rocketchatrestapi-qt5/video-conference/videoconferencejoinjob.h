@@ -20,19 +20,19 @@ public:
         QString callId;
         bool useMicro = false;
         bool useCamera = false;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
     explicit VideoConferenceJoinJob(QObject *parent = nullptr);
     ~VideoConferenceJoinJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT VideoConferenceJoinInfo info() const;
+    [[nodiscard]] VideoConferenceJoinInfo info() const;
     void setInfo(const VideoConferenceJoinInfo &newInfo);
 
 Q_SIGNALS:

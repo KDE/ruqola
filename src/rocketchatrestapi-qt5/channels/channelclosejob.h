@@ -24,15 +24,15 @@ public:
     explicit ChannelCloseJob(QObject *parent = nullptr);
     ~ChannelCloseJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT ChannelType channelType() const;
+    [[nodiscard]] ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType channelType);
 
 Q_SIGNALS:

@@ -16,7 +16,7 @@ public:
     explicit RemoveAccountDialog(QWidget *parent = nullptr);
     ~RemoveAccountDialog() override;
 
-    Q_REQUIRED_RESULT bool removeLogs() const;
+    [[nodiscard]] bool removeLogs() const;
 
     void setAccountName(const QString &accountName);
 

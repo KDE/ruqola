@@ -18,17 +18,17 @@ public:
     explicit ServerInfoJob(QObject *parent = nullptr);
     ~ServerInfoJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool useDeprecatedVersion() const;
+    [[nodiscard]] bool useDeprecatedVersion() const;
 
     void setUseDeprecatedVersion(bool useDeprecatedVersion);
 
-    Q_REQUIRED_RESULT bool forceRequiresAuthentication() const;
+    [[nodiscard]] bool forceRequiresAuthentication() const;
     void setForceRequiresAuthentication(bool forceRequiresAuthentication);
 
 Q_SIGNALS:

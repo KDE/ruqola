@@ -16,7 +16,7 @@ public:
     explicit ConfirmPasswordWidget(QWidget *parent = nullptr);
     ~ConfirmPasswordWidget() override;
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
 
 Q_SIGNALS:
     void enabledOkButton(bool enabled);

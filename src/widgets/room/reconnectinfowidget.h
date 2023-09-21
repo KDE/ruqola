@@ -16,7 +16,7 @@ public:
     explicit ReconnectInfoWidget(QWidget *parent = nullptr);
     ~ReconnectInfoWidget() override;
 
-    Q_REQUIRED_RESULT int reconnectSecondDelay() const;
+    [[nodiscard]] int reconnectSecondDelay() const;
     void setReconnectSecondDelay(int newReconnectDelay);
 
 Q_SIGNALS:

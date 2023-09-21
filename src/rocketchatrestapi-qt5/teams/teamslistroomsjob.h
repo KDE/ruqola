@@ -19,22 +19,22 @@ public:
     explicit TeamsListRoomsJob(QObject *parent = nullptr);
     ~TeamsListRoomsJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString teamId() const;
+    [[nodiscard]] QString teamId() const;
     void setTeamId(const QString &teamId);
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
 Q_SIGNALS:
     void teamListRoomsDone(const QJsonObject &obj);
 
 protected:
-    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
+    [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
 
 private:
     Q_DISABLE_COPY(TeamsListRoomsJob)

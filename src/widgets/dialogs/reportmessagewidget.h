@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_EXPORT ReportMessageWidget : public QWidget
 public:
     explicit ReportMessageWidget(QWidget *parent = nullptr);
     ~ReportMessageWidget() override;
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QString message() const;
 
     void setPreviewMessage(const QString &msg);
 Q_SIGNALS:

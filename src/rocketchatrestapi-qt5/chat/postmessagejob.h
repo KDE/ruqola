@@ -17,24 +17,24 @@ public:
     explicit PostMessageJob(QObject *parent = nullptr);
     ~PostMessageJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString text() const;
+    [[nodiscard]] QString text() const;
     void setText(const QString &text);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
 Q_SIGNALS:
     void postMessageDone(const QJsonObject &replyObject);
 
 protected:
-    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
+    [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
 
 private:
     Q_DISABLE_COPY(PostMessageJob)

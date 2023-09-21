@@ -21,7 +21,7 @@ public:
     void setAccountNameFilter(const QString &newAccountNameFilter);
 
 protected:
-    Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     QString mFilterString;

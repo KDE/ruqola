@@ -17,10 +17,10 @@ public:
     explicit ModifyStatusDialog(QWidget *parent = nullptr);
     ~ModifyStatusDialog() override;
 
-    Q_REQUIRED_RESULT User::PresenceStatus status() const;
+    [[nodiscard]] User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);
 
-    Q_REQUIRED_RESULT QString messageStatus() const;
+    [[nodiscard]] QString messageStatus() const;
     void setMessageStatus(const QString &statusStr);
 
 private:

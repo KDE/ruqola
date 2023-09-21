@@ -26,8 +26,8 @@ public:
     explicit InputCompleterModel(QObject *parent = nullptr);
     ~InputCompleterModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void setChannels(const QVector<Channel> &channels);
 
@@ -39,8 +39,8 @@ public:
 
 private:
     Q_DISABLE_COPY(InputCompleterModel)
-    Q_REQUIRED_RESULT QIcon channelIconName(const Channel &channel) const;
-    Q_REQUIRED_RESULT QString completerName(const Channel &channel) const;
-    Q_REQUIRED_RESULT QString channelName(const Channel &channel) const;
+    [[nodiscard]] QIcon channelIconName(const Channel &channel) const;
+    [[nodiscard]] QString completerName(const Channel &channel) const;
+    [[nodiscard]] QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };

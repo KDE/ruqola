@@ -18,15 +18,15 @@ public:
     explicit DownloadAppsLanguagesManager(QObject *parent = nullptr);
     ~DownloadAppsLanguagesManager() override;
 
-    Q_REQUIRED_RESULT QString translatedString(const QString &language, const QString &id);
+    [[nodiscard]] QString translatedString(const QString &language, const QString &id);
     void parse(const QString &serverUrl);
 
-    Q_REQUIRED_RESULT bool fileParsed() const;
+    [[nodiscard]] bool fileParsed() const;
 
-    Q_REQUIRED_RESULT QString accountName() const;
+    [[nodiscard]] QString accountName() const;
     void setAccountName(const QString &accountName);
 
-    Q_REQUIRED_RESULT QString serverVersion() const;
+    [[nodiscard]] QString serverVersion() const;
     void setServerVersion(const QString &serverVersion);
 
 Q_SIGNALS:
@@ -34,7 +34,7 @@ Q_SIGNALS:
     void fileLanguagesParseFailed();
 
 private:
-    Q_REQUIRED_RESULT QString storedFileName() const;
+    [[nodiscard]] QString storedFileName() const;
     void slotFileDownloaded(const QByteArray &data);
     void parseLanguageFile();
     QString mAccountName;

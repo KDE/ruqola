@@ -20,24 +20,24 @@ public:
 
     enum MarkAsUnReadObject { Unknown = 0, FromMessage, Room };
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT MarkAsUnReadObject unReadObject() const;
+    [[nodiscard]] MarkAsUnReadObject unReadObject() const;
     void setUnReadObject(MarkAsUnReadObject type);
 
-    Q_REQUIRED_RESULT QString objectId() const;
+    [[nodiscard]] QString objectId() const;
     void setObjectId(const QString &objectId);
 
 Q_SIGNALS:
     void markAsUnReadDone();
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(MarkRoomAsUnReadJob)

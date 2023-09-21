@@ -18,7 +18,7 @@ public:
     explicit UploadFileManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~UploadFileManager() override;
 
-    Q_REQUIRED_RESULT int addUpload(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
+    [[nodiscard]] int addUpload(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
 
     void cancelJob(int identifier);
 Q_SIGNALS:

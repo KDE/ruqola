@@ -19,7 +19,7 @@ public:
 
     void setTeamRooms(const QVector<TeamRoom> &rooms);
 
-    Q_REQUIRED_RESULT QStringList roomsId() const;
+    [[nodiscard]] QStringList roomsId() const;
 
 private:
     void readConfig();

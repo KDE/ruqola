@@ -30,7 +30,7 @@ private:
     void updateLabel();
     void slotTextChanged(const QString &str);
     void slotCustomContextMenuRequested(const QPoint &pos);
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    [[nodiscard]] QString displayShowMessageInRoom() const;
     void loadMoreUsers();
     void slotChangeStatusType(int index);
     void slotShowUserInfo(const QModelIndex &index);

@@ -19,7 +19,7 @@ public:
     explicit UnicodeEmoticonInfo(QWidget *parent = nullptr);
     ~UnicodeEmoticonInfo() override;
 
-    Q_REQUIRED_RESULT TextEmoticonsCore::UnicodeEmoticon info() const;
+    [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon info() const;
     void setInfo(const TextEmoticonsCore::UnicodeEmoticon &info);
 
 private:
@@ -36,7 +36,7 @@ class UnicodeEmoticonListWidgetItem : public QListWidgetItem
 public:
     explicit UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent);
 
-    Q_REQUIRED_RESULT TextEmoticonsCore::UnicodeEmoticon info() const;
+    [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon info() const;
     void setInfo(const TextEmoticonsCore::UnicodeEmoticon &info);
 
 private:

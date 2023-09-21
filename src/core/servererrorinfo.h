@@ -16,18 +16,18 @@ public:
     ServerErrorInfo();
     ~ServerErrorInfo();
 
-    Q_REQUIRED_RESULT QString accountName() const;
+    [[nodiscard]] QString accountName() const;
     void setAccountName(const QString &newAccountName);
 
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QString message() const;
     void setMessage(const QString &newMessage);
 
-    Q_REQUIRED_RESULT QDateTime dateTime() const;
+    [[nodiscard]] QDateTime dateTime() const;
     void setDateTime(const QDateTime &newDateTime);
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
 
-    Q_REQUIRED_RESULT QString dateTimeStr() const;
+    [[nodiscard]] QString dateTimeStr() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void createUniqueIdentifier();

@@ -17,15 +17,15 @@ public:
     ~BannerInfoListView() override;
 
 protected:
-    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
-    Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotSelectAll(const QModelIndex &index);
     void copyMessageToClipboard(const QModelIndex &index);
-    Q_REQUIRED_RESULT QString selectedText(const QModelIndex &index);
-    Q_REQUIRED_RESULT QString selectedText() const;
+    [[nodiscard]] QString selectedText(const QModelIndex &index);
+    [[nodiscard]] QString selectedText() const;
     BannerInfoListViewDelegate *const mBannerInfoListViewDelegate;
     RocketChatAccount *const mRocketChatAccount;
 };

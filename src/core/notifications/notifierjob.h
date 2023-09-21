@@ -19,7 +19,7 @@ public:
 
     void start();
 
-    Q_REQUIRED_RESULT NotificationInfo info() const;
+    [[nodiscard]] NotificationInfo info() const;
     void setInfo(const NotificationInfo &info);
 
 Q_SIGNALS:

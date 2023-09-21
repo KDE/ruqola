@@ -25,7 +25,7 @@ public:
     explicit AdministratorOauthCreateWidget(QWidget *parent = nullptr);
     ~AdministratorOauthCreateWidget() override;
 
-    Q_REQUIRED_RESULT OauthCreateInfo oauthInfo() const;
+    [[nodiscard]] OauthCreateInfo oauthInfo() const;
     void setOauthInfo(const OauthCreateInfo &info);
 Q_SIGNALS:
     void enableOkButton(bool enabled);

@@ -29,7 +29,7 @@ public:
     ~ShowListMessageBaseWidget() override;
 
     void setModel(ListMessagesModelFilterProxyModel *model);
-    Q_REQUIRED_RESULT MessageListView *messageListView() const;
+    [[nodiscard]] MessageListView *messageListView() const;
 
     void setRoom(Room *room);
 
@@ -40,7 +40,7 @@ private:
     void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
 
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    [[nodiscard]] QString displayShowMessageInRoom() const;
     QLineEdit *const mSearchMessageLineEdit;
     QLabel *const mMessageListInfo;
     MessageListView *const mMessageListView;

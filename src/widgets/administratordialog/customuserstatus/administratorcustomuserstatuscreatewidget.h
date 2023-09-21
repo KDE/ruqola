@@ -19,7 +19,7 @@ public:
     struct UserStatusInfo {
         QString name;
         User::PresenceStatus statusType;
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return !name.isEmpty() && statusType != User::PresenceStatus::Unknown;
         }
@@ -28,7 +28,7 @@ public:
     explicit AdministratorCustomUserStatusCreateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomUserStatusCreateWidget() override;
 
-    Q_REQUIRED_RESULT UserStatusInfo userStatusInfo() const;
+    [[nodiscard]] UserStatusInfo userStatusInfo() const;
     void setUserStatusInfo(const AdministratorCustomUserStatusCreateWidget::UserStatusInfo &info);
 
 Q_SIGNALS:
