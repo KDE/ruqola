@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:45+0000\n"
+"POT-Creation-Date: 2023-09-21 00:44+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -787,7 +787,7 @@ msgstr "Būsenos tekstas:"
 msgid "link"
 msgstr "Kopijuoti nuorodą"
 
-#: core/model/deviceinfomodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -795,27 +795,27 @@ msgstr "Kopijuoti nuorodą"
 msgid "Host"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login At"
@@ -850,7 +850,7 @@ msgid "Belongs To"
 msgstr ""
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
-#: widgets/administratordialog/administratorwidget.cpp:51
+#: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:20
@@ -984,7 +984,7 @@ msgid "Mentions"
 msgstr ""
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
-#: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Hide Room"
@@ -2298,7 +2298,7 @@ msgctxt "@title:window"
 msgid "Administrator"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:48
+#: widgets/administratordialog/administratorwidget.cpp:50
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:313
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -2306,24 +2306,24 @@ msgstr ""
 msgid "Server Info"
 msgstr "Informacija apie serverį"
 
-#: widgets/administratordialog/administratorwidget.cpp:54
+#: widgets/administratordialog/administratorwidget.cpp:56
 #, kde-format
 msgid "Custom User Status"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/administratorwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Custom Sounds"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/administratordialog/administratorwidget.cpp:60
+#: widgets/administratordialog/administratorwidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Custom Emojis"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/administratordialog/administratorwidget.cpp:63
+#: widgets/administratordialog/administratorwidget.cpp:65
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #: widgets/directory/directorytabwidget.cpp:21
 #, fuzzy, kde-format
@@ -2331,26 +2331,31 @@ msgstr "Tinkinta naudotojo būsena"
 msgid "Users"
 msgstr "Naudotojai:"
 
-#: widgets/administratordialog/administratorwidget.cpp:66
+#: widgets/administratordialog/administratorwidget.cpp:68
 #, kde-format
 msgid "Invites"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/administratorwidget.cpp:71
 #, kde-format
 msgid "View Log"
 msgstr ""
 
-#: widgets/administratordialog/administratorwidget.cpp:72
+#: widgets/administratordialog/administratorwidget.cpp:74
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Permissions"
 msgstr "Serverio versija:"
 
-#: widgets/administratordialog/administratorwidget.cpp:78
+#: widgets/administratordialog/administratorwidget.cpp:80
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
 #, kde-format
 msgid "Oauth"
+msgstr ""
+
+#: widgets/administratordialog/administratorwidget.cpp:83
+#, kde-format
+msgid "Moderation Console"
 msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
@@ -2596,6 +2601,34 @@ msgstr ""
 #| msgid "Save File"
 msgid "Save File Error"
 msgstr "Įrašyti failą"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search moderation message..."
+msgstr "Ieškoti žinučių..."
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "No Messages found"
+msgid "No moderation message found"
+msgstr "Nerasta jokių žinučių"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#, kde-format
+msgid "%1 moderation message (Total: %2)"
+msgid_plural "%1 moderation messages (Total: %2)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, fuzzy, kde-format
+#| msgid "Add Users"
+msgid "Disconnect"
+msgstr "Pridėti naudotojus"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -7614,12 +7647,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
-
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Add Users"
-msgid "Disconnect"
-msgstr "Pridėti naudotojus"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, fuzzy, kde-format

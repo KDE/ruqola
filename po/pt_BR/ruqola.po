@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:45+0000\n"
+"POT-Creation-Date: 2023-09-21 00:44+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -758,7 +758,7 @@ msgstr "Status"
 msgid "link"
 msgstr "link"
 
-#: core/model/deviceinfomodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -766,27 +766,27 @@ msgstr "link"
 msgid "Host"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr "SO"
 
-#: core/model/deviceinfomodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr "Cliente"
 
-#: core/model/deviceinfomodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr "ID da sessão"
 
-#: core/model/deviceinfomodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr "IP"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Join At"
 msgid "Login At"
@@ -818,7 +818,7 @@ msgid "Belongs To"
 msgstr ""
 
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
-#: widgets/administratordialog/administratorwidget.cpp:51
+#: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:20
@@ -948,7 +948,7 @@ msgid "Mentions"
 msgstr "Menções"
 
 #: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
-#: widgets/administratordialog/administratorwidget.cpp:75
+#: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
 msgid "Roles"
@@ -2261,54 +2261,60 @@ msgctxt "@title:window"
 msgid "Administrator"
 msgstr "Administrador"
 
-#: widgets/administratordialog/administratorwidget.cpp:48
+#: widgets/administratordialog/administratorwidget.cpp:50
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:313
 #, kde-format
 msgid "Server Info"
 msgstr "Informação do servidor"
 
-#: widgets/administratordialog/administratorwidget.cpp:54
+#: widgets/administratordialog/administratorwidget.cpp:56
 #, kde-format
 msgid "Custom User Status"
 msgstr "Status do usuário personalizado"
 
-#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/administratorwidget.cpp:59
 #, kde-format
 msgid "Custom Sounds"
 msgstr "Sons personalizados"
 
-#: widgets/administratordialog/administratorwidget.cpp:60
+#: widgets/administratordialog/administratorwidget.cpp:62
 #, kde-format
 msgid "Custom Emojis"
 msgstr "Emojis personalizados"
 
-#: widgets/administratordialog/administratorwidget.cpp:63
+#: widgets/administratordialog/administratorwidget.cpp:65
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Usuários"
 
-#: widgets/administratordialog/administratorwidget.cpp:66
+#: widgets/administratordialog/administratorwidget.cpp:68
 #, kde-format
 msgid "Invites"
 msgstr "Convites"
 
-#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/administratorwidget.cpp:71
 #, kde-format
 msgid "View Log"
 msgstr "Visualizar log"
 
-#: widgets/administratordialog/administratorwidget.cpp:72
+#: widgets/administratordialog/administratorwidget.cpp:74
 #, kde-format
 msgid "Permissions"
 msgstr "Permissões"
 
-#: widgets/administratordialog/administratorwidget.cpp:78
+#: widgets/administratordialog/administratorwidget.cpp:80
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
 #, kde-format
 msgid "Oauth"
 msgstr "Oauth"
+
+#: widgets/administratordialog/administratorwidget.cpp:83
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgid "Moderation Console"
+msgstr "Menções"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
@@ -2534,6 +2540,34 @@ msgstr ""
 #| msgid "Save File"
 msgid "Save File Error"
 msgstr "Salvar arquivo"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search moderation message..."
+msgstr "Pesquisar mensagens..."
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "No Message found"
+msgid "No moderation message found"
+msgstr "Nenhuma mensagem encontrada"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#, fuzzy, kde-format
+#| msgid "%1 user (Total: %2)"
+#| msgid_plural "%1 users (Total: %2)"
+msgid "%1 moderation message (Total: %2)"
+msgid_plural "%1 moderation messages (Total: %2)"
+msgstr[0] "%1 usuário (total: %2)"
+msgstr[1] "%1 usuários (total: %2)"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, fuzzy, kde-format
+#| msgid "Disconnected"
+msgid "Disconnect"
+msgstr "Desconectado"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -7528,12 +7562,6 @@ msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 usuário (total: %2)"
 msgstr[1] "%1 usuários (total: %2)"
-
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Disconnected"
-msgid "Disconnect"
-msgstr "Desconectado"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, fuzzy, kde-format
