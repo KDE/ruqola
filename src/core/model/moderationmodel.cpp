@@ -33,11 +33,15 @@ QVariant ModerationModel::headerData(int section, Qt::Orientation orientation, i
         case ModerationInfoRoles::UserDeleted:
             return {};
         case ModerationInfoRoles::Message:
-            return i18n("Message");
+            return i18n("Reported message");
         case ModerationInfoRoles::UserName:
-            return i18n("UserName");
-        case ModerationInfoRoles::Count:
-            return i18n("Count");
+            return i18n("Username");
+        case ModerationInfoRoles::Reports:
+            return i18n("Reports");
+        case ModerationInfoRoles::ReportDate:
+            return i18n("Report date");
+        case ModerationInfoRoles::RoomName:
+            return i18n("Room");
         }
     }
     return {};
@@ -71,10 +75,14 @@ QVariant ModerationModel::data(const QModelIndex &index, int role) const
         return moderationInfo.userName();
     case ModerationInfoRoles::MessageId:
         return moderationInfo.msgId();
-    case ModerationInfoRoles::Count:
+    case ModerationInfoRoles::Reports:
         return moderationInfo.count();
     case ModerationInfoRoles::UserDeleted:
         return moderationInfo.isUserDeleted();
+    case ModerationInfoRoles::ReportDate:
+        return {}; // TODO
+    case ModerationInfoRoles::RoomName:
+        return {}; // TODO
     }
     return {};
 }

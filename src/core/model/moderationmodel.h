@@ -15,10 +15,12 @@ class LIBRUQOLACORE_EXPORT ModerationModel : public CustomBaseModel
     Q_OBJECT
 public:
     enum ModerationInfoRoles {
-        Count,
         Name,
         UserName,
         Message,
+        RoomName,
+        ReportDate,
+        Reports,
         UserDeleted,
         UserId,
         MessageId,
