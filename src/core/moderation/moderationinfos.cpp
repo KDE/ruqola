@@ -15,9 +15,9 @@ QDebug operator<<(QDebug d, const ModerationInfos &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "ModerationInfosCount " << t.ModerationInfosCount() << "\n";
-    for (int i = 0, total = t.ModerationInfosList().count(); i < total; ++i) {
-        d << t.ModerationInfosList().at(i) << "\n";
+    d << "ModerationInfosCount " << t.moderationInfosCount() << "\n";
+    for (int i = 0, total = t.moderationInfosList().count(); i < total; ++i) {
+        d << t.moderationInfosList().at(i) << "\n";
     }
     return d;
 }
@@ -42,7 +42,7 @@ void ModerationInfos::setTotal(int newTotal)
     mTotal = newTotal;
 }
 
-int ModerationInfos::ModerationInfosCount() const
+int ModerationInfos::moderationInfosCount() const
 {
     return mModerationInfosCount;
 }
@@ -52,7 +52,7 @@ void ModerationInfos::setModerationInfosCount(int newModerationInfosCount)
     mModerationInfosCount = newModerationInfosCount;
 }
 
-const QVector<ModerationInfo> &ModerationInfos::ModerationInfosList() const
+const QVector<ModerationInfo> &ModerationInfos::moderationInfosList() const
 {
     return mModerationInfosList;
 }
@@ -86,38 +86,38 @@ ModerationInfo ModerationInfos::at(int index) const
     return mModerationInfosList.at(index);
 }
 
-void ModerationInfos::parseModerationInfos(const QJsonObject &ModerationInfosObj)
+void ModerationInfos::parseModerationInfos(const QJsonObject &moderationInfosObj)
 {
     mModerationInfosList.clear();
-    mModerationInfosCount = ModerationInfosObj[QLatin1String("count")].toInt();
-    mOffset = ModerationInfosObj[QLatin1String("offset")].toInt();
-    mTotal = ModerationInfosObj[QLatin1String("total")].toInt();
+    mModerationInfosCount = moderationInfosObj[QLatin1String("count")].toInt();
+    mOffset = moderationInfosObj[QLatin1String("offset")].toInt();
+    mTotal = moderationInfosObj[QLatin1String("total")].toInt();
     mModerationInfosList.reserve(mModerationInfosCount);
-    parseModerationInfosObj(ModerationInfosObj);
+    parseModerationInfosObj(moderationInfosObj);
 }
 
-void ModerationInfos::parseModerationInfosObj(const QJsonObject &ModerationInfosObj)
+void ModerationInfos::parseModerationInfosObj(const QJsonObject &moderationInfosObj)
 {
-    const QJsonArray discussionsArray = ModerationInfosObj[QLatin1String("sessions")].toArray();
-    for (const QJsonValue &current : discussionsArray) {
+    const QJsonArray moderationsArray = moderationInfosObj[QLatin1String("reports")].toArray();
+    for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject discussionObject = current.toObject();
+            const QJsonObject moderationObject = current.toObject();
             ModerationInfo m;
-            m.parseModerationInfo(discussionObject);
+            m.parseModerationInfo(moderationObject);
             mModerationInfosList.append(std::move(m));
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing moderations" << current;
         }
     }
 }
 
-void ModerationInfos::parseMoreModerationInfos(const QJsonObject &ModerationInfosObj)
+void ModerationInfos::parseMoreModerationInfos(const QJsonObject &moderationInfosObj)
 {
-    const int ModerationInfosCount = ModerationInfosObj[QLatin1String("count")].toInt();
-    mOffset = ModerationInfosObj[QLatin1String("offset")].toInt();
-    mTotal = ModerationInfosObj[QLatin1String("total")].toInt();
-    parseModerationInfosObj(ModerationInfosObj);
-    mModerationInfosCount += ModerationInfosCount;
+    const int moderationInfosCount = moderationInfosObj[QLatin1String("count")].toInt();
+    mOffset = moderationInfosObj[QLatin1String("offset")].toInt();
+    mTotal = moderationInfosObj[QLatin1String("total")].toInt();
+    parseModerationInfosObj(moderationInfosObj);
+    mModerationInfosCount += moderationInfosCount;
 }
 
 ModerationInfo ModerationInfos::takeAt(int index)

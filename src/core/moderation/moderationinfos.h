@@ -26,23 +26,23 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int newTotal);
 
-    Q_REQUIRED_RESULT int ModerationInfosCount() const;
+    Q_REQUIRED_RESULT int moderationInfosCount() const;
     void setModerationInfosCount(int newModerationInfosCount);
 
-    Q_REQUIRED_RESULT const QVector<ModerationInfo> &ModerationInfosList() const;
+    Q_REQUIRED_RESULT const QVector<ModerationInfo> &moderationInfosList() const;
     void setModerationInfosList(const QVector<ModerationInfo> &newModerationInfosList);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT ModerationInfo at(int index) const;
 
-    void parseModerationInfos(const QJsonObject &ModerationInfosObj);
-    void parseMoreModerationInfos(const QJsonObject &ModerationInfosObj);
+    void parseModerationInfos(const QJsonObject &moderationInfosObj);
+    void parseMoreModerationInfos(const QJsonObject &moderationInfosObj);
 
     ModerationInfo takeAt(int index);
 
 private:
-    void parseModerationInfosObj(const QJsonObject &ModerationInfosObj);
+    void parseModerationInfosObj(const QJsonObject &moderationInfosObj);
     QVector<ModerationInfo> mModerationInfosList;
     int mModerationInfosCount = 0;
     int mOffset = 0;
