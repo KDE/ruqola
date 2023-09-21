@@ -6,7 +6,7 @@
 
 #include "administratormoderationrangewidgettest.h"
 #include "administratordialog/moderationconsole/administratormoderationrangewidget.h"
-#include <QDateTimeEdit>
+#include <QDateEdit>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
@@ -32,10 +32,10 @@ void AdministratorModerationRangeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(toLabel);
     QVERIFY(!toLabel->text().isEmpty());
 
-    auto mFromDateTime = w.findChild<QDateTimeEdit *>(QStringLiteral("mFromDateTime"));
-    QVERIFY(mFromDateTime);
-    auto mToDateTime = w.findChild<QDateTimeEdit *>(QStringLiteral("mToDateTime"));
-    QVERIFY(mToDateTime);
+    auto mFromDate = w.findChild<QDateEdit *>(QStringLiteral("mFromDate"));
+    QVERIFY(mFromDate);
+    auto mToDate = w.findChild<QDateEdit *>(QStringLiteral("mToDate"));
+    QVERIFY(mToDate);
 }
 
 #include "moc_administratormoderationrangewidgettest.cpp"

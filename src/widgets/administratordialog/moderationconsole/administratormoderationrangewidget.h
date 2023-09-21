@@ -7,7 +7,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class ModerationConsoleTreeWidget;
-class QDateTimeEdit;
+class QDateEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationRangeWidget : public QWidget
 {
     Q_OBJECT
@@ -16,6 +16,6 @@ public:
     ~AdministratorModerationRangeWidget() override;
 
 private:
-    QDateTimeEdit *const mFromDateTime;
-    QDateTimeEdit *const mToDateTime;
+    QDateEdit *const mFromDate;
+    QDateEdit *const mToDate;
 };

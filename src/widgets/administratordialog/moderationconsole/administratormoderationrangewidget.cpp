@@ -5,20 +5,20 @@
 */
 #include "administratormoderationrangewidget.h"
 #include <KLocalizedString>
-#include <QDateTimeEdit>
+#include <QDateEdit>
 #include <QHBoxLayout>
 #include <QLabel>
 
 AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *parent)
     : QWidget{parent}
-    , mFromDateTime(new QDateTimeEdit(this))
-    , mToDateTime(new QDateTimeEdit(this))
+    , mFromDate(new QDateEdit(this))
+    , mToDate(new QDateEdit(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mFromDateTime->setObjectName(QStringLiteral("mFromDateTime"));
-    mToDateTime->setObjectName(QStringLiteral("mToDateTime"));
+    mFromDate->setObjectName(QStringLiteral("mFromDate"));
+    mToDate->setObjectName(QStringLiteral("mToDate"));
 
     auto fromLabel = new QLabel(i18n("From:"), this);
     fromLabel->setObjectName(QStringLiteral("fromLabel"));
@@ -27,9 +27,9 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     fromLabel->setObjectName(QStringLiteral("toLabel"));
 
     mainLayout->addWidget(fromLabel);
-    mainLayout->addWidget(mFromDateTime);
+    mainLayout->addWidget(mFromDate);
     mainLayout->addWidget(toLabel);
-    mainLayout->addWidget(mToDateTime);
+    mainLayout->addWidget(mToDate);
 }
 
 AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = default;
