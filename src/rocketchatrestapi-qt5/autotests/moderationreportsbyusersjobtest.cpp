@@ -23,6 +23,7 @@ void ModerationReportsByUsersJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
+    QVERIFY(!job.moderationReportsByUsersInfo().isValid());
 }
 
 void ModerationReportsByUsersJobTest::shouldGenerateRequest()
