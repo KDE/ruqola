@@ -22,19 +22,19 @@ public:
     };
     explicit LocalDatabaseBase(const QString &basePath, DatabaseType type);
     virtual ~LocalDatabaseBase();
-    Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
-    Q_REQUIRED_RESULT QString dbFileName(const QString &accountName) const;
+    [[nodiscard]] QString dbFileName(const QString &accountName, const QString &roomName) const;
+    [[nodiscard]] QString dbFileName(const QString &accountName) const;
 
     // Only for test!
-    Q_REQUIRED_RESULT QString schemaDatabaseStr() const;
+    [[nodiscard]] QString schemaDatabaseStr() const;
 
 protected:
-    Q_REQUIRED_RESULT virtual QString schemaDataBase() const;
-    Q_REQUIRED_RESULT bool initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
-    Q_REQUIRED_RESULT bool initializeDataBase(const QString &accountName, QSqlDatabase &db);
-    Q_REQUIRED_RESULT bool checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
-    Q_REQUIRED_RESULT bool checkDataBase(const QString &accountName, QSqlDatabase &db);
-    Q_REQUIRED_RESULT QString databaseName(const QString &name) const;
+    [[nodiscard]] virtual QString schemaDataBase() const;
+    [[nodiscard]] bool initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
+    [[nodiscard]] bool initializeDataBase(const QString &accountName, QSqlDatabase &db);
+    [[nodiscard]] bool checkDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
+    [[nodiscard]] bool checkDataBase(const QString &accountName, QSqlDatabase &db);
+    [[nodiscard]] QString databaseName(const QString &name) const;
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
 };

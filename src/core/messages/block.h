@@ -21,37 +21,37 @@ public:
     Q_ENUM(BlockType)
 
     Block();
-    Q_REQUIRED_RESULT bool operator==(const Block &other) const;
+    [[nodiscard]] bool operator==(const Block &other) const;
 
     static QJsonObject serialize(const Block &block);
     static Block deserialize(const QJsonObject &o);
     void parseBlock(const QJsonObject &block);
 
-    Q_REQUIRED_RESULT QString blockId() const;
+    [[nodiscard]] QString blockId() const;
     void setBlockId(const QString &newBlockId);
 
-    Q_REQUIRED_RESULT QString callId() const;
+    [[nodiscard]] QString callId() const;
     void setCallId(const QString &newCallId);
 
-    Q_REQUIRED_RESULT QString appId() const;
+    [[nodiscard]] QString appId() const;
     void setAppId(const QString &newAppId);
 
-    Q_REQUIRED_RESULT BlockType blockType() const;
+    [[nodiscard]] BlockType blockType() const;
     void setBlockType(BlockType newBlockType);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT QString title() const;
+    [[nodiscard]] QString title() const;
 
-    Q_REQUIRED_RESULT QString blockTypeStr() const;
+    [[nodiscard]] QString blockTypeStr() const;
     void setBlockTypeStr(const QString &newBlockStr);
 
-    Q_REQUIRED_RESULT VideoConferenceInfo videoConferenceInfo() const;
+    [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
     QString mBlockId;
     QString mCallId;
     QString mAppId;

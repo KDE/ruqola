@@ -25,7 +25,7 @@ public:
         QUrl filenameUrl;
         QString fileName;
         bool deleteTemporaryFile = false;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
 
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UploadStatusInfo {
@@ -36,14 +36,14 @@ public:
     explicit UploadFileJob(QObject *parent = nullptr);
     ~UploadFileJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const final;
+    [[nodiscard]] bool requireHttpAuthentication() const final;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT UploadFileInfo uploadFileInfo() const;
+    [[nodiscard]] UploadFileInfo uploadFileInfo() const;
     void setUploadFileInfo(const UploadFileInfo &uploadFileInfo);
 
     void abort();

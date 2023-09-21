@@ -53,5 +53,5 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     int maximumRecursiveQuotedText = -1;
 };
 
-Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId, int &recusiveIndex);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId, int &recusiveIndex);
 }

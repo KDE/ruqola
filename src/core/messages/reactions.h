@@ -16,16 +16,16 @@ public:
     Reactions();
 
     void setReactions(const QVector<Reaction> &reactions);
-    Q_REQUIRED_RESULT QVector<Reaction> reactions() const;
+    [[nodiscard]] QVector<Reaction> reactions() const;
 
     void parseReactions(const QJsonObject &array, EmojiManager *emojiManager = nullptr);
 
-    Q_REQUIRED_RESULT bool operator==(const Reactions &other) const;
+    [[nodiscard]] bool operator==(const Reactions &other) const;
 
-    Q_REQUIRED_RESULT static QJsonObject serialize(const Reactions &reactions);
-    Q_REQUIRED_RESULT static Reactions deserialize(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
+    [[nodiscard]] static QJsonObject serialize(const Reactions &reactions);
+    [[nodiscard]] static Reactions deserialize(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
 private:
     QVector<Reaction> mReactions;

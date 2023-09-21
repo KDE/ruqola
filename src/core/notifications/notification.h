@@ -39,7 +39,7 @@ private:
         {
         }
 
-        Q_REQUIRED_RESULT bool hasNotification() const
+        [[nodiscard]] bool hasNotification() const
         {
             return (unreadMessage != 0) || hasAlert;
         }

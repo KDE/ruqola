@@ -18,10 +18,10 @@ public:
 
     void setFilterString(const QString &string);
     void clearFilter();
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_REQUIRED_RESULT bool loadMoreDiscussionsInProgress() const;
+    [[nodiscard]] bool hasFullList() const;
+    [[nodiscard]] bool loadMoreDiscussionsInProgress() const;
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();

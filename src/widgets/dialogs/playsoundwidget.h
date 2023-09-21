@@ -27,7 +27,7 @@ public:
     ~PlaySoundWidget() override;
 
     void setAudioUrl(const QUrl &url);
-    Q_REQUIRED_RESULT QUrl audioUrl() const;
+    [[nodiscard]] QUrl audioUrl() const;
 
 private:
     void play();

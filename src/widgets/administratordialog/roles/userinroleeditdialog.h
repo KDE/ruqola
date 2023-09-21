@@ -16,10 +16,10 @@ public:
     explicit UserInRoleEditDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~UserInRoleEditDialog() override;
 
-    Q_REQUIRED_RESULT const QString &roleId() const;
+    [[nodiscard]] const QString &roleId() const;
     void setRoleId(const QString &newRoleId);
 
-    Q_REQUIRED_RESULT const QString &roleName() const;
+    [[nodiscard]] const QString &roleName() const;
     void setRoleName(const QString &newRoleName);
 
 private:

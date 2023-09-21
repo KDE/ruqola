@@ -17,24 +17,24 @@ class LIBRUQOLACORE_TESTS_EXPORT Commands
 public:
     Commands();
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Command at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] Command at(int index) const;
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
     void parseCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
     void parseMoreCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
 
-    Q_REQUIRED_RESULT QVector<Command> commands() const;
+    [[nodiscard]] QVector<Command> commands() const;
     void setCommands(const QVector<Command> &commands);
 
-    Q_REQUIRED_RESULT int commandsCount() const;
+    [[nodiscard]] int commandsCount() const;
     void setCommandsCount(int commandsCount);
 
     DownloadAppsLanguagesManager *downloadManager() const;

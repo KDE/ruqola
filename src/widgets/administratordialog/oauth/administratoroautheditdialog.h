@@ -17,7 +17,7 @@ public:
     explicit AdministratorOauthEditDialog(QWidget *parent = nullptr);
     ~AdministratorOauthEditDialog() override;
 
-    Q_REQUIRED_RESULT AdministratorOauthEditWidget::OauthEditInfo oauthInfo() const;
+    [[nodiscard]] AdministratorOauthEditWidget::OauthEditInfo oauthInfo() const;
     void setOauthInfo(const AdministratorOauthEditWidget::OauthEditInfo &info);
 
 private:

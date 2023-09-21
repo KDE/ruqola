@@ -17,24 +17,24 @@ public:
     explicit RemoveUserFromRoleJob(QObject *parent = nullptr);
     ~RemoveUserFromRoleJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT const QString &roleName() const;
+    [[nodiscard]] const QString &roleName() const;
     void setRoleName(const QString &newRoleName);
 
-    Q_REQUIRED_RESULT const QString &username() const;
+    [[nodiscard]] const QString &username() const;
     void setUsername(const QString &newUsername);
 
 Q_SIGNALS:
     void removeUsersFromRoleDone(const QJsonObject &replyObject);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(RemoveUserFromRoleJob)

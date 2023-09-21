@@ -28,10 +28,10 @@ public:
     explicit CommandsModel(QObject *parent = nullptr);
     ~CommandsModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    Q_REQUIRED_RESULT Commands commands() const;
+    [[nodiscard]] Commands commands() const;
 
     void setCommands(const Commands &emoticons);
 

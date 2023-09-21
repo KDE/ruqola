@@ -17,9 +17,9 @@ public:
     ~AdministratorCustomEmojiCreateOrUpdateDialog() override;
 
     void setCustomEmojiInfo(const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &info);
-    Q_REQUIRED_RESULT AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info() const;
+    [[nodiscard]] AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info() const;
 
-    Q_REQUIRED_RESULT AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType type() const;
+    [[nodiscard]] AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType type() const;
     void setType(AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType newType);
 
 private:

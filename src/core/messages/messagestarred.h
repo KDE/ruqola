@@ -12,10 +12,10 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageStarred
 {
 public:
     MessageStarred();
-    Q_REQUIRED_RESULT bool isStarred() const;
+    [[nodiscard]] bool isStarred() const;
     void setIsStarred(bool isStarred);
 
-    Q_REQUIRED_RESULT bool operator==(MessageStarred other) const;
+    [[nodiscard]] bool operator==(MessageStarred other) const;
     void parse(const QJsonObject &o);
 
 private:

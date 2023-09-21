@@ -17,7 +17,7 @@ public:
     explicit CustomSoundsManager(QObject *parent = nullptr);
     ~CustomSoundsManager() override;
 
-    Q_REQUIRED_RESULT const QVector<CustomSoundInfo> &customSoundsInfo() const;
+    [[nodiscard]] const QVector<CustomSoundInfo> &customSoundsInfo() const;
     void setCustomSoundsInfo(const QVector<CustomSoundInfo> &newCustomSoundsInfo);
 
     void parseCustomSounds(const QJsonArray &obj);

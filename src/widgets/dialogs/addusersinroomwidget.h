@@ -17,9 +17,9 @@ public:
     explicit AddUsersInRoomWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersInRoomWidget() override;
 
-    Q_REQUIRED_RESULT QStringList userIds() const;
+    [[nodiscard]] QStringList userIds() const;
 
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userNames() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

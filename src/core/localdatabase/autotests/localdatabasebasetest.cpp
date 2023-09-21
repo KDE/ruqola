@@ -16,7 +16,7 @@ public:
     {
     }
     ~TestLocalDatabaseBase() override = default;
-    Q_REQUIRED_RESULT QString currentDatabaseName(const QString &name) const
+    [[nodiscard]] QString currentDatabaseName(const QString &name) const
     {
         return databaseName(name);
     }

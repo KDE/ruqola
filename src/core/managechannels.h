@@ -34,8 +34,8 @@ Q_SIGNALS:
 
 private:
     void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    Q_REQUIRED_RESULT SearchChannelFound searchOpenChannels(const QString &roomId);
-    Q_REQUIRED_RESULT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo generateGroupInfo(const QString &roomId,
-                                                                                                 RocketChatAccount::ChannelTypeInfo typeInfo);
+    [[nodiscard]] SearchChannelFound searchOpenChannels(const QString &roomId);
+    [[nodiscard]] RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo generateGroupInfo(const QString &roomId,
+                                                                                             RocketChatAccount::ChannelTypeInfo typeInfo);
     RocketChatAccount *const mAccount;
 };

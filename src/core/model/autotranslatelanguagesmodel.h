@@ -22,13 +22,13 @@ public:
 
     explicit AutotranslateLanguagesModel(QObject *parent = nullptr);
     ~AutotranslateLanguagesModel() override;
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void parseLanguages(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT int currentLanguage(const QString &lang) const;
-    Q_REQUIRED_RESULT QString selectedLanguage(int index) const;
+    [[nodiscard]] int currentLanguage(const QString &lang) const;
+    [[nodiscard]] QString selectedLanguage(int index) const;
 
 private:
     AutotranslateLanguages mAutoTranslateLanguages;

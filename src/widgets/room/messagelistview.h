@@ -37,7 +37,7 @@ public:
 
     void handleKeyPressEvent(QKeyEvent *ev);
 
-    Q_REQUIRED_RESULT MessageListView::Mode mode() const;
+    [[nodiscard]] MessageListView::Mode mode() const;
 
     void setRoomId(const QString &roomID);
 
@@ -91,7 +91,7 @@ private:
     void slotQuoteMessage(const QModelIndex &index);
     void slotCopyLinkToMessage(const QModelIndex &index);
     void slotFollowMessage(const QModelIndex &index, bool messageIsFollowing);
-    Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
+    [[nodiscard]] QString generatePermalink(const QString &messageId) const;
     void slotShowUserInfo(const QString &userName);
     void slotUpdateView();
     void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);

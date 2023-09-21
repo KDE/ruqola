@@ -28,26 +28,26 @@ public:
     explicit DiscussionsModel(QObject *parent = nullptr);
     ~DiscussionsModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void setDiscussions(const Discussions &discussions);
 
     void initialize();
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
     void parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId);
 
     void addMoreDiscussions(const QJsonObject &discussionsObj);
     Discussions *discussions() const;
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
 
     void setHasFullList(bool state);
-    Q_REQUIRED_RESULT bool hasFullList() const;
+    [[nodiscard]] bool hasFullList() const;
 
-    Q_REQUIRED_RESULT bool loadMoreDiscussionsInProgress() const;
+    [[nodiscard]] bool loadMoreDiscussionsInProgress() const;
     void setLoadMoreDiscussionsInProgress(bool loadMoreDiscussionsInProgress);
 
 Q_SIGNALS:

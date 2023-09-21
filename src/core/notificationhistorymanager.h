@@ -20,7 +20,7 @@ public:
 
     static NotificationHistoryManager *self();
 
-    Q_REQUIRED_RESULT NotificationHistoryModel *notificationHistoryModel() const;
+    [[nodiscard]] NotificationHistoryModel *notificationHistoryModel() const;
 
     void addNotification(const NotificationInfo &info);
 

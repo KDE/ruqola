@@ -20,7 +20,7 @@ public:
     explicit ChannelActionPopupMenu(QObject *parent = nullptr);
     ~ChannelActionPopupMenu() override;
 
-    Q_REQUIRED_RESULT QMenu *menu() const;
+    [[nodiscard]] QMenu *menu() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
     void setRoom(Room *room);

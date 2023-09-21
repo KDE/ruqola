@@ -15,10 +15,10 @@ public:
     LicensesManager();
     ~LicensesManager();
 
-    Q_REQUIRED_RESULT const QStringList &licenses() const;
+    [[nodiscard]] const QStringList &licenses() const;
     void setLicenses(const QStringList &newLicenses);
 
-    Q_REQUIRED_RESULT bool hasLicense(const QString &name);
+    [[nodiscard]] bool hasLicense(const QString &name);
 
     void parseLicenses(const QJsonArray &obj);
 

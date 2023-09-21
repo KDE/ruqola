@@ -17,11 +17,11 @@ public:
     struct UnreadInformation {
         QString identifier;
         QString i18nMessage;
-        Q_REQUIRED_RESULT bool operator==(const UnreadInformation &other) const
+        [[nodiscard]] bool operator==(const UnreadInformation &other) const
         {
             return identifier == other.identifier && i18nMessage == other.i18nMessage;
         }
-        Q_REQUIRED_RESULT bool operator!=(const UnreadInformation &other) const
+        [[nodiscard]] bool operator!=(const UnreadInformation &other) const
         {
             return !operator==(other);
         }
@@ -30,7 +30,7 @@ public:
     BannerInfos();
     ~BannerInfos();
 
-    Q_REQUIRED_RESULT const QVector<BannerInfo> &banners() const;
+    [[nodiscard]] const QVector<BannerInfo> &banners() const;
     void setBanners(const QVector<BannerInfo> &newBanners);
 
     void parseBannerInfos(const QJsonObject &object);
@@ -39,16 +39,16 @@ public:
 
     void updateBannerReadInfo(const QString &name, bool readStatus);
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
-    Q_REQUIRED_RESULT BannerInfo at(int index) const;
+    [[nodiscard]] BannerInfo at(int index) const;
 
-    Q_REQUIRED_RESULT QVector<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
+    [[nodiscard]] QVector<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateText(const BannerInfo &info) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateText(const BannerInfo &info) const;
     QVector<BannerInfo> mBanners;
 };
 

@@ -21,7 +21,7 @@ public:
         QString fileName;
         QUrl fileUrl;
         bool deleteTemporaryFile = false;
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return fileUrl.isValid() && fileUrl.isLocalFile();
         }
@@ -32,7 +32,7 @@ public:
 
     void setFileUrl(const QUrl &url);
 
-    Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
+    [[nodiscard]] UploadFileInfo fileInfo() const;
 
     void setAuthorizedMediaTypes(const QStringList &mediaTypes);
 

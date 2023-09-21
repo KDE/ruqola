@@ -62,24 +62,24 @@ public:
         //'featured','roomCustomFields',
         //'reactWhenReadOnly', 'default','tokenpass', 'streamingOptions'
         SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
 
     explicit SaveRoomSettingsJob(QObject *parent = nullptr);
     ~SaveRoomSettingsJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT SaveRoomSettingsInfo saveRoomSettingsInfo() const;
+    [[nodiscard]] SaveRoomSettingsInfo saveRoomSettingsInfo() const;
     void setSaveRoomSettingsInfo(const SaveRoomSettingsInfo &saveRoomSettingsInfo);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
     void saveRoomSettingsDone(const QString &roomId);

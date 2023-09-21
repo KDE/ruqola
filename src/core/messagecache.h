@@ -27,8 +27,8 @@ public:
     explicit MessageCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~MessageCache() override;
 
-    Q_REQUIRED_RESULT ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
-    Q_REQUIRED_RESULT Message *messageForId(const QString &messageId);
+    [[nodiscard]] ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
+    [[nodiscard]] Message *messageForId(const QString &messageId);
 
 Q_SIGNALS:
     void modelLoaded();

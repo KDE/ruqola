@@ -20,7 +20,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSelectDeletedRoomWidget : public QWidget
 public:
     explicit TeamSelectDeletedRoomWidget(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomWidget() override;
-    Q_REQUIRED_RESULT QStringList roomsId() const;
+    [[nodiscard]] QStringList roomsId() const;
 
     void setTeamRooms(const QVector<TeamRoom> &rooms);
 

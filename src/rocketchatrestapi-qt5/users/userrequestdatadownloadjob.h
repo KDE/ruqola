@@ -19,14 +19,14 @@ public:
     explicit UserRequestDataDownloadJob(QObject *parent = nullptr);
     ~UserRequestDataDownloadJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool fullExport() const;
+    [[nodiscard]] bool fullExport() const;
     void setFullExport(bool newFullExport);
 
 Q_SIGNALS:

@@ -13,7 +13,7 @@
 
 struct CryptoSettings {
     QString mCrypt;
-    Q_REQUIRED_RESULT bool operator==(const CryptoSettings &other) const;
+    [[nodiscard]] bool operator==(const CryptoSettings &other) const;
 };
 
 class LIBRUQOLACORE_EXPORT Otr
@@ -34,17 +34,17 @@ public:
 
     void parseOtr(const QJsonArray &contents);
 
-    Q_REQUIRED_RESULT OtrType type() const;
+    [[nodiscard]] OtrType type() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT CryptoSettings crypto() const;
+    [[nodiscard]] CryptoSettings crypto() const;
 
-    Q_REQUIRED_RESULT bool operator==(const Otr &other) const;
+    [[nodiscard]] bool operator==(const Otr &other) const;
 
 private:
     void parseCryptoSettings(const QString &publicKey);

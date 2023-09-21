@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RemoveAccountWidget : public QWidget
 public:
     explicit RemoveAccountWidget(QWidget *parent = nullptr);
     ~RemoveAccountWidget() override;
-    Q_REQUIRED_RESULT bool removeLogs() const;
+    [[nodiscard]] bool removeLogs() const;
 
     void setAccountName(const QString &accountName);
 

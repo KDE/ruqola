@@ -30,13 +30,13 @@ public:
     explicit CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewChannelWidget() override;
 
-    Q_REQUIRED_RESULT QString channelName() const;
-    Q_REQUIRED_RESULT QStringList members(bool userId = true) const;
-    Q_REQUIRED_RESULT bool encryptedRoom() const;
-    Q_REQUIRED_RESULT bool privateChannel() const;
-    Q_REQUIRED_RESULT bool broadCast() const;
-    Q_REQUIRED_RESULT bool readOnly() const;
-    Q_REQUIRED_RESULT QString topic() const;
+    [[nodiscard]] QString channelName() const;
+    [[nodiscard]] QStringList members(bool userId = true) const;
+    [[nodiscard]] bool encryptedRoom() const;
+    [[nodiscard]] bool privateChannel() const;
+    [[nodiscard]] bool broadCast() const;
+    [[nodiscard]] bool readOnly() const;
+    [[nodiscard]] QString topic() const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
 Q_SIGNALS:

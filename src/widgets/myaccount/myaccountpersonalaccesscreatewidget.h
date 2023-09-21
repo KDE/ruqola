@@ -18,8 +18,8 @@ public:
     explicit MyAccountPersonalAccessCreateWidget(QWidget *parent = nullptr);
     ~MyAccountPersonalAccessCreateWidget() override;
 
-    Q_REQUIRED_RESULT bool bypassTwoFactor() const;
-    Q_REQUIRED_RESULT QString tokenName() const;
+    [[nodiscard]] bool bypassTwoFactor() const;
+    [[nodiscard]] QString tokenName() const;
 Q_SIGNALS:
     void updateOkButton(bool enabled);
 

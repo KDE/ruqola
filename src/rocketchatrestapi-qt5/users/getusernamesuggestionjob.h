@@ -20,12 +20,12 @@ public:
     explicit GetUsernameSuggestionJob(QObject *parent = nullptr);
     ~GetUsernameSuggestionJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
 Q_SIGNALS:
     void getUsernameSuggestionDone(const QString &result);

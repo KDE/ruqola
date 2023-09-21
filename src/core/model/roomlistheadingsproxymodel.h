@@ -49,5 +49,5 @@ private:
         Section,
         Channel,
     };
-    Q_REQUIRED_RESULT IndexType type(const QModelIndex &index) const;
+    [[nodiscard]] IndexType type(const QModelIndex &index) const;
 };

@@ -27,68 +27,68 @@ public:
     Q_ENUM(AttachmentType)
     void parseAttachment(const QJsonObject &o);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
-    Q_REQUIRED_RESULT QString title() const;
+    [[nodiscard]] QString title() const;
     void setTitle(const QString &title);
 
-    Q_REQUIRED_RESULT QString link() const;
+    [[nodiscard]] QString link() const;
     void setLink(const QString &link);
 
-    Q_REQUIRED_RESULT bool operator==(const MessageAttachment &other) const;
+    [[nodiscard]] bool operator==(const MessageAttachment &other) const;
 
     static QJsonObject serialize(const MessageAttachment &message);
     static MessageAttachment deserialize(const QJsonObject &o);
-    Q_REQUIRED_RESULT int imageWidth() const;
+    [[nodiscard]] int imageWidth() const;
     void setImageWidth(int imageWidth);
 
-    Q_REQUIRED_RESULT int imageHeight() const;
+    [[nodiscard]] int imageHeight() const;
     void setImageHeight(int imageHeight);
 
-    Q_REQUIRED_RESULT QString color() const;
+    [[nodiscard]] QString color() const;
     void setColor(const QString &color);
 
-    Q_REQUIRED_RESULT QString authorName() const;
+    [[nodiscard]] QString authorName() const;
     void setAuthorName(const QString &authorName);
 
-    Q_REQUIRED_RESULT bool canDownloadAttachment() const;
-    Q_REQUIRED_RESULT QString displayTitle() const;
-    Q_REQUIRED_RESULT QString imageTitle() const;
+    [[nodiscard]] bool canDownloadAttachment() const;
+    [[nodiscard]] QString displayTitle() const;
+    [[nodiscard]] QString imageTitle() const;
 
-    Q_REQUIRED_RESULT QString mimeType() const;
+    [[nodiscard]] QString mimeType() const;
     void setMimeType(const QString &type);
 
-    Q_REQUIRED_RESULT bool isAnimatedImage() const;
+    [[nodiscard]] bool isAnimatedImage() const;
 
-    Q_REQUIRED_RESULT QString text() const;
+    [[nodiscard]] QString text() const;
     void setText(const QString &text);
 
-    Q_REQUIRED_RESULT AttachmentType attachmentType() const;
+    [[nodiscard]] AttachmentType attachmentType() const;
     void setAttachmentType(AttachmentType attachmentType);
 
-    Q_REQUIRED_RESULT QVector<MessageAttachmentField> attachmentFields() const;
+    [[nodiscard]] QVector<MessageAttachmentField> attachmentFields() const;
     void setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields);
 
-    Q_REQUIRED_RESULT bool collapsed() const;
+    [[nodiscard]] bool collapsed() const;
     void setCollapsed(bool collapsed);
 
-    Q_REQUIRED_RESULT QString attachmentId() const;
+    [[nodiscard]] QString attachmentId() const;
     void setAttachmentId(const QString &attachementId);
 
-    Q_REQUIRED_RESULT bool showAttachment() const;
+    [[nodiscard]] bool showAttachment() const;
     void setShowAttachment(bool showAttachment);
 
-    Q_REQUIRED_RESULT QString authorIcon() const;
+    [[nodiscard]] QString authorIcon() const;
     void setAuthorIcon(const QString &authorIcon);
 
-    Q_REQUIRED_RESULT QString attachmentFieldsText() const;
+    [[nodiscard]] QString attachmentFieldsText() const;
 
     void setImageUrlPreview(const QString &newImageUrlPreview);
 
-    Q_REQUIRED_RESULT const QString &imageUrlPreview() const;
+    [[nodiscard]] const QString &imageUrlPreview() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();

@@ -18,7 +18,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesWidget : public QWidget
 public:
     explicit CreateDirectMessagesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateDirectMessagesWidget() override;
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userNames() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

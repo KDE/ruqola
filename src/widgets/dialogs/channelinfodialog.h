@@ -21,7 +21,7 @@ public:
     ~ChannelInfoDialog() override;
     void setRoom(Room *room);
 
-    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
+    [[nodiscard]] RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
 private:
     void slotRoomNameValid(bool state);

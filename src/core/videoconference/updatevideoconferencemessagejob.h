@@ -16,13 +16,13 @@ public:
     explicit UpdateVideoConferenceMessageJob(QObject *parent = nullptr);
     ~UpdateVideoConferenceMessageJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
     void start();
 
-    Q_REQUIRED_RESULT VideoConferenceInfo videoConferenceInfo() const;
+    [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newVideoConferenceInfo);
 
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 private:

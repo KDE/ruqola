@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT RoomsCleanHistoryJob : public RestApiAbstr
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT CleanHistoryInfo {
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
         QDateTime latest; // required
         QDateTime oldest; // required
         QString roomId; // required
@@ -31,15 +31,15 @@ public:
     explicit RoomsCleanHistoryJob(QObject *parent = nullptr);
     ~RoomsCleanHistoryJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CleanHistoryInfo cleanHistoryInfo() const;
+    [[nodiscard]] CleanHistoryInfo cleanHistoryInfo() const;
     void setCleanHistoryInfo(const CleanHistoryInfo &cleanHistoryInfo);
 
 Q_SIGNALS:

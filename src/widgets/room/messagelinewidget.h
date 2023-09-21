@@ -34,17 +34,17 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog);
 
     void setText(const QString &text);
-    Q_REQUIRED_RESULT QString text() const;
+    [[nodiscard]] QString text() const;
 
     MessageTextEdit *messageTextEdit() const;
 
-    Q_REQUIRED_RESULT EditingMode mode() const;
+    [[nodiscard]] EditingMode mode() const;
     void setMode(EditingMode mode);
 
     void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
 
-    Q_REQUIRED_RESULT QString messageIdBeingEdited() const;
+    [[nodiscard]] QString messageIdBeingEdited() const;
     void setMessageIdBeingEdited(const QString &messageIdBeingEdited);
 
     void setEditMessage(const QString &messageId, const QString &text);
@@ -54,15 +54,15 @@ public:
 
     void clearMessageIdBeingEdited();
 
-    Q_REQUIRED_RESULT QString threadMessageId() const;
+    [[nodiscard]] QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId, const QString &text = {}, bool replyInDialogBox = false);
 
     void slotPublicSettingChanged();
     void slotOwnUserPreferencesChanged();
 
-    Q_REQUIRED_RESULT QString quotePermalink() const;
+    [[nodiscard]] QString quotePermalink() const;
 
-    Q_REQUIRED_RESULT QString quoteText() const;
+    [[nodiscard]] QString quoteText() const;
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
@@ -76,7 +76,7 @@ private:
     void slotSendFile();
     void keyPressedInLineEdit(QKeyEvent *ev);
     void textEditClicked();
-    Q_REQUIRED_RESULT MessageModel *messageModel() const;
+    [[nodiscard]] MessageModel *messageModel() const;
     void clearEditingMode();
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendVideoMessage();

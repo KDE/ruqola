@@ -34,19 +34,19 @@ public:
     explicit DirectoryRoomsModel(QObject *parent = nullptr);
     ~DirectoryRoomsModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = {}) const override;
-    Q_REQUIRED_RESULT int total() const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] int total() const override;
 
     void parseElements(const QJsonObject &roomsObj) override;
 
     void addMoreElements(const QJsonObject &discussionsObj) override;
-    Q_REQUIRED_RESULT QList<int> excludeResizeToContentColumns() const override;
+    [[nodiscard]] QList<int> excludeResizeToContentColumns() const override;
 
 protected:
-    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
+    [[nodiscard]] QList<int> hideColumns() const override;
 
 private:
     Q_DISABLE_COPY(DirectoryRoomsModel)

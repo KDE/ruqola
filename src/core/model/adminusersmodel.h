@@ -31,14 +31,14 @@ public:
     explicit AdminUsersModel(QObject *parent = nullptr);
     ~AdminUsersModel() override;
 
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QList<int> hideColumns() const override;
-    Q_REQUIRED_RESULT bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QList<int> hideColumns() const override;
+    [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 protected:
-    Q_REQUIRED_RESULT Users::ParseType parseType() const override;
+    [[nodiscard]] Users::ParseType parseType() const override;
     void removeElement(const QString &identifier) override;
     void updateElement(const QJsonObject &obj) override;
     void insertElement(const QJsonObject &obj) override;

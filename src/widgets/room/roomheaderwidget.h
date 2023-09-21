@@ -43,7 +43,7 @@ public:
     explicit RoomHeaderWidget(QWidget *parent = nullptr);
     ~RoomHeaderWidget() override;
     void setRoomName(const QString &name);
-    Q_REQUIRED_RESULT QString roomName() const;
+    [[nodiscard]] QString roomName() const;
     void setRoomAnnouncement(const QString &name);
     void setRoomTopic(const QString &name);
 

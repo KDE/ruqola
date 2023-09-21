@@ -14,9 +14,9 @@ public:
     explicit RoomAvatarWidget(QWidget *parent = nullptr);
     ~RoomAvatarWidget() override;
 
-    Q_REQUIRED_RESULT QString roomAvatar() const;
+    [[nodiscard]] QString roomAvatar() const;
 
-    Q_REQUIRED_RESULT bool wasChanged() const;
+    [[nodiscard]] bool wasChanged() const;
 
     void setCurrentIconPath(const QString &currentPath);
 

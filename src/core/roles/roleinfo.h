@@ -15,27 +15,27 @@ public:
     RoleInfo();
     ~RoleInfo() = default;
 
-    Q_REQUIRED_RESULT const QString &identifier() const;
+    [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
-    Q_REQUIRED_RESULT const QString &scope() const;
+    [[nodiscard]] const QString &scope() const;
     void setScope(const QString &newScope);
 
     void parseRoleInfo(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT const QString &name() const;
+    [[nodiscard]] const QString &name() const;
     void setName(const QString &newName);
 
-    Q_REQUIRED_RESULT const QString &description() const;
+    [[nodiscard]] const QString &description() const;
     void setDescription(const QString &newDescription);
 
-    Q_REQUIRED_RESULT bool roleProtected() const;
+    [[nodiscard]] bool roleProtected() const;
     void setRoleProtected(bool newRoleProtected);
 
-    Q_REQUIRED_RESULT bool mandatory2fa() const;
+    [[nodiscard]] bool mandatory2fa() const;
     void setMandatory2fa(bool newMandatory2fa);
 
-    Q_REQUIRED_RESULT bool operator==(const RoleInfo &other) const;
+    [[nodiscard]] bool operator==(const RoleInfo &other) const;
 
 private:
     QString mName;

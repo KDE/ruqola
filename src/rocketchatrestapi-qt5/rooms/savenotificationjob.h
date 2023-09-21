@@ -18,44 +18,44 @@ public:
     explicit SaveNotificationJob(QObject *parent = nullptr);
     ~SaveNotificationJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool disableNotifications() const;
+    [[nodiscard]] bool disableNotifications() const;
     void setDisableNotifications(bool disableNotifications);
 
-    Q_REQUIRED_RESULT bool muteGroupMentions() const;
+    [[nodiscard]] bool muteGroupMentions() const;
     void setMuteGroupMentions(bool muteGroupMentions);
 
-    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
+    [[nodiscard]] bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool hideUnreadStatus);
 
-    Q_REQUIRED_RESULT QString emailNotifications() const;
+    [[nodiscard]] QString emailNotifications() const;
     void setEmailNotifications(const QString &emailNotifications);
 
-    Q_REQUIRED_RESULT QString mobilePushNotifications() const;
+    [[nodiscard]] QString mobilePushNotifications() const;
     void setMobilePushNotifications(const QString &mobilePushNotifications);
 
-    Q_REQUIRED_RESULT QString audioNotificationValue() const;
+    [[nodiscard]] QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
-    Q_REQUIRED_RESULT int desktopNotificationDuration() const;
+    [[nodiscard]] int desktopNotificationDuration() const;
     void setDesktopNotificationDuration(int desktopNotificationDuration);
 
-    Q_REQUIRED_RESULT QString unreadAlert() const;
+    [[nodiscard]] QString unreadAlert() const;
     void setUnreadAlert(const QString &unreadAlert);
 
-    Q_REQUIRED_RESULT QString desktopNotifications() const;
+    [[nodiscard]] QString desktopNotifications() const;
     void setDesktopNotifications(const QString &desktopNotifications);
 
-    Q_REQUIRED_RESULT bool hideMentionStatus() const;
+    [[nodiscard]] bool hideMentionStatus() const;
     void setHideMentionStatus(bool newHideMentionStatus);
 
 Q_SIGNALS:

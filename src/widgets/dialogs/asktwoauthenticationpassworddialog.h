@@ -17,9 +17,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordDialog : public 
 public:
     explicit AskTwoAuthenticationPasswordDialog(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordDialog() override;
-    Q_REQUIRED_RESULT QString code() const;
+    [[nodiscard]] QString code() const;
 
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 private:

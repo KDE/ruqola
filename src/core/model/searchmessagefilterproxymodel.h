@@ -15,8 +15,8 @@ class LIBRUQOLACORE_EXPORT SearchMessageFilterProxyModel : public QSortFilterPro
 public:
     explicit SearchMessageFilterProxyModel(SearchMessageModel *model = nullptr, QObject *parent = nullptr);
     ~SearchMessageFilterProxyModel() override;
-    Q_REQUIRED_RESULT bool stringNotFound() const;
-    Q_REQUIRED_RESULT bool loadSearchMessageInProgress() const;
+    [[nodiscard]] bool stringNotFound() const;
+    [[nodiscard]] bool loadSearchMessageInProgress() const;
 
     void clearModel();
     void setSearchText(const QString &str);

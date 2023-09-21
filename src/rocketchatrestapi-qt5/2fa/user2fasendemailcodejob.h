@@ -17,14 +17,14 @@ public:
     explicit User2FASendEmailCodeJob(QObject *parent = nullptr);
     ~User2FASendEmailCodeJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString usernameOrEmail() const;
+    [[nodiscard]] QString usernameOrEmail() const;
     void setUsernameOrEmail(const QString &usernameOrEmail);
 
 protected:

@@ -17,15 +17,15 @@ public:
     explicit ChangeGroupsTopicJob(QObject *parent = nullptr);
     ~ChangeGroupsTopicJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString topic() const;
+    [[nodiscard]] QString topic() const;
     void setTopic(const QString &topic);
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
 Q_SIGNALS:
     void changeTopicDone();

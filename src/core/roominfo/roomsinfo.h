@@ -19,24 +19,24 @@ public:
     };
     RoomsInfo();
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT RoomInfo at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] RoomInfo at(int index) const;
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
     void parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
     void parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
 
-    Q_REQUIRED_RESULT QVector<RoomInfo> rooms() const;
+    [[nodiscard]] QVector<RoomInfo> rooms() const;
     void setRooms(const QVector<RoomInfo> &rooms);
 
-    Q_REQUIRED_RESULT int roomsCount() const;
+    [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
     RoomInfo takeAt(int index);

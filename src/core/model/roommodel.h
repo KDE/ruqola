@@ -67,8 +67,8 @@ public:
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~RoomModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
      * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
@@ -87,14 +87,14 @@ public:
     void updateRoom(const QJsonObject &array);
     void addRoom(const QJsonObject &room);
 
-    Q_REQUIRED_RESULT Room::TeamRoomInfo roomFromTeamId(const QString &teamId);
+    [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QString &teamId);
 
     /**
      * @brief Adds a room to mRoomsList with @param room
      *
      * @param room The room to be added
      */
-    Q_REQUIRED_RESULT bool addRoom(Room *room);
+    [[nodiscard]] bool addRoom(Room *room);
     void removeRoom(const QString &roomId);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const;
@@ -104,13 +104,13 @@ public:
 
     MessageModel *messageModel(const QString &roomId) const;
 
-    Q_REQUIRED_RESULT QString inputMessage(const QString &roomId) const;
+    [[nodiscard]] QString inputMessage(const QString &roomId) const;
     void setInputMessage(const QString &roomId, const QString &inputMessage);
-    Q_REQUIRED_RESULT Room *findRoom(const QString &roomID) const;
+    [[nodiscard]] Room *findRoom(const QString &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
-    Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
+    [[nodiscard]] QString insertRoom(const QJsonObject &room);
 
-    Q_REQUIRED_RESULT QModelIndex indexForRoomName(const QString &roomName) const;
+    [[nodiscard]] QModelIndex indexForRoomName(const QString &roomName) const;
 
     static QString sectionName(RoomModel::Section sectionId);
 
@@ -122,10 +122,10 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RoomModel)
     LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;

@@ -16,23 +16,23 @@ public:
     CustomUserStatus();
     ~CustomUserStatus();
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &value);
 
-    Q_REQUIRED_RESULT qint64 updatedAt() const;
+    [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &identifier);
 
-    Q_REQUIRED_RESULT User::PresenceStatus statusType() const;
+    [[nodiscard]] User::PresenceStatus statusType() const;
     void setStatusType(User::PresenceStatus statusType);
 
     void parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi = true);
 
-    Q_REQUIRED_RESULT bool operator==(const CustomUserStatus &other) const;
+    [[nodiscard]] bool operator==(const CustomUserStatus &other) const;
 
 private:
     QString mIdentifier;

@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersAutocompleteJob : public RestAp
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersAutocompleterInfo {
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
 
         QString pattern;
         QString exception;
@@ -26,15 +26,15 @@ public:
     explicit UsersAutocompleteJob(QObject *parent = nullptr);
     ~UsersAutocompleteJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT UsersAutocompleterInfo usersCompleterInfo() const;
+    [[nodiscard]] UsersAutocompleterInfo usersCompleterInfo() const;
     void setUsersCompleterInfo(const UsersAutocompleterInfo &usersCompleterInfo);
 
 Q_SIGNALS:

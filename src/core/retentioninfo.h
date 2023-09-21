@@ -16,26 +16,26 @@ public:
     ~RetentionInfo() = default;
     void parseRetentionInfo(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT bool enabled() const;
+    [[nodiscard]] bool enabled() const;
     void setEnabled(bool enabled);
 
-    Q_REQUIRED_RESULT bool overrideGlobal() const;
+    [[nodiscard]] bool overrideGlobal() const;
     void setOverrideGlobal(bool overrideGlobal);
 
-    Q_REQUIRED_RESULT bool excludePinned() const;
+    [[nodiscard]] bool excludePinned() const;
     void setExcludePinned(bool excludePinned);
 
-    Q_REQUIRED_RESULT bool filesOnly() const;
+    [[nodiscard]] bool filesOnly() const;
     void setFilesOnly(bool filesOnly);
 
-    Q_REQUIRED_RESULT int maxAge() const;
+    [[nodiscard]] int maxAge() const;
     void setMaxAge(int maxAge);
-    Q_REQUIRED_RESULT bool operator==(RetentionInfo other) const;
-    Q_REQUIRED_RESULT bool operator!=(RetentionInfo other) const;
+    [[nodiscard]] bool operator==(RetentionInfo other) const;
+    [[nodiscard]] bool operator!=(RetentionInfo other) const;
 
-    Q_REQUIRED_RESULT static QJsonObject serialize(RetentionInfo retention);
-    Q_REQUIRED_RESULT static RetentionInfo deserialize(const QJsonObject &o);
-    Q_REQUIRED_RESULT bool isNotDefault() const;
+    [[nodiscard]] static QJsonObject serialize(RetentionInfo retention);
+    [[nodiscard]] static RetentionInfo deserialize(const QJsonObject &o);
+    [[nodiscard]] bool isNotDefault() const;
 
 private:
     int mMaxAge = -1;

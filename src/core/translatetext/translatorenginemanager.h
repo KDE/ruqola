@@ -23,7 +23,7 @@ public:
 
     void translatorConfigChanged();
 
-    Q_REQUIRED_RESULT TextTranslator::TranslatorEnginePlugin *translatorEngineBase() const;
+    [[nodiscard]] TextTranslator::TranslatorEnginePlugin *translatorEngineBase() const;
 
 Q_SIGNALS:
     void updateTranslateEngine();

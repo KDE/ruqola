@@ -10,6 +10,6 @@ class QWidget;
 class QUrl;
 namespace DelegateUtil
 {
-Q_REQUIRED_RESULT QString querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave);
+[[nodiscard]] QString querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave);
 void saveFile(QWidget *parent, const QString &filePath, const QString &title);
 }

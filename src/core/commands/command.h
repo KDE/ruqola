@@ -16,32 +16,32 @@ class LIBRUQOLACORE_TESTS_EXPORT Command
 public:
     Command();
 
-    Q_REQUIRED_RESULT QString params() const;
+    [[nodiscard]] QString params() const;
     void setParams(const QString &params);
 
-    Q_REQUIRED_RESULT QString commandName() const;
+    [[nodiscard]] QString commandName() const;
     void setCommandName(const QString &commandName);
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
-    Q_REQUIRED_RESULT bool clientOnly() const;
+    [[nodiscard]] bool clientOnly() const;
     void setClientOnly(bool clientOnly);
 
     void parseCommand(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT bool operator==(const Command &other) const;
+    [[nodiscard]] bool operator==(const Command &other) const;
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT bool providesPreview() const;
+    [[nodiscard]] bool providesPreview() const;
     void setProvidesPreview(bool providesPreview);
 
-    Q_REQUIRED_RESULT QStringList permissions() const;
+    [[nodiscard]] QStringList permissions() const;
     void setPermissions(const QStringList &permissions);
 
-    Q_REQUIRED_RESULT QString translatedDescription() const;
-    Q_REQUIRED_RESULT QString translatedParams() const;
+    [[nodiscard]] QString translatedDescription() const;
+    [[nodiscard]] QString translatedParams() const;
 
 private:
     void convertDescriptionI18n();

@@ -16,14 +16,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
 public:
     explicit WhatsNewWidget(QWidget *parent = nullptr);
     ~WhatsNewWidget() override;
-    Q_REQUIRED_RESULT static QString newFeaturesMD5();
+    [[nodiscard]] static QString newFeaturesMD5();
 
     void updateInformations();
 
 private:
-    Q_REQUIRED_RESULT QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
-    Q_REQUIRED_RESULT QString createVersionInformations() const;
-    Q_REQUIRED_RESULT WhatsNewComboBoxWidget::VersionType currentVersion() const;
+    [[nodiscard]] QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
+    [[nodiscard]] QString createVersionInformations() const;
+    [[nodiscard]] WhatsNewComboBoxWidget::VersionType currentVersion() const;
     void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
     QTextEdit *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;

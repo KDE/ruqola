@@ -20,7 +20,7 @@ public:
         QString scope;
         QString identifier;
         bool mandatory2fa = false;
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return !name.isEmpty() && !scope.isEmpty() && !identifier.isEmpty();
         }
@@ -28,13 +28,13 @@ public:
     explicit RoleUpdateJob(QObject *parent = nullptr);
     ~RoleUpdateJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT RoleUpdateInfo updateRoleInfo() const;
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] RoleUpdateInfo updateRoleInfo() const;
     void setUpdateRoleInfo(const RoleUpdateInfo &statusCreateInfo);
 
 Q_SIGNALS:

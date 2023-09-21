@@ -19,15 +19,15 @@ public:
     explicit TeamsAutoCompleteJob(QObject *parent = nullptr);
     ~TeamsAutoCompleteJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT const QString &name() const;
+    [[nodiscard]] const QString &name() const;
     void setName(const QString &newName);
 
 Q_SIGNALS:

@@ -30,7 +30,7 @@ private:
     void slotSearchMessageTextChanged(const QString &str);
     void slotChangeAttachmentType(int index);
     void updateLabel();
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    [[nodiscard]] QString displayShowMessageInRoom() const;
     QLineEdit *const mSearchAttachmentFileLineEdit;
     ShowAttachmentComboBox *const mAttachmentCombobox;
     QLabel *const mInfo;

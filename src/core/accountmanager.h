@@ -40,18 +40,18 @@ public:
     void addAccount(RocketChatAccount *account);
 
     void setCurrentAccount(const QString &accountName);
-    Q_REQUIRED_RESULT QString currentAccount() const;
+    [[nodiscard]] QString currentAccount() const;
     void selectAccount(const QString &accountName);
 
     void modifyAccount(const AccountManagerInfo &info);
-    Q_REQUIRED_RESULT QStringList accountsName() const;
+    [[nodiscard]] QStringList accountsName() const;
 
-    Q_REQUIRED_RESULT int accountNumber() const;
+    [[nodiscard]] int accountNumber() const;
     void openMessageUrl(const QString &messageUrl);
-    Q_REQUIRED_RESULT bool showMessage(const ParseMessageUrlUtils &parseUrl);
-    Q_REQUIRED_RESULT RocketChatAccount *accountFromName(const QString &accountName);
+    [[nodiscard]] bool showMessage(const ParseMessageUrlUtils &parseUrl);
+    [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
-    Q_REQUIRED_RESULT QStringList accountNamesSorted() const;
+    [[nodiscard]] QStringList accountNamesSorted() const;
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);

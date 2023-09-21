@@ -16,18 +16,18 @@ public:
     CustomSoundInfo();
     ~CustomSoundInfo() = default;
 
-    Q_REQUIRED_RESULT const QString &identifier() const;
+    [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
-    Q_REQUIRED_RESULT const QString &name() const;
+    [[nodiscard]] const QString &name() const;
     void setName(const QString &newName);
 
     void parseCustomSoundInfo(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT const QString &extension() const;
+    [[nodiscard]] const QString &extension() const;
     void setExtension(const QString &newExtension);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
 private:
     QString mIdentifier;

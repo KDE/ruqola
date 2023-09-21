@@ -83,14 +83,14 @@ public:
 
     void setAuthToken(const QString &authToken);
 
-    Q_REQUIRED_RESULT QString userId() const;
-    Q_REQUIRED_RESULT QString authToken() const;
-    Q_REQUIRED_RESULT bool isLoggedIn() const;
-    Q_REQUIRED_RESULT bool isLoggedOut() const;
-    Q_REQUIRED_RESULT LoginStatus loginStatus() const;
+    [[nodiscard]] QString userId() const;
+    [[nodiscard]] QString authToken() const;
+    [[nodiscard]] bool isLoggedIn() const;
+    [[nodiscard]] bool isLoggedOut() const;
+    [[nodiscard]] LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus newStatus);
 
-    Q_REQUIRED_RESULT qint64 tokenExpires() const;
+    [[nodiscard]] qint64 tokenExpires() const;
 
 Q_SIGNALS:
     void loginStatusChanged();
@@ -114,5 +114,5 @@ private:
 
     void loginImpl(const QJsonArray &params);
     void clientConnectedChangedSlot();
-    Q_REQUIRED_RESULT bool checkGenericError() const;
+    [[nodiscard]] bool checkGenericError() const;
 };

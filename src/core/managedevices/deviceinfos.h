@@ -18,22 +18,22 @@ class LIBRUQOLACORE_EXPORT DeviceInfos
 public:
     DeviceInfos();
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int newOffset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int newTotal);
 
-    Q_REQUIRED_RESULT int deviceInfosCount() const;
+    [[nodiscard]] int deviceInfosCount() const;
     void setDeviceInfosCount(int newDeviceInfosCount);
 
-    Q_REQUIRED_RESULT const QVector<DeviceInfo> &deviceInfosList() const;
+    [[nodiscard]] const QVector<DeviceInfo> &deviceInfosList() const;
     void setDeviceInfosList(const QVector<DeviceInfo> &newDeviceInfosList);
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT DeviceInfo at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] DeviceInfo at(int index) const;
 
     void parseDeviceInfos(const QJsonObject &discussionsObj);
     void parseMoreDeviceInfos(const QJsonObject &deviceInfosObj);

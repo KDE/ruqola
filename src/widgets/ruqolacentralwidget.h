@@ -25,11 +25,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 public:
     explicit RuqolaCentralWidget(QWidget *parent = nullptr);
     ~RuqolaCentralWidget() override;
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     void selectNextUnreadChannel();
-    Q_REQUIRED_RESULT Room::RoomType roomType() const;
+    [[nodiscard]] Room::RoomType roomType() const;
     Room *room() const;
 Q_SIGNALS:
     void channelSelected();

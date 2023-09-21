@@ -17,7 +17,7 @@ public:
     explicit TeamSearchRoomWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamSearchRoomWidget() override;
 
-    Q_REQUIRED_RESULT QStringList roomIds() const;
+    [[nodiscard]] QStringList roomIds() const;
 
 private:
     TeamSearchRoomForTeamWidget *const mTeamSearchRoomForTeamWidget;

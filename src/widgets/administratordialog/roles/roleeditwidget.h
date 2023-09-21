@@ -23,12 +23,12 @@ public:
         QString mScope;
         bool mTwoFactor = false;
         bool mIsProtected = false;
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return !mName.isEmpty();
         }
-        Q_REQUIRED_RESULT bool operator==(const RoleEditDialogInfo &other) const;
-        Q_REQUIRED_RESULT bool operator!=(const RoleEditDialogInfo &other) const
+        [[nodiscard]] bool operator==(const RoleEditDialogInfo &other) const;
+        [[nodiscard]] bool operator!=(const RoleEditDialogInfo &other) const
         {
             return !operator==(other);
         }
@@ -38,7 +38,7 @@ public:
     ~RoleEditWidget() override;
 
     void setRoleEditDialogInfo(const RoleEditDialogInfo &info);
-    Q_REQUIRED_RESULT RoleEditDialogInfo roleEditDialogInfo() const;
+    [[nodiscard]] RoleEditDialogInfo roleEditDialogInfo() const;
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

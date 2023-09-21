@@ -43,7 +43,7 @@ public:
     ~TextPluginManager() override;
     static TextPluginManager *self();
 
-    Q_REQUIRED_RESULT QVector<PluginText *> pluginsList() const;
+    [[nodiscard]] QVector<PluginText *> pluginsList() const;
 
 private:
     Q_DISABLE_COPY(TextPluginManager)

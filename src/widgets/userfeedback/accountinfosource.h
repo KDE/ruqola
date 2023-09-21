@@ -17,7 +17,7 @@ public:
     AccountInfoSource();
     ~AccountInfoSource() override;
 
-    Q_REQUIRED_RESULT QString name() const override;
-    Q_REQUIRED_RESULT QString description() const override;
-    Q_REQUIRED_RESULT QVariant data() override;
+    [[nodiscard]] QString name() const override;
+    [[nodiscard]] QString description() const override;
+    [[nodiscard]] QVariant data() override;
 };

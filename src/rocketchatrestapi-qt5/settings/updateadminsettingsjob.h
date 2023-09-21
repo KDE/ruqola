@@ -26,22 +26,22 @@ public:
         QString settingName;
         QVariant settingsValue;
         UpdateAdminSettingsInfo::ValueType valueType = UpdateAdminSettingsInfo::ValueType::Unknown;
-        Q_REQUIRED_RESULT bool isValid() const;
-        Q_REQUIRED_RESULT bool canStart() const;
+        [[nodiscard]] bool isValid() const;
+        [[nodiscard]] bool canStart() const;
     };
     explicit UpdateAdminSettingsJob(QObject *parent = nullptr);
     ~UpdateAdminSettingsJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT const UpdateAdminSettingsInfo &updateAdminSettingsInfo() const;
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] const UpdateAdminSettingsInfo &updateAdminSettingsInfo() const;
     void setUpdateAdminSettingsInfo(const UpdateAdminSettingsInfo &newInfo);
 
-    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
+    [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
 Q_SIGNALS:
     void updateAdminSettingsDone(const QJsonObject &obj);

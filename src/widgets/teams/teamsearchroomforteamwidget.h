@@ -22,9 +22,9 @@ public:
 
     void setPlaceholderText(const QString &str);
 
-    Q_REQUIRED_RESULT QString placeHolderText() const;
+    [[nodiscard]] QString placeHolderText() const;
 
-    Q_REQUIRED_RESULT QStringList roomIds() const;
+    [[nodiscard]] QStringList roomIds() const;
     QStringList names() const;
 Q_SIGNALS:
     void textChanged(const QString &str);

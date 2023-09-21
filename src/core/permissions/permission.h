@@ -18,20 +18,20 @@ public:
     Permission();
 
     bool parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo = {}, bool restApi = true);
-    Q_REQUIRED_RESULT QStringList roles() const;
+    [[nodiscard]] QStringList roles() const;
     void setRoles(const QStringList &newRoles);
 
-    Q_REQUIRED_RESULT qint64 updatedAt() const;
+    [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 newUpdatedAt);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT const QString &identifier() const;
+    [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
-    Q_REQUIRED_RESULT const QStringList &rolesStr() const;
+    [[nodiscard]] const QStringList &rolesStr() const;
 
-    Q_REQUIRED_RESULT bool operator==(const Permission &other) const;
+    [[nodiscard]] bool operator==(const Permission &other) const;
 
 private:
     qint64 mUpdatedAt = -1;

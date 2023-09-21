@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelWidget : public QWidget
 public:
     explicit TeamConvertToChannelWidget(QWidget *parent = nullptr);
     ~TeamConvertToChannelWidget() override;
-    Q_REQUIRED_RESULT QStringList roomIdsToDelete() const;
+    [[nodiscard]] QStringList roomIdsToDelete() const;
     void setTeamRooms(const QVector<TeamRoom> &rooms);
     void setTeamName(const QString &name);
 

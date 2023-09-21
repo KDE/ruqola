@@ -19,21 +19,21 @@ public:
     explicit UsersCreateJob(QObject *parent = nullptr);
     ~UsersCreateJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateUpdateUserInfo createInfo() const;
+    [[nodiscard]] CreateUpdateUserInfo createInfo() const;
     void setCreateInfo(const CreateUpdateUserInfo &createInfo);
 
 Q_SIGNALS:
     void usersCreateDone(const QJsonObject &obj);
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(UsersCreateJob)

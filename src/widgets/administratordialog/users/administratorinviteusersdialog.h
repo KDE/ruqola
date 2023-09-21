@@ -17,7 +17,7 @@ public:
     explicit AdministratorInviteUsersDialog(QWidget *parent = nullptr);
     ~AdministratorInviteUsersDialog() override;
 
-    Q_REQUIRED_RESULT QStringList emails() const;
+    [[nodiscard]] QStringList emails() const;
 
 private:
     AdministratorInviteUsersWidget *const mInviteUsersWidget;

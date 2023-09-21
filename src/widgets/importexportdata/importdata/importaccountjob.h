@@ -31,7 +31,7 @@ private:
     void importAccount(QString accountName);
     void finishImportAccounts();
     void importAccounts();
-    Q_REQUIRED_RESULT QString verifyExistingAccount(QString accountName) const;
+    [[nodiscard]] QString verifyExistingAccount(QString accountName) const;
     QStringList mAccountInfos;
     KZip *const mArchive;
     int mAccountIndex = 0;

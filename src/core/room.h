@@ -46,30 +46,30 @@ public:
     };
     Q_ENUM(RoomType)
 
-    Q_REQUIRED_RESULT static QString roomFromRoomType(RoomType type);
+    [[nodiscard]] static QString roomFromRoomType(RoomType type);
 
     // To be used in ID find: message ID
-    Q_REQUIRED_RESULT bool operator==(const Room &other) const;
+    [[nodiscard]] bool operator==(const Room &other) const;
 
     // we can't use operator== as it tests only id. We need it for autotest
-    Q_REQUIRED_RESULT bool isEqual(const Room &other) const;
+    [[nodiscard]] bool isEqual(const Room &other) const;
 
-    Q_REQUIRED_RESULT QString roomOwnerUserName() const;
+    [[nodiscard]] QString roomOwnerUserName() const;
     void setRoomCreatorUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString roomCreatorUserId() const;
+    [[nodiscard]] QString roomCreatorUserId() const;
     void setRoomCreatorUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QStringList mutedUsers() const;
+    [[nodiscard]] QStringList mutedUsers() const;
     void setMutedUsers(const QStringList &mutedUsers);
 
-    Q_REQUIRED_RESULT qint64 jitsiTimeout() const;
+    [[nodiscard]] qint64 jitsiTimeout() const;
     void setJitsiTimeout(qint64 jitsiTimeout);
 
-    Q_REQUIRED_RESULT int unread() const;
+    [[nodiscard]] int unread() const;
     void setUnread(int unread);
 
-    Q_REQUIRED_RESULT bool selected() const;
+    [[nodiscard]] bool selected() const;
     void setSelected(bool selected);
 
     /**
@@ -77,37 +77,37 @@ public:
      *
      * @return QString, The name of the room
      */
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QString displayRoomName() const;
+    [[nodiscard]] QString displayRoomName() const;
 
-    Q_REQUIRED_RESULT QString announcement() const;
+    [[nodiscard]] QString announcement() const;
     void setAnnouncement(const QString &announcement);
 
-    Q_REQUIRED_RESULT RoomType channelType() const;
+    [[nodiscard]] RoomType channelType() const;
     void setChannelType(RoomType channelType);
 
-    Q_REQUIRED_RESULT bool favorite() const;
+    [[nodiscard]] bool favorite() const;
     void setFavorite(bool favorite);
 
-    Q_REQUIRED_RESULT QString topic() const;
+    [[nodiscard]] QString topic() const;
     void setTopic(const QString &topic);
 
-    Q_REQUIRED_RESULT bool readOnly() const;
+    [[nodiscard]] bool readOnly() const;
     void setReadOnly(bool readOnly);
 
-    Q_REQUIRED_RESULT bool open() const;
+    [[nodiscard]] bool open() const;
     void setOpen(bool open);
 
-    Q_REQUIRED_RESULT bool alert() const;
+    [[nodiscard]] bool alert() const;
     void setAlert(bool alert);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &id);
 
     void setBlocker(bool alert);
-    Q_REQUIRED_RESULT bool blocker() const;
+    [[nodiscard]] bool blocker() const;
 
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
@@ -129,139 +129,139 @@ public:
      */
     static QByteArray serialize(Room *r, bool toBinary = true);
 
-    Q_REQUIRED_RESULT UsersForRoomModel *usersModelForRoom() const;
+    [[nodiscard]] UsersForRoomModel *usersModelForRoom() const;
 
-    Q_REQUIRED_RESULT MessageModel *messageModel() const;
+    [[nodiscard]] MessageModel *messageModel() const;
 
-    Q_REQUIRED_RESULT QString inputMessage() const;
+    [[nodiscard]] QString inputMessage() const;
     void setInputMessage(const QString &inputMessage);
 
-    Q_REQUIRED_RESULT bool archived() const;
+    [[nodiscard]] bool archived() const;
     void setArchived(bool archived);
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
-    Q_REQUIRED_RESULT bool encryptedEnabled() const;
-    Q_REQUIRED_RESULT bool canBeModify() const;
-    Q_REQUIRED_RESULT NotificationOptions notificationOptions() const;
+    [[nodiscard]] bool encryptedEnabled() const;
+    [[nodiscard]] bool canBeModify() const;
+    [[nodiscard]] NotificationOptions notificationOptions() const;
     void setNotificationOptions(const NotificationOptions &notificationOptions);
 
-    Q_REQUIRED_RESULT int userMentions() const;
+    [[nodiscard]] int userMentions() const;
     void setUserMentions(int userMentions);
 
     void updateSubscriptionRoom(const QJsonObject &json);
-    Q_REQUIRED_RESULT qint64 updatedAt() const;
+    [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
 
     void parseInsertRoom(const QJsonObject &json);
 
-    Q_REQUIRED_RESULT qint64 lastSeenAt() const;
+    [[nodiscard]] qint64 lastSeenAt() const;
     void setLastSeenAt(qint64 lastSeenAt);
 
-    Q_REQUIRED_RESULT qint64 lastMessageAt() const;
+    [[nodiscard]] qint64 lastMessageAt() const;
     void setLastMessageAt(qint64 lastMessageAt);
 
-    Q_REQUIRED_RESULT bool blocked() const;
+    [[nodiscard]] bool blocked() const;
     void setBlocked(bool blocked);
 
-    Q_REQUIRED_RESULT QStringList roles() const;
+    [[nodiscard]] QStringList roles() const;
     void setRoles(const QStringList &roles);
 
-    Q_REQUIRED_RESULT QStringList ignoredUsers() const;
+    [[nodiscard]] QStringList ignoredUsers() const;
     void setIgnoredUsers(const QStringList &ignoredUsers);
 
-    Q_REQUIRED_RESULT bool encrypted() const;
+    [[nodiscard]] bool encrypted() const;
     void setEncrypted(bool encrypted);
 
-    Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
-    Q_REQUIRED_RESULT QString roomMessageInfo() const;
+    [[nodiscard]] bool userIsIgnored(const QString &userId);
+    [[nodiscard]] QString roomMessageInfo() const;
 
-    Q_REQUIRED_RESULT QString e2EKey() const;
+    [[nodiscard]] QString e2EKey() const;
     void setE2EKey(const QString &e2EKey);
 
-    Q_REQUIRED_RESULT QString e2eKeyId() const;
+    [[nodiscard]] QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
 
-    Q_REQUIRED_RESULT bool joinCodeRequired() const;
+    [[nodiscard]] bool joinCodeRequired() const;
     void setJoinCodeRequired(bool joinCodeRequired);
 
-    Q_REQUIRED_RESULT bool wasInitialized() const;
+    [[nodiscard]] bool wasInitialized() const;
     void setWasInitialized(bool wasInitialized);
 
-    Q_REQUIRED_RESULT Roles rolesForRooms() const;
+    [[nodiscard]] Roles rolesForRooms() const;
     void setRolesForRooms(const Roles &rolesForRooms);
 
-    Q_REQUIRED_RESULT QStringList rolesForUserId(const QString &userId);
+    [[nodiscard]] QStringList rolesForUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT bool canChangeRoles() const;
-    Q_REQUIRED_RESULT bool userHasOwnerRole(const QString &userId) const;
-    Q_REQUIRED_RESULT bool userHasLeaderRole(const QString &userId) const;
-    Q_REQUIRED_RESULT bool userHasModeratorRole(const QString &userId) const;
+    [[nodiscard]] bool canChangeRoles() const;
+    [[nodiscard]] bool userHasOwnerRole(const QString &userId) const;
+    [[nodiscard]] bool userHasLeaderRole(const QString &userId) const;
+    [[nodiscard]] bool userHasModeratorRole(const QString &userId) const;
 
     void updateRoles(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT bool broadcast() const;
+    [[nodiscard]] bool broadcast() const;
     void setBroadcast(bool broadcast);
 
-    Q_REQUIRED_RESULT QString parentRid() const;
+    [[nodiscard]] QString parentRid() const;
     void setParentRid(const QString &parentRid);
 
-    Q_REQUIRED_RESULT QString fName() const;
+    [[nodiscard]] QString fName() const;
     void setFName(const QString &value);
 
-    Q_REQUIRED_RESULT QString displayFName() const;
-    Q_REQUIRED_RESULT bool isDiscussionRoom() const;
+    [[nodiscard]] QString displayFName() const;
+    [[nodiscard]] bool isDiscussionRoom() const;
 
-    Q_REQUIRED_RESULT QString autoTranslateLanguage() const;
+    [[nodiscard]] QString autoTranslateLanguage() const;
     void setAutoTranslateLanguage(const QString &autoTranslateLanguage);
 
-    Q_REQUIRED_RESULT bool autoTranslate() const;
+    [[nodiscard]] bool autoTranslate() const;
     void setAutoTranslate(bool autoTranslate);
 
-    Q_REQUIRED_RESULT QString directChannelUserId() const;
+    [[nodiscard]] QString directChannelUserId() const;
     void setDirectChannelUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QStringList displaySystemMessageTypes() const;
+    [[nodiscard]] QStringList displaySystemMessageTypes() const;
     void setDisplaySystemMessageTypes(const QStringList &displaySystemMessageTypes);
 
-    Q_REQUIRED_RESULT ChannelCounterInfo channelCounterInfo() const;
+    [[nodiscard]] ChannelCounterInfo channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
 
     void newMessageAdded();
 
-    Q_REQUIRED_RESULT bool allowToPinMessage() const;
-    Q_REQUIRED_RESULT QString avatarETag() const;
+    [[nodiscard]] bool allowToPinMessage() const;
+    [[nodiscard]] QString avatarETag() const;
     void setAvatarETag(const QString &avatarETag);
 
-    Q_REQUIRED_RESULT Utils::AvatarInfo avatarInfo() const;
+    [[nodiscard]] Utils::AvatarInfo avatarInfo() const;
 
-    Q_REQUIRED_RESULT QStringList uids() const;
+    [[nodiscard]] QStringList uids() const;
     void setUids(const QStringList &uids);
 
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
-    Q_REQUIRED_RESULT QStringList highlightsWord() const;
+    [[nodiscard]] QStringList highlightsWord() const;
     void setHighlightsWord(const QStringList &highlightsWord);
-    Q_REQUIRED_RESULT bool hasPermission(const QString &permission) const;
+    [[nodiscard]] bool hasPermission(const QString &permission) const;
 
-    Q_REQUIRED_RESULT QString displayTopic() const;
-    Q_REQUIRED_RESULT QString displayAnnouncement() const;
+    [[nodiscard]] QString displayTopic() const;
+    [[nodiscard]] QString displayAnnouncement() const;
 
-    Q_REQUIRED_RESULT RetentionInfo retentionInfo() const;
+    [[nodiscard]] RetentionInfo retentionInfo() const;
     void setRetentionInfo(RetentionInfo retentionInfo);
 
-    Q_REQUIRED_RESULT static Room::RoomType roomTypeFromString(const QString &type);
-    Q_REQUIRED_RESULT TeamInfo teamInfo() const;
+    [[nodiscard]] static Room::RoomType roomTypeFromString(const QString &type);
+    [[nodiscard]] TeamInfo teamInfo() const;
     void setTeamInfo(const TeamInfo &teamInfo);
 
-    Q_REQUIRED_RESULT Room::TeamRoomInfo teamRoomInfo() const;
-    Q_REQUIRED_RESULT bool roomIsBlocked() const;
-    Q_REQUIRED_RESULT bool hideBadgeForMention() const;
-    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
+    [[nodiscard]] Room::TeamRoomInfo teamRoomInfo() const;
+    [[nodiscard]] bool roomIsBlocked() const;
+    [[nodiscard]] bool hideBadgeForMention() const;
+    [[nodiscard]] bool hideUnreadStatus() const;
 
-    Q_REQUIRED_RESULT qint64 numberMessages() const;
+    [[nodiscard]] qint64 numberMessages() const;
     void setNumberMessages(qint64 newNumberMessages);
 
 Q_SIGNALS:

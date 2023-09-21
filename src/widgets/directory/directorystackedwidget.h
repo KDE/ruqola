@@ -18,14 +18,14 @@ public:
     explicit DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryStackedWidget() override;
 
-    Q_REQUIRED_RESULT bool isAutorized() const;
+    [[nodiscard]] bool isAutorized() const;
     void setIsAutorized(bool newIsAutorized);
 
     void fillDirectory();
 
-    Q_REQUIRED_RESULT DirectoryWidget *directoryWidget() const;
+    [[nodiscard]] DirectoryWidget *directoryWidget() const;
 
-    Q_REQUIRED_RESULT DirectoryNotAuthorizedWidget *directoryNotAutorizedWidget() const;
+    [[nodiscard]] DirectoryNotAuthorizedWidget *directoryNotAutorizedWidget() const;
 
 private:
     DirectoryWidget *const mDirectoryWidget;

@@ -17,34 +17,34 @@ public:
     BannerInfo();
     ~BannerInfo();
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
     void parseBannerInfo(const QJsonObject &object);
 
-    Q_REQUIRED_RESULT bool operator==(const BannerInfo &other) const;
+    [[nodiscard]] bool operator==(const BannerInfo &other) const;
 
-    Q_REQUIRED_RESULT const QString &text() const;
+    [[nodiscard]] const QString &text() const;
     void setText(const QString &newText);
 
-    Q_REQUIRED_RESULT const QString &title() const;
+    [[nodiscard]] const QString &title() const;
     void setTitle(const QString &newTitle);
 
-    Q_REQUIRED_RESULT const QString &link() const;
+    [[nodiscard]] const QString &link() const;
     void setLink(const QString &newLink);
 
-    Q_REQUIRED_RESULT bool read() const;
+    [[nodiscard]] bool read() const;
     void setRead(bool newRead);
 
-    Q_REQUIRED_RESULT const QStringList &textArguments() const;
+    [[nodiscard]] const QStringList &textArguments() const;
     void setTextArguments(const QStringList &newTextArguments);
 
-    Q_REQUIRED_RESULT const QString &identifier() const;
+    [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
-    Q_REQUIRED_RESULT int priority() const;
+    [[nodiscard]] int priority() const;
     void setPriority(int newPriority);
 
-    Q_REQUIRED_RESULT static QString defaultText(const BannerInfo &info);
+    [[nodiscard]] static QString defaultText(const BannerInfo &info);
 
 private:
     QStringList mTextArguments;

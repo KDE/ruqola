@@ -16,7 +16,7 @@ public:
     explicit ChannelPasswordDialog(QWidget *parent = nullptr);
     ~ChannelPasswordDialog() override;
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
 
 private:
     ChannelPasswordWidget *const mChannelPasswordWidget;

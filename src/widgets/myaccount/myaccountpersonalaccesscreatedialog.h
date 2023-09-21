@@ -16,8 +16,8 @@ public:
     explicit MyAccountPersonalAccessCreateDialog(QWidget *parent = nullptr);
     ~MyAccountPersonalAccessCreateDialog() override;
 
-    Q_REQUIRED_RESULT bool bypassTwoFactor() const;
-    Q_REQUIRED_RESULT QString tokenName() const;
+    [[nodiscard]] bool bypassTwoFactor() const;
+    [[nodiscard]] QString tokenName() const;
 
 private:
     MyAccountPersonalAccessCreateWidget *const mCreateWidget;

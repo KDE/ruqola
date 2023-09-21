@@ -27,7 +27,7 @@ public:
 
     void updateUiFromPermission();
 
-    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
+    [[nodiscard]] RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 Q_SIGNALS:
     void channelDeleted();
     void fnameChanged(const QString &fname);

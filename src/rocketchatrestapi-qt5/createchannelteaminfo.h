@@ -22,8 +22,8 @@ public:
     };
     Q_ENUM(CreateInfoType)
 
-    Q_REQUIRED_RESULT bool isValid() const;
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool isValid() const;
+    [[nodiscard]] bool canStart() const;
     QString name;
     QString description;
     QString teamId;
@@ -36,7 +36,7 @@ public:
     bool privateChannel = false;
     CreateInfoType infoType = CreateInfoType::Unknown;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_MOVABLE_TYPE);

@@ -28,12 +28,12 @@ public:
     explicit UserBaseJob(QObject *parent = nullptr);
     ~UserBaseJob() override;
 
-    Q_REQUIRED_RESULT UserInfo userInfo() const;
+    [[nodiscard]] UserInfo userInfo() const;
     void setUserInfo(const UserInfo &userInfo);
 
-    Q_REQUIRED_RESULT bool hasUserIdentifier() const;
+    [[nodiscard]] bool hasUserIdentifier() const;
 
-    Q_REQUIRED_RESULT QString identifier() const;
+    [[nodiscard]] QString identifier() const;
 
 protected:
     void addQueryUrl(QUrl &url) const;

@@ -24,35 +24,35 @@ public:
     ~Channel();
     void parseChannel(const QJsonObject &object, Channel::ChannelType);
 
-    Q_REQUIRED_RESULT ChannelType type() const;
+    [[nodiscard]] ChannelType type() const;
     void setType(Channel::ChannelType type);
 
-    Q_REQUIRED_RESULT bool operator==(const Channel &other) const;
+    [[nodiscard]] bool operator==(const Channel &other) const;
 
     Channel &operator=(const Channel &other) = default;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT QString roomName() const;
+    [[nodiscard]] QString roomName() const;
     void setRoomName(const QString &roomName);
 
-    Q_REQUIRED_RESULT QString roomType() const;
+    [[nodiscard]] QString roomType() const;
     void setRoomType(const QString &roomType);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QString status() const;
+    [[nodiscard]] QString status() const;
     void setStatus(const QString &status);
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString iconFromStatus() const;
+    [[nodiscard]] QString iconFromStatus() const;
 
 private:
     QString mRoomId;

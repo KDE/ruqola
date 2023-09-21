@@ -140,7 +140,7 @@ public:
      *
      * @return true if connected, else false
      */
-    Q_REQUIRED_RESULT bool isConnected() const;
+    [[nodiscard]] bool isConnected() const;
 
     /**
      * @brief Reconnects the websocket to new url
@@ -152,21 +152,21 @@ public:
      *
      *@return QQueue<QPair<QString,QJsonDocument>>, The m_messageQueue object
      */
-    Q_REQUIRED_RESULT QQueue<QPair<QString, QJsonDocument>> messageQueue() const;
+    [[nodiscard]] QQueue<QPair<QString, QJsonDocument>> messageQueue() const;
 
     /**
      * @brief Returns standard cache path
      *
      *@def QString path
      */
-    Q_REQUIRED_RESULT QString cachePath() const;
+    [[nodiscard]] QString cachePath() const;
 
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 
     void setServerUrl(const QString &url);
     void start();
 
-    Q_REQUIRED_RESULT DDPAuthenticationManager *authenticationManager() const;
+    [[nodiscard]] DDPAuthenticationManager *authenticationManager() const;
 
     quint64 joinRoom(const QString &roomId, const QString &joinCode);
     quint64 openDirectChannel(const QString &userId);

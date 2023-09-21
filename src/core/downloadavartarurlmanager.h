@@ -18,10 +18,10 @@ public:
     explicit DownloadAvartarUrlManager(QObject *parent = nullptr);
     ~DownloadAvartarUrlManager() override;
 
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
     void start();
 
-    Q_REQUIRED_RESULT QString avatarUrl() const;
+    [[nodiscard]] QString avatarUrl() const;
     void setAvatarUrl(const QString &avatarUrl);
 Q_SIGNALS:
     void avatarDownloaded(const QByteArray &data, const QString &avatarUrl);

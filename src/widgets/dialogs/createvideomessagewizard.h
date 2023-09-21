@@ -23,13 +23,13 @@ public:
         QString mDescription;
         QString mFileName;
         QUrl mFilePath;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
 
     explicit CreateVideoMessageWizard(QWidget *parent = nullptr);
     ~CreateVideoMessageWizard() override;
 
-    Q_REQUIRED_RESULT CreateVideoMessageInfo videoMessageInfo() const;
+    [[nodiscard]] CreateVideoMessageInfo videoMessageInfo() const;
 
 private:
     void readConfig();
@@ -51,11 +51,11 @@ public:
     explicit CreateVideoMessagePage(QWidget *parent = nullptr);
     ~CreateVideoMessagePage() override;
 
-    Q_REQUIRED_RESULT bool validatePage() override;
+    [[nodiscard]] bool validatePage() override;
 
-    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+    [[nodiscard]] QUrl fileNamePath() const;
 
-    Q_REQUIRED_RESULT bool isComplete() const override;
+    [[nodiscard]] bool isComplete() const override;
 
     void loadSettings();
     void saveSettings();
@@ -71,10 +71,10 @@ public:
     explicit GenerateVideoMessagePage(QWidget *parent = nullptr);
     ~GenerateVideoMessagePage() override;
 
-    Q_REQUIRED_RESULT QString fileName() const;
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString fileName() const;
+    [[nodiscard]] QString description() const;
     void setFileNamePath(const QUrl &url);
-    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+    [[nodiscard]] QUrl fileNamePath() const;
 
 private:
     ShowVideoWidget *const mShowVideoWidget;

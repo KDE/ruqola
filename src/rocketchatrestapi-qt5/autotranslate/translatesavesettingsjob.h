@@ -19,23 +19,23 @@ public:
 
     enum SettingType { AutoTranslateSetting, LanguageSetting, Undefined };
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool autoTranslate() const;
+    [[nodiscard]] bool autoTranslate() const;
     void setAutoTranslate(bool autoTranslate);
 
-    Q_REQUIRED_RESULT QString language() const;
+    [[nodiscard]] QString language() const;
     void setLanguage(const QString &language);
 
-    Q_REQUIRED_RESULT SettingType type() const;
+    [[nodiscard]] SettingType type() const;
     void setType(SettingType type);
 
 Q_SIGNALS:

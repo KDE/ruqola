@@ -24,9 +24,9 @@ public:
     explicit AdministratorRoomsEditDialog(RoomType roomType, QWidget *parent = nullptr);
     ~AdministratorRoomsEditDialog() override;
 
-    Q_REQUIRED_RESULT RoomType roomType() const;
+    [[nodiscard]] RoomType roomType() const;
 
-    Q_REQUIRED_RESULT AdministratorRoomsEditBaseWidget::RoomEditInfo roomEditInfo() const;
+    [[nodiscard]] AdministratorRoomsEditBaseWidget::RoomEditInfo roomEditInfo() const;
     void setRoomEditInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &newRoomEditInfo);
 
 private:

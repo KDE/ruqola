@@ -37,11 +37,11 @@ public:
     explicit RoomWidget(QWidget *parent = nullptr);
     ~RoomWidget() override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
-    Q_REQUIRED_RESULT Room::RoomType roomType() const;
+    [[nodiscard]] Room::RoomType roomType() const;
 
     Room *room() const;
 

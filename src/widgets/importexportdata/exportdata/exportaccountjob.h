@@ -17,10 +17,10 @@ public:
     explicit ExportAccountJob(const QString &fileName, QObject *parent = nullptr);
     ~ExportAccountJob() override;
 
-    Q_REQUIRED_RESULT QVector<ImportExportUtils::AccountImportExportInfo> listAccounts() const;
+    [[nodiscard]] QVector<ImportExportUtils::AccountImportExportInfo> listAccounts() const;
     void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
 
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
 
 protected:
     void run() override;

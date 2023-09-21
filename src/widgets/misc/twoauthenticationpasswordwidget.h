@@ -16,11 +16,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TwoAuthenticationPasswordWidget : public QWi
 public:
     explicit TwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
     ~TwoAuthenticationPasswordWidget() override;
-    Q_REQUIRED_RESULT QString code() const;
+    [[nodiscard]] QString code() const;
 
     void clear();
 
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 Q_SIGNALS:

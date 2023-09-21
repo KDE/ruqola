@@ -16,26 +16,26 @@ public:
 
     void parseTeamInfo(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT QString teamId() const;
+    [[nodiscard]] QString teamId() const;
     void setTeamId(const QString &teamId);
 
-    Q_REQUIRED_RESULT bool mainTeam() const;
+    [[nodiscard]] bool mainTeam() const;
     void setMainTeam(bool mainTeam);
 
-    Q_REQUIRED_RESULT bool hasTeamRoom() const;
+    [[nodiscard]] bool hasTeamRoom() const;
 
     static void serialize(const TeamInfo &teams, QJsonObject &obj);
-    Q_REQUIRED_RESULT static TeamInfo deserialize(const QJsonObject &o);
+    [[nodiscard]] static TeamInfo deserialize(const QJsonObject &o);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT bool operator==(const TeamInfo &other) const;
-    Q_REQUIRED_RESULT bool operator!=(const TeamInfo &other) const;
+    [[nodiscard]] bool operator==(const TeamInfo &other) const;
+    [[nodiscard]] bool operator!=(const TeamInfo &other) const;
 
-    Q_REQUIRED_RESULT bool autoJoin() const;
+    [[nodiscard]] bool autoJoin() const;
     void setAutoJoin(bool autoJoin);
 
-    Q_REQUIRED_RESULT int roomsCount() const;
+    [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int newRoomsCount);
 
 private:

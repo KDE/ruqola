@@ -17,7 +17,7 @@ public:
     void setRoomAnnouncement(const QString &announcement);
     void setRoomTopic(const QString &name);
 
-    Q_REQUIRED_RESULT const QString &fullText() const;
+    [[nodiscard]] const QString &fullText() const;
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
@@ -26,8 +26,8 @@ private:
     void slotMoreInfo(const QString &content);
     void updateSqueezedText();
     void updateHeaderText();
-    Q_REQUIRED_RESULT QString rPixelSqueeze(const QString &text, int maxPixels) const;
-    Q_REQUIRED_RESULT QSize textSize(const QString &text) const;
+    [[nodiscard]] QString rPixelSqueeze(const QString &text, int maxPixels) const;
+    [[nodiscard]] QSize textSize(const QString &text) const;
     QString mFullText;
     QString mTopic;
     QString mAnnouncement;

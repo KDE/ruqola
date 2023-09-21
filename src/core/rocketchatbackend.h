@@ -33,10 +33,10 @@ public:
 
     void clearUsersList();
 
-    Q_REQUIRED_RESULT QVector<User> users() const;
+    [[nodiscard]] QVector<User> users() const;
 
     void clearFilesList();
-    Q_REQUIRED_RESULT QVector<File> files() const;
+    [[nodiscard]] QVector<File> files() const;
 
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
 

@@ -42,7 +42,7 @@ protected:
     SearchTreeBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
     RocketChatAccount *const mRocketChatAccount;
-    Q_REQUIRED_RESULT QString clickableStr() const;
+    [[nodiscard]] QString clickableStr() const;
 
 private:
     void slotSearchCleared();

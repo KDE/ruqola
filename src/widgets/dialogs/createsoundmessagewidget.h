@@ -21,7 +21,7 @@ public:
     explicit CreateSoundMessageWidget(QWidget *parent = nullptr);
     ~CreateSoundMessageWidget() override;
 
-    Q_REQUIRED_RESULT QUrl temporaryFilePath() const;
+    [[nodiscard]] QUrl temporaryFilePath() const;
 
     void loadSettings();
     void saveSettings();

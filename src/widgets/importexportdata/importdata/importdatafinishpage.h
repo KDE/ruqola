@@ -19,7 +19,7 @@ public:
 
     void setZipFileUrl(const QUrl &url);
 
-    Q_REQUIRED_RESULT bool isComplete() const override;
+    [[nodiscard]] bool isComplete() const override;
 
 private:
     void slotImportDone();

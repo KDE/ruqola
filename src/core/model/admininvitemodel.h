@@ -30,18 +30,18 @@ public:
     explicit AdminInviteModel(QObject *parent = nullptr);
     ~AdminInviteModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_REQUIRED_RESULT const QVector<InviteInfo> &adminInvites() const;
+    [[nodiscard]] const QVector<InviteInfo> &adminInvites() const;
     void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
 
     void removeInvite(const QString &identifier);
 
 private:
     Q_DISABLE_COPY(AdminInviteModel)
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
     QVector<InviteInfo> mAdminInvites;
 };

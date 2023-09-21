@@ -32,15 +32,15 @@ public:
 
     void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, GlobalDatabase::TimeStampType type);
     void removeTimeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
-    Q_REQUIRED_RESULT qint64 timeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
+    [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
 
-    Q_REQUIRED_RESULT QVector<Message>
+    [[nodiscard]] QVector<Message>
     loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements, EmojiManager *emojiManager) const;
 
     void updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp);
     void deleteAccount(const QString &accountName);
 
-    Q_REQUIRED_RESULT QByteArray jsonAccount(const QString &accountName);
+    [[nodiscard]] QByteArray jsonAccount(const QString &accountName);
 
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;

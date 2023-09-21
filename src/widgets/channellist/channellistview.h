@@ -22,7 +22,7 @@ public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView() override;
 
-    Q_REQUIRED_RESULT RoomFilterProxyModel *filterModel() const;
+    [[nodiscard]] RoomFilterProxyModel *filterModel() const;
 
     void selectChannelRequested(const QString &channelId, const QString &messageId);
     void selectNextUnreadChannel();
@@ -33,12 +33,12 @@ public:
     };
     void selectNextChannel(Direction direction = Direction::Down, bool switchToNextUnreadChannel = false);
 
-    Q_REQUIRED_RESULT bool selectChannelByRoomNameRequested(const QString &selectedRoomName);
+    [[nodiscard]] bool selectChannelByRoomNameRequested(const QString &selectedRoomName);
 
     void channelSelected(const QModelIndex &index);
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
-    Q_REQUIRED_RESULT bool selectChannelByRoomIdRequested(const QString &identifier);
+    [[nodiscard]] bool selectChannelByRoomIdRequested(const QString &identifier);
 
 Q_SIGNALS:
     void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
@@ -60,7 +60,7 @@ private:
     void slotMoveToTeam(const QModelIndex &index);
     void slotConvertToChannel(const QModelIndex &index);
     void slotConfigureNotification(Room *room);
-    Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
+    [[nodiscard]] bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
     void slotRoomRemoved(const QString &roomId);
     void slotPressed(const QModelIndex &index);
 

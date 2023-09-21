@@ -25,12 +25,12 @@ public:
     explicit CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewDiscussionDialog() override;
 
-    Q_REQUIRED_RESULT NewDiscussionInfo newDiscussionInfo() const;
+    [[nodiscard]] NewDiscussionInfo newDiscussionInfo() const;
 
     void setChannelInfo(const QString &name, const QString &channelId);
     void setDiscussionName(const QString &name);
 
-    Q_REQUIRED_RESULT const QString &messageId() const;
+    [[nodiscard]] const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
 private:

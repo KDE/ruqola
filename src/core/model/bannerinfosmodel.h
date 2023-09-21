@@ -29,14 +29,14 @@ public:
     explicit BannerInfosModel(QObject *parent = nullptr);
     ~BannerInfosModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void clear();
 
     void insertBannerInfos(const BannerInfos &infos);
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString text(const BannerInfo &info) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString text(const BannerInfo &info) const;
     BannerInfos mBannerInfos;
 };

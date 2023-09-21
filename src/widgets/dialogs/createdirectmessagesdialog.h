@@ -17,7 +17,7 @@ public:
     explicit CreateDirectMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateDirectMessagesDialog() override;
 
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userNames() const;
 
 private:
     void readConfig();

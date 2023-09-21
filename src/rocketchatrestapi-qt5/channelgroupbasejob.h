@@ -30,9 +30,9 @@ public:
         ChannelGroupBaseJob::ChannelGroupInfoType channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Unknown;
     };
 
-    Q_REQUIRED_RESULT bool hasIdentifier() const;
+    [[nodiscard]] bool hasIdentifier() const;
 
-    Q_REQUIRED_RESULT ChannelGroupInfo channelGroupInfo() const;
+    [[nodiscard]] ChannelGroupInfo channelGroupInfo() const;
     void setChannelGroupInfo(const ChannelGroupInfo &channelInfo);
 
 protected:

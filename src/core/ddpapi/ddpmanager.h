@@ -30,7 +30,7 @@ public:
     void processMethodResponse(int opId, const QJsonObject &response);
     void processSubscriptionResult(int subId, const QJsonObject &result);
 
-    Q_REQUIRED_RESULT DDPClient *ddpClient() const;
+    [[nodiscard]] DDPClient *ddpClient() const;
 
 protected:
     DDPClient *mDdpClient = nullptr;

@@ -14,20 +14,20 @@ class LIBRUQOLACORE_TESTS_EXPORT PersonalAccessTokenInfo
 {
 public:
     PersonalAccessTokenInfo();
-    Q_REQUIRED_RESULT bool bypassTwoFactor() const;
+    [[nodiscard]] bool bypassTwoFactor() const;
     void setBypassTwoFactor(bool newBypassTwoFactor);
 
-    Q_REQUIRED_RESULT const QString &name() const;
+    [[nodiscard]] const QString &name() const;
     void setName(const QString &newName);
 
-    Q_REQUIRED_RESULT const QString &lastTokenPart() const;
+    [[nodiscard]] const QString &lastTokenPart() const;
     void setLastTokenPart(const QString &newLastTokenPart);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
     void parsePersonalAccessTokenInfo(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT qint64 createdAt() const;
+    [[nodiscard]] qint64 createdAt() const;
     void setCreatedAt(qint64 newCreatedAt);
 
     const QString &createAtDisplayDateTime() const;

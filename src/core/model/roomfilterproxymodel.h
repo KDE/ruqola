@@ -27,8 +27,8 @@ public:
     void setSortOrder(OwnUserPreferences::RoomListSortOrder sortOrder);
 
 protected:
-    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
-    Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     Q_DISABLE_COPY(RoomFilterProxyModel)

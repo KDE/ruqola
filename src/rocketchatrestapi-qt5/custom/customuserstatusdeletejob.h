@@ -17,14 +17,14 @@ public:
     explicit CustomUserStatusDeleteJob(QObject *parent = nullptr);
     ~CustomUserStatusDeleteJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString customUserStatusId() const;
+    [[nodiscard]] QString customUserStatusId() const;
     void setCustomUserStatusId(const QString &customUserStatusId);
 
 Q_SIGNALS:

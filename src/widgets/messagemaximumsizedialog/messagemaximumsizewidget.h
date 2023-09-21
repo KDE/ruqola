@@ -17,9 +17,9 @@ public:
     explicit MessageMaximumSizeWidget(QWidget *parent = nullptr);
     ~MessageMaximumSizeWidget() override;
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
 
-    Q_REQUIRED_RESULT QString fileName() const;
+    [[nodiscard]] QString fileName() const;
 Q_SIGNALS:
     void updateOkButton(bool enabled);
 

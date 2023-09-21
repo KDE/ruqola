@@ -16,6 +16,6 @@ public:
     explicit MessageTextEditor(QWidget *parent = nullptr);
     ~MessageTextEditor() override;
 
-    Q_REQUIRED_RESULT QSize sizeHint() const override;
-    Q_REQUIRED_RESULT QSize minimumSizeHint() const override;
+    [[nodiscard]] QSize sizeHint() const override;
+    [[nodiscard]] QSize minimumSizeHint() const override;
 };

@@ -21,7 +21,7 @@ public:
     void setValue(int value);
     void setUploadFileName(const QString &str);
 
-    Q_REQUIRED_RESULT int identifier() const;
+    [[nodiscard]] int identifier() const;
     void setIdentifier(int newIdentifier);
 
 Q_SIGNALS:

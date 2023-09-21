@@ -35,16 +35,16 @@ public:
 
     Q_ENUM(MessageType)
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool groupable() const;
+    [[nodiscard]] bool groupable() const;
     void setGroupable(bool groupable);
 
-    Q_REQUIRED_RESULT bool parseUrls() const;
+    [[nodiscard]] bool parseUrls() const;
     void setParseUrls(bool parseUrls);
 
-    Q_REQUIRED_RESULT QString avatar() const;
+    [[nodiscard]] QString avatar() const;
     void setAvatar(const QString &avatar);
 
     /**
@@ -53,7 +53,7 @@ public:
      * @param source The Json containing message attributes
      * @return Message object, The message constructed from Json
      */
-    Q_REQUIRED_RESULT static Message deserialize(const QJsonObject &source, EmojiManager *emojiManager = nullptr);
+    [[nodiscard]] static Message deserialize(const QJsonObject &source, EmojiManager *emojiManager = nullptr);
 
     /**
      * @brief Constructs QBytearray from Message object
@@ -61,156 +61,156 @@ public:
      * @param message The Message object
      * @return QByteArray, The Json containing message attributes
      */
-    Q_REQUIRED_RESULT static QByteArray serialize(const Message &message, bool toBinary = true);
+    [[nodiscard]] static QByteArray serialize(const Message &message, bool toBinary = true);
 
     void parseMessage(const QJsonObject &o, bool restApi = false);
 
-    Q_REQUIRED_RESULT bool operator==(const Message &other) const;
+    [[nodiscard]] bool operator==(const Message &other) const;
 
     Message &operator=(const Message &other) = default;
 
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
 
-    Q_REQUIRED_RESULT QString messageId() const;
+    [[nodiscard]] QString messageId() const;
     void setMessageId(const QString &messageId);
 
-    Q_REQUIRED_RESULT QString text() const;
+    [[nodiscard]] QString text() const;
     void setText(const QString &text);
 
-    Q_REQUIRED_RESULT qint64 timeStamp() const;
+    [[nodiscard]] qint64 timeStamp() const;
     void setTimeStamp(qint64 timeStamp);
 
-    Q_REQUIRED_RESULT QString username() const;
+    [[nodiscard]] QString username() const;
     void setUsername(const QString &username);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT qint64 updatedAt() const;
+    [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
 
-    Q_REQUIRED_RESULT qint64 editedAt() const;
+    [[nodiscard]] qint64 editedAt() const;
     void setEditedAt(qint64 editedAt);
 
-    Q_REQUIRED_RESULT QString editedByUsername() const;
+    [[nodiscard]] QString editedByUsername() const;
     void setEditedByUsername(const QString &editedByUsername);
 
-    Q_REQUIRED_RESULT bool wasEdited() const;
+    [[nodiscard]] bool wasEdited() const;
 
-    Q_REQUIRED_RESULT QString editedByUserId() const;
+    [[nodiscard]] QString editedByUserId() const;
     void setEditedByUserId(const QString &editedByUserId);
 
-    Q_REQUIRED_RESULT QString alias() const;
+    [[nodiscard]] QString alias() const;
     void setAlias(const QString &alias);
 
-    Q_REQUIRED_RESULT QString systemMessageType() const;
+    [[nodiscard]] QString systemMessageType() const;
     void setSystemMessageType(const QString &systemMessageType);
 
-    Q_REQUIRED_RESULT MessageType messageType() const;
+    [[nodiscard]] MessageType messageType() const;
     void setMessageType(Message::MessageType messageType);
 
-    Q_REQUIRED_RESULT QVector<MessageAttachment> attachments() const;
+    [[nodiscard]] QVector<MessageAttachment> attachments() const;
     void setAttachments(const QVector<MessageAttachment> &attachments);
 
-    Q_REQUIRED_RESULT QVector<MessageUrl> urls() const;
+    [[nodiscard]] QVector<MessageUrl> urls() const;
     void setUrls(const QVector<MessageUrl> &urls);
 
-    Q_REQUIRED_RESULT QMap<QString, QString> mentions() const;
+    [[nodiscard]] QMap<QString, QString> mentions() const;
     void setMentions(const QMap<QString, QString> &mentions);
 
-    Q_REQUIRED_RESULT bool isStarred() const;
+    [[nodiscard]] bool isStarred() const;
     void setIsStarred(bool starred);
 
-    Q_REQUIRED_RESULT Reactions reactions() const;
+    [[nodiscard]] Reactions reactions() const;
     void setReactions(const Reactions &reactions);
 
-    Q_REQUIRED_RESULT QString systemMessageText() const;
+    [[nodiscard]] QString systemMessageText() const;
 
-    Q_REQUIRED_RESULT QString role() const;
+    [[nodiscard]] QString role() const;
     void setRole(const QString &role);
 
-    Q_REQUIRED_RESULT bool unread() const;
+    [[nodiscard]] bool unread() const;
     void setUnread(bool unread);
 
-    Q_REQUIRED_RESULT MessagePinned messagePinned() const;
+    [[nodiscard]] MessagePinned messagePinned() const;
     void setMessagePinned(const MessagePinned &messagePinned);
 
-    Q_REQUIRED_RESULT MessageStarred messageStarred() const;
+    [[nodiscard]] MessageStarred messageStarred() const;
     void setMessageStarred(MessageStarred messageStarred);
 
-    Q_REQUIRED_RESULT int threadCount() const;
+    [[nodiscard]] int threadCount() const;
     void setThreadCount(int threadCount);
 
-    Q_REQUIRED_RESULT qint64 threadLastMessage() const;
+    [[nodiscard]] qint64 threadLastMessage() const;
     void setThreadLastMessage(qint64 threadLastMessage);
 
-    Q_REQUIRED_RESULT qint64 discussionLastMessage() const;
+    [[nodiscard]] qint64 discussionLastMessage() const;
     void setDiscussionLastMessage(qint64 discussionLastMessage);
 
-    Q_REQUIRED_RESULT int discussionCount() const;
+    [[nodiscard]] int discussionCount() const;
     void setDiscussionCount(int discussionCount);
 
-    Q_REQUIRED_RESULT QString discussionRoomId() const;
+    [[nodiscard]] QString discussionRoomId() const;
     void setDiscussionRoomId(const QString &discussionRoomId);
 
-    Q_REQUIRED_RESULT QString threadMessageId() const;
+    [[nodiscard]] QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
-    Q_REQUIRED_RESULT QString displayTime() const;
+    [[nodiscard]] QString displayTime() const;
 
-    Q_REQUIRED_RESULT MessageTranslation messageTranslation() const;
+    [[nodiscard]] MessageTranslation messageTranslation() const;
     void setMessageTranslation(const MessageTranslation &messageTranslation);
 
-    Q_REQUIRED_RESULT bool showTranslatedMessage() const;
+    [[nodiscard]] bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QStringList replies() const;
+    [[nodiscard]] QStringList replies() const;
     void setReplies(const QStringList &replies);
 
-    Q_REQUIRED_RESULT QString emoji() const;
+    [[nodiscard]] QString emoji() const;
     void setEmoji(const QString &emoji);
 
-    Q_REQUIRED_RESULT Utils::AvatarInfo avatarInfo() const;
-    Q_REQUIRED_RESULT bool pendingMessage() const;
+    [[nodiscard]] Utils::AvatarInfo avatarInfo() const;
+    [[nodiscard]] bool pendingMessage() const;
     void setPendingMessage(bool pendingMessage);
 
-    Q_REQUIRED_RESULT bool isPinned() const;
-    Q_REQUIRED_RESULT bool isAutoTranslated() const;
-    Q_REQUIRED_RESULT bool showIgnoredMessage() const;
+    [[nodiscard]] bool isPinned() const;
+    [[nodiscard]] bool isAutoTranslated() const;
+    [[nodiscard]] bool showIgnoredMessage() const;
     void setShowIgnoredMessage(bool showIgnoredMessage);
 
-    Q_REQUIRED_RESULT bool isEditingMode() const;
+    [[nodiscard]] bool isEditingMode() const;
     void setIsEditingMode(bool isEditingMode);
 
-    Q_REQUIRED_RESULT QString editedDisplayTime() const;
+    [[nodiscard]] QString editedDisplayTime() const;
 
     const QMap<QString, QString> &channels() const;
     void setChannels(const QMap<QString, QString> &newChannels);
 
-    Q_REQUIRED_RESULT bool hoverHighlight() const;
+    [[nodiscard]] bool hoverHighlight() const;
     void setHoverHighlight(bool newShowReactionIcon);
 
-    Q_REQUIRED_RESULT const QString &localTranslation() const;
+    [[nodiscard]] const QString &localTranslation() const;
     void setLocalTranslation(const QString &newLocalTranslation);
 
-    Q_REQUIRED_RESULT QString originalMessageOrAttachmentDescription() const;
+    [[nodiscard]] QString originalMessageOrAttachmentDescription() const;
 
-    Q_REQUIRED_RESULT QVector<Block> blocks() const;
+    [[nodiscard]] QVector<Block> blocks() const;
     void setBlocks(const QVector<Block> &newBlocks);
 
-    Q_REQUIRED_RESULT QString dateTime() const;
+    [[nodiscard]] QString dateTime() const;
 
-    Q_REQUIRED_RESULT QColor goToMessageBackgroundColor() const;
+    [[nodiscard]] QColor goToMessageBackgroundColor() const;
     void setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgroundColor);
 
     void setVideoConferenceInfo(const VideoConferenceInfo &info);
 
 private:
-    Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
+    [[nodiscard]] static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
     void parseUrls(const QJsonArray &urls);

@@ -22,17 +22,17 @@ public:
     ~CreateNewDiscussionWidget() override;
 
     void setChannelInfo(const QString &name, const QString &channelId);
-    Q_REQUIRED_RESULT QString channelName() const;
+    [[nodiscard]] QString channelName() const;
 
     void setDiscussionName(const QString &name);
-    Q_REQUIRED_RESULT QString discussionName() const;
+    [[nodiscard]] QString discussionName() const;
 
     void setMessage(const QString &name);
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QString message() const;
 
-    Q_REQUIRED_RESULT QStringList usersId() const;
+    [[nodiscard]] QStringList usersId() const;
 
-    Q_REQUIRED_RESULT QString channelId() const;
+    [[nodiscard]] QString channelId() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

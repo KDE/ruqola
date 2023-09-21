@@ -24,54 +24,54 @@ public:
     };
     Q_ENUM(NotificationType);
 
-    Q_REQUIRED_RESULT const QString &accountName() const;
+    [[nodiscard]] const QString &accountName() const;
     void setAccountName(const QString &newAccountName);
 
-    Q_REQUIRED_RESULT const QString &message() const;
+    [[nodiscard]] const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    Q_REQUIRED_RESULT const QString &title() const;
+    [[nodiscard]] const QString &title() const;
     void setTitle(const QString &newTitle);
 
-    Q_REQUIRED_RESULT const QString &senderId() const;
+    [[nodiscard]] const QString &senderId() const;
     void setSenderId(const QString &newSenderId);
 
-    Q_REQUIRED_RESULT const QString &senderName() const;
+    [[nodiscard]] const QString &senderName() const;
     void setSenderName(const QString &newSenderName);
 
-    Q_REQUIRED_RESULT const QString &senderUserName() const;
+    [[nodiscard]] const QString &senderUserName() const;
     void setSenderUserName(const QString &newSenderUserName);
 
-    Q_REQUIRED_RESULT const QString &roomName() const;
+    [[nodiscard]] const QString &roomName() const;
     void setRoomName(const QString &newRoomName);
 
-    Q_REQUIRED_RESULT const QString &roomId() const;
+    [[nodiscard]] const QString &roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT const QString &channelType() const;
+    [[nodiscard]] const QString &channelType() const;
     void setChannelType(const QString &newChannelType);
 
-    Q_REQUIRED_RESULT const QString &tmId() const;
+    [[nodiscard]] const QString &tmId() const;
     void setTmId(const QString &newTmId);
 
-    Q_REQUIRED_RESULT const QPixmap &pixmap() const;
+    [[nodiscard]] const QPixmap &pixmap() const;
     void setPixmap(const QPixmap &newPixmap);
 
     void parseNotification(const QJsonArray &contents);
 
     // Pixmap can be null.
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT const QString &dateTime() const;
+    [[nodiscard]] const QString &dateTime() const;
     void setDateTime(const QString &newDateTime);
 
-    Q_REQUIRED_RESULT const QString &messageId() const;
+    [[nodiscard]] const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
-    Q_REQUIRED_RESULT NotificationType notificationType() const;
+    [[nodiscard]] NotificationType notificationType() const;
     void setNotificationType(const NotificationType &newNotificationType);
 
-    Q_REQUIRED_RESULT bool operator==(const NotificationInfo &other) const;
+    [[nodiscard]] bool operator==(const NotificationInfo &other) const;
 
 private:
     QString mMessageId;

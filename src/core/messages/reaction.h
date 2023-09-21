@@ -15,20 +15,20 @@ class LIBRUQOLACORE_EXPORT Reaction
 public:
     Reaction();
 
-    Q_REQUIRED_RESULT QString reactionName() const;
+    [[nodiscard]] QString reactionName() const;
     void setReactionName(const QString &reactionName, EmojiManager *emojiManager = nullptr);
 
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
 
-    Q_REQUIRED_RESULT bool operator==(const Reaction &other) const;
+    [[nodiscard]] bool operator==(const Reaction &other) const;
 
-    Q_REQUIRED_RESULT QString convertedReactionName() const;
-    Q_REQUIRED_RESULT QString convertedUsersNameAtToolTip() const;
+    [[nodiscard]] QString convertedReactionName() const;
+    [[nodiscard]] QString convertedUsersNameAtToolTip() const;
 
-    Q_REQUIRED_RESULT bool isAnimatedImage() const;
+    [[nodiscard]] bool isAnimatedImage() const;
     void setIsAnimatedImage(bool isAnimatedImage);
 
 private:

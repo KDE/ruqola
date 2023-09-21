@@ -16,21 +16,21 @@ class LIBRUQOLACORE_TESTS_EXPORT FileAttachments
 public:
     FileAttachments();
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
     void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT File at(int index) const;
+    [[nodiscard]] int count() const;
+    [[nodiscard]] File at(int index) const;
 
-    Q_REQUIRED_RESULT int filesCount() const;
+    [[nodiscard]] int filesCount() const;
     void setFilesCount(int filesCount);
 
-    Q_REQUIRED_RESULT int offset() const;
+    [[nodiscard]] int offset() const;
     void setOffset(int offset);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT QVector<File> fileAttachments() const;
+    [[nodiscard]] QVector<File> fileAttachments() const;
     void setFileAttachments(const QVector<File> &fileAttachments);
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj);

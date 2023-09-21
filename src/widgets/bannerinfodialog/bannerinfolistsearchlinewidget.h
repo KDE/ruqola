@@ -18,9 +18,9 @@ public:
     explicit BannerInfoListSearchLineWidget(QWidget *parent = nullptr);
     ~BannerInfoListSearchLineWidget() override;
 
-    Q_REQUIRED_RESULT QString searchText() const;
+    [[nodiscard]] QString searchText() const;
 
-    Q_REQUIRED_RESULT bool showOnlyUnread() const;
+    [[nodiscard]] bool showOnlyUnread() const;
 
 Q_SIGNALS:
     void filterChanged();

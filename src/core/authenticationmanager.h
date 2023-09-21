@@ -56,7 +56,7 @@ public:
 
     static AuthenticationManager *self();
 
-    Q_REQUIRED_RESULT QVector<PluginAuthentication *> pluginsList() const;
+    [[nodiscard]] QVector<PluginAuthentication *> pluginsList() const;
 
 private:
     Q_DISABLE_COPY(AuthenticationManager)

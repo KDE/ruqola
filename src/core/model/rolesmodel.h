@@ -25,7 +25,7 @@ public:
 
     void setRoles(const QVector<RoleInfo> &newRoles);
 
-    Q_REQUIRED_RESULT QStringList rolesSelected() const;
+    [[nodiscard]] QStringList rolesSelected() const;
     void setRolesSelected(const QStringList &newRolesSelected);
 
 private:

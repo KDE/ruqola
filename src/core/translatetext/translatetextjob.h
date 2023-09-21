@@ -17,14 +17,14 @@ public:
         QString from;
         QString to;
         QString inputText;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
     explicit TranslateTextJob(QObject *parent = nullptr);
     ~TranslateTextJob() override;
 
     void translate();
 
-    Q_REQUIRED_RESULT const TranslateInfo &info() const;
+    [[nodiscard]] const TranslateInfo &info() const;
     void setInfo(const TranslateInfo &newInfo);
 
 Q_SIGNALS:

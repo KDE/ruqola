@@ -18,10 +18,10 @@ public:
     explicit DownloadAppsLanguagesJob(QObject *parent = nullptr);
     ~DownloadAppsLanguagesJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const;
+    [[nodiscard]] bool canStart() const;
     void start();
 
-    Q_REQUIRED_RESULT QString serverUrl() const;
+    [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
 Q_SIGNALS:

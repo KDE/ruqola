@@ -21,7 +21,7 @@ public:
             , mIdentifier(identifier)
         {
         }
-        Q_REQUIRED_RESULT bool operator==(const SwitchChannelInfo &other) const;
+        [[nodiscard]] bool operator==(const SwitchChannelInfo &other) const;
         QString mName;
         QString mIdentifier;
     };
@@ -29,12 +29,12 @@ public:
     explicit SwitchChannelHistoryModel(QObject *parent = nullptr);
     ~SwitchChannelHistoryModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void addHistory(const QString &name, const QString &identifier);
 
-    Q_REQUIRED_RESULT const QString identifier(int index);
+    [[nodiscard]] const QString identifier(int index);
 
 private:
     QVector<SwitchChannelInfo> mSwichChannelsInfo;

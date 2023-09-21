@@ -17,10 +17,10 @@ public:
     explicit ManageLoadHistoryParseSyncMessagesUtils(RocketChatAccount *account);
     ~ManageLoadHistoryParseSyncMessagesUtils();
 
-    Q_REQUIRED_RESULT QStringList deletedMessages() const;
+    [[nodiscard]] QStringList deletedMessages() const;
     void setDeletedMessages(const QStringList &newDeletedMessages);
 
-    Q_REQUIRED_RESULT QVector<Message> updatesMessages() const;
+    [[nodiscard]] QVector<Message> updatesMessages() const;
     void setUpdatesMessages(const QVector<Message> &newUpdatesMessages);
 
     void parse(const QJsonObject &obj);

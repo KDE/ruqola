@@ -27,12 +27,12 @@ public:
     explicit NotificationDesktopSoundPreferenceModel(QObject *parent = nullptr);
     ~NotificationDesktopSoundPreferenceModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    Q_REQUIRED_RESULT int setCurrentNotificationPreference(const QString &preference);
+    [[nodiscard]] int setCurrentNotificationPreference(const QString &preference);
 
-    Q_REQUIRED_RESULT QString currentPreference(int index) const;
+    [[nodiscard]] QString currentPreference(int index) const;
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();

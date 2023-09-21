@@ -16,25 +16,25 @@ public:
     explicit ReactOnMessageJob(QObject *parent = nullptr);
     ~ReactOnMessageJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString messageId() const;
+    [[nodiscard]] QString messageId() const;
     void setMessageId(const QString &msgId);
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString emoji() const;
+    [[nodiscard]] QString emoji() const;
     void setEmoji(const QString &emoji);
 
     void setShouldReact(bool added);
-    Q_REQUIRED_RESULT bool shouldReact() const;
+    [[nodiscard]] bool shouldReact() const;
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 Q_SIGNALS:
     void reactOnMessageDone();

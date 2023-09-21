@@ -18,7 +18,7 @@ public:
     explicit SearchTeamCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTeamCompletionLineEdit() override;
 
-    Q_REQUIRED_RESULT const QString &teamId() const;
+    [[nodiscard]] const QString &teamId() const;
 
 Q_SIGNALS:
     void teamIdChanged(bool isEmpty);

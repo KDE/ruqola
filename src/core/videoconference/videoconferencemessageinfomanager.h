@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT VideoConferenceMessageInfoManager : public QObject
 public:
     explicit VideoConferenceMessageInfoManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~VideoConferenceMessageInfoManager() override;
-    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
 
     void addCallId(const QString &callId);
 

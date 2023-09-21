@@ -17,10 +17,10 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiMethod
 public:
     RestApiMethod();
 
-    Q_REQUIRED_RESULT QString serverUrl() const;
+    [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    Q_REQUIRED_RESULT QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString(), bool useV1Extension = true);
+    [[nodiscard]] QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString(), bool useV1Extension = true);
 
 private:
     QString mServerUrl;

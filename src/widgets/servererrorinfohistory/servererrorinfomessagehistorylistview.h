@@ -20,14 +20,14 @@ public:
 
     void slotSelectAll(const QModelIndex &index);
 
-    Q_REQUIRED_RESULT const QString &searchText() const;
+    [[nodiscard]] const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
-    Q_REQUIRED_RESULT QString selectedText() const;
+    [[nodiscard]] QString selectedText() const;
 
 protected:
-    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
-    Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 Q_SIGNALS:
     void textToSpeech(const QString &str);
@@ -37,6 +37,6 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotClearList();
     void copyMessageToClipboard(const QModelIndex &index);
-    Q_REQUIRED_RESULT QString selectedText(const QModelIndex &index);
+    [[nodiscard]] QString selectedText(const QModelIndex &index);
     ServerErrorInfoHistoryDelegate *const mListServerErrorInfosDelegate;
 };

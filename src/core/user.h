@@ -27,12 +27,12 @@ public:
     struct LIBRUQOLACORE_EXPORT UserEmailsInfo {
         QString email;
         bool verified = false;
-        Q_REQUIRED_RESULT bool operator==(const UserEmailsInfo &other) const
+        [[nodiscard]] bool operator==(const UserEmailsInfo &other) const
         {
             return (email == other.email) && (verified == other.verified);
         }
 
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return !email.isEmpty();
         }
@@ -41,62 +41,62 @@ public:
     User();
     ~User();
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT User::PresenceStatus status() const;
+    [[nodiscard]] User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);
 
     void parseUser(const QJsonObject &json);
-    Q_REQUIRED_RESULT QString iconFromStatus() const;
+    [[nodiscard]] QString iconFromStatus() const;
 
-    Q_REQUIRED_RESULT bool operator==(const User &other) const;
-    Q_REQUIRED_RESULT bool operator!=(const User &other) const;
+    [[nodiscard]] bool operator==(const User &other) const;
+    [[nodiscard]] bool operator!=(const User &other) const;
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT double utcOffset() const;
+    [[nodiscard]] double utcOffset() const;
     void setUtcOffset(double utcOffset);
 
-    Q_REQUIRED_RESULT QString statusText() const;
+    [[nodiscard]] QString statusText() const;
     void setStatusText(const QString &statusText);
 
     void parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
 
-    Q_REQUIRED_RESULT static QVector<User> parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
+    [[nodiscard]] static QVector<User> parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
     void parseUser(const QVariantList &list);
 
-    Q_REQUIRED_RESULT QStringList roles() const;
+    [[nodiscard]] QStringList roles() const;
     void setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo);
 
-    Q_REQUIRED_RESULT QDateTime createdAt() const;
+    [[nodiscard]] QDateTime createdAt() const;
     void setCreatedAt(const QDateTime &createdAt);
 
-    Q_REQUIRED_RESULT QDateTime lastLogin() const;
+    [[nodiscard]] QDateTime lastLogin() const;
     void setLastLogin(const QDateTime &lastLogin);
 
-    Q_REQUIRED_RESULT UserEmailsInfo userEmailsInfo() const;
+    [[nodiscard]] UserEmailsInfo userEmailsInfo() const;
     void setUserEmailsInfo(const UserEmailsInfo &userEmailsInfo);
 
-    Q_REQUIRED_RESULT QStringList i18nRoles() const;
+    [[nodiscard]] QStringList i18nRoles() const;
 
-    Q_REQUIRED_RESULT bool active() const;
+    [[nodiscard]] bool active() const;
     void setActive(bool newActive);
 
-    Q_REQUIRED_RESULT QString generateStatusStr() const;
+    [[nodiscard]] QString generateStatusStr() const;
 
-    Q_REQUIRED_RESULT bool requirePasswordChange() const;
+    [[nodiscard]] bool requirePasswordChange() const;
     void setRequirePasswordChange(bool newRequirePasswordChange);
 
-    Q_REQUIRED_RESULT static QString roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo);
+    [[nodiscard]] static QString roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo);
 
-    Q_REQUIRED_RESULT QString bio() const;
+    [[nodiscard]] QString bio() const;
     void setBio(const QString &newBio);
 
     static QJsonObject serialize(const User &user);

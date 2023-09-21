@@ -19,49 +19,49 @@ public:
     ~OwnUser();
     void parseOwnUserInfo(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &userId);
 
-    Q_REQUIRED_RESULT QString userName() const;
+    [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString status() const;
+    [[nodiscard]] QString status() const;
     void setStatus(const QString &status);
 
-    Q_REQUIRED_RESULT bool operator==(const OwnUser &other) const;
+    [[nodiscard]] bool operator==(const OwnUser &other) const;
 
-    Q_REQUIRED_RESULT QString email() const;
+    [[nodiscard]] QString email() const;
     void setEmail(const QString &email);
 
-    Q_REQUIRED_RESULT QString statusText() const;
+    [[nodiscard]] QString statusText() const;
     void setStatusText(const QString &statusText);
 
-    Q_REQUIRED_RESULT QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    Q_REQUIRED_RESULT QString avatarUrl() const;
+    [[nodiscard]] QString avatarUrl() const;
     void setAvatarUrl(const QString &avatarUrl);
 
-    Q_REQUIRED_RESULT double utcOffset() const;
+    [[nodiscard]] double utcOffset() const;
     void setUtcOffset(double utcOffset);
 
-    Q_REQUIRED_RESULT QString statusDefault() const;
+    [[nodiscard]] QString statusDefault() const;
     void setStatusDefault(const QString &statusDefault);
 
-    Q_REQUIRED_RESULT User user() const;
+    [[nodiscard]] User user() const;
 
-    Q_REQUIRED_RESULT QString nickName() const;
+    [[nodiscard]] QString nickName() const;
     void setNickName(const QString &nickName);
 
-    Q_REQUIRED_RESULT QStringList roles() const;
+    [[nodiscard]] QStringList roles() const;
     void setRoles(const QStringList &roles);
 
-    Q_REQUIRED_RESULT bool isAdministrator() const;
+    [[nodiscard]] bool isAdministrator() const;
 
-    Q_REQUIRED_RESULT ServicePassword servicePassword() const;
+    [[nodiscard]] ServicePassword servicePassword() const;
     void setServicePassword(const ServicePassword &servicePassword);
 
-    Q_REQUIRED_RESULT OwnUserPreferences ownUserPreferences() const;
+    [[nodiscard]] OwnUserPreferences ownUserPreferences() const;
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
 private:

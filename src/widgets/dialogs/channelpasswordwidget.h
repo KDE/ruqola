@@ -16,7 +16,7 @@ public:
     explicit ChannelPasswordWidget(QWidget *parent = nullptr);
     ~ChannelPasswordWidget() override;
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

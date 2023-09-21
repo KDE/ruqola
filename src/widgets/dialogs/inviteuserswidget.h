@@ -20,7 +20,7 @@ public:
     explicit InviteUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~InviteUsersWidget() override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
     void generateLink(int maxUses = 25, int numberOfDays = 1);

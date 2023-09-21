@@ -18,7 +18,7 @@ public:
         QString identifier;
         QString name;
         QString statusType;
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return !name.isEmpty() && !statusType.isEmpty() && !identifier.isEmpty();
         }
@@ -26,14 +26,14 @@ public:
     explicit CustomUserStatusUpdateJob(QObject *parent = nullptr);
     ~CustomUserStatusUpdateJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT StatusUpdateInfo statusUpdateInfo() const;
+    [[nodiscard]] StatusUpdateInfo statusUpdateInfo() const;
     void setStatusUpdateInfo(const StatusUpdateInfo &statusUpdateInfo);
 
 Q_SIGNALS:

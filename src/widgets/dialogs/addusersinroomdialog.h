@@ -15,8 +15,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomDialog : public QDialog
 public:
     explicit AddUsersInRoomDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersInRoomDialog() override;
-    Q_REQUIRED_RESULT QStringList userIds() const;
-    Q_REQUIRED_RESULT QStringList userNames() const;
+    [[nodiscard]] QStringList userIds() const;
+    [[nodiscard]] QStringList userNames() const;
 
 private:
     void readConfig();

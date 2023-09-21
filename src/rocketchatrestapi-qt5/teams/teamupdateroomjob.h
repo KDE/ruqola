@@ -17,16 +17,16 @@ public:
     explicit TeamUpdateRoomJob(QObject *parent = nullptr);
     ~TeamUpdateRoomJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT bool isDefault() const;
+    [[nodiscard]] bool isDefault() const;
     void setIsDefault(bool isDefault);
 
 Q_SIGNALS:

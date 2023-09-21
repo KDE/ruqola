@@ -15,37 +15,37 @@ public:
     Discussion();
     Discussion(const Discussion &other) = default;
 
-    Q_REQUIRED_RESULT QString description() const;
+    [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
-    Q_REQUIRED_RESULT QString parentRoomId() const;
+    [[nodiscard]] QString parentRoomId() const;
     void setParentRoomId(const QString &parentRoomId);
 
-    Q_REQUIRED_RESULT int numberMessages() const;
+    [[nodiscard]] int numberMessages() const;
     void setNumberMessages(int numberMessages);
 
-    Q_REQUIRED_RESULT qint64 lastMessage() const;
+    [[nodiscard]] qint64 lastMessage() const;
     void setLastMessage(qint64 lastMessage);
 
-    Q_REQUIRED_RESULT bool operator==(const Discussion &other) const;
+    [[nodiscard]] bool operator==(const Discussion &other) const;
     Discussion &operator=(const Discussion &other) = default;
 
     void parseDiscussion(const QJsonObject &o);
 
-    Q_REQUIRED_RESULT QString discussionRoomId() const;
+    [[nodiscard]] QString discussionRoomId() const;
     void setDiscussionRoomId(const QString &discussionRoomId);
 
-    Q_REQUIRED_RESULT QString lastMessageDisplay() const;
+    [[nodiscard]] QString lastMessageDisplay() const;
 
-    Q_REQUIRED_RESULT qint64 timeStamp() const;
+    [[nodiscard]] qint64 timeStamp() const;
     void setTimeStamp(qint64 timeStamp);
 
-    Q_REQUIRED_RESULT QString timeStampDisplay() const;
+    [[nodiscard]] QString timeStampDisplay() const;
 
-    Q_REQUIRED_RESULT QString fname() const;
+    [[nodiscard]] QString fname() const;
     void setFname(const QString &fname);
 
-    Q_REQUIRED_RESULT const QString &userName() const;
+    [[nodiscard]] const QString &userName() const;
     void setUserName(const QString &newUserName);
 
 private:

@@ -15,9 +15,9 @@ public:
     TextSelectionImpl();
     ~TextSelectionImpl();
 
-    Q_REQUIRED_RESULT TextSelection *textSelection() const;
+    [[nodiscard]] TextSelection *textSelection() const;
 
-    Q_REQUIRED_RESULT bool mightStartDrag() const;
+    [[nodiscard]] bool mightStartDrag() const;
     void setMightStartDrag(bool newMightStartDrag);
 
 private:

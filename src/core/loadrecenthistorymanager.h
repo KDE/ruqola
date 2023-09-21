@@ -16,9 +16,9 @@ public:
     LoadRecentHistoryManager();
     ~LoadRecentHistoryManager();
 
-    Q_REQUIRED_RESULT qint64 lastLoadingTimeStamp() const;
+    [[nodiscard]] qint64 lastLoadingTimeStamp() const;
 
-    Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
+    [[nodiscard]] qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
 private:
     Q_DISABLE_COPY(LoadRecentHistoryManager)

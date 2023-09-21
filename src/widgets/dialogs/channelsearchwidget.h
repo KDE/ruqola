@@ -21,11 +21,11 @@ public:
     explicit ChannelSearchWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelSearchWidget() override;
 
-    Q_REQUIRED_RESULT QString channelName() const;
+    [[nodiscard]] QString channelName() const;
 
     void setChannelInfo(const QString &name, const QString &channelId);
 
-    Q_REQUIRED_RESULT QString channelId() const;
+    [[nodiscard]] QString channelId() const;
 Q_SIGNALS:
     void updateRoomName(bool valid);
 

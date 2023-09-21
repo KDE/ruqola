@@ -19,18 +19,18 @@ public:
     explicit GetUsersInRoleJob(QObject *parent = nullptr);
     ~GetUsersInRoleJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    Q_REQUIRED_RESULT const QString &roleId() const;
+    [[nodiscard]] const QString &roleId() const;
     void setRoleId(const QString &newRoleId);
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
 Q_SIGNALS:
     void getUsersInRoleDone(const QJsonObject &obj);

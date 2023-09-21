@@ -13,10 +13,10 @@ class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguage
 {
 public:
     AutotranslateLanguage();
-    Q_REQUIRED_RESULT QString language() const;
+    [[nodiscard]] QString language() const;
     void setLanguage(const QString &language);
 
-    Q_REQUIRED_RESULT QString displayLanguage() const;
+    [[nodiscard]] QString displayLanguage() const;
     void setDisplayLanguage(const QString &displayLanguage);
 
 private:

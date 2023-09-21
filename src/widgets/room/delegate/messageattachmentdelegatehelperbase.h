@@ -43,12 +43,12 @@ public:
                                   const QStyleOptionViewItem &option,
                                   const QModelIndex &index);
 
-    Q_REQUIRED_RESULT bool
+    [[nodiscard]] bool
     maybeStartDrag(const MessageAttachment &msgAttach, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option);
 
-    Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
+    [[nodiscard]] QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
     virtual bool contextMenu(const QPoint &pos,
                              const QPoint &globalPos,
@@ -58,13 +58,13 @@ public:
                              QMenu *menu);
 
 protected:
-    Q_REQUIRED_RESULT virtual QPoint
+    [[nodiscard]] virtual QPoint
     adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) = 0;
 
-    Q_REQUIRED_RESULT int
+    [[nodiscard]] int
     charPosition(const QTextDocument *doc, const MessageAttachment &msgAttach, QRect attachmentsRect, const QPoint &pos, const QStyleOptionViewItem &option);
-    Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
-    Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;
+    [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
+    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;
     void drawDescription(const MessageAttachment &msgAttach,
                          QRect messageRect,
                          QPainter *painter,
@@ -78,9 +78,9 @@ protected:
      * @param widget The view to update when fetching thread context on demand. nullptr if this isn't needed (e.g. from SelectionManager)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const Block &block) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
 
 private:
     QPersistentModelIndex mCurrentIndex;

@@ -19,15 +19,15 @@ public:
     explicit CreateGroupsJob(QObject *parent = nullptr);
     ~CreateGroupsJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateChannelTeamInfo createGroupsInfo() const;
+    [[nodiscard]] CreateChannelTeamInfo createGroupsInfo() const;
     void setCreateGroupsInfo(const CreateChannelTeamInfo &createGroupsInfo);
 
 Q_SIGNALS:

@@ -26,25 +26,25 @@ public:
     VideoConference();
     ~VideoConference();
 
-    Q_REQUIRED_RESULT bool operator==(const VideoConference &other) const;
+    [[nodiscard]] bool operator==(const VideoConference &other) const;
 
     void parseVideoConference(const QJsonObject &content);
-    Q_REQUIRED_RESULT QString callId() const;
+    [[nodiscard]] QString callId() const;
     void setCallId(const QString &newCallId);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT QString userId() const;
+    [[nodiscard]] QString userId() const;
     void setUserId(const QString &newUserId);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT Action action() const;
+    [[nodiscard]] Action action() const;
     void setAction(Action newAction);
 
 private:
-    Q_REQUIRED_RESULT VideoConference::Action convertActionToEnum(const QString &str);
+    [[nodiscard]] VideoConference::Action convertActionToEnum(const QString &str);
     QString mCallId;
     QString mRoomId;
     QString mUserId;

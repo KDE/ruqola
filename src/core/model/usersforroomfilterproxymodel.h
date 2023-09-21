@@ -17,11 +17,11 @@ public:
     ~UsersForRoomFilterProxyModel() override;
     void setFilterString(const QString &string);
 
-    Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_REQUIRED_RESULT bool loadMoreUsersInProgress() const;
+    [[nodiscard]] bool hasFullList() const;
+    [[nodiscard]] bool loadMoreUsersInProgress() const;
 
-    Q_REQUIRED_RESULT int total() const;
-    Q_REQUIRED_RESULT int numberOfUsers() const;
+    [[nodiscard]] int total() const;
+    [[nodiscard]] int numberOfUsers() const;
 
     void setStatusType(const QString &statusType);
 

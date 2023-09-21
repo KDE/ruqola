@@ -20,7 +20,7 @@ public:
 
     static ServerErrorInfoHistoryManager *self();
 
-    Q_REQUIRED_RESULT ServerErrorInfoHistoryModel *serverErrorInfoHistoryModel() const;
+    [[nodiscard]] ServerErrorInfoHistoryModel *serverErrorInfoHistoryModel() const;
 
     void addServerErrorInfo(const ServerErrorInfo &info);
 

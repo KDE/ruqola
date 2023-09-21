@@ -34,9 +34,9 @@ public:
 
     void setCustomEmojiInfo(const CustomEmojiCreateInfo &info);
 
-    Q_REQUIRED_RESULT AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info() const;
+    [[nodiscard]] AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info() const;
 
-    Q_REQUIRED_RESULT AdministratorCustomEmojiCreateOrUpdateType type() const;
+    [[nodiscard]] AdministratorCustomEmojiCreateOrUpdateType type() const;
     void setType(AdministratorCustomEmojiCreateOrUpdateType newType);
 
 Q_SIGNALS:

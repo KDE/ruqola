@@ -17,5 +17,5 @@ public:
     ~CommandsModelFilterProxyModel() override;
 
 protected:
-    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

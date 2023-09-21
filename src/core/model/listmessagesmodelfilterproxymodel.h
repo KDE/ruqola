@@ -18,11 +18,11 @@ public:
     void setFilterString(const QString &string);
 
     ListMessagesModel *listMessageModel() const;
-    Q_REQUIRED_RESULT int total() const;
-    Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_REQUIRED_RESULT bool loadMoreListMessagesInProgress() const;
+    [[nodiscard]] int total() const;
+    [[nodiscard]] bool hasFullList() const;
+    [[nodiscard]] bool loadMoreListMessagesInProgress() const;
 
-    Q_REQUIRED_RESULT int numberOfMessages() const;
+    [[nodiscard]] int numberOfMessages() const;
 
 Q_SIGNALS:
     void hasFullListChanged();
@@ -31,7 +31,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString title() const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT ListMessagesModel::ListMessageType listMessageType() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString title() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ListMessagesModel::ListMessageType listMessageType() const;
     ListMessagesModel *const mModel;
 };

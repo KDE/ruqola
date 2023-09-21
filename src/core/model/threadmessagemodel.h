@@ -16,13 +16,13 @@ public:
     explicit ThreadMessageModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~ThreadMessageModel() override;
 
-    Q_REQUIRED_RESULT QString threadMessageId() const;
+    [[nodiscard]] QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
     void parseThreadMessages(const QJsonObject &obj);
     void loadMoreThreadMessages(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT int total() const;
+    [[nodiscard]] int total() const;
     void setTotal(int total);
     void setPreviewMessage(const Message &message);
 

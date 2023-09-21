@@ -25,8 +25,8 @@ public:
     explicit SearchChannelModel(QObject *parent = nullptr);
     ~SearchChannelModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void setChannels(const QVector<Channel> &channels);
 
@@ -37,8 +37,8 @@ public:
     void parseAllChannels(const QJsonObject &obj);
 
 private:
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QIcon channelIconName(const Channel &channel) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString channelId(const Channel &channel) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString channelName(const Channel &channel) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon channelIconName(const Channel &channel) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString channelId(const Channel &channel) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };

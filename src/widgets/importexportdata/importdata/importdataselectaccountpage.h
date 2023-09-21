@@ -14,13 +14,13 @@ public:
     explicit ImportDataSelectAccountPage(QWidget *parent = nullptr);
     ~ImportDataSelectAccountPage() override;
 
-    Q_REQUIRED_RESULT QUrl zipFileUrl() const;
+    [[nodiscard]] QUrl zipFileUrl() const;
 
-    Q_REQUIRED_RESULT bool validatePage() override;
+    [[nodiscard]] bool validatePage() override;
 
-    Q_REQUIRED_RESULT bool isComplete() const override;
+    [[nodiscard]] bool isComplete() const override;
 
 private:
-    Q_REQUIRED_RESULT bool verifySelectedUrl() const;
+    [[nodiscard]] bool verifySelectedUrl() const;
     KUrlRequester *const mUrlRequester;
 };

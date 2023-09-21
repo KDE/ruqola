@@ -16,10 +16,10 @@ public:
     explicit StatusModelFilterProxyModel(QObject *parent = nullptr);
     ~StatusModelFilterProxyModel() override;
 
-    Q_REQUIRED_RESULT bool useOnlyStandardStatus() const;
+    [[nodiscard]] bool useOnlyStandardStatus() const;
     void setUseOnlyStandardStatus(bool useOnlyStandardStatus);
 
-    Q_REQUIRED_RESULT bool allowOfflineSupport() const;
+    [[nodiscard]] bool allowOfflineSupport() const;
     void setAllowOfflineSupport(bool newAllowOfflineSupport);
 
 protected:

@@ -33,22 +33,22 @@ public:
 
     void setEmoticonModel(QAbstractItemModel *model);
 
-    Q_REQUIRED_RESULT InputCompleterModel *inputCompleterModel() const;
-    Q_REQUIRED_RESULT QAbstractItemModel *emojiCompleterModel() const;
+    [[nodiscard]] InputCompleterModel *inputCompleterModel() const;
+    [[nodiscard]] QAbstractItemModel *emojiCompleterModel() const;
 
     void inputTextCompleter(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
+    [[nodiscard]] QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
 
     void setInputTextChanged(const QString &str, int position);
 
     void clearCompleter();
 
     // Only for autotests
-    Q_REQUIRED_RESULT QString searchWord(const QString &text, int position, int &start);
+    [[nodiscard]] QString searchWord(const QString &text, int position, int &start);
 
     void setCommandModel(QAbstractItemModel *model);
-    Q_REQUIRED_RESULT QAbstractItemModel *commandModel() const;
+    [[nodiscard]] QAbstractItemModel *commandModel() const;
 
 Q_SIGNALS:
     // Trigger autocompletion request in DDPClient (via RocketChatAccount)

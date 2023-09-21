@@ -18,39 +18,39 @@ public:
     ~ServerInfo();
 
     void parseServerInfo(const QJsonObject &obj);
-    Q_REQUIRED_RESULT QString arch() const;
+    [[nodiscard]] QString arch() const;
     void setArch(const QString &arch);
 
-    Q_REQUIRED_RESULT int numberOfCpu() const;
+    [[nodiscard]] int numberOfCpu() const;
     void setNumberOfCpu(int numberOfCpu);
 
-    Q_REQUIRED_RESULT QString platform() const;
+    [[nodiscard]] QString platform() const;
     void setPlatform(const QString &platform);
 
-    Q_REQUIRED_RESULT QString version() const;
+    [[nodiscard]] QString version() const;
     void setVersion(const QString &version);
 
-    Q_REQUIRED_RESULT QString commitAuthor() const;
+    [[nodiscard]] QString commitAuthor() const;
     void setCommitAuthor(const QString &commitAuthor);
 
-    Q_REQUIRED_RESULT QString commitBranch() const;
+    [[nodiscard]] QString commitBranch() const;
     void setCommitBranch(const QString &commitBranch);
 
-    Q_REQUIRED_RESULT QString commitTag() const;
+    [[nodiscard]] QString commitTag() const;
     void setCommitTag(const QString &commitTag);
 
-    Q_REQUIRED_RESULT QString commitSubject() const;
+    [[nodiscard]] QString commitSubject() const;
     void setCommitSubject(const QString &commitSubject);
 
-    Q_REQUIRED_RESULT QString commitHash() const;
+    [[nodiscard]] QString commitHash() const;
     void setCommitHash(const QString &commitHash);
 
-    Q_REQUIRED_RESULT bool operator==(const ServerInfo &other) const;
+    [[nodiscard]] bool operator==(const ServerInfo &other) const;
 
-    Q_REQUIRED_RESULT QString osRelease() const;
+    [[nodiscard]] QString osRelease() const;
     void setOsRelease(const QString &osRelease);
 
-    Q_REQUIRED_RESULT QString nodeVersion() const;
+    [[nodiscard]] QString nodeVersion() const;
     void setNodeVersion(const QString &nodeVersion);
 
 private:

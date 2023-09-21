@@ -17,7 +17,7 @@ public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT StatusCreateInfo {
         QString name;
         QString statusType;
-        Q_REQUIRED_RESULT bool isValid() const
+        [[nodiscard]] bool isValid() const
         {
             return !name.isEmpty() && !statusType.isEmpty();
         }
@@ -25,13 +25,13 @@ public:
     explicit CustomUserStatusCreateJob(QObject *parent = nullptr);
     ~CustomUserStatusCreateJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT StatusCreateInfo statusCreateInfo() const;
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] StatusCreateInfo statusCreateInfo() const;
     void setStatusCreateInfo(const StatusCreateInfo &statusCreateInfo);
 
 Q_SIGNALS:

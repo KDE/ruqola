@@ -31,24 +31,24 @@ public:
     ParseMessageUrlUtils();
     ~ParseMessageUrlUtils();
 
-    Q_REQUIRED_RESULT bool parseUrl(const QString &messageUrl);
+    [[nodiscard]] bool parseUrl(const QString &messageUrl);
 
-    Q_REQUIRED_RESULT const QString &messageId() const;
+    [[nodiscard]] const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
-    Q_REQUIRED_RESULT const QString &roomId() const;
+    [[nodiscard]] const QString &roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT const QString &serverHost() const;
+    [[nodiscard]] const QString &serverHost() const;
     void setServerHost(const QString &newServerPath);
 
-    Q_REQUIRED_RESULT const QString &path() const;
+    [[nodiscard]] const QString &path() const;
     void setPath(const QString &newPath);
 
-    Q_REQUIRED_RESULT RoomIdType roomIdType() const;
+    [[nodiscard]] RoomIdType roomIdType() const;
     void setRoomIdType(RoomIdType newRoomIdType);
 
-    Q_REQUIRED_RESULT ChannelType channelType() const;
+    [[nodiscard]] ChannelType channelType() const;
     void setChannelType(ChannelType newChannelType);
 
 private:

@@ -26,9 +26,9 @@ public:
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
-    Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const = 0;
-    Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const Block &block) const = 0;
+    [[nodiscard]] virtual QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
+    [[nodiscard]] virtual QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const = 0;
+    [[nodiscard]] virtual QTextDocument *documentForIndex(const Block &block) const = 0;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
@@ -36,14 +36,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
     Q_OBJECT
 public:
     TextSelection();
-    Q_REQUIRED_RESULT bool hasSelection() const;
+    [[nodiscard]] bool hasSelection() const;
     enum Format {
         Text,
         Html,
     };
-    Q_REQUIRED_RESULT QString selectedText(Format format) const;
-    Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos, const MessageAttachment &att = {}) const;
-    Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att = {}) const;
+    [[nodiscard]] QString selectedText(Format format) const;
+    [[nodiscard]] bool contains(const QModelIndex &index, int charPos, const MessageAttachment &att = {}) const;
+    [[nodiscard]] QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att = {}) const;
 
     void clear();
     void setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
@@ -53,11 +53,11 @@ public:
     void selectMessage(const QModelIndex &index);
 
     void setTextHelperFactory(DocumentFactoryInterface *newTextHelperFactory);
-    Q_REQUIRED_RESULT DocumentFactoryInterface *textHelperFactory() const;
+    [[nodiscard]] DocumentFactoryInterface *textHelperFactory() const;
 
     void setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories);
 
-    Q_REQUIRED_RESULT const QVector<DocumentFactoryInterface *> &attachmentFactories() const;
+    [[nodiscard]] const QVector<DocumentFactoryInterface *> &attachmentFactories() const;
 
 Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
@@ -77,7 +77,7 @@ private:
         int toCharPos = 0;
     };
 
-    Q_REQUIRED_RESULT OrderedPositions orderedPositions() const;
+    [[nodiscard]] OrderedPositions orderedPositions() const;
     void selectionText(const OrderedPositions ordered,
                        Format format,
                        int row,

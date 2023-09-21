@@ -19,20 +19,20 @@ public:
     explicit SyncMessagesJob(QObject *parent = nullptr);
     ~SyncMessagesJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
+    [[nodiscard]] bool start() override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    Q_REQUIRED_RESULT QDateTime lastUpdate() const;
+    [[nodiscard]] QDateTime lastUpdate() const;
     void setLastUpdate(const QDateTime &newLastUpdate);
 
 Q_SIGNALS:

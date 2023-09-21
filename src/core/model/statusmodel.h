@@ -33,19 +33,19 @@ public:
     explicit StatusModel(QObject *parent = nullptr);
     ~StatusModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    Q_REQUIRED_RESULT User::PresenceStatus status(int index) const;
+    [[nodiscard]] User::PresenceStatus status(int index) const;
 
-    Q_REQUIRED_RESULT int currentStatus() const;
+    [[nodiscard]] int currentStatus() const;
 
     void setCurrentPresenceStatus(User::PresenceStatus status);
-    Q_REQUIRED_RESULT User::PresenceStatus currentUserStatus() const;
+    [[nodiscard]] User::PresenceStatus currentUserStatus() const;
 
-    Q_REQUIRED_RESULT StatusInfo currentStatusInfo() const;
+    [[nodiscard]] StatusInfo currentStatusInfo() const;
 
-    Q_REQUIRED_RESULT QString customText() const;
+    [[nodiscard]] QString customText() const;
     void setCustomText(const QString &customText);
 
     void updateCustomStatus(const QVector<CustomUserStatus> &customUserStatuses);
@@ -61,9 +61,9 @@ private:
         User::PresenceStatus status;
         int order = 0;
     };
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString textFromPresenceStatus(User::PresenceStatus status) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
-    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString textFromPresenceStatus(User::PresenceStatus status) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
     Q_DISABLE_COPY(StatusModel)
     LIBRUQOLACORE_NO_EXPORT void fillModel();
     QVector<DisplayStatusInfo> mStatusList;

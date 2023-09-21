@@ -18,8 +18,8 @@ public:
     explicit UploadFileWidget(QWidget *parent = nullptr);
     ~UploadFileWidget() override;
 
-    Q_REQUIRED_RESULT QString description() const;
-    Q_REQUIRED_RESULT QUrl fileUrl() const;
+    [[nodiscard]] QString description() const;
+    [[nodiscard]] QUrl fileUrl() const;
     void setFileUrl(const QUrl &url);
     void setPixmap(const QPixmap &pix);
     void setAuthorizedMediaTypes(const QStringList &mediaTypes);

@@ -17,23 +17,23 @@ public:
     ~ChannelCounterInfo();
     void parseCounterInfo(const QJsonObject &replyObject);
 
-    Q_REQUIRED_RESULT bool operator==(const ChannelCounterInfo &other) const;
-    Q_REQUIRED_RESULT bool operator!=(const ChannelCounterInfo &other) const;
-    Q_REQUIRED_RESULT quint64 unreadMessages() const;
+    [[nodiscard]] bool operator==(const ChannelCounterInfo &other) const;
+    [[nodiscard]] bool operator!=(const ChannelCounterInfo &other) const;
+    [[nodiscard]] quint64 unreadMessages() const;
     void setUnreadMessages(quint64 unreadMessages);
 
-    Q_REQUIRED_RESULT QDateTime unreadFrom() const;
+    [[nodiscard]] QDateTime unreadFrom() const;
     void setUnreadFrom(const QDateTime &unreadFrom);
 
-    Q_REQUIRED_RESULT quint64 messageCount() const;
+    [[nodiscard]] quint64 messageCount() const;
     void setMessageCount(quint64 messageCount);
 
-    Q_REQUIRED_RESULT bool joined() const;
+    [[nodiscard]] bool joined() const;
     void setJoined(bool joined);
 
-    Q_REQUIRED_RESULT bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
-    Q_REQUIRED_RESULT qint64 unreadMessageTimeStep() const;
+    [[nodiscard]] qint64 unreadMessageTimeStep() const;
     void setUnreadMessageTimeStep(qint64 unreadMessageTimeStep);
 
 private:

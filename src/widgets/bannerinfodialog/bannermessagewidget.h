@@ -17,7 +17,7 @@ public:
     explicit BannerMessageWidget(QWidget *parent = nullptr);
     ~BannerMessageWidget() override;
 
-    Q_REQUIRED_RESULT const QVector<BannerInfos::UnreadInformation> &bannerInfos() const;
+    [[nodiscard]] const QVector<BannerInfos::UnreadInformation> &bannerInfos() const;
     void setBannerInfos(const QVector<BannerInfos::UnreadInformation> &newBannerInfo);
 
 Q_SIGNALS:

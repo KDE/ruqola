@@ -15,7 +15,7 @@ public:
     explicit SwitchChannelTreeView(QWidget *parent = nullptr);
     ~SwitchChannelTreeView() override;
 
-    Q_REQUIRED_RESULT int sizeHintWidth() const;
+    [[nodiscard]] int sizeHintWidth() const;
     void resizeColumnsToContents();
 
 Q_SIGNALS:

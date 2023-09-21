@@ -17,7 +17,7 @@ public:
     explicit CustomUserStatusTreeWidgetItem(QTreeWidget *parent = nullptr);
     ~CustomUserStatusTreeWidgetItem() override;
 
-    Q_REQUIRED_RESULT CustomUserStatus userStatus() const;
+    [[nodiscard]] CustomUserStatus userStatus() const;
     void setUserStatus(const CustomUserStatus &userStatus);
 
 private:

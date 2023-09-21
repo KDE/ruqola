@@ -21,13 +21,13 @@ public:
         QString mDescription;
         QString mFileName;
         QUrl mFilePath;
-        Q_REQUIRED_RESULT bool isValid() const;
+        [[nodiscard]] bool isValid() const;
     };
 
     explicit CreateSoundMessageWizard(QWidget *parent = nullptr);
     ~CreateSoundMessageWizard() override;
 
-    Q_REQUIRED_RESULT CreateSoundMessageInfo soundMessageInfo() const;
+    [[nodiscard]] CreateSoundMessageInfo soundMessageInfo() const;
 
 private:
     void slotCurrentIdChanged(int id);
@@ -48,11 +48,11 @@ public:
     explicit CreateSoundMessagePage(QWidget *parent = nullptr);
     ~CreateSoundMessagePage() override;
 
-    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+    [[nodiscard]] QUrl fileNamePath() const;
 
-    Q_REQUIRED_RESULT bool validatePage() override;
+    [[nodiscard]] bool validatePage() override;
 
-    Q_REQUIRED_RESULT bool isComplete() const override;
+    [[nodiscard]] bool isComplete() const override;
 
     void loadSettings();
     void saveSettings();
@@ -68,9 +68,9 @@ public:
     explicit GenerateSoundMessagePage(QWidget *parent = nullptr);
     ~GenerateSoundMessagePage() override;
 
-    Q_REQUIRED_RESULT QString fileName() const;
-    Q_REQUIRED_RESULT QString description() const;
-    Q_REQUIRED_RESULT QUrl fileNamePath() const;
+    [[nodiscard]] QString fileName() const;
+    [[nodiscard]] QString description() const;
+    [[nodiscard]] QUrl fileNamePath() const;
     void setFileNamePath(const QUrl &url);
 
 private:

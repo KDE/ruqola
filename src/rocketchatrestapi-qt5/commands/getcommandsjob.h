@@ -20,14 +20,14 @@ public:
     explicit GetCommandsJob(QObject *parent = nullptr);
     ~GetCommandsJob() override;
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool canStart() const override;
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString commandName() const;
+    [[nodiscard]] QString commandName() const;
     void setCommandName(const QString &commandName);
 
 Q_SIGNALS:

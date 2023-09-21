@@ -13,13 +13,13 @@ class LIBRUQOLACORE_TESTS_EXPORT MessagePinned
 public:
     MessagePinned();
 
-    Q_REQUIRED_RESULT bool pinned() const;
+    [[nodiscard]] bool pinned() const;
     void setPinned(bool pinned);
 
-    Q_REQUIRED_RESULT QString pinnedBy() const;
+    [[nodiscard]] QString pinnedBy() const;
     void setPinnedBy(const QString &pinnedBy);
 
-    Q_REQUIRED_RESULT bool operator==(const MessagePinned &other) const;
+    [[nodiscard]] bool operator==(const MessagePinned &other) const;
     void parse(const QJsonObject &o);
 
     static QJsonObject serialize(const MessagePinned &message);
