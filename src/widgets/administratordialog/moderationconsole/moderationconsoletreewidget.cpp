@@ -7,12 +7,11 @@
 #include "moderationconsoletreewidget.h"
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
-#include "model/deviceinfomodel.h"
+#include "model/moderationmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "sessions/sessionslistjob.h"
-#include "sessions/sessionslogoutmejob.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
@@ -23,7 +22,7 @@
 ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
-    mModel = new DeviceInfoModel(this);
+    mModel = new ModerationModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
 
@@ -104,6 +103,7 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
 
 void ModerationConsoleTreeWidget::slotDisconnectDevice(const QModelIndex &index)
 {
+#if 0
     auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);
     const QString sessionsId = modelIndex.data().toString();
@@ -115,6 +115,7 @@ void ModerationConsoleTreeWidget::slotDisconnectDevice(const QModelIndex &index)
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsLogoutMeJob job";
     }
+#endif
 }
 
 #include "moc_moderationconsoletreewidget.cpp"
