@@ -352,6 +352,8 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationReportsByUsers),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reportsByUsers")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissReports),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.dismissReports")));
 }
 
 #include "moc_restapimethodtest.cpp"
