@@ -566,6 +566,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("moderation.user.reportedMessages");
     case RestApiUtil::RestApiUrlType::ModerationUserDeleteReportedMessages:
         return QStringLiteral("moderation.user.deleteReportedMessages");
+    case RestApiUtil::RestApiUrlType::ModerationReports:
+        return QStringLiteral("moderation.reports");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
