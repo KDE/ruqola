@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 00:44+0000\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -596,7 +596,7 @@ msgstr "%1 und %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/permissionsmodel.cpp:30
+#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -779,7 +779,7 @@ msgstr "Status"
 msgid "link"
 msgstr "Verknüpfung kopieren"
 
-#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -787,28 +787,28 @@ msgstr "Verknüpfung kopieren"
 msgid "Host"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36
 #, fuzzy, kde-format
 #| msgid "Client ID:"
 msgid "Client"
 msgstr "Client ID:"
 
-#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Join"
 msgid "Login At"
@@ -907,6 +907,36 @@ msgstr "Bearbeitet um %1 von %2"
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorierte Nachricht"
+
+#: core/model/moderationmodel.cpp:36
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Reported message"
+msgstr "Nachricht"
+
+#: core/model/moderationmodel.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
+#, kde-format
+msgid "Username"
+msgstr "Benutzername"
+
+#: core/model/moderationmodel.cpp:40
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Reports"
+msgstr "Probleme oder Wünsche berichten"
+
+#: core/model/moderationmodel.cpp:42
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Report date"
+msgstr "Nachricht"
+
+#: core/model/moderationmodel.cpp:44
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Räume"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2583,19 +2613,63 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Datei speichern"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr "Von:"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr "Bis:"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#, kde-format
+msgid "Today"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#, kde-format
+msgid "Yesterday"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#, kde-format
+msgid "This week"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#, fuzzy, kde-format
+#| msgid "Leave Channel"
+msgid "Previous week"
+msgstr "Kanal verlassen"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#, kde-format
+msgid "This month"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Leave Channel"
+msgid "Previous month"
+msgstr "Kanal verlassen"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search moderation message..."
 msgstr "Nachrichten suchen ..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No moderation message found"
 msgstr "Es wurde keine Nachricht gefunden"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "%1 user (Total: %2)"
 #| msgid_plural "%1 users (Total: %2)"
@@ -2604,7 +2678,7 @@ msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 Benutzer (Gesamt: %2)"
 msgstr[1] "%1 Benutzer (Gesamt: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, fuzzy, kde-format
 #| msgid "Disconnected"
@@ -3962,11 +4036,6 @@ msgstr ""
 #, kde-format
 msgid "Port"
 msgstr ""
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
-#, kde-format
-msgid "Username"
-msgstr "Benutzername"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, fuzzy, kde-format
@@ -7203,16 +7272,6 @@ msgstr "Version"
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr "Von:"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
-msgstr "Bis:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, fuzzy, kde-format

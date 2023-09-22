@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 00:44+0000\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -570,7 +570,7 @@ msgstr ""
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/permissionsmodel.cpp:30
+#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -746,7 +746,7 @@ msgstr ""
 msgid "link"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -754,27 +754,27 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44
 #, kde-format
 msgid "Login At"
 msgstr ""
@@ -861,6 +861,32 @@ msgstr ""
 #: core/model/messagemodel.cpp:360
 #, kde-format
 msgid "Ignored Message"
+msgstr ""
+
+#: core/model/moderationmodel.cpp:36
+#, kde-format
+msgid "Reported message"
+msgstr ""
+
+#: core/model/moderationmodel.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
+#, kde-format
+msgid "Username"
+msgstr ""
+
+#: core/model/moderationmodel.cpp:40
+#, kde-format
+msgid "Reports"
+msgstr ""
+
+#: core/model/moderationmodel.cpp:42
+#, kde-format
+msgid "Report date"
+msgstr ""
+
+#: core/model/moderationmodel.cpp:44
+#, kde-format
+msgid "Room"
 msgstr ""
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
@@ -2467,23 +2493,65 @@ msgstr ""
 msgid "Save File Error"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#, kde-format
+msgid "Today"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#, kde-format
+msgid "Yesterday"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#, kde-format
+msgid "This week"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#, kde-format
+msgid "Previous week"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#, kde-format
+msgid "This month"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#, kde-format
+msgid "Previous month"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, kde-format
 msgid "Search moderation message..."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
 #, kde-format
 msgid "No moderation message found"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, kde-format
 msgid "Disconnect"
@@ -3746,11 +3814,6 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
-#, kde-format
-msgid "Username"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
@@ -6779,16 +6842,6 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Messages"
-msgstr ""
-
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr ""
-
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
 msgstr ""
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30

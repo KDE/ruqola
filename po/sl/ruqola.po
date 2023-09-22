@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 00:44+0000\n"
-"PO-Revision-Date: 2023-09-18 06:40+0200\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
+"PO-Revision-Date: 2023-09-21 17:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -578,7 +578,7 @@ msgstr "%1 in %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/permissionsmodel.cpp:30
+#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -754,7 +754,7 @@ msgstr "Stanje"
 msgid "link"
 msgstr "povezava"
 
-#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -762,27 +762,27 @@ msgstr "povezava"
 msgid "Host"
 msgstr "Gostitelj"
 
-#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr "Os"
 
-#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr "Odjemalec"
 
-#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr "Določilnik seje"
 
-#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr "Ip"
 
-#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44
 #, kde-format
 msgid "Login At"
 msgstr "Prijava na"
@@ -870,6 +870,36 @@ msgstr "Uredil %2: %1"
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
+
+#: core/model/moderationmodel.cpp:36
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Reported message"
+msgstr "Sporočilo s poročilom"
+
+#: core/model/moderationmodel.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
+#, kde-format
+msgid "Username"
+msgstr "Uporabniško ime"
+
+#: core/model/moderationmodel.cpp:40
+#, fuzzy, kde-format
+#| msgid "Reporting"
+msgid "Reports"
+msgstr "Poročanje"
+
+#: core/model/moderationmodel.cpp:42
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Report date"
+msgstr "Sporočilo s poročilom"
+
+#: core/model/moderationmodel.cpp:44
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Sobe"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2276,10 +2306,9 @@ msgid "Oauth"
 msgstr "Odprto overjanje (Oauth)"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "Mentions only"
+#, kde-format
 msgid "Moderation Console"
-msgstr "Samo omembe"
+msgstr "Konzola moderiranja"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
@@ -2507,30 +2536,70 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Napaka shranjevanja datoteke"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr "Od:"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr "Za:"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#, kde-format
+msgid "Today"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#, kde-format
+msgid "Yesterday"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#, kde-format
+msgid "This week"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
 #, fuzzy, kde-format
-#| msgid "Search messages..."
+#| msgid "&Previous Server"
+msgid "Previous week"
+msgstr "&Prejšnji strežnik"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#, kde-format
+msgid "This month"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgid "Previous month"
+msgstr "Prejšnji kanal"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
+#, kde-format
 msgid "Search moderation message..."
-msgstr "Preišči sporočila..."
+msgstr "Preišči sporočila moderacije..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
+#, kde-format
 msgid "No moderation message found"
-msgstr "Ni zadetkov med sporočili"
+msgstr "Ni sporočil o moderiranju"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "%1 device (Total: %2)"
-#| msgid_plural "%1 devices (Total: %2)"
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
+#, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 naprava (Skupaj: %2)"
-msgstr[1] "%1 napravi (Skupaj: %2)"
-msgstr[2] "%1 naprave (Skupaj: %2)"
-msgstr[3] "%1 naprav (Skupaj: %2)"
+msgstr[0] "%1 sporočilo moderacije (Skupaj: %2)"
+msgstr[1] "%1 sporočili moderacije (Skupaj: %2)"
+msgstr[2] "%1 sporočil moderacije (Skupaj: %2)"
+msgstr[3] "%1 sporočil moderacije (Skupaj: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, kde-format
 msgid "Disconnect"
@@ -3842,11 +3911,6 @@ msgstr "smtps"
 #, kde-format
 msgid "Port"
 msgstr "Vrata"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
-#, kde-format
-msgid "Username"
-msgstr "Uporabniško ime"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, kde-format
@@ -7016,16 +7080,6 @@ msgstr "Dovoljenja"
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr "Od:"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
-msgstr "Za:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format

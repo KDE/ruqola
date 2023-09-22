@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 00:44+0000\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -596,7 +596,7 @@ msgstr ""
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/permissionsmodel.cpp:30
+#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -787,7 +787,7 @@ msgstr "Būsenos tekstas:"
 msgid "link"
 msgstr "Kopijuoti nuorodą"
 
-#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -795,27 +795,27 @@ msgstr "Kopijuoti nuorodą"
 msgid "Host"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login At"
@@ -909,6 +909,38 @@ msgstr ""
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
+
+#: core/model/moderationmodel.cpp:36
+#, fuzzy, kde-format
+#| msgid "1 message"
+#| msgid_plural "%1 messages"
+msgid "Reported message"
+msgstr "1 žinutė"
+
+#: core/model/moderationmodel.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username"
+msgstr "Naudotojo vardas:"
+
+#: core/model/moderationmodel.cpp:40
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Reports"
+msgstr "Pranešti apie klaidą"
+
+#: core/model/moderationmodel.cpp:42
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Report date"
+msgstr "Pranešti apie klaidą"
+
+#: core/model/moderationmodel.cpp:44
+#, fuzzy, kde-format
+#| msgid "Hide Room"
+msgid "Room"
+msgstr "Slėpti kambarį"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2602,19 +2634,63 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Įrašyti failą"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#, kde-format
+msgid "Today"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#, kde-format
+msgid "Yesterday"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#, kde-format
+msgid "This week"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#, fuzzy, kde-format
+#| msgid "Create Channel"
+msgid "Previous week"
+msgstr "Sukurti kanalą"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#, kde-format
+msgid "This month"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Create Channel"
+msgid "Previous month"
+msgstr "Sukurti kanalą"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search moderation message..."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No moderation message found"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2623,7 +2699,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, fuzzy, kde-format
 #| msgid "Add Users"
@@ -3981,12 +4057,6 @@ msgstr ""
 #, kde-format
 msgid "Port"
 msgstr ""
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "Username:"
-msgid "Username"
-msgstr "Naudotojo vardas:"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, kde-format
@@ -7220,16 +7290,6 @@ msgstr "Serverio versija:"
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr ""
-
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
-msgstr ""
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format

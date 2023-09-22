@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-21 00:44+0000\n"
+"POT-Creation-Date: 2023-09-22 00:44+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -601,7 +601,7 @@ msgstr ""
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/permissionsmodel.cpp:30
+#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -794,7 +794,7 @@ msgstr "狀態："
 msgid "link"
 msgstr "複製"
 
-#: core/model/deviceinfomodel.cpp:32 core/model/moderationmodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -802,27 +802,27 @@ msgstr "複製"
 msgid "Host"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:34 core/model/moderationmodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:36 core/model/moderationmodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:38 core/model/moderationmodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:40 core/model/moderationmodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:44 core/model/moderationmodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login At"
@@ -919,6 +919,36 @@ msgstr "由 %1 編輯"
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
+
+#: core/model/moderationmodel.cpp:36
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Reported message"
+msgstr "檢舉訊息"
+
+#: core/model/moderationmodel.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
+#, kde-format
+msgid "Username"
+msgstr "使用者名稱"
+
+#: core/model/moderationmodel.cpp:40
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Reports"
+msgstr "回報臭蟲"
+
+#: core/model/moderationmodel.cpp:42
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Report date"
+msgstr "檢舉訊息"
+
+#: core/model/moderationmodel.cpp:44
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "聊天室"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2595,19 +2625,63 @@ msgstr ""
 msgid "Save File Error"
 msgstr "視訊聊天"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:35
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#, kde-format
+msgid "Today"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#, kde-format
+msgid "Yesterday"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#, kde-format
+msgid "This week"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgid "Previous week"
+msgstr "上一個頻道"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#, kde-format
+msgid "This month"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
+msgid "Previous month"
+msgstr "上一個頻道"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search moderation message..."
 msgstr "搜尋訊息…"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No moderation message found"
 msgstr "找不到訊息"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -2615,7 +2689,7 @@ msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:96
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -3987,11 +4061,6 @@ msgstr ""
 #, kde-format
 msgid "Port"
 msgstr ""
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
-#, kde-format
-msgid "Username"
-msgstr "使用者名稱"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, fuzzy, kde-format
@@ -7196,16 +7265,6 @@ msgstr "討論"
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "檢舉訊息"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr ""
-
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
-msgstr ""
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
