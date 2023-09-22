@@ -22,6 +22,7 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
+    void slotDismissReport(const QModelIndex &index);
     void slotDeviceRemoved(const QString &emojiId);
     void slotDisconnectDevice(const QModelIndex &index);
     [[nodiscard]] QString displayShowMessage() const;

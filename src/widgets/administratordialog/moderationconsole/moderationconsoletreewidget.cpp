@@ -90,14 +90,24 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         QMenu menu(this);
-#if 0
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Disconnect"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
-            slotDisconnectDevice(modelIndex);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Dismiss reports"), this, [this, newModelIndex]() {
+            // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
+            // slotDisconnectDevice(modelIndex);
         });
-#endif
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    }
+}
+
+void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
+{
+    if (KMessageBox::questionTwoActions(this,
+                                        i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
+                                        i18n("Dismiss"),
+                                        KStandardGuiItem::remove(),
+                                        KStandardGuiItem::cancel())
+        == KMessageBox::ButtonCode::PrimaryAction) {
+        // TODO
     }
 }
 

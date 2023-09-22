@@ -42,8 +42,10 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     mainLayout->addWidget(mFilterDate);
     mainLayout->addStretch();
     initializeMenu();
-    // TODO verify that range is valid.
+    connect(mFromDate, &QDateEdit::dateChanged, this, &AdministratorModerationRangeWidget::slotRangeChanged);
 }
+
+AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = default;
 
 AdministratorModerationRangeWidget::DateRange AdministratorModerationRangeWidget::range() const
 {
@@ -53,7 +55,10 @@ AdministratorModerationRangeWidget::DateRange AdministratorModerationRangeWidget
     return r;
 }
 
-AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = default;
+void AdministratorModerationRangeWidget::slotRangeChanged()
+{
+    // TODO
+}
 
 void AdministratorModerationRangeWidget::initializeMenu()
 {
