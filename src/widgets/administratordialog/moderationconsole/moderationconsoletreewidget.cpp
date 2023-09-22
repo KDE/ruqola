@@ -80,10 +80,12 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     }
 }
 
+#if 0
 void ModerationConsoleTreeWidget::slotDeviceRemoved(const QString &emojiId)
 {
     mModel->removeElement(emojiId);
 }
+#endif
 
 void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
@@ -91,7 +93,18 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
+        // Fix icons
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("See messages"), this, [this, newModelIndex]() {
+            // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
+            // slotDisconnectDevice(modelIndex);
+        });
+        menu.addSeparator();
+
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Dismiss reports"), this, [this, newModelIndex]() {
+            // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
+            // slotDisconnectDevice(modelIndex);
+        });
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
             // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
             // slotDisconnectDevice(modelIndex);
         });
@@ -111,9 +124,21 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
     }
 }
 
+void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index)
+{
+    if (KMessageBox::questionTwoActions(this,
+                                        i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
+                                        i18n("Dismiss"),
+                                        KStandardGuiItem::remove(),
+                                        KStandardGuiItem::cancel())
+        == KMessageBox::ButtonCode::PrimaryAction) {
+        // TODO
+    }
+}
+
+#if 0
 void ModerationConsoleTreeWidget::slotDisconnectDevice(const QModelIndex &index)
 {
-#if 0
     auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);
     const QString sessionsId = modelIndex.data().toString();
@@ -125,7 +150,7 @@ void ModerationConsoleTreeWidget::slotDisconnectDevice(const QModelIndex &index)
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsLogoutMeJob job";
     }
-#endif
 }
+#endif
 
 #include "moc_moderationconsoletreewidget.cpp"
