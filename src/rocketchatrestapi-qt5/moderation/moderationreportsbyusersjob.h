@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT ModerationReportsByUsersJob : public RestA
 {
     Q_OBJECT
 public:
-    struct ModerationReportsByUsersInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT ModerationReportsByUsersInfo {
         QDateTime mLatest;
         QDateTime mOldest;
         [[nodiscard]] bool isValid() const
