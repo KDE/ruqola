@@ -64,6 +64,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         const QDate date = QDate::currentDate();
         mFromDate->setDate(date);
         mToDate->setDate(date);
+        Q_EMIT rangeChanged();
     });
     auto yesterdayAction = new QAction(i18n("Yesterday"), menu);
     menu->addAction(yesterdayAction);
@@ -71,6 +72,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         const QDate date = QDate::currentDate().addDays(-1);
         mFromDate->setDate(date);
         mToDate->setDate(date);
+        Q_EMIT rangeChanged();
     });
     auto thisWeekAction = new QAction(i18n("This week"), menu);
     menu->addAction(thisWeekAction);
@@ -78,6 +80,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         const QDate date = QDate::currentDate();
         mFromDate->setDate(date.addDays(-7));
         mToDate->setDate(date);
+        Q_EMIT rangeChanged();
     });
     auto previousWeekAction = new QAction(i18n("Previous week"), menu);
     menu->addAction(previousWeekAction);
@@ -85,6 +88,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         const QDate date = QDate::currentDate().addDays(-7);
         mFromDate->setDate(date.addDays(-7));
         mToDate->setDate(date);
+        Q_EMIT rangeChanged();
     });
     auto thisMonthAction = new QAction(i18n("This month"), menu);
     menu->addAction(thisMonthAction);
@@ -93,6 +97,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         const QDate monthDate = QDate(date.year(), date.month(), 1);
         mFromDate->setDate(monthDate);
         mToDate->setDate(QDate(date.year(), date.month(), monthDate.daysInMonth()));
+        Q_EMIT rangeChanged();
     });
     auto previousMonthAction = new QAction(i18n("Previous month"), menu);
     menu->addAction(previousMonthAction);
@@ -101,6 +106,7 @@ void AdministratorModerationRangeWidget::initializeMenu()
         const QDate monthDate = QDate(date.year(), date.month(), 1);
         mFromDate->setDate(monthDate);
         mToDate->setDate(QDate(QDate(date.year(), date.month(), monthDate.daysInMonth())));
+        Q_EMIT rangeChanged();
     });
     mFilterDate->setMenu(menu);
 }

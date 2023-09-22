@@ -22,6 +22,9 @@ public:
 
     [[nodiscard]] DateRange range() const;
 
+Q_SIGNALS:
+    void rangeChanged();
+
 private:
     void initializeMenu();
     QDateEdit *const mFromDate;
