@@ -441,6 +441,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
 
     moderation/moderationreportsbyusersjob.cpp
     moderation/moderationreportsbyusersjob.h
+    moderation/moderationreportsjob.cpp
+    moderation/moderationreportsjob.h
 )
 
 
