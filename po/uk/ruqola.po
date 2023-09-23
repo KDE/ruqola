@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
-"PO-Revision-Date: 2023-09-21 13:26+0300\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"PO-Revision-Date: 2023-09-22 08:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -874,10 +874,9 @@ msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Поскаржитися на повідомлення"
+msgstr "Повідомлення зі скаргами"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -886,22 +885,19 @@ msgid "Username"
 msgstr "Користувач"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
-msgstr "Звітування"
+msgstr "Скарги"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Поскаржитися на повідомлення"
+msgstr "Дата скарги"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Кімнати"
+msgstr "Кімната"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2564,37 +2560,35 @@ msgstr "Від:"
 msgid "To:"
 msgstr "Кому:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Сьогодні"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, kde-format
-msgid "This week"
-msgstr ""
+msgstr "Вчора"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
-msgid "Previous week"
-msgstr "&Попередній сервер"
+#, kde-format
+msgid "This week"
+msgstr "Цього тижня"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
+#, kde-format
+msgid "Previous week"
+msgstr "Попереднього тижня"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Цього місяця"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#, kde-format
 msgid "Previous month"
-msgstr "Попередній канал"
+msgstr "Попереднього місяця"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, kde-format
@@ -2615,11 +2609,36 @@ msgstr[1] "%1 повідомлення для модерації (загалом
 msgstr[2] "%1 повідомлень для модерації (загалом: %2)"
 msgstr[3] "%1 повідомлення для модерації (загалом: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgid "See messages"
+msgstr "Шукати повідомлення"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
-msgid "Disconnect"
-msgstr "Від'єднати"
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgid "Delete all Messages"
+msgstr "Вилучити усі повідомлення"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, kde-format
+msgid "Dismiss"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -7542,6 +7561,11 @@ msgstr[0] "%1 пристрій (загалом: %2)"
 msgstr[1] "%1 пристрої (загалом: %2)"
 msgstr[2] "%1 пристроїв (загалом: %2)"
 msgstr[3] "%1 пристрій (загалом: %2)"
+
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, kde-format
+msgid "Disconnect"
+msgstr "Від'єднати"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, kde-format

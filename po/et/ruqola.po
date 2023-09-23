@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -2686,33 +2686,33 @@ msgstr ""
 msgid "To:"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
 #, kde-format
 msgid "This week"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "Previous week"
 msgstr "Eelmine kanal"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "Previous month"
@@ -2739,12 +2739,36 @@ msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 mainimine toas (kokku: %2)"
 msgstr[1] "%1 mainimist toas (kokku: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
 #, fuzzy, kde-format
-#| msgid "Not connected"
-msgid "Disconnect"
-msgstr "Pole ühendatud"
+#| msgid "Search Messages"
+msgid "See messages"
+msgstr "Sõnumite otsimine"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
+#, kde-format
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgid "Delete all Messages"
+msgstr "Sõnumi kustutamine"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, kde-format
+msgid "Dismiss"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -7788,6 +7812,12 @@ msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
+
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, fuzzy, kde-format
+#| msgid "Not connected"
+msgid "Disconnect"
+msgstr "Pole ühendatud"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, fuzzy, kde-format

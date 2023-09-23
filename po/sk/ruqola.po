@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2636,33 +2636,33 @@ msgstr ""
 msgid "To:"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
 #, kde-format
 msgid "This week"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Previous week"
 msgstr "Opustiť kanál"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Previous month"
@@ -2688,12 +2688,36 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
 #, fuzzy, kde-format
-#| msgid "Enter Username"
-msgid "Disconnect"
-msgstr "Zadajte užívateľské meno"
+#| msgid "Search File..."
+msgid "See messages"
+msgstr "Hľadať súbor..."
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
+#, kde-format
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgid "Delete all Messages"
+msgstr "Zmazať správu"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, kde-format
+msgid "Dismiss"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -7714,6 +7738,12 @@ msgid_plural "%1 devices (Total: %2)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, fuzzy, kde-format
+#| msgid "Enter Username"
+msgid "Disconnect"
+msgstr "Zadajte užívateľské meno"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, fuzzy, kde-format

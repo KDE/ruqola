@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
 "PO-Revision-Date: 2023-09-09 13:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -869,10 +869,9 @@ msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "İletiyi Bildir"
+msgstr "Bildirilen ileti"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -881,22 +880,19 @@ msgid "Username"
 msgstr "Kullanıcı Adı"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
-msgstr "Raporlama"
+msgstr "Raporlar"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "İletiyi Bildir"
+msgstr "Bildirim tarihi"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Odalar"
+msgstr "Oda"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2532,37 +2528,35 @@ msgstr "Nereden:"
 msgid "To:"
 msgstr "Nereye:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Bugün"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, kde-format
-msgid "This week"
-msgstr ""
+msgstr "Dün"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
-msgid "Previous week"
-msgstr "&Önceki Sunucu"
+#, kde-format
+msgid "This week"
+msgstr "Bu hafta"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
+#, kde-format
+msgid "Previous week"
+msgstr "Önceki hafta"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Bu ay"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#, kde-format
 msgid "Previous month"
-msgstr "Önceki Kanal"
+msgstr "Önceki ay"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, kde-format
@@ -2581,11 +2575,36 @@ msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 moderasyon iletisi (Toplam: %2)"
 msgstr[1] "%1 moderasyon iletisi (Toplam: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgid "See messages"
+msgstr "İletileri ara"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
-msgid "Disconnect"
-msgstr "Bağlantıyı Kes"
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgid "Delete all Messages"
+msgstr "Tüm İletileri Sil"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, kde-format
+msgid "Dismiss"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -7443,6 +7462,11 @@ msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 aygıt (Toplam: %2)"
 msgstr[1] "%1 aygıt (Toplam: %2)"
+
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, kde-format
+msgid "Disconnect"
+msgstr "Bağlantıyı Kes"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, kde-format

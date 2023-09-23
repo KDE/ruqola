@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
-"PO-Revision-Date: 2023-09-21 17:45+0200\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"PO-Revision-Date: 2023-09-22 07:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -872,10 +872,9 @@ msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Sporočilo s poročilom"
+msgstr "Poročano sporočilo"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -884,22 +883,19 @@ msgid "Username"
 msgstr "Uporabniško ime"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
-msgstr "Poročanje"
+msgstr "Poročilo"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Sporočilo s poročilom"
+msgstr "Datum poročila"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Sobe"
+msgstr "Soba"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2548,37 +2544,35 @@ msgstr "Od:"
 msgid "To:"
 msgstr "Za:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Danes"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, kde-format
-msgid "This week"
-msgstr ""
+msgstr "Včeraj"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
-msgid "Previous week"
-msgstr "&Prejšnji strežnik"
+#, kde-format
+msgid "This week"
+msgstr "Ta teden"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
+#, kde-format
+msgid "Previous week"
+msgstr "Prejšnji teden"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Ta mesec"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#, kde-format
 msgid "Previous month"
-msgstr "Prejšnji kanal"
+msgstr "Prejšnji mesec"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, kde-format
@@ -2599,11 +2593,36 @@ msgstr[1] "%1 sporočili moderacije (Skupaj: %2)"
 msgstr[2] "%1 sporočil moderacije (Skupaj: %2)"
 msgstr[3] "%1 sporočil moderacije (Skupaj: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgid "See messages"
+msgstr "Išči sporočila"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
-msgid "Disconnect"
-msgstr "Odklopi"
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgid "Delete all Messages"
+msgstr "Izbriši vsa sporočila"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, kde-format
+msgid "Dismiss"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -7480,6 +7499,11 @@ msgstr[0] "%1 naprava (Skupaj: %2)"
 msgstr[1] "%1 napravi (Skupaj: %2)"
 msgstr[2] "%1 naprave (Skupaj: %2)"
 msgstr[3] "%1 naprav (Skupaj: %2)"
+
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, kde-format
+msgid "Disconnect"
+msgstr "Odklopi"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, kde-format

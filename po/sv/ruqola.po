@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-22 00:44+0000\n"
-"PO-Revision-Date: 2023-09-18 21:33+0200\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"PO-Revision-Date: 2023-09-22 18:59+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -866,13 +866,12 @@ msgstr "Redigerad %1 av %2"
 #: core/model/messagemodel.cpp:360
 #, kde-format
 msgid "Ignored Message"
-msgstr "Ignorera meddelande"
+msgstr "Ignorerat meddelande"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Rapportera meddelande"
+msgstr "Rapporterat meddelande"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -881,20 +880,17 @@ msgid "Username"
 msgstr "Användarnamn"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
-msgstr "Rapportering"
+msgstr "Rapporter"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Rapportera meddelande"
+msgstr "Rapportdatum"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
 msgstr "Rum"
 
@@ -2298,10 +2294,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "Mentions only"
+#, kde-format
 msgid "Moderation Console"
-msgstr "Bara omnämnanden"
+msgstr "Modereringsterminal"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
@@ -2537,64 +2532,83 @@ msgstr "Från:"
 msgid "To:"
 msgstr "Till:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:61
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Idag"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
-#, kde-format
-msgid "This week"
-msgstr ""
+msgstr "Igår"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
-msgid "Previous week"
-msgstr "&Föregående server"
+#, kde-format
+msgid "This week"
+msgstr "Denna veckan"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:89
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
+#, kde-format
+msgid "Previous week"
+msgstr "Föregående vecka"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Denna månaden"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#, kde-format
 msgid "Previous month"
-msgstr "Föregående kanal"
+msgstr "Föregående månad"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Search messages..."
+#, kde-format
 msgid "Search moderation message..."
-msgstr "Sök meddelanden..."
+msgstr "Sök efter modereringsmeddelande..."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No moderation message found"
-msgstr "Inga meddelanden hittades"
+msgstr "Inga modereringsmeddelanden hittades"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "%1 mention in room (Total: %2)"
-#| msgid_plural "%1 mentions in room (Total: %2)"
+#, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 omnämnande i rummet (totalt : %2)"
-msgstr[1] "%1 omnämnanden i rummet (totalt : %2)"
+msgstr[0] "%1 modereringsmeddelande (totalt : %2)"
+msgstr[1] "%1 modereringsmeddelanden (totalt : %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:95
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#, fuzzy, kde-format
+#| msgid "Search messages"
+msgid "See messages"
+msgstr "Sök meddelanden"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
-msgid "Disconnect"
-msgstr "Koppla ner"
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgid "Delete all Messages"
+msgstr "Ta bort alla meddelanden"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, kde-format
+msgid "Dismiss"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -7454,6 +7468,11 @@ msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 enhet (totalt: %2)"
 msgstr[1] "%1 enheter (totalt: %2)"
+
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#, kde-format
+msgid "Disconnect"
+msgstr "Koppla ner"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, kde-format
