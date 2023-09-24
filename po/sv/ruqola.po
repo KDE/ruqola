@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-23 00:44+0000\n"
-"PO-Revision-Date: 2023-09-22 18:59+0200\n"
+"PO-Revision-Date: 2023-09-23 20:17+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2580,19 +2580,17 @@ msgstr[0] "%1 modereringsmeddelande (totalt : %2)"
 msgstr[1] "%1 modereringsmeddelanden (totalt : %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "See messages"
-msgstr "Sök meddelanden"
+msgstr "Visa meddelanden"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "Avfärda rapporter"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#, kde-format
 msgid "Delete all Messages"
 msgstr "Ta bort alla meddelanden"
 
@@ -2603,12 +2601,14 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"Är du säker på att du vill avfärda och ta bort alla rapporter om användarens "
+"meddelanden? Åtgärden kan inte ångras."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Avfärda"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format

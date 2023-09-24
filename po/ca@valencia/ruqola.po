@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-23 00:44+0000\n"
-"PO-Revision-Date: 2023-09-21 12:01+0200\n"
+"PO-Revision-Date: 2023-09-23 13:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -874,10 +874,9 @@ msgid "Ignored Message"
 msgstr "Missatge ignorat"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Informa del missatge"
+msgstr "Missatge informat"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -886,22 +885,19 @@ msgid "Username"
 msgstr "Nom d'usuari"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
-msgstr "Informació"
+msgstr "Informes"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Informa del missatge"
+msgstr "Data de l'informe"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Sales"
+msgstr "Sala"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2560,34 +2556,32 @@ msgstr "A:"
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Hui"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
-msgstr ""
+msgstr "Ahir"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
 #, kde-format
 msgid "This week"
-msgstr ""
+msgstr "Esta setmana"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
+#, kde-format
 msgid "Previous week"
-msgstr "Servidor an&terior"
+msgstr "Setmana anterior"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Este mes"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#, kde-format
 msgid "Previous month"
-msgstr "Canal anterior"
+msgstr "Mes anterior"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
 #, kde-format
@@ -2607,19 +2601,17 @@ msgstr[0] "%1 missatge de moderació (Total: %2)"
 msgstr[1] "%1 missatges de moderació (Total: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "See messages"
-msgstr "Busca missatges"
+msgstr "Vegeu els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "Descarta els informes"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#, kde-format
 msgid "Delete all Messages"
 msgstr "Suprimix tots els missatges"
 
@@ -2630,12 +2622,14 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"Segur que voleu descartar i suprimir tots els informes per als missatges "
+"d'este usuari? Esta acció no es podrà desfer."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
 msgid "Dismiss"
-msgstr ""
+msgstr "Descarta"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
