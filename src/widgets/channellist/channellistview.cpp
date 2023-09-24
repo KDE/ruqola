@@ -290,7 +290,7 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
                                            i18n("Are you sure to convert it to team? It can not be undo."),
-                                           i18n("Convert to Team"),
+                                           i18nc("@title:window", "Convert to Team"),
                                            KStandardGuiItem::ok(),
                                            KStandardGuiItem::cancel())) {
         const QString roomId = index.data(RoomModel::RoomId).toString();

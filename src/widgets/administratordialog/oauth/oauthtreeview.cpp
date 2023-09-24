@@ -63,7 +63,7 @@ void OauthTreeView::removeClicked(const QString &identifier)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
                                            i18n("Are you sure that you want to delete this Oauth?"),
-                                           i18n("Remove OAuth"),
+                                           i18nc("@title:window", "Remove OAuth"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         Q_EMIT removeOauth(identifier);

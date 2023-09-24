@@ -242,7 +242,7 @@ void RoomWidget::slotPruneMessages()
         if (KMessageBox::ButtonCode::PrimaryAction
             == KMessageBox::questionTwoActions(this,
                                                i18n("Do you want really remove history?"),
-                                               i18n("Remove History"),
+                                               i18nc("@title:window", "Remove History"),
                                                KStandardGuiItem::remove(),
                                                KStandardGuiItem::cancel())) {
             mCurrentRocketChatAccount->cleanChannelHistory(info);

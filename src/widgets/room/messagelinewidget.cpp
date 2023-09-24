@@ -125,7 +125,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     if (KMessageBox::ButtonCode::PrimaryAction
                         == KMessageBox::questionTwoActions(this,
                                                            i18n("Do you want to convert this big text as attachment?"),
-                                                           i18n("Message Too Big"),
+                                                           i18nc("@title:window", "Message Too Big"),
                                                            KStandardGuiItem::ok(),
                                                            KStandardGuiItem::cancel())) {
                         QPointer<MessageMaximumSizeDialog> dlg = new MessageMaximumSizeDialog(this);

@@ -225,7 +225,7 @@ void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
                                            i18n("Do you want to remove this role \'%1\'?", index.data().toString()),
-                                           i18n("Remove Role"),
+                                           i18nc("@title:window", "Remove Role"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         auto roleDeleteJob = new RocketChatRestApi::RoleDeleteJob(this);

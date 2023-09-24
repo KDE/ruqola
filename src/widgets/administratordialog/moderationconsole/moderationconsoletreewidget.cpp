@@ -116,7 +116,7 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
 {
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
-                                        i18n("Dismiss"),
+                                        i18nc("@title:window", "Dismiss"),
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
@@ -128,7 +128,7 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
 {
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
-                                        i18n("Dismiss"),
+                                        i18nc("@title:window", "Delete All Messages"),
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {

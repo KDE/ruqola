@@ -54,7 +54,7 @@ void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &tokenNam
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
                                            i18n("Are you sure that you want to delete \"%1\" Token?", tokenName),
-                                           i18n("Remove Token"),
+                                           i18nc("@title:window", "Remove Token"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         Q_EMIT removeToken(tokenName);

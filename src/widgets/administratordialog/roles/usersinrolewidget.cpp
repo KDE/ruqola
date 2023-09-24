@@ -78,7 +78,7 @@ void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
                                            i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()),
-                                           i18n("Remove User"),
+                                           i18nc("@title:window", "Remove User"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
