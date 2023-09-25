@@ -10,6 +10,7 @@
 #include "model/moderationmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationreportsbyusersjob.h"
+#include "moderation/moderationuserreportedmessagesjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -94,8 +95,16 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
         menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("See messages"), this, [this, newModelIndex]() {
-            // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
-            // slotDisconnectDevice(modelIndex);
+            auto job = new RocketChatRestApi::ModerationUserReportedMessagesJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+            job->setReportedMessageFromUserId(modelIndex.data().toString());
+            connect(job, &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone, this, [this](const QJsonObject &obj) {
+                qDebug() << " Obj " << obj;
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
+            }
         });
         menu.addSeparator();
 
