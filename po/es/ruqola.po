@@ -2,8 +2,8 @@
 # Copyright (C) 2019 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# Automatically generated, 2019.
 # SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# Automatically generated, 2019.
 # Manuel Alcaraz <manuelalcarazzam@gmail.com>, 2019.
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2023, %Y.
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 02:29+0000\n"
-"PO-Revision-Date: 2023-09-10 01:03+0100\n"
+"PO-Revision-Date: 2023-09-23 18:46+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -6334,10 +6334,9 @@ msgid "Hide Unread Room Status"
 msgstr "Ocultar estado no leído de la sala"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mute @all and @here mentions"
+#, kde-format
 msgid "Mute %1 and %2 mentions"
-msgstr "Silenciar las menciones @all y @here"
+msgstr "Silenciar las menciones %1 y %2"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format
@@ -8935,6 +8934,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
-
-#~ msgid "Share"
-#~ msgstr "Compartir"
