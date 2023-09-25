@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2630,10 +2630,17 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Dele omne Messages"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -2684,7 +2691,9 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Tu es secur que tu vole deler iste Oauth?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove OAuth"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Remove OAuth"
 
@@ -2723,7 +2732,9 @@ msgid "Do you want to remove this role '%1'?"
 msgstr "Tu vole remover iste rolo '%1'?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Role"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Remove Rolo"
 
@@ -2795,7 +2806,9 @@ msgstr "Tu vole remover iste usator \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Remove Usator"
 
@@ -3289,7 +3302,9 @@ msgstr ""
 "potera restabilir accesso a ulle sala cryptate que non ha membros in linea."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E key"
+msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Refixa Clave E2E"
 
@@ -3313,8 +3328,9 @@ msgstr ""
 "usator fixara de novo le Duo Factor postea."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset TOTP"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Refixa TOTP"
 
@@ -3322,6 +3338,11 @@ msgstr "Refixa TOTP"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Clave TOTP per %1 ha essite refixate"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, kde-format
+msgid "Reset TOTP"
+msgstr "Refixa TOTP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5705,7 +5726,6 @@ msgid "Hide Channel"
 msgstr "Cela Canal"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Convert to Team"
 msgstr "Converte a Equipa"
@@ -5745,6 +5765,13 @@ msgstr "Move a Equipa"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Tu es secur de convertir lo a equipa? Il non pote esser annullate."
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Converte a Equipa"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
@@ -7411,7 +7438,9 @@ msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Tu es secur que tu vole deler Indicio \"%1\"?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Token"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Remove Indicio"
 
@@ -7828,7 +7857,9 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr "Tu vole converter iste texto grande a attachamento?"
 
 #: widgets/room/messagelinewidget.cpp:128
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Too Big"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Message troppo grande"
 
@@ -8083,7 +8114,9 @@ msgid "Do you want really remove history?"
 msgstr "Tu vole vermente remover chronologia?"
 
 #: widgets/room/roomwidget.cpp:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remove Chronologia"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2725,10 +2725,17 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Ištrinti žinutę"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -2787,6 +2794,7 @@ msgstr "Ar norite ištrinti šį kambarį?"
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Šalinti paskyrą"
 
@@ -2832,6 +2840,7 @@ msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Šalinti iš kambario"
 
@@ -2912,6 +2921,7 @@ msgstr "Ar norite nepaisyti šio naudotojo?"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Remove"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Šalinti"
 
@@ -3449,9 +3459,11 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "Slaptažodis"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3472,9 +3484,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, fuzzy, kde-format
 #| msgid "Password"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Slaptažodis"
 
@@ -3482,6 +3494,12 @@ msgstr "Slaptažodis"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Reset TOTP"
+msgstr "Slaptažodis"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5977,7 +5995,6 @@ msgid "Hide Channel"
 msgstr "Slėpti kanalą"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Convert to Team"
@@ -6022,6 +6039,13 @@ msgstr "Šalinti iš kambario"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Remove from Room"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Šalinti iš kambario"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
@@ -7802,6 +7826,7 @@ msgstr "Ar norite ištrinti šį kambarį?"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Šalinti iš kambario"
 
@@ -8251,6 +8276,7 @@ msgstr "Ar norite ištrinti šį priedą?"
 #: widgets/room/messagelinewidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Žinutė prisegta"
 
@@ -8528,6 +8554,7 @@ msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 #: widgets/room/roomwidget.cpp:245
 #, fuzzy, kde-format
 #| msgid "Remove"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Šalinti"
 

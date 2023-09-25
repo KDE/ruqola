@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
-"PO-Revision-Date: 2023-09-22 10:45+0200\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
+"PO-Revision-Date: 2023-09-24 21:26+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2600,19 +2600,17 @@ msgstr[0] "%1 moderatiebericht (totaal: %2)"
 msgstr[1] "%1 moderatieberichten (totaal: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "See messages"
-msgstr "Berichten doorzoeken"
+msgstr "Zie meldingen"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "Rapporten verwerpen"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#, kde-format
 msgid "Delete all Messages"
 msgstr "Alle berichten verwijderen"
 
@@ -2623,12 +2621,22 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"Weet u zeker dat u alle rapporten voor de meldingen van deze gebruiker wilt "
+"verwerpen en verwijderen? Deze actie kan niet ongedaan worden gemaakt."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Dismiss"
+msgctxt "@title:window"
 msgid "Dismiss"
-msgstr ""
+msgstr "Verwerpen"
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Alle berichten verwijderen"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -2679,7 +2687,9 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Wilt u deze OAuth verwijderen?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove OAuth"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "OAuth verwijderen"
 
@@ -2718,7 +2728,9 @@ msgid "Do you want to remove this role '%1'?"
 msgstr "Wilt u deze rol '%1' verwijderen?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Role"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Rol verwijderen"
 
@@ -2790,7 +2802,9 @@ msgstr "Wilt u deze gebruiker \"%1\" verwijderen?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Gebruiker verwijderen"
 
@@ -3285,7 +3299,9 @@ msgstr ""
 "versleutelde room die geen lid online heeft."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E key"
+msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E-sleutel resetten"
 
@@ -3309,8 +3325,9 @@ msgstr ""
 "staat zijn om de Twee-factor later opnieuw in te stellen."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset TOTP"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP resetten"
 
@@ -3318,6 +3335,11 @@ msgstr "TOTP resetten"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "TOTP-sleutel voor %1 is gereset"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, kde-format
+msgid "Reset TOTP"
+msgstr "TOTP resetten"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5871,7 +5893,6 @@ msgid "Hide Channel"
 msgstr "Kanaal verbergen"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Convert to Team"
 msgstr "Naar team converteren"
@@ -5911,6 +5932,13 @@ msgstr "Naar team verplaatsen"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Naar team converteren? Het kan niet ongedaan worden gemaakt."
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Naar team converteren"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
@@ -7577,7 +7605,9 @@ msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Wilt u het token \"%1\" verwijderen?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Token"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Token verwijderen"
 
@@ -7998,7 +8028,9 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr "Wilt u deze lange tekst als bijlage converteren?"
 
 #: widgets/room/messagelinewidget.cpp:128
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Too Big"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Bericht is te lang"
 
@@ -8253,7 +8285,9 @@ msgid "Do you want really remove history?"
 msgstr "Wilt u de geschiedenis verwijderen?"
 
 #: widgets/room/roomwidget.cpp:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Geschiedenis verwijderen"
 

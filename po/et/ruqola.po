@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -2765,10 +2765,17 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Sõnumi kustutamine"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -2827,6 +2834,7 @@ msgstr "Kas tõesti kustutada see tuba?"
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Konto eemaldamine"
 
@@ -2872,6 +2880,7 @@ msgstr "Kas eemaldada konto \"%1\"?"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Eemalda toast"
 
@@ -2952,6 +2961,7 @@ msgstr "Kas eirata seda kasutajat?"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Remove as Owner"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Eemalda omaniku staatus"
 
@@ -3499,9 +3509,11 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Get Avatar"
+msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "Hangi avatar"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3522,9 +3534,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Hangi avatar"
 
@@ -3532,6 +3544,12 @@ msgstr "Hangi avatar"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, fuzzy, kde-format
+#| msgid "Get Avatar"
+msgid "Reset TOTP"
+msgstr "Hangi avatar"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -6062,7 +6080,6 @@ msgid "Hide Channel"
 msgstr "Peida kanal"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Convert to Team"
@@ -6107,6 +6124,13 @@ msgstr "Eemalda toast"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Remove from Room"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Eemalda toast"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
@@ -7883,6 +7907,7 @@ msgstr "Kas tõesti kustutada see tuba?"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Eemalda toast"
 
@@ -8337,6 +8362,7 @@ msgstr "Kas tõesti kustutada see manus?"
 #: widgets/room/messagelinewidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Message"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sõnum"
 
@@ -8616,6 +8642,7 @@ msgstr "Kas eemaldada konto \"%1\"?"
 #: widgets/room/roomwidget.cpp:245
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Laadi hiljutine ajalugu"
 

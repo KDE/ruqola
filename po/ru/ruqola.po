@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2665,10 +2665,18 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Удаление сообщения"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -2720,7 +2728,9 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Удалить этот Oauth?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove OAuth"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Удалить OAuth"
 
@@ -2761,7 +2771,9 @@ msgid "Do you want to remove this role '%1'?"
 msgstr "Удалить запись роли «%1»?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Role"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Удалить роль"
 
@@ -2834,7 +2846,9 @@ msgstr "Удалить запись пользователя «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Удалить пользователя"
 
@@ -3340,7 +3354,9 @@ msgstr ""
 "зашифрованным комнатам, где нет находящихся в сети участников."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E key"
+msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Сбросить ключ сквозного шифрования"
 
@@ -3365,8 +3381,9 @@ msgstr ""
 "двухфакторную аутентификацию."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset TOTP"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Сбросить TOTP"
 
@@ -3374,6 +3391,11 @@ msgstr "Сбросить TOTP"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Ключ TOTP для %1 сброшен"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, kde-format
+msgid "Reset TOTP"
+msgstr "Сбросить TOTP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5885,7 +5907,6 @@ msgid "Hide Channel"
 msgstr "Скрыть канал"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Convert to Team"
 msgstr "Преобразовать в команду"
@@ -5925,6 +5946,13 @@ msgstr "Переместить в команду"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Действительно преобразовать в команду? Это действие нельзя отменить."
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Преобразовать в команду"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
@@ -7681,6 +7709,7 @@ msgstr "Удалить это приглашение?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Удалить роль"
 
@@ -8111,7 +8140,9 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr "Преобразовать этот большой текст во вложение?"
 
 #: widgets/room/messagelinewidget.cpp:128
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Too Big"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Слишком большое сообщение"
 
@@ -8372,7 +8403,9 @@ msgid "Do you want really remove history?"
 msgstr "Удалить журнал?"
 
 #: widgets/room/roomwidget.cpp:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Удалить журнал"
 

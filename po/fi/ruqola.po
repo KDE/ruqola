@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 21:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2632,10 +2632,17 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Poista kaikki viestit"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -2686,7 +2693,9 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Haluatko varmasti poistaa tämän OAuthin?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove OAuth"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Poista OAuth"
 
@@ -2725,7 +2734,9 @@ msgid "Do you want to remove this role '%1'?"
 msgstr "Haluatko poistaa roolin ”%1”?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Role"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Poista rooli"
 
@@ -2797,7 +2808,9 @@ msgstr "Haluatko poistaa käyttäjän ”%1”?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Poista käyttäjä"
 
@@ -3293,7 +3306,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E key"
+msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Palauta E2E-avain"
 
@@ -3315,8 +3330,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset TOTP"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Palauta TOTP"
 
@@ -3324,6 +3340,11 @@ msgstr "Palauta TOTP"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, kde-format
+msgid "Reset TOTP"
+msgstr "Palauta TOTP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5734,7 +5755,6 @@ msgid "Hide Channel"
 msgstr "Piilota kanava"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Convert to Team"
 msgstr "Muunna ryhmäksi"
@@ -5774,6 +5794,13 @@ msgstr "Siirrä ryhmään"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Haluatko varmasti muuntaa sen ryhmäksi? Tätä ei voi kumota."
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Muunna ryhmäksi"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
@@ -7463,6 +7490,7 @@ msgstr "Haluatko poistaa tämän huoneen?"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Remove Room"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Poista huone"
 
@@ -7881,7 +7909,9 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr "Haluatko muuntaa tämän pitkän tekstin liitteeksi?"
 
 #: widgets/room/messagelinewidget.cpp:128
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Too Big"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Viesti on liian pitkä"
 
@@ -8138,7 +8168,9 @@ msgid "Do you want really remove history?"
 msgstr "Haluatko varmasti poistaa historian?"
 
 #: widgets/room/roomwidget.cpp:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Poista historia"
 

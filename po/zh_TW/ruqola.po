@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2715,10 +2715,17 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "刪除訊息"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -2776,6 +2783,7 @@ msgstr "您確定要刪除此聊天室嗎？"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
 #, fuzzy, kde-format
 #| msgid "Remove"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "移除"
 
@@ -2821,6 +2829,7 @@ msgstr "您確定要取消封存此聊天室嗎？"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Remove"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "移除"
 
@@ -2901,6 +2910,7 @@ msgstr "您確定要取消封存此聊天室嗎？"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "載入最近記錄"
 
@@ -3449,9 +3459,11 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "密碼"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3472,9 +3484,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, fuzzy, kde-format
 #| msgid "Password"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "密碼"
 
@@ -3482,6 +3494,12 @@ msgstr "密碼"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Reset TOTP"
+msgstr "密碼"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5975,7 +5993,6 @@ msgid "Hide Channel"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Convert to Team"
@@ -6019,6 +6036,13 @@ msgstr "移除"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "移除"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
@@ -7767,6 +7791,7 @@ msgstr "您確定要刪除此聊天室嗎？"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Remove"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "移除"
 
@@ -8219,6 +8244,7 @@ msgstr "您確定要刪除此附件嗎？"
 #: widgets/room/messagelinewidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Message:"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "訊息："
 
@@ -8497,6 +8523,7 @@ msgstr "您確定要刪除此聊天室嗎？"
 #: widgets/room/roomwidget.cpp:245
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "載入最近記錄"
 

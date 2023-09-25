@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2714,10 +2714,17 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Zmazať správu"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -2774,6 +2781,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Odstrániť účet"
 
@@ -2818,6 +2826,7 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Odstrániť účet"
 
@@ -2897,6 +2906,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Odstrániť účet"
 
@@ -3439,9 +3449,11 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "Heslo:"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3462,9 +3474,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, fuzzy, kde-format
 #| msgid "Password:"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Heslo:"
 
@@ -3472,6 +3484,12 @@ msgstr "Heslo:"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgid "Reset TOTP"
+msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5967,7 +5985,6 @@ msgid "Hide Channel"
 msgstr "Opustiť kanál"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "Convert to Team"
@@ -6013,6 +6030,13 @@ msgstr "Odstrániť účet"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Odstrániť účet"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
@@ -7808,6 +7832,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Odstrániť účet"
 
@@ -8264,6 +8289,7 @@ msgstr ""
 #: widgets/room/messagelinewidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Message"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Správa"
 
@@ -8541,9 +8567,11 @@ msgid "Do you want really remove history?"
 msgstr ""
 
 #: widgets/room/roomwidget.cpp:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgctxt "@title:window"
 msgid "Remove History"
-msgstr ""
+msgstr "Odstrániť účet"
 
 #: widgets/room/roomwidget.cpp:437
 #, kde-format

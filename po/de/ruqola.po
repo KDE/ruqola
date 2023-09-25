@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2705,10 +2705,18 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
 #, kde-format
+msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Nachricht löschen"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -2767,6 +2775,7 @@ msgstr "Möchten Sie diese Einladung wirklich löschen?"
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
+msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Zugang entfernen"
 
@@ -2813,6 +2822,7 @@ msgstr "Möchten Sie diesen Zugang  „%1“ entfernen?"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Remove Room"
+msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Raum entfernen"
 
@@ -2895,7 +2905,9 @@ msgstr "Möchten Sie diesen Benutzer entfernen?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Benutzer entfernen"
 
@@ -3419,9 +3431,11 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset Avatar"
+msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "Avatar zurücksetzen"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3442,9 +3456,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
+msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Avatar zurücksetzen"
 
@@ -3452,6 +3466,12 @@ msgstr "Avatar zurücksetzen"
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
+#, fuzzy, kde-format
+#| msgid "Reset Avatar"
+msgid "Reset TOTP"
+msgstr "Avatar zurücksetzen"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -5986,7 +6006,6 @@ msgid "Hide Channel"
 msgstr "Kanal ausblenden"
 
 #: widgets/channellist/channellistview.cpp:153
-#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Convert to Team"
 msgstr "Umwandeln in Team"
@@ -6029,6 +6048,13 @@ msgstr "Verschieben zu Team"
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
+
+#: widgets/channellist/channellistview.cpp:293
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
+msgctxt "@title:window"
+msgid "Convert to Team"
+msgstr "Umwandeln in Team"
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, fuzzy, kde-format
@@ -7775,6 +7801,7 @@ msgstr "Möchten Sie diese Einladung wirklich löschen?"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Remove Room"
+msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Raum entfernen"
 
@@ -8219,6 +8246,7 @@ msgstr "Möchten Sie diesen Anhang wirklich löschen?"
 #: widgets/room/messagelinewidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Message"
+msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Nachricht"
 
@@ -8486,7 +8514,9 @@ msgid "Do you want really remove history?"
 msgstr "Möchten Sie den Verlauf wirklich öffnen?"
 
 #: widgets/room/roomwidget.cpp:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Verlauf löschen"
 
