@@ -32,9 +32,14 @@ bool ModerationInfo::operator==(const ModerationInfo &other) const
         && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage && mCreatedAt == other.mCreatedAt && mRoomList == other.mRoomList;
 }
 
-void ModerationInfo::parseRoom()
+void ModerationInfo::parseRoomList(const QJsonArray &rooms)
 {
-    // TODO
+    for (int i = 0; i < rooms.size(); i++) {
+        const QJsonObject o = rooms.at(i).toObject();
+        const QString fname = o[QLatin1String("fname")].toString();
+        const QString name = o[QLatin1String("name")].toString();
+        mRoomList.append(fname.isEmpty() ? name : fname);
+    }
 }
 
 void ModerationInfo::parseModerationInfo(const QJsonObject &o)
@@ -47,7 +52,7 @@ void ModerationInfo::parseModerationInfo(const QJsonObject &o)
     mIsUserDeleted = o[QLatin1String("isUserDeleted")].toBool();
     mMessage = o[QLatin1String("message")].toString();
     setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    // TODO
+    parseRoomList(o[QLatin1String("rooms")].toArray());
 }
 
 void ModerationInfo::setCreatedAt(qint64 newCreatedAt)

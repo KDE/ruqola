@@ -50,7 +50,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void setCreatedAt(qint64 newCreatedAt);
-    LIBRUQOLACORE_NO_EXPORT void parseRoom();
+    LIBRUQOLACORE_NO_EXPORT void parseRoomList(const QJsonArray &rooms);
     QStringList mRoomList;
     QString mUserId;
     QString mName;
