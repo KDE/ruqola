@@ -14,6 +14,9 @@ class ModerationInfoTest : public QObject
 public:
     explicit ModerationInfoTest(QObject *parent = nullptr);
     ~ModerationInfoTest() override = default;
+
 private Q_SLOTS:
+    void shouldModerationInfo_data();
+    void shouldModerationInfo();
     void shouldHaveDefaultValues();
 };
