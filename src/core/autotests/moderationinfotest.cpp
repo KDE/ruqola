@@ -48,6 +48,22 @@ void ModerationInfoTest::shouldModerationInfo_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<ModerationInfo>("moderationInfo");
     QTest::addRow("moderationempty") << QStringLiteral("moderationempty") << ModerationInfo();
+    {
+        ModerationInfo info;
+        info.setUserId(QStringLiteral("SSSSSQ4iShzD9T2"));
+        info.setName(QStringLiteral("Name Laur"));
+        info.setUserName(QStringLiteral("laurent"));
+        info.setMsgId(QStringLiteral("XBHe3ocWiDApCc"));
+        info.setCount(3);
+        info.setIsUserDeleted(false);
+        info.setMessage(QStringLiteral("H"));
+        qint64 val = 1695363298494;
+        info.setCreatedAt(val);
+        QStringList list;
+        list << QStringLiteral("test1") << QStringLiteral("test-team1");
+        info.setRoomList(list);
+        QTest::addRow("moderation1") << QStringLiteral("moderation1") << info;
+    }
 }
 
 #include "moc_moderationinfotest.cpp"

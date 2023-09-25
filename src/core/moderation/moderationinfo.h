@@ -44,12 +44,12 @@ public:
     [[nodiscard]] const QString &createAtDisplayDateTime() const;
 
     [[nodiscard]] qint64 createdAt() const;
+    void setCreatedAt(qint64 newCreatedAt);
 
     [[nodiscard]] QStringList roomList() const;
     void setRoomList(const QStringList &newRoomName);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void setCreatedAt(qint64 newCreatedAt);
     LIBRUQOLACORE_NO_EXPORT void parseRoomList(const QJsonArray &rooms);
     QStringList mRoomList;
     QString mUserId;

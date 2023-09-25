@@ -44,6 +44,7 @@ void ModerationInfo::parseRoomList(const QJsonArray &rooms)
 
 void ModerationInfo::parseModerationInfo(const QJsonObject &o)
 {
+    // qDebug() << " ModerationInfo " << o;
     mUserId = o[QLatin1String("userId")].toString();
     mName = o[QLatin1String("name")].toString();
     mUserName = o[QLatin1String("username")].toString();
