@@ -93,8 +93,7 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        // Fix icons
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("See messages"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("See messages"), this, [this, newModelIndex]() {
             // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
             // slotDisconnectDevice(modelIndex);
         });
