@@ -82,7 +82,7 @@ QVariant ModerationModel::data(const QModelIndex &index, int role) const
     case ModerationInfoRoles::ReportDate:
         return moderationInfo.createAtDisplayDateTime();
     case ModerationInfoRoles::RoomName:
-        return moderationInfo.roomName();
+        return moderationInfo.roomList().join(QLatin1Char(','));
     }
     return {};
 }

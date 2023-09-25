@@ -45,20 +45,20 @@ public:
 
     [[nodiscard]] qint64 createdAt() const;
 
-    [[nodiscard]] QString roomName() const;
-    void setRoomName(const QString &newRoomName);
+    [[nodiscard]] QStringList roomList() const;
+    void setRoomList(const QStringList &newRoomName);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void setCreatedAt(qint64 newCreatedAt);
     LIBRUQOLACORE_NO_EXPORT void parseRoom();
-    qint64 mCreatedAt = -1;
+    QStringList mRoomList;
     QString mUserId;
     QString mName;
     QString mUserName;
     QString mMsgId;
     QString mMessage;
     QString mCreateAtDisplayDateTime;
-    QString mRoomName;
+    qint64 mCreatedAt = -1;
     int mCount = 0;
     bool mIsUserDeleted = false;
 };

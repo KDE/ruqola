@@ -19,7 +19,7 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
     d << "mIsUserDeleted " << t.isUserDeleted();
     d << "mMessage " << t.message();
     d << "mCreatedAt " << t.createdAt();
-    d << "mRoomName " << t.roomName();
+    d << "mRoomName " << t.roomList();
     return d;
 }
 
@@ -29,7 +29,7 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
 bool ModerationInfo::operator==(const ModerationInfo &other) const
 {
     return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mUserId == other.mUserId && mCount == other.mCount
-        && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage && mCreatedAt == other.mCreatedAt && mRoomName == other.mRoomName;
+        && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage && mCreatedAt == other.mCreatedAt && mRoomList == other.mRoomList;
 }
 
 void ModerationInfo::parseRoom()
@@ -59,14 +59,14 @@ void ModerationInfo::setCreatedAt(qint64 newCreatedAt)
     }
 }
 
-QString ModerationInfo::roomName() const
+QStringList ModerationInfo::roomList() const
 {
-    return mRoomName;
+    return mRoomList;
 }
 
-void ModerationInfo::setRoomName(const QString &newRoomName)
+void ModerationInfo::setRoomList(const QStringList &newRoomName)
 {
-    mRoomName = newRoomName;
+    mRoomList = newRoomName;
 }
 
 qint64 ModerationInfo::createdAt() const
