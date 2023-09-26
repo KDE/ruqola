@@ -10,7 +10,7 @@
 
 #include <QDialog>
 class SearchMessageWidget;
-class SearchMessageFilterProxyModel;
+class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageDialog : public QDialog
@@ -22,7 +22,7 @@ public:
 
     void setRoomId(const QString &roomId);
 
-    void setModel(SearchMessageFilterProxyModel *model);
+    void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);

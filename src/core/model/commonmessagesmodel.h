@@ -10,12 +10,12 @@
 #include "messagesmodel.h"
 #include <QJsonObject>
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT CommonMessageModel : public MessagesModel
+class LIBRUQOLACORE_TESTS_EXPORT CommonMessagesModel : public MessagesModel
 {
     Q_OBJECT
 public:
-    explicit CommonMessageModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
-    ~CommonMessageModel() override;
+    explicit CommonMessagesModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
+    ~CommonMessagesModel() override;
     void parse(const QJsonObject &obj);
 
     void setLoadSearchMessageInProgress(bool loadSearchMessageInProgress);

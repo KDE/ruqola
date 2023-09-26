@@ -6,7 +6,7 @@
 
 #include "searchmessagewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "model/searchmessagefilterproxymodel.h"
+#include "model/commonmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "searchmessagewithdelaylineedit.h"
@@ -112,12 +112,12 @@ QString SearchMessageWidget::displayShowSearch() const
     return displayMessageStr;
 }
 
-void SearchMessageWidget::setModel(SearchMessageFilterProxyModel *model)
+void SearchMessageWidget::setModel(CommonMessageFilterProxyModel *model)
 {
     mResultListWidget->setModel(model);
     mModel = model;
-    connect(mModel, &SearchMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
-    connect(mModel, &SearchMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
+    connect(mModel, &CommonMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
+    connect(mModel, &CommonMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
     updateLabel();
 }
 

@@ -12,7 +12,7 @@
 class SearchMessageWithDelayLineEdit;
 class MessageListView;
 class QLabel;
-class SearchMessageFilterProxyModel;
+class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;
 
@@ -31,7 +31,7 @@ public:
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    void setModel(SearchMessageFilterProxyModel *model);
+    void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
@@ -46,7 +46,7 @@ private:
     QLabel *const mSearchLabel;
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;
-    SearchMessageFilterProxyModel *mModel = nullptr;
+    CommonMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *const mCurrentRocketChatAccount;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };

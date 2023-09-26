@@ -5,7 +5,7 @@
 */
 
 #include "searchmessagemodeltest.h"
-#include "model/commonmessagemodel.h"
+#include "model/commonmessagesmodel.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SearchMessageModelTest)
@@ -17,7 +17,7 @@ SearchMessageModelTest::SearchMessageModelTest(QObject *parent)
 
 void SearchMessageModelTest::shouldHaveDefaultValue()
 {
-    CommonMessageModel w;
+    CommonMessagesModel w;
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(!w.loadSearchMessageInProgress());
 }

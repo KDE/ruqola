@@ -5,8 +5,8 @@
 */
 
 #include "searchmessagefilterproxymodeltest.h"
-#include "model/commonmessagemodel.h"
-#include "model/searchmessagefilterproxymodel.h"
+#include "model/commonmessagefilterproxymodel.h"
+#include "model/commonmessagesmodel.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SearchMessageFilterProxyModelTest)
 
@@ -17,8 +17,8 @@ SearchMessageFilterProxyModelTest::SearchMessageFilterProxyModelTest(QObject *pa
 
 void SearchMessageFilterProxyModelTest::shouldHaveDefaultValue()
 {
-    SearchMessageFilterProxyModel w;
-    CommonMessageModel sourceModel;
+    CommonMessageFilterProxyModel w;
+    CommonMessagesModel sourceModel;
     w.setSourceModel(&sourceModel);
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.sourceModel());

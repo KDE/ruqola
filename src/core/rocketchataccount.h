@@ -65,8 +65,8 @@ class LoginMethodModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
 class Room;
-class CommonMessageModel;
-class SearchMessageFilterProxyModel;
+class CommonMessagesModel;
+class CommonMessageFilterProxyModel;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
 class DiscussionsFilterProxyModel;
@@ -240,7 +240,7 @@ public:
 
     void setShowRoomAvatar(bool checked);
 
-    SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
+    CommonMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
     UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
@@ -320,7 +320,7 @@ public:
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
-    [[nodiscard]] CommonMessageModel *searchMessageModel() const;
+    [[nodiscard]] CommonMessagesModel *searchMessageModel() const;
 
     void updateUser(const QJsonObject &object);
 
@@ -676,8 +676,8 @@ private:
 
     InputTextManager *const mInputThreadMessageTextManager;
 
-    CommonMessageModel *mSearchMessageModel = nullptr;
-    SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
+    CommonMessagesModel *mSearchMessageModel = nullptr;
+    CommonMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *const mReceiveTypingNotificationManager;
     ServerConfigInfo *mServerConfigInfo = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

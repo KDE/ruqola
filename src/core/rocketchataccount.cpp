@@ -15,7 +15,8 @@
 #include "messagequeue.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
-#include "model/commonmessagemodel.h"
+#include "model/commonmessagefilterproxymodel.h"
+#include "model/commonmessagesmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/emoticonmodel.h"
@@ -26,7 +27,6 @@
 #include "model/messagesmodel.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
-#include "model/searchmessagefilterproxymodel.h"
 #include "model/statusmodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/usercompleterfilterproxymodel.h"
@@ -174,8 +174,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
-    mSearchMessageModel = new CommonMessageModel(this, this);
-    mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(mSearchMessageModel, this);
+    mSearchMessageModel = new CommonMessagesModel(this, this);
+    mSearchMessageFilterProxyModel = new CommonMessageFilterProxyModel(mSearchMessageModel, this);
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);
     mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
@@ -1420,12 +1420,12 @@ void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthTyp
     }
 }
 
-SearchMessageFilterProxyModel *RocketChatAccount::searchMessageFilterProxyModel() const
+CommonMessageFilterProxyModel *RocketChatAccount::searchMessageFilterProxyModel() const
 {
     return mSearchMessageFilterProxyModel;
 }
 
-CommonMessageModel *RocketChatAccount::searchMessageModel() const
+CommonMessagesModel *RocketChatAccount::searchMessageModel() const
 {
     return mSearchMessageModel;
 }

@@ -236,10 +236,10 @@ target_sources(libruqolacore PRIVATE
     model/searchchannelfilterproxymodel.h
     model/searchchannelmodel.cpp
     model/searchchannelmodel.h
-    model/searchmessagefilterproxymodel.cpp
-    model/searchmessagefilterproxymodel.h
-    model/commonmessagemodel.cpp
-    model/commonmessagemodel.h
+    model/commonmessagefilterproxymodel.cpp
+    model/commonmessagefilterproxymodel.h
+    model/commonmessagesmodel.cpp
+    model/commonmessagesmodel.h
     model/statusmodel.cpp
     model/statusmodelfilterproxymodel.cpp
     model/statusmodelfilterproxymodel.h
