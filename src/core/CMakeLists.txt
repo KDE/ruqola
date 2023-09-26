@@ -455,6 +455,9 @@ target_sources(libruqolacore PRIVATE
     moderation/moderationinfo.cpp
     moderation/moderationinfos.cpp
     moderation/moderationinfos.h
+
+    moderation/moderationmessageinfo.h
+    moderation/moderationmessageinfo.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
