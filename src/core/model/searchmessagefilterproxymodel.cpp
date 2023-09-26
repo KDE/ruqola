@@ -22,11 +22,6 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel 
 
 SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel() = default;
 
-bool SearchMessageFilterProxyModel::stringNotFound() const
-{
-    return mSearchMessageModel->stringNotFound();
-}
-
 bool SearchMessageFilterProxyModel::loadSearchMessageInProgress() const
 {
     return mSearchMessageModel->loadSearchMessageInProgress();

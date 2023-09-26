@@ -6,7 +6,6 @@
 
 #include "searchmessagemodeltest.h"
 #include "model/searchmessagemodel.h"
-#include "test_model_helpers.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SearchMessageModelTest)
@@ -21,7 +20,6 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
     SearchMessageModel w;
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(!w.loadSearchMessageInProgress());
-    QVERIFY(w.stringNotFound());
 }
 
 #include "moc_searchmessagemodeltest.cpp"

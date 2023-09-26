@@ -18,8 +18,6 @@ public:
     ~SearchMessageModel() override;
     void parse(const QJsonObject &obj);
 
-    [[nodiscard]] bool stringNotFound() const;
-
     void setLoadSearchMessageInProgress(bool loadSearchMessageInProgress);
     [[nodiscard]] bool loadSearchMessageInProgress() const;
 
