@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(RUQOLA_VERSION "2.0.40")
+set(RUQOLA_VERSION "2.0.41")
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -73,7 +73,7 @@ endif()
 if (UNITY_SUPPORT)
     add_definitions(-DUNITY_SUPPORT)
 endif()
-set(KTEXTADDONS_MIN_VERSION "1.5.0")
+set(KTEXTADDONS_MIN_VERSION "1.5.2")
 set(REQUIRED_QT_VERSION "5.15.2")
 
 if (QT_MAJOR_VERSION STREQUAL "6")
