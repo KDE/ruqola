@@ -6,7 +6,7 @@
 
 #include "textselectiontest.h"
 #include "delegateutils/textselection.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 
 #include <QSignalSpy>
 #include <QTest>
@@ -38,7 +38,7 @@ public:
     {
         const int row = index.row();
         if (!mTextDocs[row]) {
-            const QString text = index.data(MessageModel::MessageConvertedText).toString();
+            const QString text = index.data(MessagesModel::MessageConvertedText).toString();
             auto doc = std::make_unique<QTextDocument>();
             doc->setHtml(text);
             mTextDocs[row] = std::move(doc);
@@ -67,7 +67,7 @@ private:
 static QStandardItem *newItem(const QString &text)
 {
     auto item = new QStandardItem;
-    item->setData(text, MessageModel::MessageConvertedText);
+    item->setData(text, MessagesModel::MessageConvertedText);
     return item;
 }
 

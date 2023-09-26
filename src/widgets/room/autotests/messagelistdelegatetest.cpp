@@ -78,13 +78,13 @@ void MessageListDelegateTest::layoutChecks()
 
     QStandardItemModel model;
     auto item = new QStandardItem;
-    item->setData(message.username(), MessageModel::Username);
-    item->setData(message.userId(), MessageModel::UserId);
-    item->setData(withDateHeader, MessageModel::DateDiffersFromPrevious);
-    item->setData(message.displayTime(), MessageModel::Timestamp);
-    item->setData(QVariant::fromValue(&message), MessageModel::MessagePointer);
-    item->setData(message.text(), MessageModel::OriginalMessage);
-    item->setData(message.text(), MessageModel::MessageConvertedText);
+    item->setData(message.username(), MessagesModel::Username);
+    item->setData(message.userId(), MessagesModel::UserId);
+    item->setData(withDateHeader, MessagesModel::DateDiffersFromPrevious);
+    item->setData(message.displayTime(), MessagesModel::Timestamp);
+    item->setData(QVariant::fromValue(&message), MessagesModel::MessagePointer);
+    item->setData(message.text(), MessagesModel::OriginalMessage);
+    item->setData(message.text(), MessagesModel::MessageConvertedText);
     model.setItem(0, 0, item);
     // Ensure it's not last, that's a special case in sizeHint
     auto item2 = new QStandardItem;

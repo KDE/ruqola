@@ -4,26 +4,26 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "searchmessagemodel.h"
+#include "commonmessagemodel.h"
 #include "rocketchataccount.h"
 
 #include "listmessages.h"
 
-SearchMessageModel::SearchMessageModel(RocketChatAccount *account, QObject *parent)
-    : MessageModel(QStringLiteral("no_room"), account, nullptr, parent)
+CommonMessageModel::CommonMessageModel(RocketChatAccount *account, QObject *parent)
+    : MessagesModel(QStringLiteral("no_room"), account, nullptr, parent)
 {
 }
 
-SearchMessageModel::~SearchMessageModel() = default;
+CommonMessageModel::~CommonMessageModel() = default;
 
-void SearchMessageModel::clearModel()
+void CommonMessageModel::clearModel()
 {
     mStringNotFound = true;
     mLoadingInProgress = false;
     clear();
 }
 
-void SearchMessageModel::parse(const QJsonObject &obj)
+void CommonMessageModel::parse(const QJsonObject &obj)
 {
     clear();
     ListMessages messages;
@@ -33,7 +33,7 @@ void SearchMessageModel::parse(const QJsonObject &obj)
     setStringNotFound(rowCount() == 0);
 }
 
-void SearchMessageModel::setStringNotFound(bool stringNotFound)
+void CommonMessageModel::setStringNotFound(bool stringNotFound)
 {
     if (mStringNotFound != stringNotFound) {
         mStringNotFound = stringNotFound;
@@ -41,12 +41,12 @@ void SearchMessageModel::setStringNotFound(bool stringNotFound)
     }
 }
 
-bool SearchMessageModel::loadSearchMessageInProgress() const
+bool CommonMessageModel::loadSearchMessageInProgress() const
 {
     return mLoadingInProgress;
 }
 
-void SearchMessageModel::setLoadSearchMessageInProgress(bool loadSearchMessageInProgress)
+void CommonMessageModel::setLoadSearchMessageInProgress(bool loadSearchMessageInProgress)
 {
     if (mLoadingInProgress != loadSearchMessageInProgress) {
         mLoadingInProgress = loadSearchMessageInProgress;
@@ -54,4 +54,4 @@ void SearchMessageModel::setLoadSearchMessageInProgress(bool loadSearchMessageIn
     }
 }
 
-#include "moc_searchmessagemodel.cpp"
+#include "moc_commonmessagemodel.cpp"

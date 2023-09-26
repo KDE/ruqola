@@ -6,7 +6,7 @@
 
 #include "loaddatabasegui.h"
 #include "messages/message.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include <QApplication>
@@ -32,7 +32,7 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
     , mNumberElement(new QSpinBox(this))
-    , mMessageModel(new MessageModel()) // TODO allow to delete it
+    , mMessageModel(new MessagesModel()) // TODO allow to delete it
 {
     auto mainLayout = new QVBoxLayout(this);
     auto hboxLayout = new QHBoxLayout;

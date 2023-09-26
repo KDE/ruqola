@@ -5,7 +5,7 @@
 */
 
 #include "messagelistviewbase.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"
 #include "room/textpluginmanager.h"
@@ -75,11 +75,11 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
         if (mCurrentIndex != index) {
             if (mCurrentIndex.isValid()) {
                 auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-                lastModel->setData(mCurrentIndex, false, MessageModel::HoverHighLight);
+                lastModel->setData(mCurrentIndex, false, MessagesModel::HoverHighLight);
             }
             mCurrentIndex = index;
             auto model = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-            model->setData(mCurrentIndex, true, MessageModel::HoverHighLight);
+            model->setData(mCurrentIndex, true, MessagesModel::HoverHighLight);
         }
 
         QStyleOptionViewItem options = listViewOptions();
@@ -128,7 +128,7 @@ void MessageListViewBase::leaveEvent(QEvent *event)
 {
     if (mCurrentIndex.isValid()) {
         auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-        lastModel->setData(mCurrentIndex, false, MessageModel::HoverHighLight);
+        lastModel->setData(mCurrentIndex, false, MessagesModel::HoverHighLight);
         mCurrentIndex = QPersistentModelIndex();
     }
     QListView::leaveEvent(event);

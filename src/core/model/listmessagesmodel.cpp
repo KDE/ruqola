@@ -9,7 +9,7 @@
 #include "listmessages.h"
 
 ListMessagesModel::ListMessagesModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
-    : MessageModel(roomID, account, room, parent)
+    : MessagesModel(roomID, account, room, parent)
 {
 }
 

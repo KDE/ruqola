@@ -5,6 +5,7 @@
 */
 
 #include "rocketchataccounttest.h"
+#include "model/commonmessagemodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/filesforroomfilterproxymodel.h"
@@ -12,7 +13,6 @@
 #include "model/listmessagesmodel.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
 #include "model/searchmessagefilterproxymodel.h"
-#include "model/searchmessagemodel.h"
 #include "rocketchataccount.h"
 #include <QStandardPaths>
 #include <QTest>

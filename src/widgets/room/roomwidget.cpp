@@ -702,7 +702,7 @@ void RoomWidget::connectRoom()
 
 void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
-    MessageModel *roomMessageModel = mCurrentRocketChatAccount->messageModelForRoom(mRoomWidgetBase->roomId());
+    MessagesModel *roomMessageModel = mCurrentRocketChatAccount->messageModelForRoom(mRoomWidgetBase->roomId());
     if (roomMessageModel->rowCount() >= numberOfMessage) {
         const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
@@ -757,7 +757,7 @@ void RoomWidget::scrollToMessageId(const QString &messageId)
 void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc)
 {
     MessageListView *messageListView = mRoomWidgetBase->messageListView();
-    auto messageModel = qobject_cast<MessageModel *>(messageListView->model());
+    auto messageModel = qobject_cast<MessagesModel *>(messageListView->model());
     Q_ASSERT(messageModel);
     const QModelIndex index = messageModel->indexForMessage(messageId);
     if (index.isValid()) {

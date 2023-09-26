@@ -12,7 +12,7 @@
 
 class MessageListView;
 class QLineEdit;
-class MessageModel;
+class MessagesModel;
 class QSpinBox;
 class LoadDataBaseGui : public QWidget
 {
@@ -28,5 +28,5 @@ private:
     QLineEdit *const mAccountName;
     QLineEdit *const mRoomName;
     QSpinBox *const mNumberElement;
-    MessageModel *const mMessageModel;
+    MessagesModel *const mMessageModel;
 };

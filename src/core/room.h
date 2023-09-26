@@ -23,7 +23,7 @@
 #include <memory>
 
 class UsersForRoomModel;
-class MessageModel;
+class MessagesModel;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT Room : public QObject
 {
@@ -131,7 +131,7 @@ public:
 
     [[nodiscard]] UsersForRoomModel *usersModelForRoom() const;
 
-    [[nodiscard]] MessageModel *messageModel() const;
+    [[nodiscard]] MessagesModel *messageModel() const;
 
     [[nodiscard]] QString inputMessage() const;
     void setInputMessage(const QString &inputMessage);
@@ -417,7 +417,7 @@ private:
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
     UsersForRoomModel *const mUsersModelForRoom;
-    QPointer<MessageModel> mMessageModel;
+    QPointer<MessagesModel> mMessageModel;
     RocketChatAccount *const mRocketChatAccount;
 };
 

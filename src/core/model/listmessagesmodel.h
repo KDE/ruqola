@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "messagemodel.h"
+#include "messagesmodel.h"
 
-class LIBRUQOLACORE_EXPORT ListMessagesModel : public MessageModel
+class LIBRUQOLACORE_EXPORT ListMessagesModel : public MessagesModel
 {
     Q_OBJECT
 public:

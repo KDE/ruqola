@@ -6,7 +6,7 @@
 
 #include "messagedelegateutils.h"
 #include "delegateutils/textselection.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -62,15 +62,15 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
 
 bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
 {
-    const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage =
-        messageType == Message::System && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
+        messageType == Message::System && index.data(MessagesModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
     return isSystemMessage;
 }
 
 bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
 {
-    return index.data(MessageModel::PendingMessage).toBool();
+    return index.data(MessagesModel::PendingMessage).toBool();
 }
 
 QVector<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(TextSelection *selection,
@@ -171,7 +171,7 @@ QSize MessageDelegateUtils::textSizeHint(QTextDocument *doc, qreal *pBaseLine)
 
 bool MessageDelegateUtils::showIgnoreMessages(const QModelIndex &index)
 {
-    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
-    const bool isDirectMessage = index.data(MessageModel::DirectChannels).toBool();
+    const bool isIgnoredMessage = index.data(MessagesModel::Ignored).toBool();
+    const bool isDirectMessage = index.data(MessagesModel::DirectChannels).toBool();
     return isIgnoredMessage && !isDirectMessage;
 }

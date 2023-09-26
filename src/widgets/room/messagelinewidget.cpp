@@ -215,10 +215,10 @@ void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString 
 void MessageLineWidget::clearEditingMode()
 {
     // Remove old mark as editing
-    MessageModel *model = messageModel();
+    MessagesModel *model = messageModel();
     const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
     if (index.isValid()) {
-        model->setData(index, false, MessageModel::MessageInEditMode);
+        model->setData(index, false, MessagesModel::MessageInEditMode);
     }
 }
 
@@ -234,11 +234,11 @@ QString MessageLineWidget::quotePermalink() const
 
 void MessageLineWidget::clearMessageIdBeingEdited()
 {
-    MessageModel *model = messageModel();
+    MessagesModel *model = messageModel();
     if (!mMessageIdBeingEdited.isEmpty()) {
         const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
         if (index.isValid()) {
-            model->setData(index, false, MessageModel::MessageInEditMode);
+            model->setData(index, false, MessagesModel::MessageInEditMode);
         }
         mMessageIdBeingEdited.clear();
     }
@@ -254,10 +254,10 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
     clearEditingMode();
     mMessageIdBeingEdited = messageId;
     if (!mMessageIdBeingEdited.isEmpty()) {
-        MessageModel *model = messageModel();
+        MessagesModel *model = messageModel();
         const QModelIndex index = model->indexForMessage(mMessageIdBeingEdited);
         if (index.isValid()) {
-            model->setData(index, true, MessageModel::MessageInEditMode);
+            model->setData(index, true, MessagesModel::MessageInEditMode);
         }
     }
     setMode(messageId.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
@@ -498,9 +498,9 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
     return false;
 }
 
-MessageModel *MessageLineWidget::messageModel() const
+MessagesModel *MessageLineWidget::messageModel() const
 {
-    MessageModel *model =
+    MessagesModel *model =
         mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
     Q_ASSERT(model);
     return model;
@@ -522,7 +522,7 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
             ev->accept();
         }
     } else if ((key == Qt::Key_Up || key == Qt::Key_Down) && ev->modifiers() & Qt::AltModifier) {
-        MessageModel *model = messageModel();
+        MessagesModel *model = messageModel();
         auto isEditable = [this](const Message &msg) {
             return mCurrentRocketChatAccount->isMessageEditable(msg);
         };

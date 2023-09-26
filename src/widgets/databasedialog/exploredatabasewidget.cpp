@@ -6,7 +6,7 @@
 
 #include "exploredatabasewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include <KMessageBox>
@@ -30,7 +30,7 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mStartDateTime(new QDateTimeEdit(this))
     , mUseEndDateTime(new QCheckBox(QStringLiteral("End"), this))
     , mEndDateTime(new QDateTimeEdit(this))
-    , mMessageModel(new MessageModel(QStringLiteral("no_room"), account, nullptr, this))
+    , mMessageModel(new MessagesModel(QStringLiteral("no_room"), account, nullptr, this))
 {
     mNumberOfMessages->setObjectName(QStringLiteral("mNumberOfMessages"));
     mNumberOfMessages->setRange(-1, 9999);

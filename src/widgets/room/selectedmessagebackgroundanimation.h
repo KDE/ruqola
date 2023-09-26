@@ -10,13 +10,13 @@
 #include <QColor>
 #include <QObject>
 #include <QPersistentModelIndex>
-class MessageModel;
+class MessagesModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SelectedMessageBackgroundAnimation : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QColor backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
 public:
-    explicit SelectedMessageBackgroundAnimation(MessageModel *model, QObject *parent = nullptr);
+    explicit SelectedMessageBackgroundAnimation(MessagesModel *model, QObject *parent = nullptr);
     ~SelectedMessageBackgroundAnimation() override;
 
     [[nodiscard]] QColor backgroundColor() const;
@@ -24,7 +24,7 @@ public:
 
     void start();
 
-    [[nodiscard]] MessageModel *messageModel() const;
+    [[nodiscard]] MessagesModel *messageModel() const;
 
     [[nodiscard]] QPersistentModelIndex modelIndex() const;
     void setModelIndex(const QPersistentModelIndex &newModelIndex);
@@ -36,5 +36,5 @@ private:
     void slotBackgroundColorChanged();
     QColor m_backgroundColor;
     QPersistentModelIndex mModelIndex;
-    MessageModel *const mModel;
+    MessagesModel *const mModel;
 };

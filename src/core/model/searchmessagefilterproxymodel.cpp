@@ -5,19 +5,19 @@
 */
 
 #include "searchmessagefilterproxymodel.h"
-#include "searchmessagemodel.h"
+#include "commonmessagemodel.h"
 
-SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel *model, QObject *parent)
+SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(CommonMessageModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
     , mSearchMessageModel(model)
 {
     setSourceModel(mSearchMessageModel);
 
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(SearchMessageModel::Timestamp);
+    setFilterRole(CommonMessageModel::Timestamp);
     sort(0, Qt::DescendingOrder);
-    connect(mSearchMessageModel, &SearchMessageModel::stringNotFoundChanged, this, &SearchMessageFilterProxyModel::stringNotFoundChanged);
-    connect(mSearchMessageModel, &SearchMessageModel::loadingInProgressChanged, this, &SearchMessageFilterProxyModel::loadingInProgressChanged);
+    connect(mSearchMessageModel, &CommonMessageModel::stringNotFoundChanged, this, &SearchMessageFilterProxyModel::stringNotFoundChanged);
+    connect(mSearchMessageModel, &CommonMessageModel::loadingInProgressChanged, this, &SearchMessageFilterProxyModel::loadingInProgressChanged);
 }
 
 SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel() = default;

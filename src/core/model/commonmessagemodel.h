@@ -7,15 +7,15 @@
 #pragma once
 
 #include "libruqola_private_export.h"
-#include "messagemodel.h"
+#include "messagesmodel.h"
 #include <QJsonObject>
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public MessageModel
+class LIBRUQOLACORE_TESTS_EXPORT CommonMessageModel : public MessagesModel
 {
     Q_OBJECT
 public:
-    explicit SearchMessageModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
-    ~SearchMessageModel() override;
+    explicit CommonMessageModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
+    ~CommonMessageModel() override;
     void parse(const QJsonObject &obj);
 
     void setLoadSearchMessageInProgress(bool loadSearchMessageInProgress);

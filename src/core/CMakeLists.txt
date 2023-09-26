@@ -204,8 +204,8 @@ target_sources(libruqolacore PRIVATE
     model/listmessagesmodel.h
     model/loginmethodmodel.cpp
     model/loginmethodmodel.h
-    model/messagemodel.cpp
-    model/messagemodel.h
+    model/messagesmodel.cpp
+    model/messagesmodel.h
     model/notificationdesktopdurationpreferencemodel.cpp
     model/notificationdesktopdurationpreferencemodel.h
     model/notificationdesktopsoundpreferencemodel.cpp
@@ -238,8 +238,8 @@ target_sources(libruqolacore PRIVATE
     model/searchchannelmodel.h
     model/searchmessagefilterproxymodel.cpp
     model/searchmessagefilterproxymodel.h
-    model/searchmessagemodel.cpp
-    model/searchmessagemodel.h
+    model/commonmessagemodel.cpp
+    model/commonmessagemodel.h
     model/statusmodel.cpp
     model/statusmodelfilterproxymodel.cpp
     model/statusmodelfilterproxymodel.h

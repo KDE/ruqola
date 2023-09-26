@@ -20,7 +20,7 @@
 #include "messagedelegatehelpertext.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/emoticonmenuwidget.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
@@ -123,10 +123,10 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
-    const QString emojiStr = index.data(MessageModel::Emoji).toString();
-    const auto info = index.data(MessageModel::AvatarInfo).value<Utils::AvatarInfo>();
+    const QString emojiStr = index.data(MessagesModel::Emoji).toString();
+    const auto info = index.data(MessagesModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (emojiStr.isEmpty()) {
-        const QString avatarUrl = index.data(MessageModel::Avatar).toString();
+        const QString avatarUrl = index.data(MessagesModel::Avatar).toString();
         if (!avatarUrl.isEmpty()) {
             // TODO
             // qDebug() << " avatarUrl is not empty " << avatarUrl;
@@ -202,7 +202,7 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
-    const QString dateStr = index.data(MessageModel::Date).toString();
+    const QString dateStr = index.data(MessagesModel::Date).toString();
     const QSize dateSize = option.fontMetrics.size(Qt::TextSingleLine, dateStr);
     const QRect dateAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), dateSize.height()); // the whole row
     const QRect dateTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, dateSize, dateAreaRect);
@@ -261,7 +261,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
     const auto messageRect = layout.textRect;
     QString url = mHelperText->urlAt(index, pos - messageRect.topLeft());
     if (url.isEmpty()) {
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         Q_ASSERT(message);
         const auto attachments = message->attachments();
         int i = 0;
@@ -279,7 +279,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
 
 bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info)
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (!message) {
         return false;
     }
@@ -319,7 +319,7 @@ void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &opti
                                                 QMenu *menu)
 {
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (!message) {
         return;
     }
@@ -353,7 +353,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 {
     painter->save();
 
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
     const QColor goToMessageBackgroundColor{message->goToMessageBackgroundColor()};
     if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
@@ -371,8 +371,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
     // Draw date if it differs from the previous message
-    const bool displayLastSeenMessage = index.data(MessageModel::DisplayLastSeenMessage).toBool();
-    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
+    const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
+    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         drawDate(painter, index, option, displayLastSeenMessage);
     } else if (displayLastSeenMessage) {
         drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
@@ -408,7 +408,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         painter->setFont(oldFont);
 
         // Draw the roles icon
-        if (!index.data(MessageModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles()) {
+        if (!index.data(MessagesModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles()) {
             mRolesIcon.paint(painter, layout.rolesIconRect);
         }
     }
@@ -537,7 +537,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto mev = static_cast<QMouseEvent *>(event);
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
         const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
@@ -568,13 +568,13 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "Click on thread area";
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
-                const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
+                const QString threadMessagePreview = index.data(MessagesModel::ThreadMessagePreview).toString();
                 qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "Click on thread area: " << message->messageId();
                 const bool threadIsFollowing = message->replies().contains(mRocketChatAccount->userId());
                 // We show current => use this message
                 const Message threadMessage = *message;
                 Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
-                                                               threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString()
+                                                               threadMessagePreview.isEmpty() ? index.data(MessagesModel::MessageConvertedText).toString()
                                                                                               : threadMessagePreview,
                                                                threadIsFollowing,
                                                                threadMessage);
@@ -593,7 +593,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             if (layout.showIgnoredMessageIconRect.contains(mev->pos())) {
                 mHelperText->removeMessageCache(message->messageId());
                 auto model = const_cast<QAbstractItemModel *>(index.model());
-                model->setData(index, !layout.showIgnoreMessage, MessageModel::ShowIgnoredMessage);
+                model->setData(index, !layout.showIgnoreMessage, MessagesModel::ShowIgnoredMessage);
                 return true;
             }
         }
@@ -630,7 +630,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 return true;
             }
 
-            const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+            const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
             const auto attachments = message->attachments();
             int i = 0;
             for (const MessageAttachment &att : attachments) {
@@ -652,7 +652,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
         return true;
     }
 
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     const auto attachments = message->attachments();
     int i = 0;
     for (const MessageAttachment &att : attachments) {
@@ -679,7 +679,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
 bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (helpEvent->type() == QEvent::ToolTip) {
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         if (!message) {
             // tooltip was requested in an empty space below the last message, nothing to do
             return false;
@@ -706,12 +706,12 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             }
         }
         if (layout.rolesIconRect.contains(helpEventPos)) {
-            const QString tooltip = index.data(MessageModel::Roles).toString();
+            const QString tooltip = index.data(MessagesModel::Roles).toString();
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
         if (layout.editedIconRect.contains(helpEventPos)) {
-            const QString tooltip = index.data(MessageModel::EditedToolTip).toString();
+            const QString tooltip = index.data(MessagesModel::EditedToolTip).toString();
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
@@ -758,7 +758,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
 
         if (layout.timeStampRect.contains(helpEvent->pos())) {
-            const QString dateStr = index.data(MessageModel::Date).toString();
+            const QString dateStr = index.data(MessagesModel::Date).toString();
             QToolTip::showText(helpEvent->globalPos(), dateStr, view);
             return true;
         }

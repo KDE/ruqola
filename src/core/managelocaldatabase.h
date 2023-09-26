@@ -8,13 +8,13 @@
 #include "libruqola_private_export.h"
 #include <QObject>
 class RocketChatAccount;
-class MessageModel;
+class MessagesModel;
 class LIBRUQOLACORE_TESTS_EXPORT ManageLocalDatabase : public QObject
 {
     Q_OBJECT
 public:
     struct ManageLoadHistoryInfo {
-        MessageModel *roomModel = nullptr;
+        MessagesModel *roomModel = nullptr;
         QString roomName;
         QString roomId;
         bool initial = false;

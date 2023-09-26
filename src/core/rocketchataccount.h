@@ -45,7 +45,7 @@
 class TypingNotification;
 class UsersModel;
 class RoomModel;
-class MessageModel;
+class MessagesModel;
 class DDPClient;
 class MessageQueue;
 class RocketChatBackend;
@@ -65,7 +65,7 @@ class LoginMethodModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
 class Room;
-class SearchMessageModel;
+class CommonMessageModel;
 class SearchMessageFilterProxyModel;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
@@ -229,7 +229,7 @@ public:
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
-    [[nodiscard]] MessageModel *messageModelForRoom(const QString &roomID);
+    [[nodiscard]] MessagesModel *messageModelForRoom(const QString &roomID);
     void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
     void loadMoreListMessages(const QString &roomId);
@@ -246,7 +246,7 @@ public:
     UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
 
     UsersModel *usersModel() const;
-    MessageModel *threadMessageModel() const;
+    MessagesModel *threadMessageModel() const;
     EmoticonModel *emoticonModel() const;
     CommandsModel *commandsModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
@@ -320,7 +320,7 @@ public:
 
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
-    [[nodiscard]] SearchMessageModel *searchMessageModel() const;
+    [[nodiscard]] CommonMessageModel *searchMessageModel() const;
 
     void updateUser(const QJsonObject &object);
 
@@ -676,7 +676,7 @@ private:
 
     InputTextManager *const mInputThreadMessageTextManager;
 
-    SearchMessageModel *mSearchMessageModel = nullptr;
+    CommonMessageModel *mSearchMessageModel = nullptr;
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *const mReceiveTypingNotificationManager;
     ServerConfigInfo *mServerConfigInfo = nullptr;

@@ -5,13 +5,13 @@
 */
 
 #include "selectedmessagebackgroundanimation.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 
 #include "colors.h"
 #include "ruqolawidgets_debug.h"
 #include <QPropertyAnimation>
 
-SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(MessageModel *model, QObject *parent)
+SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(MessagesModel *model, QObject *parent)
     : QObject{parent}
     , mModel(model)
 {
@@ -28,7 +28,7 @@ QColor SelectedMessageBackgroundAnimation::backgroundColor() const
 void SelectedMessageBackgroundAnimation::slotBackgroundColorChanged()
 {
     if (mModel && mModelIndex.isValid()) {
-        mModel->setData(mModelIndex, m_backgroundColor, MessageModel::GoToMessageBackgroundColor);
+        mModel->setData(mModelIndex, m_backgroundColor, MessagesModel::GoToMessageBackgroundColor);
     }
 }
 
@@ -63,7 +63,7 @@ void SelectedMessageBackgroundAnimation::start()
     connect(animation, &QPropertyAnimation::finished, this, &SelectedMessageBackgroundAnimation::deleteLater);
 }
 
-MessageModel *SelectedMessageBackgroundAnimation::messageModel() const
+MessagesModel *SelectedMessageBackgroundAnimation::messageModel() const
 {
     return mModel;
 }

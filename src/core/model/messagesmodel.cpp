@@ -11,8 +11,9 @@
 #include <QJsonDocument>
 #include <QModelIndex>
 
+#include "emoticons/emojimanager.h"
 #include "loadrecenthistorymanager.h"
-#include "messagemodel.h"
+#include "messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_debug.h"
@@ -21,9 +22,7 @@
 
 #include <KLocalizedString>
 
-#include <emoticons/emojimanager.h>
-
-MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
+MessagesModel::MessagesModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : QAbstractListModel(parent)
     , mRoomId(roomID)
     , mRocketChatAccount(account)
@@ -32,29 +31,29 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
 {
     qCDebug(RUQOLA_LOG) << "Creating message Model";
     if (mRoom) {
-        connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
-        connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
-        connect(mRoom, &Room::highlightsWordChanged, this, &MessageModel::refresh);
+        connect(mRoom, &Room::rolesChanged, this, &MessagesModel::refresh);
+        connect(mRoom, &Room::ignoredUsersChanged, this, &MessagesModel::refresh);
+        connect(mRoom, &Room::highlightsWordChanged, this, &MessagesModel::refresh);
     }
 }
 
-MessageModel::~MessageModel() = default;
+MessagesModel::~MessagesModel() = default;
 
-void MessageModel::activate()
+void MessagesModel::activate()
 {
     if (mRocketChatAccount) {
-        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);
     }
 }
 
-void MessageModel::deactivate()
+void MessagesModel::deactivate()
 {
     if (mRocketChatAccount) {
-        disconnect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
+        disconnect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessagesModel::slotFileDownloaded);
     }
 }
 
-Message MessageModel::findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
+Message MessagesModel::findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId); // if it == end, we'll start from there
     auto rit = QVector<Message>::const_reverse_iterator(it); // this points to *it-1 already
@@ -62,7 +61,7 @@ Message MessageModel::findLastMessageBefore(const QString &messageId, const std:
     return rit == mAllMessages.rend() ? Message() : *rit;
 }
 
-Message MessageModel::findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
+Message MessagesModel::findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId);
     if (it == mAllMessages.end()) {
@@ -74,13 +73,13 @@ Message MessageModel::findNextMessageAfter(const QString &messageId, const std::
     return it == mAllMessages.end() ? Message() : *it;
 }
 
-Message MessageModel::findMessageById(const QString &messageId) const
+Message MessagesModel::findMessageById(const QString &messageId) const
 {
     auto it = findMessage(messageId);
     return it == mAllMessages.end() ? Message() : *it;
 }
 
-QModelIndex MessageModel::indexForMessage(const QString &messageId) const
+QModelIndex MessagesModel::indexForMessage(const QString &messageId) const
 {
     auto it = findMessage(messageId);
     if (it == mAllMessages.end()) {
@@ -90,7 +89,7 @@ QModelIndex MessageModel::indexForMessage(const QString &messageId) const
     return idx;
 }
 
-QString MessageModel::messageIdFromIndex(int rowIndex)
+QString MessagesModel::messageIdFromIndex(int rowIndex)
 {
     if (rowIndex >= 0 && rowIndex < mAllMessages.count()) {
         return mAllMessages.at(rowIndex).messageId();
@@ -98,13 +97,13 @@ QString MessageModel::messageIdFromIndex(int rowIndex)
     return {};
 }
 
-void MessageModel::refresh()
+void MessagesModel::refresh()
 {
     beginResetModel();
     endResetModel();
 }
 
-qint64 MessageModel::lastTimestamp() const
+qint64 MessagesModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
         // qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
@@ -114,7 +113,7 @@ qint64 MessageModel::lastTimestamp() const
     }
 }
 
-int MessageModel::rowCount(const QModelIndex &parent) const
+int MessagesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return mAllMessages.size();
@@ -125,7 +124,7 @@ static bool compareTimeStamps(const Message &lhs, const Message &rhs)
     return lhs.timeStamp() < rhs.timeStamp();
 }
 
-void MessageModel::addMessage(const Message &message)
+void MessagesModel::addMessage(const Message &message)
 {
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
@@ -156,7 +155,7 @@ void MessageModel::addMessage(const Message &message)
     }
 }
 
-void MessageModel::addMessages(const QVector<Message> &messages, bool insertListMessages)
+void MessagesModel::addMessages(const QVector<Message> &messages, bool insertListMessages)
 {
     if (messages.isEmpty()) {
         return;
@@ -179,7 +178,7 @@ void MessageModel::addMessages(const QVector<Message> &messages, bool insertList
     }
 }
 
-QVariant MessageModel::data(const QModelIndex &index, int role) const
+QVariant MessagesModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
@@ -189,37 +188,37 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     const Message &message = mAllMessages.at(idx);
 
     switch (role) {
-    case MessageModel::MessagePointer:
+    case MessagesModel::MessagePointer:
         return QVariant::fromValue(&message);
-    case MessageModel::Username:
+    case MessagesModel::Username:
         return message.username();
-    case MessageModel::OriginalMessage:
+    case MessagesModel::OriginalMessage:
         return message.text();
-    case MessageModel::DateTimeUtc:
+    case MessagesModel::DateTimeUtc:
         return QDateTime::fromMSecsSinceEpoch(message.timeStamp()).toUTC().toString(Qt::ISODateWithMs);
-    case MessageModel::MessageConvertedText:
+    case MessagesModel::MessageConvertedText:
         return convertedText(message, mSearchText);
-    case MessageModel::Timestamp:
+    case MessagesModel::Timestamp:
         return message.displayTime();
-    case MessageModel::UserId:
+    case MessagesModel::UserId:
         return message.userId();
-    case MessageModel::SystemMessageType:
+    case MessagesModel::SystemMessageType:
         return message.systemMessageType();
-    case MessageModel::MessageId:
+    case MessagesModel::MessageId:
         return message.messageId();
-    case MessageModel::Alias:
+    case MessagesModel::Alias:
         return message.alias();
-    case MessageModel::MessageType:
+    case MessagesModel::MessageType:
         return message.messageType();
-    case MessageModel::Avatar:
+    case MessagesModel::Avatar:
         return message.avatar();
-    case MessageModel::EditedAt:
+    case MessagesModel::EditedAt:
         return message.editedAt();
-    case MessageModel::EditedByUserName:
+    case MessagesModel::EditedByUserName:
         return message.editedByUsername();
-    case MessageModel::EditedToolTip:
+    case MessagesModel::EditedToolTip:
         return i18n("Edited at %1 by %2", message.editedDisplayTime(), message.editedByUsername());
-    case MessageModel::Attachments: {
+    case MessagesModel::Attachments: {
         QVariantList lst;
         lst.reserve(message.attachments().count());
         const auto attaches = message.attachments();
@@ -228,7 +227,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Urls: {
+    case MessagesModel::Urls: {
         QVariantList lst;
         lst.reserve(message.urls().count());
         const auto urls = message.urls();
@@ -237,11 +236,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Date: {
+    case MessagesModel::Date: {
         const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
         return currentDate.date().toString();
     }
-    case MessageModel::DateDiffersFromPrevious:
+    case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
             const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
             const Message &previousMessage = mAllMessages.at(idx - 1);
@@ -249,24 +248,24 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             return currentDate.date() != previousDate.date();
         }
         return true; // show date at the top
-    case MessageModel::CanEditMessage:
+    case MessagesModel::CanEditMessage:
         return mRocketChatAccount->isMessageEditable(message); // && mRoom && mRoom->hasPermission(QStringLiteral("edit-message"));
-    case MessageModel::CanDeleteMessage:
+    case MessagesModel::CanDeleteMessage:
         return mRocketChatAccount->isMessageDeletable(message);
-    case MessageModel::Starred:
+    case MessagesModel::Starred:
         return message.isStarred();
-    case MessageModel::UsernameUrl: {
+    case MessagesModel::UsernameUrl: {
         const QString username = message.username();
         if (username.isEmpty()) {
             return {};
         }
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
     }
-    case MessageModel::Roles: {
+    case MessagesModel::Roles: {
         const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
         return str;
     }
-    case MessageModel::Reactions: {
+    case MessagesModel::Reactions: {
         QVariantList lst;
         const auto reactions = message.reactions().reactions();
         lst.reserve(reactions.count());
@@ -276,39 +275,39 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Ignored:
+    case MessagesModel::Ignored:
         return mRoom && mRoom->userIsIgnored(message.userId());
-    case MessageModel::DirectChannels:
+    case MessagesModel::DirectChannels:
         return mRoom && (mRoom->channelType() == Room::RoomType::Direct);
-    case MessageModel::Pinned:
+    case MessagesModel::Pinned:
         return message.messagePinned().pinned();
-    case MessageModel::DiscussionCount:
+    case MessagesModel::DiscussionCount:
         return message.discussionCount();
-    case MessageModel::DiscussionRoomId:
+    case MessagesModel::DiscussionRoomId:
         return message.discussionRoomId();
-    case MessageModel::DiscussionLastMessage:
+    case MessagesModel::DiscussionLastMessage:
         return message.discussionLastMessage();
-    case MessageModel::ThreadCount:
+    case MessagesModel::ThreadCount:
         return message.threadCount();
-    case MessageModel::ThreadLastMessage:
+    case MessagesModel::ThreadLastMessage:
         return message.threadLastMessage();
-    case MessageModel::ThreadMessageId:
+    case MessagesModel::ThreadMessageId:
         return message.threadMessageId();
-    case MessageModel::ThreadMessagePreview:
+    case MessagesModel::ThreadMessagePreview:
         return threadMessagePreview(message.threadMessageId());
-    case MessageModel::ThreadMessageFollowed:
+    case MessagesModel::ThreadMessageFollowed:
         return threadMessageFollowed(message.threadMessageId());
-    case MessageModel::ThreadMessage: {
+    case MessagesModel::ThreadMessage: {
         const Message tm = threadMessage(message.threadMessageId());
         return QVariant::fromValue(tm);
     }
-    case MessageModel::Groupable:
+    case MessagesModel::Groupable:
         return message.groupable();
-    case MessageModel::ShowTranslatedMessage:
+    case MessagesModel::ShowTranslatedMessage:
         return message.showTranslatedMessage();
-    case MessageModel::DisplayAttachment:
+    case MessagesModel::DisplayAttachment:
         return {}; // Unused.
-    case MessageModel::DisplayLastSeenMessage:
+    case MessagesModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
                 const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
@@ -323,30 +322,30 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             }
         }
         return false;
-    case MessageModel::Emoji:
+    case MessagesModel::Emoji:
         return message.emoji();
-    case MessageModel::AvatarInfo:
+    case MessagesModel::AvatarInfo:
         return QVariant::fromValue(message.avatarInfo());
-    case MessageModel::PendingMessage:
+    case MessagesModel::PendingMessage:
         return message.pendingMessage();
-    case MessageModel::ShowIgnoredMessage:
+    case MessagesModel::ShowIgnoredMessage:
         return message.showIgnoredMessage();
-    case MessageModel::MessageInEditMode:
+    case MessagesModel::MessageInEditMode:
         return message.isEditingMode();
-    case MessageModel::HoverHighLight:
+    case MessagesModel::HoverHighLight:
         return message.hoverHighlight();
-    case MessageModel::LocalTranslation:
+    case MessagesModel::LocalTranslation:
         return message.localTranslation();
-    case MessageModel::OriginalMessageOrAttachmentDescription:
+    case MessagesModel::OriginalMessageOrAttachmentDescription:
         return message.originalMessageOrAttachmentDescription();
-    case MessageModel::GoToMessageBackgroundColor:
+    case MessagesModel::GoToMessageBackgroundColor:
         return message.goToMessageBackgroundColor();
     }
 
     return {};
 }
 
-QString MessageModel::convertedText(const Message &message, const QString &searchedText) const
+QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
@@ -368,7 +367,7 @@ QString MessageModel::convertedText(const Message &message, const QString &searc
     }
 }
 
-bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (!index.isValid()) {
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
@@ -378,7 +377,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     Message &message = mAllMessages[idx];
 
     switch (role) {
-    case MessageModel::DisplayAttachment: {
+    case MessagesModel::DisplayAttachment: {
         const auto visibility = value.value<AttachmentVisibility>();
         auto attachments = message.attachments();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
@@ -394,35 +393,35 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         Q_EMIT dataChanged(index, index);
         return true;
     }
-    case MessageModel::ShowTranslatedMessage:
+    case MessagesModel::ShowTranslatedMessage:
         message.setShowTranslatedMessage(value.toBool());
-        Q_EMIT dataChanged(index, index, {MessageModel::ShowTranslatedMessage});
+        Q_EMIT dataChanged(index, index, {MessagesModel::ShowTranslatedMessage});
         return true;
-    case MessageModel::ShowIgnoredMessage:
+    case MessagesModel::ShowIgnoredMessage:
         message.setShowIgnoredMessage(value.toBool());
-        Q_EMIT dataChanged(index, index, {MessageModel::ShowIgnoredMessage});
+        Q_EMIT dataChanged(index, index, {MessagesModel::ShowIgnoredMessage});
         return true;
-    case MessageModel::MessageInEditMode:
+    case MessagesModel::MessageInEditMode:
         message.setIsEditingMode(value.toBool());
-        Q_EMIT dataChanged(index, index, {MessageModel::MessageInEditMode});
+        Q_EMIT dataChanged(index, index, {MessagesModel::MessageInEditMode});
         return true;
-    case MessageModel::HoverHighLight:
+    case MessagesModel::HoverHighLight:
         message.setHoverHighlight(value.toBool());
-        Q_EMIT dataChanged(index, index, {MessageModel::HoverHighLight});
+        Q_EMIT dataChanged(index, index, {MessagesModel::HoverHighLight});
         return true;
-    case MessageModel::LocalTranslation:
+    case MessagesModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
-        Q_EMIT dataChanged(index, index, {MessageModel::LocalTranslation});
+        Q_EMIT dataChanged(index, index, {MessagesModel::LocalTranslation});
         return true;
-    case MessageModel::GoToMessageBackgroundColor:
+    case MessagesModel::GoToMessageBackgroundColor:
         message.setGoToMessageBackgroundColor(value.value<QColor>());
-        Q_EMIT dataChanged(index, index, {MessageModel::GoToMessageBackgroundColor});
+        Q_EMIT dataChanged(index, index, {MessagesModel::GoToMessageBackgroundColor});
         return true;
     }
     return false;
 }
 
-QStringList MessageModel::roomRoles(const QString &userId) const
+QStringList MessagesModel::roomRoles(const QString &userId) const
 {
     if (mRoom) {
         return mRoom->rolesForUserId(userId);
@@ -430,7 +429,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     return {};
 }
 
-QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords, const QString &searchedText) const
+QString MessagesModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords, const QString &searchedText) const
 {
     QString messageStr = message.text();
     EmojiManager *emojiManager = nullptr;
@@ -472,17 +471,17 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 }
 
-void MessageModel::setRoomId(const QString &roomId)
+void MessagesModel::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-bool MessageModel::isEmpty() const
+bool MessagesModel::isEmpty() const
 {
     return mAllMessages.isEmpty();
 }
 
-void MessageModel::clear()
+void MessagesModel::clear()
 {
     mSearchText.clear();
     if (rowCount() != 0) {
@@ -492,7 +491,7 @@ void MessageModel::clear()
     }
 }
 
-void MessageModel::changeShowOriginalMessage(const QString &messageId, bool showOriginal)
+void MessagesModel::changeShowOriginalMessage(const QString &messageId, bool showOriginal)
 {
     Q_UNUSED(showOriginal)
     auto it = findMessage(messageId);
@@ -501,7 +500,7 @@ void MessageModel::changeShowOriginalMessage(const QString &messageId, bool show
     }
 }
 
-void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
     auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
         return std::find_if(msgAttachments.begin(),
@@ -541,7 +540,7 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
     }
 }
 
-void MessageModel::deleteMessage(const QString &messageId)
+void MessagesModel::deleteMessage(const QString &messageId)
 {
     auto it = findMessage(messageId);
     if (it != mAllMessages.end()) {
@@ -552,12 +551,12 @@ void MessageModel::deleteMessage(const QString &messageId)
     }
 }
 
-qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
+qint64 MessagesModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
 {
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
 }
 
-Message MessageModel::threadMessage(const QString &threadMessageId) const
+Message MessagesModel::threadMessage(const QString &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
@@ -570,7 +569,7 @@ Message MessageModel::threadMessage(const QString &threadMessageId) const
     return Message{};
 }
 
-QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
+QString MessagesModel::threadMessagePreview(const QString &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
@@ -588,7 +587,7 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
     return {};
 }
 
-bool MessageModel::threadMessageFollowed(const QString &threadMessageId) const
+bool MessagesModel::threadMessageFollowed(const QString &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
@@ -604,33 +603,33 @@ bool MessageModel::threadMessageFollowed(const QString &threadMessageId) const
     return false;
 }
 
-QVector<Message>::iterator MessageModel::findMessage(const QString &messageId)
+QVector<Message>::iterator MessagesModel::findMessage(const QString &messageId)
 {
     return std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         return msg.messageId() == messageId;
     });
 }
 
-QVector<Message>::const_iterator MessageModel::findMessage(const QString &messageId) const
+QVector<Message>::const_iterator MessagesModel::findMessage(const QString &messageId) const
 {
     return std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [&](const Message &msg) {
         return msg.messageId() == messageId;
     });
 }
 
-QString MessageModel::roomId() const
+QString MessagesModel::roomId() const
 {
     return mRoomId;
 }
 
-QString MessageModel::searchText() const
+QString MessagesModel::searchText() const
 {
     return mSearchText;
 }
 
-void MessageModel::setSearchText(const QString &searchText)
+void MessagesModel::setSearchText(const QString &searchText)
 {
     mSearchText = searchText;
 }
 
-#include "moc_messagemodel.cpp"
+#include "moc_messagesmodel.cpp"

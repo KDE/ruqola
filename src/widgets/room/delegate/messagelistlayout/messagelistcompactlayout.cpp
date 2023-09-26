@@ -6,7 +6,7 @@
 
 #include "messagelistcompactlayout.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messageattachmentdelegatehelperbase.h"
 #include "room/delegate/messageblockdelegatehelperbase.h"
@@ -29,7 +29,7 @@ MessageListCompactLayout::~MessageListCompactLayout() = default;
 //                                                                  <N replies>
 MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
@@ -39,7 +39,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         }
 
         const auto previousIndex = index.siblingAtRow(index.row() - 1);
-        const auto previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
+        const auto previousMessage = previousIndex.data(MessagesModel::MessagePointer).value<Message *>();
         Q_ASSERT(previousMessage);
 
         const int diffDate = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->messageGroupingPeriod() * 1000 : 0;
@@ -67,8 +67,8 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     }
 
     QRect usableRect = option.rect;
-    const bool displayLastSeenMessage = index.data(MessageModel::DisplayLastSeenMessage).toBool();
-    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
+    const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
+    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     } else if (displayLastSeenMessage) {
         layout.displayLastSeenMessageY = usableRect.top();
@@ -82,7 +82,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
 
     const qreal iconSizeMargin = iconSize + margin;
     // Roles icon
-    const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
+    const bool hasRoles = !index.data(MessagesModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
     if (hasRoles) {
         textLeft += iconSizeMargin;
     }
@@ -126,7 +126,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     }
 
     // Timestamp
-    layout.timeStampText = index.data(MessageModel::Timestamp).toString();
+    layout.timeStampText = index.data(MessagesModel::Timestamp).toString();
     const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
 
     // Message (using the rest of the available width)
@@ -174,7 +174,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
 
     if (ignoreMessage) {
         layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, layout.senderRect.y(), iconSize, iconSize);
-        layout.showIgnoreMessage = index.data(MessageModel::ShowIgnoredMessage).toBool();
+        layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);

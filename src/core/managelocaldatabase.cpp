@@ -9,7 +9,7 @@
 #include "connection.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "manageloadhistoryparsesyncmessagesutils.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include "ruqola_loadhistory_debug.h"

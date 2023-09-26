@@ -6,7 +6,7 @@
 
 #include "textselection.h"
 #include "messages/message.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "ruqolawidgets_selection_debug.h"
 
 #include <QTextCursor>
@@ -82,7 +82,7 @@ QString TextSelection::selectedText(Format format) const
         if (doc) {
             selectionText(ordered, format, row, index, doc, str);
         }
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         if (message) {
             const auto attachments = message->attachments();
             for (const auto &att : attachments) {
@@ -300,7 +300,7 @@ void TextSelection::selectMessage(const QModelIndex &index)
     if (doc) {
         mEndPos = doc->characterCount() - 1;
     }
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (message) {
         const auto attachments = message->attachments();
         for (const auto &att : attachments) {

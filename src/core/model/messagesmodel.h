@@ -17,7 +17,7 @@ class QObject;
 class RocketChatAccount;
 class LoadRecentHistoryManager;
 class Room;
-class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT MessagesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -83,11 +83,11 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"),
-                          RocketChatAccount *account = nullptr,
-                          Room *room = nullptr,
-                          QObject *parent = nullptr);
-    ~MessageModel() override;
+    explicit MessagesModel(const QString &roomID = QStringLiteral("no_room"),
+                           RocketChatAccount *account = nullptr,
+                           Room *room = nullptr,
+                           QObject *parent = nullptr);
+    ~MessagesModel() override;
 
     /**
      * @brief Adds a number of messages to the model
@@ -144,7 +144,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
-    Q_DISABLE_COPY(MessageModel)
+    Q_DISABLE_COPY(MessagesModel)
     /**
      * @brief Adds a message to the model
      *
@@ -171,4 +171,4 @@ private:
     QPointer<Room> mRoom;
     std::unique_ptr<LoadRecentHistoryManager> mLoadRecentHistoryManager;
 };
-Q_DECLARE_METATYPE(MessageModel::AttachmentVisibility)
+Q_DECLARE_METATYPE(MessagesModel::AttachmentVisibility)

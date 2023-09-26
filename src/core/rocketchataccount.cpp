@@ -15,6 +15,7 @@
 #include "messagequeue.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
+#include "model/commonmessagemodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/emoticonmodel.h"
@@ -22,11 +23,10 @@
 #include "model/filesforroommodel.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
 #include "model/loginmethodmodel.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
 #include "model/searchmessagefilterproxymodel.h"
-#include "model/searchmessagemodel.h"
 #include "model/statusmodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/usercompleterfilterproxymodel.h"
@@ -174,7 +174,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
-    mSearchMessageModel = new SearchMessageModel(this, this);
+    mSearchMessageModel = new CommonMessageModel(this, this);
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(mSearchMessageModel, this);
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);
@@ -422,14 +422,14 @@ DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel() co
     return mDiscussionsFilterProxyModel;
 }
 
-MessageModel *RocketChatAccount::messageModelForRoom(const QString &roomID)
+MessagesModel *RocketChatAccount::messageModelForRoom(const QString &roomID)
 {
     return mRoomModel->messageModel(roomID);
 }
 
 void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal)
 {
-    MessageModel *model = mRoomModel->messageModel(roomId);
+    MessagesModel *model = mRoomModel->messageModel(roomId);
     if (model) {
         model->changeShowOriginalMessage(messageId, showOriginal);
     } else {
@@ -939,7 +939,7 @@ void RocketChatAccount::roomFiles(const QString &roomId, Room::RoomType channelT
     restApi()->filesInRoom(roomId, Room::roomFromRoomType(channelType));
 }
 
-MessageModel *RocketChatAccount::threadMessageModel() const
+MessagesModel *RocketChatAccount::threadMessageModel() const
 {
     return mThreadMessageModel;
 }
@@ -1425,7 +1425,7 @@ SearchMessageFilterProxyModel *RocketChatAccount::searchMessageFilterProxyModel(
     return mSearchMessageFilterProxyModel;
 }
 
-SearchMessageModel *RocketChatAccount::searchMessageModel() const
+CommonMessageModel *RocketChatAccount::searchMessageModel() const
 {
     return mSearchMessageModel;
 }
@@ -1695,7 +1695,7 @@ bool RocketChatAccount::attachmentIsInLocalCache(const QString &url)
 
 void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 timeStamp)
 {
-    MessageModel *roomModel = messageModelForRoom(roomID);
+    MessagesModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
         Room *room = mRoomModel->findRoom(roomID);
         // qDebug() << " room->numberMessages() " << room->numberMessages() << " roomModel->rowCount() " << roomModel->rowCount();
@@ -2714,7 +2714,7 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
 {
     const QString roomId = replyObject.value(QLatin1String("rid")).toString();
     if (!roomId.isEmpty()) {
-        MessageModel *messageModel = messageModelForRoom(roomId);
+        MessagesModel *messageModel = messageModelForRoom(roomId);
         if (!messageModel) {
             qCWarning(RUQOLA_LOG) << "Unexpected null message model.";
             return;

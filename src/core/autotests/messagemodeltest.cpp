@@ -5,7 +5,7 @@
 */
 
 #include "messagemodeltest.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "test_model_helpers.h"
 #include <QStandardPaths>
 #include <QTest>
@@ -29,7 +29,7 @@ void MessageModelTest::initTestCase()
 
 void MessageModelTest::shouldHaveDefaultValue()
 {
-    MessageModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
 }
@@ -55,7 +55,7 @@ static void fillTestMessage(Message &input)
 
 void MessageModelTest::shouldAddMessage()
 {
-    MessageModel w;
+    MessagesModel w;
     Message input;
     fillTestMessage(input);
     input.setMessageId(QStringLiteral("ff"));
@@ -90,14 +90,14 @@ void MessageModelTest::shouldAddMessage()
 
 void MessageModelTest::shouldRemoveMessage()
 {
-    MessageModel w;
+    MessagesModel w;
     Message input;
     fillTestMessage(input);
 
-    QSignalSpy rowInsertedSpy(&w, &MessageModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &MessageModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &MessageModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &MessageModel::rowsAboutToBeRemoved);
+    QSignalSpy rowInsertedSpy(&w, &MessagesModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &MessagesModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &MessagesModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &MessagesModel::rowsAboutToBeRemoved);
 
     const QString messageId = QStringLiteral("ff");
     input.setMessageId(messageId);
@@ -145,7 +145,7 @@ void MessageModelTest::shouldRemoveMessage()
 
 void MessageModelTest::shouldRemoveNotExistingMessage()
 {
-    MessageModel w;
+    MessagesModel w;
     Message input;
     fillTestMessage(input);
     const QString messageId = QStringLiteral("ff");
@@ -172,42 +172,42 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
 
 void MessageModelTest::shouldDetectDateChange()
 {
-    MessageModel model;
+    MessagesModel model;
     Message first;
     first.setMessageId(QStringLiteral("first"));
     first.setTimeStamp(QDateTime(QDate(2019, 6, 7), QTime(23, 50, 50)).toMSecsSinceEpoch());
     model.addMessages({first});
-    QVERIFY(model.index(0, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // first message
+    QVERIFY(model.index(0, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // first message
 
     Message second;
     second.setMessageId(QStringLiteral("second"));
     second.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 2, 3)).toMSecsSinceEpoch());
     model.addMessages({second});
     QCOMPARE(model.rowCount(), 2);
-    QVERIFY(model.index(1, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // next day
+    QVERIFY(model.index(1, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // next day
 
     Message third;
     third.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 4, 3)).toMSecsSinceEpoch());
     third.setMessageId(QStringLiteral("third"));
     model.addMessages({third});
     QCOMPARE(model.rowCount(), 3);
-    QVERIFY(!model.index(2, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // same day
+    QVERIFY(!model.index(2, 0).data(MessagesModel::DateDiffersFromPrevious).toBool()); // same day
 }
 
-static QByteArrayList extractMessageIds(MessageModel &m)
+static QByteArrayList extractMessageIds(MessagesModel &m)
 {
     QByteArrayList ret;
     const int count = m.rowCount();
     ret.reserve(count);
     for (int row = 0; row < count; ++row) {
-        ret << m.index(row, 0).data(MessageModel::MessageId).toString().toLatin1();
+        ret << m.index(row, 0).data(MessagesModel::MessageId).toString().toLatin1();
     }
     return ret;
 }
 
 void MessageModelTest::shouldAddMessages()
 {
-    MessageModel model;
+    MessagesModel model;
     Message input;
     fillTestMessage(input);
     QVector<Message> messages;
@@ -246,25 +246,25 @@ void MessageModelTest::shouldAddMessages()
                               << "msgC"
                               << "msgA"
                               << "msgG");
-    QCOMPARE(model.index(6, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
+    QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }
 
 void MessageModelTest::shouldUpdateFirstMessage()
 {
-    MessageModel model;
+    MessagesModel model;
     Message input;
     fillTestMessage(input);
     model.addMessages({input});
     QCOMPARE(model.rowCount(), 1);
     input.setText(QStringLiteral("modified"));
     model.addMessages({input});
-    QCOMPARE(model.index(0, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
+    QCOMPARE(model.index(0, 0).data(MessagesModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }
 
 void MessageModelTest::shouldAllowEditing()
 {
     // GIVEN a message from me
-    MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     RuqolaServerConfig::ServerConfigFeatureTypes settings;
     settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
     settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
@@ -275,8 +275,8 @@ void MessageModelTest::shouldAllowEditing()
     QCOMPARE(model.rowCount(), 1);
 
     // THEN
-    QVERIFY(model.index(0, 0).data(MessageModel::CanDeleteMessage).toBool());
-    QVERIFY(model.index(0, 0).data(MessageModel::CanEditMessage).toBool());
+    QVERIFY(model.index(0, 0).data(MessagesModel::CanDeleteMessage).toBool());
+    QVERIFY(model.index(0, 0).data(MessagesModel::CanEditMessage).toBool());
 
     // GIVEN a message from someone else
     input.setMessageId(QStringLiteral("msg2"));
@@ -284,14 +284,14 @@ void MessageModelTest::shouldAllowEditing()
     model.addMessages({input});
 
     // THEN
-    QVERIFY(!model.index(1, 0).data(MessageModel::CanEditMessage).toBool());
-    QVERIFY(!model.index(1, 0).data(MessageModel::CanDeleteMessage).toBool());
+    QVERIFY(!model.index(1, 0).data(MessagesModel::CanEditMessage).toBool());
+    QVERIFY(!model.index(1, 0).data(MessagesModel::CanDeleteMessage).toBool());
 }
 
 void MessageModelTest::shouldFindPrevNextMessage()
 {
     // GIVEN an empty model
-    MessageModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
 
     auto isByMe = [](const Message &msg) {
         return msg.userId() == QLatin1String("userid1");

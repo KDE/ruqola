@@ -12,7 +12,7 @@
 #include "textconverter.h"
 #include "utils.h"
 #include <messagecache.h>
-#include <model/messagemodel.h>
+#include <model/messagesmodel.h>
 #include <model/threadmessagemodel.h>
 
 #include <KStringHandler>
@@ -37,9 +37,9 @@ MessageDelegateHelperText::~MessageDelegateHelperText() = default;
 
 QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
-    QString text = index.data(MessageModel::MessageConvertedText).toString();
+    QString text = index.data(MessagesModel::MessageConvertedText).toString();
     const QString threadMessageId = message->threadMessageId();
 
     if (mShowThreadContext && !threadMessageId.isEmpty()) {
@@ -48,13 +48,13 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                 return false;
             }
             const auto previousIndex = index.sibling(index.row() - 1, index.column());
-            const auto *previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
+            const auto *previousMessage = previousIndex.data(MessagesModel::MessagePointer).value<Message *>();
             Q_ASSERT(previousMessage);
             return threadMessageId == previousMessage->threadMessageId();
         }();
         if (mRocketChatAccount) {
             if (!sameAsPreviousMessageThread) {
-                const MessageModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
+                const MessagesModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
                 if (model) {
                     auto that = const_cast<MessageDelegateHelperText *>(this);
                     // Find the previous message in the same thread, to use it as context
@@ -310,7 +310,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const Block &block) c
 QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const
 {
     Q_ASSERT(index.isValid());
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     const auto messageId = message->messageId();
     Q_ASSERT(!messageId.isEmpty());

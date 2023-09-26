@@ -11,7 +11,7 @@
 class RocketChatAccount;
 class MessageListView;
 class QLineEdit;
-class MessageModel;
+class MessagesModel;
 class QSpinBox;
 class QDateTimeEdit;
 class QCheckBox;
@@ -33,5 +33,5 @@ private:
     QDateTimeEdit *const mStartDateTime;
     QCheckBox *const mUseEndDateTime;
     QDateTimeEdit *const mEndDateTime;
-    MessageModel *const mMessageModel;
+    MessagesModel *const mMessageModel;
 };

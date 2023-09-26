@@ -17,7 +17,7 @@ class QToolButton;
 class EmoticonMenuWidget;
 class RocketChatAccount;
 class QMimeData;
-class MessageModel;
+class MessagesModel;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
@@ -76,7 +76,7 @@ private:
     void slotSendFile();
     void keyPressedInLineEdit(QKeyEvent *ev);
     void textEditClicked();
-    [[nodiscard]] MessageModel *messageModel() const;
+    [[nodiscard]] MessagesModel *messageModel() const;
     void clearEditingMode();
     void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendVideoMessage();

@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
-class SearchMessageModel;
+class CommonMessageModel;
 class LIBRUQOLACORE_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit SearchMessageFilterProxyModel(SearchMessageModel *model = nullptr, QObject *parent = nullptr);
+    explicit SearchMessageFilterProxyModel(CommonMessageModel *model = nullptr, QObject *parent = nullptr);
     ~SearchMessageFilterProxyModel() override;
     [[nodiscard]] bool loadSearchMessageInProgress() const;
 
@@ -24,5 +24,5 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    SearchMessageModel *const mSearchMessageModel;
+    CommonMessageModel *const mSearchMessageModel;
 };

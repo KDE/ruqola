@@ -95,11 +95,11 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            MessageModel::AttachmentVisibility attachmentVisibility;
+            MessagesModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
             attachmentVisibility.attachmentId = msgAttach.attachmentId();
             auto model = const_cast<QAbstractItemModel *>(index.model());
-            model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
+            model->setData(index, QVariant::fromValue(attachmentVisibility), MessagesModel::DisplayAttachment);
             return true;
         }
         if (layout.titleRect.translated(attachmentsRect.topLeft()).contains(pos)) {

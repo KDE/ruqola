@@ -121,11 +121,11 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
         const QPoint pos = mouseEvent->pos();
         const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            MessageModel::AttachmentVisibility attachmentVisibility;
+            MessagesModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
             attachmentVisibility.attachmentId = msgAttach.attachmentId();
             auto model = const_cast<QAbstractItemModel *>(index.model());
-            model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
+            model->setData(index, QVariant::fromValue(attachmentVisibility), MessagesModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageImageDownloadJob::MessageImageDownloadJobInfo info;

@@ -7,7 +7,7 @@
 #include "messagedelegatehelperreactions.h"
 #include "common/delegatepaintutil.h"
 #include "emoticons/emojimanager.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
@@ -89,7 +89,7 @@ void MessageDelegateHelperReactions::setRocketChatAccount(RocketChatAccount *new
 
 void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
     const QVector<Reaction> reactions = message->reactions().reactions();
     if (reactions.isEmpty()) {
@@ -191,7 +191,7 @@ void MessageDelegateHelperReactions::removeRunningAnimatedImage(const QModelInde
 
 QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     int reactionsHeight = 0;
     const QVector<Reaction> reactions = message->reactions().reactions();
     if (!reactions.isEmpty()) {

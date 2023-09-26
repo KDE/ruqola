@@ -13,7 +13,7 @@
 #include <QAbstractListModel>
 class QObject;
 class RocketChatAccount;
-class MessageModel;
+class MessagesModel;
 
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
@@ -102,7 +102,7 @@ public:
 
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
-    MessageModel *messageModel(const QString &roomId) const;
+    MessagesModel *messageModel(const QString &roomId) const;
 
     [[nodiscard]] QString inputMessage(const QString &roomId) const;
     void setInputMessage(const QString &roomId, const QString &inputMessage);

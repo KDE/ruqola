@@ -7,7 +7,7 @@
  */
 
 #include "room.h"
-#include "model/messagemodel.h"
+#include "model/messagesmodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
@@ -25,7 +25,7 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     , mRocketChatAccount(account)
 {
     mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
-    mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
+    mMessageModel = new MessagesModel(QString(), mRocketChatAccount, this, this);
 }
 
 Room::~Room() = default;
@@ -1486,7 +1486,7 @@ UsersForRoomModel *Room::usersModelForRoom() const
     return mUsersModelForRoom;
 }
 
-MessageModel *Room::messageModel() const
+MessagesModel *Room::messageModel() const
 {
     return mMessageModel;
 }
