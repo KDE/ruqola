@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 02:29+0000\n"
-"PO-Revision-Date: 2023-05-10 21:46+0300\n"
+"PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket-keskusteluasiakas"
 
 #: apps/main.cpp:55
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2022 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "Tekijänoikeudet © 2020–2022 Ruqolan tekijät"
+msgstr "Tekijänoikeudet © 2020–2023 Ruqolan tekijät"
 
 #: apps/main.cpp:57
 #, kde-format
@@ -474,7 +473,7 @@ msgstr "%1 asetti huoneen vain luettavaksi"
 #: core/messages/message.cpp:599
 #, kde-format
 msgid "Room added writing permission by %1"
-msgstr ""
+msgstr "%1 lisäsi huoneeseen kirjoitusoikeuden"
 
 #: core/messages/message.cpp:601
 #, kde-format
@@ -487,74 +486,64 @@ msgid "%1 removed @%2 from this Team"
 msgstr "%1 poisti käyttäjän @%2 tästä ryhmästä"
 
 #: core/messages/message.cpp:605
-#, fuzzy, kde-format
-#| msgid "Convert to Team"
+#, kde-format
 msgid "%1 converted #%2 to a Team"
-msgstr "Muunna ryhmäksi"
+msgstr "%1 muunsi ryhmäksi: #%2"
 
 #: core/messages/message.cpp:607
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Channel"
+#, kde-format
 msgid "%1 converted #%2 to a Channel"
-msgstr "Luo kanava"
+msgstr "%1 muunsi kanavaksi: #%2"
 
 #: core/messages/message.cpp:609
-#, fuzzy, kde-format
-#| msgid "Remove from Team"
+#, kde-format
 msgid "%1 removed #%2 from this Team"
-msgstr "Poista huoneesta"
+msgstr "%1 poisti tästä ryhmästä: #%2"
 
 #: core/messages/message.cpp:611
-#, fuzzy, kde-format
-#| msgid "%1 reacted with %2"
+#, kde-format
 msgid "%1 deleted #%2"
-msgstr "%1 reagoi %2"
+msgstr "%1 poisti: #%2"
 
 #: core/messages/message.cpp:613
-#, fuzzy, kde-format
-#| msgid "%2 added %1 to the conversation"
+#, kde-format
 msgid "%1 added #%2 to this Team"
-msgstr "%2 lisäsi henkilön %1 keskusteluun"
+msgstr "%1 lisäsi tähän ryhmään: #%2"
 
 #: core/messages/message.cpp:615
-#, fuzzy, kde-format
-#| msgid "Room avatar changed by %1"
+#, kde-format
 msgid "Room allowed reacting by %1"
-msgstr "%1 vaihtoi huoneen avatarin"
+msgstr "%1 otti reagoinnin huoneessa käyttöön"
 
 #: core/messages/message.cpp:617
 #, kde-format
 msgid "Room disallowed reacting by %1"
-msgstr ""
+msgstr "%1 esti huoneessa reagoinnin"
 
 #: core/messages/message.cpp:619
-#, fuzzy, kde-format
-#| msgid "%1 has joined the channel"
+#, kde-format
 msgid "%1 joined this Team"
-msgstr "%1 on liittynyt kanavalle"
+msgstr "%1 liittyi tähän ryhmään"
 
 #: core/messages/message.cpp:621
-#, fuzzy, kde-format
-#| msgid "%1 has joined the channel"
+#, kde-format
 msgid "%1 has joined OTR chat."
-msgstr "%1 on liittynyt kanavalle"
+msgstr "%1 liittyi OTR-keskusteluun."
 
 #: core/messages/message.cpp:623
 #, kde-format
 msgid "%1 key refreshed successfully"
-msgstr ""
+msgstr "%1 avaimen virkistys onnistui"
 
 #: core/messages/message.cpp:625
 #, kde-format
 msgid "%1 has requested key refresh."
-msgstr ""
+msgstr "%1 pyysi avaimen virkistystä."
 
 #: core/messages/message.cpp:627
-#, fuzzy, kde-format
-#| msgid "Room avatar changed by %1"
+#, kde-format
 msgid "Room topic changed to: %1 by %2"
-msgstr "%1 vaihtoi huoneen avatarin"
+msgstr "%2 vaihtoi huoneen aiheeksi %1"
 
 #: core/messages/messageattachment.cpp:248
 #, kde-format
@@ -634,10 +623,9 @@ msgid "Expiration"
 msgstr "Vanheneminen"
 
 #: core/model/admininvitemodel.cpp:109
-#, fuzzy, kde-format
-#| msgid "Expiration (Days)"
+#, kde-format
 msgid "Expire in %1 days"
-msgstr "Vanheneminen (päivinä)"
+msgstr "Vanhenee %1 päivässä"
 
 #: core/model/admininvitemodel.cpp:111
 #, kde-format
@@ -1180,16 +1168,14 @@ msgid "Hide \"Room set read-only\" messages"
 msgstr "Piilota ”Huone asetettiin vain luku -tilaan” -viestit"
 
 #: core/model/systemmessagesmodel.cpp:56
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room disallowed reacting\" messages"
-msgstr "Piilota ”Huoneen nimi vaihtui” -viestit"
+msgstr "Piilota ”Huone estää reagoinnin” -viestit"
 
 #: core/model/systemmessagesmodel.cpp:57
-#, fuzzy, kde-format
-#| msgid "Hide \"Room Name Changed\" messages"
+#, kde-format
 msgid "Hide \"Room allowed reacting\" messages"
-msgstr "Piilota ”Huoneen nimi vaihtui” -viestit"
+msgstr "Piilota ”Huone sallii reagoinnin” -viestit"
 
 #: core/model/systemmessagesmodel.cpp:58
 #, kde-format
@@ -1380,11 +1366,9 @@ msgstr "Suora"
 #: core/roominfo/roominfo.cpp:122
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "Open channel"
-#| msgid "Open Channel"
+#, kde-format
 msgid "Omnichannel"
-msgstr "Avaa kanava"
+msgstr "Omnichannel"
 
 #: core/translatetext/translatetextjob.cpp:32
 #: core/translatetext/translatetextjob.cpp:34
@@ -1416,7 +1400,7 @@ msgstr "Puheluun ei vastattu"
 #: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call ended"
-msgstr ""
+msgstr "Puhelun päättyi"
 
 #: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
@@ -1558,7 +1542,7 @@ msgstr "Tiedostoa ei löydy: ”%1”"
 #: rocketchatrestapi-qt5/emoji/emojicustomcreatejob.cpp:139
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
-msgstr ""
+msgstr "Mukautettu emoji tai jokin sen aliaksista on jo käytössä."
 
 #: rocketchatrestapi-qt5/groups/groupremoveownerjob.cpp:46
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:382
@@ -2172,10 +2156,9 @@ msgid "Channel can not convert to Team."
 msgstr "Kanavaa ei voi muuntaa ryhmäksi."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Tämän niminen merkki on jo olemassa"
+msgstr "Ryhmä on jo olemassa."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2211,10 +2194,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Virhe käsiteltäessä avatarasetusta osoitteesta ”%1” käyttäjälle %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "Käyttäjärekisteröinti on poissa käytöstä"
+msgstr "Näkymätön tila ei ole käytössä"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -2277,15 +2259,13 @@ msgid "Flags"
 msgstr "Liput"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Poista historia"
+msgstr "Historia"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Mukautettu"
@@ -2296,17 +2276,14 @@ msgid "Clear Recents"
 msgstr "Tyhjennä viimeaikaiset"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "Lisää rooli"
+msgstr "Lisää hymiö"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:83
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Etsi huonetta…"
+msgstr "Etsi emojia…"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -2807,10 +2784,9 @@ msgid "Archived"
 msgstr "Arkistoitu"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Select Room Avatar"
+#, kde-format
 msgid "Room's Creator:"
-msgstr "Näytä huoneen avatar"
+msgstr "Huoneen luonut:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:60
@@ -2970,10 +2946,9 @@ msgid "Total Private Groups"
 msgstr "Yksityisiä ryhmiä kaikkiaan"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
-#, fuzzy, kde-format
-#| msgid "Total Messages in Direct Messages"
+#, kde-format
 msgid "Total Direct Message Rooms"
-msgstr "Suoraviestejä yhteensä"
+msgstr "Suoraviestihuoneita kaikkiaan"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
 #, kde-format
@@ -2991,10 +2966,9 @@ msgid "Total Discussions"
 msgstr "Keskusteluja yhteensä"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
-#, fuzzy, kde-format
-#| msgid "Total Channels"
+#, kde-format
 msgid "Total Omnichannel Rooms"
-msgstr "Kanavia kaikkiaan"
+msgstr "Omnichannel-huoneita kaikkiaan"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
 #, kde-format
@@ -3177,7 +3151,7 @@ msgstr "Salasana:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #, kde-format
 msgid "Bio:"
-msgstr ""
+msgstr "Elämäkerta:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
@@ -3249,7 +3223,7 @@ msgstr "Palauta E2E-avain"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
 msgid "E2E key for %1 has been reset."
-msgstr ""
+msgstr "%1 – E2E-avain on palautettu."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3262,6 +3236,8 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
+"Nykyisen kahden tekijän todennuksen palauttaminen kirjaa käyttäjän ulos. Hän "
+"voi ottaa kahden tekijän todennuksen käyttöön myöhemmin."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
@@ -3272,7 +3248,7 @@ msgstr "Palauta TOTP"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid "TOTP key for %1 has been reset"
-msgstr ""
+msgstr "%1 – TOTP-avain on palautettu"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
@@ -3328,23 +3304,22 @@ msgstr "Salli OAuth-käyttäjien salasanan vaihtaminen"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Salli näkymättömän tilan mahdollisuus"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Unohda käyttäjäistunto ikkunan sulkeuduttua"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgid "Enable collect log in data"
-msgstr ""
+msgstr "Kerää kirjautumistietoa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "Tilaviesti:"
+msgstr "Salli mukautettu tilaviesti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, fuzzy, kde-format
@@ -3355,48 +3330,47 @@ msgstr "Epäonnistuneet kirjautumisyritykset"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Send Email to User when User is Activated"
-msgstr ""
+msgstr "Lähetä tunnusta aktivoitaessa käyttäjälle sähköposti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
-msgstr ""
+msgstr "Lähetä tunnusta passivoitaessa käyttäjälle sähköposti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, kde-format
 msgid "Require Name For Signup"
-msgstr ""
+msgstr "Vaadi kirjauduttaessa nimeä"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Require Password Change"
+#, kde-format
 msgid "Require Password Confirmation"
-msgstr "Vaadi salasanan vaihtaminen"
+msgstr "Vaadi salasanavahvistus"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Only Allow Verified Users to Login"
-msgstr ""
+msgstr "Salli vain todennettujen käyttäjien kirjautua"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
-msgstr ""
+msgstr "Merkitse ulkoisten tilien sähköposti todennetuksi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:43
 #, kde-format
 msgid "Manually Approve New Users"
-msgstr ""
+msgstr "Hyväksytä uudet käyttäjät"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "Käytä estettyjen verkkoaluieden oletusluetteloa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "Käytä DNS-toimialueen tarkistusta"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
 #, kde-format
@@ -3411,64 +3385,64 @@ msgstr "Epäonnistuneet kirjautumisyritykset"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr ""
+msgstr "Monestako epäonnistuneesta yrityksestä käyttäjä estetään"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
-msgstr ""
+msgstr "Aika käyttäjän eston purkamiseksi (minuutteina)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
 #, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr ""
+msgstr "Monestako epäonnistuneesta yrityksestä IP estetään"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgid "Registration"
-msgstr "Rekisteröi"
+msgstr "Rekisteröintilomake"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
-msgstr ""
+msgstr "Ominaisuuden käyttämiseksi varmista, että SMTP-asetukset ovat kunnossa"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
+msgstr "Oletusehdotus tunnuksen etuliitteeksi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "Pilkuin erotettu sallittujen toimialueiden luettelo"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
 #, kde-format
 msgid "Allowed Domains List"
-msgstr ""
+msgstr "Sallitut toimialueet"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "Pilkuin erotettu estettyjen toimialueiden luettelo"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
 #, kde-format
 msgid "Blocked Domains List"
-msgstr ""
+msgstr "Estetyt toimialueet"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Pilkuin erotettu estettyjen käyttäjätunnusten luettelo (ei erota pien- ja "
+"suuraakkosia)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Estä käyttäjä"
+msgstr "Estettyjen käyttäjätunnusten luettelo"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3502,7 +3476,7 @@ msgstr "Tiedoston lähetys"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #, kde-format
 msgid "Retention Policy"
-msgstr ""
+msgstr "Säilytyskäytäntö"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
@@ -3535,7 +3509,7 @@ msgstr "IRC-federointi"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -3614,7 +3588,7 @@ msgstr "Käytä"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #, kde-format
 msgid "Prepend Domain"
-msgstr ""
+msgstr "Lisää alkuun verkkoalue"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
@@ -3648,7 +3622,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
@@ -3732,7 +3706,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
 msgid "SSO Base URL"
-msgstr ""
+msgstr "SSO:n pohjaosoite"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
@@ -3743,7 +3717,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr ""
+msgstr "SSO:n kirjautumisosoite"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -3776,7 +3750,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "Määritteiden käsittely"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -3789,7 +3763,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
 msgid "Attribute Map"
-msgstr ""
+msgstr "Määritekartta"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
 #, kde-format
@@ -3825,7 +3799,7 @@ msgstr "Näytä sähköposti-ilmoituksessa viesti"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Lisää lähettäjä vastausosoitekenttään"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
 #, kde-format
@@ -3850,7 +3824,7 @@ msgstr "SMTP"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:60
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -3919,12 +3893,12 @@ msgstr "Suoraviestin sähköpostin aihe"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Mainitse sähköpostin aihe"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
 #, kde-format
 msgid "Mention All Email Subject"
-msgstr ""
+msgstr "Mainitse kaikkien sähköpostien aiheet"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
 #, kde-format
@@ -3934,7 +3908,7 @@ msgstr "Todentaminen"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:138
 #, kde-format
 msgid "Email Address Changed"
-msgstr ""
+msgstr "Sähköpostiosoite on muuttunut"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
 #, kde-format
@@ -3942,10 +3916,9 @@ msgid "Invitation"
 msgstr "Kutsu"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow Password Change"
+#, kde-format
 msgid "Password Changed"
-msgstr "Salli salasanan vaihto"
+msgstr "Salasana on vaihdettu"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4261,7 +4234,7 @@ msgstr "Käyttäjän nykyinen aikavyöhyke"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Raportoinnin oletusaikavyöhyke"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:119
 #, fuzzy, kde-format
@@ -4311,10 +4284,9 @@ msgid "The cache limit for outbound message handling."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "Etsi käyttöoikeuksia…"
+msgstr "Säännölliset lausekkeet"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
@@ -4324,7 +4296,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Kirjautuminen onnistui"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4587,8 +4559,7 @@ msgid "Audio Recorder Enabled"
 msgstr "Äänitallennus käytössä"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "Enable Auto-Translate"
 msgstr "Käännä automaattisesti"
 
@@ -4637,22 +4608,19 @@ msgid "Safe Ports"
 msgstr "Turvalliset portit"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Maximum Number of Chained Quotes"
-msgstr "Käyttöjen enimmäismäärä"
+msgstr "Ketjutettujen lainausten enimmäismäärä"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Keep Messages and User Name"
-msgstr ""
+msgstr "Säilytä viestit ja käyttäjätunnus"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete All Messages"
-msgstr "Poista viesti"
+msgstr "Poista kaikki viestit"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
@@ -4672,10 +4640,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message Erasure Type"
-msgstr "Viesti on kiinnitetty"
+msgstr "Viestin poistamisen tapa"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
@@ -4687,13 +4654,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid "Grouping Period (in seconds)"
-msgstr ""
+msgstr "Ryhmittelyjakso (sekunteina)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Message Email Subject"
+#, kde-format
 msgid "Direct Messsage Maximum Users"
-msgstr "Suoraviestin sähköpostin aihe"
+msgstr "Suoraviestin tunnusten enimmäismäärä"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
@@ -4718,12 +4684,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
-msgstr ""
+msgstr "Pienoiskuvan enimmäisleveys (kuvapisteinä)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
-msgstr ""
+msgstr "Pienoiskuvan enimmäiskorkeus (kuvapisteinä)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
 #, kde-format
@@ -4742,43 +4708,39 @@ msgid "Auto-Translate"
 msgstr "Käännä automaattisesti"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid "DeepL"
+#, kde-format
 msgid "Deepl"
 msgstr "DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Micro Off"
+#, kde-format
 msgid "Microsoft"
-msgstr "Mikrofoni ei käytössä"
+msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Provider:"
+#, kde-format
 msgid "Service Provider"
-msgstr "Tarjoaja:"
+msgstr "Palveluntarjoaja"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
 msgid "DeepL API Key"
-msgstr ""
+msgstr "DeepL:n API-avain"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgid "Google Id"
+#, kde-format
 msgid "Google API Key"
-msgstr "Google ID"
+msgstr "Googlen API-avain"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
 msgid "Microsoft API Key"
-msgstr ""
+msgstr "Microsoftin API-avain"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
 msgid "Allow Save Media to Gallery"
-msgstr ""
+msgstr "Salli median tallennus galleriaan"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
 #, kde-format
@@ -4812,7 +4774,7 @@ msgstr "Lukitse näyttö ajassa"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "Kirjaudu Applella"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
@@ -5084,7 +5046,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
 #, kde-format
 msgid "Password History Length"
-msgstr ""
+msgstr "Salasanahistorian pituus"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:42
 #, kde-format
@@ -5217,10 +5179,9 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:79
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:93
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "List of Users"
+#, kde-format
 msgid "Limit by User: interval time"
-msgstr "Käyttäjäluettelo"
+msgstr "Rajoita tunnuksen perusteella: kesto"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
 #, kde-format
@@ -5239,8 +5200,7 @@ msgid "Do not prune Discussion message"
 msgstr "Älä karsi keskusteluviestejä"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Do not Prune Pinned Messages"
+#, kde-format
 msgid "Do not prune pinned messages"
 msgstr "Älä karsi kiinnitettyjä viestejä"
 
@@ -5250,23 +5210,19 @@ msgid "Only delete files"
 msgstr "Vain poistetut tiedostot"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Search channel..."
+#, kde-format
 msgid "Applies to channels"
-msgstr "Etsi kanavaa…"
+msgstr "Käytetään kanaviin"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Total Private Groups"
+#, kde-format
 msgid "Applies to private groups"
-msgstr "Yksityisiä ryhmiä kaikkiaan"
+msgstr "Käytetään yksityisiin ryhmiin"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Direct Messages"
+#, kde-format
 msgid "Applies to direct messages"
-msgstr "Luo suoraviestejä"
+msgstr "Käytetään suoraviesteihin"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:38
 #, kde-format
@@ -5387,7 +5343,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
 msgid "Exclude Bots"
-msgstr ""
+msgstr "Sulje pois botit"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
 #, kde-format
@@ -5504,7 +5460,7 @@ msgstr "Käsittelytaajuus (minuutteina)"
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
 #, kde-format
 msgid "Message Limit per Request"
-msgstr ""
+msgstr "Pyyntökohtainen viestirajoitus"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -5579,11 +5535,12 @@ msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
 msgstr ""
+"Suositellaan esimerkiksi jos Jitsi-instanssi ei käytä mitään todennustapaa."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:93
 #, kde-format
 msgid "Chrome Extension Id"
-msgstr ""
+msgstr "Chrome-laajennuksen tunniste"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:100
 #, kde-format
@@ -5598,7 +5555,7 @@ msgstr "Sovellussalaisuus"
 #: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:13
 #, kde-format
 msgid "Webdav Integration Enabled"
-msgstr ""
+msgstr "Webdav-eheytys käytössä"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
 #, kde-format
@@ -5622,11 +5579,14 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"Pilkuin erotettu STUN- ja TURN-palvelinten luettelo.\n"
+"Tunnuksen, salasanan ja portin voi antaa muodossa tunnus:salasana@stun:"
+"konenimi:portti tai tunnus:salasana@turn:konenimi:portti."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
 msgid "STUN/TURN Servers"
-msgstr ""
+msgstr "STUN/TURN-palvelimet"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, fuzzy, kde-format
@@ -5657,10 +5617,9 @@ msgid "Select All"
 msgstr "Valitse kaikki"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Speak Text"
+#, kde-format
 msgid "Copy Text"
-msgstr "Puhu teksti"
+msgstr "Kopioi teksti"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
@@ -5723,7 +5682,7 @@ msgstr "Lopeta kanava"
 #: widgets/channellist/channellistview.cpp:243
 #, kde-format
 msgid "Any team selected."
-msgstr ""
+msgstr "Mikä tahansa valittu ryhmä."
 
 #: widgets/channellist/channellistview.cpp:243
 #, kde-format
@@ -5793,16 +5752,14 @@ msgid "Micro Off"
 msgstr "Mikrofoni ei käytössä"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Micro On"
+#, kde-format
 msgid "Micro"
-msgstr "Mikrofoni käytössä"
+msgstr "Mikrofoni"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Camera On"
+#, kde-format
 msgid "Camera"
-msgstr "Kamera käytössä"
+msgstr "Kamera"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
@@ -5876,7 +5833,7 @@ msgstr "Näytä korostukset hiiren ollessa yllä"
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
 #, kde-format
 msgid "Animate Gif Image"
-msgstr ""
+msgstr "Animoi Gif-kuva"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, kde-format
@@ -5945,11 +5902,9 @@ msgid "Remove Account"
 msgstr "Poista tili"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Custom Sound"
+#, kde-format
 msgid "Remove logs stored on disk"
-msgstr "Poista mukautettu ääni"
+msgstr "Poista levylle talletetut lokit"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -5957,12 +5912,10 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Haluatko poistaa tilin ”%1”?"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "User Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr "Käyttäjän tiedot"
+msgstr "Tietokannan tiedot"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -6128,10 +6081,9 @@ msgid "Prune"
 msgstr "Karsi"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Maximum message age in days (default: 300):"
+#, kde-format
 msgid "Maximum message age in days (default: 30):"
-msgstr "Viestin enimmäisikä päivinä (oletus: 300):"
+msgstr "Viestin enimmäisikä päivinä (oletus: 30):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
@@ -6144,10 +6096,9 @@ msgid "Invalid characters found."
 msgstr "Löytyi virheellisiä merkkejä."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Invalid characters found."
+#, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Löytyi virheellisiä merkkejä."
+msgstr "Löytyi virheellisiä merkkejä. (Sallitut merkit: %1)"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
@@ -6161,28 +6112,25 @@ msgid "Channel Password:"
 msgstr "Kanavan salasana:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Owner:"
+#, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Omistaja:"
-msgstr[1] "Omistaja:"
+msgstr[1] "Omistajat:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
-msgstr[0] "Moderaattori"
-msgstr[1] "Moderaattori"
+msgstr[0] "Moderaattori:"
+msgstr[1] "Moderaattorit:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Leader"
+#, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
-msgstr[0] "Johtaja"
-msgstr[1] "Johtaja"
+msgstr[0] "Johtaja:"
+msgstr[1] "Johtajat:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:76
@@ -6270,7 +6218,7 @@ msgstr "Luo suoraviestejä – %1"
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
 msgid "Too many users selected."
-msgstr ""
+msgstr "Liian monta käyttäjää valittu."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
@@ -6412,21 +6360,19 @@ msgstr "Palvelimen osoite:"
 #: widgets/dialogs/createvideomessagewidget.cpp:238
 #, kde-format
 msgid "Recorded %1 sec"
-msgstr ""
+msgstr "Nauhoitettiin %1 s"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Sound Message"
-msgstr "Luo videoviesti"
+msgstr "Luo ääniviesti"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:27
 #: widgets/dialogs/createvideomessagewizard.cpp:35
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Lähetä"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:107
 #: widgets/dialogs/createvideomessagewizard.cpp:133
@@ -6622,12 +6568,10 @@ msgid "Search Messages"
 msgstr "Etsi viestejä"
 
 #: widgets/dialogs/searchmessagedialog.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages in '%1'"
+#, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
-msgstr "Etsi viestejä: ”%1”"
+msgstr "Etsi viestejä: ”%1” (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:39
 #, kde-format
@@ -6837,12 +6781,10 @@ msgid "Upload File"
 msgstr "Lähetä tiedosto"
 
 #: widgets/dialogs/uploadfiledialog.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
-msgstr "Näytä kuva"
+msgstr "Lähetä kuva"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -6851,10 +6793,9 @@ msgid "Directory - %1"
 msgstr "Kansio – %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Generate link is not authorized in this channel."
+#, kde-format
 msgid "You are not authorized to view this page."
-msgstr "Tällä kanavalla ei ole oikeutta luoda linkkejä."
+msgstr "Sinua ei ole valtuutettu näkemään tätä sivua."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
@@ -6944,8 +6885,7 @@ msgstr[0] "Huoneessa on %1 keskustelu (yhteensä: %2)"
 msgstr[1] "Huoneessa on %1 keskustelua (yhteensä: %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Käyttöoikeudet"
@@ -6984,39 +6924,37 @@ msgstr "HTML"
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
 msgid "Impossible to export data."
-msgstr ""
+msgstr "Tietoja on mahdotonta viedä."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:42
-#, fuzzy, kde-format
-#| msgid "Failed to extract import file."
+#, kde-format
 msgid "Impossible to create zip file."
-msgstr "Tuontitiedoston purkaminen epäonnistui."
+msgstr "Zip-tiedostoa on mahdotonta luoda."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Export..."
+#, kde-format
 msgid "Export Done."
-msgstr "Vie…"
+msgstr "Vienti on valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
 #, kde-format
 msgid "Account %1: export config done."
-msgstr ""
+msgstr "Tili %1: asetusten vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
 #, kde-format
 msgid "Account %1: export cache done."
-msgstr ""
+msgstr "Tili %1: välimuistin vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
 #, kde-format
 msgid "Account %1: export logs done."
-msgstr ""
+msgstr "Tili %1: lokien vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
-msgstr ""
+msgstr "Kansiota ”%1” ei voi lisätä varmuuskopiotiedostoon."
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
@@ -7025,57 +6963,51 @@ msgid "Accounts Exported."
 msgstr "Tilit"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgid "Select Accounts:"
-msgstr "Poista tili"
+msgstr "Valitse tilit:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
-msgstr "Tilit"
+msgstr "Vie tilejä"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:37
 #, kde-format
 msgid "Impossible to open zip file."
-msgstr ""
+msgstr "Zip-tiedostoa on mahdotonta avata"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:49
 #, kde-format
 msgid "Impossible to copy file"
-msgstr ""
+msgstr "Tiedostoa on mahdotonta kopioida"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:57
 #, kde-format
 msgid "Impossible to open file"
-msgstr ""
+msgstr "Tiedostoa on mahdotonta avata"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
-#, fuzzy, kde-format
-#| msgid "Import..."
+#, kde-format
 msgid "Import Done."
-msgstr "Tuo…"
+msgstr "Tuonti on valmis."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Accounts imported."
-msgstr "Tilin nimi"
+msgstr "Tilit on tuotu."
 
 #: widgets/importexportdata/importdata/importdataselectaccountpage.cpp:38
-#, fuzzy, kde-format
-#| msgid "Select File..."
+#, kde-format
 msgid "Select Zip file:"
-msgstr "Valitse tiedosto…"
+msgstr "Valitse Zip-tiedosto…"
 
 #: widgets/importexportdata/importdata/importdatawizard.cpp:27
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
-msgstr "Tilit"
+msgstr "Tuo tilejä"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -7139,26 +7071,24 @@ msgid "Login failed: Invalid OTP code."
 msgstr "Kirjautuminen epäonnistui: virheellinen OTP-koodi."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login failed: User is not activated."
-msgstr "Käyttäjää ei ole aktivoitu"
+msgstr "Kirjautuminen epäonnistui: Käyttäjää ei ole aktivoitu."
 
 #: widgets/misc/accountsoverviewwidget.cpp:57
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "Kirjautuminen on tilapäisesti estetty IP:n perusteella."
 
 #: widgets/misc/accountsoverviewwidget.cpp:59
 #, kde-format
 msgid "Login has been temporarily blocked For User."
-msgstr ""
+msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
 #: widgets/misc/accountsoverviewwidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "App user is not allowed to login."
-msgstr "Sovelluskäyttäjän ei ole lupa kirjautua"
+msgstr "Sovelluskäyttäjän ei sallita kirjautua."
 
 #: widgets/misc/accountsoverviewwidget.cpp:67
 #, kde-format
@@ -7198,10 +7128,9 @@ msgid "Server"
 msgstr "Palvelin"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "Tilini…"
+msgstr "Suodata tilejä…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7342,10 +7271,9 @@ msgid "Manage Device"
 msgstr "Hallinnoi laitetta"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Personal Access Tokens are currently disabled"
+#, kde-format
 msgid "Personal Access Token"
-msgstr "Henkilökohtaiset pääsymerkit on poistettu käytöstä"
+msgstr "Henkilökohtainen pääsymerkit"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, kde-format
@@ -7358,13 +7286,11 @@ msgid "No device found"
 msgstr "Laitteita ei löytynyt"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#, kde-format
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
-msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
-msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
+msgstr[0] "Yksi laite (yhteensä: %2)"
+msgstr[1] "%1 laitetta (yhteensä: %2)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
 #, kde-format
@@ -7378,16 +7304,14 @@ msgid "Create Personal Token"
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Two Authentication Factor"
+#, kde-format
 msgid "Ignore Two Factor Authentication"
-msgstr "Kahden tekijän todennus"
+msgstr "Sivuuta kahden tekijän todennus"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Search Personal Access Token..."
-msgstr "Etsi keskusteluja…"
+msgstr "Etsi henkilökohtaista pääsymerkkiä…"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:120
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:194
@@ -7408,10 +7332,9 @@ msgid "Personal Token removed."
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
-#, fuzzy, kde-format
-#| msgid "Remove from Team"
+#, kde-format
 msgid "Remove Personal Token"
-msgstr "Poista huoneesta"
+msgstr "Poista henkilökohtainen merkki"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
@@ -7424,16 +7347,14 @@ msgid "Regenerate..."
 msgstr "Luo uudelleen…"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
-#, fuzzy, kde-format
-#| msgid "Do you want to delete this room?"
+#, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
-msgstr "Haluatko poistaa tämän huoneen?"
+msgstr "Haluatko varmasti poistaa merkin ”%1”?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove Room"
+#, kde-format
 msgid "Remove Token"
-msgstr "Poista huone"
+msgstr "Poista merkki"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, kde-format
@@ -7788,17 +7709,15 @@ msgid "Join"
 msgstr "Liity"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Näytä kuva"
+msgstr "Lataa kuva"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr ""
+msgstr "Lataa kuva…"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:290
 #: widgets/room/messagelistview.cpp:371 widgets/room/usersinroommenu.cpp:86
@@ -7869,19 +7788,17 @@ msgstr "Tiedoston lähetys"
 #: widgets/room/messagelinewidget.cpp:375
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
-msgstr ""
+msgstr "Palvelin ei valtuuta tätä tiedostoa (virheellinen MIME-tyyppi)"
 
 #: widgets/room/messagelistview.cpp:92
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Viestin enimmäisikä suoraviesteissä"
+msgstr "Liityit uuteen suoraviestiin"
 
 #: widgets/room/messagelistview.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Aloita keskustelu"
+msgstr "Keskustelun alku"
 
 #: widgets/room/messagelistview.cpp:275
 #, kde-format
@@ -7982,10 +7899,11 @@ msgid "Translator Error"
 msgstr "Käännösvirhe"
 
 #: widgets/room/messagetextedit.cpp:194
-#, fuzzy, kde-format
-#| msgid "Save Image"
+#, kde-format
 msgid "Paste Image"
-msgstr "Tallenna kuva"
+msgstr ""
+"Liitä kuva\n"
+"kuvan liittäminen"
 
 #: widgets/room/messagetextedit.cpp:201
 #, kde-format
@@ -8119,6 +8037,8 @@ msgstr "Poista historia"
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
+"Työtilan ylläpitäjän on asennettava ja määritettävä "
+"konferenssipuhelusovellus."
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format
@@ -8284,16 +8204,14 @@ msgid "Account name"
 msgstr "Tilin nimi"
 
 #: widgets/ruqolaloginwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Käyttäjätunnus:"
+msgstr "Käyttäjätunnus tai sähköposti:"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Käyttäjätunnus"
+msgstr "Käyttäjätunnus tai sähköposti"
 
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
@@ -8327,24 +8245,22 @@ msgstr "Kirjautuminen epäonnistui: yleinen virhe"
 #: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
-msgstr ""
+msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
 #: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
-msgstr ""
+msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
 #: widgets/ruqolaloginwidget.cpp:223
-#, fuzzy, kde-format
-#| msgid "User is not activated"
+#, kde-format
 msgid "Login Failed: User is not activated."
-msgstr "Käyttäjää ei ole aktivoitu"
+msgstr "Kirjautuminen epäonnistui: Käyttäjää ei ole aktivoitu."
 
 #: widgets/ruqolaloginwidget.cpp:229
-#, fuzzy, kde-format
-#| msgid "App user is not allowed to login"
+#, kde-format
 msgid "Login Failed: App user is not allowed to login."
-msgstr "Sovelluskäyttäjän ei ole lupa kirjautua"
+msgstr "Kirjautuminen epäonnistui: Sovelluskäyttäjän ei sallita kirjautua."
 
 #: widgets/ruqolamainwindow.cpp:218
 #, kde-format
@@ -8414,7 +8330,7 @@ msgstr "Näytä kanavaloki"
 #: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgid "Show Server Errors"
-msgstr ""
+msgstr "Näytä palvelinvirheet"
 
 #: widgets/ruqolamainwindow.cpp:469
 #, kde-format
@@ -8442,8 +8358,7 @@ msgid "Server Settings..."
 msgstr "Palvelinasetukset…"
 
 #: widgets/ruqolamainwindow.cpp:494
-#, fuzzy, kde-format
-#| msgid "Directory..."
+#, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Kansio…"
@@ -8491,19 +8406,17 @@ msgstr "Näytä suosikkihuone"
 #: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "What's new"
-msgstr ""
+msgstr "Mitä uutta"
 
 #: widgets/ruqolamainwindow.cpp:618
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Import Accounts"
-msgstr "Tilit"
+msgstr "Tuo tilejä"
 
 #: widgets/ruqolamainwindow.cpp:622
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Export Accounts"
-msgstr "Tilit"
+msgstr "Vie tilejä"
 
 #: widgets/ruqolamainwindow.cpp:654
 #, kde-format
@@ -8514,13 +8427,12 @@ msgstr "Luo ryhmä"
 #: widgets/ruqolamainwindow.cpp:809
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "Lokia on mahdotonta avata."
 
 #: widgets/ruqolamainwindow.cpp:809
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Näytä kanavaloki"
+msgstr "Näytä loki"
 
 #: widgets/ruqolamainwindow.cpp:871
 #, kde-format
@@ -8537,8 +8449,7 @@ msgid "Register New User"
 msgstr "Rekisteröi uusi käyttäjä"
 
 #: widgets/ruqolamainwindow.cpp:930
-#, fuzzy, kde-format
-#| msgid "Status"
+#, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Tila"
@@ -8585,7 +8496,7 @@ msgstr "Näkymä"
 #: widgets/ruqolaui.rc:70
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Ohje"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:74
@@ -8594,22 +8505,20 @@ msgid "Main Toolbar"
 msgstr "Päätyökalurivi"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Virheet ja tiedotukset"
+msgstr "Palvelinvirheen tiedot"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
 msgid "(Show Errors)"
-msgstr ""
+msgstr "(Näytä virheet)"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server version: %1"
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Palvelimen versio: %1"
+msgstr "Ilmoitettiin palvelinvirheitä. %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -8747,90 +8656,86 @@ msgstr "Versio"
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "Mikä Ruqolassa on uutta"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Näytä vähemmän tietoa…)"
+msgstr "(Näytä uutiset Ruqolassa)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr ""
+msgstr "Mikä Ruqolassa on uutta. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:18
 msgid "Store Message in Local Database (experimental)"
-msgstr ""
+msgstr "Talleta viestit paikalliseen tietokantaan (kokeellinen)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
-msgstr ""
+msgstr "Lataa palvelimelta palvelinkuvake"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr ""
+msgstr "Näytä palvelimen virhetiedot erityisikkunassa"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:29
-#, fuzzy
-#| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Kopioi kuva leikepöydälle"
+msgstr "Salli kuvan kopioiminen leikepöydälle"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
+"Paranna virheenpaikannustukea (salli nykyisen tilin käyttöoikeuksien "
+"näyttäminen)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:31
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr ""
+msgstr "Lisää tuki lainatulle tekstille (tekstille, joka alkaa ”>”)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
-msgstr ""
+msgstr "Näytä kanavatiedoissa johtaja/moderaattori/omistaja."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
-msgstr ""
+msgstr "Video/ääniviestituki (vain kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
-msgstr ""
+msgstr "Tilien tuonti ja vienti."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix avatar support"
-msgstr ""
+msgstr "Avatartuen korjaus"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr ""
+msgstr "Emojituen korjaus (käytössä uusi ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
-msgstr ""
+msgstr "Korjaa reaktioiden animoidut GIFfit"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:43
-#, fuzzy
-#| msgid "Android support"
 msgid "Fix kf6 support"
-msgstr "Android-tuki"
+msgstr "Korjattu kf6-tuki"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:111
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Tärkeitä muutoksia sitten viime julkaisun:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:119
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Joitakin tämän Ruqola-julkaisua uusia ominaisuuksia ovat:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:127
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
+#, kde-format
 msgid "Some bug fixing:"
-msgstr "Virheenkorjaus"
+msgstr "Joitakin virheenkorjauksia:"
 
 #~ msgid "Share"
 #~ msgstr "Jaa"
