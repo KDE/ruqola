@@ -29,10 +29,8 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    void checkFullList();
     void setStringNotFound(bool stringNotFound);
-    QString mRoomId;
-    int mTotal = 0;
+    int mTotal = -1;
     bool mStringNotFound = true;
-    bool mLoadSearchMessageInProgress = false;
+    bool mLoadingInProgress = false;
 };

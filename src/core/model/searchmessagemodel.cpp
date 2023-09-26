@@ -19,7 +19,7 @@ SearchMessageModel::~SearchMessageModel() = default;
 void SearchMessageModel::clearModel()
 {
     mStringNotFound = true;
-    mLoadSearchMessageInProgress = false;
+    mLoadingInProgress = false;
     clear();
 }
 
@@ -43,13 +43,13 @@ void SearchMessageModel::setStringNotFound(bool stringNotFound)
 
 bool SearchMessageModel::loadSearchMessageInProgress() const
 {
-    return mLoadSearchMessageInProgress;
+    return mLoadingInProgress;
 }
 
 void SearchMessageModel::setLoadSearchMessageInProgress(bool loadSearchMessageInProgress)
 {
-    if (mLoadSearchMessageInProgress != loadSearchMessageInProgress) {
-        mLoadSearchMessageInProgress = loadSearchMessageInProgress;
+    if (mLoadingInProgress != loadSearchMessageInProgress) {
+        mLoadingInProgress = loadSearchMessageInProgress;
         Q_EMIT loadingInProgressChanged();
     }
 }

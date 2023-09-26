@@ -29,7 +29,7 @@ void ListMessagesModel::parse(const QJsonObject &obj)
     messages.parseMessages(obj, parseMessageName);
     mTotal = messages.total();
     addMessages(messages.listMessages(), true);
-    checkFullList();
+    setHasFullList(rowCount() == total());
 }
 
 void ListMessagesModel::parseListMessages(const QJsonObject &obj)
@@ -80,11 +80,6 @@ void ListMessagesModel::setHasFullList(bool state)
 bool ListMessagesModel::hasFullList() const
 {
     return mHasFullList;
-}
-
-void ListMessagesModel::checkFullList()
-{
-    setHasFullList(rowCount() == total());
 }
 
 ListMessagesModel::ListMessageType ListMessagesModel::listMessageType() const
