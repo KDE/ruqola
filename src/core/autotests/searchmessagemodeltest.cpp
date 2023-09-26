@@ -19,7 +19,7 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
 {
     CommonMessagesModel w;
     QCOMPARE(w.rowCount(), 0);
-    QVERIFY(!w.loadSearchMessageInProgress());
+    QVERIFY(!w.loadCommonMessagesInProgress());
 }
 
 #include "moc_searchmessagemodeltest.cpp"

@@ -1295,7 +1295,7 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
-        mSearchMessageModel->setLoadSearchMessageInProgress(true);
+        mSearchMessageModel->setLoadCommonMessagesInProgress(true);
         restApi()->searchMessages(rid, pattern, userRegularExpression);
     }
 }
@@ -1312,7 +1312,7 @@ InputTextManager *RocketChatAccount::inputThreadMessageTextManager() const
 
 void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
-    mSearchMessageModel->setLoadSearchMessageInProgress(false);
+    mSearchMessageModel->setLoadCommonMessagesInProgress(false);
     mSearchMessageModel->parse(obj);
 }
 

@@ -97,7 +97,7 @@ void SearchMessageWidget::setRoomId(const QString &roomId)
 
 void SearchMessageWidget::updateLabel()
 {
-    if (mModel->loadSearchMessageInProgress()) {
+    if (mModel->loadCommonMessagesInProgress()) {
         mSearchLabel->setText(i18n("Loading..."));
     } else if (mSearchLineEdit->text().isEmpty() && mModel->rowCount() == 0) {
         mSearchLabel->clear();

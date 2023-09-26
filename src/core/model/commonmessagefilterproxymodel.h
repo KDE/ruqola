@@ -15,7 +15,7 @@ class LIBRUQOLACORE_EXPORT CommonMessageFilterProxyModel : public QSortFilterPro
 public:
     explicit CommonMessageFilterProxyModel(CommonMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~CommonMessageFilterProxyModel() override;
-    [[nodiscard]] bool loadSearchMessageInProgress() const;
+    [[nodiscard]] bool loadCommonMessagesInProgress() const;
 
     void clearModel();
     void setSearchText(const QString &str);
@@ -24,5 +24,5 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    CommonMessagesModel *const mSearchMessageModel;
+    CommonMessagesModel *const mCommonMessagesModel;
 };

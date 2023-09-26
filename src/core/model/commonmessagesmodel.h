@@ -18,8 +18,8 @@ public:
     ~CommonMessagesModel() override;
     void parse(const QJsonObject &obj);
 
-    void setLoadSearchMessageInProgress(bool loadSearchMessageInProgress);
-    [[nodiscard]] bool loadSearchMessageInProgress() const;
+    void setLoadCommonMessagesInProgress(bool loadSearchMessageInProgress);
+    [[nodiscard]] bool loadCommonMessagesInProgress() const;
 
     void clearModel();
 Q_SIGNALS:

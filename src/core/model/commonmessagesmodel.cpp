@@ -41,12 +41,12 @@ void CommonMessagesModel::setStringNotFound(bool stringNotFound)
     }
 }
 
-bool CommonMessagesModel::loadSearchMessageInProgress() const
+bool CommonMessagesModel::loadCommonMessagesInProgress() const
 {
     return mLoadingInProgress;
 }
 
-void CommonMessagesModel::setLoadSearchMessageInProgress(bool loadSearchMessageInProgress)
+void CommonMessagesModel::setLoadCommonMessagesInProgress(bool loadSearchMessageInProgress)
 {
     if (mLoadingInProgress != loadSearchMessageInProgress) {
         mLoadingInProgress = loadSearchMessageInProgress;
