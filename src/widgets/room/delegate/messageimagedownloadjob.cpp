@@ -67,7 +67,7 @@ void MessageImageDownloadJob::start()
             (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath);
         }
     } else {
-        DelegateUtil::saveFile(mInfo.parentWidget, mInfo.bigImagePath, i18n("Save Image"));
+        DelegateUtil::saveFile(mInfo.parentWidget, mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath).toLocalFile(), i18n("Save Image"));
         deleteLater();
     }
 }
