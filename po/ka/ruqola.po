@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 00:42+0000\n"
+"POT-Creation-Date: 2023-09-26 00:43+0000\n"
 "PO-Revision-Date: 2023-09-23 04:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2572,17 +2572,17 @@ msgstr "ამ თვეში"
 msgid "Previous month"
 msgstr "წინა თვე"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
 #, kde-format
 msgid "Search moderation message..."
 msgstr "მოდერაციის შეტყობინების ძებნა..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
 #, kde-format
 msgid "No moderation message found"
 msgstr "მოდერაციის შეტყობინებების გარეშე"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2594,32 +2594,32 @@ msgstr[1] "%1 მოდერაციის შეტყობინება (
 msgid "See messages"
 msgstr "შეტყობინებების ნახვა"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:111
 #, kde-format
 msgid "Dismiss reports"
 msgstr "ანგარიშების გაუქმება"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:115
 #, kde-format
 msgid "Delete all Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:138
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:127
 #, fuzzy, kde-format
 #| msgid "Dismiss"
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "გაუქმება"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, fuzzy, kde-format
 #| msgid "Delete All Messages"
 msgctxt "@title:window"

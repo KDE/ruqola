@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 00:42+0000\n"
+"POT-Creation-Date: 2023-09-26 00:43+0000\n"
 "PO-Revision-Date: 2023-08-10 15:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -868,10 +868,9 @@ msgid "Ignored Message"
 msgstr "Ignorovaná zpráva"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -880,22 +879,19 @@ msgid "Username"
 msgstr "Uživatelské jméno"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
 msgstr "Hlášení"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Místnosti"
+msgstr ""
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2544,96 +2540,85 @@ msgstr "Komu:"
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Dnes"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
 #, kde-format
 msgid "Yesterday"
-msgstr ""
+msgstr "Včera"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
 #, kde-format
 msgid "This week"
-msgstr ""
+msgstr "Tento týden"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
+#, kde-format
 msgid "Previous week"
-msgstr "&Předchozí server"
+msgstr "Předchozí týden"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Tento měsíc"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#, kde-format
 msgid "Previous month"
-msgstr "Předchozí kanál"
+msgstr "Předchozí měsíc"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Search messages..."
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#, kde-format
 msgid "Search moderation message..."
-msgstr "Hledat zprávy..."
+msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#, kde-format
 msgid "No moderation message found"
-msgstr "Nenalezena žádná zpráva"
+msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "%1 Message in room (Total: %2)"
-#| msgid_plural "%1 Messages in room (Total: %2)"
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 zpráva v místnosti (celkem: %2)"
-msgstr[1] "%1 zprávy v místnosti (celkem: %2)"
-msgstr[2] "%1 zpráv v místnosti (celkem: %2)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "See messages"
-msgstr "Hledat zprávy"
+msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:103
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:111
 #, kde-format
 msgid "Dismiss reports"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:115
+#, kde-format
 msgid "Delete all Messages"
-msgstr "Smazat zprávu"
+msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:118
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:138
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:127
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
-msgstr "Smazat zprávu"
+msgstr ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -2684,12 +2669,10 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr ""
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove OAuth"
-msgstr "Odstranit účet"
+msgstr ""
 
 #: widgets/administratordialog/permissions/permissionseditdialog.cpp:16
 #, kde-format
@@ -2726,12 +2709,10 @@ msgid "Do you want to remove this role '%1'?"
 msgstr ""
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Room"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Role"
-msgstr "Odstranit místnost"
+msgstr ""
 
 #: widgets/administratordialog/roles/roleeditdialog.cpp:18
 #, kde-format
@@ -2801,11 +2782,10 @@ msgstr ""
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
-msgstr "Odstranit uživatele"
+msgstr ""
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
 #: widgets/administratordialog/users/administratoruserswidget.cpp:294
@@ -3294,11 +3274,10 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, fuzzy, kde-format
-#| msgid "Reset E2E key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr "Obnovit klíč E2E"
+msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3318,11 +3297,10 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#, fuzzy, kde-format
-#| msgid "Reset TOTP"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
-msgstr "Obnovit TOTP"
+msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
@@ -5757,11 +5735,10 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:293
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
-msgstr "Převést na kanál"
+msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
@@ -7407,11 +7384,10 @@ msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"
-msgstr "Odstranit uživatele"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, kde-format
@@ -7826,11 +7802,10 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:128
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
-msgstr "Zpráva"
+msgstr ""
 
 #: widgets/room/messagelinewidget.cpp:370
 #, kde-format
@@ -8085,11 +8060,10 @@ msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
 #: widgets/room/roomwidget.cpp:245
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
-msgstr "Odstranit historii"
+msgstr ""
 
 #: widgets/room/roomwidget.cpp:437
 #, kde-format
