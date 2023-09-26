@@ -11,6 +11,7 @@
 #include "room/textpluginmanager.h"
 #include <QAbstractItemModel>
 #include <QApplication>
+#include <QClipboard>
 #include <QMouseEvent>
 #include <QScrollBar>
 
@@ -167,6 +168,23 @@ void MessageListViewBase::addTextPlugins(QMenu *menu, const QString &selectedTex
         interface->setSelectedText(selectedText);
         interface->addAction(menu);
     }
+}
+
+QString MessageListViewBase::selectedText(const QModelIndex &index)
+{
+    Q_UNUSED(index);
+    return {};
+}
+
+void MessageListViewBase::copyMessageToClipboard(const QModelIndex &index)
+{
+    const QString messageText = selectedText(index);
+    if (messageText.isEmpty()) {
+        return;
+    }
+    QClipboard *clip = QApplication::clipboard();
+    clip->setText(messageText, QClipboard::Clipboard);
+    clip->setText(messageText, QClipboard::Selection);
 }
 
 #include "moc_messagelistviewbase.cpp"

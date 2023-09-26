@@ -20,10 +20,12 @@ public:
     void checkIfAtBottom();
     void updateVerticalPageStep();
     void maybeScrollToBottom();
+    void copyMessageToClipboard(const QModelIndex &index = {});
 
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
+    void textToSpeech(const QString &str);
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
@@ -43,6 +45,8 @@ protected:
     void addTextPlugins(QMenu *menu, const QString &selectedText);
 
     QVector<PluginTextInterface *> mPluginTextInterface;
+
+    [[nodiscard]] virtual QString selectedText(const QModelIndex &index);
 
 private:
     void handleMouseEvent(QMouseEvent *event);

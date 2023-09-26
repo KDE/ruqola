@@ -44,8 +44,6 @@ public:
     void goToMessage(const QString &messageId);
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
-    void copyMessageToClipboard(const QModelIndex &index = {});
-
     void clearTextDocumentCache();
 
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
@@ -69,7 +67,6 @@ Q_SIGNALS:
     void loadHistoryRequested();
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
     void replyInThreadRequested(const QString &messageId, const QString &text);
-    void textToSpeech(const QString &messageText);
 
 private:
     void slotEditMessage(const QModelIndex &index);
@@ -101,6 +98,7 @@ private:
     void addDebugMenu(QMenu &menu, const QModelIndex &index);
     void addSelectedMessageBackgroundAnimation(const QModelIndex &index);
     void createTranslorMenu();
+    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;

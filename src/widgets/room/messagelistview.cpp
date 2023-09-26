@@ -772,20 +772,16 @@ void MessageListView::slotStartDiscussion(const QModelIndex &index)
     Q_EMIT createNewDiscussion(messageId, message);
 }
 
-void MessageListView::copyMessageToClipboard(const QModelIndex &index)
+QString MessageListView::selectedText(const QModelIndex &index)
 {
     QString message = mMessageListDelegate->selectedText();
     if (message.isEmpty()) {
         if (!index.isValid()) {
-            return;
+            return {};
         }
-
         message = index.data(MessagesModel::OriginalMessage).toString();
     }
-
-    QClipboard *clip = QApplication::clipboard();
-    clip->setText(message, QClipboard::Clipboard);
-    clip->setText(message, QClipboard::Selection);
+    return message;
 }
 
 void MessageListView::clearTextDocumentCache()

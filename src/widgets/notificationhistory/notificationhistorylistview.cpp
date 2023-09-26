@@ -11,8 +11,6 @@
 
 #include <KLocalizedString>
 
-#include <QApplication>
-#include <QClipboard>
 #include <QMenu>
 #include <QMouseEvent>
 
@@ -130,14 +128,6 @@ void NotificationHistoryListView::slotClearList()
 {
     clearCache();
     NotificationHistoryManager::self()->notificationHistoryModel()->clear();
-}
-
-void NotificationHistoryListView::copyMessageToClipboard(const QModelIndex &index)
-{
-    const QString messageText = selectedText(index);
-    QClipboard *clip = QApplication::clipboard();
-    clip->setText(messageText, QClipboard::Clipboard);
-    clip->setText(messageText, QClipboard::Selection);
 }
 
 #include "moc_notificationhistorylistview.cpp"

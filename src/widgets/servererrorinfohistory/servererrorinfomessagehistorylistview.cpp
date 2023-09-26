@@ -130,12 +130,4 @@ void ServerErrorInfoMessageHistoryListView::slotClearList()
     ServerErrorInfoHistoryManager::self()->serverErrorInfoHistoryModel()->clear();
 }
 
-void ServerErrorInfoMessageHistoryListView::copyMessageToClipboard(const QModelIndex &index)
-{
-    const QString messageText = selectedText(index);
-    QClipboard *clip = QApplication::clipboard();
-    clip->setText(messageText, QClipboard::Clipboard);
-    clip->setText(messageText, QClipboard::Selection);
-}
-
 #include "moc_servererrorinfomessagehistorylistview.cpp"

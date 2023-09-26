@@ -18,9 +18,6 @@ public:
 
     void setSearchText(const QString &str);
 
-Q_SIGNALS:
-    void textToSpeech(const QString &messageStr);
-
 protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

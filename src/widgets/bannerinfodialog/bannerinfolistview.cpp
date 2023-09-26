@@ -10,8 +10,6 @@
 
 #include <KLocalizedString>
 
-#include <QApplication>
-#include <QClipboard>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QScrollBar>
@@ -68,14 +66,6 @@ void BannerInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
 void BannerInfoListView::slotSelectAll(const QModelIndex &index)
 {
     mBannerInfoListViewDelegate->selectAll(listViewOptions(), index);
-}
-
-void BannerInfoListView::copyMessageToClipboard(const QModelIndex &index)
-{
-    const QString messageText = selectedText(index);
-    QClipboard *clip = QApplication::clipboard();
-    clip->setText(messageText, QClipboard::Clipboard);
-    clip->setText(messageText, QClipboard::Selection);
 }
 
 QString BannerInfoListView::selectedText(const QModelIndex &index)

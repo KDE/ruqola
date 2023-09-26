@@ -23,8 +23,7 @@ protected:
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotSelectAll(const QModelIndex &index);
-    void copyMessageToClipboard(const QModelIndex &index);
-    [[nodiscard]] QString selectedText(const QModelIndex &index);
+    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] QString selectedText() const;
     BannerInfoListViewDelegate *const mBannerInfoListViewDelegate;
     RocketChatAccount *const mRocketChatAccount;

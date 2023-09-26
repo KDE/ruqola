@@ -29,14 +29,10 @@ protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-Q_SIGNALS:
-    void textToSpeech(const QString &str);
-
 private:
     void slotTextToSpeech(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotClearList();
-    void copyMessageToClipboard(const QModelIndex &index);
-    [[nodiscard]] QString selectedText(const QModelIndex &index);
+    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     ServerErrorInfoHistoryDelegate *const mListServerErrorInfosDelegate;
 };

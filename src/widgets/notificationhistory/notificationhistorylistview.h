@@ -31,13 +31,11 @@ protected:
 
 Q_SIGNALS:
     void showMessage(const QModelIndex &index);
-    void textToSpeech(const QString &str);
 
 private:
-    [[nodiscard]] QString selectedText(const QModelIndex &index);
+    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     void slotTextToSpeech(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotClearList();
-    void copyMessageToClipboard(const QModelIndex &index);
     NotificationHistoryDelegate *const mListNotificationsDelegate;
 };
