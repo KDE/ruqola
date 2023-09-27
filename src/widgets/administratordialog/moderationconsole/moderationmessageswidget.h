@@ -9,12 +9,10 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
 class MessageListView;
 class QLabel;
 class CommonMessageFilterProxyModel;
 class RocketChatAccount;
-class Room;
 
 namespace TextEditTextToSpeech
 {
@@ -34,13 +32,9 @@ Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
 
 private:
-    void slotSearchLineMessagesEnterPressed();
-    void slotClearedMessages();
     void updateLabel();
-    void slotSearchMessages(const QString &str);
     [[nodiscard]] QString displayShowSearch() const;
     QLabel *const mSearchLabel;
-    QLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;
     CommonMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *const mCurrentRocketChatAccount;

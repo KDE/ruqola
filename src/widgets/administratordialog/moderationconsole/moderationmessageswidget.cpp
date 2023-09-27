@@ -24,7 +24,6 @@
 ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchLabel(new QLabel(this))
-    , mSearchLineEdit(new QLineEdit(this))
     , mResultListWidget(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mCurrentRocketChatAccount(account)
 #if HAVE_TEXT_TO_SPEECH
@@ -35,19 +34,6 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search messages"));
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
-    mainLayout->addWidget(mSearchLineEdit);
-    // connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &ModerationMessagesWidget::slotSearchMessages);
-    // connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &ModerationMessagesWidget::slotClearedMessages);
-
-    mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
-    QFont labFont = mSearchLabel->font();
-    labFont.setBold(true);
-    mSearchLabel->setFont(labFont);
-    mainLayout->addWidget(mSearchLabel);
-
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
@@ -56,7 +42,6 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
 
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
-    connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &ModerationMessagesWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &ModerationMessagesWidget::goToMessageRequested);
 }
 
@@ -67,30 +52,10 @@ ModerationMessagesWidget::~ModerationMessagesWidget()
     }
 }
 
-void ModerationMessagesWidget::slotClearedMessages()
-{
-    mModel->clearModel();
-    updateLabel();
-}
-
-void ModerationMessagesWidget::slotSearchMessages(const QString &str)
-{
-    mModel->setSearchText(str);
-    // mSearchLineEdit->addCompletionItem(str);
-    // mCurrentRocketChatAccount->messageSearch(str, mRoomId, true);
-}
-
-void ModerationMessagesWidget::slotSearchLineMessagesEnterPressed()
-{
-    slotSearchMessages(mSearchLineEdit->text());
-}
-
 void ModerationMessagesWidget::updateLabel()
 {
     if (mModel->loadCommonMessagesInProgress()) {
         mSearchLabel->setText(i18n("Loading..."));
-    } else if (mSearchLineEdit->text().isEmpty() && mModel->rowCount() == 0) {
-        mSearchLabel->clear();
     } else {
         mSearchLabel->setText(mModel->rowCount() == 0 ? i18n("No Message found") : displayShowSearch());
     }
