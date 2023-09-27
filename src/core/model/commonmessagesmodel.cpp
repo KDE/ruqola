@@ -28,7 +28,6 @@ void CommonMessagesModel::parse(const QJsonObject &obj)
     clear();
     ListMessages messages;
     messages.parseMessages(obj, QStringLiteral("messages"));
-    mTotal = messages.total();
     addMessages(messages.listMessages());
     setStringNotFound(rowCount() == 0);
 }

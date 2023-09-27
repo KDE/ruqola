@@ -28,7 +28,6 @@ Q_SIGNALS:
 
 private:
     void setStringNotFound(bool stringNotFound);
-    int mTotal = -1;
     bool mStringNotFound = true;
     bool mLoadingInProgress = false;
 };
