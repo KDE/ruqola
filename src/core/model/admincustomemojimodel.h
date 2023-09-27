@@ -47,7 +47,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(AdminCustomEmojiModel)
-    void checkFullList();
+    void checkFullList() override;
     CustomEmojisInfo mCustomEmojiList;
     RocketChatAccount *const mRocketChatAccount;
 };

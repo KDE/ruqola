@@ -38,6 +38,9 @@ public:
     virtual void updateElement(const QJsonObject &obj);
 
     void initialize();
+
+protected:
+    virtual void checkFullList() = 0;
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();

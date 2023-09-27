@@ -50,6 +50,6 @@ protected:
 
 private:
     Q_DISABLE_COPY(DirectoryRoomsModel)
-    LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     RoomsInfo mRoomsInfo;
 };

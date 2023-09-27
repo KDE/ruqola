@@ -47,6 +47,6 @@ public:
 
 private:
     Q_DISABLE_COPY(DeviceInfoModel)
-    LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     DeviceInfos mDeviceInfos;
 };

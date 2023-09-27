@@ -40,6 +40,6 @@ protected:
 
 private:
     Q_DISABLE_COPY(UsersInRoleModel)
-    LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     Users mUsers;
 };

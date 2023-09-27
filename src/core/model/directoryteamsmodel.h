@@ -42,6 +42,6 @@ protected:
 
 private:
     Q_DISABLE_COPY(DirectoryTeamsModel)
-    LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     RoomsInfo mRoomsInfo;
 };

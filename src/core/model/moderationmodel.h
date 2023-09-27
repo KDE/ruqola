@@ -48,6 +48,6 @@ public:
 
 private:
     Q_DISABLE_COPY(ModerationModel)
-    LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     ModerationInfos mModerationInfos;
 };
