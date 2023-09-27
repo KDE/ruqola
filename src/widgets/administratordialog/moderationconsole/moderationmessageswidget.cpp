@@ -5,14 +5,11 @@
 */
 
 #include "moderationmessageswidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/commonmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
-// #include "searchmessagewithdelaylineedit.h"
 #include <KLocalizedString>
 #include <QLabel>
-#include <QLineEdit>
 #include <QVBoxLayout>
 
 #include <config-ruqola.h>
