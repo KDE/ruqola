@@ -22,7 +22,7 @@ ServerErrorInfoMessageHistoryDialog::ServerErrorInfoMessageHistoryDialog(QWidget
     : QDialog(parent)
     , mServerErrorInfoMessageHistoryWidget(new ServerErrorInfoMessageHistoryWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Server Error Informations"));
+    setWindowTitle(i18nc("@title:window", "Server Error Information"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

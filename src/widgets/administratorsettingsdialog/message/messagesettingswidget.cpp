@@ -118,7 +118,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mDirectMessageMaxUsers->setObjectName(QStringLiteral("mDirectMessageMaxUsers"));
     // Typo in RC => 3 "s"
-    addSpinbox(i18n("Direct Messsage Maximum Users"), mDirectMessageMaxUsers, QStringLiteral("DirectMesssage_maxUsers"));
+    addSpinbox(i18n("Direct Message Maximum Users"), mDirectMessageMaxUsers, QStringLiteral("DirectMesssage_maxUsers"));
 
     auto messageAttachmentsLabel = createBoldLabel(i18n("Message Attachments"));
     messageAttachmentsLabel->setObjectName(QStringLiteral("messageAttachmentsLabel"));
