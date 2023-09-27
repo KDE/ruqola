@@ -3,16 +3,17 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
+
 #pragma once
 
 #include <QObject>
 
-class SearchMessageModelTest : public QObject
+class CommonMessageFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit SearchMessageModelTest(QObject *parent = nullptr);
-    ~SearchMessageModelTest() override = default;
+    explicit CommonMessageFilterProxyModelTest(QObject *parent = nullptr);
+    ~CommonMessageFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

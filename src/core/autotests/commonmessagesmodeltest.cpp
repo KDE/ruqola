@@ -4,22 +4,22 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "searchmessagemodeltest.h"
+#include "commonmessagesmodeltest.h"
 #include "model/commonmessagesmodel.h"
 #include <QTest>
 
-QTEST_GUILESS_MAIN(SearchMessageModelTest)
+QTEST_GUILESS_MAIN(CommonMessagesModelTest)
 
-SearchMessageModelTest::SearchMessageModelTest(QObject *parent)
+CommonMessagesModelTest::CommonMessagesModelTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void SearchMessageModelTest::shouldHaveDefaultValue()
+void CommonMessagesModelTest::shouldHaveDefaultValue()
 {
     CommonMessagesModel w;
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(!w.loadCommonMessagesInProgress());
 }
 
-#include "moc_searchmessagemodeltest.cpp"
+#include "moc_commonmessagesmodeltest.cpp"

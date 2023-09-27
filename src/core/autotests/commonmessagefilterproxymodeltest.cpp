@@ -4,18 +4,18 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "searchmessagefilterproxymodeltest.h"
+#include "commonmessagefilterproxymodeltest.h"
 #include "model/commonmessagefilterproxymodel.h"
 #include "model/commonmessagesmodel.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(SearchMessageFilterProxyModelTest)
+QTEST_GUILESS_MAIN(CommonMessageFilterProxyModelTest)
 
-SearchMessageFilterProxyModelTest::SearchMessageFilterProxyModelTest(QObject *parent)
+CommonMessageFilterProxyModelTest::CommonMessageFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void SearchMessageFilterProxyModelTest::shouldHaveDefaultValue()
+void CommonMessageFilterProxyModelTest::shouldHaveDefaultValue()
 {
     CommonMessageFilterProxyModel w;
     CommonMessagesModel sourceModel;
@@ -25,4 +25,4 @@ void SearchMessageFilterProxyModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.sourceModel(), &sourceModel);
 }
 
-#include "moc_searchmessagefilterproxymodeltest.cpp"
+#include "moc_commonmessagefilterproxymodeltest.cpp"
