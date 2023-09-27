@@ -7,7 +7,6 @@
 #include "moderationmessagesdialog.h"
 #include "moderationmessageswidget.h"
 #include "rocketchataccount.h"
-#include "room.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
