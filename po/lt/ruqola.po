@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-26 00:43+0000\n"
+"POT-Creation-Date: 2023-09-27 00:43+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -900,12 +900,12 @@ msgstr ""
 msgid "Unread Threads Messages"
 msgstr "Ištrinti žinutę"
 
-#: core/model/messagemodel.cpp:221
+#: core/model/messagesmodel.cpp:220
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr ""
 
-#: core/model/messagemodel.cpp:360
+#: core/model/messagesmodel.cpp:359
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
@@ -5945,16 +5945,16 @@ msgstr "Gijos"
 msgid "Search..."
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:101
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:297
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
 msgstr ""
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Copy Text"
@@ -6516,7 +6516,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:41
 #, kde-format
 msgid "Clear"
@@ -7290,7 +7290,7 @@ msgid "Open Discussion"
 msgstr "Atverti diskusiją"
 
 #: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:95
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
 #: widgets/room/messagelistview.cpp:539
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, fuzzy, kde-format
@@ -7995,13 +7995,13 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr ""
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:80
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
 #: widgets/room/messagelistview.cpp:524
 #, kde-format
 msgid "Go to Message"
 msgstr ""
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:84
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:267
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, fuzzy, kde-format
@@ -8406,7 +8406,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ištrinti žinutę"
 
-#: widgets/room/messagelistview.cpp:863
+#: widgets/room/messagelistview.cpp:859
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"

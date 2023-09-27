@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-26 00:43+0000\n"
+"POT-Creation-Date: 2023-09-27 00:43+0000\n"
 "PO-Revision-Date: 2023-09-25 11:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -861,12 +861,12 @@ msgstr "Sporočila iz niti"
 msgid "Unread Threads Messages"
 msgstr "Neprebrana sporočila niti"
 
-#: core/model/messagemodel.cpp:221
+#: core/model/messagesmodel.cpp:220
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Uredil %2: %1"
 
-#: core/model/messagemodel.cpp:360
+#: core/model/messagesmodel.cpp:359
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
@@ -5807,16 +5807,16 @@ msgstr "Prikaži neprebrano"
 msgid "Search..."
 msgstr "Išči ..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:101
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:297
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
@@ -6344,7 +6344,7 @@ msgstr[2] "Vodje:"
 msgstr[3] "Vodje:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:41
 #, kde-format
 msgid "Clear"
@@ -7076,7 +7076,7 @@ msgid "Open Discussion"
 msgstr "Odpri razpravo"
 
 #: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:95
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
 #: widgets/room/messagelistview.cpp:539
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
@@ -7741,13 +7741,13 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Obvestilo"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:80
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
 #: widgets/room/messagelistview.cpp:524
 #, kde-format
 msgid "Go to Message"
 msgstr "Sporočilo"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:84
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:267
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
@@ -8131,7 +8131,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:863
+#: widgets/room/messagelistview.cpp:859
 #, kde-format
 msgid "Translator Error"
 msgstr "Napaka prevajalca"

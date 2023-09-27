@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-26 00:43+0000\n"
+"POT-Creation-Date: 2023-09-27 00:43+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -858,12 +858,12 @@ msgstr "Threads Messages"
 msgid "Unread Threads Messages"
 msgstr "Unread Threads Messages"
 
-#: core/model/messagemodel.cpp:221
+#: core/model/messagesmodel.cpp:220
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Edited at %1 by %2"
 
-#: core/model/messagemodel.cpp:360
+#: core/model/messagesmodel.cpp:359
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
@@ -5813,16 +5813,16 @@ msgstr "Show Unread"
 msgid "Search..."
 msgstr "Search..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:101
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:297
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
 msgstr "Select All"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
 msgstr "Copy Text"
@@ -6344,7 +6344,7 @@ msgstr[0] "Leader:"
 msgstr[1] "Leaders:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:41
 #, kde-format
 msgid "Clear"
@@ -7067,7 +7067,7 @@ msgid "Open Discussion"
 msgstr "Open Discussion"
 
 #: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:95
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
 #: widgets/room/messagelistview.cpp:539
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
@@ -7742,13 +7742,13 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Notification"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:80
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
 #: widgets/room/messagelistview.cpp:524
 #, kde-format
 msgid "Go to Message"
 msgstr "Go to Message"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:84
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:267
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
@@ -8128,7 +8128,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Delete Message"
 
-#: widgets/room/messagelistview.cpp:863
+#: widgets/room/messagelistview.cpp:859
 #, kde-format
 msgid "Translator Error"
 msgstr "Translator Error"
