@@ -9,6 +9,8 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 class QWidget;
+class CommonMessagesModel;
+class CommonMessageFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationConsoleTreeWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
@@ -22,7 +24,10 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
+    void slotShowReportedMessages(const QJsonObject &obj);
     void slotDismissReport(const QModelIndex &index);
     void slotDeleteAllMessages(const QModelIndex &index);
     [[nodiscard]] QString displayShowMessage() const;
+    CommonMessagesModel *const mCommonMessagesModel;
+    CommonMessageFilterProxyModel *mCommonMessageFilterProxyModel = nullptr;
 };

@@ -5,8 +5,11 @@
 */
 
 #include "moderationconsoletreewidget.h"
+#include "administratordialog/moderationconsole/moderationmessagesdialog.h"
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
+#include "model/commonmessagefilterproxymodel.h"
+#include "model/commonmessagesmodel.h"
 #include "model/moderationmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationreportsbyusersjob.h"
@@ -22,7 +25,9 @@
 
 ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
+    , mCommonMessagesModel(new CommonMessagesModel(account, this))
 {
+    mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
     mModel = new ModerationModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
@@ -99,9 +104,10 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
             job->setReportedMessageFromUserId(modelIndex.data().toString());
-            connect(job, &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone, this, [this](const QJsonObject &obj) {
-                qDebug() << " Obj " << obj;
-            });
+            connect(job,
+                    &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
+                    this,
+                    &ModerationConsoleTreeWidget::slotShowReportedMessages);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
             }
@@ -118,6 +124,14 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
+}
+
+void ModerationConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
+{
+    mCommonMessagesModel->parse(obj);
+    ModerationMessagesDialog dlg(mRocketChatAccount, this);
+    dlg.setModel(mCommonMessageFilterProxyModel);
+    dlg.exec();
 }
 
 void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
