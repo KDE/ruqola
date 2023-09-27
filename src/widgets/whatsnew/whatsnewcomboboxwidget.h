@@ -16,7 +16,7 @@ public:
     enum VersionType {
         AllVersion,
         Version2_0,
-        // Version2_1,
+        Version2_1,
     };
     Q_ENUM(VersionType)
 

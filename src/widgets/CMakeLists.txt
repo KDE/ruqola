@@ -717,6 +717,8 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewcomboboxwidget.h
     whatsnew/whatsnewcomboboxwidget.cpp
 
+    whatsnew/whatsnewwidgettranslation.h
+
     explorepermissionsdialog/explorepermissionsdialog.h
     explorepermissionsdialog/explorepermissionsdialog.cpp
     explorepermissionsdialog/explorepermissionswidget.h
