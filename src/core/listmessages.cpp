@@ -10,14 +10,19 @@
 #include <QJsonObject>
 
 ListMessages::ListMessages() = default;
+ListMessages::~ListMessages() = default;
 
-void ListMessages::parseMessages(const QJsonObject &messagesObj, const QString &arrayName)
+void ListMessages::parseListInfo(const QJsonObject &messagesObj)
 {
     mMessagesCount = messagesObj[QLatin1String("count")].toInt();
     mOffset = messagesObj[QLatin1String("offset")].toInt();
     mTotal = messagesObj[QLatin1String("total")].toInt();
-    const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? QStringLiteral("messages") : arrayName].toArray();
     mListMessages.clear();
+}
+
+void ListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
+{
+    const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? QStringLiteral("messages") : arrayName].toArray();
     mListMessages.reserve(messagesArray.count());
     for (const QJsonValue &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
@@ -29,6 +34,12 @@ void ListMessages::parseMessages(const QJsonObject &messagesObj, const QString &
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }
     }
+}
+
+void ListMessages::parseMessages(const QJsonObject &messagesObj, const QString &arrayName)
+{
+    parseListInfo(messagesObj);
+    parseMessagesList(messagesObj, arrayName);
 }
 
 int ListMessages::offset() const

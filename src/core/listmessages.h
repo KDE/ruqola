@@ -12,6 +12,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ListMessages
 {
 public:
     ListMessages();
+    virtual ~ListMessages();
     void parseMessages(const QJsonObject &messagesObj, const QString &arrayName = QStringLiteral("messages"));
 
     [[nodiscard]] int offset() const;
@@ -29,7 +30,11 @@ public:
     [[nodiscard]] Message at(int index) const;
     [[nodiscard]] QVector<Message> listMessages() const;
 
+protected:
+    virtual void parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName);
+
 private:
+    void parseListInfo(const QJsonObject &messagesObj);
     QVector<Message> mListMessages;
     int mMessagesCount = 0;
     int mOffset = 0;
