@@ -460,6 +460,9 @@ target_sources(libruqolacore PRIVATE
 
     moderation/moderationmessageinfo.h
     moderation/moderationmessageinfo.cpp
+
+    moderationlistmessages.h
+    moderationlistmessages.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
