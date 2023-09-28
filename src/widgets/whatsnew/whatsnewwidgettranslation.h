@@ -43,6 +43,6 @@ static const int numRuqolaBugfixing2_0 = sizeof ruqolaBugfixing2_0 / sizeof *ruq
 // Version 2.1
 
 static const KLazyLocalizedString ruqolaNewFeatures2_1[] = {
-    kli18n("Add Moderation Console"),
+    kli18n("Add Moderation Console (Administration, RC server 6.2)"),
 };
 static const int numRuqolaNewFeatures2_1 = sizeof ruqolaNewFeatures2_1 / sizeof *ruqolaNewFeatures2_1;
