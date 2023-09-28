@@ -25,7 +25,7 @@ ModerationMessagesDialog::ModerationMessagesDialog(RocketChatAccount *account, Q
     , mModerationMessagesWidget(new ModerationMessagesWidget(account, this))
     , mRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Search Messages"));
+    setWindowTitle(i18nc("@title:window", "Show Moderation Messages"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
