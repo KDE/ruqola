@@ -10,7 +10,7 @@
 #include "messagesmodel.h"
 #include <QJsonObject>
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT CommonMessagesModel : public MessagesModel
+class LIBRUQOLACORE_EXPORT CommonMessagesModel : public MessagesModel
 {
     Q_OBJECT
 public:
@@ -30,7 +30,7 @@ protected:
     [[nodiscard]] virtual QVector<Message> extractMessages(const QJsonObject &obj);
 
 private:
-    void setStringNotFound(bool stringNotFound);
+    LIBRUQOLACORE_NO_EXPORT void setStringNotFound(bool stringNotFound);
     bool mStringNotFound = true;
     bool mLoadingInProgress = false;
 };
