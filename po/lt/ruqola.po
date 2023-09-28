@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 00:43+0000\n"
+"POT-Creation-Date: 2023-09-28 00:42+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2678,19 +2678,19 @@ msgstr ""
 msgid "Previous month"
 msgstr "Sukurti kanalą"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search moderation message..."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No moderation message found"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:51
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2699,43 +2699,77 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "See messages"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:111
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:117
 #, kde-format
 msgid "Dismiss reports"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:115
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Delete all Messages"
 msgstr "Ištrinti žinutę"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:140
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:152
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:127
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:153
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Ištrinti žinutę"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/dialogs/searchmessagewidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:82
+#: widgets/room/usersinroomwidget.cpp:135
+#, kde-format
+msgid "Loading..."
+msgstr "Įkeliama..."
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/dialogs/searchmessagewidget.cpp:105
+#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/room/usersinroomwidget.cpp:137
+#, kde-format
+msgid "No Message found"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/dialogs/searchmessagewidget.cpp:111
+#, kde-format
+msgid "%1 Message in room"
+msgid_plural "%1 Messages in room"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -6964,12 +6998,6 @@ msgstr "Paveikslas"
 msgid "Select Room Avatar"
 msgstr "Slaptažodis"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
-#, kde-format
-msgctxt "@title:window"
-msgid "Search Messages"
-msgstr ""
-
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
@@ -6982,30 +7010,6 @@ msgstr "Ieškoti žinučių..."
 #| msgid "Search Messages..."
 msgid "Search messages"
 msgstr "Ieškoti žinučių..."
-
-#: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:82
-#: widgets/room/usersinroomwidget.cpp:135
-#, kde-format
-msgid "Loading..."
-msgstr "Įkeliama..."
-
-#: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
-#: widgets/room/usersinroomwidget.cpp:137
-#, kde-format
-msgid "No Message found"
-msgstr ""
-
-#: widgets/dialogs/searchmessagewidget.cpp:111
-#, kde-format
-msgid "%1 Message in room"
-msgid_plural "%1 Messages in room"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -9233,6 +9237,12 @@ msgstr "Serverio versija:"
 msgid "Version 2.0"
 msgstr "Serverio versija:"
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Server Version:"
+msgid "Version 2.1"
+msgstr "Serverio versija:"
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -9250,78 +9260,78 @@ msgstr "Informacija apie serverį..."
 msgid "What's new in Ruqola. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:18
+#: widgets/whatsnew/whatsnewwidget.cpp:80
+#, kde-format
+msgid "Important changes since last version:"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:88
+#, kde-format
+msgid "Some of the new features in this release of Ruqola include:"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:96
+#, fuzzy, kde-format
+#| msgid "Bug fixing"
+msgid "Some bug fixing:"
+msgstr "Klaidų pataisymai"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:12
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:21
 msgid "Download Server Icon from Server"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:22
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Allow to Copy Image in Clipboard"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Show leader/moderator/owner in channel info."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 #, fuzzy
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Import/Export Accounts."
 msgstr "Paskyra"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidgettranslation.h:34
 msgid "Fix avatar support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidgettranslation.h:35
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 #, fuzzy
 #| msgid "Android support"
 msgid "Fix kf6 support"
 msgstr "Android palaikymas"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:111
-#, kde-format
-msgid "Important changes since last version:"
-msgstr ""
-
-#: widgets/whatsnew/whatsnewwidget.cpp:119
-#, kde-format
-msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
-
-#: widgets/whatsnew/whatsnewwidget.cpp:127
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
-msgid "Some bug fixing:"
-msgstr "Klaidų pataisymai"
 
 #, fuzzy
 #~| msgid "Remove"

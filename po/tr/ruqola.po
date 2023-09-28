@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 00:43+0000\n"
+"POT-Creation-Date: 2023-09-28 00:42+0000\n"
 "PO-Revision-Date: 2023-09-26 07:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2558,40 +2558,40 @@ msgstr "Bu ay"
 msgid "Previous month"
 msgstr "Önceki ay"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:33
 #, kde-format
 msgid "Search moderation message..."
 msgstr "Moderasyon iletisi ara..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
 #, kde-format
 msgid "No moderation message found"
 msgstr "Moderasyon iletisi bulunamadı"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:51
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 moderasyon iletisi (Toplam: %2)"
 msgstr[1] "%1 moderasyon iletisi (Toplam: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:102
 #, kde-format
 msgid "See messages"
 msgstr "İletileri gör"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:111
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:117
 #, kde-format
 msgid "Dismiss reports"
 msgstr "Raporları göz ardı et"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:115
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:121
 #, kde-format
 msgid "Delete all Messages"
 msgstr "Tüm İletileri Sil"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:140
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:152
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2600,17 +2600,49 @@ msgstr ""
 "Bu kullanıcının iletileri için olan tüm raporları göz ardı edip silmek "
 "istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:127
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Göz Ardı Et"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:153
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr "İletileri Ara"
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/dialogs/searchmessagewidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:82
+#: widgets/room/usersinroomwidget.cpp:135
+#, kde-format
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/dialogs/searchmessagewidget.cpp:105
+#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/room/usersinroomwidget.cpp:137
+#, kde-format
+msgid "No Message found"
+msgstr "İleti bulunamadı"
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/dialogs/searchmessagewidget.cpp:111
+#, kde-format
+msgid "%1 Message in room"
+msgid_plural "%1 Messages in room"
+msgstr[0] "Odada %1 ileti"
+msgstr[1] "Odada %1 ileti"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -6747,12 +6779,6 @@ msgstr "Görsel"
 msgid "Select Room Avatar"
 msgstr "Oda Avatarı Seç"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
-#, kde-format
-msgctxt "@title:window"
-msgid "Search Messages"
-msgstr "İletileri Ara"
-
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
@@ -6763,28 +6789,6 @@ msgstr "'%1'  (%2) İçindeki İletileri Ara"
 #, kde-format
 msgid "Search messages"
 msgstr "İletileri ara"
-
-#: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:82
-#: widgets/room/usersinroomwidget.cpp:135
-#, kde-format
-msgid "Loading..."
-msgstr "Yükleniyor..."
-
-#: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
-#: widgets/room/usersinroomwidget.cpp:137
-#, kde-format
-msgid "No Message found"
-msgstr "İleti bulunamadı"
-
-#: widgets/dialogs/searchmessagewidget.cpp:111
-#, kde-format
-msgid "%1 Message in room"
-msgid_plural "%1 Messages in room"
-msgstr[0] "Odada %1 ileti"
-msgstr[1] "Odada %1 ileti"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -8849,6 +8853,12 @@ msgstr "Tüm Sürümler"
 msgid "Version 2.0"
 msgstr "Sürüm 2.0"
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Version 2.0"
+msgid "Version 2.1"
+msgstr "Sürüm 2.0"
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -8865,72 +8875,72 @@ msgstr "(Haberleri Roka'da Göster)"
 msgid "What's new in Ruqola. %1"
 msgstr "Roka'da neler yeni. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:18
+#: widgets/whatsnew/whatsnewwidget.cpp:80
+#, kde-format
+msgid "Important changes since last version:"
+msgstr "Son sürümden bu yana önemli değişiklikler:"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:88
+#, kde-format
+msgid "Some of the new features in this release of Ruqola include:"
+msgstr "Roka'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:96
+#, kde-format
+msgid "Some bug fixing:"
+msgstr "Hata düzeltmeler"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:12
 msgid "Store Message in Local Database (experimental)"
 msgstr "İletileri Yerel Veritabanında Depola (Deneysel)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:21
 msgid "Download Server Icon from Server"
 msgstr "Sunucu Simgesini Sunucudan İndir"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:22
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Belirli İletişim Kutularında Sunucu Hatası Bilgilerini Göster"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Panodaki Görseli Kopyalamaya İzin Ver"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Hata ayıklama desteğini iyileştir (Geçerli hesap izinlerini göstermeye izin "
 "ver)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Alıntı metinler için destek ekle ('>' ile başlayan metinler)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Kanal bilgisinde lider/moderatör/sahip bilgisini göster"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Video/Ses İletisi desteği (yalnızca KF6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Import/Export Accounts."
 msgstr "Hesaplar İçe/Dışa Aktar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidgettranslation.h:34
 msgid "Fix avatar support"
 msgstr "Avatar desteğini onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidgettranslation.h:35
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Emoji desteğini düzelt (yeni ktextaddons/textemoticons kitaplığını kullan)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix animated gif in reactions"
 msgstr "Tepkilerdeki canlandırmalı GIF'leri onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix kf6 support"
 msgstr "KF6 desteğini onar"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:111
-#, kde-format
-msgid "Important changes since last version:"
-msgstr "Son sürümden bu yana önemli değişiklikler:"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:119
-#, kde-format
-msgid "Some of the new features in this release of Ruqola include:"
-msgstr "Roka'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:127
-#, kde-format
-msgid "Some bug fixing:"
-msgstr "Hata düzeltmeler"

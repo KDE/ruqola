@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 00:43+0000\n"
+"POT-Creation-Date: 2023-09-28 00:42+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -2609,19 +2609,19 @@ msgstr ""
 msgid "Previous month"
 msgstr "Canal Anterior"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Search messages..."
 msgid "Search moderation message..."
 msgstr "Procurar por mensagens..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No moderation message found"
 msgstr "Não foi encontrada nenhuma mensagem"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "%1 device (Total: %2)"
 #| msgid_plural "%1 devices (Total: %2)"
@@ -2630,43 +2630,75 @@ msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 dispositivo (Total: %2)"
 msgstr[1] "%1 dispositivos (Total: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:97
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:102
 #, fuzzy, kde-format
 #| msgid "Search messages"
 msgid "See messages"
 msgstr "Procurar por mensagens"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:111
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:117
 #, kde-format
 msgid "Dismiss reports"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:115
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Delete All Messages"
 msgid "Delete all Messages"
 msgstr "Apagar Todas as Mensagens"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:140
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:152
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:127
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:153
 #, fuzzy, kde-format
 #| msgid "Delete All Messages"
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Apagar Todas as Mensagens"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr "Procurar por Mensagens"
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/dialogs/searchmessagewidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:82
+#: widgets/room/usersinroomwidget.cpp:135
+#, kde-format
+msgid "Loading..."
+msgstr "A carregar..."
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/dialogs/searchmessagewidget.cpp:105
+#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/room/usersinroomwidget.cpp:137
+#, kde-format
+msgid "No Message found"
+msgstr "Não foi encontrada nenhuma mensagem"
+
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/dialogs/searchmessagewidget.cpp:111
+#, kde-format
+msgid "%1 Message in room"
+msgid_plural "%1 Messages in room"
+msgstr[0] "%1 Mensagem na Sala"
+msgstr[1] "%1 Mensagens na Sala"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -6842,12 +6874,6 @@ msgstr "Imagem"
 msgid "Select Room Avatar"
 msgstr "Seleccionar o Avatar da Sala"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
-#, kde-format
-msgctxt "@title:window"
-msgid "Search Messages"
-msgstr "Procurar por Mensagens"
-
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
@@ -6858,28 +6884,6 @@ msgstr "Procurar por Mensagens em '%1' (%2)"
 #, kde-format
 msgid "Search messages"
 msgstr "Procurar por mensagens"
-
-#: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:82
-#: widgets/room/usersinroomwidget.cpp:135
-#, kde-format
-msgid "Loading..."
-msgstr "A carregar..."
-
-#: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
-#: widgets/room/usersinroomwidget.cpp:137
-#, kde-format
-msgid "No Message found"
-msgstr "Não foi encontrada nenhuma mensagem"
-
-#: widgets/dialogs/searchmessagewidget.cpp:111
-#, kde-format
-msgid "%1 Message in room"
-msgid_plural "%1 Messages in room"
-msgstr[0] "%1 Mensagem na Sala"
-msgstr[1] "%1 Mensagens na Sala"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -8958,6 +8962,12 @@ msgstr "Versão"
 msgid "Version 2.0"
 msgstr "Versão"
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Version 2.1"
+msgstr "Versão"
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -8974,78 +8984,78 @@ msgstr "(Mostrar as Notícias no Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Novidades no Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:18
+#: widgets/whatsnew/whatsnewwidget.cpp:80
+#, kde-format
+msgid "Important changes since last version:"
+msgstr "Modificações importantes desde a última versão:"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:88
+#, kde-format
+msgid "Some of the new features in this release of Ruqola include:"
+msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:96
+#, kde-format
+msgid "Some bug fixing:"
+msgstr "Algumas correcções de erros:"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:12
 #, fuzzy
 #| msgid "Store Message in Local Database"
 msgid "Store Message in Local Database (experimental)"
 msgstr "Guardar a Mensagem na Base de Dados Local"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:21
 msgid "Download Server Icon from Server"
 msgstr "Obter o Ícone do Servidor"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:22
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Mostrar os Dados do Erro do Servidor numa Janela Específica"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:29
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permitir Copiar a Imagem para a Área de Transferência"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:30
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Melhorar o suporte de depuração (Permitir mostrar as permissões actuais da "
 "conta)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:31
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Adição do suporte para texto citado (texto que começa por '>')"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:32
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostrar o líder/moderador/dono nos dados do canal."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:33
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Suporte para Mensagens de Vídeo/Áudio (apenas no KF6)."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Import/Export Accounts."
 msgstr "Importar/Exportar as Contas."
 
-#: widgets/whatsnew/whatsnewwidget.cpp:40
+#: widgets/whatsnew/whatsnewwidgettranslation.h:34
 msgid "Fix avatar support"
 msgstr "Correcção do suporte de avatares"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:41
+#: widgets/whatsnew/whatsnewwidgettranslation.h:35
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Correcção do suporte para emoji's (uso do novo módulo ktextaddons/"
 "textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:42
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix animated gif in reactions"
 msgstr "Correcção dos GIF's animados nas reacções"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:43
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix kf6 support"
 msgstr "Correcção do suporte para as KF6"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:111
-#, kde-format
-msgid "Important changes since last version:"
-msgstr "Modificações importantes desde a última versão:"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:119
-#, kde-format
-msgid "Some of the new features in this release of Ruqola include:"
-msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
-
-#: widgets/whatsnew/whatsnewwidget.cpp:127
-#, kde-format
-msgid "Some bug fixing:"
-msgstr "Algumas correcções de erros:"
 
 #~ msgid "Share"
 #~ msgstr "Partilhar"
