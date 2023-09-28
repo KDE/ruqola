@@ -32,10 +32,10 @@ public:
 
 protected:
     virtual void parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName);
+    QVector<Message> mListMessages;
 
 private:
     void parseListInfo(const QJsonObject &messagesObj);
-    QVector<Message> mListMessages;
     int mMessagesCount = 0;
     int mOffset = 0;
     int mTotal = 0;

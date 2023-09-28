@@ -9,7 +9,7 @@
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/commonmessagefilterproxymodel.h"
-#include "model/commonmessagesmodel.h"
+#include "model/moderationmessagesmodel.h"
 #include "model/moderationmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationreportsbyusersjob.h"
@@ -25,7 +25,7 @@
 
 ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
-    , mCommonMessagesModel(new CommonMessagesModel(account, this))
+    , mCommonMessagesModel(new ModerationMessagesModel(account, this))
 {
     mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
     mModel = new ModerationModel(this);

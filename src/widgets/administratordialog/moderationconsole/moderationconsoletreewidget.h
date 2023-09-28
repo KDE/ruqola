@@ -9,7 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 class QWidget;
-class CommonMessagesModel;
+class ModerationMessagesModel;
 class CommonMessageFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationConsoleTreeWidget : public SearchTreeBaseWidget
 {
@@ -28,6 +28,6 @@ private:
     void slotDismissReport(const QModelIndex &index);
     void slotDeleteAllMessages(const QModelIndex &index);
     [[nodiscard]] QString displayShowMessage() const;
-    CommonMessagesModel *const mCommonMessagesModel;
+    ModerationMessagesModel *const mCommonMessagesModel;
     CommonMessageFilterProxyModel *mCommonMessageFilterProxyModel = nullptr;
 };

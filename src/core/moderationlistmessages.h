@@ -6,11 +6,15 @@
 
 #pragma once
 
+#include "libruqola_private_export.h"
 #include "listmessages.h"
 
-class ModerationListMessages : public ListMessages
+class LIBRUQOLACORE_TESTS_EXPORT ModerationListMessages : public ListMessages
 {
 public:
     ModerationListMessages();
     ~ModerationListMessages() override;
+
+protected:
+    void parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName) override;
 };
