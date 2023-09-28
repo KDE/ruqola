@@ -26,6 +26,9 @@ Q_SIGNALS:
     void stringNotFoundChanged();
     void loadingInProgressChanged();
 
+protected:
+    [[nodiscard]] virtual QVector<Message> extractMessages(const QJsonObject &obj);
+
 private:
     void setStringNotFound(bool stringNotFound);
     bool mStringNotFound = true;

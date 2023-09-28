@@ -23,12 +23,18 @@ void CommonMessagesModel::clearModel()
     clear();
 }
 
+QVector<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
+{
+    ListMessages messages;
+    messages.parseMessages(obj, QStringLiteral("messages"));
+    return messages.listMessages();
+}
+
 void CommonMessagesModel::parse(const QJsonObject &obj)
 {
     clear();
-    ListMessages messages;
-    messages.parseMessages(obj, QStringLiteral("messages"));
-    addMessages(messages.listMessages());
+    const QVector<Message> messages = extractMessages(obj);
+    addMessages(messages);
     setStringNotFound(rowCount() == 0);
 }
 
