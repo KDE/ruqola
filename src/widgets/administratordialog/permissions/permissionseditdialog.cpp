@@ -16,6 +16,7 @@ PermissionsEditDialog::PermissionsEditDialog(QWidget *parent, const QString &per
     setWindowTitle(i18nc("@title:window", "Edit \'%1\' Permission", permission));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
     mainLayout->addWidget(mPermissionsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
