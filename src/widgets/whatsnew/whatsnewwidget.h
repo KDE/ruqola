@@ -22,8 +22,10 @@ public:
 
 private:
     [[nodiscard]] QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
-    [[nodiscard]] QString createVersionInformations() const;
+    [[nodiscard]] QString createVersionInformationsV2_0() const;
+    [[nodiscard]] QString createVersionInformationsV2_1() const;
     [[nodiscard]] WhatsNewComboBoxWidget::VersionType currentVersion() const;
+    [[nodiscard]] QString generateStartEndHtml(const QString &str) const;
     void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
     QTextEdit *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;

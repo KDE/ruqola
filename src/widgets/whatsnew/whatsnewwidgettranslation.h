@@ -7,6 +7,8 @@
 
 #include <KLazyLocalizedString>
 
+// Version 2.0
+
 // enter items for the "Important changes" list here:
 static const KLazyLocalizedString ruqolaChangesV2_0[] = {
     kli18n("Store Message in Local Database (experimental)"),
@@ -37,3 +39,10 @@ static const KLazyLocalizedString ruqolaBugfixing2_0[] = {
     kli18n("Fix kf6 support"),
 };
 static const int numRuqolaBugfixing2_0 = sizeof ruqolaBugfixing2_0 / sizeof *ruqolaBugfixing2_0;
+
+// Version 2.1
+
+static const KLazyLocalizedString ruqolaNewFeatures2_1[] = {
+    kli18n("Add Moderation Console"),
+};
+static const int numRuqolaNewFeatures2_1 = sizeof ruqolaNewFeatures2_1 / sizeof *ruqolaNewFeatures2_1;
