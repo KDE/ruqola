@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 ModerationReportsByUsersJob::ModerationReportsByUsersJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -65,7 +66,16 @@ void ModerationReportsByUsersJob::setModerationReportsByUsersInfo(const Moderati
 
 QNetworkRequest ModerationReportsByUsersJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReportsByUsers);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReportsByUsers);
+
+    QUrlQuery queryUrl;
+    if (mModerationReportsByUsersInfo.isValid()) {
+        queryUrl.addQueryItem(QStringLiteral("oldest"), mModerationReportsByUsersInfo.mOldest.toString(Qt::ISODate));
+        queryUrl.addQueryItem(QStringLiteral("latest"), mModerationReportsByUsersInfo.mLatest.toString(Qt::ISODate));
+    }
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
