@@ -134,7 +134,7 @@ QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionTyp
         return {};
     case WhatsNewComboBoxWidget::VersionType::Version2_0:
     case WhatsNewComboBoxWidget::VersionType::Version2_1:
-        return QStringLiteral("--- %1 ---<br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
+        return QStringLiteral("<br><u><i> %1 </i></u><hr/><br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
     }
     return {};
 }
