@@ -16,5 +16,5 @@ ModerationMessagesModel::~ModerationMessagesModel() = default;
 QVector<Message> ModerationMessagesModel::extractMessages(const QJsonObject &obj)
 {
     // TODO
-    return {};
+    return CommonMessagesModel::extractMessages(obj);
 }
