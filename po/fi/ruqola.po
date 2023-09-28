@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 02:29+0000\n"
+"POT-Creation-Date: 2023-09-28 02:28+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -4657,8 +4657,9 @@ msgid "Grouping Period (in seconds)"
 msgstr "Ryhmittelyjakso (sekunteina)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, kde-format
-msgid "Direct Messsage Maximum Users"
+#, fuzzy, kde-format
+#| msgid "Direct Messsage Maximum Users"
+msgid "Direct Message Maximum Users"
 msgstr "Suoraviestin tunnusten enimmäismäärä"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
@@ -8505,9 +8506,11 @@ msgid "Main Toolbar"
 msgstr "Päätyökalurivi"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Error Informations"
 msgctxt "@title:window"
-msgid "Server Error Informations"
+msgid "Server Error Information"
 msgstr "Palvelinvirheen tiedot"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21

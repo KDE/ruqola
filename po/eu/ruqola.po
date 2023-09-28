@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 02:29+0000\n"
+"POT-Creation-Date: 2023-09-28 02:28+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -4691,7 +4691,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Direct Message Email Subject"
-msgid "Direct Messsage Maximum Users"
+msgid "Direct Message Maximum Users"
 msgstr "Mezu zuzeneko e-postaren gaia"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
@@ -8549,7 +8549,7 @@ msgstr "Tresna-barra nagusia"
 #, fuzzy, kde-format
 #| msgid "Errors and Information"
 msgctxt "@title:window"
-msgid "Server Error Informations"
+msgid "Server Error Information"
 msgstr "Erroreak eta informazioa"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
