@@ -16,6 +16,7 @@ SearchWithDelayLineEdit::SearchWithDelayLineEdit(QWidget *parent)
     setPlaceholderText(i18n("Search Word..."));
     connect(mSearchTimer, &QTimer::timeout, this, &SearchWithDelayLineEdit::slotSearchTimerFired);
     connect(this, &SearchWithDelayLineEdit::textChanged, this, &SearchWithDelayLineEdit::slotSearchTextEdited);
+    connect(this, &SearchWithDelayLineEdit::returnPressed, this, &SearchWithDelayLineEdit::slotSearchTimerFired);
 }
 
 SearchWithDelayLineEdit::~SearchWithDelayLineEdit() = default;
