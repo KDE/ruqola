@@ -68,6 +68,7 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     RocketChatRestApi::ModerationReportsByUsersJob::ModerationReportsByUsersInfo info;
     info.mOldest = mModerationRanges.fromDate;
     info.mLatest = mModerationRanges.toDate;
+    info.mSelector = searchName;
     RocketChatRestApi::QueryParameters parameters;
     //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     //    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -78,9 +79,6 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     if (count != -1) {
         parameters.setCount(count);
     }
-    // if (!searchName.isEmpty()) {
-    //     parameters.setFilter(searchName);
-    // }
 
     job->setQueryParameters(parameters);
     if (info.isValid()) {

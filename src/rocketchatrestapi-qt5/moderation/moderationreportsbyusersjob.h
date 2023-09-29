@@ -19,6 +19,7 @@ public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT ModerationReportsByUsersInfo {
         QDateTime mLatest;
         QDateTime mOldest;
+        QString mSelector;
         [[nodiscard]] bool isValid() const
         {
             return mLatest.isValid() && mOldest.isValid();
