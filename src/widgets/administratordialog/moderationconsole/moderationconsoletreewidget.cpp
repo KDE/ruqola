@@ -12,7 +12,9 @@
 #include "model/moderationmessagesmodel.h"
 #include "model/moderationmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
+#include "moderation/moderationdismissreportsjob.h"
 #include "moderation/moderationreportsbyusersjob.h"
+#include "moderation/moderationuserdeletereportedmessagesjob.h"
 #include "moderation/moderationuserreportedmessagesjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -44,7 +46,7 @@ ModerationConsoleTreeWidget::~ModerationConsoleTreeWidget() = default;
 void ModerationConsoleTreeWidget::setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range)
 {
     mModerationRanges = range;
-    qDebug() << " range " << range;
+    // qDebug() << " range " << range;
 }
 
 void ModerationConsoleTreeWidget::updateLabel()
@@ -96,13 +98,6 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     }
 }
 
-#if 0
-void ModerationConsoleTreeWidget::slotDeviceRemoved(const QString &emojiId)
-{
-    mModel->removeElement(emojiId);
-}
-#endif
-
 void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
@@ -125,8 +120,8 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
         menu.addSeparator();
 
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Dismiss reports"), this, [this, newModelIndex]() {
-            // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
-            // slotDisconnectDevice(modelIndex);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+            slotDismissReport(modelIndex);
         });
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
             // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
@@ -152,7 +147,16 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
-        // TODO
+        auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
+        job->setUserIdForMessages(modelIndex.data().toString());
+        connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationUserDeleteReportedMessagesDone, this, [this]() {
+            qDebug() << " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationDismissReportsJob job";
+        }
     }
 }
 

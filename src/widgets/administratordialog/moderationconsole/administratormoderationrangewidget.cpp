@@ -58,8 +58,7 @@ AdministratorModerationRangeWidget::DateTimeRange AdministratorModerationRangeWi
 
 void AdministratorModerationRangeWidget::slotRangeChanged()
 {
-    // TODO use delay
-    // TODO
+    // TODO check range
     Q_EMIT rangeChanged();
 }
 
