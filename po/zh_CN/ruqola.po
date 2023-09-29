@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 00:42+0000\n"
+"POT-Creation-Date: 2023-09-29 00:42+0000\n"
 "PO-Revision-Date: 2023-09-16 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2590,10 +2590,9 @@ msgid "Delete All Messages"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
-#: widgets/dialogs/searchmessagedialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
-msgid "Search Messages"
+msgid "Show Moderation Messages"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
@@ -6592,6 +6591,12 @@ msgstr ""
 msgid "Select Room Avatar"
 msgstr ""
 
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr ""
+
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
@@ -8630,69 +8635,74 @@ msgstr ""
 msgid "What's new in Ruqola. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:120
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:12
+#: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:21
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:22
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:23
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Allow to Copy Image in Clipboard"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:24
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:25
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:26
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Show leader/moderator/owner in channel info."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:29
 msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:30
 msgid "Import/Export Accounts."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:35
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:36
+#: widgets/whatsnew/whatsnewwidgettranslation.h:38
 msgid "Fix animated gif in reactions"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:37
+#: widgets/whatsnew/whatsnewwidgettranslation.h:39
 msgid "Fix kf6 support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:46
+msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr ""

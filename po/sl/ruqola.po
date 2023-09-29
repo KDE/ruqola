@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 00:42+0000\n"
+"POT-Creation-Date: 2023-09-29 00:42+0000\n"
 "PO-Revision-Date: 2023-09-25 11:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2631,11 +2631,12 @@ msgid "Delete All Messages"
 msgstr "Izbriši vsa sporočila"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
-#: widgets/dialogs/searchmessagedialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Mentions Messages - %1"
 msgctxt "@title:window"
-msgid "Search Messages"
-msgstr "Išči sporočila"
+msgid "Show Moderation Messages"
+msgstr "Pokaži sporočila z omembami - %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -6807,6 +6808,12 @@ msgstr "Slika"
 msgid "Select Room Avatar"
 msgstr "Izberite avatar sobe"
 
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr "Išči sporočila"
+
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
@@ -8916,73 +8923,78 @@ msgstr "(Pokaži novice v aplikaciji Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Kaj je novega v aplikaciji Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Pomembne spremembe od zadnje različice:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:120
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:12
+#: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
 msgstr "Shrani sporočilo v lokalni zbirki (eksperimentalno)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:21
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
 msgstr "Prenesi ikono strežnika iz strežnika"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:22
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Prikaži informacijo on napaki na strežniku v pogovornem oknu"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:23
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Dovoli kopiranje slike na odložišče"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:24
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Izboljšaj podporo razhroščevanju (Dovoli prikaz trenutnih dovoljenj računa)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:25
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Dodaj podporo za besedilo v navednicah (besedilo, ki se začne z '>')"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:26
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Pokaži vodjo/moderatorja/lastnika v informaciji o kanalu."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:29
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Podpora video/zvočnim sporočilom (samo Kf6)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:30
 msgid "Import/Export Accounts."
 msgstr "Uvozi/Izvozi račune."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
 msgstr "Popravi podporo za avatar"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:35
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "Popravi podporo čustvenčkom (uporabi novo ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:36
+#: widgets/whatsnew/whatsnewwidgettranslation.h:38
 msgid "Fix animated gif in reactions"
 msgstr "Zamrzni animirane gife v odzivih"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:37
+#: widgets/whatsnew/whatsnewwidgettranslation.h:39
 msgid "Fix kf6 support"
 msgstr "Popravi podporo kf6"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:46
+msgid "Add Moderation Console (Administration, RC server 6.2)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Deli"

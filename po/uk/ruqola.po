@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 00:42+0000\n"
-"PO-Revision-Date: 2023-09-25 09:06+0300\n"
+"POT-Creation-Date: 2023-09-29 00:42+0000\n"
+"PO-Revision-Date: 2023-09-28 08:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2647,11 +2647,12 @@ msgid "Delete All Messages"
 msgstr "Вилучення усіх повідомлень"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
-#: widgets/dialogs/searchmessagedialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Mentions Messages - %1"
 msgctxt "@title:window"
-msgid "Search Messages"
-msgstr "Пошук повідомлень"
+msgid "Show Moderation Messages"
+msgstr "Показ повідомлень зі згадками – %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -6869,6 +6870,12 @@ msgstr "Зображення"
 msgid "Select Room Avatar"
 msgstr "Виберіть аватар кімнати"
 
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr "Пошук повідомлень"
+
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
@@ -8963,10 +8970,9 @@ msgid "Version 2.0"
 msgstr "Версія 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.1"
-msgstr "Версія 2.0"
+msgstr "Версія 2.1"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -8984,76 +8990,81 @@ msgstr "(Показати новини щодо Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Що нового у Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важливі зміни з часу випуску попередньої версії:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:120
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:12
+#: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
 msgstr ""
 "Зберігати повідомлення у локальній базі даних (експериментальна можливість)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:21
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
 msgstr "Отримувати піктограму сервера з сервера"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:22
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Показувати дані помилки сервера у відповідному вікні"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:23
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Дозволити копіювання зображення до буфера"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:24
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Удосконалено підтримку діагностики (уможливлено показ поточних права доступу "
 "облікового запису)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:25
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:26
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Показувати лідера, модератора та власника у даних каналу."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:29
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:30
 msgid "Import/Export Accounts."
 msgstr "Імпортувати/Експортувати облікові записи."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
 msgstr "Виправлено підтримку аватарів"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:35
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:36
+#: widgets/whatsnew/whatsnewwidgettranslation.h:38
 msgid "Fix animated gif in reactions"
 msgstr "Виправлено анімований gif у реакціях"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:37
+#: widgets/whatsnew/whatsnewwidgettranslation.h:39
 msgid "Fix kf6 support"
 msgstr "Виправлено підтримку kf6"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:46
+msgid "Add Moderation Console (Administration, RC server 6.2)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Оприлюднити"

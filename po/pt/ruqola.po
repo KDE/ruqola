@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 00:42+0000\n"
+"POT-Creation-Date: 2023-09-29 00:42+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -2669,11 +2669,12 @@ msgid "Delete All Messages"
 msgstr "Apagar Todas as Mensagens"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
-#: widgets/dialogs/searchmessagedialog.cpp:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Mentions Messages - %1"
 msgctxt "@title:window"
-msgid "Search Messages"
-msgstr "Procurar por Mensagens"
+msgid "Show Moderation Messages"
+msgstr "Mostrar as Mensagens de Menção - %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -6874,6 +6875,12 @@ msgstr "Imagem"
 msgid "Select Room Avatar"
 msgstr "Seleccionar o Avatar da Sala"
 
+#: widgets/dialogs/searchmessagedialog.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Search Messages"
+msgstr "Procurar por Mensagens"
+
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
@@ -8984,78 +8991,83 @@ msgstr "(Mostrar as Notícias no Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Novidades no Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:80
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificações importantes desde a última versão:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:88
+#: widgets/whatsnew/whatsnewwidget.cpp:98
+#: widgets/whatsnew/whatsnewwidget.cpp:120
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:106
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:12
+#: widgets/whatsnew/whatsnewwidgettranslation.h:14
 #, fuzzy
 #| msgid "Store Message in Local Database"
 msgid "Store Message in Local Database (experimental)"
 msgstr "Guardar a Mensagem na Base de Dados Local"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:21
+#: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
 msgstr "Obter o Ícone do Servidor"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:22
+#: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "Mostrar os Dados do Erro do Servidor numa Janela Específica"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:23
+#: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Permitir Copiar a Imagem para a Área de Transferência"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:24
+#: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Melhorar o suporte de depuração (Permitir mostrar as permissões actuais da "
 "conta)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:25
+#: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "Adição do suporte para texto citado (texto que começa por '>')"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:26
+#: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Show leader/moderator/owner in channel info."
 msgstr "Mostrar o líder/moderador/dono nos dados do canal."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:27
+#: widgets/whatsnew/whatsnewwidgettranslation.h:29
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "Suporte para Mensagens de Vídeo/Áudio (apenas no KF6)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:28
+#: widgets/whatsnew/whatsnewwidgettranslation.h:30
 msgid "Import/Export Accounts."
 msgstr "Importar/Exportar as Contas."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:34
+#: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
 msgstr "Correcção do suporte de avatares"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:35
+#: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
 "Correcção do suporte para emoji's (uso do novo módulo ktextaddons/"
 "textemoticons)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:36
+#: widgets/whatsnew/whatsnewwidgettranslation.h:38
 msgid "Fix animated gif in reactions"
 msgstr "Correcção dos GIF's animados nas reacções"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:37
+#: widgets/whatsnew/whatsnewwidgettranslation.h:39
 msgid "Fix kf6 support"
 msgstr "Correcção do suporte para as KF6"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:46
+msgid "Add Moderation Console (Administration, RC server 6.2)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Partilhar"
