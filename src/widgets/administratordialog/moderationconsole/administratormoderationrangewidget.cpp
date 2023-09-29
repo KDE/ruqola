@@ -131,4 +131,11 @@ void AdministratorModerationRangeWidget::initializeMenu()
     mFilterDate->setMenu(menu);
 }
 
+QDebug operator<<(QDebug d, const AdministratorModerationRangeWidget::DateTimeRange &t)
+{
+    d << "fromDate : " << t.fromDate;
+    d << "toDate : " << t.toDate;
+    return d;
+}
+
 #include "moc_administratormoderationrangewidget.cpp"

@@ -6,6 +6,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDateTime>
+#include <QDebug>
 #include <QWidget>
 class ModerationConsoleTreeWidget;
 class QDateEdit;
@@ -33,3 +34,4 @@ private:
     QDateEdit *const mToDate;
     QToolButton *const mFilterDate;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorModerationRangeWidget::DateTimeRange &t);

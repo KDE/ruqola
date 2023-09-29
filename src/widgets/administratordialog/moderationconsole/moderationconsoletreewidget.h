@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "administratormoderationrangewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 class QWidget;
@@ -17,6 +18,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationConsoleTreeWidget : public SearchT
 public:
     explicit ModerationConsoleTreeWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationConsoleTreeWidget() override;
+
+    void setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range);
 
 protected:
     void updateLabel() override;

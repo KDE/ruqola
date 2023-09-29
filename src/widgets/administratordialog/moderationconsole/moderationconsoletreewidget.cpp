@@ -41,6 +41,12 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
 
 ModerationConsoleTreeWidget::~ModerationConsoleTreeWidget() = default;
 
+void ModerationConsoleTreeWidget::setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range)
+{
+    qDebug() << " range " << range;
+    // TODO
+}
+
 void ModerationConsoleTreeWidget::updateLabel()
 {
     mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No moderation message found") : displayShowMessage());
