@@ -79,9 +79,9 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     if (count != -1) {
         parameters.setCount(count);
     }
-    if (!searchName.isEmpty()) {
-        parameters.setFilter(searchName);
-    }
+    // if (!searchName.isEmpty()) {
+    //     parameters.setFilter(searchName);
+    // }
 
     job->setQueryParameters(parameters);
     if (info.isValid()) {
