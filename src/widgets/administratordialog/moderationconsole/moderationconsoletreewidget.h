@@ -31,6 +31,7 @@ private:
     void slotDismissReport(const QModelIndex &index);
     void slotDeleteAllMessages(const QModelIndex &index);
     [[nodiscard]] QString displayShowMessage() const;
+    AdministratorModerationRangeWidget::DateTimeRange mModerationRanges;
     ModerationMessagesModel *const mCommonMessagesModel;
     CommonMessageFilterProxyModel *mCommonMessageFilterProxyModel = nullptr;
 };

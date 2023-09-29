@@ -43,6 +43,7 @@ ModerationConsoleTreeWidget::~ModerationConsoleTreeWidget() = default;
 
 void ModerationConsoleTreeWidget::setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range)
 {
+    mModerationRanges = range;
     qDebug() << " range " << range;
     // TODO
 }
@@ -65,6 +66,9 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
 {
     auto job = new RocketChatRestApi::ModerationReportsByUsersJob(this);
 
+    RocketChatRestApi::ModerationReportsByUsersJob::ModerationReportsByUsersInfo info;
+    info.mOldest = mModerationRanges.fromDate;
+    info.mLatest = mModerationRanges.toDate;
     RocketChatRestApi::QueryParameters parameters;
     //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     //    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -80,7 +84,9 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     }
 
     job->setQueryParameters(parameters);
-    // job->setModerationReportsByUsersInfo()
+    if (info.isValid()) {
+        job->setModerationReportsByUsersInfo(info);
+    }
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
