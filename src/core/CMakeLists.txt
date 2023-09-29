@@ -558,7 +558,7 @@ target_link_libraries(libruqolacore
     KF${KF_MAJOR_VERSION}::I18n
     KF${KF_MAJOR_VERSION}::Notifications
     KF${KF_MAJOR_VERSION}::SyntaxHighlighting
-    librocketchatrestapi-qt5
+    librocketchatrestapi-qt
     KF${KF_MAJOR_VERSION}::ConfigGui
     KF${KF_MAJOR_VERSION}::ConfigWidgets
     KF${KF_MAJOR_VERSION}::IdleTime

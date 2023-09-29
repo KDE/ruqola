@@ -7,7 +7,7 @@ add_executable(ruqola main.cpp)
 target_link_libraries(ruqola
     libruqolacore
     libruqolawidgets
-    librocketchatrestapi-qt5
+    librocketchatrestapi-qt
     KF${KF_MAJOR_VERSION}::Crash
     KF${KF_MAJOR_VERSION}::XmlGui
 )
