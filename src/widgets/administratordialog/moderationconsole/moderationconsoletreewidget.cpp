@@ -74,6 +74,7 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     }
 
     job->setQueryParameters(parameters);
+    // job->setModerationReportsByUsersInfo()
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {

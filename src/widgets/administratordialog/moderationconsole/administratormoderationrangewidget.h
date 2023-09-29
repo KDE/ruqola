@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QDateTime>
 #include <QWidget>
 class ModerationConsoleTreeWidget;
 class QDateEdit;
@@ -13,14 +14,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationRangeWidget : public 
 {
     Q_OBJECT
 public:
-    struct DateRange {
-        int fromDate = -1;
-        int toDate = -1;
+    struct DateTimeRange {
+        QDateTime fromDate;
+        QDateTime toDate;
     };
     explicit AdministratorModerationRangeWidget(QWidget *parent = nullptr);
     ~AdministratorModerationRangeWidget() override;
 
-    [[nodiscard]] DateRange range() const;
+    [[nodiscard]] DateTimeRange range() const;
 
 Q_SIGNALS:
     void rangeChanged();

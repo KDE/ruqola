@@ -27,6 +27,9 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
 
     mModerationConsoleTreeWidget->setObjectName(QStringLiteral("mModerationConsoleTreeWidget"));
     mainLayout->addWidget(mModerationConsoleTreeWidget);
+    connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::rangeChanged, this, [this]() {
+        // mAdministratorModerationRangeWidget->range()
+    });
 }
 
 AdministratorModerationConsoleWidget::~AdministratorModerationConsoleWidget() = default;

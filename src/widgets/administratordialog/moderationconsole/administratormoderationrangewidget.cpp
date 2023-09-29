@@ -47,11 +47,11 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
 
 AdministratorModerationRangeWidget::~AdministratorModerationRangeWidget() = default;
 
-AdministratorModerationRangeWidget::DateRange AdministratorModerationRangeWidget::range() const
+AdministratorModerationRangeWidget::DateTimeRange AdministratorModerationRangeWidget::range() const
 {
-    AdministratorModerationRangeWidget::DateRange r;
-    r.fromDate = mFromDate->date().toJulianDay();
-    r.toDate = mToDate->date().toJulianDay();
+    AdministratorModerationRangeWidget::DateTimeRange r;
+    r.fromDate = QDateTime(mFromDate->date(), QTime(0, 0, 0));
+    r.toDate = QDateTime(mToDate->date(), QTime(23, 59, 59));
     return r;
 }
 
