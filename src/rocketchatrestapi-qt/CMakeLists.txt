@@ -473,7 +473,7 @@ if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(librocketchatrestapi-qt PROPERTIES UNITY_BUILD ON)
 endif()
 set_target_properties(librocketchatrestapi-qt
-    PROPERTIES OUTPUT_NAME rocketchatrestapi-qt5 VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
+    PROPERTIES OUTPUT_NAME rocketchatrestapi-qt VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
 )
 
 if (BUILD_TESTING)
