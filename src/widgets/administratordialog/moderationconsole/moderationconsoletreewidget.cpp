@@ -45,7 +45,6 @@ void ModerationConsoleTreeWidget::setModerationRanges(const AdministratorModerat
 {
     mModerationRanges = range;
     qDebug() << " range " << range;
-    // TODO
 }
 
 void ModerationConsoleTreeWidget::updateLabel()
