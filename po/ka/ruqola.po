@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 00:42+0000\n"
-"PO-Revision-Date: 2023-09-26 05:26+0200\n"
+"POT-Creation-Date: 2023-09-30 00:43+0000\n"
+"PO-Revision-Date: 2023-09-29 04:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1482,269 +1482,269 @@ msgstr ""
 "<qt>ახალი მოთხოვნის პოვნა შეგიძლიათ მისამართზე:<br /><a href='%1'>%1</a> </"
 "qt>"
 
-#: rocketchatrestapi-qt5/autotranslate/getsupportedlanguagesjob.cpp:88
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:88
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "არასწორი პარამეტრები"
 
-#: rocketchatrestapi-qt5/channels/channeljoinjob.cpp:107
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr "აუცილებელი მოწოდებული პარამეტრი '%1' არც ერთ არხს არ ემთხვევა"
 
-#: rocketchatrestapi-qt5/channels/channeljoinjob.cpp:109
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
 #, kde-format
 msgid "The room required a password."
 msgstr "ოთახი პაროლს საჭიროებს."
 
-#: rocketchatrestapi-qt5/channels/channelmembersjob.cpp:49
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "ამ ოთახში არაავტორიზებული წევრების მიღება"
 
-#: rocketchatrestapi-qt5/channels/channelopenjob.cpp:78
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
 #, kde-format
 msgid "The required channel is not found."
 msgstr "საჭირო არხი ვერ მოიძებნა."
 
-#: rocketchatrestapi-qt5/channels/channelremovemoderatorjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
 #, kde-format
 msgid "User is not a moderator."
 msgstr "მომხმარებელი მოდერატორი არაა."
 
-#: rocketchatrestapi-qt5/channels/channelremoveownerjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:101
 #, kde-format
 msgid "User is not an owner."
 msgstr "მომხმარებელი მფლობელი არაა."
 
-#: rocketchatrestapi-qt5/channels/createchanneljob.cpp:61
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "სესია სახელით %1 არსებობს"
 
-#: rocketchatrestapi-qt5/channels/createchanneljob.cpp:63
-#: rocketchatrestapi-qt5/rooms/saveroomsettingsjob.cpp:63
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:63
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "'%1' ოთახის სწორი სახელი არაა"
 
-#: rocketchatrestapi-qt5/channels/getchannelrolesjob.cpp:79
-#: rocketchatrestapi-qt5/groups/getgrouprolesjob.cpp:66
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:79
+#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
 #, kde-format
 msgid "Extract Roles"
 msgstr "როლების გამოტანა"
 
-#: rocketchatrestapi-qt5/chat/deletemessagejob.cpp:115
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:115
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "შეტყობინებების წაშლა დაშვებული არაა."
 
-#: rocketchatrestapi-qt5/chat/getthreadmessagesjob.cpp:92
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:92
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "არასწორი შეტყობინება: \"%1\""
 
-#: rocketchatrestapi-qt5/chat/postmessagejob.cpp:111
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:111
 #, kde-format
 msgid "This room is blocked"
 msgstr "ეს ოთახი დაბლოკილია"
 
-#: rocketchatrestapi-qt5/chat/postmessagejob.cpp:113
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:113
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "თქვენ დაგადუმეს და ამ ოთახში ვერ ილაპარაკებთ"
 
-#: rocketchatrestapi-qt5/chat/reactonmessagejob.cpp:123
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:123
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "მიწოდებული ემოჯი არასწორია."
 
-#: rocketchatrestapi-qt5/emoji/emojicustomcreatejob.cpp:37
-#: rocketchatrestapi-qt5/emoji/emojicustomupdatejob.cpp:38
-#: rocketchatrestapi-qt5/uploadfilejob.cpp:54
-#: rocketchatrestapi-qt5/users/setavatarjob.cpp:41
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:37
+#: rocketchatrestapi-qt/emoji/emojicustomupdatejob.cpp:38
+#: rocketchatrestapi-qt/uploadfilejob.cpp:54
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:41
 #, kde-format
 msgid "File not found '%1'"
 msgstr "ფაილი ვერ ვიპოვე: \"%1\""
 
-#: rocketchatrestapi-qt5/emoji/emojicustomcreatejob.cpp:139
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:139
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr "ჩასმული ემოჯი ან მისი მეტსახელები უკვე გამოიყენება."
 
-#: rocketchatrestapi-qt5/groups/groupremoveownerjob.cpp:46
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:382
+#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr "ეს ბოლო მფლობელია. ამის წაშლამდე საჭიროა სხვა მფლობელის დაყენება."
 
-#: rocketchatrestapi-qt5/invite/findorcreateinvitejob.cpp:137
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:137
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "ამ არხზე ბმულების შექმნა ავტორიზებული არაა."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:208
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:208
 #, kde-format
 msgid "Unauthorized"
 msgstr "ავტორიზაციის გარეშე"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:222
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:222
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:229
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:229
 #, kde-format
 msgid "__action__ is not allowed"
 msgstr "__ქმედება__ დაშვებული არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:231
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:231
 #, kde-format
 msgid "Application not found"
 msgstr "აპლიკაცია არ არსებობს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:233
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:233
 #, kde-format
 msgid "There's an archived channel with name '__room_name__'"
 msgstr "არსებობს დაარქივებული არხი სახელით '__room_name__'"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:235
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:235
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "პირდაპირ ოთახებში მომხმარებელს ვერ მოიწვევთ"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:237
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:237
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr "არხის ნაგულისხმები პარამეტრი იგივეა, რაზეც შეცვლას აპირებდით."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:239
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "BodyParam 'default' -ის მითითება აუცილებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:241
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "Could not change email"
 msgstr "ელფოსტის შეცვლა შეუძლებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
 #, kde-format
 msgid "Could not change name"
 msgstr "სახელის შეცვლა შეუძლებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:245
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:245
 #, kde-format
 msgid "Could not change username"
 msgstr "მომხმარებლის შეცვლა შეუძლებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:247
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:247
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "დაცული როლის წაშლის შეცდომა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:249
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:249
 #, kde-format
 msgid "Department not found"
 msgstr "განყოფილება არ არსებობს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:251
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "პირდაპირ შეტყობინებებში ფაილების გაზიარება დაშვებული არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:253
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
 #, kde-format
 msgid "A channel with name '__channel_name__' exists"
 msgstr "არხი სახელით '__channel_name__' უკვე არსებობს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "წვდომების ჩასწორება აკრძალულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "ელფოსტის დომენი შავ სიაშია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:259
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "Error trying to send email: __message__"
 msgstr "შეცდომა ელფოსტის გაგზავნისას: __message__"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:261
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:261
 #, kde-format
 msgid "<strong>__field__</strong> is already in use :("
 msgstr "<strong>__ველი__</strong> უკვე გამოიყენება :("
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:263
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
 #, kde-format
 msgid "File is too large"
 msgstr "ფაილი ძალიან დიდია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:265
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "შემომტანი არასწორადაა აღწერილი ან შემოტანის კლასი აკლია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "შემოტანილი ფაილის გაშლის შეცდომა."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:269
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "როგორც ჩანს, შემოტანილი ფაილი ცარიელია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:271
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "შემოსატანი ფაილი მითითებულ ბილიკზე აღმოჩენილი არაა."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:273
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
 #, kde-format
 msgid "__input__ is not a valid __field__"
 msgstr "__input__ is not a valid __field__"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:275
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
 #, kde-format
 msgid "Invalid action link"
 msgstr "არასწორი ქმედების ბმული"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:277
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "Invalid Account"
 msgstr "არასწორი ანგარიში"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:279
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 #, kde-format
 msgid "Invalid arguments"
 msgstr "არასწორი არგუმენტები"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:281
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 #, kde-format
 msgid "Invalid asset"
 msgstr "არასწორი აქტივი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:283
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Invalid channel."
 msgstr "არასწორი არხი."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:285
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "არასწორი არხი. დაიწყეთ @-ით ან #-ით"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:287
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
 #, kde-format
 msgid "Invalid custom field"
 msgstr "არასწორი მორგებული ველი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:289
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -1753,189 +1753,189 @@ msgstr ""
 "ხელით მითითებული ველის არასწორი სახელი. შეგიძლიათ გამოიყენოთ მხოლოდ ასოები, "
 "ციფრები, გამოტოვება და ქვედა ხაზები."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:291
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 #, kde-format
 msgid "Invalid date provided."
 msgstr "მითითებული თარიღი არასწორია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:293
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 #, kde-format
 msgid "Invalid description"
 msgstr "არასწორი აღწერა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:295
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 #, kde-format
 msgid "Invalid domain"
 msgstr "დომენის არასწორი სახელი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:297
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 #, kde-format
 msgid "Invalid email __email__"
 msgstr "არასწორი ელფოსტა __email__"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:299
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 #, kde-format
 msgid "Invalid email address"
 msgstr "ელ-ფოსტის არასწორი მისამართი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:301
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 #, kde-format
 msgid "Invalid file height"
 msgstr "ფალის არასწორი სიმაღ₾ე"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:303
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 #, kde-format
 msgid "Invalid file type"
 msgstr "ფაილის არასწორი ტიპი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:305
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 #, kde-format
 msgid "Invalid file width"
 msgstr "ფაილის არასწორი სიგანე"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:307
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "თქვენი შეყვანილი FROM მისამართი არასწორია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, kde-format
 msgid "Invalid integration"
 msgstr "არასწორი ინტეგრაცია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid message"
 msgstr "არასწორი შეტყობინება"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
 msgid "Invalid method"
 msgstr "არასწორი მეთოდი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 #, kde-format
 msgid "Invalid name"
 msgstr "არასწორი სახელი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 #, kde-format
 msgid "Invalid password"
 msgstr "არასწორი პაროლი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid permission"
 msgstr "არასწორი წვდომა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr "არასწორი redirectUri"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid role"
 msgstr "არასწორი როლი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:325
-#: rocketchatrestapi-qt5/rooms/roomstartdiscussionjob.cpp:154
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:154
 #, kde-format
 msgid "Invalid room"
 msgstr "არასწორი ოთახი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "<strong>__room_name__</strong> is not a valid room name"
 msgstr "<strong>__room_name__</strong> ოთახის არასწორი სახელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid "<strong>__type__</strong> is not a valid room type."
 msgstr "<strong>__type__</strong> ოთახის არასწორი ტიპია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:331
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "მითითებული პარამეტრები არასწორია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid subscription"
 msgstr "არასწორი გამოწერა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid token"
 msgstr "არასწორი კოდი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:337
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr "არასწორი ტრიგერის სიტყვები"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 #, kde-format
 msgid "Invalid URLs"
 msgstr "არასწორი URL-ები"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:341
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 #, kde-format
 msgid "Invalid user"
 msgstr "არასწორი მომხმარებელი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:343
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 #, kde-format
 msgid "Invalid username"
 msgstr "არასწორი მომხმარებელი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:345
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr "ვებ-გადამჭერის URL-ის პასუხი 200 არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "შეტყობინებების წაშლა აკრძალულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "შეტყობინებების ჩასწორება აკრძალულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "შეტყობინების ზომა Message_MaxAllowedSize-ს აღემატება"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "[unsubscribe] ბმულის მიწოდება აუცილებელია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "ამ მომხმარებლისთვის კოდები არ არსებობს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 #, kde-format
 msgid "Not allowed"
 msgstr "დაუშვებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:359
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 #, kde-format
 msgid "Not authorized"
 msgstr "საჭიროა ავტორიზაცია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "პაროლი სერვერის პოლიტიკაში არ ჯდება"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
@@ -1944,7 +1944,7 @@ msgstr ""
 "პაროლი არ აკმაყოფილებს სერვერის მაქსიმალური სიგრძის პოლიტიკას (პაროლი ძალიან "
 "გრძელია)"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:367
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -1953,7 +1953,7 @@ msgstr ""
 "პაროლი არ აკმაყოფილებს სერვერის მინიმალური სიგრძის პოლიტიკას (პაროლი ძალიან "
 "მოკლეა)"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
@@ -1962,14 +1962,14 @@ msgstr ""
 "პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთი დაბალი რეგისტრის მქონე "
 "სიმბოლოს მაინც შეიცავდეს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:371
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთ ციფრს მაინც შეიცავდეს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:373
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:373
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
@@ -1977,7 +1977,7 @@ msgstr ""
 "პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთ სპეციალურ სიმბოლოს მაინც "
 "შეიცავდეს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:375
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:375
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
@@ -1986,7 +1986,7 @@ msgstr ""
 "პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთი დაბალი რეგისტრის მქონე "
 "სიმბოლოს მაინც შეიცავდეს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:378
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -1995,52 +1995,52 @@ msgstr ""
 "პაროლი არ ჯდება სერვერის გამეორებადი სიმბოლოების პოლიტიკაში (ძალიან ბევრ "
 "ერთნაირი სიმბოლო ახლომახლოს)"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:380
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Push is disabled"
 msgstr "პუში გატიშულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:384
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "როლს ვერ წაშლით. ის გამოიყენება"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:386
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
 #, kde-format
 msgid "Role name is required"
 msgstr "როლის სახელი აუცილებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:388
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #, kde-format
 msgid "Room is not closed"
 msgstr "ოთახის დახურული არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:390
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #, kde-format
 msgid "The field __field__ is required."
 msgstr "ველი __field__ აუცილებელია."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:392
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "ეს Livechat-ის ოთახი არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "პირადი წვდომის კოდები ამჟამად გათიშულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:396
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "კოდი ამ სახელით უკვე არსებობს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:398
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
 #, kde-format
 msgid "Token does not exists"
 msgstr "კოდი არ არსებობს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:400
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait __seconds__ "
@@ -2049,17 +2049,17 @@ msgstr ""
 "შეცდომა. მეტისმეტად ბევრი მოთხოვნა. ცოტა დაწყნარდით. ახალი მოთხოვნების "
 "გასაგზავნად საჭიროა __seconds__ წამი მოითმინოთ."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:402
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
 #, kde-format
 msgid "User has no roles"
 msgstr "მომხმარებელს როლები არ გააჩნია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:404
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
 msgid "User is not activated"
 msgstr "მომხმარებელი არ არის აქტიური"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:406
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2068,89 +2068,89 @@ msgstr ""
 "მომხმარებლების რაოდენობა, რომელსაც ცდილობთ, ამ არხზე #channel_name მოიწვიოთ, "
 "ადმინისტრატორის მიერ დაყენებულ ლიმიტს ცდება"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:408
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
 #, kde-format
 msgid "User is not in this room"
 msgstr "მომხმარებელი ამ ოთახში არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:410
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "თქვენ ოთახში '%s' არ იმყოფებით"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:412
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
 #, kde-format
 msgid "User registration is disabled"
 msgstr "მომხმარებლის რეგისტრაცია გამორთულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:414
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "მომხმარებლის რეგისტრაცია მხოლოდ საიდუმლო ბმულითაა დაშვებული"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:416
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "თქვენ ბოლო მფლობელი ბრძანდებით. ოთახიდან გასვლამდე საჭიროა, ახალი მფლობელი "
 "დააყენოთ."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:418
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
 msgid "The private group is archived"
 msgstr "პირადი ჯგუფი დაარქივებულია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
 #, kde-format
 msgid "User is already an owner"
 msgstr "მომხმარებელი უკვე მფლობელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
 msgid "User is already a leader"
 msgstr "მომხმარებელი უკვე ლიდერია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid "User is already a moderator"
 msgstr "მომხმარებელი უკვე მოდერატორია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "Invalid message id"
 msgstr "არასწორი შეტყობინების ID"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "User is not a leader"
 msgstr "მომხმარებელი ლიდერი არაა"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:430
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "აპის მომხმარებელს შესვლის უფლება არ აქვს"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:432
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:432
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "პირდაპირი შეტყობინებების დაარქივება შეუძლებელია"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:434
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
 #, kde-format
 msgid "Message not found."
 msgstr "შეტყობინება ვერ ვიპოვე."
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:436
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "საჭიროა ორი ავთენტიკაციის პაროლი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:438
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
 #, kde-format
 msgid "Invalid Password"
 msgstr "არასწორი პაროლი"
 
-#: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2159,47 +2159,47 @@ msgstr ""
 "მიწოდებული აუცილებელი \\\"roomId\\\" და \\\"roomName\\\" პარამეტრებიდან არც "
 "ერთ არც ერთ არხს არ ემთხვევა"
 
-#: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
 msgid "This user is not in this role."
 msgstr "ეს მომხმარებელი ამ როლში არაა."
 
-#: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr "ეს ფასიანი ფუნქციაა"
 
-#: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "არასწორი გამოწერა"
 
-#: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:61
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
 msgid "Unread message not authorized."
 msgstr "შეტყობინების წაუკითხავად მონიშვნა დაშვებული არაა."
 
-#: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:63
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:63
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr "წაუკითხავად მოსანიშნი შეტყობინებები არ არსებობს."
 
-#: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:97
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:97
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "არხს გუნდად ვერ გადააკეთბთ."
 
-#: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:99
 #, kde-format
 msgid "Team already exists."
 msgstr "გუნდი უკვე არსებობს."
 
-#: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:112
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "ამ არხის გუნდში დასამატებლად წვდომები არ გაგაჩნიათ"
 
-#: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:93
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2208,42 +2208,42 @@ msgstr ""
 "მიწოდებული აუცილებელი \\\"roomId\\\" და \\\"roomName\\\" პარამეტრებიდან არც "
 "ერთ არც ერთ გუნდს არ ემთხვევა"
 
-#: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:78
 #, kde-format
 msgid "Get Avatar"
 msgstr "ავატარის მიღება"
 
-#: rocketchatrestapi-qt5/users/registeruserjob.cpp:71
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:71
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "არასწორი ელფოსტა '%1'."
 
-#: rocketchatrestapi-qt5/users/setavatarjob.cpp:110
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:110
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "არასწორი ავატარის URL: %1"
 
-#: rocketchatrestapi-qt5/users/setavatarjob.cpp:114
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:114
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "შეცდომა ავატარის პარამეტრის დამუშავებისას URL-დან \"%1\" %2-სთვის"
 
-#: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:137
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "უხილავის სტატუსი გათიშულია"
 
-#: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:93
 #, kde-format
 msgid "%1 is already in use."
 msgstr "%1 უკვე გამოიყენება."
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:143
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:143
 #, kde-format
 msgid "Invalid parameters"
 msgstr "არასწორი პარამეტრები"
 
-#: rocketchatrestapi-qt5/users/usersupdatejob.cpp:64
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:64
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "შეცდომა %1 ელფოსტის გაგზავნისას"
@@ -2542,95 +2542,93 @@ msgstr "საიდან:"
 msgid "To:"
 msgstr "ვის:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:66
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
 #, kde-format
 msgid "Today"
 msgstr "დღეს"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:74
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
 #, kde-format
 msgid "Yesterday"
 msgstr "გუშინ"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:82
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:88
 #, kde-format
 msgid "This week"
 msgstr "ამ კვირაში"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:90
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
 #, kde-format
 msgid "Previous week"
 msgstr "წინა კვირა"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:108
 #, kde-format
 msgid "This month"
 msgstr "ამ თვეში"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:119
 #, kde-format
 msgid "Previous month"
 msgstr "წინა თვე"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:33
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
 #, kde-format
 msgid "Search moderation message..."
 msgstr "მოდერაციის შეტყობინების ძებნა..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:46
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:54
 #, kde-format
 msgid "No moderation message found"
 msgstr "მოდერაციის შეტყობინებების გარეშე"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:51
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 მოდერაციის შეტყობინება (სულ: %2)"
 msgstr[1] "%1 მოდერაციის შეტყობინება (სულ: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:102
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
 #, kde-format
 msgid "See messages"
 msgstr "შეტყობინებების ნახვა"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:117
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:122
 #, kde-format
 msgid "Dismiss reports"
 msgstr "ანგარიშების გაუქმება"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:121
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
 #, kde-format
 msgid "Delete all Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:140
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:152
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:145
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:166
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:146
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "მოცილება"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:153
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:167
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Mentions Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "ხსენების შეტყობინებების ჩვენება - %1"
+msgstr "მოდერაციის შეტყობინებების ჩვენება"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -8742,10 +8740,9 @@ msgid "Version 2.0"
 msgstr "ვერსია 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.1"
-msgstr "ვერსია 2.0"
+msgstr "ვერსია 2.1"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
