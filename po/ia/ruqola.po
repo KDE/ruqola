@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-28 02:28+0000\n"
-"PO-Revision-Date: 2023-09-21 12:05+0200\n"
+"PO-Revision-Date: 2023-09-29 10:04+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -4662,8 +4662,7 @@ msgid "Grouping Period (in seconds)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Messsage Maximum Users"
+#, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Usatores Maxime de message directe"
 
@@ -8512,9 +8511,7 @@ msgid "Main Toolbar"
 msgstr "Barra de instrumento principal"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Information de Error de Servitor"
