@@ -98,6 +98,10 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mCallButton->setObjectName(QStringLiteral("mCallButton"));
     mCallButton->setIcon(QIcon::fromTheme(QStringLiteral("call-start-symbolic")));
     mCallButton->setToolTip(i18n("Call"));
+#ifndef QT_NO_ACCESSIBILITY
+    mCallButton->setAccessibleName(i18n("Call"));
+#endif
+
     buttonLayout->addWidget(mCallButton, 0, Qt::AlignTop);
     connect(mCallButton, &QToolButton::clicked, this, &RoomHeaderWidget::callRequested);
 
@@ -105,6 +109,10 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
     mChannelInfoButton->setToolTip(i18n("Channel's Information"));
+#ifndef QT_NO_ACCESSIBILITY
+    mChannelInfoButton->setAccessibleName(i18n("Channel's Information"));
+#endif
+
     buttonLayout->addWidget(mChannelInfoButton, 0, Qt::AlignTop);
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
@@ -112,6 +120,10 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTeamChannelsButton->setObjectName(QStringLiteral("mTeamChannelsButton"));
     mTeamChannelsButton->setIcon(QIcon::fromTheme(QStringLiteral("irc-channel-active")));
     mTeamChannelsButton->setToolTip(i18n("Team Channels"));
+#ifndef QT_NO_ACCESSIBILITY
+    mListOfUsersButton->setAccessibleName(i18n("Team Channels"));
+#endif
+
     buttonLayout->addWidget(mTeamChannelsButton, 0, Qt::AlignTop);
     connect(mTeamChannelsButton, &QToolButton::clicked, this, &RoomHeaderWidget::teamChannelsRequested);
 
@@ -120,6 +132,10 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mListOfUsersButton->setIcon(QIcon::fromTheme(QStringLiteral("system-users")));
     mListOfUsersButton->setCheckable(true);
     mListOfUsersButton->setToolTip(i18n("Show List of Users"));
+#ifndef QT_NO_ACCESSIBILITY
+    mListOfUsersButton->setAccessibleName(i18n("Show List of Users"));
+#endif
+
     buttonLayout->addWidget(mListOfUsersButton, 0, Qt::AlignTop);
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 
@@ -129,6 +145,9 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mSearchMessageButton->setCheckable(false);
     mSearchMessageButton->setShortcut(Qt::CTRL | Qt::Key_F);
     mSearchMessageButton->setToolTip(i18n("Search Messages..."));
+#ifndef QT_NO_ACCESSIBILITY
+    mSearchMessageButton->setAccessibleName(i18n("Search Messages..."));
+#endif
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
 

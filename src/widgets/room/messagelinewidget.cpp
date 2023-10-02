@@ -59,17 +59,29 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendFileButton->setAutoRaise(true);
     mSendFileButton->setObjectName(QStringLiteral("mSendFileButton"));
     mainLayout->addWidget(mSendFileButton);
+#ifndef QT_NO_ACCESSIBILITY
+    mSendFileButton->setAccessibleName(i18n("Attach File"));
+#endif
+
     mSendFileButton->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
     connect(mSendFileButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
     mVideoMessageButton->setAutoRaise(true);
     mVideoMessageButton->setObjectName(QStringLiteral("mVideoMessageButton"));
+#ifndef QT_NO_ACCESSIBILITY
+    mVideoMessageButton->setAccessibleName(i18n("Video Message"));
+#endif
+
     mainLayout->addWidget(mVideoMessageButton);
     mVideoMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-video")));
     connect(mVideoMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendVideoMessage);
 
     mSoundMessageButton->setAutoRaise(true);
     mSoundMessageButton->setObjectName(QStringLiteral("mSoundMessageButton"));
+#ifndef QT_NO_ACCESSIBILITY
+    mSoundMessageButton->setAccessibleName(i18n("Sound Message"));
+#endif
+
     mainLayout->addWidget(mSoundMessageButton);
     mSoundMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("audio-input-microphone")));
     connect(mSoundMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendSoundMessage);
@@ -78,11 +90,17 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
     mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("smiley-add")));
     mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
+#ifndef QT_NO_ACCESSIBILITY
+    mEmoticonButton->setAccessibleName(i18n("Add Emoticon"));
+#endif
     mainLayout->addWidget(mEmoticonButton);
 
     mSendMessageButton->setAutoRaise(true);
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
+#ifndef QT_NO_ACCESSIBILITY
+    mSendMessageButton->setAccessibleName(i18n("Send Message"));
+#endif
     mainLayout->addWidget(mSendMessageButton);
     mSendMessageButton->setEnabled(false);
     connect(mSendMessageButton, &QToolButton::clicked, this, [this]() {

@@ -213,6 +213,10 @@ void RuqolaMainWindow::setupStatusBar()
     mNotificationToolButton->setIcon(QIcon::fromTheme(QStringLiteral("notifications")));
     mNotificationToolButton->setObjectName(QStringLiteral("mNotificationToolButton"));
     mNotificationToolButton->setToolTip(i18n("Show New Notifications"));
+#ifndef QT_NO_ACCESSIBILITY
+    mNotificationToolButton->setAccessibleName(i18n("Show New Notifications"));
+#endif
+
     mNotificationToolButton->hide(); // Hide at start
     mNotificationToolButton->setAutoRaise(true);
     connect(mNotificationToolButton, &QToolButton::clicked, this, &RuqolaMainWindow::slotOpenNotificationHistory);
