@@ -38,7 +38,7 @@ void ModerationDismissReportsJob::onPostRequestResponse(const QString &replyErro
 
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationDismissReportsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationUserDeleteReportedMessagesDone();
+        Q_EMIT moderationDismissReportDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ModerationDismissReportsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

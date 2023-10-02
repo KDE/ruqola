@@ -28,7 +28,7 @@ public:
     void setUserIdForMessages(const QString &newUserIdForMessages);
 
 Q_SIGNALS:
-    void moderationUserDeleteReportedMessagesDone();
+    void moderationDismissReportDone();
 
 private:
     Q_DISABLE_COPY(ModerationDismissReportsJob)
