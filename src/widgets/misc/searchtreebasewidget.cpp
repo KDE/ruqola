@@ -14,8 +14,6 @@
 #include <QLabel>
 #include <QTreeView>
 #include <QVBoxLayout>
-#include <chrono>
-using namespace std::chrono_literals;
 
 SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
