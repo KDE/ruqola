@@ -30,8 +30,14 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     connect(mAdministratorModerationRangeWidget, &AdministratorModerationRangeWidget::rangeChanged, this, [this]() {
         mModerationConsoleTreeWidget->setModerationRanges(mAdministratorModerationRangeWidget->range());
     });
+    connect(mModerationConsoleTreeWidget, &ModerationConsoleTreeWidget::refreshList, this, &AdministratorModerationConsoleWidget::slotRefreshList);
 }
 
 AdministratorModerationConsoleWidget::~AdministratorModerationConsoleWidget() = default;
+
+void AdministratorModerationConsoleWidget::slotRefreshList()
+{
+    // TODO
+}
 
 #include "moc_administratormoderationconsolewidget.cpp"

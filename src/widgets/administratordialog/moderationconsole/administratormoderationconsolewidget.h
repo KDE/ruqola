@@ -18,6 +18,7 @@ public:
     ~AdministratorModerationConsoleWidget() override;
 
 private:
+    void slotRefreshList();
     ModerationConsoleTreeWidget *const mModerationConsoleTreeWidget;
     AdministratorModerationRangeWidget *const mAdministratorModerationRangeWidget;
     RocketChatAccount *const mRocketChatAccount;

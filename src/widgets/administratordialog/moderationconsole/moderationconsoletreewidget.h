@@ -26,6 +26,9 @@ protected:
     void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
+Q_SIGNALS:
+    void refreshList();
+
 private:
     void slotShowReportedMessages(const QJsonObject &obj);
     void slotDismissReport(const QModelIndex &index);
