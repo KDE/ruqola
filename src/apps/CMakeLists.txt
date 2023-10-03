@@ -10,10 +10,16 @@ target_link_libraries(ruqola
     librocketchatrestapi-qt
     KF${KF_MAJOR_VERSION}::Crash
     KF${KF_MAJOR_VERSION}::XmlGui
+    KDAB::kdsingleapplication
 )
 
 if (NOT WIN32 AND NOT APPLE)
-    target_link_libraries(ruqola KF${KF_MAJOR_VERSION}::DBusAddons)
+
+    if (QT_MAJOR_VERSION STREQUAL "5")
+        target_link_libraries(ruqola Qt::X11Extras)
+    else()
+        target_link_libraries(ruqola Qt::GuiPrivate)
+    endif()
 endif()
 
 file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")

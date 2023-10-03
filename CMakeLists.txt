@@ -100,6 +100,11 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
 )
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(KDSingleApplication-qt6 CONFIG REQUIRED)
+else()
+    find_package(KDSingleApplication CONFIG REQUIRED)
+endif()
 
 find_package(KF${KF_MAJOR_VERSION}TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextTranslator PROPERTIES DESCRIPTION
@@ -165,7 +170,12 @@ if (TARGET KF${KF_MAJOR_VERSION}::TextCustomEditor)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-    find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+
+    if (QT_MAJOR_VERSION STREQUAL "5")
+        find_package(Qt5X11Extras REQUIRED)
+    else()
+        find_package(Qt6Gui REQUIRED COMPONENTS Private)
+    endif()
 endif()
 
 

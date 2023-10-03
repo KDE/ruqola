@@ -11,6 +11,7 @@
 #include "ruqolaglobalconfig.h"
 #include <KCrash>
 #include <KLocalizedString>
+#include <KWindowSystem>
 #include <QApplication>
 #include <QCommandLineParser>
 
@@ -25,10 +26,16 @@
 #include <KAboutData>
 #include <QDirIterator>
 #include <QIcon>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QWindow>
 
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
-#include <KDBusService>
+#include <private/qtx11extras_p.h>
 #endif
+
+#include <kdsingleapplication.h>
 
 int main(int argc, char *argv[])
 {
@@ -40,6 +47,8 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
 
     KCrash::initialize();
+
+    KDSingleApplication sapp;
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     QApplication::setStyle(QStringLiteral("breeze"));
@@ -114,14 +123,50 @@ int main(int argc, char *argv[])
 #endif
     }
 
+    if (!sapp.isPrimaryInstance()) {
+        QJsonDocument doc;
+
+        QJsonObject obj;
+        obj[QLatin1String("working_dir")] = QDir::currentPath();
+        obj[QLatin1String("args")] = QJsonArray::fromStringList(app.arguments());
+
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
-    // TODO Port to something like KDSingleApplication
-    KDBusService service(KDBusService::Unique);
+        if (KWindowSystem::isPlatformWayland()) {
+            obj[QLatin1String("xdg_activation_token")] = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
+        } else if (KWindowSystem::isPlatformX11()) {
+            obj[QLatin1String("startup_id")] = QString::fromUtf8(QX11Info::nextStartupId());
+        }
 #endif
+
+        doc.setObject(obj);
+
+        sapp.sendMessage(doc.toJson(QJsonDocument::Compact));
+        return 0;
+    }
+
     auto mw = new RuqolaMainWindow();
+    QApplication::connect(&sapp, &KDSingleApplication::messageReceived, &app, [mw](const QByteArray &messageData) {
+        QJsonDocument doc = QJsonDocument::fromJson(messageData);
+        QJsonObject message = doc.object();
+
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
-    QObject::connect(&service, &KDBusService::activateRequested, mw, &RuqolaMainWindow::slotActivateRequested);
+        if (KWindowSystem::isPlatformWayland()) {
+            qputenv("XDG_ACTIVATION_TOKEN", message[QLatin1String("xdg_activation_token")].toString().toUtf8());
+        } else if (KWindowSystem::isPlatformX11()) {
+            QX11Info::setNextStartupId(message[QLatin1String("startup_id")].toString().toUtf8());
+        }
 #endif
+
+        QStringList arguments;
+
+        const auto argumentsJson = message[QLatin1String("arguments")].toArray();
+        for (const QJsonValue &val : argumentsJson) {
+            arguments << val.toString();
+        }
+
+        mw->slotActivateRequested(arguments, message[QLatin1String("working_dir")].toString());
+    });
+
     mw->parseCommandLine(&parser);
 
     mw->show();
