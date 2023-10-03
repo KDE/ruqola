@@ -17,6 +17,8 @@ public:
     explicit AdministratorModerationConsoleWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorModerationConsoleWidget() override;
 
+    void initialize();
+
 private:
     void slotRefreshList();
     ModerationConsoleTreeWidget *const mModerationConsoleTreeWidget;

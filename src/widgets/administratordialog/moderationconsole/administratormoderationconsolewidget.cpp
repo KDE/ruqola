@@ -33,6 +33,11 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     connect(mModerationConsoleTreeWidget, &ModerationConsoleTreeWidget::refreshList, this, &AdministratorModerationConsoleWidget::slotRefreshList);
 }
 
+void AdministratorModerationConsoleWidget::initialize()
+{
+    // TODO
+}
+
 AdministratorModerationConsoleWidget::~AdministratorModerationConsoleWidget() = default;
 
 void AdministratorModerationConsoleWidget::slotRefreshList()
