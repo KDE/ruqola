@@ -124,8 +124,8 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
             slotDismissReport(modelIndex);
         });
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
-            // const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
-            // slotDisconnectDevice(modelIndex);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+            slotDeleteAllMessages(modelIndex);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
@@ -168,7 +168,17 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::ButtonCode::PrimaryAction) {
-        // TODO
+        auto job = new RocketChatRestApi::ModerationUserDeleteReportedMessagesJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
+        job->setUserIdForMessages(modelIndex.data().toString());
+        connect(job, &RocketChatRestApi::ModerationUserDeleteReportedMessagesJob::moderationUserDeleteReportedMessagesDone, this, [this]() {
+            // TODO
+            Q_EMIT refreshList();
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationUserDeleteReportedMessagesJob job";
+        }
     }
 }
 
