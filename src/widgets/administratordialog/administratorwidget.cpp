@@ -103,7 +103,9 @@ void AdministratorWidget::initialize()
     if (mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
         mOauthWidget->initialize();
     }
-    // TODO mAdministratorModerationConsoleWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("view-moderation-console"))) {
+        mAdministratorModerationConsoleWidget->initialize();
+    }
 }
 
 void AdministratorWidget::updateUiFromPermission()
@@ -120,7 +122,9 @@ void AdministratorWidget::updateUiFromPermission()
     if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mOauthWidget), false);
     }
-    // TODO make visible 'mAdministratorModerationConsoleWidget' if RC >= 6.2
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-moderation-console"))) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorModerationConsoleWidget), false);
+    }
 }
 
 #include "moc_administratorwidget.cpp"
