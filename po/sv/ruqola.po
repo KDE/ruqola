@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-03 00:42+0000\n"
+"POT-Creation-Date: 2023-10-04 00:43+0000\n"
 "PO-Revision-Date: 2023-09-29 22:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2831,7 +2831,7 @@ msgstr[1] "%1 användare (totalt : %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:45
+#: widgets/room/roomheaderwidget.cpp:45 widgets/room/roomheaderwidget.cpp:47
 #, kde-format
 msgid "Favorite"
 msgstr "Favorit"
@@ -3551,6 +3551,7 @@ msgid "Accounts"
 msgstr "Konton"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgid "Encryption"
 msgstr "Kryptering"
@@ -8211,38 +8212,38 @@ msgstr "(Visa mer information ...)"
 msgid "(Show Less Info...)"
 msgstr "(Visa mindre information ...)"
 
-#: widgets/room/roomheaderwidget.cpp:60
+#: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
 msgid "E2E Enabled"
 msgstr "E2E aktiverad"
 
-#: widgets/room/roomheaderwidget.cpp:100 widgets/room/roomheaderwidget.cpp:102
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:109
 #, kde-format
 msgid "Call"
 msgstr "Samtal"
 
-#: widgets/room/roomheaderwidget.cpp:111 widgets/room/roomheaderwidget.cpp:113
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:118 widgets/room/roomheaderwidget.cpp:120
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanalens information"
 
-#: widgets/room/roomheaderwidget.cpp:122 widgets/room/roomheaderwidget.cpp:124
+#: widgets/room/roomheaderwidget.cpp:129 widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Team Channels"
 msgstr "Lagkanaler"
 
-#: widgets/room/roomheaderwidget.cpp:134 widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:141 widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Show List of Users"
 msgstr "Visa lista med användare"
 
-#: widgets/room/roomheaderwidget.cpp:147 widgets/room/roomheaderwidget.cpp:149
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgid "Search Messages..."
 msgstr "Sök meddelanden..."
 
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Team's Information"
 msgstr "Lagets information"

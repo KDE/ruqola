@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-03 00:42+0000\n"
-"PO-Revision-Date: 2023-09-29 08:39+0300\n"
+"POT-Creation-Date: 2023-10-04 00:43+0000\n"
+"PO-Revision-Date: 2023-10-03 08:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2865,7 +2865,7 @@ msgstr[3] "%1 користувач (загалом: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:45
+#: widgets/room/roomheaderwidget.cpp:45 widgets/room/roomheaderwidget.cpp:47
 #, kde-format
 msgid "Favorite"
 msgstr "Улюблене"
@@ -3590,6 +3590,7 @@ msgid "Accounts"
 msgstr "Облікові записи"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgid "Encryption"
 msgstr "Шифрування"
@@ -8075,35 +8076,29 @@ msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Attach Files"
+#, kde-format
 msgid "Attach File"
-msgstr "Долучити файли"
+msgstr "Долучити файл"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Take a Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Створити відеоповідомлення"
+msgstr "Відеоповідомлення"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Показати повідомлення"
+msgstr "Звукове повідомлення"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Account"
+#, kde-format
 msgid "Add Emoticon"
-msgstr "Додати обліковий запис"
+msgstr "Додати емоційку"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Повідомлення із зіркою"
+msgstr "Надіслати повідомлення"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8313,38 +8308,38 @@ msgstr "(Показати більше відомостей…)"
 msgid "(Show Less Info...)"
 msgstr "(Показати менше відомостей…)"
 
-#: widgets/room/roomheaderwidget.cpp:60
+#: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
 msgid "E2E Enabled"
 msgstr "Увімкнено E2E"
 
-#: widgets/room/roomheaderwidget.cpp:100 widgets/room/roomheaderwidget.cpp:102
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:109
 #, kde-format
 msgid "Call"
 msgstr "Виклик"
 
-#: widgets/room/roomheaderwidget.cpp:111 widgets/room/roomheaderwidget.cpp:113
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:118 widgets/room/roomheaderwidget.cpp:120
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Channel's Information"
 msgstr "Дані щодо каналу"
 
-#: widgets/room/roomheaderwidget.cpp:122 widgets/room/roomheaderwidget.cpp:124
+#: widgets/room/roomheaderwidget.cpp:129 widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Team Channels"
 msgstr "Канали команди"
 
-#: widgets/room/roomheaderwidget.cpp:134 widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:141 widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
-#: widgets/room/roomheaderwidget.cpp:147 widgets/room/roomheaderwidget.cpp:149
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgid "Search Messages..."
 msgstr "Шукати повідомлення…"
 
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Team's Information"
 msgstr "Дані щодо команди"

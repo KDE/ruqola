@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-03 00:42+0000\n"
-"PO-Revision-Date: 2023-09-29 07:49+0200\n"
+"POT-Creation-Date: 2023-10-04 00:43+0000\n"
+"PO-Revision-Date: 2023-10-03 09:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -2849,7 +2849,7 @@ msgstr[3] "%1 uporabnikov (skupaj: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:45
+#: widgets/room/roomheaderwidget.cpp:45 widgets/room/roomheaderwidget.cpp:47
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljeni"
@@ -3570,6 +3570,7 @@ msgid "Accounts"
 msgstr "Računi"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
@@ -8012,35 +8013,29 @@ msgid "Message has been starred"
 msgstr "Sporočilo označeno z zvezdico"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Attach File"
-msgstr "Shrani datoteko"
+msgstr "Priloži datoteko"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Ustvari video sporočilo"
+msgstr "Video sporočilo"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Prikaži sporočilo"
+msgstr "Zvočno sporočilo"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Search Emoticon..."
+#, kde-format
 msgid "Add Emoticon"
-msgstr "Poišči čustvenčka…"
+msgstr "Poišči čustvenčka"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Sporočila z zvezdico"
+msgstr "Pošlji sporočilo"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8250,38 +8245,38 @@ msgstr "(Pokaži več informacij ...)"
 msgid "(Show Less Info...)"
 msgstr "(Pokaži manj informacij ...)"
 
-#: widgets/room/roomheaderwidget.cpp:60
+#: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
 msgid "E2E Enabled"
 msgstr "E2E omogočeno"
 
-#: widgets/room/roomheaderwidget.cpp:100 widgets/room/roomheaderwidget.cpp:102
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:109
 #, kde-format
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:111 widgets/room/roomheaderwidget.cpp:113
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:118 widgets/room/roomheaderwidget.cpp:120
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Channel's Information"
 msgstr "Podatki o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:122 widgets/room/roomheaderwidget.cpp:124
+#: widgets/room/roomheaderwidget.cpp:129 widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:134 widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:141 widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:147 widgets/room/roomheaderwidget.cpp:149
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgid "Search Messages..."
 msgstr "Preišči sporočila ..."
 
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Team's Information"
 msgstr "Podatki o ekipi"

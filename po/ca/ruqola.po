@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-03 00:42+0000\n"
-"PO-Revision-Date: 2023-09-29 16:00+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"POT-Creation-Date: 2023-10-04 00:43+0000\n"
+"PO-Revision-Date: 2023-10-03 11:53+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2851,7 +2851,7 @@ msgstr[1] "%1 usuaris (Total: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:45
+#: widgets/room/roomheaderwidget.cpp:45 widgets/room/roomheaderwidget.cpp:47
 #, kde-format
 msgid "Favorite"
 msgstr "Preferida"
@@ -3572,6 +3572,7 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:65
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptatge"
@@ -8021,35 +8022,29 @@ msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Attach File"
-msgstr "Desa el fitxer"
+msgstr "Adjunta un fitxer"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Crea un missatge de vídeo"
+msgstr "Missatge de vídeo"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Mostra el missatge"
+msgstr "Missatge de so"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Search Emoticon..."
+#, kde-format
 msgid "Add Emoticon"
-msgstr "Cerca una emoticona..."
+msgstr "Afegeix una emoticona"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Missatges destacats"
+msgstr "Envia un missatge"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8257,38 +8252,38 @@ msgstr "(Mostra més informació...)"
 msgid "(Show Less Info...)"
 msgstr "(Mostra menys informació...)"
 
-#: widgets/room/roomheaderwidget.cpp:60
+#: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:100 widgets/room/roomheaderwidget.cpp:102
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:109
 #, kde-format
 msgid "Call"
 msgstr "Truca"
 
-#: widgets/room/roomheaderwidget.cpp:111 widgets/room/roomheaderwidget.cpp:113
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:118 widgets/room/roomheaderwidget.cpp:120
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:122 widgets/room/roomheaderwidget.cpp:124
+#: widgets/room/roomheaderwidget.cpp:129 widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:134 widgets/room/roomheaderwidget.cpp:136
+#: widgets/room/roomheaderwidget.cpp:141 widgets/room/roomheaderwidget.cpp:143
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:147 widgets/room/roomheaderwidget.cpp:149
+#: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgid "Search Messages..."
 msgstr "Cerca als missatges..."
 
-#: widgets/room/roomheaderwidget.cpp:220
+#: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"
