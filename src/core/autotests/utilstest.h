@@ -28,4 +28,7 @@ private Q_SLOTS:
     void shouldGenerateAvatarUrl();
 
     void shouldTestAvatarInfoValues();
+
+    void shouldGenerateCheckMark_data();
+    void shouldGenerateCheckMark();
 };
