@@ -124,6 +124,13 @@ QString WhatsNewWidget::createVersionInformationsV2_1() const
         }
         message += QStringLiteral("</ul>");
     }
+    if (numRuqolaBugfixing2_1 > 0) {
+        message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaBugfixing2_1; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_1[i].toString());
+        }
+    }
     return message;
 }
 
