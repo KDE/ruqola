@@ -182,21 +182,4 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
     }
 }
 
-#if 0
-void ModerationConsoleTreeWidget::slotDisconnectDevice(const QModelIndex &index)
-{
-    auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
-    const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);
-    const QString sessionsId = modelIndex.data().toString();
-    job->setSessionId(sessionsId);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::SessionsLogoutMeJob::logoutMeDone, this, [this, sessionsId]() {
-        slotDeviceRemoved(sessionsId);
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsLogoutMeJob job";
-    }
-}
-#endif
-
 #include "moc_moderationconsoletreewidget.cpp"
