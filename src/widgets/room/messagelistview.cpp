@@ -495,6 +495,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             menu.addAction(deleteAction);
         }
+    } else if (mMode == Mode::Moderation) {
+        // TODO
     } else {
 #if 0
         if (setPinnedMessage) {

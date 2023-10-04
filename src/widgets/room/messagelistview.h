@@ -24,6 +24,7 @@ public:
         ThreadEditing,
         Editing,
         Viewing, /*when we show list of message as mentions, search etc.*/
+        Moderation,
     };
 
     explicit MessageListView(RocketChatAccount *account, MessageListView::Mode mode, QWidget *parent = nullptr);

@@ -21,7 +21,7 @@
 ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchLabel(new QLabel(this))
-    , mResultListWidget(new MessageListView(account, MessageListView::Mode::Viewing, this))
+    , mResultListWidget(new MessageListView(account, MessageListView::Mode::Moderation, this))
     , mCurrentRocketChatAccount(account)
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
