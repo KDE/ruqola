@@ -46,3 +46,9 @@ static const KLazyLocalizedString ruqolaNewFeatures2_1[] = {
     kli18n("Add Moderation Console (Administration, RC server 6.2)"),
 };
 static const int numRuqolaNewFeatures2_1 = sizeof ruqolaNewFeatures2_1 / sizeof *ruqolaNewFeatures2_1;
+
+// enter items for the "Important changes" list here:
+static const KLazyLocalizedString ruqolaBugfixing2_1[] = {
+    kli18n("Fix mardown support (header + check mark)"),
+};
+static const int numRuqolaBugfixing2_1 = sizeof ruqolaBugfixing2_1 / sizeof *ruqolaBugfixing2_1;
