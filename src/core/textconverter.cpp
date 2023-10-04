@@ -157,6 +157,8 @@ QString markdownToRichText(const QString &markDown)
     qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertToHtml " << str;
     // substitute "[example.com](<a href="...">...</a>)" style urls
     str = Utils::convertTextWithUrl(str);
+    // Substiture "- [ ] foo" and "- [x] foo" to checkmark
+    str = Utils::convertTextWithCheckMark(str);
     qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertTextWithUrl " << str;
 
     return str;

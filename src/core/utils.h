@@ -36,6 +36,7 @@ struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray convertSha256Password(const QString &pwd);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString emojiFontName();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString displaytextFromPresenceStatus(User::PresenceStatus status);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString convertTextWithCheckMark(const QString &str);
 
 /**
  * @brief Convert []() style Markdown URLS with proper HTML tags

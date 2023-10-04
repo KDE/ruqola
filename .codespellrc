@@ -1,4 +1,4 @@
 [codespell]
-skip = ./build-*,.git,./po,./src/core/autotests/data/downloadappslanguages/languages,./src/core/autotests/data/room-update-subscription/room-encryptionupdate1.json,./src/core/emoticons/emoji.json,./src/data/ruqola.notifyrc,./src/data/org.kde.ruqola.appdata.xml,./src/data/org.kde.ruqola.desktop,./src/plugins/authentication/google/ruqola_googleauthenticationplugin.json,./src/plugins/authentication/password/ruqola_passwordauthenticationplugin.json,custom-fr.xml,custom-fr-ref.xml
+skip = ./build-*,.git,./po,./src/core/autotests/data/downloadappslanguages/languages,./src/core/autotests/data/room-update-subscription/room-encryptionupdate1.json,./src/core/emoticons/emoji.json,./src/data/ruqola.notifyrc,./src/data/org.kde.ruqola.appdata.xml,./src/data/org.kde.ruqola.desktop,./src/plugins/authentication/google/ruqola_googleauthenticationplugin.json,./src/plugins/authentication/password/ruqola_passwordauthenticationplugin.json,custom-fr.xml,custom-fr-ref.xml,emoji.json
 interactive = 3
 ignore-words-list = filetest,ba,ro,bu

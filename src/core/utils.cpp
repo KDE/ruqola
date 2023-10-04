@@ -146,6 +146,16 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
     }
 }
 
+QString Utils::convertTextWithCheckMark(const QString &str)
+{
+    static const QRegularExpression regularUnCheckMark(QStringLiteral("(^|-)\\s\\[\\s\\]\\s"));
+    static const QRegularExpression regularCheckMark(QStringLiteral("(^|-)\\s\\[x]\\s"));
+    QString newStr = str;
+    newStr = newStr.replace(regularUnCheckMark, QStringLiteral(":white_medium_square: "));
+    newStr = newStr.replace(regularCheckMark, QStringLiteral(":ballot_box_with_check: "));
+    return newStr;
+}
+
 QString Utils::convertTextWithUrl(const QString &str)
 {
     static const QRegularExpression regularExpressionAHref(QStringLiteral("<a href=\"(.*)\">(.*)</a>"));

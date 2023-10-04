@@ -44,7 +44,7 @@ void UtilsTest::shouldExtractRoomUserFromUrl_data()
 
     QTest::newRow("extractuser") << QStringLiteral("ruqola:/user/foo") << QStringLiteral("foo");
     QTest::newRow("extractroom") << QStringLiteral("ruqola:/room/foo") << QStringLiteral("foo");
-    QTest::newRow("extractuser") << QStringLiteral("ruqola:/user2/foo") << QStringLiteral("ruqola:/user2/foo");
+    QTest::newRow("extractuser2") << QStringLiteral("ruqola:/user2/foo") << QStringLiteral("ruqola:/user2/foo");
 }
 
 void UtilsTest::shouldExtractRoomUserFromUrl()
@@ -146,6 +146,27 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
             << QStringLiteral("www.kde.org") << avatarInfo
             << QUrl(QStringLiteral("https://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22").arg(avatarInfo.identifier, avatarInfo.etag));
     }
+}
+
+void UtilsTest::shouldGenerateCheckMark_data()
+{
+    QTest::addColumn<QString>("text");
+    QTest::addColumn<QString>("convertedText");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("unckecked1") << QStringLiteral("- [ ] vvv") << QStringLiteral(":white_medium_square: vvv");
+    QTest::newRow("unckecked2") << QStringLiteral("- [ ] vvv\n- [ ] bla2") << QStringLiteral(":white_medium_square: vvv\n:white_medium_square: bla2");
+
+    QTest::newRow("ckecked1") << QStringLiteral("- [x] vvv") << QStringLiteral(":ballot_box_with_check: vvv");
+    QTest::newRow("ckecked2") << QStringLiteral("- [x] vvv\n- [x] bla2") << QStringLiteral(":ballot_box_with_check: vvv\n:ballot_box_with_check: bla2");
+
+    QTest::newRow("mixted1") << QStringLiteral("- [x] vvv\n- [ ] bla2") << QStringLiteral(":ballot_box_with_check: vvv\n:white_medium_square: bla2");
+}
+
+void UtilsTest::shouldGenerateCheckMark()
+{
+    QFETCH(QString, text);
+    QFETCH(QString, convertedText);
+    QCOMPARE(Utils::convertTextWithCheckMark(text), convertedText);
 }
 
 void UtilsTest::shouldGenerateAvatarUrl()
