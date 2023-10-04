@@ -31,4 +31,7 @@ private Q_SLOTS:
 
     void shouldGenerateCheckMark_data();
     void shouldGenerateCheckMark();
+
+    void shouldGenerateHeader_data();
+    void shouldGenerateHeader();
 };

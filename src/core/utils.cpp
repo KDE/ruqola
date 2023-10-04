@@ -146,13 +146,35 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
     }
 }
 
+QString Utils::convertTextHeaders(const QString &str)
+{
+    static const QRegularExpression useHeaders(QStringLiteral("(^|\\n)#.*\\s"));
+    if (str.contains(useHeaders)) {
+        static const QRegularExpression regularHeader1(QStringLiteral("(^|\\n)(#)\\s(.*)($|\\n)"));
+        QString newStr = str;
+        newStr = newStr.replace(regularHeader1, QStringLiteral("\\1<h1>\\3</h1>"));
+        static const QRegularExpression regularHeader2(QStringLiteral("(^|\\n|</h\\d>)(##)\\s(.*)($|\\n)"));
+        newStr = newStr.replace(regularHeader2, QStringLiteral("\\1<h2>\\3</h2>"));
+        static const QRegularExpression regularHeader3(QStringLiteral("(^|\\n|</h\\d>)(###)\\s(.*)($|\\n)"));
+        newStr = newStr.replace(regularHeader3, QStringLiteral("\\1<h3>\\3</h3>"));
+        static const QRegularExpression regularHeader4(QStringLiteral("(^|\\n|</h\\d>)(####)\\s(.*)($|\\n)"));
+        newStr = newStr.replace(regularHeader4, QStringLiteral("\\1<h4>\\3</h4>"));
+        static const QRegularExpression regularHeader5(QStringLiteral("(^|\\n|</h\\d>)(#####)\\s(.*)($|\\n)"));
+        newStr = newStr.replace(regularHeader5, QStringLiteral("\\1<h5>\\3</h5>"));
+        static const QRegularExpression regularHeader6(QStringLiteral("(^|\\n|</h\\d>)(######)\\s(.*)($|\\n)"));
+        newStr = newStr.replace(regularHeader6, QStringLiteral("\\1<h6>\\3</h6>"));
+        return newStr;
+    }
+    return str;
+}
+
 QString Utils::convertTextWithCheckMark(const QString &str)
 {
-    static const QRegularExpression regularUnCheckMark(QStringLiteral("(^|-)\\s\\[\\s\\]\\s"));
-    static const QRegularExpression regularCheckMark(QStringLiteral("(^|-)\\s\\[x]\\s"));
+    static const QRegularExpression regularUnCheckMark(QStringLiteral("(^|\\n)-\\s\\[\\s\\]\\s"));
+    static const QRegularExpression regularCheckMark(QStringLiteral("(^|\\n)-\\s\\[x]\\s"));
     QString newStr = str;
-    newStr = newStr.replace(regularUnCheckMark, QStringLiteral(":white_medium_square: "));
-    newStr = newStr.replace(regularCheckMark, QStringLiteral(":ballot_box_with_check: "));
+    newStr = newStr.replace(regularUnCheckMark, QStringLiteral("\\1:white_medium_square: "));
+    newStr = newStr.replace(regularCheckMark, QStringLiteral("\\1:ballot_box_with_check: "));
     return newStr;
 }
 

@@ -191,4 +191,45 @@ void UtilsTest::shouldTestAvatarInfoValues()
     QCOMPARE(info.generateAvatarIdentifier(), QStringLiteral("bla-foo"));
 }
 
+void UtilsTest::shouldGenerateHeader_data()
+{
+    QTest::addColumn<QString>("text");
+    QTest::addColumn<QString>("convertedText");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("h1") << QStringLiteral("# bla") << QStringLiteral("<h1>bla</h1>");
+    QTest::newRow("h1-1") << QStringLiteral("# bla\nsss") << QStringLiteral("<h1>bla</h1>sss");
+    QTest::newRow("h1-2") << QStringLiteral("# bla\nsss \n sdfsdf") << QStringLiteral("<h1>bla</h1>sss \n sdfsdf");
+
+    QTest::newRow("h2") << QStringLiteral("## bla") << QStringLiteral("<h2>bla</h2>");
+    QTest::newRow("h2-1") << QStringLiteral("## bla\nsss") << QStringLiteral("<h2>bla</h2>sss");
+    QTest::newRow("h2-2") << QStringLiteral("## bla\nsss \n sdfsdf") << QStringLiteral("<h2>bla</h2>sss \n sdfsdf");
+
+    QTest::newRow("h3") << QStringLiteral("### bla") << QStringLiteral("<h3>bla</h3>");
+    QTest::newRow("h3-1") << QStringLiteral("### bla\nsss") << QStringLiteral("<h3>bla</h3>sss");
+    QTest::newRow("h3-2") << QStringLiteral("### bla\nsss \n sdfsdf") << QStringLiteral("<h3>bla</h3>sss \n sdfsdf");
+
+    QTest::newRow("h4") << QStringLiteral("#### bla") << QStringLiteral("<h4>bla</h4>");
+    QTest::newRow("h4-1") << QStringLiteral("#### bla\nsss") << QStringLiteral("<h4>bla</h4>sss");
+    QTest::newRow("h4-2") << QStringLiteral("#### bla\nsss \n sdfsdf") << QStringLiteral("<h4>bla</h4>sss \n sdfsdf");
+
+    QTest::newRow("h5") << QStringLiteral("##### bla") << QStringLiteral("<h5>bla</h5>");
+    QTest::newRow("h5-1") << QStringLiteral("##### bla\nsss") << QStringLiteral("<h5>bla</h5>sss");
+    QTest::newRow("h5-2") << QStringLiteral("##### bla\nsss \n sdfsdf") << QStringLiteral("<h5>bla</h5>sss \n sdfsdf");
+
+    QTest::newRow("h6") << QStringLiteral("###### bla") << QStringLiteral("<h6>bla</h6>");
+    QTest::newRow("h6-1") << QStringLiteral("###### bla\nsss") << QStringLiteral("<h6>bla</h6>sss");
+    QTest::newRow("h6-2") << QStringLiteral("###### bla\nsss \n sdfsdf") << QStringLiteral("<h6>bla</h6>sss \n sdfsdf");
+
+    QTest::newRow("h1-h6") << QStringLiteral("# bla\n## bli\n### blo\ntest") << QStringLiteral("<h1>bla</h1><h2>bli</h2><h3>blo</h3>test");
+    QTest::newRow("h1-h6-2") << QStringLiteral("# bla\nfoo ss\n## bli\nbla bla bla\n### blo\ntest")
+                             << QStringLiteral("<h1>bla</h1>foo ss\n<h2>bli</h2>bla bla bla\n<h3>blo</h3>test");
+}
+
+void UtilsTest::shouldGenerateHeader()
+{
+    QFETCH(QString, text);
+    QFETCH(QString, convertedText);
+    QCOMPARE(Utils::convertTextHeaders(text), convertedText);
+}
+
 #include "moc_utilstest.cpp"

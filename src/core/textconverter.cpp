@@ -159,6 +159,8 @@ QString markdownToRichText(const QString &markDown)
     str = Utils::convertTextWithUrl(str);
     // Substiture "- [ ] foo" and "- [x] foo" to checkmark
     str = Utils::convertTextWithCheckMark(str);
+    // Substiture # header
+    str = Utils::convertTextHeaders(str);
     qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertTextWithUrl " << str;
 
     return str;
