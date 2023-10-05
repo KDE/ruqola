@@ -49,6 +49,6 @@ static const int numRuqolaNewFeatures2_1 = sizeof ruqolaNewFeatures2_1 / sizeof 
 
 // enter items for the "Important changes" list here:
 static const KLazyLocalizedString ruqolaBugfixing2_1[] = {
-    kli18n("Fix mardown support (header + check mark)"),
+    kli18n("Fix markdown support (header + check mark)"),
 };
 static const int numRuqolaBugfixing2_1 = sizeof ruqolaBugfixing2_1 / sizeof *ruqolaBugfixing2_1;
