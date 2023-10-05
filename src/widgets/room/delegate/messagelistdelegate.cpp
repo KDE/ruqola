@@ -349,6 +349,11 @@ void MessageListDelegate::setShowThreadContext(bool b)
     mHelperText->setShowThreadContext(b);
 }
 
+void MessageListDelegate::setEnableEmojiMenu(bool b)
+{
+    mEmojiMenuEnabled = b;
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -380,7 +385,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-    if (!isSystemMessage(message) && message->hoverHighlight()) {
+    if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
     }
 

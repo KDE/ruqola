@@ -89,6 +89,8 @@ public:
 
     void removeMessageCache(const QString &messageId, const QStringList &attachmentIdList);
 
+    void setEnableEmojiMenu(bool b);
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
@@ -130,4 +132,5 @@ private:
     QScopedPointer<MessageDelegateHelperConferenceVideo> mHelperConferenceVideo;
     AvatarCacheManager *const mAvatarCacheManager;
     MessageListLayoutBase *mMessageListLayoutBase = nullptr;
+    bool mEmojiMenuEnabled = true;
 };

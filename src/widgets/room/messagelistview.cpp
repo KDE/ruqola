@@ -50,6 +50,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
         mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
     }
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
+    mMessageListDelegate->setEnableEmojiMenu(mMode != Mode::Moderation);
     setItemDelegate(mMessageListDelegate);
 
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
