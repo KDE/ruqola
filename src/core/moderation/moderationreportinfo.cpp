@@ -12,8 +12,7 @@ ModerationReportInfo::~ModerationReportInfo() = default;
 
 bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
 {
-    // TODO implement
-    return true;
+    return mDescription == other.description() && mReportIdentifier == other.reportIdentifier();
 }
 
 QString ModerationReportInfo::description() const
@@ -24,6 +23,23 @@ QString ModerationReportInfo::description() const
 void ModerationReportInfo::setDescription(const QString &newDescription)
 {
     mDescription = newDescription;
+}
+
+QString ModerationReportInfo::reportIdentifier() const
+{
+    return mReportIdentifier;
+}
+
+void ModerationReportInfo::setReportIdentifier(const QString &newReportIdentifier)
+{
+    mReportIdentifier = newReportIdentifier;
+}
+
+QDebug operator<<(QDebug d, const ModerationReportInfo &t)
+{
+    d << "mDescription " << t.description();
+    d << "mReportIdentifier " << t.reportIdentifier();
+    return d;
 }
 
 #include "moc_moderationreportinfo.cpp"

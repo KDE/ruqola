@@ -19,6 +19,12 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &newDescription);
 
+    [[nodiscard]] QString reportIdentifier() const;
+    void setReportIdentifier(const QString &newReportIdentifier);
+
 private:
     QString mDescription;
+    QString mReportIdentifier;
 };
+Q_DECLARE_METATYPE(ModerationReportInfo)
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfo &t);
