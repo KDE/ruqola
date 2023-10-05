@@ -33,7 +33,7 @@ AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *
     fromLabel->setObjectName(QStringLiteral("fromLabel"));
 
     auto toLabel = new QLabel(i18n("To:"), this);
-    fromLabel->setObjectName(QStringLiteral("toLabel"));
+    toLabel->setObjectName(QStringLiteral("toLabel"));
 
     mainLayout->addWidget(fromLabel);
     mainLayout->addWidget(mFromDate);
