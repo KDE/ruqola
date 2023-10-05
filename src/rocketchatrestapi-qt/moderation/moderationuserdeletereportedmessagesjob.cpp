@@ -66,7 +66,7 @@ bool ModerationUserDeleteReportedMessagesJob::canStart() const
         return false;
     }
     if (mUserIdForMessages.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationUserDeleteReportedMessagesJob: mUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationUserDeleteReportedMessagesJob: mUserIdForMessages is empty";
         return false;
     }
     return true;
