@@ -22,6 +22,8 @@ public:
     [[nodiscard]] QString reportIdentifier() const;
     void setReportIdentifier(const QString &newReportIdentifier);
 
+    void parseModerationReportInfo(const QJsonObject &o);
+
 private:
     QString mDescription;
     QString mReportIdentifier;

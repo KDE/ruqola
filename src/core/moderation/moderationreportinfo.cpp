@@ -15,6 +15,11 @@ bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
     return mDescription == other.description() && mReportIdentifier == other.reportIdentifier();
 }
 
+void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)
+{
+    // TODO
+}
+
 QString ModerationReportInfo::description() const
 {
     return mDescription;
