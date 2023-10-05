@@ -37,7 +37,7 @@ bool ModerationReportsByUsersJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("ModerationReportsByUsersJob: Ask for moderation message"));
+    addStartRestApiInfo(QByteArrayLiteral("ModerationReportsByUsersJob: Ask for moderation reportes by users"));
     return true;
 }
 

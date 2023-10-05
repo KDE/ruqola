@@ -27,13 +27,13 @@ bool ModerationUserReportedMessagesJob::requireHttpAuthentication() const
 bool ModerationUserReportedMessagesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get get user reported message job";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("ModerationReportJob: get message starting"));
+    addStartRestApiInfo(QByteArrayLiteral("ModerationReportJob: get get user reported message starting"));
     return true;
 }
 
@@ -45,7 +45,8 @@ void ModerationUserReportedMessagesJob::onGetRequestResponse(const QString &repl
         Q_EMIT moderationUserReportedMessagesDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get message : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get user reported messages : ")
+                         + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
