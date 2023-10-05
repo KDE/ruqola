@@ -390,7 +390,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return listActions;
     }();
 
-    if (mMode == Mode::Editing) {
+    switch (mMode) {
+    case Mode::Editing: {
         auto startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
             slotStartDiscussion(index);
@@ -464,7 +465,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(translateAction);
         }
-    } else if (mMode == Mode::ThreadEditing) {
+        break;
+    }
+    case Mode::ThreadEditing: {
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }
@@ -495,9 +498,21 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             menu.addAction(deleteAction);
         }
-    } else if (mMode == Mode::Moderation) {
+        break;
+    }
+    case Mode::Moderation: {
+        auto showReportInfo = new QAction(i18n("View Reports"), &menu); // Add icon
+        connect(showReportInfo, &QAction::triggered, this, [=]() {
+            // TODO
+            // const QString messageId = message->messageId();
+            // const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
+            // Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
+        });
+        menu.addAction(showReportInfo);
         // TODO
-    } else {
+        break;
+    }
+    case Mode::Viewing: {
 #if 0
         if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
@@ -530,6 +545,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
         });
         menu.addAction(goToMessageAction);
+        break;
+    }
     }
 
     if (mMessageListDelegate->hasSelection()) {
