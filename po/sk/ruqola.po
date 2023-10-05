@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-04 00:43+0000\n"
+"POT-Creation-Date: 2023-10-05 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1111,25 +1111,25 @@ msgstr "Súkromné adresy"
 msgid "Unknown"
 msgstr ""
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:315
+#: core/model/statusmodel.cpp:61 core/utils.cpp:347
 #, kde-format
 msgid "Online"
 msgstr "Pripojený"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:317
+#: core/model/statusmodel.cpp:63 core/utils.cpp:349
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Zaneprázdnený"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:319
+#: core/model/statusmodel.cpp:65 core/utils.cpp:351
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Neprítomný"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:321
+#: core/utils.cpp:353
 #, kde-format
 msgid "Offline"
 msgstr "Nepripojený"
@@ -4982,7 +4982,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Message"
-msgid "Direct Messsage Maximum Users"
+msgid "Direct Message Maximum Users"
 msgstr "Správa"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
@@ -7313,7 +7313,7 @@ msgstr ""
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:541
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Status:"
@@ -8014,7 +8014,7 @@ msgid "Notification"
 msgstr "Upozornenia"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:524
+#: widgets/room/messagelistview.cpp:526
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Go to Message"
@@ -8446,24 +8446,24 @@ msgstr "Súkromné adresy"
 msgid "Translate Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelistview.cpp:546
+#: widgets/room/messagelistview.cpp:548
 #, kde-format
 msgid "Report Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:719
+#: widgets/room/messagelistview.cpp:721
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:720
+#: widgets/room/messagelistview.cpp:722
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Zmazať správu"
 
-#: widgets/room/messagelistview.cpp:859
+#: widgets/room/messagelistview.cpp:861
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translator Error"
@@ -9130,7 +9130,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgctxt "@title:window"
-msgid "Server Error Informations"
+msgid "Server Error Information"
 msgstr "Názov kanála"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
@@ -9325,6 +9325,7 @@ msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:106
+#: widgets/whatsnew/whatsnewwidget.cpp:128
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
@@ -9385,6 +9386,10 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:52
+msgid "Fix mardown support (header + check mark)"
 msgstr ""
 
 #, fuzzy

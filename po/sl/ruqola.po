@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-04 00:43+0000\n"
+"POT-Creation-Date: 2023-10-05 00:43+0000\n"
 "PO-Revision-Date: 2023-10-03 09:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:51
@@ -1055,25 +1055,25 @@ msgstr "Zasebna sporočila"
 msgid "Unknown"
 msgstr "Neznano"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:315
+#: core/model/statusmodel.cpp:61 core/utils.cpp:347
 #, kde-format
 msgid "Online"
 msgstr "Povezan"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:317
+#: core/model/statusmodel.cpp:63 core/utils.cpp:349
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Zaseden"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:319
+#: core/model/statusmodel.cpp:65 core/utils.cpp:351
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Odsoten"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:321
+#: core/utils.cpp:353
 #, kde-format
 msgid "Offline"
 msgstr "Brez povezave"
@@ -4856,8 +4856,9 @@ msgid "Grouping Period (in seconds)"
 msgstr "Perioda grupiranja (v sekundah)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, kde-format
-msgid "Direct Messsage Maximum Users"
+#, fuzzy, kde-format
+#| msgid "Direct Messsage Maximum Users"
+msgid "Direct Message Maximum Users"
 msgstr "Največ uporabnikov neposrednega sporočila"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
@@ -7087,7 +7088,7 @@ msgstr "Odpri razpravo"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:541
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7752,7 +7753,7 @@ msgid "Notification"
 msgstr "Obvestilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:524
+#: widgets/room/messagelistview.cpp:526
 #, kde-format
 msgid "Go to Message"
 msgstr "Sporočilo"
@@ -8150,23 +8151,23 @@ msgstr "Pokaži izvirno sporočilo"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/messagelistview.cpp:546
+#: widgets/room/messagelistview.cpp:548
 #, kde-format
 msgid "Report Message"
 msgstr "Sporočilo s poročilom"
 
-#: widgets/room/messagelistview.cpp:719
+#: widgets/room/messagelistview.cpp:721
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ali želite izbrisati to sporočilo?"
 
-#: widgets/room/messagelistview.cpp:720
+#: widgets/room/messagelistview.cpp:722
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:859
+#: widgets/room/messagelistview.cpp:861
 #, kde-format
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
@@ -8781,9 +8782,11 @@ msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Error Informations"
 msgctxt "@title:window"
-msgid "Server Error Informations"
+msgid "Server Error Information"
 msgstr "Informacije o napakah strežnika"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
@@ -8959,6 +8962,7 @@ msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:106
+#: widgets/whatsnew/whatsnewwidget.cpp:128
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Nekaj odprav napak:"
@@ -9019,6 +9023,10 @@ msgstr "Popravi podporo kf6"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Dodaj moderatorsko konzolo (Administiranje, RC server 6.2)"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:52
+msgid "Fix mardown support (header + check mark)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Deli"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-04 00:43+0000\n"
+"POT-Creation-Date: 2023-10-05 00:43+0000\n"
 "PO-Revision-Date: 2023-10-03 08:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1057,25 +1057,25 @@ msgstr "Конфіденційні повідомлення"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:315
+#: core/model/statusmodel.cpp:61 core/utils.cpp:347
 #, kde-format
 msgid "Online"
 msgstr "У мережі"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:317
+#: core/model/statusmodel.cpp:63 core/utils.cpp:349
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:319
+#: core/model/statusmodel.cpp:65 core/utils.cpp:351
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:321
+#: core/utils.cpp:353
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
@@ -4888,8 +4888,9 @@ msgid "Grouping Period (in seconds)"
 msgstr "Період групування (у секундах)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, kde-format
-msgid "Direct Messsage Maximum Users"
+#, fuzzy, kde-format
+#| msgid "Direct Messsage Maximum Users"
+msgid "Direct Message Maximum Users"
 msgstr "Максимальна кількість користувачів безпосереднього повідомлення"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
@@ -7149,7 +7150,7 @@ msgstr "Відкрити обговорення"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:539
+#: widgets/room/messagelistview.cpp:541
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7815,7 +7816,7 @@ msgid "Notification"
 msgstr "Сповіщення"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:524
+#: widgets/room/messagelistview.cpp:526
 #, kde-format
 msgid "Go to Message"
 msgstr "Перейти до повідомлення"
@@ -8213,23 +8214,23 @@ msgstr "Показувати оригінальне повідомлення"
 msgid "Translate Message"
 msgstr "Переклад повідомлення"
 
-#: widgets/room/messagelistview.cpp:546
+#: widgets/room/messagelistview.cpp:548
 #, kde-format
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: widgets/room/messagelistview.cpp:719
+#: widgets/room/messagelistview.cpp:721
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Хочете вилучити це повідомлення?"
 
-#: widgets/room/messagelistview.cpp:720
+#: widgets/room/messagelistview.cpp:722
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Вилучення повідомлення"
 
-#: widgets/room/messagelistview.cpp:859
+#: widgets/room/messagelistview.cpp:861
 #, kde-format
 msgid "Translator Error"
 msgstr "Помилка під час перекладу"
@@ -8849,9 +8850,11 @@ msgid "Main Toolbar"
 msgstr "Головна панель"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Error Informations"
 msgctxt "@title:window"
-msgid "Server Error Informations"
+msgid "Server Error Information"
 msgstr "Дані щодо помилок сервера"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
@@ -9027,6 +9030,7 @@ msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:106
+#: widgets/whatsnew/whatsnewwidget.cpp:128
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
@@ -9090,6 +9094,10 @@ msgstr "Виправлено підтримку kf6"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Додано консоль модерування (адміністрування, сервер RC 6.2)"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:52
+msgid "Fix mardown support (header + check mark)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Оприлюднити"
