@@ -45,7 +45,7 @@ void ModerationReportInfoJob::onGetRequestResponse(const QString &replyErrorStri
         Q_EMIT moderationReportInfoDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get message : ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get report info : ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
