@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class ModerationReportJobTest : public QObject
+class ModerationReportsJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ModerationReportJobTest(QObject *parent = nullptr);
-    ~ModerationReportJobTest() override = default;
+    explicit ModerationReportsJobTest(QObject *parent = nullptr);
+    ~ModerationReportsJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

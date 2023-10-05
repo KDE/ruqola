@@ -4,19 +4,19 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "moderationreportjobtest.h"
+#include "moderationreportsjobtest.h"
 #include "moderation/moderationreportsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <restapimethod.h>
-QTEST_GUILESS_MAIN(ModerationReportJobTest)
+QTEST_GUILESS_MAIN(ModerationReportsJobTest)
 using namespace RocketChatRestApi;
-ModerationReportJobTest::ModerationReportJobTest(QObject *parent)
+ModerationReportsJobTest::ModerationReportsJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void ModerationReportJobTest::shouldHaveDefaultValue()
+void ModerationReportsJobTest::shouldHaveDefaultValue()
 {
     ModerationReportsJob job;
     verifyDefaultValue(&job);
@@ -25,13 +25,13 @@ void ModerationReportJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void ModerationReportJobTest::shouldGenerateRequest()
+void ModerationReportsJobTest::shouldGenerateRequest()
 {
     ModerationReportsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setMessageId(QStringLiteral("foo"));
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage?msgId=foo")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reports?msgId=foo")));
 }
 
-#include "moc_moderationreportjobtest.cpp"
+#include "moc_moderationreportsjobtest.cpp"

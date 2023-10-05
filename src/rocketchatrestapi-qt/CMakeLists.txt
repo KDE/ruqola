@@ -449,6 +449,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     moderation/moderationuserreportedmessagesjob.h
     moderation/moderationdismissreportsjob.cpp
     moderation/moderationdismissreportsjob.h
+    moderation/moderationreportinfojob.cpp
+    moderation/moderationreportinfojob.h
 
 )
 
