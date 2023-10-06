@@ -584,6 +584,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
 void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
 {
+    if (!mRoom) {
+        return;
+    }
     createSeparator(menu);
     if (index.isValid()) {
         auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
