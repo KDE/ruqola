@@ -34,8 +34,8 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(QStringLiteral("mServerErrorInfoMessageWidget"));
     QVERIFY(mServerErrorInfoMessageWidget);
 
-    auto mWhatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("mWhatsNewMessageWidget"));
-    QVERIFY(mWhatsNewMessageWidget);
+    auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("whatsNewMessageWidget"));
+    QVERIFY(whatsNewMessageWidget);
 }
 
 #include "moc_ruqolacentralwidgettest.cpp"

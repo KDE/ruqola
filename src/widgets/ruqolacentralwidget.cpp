@@ -24,7 +24,6 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mRuqolaMainWidget(new RuqolaMainWidget(this))
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
     , mServerErrorInfoMessageWidget(new ServerErrorInfoMessageWidget(this))
-    , mWhatsNewMessageWidget(new WhatsNewMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -33,8 +32,15 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mServerErrorInfoMessageWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageWidget"));
     mainLayout->addWidget(mServerErrorInfoMessageWidget);
 
-    mWhatsNewMessageWidget->setObjectName(QStringLiteral("mWhatsNewMessageWidget"));
-    mainLayout->addWidget(mWhatsNewMessageWidget);
+    const QString newFeaturesMD5 = WhatsNewWidget::newFeaturesMD5();
+    const bool hasNewFeature = (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5);
+    if (hasNewFeature) {
+        auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
+        whatsNewMessageWidget->setObjectName(QStringLiteral("whatsNewMessageWidget"));
+        mainLayout->addWidget(whatsNewMessageWidget);
+        RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+        whatsNewMessageWidget->animatedShow();
+    }
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
@@ -48,12 +54,6 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
     connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
     connect(ServerErrorInfoHistoryManager::self(), &ServerErrorInfoHistoryManager::newServerErrorInfo, this, &RuqolaCentralWidget::slotNewErrorInfo);
-
-    const QString newFeaturesMD5 = WhatsNewWidget::newFeaturesMD5();
-    if (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5) {
-        RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
-        mWhatsNewMessageWidget->animatedShow();
-    }
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget() = default;
