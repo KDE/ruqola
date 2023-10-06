@@ -228,9 +228,9 @@ void MessageListView::createTranslorMenu()
 
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
-    if (!mRoom) {
-        return;
-    }
+    //    if (!mRoom) {
+    //        return;
+    //    }
     const QModelIndex index = indexAt(event->pos());
     if (!index.isValid()) {
         if (Ruqola::self()->debug()) {
@@ -248,7 +248,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     info.editMode = (mMode == Mode::Editing);
     info.globalPos = event->globalPos();
     info.pos = viewport()->mapFromGlobal(event->globalPos());
-    info.roomType = mRoom->channelType();
+    info.roomType = mRoom ? mRoom->channelType() : Room::RoomType::Unknown;
     if (mMessageListDelegate->contextMenu(options, index, info)) {
         return;
     }
@@ -271,7 +271,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         copyMessageToClipboard(index);
     });
     QAction *setPinnedMessage = nullptr;
-    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && mRoom->allowToPinMessage()) {
+    if (mCurrentRocketChatAccount->allowMessagePinningEnabled() && mRoom && mRoom->allowToPinMessage()) {
         const bool isPinned = index.data(MessagesModel::Pinned).toBool();
         setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
         connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
@@ -510,7 +510,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             // Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
         });
         menu.addAction(showReportInfo);
-        // TODO
+        menu.addSeparator();
+        if (copyUrlAction) {
+            menu.addAction(copyUrlAction);
+        }
+        menu.addSeparator();
+        menu.addAction(selectAllAction);
         break;
     }
     case Mode::Viewing: {
@@ -677,6 +682,9 @@ void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
 
 QString MessageListView::generatePermalink(const QString &messageId) const
 {
+    if (!mRoom) {
+        return {};
+    }
     QString permalink = mCurrentRocketChatAccount->serverUrl() + QLatin1Char('/') + RoomUtil::generatePermalink(messageId, mRoom->name(), mRoom->channelType());
     if (!permalink.startsWith(QStringLiteral("https://"))) {
         permalink.prepend(QStringLiteral("https://"));
