@@ -192,6 +192,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(&message);
     case MessagesModel::Username:
         return message.username();
+    case Qt::AccessibleTextRole:
     case MessagesModel::OriginalMessage:
         return message.text();
     case MessagesModel::DateTimeUtc:
