@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-05 00:43+0000\n"
+"POT-Creation-Date: 2023-10-06 00:42+0000\n"
 "PO-Revision-Date: 2023-09-30 11:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -5864,7 +5864,7 @@ msgstr "Szukaj..."
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:298
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -5891,7 +5891,7 @@ msgid "Mark As Unread"
 msgstr "Oznacz jako nieprzeczytana"
 
 #: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:284
+#: widgets/room/messagelistview.cpp:285
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Ustaw jako ulubiony"
@@ -6229,7 +6229,7 @@ msgid "Channel Info about '%1'"
 msgstr "Szczegóły kanału '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:291
+#: widgets/room/messagelistview.cpp:292
 #, kde-format
 msgid "Delete"
 msgstr "Usuń"
@@ -7101,7 +7101,7 @@ msgstr "Otwórz rozmowę"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:541
+#: widgets/room/messagelistview.cpp:559
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7764,13 +7764,13 @@ msgid "Notification"
 msgstr "Powiadomienia"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:526
+#: widgets/room/messagelistview.cpp:542
 #, kde-format
 msgid "Go to Message"
 msgstr "Przejdź do wiadomości"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:267
+#: widgets/room/messagelistview.cpp:268
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7975,18 +7975,18 @@ msgid "Download Image..."
 msgstr "Pobierz obraz..."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:290
-#: widgets/room/messagelistview.cpp:371 widgets/room/usersinroommenu.cpp:86
+#: widgets/room/messagelistview.cpp:372 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Szczegóły użytkownika"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:299
-#: widgets/room/messagelistview.cpp:379
+#: widgets/room/messagelistview.cpp:380
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Rozpocznij prywatną rozmowę"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:483
+#: widgets/room/delegate/messagelistdelegate.cpp:488
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -7994,7 +7994,7 @@ msgstr[0] "1 odpowiedz"
 msgstr[1] "%1 odpowiedzi"
 msgstr[2] "%1 odpowiedzi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:490
+#: widgets/room/delegate/messagelistdelegate.cpp:495
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8002,22 +8002,22 @@ msgstr[0] "1 wiadomość"
 msgstr[1] "%1 wiadomości"
 msgstr[2] "%1 wiadomości"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:490
+#: widgets/room/delegate/messagelistdelegate.cpp:495
 #, kde-format
 msgid "No message yet"
 msgstr "Jeszcze nie ma żadnych wiadomości"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:719
+#: widgets/room/delegate/messagelistdelegate.cpp:724
 #, kde-format
 msgid "Following"
 msgstr "Podążanie"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:723
+#: widgets/room/delegate/messagelistdelegate.cpp:728
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Przypięto wiadomość"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:727
+#: widgets/room/delegate/messagelistdelegate.cpp:732
 #, kde-format
 msgid "Message has been starred"
 msgstr "Dodano gwiazdę do wiadomości"
@@ -8078,110 +8078,116 @@ msgstr "Wysłanie pliku"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Serwer nie uwierzytelnił tego pliku (nieprawidłowy rodzaj mime)"
 
-#: widgets/room/messagelistview.cpp:92
+#: widgets/room/messagelistview.cpp:93
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Dołączyłeś do nowych wiadomości bezpośrednich"
 
-#: widgets/room/messagelistview.cpp:94
+#: widgets/room/messagelistview.cpp:95
 #, kde-format
 msgid "Start of conversation"
 msgstr "Rozpocznij rozmowę"
 
-#: widgets/room/messagelistview.cpp:275
+#: widgets/room/messagelistview.cpp:276
 #, kde-format
 msgid "Unpin Message"
 msgstr "Odepnij wiadomość"
 
-#: widgets/room/messagelistview.cpp:275
+#: widgets/room/messagelistview.cpp:276
 #, kde-format
 msgid "Pin Message"
 msgstr "Przypnij wiadomość"
 
-#: widgets/room/messagelistview.cpp:284
+#: widgets/room/messagelistview.cpp:285
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Usuń z ulubionych"
 
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:303
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Oznacz wiadomość jako nieprzeczytaną"
 
-#: widgets/room/messagelistview.cpp:307
+#: widgets/room/messagelistview.cpp:308
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Pokaż pełen wątek"
 
-#: widgets/room/messagelistview.cpp:312
+#: widgets/room/messagelistview.cpp:313
 #, kde-format
 msgid "Edit"
 msgstr "Edytuj"
 
-#: widgets/room/messagelistview.cpp:317
+#: widgets/room/messagelistview.cpp:318
 #, kde-format
 msgid "Quote"
 msgstr "Cytuj"
 
-#: widgets/room/messagelistview.cpp:322
+#: widgets/room/messagelistview.cpp:323
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Skopiuj odnośnik do wiadomości"
 
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:336
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Przestań podążać za wiadomością"
 
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:336
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Podążaj za wiadomością"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:349
 #, kde-format
 msgid "Copy URL"
 msgstr "Skopiuj adres URL"
 
-#: widgets/room/messagelistview.cpp:394
+#: widgets/room/messagelistview.cpp:396
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Rozpocznij rozmowę"
 
-#: widgets/room/messagelistview.cpp:401
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Odpowiedz w wątku"
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgid "Show Original Message"
 msgstr "Pokaż pierwotną wiadomość"
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgid "Translate Message"
 msgstr "Przetłumacz wiadomość"
 
-#: widgets/room/messagelistview.cpp:548
+#: widgets/room/messagelistview.cpp:505
+#, fuzzy, kde-format
+#| msgid "Reports"
+msgid "View Reports"
+msgstr "Zgłoszenia"
+
+#: widgets/room/messagelistview.cpp:566
 #, kde-format
 msgid "Report Message"
 msgstr "Zgłoś wiadomość"
 
-#: widgets/room/messagelistview.cpp:721
+#: widgets/room/messagelistview.cpp:739
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Czy chcesz usunąć tę wiadomość?"
 
-#: widgets/room/messagelistview.cpp:722
+#: widgets/room/messagelistview.cpp:740
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Usuń wiadomość"
 
-#: widgets/room/messagelistview.cpp:861
+#: widgets/room/messagelistview.cpp:879
 #, kde-format
 msgid "Translator Error"
 msgstr "Błąd tłumacza"
@@ -9038,7 +9044,7 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Dodano konsolę moderowania (administracja, serwer RC 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
-msgid "Fix mardown support (header + check mark)"
+msgid "Fix markdown support (header + check mark)"
 msgstr ""
 
 #~ msgid "Share"
