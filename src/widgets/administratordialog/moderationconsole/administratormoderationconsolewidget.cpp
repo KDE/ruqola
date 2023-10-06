@@ -35,7 +35,7 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
 
 void AdministratorModerationConsoleWidget::initialize()
 {
-    // TODO
+    mModerationConsoleTreeWidget->initialize();
 }
 
 AdministratorModerationConsoleWidget::~AdministratorModerationConsoleWidget() = default;
