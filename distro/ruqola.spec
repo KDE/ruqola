@@ -58,8 +58,6 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %dir %{_libdir}/qt5/plugins/ruqolaplugins/
 %{_libdir}/qt5/plugins/ruqolaplugins/authentication/
 %{_libdir}/qt5/plugins/ruqolaplugins/textplugins/
-%dir %{_libdir}/qt5/plugins/kf5/
-%{_libdir}/qt5/plugins/kf5/ruqola-translator
 %{_prefix}/share/applications/org.kde.ruqola.desktop
 %{_prefix}/share/icons/hicolor
 %{_prefix}/share/doc/HTML/en/ruqola/
@@ -70,7 +68,7 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/locale
 
 %changelog
-* Mon 27 Sep 2023 Allen Winter <allen.winter@kdab.com> 2.0.0
+* Wed 27 Sep 2023 Allen Winter <allen.winter@kdab.com> 2.0.0
 - 2.0.0 release
 * Mon 03 Jul 2023 Allen Winter <allen.winter@kdab.com> 1.9.2
 - 1.9.2 release
