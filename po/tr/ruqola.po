@@ -2,12 +2,13 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 00:42+0000\n"
-"PO-Revision-Date: 2023-10-05 12:45+0300\n"
+"POT-Creation-Date: 2023-10-07 00:42+0000\n"
+"PO-Revision-Date: 2023-10-06 04:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -858,12 +859,12 @@ msgstr "İlmekli İletiler"
 msgid "Unread Threads Messages"
 msgstr "Okunmayan İlmekli İletiler"
 
-#: core/model/messagesmodel.cpp:220
+#: core/model/messagesmodel.cpp:221
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 tarafından %1 tarihinde düzenlendi"
 
-#: core/model/messagesmodel.cpp:359
+#: core/model/messagesmodel.cpp:360
 #, kde-format
 msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
@@ -7051,7 +7052,7 @@ msgstr "Tartışma Aç"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:559
+#: widgets/room/messagelistview.cpp:564
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7714,7 +7715,7 @@ msgid "Notification"
 msgstr "Bildirim"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:542
+#: widgets/room/messagelistview.cpp:547
 #, kde-format
 msgid "Go to Message"
 msgstr "İletiye Git"
@@ -8110,28 +8111,27 @@ msgid "Translate Message"
 msgstr "İletiyi Çevir"
 
 #: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "View Reports"
-msgstr "Raporlar"
+msgstr "Raporları Görüntüle"
 
-#: widgets/room/messagelistview.cpp:566
+#: widgets/room/messagelistview.cpp:571
 #, kde-format
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: widgets/room/messagelistview.cpp:739
+#: widgets/room/messagelistview.cpp:750
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Bu iletiyi silmek istiyor musunuz?"
 
-#: widgets/room/messagelistview.cpp:740
+#: widgets/room/messagelistview.cpp:751
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "İleti Sil"
 
-#: widgets/room/messagelistview.cpp:879
+#: widgets/room/messagelistview.cpp:890
 #, kde-format
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
@@ -8989,7 +8989,5 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Moderasyon Konsolu Ekle (yönetim, RC sunucusu, sürüm 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
-#, fuzzy
-#| msgid "Fix mardown support (header + check mark)"
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown desteğini onar (başlık ve onay kutusu)"
