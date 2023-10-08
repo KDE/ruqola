@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-07 00:42+0000\n"
-"PO-Revision-Date: 2023-09-29 15:08+0200\n"
+"PO-Revision-Date: 2023-10-07 01:27+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -4873,8 +4873,7 @@ msgid "Grouping Period (in seconds)"
 msgstr "Periodo di raggruppamento (in secondi)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Messsage Maximum Users"
+#, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Numero massimo di utenti per messaggio diretto"
 
@@ -8024,35 +8023,29 @@ msgid "Message has been starred"
 msgstr "Il messaggio ha ricevuto una stella"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Attach Files"
+#, kde-format
 msgid "Attach File"
 msgstr "Allega file"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Take a Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Registra un messaggio video"
+msgstr "Messaggio video"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Mostra messaggio"
+msgstr "Messaggio audio"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Account"
+#, kde-format
 msgid "Add Emoticon"
-msgstr "Aggiungi account"
+msgstr "Aggiungi faccina"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Messaggi speciali"
+msgstr "Invia messaggio"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8168,10 +8161,9 @@ msgid "Translate Message"
 msgstr "Traduci messaggio"
 
 #: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "View Reports"
-msgstr "Report"
+msgstr "Visualizza i report"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format
@@ -8805,9 +8797,7 @@ msgid "Main Toolbar"
 msgstr "Barra degli strumenti principale"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Informazioni sull'errore del server"
@@ -9052,7 +9042,7 @@ msgstr "Aggiungi console di moderazione (Amministrazione, server RC 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
-msgstr ""
+msgstr "Corretto il supporto markdown (intestazione + segno di spunta)"
 
 #~ msgid "Share"
 #~ msgstr "Condividi"

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-07 00:42+0000\n"
-"PO-Revision-Date: 2023-09-30 18:51+0200\n"
+"PO-Revision-Date: 2023-10-07 18:31+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -95,7 +95,7 @@ msgstr "Till Adam"
 #: apps/main.cpp:66
 #, kde-format
 msgid "Windows compile bug fixing"
-msgstr "Arreglo de errores en la compilación de Windows"
+msgstr "Corrección de errores en la compilación de Windows"
 
 #: apps/main.cpp:67
 #, kde-format
@@ -135,7 +135,7 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr "Arreglo de errores (compilación, errores de red, ...)"
+msgstr "Corrección de errores (compilación, errores de red, ...)"
 
 #: apps/main.cpp:72
 #, kde-format
@@ -4872,8 +4872,7 @@ msgid "Grouping Period (in seconds)"
 msgstr "Periodo de agrupación (en segundos)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Messsage Maximum Users"
+#, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Máximo de usuarios en mensajes directos"
 
@@ -8023,34 +8022,29 @@ msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Attach File"
-msgstr "Guardar archivo"
+msgstr "Adjuntar archivo"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Crear mensaje de video"
+msgstr "Mensaje de video"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Mostrar mensaje"
+msgstr "Mensaje de sonido"
 
 #: widgets/room/messagelinewidget.cpp:94
 #, kde-format
 msgid "Add Emoticon"
-msgstr ""
+msgstr "Añadir emoticono"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Mensajes favoritos"
+msgstr "Enviar mensaje"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8166,10 +8160,9 @@ msgid "Translate Message"
 msgstr "Traducir mensaje"
 
 #: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "View Reports"
-msgstr "Reportes"
+msgstr "Ver reportes"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format
@@ -8807,9 +8800,7 @@ msgid "Main Toolbar"
 msgstr "Barra de herramientas principal"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Información de errores de servidor"
@@ -9032,20 +9023,20 @@ msgstr "Importar/Exportar cuentas."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
-msgstr "Arreglo del soporte de avatares"
+msgstr "Corrección del soporte de avatares"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
-"Arreglo del soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
+"Corrección del soporte de emoticonos (usa el nuevo ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:38
 msgid "Fix animated gif in reactions"
-msgstr "Arreglo de los gif animados en las reacciones"
+msgstr "Corrección de los gif animados en las reacciones"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:39
 msgid "Fix kf6 support"
-msgstr "Arreglo del soporte de kf6"
+msgstr "Corrección del soporte de kf6"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
@@ -9053,4 +9044,4 @@ msgstr "Añade consola de moderación (Administración, RC server 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
-msgstr ""
+msgstr "Corrección del soporte de markdown (marcas de cabecera y verificación)"
