@@ -37,6 +37,7 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
+    connect(this, &ModerationConsoleTreeWidget::doubleClicked, this, &ModerationConsoleTreeWidget::slotShowMessages);
     hideColumns();
     connectModel();
 }
@@ -99,6 +100,24 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
     }
 }
 
+void ModerationConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIndex)
+{
+    if (!newModelIndex.isValid()) {
+        return;
+    }
+    auto job = new RocketChatRestApi::ModerationUserReportedMessagesJob(this);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+    job->setReportedMessageFromUserId(modelIndex.data().toString());
+    connect(job,
+            &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
+            this,
+            &ModerationConsoleTreeWidget::slotShowReportedMessages);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
+    }
+}
+
 void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
@@ -106,17 +125,7 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
         menu.addAction(QIcon::fromTheme(QStringLiteral("visibility")), i18n("See messages"), this, [this, newModelIndex]() {
-            auto job = new RocketChatRestApi::ModerationUserReportedMessagesJob(this);
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
-            job->setReportedMessageFromUserId(modelIndex.data().toString());
-            connect(job,
-                    &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
-                    this,
-                    &ModerationConsoleTreeWidget::slotShowReportedMessages);
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
-            }
+            slotShowMessages(newModelIndex);
         });
         menu.addSeparator();
 

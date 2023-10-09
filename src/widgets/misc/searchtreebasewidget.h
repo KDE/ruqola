@@ -24,6 +24,7 @@ public:
     void initialize();
 Q_SIGNALS:
     void loadMoreElements();
+    void doubleClicked(const QModelIndex &index);
 
 protected:
     virtual void slotCustomContextMenuRequested(const QPoint &pos) = 0;

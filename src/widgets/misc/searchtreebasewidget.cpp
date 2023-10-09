@@ -60,6 +60,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
         slotLoadMoreElements();
     });
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &SearchTreeBaseWidget::slotCustomContextMenuRequested);
+    connect(mTreeView, &QTreeView::doubleClicked, this, &SearchTreeBaseWidget::doubleClicked);
 }
 
 SearchTreeBaseWidget::~SearchTreeBaseWidget() = default;
