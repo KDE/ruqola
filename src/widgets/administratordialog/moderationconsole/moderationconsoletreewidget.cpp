@@ -46,6 +46,7 @@ ModerationConsoleTreeWidget::~ModerationConsoleTreeWidget() = default;
 void ModerationConsoleTreeWidget::setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range)
 {
     mModerationRanges = range;
+    slotLoadElements();
     // qDebug() << " range " << range;
 }
 
