@@ -20,7 +20,6 @@ public:
     void initialize();
 
 private:
-    void slotRefreshList();
     ModerationConsoleTreeWidget *const mModerationConsoleTreeWidget;
     AdministratorModerationRangeWidget *const mAdministratorModerationRangeWidget;
     RocketChatAccount *const mRocketChatAccount;

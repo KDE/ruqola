@@ -38,6 +38,9 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
     connect(this, &ModerationConsoleTreeWidget::doubleClicked, this, &ModerationConsoleTreeWidget::slotShowMessages);
+    connect(this, &ModerationConsoleTreeWidget::refreshList, this, [this]() {
+        slotLoadElements();
+    });
     hideColumns();
     connectModel();
 }
@@ -183,7 +186,6 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
         const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
         job->setUserIdForMessages(modelIndex.data().toString());
         connect(job, &RocketChatRestApi::ModerationUserDeleteReportedMessagesJob::moderationUserDeleteReportedMessagesDone, this, [this]() {
-            // TODO
             Q_EMIT refreshList();
         });
         if (!job->start()) {
