@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-07 00:42+0000\n"
-"PO-Revision-Date: 2023-09-29 04:53+0200\n"
+"PO-Revision-Date: 2023-10-08 05:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -4769,8 +4769,7 @@ msgid "Grouping Period (in seconds)"
 msgstr "დაჯგუფების პეროდი (წამებში)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Messsage Maximum Users"
+#, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "პირადი შეტყობინების მაქსიმალური მომხმარებლები"
 
@@ -7858,35 +7857,29 @@ msgid "Message has been starred"
 msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Attach File"
-msgstr "ფაილის შენახვა"
+msgstr "ფაილის მიმაგრება"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "ვიდეო-შეტყობინების შექმნა"
+msgstr "ვიდეოშეტყობინება"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "შეტყობინების ჩვენება"
+msgstr "ხმოვანი შეტყობინება"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Search Emoticon..."
+#, kde-format
 msgid "Add Emoticon"
-msgstr "ემოციის მოძებნა..."
+msgstr "ემოციის დამატება"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "ვარსკვლავიანი შეტყობინებები"
+msgstr "შეტყობინების გაგზავნა"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8002,10 +7995,9 @@ msgid "Translate Message"
 msgstr "შეტყობინების თარგმნა"
 
 #: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "View Reports"
-msgstr "ანგარიშები"
+msgstr "ანგარიშების ნახვა"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format
@@ -8634,9 +8626,7 @@ msgid "Main Toolbar"
 msgstr "ხელსაწყოთა მთავარი ზოლი"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "სერვერის შეცდომის ინფორმაცია"
