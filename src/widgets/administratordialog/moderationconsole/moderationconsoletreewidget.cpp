@@ -176,7 +176,9 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
 void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index)
 {
     if (KMessageBox::questionTwoActions(this,
-                                        i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
+                                        i18n("Are you sure you want to delete all reported messages from this user?\n"
+                                             "The messages will be deleted from the message history and no one will be able to see it.\n"
+                                             "This action cannot be undone."),
                                         i18nc("@title:window", "Delete All Messages"),
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
