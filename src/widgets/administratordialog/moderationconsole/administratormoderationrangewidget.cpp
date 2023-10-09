@@ -58,7 +58,14 @@ AdministratorModerationRangeWidget::DateTimeRange AdministratorModerationRangeWi
 
 void AdministratorModerationRangeWidget::slotRangeChanged()
 {
-    // TODO check range
+    const QDate fromDate = mFromDate->date();
+    const QDate toDate = mToDate->date();
+    if (fromDate > toDate) {
+        QSignalBlocker b(mFromDate);
+        QSignalBlocker b2(mToDate);
+        mToDate->setDate(fromDate);
+        mFromDate->setDate(toDate);
+    }
     Q_EMIT rangeChanged();
 }
 
