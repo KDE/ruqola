@@ -8,7 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
-#include "model/notificationhistorymodel.h"
+#include "model/moderationmessagesmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "textconverter.h"
@@ -26,10 +26,10 @@ ModerationMessageDelegate::~ModerationMessageDelegate() = default;
 ModerationMessageDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
 {
     ModerationMessageDelegate::RoomAccount info;
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
+    const QString accountName = index.data(ModerationMessagesModel::AccountName).toString();
+    QString channelName = index.data(ModerationMessagesModel::RoomName).toString();
     if (channelName.isEmpty()) {
-        channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
+        channelName = index.data(ModerationMessagesModel::SenderUserName).toString();
     }
     info.accountName = accountName;
     info.channelName = channelName;
@@ -143,14 +143,14 @@ ModerationMessageDelegate::Layout ModerationMessageDelegate::doLayout(const QSty
 
     layout.sameAccountRoomAsPreviousMessage = sameAccountRoomAsPreviousMessage;
 
-    const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
+    const QString userName = index.data(ModerationMessagesModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 
     // Timestamp
-    layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
+    layout.timeStampText = index.data(ModerationMessagesModel::DateTime).toString();
 
     // Message (using the rest of the available width)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -158,7 +158,7 @@ ModerationMessageDelegate::Layout ModerationMessageDelegate::doLayout(const QSty
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
     // Resize pixmap TODO cache ?
-    const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
+    const auto pix = index.data(ModerationMessagesModel::Pixmap).value<QPixmap>();
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.avatarPixmap = scaledPixmap;
@@ -196,7 +196,7 @@ ModerationMessageDelegate::Layout ModerationMessageDelegate::doLayout(const QSty
 QTextDocument *ModerationMessageDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
+    const QString messageId = index.data(ModerationMessagesModel::MessageId).toString();
     Q_ASSERT(!messageId.isEmpty());
 
     auto it = mDocumentCache.find(messageId);
@@ -208,7 +208,7 @@ QTextDocument *ModerationMessageDelegate::documentForModelIndex(const QModelInde
         return ret;
     }
 
-    const QString messageStr = index.data(NotificationHistoryModel::MessageStr).toString();
+    const QString messageStr = index.data(ModerationMessagesModel::MessageStr).toString();
 
     if (messageStr.isEmpty()) {
         return nullptr;
@@ -259,10 +259,10 @@ bool ModerationMessageDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemVi
     if (layout.senderRect.contains(helpEventPos)) {
         auto account = rocketChatAccount(index);
         if (account) {
-            const QString senderName = index.data(NotificationHistoryModel::SenderName).toString();
+            const QString senderName = index.data(ModerationMessagesModel::SenderName).toString();
             QString tooltip = senderName;
             if (account->useRealName() && !tooltip.isEmpty()) {
-                const QString senderUserName = index.data(NotificationHistoryModel::SenderUserName).toString();
+                const QString senderUserName = index.data(ModerationMessagesModel::SenderUserName).toString();
                 tooltip = QLatin1Char('@') + senderUserName;
             }
             if (!tooltip.isEmpty()) {
@@ -320,8 +320,8 @@ bool ModerationMessageDelegate::maybeStartDrag(QMouseEvent *event, const QStyleO
 
 RocketChatAccount *ModerationMessageDelegate::rocketChatAccount(const QModelIndex &index) const
 {
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    return Ruqola::self()->accountManager()->accountFromName(accountName);
+    Q_UNUSED(index);
+    return mRocketChatAccount;
 }
 
 QString ModerationMessageDelegate::selectedText() const
