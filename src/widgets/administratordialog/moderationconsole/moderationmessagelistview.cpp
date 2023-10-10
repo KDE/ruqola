@@ -74,6 +74,14 @@ void ModerationMessageListView::slotCustomContextMenuRequested(const QPoint &pos
         if (index.isValid()) {
             // TODO add show moderation infos!
 
+            auto showReportInfo = new QAction(i18n("View Reports"), &menu); // Add icon
+            connect(showReportInfo, &QAction::triggered, this, [=]() {
+                // TODO
+                // const QString messageId = message->messageId();
+                // const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
+                // Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
+            });
+
             menu.addSeparator();
             menu.addAction(i18n("Go to Message"), this, [this, index]() {
                 Q_EMIT showMessage(index);
