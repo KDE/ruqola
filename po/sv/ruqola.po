@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 00:42+0000\n"
+"POT-Creation-Date: 2023-10-10 00:42+0000\n"
 "PO-Revision-Date: 2023-10-05 20:16+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2532,32 +2532,32 @@ msgstr "Från:"
 msgid "To:"
 msgstr "Till:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
 msgid "Today"
 msgstr "Idag"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
 msgid "Yesterday"
 msgstr "Igår"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:88
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
 msgid "This week"
 msgstr "Denna veckan"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, kde-format
 msgid "Previous week"
 msgstr "Föregående vecka"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:108
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
 msgid "This month"
 msgstr "Denna månaden"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, kde-format
 msgid "Previous month"
 msgstr "Föregående månad"
@@ -2567,35 +2567,34 @@ msgstr "Föregående månad"
 msgid "Search moderation message..."
 msgstr "Sök efter modereringsmeddelande..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:54
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, kde-format
 msgid "No moderation message found"
 msgstr "Inga modereringsmeddelanden hittades"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 modereringsmeddelande (totalt : %2)"
 msgstr[1] "%1 modereringsmeddelanden (totalt : %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
 #, kde-format
 msgid "See messages"
 msgstr "Visa meddelanden"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:122
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
 msgstr "Avfärda rapporter"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, kde-format
 msgid "Delete all Messages"
 msgstr "Ta bort alla meddelanden"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:145
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2604,13 +2603,27 @@ msgstr ""
 "Är du säker på att du vill avfärda och ta bort alla rapporter om användarens "
 "meddelanden? Åtgärden kan inte ångras."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Avfärda"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:167
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
+#, fuzzy, kde-format
+#| msgid ""
+#| "Are you sure you want to dismiss and delete all reports for this user's "
+#| "messages? This action cannot be undone."
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+"Är du säker på att du vill avfärda och ta bort alla rapporter om användarens "
+"meddelanden? Åtgärden kan inte ångras."
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -6886,7 +6899,7 @@ msgstr[1] "%1 bilagor i rummet (totalt: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:99
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:93
-#: widgets/misc/searchtreebasewidget.cpp:69
+#: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 00:42+0000\n"
+"POT-Creation-Date: 2023-10-10 00:42+0000\n"
 "PO-Revision-Date: 2023-10-06 08:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2560,32 +2560,32 @@ msgstr "Від:"
 msgid "To:"
 msgstr "Кому:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
 msgid "Today"
 msgstr "Сьогодні"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
 msgid "Yesterday"
 msgstr "Вчора"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:88
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
 msgid "This week"
 msgstr "Цього тижня"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, kde-format
 msgid "Previous week"
 msgstr "Попереднього тижня"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:108
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
 msgid "This month"
 msgstr "Цього місяця"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, kde-format
 msgid "Previous month"
 msgstr "Попереднього місяця"
@@ -2595,12 +2595,12 @@ msgstr "Попереднього місяця"
 msgid "Search moderation message..."
 msgstr "Шукати повідомлення для модерації…"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:54
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, kde-format
 msgid "No moderation message found"
 msgstr "Не знайдено повідомлення для модерації"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -2609,23 +2609,22 @@ msgstr[1] "%1 повідомлення для модерації (загалом
 msgstr[2] "%1 повідомлень для модерації (загалом: %2)"
 msgstr[3] "%1 повідомлення для модерації (загалом: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
 #, kde-format
 msgid "See messages"
 msgstr "Переглянути повідомлення"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:122
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
 msgstr "Відкинути скарги"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, kde-format
 msgid "Delete all Messages"
 msgstr "Вилучити усі повідомлення"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:145
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2634,13 +2633,27 @@ msgstr ""
 "Ви справді хочете відкинути і вилучити усі скарги щодо повідомлень цього "
 "користувача? Скасувати наслідки цієї дії не можна."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Відкидання"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:167
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
+#, fuzzy, kde-format
+#| msgid ""
+#| "Are you sure you want to dismiss and delete all reports for this user's "
+#| "messages? This action cannot be undone."
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+"Ви справді хочете відкинути і вилучити усі скарги щодо повідомлень цього "
+"користувача? Скасувати наслідки цієї дії не можна."
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -6967,7 +6980,7 @@ msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:99
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:93
-#: widgets/misc/searchtreebasewidget.cpp:69
+#: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format

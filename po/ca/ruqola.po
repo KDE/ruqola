@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-07 00:42+0000\n"
+"POT-Creation-Date: 2023-10-10 00:42+0000\n"
 "PO-Revision-Date: 2023-10-06 10:25+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2552,32 +2552,32 @@ msgstr "De:"
 msgid "To:"
 msgstr "A:"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
 msgid "Today"
 msgstr "Avui"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:78
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
 msgid "Yesterday"
 msgstr "Ahir"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:88
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
 msgid "This week"
 msgstr "Aquesta setmana"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:98
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, kde-format
 msgid "Previous week"
 msgstr "Setmana anterior"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:108
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
 msgid "This month"
 msgstr "Aquest mes"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:119
+#: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, kde-format
 msgid "Previous month"
 msgstr "Mes anterior"
@@ -2587,35 +2587,34 @@ msgstr "Mes anterior"
 msgid "Search moderation message..."
 msgstr "Cerca un missatge de moderació..."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:54
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, kde-format
 msgid "No moderation message found"
 msgstr "No s'ha trobat cap missatge de moderació"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 missatge de moderació (Total: %2)"
 msgstr[1] "%1 missatges de moderació (Total: %2)"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:107
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
 #, kde-format
 msgid "See messages"
 msgstr "Vegeu els missatges"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:122
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
 msgstr "Descarta els informes"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:126
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, kde-format
 msgid "Delete all Messages"
 msgstr "Suprimeix tots els missatges"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:145
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -2624,13 +2623,27 @@ msgstr ""
 "Segur que voleu descartar i suprimir tots els informes per als missatges "
 "d'aquest usuari? Aquesta acció no es pot desfer."
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Descarta"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:167
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
+#, fuzzy, kde-format
+#| msgid ""
+#| "Are you sure you want to dismiss and delete all reports for this user's "
+#| "messages? This action cannot be undone."
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+"Segur que voleu descartar i suprimir tots els informes per als missatges "
+"d'aquest usuari? Aquesta acció no es pot desfer."
+
+#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -6925,7 +6938,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:99
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:93
-#: widgets/misc/searchtreebasewidget.cpp:69
+#: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format
