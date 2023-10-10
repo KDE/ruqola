@@ -8,12 +8,13 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
 class ModerationMessageDelegate;
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
-    explicit ModerationMessageListView(QWidget *parent = nullptr);
+    explicit ModerationMessageListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationMessageListView() override;
 
     void clearCache();
@@ -36,6 +37,5 @@ private:
     [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     void slotTextToSpeech(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotClearList();
     ModerationMessageDelegate *const mListNotificationsDelegate;
 };

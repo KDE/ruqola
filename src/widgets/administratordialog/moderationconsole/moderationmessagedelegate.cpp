@@ -16,8 +16,9 @@
 #include <QPainter>
 #include <QToolTip>
 
-ModerationMessageDelegate::ModerationMessageDelegate(QListView *view, QObject *parent)
+ModerationMessageDelegate::ModerationMessageDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
     : MessageListDelegateBase{view, parent}
+    , mRocketChatAccount(account)
 {
 }
 

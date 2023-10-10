@@ -15,9 +15,9 @@
 
 #include <config-ruqola.h>
 
-ModerationMessageListView::ModerationMessageListView(QWidget *parent)
+ModerationMessageListView::ModerationMessageListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
-    , mListNotificationsDelegate(new ModerationMessageDelegate(this, this))
+    , mListNotificationsDelegate(new ModerationMessageDelegate(this, account, this))
 {
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
     setItemDelegate(mListNotificationsDelegate);
@@ -70,9 +70,10 @@ void ModerationMessageListView::slotCustomContextMenuRequested(const QPoint &pos
 {
     if (model()->rowCount() > 0) {
         QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &ModerationMessageListView::slotClearList);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
+            // TODO add show moderation infos!
+
             menu.addSeparator();
             menu.addAction(i18n("Go to Message"), this, [this, index]() {
                 Q_EMIT showMessage(index);
@@ -121,12 +122,6 @@ QString ModerationMessageListView::selectedText(const QModelIndex &index)
         messageText = index.data(NotificationHistoryModel::MessageStr).toString();
     }
     return messageText;
-}
-
-void ModerationMessageListView::slotClearList()
-{
-    clearCache();
-    NotificationHistoryManager::self()->notificationHistoryModel()->clear();
 }
 
 #include "moc_moderationmessagelistview.cpp"

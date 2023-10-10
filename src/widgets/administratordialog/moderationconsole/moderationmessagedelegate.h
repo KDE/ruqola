@@ -27,7 +27,7 @@ public:
             return !operator==(other);
         }
     };
-    explicit ModerationMessageDelegate(QListView *view, QObject *parent = nullptr);
+    explicit ModerationMessageDelegate(QListView *view, RocketChatAccount *account, QObject *parent = nullptr);
     ~ModerationMessageDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
