@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-10 00:42+0000\n"
-"PO-Revision-Date: 2023-10-06 08:38+0300\n"
+"POT-Creation-Date: 2023-10-11 00:43+0000\n"
+"PO-Revision-Date: 2023-10-10 09:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2640,24 +2640,64 @@ msgid "Dismiss"
 msgstr "Відкидання"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to dismiss and delete all reports for this user's "
-#| "messages? This action cannot be undone."
+#, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
 "The messages will be deleted from the message history and no one will be "
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
-"Ви справді хочете відкинути і вилучити усі скарги щодо повідомлень цього "
-"користувача? Скасувати наслідки цієї дії не можна."
+"Ви справді хочете вилучити усі повідомлення цього користувача, на які "
+"надійшли скарги?\n"
+"Повідомлення буде вилучено з журналу повідомлень, і ніхто не зможе їх "
+"бачити.\n"
+"Наслідки дії не можна буде скасувати."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Вилучення усіх повідомлень"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
+#: widgets/room/messagelistview.cpp:505
+#, kde-format
+msgid "View Reports"
+msgstr "Переглянути скарги"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:547
+#, kde-format
+msgid "Go to Message"
+msgstr "Перейти до повідомлення"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, kde-format
+msgid "Copy Message"
+msgstr "Копіювати повідомлення"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:564
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, kde-format
+msgid "Speak Text"
+msgstr "Декламувати текст"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr "Вибрати все"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -5903,15 +5943,6 @@ msgstr "Показати непрочитані"
 msgid "Search..."
 msgstr "Шукати…"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr "Вибрати все"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
@@ -7160,14 +7191,6 @@ msgstr[3] "%1 повідомлення"
 msgid "Open Discussion"
 msgstr "Відкрити обговорення"
 
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, kde-format
-msgid "Speak Text"
-msgstr "Декламувати текст"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7827,19 +7850,6 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Сповіщення"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr "Перейти до повідомлення"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, kde-format
-msgid "Copy Message"
-msgstr "Копіювати повідомлення"
-
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -8225,11 +8235,6 @@ msgstr "Показувати оригінальне повідомлення"
 #, kde-format
 msgid "Translate Message"
 msgstr "Переклад повідомлення"
-
-#: widgets/room/messagelistview.cpp:505
-#, kde-format
-msgid "View Reports"
-msgstr "Переглянути скарги"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format

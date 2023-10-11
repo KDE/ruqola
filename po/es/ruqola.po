@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-10 00:42+0000\n"
+"POT-Creation-Date: 2023-10-11 00:43+0000\n"
 "PO-Revision-Date: 2023-10-07 18:31+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2648,6 +2648,46 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Borrar todos los mensajes"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
+#: widgets/room/messagelistview.cpp:505
+#, kde-format
+msgid "View Reports"
+msgstr "Ver reportes"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:547
+#, kde-format
+msgid "Go to Message"
+msgstr "Ir al mensaje"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, kde-format
+msgid "Copy Message"
+msgstr "Copiar mensaje"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:564
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, kde-format
+msgid "Speak Text"
+msgstr "Dictar texto"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr "Seleccionar todos"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -5884,15 +5924,6 @@ msgstr "Mostrar no leídos"
 msgid "Search..."
 msgstr "Buscar..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr "Seleccionar todos"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
@@ -7112,14 +7143,6 @@ msgstr[1] "%1 mensajes"
 msgid "Open Discussion"
 msgstr "Abrir discusión"
 
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, kde-format
-msgid "Speak Text"
-msgstr "Dictar texto"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7777,19 +7800,6 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Notificación"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr "Ir al mensaje"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, kde-format
-msgid "Copy Message"
-msgstr "Copiar mensaje"
-
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -8171,11 +8181,6 @@ msgstr "Mostrar mensaje original"
 #, kde-format
 msgid "Translate Message"
 msgstr "Traducir mensaje"
-
-#: widgets/room/messagelistview.cpp:505
-#, kde-format
-msgid "View Reports"
-msgstr "Ver reportes"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format

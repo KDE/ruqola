@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-10 00:42+0000\n"
+"POT-Creation-Date: 2023-10-11 00:43+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2734,6 +2734,49 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "刪除訊息"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
+#: widgets/room/messagelistview.cpp:505
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "View Reports"
+msgstr "回報臭蟲"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:547
+#, kde-format
+msgid "Go to Message"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, fuzzy, kde-format
+#| msgid "Unpin Message"
+msgid "Copy Message"
+msgstr "取消訊息置頂"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:564
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Speak Text"
+msgstr "狀態文字："
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, fuzzy, kde-format
@@ -5986,15 +6029,6 @@ msgstr "討論串"
 msgid "Search..."
 msgstr "搜尋使用者…"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr ""
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Status Text:"
@@ -7285,15 +7319,6 @@ msgstr[0] "%1 則訊息"
 msgid "Open Discussion"
 msgstr "開啟討論區"
 
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Status Text:"
-msgid "Speak Text"
-msgstr "狀態文字："
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Discussions"
@@ -7983,20 +8008,6 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "通知"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr ""
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, fuzzy, kde-format
-#| msgid "Unpin Message"
-msgid "Copy Message"
-msgstr "取消訊息置頂"
-
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -8408,12 +8419,6 @@ msgstr ""
 #, kde-format
 msgid "Translate Message"
 msgstr "翻譯訊息"
-
-#: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Report a Bug"
-msgid "View Reports"
-msgstr "回報臭蟲"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-10 00:42+0000\n"
-"PO-Revision-Date: 2023-10-05 20:16+0200\n"
+"POT-Creation-Date: 2023-10-11 00:43+0000\n"
+"PO-Revision-Date: 2023-10-10 18:47+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2610,24 +2610,64 @@ msgid "Dismiss"
 msgstr "Avfärda"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to dismiss and delete all reports for this user's "
-#| "messages? This action cannot be undone."
+#, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
 "The messages will be deleted from the message history and no one will be "
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
-"Är du säker på att du vill avfärda och ta bort alla rapporter om användarens "
-"meddelanden? Åtgärden kan inte ångras."
+"Är du säker på att du vill ta bort alla rapporterade meddelanden från "
+"användaren?\n"
+"Meddelandena tas bort från meddelandehistoriken och ingen kommer att kunna "
+"se dem.\n"
+"Åtgärden kan inte ångras."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Ta bort alla meddelanden"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
+#: widgets/room/messagelistview.cpp:505
+#, kde-format
+msgid "View Reports"
+msgstr "Visa rapporter"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:547
+#, kde-format
+msgid "Go to Message"
+msgstr "Gå till meddelande"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, kde-format
+msgid "Copy Message"
+msgstr "Kopiera meddelande"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:564
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, kde-format
+msgid "Speak Text"
+msgstr "Läs upp text"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr "Markera alla"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -5844,15 +5884,6 @@ msgstr "Visa olästa"
 msgid "Search..."
 msgstr "Sök..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr "Markera alla"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
@@ -7073,14 +7104,6 @@ msgstr[1] "%1 meddelanden"
 msgid "Open Discussion"
 msgstr "Starta diskussion"
 
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, kde-format
-msgid "Speak Text"
-msgstr "Läs upp text"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7731,19 +7754,6 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Underrättelse"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr "Gå till meddelande"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopiera meddelande"
-
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -8125,12 +8135,6 @@ msgstr "Visa originalmeddelande"
 #, kde-format
 msgid "Translate Message"
 msgstr "Översätt meddelande"
-
-#: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Reports"
-msgid "View Reports"
-msgstr "Rapporter"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format
@@ -9001,8 +9005,6 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Lägg till modereringsterminal (administration, RC-server 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
-#, fuzzy
-#| msgid "Fix mardown support (header + check mark)"
 msgid "Fix markdown support (header + check mark)"
 msgstr "Rätta stöd för Markdown (huvud + bock)"
 

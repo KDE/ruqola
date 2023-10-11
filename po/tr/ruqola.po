@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-10 00:42+0000\n"
-"PO-Revision-Date: 2023-10-06 04:25+0300\n"
+"POT-Creation-Date: 2023-10-11 00:43+0000\n"
+"PO-Revision-Date: 2023-10-10 11:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2597,7 +2597,7 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
-"Bu kullanıcının iletileri için olan tüm raporları göz ardı edip silmek "
+"Bu kullanıcının iletilerine ilişkin tüm raporları göz ardı etmek ve silmek "
 "istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
@@ -2607,24 +2607,63 @@ msgid "Dismiss"
 msgstr "Göz Ardı Et"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to dismiss and delete all reports for this user's "
-#| "messages? This action cannot be undone."
+#, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
 "The messages will be deleted from the message history and no one will be "
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
-"Bu kullanıcının iletileri için olan tüm raporları göz ardı edip silmek "
-"istediğinizden emin misiniz? Bu eylem geri alınamaz."
+"Bu kullanıcıdan bildirilen tüm iletileri silmek istediğinizden emin "
+"misiniz?\n"
+"İletlire, ileti geçmişinden silinecek ve hiç kimse göremeyecektir.\n"
+"Bu eylem geri alınamaz."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
+#: widgets/room/messagelistview.cpp:505
+#, kde-format
+msgid "View Reports"
+msgstr "Raporları Görüntüle"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:547
+#, kde-format
+msgid "Go to Message"
+msgstr "İletiye Git"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, kde-format
+msgid "Copy Message"
+msgstr "İletiyi Kopyala"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:564
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, kde-format
+msgid "Speak Text"
+msgstr "Metni Konuş"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr "Tümünü Seç"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -5833,15 +5872,6 @@ msgstr "Okunmayanları Göster"
 msgid "Search..."
 msgstr "Ara..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr "Tümünü Seç"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
@@ -7063,14 +7093,6 @@ msgstr[1] "%1 ileti"
 msgid "Open Discussion"
 msgstr "Tartışma Aç"
 
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, kde-format
-msgid "Speak Text"
-msgstr "Metni Konuş"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7727,19 +7749,6 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Bildirim"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr "İletiye Git"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, kde-format
-msgid "Copy Message"
-msgstr "İletiyi Kopyala"
-
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -8122,11 +8131,6 @@ msgstr "Özgün İletiyi Göster"
 #, kde-format
 msgid "Translate Message"
 msgstr "İletiyi Çevir"
-
-#: widgets/room/messagelistview.cpp:505
-#, kde-format
-msgid "View Reports"
-msgstr "Raporları Görüntüle"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-10 00:42+0000\n"
+"POT-Creation-Date: 2023-10-11 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2733,6 +2733,51 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Zmazať správu"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
+#: widgets/room/messagelistview.cpp:505
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "View Reports"
+msgstr "Nahlásiť chybu"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:547
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Go to Message"
+msgstr "Správa"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Copy Message"
+msgstr "Správa"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:564
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, fuzzy, kde-format
+#| msgid "Status:"
+msgid "Speak Text"
+msgstr "Stav:"
+
+#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, fuzzy, kde-format
+#| msgid "Select File..."
+msgid "Select All"
+msgstr "Vybrať súbor..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, fuzzy, kde-format
@@ -5975,16 +6020,6 @@ msgstr "Vlákna"
 msgid "Search..."
 msgstr "Hľadať súbor..."
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, fuzzy, kde-format
-#| msgid "Select File..."
-msgid "Select All"
-msgstr "Vybrať súbor..."
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Status:"
@@ -7319,15 +7354,6 @@ msgstr[2] "%1 správ"
 msgid "Open Discussion"
 msgstr ""
 
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, fuzzy, kde-format
-#| msgid "Status:"
-msgid "Speak Text"
-msgstr "Stav:"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -8021,21 +8047,6 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Upozornenia"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, fuzzy, kde-format
-#| msgid "Message"
-msgid "Go to Message"
-msgstr "Správa"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, fuzzy, kde-format
-#| msgid "Message"
-msgid "Copy Message"
-msgstr "Správa"
-
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -8453,12 +8464,6 @@ msgstr "Súkromné adresy"
 #| msgid "Private Messages"
 msgid "Translate Message"
 msgstr "Súkromné adresy"
-
-#: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Report a Bug"
-msgid "View Reports"
-msgstr "Nahlásiť chybu"
 
 #: widgets/room/messagelistview.cpp:571
 #, kde-format
