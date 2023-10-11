@@ -248,7 +248,7 @@ set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
 
 
-configure_file(config-ruqola.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
+configure_file(config-ruqola.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
 if(BUILD_TESTING)
     find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
