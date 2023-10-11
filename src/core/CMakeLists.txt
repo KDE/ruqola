@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    moderation/moderationmessage.h moderation/moderationmessage.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -465,8 +464,8 @@ target_sources(libruqolacore PRIVATE
     moderation/moderationmessage.cpp
     moderation/moderationmessage.h
 
-    moderationlistmessages.h
-    moderationlistmessages.cpp
+    moderation/moderationlistmessages.h
+    moderation/moderationlistmessages.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)

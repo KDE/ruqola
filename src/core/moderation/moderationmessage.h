@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include "messages/message.h"
 class EmojiManager;
-class ModerationMessage : public Message
+class LIBRUQOLACORE_EXPORT ModerationMessage : public Message
 {
 public:
     explicit ModerationMessage(EmojiManager *emojiManager = nullptr);

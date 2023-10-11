@@ -5,7 +5,7 @@
 */
 
 #include "moderationmessagesmodel.h"
-#include "moderationlistmessages.h"
+#include "moderation/moderationlistmessages.h"
 
 ModerationMessagesModel::ModerationMessagesModel(RocketChatAccount *account, QObject *parent)
     : CommonMessagesModel{account, parent}
@@ -20,3 +20,5 @@ QVector<Message> ModerationMessagesModel::extractMessages(const QJsonObject &obj
     messages.parseMessages(obj, QStringLiteral("messages"));
     return messages.listMessages();
 }
+
+#include "moc_moderationmessagesmodel.cpp"
