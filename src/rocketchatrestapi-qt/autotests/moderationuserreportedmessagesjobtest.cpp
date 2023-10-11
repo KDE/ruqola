@@ -29,10 +29,11 @@ void ModerationUserReportedMessagesJobTest::shouldHaveDefaultValue()
 void ModerationUserReportedMessagesJobTest::shouldGenerateRequest()
 {
     ModerationUserReportedMessagesJob job;
+    job.setReportedMessageFromUserId(QStringLiteral("bla"));
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.deleteReportedMessages")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportedMessages?userId=bla")));
     }
 }
 
