@@ -6,7 +6,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "lrucache.h"
 #include "misc/messagelistdelegatebase.h"
 class QTextDocument;
 class RocketChatAccount;
