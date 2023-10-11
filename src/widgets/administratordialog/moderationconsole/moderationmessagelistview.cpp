@@ -17,13 +17,13 @@
 
 ModerationMessageListView::ModerationMessageListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
-    , mListNotificationsDelegate(new ModerationMessageDelegate(this, account, this))
+    , mModerationMessagesDelegate(new ModerationMessageDelegate(this, account, this))
 {
-    mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
-    setItemDelegate(mListNotificationsDelegate);
+    mModerationMessagesDelegate->setObjectName(QStringLiteral("mModerationMessagesDelegate"));
+    setItemDelegate(mModerationMessagesDelegate);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
-    connect(mListNotificationsDelegate, &ModerationMessageDelegate::updateView, this, [this](const QModelIndex &index) {
+    connect(mModerationMessagesDelegate, &ModerationMessageDelegate::updateView, this, [this](const QModelIndex &index) {
         update(index);
     });
     connect(this, &QListView::customContextMenuRequested, this, &ModerationMessageListView::slotCustomContextMenuRequested);
@@ -33,37 +33,37 @@ ModerationMessageListView::~ModerationMessageListView() = default;
 
 bool ModerationMessageListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    return mListNotificationsDelegate->maybeStartDrag(event, option, index);
+    return mModerationMessagesDelegate->maybeStartDrag(event, option, index);
 }
 
 bool ModerationMessageListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    return mListNotificationsDelegate->mouseEvent(event, option, index);
+    return mModerationMessagesDelegate->mouseEvent(event, option, index);
 }
 
 void ModerationMessageListView::clearCache()
 {
-    mListNotificationsDelegate->clearCache();
+    mModerationMessagesDelegate->clearCache();
 }
 
 void ModerationMessageListView::slotSelectAll(const QModelIndex &index)
 {
-    mListNotificationsDelegate->selectAll(listViewOptions(), index);
+    mModerationMessagesDelegate->selectAll(listViewOptions(), index);
 }
 
 const QString &ModerationMessageListView::searchText() const
 {
-    return mListNotificationsDelegate->searchText();
+    return mModerationMessagesDelegate->searchText();
 }
 
 void ModerationMessageListView::setSearchText(const QString &newSearchText)
 {
-    mListNotificationsDelegate->setSearchText(newSearchText);
+    mModerationMessagesDelegate->setSearchText(newSearchText);
 }
 
 QString ModerationMessageListView::selectedText() const
 {
-    return mListNotificationsDelegate->selectedText();
+    return mModerationMessagesDelegate->selectedText();
 }
 
 void ModerationMessageListView::slotCustomContextMenuRequested(const QPoint &pos)
@@ -93,8 +93,8 @@ void ModerationMessageListView::slotCustomContextMenuRequested(const QPoint &pos
                 copyMessageToClipboard(index);
             });
             menu.addAction(copyAction);
-            if (mListNotificationsDelegate->hasSelection()) {
-                addTextPlugins(&menu, mListNotificationsDelegate->selectedText());
+            if (mModerationMessagesDelegate->hasSelection()) {
+                addTextPlugins(&menu, mModerationMessagesDelegate->selectedText());
             }
 #if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();

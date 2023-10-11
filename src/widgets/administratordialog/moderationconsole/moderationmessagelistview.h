@@ -37,5 +37,5 @@ private:
     [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     void slotTextToSpeech(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
-    ModerationMessageDelegate *const mListNotificationsDelegate;
+    ModerationMessageDelegate *const mModerationMessagesDelegate;
 };
