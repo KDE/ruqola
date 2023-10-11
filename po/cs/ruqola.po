@@ -4649,10 +4649,9 @@ msgid "Grouping Period (in seconds)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Maximum Users"
-msgstr "Poslat někomu soukromou zprávu"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
@@ -8480,11 +8479,10 @@ msgid "Main Toolbar"
 msgstr "Hlavní panel nástrojů"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
-msgstr "Informace o serveru"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
