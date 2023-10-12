@@ -567,12 +567,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
 #endif
 
-    createSeparator(menu);
-    auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
-    connect(reportMessageAction, &QAction::triggered, this, [=]() {
-        slotReportMessage(index);
-    });
-    menu.addAction(reportMessageAction);
+    if (mMode != Mode::Moderation) {
+        createSeparator(menu);
+        auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
+        connect(reportMessageAction, &QAction::triggered, this, [=]() {
+            slotReportMessage(index);
+        });
+        menu.addAction(reportMessageAction);
+    }
     if (!userInfoActions.isEmpty()) {
         menu.addSeparator();
         for (auto action : userInfoActions) {
