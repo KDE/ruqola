@@ -13,6 +13,7 @@
 #include "messagestarred.h"
 #include "messagetranslation.h"
 #include "messageurl.h"
+#include "moderation/moderationmessage.h"
 #include "reactions.h"
 #include "utils.h"
 #include <QJsonObject>
@@ -25,6 +26,7 @@ class LIBRUQOLACORE_EXPORT Message
 public:
     explicit Message(EmojiManager *emojiManager = nullptr);
     Message(const Message &other) = default;
+    virtual ~Message();
 
     enum MessageType {
         System,
@@ -209,6 +211,9 @@ public:
 
     void setVideoConferenceInfo(const VideoConferenceInfo &info);
 
+    [[nodiscard]] ModerationMessage moderationMessage() const;
+    void setModerationMessage(const ModerationMessage &newModerationMessage);
+
 private:
     [[nodiscard]] static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -217,6 +222,10 @@ private:
     void parseReactions(const QJsonObject &mentions);
     void parseChannels(const QJsonArray &channels);
     void parseBlocks(const QJsonArray &blocks);
+
+    // Moderation Message Info
+    // Optimization !!!
+    ModerationMessage mModerationMessage;
 
     // BackgroundColor
     QColor mGoToMessageBackgroundColor;

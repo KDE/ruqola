@@ -7,27 +7,30 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "messages/message.h"
-class EmojiManager;
-class LIBRUQOLACORE_EXPORT ModerationMessage : public Message
+#include <QJsonObject>
+#include <QString>
+
+class LIBRUQOLACORE_EXPORT ModerationMessage
 {
 public:
-    explicit ModerationMessage(EmojiManager *emojiManager = nullptr);
+    ModerationMessage();
     ~ModerationMessage();
 
-    Q_REQUIRED_RESULT QString moderationId() const;
+    [[nodiscard]] QString moderationId() const;
     void setModerationId(const QString &newModerationId);
 
     void parse(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT QString roomId() const;
+    [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT QString roomName() const;
+    [[nodiscard]] QString roomName() const;
     void setRoomName(const QString &newRoomName);
 
-    Q_REQUIRED_RESULT QString roomFName() const;
+    [[nodiscard]] QString roomFName() const;
     void setRoomFName(const QString &newRoomFName);
+
+    [[nodiscard]] bool isEmpty() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &roomObj);
@@ -36,3 +39,4 @@ private:
     QString mRoomName;
     QString mRoomFName;
 };
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationMessage &t);

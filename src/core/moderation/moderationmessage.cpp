@@ -5,11 +5,9 @@
 */
 
 #include "moderationmessage.h"
+#include <QJsonObject>
 
-ModerationMessage::ModerationMessage(EmojiManager *emojiManager)
-    : Message(emojiManager)
-{
-}
+ModerationMessage::ModerationMessage() = default;
 
 ModerationMessage::~ModerationMessage() = default;
 
@@ -28,7 +26,6 @@ void ModerationMessage::parse(const QJsonObject &obj)
     mModerationId = obj[QLatin1String("_id")].toString();
     // TODO add timestamp
     const QJsonObject messageObject = obj[QLatin1String("message")].toObject();
-    Message::parseMessage(messageObject, true);
     parseRoom(obj[QLatin1String("room")].toObject());
 }
 
@@ -50,6 +47,11 @@ void ModerationMessage::setRoomFName(const QString &newRoomFName)
     mRoomFName = newRoomFName;
 }
 
+bool ModerationMessage::isEmpty() const
+{
+    return mModerationId.isEmpty();
+}
+
 QString ModerationMessage::roomId() const
 {
     return mRoomId;
@@ -68,4 +70,12 @@ QString ModerationMessage::roomName() const
 void ModerationMessage::setRoomName(const QString &newRoomName)
 {
     mRoomName = newRoomName;
+}
+
+QDebug operator<<(QDebug d, const ModerationMessage &t)
+{
+    d << " mRoomName " << t.roomName();
+    d << " mRoomId " << t.roomId();
+    d << " mRoomFName " << t.roomFName();
+    return d;
 }

@@ -17,6 +17,8 @@ Message::Message(EmojiManager *emojiManager)
 {
 }
 
+Message::~Message() = default;
+
 void Message::parseMessage(const QJsonObject &o, bool restApi)
 {
     const QString roomId = o.value(QLatin1String("rid")).toString();
@@ -362,6 +364,16 @@ void Message::parseBlocks(const QJsonArray &blocks)
             mBlocks.append(std::move(b));
         }
     }
+}
+
+ModerationMessage Message::moderationMessage() const
+{
+    return mModerationMessage;
+}
+
+void Message::setModerationMessage(const ModerationMessage &newModerationMessage)
+{
+    mModerationMessage = newModerationMessage;
 }
 
 QColor Message::goToMessageBackgroundColor() const
