@@ -102,6 +102,7 @@ private:
 
     [[nodiscard]] MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
+    void drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const;
     [[nodiscard]] bool isSystemMessage(const Message *message) const;
 
     friend class MessageListDelegateTest;

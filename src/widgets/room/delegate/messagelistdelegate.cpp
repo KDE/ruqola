@@ -198,6 +198,24 @@ MessageDelegateHelperText *MessageListDelegate::helperText() const
     return mHelperText.data();
 }
 
+void MessageListDelegate::drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const
+{
+    const QPen origPen = painter->pen();
+    const qreal margin = MessageDelegateUtils::basicMargin();
+    const QString dateAndRoomNameStr = QStringLiteral("%1 - %2").arg(index.data(MessagesModel::Date).toString(), roomName);
+    const QSize dateSize = option.fontMetrics.size(Qt::TextSingleLine, dateAndRoomNameStr);
+    const QRect dateAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), dateSize.height()); // the whole row
+    const QRect dateTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, dateSize, dateAreaRect);
+    painter->drawText(dateTextRect, dateAndRoomNameStr);
+    const int lineY = (dateAreaRect.top() + dateAreaRect.bottom()) / 2;
+    QColor lightColor(painter->pen().color());
+    lightColor.setAlpha(60);
+    painter->setPen(lightColor);
+    painter->drawLine(dateAreaRect.left(), lineY, dateTextRect.left() - margin, lineY);
+    painter->drawLine(dateTextRect.right() + margin, lineY, dateAreaRect.right(), lineY);
+    painter->setPen(origPen);
+}
+
 void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const
 {
     const QPen origPen = painter->pen();
@@ -377,7 +395,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Draw date if it differs from the previous message
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
-    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
+    if (!message->moderationMessage().isEmpty()) {
+        drawModerationDate(painter, index, option, message->moderationMessage().roomName());
+    } else if (index.data(MessagesModel::DateDiffersFromPrevious).toBool() || !message->moderationMessage().isEmpty()) {
         drawDate(painter, index, option, displayLastSeenMessage);
     } else if (displayLastSeenMessage) {
         drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
