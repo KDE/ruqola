@@ -5,7 +5,6 @@
 */
 
 #include "accountserverlistwidget.h"
-#include "accountmanager.h"
 #include "dialogs/createnewserverdialog.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"

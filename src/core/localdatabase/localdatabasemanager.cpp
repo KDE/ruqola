@@ -5,7 +5,6 @@
 */
 
 #include "localdatabasemanager.h"
-#include "globaldatabase.h"
 #include "localaccountdatabase.h"
 #include "localmessagedatabase.h"
 #include "localmessagelogger.h"

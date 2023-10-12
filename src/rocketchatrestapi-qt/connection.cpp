@@ -67,7 +67,6 @@
 #include "channels/channelfilesjob.h"
 #include "channels/channelgetallusermentionsjob.h"
 #include "channels/channelgetcountersjob.h"
-#include "channels/channelhistoryjob.h"
 #include "channels/channelinfojob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"

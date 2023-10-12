@@ -5,7 +5,6 @@
 */
 
 #include "threadmessagedialog.h"
-#include "threadmessagewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>

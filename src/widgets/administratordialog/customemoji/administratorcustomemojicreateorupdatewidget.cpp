@@ -7,7 +7,6 @@
 #include "administratorcustomemojicreateorupdatewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
-#include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
 #include <QScreen>

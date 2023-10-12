@@ -4,10 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewwidget.h"
-#include "whatsnewcomboboxwidget.h"
 #include "whatsnewwidgettranslation.h"
-
-#include <KLazyLocalizedString>
 
 #include <QCryptographicHash>
 #include <QScrollArea>
