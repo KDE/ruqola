@@ -504,6 +504,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     case Mode::Moderation: {
         auto showReportInfo = new QAction(i18n("View Reports"), &menu); // Add icon
         connect(showReportInfo, &QAction::triggered, this, [=]() {
+            // message->moderationMessage().moderationId()
             // TODO
             // const QString messageId = message->messageId();
             // const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
