@@ -18,7 +18,7 @@ public:
     Q_REQUIRED_RESULT QString moderationId() const;
     void setModerationId(const QString &newModerationId);
 
-    void parse(const QJsonObject &message);
+    void parse(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &newRoomId);
@@ -26,9 +26,13 @@ public:
     Q_REQUIRED_RESULT QString roomName() const;
     void setRoomName(const QString &newRoomName);
 
+    Q_REQUIRED_RESULT QString roomFName() const;
+    void setRoomFName(const QString &newRoomFName);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &roomObj);
     QString mModerationId;
     QString mRoomId;
     QString mRoomName;
+    QString mRoomFName;
 };
