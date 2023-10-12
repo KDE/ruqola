@@ -397,7 +397,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
     if (!message->moderationMessage().isEmpty()) {
         drawModerationDate(painter, index, option, message->moderationMessage().roomName());
-    } else if (index.data(MessagesModel::DateDiffersFromPrevious).toBool() || !message->moderationMessage().isEmpty()) {
+    } else if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         drawDate(painter, index, option, displayLastSeenMessage);
     } else if (displayLastSeenMessage) {
         drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
