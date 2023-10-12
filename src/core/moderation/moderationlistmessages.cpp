@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "moderationlistmessages.h"
+#include "moderationmessage.h"
 #include "ruqola_debug.h"
 
 ModerationListMessages::ModerationListMessages() = default;
@@ -17,11 +18,8 @@ void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, c
     for (const QJsonValue &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject messageModerationObject = current.toObject();
-            // TODO extract moderation info (id + ts)
-            const QJsonObject messageObject = messageModerationObject[QLatin1String("message")].toObject();
-            // qDebug() << " messageObject " << messageObject;
-            Message m;
-            m.parseMessage(messageObject, true);
+            ModerationMessage m;
+            m.parse(messageModerationObject);
             mListMessages.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing moderation message" << current;

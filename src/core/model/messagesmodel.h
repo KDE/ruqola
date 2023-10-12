@@ -80,6 +80,7 @@ public:
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
         GoToMessageBackgroundColor,
+        LastMessageRoles = GoToMessageBackgroundColor,
     };
     Q_ENUM(MessageRoles)
 
