@@ -61,7 +61,7 @@ void ModerationReportInfoJob::setReportId(const QString &newReportId)
 
 QNetworkRequest ModerationReportInfoJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReports);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReportInfo);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("reportId"), mReportId);
     url.setQuery(queryUrl);
