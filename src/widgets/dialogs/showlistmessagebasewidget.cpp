@@ -66,6 +66,7 @@ ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
     // Clear search text
     if (mModel && mModel->listMessageModel()) {
         mModel->listMessageModel()->setSearchText({});
+        mModel->clear();
     }
 }
 

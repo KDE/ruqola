@@ -81,6 +81,14 @@ int DiscussionsModel::total() const
     return -1;
 }
 
+void DiscussionsModel::clear()
+{
+    beginResetModel();
+    mRoomId.clear();
+    mDiscussions->clear();
+    endResetModel();
+}
+
 void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId)
 {
     mRoomId = roomId;

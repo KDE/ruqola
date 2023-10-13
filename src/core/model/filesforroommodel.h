@@ -56,6 +56,8 @@ public:
     [[nodiscard]] bool loadMoreFilesInProgress() const;
     void setLoadMoreFilesInProgress(bool loadMoreFilesInProgress);
 
+    void clear();
+
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
