@@ -22,5 +22,4 @@ public:
 private:
     ModerationConsoleTreeWidget *const mModerationConsoleTreeWidget;
     AdministratorModerationRangeWidget *const mAdministratorModerationRangeWidget;
-    RocketChatAccount *const mRocketChatAccount;
 };

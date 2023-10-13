@@ -388,8 +388,6 @@ private:
     int mUnread = 0;
     int mUserMentions = 0;
 
-    int mThreadCount = 0;
-
     qint64 mNumberMessages = 0;
 
     // ro - read-only chat or not

@@ -16,7 +16,6 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     : QWidget{parent}
     , mModerationConsoleTreeWidget(new ModerationConsoleTreeWidget(account, this))
     , mAdministratorModerationRangeWidget(new AdministratorModerationRangeWidget(this))
-    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

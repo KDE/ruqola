@@ -32,5 +32,4 @@ public:
 
 private:
     AutotranslateLanguages mAutoTranslateLanguages;
-    int mCurrentLanguage = 0;
 };

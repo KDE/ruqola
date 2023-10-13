@@ -50,5 +50,4 @@ private:
     Q_DISABLE_COPY(CustomBaseModel)
     bool mLoadMoreInProgress = false;
     bool mHasFullList = false;
-    int mTotal = -1;
 };
