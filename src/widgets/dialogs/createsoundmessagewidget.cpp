@@ -81,7 +81,10 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     updateRecorderState(mAudioRecorder->recorderState());
 }
 
-CreateSoundMessageWidget::~CreateSoundMessageWidget() = default;
+CreateSoundMessageWidget::~CreateSoundMessageWidget()
+{
+    delete mTemporaryFile;
+}
 
 void CreateSoundMessageWidget::loadSettings()
 {

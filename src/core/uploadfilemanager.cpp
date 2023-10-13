@@ -34,14 +34,15 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
                 Q_EMIT uploadProgress(info, jobIdentifier, mRocketChatAccount->accountName());
             });
     // Need to delete temporary file.
-    if (info.deleteTemporaryFile) {
-        connect(job, &RocketChatRestApi::UploadFileJob::uploadFinished, this, [info]() {
+    connect(job, &RocketChatRestApi::UploadFileJob::uploadFinished, this, [info, jobIdentifier, this]() {
+        if (info.deleteTemporaryFile) {
             QFile f(info.filenameUrl.toLocalFile());
             if (f.remove()) {
                 qCWarning(RUQOLA_LOG) << "Impossible to delete file" << f.fileName();
             }
-        });
-    }
+        }
+        mUploadMap.remove(jobIdentifier);
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start UploadFileJob job";
         return -1;
