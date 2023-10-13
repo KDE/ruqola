@@ -82,6 +82,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
 MessageListDelegate::~MessageListDelegate()
 {
     delete mTextSelectionImpl;
+    delete mMessageListLayoutBase;
 }
 
 void MessageListDelegate::slotUpdateColors()
