@@ -42,9 +42,6 @@
 #include <KLocalizedString>
 #include <QMenu>
 
-#include <cmath>
-#include <tuple>
-
 MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
