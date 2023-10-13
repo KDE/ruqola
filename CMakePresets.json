@@ -101,7 +101,25 @@
             "inherits": [
                 "base-qt6"
             ]
-        }, 	
+        }, 
+        {
+            "name": "dev-clang-qt6-asan",
+            "displayName": "dev-clang-qt6-asan",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+		"ECM_ENABLE_SANITIZERS" : "'address;undefined'",
+		"CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold",
+                "BUILD_WITH_QT6": "ON" 
+            },
+            "environment": {
+                "CXX": "clang++",
+                "CCACHE_DISABLE": "ON"
+            },
+            "inherits": [
+                "base-qt6"
+            ]
+        },
         {
             "name": "dev-clang",
             "displayName": "dev-clang",
@@ -193,6 +211,11 @@
             "name": "dev",
             "configurePreset": "dev"
         },
+        {
+            "name": "dev-clang-qt6-asan",
+            "configurePreset": "dev-clang-qt6-asan"
+        },
+
 	{
             "name": "dev-mold",
             "configurePreset": "dev-mold"
