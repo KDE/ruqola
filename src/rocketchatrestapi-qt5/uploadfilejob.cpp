@@ -146,6 +146,7 @@ void UploadFileJob::slotUploadFinished()
         }
         reply->deleteLater();
     }
+    Q_EMIT uploadFinished();
     deleteLater();
 }
 
