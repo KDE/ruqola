@@ -63,6 +63,7 @@ ShowAttachmentWidget::~ShowAttachmentWidget()
     // Reset it
     if (mModel) {
         mModel->setFilterString(QString());
+        mModel->clear();
     }
 }
 

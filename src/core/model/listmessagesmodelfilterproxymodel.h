@@ -24,6 +24,8 @@ public:
 
     [[nodiscard]] int numberOfMessages() const;
 
+    void clear();
+
 Q_SIGNALS:
     void hasFullListChanged();
     void listMessageTypeChanged();

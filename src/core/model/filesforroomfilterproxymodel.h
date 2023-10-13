@@ -26,6 +26,8 @@ public:
     void setTypeGroup(const QString &typeGroup);
     void resetTypeGroup();
 
+    void clear();
+
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 

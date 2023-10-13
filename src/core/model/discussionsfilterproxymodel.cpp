@@ -47,4 +47,9 @@ bool DiscussionsFilterProxyModel::loadMoreDiscussionsInProgress() const
     return mDiscussionsModel->loadMoreDiscussionsInProgress();
 }
 
+void DiscussionsFilterProxyModel::clear()
+{
+    mDiscussionsModel->clear();
+}
+
 #include "moc_discussionsfilterproxymodel.cpp"

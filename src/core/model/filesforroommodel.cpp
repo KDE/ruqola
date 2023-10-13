@@ -37,6 +37,13 @@ void FilesForRoomModel::setLoadMoreFilesInProgress(bool loadMoreFilesInProgress)
     }
 }
 
+void FilesForRoomModel::clear()
+{
+    beginResetModel();
+    mFileAttachments->clear();
+    endResetModel();
+}
+
 void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
     const int numberOfElement = mFileAttachments->fileAttachments().count();
@@ -57,9 +64,7 @@ void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsO
 {
     mRoomId = roomId;
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
-        mFileAttachments->clear();
-        endRemoveRows();
+        clear();
     }
     mFileAttachments->parseFileAttachments(fileAttachmentsObj);
     if (!mFileAttachments->isEmpty()) {

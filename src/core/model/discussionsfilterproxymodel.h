@@ -22,6 +22,9 @@ public:
 
     [[nodiscard]] bool hasFullList() const;
     [[nodiscard]] bool loadMoreDiscussionsInProgress() const;
+
+    void clear();
+
 Q_SIGNALS:
     void hasFullListChanged();
     void loadingInProgressChanged();

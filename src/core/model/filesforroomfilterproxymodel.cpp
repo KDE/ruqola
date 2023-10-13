@@ -51,6 +51,11 @@ void FilesForRoomFilterProxyModel::resetTypeGroup()
     setTypeGroup({});
 }
 
+void FilesForRoomFilterProxyModel::clear()
+{
+    mFilesForRoomModel->clear();
+}
+
 void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 {
     if (mTypeGroup != typeGroup) {

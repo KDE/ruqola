@@ -58,7 +58,11 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     mainLayout->addWidget(mListDiscussionsListView);
 }
 
-ShowDiscussionsWidget::~ShowDiscussionsWidget() = default;
+ShowDiscussionsWidget::~ShowDiscussionsWidget()
+{
+    // Don't keep in memory list of messages
+    mDiscussionModel->clear();
+}
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {

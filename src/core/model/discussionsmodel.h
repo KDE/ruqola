@@ -50,6 +50,8 @@ public:
     [[nodiscard]] bool loadMoreDiscussionsInProgress() const;
     void setLoadMoreDiscussionsInProgress(bool loadMoreDiscussionsInProgress);
 
+    void clear();
+
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();
