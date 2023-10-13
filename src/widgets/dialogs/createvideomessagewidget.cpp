@@ -90,7 +90,10 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     });
 }
 
-CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
+CreateVideoMessageWidget::~CreateVideoMessageWidget()
+{
+    delete mTemporaryFile;
+}
 
 void CreateVideoMessageWidget::loadSettings()
 {
