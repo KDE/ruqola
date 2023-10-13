@@ -116,7 +116,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mSwitchChannelHistoryModel(new SwitchChannelHistoryModel(this))
     , mUploadFileManager(new UploadFileManager(this))
     , mVideoConferenceManager(new VideoConferenceManager(this, this))
-    , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this))
+    , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this, this))
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
     , mManageLoadHistory(new ManageLocalDatabase(this, this))
 {
