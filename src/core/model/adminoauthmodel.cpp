@@ -63,9 +63,9 @@ const QVector<OauthInfo> &AdminOauthModel::adminOauth() const
 void AdminOauthModel::setAdminOauth(const QVector<OauthInfo> &newAdminInvites)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminOauth.count() - 1);
+        beginResetModel();
         mAdminOauth.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!newAdminInvites.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);

@@ -95,9 +95,9 @@ int ModerationModel::total() const
 void ModerationModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mModerationInfos.count() - 1);
+        beginResetModel();
         mModerationInfos.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mModerationInfos.parseModerationInfos(obj);
     if (!mModerationInfos.isEmpty()) {
@@ -121,9 +121,9 @@ const ModerationInfos &ModerationModel::moderationInfos() const
 void ModerationModel::setModerationInfos(const ModerationInfos &newDeviceInfos)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mModerationInfos.count() - 1);
+        beginResetModel();
         mModerationInfos.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!mModerationInfos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);

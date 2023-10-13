@@ -54,9 +54,9 @@ Commands CommandsModel::commands() const
 void CommandsModel::setCommands(const Commands &commands)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCommands.count() - 1);
+        beginResetModel();
         mCommands.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!commands.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, commands.count() - 1);

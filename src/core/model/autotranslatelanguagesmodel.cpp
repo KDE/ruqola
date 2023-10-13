@@ -40,9 +40,9 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
 void AutotranslateLanguagesModel::parseLanguages(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAutoTranslateLanguages.count() - 1);
+        beginResetModel();
         mAutoTranslateLanguages.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mAutoTranslateLanguages.parseLanguages(obj);
     if (!mAutoTranslateLanguages.isEmpty()) {

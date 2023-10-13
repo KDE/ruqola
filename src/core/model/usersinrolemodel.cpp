@@ -42,9 +42,9 @@ void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
 void UsersInRoleModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+        beginResetModel();
         mUsers.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mUsers.parseUsers(obj, Users::UserInRoles, {});
     if (!mUsers.isEmpty()) {

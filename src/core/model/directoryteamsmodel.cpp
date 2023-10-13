@@ -42,9 +42,9 @@ void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
 void DirectoryTeamsModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
+        beginResetModel();
         mRoomsInfo.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mRoomsInfo.parseRooms(obj, RoomsInfo::Directory);
     if (!mRoomsInfo.isEmpty()) {

@@ -70,9 +70,9 @@ int AdminCustomSoundModel::total() const
 void AdminCustomSoundModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+        beginResetModel();
         mCustomSounds.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mCustomSounds.parseCustomSounds(obj);
     if (!mCustomSounds.isEmpty()) {
@@ -96,9 +96,9 @@ const CustomSoundsInfo &AdminCustomSoundModel::customSounds() const
 void AdminCustomSoundModel::setCustomSounds(const CustomSoundsInfo &newCustomSounds)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCustomSounds.count() - 1);
+        beginResetModel();
         mCustomSounds.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!mCustomSounds.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);

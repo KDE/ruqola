@@ -45,19 +45,15 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
 void ServerErrorInfoHistoryModel::clear()
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mServerErrorInfo.count() - 1);
+        beginResetModel();
         mServerErrorInfo.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QVector<ServerErrorInfo> &infos)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mServerErrorInfo.count() - 1);
-        mServerErrorInfo.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
         mServerErrorInfo = infos;

@@ -34,10 +34,10 @@ RoomModel::~RoomModel()
 void RoomModel::clear()
 {
     if (!mRoomsList.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        beginResetModel();
         mRoomsList.clear();
         qDeleteAll(mRoomsList);
-        endRemoveRows();
+        endResetModel();
     }
 }
 

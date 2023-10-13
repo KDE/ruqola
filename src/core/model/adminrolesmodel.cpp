@@ -57,9 +57,9 @@ QVector<RoleInfo> AdminRolesModel::roles() const
 void AdminRolesModel::setRoles(const QVector<RoleInfo> &newRoles)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mListRoleInfos.count() - 1);
+        beginResetModel();
         mListRoleInfos.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!newRoles.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newRoles.count() - 1);

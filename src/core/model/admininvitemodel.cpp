@@ -60,9 +60,9 @@ const QVector<InviteInfo> &AdminInviteModel::adminInvites() const
 void AdminInviteModel::setAdminInvites(const QVector<InviteInfo> &newAdminInvites)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminInvites.count() - 1);
+        beginResetModel();
         mAdminInvites.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!newAdminInvites.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);

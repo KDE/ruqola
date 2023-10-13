@@ -93,9 +93,9 @@ int DeviceInfoModel::total() const
 void DeviceInfoModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
+        beginResetModel();
         mDeviceInfos.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mDeviceInfos.parseDeviceInfos(obj);
     if (!mDeviceInfos.isEmpty()) {

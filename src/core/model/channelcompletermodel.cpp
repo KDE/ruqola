@@ -17,19 +17,15 @@ ChannelCompleterModel::~ChannelCompleterModel() = default;
 void ChannelCompleterModel::clear()
 {
     if (!mChannels.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        beginResetModel();
         mChannels.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void ChannelCompleterModel::insertChannels(const QVector<Channel> &channels)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mChannels.count() - 1);
-        mChannels.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!channels.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, channels.count() - 1);
         mChannels = channels;

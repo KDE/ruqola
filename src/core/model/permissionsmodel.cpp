@@ -50,9 +50,9 @@ Permissions PermissionsModel::permissions() const
 void PermissionsModel::setPermissions(const Permissions &newPermissions)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mPermissions.count() - 1);
+        beginResetModel();
         mPermissions.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!newPermissions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newPermissions.count() - 1);

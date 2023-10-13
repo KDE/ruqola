@@ -24,9 +24,9 @@ void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
     if (mUsers.isEmpty()) {
         if (rowCount() != 0) {
-            beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+            beginResetModel();
             mUsers.clear();
-            endRemoveRows();
+            endResetModel();
         }
         if (!users.isEmpty()) {
             beginInsertRows(QModelIndex(), 0, users.count() - 1);
@@ -45,9 +45,9 @@ void UsersForRoomModel::setUsers(const QVector<User> &users)
 void UsersForRoomModel::clear()
 {
     if (!mUsers.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+        beginResetModel();
         mUsers.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 

@@ -66,19 +66,15 @@ QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) 
 void NotificationHistoryModel::clear()
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mNotificationInfo.count() - 1);
+        beginResetModel();
         mNotificationInfo.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void NotificationHistoryModel::insertNotifications(const QVector<NotificationInfo> &infos)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mNotificationInfo.count() - 1);
-        mNotificationInfo.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
         mNotificationInfo = infos;

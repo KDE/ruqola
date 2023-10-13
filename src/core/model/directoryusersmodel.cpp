@@ -52,9 +52,9 @@ void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 void DirectoryUsersModel::parseElements(const QJsonObject &obj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+        beginResetModel();
         mUsers.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mUsers.parseUsers(obj, parseType(), mRoleInfo);
     if (!mUsers.isEmpty()) {

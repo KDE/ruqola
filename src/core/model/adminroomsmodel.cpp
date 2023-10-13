@@ -104,9 +104,9 @@ RoomsInfo AdminRoomsModel::adminRooms() const
 void AdminRoomsModel::setAdminRooms(const RoomsInfo &adminrooms)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
+        beginResetModel();
         mAdminRooms.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!adminrooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, adminrooms.count() - 1);

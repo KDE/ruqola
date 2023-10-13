@@ -57,19 +57,15 @@ QString BannerInfosModel::text(const BannerInfo &info) const
 void BannerInfosModel::clear()
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mBannerInfos.count() - 1);
+        beginResetModel();
         mBannerInfos.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void BannerInfosModel::insertBannerInfos(const BannerInfos &infos)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mBannerInfos.count() - 1);
-        mBannerInfos.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
         mBannerInfos = infos;

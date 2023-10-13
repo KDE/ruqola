@@ -54,9 +54,9 @@ QVector<TeamRoom> TeamRoomsModel::teamRooms() const
 void TeamRoomsModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mTeamRooms.count() - 1);
+        beginResetModel();
         mTeamRooms.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!teamRooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, teamRooms.count() - 1);

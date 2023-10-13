@@ -17,19 +17,15 @@ TeamCompleterModel::~TeamCompleterModel() = default;
 void TeamCompleterModel::clear()
 {
     if (!mTeams.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        beginResetModel();
         mTeams.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void TeamCompleterModel::insertTeams(const QVector<TeamCompleter> &rooms)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mTeams.count() - 1);
-        mTeams.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!rooms.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, rooms.count() - 1);
         mTeams = rooms;

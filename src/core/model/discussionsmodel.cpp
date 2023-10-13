@@ -93,9 +93,9 @@ void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const
 {
     mRoomId = roomId;
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
+        beginResetModel();
         mDiscussions->clear();
-        endRemoveRows();
+        endResetModel();
     }
     mDiscussions->parseDiscussions(discussionsObj);
     if (!mDiscussions->isEmpty()) {
@@ -136,9 +136,9 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDiscussions->count() - 1);
+        beginResetModel();
         mDiscussions->clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!discussions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, discussions.count() - 1);

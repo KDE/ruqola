@@ -23,9 +23,9 @@ int LoginMethodModel::rowCount(const QModelIndex &parent) const
 void LoginMethodModel::clear()
 {
     if (!mAuthentications.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, mAuthentications.count() - 1);
+        beginResetModel();
         mAuthentications.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
@@ -73,11 +73,7 @@ QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 
 void LoginMethodModel::setAuthenticationInfos(const QVector<AuthenticationInfo> &infos)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAuthentications.count() - 1);
-        mAuthentications.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
         mAuthentications = infos;

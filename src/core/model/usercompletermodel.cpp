@@ -18,19 +18,15 @@ UserCompleterModel::~UserCompleterModel() = default;
 void UserCompleterModel::clear()
 {
     if (!mUsers.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        beginResetModel();
         mUsers.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void UserCompleterModel::insertUsers(const QVector<User> &users)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
-        mUsers.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!users.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, users.count() - 1);
         mUsers = users;

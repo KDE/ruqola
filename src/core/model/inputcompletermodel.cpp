@@ -42,9 +42,9 @@ void InputCompleterModel::setDefaultUserCompletion()
 void InputCompleterModel::setChannels(const QVector<Channel> &channels)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        beginResetModel();
         mChannel.clear();
-        endRemoveRows();
+        endResetModel();
     }
     if (!channels.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, channels.count() - 1);

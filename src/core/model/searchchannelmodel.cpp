@@ -20,11 +20,7 @@ SearchChannelModel::~SearchChannelModel() = default;
 
 void SearchChannelModel::setChannels(const QVector<Channel> &channels)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
-        mChannel.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!channels.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, channels.count() - 1);
         mChannel = channels;
@@ -83,9 +79,9 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
 void SearchChannelModel::clear()
 {
     if (!mChannel.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        beginResetModel();
         mChannel.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 

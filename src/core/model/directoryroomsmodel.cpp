@@ -47,9 +47,9 @@ QList<int> DirectoryRoomsModel::hideColumns() const
 void DirectoryRoomsModel::parseElements(const QJsonObject &roomsObj)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
+        beginResetModel();
         mRoomsInfo.clear();
-        endRemoveRows();
+        endResetModel();
     }
     mRoomsInfo.parseRooms(roomsObj, RoomsInfo::Directory);
     if (!mRoomsInfo.isEmpty()) {

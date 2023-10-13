@@ -54,19 +54,15 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
 void PersonalAccessTokenInfosModel::clear()
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mPersonalAccessTokenInfos.count() - 1);
+        beginResetModel();
         mPersonalAccessTokenInfos.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
 void PersonalAccessTokenInfosModel::insertPersonalAccessTokenInfos(const PersonalAccessTokenInfos &infos)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mPersonalAccessTokenInfos.count() - 1);
-        mPersonalAccessTokenInfos.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
         mPersonalAccessTokenInfos = infos;
