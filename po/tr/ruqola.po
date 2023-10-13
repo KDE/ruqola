@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-11 00:43+0000\n"
+"POT-Creation-Date: 2023-10-13 00:42+0000\n"
 "PO-Revision-Date: 2023-10-10 11:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -299,120 +299,120 @@ msgstr "Arşivden çıkar"
 msgid "(Last Message: %1)"
 msgstr "(Son İleti: %1)"
 
-#: core/messages/block.cpp:85 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:641
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Conference Call"
 msgstr "Video Konferans"
 
-#: core/messages/message.cpp:523
+#: core/messages/message.cpp:535
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1, kanala katıldı"
 
-#: core/messages/message.cpp:525
+#: core/messages/message.cpp:537
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1, kanaldan ayrıldı"
 
-#: core/messages/message.cpp:527
+#: core/messages/message.cpp:539
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1, bu takımdan ayrıldı"
 
-#: core/messages/message.cpp:530
+#: core/messages/message.cpp:542
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Konuyu silen: %1"
 
-#: core/messages/message.cpp:532
+#: core/messages/message.cpp:544
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2, konuyu değiştirdi: <i>%1</i>"
 
-#: core/messages/message.cpp:535
+#: core/messages/message.cpp:547
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2, %1 kişisini konuşmaya ekledi"
 
-#: core/messages/message.cpp:537
+#: core/messages/message.cpp:549
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2, oda adını <a href=\"ruqola:/room/%1\">#%1</a> olarak değiştirdi"
 
-#: core/messages/message.cpp:539
+#: core/messages/message.cpp:551
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2, %1 kişisini çıkardı"
 
-#: core/messages/message.cpp:542
+#: core/messages/message.cpp:554
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Açıklama, %1 tarafından silindi"
 
-#: core/messages/message.cpp:544
+#: core/messages/message.cpp:556
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2, oda açıklamasını %1 olarak değiştirdi"
 
-#: core/messages/message.cpp:548
+#: core/messages/message.cpp:560
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Duyuru, %1 tarafından silindi"
 
-#: core/messages/message.cpp:550
+#: core/messages/message.cpp:562
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2, oda açıklamasını %1 olarak değiştirdi"
 
-#: core/messages/message.cpp:553
+#: core/messages/message.cpp:565
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2, oda gizliliğini %1 olarak değiştirdi"
 
-#: core/messages/message.cpp:555
+#: core/messages/message.cpp:567
 #, kde-format
 msgid "Click to join to video"
 msgstr "Videoya katılmak için tıklayın"
 
-#: core/messages/message.cpp:558
+#: core/messages/message.cpp:570
 #, kde-format
 msgid "Message Deleted"
 msgstr "İleti Silindi"
 
-#: core/messages/message.cpp:560
+#: core/messages/message.cpp:572
 #, kde-format
 msgid "Message Pinned"
 msgstr "İleti Sabitlendi"
 
-#: core/messages/message.cpp:562
+#: core/messages/message.cpp:574
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: core/messages/message.cpp:564
+#: core/messages/message.cpp:576
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 kişisinin sesi, %2 tarafından açıldı"
 
-#: core/messages/message.cpp:566
+#: core/messages/message.cpp:578
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1, %2 tarafından sessize alındı"
 
-#: core/messages/message.cpp:568
+#: core/messages/message.cpp:580
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "'%3' rolü, %2 tarafından %1 kişisine eklendi"
 
-#: core/messages/message.cpp:570
+#: core/messages/message.cpp:582
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "'%3' rolü, %2 tarafından %1 kişisinden kaldırıldı"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:574
+#: core/messages/message.cpp:586
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -421,127 +421,127 @@ msgstr ""
 "Bu ileti, uçtan uca şifreli. Görüntülemek için, hesap ayarlarında şifre "
 "çözme anahtarını girmeniz gerekiyor."
 
-#: core/messages/message.cpp:576
+#: core/messages/message.cpp:588
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "\"%1\" üzerine bir tartışma oluşturuldu"
 
-#: core/messages/message.cpp:578
+#: core/messages/message.cpp:590
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1, konuşmaya katıldı"
 
-#: core/messages/message.cpp:580
+#: core/messages/message.cpp:592
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Bu oda, %1 tarafından arşivlendi"
 
-#: core/messages/message.cpp:582
+#: core/messages/message.cpp:594
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Bu oda, %1 tarafından arşivden çıkarıldı"
 
-#: core/messages/message.cpp:585 core/messages/message.cpp:632
+#: core/messages/message.cpp:597 core/messages/message.cpp:644
 #, kde-format
 msgid "Unknown action!"
 msgstr "Bilinmeyen eylem!"
 
-#: core/messages/message.cpp:589
+#: core/messages/message.cpp:601
 #, kde-format
 msgid "Welcome %1!"
 msgstr "%1, hoş geldiniz!"
 
-#: core/messages/message.cpp:591
+#: core/messages/message.cpp:603
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Oda avatarı, %1 tarafından değiştirildi"
 
-#: core/messages/message.cpp:593
+#: core/messages/message.cpp:605
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Bu odanın şifrelemesi, %1 tarafından etkinleştirildi"
 
-#: core/messages/message.cpp:595
+#: core/messages/message.cpp:607
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Bu odanın şifrelemesi, %1 tarafından devre dışı bırakıldı"
 
-#: core/messages/message.cpp:597
+#: core/messages/message.cpp:609
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Oda, %1 tarafından saltokunur yapıldı"
 
-#: core/messages/message.cpp:599
+#: core/messages/message.cpp:611
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Odaya, %1 tarafından yazma izinleri eklendi"
 
-#: core/messages/message.cpp:601
+#: core/messages/message.cpp:613
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1, @%2 kişisini bu takıma ekledi"
 
-#: core/messages/message.cpp:603
+#: core/messages/message.cpp:615
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1, @%2 kişisini bu takımdan çıkardı"
 
-#: core/messages/message.cpp:605
+#: core/messages/message.cpp:617
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1, #%2 kanalını bir takıma dönüştürdü"
 
-#: core/messages/message.cpp:607
+#: core/messages/message.cpp:619
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1, #%2 takımını bir kanala dönüştürdü"
 
-#: core/messages/message.cpp:609
+#: core/messages/message.cpp:621
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1, #%2 odasını bu takımdan çıkardı"
 
-#: core/messages/message.cpp:611
+#: core/messages/message.cpp:623
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "#%2, %1 tarafından silindi"
 
-#: core/messages/message.cpp:613
+#: core/messages/message.cpp:625
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1, #%2 odasını bu takıma ekledi"
 
-#: core/messages/message.cpp:615
+#: core/messages/message.cpp:627
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 tarafından odaya tepki izni verildi"
 
-#: core/messages/message.cpp:617
+#: core/messages/message.cpp:629
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 tarafından odaya tepki izni kaldırıldı"
 
-#: core/messages/message.cpp:619
+#: core/messages/message.cpp:631
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1, bu takıma katıldı"
 
-#: core/messages/message.cpp:621
+#: core/messages/message.cpp:633
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1, kayıt dışı sohbete katıldı."
 
-#: core/messages/message.cpp:623
+#: core/messages/message.cpp:635
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 anahtar başarıyla yenilendi"
 
-#: core/messages/message.cpp:625
+#: core/messages/message.cpp:637
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1, anahtar yenilemesi istedi."
 
-#: core/messages/message.cpp:627
+#: core/messages/message.cpp:639
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
 msgstr "Oda konusu, %2 tarafından değiştirildi: %1"
@@ -2301,12 +2301,12 @@ msgctxt "@title:window"
 msgid "Configure Custom Emoji"
 msgstr "Özel Emoji Yapılandır"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:25
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:24
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
 msgstr "Özel emoji adı ve armaları ayrımlı olmalıdır."
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:50
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:49
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:27
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:27
@@ -2325,12 +2325,12 @@ msgstr "Özel emoji adı ve armaları ayrımlı olmalıdır."
 msgid "Name:"
 msgstr "Ad:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:50
 #, kde-format
 msgid "Alias:"
 msgstr "Arma:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:52
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
 #: widgets/dialogs/uploadfilewidget.cpp:21
 #, kde-format
@@ -2625,46 +2625,7 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
-#: widgets/room/messagelistview.cpp:505
-#, kde-format
-msgid "View Reports"
-msgstr "Raporları Görüntüle"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr "İletiye Git"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, kde-format
-msgid "Copy Message"
-msgstr "İletiyi Kopyala"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, kde-format
-msgid "Speak Text"
-msgstr "Metni Konuş"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr "Tümünü Seç"
-
+#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
@@ -5872,6 +5833,15 @@ msgstr "Okunmayanları Göster"
 msgid "Search..."
 msgstr "Ara..."
 
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr "Tümünü Seç"
+
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
@@ -7093,6 +7063,14 @@ msgstr[1] "%1 ileti"
 msgid "Open Discussion"
 msgstr "Tartışma Aç"
 
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:565
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, kde-format
+msgid "Speak Text"
+msgstr "Metni Konuş"
+
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7419,13 +7397,13 @@ msgstr ""
 "İsterseniz yedek kodlarınızdan birini de kullanabilirsiniz."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:61
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:60
 #, kde-format
 msgid "Enter authentication code"
 msgstr "Kimlik doğrulama kodunu gir"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:65
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:64
 #, kde-format
 msgid "Verify"
 msgstr "Doğrula"
@@ -7436,18 +7414,18 @@ msgid "Regenerate Code"
 msgstr "Kodu Yeniden Üret"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:100
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Geçersiz iki adımlı kod."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:100
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "İki Adımlı Kodu Denetle"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:43
 #, kde-format
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
@@ -7458,7 +7436,7 @@ msgstr ""
 "görüntüleyecektir.\n"
 "Kare kodu tarayamıyorsanız kodu elle girmeniz gerekebilir:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:92
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7471,7 +7449,7 @@ msgstr ""
 "Kimlik doğrulayıcı uygulamanıza erişiminizi kaybederseniz oturum açmak için "
 "bu kodlardan birini kullanabilirsiniz."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
 #, kde-format
 msgid "Backup Codes"
 msgstr "Yedek Kodlar"
@@ -7749,6 +7727,19 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Bildirim"
 
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:548
+#, kde-format
+msgid "Go to Message"
+msgstr "İletiye Git"
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, kde-format
+msgid "Copy Message"
+msgstr "İletiyi Kopyala"
+
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -7948,48 +7939,48 @@ msgstr "Görseli İndir"
 msgid "Download Image..."
 msgstr "Görseli İndir..."
 
-#: widgets/room/delegate/messagelistdelegate.cpp:290
+#: widgets/room/delegate/messagelistdelegate.cpp:308
 #: widgets/room/messagelistview.cpp:372 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:299
+#: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:380
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Özel bir Konuşma Başlat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:488
+#: widgets/room/delegate/messagelistdelegate.cpp:508
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 yanıt"
 msgstr[1] "%1 yanıt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:495
+#: widgets/room/delegate/messagelistdelegate.cpp:515
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 ileti"
 msgstr[1] "%1 ileti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:495
+#: widgets/room/delegate/messagelistdelegate.cpp:515
 #, kde-format
 msgid "No message yet"
 msgstr "Henüz ileti yok"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:724
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "Following"
 msgstr "Takip Ediliyor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:728
+#: widgets/room/delegate/messagelistdelegate.cpp:748
 #, kde-format
 msgid "Message has been pinned"
 msgstr "İleti sabitlendi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:732
+#: widgets/room/delegate/messagelistdelegate.cpp:752
 #, kde-format
 msgid "Message has been starred"
 msgstr "İleti yıldızlandı"
@@ -8132,23 +8123,28 @@ msgstr "Özgün İletiyi Göster"
 msgid "Translate Message"
 msgstr "İletiyi Çevir"
 
-#: widgets/room/messagelistview.cpp:571
+#: widgets/room/messagelistview.cpp:505
+#, kde-format
+msgid "View Reports"
+msgstr "Raporları Görüntüle"
+
+#: widgets/room/messagelistview.cpp:573
 #, kde-format
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: widgets/room/messagelistview.cpp:750
+#: widgets/room/messagelistview.cpp:753
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Bu iletiyi silmek istiyor musunuz?"
 
-#: widgets/room/messagelistview.cpp:751
+#: widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "İleti Sil"
 
-#: widgets/room/messagelistview.cpp:890
+#: widgets/room/messagelistview.cpp:893
 #, kde-format
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
@@ -8877,7 +8873,7 @@ msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Odalar Sil"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:26
+#: widgets/threadwidget/threadmessagedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"
@@ -8929,19 +8925,19 @@ msgstr "(Haberleri Roka'da Göster)"
 msgid "What's new in Ruqola. %1"
 msgstr "Roka'da neler yeni. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Son sürümden bu yana önemli değişiklikler:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
-#: widgets/whatsnew/whatsnewwidget.cpp:120
+#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:117
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Roka'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:106
-#: widgets/whatsnew/whatsnewwidget.cpp:128
+#: widgets/whatsnew/whatsnewwidget.cpp:103
+#: widgets/whatsnew/whatsnewwidget.cpp:125
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"

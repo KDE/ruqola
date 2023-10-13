@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-11 00:43+0000\n"
+"POT-Creation-Date: 2023-10-13 00:42+0000\n"
 "PO-Revision-Date: 2023-10-07 01:27+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -299,121 +299,121 @@ msgstr "Togli dall'archivio"
 msgid "(Last Message: %1)"
 msgstr "(Ultimo messaggio: %1)"
 
-#: core/messages/block.cpp:85 core/messages/message.cpp:629
+#: core/messages/block.cpp:85 core/messages/message.cpp:641
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Conference Call"
 msgstr "Conferenza telefonica"
 
-#: core/messages/message.cpp:523
+#: core/messages/message.cpp:535
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 si è unito al canale"
 
-#: core/messages/message.cpp:525
+#: core/messages/message.cpp:537
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 ha lasciato il canale"
 
-#: core/messages/message.cpp:527
+#: core/messages/message.cpp:539
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 ha lasciato questa squadra"
 
-#: core/messages/message.cpp:530
+#: core/messages/message.cpp:542
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "L'argomento è stato eliminato da: %1"
 
-#: core/messages/message.cpp:532
+#: core/messages/message.cpp:544
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 ha modificato l'argomento in: <i>%1</i>"
 
-#: core/messages/message.cpp:535
+#: core/messages/message.cpp:547
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 ha aggiunto %1 alla conversazione"
 
-#: core/messages/message.cpp:537
+#: core/messages/message.cpp:549
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr ""
 "%2 ha modificato il nome dalla stanza in <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:539
+#: core/messages/message.cpp:551
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 ha rimosso l'utente %1"
 
-#: core/messages/message.cpp:542
+#: core/messages/message.cpp:554
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "La descrizione è stata eliminata da %1"
 
-#: core/messages/message.cpp:544
+#: core/messages/message.cpp:556
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 ha modificato la descrizione della stanza in %1"
 
-#: core/messages/message.cpp:548
+#: core/messages/message.cpp:560
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "L'annuncio è stato eliminato da %1"
 
-#: core/messages/message.cpp:550
+#: core/messages/message.cpp:562
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 ha modificato l'annuncio della stanza in %1"
 
-#: core/messages/message.cpp:553
+#: core/messages/message.cpp:565
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 ha modificato la privacy della stanza in %1"
 
-#: core/messages/message.cpp:555
+#: core/messages/message.cpp:567
 #, kde-format
 msgid "Click to join to video"
 msgstr "Fai clic per unirti al video"
 
-#: core/messages/message.cpp:558
+#: core/messages/message.cpp:570
 #, kde-format
 msgid "Message Deleted"
 msgstr "Messaggio eliminato"
 
-#: core/messages/message.cpp:560
+#: core/messages/message.cpp:572
 #, kde-format
 msgid "Message Pinned"
 msgstr "Messaggio appuntato"
 
-#: core/messages/message.cpp:562
+#: core/messages/message.cpp:574
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Messaggio cifrato"
 
-#: core/messages/message.cpp:564
+#: core/messages/message.cpp:576
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 è stato riattivato da %2"
 
-#: core/messages/message.cpp:566
+#: core/messages/message.cpp:578
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 è stato silenziato da %2"
 
-#: core/messages/message.cpp:568
+#: core/messages/message.cpp:580
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2 ha aggiunto il ruolo «%3» a %1"
 
-#: core/messages/message.cpp:570
+#: core/messages/message.cpp:582
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2 ha rimosso il ruolo «%3» da %1"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:574
+#: core/messages/message.cpp:586
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -422,127 +422,127 @@ msgstr ""
 "Questo messaggio è cifrato end-to-end. Per visualizzarlo, devi inserire la "
 "tua chiave di cifratura nelle impostazioni del tuo account."
 
-#: core/messages/message.cpp:576
+#: core/messages/message.cpp:588
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Discussione creata su «%1»"
 
-#: core/messages/message.cpp:578
+#: core/messages/message.cpp:590
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 si è aggiunto alla conversazione"
 
-#: core/messages/message.cpp:580
+#: core/messages/message.cpp:592
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Questa stanza è stata archiviata da %1"
 
-#: core/messages/message.cpp:582
+#: core/messages/message.cpp:594
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Questa stanza è stata tolta dall'archivio da %1"
 
-#: core/messages/message.cpp:585 core/messages/message.cpp:632
+#: core/messages/message.cpp:597 core/messages/message.cpp:644
 #, kde-format
 msgid "Unknown action!"
 msgstr "Azione sconosciuta."
 
-#: core/messages/message.cpp:589
+#: core/messages/message.cpp:601
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Benvenuto %1."
 
-#: core/messages/message.cpp:591
+#: core/messages/message.cpp:603
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Avatar della stanza modificato da %1"
 
-#: core/messages/message.cpp:593
+#: core/messages/message.cpp:605
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "La cifratura di questa stanza è stata abilitata da %1"
 
-#: core/messages/message.cpp:595
+#: core/messages/message.cpp:607
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "La cifratura di questa stanza è stata disabilitata da %1"
 
-#: core/messages/message.cpp:597
+#: core/messages/message.cpp:609
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Stanza impostata come sola lettura da %1"
 
-#: core/messages/message.cpp:599
+#: core/messages/message.cpp:611
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Permessi di scrittura aggiunti alla stanza da %1"
 
-#: core/messages/message.cpp:601
+#: core/messages/message.cpp:613
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 ha aggiunto @%2 a questa squadra"
 
-#: core/messages/message.cpp:603
+#: core/messages/message.cpp:615
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 ha rimosso @%2 da questa squadra"
 
-#: core/messages/message.cpp:605
+#: core/messages/message.cpp:617
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 ha convertito #%2 in una squadra"
 
-#: core/messages/message.cpp:607
+#: core/messages/message.cpp:619
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 ha convertito #%2 in un canale"
 
-#: core/messages/message.cpp:609
+#: core/messages/message.cpp:621
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 ha rimosso #%2 da questa squadra"
 
-#: core/messages/message.cpp:611
+#: core/messages/message.cpp:623
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 ha eliminato #%2"
 
-#: core/messages/message.cpp:613
+#: core/messages/message.cpp:625
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 ha aggiunto #%2 a questa squadra"
 
-#: core/messages/message.cpp:615
+#: core/messages/message.cpp:627
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Reazioni consentite per la stanza %1"
 
-#: core/messages/message.cpp:617
+#: core/messages/message.cpp:629
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Reazioni non consentite per la stanza %1"
 
-#: core/messages/message.cpp:619
+#: core/messages/message.cpp:631
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 si è unito a questa squadra"
 
-#: core/messages/message.cpp:621
+#: core/messages/message.cpp:633
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 si è unito alla chat OTR."
 
-#: core/messages/message.cpp:623
+#: core/messages/message.cpp:635
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "Chiave di %1 aggiornata correttamente"
 
-#: core/messages/message.cpp:625
+#: core/messages/message.cpp:637
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 ha richiesto l'aggiornamento della chiave."
 
-#: core/messages/message.cpp:627
+#: core/messages/message.cpp:639
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
 msgstr "Argomento della stanza modificato in: %1 da %2"
@@ -2322,12 +2322,12 @@ msgctxt "@title:window"
 msgid "Configure Custom Emoji"
 msgstr "Configura le emoji personalizzate"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:25
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:24
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
 msgstr "Il nome dell'emoji personalizzata e i suoi alias devono essere diversi"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:50
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:49
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:27
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:27
@@ -2346,12 +2346,12 @@ msgstr "Il nome dell'emoji personalizzata e i suoi alias devono essere diversi"
 msgid "Name:"
 msgstr "Nome:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:50
 #, kde-format
 msgid "Alias:"
 msgstr "Alias:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:52
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
 #: widgets/dialogs/uploadfilewidget.cpp:21
 #, kde-format
@@ -2647,46 +2647,7 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Elimina tutti i messaggi"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:77
-#: widgets/room/messagelistview.cpp:505
-#, kde-format
-msgid "View Reports"
-msgstr "Visualizza i report"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:86
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:547
-#, kde-format
-msgid "Go to Message"
-msgstr "Vai al messaggio"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:90
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:268
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
-#, kde-format
-msgid "Copy Message"
-msgstr "Copia messaggio"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:101
-#: widgets/discussions/discussionlistview.cpp:67
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:564
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
-#, kde-format
-msgid "Speak Text"
-msgstr "Pronuncia il testo"
-
-#: widgets/administratordialog/moderationconsole/moderationmessagelistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
-#: widgets/discussions/discussionlistview.cpp:73
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:298
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
-#, kde-format
-msgid "Select All"
-msgstr "Seleziona tutto"
-
+#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
@@ -5924,6 +5885,15 @@ msgstr "Mostra non letti"
 msgid "Search..."
 msgstr "Cerca..."
 
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/room/messagelistview.cpp:298
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
+#, kde-format
+msgid "Select All"
+msgstr "Seleziona tutto"
+
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
@@ -7145,6 +7115,14 @@ msgstr[1] "%1 messaggi"
 msgid "Open Discussion"
 msgstr "Apri discussione"
 
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:565
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
+#, kde-format
+msgid "Speak Text"
+msgstr "Pronuncia il testo"
+
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7469,13 +7447,13 @@ msgstr ""
 "Puoi anche utilizzare uno dei tuoi codici di sicurezza."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:61
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:60
 #, kde-format
 msgid "Enter authentication code"
 msgstr "Digita il codice di autenticazione"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:65
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:64
 #, kde-format
 msgid "Verify"
 msgstr "Verifica"
@@ -7486,18 +7464,18 @@ msgid "Regenerate Code"
 msgstr "Ri-genera il codice"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:100
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "Codice a due fattori non valido."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:101
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:100
 #, kde-format
 msgid "Check Two Factor Code"
 msgstr "Verifica il codice a due fattori"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:43
 #, kde-format
 msgid ""
 "Scan the QR code. It will display a 6 digit code which you need to enter "
@@ -7509,7 +7487,7 @@ msgstr ""
 " Se non riesci a eseguire la scansione del codice QR, puoi digitare il "
 "codice manualmente:"
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:93
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:92
 #, kde-format
 msgid ""
 "Make sure you have a copy of your codes:\n"
@@ -7522,7 +7500,7 @@ msgstr ""
 "Se perdi l'accesso alla tua applicazione di autenticazione, puoi utilizzare "
 "uno di questi codici per accedere."
 
-#: widgets/myaccount/myaccount2fatotpwidget.cpp:95
+#: widgets/myaccount/myaccount2fatotpwidget.cpp:94
 #, kde-format
 msgid "Backup Codes"
 msgstr "Codici di sicurezza"
@@ -7801,6 +7779,19 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Notifica"
 
+#: widgets/notificationhistory/notificationhistorylistview.cpp:78
+#: widgets/room/messagelistview.cpp:548
+#, kde-format
+msgid "Go to Message"
+msgstr "Vai al messaggio"
+
+#: widgets/notificationhistory/notificationhistorylistview.cpp:82
+#: widgets/room/messagelistview.cpp:268
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#, kde-format
+msgid "Copy Message"
+msgstr "Copia messaggio"
+
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
 msgid "Network is offline mode."
@@ -7999,48 +7990,48 @@ msgstr "Scarica immagine"
 msgid "Download Image..."
 msgstr "Scarica immagine..."
 
-#: widgets/room/delegate/messagelistdelegate.cpp:290
+#: widgets/room/delegate/messagelistdelegate.cpp:308
 #: widgets/room/messagelistview.cpp:372 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informazioni sull'utente"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:299
+#: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:380
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Inizia una conversazione privata"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:488
+#: widgets/room/delegate/messagelistdelegate.cpp:508
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "Una risposta"
 msgstr[1] "%1 risposte"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:495
+#: widgets/room/delegate/messagelistdelegate.cpp:515
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "Un messaggio"
 msgstr[1] "%1 messaggi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:495
+#: widgets/room/delegate/messagelistdelegate.cpp:515
 #, kde-format
 msgid "No message yet"
 msgstr "Ancora nessun messaggio"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:724
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "Following"
 msgstr "Seguito"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:728
+#: widgets/room/delegate/messagelistdelegate.cpp:748
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Il messaggio è stato appuntato"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:732
+#: widgets/room/delegate/messagelistdelegate.cpp:752
 #, kde-format
 msgid "Message has been starred"
 msgstr "Il messaggio ha ricevuto una stella"
@@ -8183,23 +8174,28 @@ msgstr "Mostra il messaggio originale"
 msgid "Translate Message"
 msgstr "Traduci messaggio"
 
-#: widgets/room/messagelistview.cpp:571
+#: widgets/room/messagelistview.cpp:505
+#, kde-format
+msgid "View Reports"
+msgstr "Visualizza i report"
+
+#: widgets/room/messagelistview.cpp:573
 #, kde-format
 msgid "Report Message"
 msgstr "Segnala messaggio"
 
-#: widgets/room/messagelistview.cpp:750
+#: widgets/room/messagelistview.cpp:753
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Vuoi eliminare questo messaggio?"
 
-#: widgets/room/messagelistview.cpp:751
+#: widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Elimina messaggio"
 
-#: widgets/room/messagelistview.cpp:890
+#: widgets/room/messagelistview.cpp:893
 #, kde-format
 msgid "Translator Error"
 msgstr "Errore del traduttore"
@@ -8929,7 +8925,7 @@ msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Elimina stanze"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:26
+#: widgets/threadwidget/threadmessagedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"
@@ -8981,20 +8977,20 @@ msgstr "(Mostra le novità in Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Cosa c'è di nuovo in Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modifiche importanti dalla versione precedente:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:98
-#: widgets/whatsnew/whatsnewwidget.cpp:120
+#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:117
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Alcune delle nuove funzionalità di questa versione di Ruqola includono:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:106
-#: widgets/whatsnew/whatsnewwidget.cpp:128
+#: widgets/whatsnew/whatsnewwidget.cpp:103
+#: widgets/whatsnew/whatsnewwidget.cpp:125
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"
