@@ -486,9 +486,9 @@ void MessagesModel::clear()
 {
     mSearchText.clear();
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAllMessages.count() - 1);
+        beginResetModel();
         mAllMessages.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
