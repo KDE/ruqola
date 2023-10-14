@@ -61,7 +61,9 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 ShowDiscussionsWidget::~ShowDiscussionsWidget()
 {
     // Don't keep in memory list of messages
-    mDiscussionModel->clear();
+    if (mDiscussionModel) {
+        mDiscussionModel->clear();
+    }
 }
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
