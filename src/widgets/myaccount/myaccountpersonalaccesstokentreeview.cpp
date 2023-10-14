@@ -14,7 +14,6 @@
 
 MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
-    , mRocketAccount(account)
 {
     setAlternatingRowColors(true);
     setSelectionMode(SingleSelection);

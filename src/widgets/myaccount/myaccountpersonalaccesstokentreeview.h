@@ -24,5 +24,4 @@ Q_SIGNALS:
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void removeClicked(const QString &tokenName);
-    RocketChatAccount *const mRocketAccount;
 };
