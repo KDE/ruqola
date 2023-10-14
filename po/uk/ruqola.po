@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-13 00:42+0000\n"
+"POT-Creation-Date: 2023-10-14 00:43+0000\n"
 "PO-Revision-Date: 2023-10-10 09:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -581,7 +581,7 @@ msgstr "%1 і %2"
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
-#: core/model/personalaccesstokeninfosmodel.cpp:82
+#: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
@@ -904,7 +904,7 @@ msgstr "Кімната"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:121
+#: widgets/dialogs/createsoundmessagewidget.cpp:124
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -989,17 +989,17 @@ msgstr "Має бути вказано"
 msgid "Ignored"
 msgstr "Проігноровано"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:84
+#: core/model/personalaccesstokeninfosmodel.cpp:80
 #, kde-format
 msgid "Create At"
 msgstr "Час створення"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:86
+#: core/model/personalaccesstokeninfosmodel.cpp:82
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "Двофакторне розпізнавання"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:84
 #, kde-format
 msgid "Last token part"
 msgstr "Остання частина жетона"
@@ -1267,22 +1267,26 @@ msgid "%1 has %2 Unread Message"
 msgstr "%1 має %2 непрочитане повідомлення"
 
 #: core/notifications/notifierjob.cpp:27
+#: widgets/tests/testnotification_gui.cpp:23
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
 #: core/notifications/notifierjob.cpp:31
+#: widgets/tests/testnotification_gui.cpp:27
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Відкрити канал"
 
 #: core/notifications/notifierjob.cpp:35
+#: widgets/tests/testnotification_gui.cpp:38
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
 
 #: core/notifications/notifierjob.cpp:36
+#: widgets/tests/testnotification_gui.cpp:39
 #, kde-format
 msgid "Reply..."
 msgstr "Відповісти…"
@@ -2668,8 +2672,8 @@ msgstr "Показ повідомлень модерування"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:82
+#: widgets/dialogs/showlistmessagebasewidget.cpp:96
+#: widgets/discussions/showdiscussionswidget.cpp:86
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -2677,7 +2681,7 @@ msgstr "Завантаження…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/showlistmessagebasewidget.cpp:98
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -6668,8 +6672,8 @@ msgstr "Облікова назва:"
 msgid "Server URL:"
 msgstr "Адреса сервера:"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:140
-#: widgets/dialogs/createvideomessagewidget.cpp:238
+#: widgets/dialogs/createsoundmessagewidget.cpp:143
+#: widgets/dialogs/createvideomessagewidget.cpp:241
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Записано %1 сек."
@@ -6964,12 +6968,12 @@ msgstr "Показ долучень — %1"
 msgid "Search attachments..."
 msgstr "Шукати долучення…"
 
-#: widgets/dialogs/showattachmentwidget.cpp:92
+#: widgets/dialogs/showattachmentwidget.cpp:93
 #, kde-format
 msgid "No Attachments found"
 msgstr "Долучень не знайдено"
 
-#: widgets/dialogs/showattachmentwidget.cpp:97
+#: widgets/dialogs/showattachmentwidget.cpp:98
 #, kde-format
 msgid "%1 Attachment in room (Total: %2)"
 msgid_plural "%1 Attachments in room (Total: %2)"
@@ -6978,9 +6982,9 @@ msgstr[1] "%1 долучення у кімнаті (загалом: %2)"
 msgstr[2] "%1 долучень у кімнаті (загалом: %2)"
 msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
 
-#: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/discussions/showdiscussionswidget.cpp:93
+#: widgets/dialogs/showattachmentwidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:106
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7033,7 +7037,7 @@ msgstr "Збереження зображення"
 msgid "Search messages..."
 msgstr "Шукати повідомлення…"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
+#: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7180,12 +7184,12 @@ msgstr "Показ обговорень — %1"
 msgid "Search discussion..."
 msgstr "Шукати обговорення…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:84
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #, kde-format
 msgid "No Discussion found"
 msgstr "Обговорень не знайдено"
 
-#: widgets/discussions/showdiscussionswidget.cpp:91
+#: widgets/discussions/showdiscussionswidget.cpp:95
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -8039,19 +8043,19 @@ msgstr "Отримати зображення"
 msgid "Download Image..."
 msgstr "Отримати зображення…"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:308
+#: widgets/room/delegate/messagelistdelegate.cpp:306
 #: widgets/room/messagelistview.cpp:372 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:317
+#: widgets/room/delegate/messagelistdelegate.cpp:315
 #: widgets/room/messagelistview.cpp:380
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Почати конфіденційне спілкування"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:508
+#: widgets/room/delegate/messagelistdelegate.cpp:506
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8060,7 +8064,7 @@ msgstr[1] "%1 відповіді"
 msgstr[2] "%1 відповідей"
 msgstr[3] "%1 відповідь"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:515
+#: widgets/room/delegate/messagelistdelegate.cpp:513
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8069,22 +8073,22 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:515
+#: widgets/room/delegate/messagelistdelegate.cpp:513
 #, kde-format
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:744
+#: widgets/room/delegate/messagelistdelegate.cpp:742
 #, kde-format
 msgid "Following"
 msgstr "Стеження"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:748
+#: widgets/room/delegate/messagelistdelegate.cpp:746
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Повідомлення пришпилено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:752
+#: widgets/room/delegate/messagelistdelegate.cpp:750
 #, kde-format
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
