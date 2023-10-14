@@ -5,6 +5,7 @@
 */
 #include "notificationwidget.h"
 #include <KNotification>
+#include <KNotificationReplyAction>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -28,7 +29,24 @@ void NotificationWidget::slotSendNotification()
 {
     const QString str = mLineEdit->text();
     if (!str.isEmpty()) {
-        KNotification::event(KNotification::Notification, QStringLiteral("title:") + str, QStringLiteral("message:") + str.toHtmlEscaped(), QPixmap());
+        auto notification = new KNotification(QStringLiteral("new-notification"), KNotification::CloseOnTimeout);
+        notification->setTitle(QStringLiteral("test"));
+        notification->setText(str);
+        notification->setDefaultAction(QStringLiteral("Open Channel"));
+        connect(notification, &KNotification::defaultActivated, this, []() {
+            qDebug() << " default Activated !!!!!!";
+        });
+        connect(notification, &KNotification::closed, this, []() {
+            qDebug() << " CLOSED!!!!!!!!!!!!!!!!!!!!!!!!!";
+        });
+
+        std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(QStringLiteral("Reply")));
+        replyAction->setPlaceholderText(QStringLiteral("Reply..."));
+        QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [](const QString &text) {
+            qDebug() << " reply " << text;
+        });
+        notification->setReplyAction(std::move(replyAction));
+        notification->sendEvent();
     }
 }
 
