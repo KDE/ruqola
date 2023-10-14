@@ -6,6 +6,7 @@
 #include "notificationwidget.h"
 #include <KNotification>
 #include <KNotificationReplyAction>
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
