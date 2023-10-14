@@ -19,7 +19,7 @@ class LoadDataBaseGui : public QWidget
     Q_OBJECT
 public:
     explicit LoadDataBaseGui(QWidget *parent = nullptr);
-    ~LoadDataBaseGui() override = default;
+    ~LoadDataBaseGui() override;
 
 private:
     void slotLoad();

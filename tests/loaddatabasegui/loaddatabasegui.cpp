@@ -58,6 +58,11 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     mainLayout->addWidget(mMessageListView);
 }
 
+LoadDataBaseGui::~LoadDataBaseGui()
+{
+    delete mMessageModel;
+}
+
 void LoadDataBaseGui::slotLoad()
 {
     if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
