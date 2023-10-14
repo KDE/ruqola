@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-05 02:26+0000\n"
+"POT-Creation-Date: 2023-10-14 02:37+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -919,7 +919,7 @@ msgstr ""
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:121
+#: widgets/dialogs/createsoundmessagewidget.cpp:124
 #: widgets/dialogs/playsoundwidget.cpp:148
 #: widgets/dialogs/showvideowidget.cpp:147
 #, kde-format
@@ -6637,8 +6637,8 @@ msgstr "帳戶名稱："
 msgid "Server URL:"
 msgstr "伺服器網址："
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:140
-#: widgets/dialogs/createvideomessagewidget.cpp:238
+#: widgets/dialogs/createsoundmessagewidget.cpp:143
+#: widgets/dialogs/createvideomessagewidget.cpp:241
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -6875,15 +6875,15 @@ msgid "Search messages"
 msgstr "搜尋訊息"
 
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:82
+#: widgets/dialogs/showlistmessagebasewidget.cpp:96
+#: widgets/discussions/showdiscussionswidget.cpp:86
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
 msgstr ""
 
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/showlistmessagebasewidget.cpp:98
 #: widgets/room/usersinroomwidget.cpp:137
 #, fuzzy, kde-format
 #| msgid "No Messages found"
@@ -6968,20 +6968,20 @@ msgstr "顯示聊天室中的檔案附件"
 msgid "Search attachments..."
 msgstr "搜尋討論串…"
 
-#: widgets/dialogs/showattachmentwidget.cpp:92
+#: widgets/dialogs/showattachmentwidget.cpp:93
 #, kde-format
 msgid "No Attachments found"
 msgstr ""
 
-#: widgets/dialogs/showattachmentwidget.cpp:97
+#: widgets/dialogs/showattachmentwidget.cpp:98
 #, kde-format
 msgid "%1 Attachment in room (Total: %2)"
 msgid_plural "%1 Attachments in room (Total: %2)"
 msgstr[0] ""
 
-#: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/discussions/showdiscussionswidget.cpp:93
+#: widgets/dialogs/showattachmentwidget.cpp:100
+#: widgets/dialogs/showlistmessagebasewidget.cpp:106
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7035,7 +7035,7 @@ msgstr ""
 msgid "Search messages..."
 msgstr "搜尋訊息…"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
+#: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7192,12 +7192,12 @@ msgstr "討論"
 msgid "Search discussion..."
 msgstr "搜尋討論區…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:84
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #, kde-format
 msgid "No Discussion found"
 msgstr "未找到討論區"
 
-#: widgets/discussions/showdiscussionswidget.cpp:91
+#: widgets/discussions/showdiscussionswidget.cpp:95
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -8092,48 +8092,48 @@ msgstr ""
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:290
+#: widgets/room/delegate/messagelistdelegate.cpp:291
 #: widgets/room/messagelistview.cpp:371 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:299
+#: widgets/room/delegate/messagelistdelegate.cpp:300
 #: widgets/room/messagelistview.cpp:379
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "加密對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:483
+#: widgets/room/delegate/messagelistdelegate.cpp:484
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:490
+#: widgets/room/delegate/messagelistdelegate.cpp:491
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:490
+#: widgets/room/delegate/messagelistdelegate.cpp:491
 #, fuzzy, kde-format
 #| msgid "Any message yet"
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:719
+#: widgets/room/delegate/messagelistdelegate.cpp:720
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:723
+#: widgets/room/delegate/messagelistdelegate.cpp:724
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:727
+#: widgets/room/delegate/messagelistdelegate.cpp:728
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Message has been starred"
