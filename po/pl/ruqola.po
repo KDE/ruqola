@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 02:37+0000\n"
+"POT-Creation-Date: 2023-10-15 02:24+0000\n"
 "PO-Revision-Date: 2023-09-30 11:10+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -6749,7 +6749,7 @@ msgstr "Poszukaj4 wiadomości"
 
 #: widgets/dialogs/searchmessagewidget.cpp:101
 #: widgets/dialogs/showlistmessagebasewidget.cpp:96
-#: widgets/discussions/showdiscussionswidget.cpp:86
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -6849,7 +6849,7 @@ msgstr[2] "%1 załączników w pokoju (Razem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/discussions/showdiscussionswidget.cpp:97
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7046,12 +7046,12 @@ msgstr "Pokazywanie rozmów - %1"
 msgid "Search discussion..."
 msgstr "Poszukaj rozmowy..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:88
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
 msgid "No Discussion found"
 msgstr "Nie znaleziono żadnej rozmowy"
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
