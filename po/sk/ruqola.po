@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 00:43+0000\n"
+"POT-Creation-Date: 2023-10-15 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1337,13 +1337,11 @@ msgid "%1 has %2 Unread Message"
 msgstr "Súkromné adresy"
 
 #: core/notifications/notifierjob.cpp:27
-#: widgets/tests/testnotification_gui.cpp:23
 #, kde-format
 msgid "%1: %2"
 msgstr ""
 
 #: core/notifications/notifierjob.cpp:31
-#: widgets/tests/testnotification_gui.cpp:27
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "Open channel"
@@ -1351,13 +1349,11 @@ msgid "Open Channel"
 msgstr "Opustiť kanál"
 
 #: core/notifications/notifierjob.cpp:35
-#: widgets/tests/testnotification_gui.cpp:38
 #, kde-format
 msgid "Reply"
 msgstr "Odpovedať"
 
 #: core/notifications/notifierjob.cpp:36
-#: widgets/tests/testnotification_gui.cpp:39
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgid "Reply..."
@@ -2475,7 +2471,7 @@ msgstr "Odstrániť účet"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:36
 #, kde-format
 msgid "Add..."
 msgstr ""
@@ -2505,7 +2501,7 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:43
 #, kde-format
 msgid "Remove"
 msgstr ""
@@ -2749,7 +2745,7 @@ msgstr "Súkromné adresy"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
 #: widgets/dialogs/showlistmessagebasewidget.cpp:96
-#: widgets/discussions/showdiscussionswidget.cpp:86
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -7129,7 +7125,7 @@ msgstr[2] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/discussions/showdiscussionswidget.cpp:97
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7346,12 +7342,12 @@ msgstr "Hľadať súbor..."
 msgid "Search discussion..."
 msgstr "Hľadať súbor..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:88
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
 msgid "No Discussion found"
 msgstr ""
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -7843,17 +7839,17 @@ msgstr "Odstrániť účet"
 msgid "Personal Token Regenerated"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:39
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
 msgid "Regenerate..."
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"

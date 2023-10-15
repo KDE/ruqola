@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 00:43+0000\n"
+"POT-Creation-Date: 2023-10-15 00:42+0000\n"
 "PO-Revision-Date: 2023-10-08 05:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1260,26 +1260,22 @@ msgid "%1 has %2 Unread Message"
 msgstr "%1-ს %2 წაუკითხავი შეტყობინება გააჩნია"
 
 #: core/notifications/notifierjob.cpp:27
-#: widgets/tests/testnotification_gui.cpp:23
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
 #: core/notifications/notifierjob.cpp:31
-#: widgets/tests/testnotification_gui.cpp:27
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "არხის გახსნა"
 
 #: core/notifications/notifierjob.cpp:35
-#: widgets/tests/testnotification_gui.cpp:38
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
 
 #: core/notifications/notifierjob.cpp:36
-#: widgets/tests/testnotification_gui.cpp:39
 #, kde-format
 msgid "Reply..."
 msgstr "პასუხი…"
@@ -2391,7 +2387,7 @@ msgstr "Emoji-ის წაშლა"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:36
 #, kde-format
 msgid "Add..."
 msgstr "დამატება..."
@@ -2421,7 +2417,7 @@ msgstr "ჩასწორება..."
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:43
 #, kde-format
 msgid "Remove"
 msgstr "წაშლა"
@@ -2646,7 +2642,7 @@ msgstr "მოდერაციის შეტყობინებები�
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
 #: widgets/dialogs/showlistmessagebasewidget.cpp:96
-#: widgets/discussions/showdiscussionswidget.cpp:86
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -6792,7 +6788,7 @@ msgstr[1] "ოთახში %1 მიბმული ფაილია (ს�
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/discussions/showdiscussionswidget.cpp:97
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -6986,12 +6982,12 @@ msgstr "კამათების ჩვენება - %1"
 msgid "Search discussion..."
 msgstr "კამათის ძებნა..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:88
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
 msgid "No Discussion found"
 msgstr "კამათი ვერ ვიპოვე"
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -7445,17 +7441,17 @@ msgstr "პირადი კოდის წაშლა"
 msgid "Personal Token Regenerated"
 msgstr "პირადი კოდი თავიდან შეიქმნა"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:39
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
 msgid "Regenerate..."
 msgstr "თავიდან გენერაცია..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ კოდი \"%1\" ?"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 00:43+0000\n"
+"POT-Creation-Date: 2023-10-15 00:42+0000\n"
 "PO-Revision-Date: 2023-10-10 10:17+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1264,26 +1264,22 @@ msgid "%1 has %2 Unread Message"
 msgstr "%1 té %2 missatge/s sense llegir"
 
 #: core/notifications/notifierjob.cpp:27
-#: widgets/tests/testnotification_gui.cpp:23
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
 #: core/notifications/notifierjob.cpp:31
-#: widgets/tests/testnotification_gui.cpp:27
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Obre un canal"
 
 #: core/notifications/notifierjob.cpp:35
-#: widgets/tests/testnotification_gui.cpp:38
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
 
 #: core/notifications/notifierjob.cpp:36
-#: widgets/tests/testnotification_gui.cpp:39
 #, kde-format
 msgid "Reply..."
 msgstr "Respon..."
@@ -2401,7 +2397,7 @@ msgstr "Eliminació d'emoji"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:36
 #, kde-format
 msgid "Add..."
 msgstr "Afegeix..."
@@ -2431,7 +2427,7 @@ msgstr "Modifica..."
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:43
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
@@ -2662,7 +2658,7 @@ msgstr "Mostra els missatges de moderació"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
 #: widgets/dialogs/showlistmessagebasewidget.cpp:96
-#: widgets/discussions/showdiscussionswidget.cpp:86
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -6941,7 +6937,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/discussions/showdiscussionswidget.cpp:97
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7135,12 +7131,12 @@ msgstr "Mostra els debats - %1"
 msgid "Search discussion..."
 msgstr "Cerca un debat..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:88
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
 msgid "No Discussion found"
 msgstr "No s'ha trobat cap debat"
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -7611,17 +7607,17 @@ msgstr "Elimina el testimoni personal"
 msgid "Personal Token Regenerated"
 msgstr "S'ha regenerat el testimoni personal"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:39
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
 msgid "Regenerate..."
 msgstr "Regenera..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Esteu segur que voleu suprimir el testimoni «%1»?"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"

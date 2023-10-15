@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 00:43+0000\n"
+"POT-Creation-Date: 2023-10-15 00:42+0000\n"
 "PO-Revision-Date: 2023-10-10 09:15+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1264,26 +1264,22 @@ msgid "%1 has %2 Unread Message"
 msgstr "%1 ima %2 neprebrano sporočilo"
 
 #: core/notifications/notifierjob.cpp:27
-#: widgets/tests/testnotification_gui.cpp:23
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
 #: core/notifications/notifierjob.cpp:31
-#: widgets/tests/testnotification_gui.cpp:27
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Odpri kanal"
 
 #: core/notifications/notifierjob.cpp:35
-#: widgets/tests/testnotification_gui.cpp:38
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
 #: core/notifications/notifierjob.cpp:36
-#: widgets/tests/testnotification_gui.cpp:39
 #, kde-format
 msgid "Reply..."
 msgstr "Odgovori …"
@@ -2391,7 +2387,7 @@ msgstr "Odstrani emodži"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:36
 #, kde-format
 msgid "Add..."
 msgstr "Dodaj ..."
@@ -2421,7 +2417,7 @@ msgstr "Spremeni ..."
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:43
 #, kde-format
 msgid "Remove"
 msgstr "Odstrani"
@@ -2657,7 +2653,7 @@ msgstr "Pokaži sporočila moderiranja"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
 #: widgets/dialogs/showlistmessagebasewidget.cpp:96
-#: widgets/discussions/showdiscussionswidget.cpp:86
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -6922,7 +6918,7 @@ msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/discussions/showdiscussionswidget.cpp:97
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7122,12 +7118,12 @@ msgstr "Pokaži razprave - %1"
 msgid "Search discussion..."
 msgstr "Poišči razpravo…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:88
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
 msgid "No Discussion found"
 msgstr "Ni zadetkov med razpravami"
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -7599,17 +7595,17 @@ msgstr "Odstrani osebni žeton"
 msgid "Personal Token Regenerated"
 msgstr "Osebni žeton ponovno generiran"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:39
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
 msgid "Regenerate..."
 msgstr "Regeneriraj..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Ali ste prepričani, da želite izbrisati žeton \"%1\"?"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:57
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"
