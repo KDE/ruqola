@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-15 00:42+0000\n"
-"PO-Revision-Date: 2023-09-30 11:36+0200\n"
+"PO-Revision-Date: 2023-10-15 11:42+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2625,18 +2625,17 @@ msgid "Dismiss"
 msgstr "Odrzuć"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to dismiss and delete all reports for this user's "
-#| "messages? This action cannot be undone."
+#, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
 "The messages will be deleted from the message history and no one will be "
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
-"Czy na pewno odwołać i usunąć wszystkie zgłoszenie dla wiadomości tego "
-"użytkownika? Nie będzie można wycofać tego działania."
+"Czy na pewno usunąć wszystkie wiadomości zgłoszone od tego użytkownika?\n"
+"Wiadomości te zostaną usunięte z historii wiadomości i nikt nie będzie w "
+"stanie ich zobaczyć.\n"
+"Nie będzie można wycofać tego działania."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
@@ -4880,8 +4879,7 @@ msgid "Grouping Period (in seconds)"
 msgstr "Okres grupowania (w sekundach)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Messsage Maximum Users"
+#, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Graniczna liczba użytkowników bezpośrednich wiadomości"
 
@@ -8037,34 +8035,29 @@ msgid "Message has been starred"
 msgstr "Dodano gwiazdę do wiadomości"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Attach Files"
+#, kde-format
 msgid "Attach File"
-msgstr "Załącz pliki"
+msgstr "Załącz plik"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Take a Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Wykonaj rozmowę wideo"
+msgstr "Wiadomość wideo"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Pokaż wiadomość"
+msgstr "Wiadomość dźwiękowa"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Add Account"
+#, kde-format
 msgid "Add Emoticon"
-msgstr "Dodaj konto"
+msgstr "Dodaj emotikonę"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Wiadomości wyróżnione"
+msgstr "Wyślij wiadomość"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8180,10 +8173,9 @@ msgid "Translate Message"
 msgstr "Przetłumacz wiadomość"
 
 #: widgets/room/messagelistview.cpp:505
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "View Reports"
-msgstr "Zgłoszenia"
+msgstr "Obejrzyj zgłoszenia"
 
 #: widgets/room/messagelistview.cpp:573
 #, kde-format
@@ -8815,12 +8807,10 @@ msgid "Main Toolbar"
 msgstr "Główny pasek narzędzi"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
-msgstr "Szczegóły błędów na serwerze"
+msgstr "Szczegóły błędów serwera"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
@@ -9059,7 +9049,7 @@ msgstr "Dodano konsolę moderowania (administracja, serwer RC 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
-msgstr ""
+msgstr "Naprawiono obsługę markdown (nagłówek + parafka)"
 
 #~ msgid "Share"
 #~ msgstr "Udostępnij"
