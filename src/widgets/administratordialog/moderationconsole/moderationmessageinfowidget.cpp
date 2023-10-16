@@ -21,6 +21,7 @@ ModerationMessageInfoWidget::ModerationMessageInfoWidget(QWidget *parent)
     mReportInfoText->setObjectName(QStringLiteral("mReportInfoText"));
     mainLayout->addWidget(mReportInfoText);
     mReportInfoText->setWordWrap(true);
+    mainLayout->addStretch(1);
 }
 
 ModerationMessageInfoWidget::~ModerationMessageInfoWidget() = default;
