@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
+#include "moderation/moderationreportinfo.h"
 #include <QPointer>
 class MessageListDelegate;
 class RocketChatAccount;
@@ -99,7 +100,7 @@ private:
     void addDebugMenu(QMenu &menu, const QModelIndex &index);
     void addSelectedMessageBackgroundAnimation(const QModelIndex &index);
     void createTranslorMenu();
-    void slotShowReportInfo();
+    void slotShowReportInfo(const ModerationReportInfo &info);
     [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;

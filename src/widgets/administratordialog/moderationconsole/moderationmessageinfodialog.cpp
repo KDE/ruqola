@@ -42,7 +42,7 @@ ModerationMessageInfoDialog::~ModerationMessageInfoDialog()
     writeConfig();
 }
 
-void ModerationMessageInfoDialog::showReportInfo(const ModerationReportInfo &info)
+void ModerationMessageInfoDialog::setReportInfo(const ModerationReportInfo &info)
 {
     mModerationMessageInfoWidget->showReportInfo(info);
 }

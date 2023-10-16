@@ -18,7 +18,7 @@ public:
     explicit ModerationMessageInfoDialog(QWidget *parent = nullptr);
     ~ModerationMessageInfoDialog() override;
 
-    void showReportInfo(const ModerationReportInfo &info);
+    void setReportInfo(const ModerationReportInfo &info);
 
 private:
     void readConfig();

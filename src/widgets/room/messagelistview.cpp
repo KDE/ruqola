@@ -514,12 +514,15 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             job->setReportId(moderationId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ModerationReportInfoJob::moderationReportInfoDone, this, [this](const QJsonObject &obj) {
+                ModerationReportInfo info;
+                info.parseModerationReportInfo(obj);
+                slotShowReportInfo(info);
+
                 qDebug() << " SSSSSSSSSSS " << obj;
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
             }
-            slotShowReportInfo();
         });
         menu.addAction(showReportInfo);
         menu.addSeparator();
@@ -914,9 +917,10 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
 #endif
 }
 
-void MessageListView::slotShowReportInfo()
+void MessageListView::slotShowReportInfo(const ModerationReportInfo &info)
 {
     ModerationMessageInfoDialog dlg(this);
+    dlg.setReportInfo(info);
     dlg.exec();
     // TODO
 }
