@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "moderation/moderationreportinfo.h"
 #include <QDialog>
 
 class ModerationMessageInfoWidget;
@@ -16,6 +17,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoDialog : public QDialog
 public:
     explicit ModerationMessageInfoDialog(QWidget *parent = nullptr);
     ~ModerationMessageInfoDialog() override;
+
+    void showReportInfo(const ModerationReportInfo &info);
 
 private:
     void readConfig();

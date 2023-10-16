@@ -18,4 +18,9 @@ ModerationMessageInfoWidget::ModerationMessageInfoWidget(QWidget *parent)
 
 ModerationMessageInfoWidget::~ModerationMessageInfoWidget() = default;
 
+void ModerationMessageInfoWidget::showReportInfo(const ModerationReportInfo &info)
+{
+    // TODO
+}
+
 #include "moc_moderationmessageinfowidget.cpp"

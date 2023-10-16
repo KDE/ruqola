@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "moderation/moderationreportinfo.h"
 #include <QWidget>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoWidget : public QWidget
@@ -14,4 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoWidget : public QWidget
 public:
     explicit ModerationMessageInfoWidget(QWidget *parent = nullptr);
     ~ModerationMessageInfoWidget() override;
+
+    void showReportInfo(const ModerationReportInfo &info);
 };

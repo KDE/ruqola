@@ -42,6 +42,11 @@ ModerationMessageInfoDialog::~ModerationMessageInfoDialog()
     writeConfig();
 }
 
+void ModerationMessageInfoDialog::showReportInfo(const ModerationReportInfo &info)
+{
+    mModerationMessageInfoWidget->showReportInfo(info);
+}
+
 void ModerationMessageInfoDialog::readConfig()
 {
     create(); // ensure a window is created
