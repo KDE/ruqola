@@ -23,7 +23,7 @@ ModerationMessageInfoDialog::ModerationMessageInfoDialog(QWidget *parent)
     : QDialog(parent)
     , mModerationMessageInfoWidget(new ModerationMessageInfoWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Show Moderation Messages"));
+    setWindowTitle(i18nc("@title:window", "Show Moderation Report"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
