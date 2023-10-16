@@ -9,6 +9,7 @@
 #include "moderation/moderationreportinfo.h"
 #include <QWidget>
 
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -17,4 +18,7 @@ public:
     ~ModerationMessageInfoWidget() override;
 
     void showReportInfo(const ModerationReportInfo &info);
+
+private:
+    QLabel *const mReportInfoText;
 };
