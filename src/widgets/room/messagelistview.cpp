@@ -5,6 +5,7 @@
 */
 
 #include "messagelistview.h"
+#include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 #include "connection.h"
@@ -903,4 +904,10 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
 #endif
 }
 
+void MessageListView::slotShowReportInfo()
+{
+    ModerationMessageInfoDialog dlg(this);
+    dlg.exec();
+    // TODO
+}
 #include "moc_messagelistview.cpp"

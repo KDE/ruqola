@@ -99,6 +99,7 @@ private:
     void addDebugMenu(QMenu &menu, const QModelIndex &index);
     void addSelectedMessageBackgroundAnimation(const QModelIndex &index);
     void createTranslorMenu();
+    void slotShowReportInfo();
     [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
