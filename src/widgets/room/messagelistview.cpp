@@ -8,10 +8,14 @@
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
+
+#include "moderation/moderationreportinfojob.h"
+
 #include "connection.h"
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/reportmessagedialog.h"
+#include "moderation/moderationreportinfo.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"
@@ -504,12 +508,18 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     case Mode::Moderation: {
         auto showReportInfo = new QAction(i18n("View Reports"), &menu); // Add icon
-        connect(showReportInfo, &QAction::triggered, this, [=]() {
-            // message->moderationMessage().moderationId()
-            // TODO
-            // const QString messageId = message->messageId();
-            // const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
-            // Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
+        connect(showReportInfo, &QAction::triggered, this, [this, message]() {
+            auto moderationId = message->moderationMessage().moderationId();
+            auto job = new RocketChatRestApi::ModerationReportInfoJob(this);
+            job->setReportId(moderationId);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::ModerationReportInfoJob::moderationReportInfoDone, this, [this](const QJsonObject &obj) {
+                qDebug() << " SSSSSSSSSSS " << obj;
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
+            }
+            slotShowReportInfo();
         });
         menu.addAction(showReportInfo);
         menu.addSeparator();
