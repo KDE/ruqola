@@ -17,4 +17,6 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldLoadDiscussion();
+    void shouldLoadDiscussion_data();
 };
