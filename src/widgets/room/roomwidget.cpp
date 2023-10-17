@@ -729,7 +729,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         info.count = numberOfMessage - roomMessageModel->rowCount() + 1;
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = roomMessageModel->lastTimestamp();
-        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
+        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime, Qt::UTC).toString(Qt::ISODateWithMs);
         // qDebug() << " info.latestMessage " << info.latestMessage;
         job->setChannelHistoryInfo(info);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -784,7 +784,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = messageModel->lastTimestamp();
-        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
+        info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime, Qt::UTC).toString(Qt::ISODateWithMs);
         info.oldestMessage = messageDateTimeUtc;
         info.inclusive = true;
         info.count = 5000;
