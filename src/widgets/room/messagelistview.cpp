@@ -262,7 +262,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
-    const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toString() != mCurrentRocketChatAccount->userId());
+    const bool isNotOwnerOfMessage = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
 
     auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
