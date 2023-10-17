@@ -268,7 +268,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
-    const bool canMarkAsUnread = (index.data(MessagesModel::UserId).toString() != mCurrentRocketChatAccount->userId());
+    const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toString() != mCurrentRocketChatAccount->userId());
 
     auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
@@ -442,7 +442,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(selectAllAction);
 
         menu.addSeparator();
-        if (canMarkAsUnread) {
+        if (isNotOwnerOfMessage) {
             menu.addAction(markMessageAsUnReadAction);
         }
 
@@ -491,7 +491,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
-        if (canMarkAsUnread) {
+        if (isNotOwnerOfMessage) {
             menu.addAction(markMessageAsUnReadAction);
             menu.addSeparator();
         }
@@ -580,7 +580,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
 #endif
 
-    if (mMode != Mode::Moderation) {
+    if (mMode != Mode::Moderation && isNotOwnerOfMessage) {
         createSeparator(menu);
         auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
         connect(reportMessageAction, &QAction::triggered, this, [=]() {
