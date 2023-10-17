@@ -24,9 +24,16 @@ public:
 
     void parseModerationReportInfo(const QJsonObject &o);
 
+    [[nodiscard]] qint64 timeStamp() const;
+    void setTimeStamp(qint64 newTimeStamp);
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &o);
+    LIBRUQOLACORE_NO_EXPORT void parseReportedBy(const QJsonObject &o);
+    QString mTimeStampDateTimeStr;
     QString mDescription;
     QString mReportIdentifier;
+    qint64 mTimeStamp = -1;
 };
 Q_DECLARE_METATYPE(ModerationReportInfo)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfo &t);

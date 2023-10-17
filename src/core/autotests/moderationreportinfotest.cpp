@@ -17,9 +17,34 @@ ModerationReportInfoTest::ModerationReportInfoTest(QObject *parent)
 
 void ModerationReportInfoTest::shouldHaveDefaultValues()
 {
-    ModerationReportInfo w;
-    QVERIFY(w.reportIdentifier().isEmpty());
-    QVERIFY(w.description().isEmpty());
+    ModerationReportInfo info;
+    QVERIFY(info.reportIdentifier().isEmpty());
+    QVERIFY(info.description().isEmpty());
+    QCOMPARE(info.timeStamp(), -1);
+}
+
+void ModerationReportInfoTest::shouldLoadReportInfo_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<ModerationReportInfo>("reportinfo");
+
+    QTest::addRow("empty") << QStringLiteral("empty") << ModerationReportInfo();
+    ModerationReportInfo moderationReportInfo;
+    moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
+    moderationReportInfo.setReportIdentifier(QStringLiteral("65278f64533fd6f8588e"));
+    moderationReportInfo.setTimeStamp(1697091428125);
+    QTest::addRow("moderationinfo1") << QStringLiteral("moderationinfo1") << moderationReportInfo;
+}
+
+void ModerationReportInfoTest::shouldLoadReportInfo()
+{
+    QFETCH(QString, name);
+    QFETCH(ModerationReportInfo, reportinfo);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/moderationreportinfo/") + name + QLatin1String(".json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+    ModerationReportInfo m;
+    m.parseModerationReportInfo(obj);
+    QCOMPARE(m, reportinfo);
 }
 
 #include "moc_moderationreportinfotest.cpp"
