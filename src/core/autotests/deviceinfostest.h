@@ -16,6 +16,6 @@ public:
     ~DeviceInfosTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
-    void shouldLoadDiscussions_data();
-    void shouldLoadDiscussions();
+    void shouldLoadDeviceInfos_data();
+    void shouldLoadDeviceInfos();
 };

@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "deviceinfostest.h"
-#include "managedevices/deviceinfo.h"
 #include "managedevices/deviceinfos.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
@@ -25,7 +24,7 @@ void DeviceInfosTest::shouldHaveDefaultValues()
     QCOMPARE(w.deviceInfosCount(), 0);
 }
 
-void DeviceInfosTest::shouldLoadDiscussions_data()
+void DeviceInfosTest::shouldLoadDeviceInfos_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("deviceInfosCount");
@@ -36,7 +35,7 @@ void DeviceInfosTest::shouldLoadDiscussions_data()
     QTest::addRow("1-element") << QStringLiteral("deviceinfos-1-element") << 50 << 2 << 0;
 }
 
-void DeviceInfosTest::shouldLoadDiscussions()
+void DeviceInfosTest::shouldLoadDeviceInfos()
 {
     QFETCH(QString, name);
     QFETCH(int, deviceInfosCount);
