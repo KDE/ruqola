@@ -243,9 +243,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
-            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
+            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), Qt::UTC);
             const Message &previousMessage = mAllMessages.at(idx - 1);
-            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp());
+            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), Qt::UTC);
             return currentDate.date() != previousDate.date();
         }
         return true; // show date at the top
@@ -311,12 +311,12 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
-                const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
-                const QDateTime lastSeenDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt());
+                const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), Qt::UTC);
+                const QDateTime lastSeenDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt(), Qt::UTC);
                 // qDebug() << " lastSeeDate" << lastSeeDate;
                 if (currentDate > lastSeenDate) {
                     const Message &previousMessage = mAllMessages.at(idx - 1);
-                    const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp());
+                    const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), Qt::UTC);
                     const bool result = (previewMessageDate <= lastSeenDate);
                     return result;
                 }
