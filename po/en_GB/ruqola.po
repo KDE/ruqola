@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-17 00:42+0000\n"
+"POT-Creation-Date: 2023-10-18 00:43+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7097,7 +7097,7 @@ msgstr "Open Discussion"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:578
+#: widgets/room/messagelistview.cpp:577
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -7772,7 +7772,7 @@ msgid "Notification"
 msgstr "Notification"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:561
+#: widgets/room/messagelistview.cpp:560
 #, kde-format
 msgid "Go to Message"
 msgstr "Go to Message"
@@ -8178,23 +8178,23 @@ msgstr "Translate Message"
 msgid "View Reports"
 msgstr "Reporting"
 
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:585
 #, kde-format
 msgid "Report Message"
 msgstr "Report Message"
 
-#: widgets/room/messagelistview.cpp:766
+#: widgets/room/messagelistview.cpp:765
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Do you want to delete this message?"
 
-#: widgets/room/messagelistview.cpp:767
+#: widgets/room/messagelistview.cpp:766
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Delete Message"
 
-#: widgets/room/messagelistview.cpp:906
+#: widgets/room/messagelistview.cpp:905
 #, kde-format
 msgid "Translator Error"
 msgstr "Translator Error"
