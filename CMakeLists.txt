@@ -244,6 +244,10 @@ endif()
 add_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_KEYWORDS)
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+   add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
+endif()
+
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
 
