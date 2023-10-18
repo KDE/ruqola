@@ -39,7 +39,7 @@ public:
 
     std::size_t size() const
     {
-        return mNumEntries;
+        return mEntries.size();
     }
 
     const_iterator begin() const
@@ -49,14 +49,14 @@ public:
 
     const_iterator end() const
     {
-        return std::next(mEntries.begin(), mNumEntries);
+        return std::next(mEntries.begin(), size());
     }
 
     const_iterator find(const Key &key)
     {
         // using non-const iterators here since we will re-insert when we find
         const auto begin = mEntries.begin();
-        const auto end = std::next(mEntries.begin(), mNumEntries);
+        const auto end = std::next(mEntries.begin(), size());
         auto it = std::find(begin, end, key);
         if (it == begin || it == end) { // not found or already the last recently used one
             return it;
@@ -69,14 +69,15 @@ public:
 
     void insert(Key key, Value value)
     {
-        if (mMaxEntries == -1 || (mNumEntries < static_cast<size_t>(mMaxEntries))) {
+        auto entriesSize = size();
+        if (mMaxEntries == -1 || (entriesSize < static_cast<size_t>(mMaxEntries))) {
             // open up a new slot
-            ++mNumEntries;
-            mEntries.resize(mNumEntries);
+            ++entriesSize;
+            mEntries.resize(entriesSize);
         }
 
         // right shift to make space at the front
-        std::rotate(mEntries.begin(), std::next(mEntries.begin(), mNumEntries - 1), std::next(mEntries.begin(), mNumEntries));
+        std::rotate(mEntries.begin(), std::next(mEntries.begin(), entriesSize - 1), std::next(mEntries.begin(), entriesSize));
 
         // insert up front
         mEntries.front() = {std::move(key), std::move(value)};
@@ -85,26 +86,23 @@ public:
     bool remove(const Key &key)
     {
         const auto begin = mEntries.begin();
-        const auto end = std::next(mEntries.begin(), mNumEntries);
+        const auto end = std::next(mEntries.begin(), size());
         auto it = std::find(begin, end, key);
         if (it == end) { // not found or already the last recently used one
             return false;
         }
 
         std::move(std::next(it), end, it);
-        --mNumEntries;
+        mEntries.resize(size() - 1);
         return true;
     }
 
     void clear()
     {
-        mNumEntries = 0;
-        Entries empty;
-        mEntries.swap(empty);
+        mEntries.clear();
     }
 
 private:
     Entries mEntries;
-    std::size_t mNumEntries = 0;
     int mMaxEntries = -1;
 };
