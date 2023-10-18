@@ -21,6 +21,8 @@ void ModerationReportInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.reportIdentifier().isEmpty());
     QVERIFY(info.description().isEmpty());
     QCOMPARE(info.timeStamp(), -1);
+    QVERIFY(info.roomId().isEmpty());
+    QVERIFY(info.userId().isEmpty());
 }
 
 void ModerationReportInfoTest::shouldLoadReportInfo_data()
@@ -33,6 +35,9 @@ void ModerationReportInfoTest::shouldLoadReportInfo_data()
     moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
     moderationReportInfo.setReportIdentifier(QStringLiteral("65278f64533fd6f8588e"));
     moderationReportInfo.setTimeStamp(1697091428125);
+    moderationReportInfo.setRoomId(QStringLiteral("xxib9aFXMGN3o"));
+    moderationReportInfo.setUserId(QStringLiteral("H7Q9djXQ4iShzD9T2"));
+
     QTest::addRow("moderationinfo1") << QStringLiteral("moderationinfo1") << moderationReportInfo;
 }
 

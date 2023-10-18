@@ -27,12 +27,20 @@ public:
     [[nodiscard]] qint64 timeStamp() const;
     void setTimeStamp(qint64 newTimeStamp);
 
+    [[nodiscard]] QString roomId() const;
+    void setRoomId(const QString &newRoomId);
+
+    [[nodiscard]] QString userId() const;
+    void setUserId(const QString &newUserId);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &o);
     LIBRUQOLACORE_NO_EXPORT void parseReportedBy(const QJsonObject &o);
     QString mTimeStampDateTimeStr;
     QString mDescription;
     QString mReportIdentifier;
+    QString mRoomId;
+    QString mUserId;
     qint64 mTimeStamp = -1;
 };
 Q_DECLARE_METATYPE(ModerationReportInfo)

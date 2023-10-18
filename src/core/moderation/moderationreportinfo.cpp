@@ -15,7 +15,8 @@ ModerationReportInfo::~ModerationReportInfo() = default;
 
 bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
 {
-    return mDescription == other.description() && mReportIdentifier == other.reportIdentifier() && mTimeStamp == other.timeStamp();
+    return mDescription == other.description() && mReportIdentifier == other.reportIdentifier() && mTimeStamp == other.timeStamp() && mRoomId == other.roomId()
+        && mUserId == other.userId();
 }
 
 void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)
@@ -29,7 +30,6 @@ void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)
     //{"reports":[{"_id":"6523e2465d66533fd6f85856","description":"test message report\n","reportedBy":{"_id":"H7Q9djXQ4zD9T2","username":"bla","name":"foo",
     // "createdAt":"2018-03-13T16:11:51.761Z"},"room":{"_id":"bBvCRnStXcG68zjna","name":"roomname","t":"p","fname":"roomname"},
     // "ts":"2023-10-09T11:21:42.135Z"}],"count":1,"offset":0,"total":1,"success":true}
-    // TODO
 }
 
 qint64 ModerationReportInfo::timeStamp() const
@@ -66,12 +66,34 @@ void ModerationReportInfo::setReportIdentifier(const QString &newReportIdentifie
 
 void ModerationReportInfo::parseReportedBy(const QJsonObject &o)
 {
+    mUserId = o[QLatin1String("_id")].toString();
     // TODO
+}
+
+QString ModerationReportInfo::userId() const
+{
+    return mUserId;
+}
+
+void ModerationReportInfo::setUserId(const QString &newUserId)
+{
+    mUserId = newUserId;
+}
+
+QString ModerationReportInfo::roomId() const
+{
+    return mRoomId;
+}
+
+void ModerationReportInfo::setRoomId(const QString &newRoomId)
+{
+    mRoomId = newRoomId;
 }
 
 void ModerationReportInfo::parseRoom(const QJsonObject &o)
 {
-    // TODO
+    mRoomId = o[QLatin1String("_id")].toString();
+    // TODO add more ? roomName etc ?
 }
 
 QDebug operator<<(QDebug d, const ModerationReportInfo &t)
@@ -79,6 +101,8 @@ QDebug operator<<(QDebug d, const ModerationReportInfo &t)
     d << "mDescription " << t.description();
     d << "mReportIdentifier " << t.reportIdentifier();
     d << "mTimeStamp " << t.timeStamp();
+    d << "mRoomId " << t.roomId();
+    d << "mUserId " << t.userId();
     return d;
 }
 
