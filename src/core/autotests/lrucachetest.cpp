@@ -40,8 +40,9 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
         return QLatin1String(prefix) + QString::number(i);
     };
 
-    using Cache = LRUCache<QString, QString, 5>;
+    using Cache = LRUCache<QString, QString>;
     Cache cache;
+    cache.setMaxEntries(5);
     auto contents = [&cache]() -> QVector<QString> {
         QVector<QString> ret(cache.size());
         std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
@@ -113,7 +114,8 @@ void LRUCacheTest::shouldWorkWithUniquePtr()
             ++deletions;
         }
     };
-    LRUCache<int, std::unique_ptr<MyDocument>, 32> documentCache;
+    LRUCache<int, std::unique_ptr<MyDocument>> documentCache;
+    documentCache.setMaxEntries(32);
     documentCache.insert(42, std::make_unique<MyDocument>());
     QCOMPARE(documentCache.size(), 1);
     documentCache.clear();

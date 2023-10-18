@@ -7,9 +7,9 @@
 #pragma once
 
 #include <algorithm>
-#include <array>
+#include <vector>
 
-template<typename Key, typename Value, size_t N>
+template<typename Key, typename Value>
 class LRUCache
 {
 public:
@@ -21,7 +21,7 @@ public:
             return key == rhs;
         }
     };
-    using Entries = std::array<Entry, N>;
+    using Entries = std::vector<Entry>;
     using value_type = typename Entries::value_type;
     using size_type = typename Entries::size_type;
     using difference_type = typename Entries::difference_type;
@@ -31,6 +31,11 @@ public:
     using pointer = typename Entries::const_pointer;
     using iterator = typename Entries::const_iterator;
     using const_iterator = typename Entries::const_iterator;
+
+    void setMaxEntries(int maxEntries)
+    {
+        mMaxEntries = maxEntries;
+    }
 
     std::size_t size() const
     {
@@ -64,9 +69,10 @@ public:
 
     void insert(Key key, Value value)
     {
-        if (mNumEntries < mEntries.size()) {
+        if (mMaxEntries == -1 || (mNumEntries < static_cast<size_t>(mMaxEntries))) {
             // open up a new slot
             ++mNumEntries;
+            mEntries.resize(mNumEntries);
         }
 
         // right shift to make space at the front
@@ -100,4 +106,5 @@ public:
 private:
     Entries mEntries;
     std::size_t mNumEntries = 0;
+    int mMaxEntries = -1;
 };

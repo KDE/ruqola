@@ -33,6 +33,7 @@ private:
     // DPR-dependent cache of avatars
     struct AvatarCache {
         qreal dpr = 0.;
+        // For Avatar not necessary to limit cache. (cache)
         PixmapCache cache;
     };
     mutable AvatarCache mAvatarCache;

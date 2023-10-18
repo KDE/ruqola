@@ -15,6 +15,8 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PixmapCache
 {
 public:
+    void setMaxEntries(int maxEntries);
+
     [[nodiscard]] QPixmap pixmapForLocalFile(const QString &path);
 
     [[nodiscard]] QPixmap findCachedPixmap(const QString &path);
@@ -24,5 +26,5 @@ public:
 
 private:
     friend class PixmapCacheTest;
-    LRUCache<QString, QPixmap, 5> mCachedImages;
+    LRUCache<QString, QPixmap> mCachedImages;
 };

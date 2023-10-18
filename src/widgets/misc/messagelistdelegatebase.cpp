@@ -23,6 +23,7 @@ MessageListDelegateBase::MessageListDelegateBase(QListView *view, QObject *paren
     , mTextSelectionImpl(new TextSelectionImpl)
     , mListView(view)
 {
+    mDocumentCache.setMaxEntries(32); // Enough?
     auto textSelection = mTextSelectionImpl->textSelection();
     textSelection->setTextHelperFactory(this);
     connect(textSelection, &TextSelection::repaintNeeded, this, &MessageListDelegateBase::updateView);

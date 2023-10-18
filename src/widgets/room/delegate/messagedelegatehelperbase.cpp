@@ -14,6 +14,7 @@ MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account,
     , mSelectionImpl(textSelectionImpl)
     , mRocketChatAccount(account)
 {
+    mDocumentCache.setMaxEntries(32); // Enough ?
 }
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;

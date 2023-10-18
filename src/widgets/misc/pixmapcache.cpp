@@ -7,6 +7,11 @@
 #include "pixmapcache.h"
 #include "ruqolawidgets_debug.h"
 
+void PixmapCache::setMaxEntries(int maxEntries)
+{
+    mCachedImages.setMaxEntries(maxEntries);
+}
+
 QPixmap PixmapCache::pixmapForLocalFile(const QString &path)
 {
     auto pixmap = findCachedPixmap(path);

@@ -33,5 +33,5 @@ protected:
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>> mDocumentCache;
 };

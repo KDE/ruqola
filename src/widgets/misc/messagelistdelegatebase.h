@@ -47,7 +47,7 @@ protected:
     [[nodiscard]] virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
 
     TextSelectionImpl *const mTextSelectionImpl;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>> mDocumentCache;
 
     QString mSearchText;
     QListView *const mListView;

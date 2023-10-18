@@ -24,6 +24,7 @@ MessageDelegateHelperReactions::MessageDelegateHelperReactions(RocketChatAccount
     : mEmojiFont(Utils::emojiFontName())
     , mRocketChatAccount(account)
 {
+    // For emoji not necessary to limit cache. (mPixmapCache)
 }
 
 QVector<MessageDelegateHelperReactions::ReactionLayout>

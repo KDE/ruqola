@@ -29,6 +29,7 @@
 MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
 {
+    mPixmapCache.setMaxEntries(32); // Enough ?
 }
 
 void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach,
