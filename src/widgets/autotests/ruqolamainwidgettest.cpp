@@ -5,7 +5,9 @@
 */
 
 #include "ruqolamainwidgettest.h"
+#if 0
 #include "bannerinfodialog/bannermessagewidget.h"
+#endif
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
 #include "ruqolamainwidget.h"
@@ -53,8 +55,10 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmptyRoomWidget);
     QCOMPARE(mStackedRoomWidget->currentWidget(), mEmptyRoomWidget);
 
+#if 0
     auto mBannerMessageWidget = w.findChild<BannerMessageWidget *>(QStringLiteral("mBannerMessageWidget"));
     QVERIFY(mBannerMessageWidget);
+#endif
 }
 
 #include "moc_ruqolamainwidgettest.cpp"

@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "channels/channelhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
 #include "room.h"
 #include "roomheaderwidget.h"
 #include <QPointer>
+#include <QVBoxLayout>
 #include <QWidget>
 
 class RoomHeaderWidget;
@@ -103,6 +103,10 @@ private:
     void slotRefreshOtrKeys();
     void slotCallRequested();
     void slotTextToSpeech(const QString &messageText);
+    void createOtrWidget();
+    void createOffLineWidget();
+    void createRoomReconnectInfoWidget();
+    void createPluginTextMessateWidget();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
@@ -112,10 +116,11 @@ private:
     QPointer<Room> mRoom;
     UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
-    ReconnectInfoWidget *const mRoomReconnectInfoWidget;
-    PluginTextMessageWidget *const mPluginTextMessateWidget;
-    OtrWidget *const mOtrWidget;
-    OffLineWidget *const mOffLineWidget;
+    ReconnectInfoWidget *mRoomReconnectInfoWidget = nullptr;
+    PluginTextMessageWidget *mPluginTextMessateWidget = nullptr;
+    OtrWidget *mOtrWidget = nullptr;
+    OffLineWidget *mOffLineWidget = nullptr;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QVBoxLayout *mRoomWidgetLayout = nullptr;
 };

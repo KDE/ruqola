@@ -6,7 +6,9 @@
 
 #include "ruqolacentralwidgettest.h"
 #include "ruqolacentralwidget.h"
+#if 0
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
+#endif
 #include "whatsnew/whatsnewmessagewidget.h"
 
 #include <QHBoxLayout>
@@ -31,9 +33,10 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
 
+#if 0 // Create on demand => it will be nullptr
     auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(QStringLiteral("mServerErrorInfoMessageWidget"));
     QVERIFY(mServerErrorInfoMessageWidget);
-
+#endif
     auto whatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("whatsNewMessageWidget"));
     QVERIFY(whatsNewMessageWidget);
 }

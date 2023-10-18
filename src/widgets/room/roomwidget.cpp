@@ -70,10 +70,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomHeaderWidget(new RoomHeaderWidget(this))
     , mUsersInRoomFlowWidget(new UsersInRoomFlowWidget(this))
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
-    , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
-    , mPluginTextMessateWidget(new PluginTextMessageWidget(this))
-    , mOtrWidget(new OtrWidget(this))
-    , mOffLineWidget(new OffLineWidget(this))
+
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
@@ -87,45 +84,40 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     auto roomWidget = new QWidget(this);
     mainLayout->addWidget(roomWidget);
-    auto roomWidgetLayout = new QVBoxLayout(roomWidget);
-    roomWidgetLayout->setObjectName(QStringLiteral("roomWidgetLayout"));
-    roomWidgetLayout->setContentsMargins({});
+    mRoomWidgetLayout = new QVBoxLayout(roomWidget);
+    mRoomWidgetLayout->setObjectName(QStringLiteral("roomWidgetLayout"));
+    mRoomWidgetLayout->setContentsMargins({});
 
     mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
-    roomWidgetLayout->addWidget(mUsersInRoomFlowWidget);
+    mRoomWidgetLayout->addWidget(mUsersInRoomFlowWidget);
     mUsersInRoomFlowWidget->setVisible(false);
 
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
 
-    mRoomReconnectInfoWidget->setObjectName(QStringLiteral("mRoomReconnectInfoWidget"));
+    connect(mRoomWidgetBase, &RoomWidgetBase::errorMessage, this, [this](const QString &message) {
+        if (!mPluginTextMessateWidget) {
+            createPluginTextMessateWidget();
+        }
+        mPluginTextMessateWidget->slotShareError(message);
+    });
+    connect(mRoomWidgetBase, &RoomWidgetBase::successMessage, this, [this](const QString &message) {
+        if (!mPluginTextMessateWidget) {
+            createPluginTextMessateWidget();
+        }
+        mPluginTextMessateWidget->slotShareSuccess(message);
+    });
 
-    mPluginTextMessateWidget->setObjectName(QStringLiteral("mPluginTextMessateWidget"));
-
-    mOtrWidget->setObjectName(QStringLiteral("mOtrWidget"));
-    connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
-    connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
-
-    mOffLineWidget->setObjectName(QStringLiteral("mOffLineWidget"));
-
-    connect(mRoomWidgetBase, &RoomWidgetBase::errorMessage, mPluginTextMessateWidget, &PluginTextMessageWidget::slotShareError);
-    connect(mRoomWidgetBase, &RoomWidgetBase::successMessage, mPluginTextMessateWidget, &PluginTextMessageWidget::slotShareSuccess);
-
-    roomWidgetLayout->addWidget(mOtrWidget);
-    roomWidgetLayout->addWidget(mOffLineWidget);
-    roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
-    roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
-    roomWidgetLayout->addWidget(mPluginTextMessateWidget);
+    mRoomWidgetLayout->addWidget(mRoomCounterInfoWidget);
 
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
-    roomWidgetLayout->addWidget(mTextToSpeechWidget);
+    mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
-    roomWidgetLayout->addWidget(mRoomWidgetBase);
+    mRoomWidgetLayout->addWidget(mRoomWidgetBase);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::jumpToUnreadMessage, this, &RoomWidget::slotJumpToUnreadMessage);
-    connect(mRoomReconnectInfoWidget, &ReconnectInfoWidget::tryReconnect, this, &RoomWidget::slotTryReconnect);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::goBackToRoom, this, &RoomWidget::slotGoBackToRoom);
@@ -144,6 +136,43 @@ RoomWidget::RoomWidget(QWidget *parent)
 RoomWidget::~RoomWidget()
 {
     delete mRoom;
+}
+
+void RoomWidget::createPluginTextMessateWidget()
+{
+    mPluginTextMessateWidget = new PluginTextMessageWidget(this);
+    mPluginTextMessateWidget->setObjectName(QStringLiteral("mPluginTextMessateWidget"));
+    mRoomWidgetLayout->addWidget(mPluginTextMessateWidget);
+}
+
+// TODO using it
+void RoomWidget::createRoomReconnectInfoWidget()
+{
+    mRoomReconnectInfoWidget = new ReconnectInfoWidget(this);
+    mRoomReconnectInfoWidget->setObjectName(QStringLiteral("mRoomReconnectInfoWidget"));
+    connect(mRoomReconnectInfoWidget, &ReconnectInfoWidget::tryReconnect, this, &RoomWidget::slotTryReconnect);
+    // After mUsersInRoomFlowWidget
+    mRoomWidgetLayout->insertWidget(1, mRoomReconnectInfoWidget);
+}
+
+// TODO using it.
+void RoomWidget::createOffLineWidget()
+{
+    mOffLineWidget = new OffLineWidget(this);
+    mOffLineWidget->setObjectName(QStringLiteral("mOffLineWidget"));
+    // After mUsersInRoomFlowWidget
+    mRoomWidgetLayout->insertWidget(1, mOffLineWidget);
+}
+
+// TODO using it.
+void RoomWidget::createOtrWidget()
+{
+    mOtrWidget = new OtrWidget(this);
+    mOtrWidget->setObjectName(QStringLiteral("mOtrWidget"));
+    connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
+    connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
+    // After mUsersInRoomFlowWidget
+    mRoomWidgetLayout->insertWidget(1, mOtrWidget);
 }
 
 void RoomWidget::slotLoadHistory()
@@ -859,7 +888,9 @@ void RoomWidget::slotLoginStatusChanged()
 {
     const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
     if (loginStatus == DDPAuthenticationManager::LoggedIn) {
-        mRoomReconnectInfoWidget->hide();
+        if (mRoomReconnectInfoWidget) {
+            mRoomReconnectInfoWidget->hide();
+        }
     }
 }
 

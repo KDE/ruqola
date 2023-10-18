@@ -30,18 +30,18 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     , mStackedWidget(new QStackedWidget(this))
     , mMessageLineWidget(new MessageLineWidget(this))
     , mReadOnlyLineEditWidget(new ReadOnlyLineEditWidget(this))
+    , mMainLayout(new QVBoxLayout(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mUploadFileProgressStatusListWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusListWidget"));
     mUploadFileProgressStatusListWidget->setVisible(false);
-    mainLayout->addWidget(mUploadFileProgressStatusListWidget);
+    mMainLayout->addWidget(mUploadFileProgressStatusListWidget);
     connect(mUploadFileProgressStatusListWidget, &UploadFileProgressStatusListWidget::cancelUpload, this, &RoomWidgetBase::slotCancelUpload);
 
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-    mainLayout->addWidget(mMessageListView, 1);
+    mMainLayout->addWidget(mMessageListView, 1);
 
     mRoomReplyThreadWidget->setObjectName(QStringLiteral("mRoomReplyThreadWidget"));
     mRoomReplyThreadWidget->setVisible(false);
@@ -57,11 +57,11 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
         mMessageLineWidget->setQuoteMessage({}, QString());
     });
 
-    mainLayout->addWidget(mRoomReplyThreadWidget);
-    mainLayout->addWidget(mRoomQuoteMessageWidget);
+    mMainLayout->addWidget(mRoomReplyThreadWidget);
+    mMainLayout->addWidget(mRoomQuoteMessageWidget);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
-    mainLayout->addWidget(mStackedWidget);
+    mMainLayout->addWidget(mStackedWidget);
 
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
     mStackedWidget->addWidget(mMessageLineWidget);

@@ -20,6 +20,7 @@ class ReadOnlyLineEditWidget;
 class RocketChatAccount;
 class Room;
 class UploadFileProgressStatusListWidget;
+class QVBoxLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidgetBase : public QWidget
 {
     Q_OBJECT
@@ -65,4 +66,5 @@ private:
     MessageLineWidget *const mMessageLineWidget;
     ReadOnlyLineEditWidget *const mReadOnlyLineEditWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QVBoxLayout *const mMainLayout;
 };

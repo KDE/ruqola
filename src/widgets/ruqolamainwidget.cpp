@@ -36,19 +36,16 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     , mStackedRoomWidget(new QStackedWidget(this))
     , mRoomWidget(new RoomWidget(this))
     , mEmptyRoomWidget(new QWidget(this))
-    , mBannerMessageWidget(new BannerMessageWidget(this))
+    , mTopLayout(new QVBoxLayout(this))
 {
-    auto topLayout = new QVBoxLayout(this);
-    topLayout->setContentsMargins({});
-    topLayout->setObjectName(QStringLiteral("topLayout"));
+    mTopLayout->setContentsMargins({});
+    mTopLayout->setObjectName(QStringLiteral("topLayout"));
 
     auto mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
-    mBannerMessageWidget->setObjectName(QStringLiteral("mBannerMessageWidget"));
-    topLayout->addWidget(mBannerMessageWidget);
-    topLayout->addLayout(mainLayout);
+    mTopLayout->addLayout(mainLayout);
 
     mSplitter->setObjectName(QStringLiteral("mSplitter"));
     mSplitter->setChildrenCollapsible(false);
@@ -79,7 +76,6 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
-    connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
@@ -89,6 +85,14 @@ RuqolaMainWidget::~RuqolaMainWidget()
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
     }
+}
+
+void RuqolaMainWidget::createBannerMessageWidget()
+{
+    mBannerMessageWidget = new BannerMessageWidget(this);
+    mBannerMessageWidget->setObjectName(QStringLiteral("mBannerMessageWidget"));
+    mTopLayout->insertWidget(0, mBannerMessageWidget);
+    connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
 }
 
 void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
@@ -180,6 +184,9 @@ void RuqolaMainWidget::slotBannerDismissDone()
 
 void RuqolaMainWidget::updateBannerInfo()
 {
+    if (!mBannerMessageWidget) {
+        createBannerMessageWidget();
+    }
     const auto bannerUnreadInformations = mCurrentRocketChatAccount->bannerInfos().bannerUnreadInformations();
     mBannerMessageWidget->setBannerInfos(std::move(bannerUnreadInformations));
 }

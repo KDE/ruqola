@@ -23,27 +23,23 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mStackedWidget(new QStackedWidget(this))
     , mRuqolaMainWidget(new RuqolaMainWidget(this))
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
-    , mServerErrorInfoMessageWidget(new ServerErrorInfoMessageWidget(this))
+    , mMainLayout(new QVBoxLayout(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setContentsMargins({});
-    mainLayout->setObjectName(QStringLiteral("mainlayout"));
-
-    mServerErrorInfoMessageWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageWidget"));
-    mainLayout->addWidget(mServerErrorInfoMessageWidget);
+    mMainLayout->setContentsMargins({});
+    mMainLayout->setObjectName(QStringLiteral("mainlayout"));
 
     const QString newFeaturesMD5 = WhatsNewWidget::newFeaturesMD5();
     const bool hasNewFeature = (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5);
     if (hasNewFeature) {
         auto whatsNewMessageWidget = new WhatsNewMessageWidget(this);
         whatsNewMessageWidget->setObjectName(QStringLiteral("whatsNewMessageWidget"));
-        mainLayout->addWidget(whatsNewMessageWidget);
+        mMainLayout->addWidget(whatsNewMessageWidget);
         RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
         whatsNewMessageWidget->animatedShow();
     }
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
-    mainLayout->addWidget(mStackedWidget);
+    mMainLayout->addWidget(mStackedWidget);
 
     mRuqolaMainWidget->setObjectName(QStringLiteral("mRuqolaMainWidget"));
     mStackedWidget->addWidget(mRuqolaMainWidget);
@@ -58,8 +54,18 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
 RuqolaCentralWidget::~RuqolaCentralWidget() = default;
 
+void RuqolaCentralWidget::createServerErrorInfoMessageWidget()
+{
+    mServerErrorInfoMessageWidget = new ServerErrorInfoMessageWidget(this);
+    mServerErrorInfoMessageWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageWidget"));
+    mMainLayout->insertWidget(0, mServerErrorInfoMessageWidget);
+}
+
 void RuqolaCentralWidget::slotNewErrorInfo()
 {
+    if (!mServerErrorInfoMessageWidget) {
+        createServerErrorInfoMessageWidget();
+    }
     mServerErrorInfoMessageWidget->animatedShow();
 }
 

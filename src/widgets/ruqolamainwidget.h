@@ -11,6 +11,7 @@
 #include <QPointer>
 #include <QStackedWidget>
 #include <QWidget>
+class QVBoxLayout;
 class ChannelListWidget;
 class RoomWidget;
 class QSplitter;
@@ -40,12 +41,14 @@ private:
     void slotBannerDismissDone();
     void slotMarkBannerAsRead(const QString &identifier);
     void slotRoomPressed(const QString &roomId);
+    void createBannerMessageWidget();
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;
     QStackedWidget *const mStackedRoomWidget;
     RoomWidget *const mRoomWidget;
     QWidget *const mEmptyRoomWidget;
-    BannerMessageWidget *const mBannerMessageWidget;
+    BannerMessageWidget *mBannerMessageWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QVBoxLayout *const mTopLayout;
 };
