@@ -291,12 +291,12 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(Connection)
-    void initializeCookies();
-    void slotResult(QNetworkReply *reply);
-    void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
-    void slotLogout();
-    void slotLogin(const QString &authToken, const QString &userId);
-    void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void initializeCookies();
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotResult(QNetworkReply *reply);
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotLogout();
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
 
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;

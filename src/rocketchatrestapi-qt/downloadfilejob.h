@@ -41,7 +41,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(DownloadFileJob)
-    void slotDownloadDone();
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotDownloadDone();
     QUrl mUrl;
     QByteArray mMimeType;
     QUrl mLocalFileUrl;

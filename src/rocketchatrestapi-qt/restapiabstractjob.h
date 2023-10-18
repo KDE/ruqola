@@ -160,7 +160,7 @@ protected Q_SLOTS:
     }
 
 private:
-    void genericResponseHandler(void (RestApiAbstractJob::*func)(const QString &, const QJsonDocument &));
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void genericResponseHandler(void (RestApiAbstractJob::*func)(const QString &, const QJsonDocument &));
 
     QDateTime mUpdatedSince;
     QueryParameters mQueryParameters;
