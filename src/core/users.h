@@ -48,7 +48,7 @@ public:
     void appendUser(const User &user);
 
 private:
-    void parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
+    LIBRUQOLACORE_NO_EXPORT void parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
     QVector<User> mUsers;
     int mUsersCount = 0;
     int mOffset = 0;

@@ -24,7 +24,7 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QModelIndex modelRoot(QAbstractItemModel *model) const;
-    QAbstractItemModel *rootModel(const QModelIndex &root) const;
+    LIBRUQOLACORE_NO_EXPORT QAbstractItemModel *rootModel(const QModelIndex &root) const;
     LIBRUQOLACORE_NO_EXPORT void mapModelToIndex(QAbstractItemModel *model, const std::function<QModelIndex()> &root);
     LIBRUQOLACORE_NO_EXPORT void unproxyModel(QAbstractItemModel *model);
 

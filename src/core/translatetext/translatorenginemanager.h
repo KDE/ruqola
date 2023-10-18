@@ -31,7 +31,7 @@ Q_SIGNALS:
     void translateFailed(const QString &errorMessage = QString());
 
 private:
-    void initializeTranslateEngine();
-    void slotTranslateDone();
+    LIBRUQOLACORE_NO_EXPORT void initializeTranslateEngine();
+    LIBRUQOLACORE_NO_EXPORT void slotTranslateDone();
     TextTranslator::TranslatorEnginePlugin *mTranslatorEnginePlugin = nullptr;
 };

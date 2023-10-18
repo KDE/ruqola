@@ -44,7 +44,7 @@ public:
     void addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList);
 
 private:
-    [[nodiscard]] QIcon createCustomIcon(const QString &name) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon createCustomIcon(const QString &name) const;
     Q_DISABLE_COPY(EmoticonModel)
     QList<TextEmoticonsCore::UnicodeEmoticon> mEmoticons;
     QVector<CustomEmoji> mCustomEmojiList;

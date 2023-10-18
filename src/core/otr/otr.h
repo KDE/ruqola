@@ -47,8 +47,8 @@ public:
     [[nodiscard]] bool operator==(const Otr &other) const;
 
 private:
-    void parseCryptoSettings(const QString &publicKey);
-    void extractRoomUser(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void parseCryptoSettings(const QString &publicKey);
+    LIBRUQOLACORE_NO_EXPORT void extractRoomUser(const QJsonObject &obj);
     // TODO add crypto support
     QString mRoomId;
     QString mUserId;

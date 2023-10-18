@@ -30,5 +30,5 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void initializePaths();
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;
-    [[nodiscard]] QString accountConfigPath(const QString &accountName) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString accountConfigPath(const QString &accountName) const;
 };

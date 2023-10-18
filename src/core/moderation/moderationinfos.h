@@ -42,7 +42,7 @@ public:
     ModerationInfo takeAt(int index);
 
 private:
-    void parseModerationInfosObj(const QJsonObject &moderationInfosObj);
+    LIBRUQOLACORE_NO_EXPORT void parseModerationInfosObj(const QJsonObject &moderationInfosObj);
     QVector<ModerationInfo> mModerationInfosList;
     int mModerationInfosCount = 0;
     int mOffset = 0;

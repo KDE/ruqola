@@ -215,13 +215,13 @@ public:
     void setModerationMessage(const ModerationMessage &newModerationMessage);
 
 private:
-    [[nodiscard]] static QString generateAttachmentId(const QString &messageId, int index);
-    void parseMentions(const QJsonArray &mentions);
-    void parseAttachment(const QJsonArray &attachments);
-    void parseUrls(const QJsonArray &urls);
-    void parseReactions(const QJsonObject &mentions);
-    void parseChannels(const QJsonArray &channels);
-    void parseBlocks(const QJsonArray &blocks);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString generateAttachmentId(const QString &messageId, int index);
+    LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
+    LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
+    LIBRUQOLACORE_NO_EXPORT void parseUrls(const QJsonArray &urls);
+    LIBRUQOLACORE_NO_EXPORT void parseReactions(const QJsonObject &mentions);
+    LIBRUQOLACORE_NO_EXPORT void parseChannels(const QJsonArray &channels);
+    LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
 
     // Moderation Message Info
     // Optimization !!!

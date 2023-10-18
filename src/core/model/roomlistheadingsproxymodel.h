@@ -49,5 +49,5 @@ private:
         Section,
         Channel,
     };
-    [[nodiscard]] IndexType type(const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT IndexType type(const QModelIndex &index) const;
 };

@@ -38,8 +38,8 @@ public:
     [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 protected:
-    [[nodiscard]] Users::ParseType parseType() const override;
-    void removeElement(const QString &identifier) override;
-    void updateElement(const QJsonObject &obj) override;
-    void insertElement(const QJsonObject &obj) override;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Users::ParseType parseType() const override;
+    LIBRUQOLACORE_NO_EXPORT void removeElement(const QString &identifier) override;
+    LIBRUQOLACORE_NO_EXPORT void updateElement(const QJsonObject &obj) override;
+    LIBRUQOLACORE_NO_EXPORT void insertElement(const QJsonObject &obj) override;
 };

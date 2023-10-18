@@ -31,7 +31,7 @@ protected:
     bool event(QEvent *e) override;
 
 private:
-    void regenerateColorScheme();
+    LIBRUQOLACORE_NO_EXPORT void regenerateColorScheme();
     KColorScheme mSchemeView;
     KColorScheme mSchemeWindow;
 };

@@ -44,7 +44,7 @@ public:
     void setAction(Action newAction);
 
 private:
-    [[nodiscard]] VideoConference::Action convertActionToEnum(const QString &str);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT VideoConference::Action convertActionToEnum(const QString &str);
     QString mCallId;
     QString mRoomId;
     QString mUserId;
