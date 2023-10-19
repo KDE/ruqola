@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:43+0000\n"
+"POT-Creation-Date: 2023-10-19 00:43+0000\n"
 "PO-Revision-Date: 2023-10-07 01:27+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3633,7 +3633,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferenza"
@@ -6962,7 +6962,7 @@ msgid "Display Image"
 msgstr "Visualizza immagine"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copia l'immagine negli appunti"
@@ -8330,18 +8330,18 @@ msgstr "Rispondi in una discussione"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Risposta alla discussione per messaggio: «%1»"
 
-#: widgets/room/roomwidget.cpp:244
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vuoi davvero rimuovere la cronologia?"
 
-#: widgets/room/roomwidget.cpp:245
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

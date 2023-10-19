@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:43+0000\n"
+"POT-Creation-Date: 2023-10-19 00:43+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3632,7 +3632,7 @@ msgid "Password"
 msgstr "Pasahitza"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid "Video Conference"
 msgstr "Bideo-konferentzia"
@@ -6832,7 +6832,7 @@ msgid "Display Image"
 msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiatu irudia arbelera"
@@ -8198,19 +8198,19 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:244
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:245
+#: widgets/room/roomwidget.cpp:274
 #, fuzzy, kde-format
 #| msgid "Remove User"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu erabiltzailea"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

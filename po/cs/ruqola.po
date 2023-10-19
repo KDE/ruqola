@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:43+0000\n"
+"POT-Creation-Date: 2023-10-19 00:43+0000\n"
 "PO-Revision-Date: 2023-08-10 15:46+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3602,7 +3602,7 @@ msgid "Password"
 msgstr "Heslo"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konference"
@@ -6763,7 +6763,7 @@ msgid "Display Image"
 msgstr "Zobrazit obrázek"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Zkopírovat obrázek do schránky"
@@ -8109,18 +8109,18 @@ msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
 # power-off message
-#: widgets/room/roomwidget.cpp:244
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
-#: widgets/room/roomwidget.cpp:245
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

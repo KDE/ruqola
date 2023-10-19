@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:43+0000\n"
-"PO-Revision-Date: 2023-10-10 10:17+0200\n"
+"POT-Creation-Date: 2023-10-19 00:43+0000\n"
+"PO-Revision-Date: 2023-10-17 11:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2650,12 +2650,10 @@ msgid "Delete All Messages"
 msgstr "Suprimix tots els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra l'informe de moderació"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -3633,7 +3631,7 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
@@ -3677,7 +3675,7 @@ msgstr "Baixada de dades d'usuari"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Slack Bridge"
-msgstr "Pont d'Slack"
+msgstr "Pont de Slack"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
@@ -5585,8 +5583,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
-"Importa missatges d'Slack amb un àlies; %s se substituïx pel nom d'usuari de "
-"l'usuari. Si està buit, no s'utilitza cap àlies."
+"Importa missatges de Slack amb un àlies; %s se substituïx pel nom d'usuari "
+"de l'usuari. Si està buit, no s'utilitza cap àlies."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
@@ -6960,7 +6958,7 @@ msgid "Display Image"
 msgstr "Mostra una imatge"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copia la imatge al porta-retalls"
@@ -8329,18 +8327,18 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:244
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:245
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

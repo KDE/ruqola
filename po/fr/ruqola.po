@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:43+0000\n"
-"PO-Revision-Date: 2023-09-19 19:09+0200\n"
+"POT-Creation-Date: 2023-10-19 00:43+0000\n"
+"PO-Revision-Date: 2023-10-17 13:15+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -868,10 +868,9 @@ msgid "Ignored Message"
 msgstr "Message ignoré"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Signaler le message"
+msgstr "Message signalé"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -880,22 +879,19 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #: core/model/moderationmodel.cpp:40
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Reports"
-msgstr "Édition d'un rapport"
+msgstr "Rapports"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Signaler le message"
+msgstr "Date de rapport"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Salons"
+msgstr "Salon"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -2328,10 +2324,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "Mentions only"
+#, kde-format
 msgid "Moderation Console"
-msgstr "Uniquement les mentions"
+msgstr "Console de modération"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
@@ -2571,70 +2566,62 @@ msgstr "À :"
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "Aujourd'hui"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
 msgid "Yesterday"
-msgstr ""
+msgstr "Hier"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
 msgid "This week"
-msgstr ""
+msgstr "Cette semaine"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
+#, kde-format
 msgid "Previous week"
-msgstr "Serveur &précédent"
+msgstr "Semaine précédente"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
 msgid "This month"
-msgstr ""
+msgstr "Ce mois-ci"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Previous Channel"
+#, kde-format
 msgid "Previous month"
-msgstr "Canal précédent"
+msgstr "Mois précédent"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Search messages..."
+#, kde-format
 msgid "Search moderation message..."
-msgstr "Rechercher des messages..."
+msgstr "Rechercher des messages de modération..."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No moderation message found"
-msgstr "Aucun message trouvé"
+msgstr "Aucun message de modération trouvé"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "%1 mention in room (Total: %2)"
-#| msgid_plural "%1 mentions in room (Total: %2)"
+#, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 mention dans le salon (total : %2)"
-msgstr[1] "%1 mentions dans le salon (total : %2)"
+msgstr[0] "Message de modération %1 (Total : %2)"
+msgstr[1] "%1 messages de modération (Total : %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "See messages"
-msgstr "Rechercher des messages"
+msgstr "Afficher des messages"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
-msgstr ""
+msgstr "Rejeter les rapports"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#, kde-format
 msgid "Delete all Messages"
 msgstr "Supprimer tous les messages"
 
@@ -2644,12 +2631,14 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"Voulez-vous vraiment rejeter et supprimer tous les rapports pour les "
+"messages de cet utilisateur ? Cette action ne peut pas être annulée."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
-msgstr ""
+msgstr "Rejeter"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
 #, kde-format
@@ -2659,10 +2648,14 @@ msgid ""
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
+"Voulez-vous vraiment supprimer tous les messages signalés de cet "
+"utilisateur ?\n"
+"Les messages seront supprimés de l'historique des messages et personne ne "
+"pourra les revoir.\n"
+"Cette action ne peut pas être annulée."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Supprimer tous les messages"
@@ -2676,12 +2669,10 @@ msgid "Show Moderation Report"
 msgstr "Afficher les messages de citation - %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Mentions Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "Afficher les messages de citation - %1"
+msgstr "Afficher les messages de modération"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -2757,11 +2748,10 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Voulez-vous vraiment supprimer cet « Oauth » ?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, fuzzy, kde-format
-#| msgid "Remove OAuth"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove OAuth"
-msgstr "Supprimer un « Oauth »"
+msgstr "Supprimer « Oauth »"
 
 #: widgets/administratordialog/permissions/permissionseditdialog.cpp:16
 #, kde-format
@@ -2798,8 +2788,7 @@ msgid "Do you want to remove this role '%1'?"
 msgstr "Voulez-vous vraiment supprimer ce rôle « %1 » ?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:228
-#, fuzzy, kde-format
-#| msgid "Remove Role"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Supprimer un rôle"
@@ -2872,8 +2861,7 @@ msgstr "Voulez-vous vraiment supprimer cet utilisateur « %1 » ?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Supprimer un utilisateur"
@@ -3370,8 +3358,7 @@ msgstr ""
 "n'ayant aucun membre en ligne."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, fuzzy, kde-format
-#| msgid "Reset E2E key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Ré-initialiser la clé « E2E »"
@@ -3396,8 +3383,7 @@ msgstr ""
 "L'utilisateur pourra re-définir plus tard le facteur double."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#, fuzzy, kde-format
-#| msgid "Reset TOTP"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Ré-initialiser « TOTP »"
@@ -3661,7 +3647,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid "Video Conference"
 msgstr "Vidéo conférence"
@@ -4931,8 +4917,7 @@ msgid "Grouping Period (in seconds)"
 msgstr "Période de regroupement (En secondes)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Direct Messsage Maximum Users"
+#, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Nombre maximal d'utilisateurs de messages directs"
 
@@ -6028,8 +6013,7 @@ msgstr ""
 "Voulez-vous vraiment le convertir en une équipe ? Ceci ne peut être annuler."
 
 #: widgets/channellist/channellistview.cpp:293
-#, fuzzy, kde-format
-#| msgid "Convert to Team"
+#, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Convertir en équipe"
@@ -7014,7 +6998,7 @@ msgid "Display Image"
 msgstr "Afficher une image"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copier l'image dans le presse-papier"
@@ -7682,8 +7666,7 @@ msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Voulez-vous vraiment supprimer le jeton « %1 » ?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
-#, fuzzy, kde-format
-#| msgid "Remove Token"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Supprimer un jeton"
@@ -8100,29 +8083,24 @@ msgid "Message has been starred"
 msgstr "Le message a été marqué avec une étoile."
 
 #: widgets/room/messagelinewidget.cpp:63
-#, fuzzy, kde-format
-#| msgid "Attach Files"
+#, kde-format
 msgid "Attach File"
-msgstr "Joindre des fichiers"
+msgstr "Joindre un fichier"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Take a Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Enregistrer un message vidéo"
+msgstr "Message vidéo"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Afficher un message"
+msgstr "Message audio"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Account"
+#, kde-format
 msgid "Add Emoticon"
-msgstr "Ajouter un compte"
+msgstr "Ajouter une émoticône"
 
 #: widgets/room/messagelinewidget.cpp:102
 #, kde-format
@@ -8135,11 +8113,10 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr "Voulez-vous vraiment convertir ce texte volumineux en pièce jointe ?"
 
 #: widgets/room/messagelinewidget.cpp:146
-#, fuzzy, kde-format
-#| msgid "Message Too Big"
+#, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
-msgstr "Message trop important"
+msgstr "Message trop volumineux"
 
 #: widgets/room/messagelinewidget.cpp:388
 #, kde-format
@@ -8245,10 +8222,9 @@ msgid "Translate Message"
 msgstr "Traduire le message"
 
 #: widgets/room/messagelistview.cpp:510
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "View Reports"
-msgstr "Édition d'un rapport"
+msgstr "Afficher des rapports"
 
 #: widgets/room/messagelistview.cpp:585
 #, kde-format
@@ -8394,19 +8370,18 @@ msgstr "Réponse dans le fil de discussions"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Répondre dans le fil de discussion pour le message : « %1 »"
 
-#: widgets/room/roomwidget.cpp:244
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
-#: widgets/room/roomwidget.cpp:245
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#: widgets/room/roomwidget.cpp:274
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Supprimer l'historique"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:466
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8885,9 +8860,7 @@ msgid "Main Toolbar"
 msgstr "Barre principale d'outils"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Informations sur les erreurs du serveur"
@@ -9033,10 +9006,9 @@ msgid "Version 2.0"
 msgstr "Version 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.1"
-msgstr "Version 2.0"
+msgstr "Version 2.1"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9136,11 +9108,11 @@ msgstr "Correction de la prise en charge de kf6"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr ""
+msgstr "Ajouter une console de modération (Administration, RC Server 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
-msgstr ""
+msgstr "Corriger la prise en charge de Markdown (En-tête + marque de contrôle)"
 
 #~ msgid "Share"
 #~ msgstr "Partager"
