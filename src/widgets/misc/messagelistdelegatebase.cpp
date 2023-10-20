@@ -20,8 +20,7 @@
 
 MessageListDelegateBase::MessageListDelegateBase(QListView *view, QObject *parent)
     : QItemDelegate{parent}
-    , mTextSelectionImpl(new TextSelectionImpl)
-    , mListView(view)
+    , TextUiBase(new TextSelectionImpl, view)
 {
     mDocumentCache.setMaxEntries(32); // Enough?
     auto textSelection = mTextSelectionImpl->textSelection();

@@ -7,15 +7,13 @@
 
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
+#include "delegateutils/textuibase.h"
 #include "libruqolawidgets_private_export.h"
-#include <QTextDocument>
-#include <lrucache.h>
 
-#include <memory>
 class QListView;
 class RocketChatAccount;
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface, public TextUiBase
 {
 public:
     explicit MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
@@ -29,9 +27,5 @@ public:
 
 protected:
     void updateView(const QModelIndex &index);
-
-    QListView *const mListView;
-    TextSelectionImpl *const mSelectionImpl;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>> mDocumentCache;
 };

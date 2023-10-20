@@ -55,7 +55,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         if (!doc) {
             return;
         }
-        MessageDelegateUtils::drawSelection(doc, messageRect, nextY, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
+        MessageDelegateUtils::drawSelection(doc, messageRect, nextY, painter, index, option, mTextSelectionImpl->textSelection(), msgAttach);
     }
 }
 

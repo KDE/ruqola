@@ -7,14 +7,14 @@
 #pragma once
 
 #include "delegateutils/textselection.h"
+#include "delegateutils/textuibase.h"
 #include "libruqolawidgets_private_export.h"
-#include "lrucache.h"
 #include <QItemDelegate>
 class QTextDocument;
 class TextSelectionImpl;
 class RocketChatAccount;
 class QListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface, public TextUiBase
 {
     Q_OBJECT
 public:
@@ -46,9 +46,5 @@ protected:
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
     [[nodiscard]] virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
 
-    TextSelectionImpl *const mTextSelectionImpl;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>> mDocumentCache;
-
     QString mSearchText;
-    QListView *const mListView;
 };

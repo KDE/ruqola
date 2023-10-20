@@ -10,8 +10,7 @@
 #include <QListView>
 
 MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : mListView(view)
-    , mSelectionImpl(textSelectionImpl)
+    : TextUiBase(textSelectionImpl, view)
     , mRocketChatAccount(account)
 {
     mDocumentCache.setMaxEntries(32); // Enough ?
