@@ -26,6 +26,7 @@ Q_SIGNALS:
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
     void textToSpeech(const QString &str);
+    void needToClearSizeHintCache();
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;

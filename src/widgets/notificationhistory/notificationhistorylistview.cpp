@@ -28,6 +28,7 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
         update(index);
     });
     connect(this, &QListView::customContextMenuRequested, this, &NotificationHistoryListView::slotCustomContextMenuRequested);
+    connect(this, &NotificationHistoryListView::needToClearSizeHintCache, mListNotificationsDelegate, &NotificationHistoryDelegate::clearSizeHintCache);
 }
 
 NotificationHistoryListView::~NotificationHistoryListView() = default;

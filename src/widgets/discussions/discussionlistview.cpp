@@ -28,6 +28,7 @@ DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *pare
     });
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, &QListView::customContextMenuRequested, this, &DiscussionListView::slotCustomContextMenuRequested);
+    connect(this, &DiscussionListView::needToClearSizeHintCache, mListDiscussionDelegate, &ListDiscussionDelegate::clearSizeHintCache);
 }
 
 DiscussionListView::~DiscussionListView() = default;

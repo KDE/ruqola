@@ -48,6 +48,7 @@ void MessageListViewBase::resizeEvent(QResizeEvent *ev)
     checkIfAtBottom();
     maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
     updateVerticalPageStep();
+    Q_EMIT needToClearSizeHintCache();
 }
 
 void MessageListViewBase::checkIfAtBottom()

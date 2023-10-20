@@ -27,6 +27,7 @@ BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *pare
     const auto lineHeight = fontMetrics().height() + 10;
     verticalScrollBar()->setSingleStep(lineHeight);
     connect(this, &QListView::customContextMenuRequested, this, &BannerInfoListView::slotCustomContextMenuRequested);
+    connect(this, &BannerInfoListView::needToClearSizeHintCache, mBannerInfoListViewDelegate, &BannerInfoListViewDelegate::clearSizeHintCache);
 }
 
 BannerInfoListView::~BannerInfoListView() = default;

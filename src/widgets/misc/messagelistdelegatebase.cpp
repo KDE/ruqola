@@ -33,6 +33,11 @@ MessageListDelegateBase::~MessageListDelegateBase()
     delete mTextSelectionImpl;
 }
 
+void MessageListDelegateBase::clearSizeHintCache()
+{
+    TextUiBase::clearSizeHintCache();
+}
+
 void MessageListDelegateBase::clearCache()
 {
     TextUiBase::clearCache();

@@ -65,6 +65,7 @@ public:
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
     void clearTextDocumentCache();
+    void clearSizeHintCache();
 
     void clearSelection();
 

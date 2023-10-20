@@ -24,6 +24,11 @@ void TextUiBase::setCacheMaxEntries(int maxEntries)
     mSizeHintCache.setMaxEntries(maxEntries);
 }
 
+void TextUiBase::clearSizeHintCache()
+{
+    mSizeHintCache.clear();
+}
+
 void TextUiBase::clearCache()
 {
     mDocumentCache.clear();

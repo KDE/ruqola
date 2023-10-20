@@ -21,6 +21,8 @@ public:
     explicit TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view);
     virtual ~TextUiBase();
 
+    void clearSizeHintCache();
+
 protected:
     void removeMessageCache(const QString &messageId);
     void setCacheMaxEntries(int maxEntries);

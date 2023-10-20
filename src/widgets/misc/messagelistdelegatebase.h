@@ -22,6 +22,8 @@ public:
     ~MessageListDelegateBase() override;
 
     void clearCache();
+    void clearSizeHintCache();
+
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     [[nodiscard]] bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);

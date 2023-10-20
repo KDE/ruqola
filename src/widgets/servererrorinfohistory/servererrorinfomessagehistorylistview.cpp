@@ -30,6 +30,10 @@ ServerErrorInfoMessageHistoryListView::ServerErrorInfoMessageHistoryListView(QWi
         update(index);
     });
     connect(this, &QListView::customContextMenuRequested, this, &ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested);
+    connect(this,
+            &ServerErrorInfoMessageHistoryListView::needToClearSizeHintCache,
+            mListServerErrorInfosDelegate,
+            &ServerErrorInfoHistoryDelegate::clearSizeHintCache);
 }
 
 ServerErrorInfoMessageHistoryListView::~ServerErrorInfoMessageHistoryListView() = default;

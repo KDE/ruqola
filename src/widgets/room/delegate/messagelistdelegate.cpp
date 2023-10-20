@@ -256,6 +256,16 @@ void MessageListDelegate::removeMessageCache(const QString &messageId, const QSt
     }
 }
 
+void MessageListDelegate::clearSizeHintCache()
+{
+    mHelperText->clearSizeHintCache();
+    mHelperAttachmentImage->clearSizeHintCache();
+    mHelperAttachmentFile->clearSizeHintCache();
+    mHelperAttachmentVideo->clearSizeHintCache();
+    mHelperAttachmentSound->clearSizeHintCache();
+    mHelperAttachmentText->clearSizeHintCache();
+}
+
 void MessageListDelegate::clearTextDocumentCache()
 {
     mHelperText->clearTextDocumentCache();
