@@ -22,7 +22,7 @@ MessageListDelegateBase::MessageListDelegateBase(QListView *view, QObject *paren
     : QItemDelegate{parent}
     , TextUiBase(new TextSelectionImpl, view)
 {
-    mDocumentCache.setMaxEntries(32); // Enough?
+    TextUiBase::setCacheMaxEntries(32); // Enough?
     auto textSelection = mTextSelectionImpl->textSelection();
     textSelection->setTextHelperFactory(this);
     connect(textSelection, &TextSelection::repaintNeeded, this, &MessageListDelegateBase::updateView);
@@ -35,7 +35,7 @@ MessageListDelegateBase::~MessageListDelegateBase()
 
 void MessageListDelegateBase::clearCache()
 {
-    mDocumentCache.clear();
+    TextUiBase::clearCache();
 }
 
 bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)

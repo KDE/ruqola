@@ -13,7 +13,7 @@ MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account,
     : TextUiBase(textSelectionImpl, view)
     , mRocketChatAccount(account)
 {
-    mDocumentCache.setMaxEntries(32); // Enough ?
+    TextUiBase::setCacheMaxEntries(32); // Enough?
 }
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
@@ -31,10 +31,10 @@ void MessageDelegateHelperBase::updateView(const QModelIndex &index)
 
 void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
 {
-    mDocumentCache.remove(messageId);
+    TextUiBase::removeMessageCache(messageId);
 }
 
 void MessageDelegateHelperBase::clearTextDocumentCache()
 {
-    mDocumentCache.clear();
+    TextUiBase::clearCache();
 }

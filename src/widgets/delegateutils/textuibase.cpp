@@ -12,4 +12,22 @@ TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view)
 {
 }
 
+void TextUiBase::removeMessageCache(const QString &messageId)
+{
+    mDocumentCache.remove(messageId);
+    mSizeHintCache.remove(messageId);
+}
+
+void TextUiBase::setCacheMaxEntries(int maxEntries)
+{
+    mDocumentCache.setMaxEntries(maxEntries);
+    mSizeHintCache.setMaxEntries(maxEntries);
+}
+
+void TextUiBase::clearCache()
+{
+    mDocumentCache.clear();
+    mSizeHintCache.clear();
+}
+
 TextUiBase::~TextUiBase() = default;
