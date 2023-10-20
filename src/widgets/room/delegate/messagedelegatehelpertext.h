@@ -14,9 +14,6 @@
 #include <QModelIndex>
 #include <QSize>
 class QTextDocument;
-#include <lrucache.h>
-
-#include <memory>
 
 class QListView;
 class QPainter;
