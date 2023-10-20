@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-19 00:43+0000\n"
-"PO-Revision-Date: 2023-10-08 05:43+0200\n"
+"PO-Revision-Date: 2023-10-19 06:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2633,12 +2633,10 @@ msgid "Delete All Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "მოდერაციის შეტყობინებების ჩვენება"
+msgstr "მოდერაციის ანგარიშის ჩვენება"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -8882,11 +8880,11 @@ msgstr "KF6-ის მხარდაჭერის გასწორება
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr ""
+msgstr "მოდერაცის კონსოლის დამატება (ადმინისტრაცია, RC სერვერი 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
-msgstr ""
+msgstr "Markdown-ის მხარდაჭერის გაუქმება (თავსართი + თოლია)"
 
 #~ msgid "Share"
 #~ msgstr "გაზიარება"
