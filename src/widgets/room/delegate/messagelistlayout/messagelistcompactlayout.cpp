@@ -260,5 +260,6 @@ QSize MessageListCompactLayout::sizeHint(const QStyleOptionViewItem &option, con
     //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
     // qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
-    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    return size;
 }

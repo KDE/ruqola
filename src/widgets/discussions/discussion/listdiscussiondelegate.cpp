@@ -81,6 +81,11 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
 QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const QString identifier = cacheIdentifier(index);
+    auto it = mSizeHintCache.find(identifier);
+    if (it != mSizeHintCache.end()) {
+        return it->value;
+    }
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
@@ -98,7 +103,9 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
-    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    mSizeHintCache.insert(identifier, size);
+    return size;
 }
 
 bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -220,11 +227,17 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     return layout;
 }
 
+QString ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index) const
+{
+    const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
+    Q_ASSERT(!discussionRoomId.isEmpty());
+    return discussionRoomId;
+}
+
 QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
-    Q_ASSERT(!discussionRoomId.isEmpty());
+    const QString discussionRoomId = cacheIdentifier(index);
 
     auto it = mDocumentCache.find(discussionRoomId);
     if (it != mDocumentCache.end()) {

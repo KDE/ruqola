@@ -55,6 +55,11 @@ void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionView
 
 QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const QString identifier = cacheIdentifier(index);
+    auto it = mSizeHintCache.find(identifier);
+    if (it != mSizeHintCache.end()) {
+        return it->value;
+    }
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
@@ -69,7 +74,9 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
     //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
-    return {option.rect.width(), contentsHeight + additionalHeight};
+    const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
+    mSizeHintCache.insert(identifier, size);
+    return size;
 }
 
 bool BannerInfoListViewDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -148,11 +155,17 @@ BannerInfoListViewDelegate::Layout BannerInfoListViewDelegate::doLayout(const QS
     return layout;
 }
 
+QString BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) const
+{
+    const QString identifier = index.data(BannerInfosModel::Identifier).toString();
+    Q_ASSERT(!identifier.isEmpty());
+    return identifier;
+}
+
 QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString identifier = index.data(BannerInfosModel::Identifier).toString();
-    Q_ASSERT(!identifier.isEmpty());
+    const QString identifier = cacheIdentifier(index);
 
     auto it = mDocumentCache.find(identifier);
     if (it != mDocumentCache.end()) {

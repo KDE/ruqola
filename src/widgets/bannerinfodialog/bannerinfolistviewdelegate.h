@@ -37,6 +37,7 @@ private:
     [[nodiscard]] BannerInfoListViewDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     [[nodiscard]] QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
 
     RocketChatAccount *const mRocketChatAccount;
 };

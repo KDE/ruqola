@@ -79,6 +79,11 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 
 QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const QString identifier = cacheIdentifier(index);
+    auto it = mSizeHintCache.find(identifier);
+    if (it != mSizeHintCache.end()) {
+        return it->value;
+    }
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
     int additionalHeight = 0;
@@ -88,7 +93,9 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
     }
     // contents is date + text
     const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
-    return {option.rect.width(), contentsHeight + additionalHeight};
+    const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
+    mSizeHintCache.insert(identifier, size);
+    return size;
 }
 
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -135,10 +142,17 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     return layout;
 }
 
+QString ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+{
+    const QString identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
+    Q_ASSERT(!identifier.isEmpty());
+    return identifier;
+}
+
 QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
+    const QString identifier = cacheIdentifier(index);
     Q_ASSERT(!identifier.isEmpty());
     auto it = mDocumentCache.find(identifier);
     if (it != mDocumentCache.end()) {

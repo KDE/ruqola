@@ -50,4 +50,5 @@ private:
     void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     [[nodiscard]] ServerErrorInfoHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
 };

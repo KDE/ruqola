@@ -106,6 +106,12 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
 QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const QString identifier = cacheIdentifier(index);
+    auto it = mSizeHintCache.find(identifier);
+    if (it != mSizeHintCache.end()) {
+        return it->value;
+    }
+
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
     int additionalHeight = 0;
@@ -122,7 +128,9 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
-    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    mSizeHintCache.insert(identifier, size);
+    return size;
 }
 
 // text AccountName/room
@@ -194,11 +202,17 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     return layout;
 }
 
+QString NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+{
+    const QString identifier = index.data(NotificationHistoryModel::MessageId).toString();
+    Q_ASSERT(!identifier.isEmpty());
+    return identifier;
+}
+
 QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
-    Q_ASSERT(!messageId.isEmpty());
+    const QString messageId = cacheIdentifier(index);
 
     auto it = mDocumentCache.find(messageId);
     if (it != mDocumentCache.end()) {

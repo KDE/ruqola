@@ -64,6 +64,7 @@ private:
     [[nodiscard]] QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
     [[nodiscard]] QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
 
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
