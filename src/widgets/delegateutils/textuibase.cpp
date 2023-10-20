@@ -12,6 +12,8 @@ TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view)
 {
 }
 
+TextUiBase::~TextUiBase() = default;
+
 void TextUiBase::removeMessageCache(const QString &messageId)
 {
     mDocumentCache.remove(messageId);
@@ -34,5 +36,3 @@ void TextUiBase::clearCache()
     mDocumentCache.clear();
     mSizeHintCache.clear();
 }
-
-TextUiBase::~TextUiBase() = default;
