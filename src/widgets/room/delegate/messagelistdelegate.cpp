@@ -648,10 +648,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         int blockIndex = 0;
         for (const Block &block : blocks) {
             MessageBlockDelegateHelperBase *helper = blocksHelper(block);
-            if (helper) {
-                if (helper && helper->handleMouseEvent(block, mev, layout.blocksRectList.at(blockIndex), option, index)) {
-                    return true;
-                }
+            if (helper && helper->handleMouseEvent(block, mev, layout.blocksRectList.at(blockIndex), option, index)) {
+                return true;
             }
             ++blockIndex;
         }
