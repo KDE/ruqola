@@ -21,7 +21,7 @@ public:
 
     virtual void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
-    void removeMessageCache(const QString &messageId);
+    void removeMessageCache(const QString &messageId) override;
 
     void clearTextDocumentCache();
 

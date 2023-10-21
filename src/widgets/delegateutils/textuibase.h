@@ -24,9 +24,9 @@ public:
     void clearSizeHintCache();
 
 protected:
-    void removeMessageCache(const QString &messageId);
-    void setCacheMaxEntries(int maxEntries);
-    void clearCache();
+    virtual void removeMessageCache(const QString &messageId);
+    virtual void setCacheMaxEntries(int maxEntries);
+    virtual void clearCache();
     // Cache SizeHint value
     // We need to clear it when we resize widget.
     mutable LRUCache<QString, QSize> mSizeHintCache;
