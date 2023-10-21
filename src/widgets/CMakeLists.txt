@@ -484,6 +484,9 @@ target_sources(libruqolawidgets PRIVATE
     misc/serverscombobox.h
     misc/serverscombobox.cpp
 
+    misc/messagelisttextui.h
+    misc/messagelisttextui.cpp
+
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
