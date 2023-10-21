@@ -13,4 +13,7 @@ class MessageListTextUi : public TextUiBase
 public:
     explicit MessageListTextUi(TextSelectionImpl *textSelectionImpl, QListView *view);
     ~MessageListTextUi() override;
+
+protected:
+    mutable LRUCache<QString, QSize> mSizeHintCache;
 };
