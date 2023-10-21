@@ -535,7 +535,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    return mMessageListLayoutBase->sizeHint(option, index);
+    const QSize size = mMessageListLayoutBase->sizeHint(option, index);
+    return size;
 }
 
 static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
