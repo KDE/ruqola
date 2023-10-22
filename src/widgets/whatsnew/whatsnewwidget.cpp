@@ -72,10 +72,10 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
         const QString message = generateStartEndHtml(createVersionInformationsV2_1());
         mLabelInfo->setHtml(message);
     } else if (type == WhatsNewComboBoxWidget::AllVersion) {
-        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_0);
-        message += createVersionInformationsV2_0();
-        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
+        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
         message += createVersionInformationsV2_1();
+        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_0);
+        message += createVersionInformationsV2_0();
         mLabelInfo->setHtml(generateStartEndHtml(message));
     }
 }
