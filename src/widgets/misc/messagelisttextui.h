@@ -15,5 +15,8 @@ public:
     ~MessageListTextUi() override;
 
 protected:
+    void removeMessageCache(const QString &messageId) override;
+    void setCacheMaxEntries(int maxEntries) override;
+    void clearCache() override;
     mutable LRUCache<QString, QSize> mSizeHintCache;
 };

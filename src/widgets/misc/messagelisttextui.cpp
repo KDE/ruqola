@@ -12,3 +12,21 @@ MessageListTextUi::MessageListTextUi(TextSelectionImpl *textSelectionImpl, QList
 }
 
 MessageListTextUi::~MessageListTextUi() = default;
+
+void MessageListTextUi::removeMessageCache(const QString &messageId)
+{
+    mSizeHintCache.remove(messageId);
+    TextUiBase::removeMessageCache(messageId);
+}
+
+void MessageListTextUi::setCacheMaxEntries(int maxEntries)
+{
+    mSizeHintCache.setMaxEntries(maxEntries);
+    TextUiBase::setCacheMaxEntries(maxEntries);
+}
+
+void MessageListTextUi::clearCache()
+{
+    mSizeHintCache.clear();
+    TextUiBase::clearCache();
+}
