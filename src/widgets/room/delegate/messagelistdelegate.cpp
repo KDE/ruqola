@@ -74,6 +74,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     mEditColorMode = QColor(255, 170, 127);
     connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
     slotUpdateColors();
+    mSizeHintCache.setMaxEntries(32); // Enough ?
 }
 
 MessageListDelegate::~MessageListDelegate()
@@ -246,6 +247,7 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
 
 void MessageListDelegate::removeMessageCache(const QString &messageId, const QStringList &attachmentIdList)
 {
+    mSizeHintCache.remove(messageId);
     mHelperText->removeMessageCache(messageId);
     for (const auto &attachmentId : attachmentIdList) {
         mHelperAttachmentImage->removeMessageCache(attachmentId);
@@ -256,18 +258,9 @@ void MessageListDelegate::removeMessageCache(const QString &messageId, const QSt
     }
 }
 
-void MessageListDelegate::clearSizeHintCache()
-{
-    mHelperText->clearSizeHintCache();
-    mHelperAttachmentImage->clearSizeHintCache();
-    mHelperAttachmentFile->clearSizeHintCache();
-    mHelperAttachmentVideo->clearSizeHintCache();
-    mHelperAttachmentSound->clearSizeHintCache();
-    mHelperAttachmentText->clearSizeHintCache();
-}
-
 void MessageListDelegate::clearTextDocumentCache()
 {
+    mSizeHintCache.clear();
     mHelperText->clearTextDocumentCache();
     mHelperAttachmentImage->clearTextDocumentCache();
     mHelperAttachmentFile->clearTextDocumentCache();
@@ -533,9 +526,29 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     painter->restore();
 }
 
+void MessageListDelegate::clearSizeHintCache()
+{
+    mSizeHintCache.clear();
+}
+
+QString MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
+{
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    Q_ASSERT(message);
+    return message->messageId();
+}
+
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const QString identifier = cacheIdentifier(index);
+    auto it = mSizeHintCache.find(identifier);
+    if (it != mSizeHintCache.end()) {
+        qDebug() << " found !!!!";
+        return it->value;
+    }
+
     const QSize size = mMessageListLayoutBase->sizeHint(option, index);
+    mSizeHintCache.insert(identifier, size);
     return size;
 }
 

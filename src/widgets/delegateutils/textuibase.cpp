@@ -17,22 +17,14 @@ TextUiBase::~TextUiBase() = default;
 void TextUiBase::removeMessageCache(const QString &messageId)
 {
     mDocumentCache.remove(messageId);
-    mSizeHintCache.remove(messageId);
 }
 
 void TextUiBase::setCacheMaxEntries(int maxEntries)
 {
     mDocumentCache.setMaxEntries(maxEntries);
-    mSizeHintCache.setMaxEntries(maxEntries);
-}
-
-void TextUiBase::clearSizeHintCache()
-{
-    mSizeHintCache.clear();
 }
 
 void TextUiBase::clearCache()
 {
     mDocumentCache.clear();
-    mSizeHintCache.clear();
 }

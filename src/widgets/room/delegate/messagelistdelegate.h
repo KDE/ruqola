@@ -10,6 +10,7 @@
 #include "messagelistlayout/messagelistlayoutbase.h"
 #include "room.h"
 
+#include "lrucache.h"
 #include <QItemDelegate>
 #include <QScopedPointer>
 
@@ -65,7 +66,6 @@ public:
 
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
     void clearTextDocumentCache();
-    void clearSizeHintCache();
 
     void clearSelection();
 
@@ -92,6 +92,8 @@ public:
 
     void setEnableEmojiMenu(bool b);
 
+    void clearSizeHintCache();
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
@@ -105,8 +107,13 @@ private:
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
     void drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const;
     [[nodiscard]] bool isSystemMessage(const Message *message) const;
+    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
 
     friend class MessageListDelegateTest;
+
+    // Cache SizeHint value
+    // We need to clear it when we resize widget.
+    mutable LRUCache<QString, QSize> mSizeHintCache;
 
     const QIcon mEditedIcon;
     const QIcon mRolesIcon;

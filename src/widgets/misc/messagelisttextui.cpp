@@ -11,6 +11,11 @@ MessageListTextUi::MessageListTextUi(TextSelectionImpl *textSelectionImpl, QList
 {
 }
 
+void MessageListTextUi::clearSizeHintCache()
+{
+    mSizeHintCache.clear();
+}
+
 MessageListTextUi::~MessageListTextUi() = default;
 
 void MessageListTextUi::removeMessageCache(const QString &messageId)

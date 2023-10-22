@@ -21,15 +21,10 @@ public:
     explicit TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view);
     virtual ~TextUiBase();
 
-    void clearSizeHintCache();
-
 protected:
     virtual void removeMessageCache(const QString &messageId);
     virtual void setCacheMaxEntries(int maxEntries);
     virtual void clearCache();
-    // Cache SizeHint value
-    // We need to clear it when we resize widget.
-    mutable LRUCache<QString, QSize> mSizeHintCache;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>> mDocumentCache;
     TextSelectionImpl *const mTextSelectionImpl;
     QListView *const mListView;

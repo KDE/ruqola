@@ -8,6 +8,7 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 
+#include "messagelisttextui.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
@@ -20,7 +21,7 @@
 
 MessageListDelegateBase::MessageListDelegateBase(QListView *view, QObject *parent)
     : QItemDelegate{parent}
-    , TextUiBase(new TextSelectionImpl, view)
+    , MessageListTextUi(new TextSelectionImpl, view)
 {
     TextUiBase::setCacheMaxEntries(32); // Enough?
     auto textSelection = mTextSelectionImpl->textSelection();
@@ -35,7 +36,7 @@ MessageListDelegateBase::~MessageListDelegateBase()
 
 void MessageListDelegateBase::clearSizeHintCache()
 {
-    TextUiBase::clearSizeHintCache();
+    MessageListTextUi::clearSizeHintCache();
 }
 
 void MessageListDelegateBase::clearCache()

@@ -7,14 +7,14 @@
 #pragma once
 
 #include "delegateutils/textselection.h"
-#include "delegateutils/textuibase.h"
 #include "libruqolawidgets_private_export.h"
+#include "messagelisttextui.h"
 #include <QItemDelegate>
 class QTextDocument;
 class TextSelectionImpl;
 class RocketChatAccount;
 class QListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface, public TextUiBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface, public MessageListTextUi
 {
     Q_OBJECT
 public:
