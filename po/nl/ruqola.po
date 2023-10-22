@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 00:43+0000\n"
+"POT-Creation-Date: 2023-10-22 00:43+0000\n"
 "PO-Revision-Date: 2023-10-17 11:03+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -8027,17 +8027,17 @@ msgstr[1] "%1 berichten"
 msgid "No message yet"
 msgstr "Nog geen bericht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:750
+#: widgets/room/delegate/messagelistdelegate.cpp:751
 #, kde-format
 msgid "Following"
 msgstr "Bezig met volgen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:754
+#: widgets/room/delegate/messagelistdelegate.cpp:755
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Bericht is vastgepind"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:758
+#: widgets/room/delegate/messagelistdelegate.cpp:759
 #, kde-format
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
