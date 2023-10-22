@@ -543,7 +543,6 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
-        qDebug() << " found !!!!";
         return it->value;
     }
 
