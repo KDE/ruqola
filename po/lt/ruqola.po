@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-22 00:43+0000\n"
+"POT-Creation-Date: 2023-10-23 00:42+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -8240,20 +8240,20 @@ msgstr ""
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:316
+#: widgets/room/delegate/messagelistdelegate.cpp:309
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:325
+#: widgets/room/delegate/messagelistdelegate.cpp:318
 #: widgets/room/messagelistview.cpp:386
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:509
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8262,7 +8262,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:523
+#: widgets/room/delegate/messagelistdelegate.cpp:516
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8271,23 +8271,23 @@ msgstr[1] "%1 žinutės"
 msgstr[2] "%1 žinučių"
 msgstr[3] "%1 žinutė"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:523
+#: widgets/room/delegate/messagelistdelegate.cpp:516
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:751
+#: widgets/room/delegate/messagelistdelegate.cpp:763
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:755
+#: widgets/room/delegate/messagelistdelegate.cpp:767
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Žinutė prisegta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:759
+#: widgets/room/delegate/messagelistdelegate.cpp:771
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
@@ -9401,6 +9401,14 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:53
+msgid "Fix mem leak"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:54
+msgid "Cache message size (optimization)"
 msgstr ""
 
 #, fuzzy

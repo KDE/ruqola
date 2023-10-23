@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-22 00:43+0000\n"
+"POT-Creation-Date: 2023-10-23 00:42+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -8148,49 +8148,49 @@ msgstr "Exibir imagem"
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:316
+#: widgets/room/delegate/messagelistdelegate.cpp:309
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informação do usuário"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:325
+#: widgets/room/delegate/messagelistdelegate.cpp:318
 #: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Iniciar uma conversa privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:509
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:523
+#: widgets/room/delegate/messagelistdelegate.cpp:516
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensagem"
 msgstr[1] "%1 mensagens"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:523
+#: widgets/room/delegate/messagelistdelegate.cpp:516
 #, kde-format
 msgid "No message yet"
 msgstr "Nenhuma mensagem ainda"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:751
+#: widgets/room/delegate/messagelistdelegate.cpp:763
 #, kde-format
 msgid "Following"
 msgstr "Seguindo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:755
+#: widgets/room/delegate/messagelistdelegate.cpp:767
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Mensagem fixada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:759
+#: widgets/room/delegate/messagelistdelegate.cpp:771
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
@@ -9258,6 +9258,16 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:52
 msgid "Fix markdown support (header + check mark)"
 msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:53
+msgid "Fix mem leak"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:54
+#, fuzzy
+#| msgid "your message (optional)"
+msgid "Cache message size (optimization)"
+msgstr "sua mensagem (opcional)"
 
 #~ msgid "Share"
 #~ msgstr "Compartilhar"
