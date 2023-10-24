@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 00:42+0000\n"
-"PO-Revision-Date: 2023-10-17 11:49+0200\n"
+"PO-Revision-Date: 2023-10-23 09:55+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -9067,57 +9067,8 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Corregeix una fuita de memòria"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "el vostre missatge (opcional)"
-
-#~ msgid "Share"
-#~ msgstr "Comparteix"
-
-#~ msgid "2.0"
-#~ msgstr "2.0"
-
-#~ msgid "Symbols"
-#~ msgstr "Símbols"
-
-#~ msgid "Activity"
-#~ msgstr "Activitat"
-
-#~ msgid "Objects"
-#~ msgstr "Objectes"
-
-#~ msgid "Nature"
-#~ msgstr "Natura"
-
-#~ msgid "Food"
-#~ msgstr "Menjar"
-
-#~ msgid "People"
-#~ msgstr "Gent"
-
-#~ msgid "Travel"
-#~ msgstr "Viatges"
-
-#~ msgid "Regional"
-#~ msgstr "Regional"
-
-#~ msgid "Flags"
-#~ msgstr "Banderes"
-
-#~ msgctxt "Previously used emojis"
-#~ msgid "History"
-#~ msgstr "Historial"
-
-#~ msgctxt "'Custom' is a category of emoji"
-#~ msgid "Custom"
-#~ msgstr "Personalitzats"
-
-#~ msgid "Clear Recents"
-#~ msgstr "Neteja els recents"
-
-#~ msgid "Add Smiley"
-#~ msgstr "Afegeix una emoticona"
+msgstr "Mida de la memòria cau dels missatges (optimització)"

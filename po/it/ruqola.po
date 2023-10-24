@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 00:42+0000\n"
-"PO-Revision-Date: 2023-10-07 01:27+0200\n"
+"PO-Revision-Date: 2023-10-23 14:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2628,17 +2628,16 @@ msgid "Dismiss"
 msgstr "Ignora"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, fuzzy, kde-format
-#| msgid ""
-#| "Are you sure you want to dismiss and delete all reports for this user's "
-#| "messages? This action cannot be undone."
+#, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
 "The messages will be deleted from the message history and no one will be "
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
-"Vuoi ignorare ed eliminare tutti i report per i messaggi di questo utente? "
+"Sei sicuro di voler eliminare tutti i messaggi segnalati da questo utente?\n"
+"I messaggi saranno eliminati dalla cronologia dei messaggi e nessuno potrà "
+"vederli.\n"
 "Questa azione non può essere annullata."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
@@ -2648,12 +2647,10 @@ msgid "Delete All Messages"
 msgstr "Elimina tutti i messaggi"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Mostra messaggi di moderazione"
+msgstr "Mostra rapporto di moderazione"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -9067,13 +9064,11 @@ msgstr "Corretto il supporto markdown (intestazione + segno di spunta)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Correzione della perdita di memoria"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "il tuo messaggio (facoltativo)"
+msgstr "Dimensioni dei messaggi nella cache (ottimizzazione)"
 
 #~ msgid "Share"
 #~ msgstr "Condividi"

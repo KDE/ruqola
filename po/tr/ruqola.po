@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 00:42+0000\n"
-"PO-Revision-Date: 2023-10-17 12:27+0300\n"
+"PO-Revision-Date: 2023-10-23 12:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -9012,10 +9012,8 @@ msgstr "Markdown desteğini onar (başlık ve onay kutusu)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Bellek sızıntısını onar"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "iletiniz (isteğe bağlı)"
+msgstr "Önbellek iletisi boyutu (eniyileme)"

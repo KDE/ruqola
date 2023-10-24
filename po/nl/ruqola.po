@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 00:42+0000\n"
-"PO-Revision-Date: 2023-10-17 11:03+0200\n"
+"PO-Revision-Date: 2023-10-23 12:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -9067,13 +9067,11 @@ msgstr "Ondersteuning van markdown repareren (kop + vinkje)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Geheugenlek repareren"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "uw bericht (optioneel)"
+msgstr "Grootte van cache voor berichten (optimalisatie)"
 
 #~ msgid "Share"
 #~ msgstr "Delen"

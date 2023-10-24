@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 00:42+0000\n"
-"PO-Revision-Date: 2023-10-17 09:44+0300\n"
+"PO-Revision-Date: 2023-10-23 09:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -9122,13 +9122,11 @@ msgstr "Виправлено підтримку markdown (заголовок + �
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Виправлено виток пам'яті"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "ваше повідомлення (необов'язкове)"
+msgstr "Реалізовано кешування розміру повідомлень (оптимізація)"
 
 #~ msgid "Share"
 #~ msgstr "Оприлюднити"
