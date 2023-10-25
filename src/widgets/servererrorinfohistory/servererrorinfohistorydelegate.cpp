@@ -101,7 +101,7 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
     const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
     const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if ((size.height() > 0) && (size.width() > 0)) {
+    if (!size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif

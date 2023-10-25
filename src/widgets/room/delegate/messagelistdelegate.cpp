@@ -554,7 +554,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     const QSize size = mMessageListLayoutBase->sizeHint(option, index);
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if ((size.height() > 0) && (size.width() > 0)) {
+    if (!size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif

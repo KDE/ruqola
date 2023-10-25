@@ -111,7 +111,7 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if ((size.height() > 0) && (size.width() > 0)) {
+    if (!size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
