@@ -3562,7 +3562,7 @@ msgstr "Baixada de dades d'usuari"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Slack Bridge"
-msgstr "Pont d'Slack"
+msgstr "Pont de Slack"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
@@ -5475,8 +5475,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
-"Importa missatges d'Slack amb un àlies; %s se substituïx pel nom d'usuari de "
-"l'usuari. Si està buit, no s'utilitza cap àlies."
+"Importa missatges de Slack amb un àlies; %s se substituïx pel nom d'usuari "
+"de l'usuari. Si està buit, no s'utilitza cap àlies."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
@@ -5870,7 +5870,7 @@ msgstr "Segur de convertir-ho a un equip? Açò no es podrà desfer."
 #: widgets/channellist/channellistwidget.cpp:51
 #, kde-format
 msgid "Filter channels (CTRL + K)"
-msgstr "Filtre de canals (CTRL + K)"
+msgstr "Filtre de canals («Ctrl+K»)"
 
 #: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
