@@ -88,6 +88,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     controlLayout->addWidget(mLabelDuration);
 
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
+    connect(mPositionSlider, &QAbstractSlider::valueChanged, this, &ShowVideoWidget::setPosition);
 
     mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
     mainLayout->addWidget(mMessageWidget);
