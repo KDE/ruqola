@@ -40,7 +40,7 @@ include(ECMSetupVersion)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
-option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" OFF)
+option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 
 if (OPTION_USE_SIZEHINT_CACHE_SUPPORT)
     set(USE_SIZEHINT_CACHE_SUPPORT true)
