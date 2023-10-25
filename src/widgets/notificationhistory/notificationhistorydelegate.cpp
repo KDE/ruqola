@@ -113,7 +113,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "SizeHint found in cache: " << result;
+        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "NotificationHistoryDelegate: SizeHint found in cache: " << result;
         return result;
     }
 #endif
@@ -136,7 +136,9 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    mSizeHintCache.insert(identifier, size);
+    if ((size.height() > 0) && (size.width() > 0)) {
+        mSizeHintCache.insert(identifier, size);
+    }
 #endif
     return size;
 }

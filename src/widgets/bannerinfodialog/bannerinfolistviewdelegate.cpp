@@ -62,7 +62,7 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "SizeHint found in cache: " << result;
+        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "BannerInfoListViewDelegate: SizeHint found in cache: " << result;
         return result;
     }
 #endif
@@ -82,7 +82,9 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
 
     const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    mSizeHintCache.insert(identifier, size);
+    if ((size.height() > 0) && (size.width() > 0)) {
+        mSizeHintCache.insert(identifier, size);
+    }
 #endif
     return size;
 }
