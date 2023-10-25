@@ -13,6 +13,7 @@
 #include "model/notificationhistorymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqola_sizehint_cache_debug.h"
 #include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
@@ -112,6 +113,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
+        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "SizeHint found in cache: " << result;
         return result;
     }
 #endif

@@ -11,6 +11,7 @@
 #include "delegateutils/textselectionimpl.h"
 #include "model/servererrorinfohistorymodel.h"
 #include "rocketchataccount.h"
+#include "ruqola_sizehint_cache_debug.h"
 #include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
@@ -85,6 +86,7 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
+        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "SizeHint found in cache: " << result;
         return result;
     }
 #endif

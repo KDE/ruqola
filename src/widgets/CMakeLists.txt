@@ -820,6 +820,9 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_passwo
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_importexport_accounts_debug.h IDENTIFIER RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG CATEGORY_NAME org.kde.ruqola.widgets.importexportaccounts
     DESCRIPTION "ruqola import export account" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_sizehint_cache_debug.h IDENTIFIER RUQOLA_SIZEHINT_CACHE_LOG CATEGORY_NAME org.kde.ruqola.widgets.sizehint.cache
+    DESCRIPTION "ruqola sizehint cache" EXPORT RUQOLA)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)

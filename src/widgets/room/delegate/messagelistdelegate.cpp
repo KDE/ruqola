@@ -26,6 +26,7 @@
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
+#include "ruqola_sizehint_cache_debug.h"
 #include "ruqola_thread_message_widgets_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -546,6 +547,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
+        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "SizeHint found in cache: " << result;
         return result;
     }
 #endif

@@ -5,6 +5,7 @@
 */
 #include "listdiscussiondelegate.h"
 #include "config-ruqola.h"
+#include "ruqola_sizehint_cache_debug.h"
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
@@ -87,6 +88,7 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
+        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "SizeHint found in cache: " << result;
         return result;
     }
 #endif
