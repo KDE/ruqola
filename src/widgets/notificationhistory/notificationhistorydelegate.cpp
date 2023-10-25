@@ -7,6 +7,7 @@
 #include "notificationhistorydelegate.h"
 #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
+#include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "model/notificationhistorymodel.h"
@@ -106,11 +107,14 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
 QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+#if USE_SIZEHINT_CACHE_SUPPORT
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
-        return it->value;
+        const QSize result = it->value;
+        return result;
     }
+#endif
 
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
@@ -129,7 +133,9 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+#if USE_SIZEHINT_CACHE_SUPPORT
     mSizeHintCache.insert(identifier, size);
+#endif
     return size;
 }
 

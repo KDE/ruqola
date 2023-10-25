@@ -7,6 +7,7 @@
 #include "messagelistdelegate.h"
 #include "colors.h"
 #include "common/delegatepaintutil.h"
+#include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselection.h"
 #include "messageattachmentdelegatehelperbase.h"
@@ -540,14 +541,19 @@ QString MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+#if USE_SIZEHINT_CACHE_SUPPORT
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
-        return it->value;
+        const QSize result = it->value;
+        return result;
     }
+#endif
 
     const QSize size = mMessageListLayoutBase->sizeHint(option, index);
+#if USE_SIZEHINT_CACHE_SUPPORT
     mSizeHintCache.insert(identifier, size);
+#endif
     return size;
 }
 

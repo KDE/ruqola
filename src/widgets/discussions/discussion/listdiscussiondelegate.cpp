@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "listdiscussiondelegate.h"
+#include "config-ruqola.h"
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
@@ -81,11 +82,14 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
 QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+#if USE_SIZEHINT_CACHE_SUPPORT
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
-        return it->value;
+        const QSize result = it->value;
+        return result;
     }
+#endif
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
@@ -104,7 +108,9 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+#if USE_SIZEHINT_CACHE_SUPPORT
     mSizeHintCache.insert(identifier, size);
+#endif
     return size;
 }
 

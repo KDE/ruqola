@@ -5,6 +5,7 @@
 */
 
 #include "bannerinfolistviewdelegate.h"
+#include "config-ruqola.h"
 #include "model/bannerinfosmodel.h"
 
 #include <KColorScheme>
@@ -55,11 +56,14 @@ void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionView
 
 QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+#if USE_SIZEHINT_CACHE_SUPPORT
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
-        return it->value;
+        const QSize result = it->value;
+        return result;
     }
+#endif
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
@@ -75,7 +79,9 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
+#if USE_SIZEHINT_CACHE_SUPPORT
     mSizeHintCache.insert(identifier, size);
+#endif
     return size;
 }
 

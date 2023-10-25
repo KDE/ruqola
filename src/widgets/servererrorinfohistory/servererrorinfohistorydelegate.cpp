@@ -6,6 +6,7 @@
 
 #include "servererrorinfohistorydelegate.h"
 #include "common/delegatepaintutil.h"
+#include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "model/servererrorinfohistorymodel.h"
@@ -79,11 +80,14 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 
 QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+#if USE_SIZEHINT_CACHE_SUPPORT
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
-        return it->value;
+        const QSize result = it->value;
+        return result;
     }
+#endif
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
     int additionalHeight = 0;
@@ -94,7 +98,9 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
     // contents is date + text
     const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
     const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
+#if USE_SIZEHINT_CACHE_SUPPORT
     mSizeHintCache.insert(identifier, size);
+#endif
     return size;
 }
 

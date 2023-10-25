@@ -40,6 +40,11 @@ include(ECMSetupVersion)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
+option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" OFF)
+
+if (OPTION_USE_SIZEHINT_CACHE_SUPPORT)
+    set(USE_SIZEHINT_CACHE_SUPPORT true)
+endif()
 
 if (OPTION_BUILD_PYTHON_BINDINGS)
    set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
