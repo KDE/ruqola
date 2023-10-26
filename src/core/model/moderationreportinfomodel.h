@@ -38,9 +38,7 @@ public:
 
     void clear();
 
-    void insertNotifications(const QVector<NotificationInfo> &infos);
-
-    void addNotification(const NotificationInfo &info);
+    void insertModerationReportInfo(const QVector<NotificationInfo> &infos);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateMessage(const NotificationInfo &info) const;

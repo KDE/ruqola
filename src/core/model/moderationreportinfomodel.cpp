@@ -72,7 +72,7 @@ void ModerationReportInfoModel::clear()
     }
 }
 
-void ModerationReportInfoModel::insertNotifications(const QVector<NotificationInfo> &infos)
+void ModerationReportInfoModel::insertModerationReportInfo(const QVector<NotificationInfo> &infos)
 {
     clear();
     if (!infos.isEmpty()) {
@@ -80,17 +80,6 @@ void ModerationReportInfoModel::insertNotifications(const QVector<NotificationIn
         mNotificationInfo = infos;
         endInsertRows();
     }
-}
-
-void ModerationReportInfoModel::addNotification(const NotificationInfo &info)
-{
-    if (mNotificationInfo.contains(info)) {
-        return;
-    }
-    const int numberOfElement = mNotificationInfo.count();
-    mNotificationInfo.append(info);
-    beginInsertRows(QModelIndex(), numberOfElement, mNotificationInfo.count() - 1);
-    endInsertRows();
 }
 
 #include "moc_moderationreportinfomodel.cpp"
