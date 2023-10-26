@@ -28,6 +28,9 @@ QVariant ModerationReportInfoModel::data(const QModelIndex &index, int role) con
     const auto info = mModerationReportInfos.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
+    case Message:
+        return info.description();
+#if 0
     case AccountName:
         return info.accountName();
     case DateTime:
@@ -48,17 +51,7 @@ QVariant ModerationReportInfoModel::data(const QModelIndex &index, int role) con
         return info.messageId();
     case RoomName:
         return info.roomName();
-    }
-    return {};
-}
-
-QString ModerationReportInfoModel::generateMessage(const NotificationInfo &info) const
-{
-    switch (info.notificationType()) {
-    case NotificationInfo::StandardMessage:
-        return info.message();
-    case NotificationInfo::ConferenceCall:
-        return i18n("Conference Call");
+#endif
     }
     return {};
 }
@@ -72,7 +65,7 @@ void ModerationReportInfoModel::clear()
     }
 }
 
-void ModerationReportInfoModel::insertModerationReportInfo(const QVector<NotificationInfo> &infos)
+void ModerationReportInfoModel::insertModerationReportInfo(const ModerationReportInfos &infos)
 {
     clear();
     if (!infos.isEmpty()) {

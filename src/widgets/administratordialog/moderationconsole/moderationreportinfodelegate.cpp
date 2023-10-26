@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "moderationmessageinfodelegate.h"
+#include "moderationreportinfodelegate.h"
 // #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -17,14 +17,14 @@
 #include <QPainter>
 #include <QToolTip>
 
-ModerationMessageInfoDelegate::ModerationMessageInfoDelegate(QListView *view, QObject *parent)
+ModerationReportInfoDelegate::ModerationReportInfoDelegate(QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
 {
 }
 
-ModerationMessageInfoDelegate::~ModerationMessageInfoDelegate() = default;
+ModerationReportInfoDelegate::~ModerationReportInfoDelegate() = default;
 
-void ModerationMessageInfoDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void ModerationReportInfoDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
 #if 0
     const QPen origPen = painter->pen();
@@ -46,7 +46,7 @@ void ModerationMessageInfoDelegate::drawAccountRoomInfo(QPainter *painter, const
 #endif
 }
 
-void ModerationMessageInfoDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void ModerationReportInfoDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
     drawBackground(painter, option, index);
@@ -95,7 +95,7 @@ void ModerationMessageInfoDelegate::paint(QPainter *painter, const QStyleOptionV
     painter->restore();
 }
 
-QSize ModerationMessageInfoDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize ModerationReportInfoDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QString identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
@@ -126,9 +126,9 @@ QSize ModerationMessageInfoDelegate::sizeHint(const QStyleOptionViewItem &option
 
 // text AccountName/room
 // [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <date/time> [margin]
-ModerationMessageInfoDelegate::Layout ModerationMessageInfoDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    ModerationMessageInfoDelegate::Layout layout;
+    ModerationReportInfoDelegate::Layout layout;
 #if 0
     const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
@@ -180,7 +180,7 @@ ModerationMessageInfoDelegate::Layout ModerationMessageInfoDelegate::doLayout(co
     return layout;
 }
 
-QString ModerationMessageInfoDelegate::cacheIdentifier(const QModelIndex &index) const
+QString ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) const
 {
 #if 0
     const QString identifier = index.data(NotificationHistoryModel::MessageId).toString();
@@ -191,7 +191,7 @@ QString ModerationMessageInfoDelegate::cacheIdentifier(const QModelIndex &index)
 #endif
 }
 
-QTextDocument *ModerationMessageInfoDelegate::documentForModelIndex(const QModelIndex &index, int width) const
+QTextDocument *ModerationReportInfoDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
     const QString messageId = cacheIdentifier(index);
@@ -236,7 +236,7 @@ QTextDocument *ModerationMessageInfoDelegate::documentForModelIndex(const QModel
     return ret;
 }
 
-bool ModerationMessageInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool ModerationReportInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (!helpEvent || !view || !index.isValid()) {
         return QItemDelegate::helpEvent(helpEvent, view, option, index);
@@ -278,14 +278,14 @@ bool ModerationMessageInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIt
     return true;
 }
 
-QPoint ModerationMessageInfoDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint ModerationReportInfoDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
 {
     Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
 
-bool ModerationMessageInfoDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool ModerationReportInfoDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
@@ -306,7 +306,7 @@ bool ModerationMessageInfoDelegate::mouseEvent(QEvent *event, const QStyleOption
     return false;
 }
 
-bool ModerationMessageInfoDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool ModerationReportInfoDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const Layout layout = doLayout(option, index);
     if (MessageListDelegateBase::maybeStartDrag(event, layout.textRect, option, index)) {
@@ -315,7 +315,7 @@ bool ModerationMessageInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSt
     return false;
 }
 
-RocketChatAccount *ModerationMessageInfoDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelIndex &index) const
 {
 #if 0
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
@@ -324,14 +324,14 @@ RocketChatAccount *ModerationMessageInfoDelegate::rocketChatAccount(const QModel
     return {};
 }
 
-QString ModerationMessageInfoDelegate::selectedText() const
+QString ModerationReportInfoDelegate::selectedText() const
 {
     return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
 }
 
-bool ModerationMessageInfoDelegate::hasSelection() const
+bool ModerationReportInfoDelegate::hasSelection() const
 {
     return mTextSelectionImpl->textSelection()->hasSelection();
 }
 
-#include "moc_moderationmessageinfodelegate.cpp"
+#include "moc_moderationreportinfodelegate.cpp"

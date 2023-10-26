@@ -9,7 +9,7 @@
 #include <QAbstractListModel>
 
 #include "libruqolacore_export.h"
-#include "notificationinfo.h"
+#include "moderation/moderationreportinfos.h"
 #include <QVector>
 
 class LIBRUQOLACORE_EXPORT ModerationReportInfoModel : public QAbstractListModel
@@ -17,16 +17,7 @@ class LIBRUQOLACORE_EXPORT ModerationReportInfoModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum NotificationHistoryRoles {
-        AccountName = Qt::UserRole + 1,
-        DateTime,
-        MessageStr,
-        RoomId,
-        RoomName,
-        ChannelType,
-        Pixmap,
-        SenderName,
-        SenderUserName,
-        MessageId,
+        Message = Qt::UserRole + 1,
     };
     Q_ENUM(NotificationHistoryRoles)
 
@@ -38,9 +29,8 @@ public:
 
     void clear();
 
-    void insertModerationReportInfo(const QVector<NotificationInfo> &infos);
+    void insertModerationReportInfo(const ModerationReportInfos &infos);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateMessage(const NotificationInfo &info) const;
-    QVector<NotificationInfo> mModerationReportInfos;
+    ModerationReportInfos mModerationReportInfos;
 };

@@ -217,8 +217,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/moderationconsole/moderationmessageinfowidget.h
     administratordialog/moderationconsole/moderationmessageinfowidget.cpp
 
-    administratordialog/moderationconsole/moderationmessageinfodelegate.cpp
-    administratordialog/moderationconsole/moderationmessageinfodelegate.h
+    administratordialog/moderationconsole/moderationreportinfodelegate.cpp
+    administratordialog/moderationconsole/moderationreportinfodelegate.h
 
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp

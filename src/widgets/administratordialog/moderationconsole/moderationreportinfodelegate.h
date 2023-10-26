@@ -11,12 +11,12 @@
 #include "misc/messagelistdelegatebase.h"
 class QListView;
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoDelegate : public MessageListDelegateBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportInfoDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
 public:
-    explicit ModerationMessageInfoDelegate(QListView *view, QObject *parent = nullptr);
-    ~ModerationMessageInfoDelegate() override;
+    explicit ModerationReportInfoDelegate(QListView *view, QObject *parent = nullptr);
+    ~ModerationReportInfoDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
@@ -56,7 +56,7 @@ private:
         QPoint timeStampPos;
     };
     void drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
-    [[nodiscard]] ModerationMessageInfoDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    [[nodiscard]] ModerationReportInfoDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
     [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
 };
