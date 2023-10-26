@@ -42,5 +42,5 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateMessage(const NotificationInfo &info) const;
-    QVector<NotificationInfo> mNotificationInfo;
+    QVector<NotificationInfo> mModerationReportInfos;
 };

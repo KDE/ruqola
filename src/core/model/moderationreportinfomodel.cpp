@@ -17,15 +17,15 @@ ModerationReportInfoModel::~ModerationReportInfoModel() = default;
 int ModerationReportInfoModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mNotificationInfo.count();
+    return mModerationReportInfos.count();
 }
 
 QVariant ModerationReportInfoModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mNotificationInfo.count()) {
+    if (index.row() < 0 || index.row() >= mModerationReportInfos.count()) {
         return {};
     }
-    const auto info = mNotificationInfo.at(index.row());
+    const auto info = mModerationReportInfos.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:
@@ -67,7 +67,7 @@ void ModerationReportInfoModel::clear()
 {
     if (rowCount() != 0) {
         beginResetModel();
-        mNotificationInfo.clear();
+        mModerationReportInfos.clear();
         endResetModel();
     }
 }
@@ -77,7 +77,7 @@ void ModerationReportInfoModel::insertModerationReportInfo(const QVector<Notific
     clear();
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mNotificationInfo = infos;
+        mModerationReportInfos = infos;
         endInsertRows();
     }
 }
