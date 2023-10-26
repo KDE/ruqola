@@ -69,17 +69,10 @@ QString ModerationReportInfoListView::selectedText() const
 
 void ModerationReportInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-#if 0 // TODO
     if (model()->rowCount() > 0) {
         QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &ModerationReportInfoListView::slotClearList);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
-            menu.addSeparator();
-            menu.addAction(i18n("Go to Message"), this, [this, index]() {
-                Q_EMIT showMessage(index);
-            });
-            menu.addSeparator();
             auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
             copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [=]() {
@@ -103,7 +96,6 @@ void ModerationReportInfoListView::slotCustomContextMenuRequested(const QPoint &
         }
         menu.exec(viewport()->mapToGlobal(pos));
     }
-#endif
 }
 
 void ModerationReportInfoListView::slotTextToSpeech(const QModelIndex &index)
