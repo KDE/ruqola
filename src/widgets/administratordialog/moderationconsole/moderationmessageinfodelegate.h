@@ -15,18 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoDelegate : public Messa
 {
     Q_OBJECT
 public:
-    struct LIBRUQOLAWIDGETS_TESTS_EXPORT RoomAccount {
-        QString channelName;
-        QString accountName;
-        [[nodiscard]] bool operator==(const RoomAccount &other) const
-        {
-            return (channelName == other.channelName) && (accountName == other.accountName);
-        }
-        [[nodiscard]] bool operator!=(const RoomAccount &other) const
-        {
-            return !operator==(other);
-        }
-    };
     explicit ModerationMessageInfoDelegate(QListView *view, QObject *parent = nullptr);
     ~ModerationMessageInfoDelegate() override;
 
@@ -66,8 +54,6 @@ private:
 
         QString timeStampText;
         QPoint timeStampPos;
-
-        bool sameAccountRoomAsPreviousMessage = false;
     };
     void drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     [[nodiscard]] ModerationMessageInfoDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;

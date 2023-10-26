@@ -5,11 +5,11 @@
 */
 
 #include "moderationmessageinfodelegate.h"
-#include "accountmanager.h"
+// #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
-#include "model/notificationhistorymodel.h"
+// #include "model/mode
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "textconverter.h"
@@ -24,21 +24,9 @@ ModerationMessageInfoDelegate::ModerationMessageInfoDelegate(QListView *view, QO
 
 ModerationMessageInfoDelegate::~ModerationMessageInfoDelegate() = default;
 
-ModerationMessageInfoDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
-{
-    ModerationMessageInfoDelegate::RoomAccount info;
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
-    if (channelName.isEmpty()) {
-        channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
-    }
-    info.accountName = accountName;
-    info.channelName = channelName;
-    return info;
-}
-
 void ModerationMessageInfoDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
+#if 0
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
     const RoomAccount info = roomAccountInfo(index);
@@ -55,6 +43,7 @@ void ModerationMessageInfoDelegate::drawAccountRoomInfo(QPainter *painter, const
     painter->drawLine(infoAreaRect.left(), lineY, infoTextRect.left() - margin, lineY);
     painter->drawLine(infoTextRect.right() + margin, lineY, infoAreaRect.right(), lineY);
     painter->setPen(origPen);
+#endif
 }
 
 void ModerationMessageInfoDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -64,9 +53,11 @@ void ModerationMessageInfoDelegate::paint(QPainter *painter, const QStyleOptionV
 
     const Layout layout = doLayout(option, index);
 
+#if 0
     if (!layout.sameAccountRoomAsPreviousMessage) {
         drawAccountRoomInfo(painter, index, option);
     }
+#endif
 
     // Draw the pixmap
     if (!layout.avatarPixmap.isNull()) {
@@ -138,20 +129,7 @@ QSize ModerationMessageInfoDelegate::sizeHint(const QStyleOptionViewItem &option
 ModerationMessageInfoDelegate::Layout ModerationMessageInfoDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ModerationMessageInfoDelegate::Layout layout;
-    const auto sameAccountRoomAsPreviousMessage = [&] {
-        if (index.row() < 1) {
-            return false;
-        }
-
-        const auto previousIndex = index.siblingAtRow(index.row() - 1);
-        const RoomAccount previewInfo = roomAccountInfo(previousIndex);
-        const RoomAccount info = roomAccountInfo(index);
-
-        return previewInfo == info;
-    }();
-
-    layout.sameAccountRoomAsPreviousMessage = sameAccountRoomAsPreviousMessage;
-
+#if 0
     const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
@@ -198,15 +176,19 @@ ModerationMessageInfoDelegate::Layout ModerationMessageInfoDelegate::doLayout(co
     layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
-
+#endif
     return layout;
 }
 
 QString ModerationMessageInfoDelegate::cacheIdentifier(const QModelIndex &index) const
 {
+#if 0
     const QString identifier = index.data(NotificationHistoryModel::MessageId).toString();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
+#else
+    return {};
+#endif
 }
 
 QTextDocument *ModerationMessageInfoDelegate::documentForModelIndex(const QModelIndex &index, int width) const
@@ -223,7 +205,7 @@ QTextDocument *ModerationMessageInfoDelegate::documentForModelIndex(const QModel
         return ret;
     }
 
-    const QString messageStr = index.data(NotificationHistoryModel::MessageStr).toString();
+    const QString messageStr; // TODO = index.data(NotificationHistoryModel::MessageStr).toString();
 
     if (messageStr.isEmpty()) {
         return nullptr;
@@ -269,7 +251,7 @@ bool ModerationMessageInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIt
     if (!doc) {
         return false;
     }
-
+#if 0
     const QPoint helpEventPos{helpEvent->pos()};
     if (layout.senderRect.contains(helpEventPos)) {
         auto account = rocketChatAccount(index);
@@ -286,7 +268,7 @@ bool ModerationMessageInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIt
             }
         }
     }
-
+#endif
     const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
@@ -335,8 +317,11 @@ bool ModerationMessageInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSt
 
 RocketChatAccount *ModerationMessageInfoDelegate::rocketChatAccount(const QModelIndex &index) const
 {
+#if 0
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     return Ruqola::self()->accountManager()->accountFromName(accountName);
+#endif
+    return {};
 }
 
 QString ModerationMessageInfoDelegate::selectedText() const
@@ -349,4 +334,4 @@ bool ModerationMessageInfoDelegate::hasSelection() const
     return mTextSelectionImpl->textSelection()->hasSelection();
 }
 
-#include "moc_notificationhistorydelegate.cpp"
+#include "moc_moderationmessageinfodelegate.cpp"
