@@ -23,6 +23,7 @@ void ModerationReportInfoTest::shouldHaveDefaultValues()
     QCOMPARE(info.timeStamp(), -1);
     QVERIFY(info.roomId().isEmpty());
     QVERIFY(info.userId().isEmpty());
+    QVERIFY(info.userName().isEmpty());
 }
 
 void ModerationReportInfoTest::shouldLoadReportInfo_data()

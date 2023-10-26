@@ -33,6 +33,11 @@ public:
     [[nodiscard]] QString userId() const;
     void setUserId(const QString &newUserId);
 
+    [[nodiscard]] QString userName() const;
+    void setUserName(const QString &newUserName);
+
+    [[nodiscard]] QString timeStampDateTimeStr() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &o);
     LIBRUQOLACORE_NO_EXPORT void parseReportedBy(const QJsonObject &o);
@@ -40,6 +45,7 @@ private:
     QString mDescription;
     QString mReportIdentifier;
     QString mRoomId;
+    QString mUserName;
     QString mUserId;
     qint64 mTimeStamp = -1;
 };
