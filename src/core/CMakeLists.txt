@@ -460,6 +460,8 @@ target_sources(libruqolacore PRIVATE
 
     moderation/moderationreportinfo.h
     moderation/moderationreportinfo.cpp
+    moderation/moderationreportinfos.cpp
+    moderation/moderationreportinfos.h
 
     moderation/moderationmessage.cpp
     moderation/moderationmessage.h
