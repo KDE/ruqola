@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -30,28 +30,12 @@ QVariant ModerationReportInfoModel::data(const QModelIndex &index, int role) con
     case Qt::DisplayRole:
     case Message:
         return info.description();
-#if 0
-    case AccountName:
-        return info.accountName();
+    case ReportIdentifier:
+        return info.reportIdentifier();
+    case ReportUserName:
+        return info.userName();
     case DateTime:
-        return info.dateTime();
-    case MessageStr:
-        return generateMessage(info);
-    case RoomId:
-        return info.roomId();
-    case ChannelType:
-        return info.channelType();
-    case Pixmap:
-        return info.pixmap();
-    case SenderName:
-        return info.senderName();
-    case SenderUserName:
-        return info.senderUserName();
-    case MessageId:
-        return info.messageId();
-    case RoomName:
-        return info.roomName();
-#endif
+        return info.timeStampDateTimeStr();
     }
     return {};
 }

@@ -9,7 +9,7 @@
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
-// #include "model/mode
+#include "model/moderationreportinfomodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "textconverter.h"
@@ -129,27 +129,28 @@ QSize ModerationReportInfoDelegate::sizeHint(const QStyleOptionViewItem &option,
 ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ModerationReportInfoDelegate::Layout layout;
-#if 0
-    const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
+    const QString userName = index.data(ModerationReportInfoModel::ReportUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 
     // Timestamp
-    layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
+    layout.timeStampText = index.data(ModerationReportInfoModel::DateTime).toString();
 
     // Message (using the rest of the available width)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+#if 0
     // Resize pixmap TODO cache ?
     const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.avatarPixmap = scaledPixmap;
     }
+#endif
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
 
@@ -163,10 +164,12 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
 
     const int textVMargin = 3; // adjust this for "compactness"
     QRect usableRect = option.rect;
+#if 0
     // Add area for account/room info
     if (!layout.sameAccountRoomAsPreviousMessage) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     }
+#endif
 
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
@@ -174,21 +177,17 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
     layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
+
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
-#endif
     return layout;
 }
 
 QString ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-#if 0
-    const QString identifier = index.data(NotificationHistoryModel::MessageId).toString();
+    const QString identifier = index.data(ModerationReportInfoModel::ReportIdentifier).toString();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
-#else
-    return {};
-#endif
 }
 
 QTextDocument *ModerationReportInfoDelegate::documentForModelIndex(const QModelIndex &index, int width) const
@@ -205,7 +204,7 @@ QTextDocument *ModerationReportInfoDelegate::documentForModelIndex(const QModelI
         return ret;
     }
 
-    const QString messageStr; // TODO = index.data(NotificationHistoryModel::MessageStr).toString();
+    const QString messageStr = index.data(ModerationReportInfoModel::Message).toString();
 
     if (messageStr.isEmpty()) {
         return nullptr;
@@ -318,7 +317,7 @@ bool ModerationReportInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSty
 RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelIndex &index) const
 {
 #if 0
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
+    const QString accountName = index.data(ModerationReportInfoModel::ReportIdentifier).toString();
     return Ruqola::self()->accountManager()->accountFromName(accountName);
 #endif
     return {};

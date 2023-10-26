@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -16,10 +16,13 @@ class LIBRUQOLACORE_EXPORT ModerationReportInfoModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum NotificationHistoryRoles {
+    enum ModerationReportInfoRoles {
         Message = Qt::UserRole + 1,
+        ReportIdentifier,
+        ReportUserName,
+        DateTime,
     };
-    Q_ENUM(NotificationHistoryRoles)
+    Q_ENUM(ModerationReportInfoRoles)
 
     explicit ModerationReportInfoModel(QObject *parent = nullptr);
     ~ModerationReportInfoModel() override;
