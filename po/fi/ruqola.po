@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 00:43+0000\n"
+"POT-Creation-Date: 2023-10-26 00:42+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -17,133 +17,133 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: apps/main.cpp:51
+#: apps/main.cpp:54
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:53
+#: apps/main.cpp:56
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Rocket-keskusteluasiakas"
 
-#: apps/main.cpp:55
+#: apps/main.cpp:58
 #, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "Tekijänoikeudet © 2020–2023 Ruqolan tekijät"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:60
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:60
 #, kde-format
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: apps/main.cpp:58
+#: apps/main.cpp:61
 #, kde-format
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:58
+#: apps/main.cpp:61
 #, kde-format
 msgid "Original Author"
 msgstr "Alkuperäinen tekijä"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:65
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:65
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Virheiden korjaus, delegaatit jne."
 
-#: apps/main.cpp:63
+#: apps/main.cpp:66
 #, kde-format
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:63 apps/main.cpp:64 apps/main.cpp:65 apps/main.cpp:67
-#: apps/main.cpp:68
+#: apps/main.cpp:66 apps/main.cpp:67 apps/main.cpp:68 apps/main.cpp:70
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing"
 msgstr "Virheenkorjaus"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:69
 #, kde-format
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:69
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Windows-koosteen viankorjaus"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:70
 #, kde-format
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:71
 #, kde-format
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Virheiden korjaus Windowsissa/Macissä"
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgid "Packaging"
 msgstr "Paketointi"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Ohjelmavirheiden korjaus (kääntäminen, verkkokaatuminen…)"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimointi, Windows/Mac-tuen korjaus"
 
-#: apps/main.cpp:97
+#: apps/main.cpp:100
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Käytettävissä ovat seuraavat tilit:"
@@ -905,7 +905,7 @@ msgstr "Huoneet"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
 #: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:147
+#: widgets/dialogs/showvideowidget.cpp:148
 #, kde-format
 msgid "Default"
 msgstr "Oletus"
@@ -6648,7 +6648,7 @@ msgid "Sound: %1"
 msgstr "Ääni: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:277
+#: widgets/dialogs/showvideowidget.cpp:278
 #, kde-format
 msgid "Error: "
 msgstr "Virhe:"
@@ -6957,14 +6957,14 @@ msgstr[1] "%1 ryhmää (kaikkiaan: %2)"
 msgid "Search rooms..."
 msgstr "Etsi huoneita…"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
 #, kde-format
 msgid "Open Discussion"
 msgstr "Avaa keskustelu"
@@ -7830,48 +7830,48 @@ msgstr "Lataa kuva"
 msgid "Download Image..."
 msgstr "Lataa kuva…"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:309
+#: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:318
+#: widgets/room/delegate/messagelistdelegate.cpp:320
 #: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:509
+#: widgets/room/delegate/messagelistdelegate.cpp:511
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:518
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:518
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:763
+#: widgets/room/delegate/messagelistdelegate.cpp:773
 #, kde-format
 msgid "Following"
 msgstr "Seuraa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:767
+#: widgets/room/delegate/messagelistdelegate.cpp:777
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Viesti on kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:771
+#: widgets/room/delegate/messagelistdelegate.cpp:781
 #, kde-format
 msgid "Message has been starred"
 msgstr "Viesti on merkitty tähdellä"

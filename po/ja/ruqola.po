@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 00:43+0000\n"
+"POT-Creation-Date: 2023-10-26 00:42+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -14,133 +14,133 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: apps/main.cpp:51
+#: apps/main.cpp:54
 #, kde-format
 msgid "Ruqola"
 msgstr ""
 
-#: apps/main.cpp:53
+#: apps/main.cpp:56
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr ""
 
-#: apps/main.cpp:55
+#: apps/main.cpp:58
 #, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr ""
 
-#: apps/main.cpp:57
+#: apps/main.cpp:60
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: apps/main.cpp:57
+#: apps/main.cpp:60
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: apps/main.cpp:58
+#: apps/main.cpp:61
 #, kde-format
 msgid "Riccardo Iaconelli"
 msgstr ""
 
-#: apps/main.cpp:58
+#: apps/main.cpp:61
 #, kde-format
 msgid "Original Author"
 msgstr ""
 
-#: apps/main.cpp:62
+#: apps/main.cpp:65
 #, kde-format
 msgid "David Faure"
 msgstr ""
 
-#: apps/main.cpp:62
+#: apps/main.cpp:65
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr ""
 
-#: apps/main.cpp:63
+#: apps/main.cpp:66
 #, kde-format
 msgid "Kevin Funk"
 msgstr ""
 
-#: apps/main.cpp:63 apps/main.cpp:64 apps/main.cpp:65 apps/main.cpp:67
-#: apps/main.cpp:68
+#: apps/main.cpp:66 apps/main.cpp:67 apps/main.cpp:68 apps/main.cpp:70
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing"
 msgstr ""
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Olivier JG"
 msgstr ""
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Milian Wolff"
 msgstr ""
 
-#: apps/main.cpp:66
+#: apps/main.cpp:69
 #, kde-format
 msgid "Till Adam"
 msgstr ""
 
-#: apps/main.cpp:66
+#: apps/main.cpp:69
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr ""
 
-#: apps/main.cpp:67
+#: apps/main.cpp:70
 #, kde-format
 msgid "Shantanu Tushar"
 msgstr ""
 
-#: apps/main.cpp:68
+#: apps/main.cpp:71
 #, kde-format
 msgid "Alessandro Ambrosano"
 msgstr ""
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Hannah von Reth"
 msgstr ""
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr ""
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgid "Allen Winter"
 msgstr ""
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgid "Packaging"
 msgstr ""
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgid "Waqar Ahmed"
 msgstr ""
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgid "Nicolas Fella"
 msgstr ""
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr ""
 
-#: apps/main.cpp:97
+#: apps/main.cpp:100
 #, kde-format
 msgid "The following accounts are available:"
 msgstr ""
@@ -896,7 +896,7 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
 #: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:147
+#: widgets/dialogs/showvideowidget.cpp:148
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -6552,7 +6552,7 @@ msgid "Sound: %1"
 msgstr ""
 
 #: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:277
+#: widgets/dialogs/showvideowidget.cpp:278
 #, kde-format
 msgid "Error: "
 msgstr ""
@@ -6858,13 +6858,13 @@ msgstr[0] ""
 msgid "Search rooms..."
 msgstr ""
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] ""
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
 #, kde-format
 msgid "Open Discussion"
 msgstr ""
@@ -7711,46 +7711,46 @@ msgstr ""
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:309
+#: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:318
+#: widgets/room/delegate/messagelistdelegate.cpp:320
 #: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:509
+#: widgets/room/delegate/messagelistdelegate.cpp:511
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:518
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:518
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:763
+#: widgets/room/delegate/messagelistdelegate.cpp:773
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:767
+#: widgets/room/delegate/messagelistdelegate.cpp:777
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:771
+#: widgets/room/delegate/messagelistdelegate.cpp:781
 #, kde-format
 msgid "Message has been starred"
 msgstr ""

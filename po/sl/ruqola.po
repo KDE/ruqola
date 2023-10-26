@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 00:43+0000\n"
+"POT-Creation-Date: 2023-10-26 00:42+0000\n"
 "PO-Revision-Date: 2023-10-23 10:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -20,133 +20,133 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: apps/main.cpp:51
+#: apps/main.cpp:54
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:53
+#: apps/main.cpp:56
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Odjemalec klepetov Rocket"
 
-#: apps/main.cpp:55
+#: apps/main.cpp:58
 #, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "Copyright/Avtorske pravice © 2020-2023 avtorji programa Ruqola"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:60
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:60
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: apps/main.cpp:58
+#: apps/main.cpp:61
 #, kde-format
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:58
+#: apps/main.cpp:61
 #, kde-format
 msgid "Original Author"
 msgstr "Izvirni avtor"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:65
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:62
+#: apps/main.cpp:65
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Odpravljanje napak, delegati itd."
 
-#: apps/main.cpp:63
+#: apps/main.cpp:66
 #, kde-format
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:63 apps/main.cpp:64 apps/main.cpp:65 apps/main.cpp:67
-#: apps/main.cpp:68
+#: apps/main.cpp:66 apps/main.cpp:67 apps/main.cpp:68 apps/main.cpp:70
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing"
 msgstr "Odpravljanje napak"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:67
 #, kde-format
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:65
+#: apps/main.cpp:68
 #, kde-format
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:69
 #, kde-format
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:69
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Odpravljanje napaka prevajanja za Windows"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:70
 #, kde-format
 msgid "Shantanu Tushar"
 msgstr "Šantanu Tušar"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:71
 #, kde-format
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Odpravljanje napak za Windows/macOS"
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:70
+#: apps/main.cpp:73
 #, kde-format
 msgid "Packaging"
 msgstr "Pakiranje"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:74
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "Odpravljanje napak (prevajanje, omrežno sesutje ...)"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:75
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Optimizacija, popravek podpore za Windows/macOS"
 
-#: apps/main.cpp:97
+#: apps/main.cpp:100
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
@@ -904,7 +904,7 @@ msgstr "Soba"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
 #: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:147
+#: widgets/dialogs/showvideowidget.cpp:148
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"
@@ -6775,7 +6775,7 @@ msgid "Sound: %1"
 msgstr "Zvok: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:277
+#: widgets/dialogs/showvideowidget.cpp:278
 #, kde-format
 msgid "Error: "
 msgstr "Napaka: "
@@ -7090,7 +7090,7 @@ msgstr[3] "%1 ekip (skupaj: %2)"
 msgid "Search rooms..."
 msgstr "Išči sobe..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
@@ -7099,7 +7099,7 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočil"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
 #, kde-format
 msgid "Open Discussion"
 msgstr "Odpri razpravo"
@@ -7981,19 +7981,19 @@ msgstr "Prenesi sliko"
 msgid "Download Image..."
 msgstr "Prenesi sliko..."
 
-#: widgets/room/delegate/messagelistdelegate.cpp:309
+#: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:318
+#: widgets/room/delegate/messagelistdelegate.cpp:320
 #: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:509
+#: widgets/room/delegate/messagelistdelegate.cpp:511
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8002,7 +8002,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:518
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8011,22 +8011,22 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:516
+#: widgets/room/delegate/messagelistdelegate.cpp:518
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:763
+#: widgets/room/delegate/messagelistdelegate.cpp:773
 #, kde-format
 msgid "Following"
 msgstr "Sledite"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:767
+#: widgets/room/delegate/messagelistdelegate.cpp:777
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Sporočilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:771
+#: widgets/room/delegate/messagelistdelegate.cpp:781
 #, kde-format
 msgid "Message has been starred"
 msgstr "Sporočilo označeno z zvezdico"
