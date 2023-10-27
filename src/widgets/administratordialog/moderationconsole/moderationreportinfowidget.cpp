@@ -6,6 +6,7 @@
 
 #include "moderationreportinfowidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/moderationreportinfofilterproxymodel.h"
 #include "model/moderationreportinfomodel.h"
 #include "moderationreportinfolistview.h"
 #include "ruqolawidgets_debug.h"
@@ -24,6 +25,7 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     : QWidget{parent}
     , mListNotificationsListView(new ModerationReportInfoListView(this))
     , mSearchLineEdit(new QLineEdit(this))
+    , mModerationReportInfoFilterProxyModel(new ModerationReportInfoFilterProxyModel(this))
     , mModerationReportInfoModel(new ModerationReportInfoModel(this))
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
@@ -51,12 +53,11 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotificationsListView);
 
-    mListNotificationsListView->setModel(mModerationReportInfoModel);
-#if 0
-    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
-    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
-    connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
-#endif
+    mModerationReportInfoFilterProxyModel->setSourceModel(mModerationReportInfoModel);
+    mListNotificationsListView->setModel(mModerationReportInfoFilterProxyModel);
+    connect(mModerationReportInfoModel, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
+    connect(mModerationReportInfoModel, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
+    connect(mModerationReportInfoModel, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ModerationReportInfoWidget::slotTextChanged);
 }
 
@@ -64,7 +65,7 @@ ModerationReportInfoWidget::~ModerationReportInfoWidget() = default;
 
 void ModerationReportInfoWidget::slotTextChanged(const QString &str)
 {
-    // TODO mNotificationFilterProxyModel->setFilterString(str);
+    mModerationReportInfoFilterProxyModel->setFilterString(str);
     mListNotificationsListView->setSearchText(str);
 }
 

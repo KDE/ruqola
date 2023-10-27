@@ -12,6 +12,7 @@
 class ModerationReportInfoListView;
 class QLineEdit;
 class ModerationReportInfoModel;
+class ModerationReportInfoFilterProxyModel;
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
@@ -30,6 +31,7 @@ private:
     void slotTextChanged(const QString &str);
     ModerationReportInfoListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
+    ModerationReportInfoFilterProxyModel *const mModerationReportInfoFilterProxyModel;
     ModerationReportInfoModel *const mModerationReportInfoModel;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };
