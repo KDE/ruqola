@@ -11,8 +11,6 @@
 
 #include "moderation/moderationdismissreportsjob.h"
 
-#include "moderation/moderationreportinfojob.h"
-
 #include "connection.h"
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/directchannelinfodialog.h"
