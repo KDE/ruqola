@@ -164,7 +164,7 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
         job->setUserIdForMessages(modelIndex.data().toString());
-        connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportDone, this, [this]() {
+        connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, [this]() {
             Q_EMIT refreshList();
         });
         if (!job->start()) {
