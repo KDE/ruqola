@@ -281,6 +281,8 @@ target_sources(libruqolacore PRIVATE
     model/moderationmessagesmodel.cpp
     model/moderationreportinfomodel.cpp
     model/moderationreportinfomodel.h
+    model/moderationreportinfomodelfilterproxymodel.cpp
+    model/moderationreportinfomodelfilterproxymodel.h
 
     notificationinfo.cpp
     notificationinfo.h
