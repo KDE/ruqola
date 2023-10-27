@@ -9,6 +9,8 @@
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
+#include "moderation/moderationdismissreportsjob.h"
+
 #include "moderation/moderationreportinfojob.h"
 
 #include "connection.h"
@@ -530,6 +532,23 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         menu.addSeparator();
         menu.addAction(selectAllAction);
+        menu.addSeparator();
+        auto dismissReports = new QAction(i18n("Dismiss Reports"), &menu); // Add icon
+        connect(dismissReports, &QAction::triggered, this, [this, message]() {
+            const auto messageId = message->messageId();
+            const auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
+            job->setMessageId(messageId);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, []() {
+                // TODO
+                qDebug() << " RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone ";
+                // TODO update element!
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
+            }
+        });
+
         break;
     }
     case Mode::Viewing: {
