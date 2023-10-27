@@ -35,17 +35,11 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto searchLayout = new QHBoxLayout;
-    searchLayout->setObjectName(QStringLiteral("searchLayout"));
-    searchLayout->setContentsMargins({});
-
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search..."));
-    searchLayout->addWidget(mSearchLineEdit);
+    mainLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
-
-    mainLayout->addLayout(searchLayout);
 
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
