@@ -517,7 +517,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             connect(job, &RocketChatRestApi::ModerationReportsJob::moderationReportsDone, this, [this](const QJsonObject &obj) {
                 ModerationReportInfos infos;
                 infos.parseModerationReportInfos(obj);
-                qDebug() << " infos " << infos;
                 slotShowReportInfo(std::move(infos));
             });
             if (!job->start()) {
