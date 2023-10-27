@@ -38,11 +38,21 @@ void ModerationDismissReportsJob::onPostRequestResponse(const QString &replyErro
 
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationDismissReportsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationDismissReportDone();
+        Q_EMIT moderationDismissReportsDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ModerationDismissReportsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+QString ModerationDismissReportsJob::messageId() const
+{
+    return mMessageId;
+}
+
+void ModerationDismissReportsJob::setMessageId(const QString &newMessageId)
+{
+    mMessageId = newMessageId;
 }
 
 QString ModerationDismissReportsJob::userIdForMessages() const
@@ -65,8 +75,8 @@ bool ModerationDismissReportsJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mUserIdForMessages.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationDismissReportsJob: mUserId is empty";
+    if (mUserIdForMessages.isEmpty() && mMessageId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationDismissReportsJob: mUserIdForMessages is empty and mMessageId isEmpty()";
         return false;
     }
     return true;
@@ -84,7 +94,11 @@ QNetworkRequest ModerationDismissReportsJob::request() const
 QJsonDocument ModerationDismissReportsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("userId")] = mUserIdForMessages;
+    if (mUserIdForMessages.isEmpty()) {
+        jsonObj[QLatin1String("userId")] = mUserIdForMessages;
+    } else if (mMessageId.isEmpty()) {
+        jsonObj[QLatin1String("msgId")] = mMessageId;
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

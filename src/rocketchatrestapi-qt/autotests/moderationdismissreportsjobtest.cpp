@@ -5,7 +5,7 @@
 */
 
 #include "moderationdismissreportsjobtest.h"
-#include "moderation/moderationuserdeletereportedmessagesjob.h"
+#include "moderation/moderationdismissreportsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
@@ -18,7 +18,7 @@ ModerationDismissReportsJobTest::ModerationDismissReportsJobTest(QObject *parent
 
 void ModerationDismissReportsJobTest::shouldHaveDefaultValue()
 {
-    ModerationUserDeleteReportedMessagesJob job;
+    ModerationDismissReportsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.userIdForMessages().isEmpty());
@@ -27,25 +27,34 @@ void ModerationDismissReportsJobTest::shouldHaveDefaultValue()
 
 void ModerationDismissReportsJobTest::shouldGenerateRequest()
 {
-    ModerationUserDeleteReportedMessagesJob job;
+    ModerationDismissReportsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.deleteReportedMessages")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.dismissReports")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void ModerationDismissReportsJobTest::shouldGenerateJson()
 {
-    ModerationUserDeleteReportedMessagesJob job;
-    const QString userIdForMessages = QStringLiteral("foo2");
-    job.setUserIdForMessages(userIdForMessages);
+    {
+        ModerationDismissReportsJob job;
+        const QString userIdForMessages = QStringLiteral("foo2");
+        job.setUserIdForMessages(userIdForMessages);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(userIdForMessages).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(userIdForMessages).toLatin1());
+    }
+    {
+        ModerationDismissReportsJob job;
+        const QString messageId = QStringLiteral("foo7");
+        job.setMessageId(messageId);
+
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msgId":"%1"})").arg(messageId).toLatin1());
+    }
 }
 
 void ModerationDismissReportsJobTest::shouldNotStarting()
 {
-    ModerationUserDeleteReportedMessagesJob job;
+    ModerationDismissReportsJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -62,6 +71,11 @@ void ModerationDismissReportsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString userIdForMessages = QStringLiteral("foo1");
     job.setUserIdForMessages(userIdForMessages);
+    QVERIFY(job.canStart());
+    job.setUserIdForMessages(QString());
+    QVERIFY(!job.canStart());
+    const QString messageId = QStringLiteral("foo2");
+    job.setMessageId(messageId);
     QVERIFY(job.canStart());
 }
 

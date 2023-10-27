@@ -27,12 +27,16 @@ public:
     [[nodiscard]] QString userIdForMessages() const;
     void setUserIdForMessages(const QString &newUserIdForMessages);
 
+    [[nodiscard]] QString messageId() const;
+    void setMessageId(const QString &newMessageId);
+
 Q_SIGNALS:
-    void moderationDismissReportDone();
+    void moderationDismissReportsDone();
 
 private:
     Q_DISABLE_COPY(ModerationDismissReportsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mUserIdForMessages;
+    QString mMessageId;
 };
 }
