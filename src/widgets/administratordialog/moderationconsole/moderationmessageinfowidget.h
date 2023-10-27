@@ -6,10 +6,10 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include "moderation/moderationreportinfo.h"
+#include "moderation/moderationreportinfos.h"
 #include <QWidget>
 
-class QLabel;
+class ModerationReportInfoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -17,8 +17,8 @@ public:
     explicit ModerationMessageInfoWidget(QWidget *parent = nullptr);
     ~ModerationMessageInfoWidget() override;
 
-    void showReportInfo(const ModerationReportInfo &info);
+    void setReportInfos(const ModerationReportInfos &info);
 
 private:
-    QLabel *const mReportInfoText;
+    ModerationReportInfoWidget *const mModerationReportInfoWidget;
 };

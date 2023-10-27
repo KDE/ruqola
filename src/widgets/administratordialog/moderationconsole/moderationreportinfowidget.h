@@ -13,6 +13,7 @@ class ModerationReportInfoListView;
 class QLineEdit;
 class ModerationReportInfoModel;
 class ModerationReportInfoFilterProxyModel;
+class ModerationReportInfos;
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
@@ -24,6 +25,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportInfoWidget : public QWidget
 public:
     explicit ModerationReportInfoWidget(QWidget *parent = nullptr);
     ~ModerationReportInfoWidget() override;
+
+    void setReportInfos(const ModerationReportInfos &infos);
 
 private:
     void slotTextToSpeech(const QString &messageText);

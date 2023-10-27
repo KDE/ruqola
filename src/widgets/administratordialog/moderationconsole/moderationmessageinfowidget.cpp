@@ -5,32 +5,28 @@
 */
 
 #include "moderationmessageinfowidget.h"
+#include "moderationreportinfowidget.h"
+
 #include <KLocalizedString>
-#include <QDebug>
-#include <QLabel>
 #include <QVBoxLayout>
 
 ModerationMessageInfoWidget::ModerationMessageInfoWidget(QWidget *parent)
     : QWidget{parent}
-    , mReportInfoText(new QLabel(this))
+    , mModerationReportInfoWidget(new ModerationReportInfoWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mReportInfoText->setObjectName(QStringLiteral("mReportInfoText"));
-    mainLayout->addWidget(mReportInfoText);
-    mReportInfoText->setWordWrap(true);
-    mainLayout->addStretch(1);
+    mModerationReportInfoWidget->setObjectName(QStringLiteral("mModerationReportInfoWidget"));
+    mainLayout->addWidget(mModerationReportInfoWidget);
 }
 
 ModerationMessageInfoWidget::~ModerationMessageInfoWidget() = default;
 
-void ModerationMessageInfoWidget::showReportInfo(const ModerationReportInfo &info)
+void ModerationMessageInfoWidget::setReportInfos(const ModerationReportInfos &infos)
 {
-    qDebug() << " info " << info;
-    // TODO
-    mReportInfoText->setText(info.description());
+    mModerationReportInfoWidget->setReportInfos(infos);
 }
 
 #include "moc_moderationmessageinfowidget.cpp"

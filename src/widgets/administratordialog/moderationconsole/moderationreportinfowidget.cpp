@@ -63,6 +63,11 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
 
 ModerationReportInfoWidget::~ModerationReportInfoWidget() = default;
 
+void ModerationReportInfoWidget::setReportInfos(const ModerationReportInfos &infos)
+{
+    mModerationReportInfoModel->insertModerationReportInfo(infos);
+}
+
 void ModerationReportInfoWidget::slotTextChanged(const QString &str)
 {
     mModerationReportInfoFilterProxyModel->setFilterString(str);
