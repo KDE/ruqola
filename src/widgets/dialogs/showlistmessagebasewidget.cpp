@@ -6,7 +6,7 @@
 
 #include "showlistmessagebasewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "model/listmessagesmodelfilterproxymodel.h"
+#include "model/listmessagesfilterproxymodel.h"
 #include "room/messagelistview.h"
 
 #include <KLocalizedString>
@@ -70,13 +70,13 @@ ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
     }
 }
 
-void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)
+void ShowListMessageBaseWidget::setModel(ListMessagesFilterProxyModel *model)
 {
     mModel = model;
     mMessageListView->setModel(model);
     mModel->setFilterString({});
-    connect(mModel, &ListMessagesModelFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
-    connect(mModel, &ListMessagesModelFilterProxyModel::loadingInProgressChanged, this, &ShowListMessageBaseWidget::updateLabel);
+    connect(mModel, &ListMessagesFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
+    connect(mModel, &ListMessagesFilterProxyModel::loadingInProgressChanged, this, &ShowListMessageBaseWidget::updateLabel);
     updateLabel();
 }
 

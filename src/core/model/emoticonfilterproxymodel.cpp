@@ -4,10 +4,10 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "emoticonmodelfilterproxymodel.h"
+#include "emoticonfilterproxymodel.h"
 #include "emoticonmodel.h"
 
-EmoticonModelFilterProxyModel::EmoticonModelFilterProxyModel(QObject *parent)
+EmoticonFilterProxyModel::EmoticonFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
@@ -15,9 +15,9 @@ EmoticonModelFilterProxyModel::EmoticonModelFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-EmoticonModelFilterProxyModel::~EmoticonModelFilterProxyModel() = default;
+EmoticonFilterProxyModel::~EmoticonFilterProxyModel() = default;
 
-bool EmoticonModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool EmoticonFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {
         return false;
@@ -31,4 +31,4 @@ bool EmoticonModelFilterProxyModel::lessThan(const QModelIndex &left, const QMod
     }
 }
 
-#include "moc_emoticonmodelfilterproxymodel.cpp"
+#include "moc_emoticonfilterproxymodel.cpp"

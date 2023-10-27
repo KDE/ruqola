@@ -9,12 +9,12 @@
 #include "libruqolacore_export.h"
 #include "listmessagesmodel.h"
 #include <QSortFilterProxyModel>
-class LIBRUQOLACORE_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT ListMessagesFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ListMessagesModelFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
-    ~ListMessagesModelFilterProxyModel() override;
+    explicit ListMessagesFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
+    ~ListMessagesFilterProxyModel() override;
     void setFilterString(const QString &string);
 
     ListMessagesModel *listMessageModel() const;

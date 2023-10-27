@@ -73,7 +73,7 @@ class DiscussionsFilterProxyModel;
 class DiscussionsModel;
 class ThreadMessageModel;
 class ListMessagesModel;
-class ListMessagesModelFilterProxyModel;
+class ListMessagesFilterProxyModel;
 class AutotranslateLanguagesModel;
 class CommandsModel;
 class DownloadAppsLanguagesManager;
@@ -341,7 +341,7 @@ public:
     [[nodiscard]] bool otrEnabled() const;
 
     [[nodiscard]] ListMessagesModel *listMessageModel() const;
-    [[nodiscard]] ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
+    [[nodiscard]] ListMessagesFilterProxyModel *listMessagesFilterProxyModel() const;
     [[nodiscard]] ServerConfigInfo *serverConfigInfo() const;
     [[nodiscard]] QString serverUrl() const;
     [[nodiscard]] StatusModel *statusModel() const;
@@ -690,7 +690,7 @@ private:
     ThreadMessageModel *mThreadMessageModel = nullptr;
 
     ListMessagesModel *mListMessageModel = nullptr;
-    ListMessagesModelFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
+    ListMessagesFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
 
     AutotranslateLanguagesModel *const mAutoTranslateLanguagesModel;
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;

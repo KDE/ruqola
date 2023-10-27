@@ -22,7 +22,7 @@
 #include "model/emoticonmodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
-#include "model/listmessagesmodelfilterproxymodel.h"
+#include "model/listmessagesfilterproxymodel.h"
 #include "model/loginmethodmodel.h"
 #include "model/messagesmodel.h"
 #include "model/searchchannelfilterproxymodel.h"
@@ -192,7 +192,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mListMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
     mListMessageModel->setObjectName(QStringLiteral("listmessagemodel"));
 
-    mListMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(mListMessageModel, this);
+    mListMessagesFilterProxyModel = new ListMessagesFilterProxyModel(mListMessageModel, this);
     mListMessagesFilterProxyModel->setObjectName(QStringLiteral("listmessagesfiltermodelproxy"));
 
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
@@ -1049,7 +1049,7 @@ AccountRoomSettings *RocketChatAccount::accountRoomSettings() const
     return mAccountRoomSettings;
 }
 
-ListMessagesModelFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() const
+ListMessagesFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() const
 {
     return mListMessagesFilterProxyModel;
 }

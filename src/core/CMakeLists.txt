@@ -189,8 +189,8 @@ target_sources(libruqolacore PRIVATE
     model/discussionsmodel.cpp
     model/discussionsmodel.h
     model/emoticonmodel.cpp
-    model/emoticonmodelfilterproxymodel.cpp
-    model/emoticonmodelfilterproxymodel.h
+    model/emoticonfilterproxymodel.cpp
+    model/emoticonfilterproxymodel.h
     model/emoticonmodel.h
     model/filesforroomfilterproxymodel.cpp
     model/filesforroomfilterproxymodel.h
@@ -199,8 +199,8 @@ target_sources(libruqolacore PRIVATE
     model/inputcompletermodel.cpp
     model/inputcompletermodel.h
     model/listmessagesmodel.cpp
-    model/listmessagesmodelfilterproxymodel.cpp
-    model/listmessagesmodelfilterproxymodel.h
+    model/listmessagesfilterproxymodel.cpp
+    model/listmessagesfilterproxymodel.h
     model/listmessagesmodel.h
     model/loginmethodmodel.cpp
     model/loginmethodmodel.h

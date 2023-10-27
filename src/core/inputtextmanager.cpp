@@ -8,7 +8,7 @@
 #include "connection.h"
 #include "misc/directoryjob.h"
 #include "model/commandsmodelfilterproxymodel.h"
-#include "model/emoticonmodelfilterproxymodel.h"
+#include "model/emoticonfilterproxymodel.h"
 #include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"
@@ -16,7 +16,7 @@
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mInputCompleterModel(new InputCompleterModel(this))
-    , mEmoticonFilterProxyModel(new EmoticonModelFilterProxyModel(this))
+    , mEmoticonFilterProxyModel(new EmoticonFilterProxyModel(this))
     , mCommandFilterProxyModel(new CommandsModelFilterProxyModel(this))
     , mAccount(account)
 {

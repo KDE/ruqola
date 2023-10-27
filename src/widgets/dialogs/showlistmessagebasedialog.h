@@ -10,7 +10,7 @@
 #include <QDialog>
 
 class ShowListMessageBaseWidget;
-class ListMessagesModelFilterProxyModel;
+class ListMessagesFilterProxyModel;
 class RocketChatAccount;
 class Room;
 class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
@@ -20,7 +20,7 @@ public:
     explicit ShowListMessageBaseDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowListMessageBaseDialog() override;
 
-    void setModel(ListMessagesModelFilterProxyModel *model);
+    void setModel(ListMessagesFilterProxyModel *model);
 
     void setRoomId(const QString &roomId);
     [[nodiscard]] QString roomId() const;

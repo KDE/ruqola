@@ -8,12 +8,12 @@
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
 
-class LIBRUQOLACORE_EXPORT EmoticonModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT EmoticonFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit EmoticonModelFilterProxyModel(QObject *parent = nullptr);
-    ~EmoticonModelFilterProxyModel() override;
+    explicit EmoticonFilterProxyModel(QObject *parent = nullptr);
+    ~EmoticonFilterProxyModel() override;
 
 protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;

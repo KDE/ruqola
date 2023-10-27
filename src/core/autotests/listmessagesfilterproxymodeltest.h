@@ -7,12 +7,12 @@
 
 #include <QObject>
 
-class ListMessagesModelFilterProxyModelTest : public QObject
+class ListMessagesFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ListMessagesModelFilterProxyModelTest(QObject *parent = nullptr);
-    ~ListMessagesModelFilterProxyModelTest() override = default;
+    explicit ListMessagesFilterProxyModelTest(QObject *parent = nullptr);
+    ~ListMessagesFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

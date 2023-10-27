@@ -12,7 +12,7 @@
 class QLineEdit;
 class MessageListView;
 class QLabel;
-class ListMessagesModelFilterProxyModel;
+class ListMessagesFilterProxyModel;
 class RocketChatAccount;
 class Room;
 
@@ -28,7 +28,7 @@ public:
     explicit ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowListMessageBaseWidget() override;
 
-    void setModel(ListMessagesModelFilterProxyModel *model);
+    void setModel(ListMessagesFilterProxyModel *model);
     [[nodiscard]] MessageListView *messageListView() const;
 
     void setRoom(Room *room);
@@ -44,6 +44,6 @@ private:
     QLineEdit *const mSearchMessageLineEdit;
     QLabel *const mMessageListInfo;
     MessageListView *const mMessageListView;
-    ListMessagesModelFilterProxyModel *mModel = nullptr;
+    ListMessagesFilterProxyModel *mModel = nullptr;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };
