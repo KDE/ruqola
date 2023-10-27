@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-26 00:42+0000\n"
+"POT-Creation-Date: 2023-10-27 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2774,6 +2774,45 @@ msgid_plural "%1 Messages in room"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:274
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Copy Message"
+msgstr "Správa"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/notificationhistory/notificationhistorylistview.cpp:94
+#: widgets/room/messagelistview.cpp:578
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#, fuzzy, kde-format
+#| msgid "Status:"
+msgid "Speak Text"
+msgstr "Stav:"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:304
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#, fuzzy, kde-format
+#| msgid "Select File..."
+msgid "Select All"
+msgstr "Vybrať súbor..."
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Search File..."
+msgid "Search..."
+msgstr "Hľadať súbor..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -5974,24 +6013,6 @@ msgstr "Názov kanála"
 msgid "Show Unread"
 msgstr "Vlákna"
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Search File..."
-msgid "Search..."
-msgstr "Hľadať súbor..."
-
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
-#: widgets/discussions/discussionlistview.cpp:74
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, fuzzy, kde-format
-#| msgid "Select File..."
-msgid "Select All"
-msgstr "Vybrať súbor..."
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:56
 #, fuzzy, kde-format
 #| msgid "Status:"
@@ -7326,15 +7347,6 @@ msgstr[2] "%1 správ"
 msgid "Open Discussion"
 msgstr ""
 
-#: widgets/discussions/discussionlistview.cpp:68
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Status:"
-msgid "Speak Text"
-msgstr "Stav:"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -8033,14 +8045,6 @@ msgstr "Upozornenia"
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Go to Message"
-msgstr "Správa"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
-#, fuzzy, kde-format
-#| msgid "Message"
-msgid "Copy Message"
 msgstr "Správa"
 
 #: widgets/offlinewidget/offlinewidget.cpp:16

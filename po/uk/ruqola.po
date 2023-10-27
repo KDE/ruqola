@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-26 00:42+0000\n"
+"POT-Creation-Date: 2023-10-27 00:43+0000\n"
 "PO-Revision-Date: 2023-10-23 09:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2697,6 +2697,41 @@ msgstr[0] "%1 повідомлення у кімнаті"
 msgstr[1] "%1 повідомлення у кімнаті"
 msgstr[2] "%1 повідомлень у кімнаті"
 msgstr[3] "Одне повідомлення у кімнаті"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:274
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#, kde-format
+msgid "Copy Message"
+msgstr "Копіювати повідомлення"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/notificationhistory/notificationhistorylistview.cpp:94
+#: widgets/room/messagelistview.cpp:578
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#, kde-format
+msgid "Speak Text"
+msgstr "Декламувати текст"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:304
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#, kde-format
+msgid "Select All"
+msgstr "Вибрати все"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#, kde-format
+msgid "Search..."
+msgstr "Шукати…"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -5902,22 +5937,6 @@ msgstr "Відомості щодо банерів"
 msgid "Show Unread"
 msgstr "Показати непрочитані"
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
-#, kde-format
-msgid "Search..."
-msgstr "Шукати…"
-
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
-#: widgets/discussions/discussionlistview.cpp:74
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, kde-format
-msgid "Select All"
-msgstr "Вибрати все"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:56
 #, kde-format
 msgid "Copy Text"
@@ -7166,14 +7185,6 @@ msgstr[3] "%1 повідомлення"
 msgid "Open Discussion"
 msgstr "Відкрити обговорення"
 
-#: widgets/discussions/discussionlistview.cpp:68
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
-#, kde-format
-msgid "Speak Text"
-msgstr "Декламувати текст"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7838,13 +7849,6 @@ msgstr "Сповіщення"
 #, kde-format
 msgid "Go to Message"
 msgstr "Перейти до повідомлення"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
-#, kde-format
-msgid "Copy Message"
-msgstr "Копіювати повідомлення"
 
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format

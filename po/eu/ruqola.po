@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-26 00:42+0000\n"
+"POT-Creation-Date: 2023-10-27 00:43+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2685,6 +2685,41 @@ msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
 msgstr[0] ""
 msgstr[1] ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:274
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#, kde-format
+msgid "Copy Message"
+msgstr "Kopiatu mezua"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/notificationhistory/notificationhistorylistview.cpp:94
+#: widgets/room/messagelistview.cpp:578
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#, kde-format
+msgid "Speak Text"
+msgstr "Esan testua"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:304
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#, kde-format
+msgid "Select All"
+msgstr "Hautatu guztia"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#, kde-format
+msgid "Search..."
+msgstr "Bilatu..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -5743,22 +5778,6 @@ msgstr ""
 msgid "Show Unread"
 msgstr ""
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
-#, kde-format
-msgid "Search..."
-msgstr "Bilatu..."
-
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
-#: widgets/discussions/discussionlistview.cpp:74
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, kde-format
-msgid "Select All"
-msgstr "Hautatu guztia"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:56
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -6995,14 +7014,6 @@ msgstr[1] "%1 mezu"
 msgid "Open Discussion"
 msgstr "Ireki elkarrizketa"
 
-#: widgets/discussions/discussionlistview.cpp:68
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
-#, kde-format
-msgid "Speak Text"
-msgstr "Esan testua"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7649,13 +7660,6 @@ msgstr "Jakinarazpena"
 #, kde-format
 msgid "Go to Message"
 msgstr "Joan mezura"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
-#, kde-format
-msgid "Copy Message"
-msgstr "Kopiatu mezua"
 
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format

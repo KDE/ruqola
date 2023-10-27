@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-26 00:42+0000\n"
+"POT-Creation-Date: 2023-10-27 00:43+0000\n"
 "PO-Revision-Date: 2023-10-14 17:58+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2687,6 +2687,41 @@ msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
 msgstr[0] "%1 mensaje en la sala"
 msgstr[1] "%1 mensajes en la sala"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:274
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#, kde-format
+msgid "Copy Message"
+msgstr "Copiar mensaje"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/notificationhistory/notificationhistorylistview.cpp:94
+#: widgets/room/messagelistview.cpp:578
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#, kde-format
+msgid "Speak Text"
+msgstr "Dictar texto"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:304
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#, kde-format
+msgid "Select All"
+msgstr "Seleccionar todos"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#, kde-format
+msgid "Search..."
+msgstr "Buscar..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -5885,22 +5920,6 @@ msgstr "Pancarta de información"
 msgid "Show Unread"
 msgstr "Mostrar no leídos"
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
-#, kde-format
-msgid "Search..."
-msgstr "Buscar..."
-
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
-#: widgets/discussions/discussionlistview.cpp:74
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, kde-format
-msgid "Select All"
-msgstr "Seleccionar todos"
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:56
 #, kde-format
 msgid "Copy Text"
@@ -7120,14 +7139,6 @@ msgstr[1] "%1 mensajes"
 msgid "Open Discussion"
 msgstr "Abrir discusión"
 
-#: widgets/discussions/discussionlistview.cpp:68
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
-#, kde-format
-msgid "Speak Text"
-msgstr "Dictar texto"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
@@ -7790,13 +7801,6 @@ msgstr "Notificación"
 #, kde-format
 msgid "Go to Message"
 msgstr "Ir al mensaje"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
-#, kde-format
-msgid "Copy Message"
-msgstr "Copiar mensaje"
 
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format

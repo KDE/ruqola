@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-26 00:42+0000\n"
+"POT-Creation-Date: 2023-10-27 00:43+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2775,6 +2775,44 @@ msgstr "找不到訊息"
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:274
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#, fuzzy, kde-format
+#| msgid "Unpin Message"
+msgid "Copy Message"
+msgstr "取消訊息置頂"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/notificationhistory/notificationhistorylistview.cpp:94
+#: widgets/room/messagelistview.cpp:578
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Speak Text"
+msgstr "狀態文字："
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:304
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#, kde-format
+msgid "Select All"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Search User..."
+msgid "Search..."
+msgstr "搜尋使用者…"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -5985,23 +6023,6 @@ msgstr "頻道資訊"
 msgid "Show Unread"
 msgstr "討論串"
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Search User..."
-msgid "Search..."
-msgstr "搜尋使用者…"
-
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
-#: widgets/discussions/discussionlistview.cpp:74
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, kde-format
-msgid "Select All"
-msgstr ""
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:56
 #, fuzzy, kde-format
 #| msgid "Status Text:"
@@ -7292,15 +7313,6 @@ msgstr[0] "%1 則訊息"
 msgid "Open Discussion"
 msgstr "開啟討論區"
 
-#: widgets/discussions/discussionlistview.cpp:68
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Status Text:"
-msgid "Speak Text"
-msgstr "狀態文字："
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Discussions"
@@ -7995,14 +8007,6 @@ msgstr "通知"
 #, kde-format
 msgid "Go to Message"
 msgstr ""
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
-#, fuzzy, kde-format
-#| msgid "Unpin Message"
-msgid "Copy Message"
-msgstr "取消訊息置頂"
 
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-26 00:42+0000\n"
+"POT-Creation-Date: 2023-10-27 00:43+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2785,6 +2785,44 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
+#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/room/messagelistview.cpp:274
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgid "Copy Message"
+msgstr "Kopijuoti nuorodą"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
+#: widgets/discussions/discussionlistview.cpp:68
+#: widgets/notificationhistory/notificationhistorylistview.cpp:94
+#: widgets/room/messagelistview.cpp:578
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Speak Text"
+msgstr "Būsenos tekstas:"
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/discussions/discussionlistview.cpp:74
+#: widgets/notificationhistory/notificationhistorylistview.cpp:100
+#: widgets/room/messagelistview.cpp:304
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#, kde-format
+msgid "Select All"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Search User..."
+msgid "Search..."
+msgstr "Ieškoti naudotojo..."
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -5987,23 +6025,6 @@ msgstr "Informacija apie kanalą"
 msgid "Show Unread"
 msgstr "Gijos"
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Search User..."
-msgid "Search..."
-msgstr "Ieškoti naudotojo..."
-
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
-#: widgets/discussions/discussionlistview.cpp:74
-#: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:304
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
-#, kde-format
-msgid "Select All"
-msgstr ""
-
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:56
 #, fuzzy, kde-format
 #| msgid "Status Text:"
@@ -7315,15 +7336,6 @@ msgstr[3] "%1 žinutė"
 msgid "Open Discussion"
 msgstr "Atverti diskusiją"
 
-#: widgets/discussions/discussionlistview.cpp:68
-#: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
-#, fuzzy, kde-format
-#| msgid "Status Text:"
-msgid "Speak Text"
-msgstr "Būsenos tekstas:"
-
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Show Discussions..."
@@ -8026,14 +8038,6 @@ msgstr ""
 #, kde-format
 msgid "Go to Message"
 msgstr ""
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:274
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
-#, fuzzy, kde-format
-#| msgid "Copy link"
-msgid "Copy Message"
-msgstr "Kopijuoti nuorodą"
 
 #: widgets/offlinewidget/offlinewidget.cpp:16
 #, kde-format
