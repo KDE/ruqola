@@ -42,7 +42,7 @@ void ModerationReportsJob::onGetRequestResponse(const QString &replyErrorString,
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationReportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationReportDone(replyObject);
+        Q_EMIT moderationReportsDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get moderation reports message : ")

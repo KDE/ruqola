@@ -31,7 +31,7 @@ public:
     void setMessageId(const QString &messageId);
 
 Q_SIGNALS:
-    void moderationReportDone(const QJsonObject &obj);
+    void moderationReportsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ModerationReportsJob)

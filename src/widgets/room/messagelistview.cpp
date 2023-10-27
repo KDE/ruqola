@@ -15,7 +15,7 @@
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/reportmessagedialog.h"
-#include "moderation/moderationreportinfo.h"
+#include "moderation/moderationreportsjob.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"
@@ -510,13 +510,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     case Mode::Moderation: {
         auto showReportInfo = new QAction(i18n("View Reports"), &menu); // Add icon
         connect(showReportInfo, &QAction::triggered, this, [this, message]() {
-            auto moderationId = message->moderationMessage().moderationId();
-            auto job = new RocketChatRestApi::ModerationReportInfoJob(this);
-            job->setReportId(moderationId);
+            const auto messageId = message->messageId();
+            const auto job = new RocketChatRestApi::ModerationReportsJob(this);
+            job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::ModerationReportInfoJob::moderationReportInfoDone, this, [this](const QJsonObject &obj) {
+            connect(job, &RocketChatRestApi::ModerationReportsJob::moderationReportsDone, this, [this](const QJsonObject &obj) {
                 ModerationReportInfos infos;
                 infos.parseModerationReportInfos(obj);
+                qDebug() << " infos " << infos;
                 slotShowReportInfo(std::move(infos));
             });
             if (!job->start()) {

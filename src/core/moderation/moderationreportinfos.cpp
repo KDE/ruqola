@@ -89,6 +89,7 @@ ModerationReportInfo ModerationReportInfos::at(int index) const
 void ModerationReportInfos::parseModerationReportInfos(const QJsonObject &moderationReportInfosObj)
 {
     mModerationReportInfosList.clear();
+    qDebug() << " moderationReportInfosObj " << moderationReportInfosObj;
     mModerationReportInfosCount = moderationReportInfosObj[QLatin1String("count")].toInt();
     mOffset = moderationReportInfosObj[QLatin1String("offset")].toInt();
     mTotal = moderationReportInfosObj[QLatin1String("total")].toInt();
