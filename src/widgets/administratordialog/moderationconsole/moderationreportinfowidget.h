@@ -9,9 +9,8 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class NotificationHistoryListView;
+class ModerationReportInfoListView;
 class QLineEdit;
-class ServersComboBox;
 class NotificationHistoryModelFilterProxyModel;
 
 namespace TextEditTextToSpeech
@@ -26,8 +25,6 @@ public:
     explicit ModerationReportInfoWidget(QWidget *parent = nullptr);
     ~ModerationReportInfoWidget() override;
 
-    void addServerList(const QStringList &serverNames);
-
 Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
@@ -37,9 +34,8 @@ private:
     void slotShowMessage(const QModelIndex &index);
     void slotTextChanged(const QString &str);
     void slotFilterAccount(const QString &accountName);
-    NotificationHistoryListView *const mListNotificationsListView;
+    ModerationReportInfoListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
-    ServersComboBox *const mServersComboBox;
 };

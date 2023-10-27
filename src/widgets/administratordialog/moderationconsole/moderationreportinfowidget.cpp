@@ -6,10 +6,9 @@
 
 #include "moderationreportinfowidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "misc/serverscombobox.h"
 #include "model/notificationhistorymodel.h"
 #include "model/notificationhistorymodelfilterproxymodel.h"
-#include "notificationhistorylistview.h"
+#include "moderationreportinfolistview.h"
 #include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -25,13 +24,12 @@
 
 ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     : QWidget{parent}
-    , mListNotificationsListView(new NotificationHistoryListView(this))
+    , mListNotificationsListView(new ModerationReportInfoListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
-    , mServersComboBox(new ServersComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -46,8 +44,6 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
-    mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
-    searchLayout->addWidget(mServersComboBox);
 
     mainLayout->addLayout(searchLayout);
 
@@ -55,7 +51,7 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mListNotificationsListView,
-            &NotificationHistoryListView::textToSpeech,
+            &ModerationReportInfoListView::textToSpeech,
             mTextToSpeechWidget,
             &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
@@ -70,15 +66,12 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     mListNotificationsListView->setModel(mNotificationFilterProxyModel);
 
     connect(mListNotificationsListView, &QListView::doubleClicked, this, &ModerationReportInfoWidget::slotShowMessage);
-    connect(mListNotificationsListView, &NotificationHistoryListView::showMessage, this, &ModerationReportInfoWidget::slotShowMessage);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ModerationReportInfoWidget::slotTextChanged);
-
-    connect(mServersComboBox, &ServersComboBox::accountSelected, this, &ModerationReportInfoWidget::slotFilterAccount);
 }
 
 ModerationReportInfoWidget::~ModerationReportInfoWidget() = default;
@@ -108,9 +101,4 @@ void ModerationReportInfoWidget::slotShowMessage(const QModelIndex &index)
     }
 }
 
-void ModerationReportInfoWidget::addServerList(const QStringList &serverNames)
-{
-    mServersComboBox->addServerList(serverNames);
-}
-
-#include "moc_notificationhistorywidget.cpp"
+#include "moc_moderationreportinfowidget.cpp"
