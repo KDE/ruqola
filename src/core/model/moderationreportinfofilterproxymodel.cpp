@@ -4,22 +4,21 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "moderationreportinfomodelfilterproxymodel.h"
+#include "moderationreportinfofilterproxymodel.h"
 #include "config-ruqola.h"
-#include "moderationreportinfomodel.h"
 
 #if HAVE_TEXT_UTILS
 #include <TextUtils/ConvertText>
 #endif
 
-ModerationReportInfoModelFilterProxyModel::ModerationReportInfoModelFilterProxyModel(QObject *parent)
+ModerationReportInfoFilterProxyModel::ModerationReportInfoFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
 {
 }
 
-ModerationReportInfoModelFilterProxyModel::~ModerationReportInfoModelFilterProxyModel() = default;
+ModerationReportInfoFilterProxyModel::~ModerationReportInfoFilterProxyModel() = default;
 
-void ModerationReportInfoModelFilterProxyModel::setFilterString(const QString &string)
+void ModerationReportInfoFilterProxyModel::setFilterString(const QString &string)
 {
 #if HAVE_TEXT_UTILS
     mFilterString = TextUtils::ConvertText::normalize(string);
@@ -29,7 +28,7 @@ void ModerationReportInfoModelFilterProxyModel::setFilterString(const QString &s
     invalidate();
 }
 
-bool ModerationReportInfoModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+bool ModerationReportInfoFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
 
@@ -54,4 +53,4 @@ bool ModerationReportInfoModelFilterProxyModel::filterAcceptsRow(int source_row,
     return true;
 }
 
-#include "moc_moderationreportinfomodelfilterproxymodel.cpp"
+#include "moc_moderationreportinfofilterproxymodel.cpp"

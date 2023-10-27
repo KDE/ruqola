@@ -10,12 +10,12 @@
 
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT ModerationReportInfoModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT ModerationReportInfoFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit ModerationReportInfoModelFilterProxyModel(QObject *parent = nullptr);
-    ~ModerationReportInfoModelFilterProxyModel() override;
+    explicit ModerationReportInfoFilterProxyModel(QObject *parent = nullptr);
+    ~ModerationReportInfoFilterProxyModel() override;
 
     void setFilterString(const QString &string);
 
