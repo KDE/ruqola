@@ -65,7 +65,7 @@ ModerationReportInfoWidget::~ModerationReportInfoWidget() = default;
 
 void ModerationReportInfoWidget::setReportInfos(const ModerationReportInfos &infos)
 {
-    mModerationReportInfoModel->insertModerationReportInfo(infos);
+    mModerationReportInfoModel->addModerationReportInfos(infos);
 }
 
 void ModerationReportInfoWidget::slotTextChanged(const QString &str)

@@ -49,7 +49,7 @@ void ModerationReportInfoModel::clear()
     }
 }
 
-void ModerationReportInfoModel::insertModerationReportInfo(const ModerationReportInfos &infos)
+void ModerationReportInfoModel::addModerationReportInfos(const ModerationReportInfos &infos)
 {
     clear();
     if (!infos.isEmpty()) {

@@ -32,7 +32,7 @@ public:
 
     void clear();
 
-    void insertModerationReportInfo(const ModerationReportInfos &infos);
+    void addModerationReportInfos(const ModerationReportInfos &infos);
 
 private:
     ModerationReportInfos mModerationReportInfos;
