@@ -164,12 +164,6 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
 
     const int textVMargin = 3; // adjust this for "compactness"
     QRect usableRect = option.rect;
-#if 0
-    // Add area for account/room info
-    if (!layout.sameAccountRoomAsPreviousMessage) {
-        usableRect.setTop(usableRect.top() + option.fontMetrics.height());
-    }
-#endif
 
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute

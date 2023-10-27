@@ -9,7 +9,6 @@
 #include "model/moderationreportinfofilterproxymodel.h"
 #include "model/moderationreportinfomodel.h"
 #include "moderationreportinfolistview.h"
-#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>

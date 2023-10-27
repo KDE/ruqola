@@ -31,11 +31,11 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     });
 }
 
+AdministratorModerationConsoleWidget::~AdministratorModerationConsoleWidget() = default;
+
 void AdministratorModerationConsoleWidget::initialize()
 {
     mModerationConsoleTreeWidget->initialize();
 }
-
-AdministratorModerationConsoleWidget::~AdministratorModerationConsoleWidget() = default;
 
 #include "moc_administratormoderationconsolewidget.cpp"

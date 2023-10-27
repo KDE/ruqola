@@ -5,20 +5,18 @@
 */
 
 #include "servererrorinfohistoryfilterproxymodel.h"
+#include "config-ruqola.h"
 #include "servererrorinfohistorymodel.h"
+#if HAVE_TEXT_UTILS
+#include <TextUtils/ConvertText>
+#endif
 
 ServerErrorInfoHistoryFilterProxyModel::ServerErrorInfoHistoryFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+    : SortFilterProxyModelBase{parent}
 {
 }
 
 ServerErrorInfoHistoryFilterProxyModel::~ServerErrorInfoHistoryFilterProxyModel() = default;
-
-void ServerErrorInfoHistoryFilterProxyModel::setFilterString(const QString &string)
-{
-    mFilterString = string;
-    invalidate();
-}
 
 bool ServerErrorInfoHistoryFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {

@@ -5,29 +5,19 @@
 */
 
 #include "notificationhistorymodelfilterproxymodel.h"
-#include "config-ruqola.h"
 #include "notificationhistorymodel.h"
 
+#include "config-ruqola.h"
 #if HAVE_TEXT_UTILS
 #include <TextUtils/ConvertText>
 #endif
 
 NotificationHistoryModelFilterProxyModel::NotificationHistoryModelFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+    : SortFilterProxyModelBase{parent}
 {
 }
 
 NotificationHistoryModelFilterProxyModel::~NotificationHistoryModelFilterProxyModel() = default;
-
-void NotificationHistoryModelFilterProxyModel::setFilterString(const QString &string)
-{
-#if HAVE_TEXT_UTILS
-    mFilterString = TextUtils::ConvertText::normalize(string);
-#else
-    mFilterString = string;
-#endif
-    invalidate();
-}
 
 bool NotificationHistoryModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {

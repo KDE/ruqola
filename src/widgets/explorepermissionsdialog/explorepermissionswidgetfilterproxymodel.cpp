@@ -5,10 +5,15 @@
 */
 
 #include "explorepermissionswidgetfilterproxymodel.h"
+#include "config-ruqola.h"
 #include "model/permissionsmodel.h"
 
+#if HAVE_TEXT_UTILS
+#include <TextUtils/ConvertText>
+#endif
+
 ExplorePermissionsWidgetFilterProxyModel::ExplorePermissionsWidgetFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+    : SortFilterProxyModelBase{parent}
 {
 }
 
@@ -27,12 +32,6 @@ bool ExplorePermissionsWidgetFilterProxyModel::filterAcceptsRow(int source_row, 
         return true;
     }
     return false;
-}
-
-void ExplorePermissionsWidgetFilterProxyModel::setFilterString(const QString &string)
-{
-    mFilterString = string;
-    invalidate();
 }
 
 #include "moc_explorepermissionswidgetfilterproxymodel.cpp"

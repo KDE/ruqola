@@ -6,18 +6,16 @@
 
 #pragma once
 
-#include <QSortFilterProxyModel>
+#include "model/sortfilterproxymodelbase.h"
 
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT NotificationHistoryModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT NotificationHistoryModelFilterProxyModel : public SortFilterProxyModelBase
 {
     Q_OBJECT
 public:
     explicit NotificationHistoryModelFilterProxyModel(QObject *parent = nullptr);
     ~NotificationHistoryModelFilterProxyModel() override;
-
-    void setFilterString(const QString &string);
 
     void setAccountNameFilter(const QString &newAccountNameFilter);
 
@@ -25,6 +23,5 @@ protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
-    QString mFilterString;
     QString mAccountNameFilter;
 };

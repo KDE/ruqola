@@ -6,27 +6,18 @@
 
 #include "moderationreportinfofilterproxymodel.h"
 #include "config-ruqola.h"
+#include "moderationreportinfomodel.h"
 
 #if HAVE_TEXT_UTILS
 #include <TextUtils/ConvertText>
 #endif
 
 ModerationReportInfoFilterProxyModel::ModerationReportInfoFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+    : SortFilterProxyModelBase{parent}
 {
 }
 
 ModerationReportInfoFilterProxyModel::~ModerationReportInfoFilterProxyModel() = default;
-
-void ModerationReportInfoFilterProxyModel::setFilterString(const QString &string)
-{
-#if HAVE_TEXT_UTILS
-    mFilterString = TextUtils::ConvertText::normalize(string);
-#else
-    mFilterString = string;
-#endif
-    invalidate();
-}
 
 bool ModerationReportInfoFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
@@ -44,12 +35,9 @@ bool ModerationReportInfoFilterProxyModel::filterAcceptsRow(int source_row, cons
         return str.contains(mFilterString, Qt::CaseInsensitive);
 #endif
     };
-#if 0
-    if (!match(NotificationHistoryModel::RoomName) && !match(NotificationHistoryModel::AccountName) && !match(NotificationHistoryModel::SenderName)
-        && !match(NotificationHistoryModel::MessageStr)) {
+    if (!match(ModerationReportInfoModel::Message)) {
         return false;
     }
-#endif
     return true;
 }
 

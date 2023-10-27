@@ -5,20 +5,15 @@
 */
 #pragma once
 
-#include <QSortFilterProxyModel>
+#include "model/sortfilterproxymodelbase.h"
 
-class ExplorePermissionsWidgetFilterProxyModel : public QSortFilterProxyModel
+class ExplorePermissionsWidgetFilterProxyModel : public SortFilterProxyModelBase
 {
     Q_OBJECT
 public:
     explicit ExplorePermissionsWidgetFilterProxyModel(QObject *parent = nullptr);
     ~ExplorePermissionsWidgetFilterProxyModel() override;
 
-    void setFilterString(const QString &string);
-
 protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-private:
-    QString mFilterString;
 };

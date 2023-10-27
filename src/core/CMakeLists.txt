@@ -277,6 +277,10 @@ target_sources(libruqolacore PRIVATE
     model/moderationmodel.cpp
     model/moderationmodel.h
 
+
+    model/sortfilterproxymodelbase.h
+    model/sortfilterproxymodelbase.cpp
+
     model/moderationmessagesmodel.h
     model/moderationmessagesmodel.cpp
     model/moderationreportinfomodel.cpp
