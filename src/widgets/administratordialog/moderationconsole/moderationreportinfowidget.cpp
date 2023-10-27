@@ -6,10 +6,8 @@
 
 #include "moderationreportinfowidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "model/notificationhistorymodel.h"
-#include "model/notificationhistorymodelfilterproxymodel.h"
+#include "model/moderationreportinfomodel.h"
 #include "moderationreportinfolistview.h"
-#include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -26,7 +24,7 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     : QWidget{parent}
     , mListNotificationsListView(new ModerationReportInfoListView(this))
     , mSearchLineEdit(new QLineEdit(this))
-    , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
+    , mModerationReportInfoModel(new ModerationReportInfoModel(this))
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
@@ -53,46 +51,21 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
     mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotificationsListView);
 
-    auto model = NotificationHistoryManager::self()->notificationHistoryModel();
-
-    mNotificationFilterProxyModel->setObjectName(QStringLiteral("mNotificationFilterProxyModel"));
-    mNotificationFilterProxyModel->setSourceModel(model);
-    mListNotificationsListView->setModel(mNotificationFilterProxyModel);
-
-    connect(mListNotificationsListView, &QListView::doubleClicked, this, &ModerationReportInfoWidget::slotShowMessage);
-
+    mListNotificationsListView->setModel(mModerationReportInfoModel);
+#if 0
     connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
-
+#endif
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ModerationReportInfoWidget::slotTextChanged);
 }
 
 ModerationReportInfoWidget::~ModerationReportInfoWidget() = default;
 
-void ModerationReportInfoWidget::slotFilterAccount(const QString &accountName)
-{
-    mNotificationFilterProxyModel->setAccountNameFilter(accountName);
-}
-
 void ModerationReportInfoWidget::slotTextChanged(const QString &str)
 {
-    mNotificationFilterProxyModel->setFilterString(str);
+    // TODO mNotificationFilterProxyModel->setFilterString(str);
     mListNotificationsListView->setSearchText(str);
-}
-
-void ModerationReportInfoWidget::slotShowMessage(const QModelIndex &index)
-{
-    if (index.isValid()) {
-        const QString roomId = index.data(NotificationHistoryModel::RoomId).toString();
-        const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
-        const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-        if (!accountName.isEmpty() && !roomId.isEmpty() && !messageId.isEmpty()) {
-            Q_EMIT showNotifyMessage(accountName, messageId, roomId);
-        } else {
-            qCWarning(RUQOLAWIDGETS_LOG) << " Problem with index. AccountName " << accountName << " roomId : " << roomId << "messageId " << messageId;
-        }
-    }
 }
 
 #include "moc_moderationreportinfowidget.cpp"

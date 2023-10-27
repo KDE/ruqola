@@ -11,8 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 class ModerationReportInfoListView;
 class QLineEdit;
-class NotificationHistoryModelFilterProxyModel;
-
+class ModerationReportInfoModel;
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
@@ -25,17 +24,12 @@ public:
     explicit ModerationReportInfoWidget(QWidget *parent = nullptr);
     ~ModerationReportInfoWidget() override;
 
-Q_SIGNALS:
-    void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
-
 private:
     void slotTextToSpeech(const QString &messageText);
     void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotShowMessage(const QModelIndex &index);
     void slotTextChanged(const QString &str);
-    void slotFilterAccount(const QString &accountName);
     ModerationReportInfoListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
-    NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;
+    ModerationReportInfoModel *const mModerationReportInfoModel;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };
