@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-27 00:43+0000\n"
+"POT-Creation-Date: 2023-10-28 00:43+0000\n"
 "PO-Revision-Date: 2023-10-23 09:55+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -838,27 +838,27 @@ msgstr "Uneix-te a"
 msgid "Custom"
 msgstr "Personalitzat"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:43
+#: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
 msgid "Starred Messages"
 msgstr "Missatges destacats"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:45
+#: core/model/listmessagesfilterproxymodel.cpp:45
 #, kde-format
 msgid "Pinned Messages"
 msgstr "Missatges fixats"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
+#: core/model/listmessagesfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr "Missatges que mencionen"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
 msgstr "Missatges dels fils"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
 msgstr "Missatges dels fils no llegits"
@@ -2696,7 +2696,7 @@ msgstr "Copia el missatge"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
+#: widgets/room/messagelistview.cpp:595
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
 #, kde-format
 msgid "Speak Text"
@@ -2712,7 +2712,7 @@ msgstr "Pronuncia el text"
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:38
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
@@ -7794,7 +7794,7 @@ msgid "Notification"
 msgstr "Notificació"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:561
+#: widgets/room/messagelistview.cpp:578
 #, kde-format
 msgid "Go to Message"
 msgstr "Ves al missatge"
@@ -8186,23 +8186,29 @@ msgstr "Tradueix el missatge"
 msgid "View Reports"
 msgstr "Vista dels informes"
 
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:534
+#, fuzzy, kde-format
+#| msgid "Dismiss reports"
+msgid "Dismiss Reports"
+msgstr "Descarta els informes"
+
+#: widgets/room/messagelistview.cpp:603
 #, kde-format
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: widgets/room/messagelistview.cpp:766
+#: widgets/room/messagelistview.cpp:783
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voleu suprimir aquest missatge?"
 
-#: widgets/room/messagelistview.cpp:767
+#: widgets/room/messagelistview.cpp:784
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Supressió de missatge"
 
-#: widgets/room/messagelistview.cpp:906
+#: widgets/room/messagelistview.cpp:923
 #, kde-format
 msgid "Translator Error"
 msgstr "Error del traductor"

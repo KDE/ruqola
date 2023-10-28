@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-27 00:43+0000\n"
+"POT-Creation-Date: 2023-10-28 00:43+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -831,27 +831,27 @@ msgstr "Uni a"
 msgid "Custom"
 msgstr "Personalisate"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:43
+#: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
 msgid "Starred Messages"
 msgstr "Messages con stella"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:45
+#: core/model/listmessagesfilterproxymodel.cpp:45
 #, kde-format
 msgid "Pinned Messages"
 msgstr "Messages appunctate"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
+#: core/model/listmessagesfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr "Messages de mentiones"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
 msgstr "Messages de topicos"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
 msgstr "Messages de topicos non legite"
@@ -2702,7 +2702,7 @@ msgstr "Copia message"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:578
+#: widgets/room/messagelistview.cpp:595
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
 #, kde-format
 msgid "Speak Text"
@@ -2718,7 +2718,7 @@ msgstr "Pronuncia texto"
 msgid "Select All"
 msgstr "Selige toto"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:45
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:38
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
@@ -7635,7 +7635,7 @@ msgid "Notification"
 msgstr "Notification"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:561
+#: widgets/room/messagelistview.cpp:578
 #, kde-format
 msgid "Go to Message"
 msgstr "Vade a message"
@@ -8035,23 +8035,29 @@ msgstr "Traduce Message"
 msgid "View Reports"
 msgstr "Reportar"
 
-#: widgets/room/messagelistview.cpp:586
+#: widgets/room/messagelistview.cpp:534
+#, fuzzy, kde-format
+#| msgid "Reporting"
+msgid "Dismiss Reports"
+msgstr "Reportar"
+
+#: widgets/room/messagelistview.cpp:603
 #, kde-format
 msgid "Report Message"
 msgstr "Reporta Message"
 
-#: widgets/room/messagelistview.cpp:766
+#: widgets/room/messagelistview.cpp:783
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Tu vole deler ite message?"
 
-#: widgets/room/messagelistview.cpp:767
+#: widgets/room/messagelistview.cpp:784
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Dele Messages"
 
-#: widgets/room/messagelistview.cpp:906
+#: widgets/room/messagelistview.cpp:923
 #, kde-format
 msgid "Translator Error"
 msgstr "Error de traductor"
