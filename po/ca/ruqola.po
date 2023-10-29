@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-18 02:30+0000\n"
-"PO-Revision-Date: 2023-09-28 12:03+0200\n"
+"PO-Revision-Date: 2023-10-28 09:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -8036,7 +8036,7 @@ msgstr "Copia l'enllaç al missatge"
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
-msgstr "Deixa de seguix el missatge"
+msgstr "Deixa de seguir el missatge"
 
 #: widgets/room/messagelistview.cpp:335
 #: widgets/threadwidget/threadmessagewidget.cpp:114
@@ -8933,6 +8933,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgid "Share"
-#~ msgstr "Comparteix"
