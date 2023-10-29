@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:43+0000\n"
-"PO-Revision-Date: 2023-10-23 12:27+0200\n"
+"PO-Revision-Date: 2023-10-28 11:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8190,8 +8190,7 @@ msgid "View Reports"
 msgstr "Rapporten bekijken"
 
 #: widgets/room/messagelistview.cpp:534
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgid "Dismiss Reports"
 msgstr "Rapporten verwerpen"
 

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:43+0000\n"
-"PO-Revision-Date: 2023-10-14 17:58+0200\n"
+"PO-Revision-Date: 2023-10-28 12:37+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2650,12 +2650,10 @@ msgid "Delete All Messages"
 msgstr "Borrar todos los mensajes"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Moderation Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Mostrar mensajes de moderación"
+msgstr "Mostrar informe de moderación"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
 #, kde-format
@@ -8190,8 +8188,7 @@ msgid "View Reports"
 msgstr "Ver reportes"
 
 #: widgets/room/messagelistview.cpp:534
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgid "Dismiss Reports"
 msgstr "Descartar reportes"
 
@@ -9079,10 +9076,8 @@ msgstr "Corrección del soporte de markdown (marcas de cabecera y verificación)
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Reducción del uso de memoria"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "su mensaje (opcional)"
+msgstr "Almacenaje del tamaño del mensaje (optimización)"
