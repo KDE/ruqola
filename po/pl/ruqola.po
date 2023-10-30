@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:43+0000\n"
-"PO-Revision-Date: 2023-10-21 10:23+0200\n"
+"PO-Revision-Date: 2023-10-29 09:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -8187,8 +8187,7 @@ msgid "View Reports"
 msgstr "Obejrzyj zgłoszenia"
 
 #: widgets/room/messagelistview.cpp:534
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgid "Dismiss Reports"
 msgstr "Odrzuć zgłoszenia"
 
@@ -9068,13 +9067,11 @@ msgstr "Naprawiono obsługę markdown (nagłówek + parafka)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "Naprawiono wyciek pamięci"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "twoja wiadomość (niewymagane)"
+msgstr "Rozmiar wiadomości w pamięci podręcznej (optymalizacja)"
 
 #~ msgid "Share"
 #~ msgstr "Udostępnij"
