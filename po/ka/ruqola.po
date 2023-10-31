@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:43+0000\n"
-"PO-Revision-Date: 2023-10-27 06:10+0200\n"
+"PO-Revision-Date: 2023-10-30 05:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -2610,6 +2610,8 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
+"დარწმუნებული ბრძანდებით, რომ გნებავთ, მოაცილოთ და წაშალოთ ყველა ანგარიში ამ "
+"მომხმარებლის შეტყობინებებისთვის? ეს ქმედება შეუქცევადია."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
@@ -2625,6 +2627,11 @@ msgid ""
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
+"დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ ყველა ანგარიშის შეტყობინება ამ "
+"მომხმარებლისგან?\n"
+"შეტყობინებები წაიშლაება შეტყობინებების ისტორიიდან და მათ ვეღარავინ "
+"დაინახავს.\n"
+"ქმედება შეუქცევადია."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, kde-format
@@ -3783,6 +3790,8 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"ბმული, სადაც Piwik მდებარეობს. დარწმუნდით, რომ ბოლოში დახრილი ხაზი არ "
+"დაგავიწყდათ. მაგ: //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
@@ -8018,8 +8027,7 @@ msgid "View Reports"
 msgstr "ანგარიშების ნახვა"
 
 #: widgets/room/messagelistview.cpp:534
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgid "Dismiss Reports"
 msgstr "ანგარიშების გაუქმება"
 
@@ -8898,7 +8906,7 @@ msgstr "Markdown-ის მხარდაჭერის გაუქმებ�
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix mem leak"
-msgstr ""
+msgstr "გასწორდა მეხსიერების გაჟონვა"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Cache message size (optimization)"
