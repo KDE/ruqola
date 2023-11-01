@@ -7968,10 +7968,9 @@ msgid "View Reports"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:534
-#, fuzzy, kde-format
-#| msgid "Reports"
+#, kde-format
 msgid "Dismiss Reports"
-msgstr "Hlášení"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:603
 #, kde-format
