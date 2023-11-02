@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-28 00:43+0000\n"
-"PO-Revision-Date: 2023-10-30 15:11+0100\n"
+"PO-Revision-Date: 2023-10-31 10:26+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -776,7 +776,7 @@ msgstr "ID de session"
 #: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
-msgstr "Ip"
+msgstr "IP"
 
 #: core/model/deviceinfomodel.cpp:44
 #, kde-format
@@ -1810,7 +1810,7 @@ msgstr "Largeur du fichier non valable"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #, kde-format
 msgid "You informed an invalid FROM address."
-msgstr "Vous avez renseigné une adresse FROM non valable."
+msgstr "Vous avez renseigné une adresse « De » non valable."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, kde-format
@@ -1845,7 +1845,7 @@ msgstr "Permission non valable"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "Invalid redirectUri"
-msgstr "redirectUri non valable"
+msgstr "Paramètre « redirectUri » non valable"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
@@ -1886,7 +1886,7 @@ msgstr "Jeton non valable"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid triggerWords"
-msgstr "triggerWords non valables"
+msgstr "Paramètre « triggerWords » non valable"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 #, kde-format
@@ -1906,7 +1906,7 @@ msgstr "Nom d'utilisateur non valable"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
-msgstr "L'URL webhook a répondu avec un état différent de 200"
+msgstr "L'URL « webhook » a répondu avec un état différent de 200."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 #, kde-format
@@ -1921,7 +1921,7 @@ msgstr "La modification de messages est bloquée"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
-msgstr "La taille du message dépasse Message_MaxAllowedSize"
+msgstr "La taille du message dépasse la valeur « Message_MaxAllowedSize »"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 #, kde-format
@@ -1990,8 +1990,8 @@ msgstr ""
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr ""
-"Le mot de passe ne respecte pas la politique du serveur, il doit comporter "
-"au moins un caractère spécial"
+"Le mot de passe ne respecte pas la politique du serveur. Il doit comporter "
+"au moins un caractère spécial."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:375
 #, kde-format
@@ -2015,7 +2015,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Push is disabled"
-msgstr "Le Push est désactivé"
+msgstr "Le mode « Push » est désactivé"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
@@ -2040,7 +2040,7 @@ msgstr "Le champ __field__ est requis."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid "This is not a Livechat room"
-msgstr "Ce salon n'est pas un salon Livechat"
+msgstr "Ce salon n'est pas un salon de discussion en temps réel."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
@@ -2082,8 +2082,8 @@ msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
 msgstr ""
-"Le nombre d'utilisateurs que vous essayez d'inviter à #channel_name dépasse "
-"la limite définie par l'administrateur"
+"Le nombre d'utilisateurs que vous essayez d'inviter à « #channel_name » "
+"dépasse la limite définie par l'administrateur"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:408
 #, kde-format
@@ -3372,7 +3372,7 @@ msgstr "Ré-initialiser la clé « E2E »"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:274
 #, kde-format
 msgid "Reset Totp"
-msgstr "Ré-initialiser « Totp »"
+msgstr "Ré-initialiser « TOTP »"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #, kde-format
@@ -4040,12 +4040,12 @@ msgstr "SMTP"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:50
 #, kde-format
 msgid "smtp"
-msgstr "smtp"
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
 #, kde-format
 msgid "smtps"
-msgstr "smtps"
+msgstr "SMTPS"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:60
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -4288,7 +4288,7 @@ msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
 "without authentication)."
 msgstr ""
-"Secret pour le jeton Internet « Json » pour l'envoi de fichiers (Utilisé "
+"Secret pour le jeton Internet « JSON » pour l'envoi de fichiers (Utilisé "
 "pour pouvoir accéder aux fichiers envoyés sans authentification)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
@@ -4673,7 +4673,7 @@ msgstr ""
 "authentifier d'autres utilisateurs lors de leurs ouvertures de session. Il "
 "s'agit généralement d'un compte de service créé spécifiquement pour les "
 "intégrations avec des tierces parties. Veuillez utiliser un nom totalement "
-"qualifié, comme « cn=Administrator,cn=Users,dc=Example,dc=com »."
+"qualifié, comme « cn=Administrator, cn=Users, dc=Example, dc=com »."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:67
 #, kde-format
@@ -5095,7 +5095,7 @@ msgstr "Connexion à LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
 #, kde-format
 msgid "Meteor Login"
-msgstr "Connexion Meteor"
+msgstr "Connexion à Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
@@ -5105,7 +5105,7 @@ msgstr "Connexion à Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
 #, kde-format
 msgid "Github Login"
-msgstr "Connexion à Github"
+msgstr "Connexion à GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
 #, kde-format
@@ -5154,7 +5154,7 @@ msgstr "Dolphin"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
 msgid "Url"
-msgstr "Url"
+msgstr "URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
 #, kde-format
@@ -5248,18 +5248,18 @@ msgstr "Secret pour Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:173
 #, kde-format
 msgid "Github"
-msgstr "Github"
+msgstr "GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
 msgid "Github Id"
-msgstr "Identifiant Github"
+msgstr "Identifiant GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:185
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:188
 #, kde-format
 msgid "Github Secret"
-msgstr "Secret pour Github"
+msgstr "Secret pour GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:191
 #, kde-format
@@ -5608,12 +5608,12 @@ msgstr "Appliquer"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr "Sorties pour SlackBridge activées"
+msgstr "Sorties pour Slack Bridge activées"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr "Toutes les sorties pour SlackBridge"
+msgstr "Toutes les sorties pour Slack Bridge"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
 #, kde-format
@@ -5634,7 +5634,7 @@ msgstr "Jetons d'API"
 #, kde-format
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
-"Sélectionnez si SlackBridge doit également envoyer vos messages à Slack"
+"Sélectionnez si Slack Bridge doit également envoyer vos messages à Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
@@ -5752,8 +5752,9 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
-"Ce paramètre arrête le traitement des sessions de visiteurs en livechat. "
-"Dans ce cas, les statistiques cessent de fonctionner correctement !"
+"Ce paramètre arrête le traitement des sessions de visiteurs en discussion en "
+"temps réel. Dans ce cas, les statistiques cessent de fonctionner "
+"correctement !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -7218,7 +7219,7 @@ msgstr "Format de sortie :"
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
 msgid "Json"
-msgstr "Json"
+msgstr "JSON"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:39
 #, kde-format
@@ -9079,7 +9080,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:27
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr ""
-"Ajouter la prise en charge du texte en citation (Text commençant par « > »)"
+"Ajouter la prise en charge du texte en citation (Texte commençant par « > »)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Show leader/moderator/owner in channel info."
@@ -9107,7 +9108,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:38
 msgid "Fix animated gif in reactions"
-msgstr "Corriger les fichiers « Gif » animés dans les réactions"
+msgstr "Corriger les fichiers au format « gif » animé dans les réactions"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:39
 msgid "Fix kf6 support"
