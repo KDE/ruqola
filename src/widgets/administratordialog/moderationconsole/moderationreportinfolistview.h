@@ -8,12 +8,13 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
 class ModerationReportInfoDelegate;
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportInfoListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
-    explicit ModerationReportInfoListView(QWidget *parent = nullptr);
+    explicit ModerationReportInfoListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationReportInfoListView() override;
 
     void clearCache();

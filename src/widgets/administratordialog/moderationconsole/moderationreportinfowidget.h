@@ -14,6 +14,7 @@ class QLineEdit;
 class ModerationReportInfoModel;
 class ModerationReportInfoFilterProxyModel;
 class ModerationReportInfos;
+class RocketChatAccount;
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
@@ -23,7 +24,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ModerationReportInfoWidget(QWidget *parent = nullptr);
+    explicit ModerationReportInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationReportInfoWidget() override;
 
     void setReportInfos(const ModerationReportInfos &infos);

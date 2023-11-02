@@ -8,13 +8,13 @@
 #include "libruqolawidgets_private_export.h"
 #include "moderation/moderationreportinfos.h"
 #include <QWidget>
-
+class RocketChatAccount;
 class ModerationReportInfoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ModerationMessageInfoWidget(QWidget *parent = nullptr);
+    explicit ModerationMessageInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationMessageInfoWidget() override;
 
     void setReportInfos(const ModerationReportInfos &info);

@@ -11,11 +11,12 @@
 #include <QDialog>
 
 class ModerationMessageInfoWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessageInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ModerationMessageInfoDialog(QWidget *parent = nullptr);
+    explicit ModerationMessageInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ModerationMessageInfoDialog() override;
 
     void setReportInfos(const ModerationReportInfos &info);

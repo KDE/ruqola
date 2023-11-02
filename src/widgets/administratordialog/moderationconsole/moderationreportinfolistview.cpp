@@ -15,9 +15,9 @@
 
 #include <config-ruqola.h>
 
-ModerationReportInfoListView::ModerationReportInfoListView(QWidget *parent)
+ModerationReportInfoListView::ModerationReportInfoListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
-    , mModerationReportInfoDelegate(new ModerationReportInfoDelegate(this, this))
+    , mModerationReportInfoDelegate(new ModerationReportInfoDelegate(account, this, this))
 {
     mModerationReportInfoDelegate->setObjectName(QStringLiteral("mModerationReportInfoDelegate"));
     setItemDelegate(mModerationReportInfoDelegate);

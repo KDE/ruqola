@@ -15,7 +15,7 @@ ModerationReportInfoListViewTest::ModerationReportInfoListViewTest(QObject *pare
 
 void ModerationReportInfoListViewTest::shouldHaveDefaultValues()
 {
-    ModerationReportInfoListView w;
+    ModerationReportInfoListView w(nullptr);
     QVERIFY(w.searchText().isEmpty());
 }
 

@@ -10,9 +10,9 @@
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
-ModerationMessageInfoWidget::ModerationMessageInfoWidget(QWidget *parent)
+ModerationMessageInfoWidget::ModerationMessageInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
-    , mModerationReportInfoWidget(new ModerationReportInfoWidget(this))
+    , mModerationReportInfoWidget(new ModerationReportInfoWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});

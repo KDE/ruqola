@@ -20,7 +20,7 @@ ModerationMessageInfoDialogTest::ModerationMessageInfoDialogTest(QObject *parent
 
 void ModerationMessageInfoDialogTest::shouldHaveDefaultValues()
 {
-    ModerationMessageInfoDialog d;
+    ModerationMessageInfoDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

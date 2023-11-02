@@ -20,9 +20,9 @@
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
-ModerationReportInfoWidget::ModerationReportInfoWidget(QWidget *parent)
+ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
-    , mListNotificationsListView(new ModerationReportInfoListView(this))
+    , mListNotificationsListView(new ModerationReportInfoListView(account, this))
     , mSearchLineEdit(new QLineEdit(this))
     , mModerationReportInfoFilterProxyModel(new ModerationReportInfoFilterProxyModel(this))
     , mModerationReportInfoModel(new ModerationReportInfoModel(this))

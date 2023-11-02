@@ -10,12 +10,13 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistdelegatebase.h"
 class QListView;
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportInfoDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
 public:
-    explicit ModerationReportInfoDelegate(QListView *view, QObject *parent = nullptr);
+    explicit ModerationReportInfoDelegate(RocketChatAccount *account, QListView *view, QObject *parent = nullptr);
     ~ModerationReportInfoDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
@@ -58,4 +59,5 @@ private:
     [[nodiscard]] ModerationReportInfoDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
     [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
+    RocketChatAccount *const mRocketChatAccount;
 };

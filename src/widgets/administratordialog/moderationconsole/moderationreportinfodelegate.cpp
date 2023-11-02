@@ -17,8 +17,9 @@
 #include <QPainter>
 #include <QToolTip>
 
-ModerationReportInfoDelegate::ModerationReportInfoDelegate(QListView *view, QObject *parent)
+ModerationReportInfoDelegate::ModerationReportInfoDelegate(RocketChatAccount *account, QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
+    , mRocketChatAccount(account)
 {
 }
 
@@ -121,6 +122,7 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+    // TODO add pixmap
 #if 0
     // Resize pixmap TODO cache ?
     const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
@@ -227,10 +229,10 @@ bool ModerationReportInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIte
     if (layout.senderRect.contains(helpEventPos)) {
         auto account = rocketChatAccount(index);
         if (account) {
-            const QString senderName = index.data(NotificationHistoryModel::SenderName).toString();
+            const QString senderName = index.data(ModerationReportInfoModel::SenderName).toString();
             QString tooltip = senderName;
             if (account->useRealName() && !tooltip.isEmpty()) {
-                const QString senderUserName = index.data(NotificationHistoryModel::SenderUserName).toString();
+                const QString senderUserName = index.data(ModerationReportInfoModel::SenderUserName).toString();
                 tooltip = QLatin1Char('@') + senderUserName;
             }
             if (!tooltip.isEmpty()) {
@@ -288,11 +290,7 @@ bool ModerationReportInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSty
 
 RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelIndex &index) const
 {
-#if 0
-    const QString accountName = index.data(ModerationReportInfoModel::ReportIdentifier).toString();
-    return Ruqola::self()->accountManager()->accountFromName(accountName);
-#endif
-    return {};
+    return mRocketChatAccount;
 }
 
 QString ModerationReportInfoDelegate::selectedText() const

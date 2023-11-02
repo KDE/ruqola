@@ -935,9 +935,8 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
 
 void MessageListView::slotShowReportInfo(const ModerationReportInfos &info)
 {
-    ModerationMessageInfoDialog dlg(this);
+    ModerationMessageInfoDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setReportInfos(info);
     dlg.exec();
-    // TODO
 }
 #include "moc_messagelistview.cpp"

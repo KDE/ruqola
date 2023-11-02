@@ -19,9 +19,9 @@ namespace
 {
 static const char myModerationMessageInfoDialogGroupName[] = "ModerationMessageInfoDialog";
 }
-ModerationMessageInfoDialog::ModerationMessageInfoDialog(QWidget *parent)
+ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mModerationMessageInfoWidget(new ModerationMessageInfoWidget(this))
+    , mModerationMessageInfoWidget(new ModerationMessageInfoWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Show Moderation Report"));
     auto mainLayout = new QVBoxLayout(this);
