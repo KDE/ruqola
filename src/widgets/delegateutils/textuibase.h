@@ -12,7 +12,6 @@
 #include <memory>
 
 class TextSelectionImpl;
-class QTextDocument;
 class QListView;
 
 class TextUiBase
