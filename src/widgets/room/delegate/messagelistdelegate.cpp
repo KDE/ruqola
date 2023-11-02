@@ -597,7 +597,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
         const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-        if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage(message)) {
+        if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage(message) && mEmojiMenuEnabled) {
             auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
