@@ -24,28 +24,6 @@ ModerationReportInfoDelegate::ModerationReportInfoDelegate(QListView *view, QObj
 
 ModerationReportInfoDelegate::~ModerationReportInfoDelegate() = default;
 
-void ModerationReportInfoDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
-{
-#if 0
-    const QPen origPen = painter->pen();
-    const qreal margin = MessageDelegateUtils::basicMargin();
-    const RoomAccount info = roomAccountInfo(index);
-
-    const QString infoStr = QStringLiteral("%1 - %2").arg(info.accountName, info.channelName);
-    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, infoStr);
-    const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
-    const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
-    painter->drawText(infoTextRect, infoStr);
-    const int lineY = (infoAreaRect.top() + infoAreaRect.bottom()) / 2;
-    QColor lightColor(painter->pen().color());
-    lightColor.setAlpha(60);
-    painter->setPen(lightColor);
-    painter->drawLine(infoAreaRect.left(), lineY, infoTextRect.left() - margin, lineY);
-    painter->drawLine(infoTextRect.right() + margin, lineY, infoAreaRect.right(), lineY);
-    painter->setPen(origPen);
-#endif
-}
-
 void ModerationReportInfoDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
