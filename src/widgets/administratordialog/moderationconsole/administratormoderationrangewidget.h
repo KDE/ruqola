@@ -8,7 +8,6 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QWidget>
-class ModerationConsoleTreeWidget;
 class QDateEdit;
 class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationRangeWidget : public QWidget

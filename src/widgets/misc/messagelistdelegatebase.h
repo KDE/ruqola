@@ -11,7 +11,6 @@
 #include "messagelisttextui.h"
 #include <QItemDelegate>
 class QTextDocument;
-class TextSelectionImpl;
 class RocketChatAccount;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface, public MessageListTextUi

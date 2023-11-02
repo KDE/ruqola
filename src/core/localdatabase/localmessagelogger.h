@@ -14,7 +14,6 @@
 class QFile;
 class QSqlTableModel;
 class Message;
-class QSqlDatabase;
 class LIBRUQOLACORE_EXPORT LocalMessageLogger : public LocalDatabaseBase
 {
 public:

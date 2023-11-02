@@ -13,7 +13,6 @@
 class QLineEdit;
 class QPushButton;
 class QLabel;
-class QCheckBox;
 class KBusyIndicatorWidget;
 class AuthenticationComboBox;
 class PasswordLineEditWidget;

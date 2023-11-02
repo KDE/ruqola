@@ -12,7 +12,6 @@
 class ModerationMessagesWidget;
 class CommonMessageFilterProxyModel;
 class RocketChatAccount;
-class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationMessagesDialog : public QDialog
 {
     Q_OBJECT

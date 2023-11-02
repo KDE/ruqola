@@ -10,7 +10,6 @@
 #include "threadmessagewidget.h"
 #include <QDialog>
 class RocketChatAccount;
-class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageDialog : public QDialog
 {
     Q_OBJECT
