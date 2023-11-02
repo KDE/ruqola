@@ -145,23 +145,20 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
     SearchChannelModel w;
     QSignalSpy rowInsertedSpy(&w, &SearchChannelModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &SearchChannelModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &SearchChannelModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &SearchChannelModel::rowsAboutToBeRemoved);
+    QSignalSpy modelAboutToResetSpy(&w, &SearchChannelModel::modelAboutToBeReset);
 
     QJsonObject obj = loadFile(QStringLiteral("channelparent.json"));
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,7"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,7"));
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToResetSpy.clear();
 
     // Test room
     QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelName).toString(), QStringLiteral("bal3"));
@@ -179,10 +176,7 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,7"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,7"));
+    QCOMPARE(modelAboutToResetSpy.count(), 1);
 }
 
 void SearchChannelModelTest::shouldClearModel()
