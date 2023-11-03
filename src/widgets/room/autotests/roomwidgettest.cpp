@@ -68,9 +68,10 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto mRoomCounterInfoWidget = w.findChild<RoomCounterInfoWidget *>(QStringLiteral("mRoomCounterInfoWidget"));
     QVERIFY(mRoomCounterInfoWidget);
 
+#if 0 // Load on demand
     auto mRoomReconnectInfoWidget = w.findChild<ReconnectInfoWidget *>(QStringLiteral("mRoomReconnectInfoWidget"));
     QVERIFY(mRoomReconnectInfoWidget);
-
+#endif
     auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(QStringLiteral("mRoomReplyThreadWidget"));
     QVERIFY(mRoomReplyThreadWidget);
     QVERIFY(!mRoomReplyThreadWidget->isVisible());
@@ -83,14 +84,16 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mUploadFileProgressStatusListWidget);
     QVERIFY(!mUploadFileProgressStatusListWidget->isVisible());
 
+#if 0 // Load on demand
     auto mOtrWidget = w.findChild<OtrWidget *>(QStringLiteral("mOtrWidget"));
     QVERIFY(mOtrWidget);
 
     auto mOffLineWidget = w.findChild<OffLineWidget *>(QStringLiteral("mOffLineWidget"));
     QVERIFY(mOffLineWidget);
 
-    auto mPluginTextMessateWidget = w.findChild<PluginTextMessageWidget *>(QStringLiteral("mPluginTextMessateWidget"));
-    QVERIFY(mPluginTextMessateWidget);
+    auto mPluginTextMessageWidget = w.findChild<PluginTextMessageWidget *>(QStringLiteral("mPluginTextMessageWidget"));
+    QVERIFY(mPluginTextMessageWidget);
+#endif
 }
 
 static Room *createRoom(const QString &roomId, const QString &roomName)
