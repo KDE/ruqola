@@ -30,8 +30,7 @@ void InputCompleterModelTest::shouldAssignValues()
     InputCompleterModel w;
     QSignalSpy rowInsertedSpy(&w, &InputCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &InputCompleterModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &InputCompleterModel::rowsAboutToBeRemoved);
+    QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
     QVector<Channel> channelList;
     for (int i = 0; i < 10; ++i) {
@@ -45,8 +44,7 @@ void InputCompleterModelTest::shouldAssignValues()
     QCOMPARE(w.rowCount(), 10);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
 
@@ -54,34 +52,26 @@ void InputCompleterModelTest::shouldAssignValues()
     channelList.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToResetSpy.clear();
 
     w.setChannels(channelList);
 
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,9"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,9"));
+    QCOMPARE(modelAboutToResetSpy.count(), 1);
 
     // Add same element
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToResetSpy.clear();
 
     w.setChannels(channelList);
 
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QString());
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QString());
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 
@@ -89,8 +79,7 @@ void InputCompleterModelTest::shouldAssignValues()
     channelList.clear();
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToResetSpy.clear();
 
     for (int i = 0; i < 5; ++i) {
         Channel c;
@@ -103,23 +92,18 @@ void InputCompleterModelTest::shouldAssignValues()
     QCOMPARE(w.rowCount(), 5);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToResetSpy.clear();
     w.setChannels(channelList);
 
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,4"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,4"));
+    QCOMPARE(modelAboutToResetSpy.count(), 1);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 }
@@ -145,23 +129,20 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     InputCompleterModel w;
     QSignalSpy rowInsertedSpy(&w, &InputCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &InputCompleterModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &InputCompleterModel::rowsAboutToBeRemoved);
+    QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
     QJsonObject obj = loadFile(QStringLiteral("channelparent.json"));
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,7"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,7"));
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToResetSpy.clear();
 
     // Test room
     QCOMPARE(w.data(w.index(2), InputCompleterModel::CompleterName).toString(), QStringLiteral("bal3"));
@@ -181,10 +162,7 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,7"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,7"));
+    QCOMPARE(modelAboutToResetSpy.count(), 1);
 }
 
 void InputCompleterModelTest::shouldClearModel()
@@ -192,32 +170,26 @@ void InputCompleterModelTest::shouldClearModel()
     InputCompleterModel w;
     QSignalSpy rowInsertedSpy(&w, &InputCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &InputCompleterModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &InputCompleterModel::rowsAboutToBeRemoved);
+    QSignalSpy modelAboutToBeResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
     QJsonObject obj = loadFile(QStringLiteral("channelparent.json"));
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelAboutToBeResetSpy.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,7"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,7"));
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
+    modelAboutToBeResetSpy.clear();
 
     w.clear();
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,7"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,7"));
+    QCOMPARE(modelAboutToBeResetSpy.count(), 0);
 }
 
 #include "moc_inputcompletermodeltest.cpp"
