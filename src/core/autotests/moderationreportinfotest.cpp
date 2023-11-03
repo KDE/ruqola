@@ -38,6 +38,7 @@ void ModerationReportInfoTest::shouldLoadReportInfo_data()
     moderationReportInfo.setTimeStamp(1697091428125);
     moderationReportInfo.setRoomId(QStringLiteral("xxib9aFXMGN3o"));
     moderationReportInfo.setUserId(QStringLiteral("H7Q9djXQ4iShzD9T2"));
+    moderationReportInfo.setUserName(QStringLiteral("bla"));
 
     QTest::addRow("moderationinfo1") << QStringLiteral("moderationinfo1") << moderationReportInfo;
 }
