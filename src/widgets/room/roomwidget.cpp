@@ -95,16 +95,16 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomCounterInfoWidget->setObjectName(QStringLiteral("mRoomCounterInfoWidget"));
 
     connect(mRoomWidgetBase, &RoomWidgetBase::errorMessage, this, [this](const QString &message) {
-        if (!mPluginTextMessateWidget) {
+        if (!mPluginTextMessageWidget) {
             createPluginTextMessateWidget();
         }
-        mPluginTextMessateWidget->slotShareError(message);
+        mPluginTextMessageWidget->slotShareError(message);
     });
     connect(mRoomWidgetBase, &RoomWidgetBase::successMessage, this, [this](const QString &message) {
-        if (!mPluginTextMessateWidget) {
+        if (!mPluginTextMessageWidget) {
             createPluginTextMessateWidget();
         }
-        mPluginTextMessateWidget->slotShareSuccess(message);
+        mPluginTextMessageWidget->slotShareSuccess(message);
     });
 
     mRoomWidgetLayout->addWidget(mRoomCounterInfoWidget);
@@ -140,9 +140,9 @@ RoomWidget::~RoomWidget()
 
 void RoomWidget::createPluginTextMessateWidget()
 {
-    mPluginTextMessateWidget = new PluginTextMessageWidget(this);
-    mPluginTextMessateWidget->setObjectName(QStringLiteral("mPluginTextMessateWidget"));
-    mRoomWidgetLayout->addWidget(mPluginTextMessateWidget);
+    mPluginTextMessageWidget = new PluginTextMessageWidget(this);
+    mPluginTextMessageWidget->setObjectName(QStringLiteral("mPluginTextMessageWidget"));
+    mRoomWidgetLayout->addWidget(mPluginTextMessageWidget);
 }
 
 // TODO using it

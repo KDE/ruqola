@@ -117,7 +117,7 @@ private:
     UsersInRoomFlowWidget *const mUsersInRoomFlowWidget;
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *mRoomReconnectInfoWidget = nullptr;
-    PluginTextMessageWidget *mPluginTextMessateWidget = nullptr;
+    PluginTextMessageWidget *mPluginTextMessageWidget = nullptr;
     OtrWidget *mOtrWidget = nullptr;
     OffLineWidget *mOffLineWidget = nullptr;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
