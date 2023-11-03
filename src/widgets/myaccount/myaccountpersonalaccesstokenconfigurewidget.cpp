@@ -30,7 +30,7 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
-    , mPersonalAccessTokenTreeView(new MyAccountPersonalAccessTokenTreeView(account, this))
+    , mPersonalAccessTokenTreeView(new MyAccountPersonalAccessTokenTreeView(this))
     , mPersonalAccessTokenModel(new PersonalAccessTokenInfosModel(this))
     , mPersonalAccessTokenFilterProxyModel(new PersonalAccessTokenInfosFilterProxyModel(this))
 

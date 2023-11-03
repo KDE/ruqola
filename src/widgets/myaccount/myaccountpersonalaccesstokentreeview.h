@@ -13,7 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenTreeView : publi
 {
     Q_OBJECT
 public:
-    explicit MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit MyAccountPersonalAccessTokenTreeView(QWidget *parent = nullptr);
     ~MyAccountPersonalAccessTokenTreeView() override;
 
 Q_SIGNALS:

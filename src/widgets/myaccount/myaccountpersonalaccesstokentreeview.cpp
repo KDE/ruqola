@@ -6,13 +6,12 @@
 
 #include "myaccountpersonalaccesstokentreeview.h"
 #include "model/personalaccesstokeninfosmodel.h"
-#include "rocketchataccount.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
 
-MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent)
+MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(QWidget *parent)
     : QTreeView(parent)
 {
     setAlternatingRowColors(true);
