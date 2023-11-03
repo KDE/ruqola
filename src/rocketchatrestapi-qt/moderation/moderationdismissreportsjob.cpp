@@ -94,9 +94,9 @@ QNetworkRequest ModerationDismissReportsJob::request() const
 QJsonDocument ModerationDismissReportsJob::json() const
 {
     QJsonObject jsonObj;
-    if (mUserIdForMessages.isEmpty()) {
+    if (!mUserIdForMessages.isEmpty()) {
         jsonObj[QLatin1String("userId")] = mUserIdForMessages;
-    } else if (mMessageId.isEmpty()) {
+    } else if (!mMessageId.isEmpty()) {
         jsonObj[QLatin1String("msgId")] = mMessageId;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
