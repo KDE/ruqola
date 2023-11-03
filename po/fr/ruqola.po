@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-18 02:30+0000\n"
-"PO-Revision-Date: 2023-10-31 10:26+0100\n"
+"PO-Revision-Date: 2023-11-01 15:58+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -2149,7 +2149,7 @@ msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
-"Le paramètre nécessaire fourni \\« roomId\\ » ou \\« roomName\\ » ne "
+"Le paramètre nécessaire fourni \\ « roomId\\ » ou \\ « roomName\\ » ne "
 "correspond à aucun canal."
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
@@ -2198,7 +2198,7 @@ msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
 msgstr ""
-"Le paramètre nécessaire fourni \\« roomId\\ » ou \\« roomName\\ » ne "
+"Le paramètre nécessaire fourni \\ « roomId\\ » ou \\ « roomName\\ » ne "
 "correspond à aucune équipe."
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
@@ -2226,7 +2226,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
 #, kde-format
 msgid "Invisible status is disabled"
-msgstr "Le status invisible est désactivé"
+msgstr "L'état « Invisible » est désactivé"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3338,7 +3338,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr "Autoriser l'option pour le status invisible"
+msgstr "Autoriser l'option pour l'état « Invisible »"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
 #, kde-format
@@ -3472,7 +3472,7 @@ msgstr "Liste des domaines bloqués"
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "Une liste séparée par des virgules des noms d'utilisateurs bloqués (Non "
-"sensible à la casse.)"
+"sensible à la casse)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
 #, kde-format
@@ -3817,7 +3817,7 @@ msgid ""
 msgstr ""
 "Toujours synchroniser les données de l'utilisateur « CAS » externe avec les "
 "attributs disponibles à la connexion.\n"
-"Remarque : Les attributs sont toujours synchronisés lors de la création du "
+"Remarque : les attributs sont toujours synchronisés lors de la création du "
 "compte."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
@@ -3843,14 +3843,14 @@ msgstr ""
 "Utilisez cette entrée « JSON » pour créer des attributs internes (clés) à "
 "partir d'attributs externes (valeur).\n"
 "Les noms d'attributs externes encadrés avec un caractère « % » seront "
-"interpolés dans les chaînes de valeurs. <br/>Exemple, {« courriel » : "
+"interpolés dans les chaînes de valeurs. <br/>Exemple, { « courriel » : "
 "« %courriel% », « nom » : « %prénom%, %nom% »} \n"
 "La carte d'attributs est toujours interpolée. Dans « CAS 1.0 », seul "
 "l'attribut « Nom-utilisateur » est disponible. Les attributs internes "
-"disponibles sont : Nom-utilisateur, nom, courriel, salons ; \n"
+"disponibles sont : nom-utilisateur, nom, courriel, salons ; \n"
 "Le paramètre « salons » est une liste de salons à rejoindre, séparés par des "
 "virgules, lors de la création de l'utilisateur, par exemple : "
-"{« chambres » : « %équipe%,%département% »} regrouperait les utilisateurs "
+"{ « chambres » : « %équipe%, %département% » } regrouperait les utilisateurs "
 "« CAS » lors de la création de leur équipe et du canal de service."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
@@ -4054,7 +4054,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:21
 #, kde-format
 msgid "Enterprise License"
-msgstr "License d'entreprise"
+msgstr "Licence d'entreprise"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:19
 #, kde-format
@@ -4110,7 +4110,7 @@ msgstr ""
 msgid ""
 "Restrict the access of files uploaded on rooms to the rooms' members only"
 msgstr ""
-"Limiter l'accès aux fichiers téléchargés sur les salons, uniquement  aux "
+"Limiter l'accès aux fichiers téléchargés sur les salons, uniquement aux "
 "membres du salon"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:59
@@ -4308,7 +4308,7 @@ msgstr ""
 "importants provenant des développeurs de Rocket.Chat et reçoit des "
 "notifications lorsqu'elles sont disponibles. \n"
 "La notification apparaît une fois par nouvelle version sous la forme d'une "
-"bannière cliquable et d'un message du robot « Rocket.Cat », \n"
+"bannière cliquable et d'un message du robot « Rocket.Chat », \n"
 "tous deux visibles uniquement pour les administrateurs."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
@@ -4441,7 +4441,7 @@ msgstr "Mot de passe local"
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:56
 #, kde-format
 msgid "Peer Password"
-msgstr "Appairer le mot de passe"
+msgstr "Associer un mot de passe"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
 #, kde-format
@@ -4625,7 +4625,7 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
-"Ce texte ici sera évalué comme une expression régulière (nouveau "
+"Ce texte ici sera évalué comme une expression rationnelle (Nouveau "
 "RegExp(« texte »)). Veuillez le maintenir vide pour afficher une trace de "
 "chaque appel."
 
@@ -4722,8 +4722,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
-"Il s'agit d'une fonctionnalité obsolète. Elle pourrait ne pas fonctionner "
-"comme prévu et ne pourra recevoir de nouvelles mises à jour."
+"Il s'agit d'une fonctionnalité déconseillée. Elle pourrait ne pas "
+"fonctionner comme prévu et ne pourra recevoir de nouvelles mises à jour."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
@@ -5522,8 +5522,8 @@ msgid ""
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
 "Ne propagez pas les messages des bots dont le nom correspond à l'expression "
-"régulière ci-dessus. Si ce paramètre est laissé vide, tous les messages des "
-"bots seront propagés."
+"rationnelle ci-dessus. Si ce paramètre est laissé vide, tous les messages "
+"des bots seront propagés."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
