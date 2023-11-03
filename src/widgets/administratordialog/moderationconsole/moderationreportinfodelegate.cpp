@@ -290,6 +290,7 @@ bool ModerationReportInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSty
 
 RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 
