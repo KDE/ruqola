@@ -6,9 +6,10 @@
 
 #include "moderationmessageinfowidgettest.h"
 #include "administratordialog/moderationconsole/moderationmessageinfowidget.h"
-#include <QLabel>
+#include "administratordialog/moderationconsole/moderationreportinfowidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
 QTEST_MAIN(ModerationMessageInfoWidgetTest)
 ModerationMessageInfoWidgetTest::ModerationMessageInfoWidgetTest(QObject *parent)
     : QObject{parent}
@@ -22,10 +23,8 @@ void ModerationMessageInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mReportInfoText = d.findChild<QLabel *>(QStringLiteral("mReportInfoText"));
-    QVERIFY(mReportInfoText);
-    QVERIFY(mReportInfoText->text().isEmpty());
-    QVERIFY(mReportInfoText->wordWrap());
+    auto mModerationReportInfoWidget = d.findChild<ModerationReportInfoWidget *>(QStringLiteral("mModerationReportInfoWidget"));
+    QVERIFY(mModerationReportInfoWidget);
 }
 
 #include "moc_moderationmessageinfowidgettest.cpp"

@@ -21,7 +21,7 @@ void ModerationUserReportedMessagesJobTest::shouldHaveDefaultValue()
     ModerationUserReportedMessagesJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
     QVERIFY(job.reportedMessageFromUserId().isEmpty());
 }
