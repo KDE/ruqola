@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-28 00:43+0000\n"
+"POT-Creation-Date: 2023-11-04 00:42+0000\n"
 "PO-Revision-Date: 2023-10-29 09:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2390,7 +2390,7 @@ msgstr "Usuń emoji"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:36
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add..."
 msgstr "Dodaj..."
@@ -2420,7 +2420,7 @@ msgstr "Zmień..."
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:43
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
 #, kde-format
 msgid "Remove"
 msgstr "Usuń"
@@ -7622,17 +7622,17 @@ msgstr "Usuń osobisty token"
 msgid "Personal Token Regenerated"
 msgstr "Ponownie utworzono token osobisty"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgid "Regenerate..."
 msgstr "Utwórz ponownie..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:54
 #, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Czy na pewno usunąć token \"%1\"?"
 
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:56
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"
