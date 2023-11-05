@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:42+0000\n"
+"POT-Creation-Date: 2023-11-05 12:33+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1331,51 +1331,52 @@ msgstr "%1 hat %2 ungelesene Nachrichten"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:31
+#: core/notifications/notifierjob.cpp:38 core/notifications/notifierjob.cpp:41
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Kanal öffnen"
 
-#: core/notifications/notifierjob.cpp:35
+#: core/notifications/notifierjob.cpp:46
 #, kde-format
 msgid "Reply"
 msgstr "Antworten"
 
-#: core/notifications/notifierjob.cpp:36
+#: core/notifications/notifierjob.cpp:47
 #, kde-format
 msgid "Reply..."
 msgstr "Antworten ..."
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
-#: core/otr/otrnotificationjob.cpp:68
+#: core/otr/otrnotificationjob.cpp:90
 #: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "OTR"
 
-#: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/otr/otrnotificationjob.cpp:60 core/otr/otrnotificationjob.cpp:66
+#: core/videoconference/videoconferencenotificationjob.cpp:62
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Reject"
 msgstr ""
 
-#: core/otr/otrnotificationjob.cpp:58
+#: core/otr/otrnotificationjob.cpp:63 core/otr/otrnotificationjob.cpp:66
 #, kde-format
 msgid "Ok"
 msgstr "OK"
 
-#: core/otr/otrnotificationjob.cpp:92
+#: core/otr/otrnotificationjob.cpp:114
 #, kde-format
 msgid "%1 ended the OTR session."
 msgstr ""
 
-#: core/otr/otrnotificationjob.cpp:97
+#: core/otr/otrnotificationjob.cpp:119
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
 msgstr ""
 
-#: core/otr/otrnotificationjob.cpp:101
+#: core/otr/otrnotificationjob.cpp:123
 #, kde-format
 msgid "%1 denied the OTR session."
 msgstr ""
@@ -1513,7 +1514,8 @@ msgstr ""
 msgid "InComing Call"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:56
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr ""

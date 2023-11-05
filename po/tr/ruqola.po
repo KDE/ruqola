@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:42+0000\n"
+"POT-Creation-Date: 2023-11-05 12:33+0000\n"
 "PO-Revision-Date: 2023-10-28 05:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1264,51 +1264,52 @@ msgstr "%1 kişisinin %2 okunmayan iletisi var"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:31
+#: core/notifications/notifierjob.cpp:38 core/notifications/notifierjob.cpp:41
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Kanal Aç"
 
-#: core/notifications/notifierjob.cpp:35
+#: core/notifications/notifierjob.cpp:46
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: core/notifications/notifierjob.cpp:36
+#: core/notifications/notifierjob.cpp:47
 #, kde-format
 msgid "Reply..."
 msgstr "Yanıtla..."
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
-#: core/otr/otrnotificationjob.cpp:68
+#: core/otr/otrnotificationjob.cpp:90
 #: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "Kayıt Dışı"
 
-#: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/otr/otrnotificationjob.cpp:60 core/otr/otrnotificationjob.cpp:66
+#: core/videoconference/videoconferencenotificationjob.cpp:62
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
 
-#: core/otr/otrnotificationjob.cpp:58
+#: core/otr/otrnotificationjob.cpp:63 core/otr/otrnotificationjob.cpp:66
 #, kde-format
 msgid "Ok"
 msgstr "Tamam"
 
-#: core/otr/otrnotificationjob.cpp:92
+#: core/otr/otrnotificationjob.cpp:114
 #, kde-format
 msgid "%1 ended the OTR session."
 msgstr "%1, Kayıt Dışı oturumunu sonlandırdı."
 
-#: core/otr/otrnotificationjob.cpp:97
+#: core/otr/otrnotificationjob.cpp:119
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
 msgstr "%1, Kayıt Dışı başlatmak istiyor. Kabul ediyor musunuz?"
 
-#: core/otr/otrnotificationjob.cpp:101
+#: core/otr/otrnotificationjob.cpp:123
 #, kde-format
 msgid "%1 denied the OTR session."
 msgstr "%1, Kayıt Dışı oturumunu reddetti."
@@ -1443,7 +1444,8 @@ msgstr "Arama sürüyor"
 msgid "InComing Call"
 msgstr "Gelen Arama"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:56
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Kabul Et"
