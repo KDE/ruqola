@@ -31,7 +31,6 @@
   <name xml:lang="sv">Ruqola </name>
   <name xml:lang="tr">Roka</name>
   <name xml:lang="uk">Ruqola</name>
-  <name xml:lang="x-test">xxRuqolaxx</name>
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
   <summary xml:lang="ca">Client de xat del Rocket</summary>
@@ -61,7 +60,6 @@
   <summary xml:lang="sv">Rocket Chat klient</summary>
   <summary xml:lang="tr">Rocket.Chat İstemcisi</summary>
   <summary xml:lang="uk">Клієнт спілкування Rocket</summary>
-  <summary xml:lang="x-test">xxRocket Chat Clientxx</summary>
   <summary xml:lang="zh-TW">Rocket Chat 用戶端</summary>
   <description>
     <p>
@@ -89,7 +87,6 @@
     <p xml:lang="sv">Ruqola är en Rocket Chat klient.</p>
     <p xml:lang="tr">Roka, Rocket.Chat için bir istemcidir.</p>
     <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
-    <p xml:lang="x-test">xxRuqola is a client for Rocket.Chat.xx</p>
     <p>
       It supports RC features:
     </p>
@@ -113,7 +110,6 @@
     <p xml:lang="sv">Det stöder RC-funktioner:</p>
     <p xml:lang="tr">Şu RC özelliklerini destekler:</p>
     <p xml:lang="uk">Передбачено підтримку таких можливостей RC:</p>
-    <p xml:lang="x-test">xxIt supports RC features:xx</p>
     <ul>
       <li>Direct Message</li>
       <li xml:lang="ca">Missatge directe</li>
@@ -138,7 +134,6 @@
       <li xml:lang="sv">Direktmeddelande</li>
       <li xml:lang="tr">Doğrudan İleti</li>
       <li xml:lang="uk">Безпосереднє повідомлення</li>
-      <li xml:lang="x-test">xxDirect Messagexx</li>
       <li>group channel</li>
       <li xml:lang="ca">Canal de grup</li>
       <li xml:lang="ca-valencia">Canal de grup</li>
@@ -160,7 +155,6 @@
       <li xml:lang="sv">gruppkanal</li>
       <li xml:lang="tr">grup kanalı</li>
       <li xml:lang="uk">Групування каналів</li>
-      <li xml:lang="x-test">xxgroup channelxx</li>
       <li>channel</li>
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
@@ -184,7 +178,6 @@
       <li xml:lang="sv">kanal</li>
       <li xml:lang="tr">kanal</li>
       <li xml:lang="uk">Канали</li>
-      <li xml:lang="x-test">xxchannelxx</li>
       <li>Support autotranslate (when RC has it)</li>
       <li xml:lang="ca">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="ca-valencia">Permet la traducció automàtica (quan ho té el RC)</li>
@@ -206,7 +199,6 @@
       <li xml:lang="sv">Stöd automatisk översättning (när RC har det)</li>
       <li xml:lang="tr">Otomatik çeviri desteği (RC'de varken)</li>
       <li xml:lang="uk">Підтримка автоматичного перекладу (якщо її передбачено у RC)</li>
-      <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
       <li>Configuring room notification</li>
       <li xml:lang="ca">Configuració de les notificacions de sales</li>
       <li xml:lang="ca-valencia">Configureu les notificacions de sala</li>
@@ -228,7 +220,6 @@
       <li xml:lang="sv">Anpassa rumunderrättelser</li>
       <li xml:lang="tr">Oda bildirimini yapılandırma</li>
       <li xml:lang="uk">Налаштовування сповіщень у кімнатах</li>
-      <li xml:lang="x-test">xxConfiguring room notificationxx</li>
       <li>Configuring room</li>
       <li xml:lang="ca">Configuració de sales</li>
       <li xml:lang="ca-valencia">Configuració de sales</li>
@@ -250,7 +241,6 @@
       <li xml:lang="sv">Anpassar rum</li>
       <li xml:lang="tr">Odayı yapılandırma</li>
       <li xml:lang="uk">Налаштовування кімнат</li>
-      <li xml:lang="x-test">xxConfiguring roomxx</li>
       <li>Thread message support</li>
       <li xml:lang="ca">Permet fils de missatges</li>
       <li xml:lang="ca-valencia">Permet fils de missatges</li>
@@ -272,7 +262,6 @@
       <li xml:lang="sv">Stöd meddelandetrådar</li>
       <li xml:lang="tr">İlmekli ileti desteği</li>
       <li xml:lang="uk">Підтримка гілок повідомлень</li>
-      <li xml:lang="x-test">xxThread message supportxx</li>
       <li>Discussion room</li>
       <li xml:lang="ca">Sales de debats</li>
       <li xml:lang="ca-valencia">Sales de debats</li>
@@ -294,7 +283,6 @@
       <li xml:lang="sv">Diskussionsrum</li>
       <li xml:lang="tr">Tartışma odası</li>
       <li xml:lang="uk">Кімнати обговорення</li>
-      <li xml:lang="x-test">xxDiscussion roomxx</li>
       <li>Teams room support</li>
       <li xml:lang="ca">Permet sales d'equips</li>
       <li xml:lang="ca-valencia">Permet sales d'equips</li>
@@ -316,7 +304,6 @@
       <li xml:lang="sv">Stöd rum för lag </li>
       <li xml:lang="tr">Takım odası desteği</li>
       <li xml:lang="uk">Підтримка кімнат команд</li>
-      <li xml:lang="x-test">xxTeams room supportxx</li>
       <li>Configuring own account</li>
       <li xml:lang="ca">Configuració del compte propi</li>
       <li xml:lang="ca-valencia">Configureu el compte propi</li>
@@ -338,7 +325,6 @@
       <li xml:lang="sv">Anpassa eget konto</li>
       <li xml:lang="tr">Hesabınızı yapılandırma</li>
       <li xml:lang="uk">Налаштовування власного облікового запису</li>
-      <li xml:lang="x-test">xxConfiguring own accountxx</li>
       <li>Registering new account</li>
       <li xml:lang="ca">Registre d'un compte nou</li>
       <li xml:lang="ca-valencia">Registre d'un compte nou</li>
@@ -360,7 +346,6 @@
       <li xml:lang="sv">Registrerar nytt konto</li>
       <li xml:lang="tr">Yeni hesap kaydı</li>
       <li xml:lang="uk">Реєстрація нових облікових записів</li>
-      <li xml:lang="x-test">xxRegistering new accountxx</li>
       <li>Support multi account</li>
       <li xml:lang="ca">Permet diversos comptes</li>
       <li xml:lang="ca-valencia">Permet diversos comptes</li>
@@ -382,7 +367,6 @@
       <li xml:lang="sv">Stöd flera konton</li>
       <li xml:lang="tr">Çoklu hesap desteği</li>
       <li xml:lang="uk">Підтримка роботи із декількома обліковими записами</li>
-      <li xml:lang="x-test">xxSupport multi accountxx</li>
       <li>Search message in room</li>
       <li xml:lang="ca">Cerca missatges a una sala</li>
       <li xml:lang="ca-valencia">Busca missatges a una sala</li>
@@ -404,7 +388,6 @@
       <li xml:lang="sv">Sök efter meddelande i rum</li>
       <li xml:lang="tr">Odada ileti ara</li>
       <li xml:lang="uk">Пошук повідомлень у кімнаті</li>
-      <li xml:lang="x-test">xxSearch message in roomxx</li>
       <li>Show mention/attachment/Pinned message/start message</li>
       <li xml:lang="ca">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="ca-valencia">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
@@ -425,7 +408,6 @@
       <li xml:lang="sv">Visa omnämnande, bilaga, fästa meddelanden, startmeddelanden</li>
       <li xml:lang="tr">Söz etme/ek/iğneli ileti/başlangıç iletisi gösterme</li>
       <li xml:lang="uk">Показ згадок/долучень/пришпилених повідомлень/початкового повідомлення</li>
-      <li xml:lang="x-test">xxShow mention/attachment/Pinned message/start messagexx</li>
       <li>Support emoji</li>
       <li xml:lang="ca">Permet emojis</li>
       <li xml:lang="ca-valencia">Permet emojis</li>
@@ -447,7 +429,6 @@
       <li xml:lang="sv">Stöd emoji</li>
       <li xml:lang="tr">Emoji desteği</li>
       <li xml:lang="uk">Підтримка емодзі</li>
-      <li xml:lang="x-test">xxSupport emojixx</li>
       <li>Video support</li>
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
@@ -470,7 +451,6 @@
       <li xml:lang="sv">Videostöd</li>
       <li xml:lang="tr">Video desteği</li>
       <li xml:lang="uk">Підтримка відео</li>
-      <li xml:lang="x-test">xxVideo supportxx</li>
       <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
       <li xml:lang="ca">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="ca-valencia">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
@@ -491,7 +471,6 @@
       <li xml:lang="sv">Anpassa administratörsstöd (lägg till/ta bort roller, lägg till/ta bort användare, lägg till/ta bort rättigheter, anpassa rum, etc.)</li>
       <li xml:lang="tr">Yönetici olarak yapılandırma desteği (rol ekle/kaldır, kullanıcı ekle/kaldır, izin ekle/kaldır, odaları yapılandır vb.)</li>
       <li xml:lang="uk">Налаштовування параметрів адміністрування (додавання/вилучення ролей, додавання/вилучення користувачів, додавання/вилучення прав доступу, налаштовування кімнат тощо)</li>
-      <li xml:lang="x-test">xxConfigure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)xx</li>
       <li>Support OTR (in progress)</li>
       <li xml:lang="ca">Permet OTR (en curs)</li>
       <li xml:lang="ca-valencia">Permet OTR (en curs)</li>
@@ -513,7 +492,6 @@
       <li xml:lang="sv">Stöd OTR (pågår)</li>
       <li xml:lang="tr">Kayıt Dışı (OTR) desteği (yapım aşamasında)</li>
       <li xml:lang="uk">Підтримка OTR (в опрацюванні)</li>
-      <li xml:lang="x-test">xxSupport OTR (in progress)xx</li>
       <li>support gif image</li>
       <li xml:lang="ca">Permet imatges GIF</li>
       <li xml:lang="ca-valencia">Permet imatges GIF</li>
@@ -535,7 +513,6 @@
       <li xml:lang="sv">stöd GIF-bild</li>
       <li xml:lang="tr">gif görseli desteği</li>
       <li xml:lang="uk">Підтримка зображень gif</li>
-      <li xml:lang="x-test">xxsupport gif imagexx</li>
       <li>Add support for uploading attachment files</li>
       <li xml:lang="ca">Permet pujar fitxers adjunts</li>
       <li xml:lang="ca-valencia">Permet pujar fitxers adjunts</li>
@@ -557,7 +534,6 @@
       <li xml:lang="sv">Lägg till stöd för uppladdning av bilagor</li>
       <li xml:lang="tr">İlişik dosyaları karşıya yükleme desteği</li>
       <li xml:lang="uk">Підтримка вивантаження файлів долучень</li>
-      <li xml:lang="x-test">xxAdd support for uploading attachment filesxx</li>
       <li>Show unread message information</li>
       <li xml:lang="ca">Mostra la informació dels missatges no llegits</li>
       <li xml:lang="ca-valencia">Mostra la informació dels missatges no llegits</li>
@@ -579,7 +555,6 @@
       <li xml:lang="sv">Visa information om olästa meddelanden</li>
       <li xml:lang="tr">Okunmayan ileti bilgisi gösterme</li>
       <li xml:lang="uk">Показ відомостей щодо непрочитаних повідомлень</li>
-      <li xml:lang="x-test">xxShow unread message informationxx</li>
       <li>Allow to block/unblock users</li>
       <li xml:lang="ca">Permet blocar/desbloquejar usuaris</li>
       <li xml:lang="ca-valencia">Permet blocar/desbloquejar usuaris</li>
@@ -601,7 +576,6 @@
       <li xml:lang="sv">Tillåt att blockera och avblockera användare</li>
       <li xml:lang="tr">Kullanıcıları engelle/engelini kaldır</li>
       <li xml:lang="uk">Можливість блокування/розблокування користувачів</li>
-      <li xml:lang="x-test">xxAllow to block/unblock usersxx</li>
       <li>Auto-away</li>
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
@@ -624,7 +598,6 @@
       <li xml:lang="sv">Automatiskt frånvaro</li>
       <li xml:lang="tr">Otomatik uzakta</li>
       <li xml:lang="uk">Автовстановлення відсутності</li>
-      <li xml:lang="x-test">xxAuto-awayxx</li>
       <li>Two-factor authentication via TOTP</li>
       <li xml:lang="ca">Autenticació de dos factors via TOTP</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via TOTP</li>
@@ -646,7 +619,6 @@
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via TOTP</li>
       <li xml:lang="tr">TOTP ile iki adımlı kimlik doğrulama</li>
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою TOTP</li>
-      <li xml:lang="x-test">xxTwo-factor authentication via TOTPxx</li>
       <li>Two-factor authentication via email</li>
       <li xml:lang="ca">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via correu electrònic</li>
@@ -668,7 +640,6 @@
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via e-post</li>
       <li xml:lang="tr">E-posta ile iki adımlı kimlik doğrulama</li>
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою електронної пошти</li>
-      <li xml:lang="x-test">xxTwo-factor authentication via emailxx</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
@@ -689,7 +660,6 @@
       <li xml:lang="sv">Administratörsstöd (serverinformation, rum, anpassad användarstatus, anpassade ljud, anpassade emoji, inbjudningar, loggvisning, rättigheter, roller, Oauth), administratörsinställningar (meddelanden, konton, bibehållandepolicy, filuppladdning, kryptering)</li>
       <li xml:lang="tr">Yönetici desteği (Sunucu Bilgisi, Odalar, Özel Kullanıcı Durumu, Özel Sesler, Özel Emoji, Kullanıcılar, Davetler, Günlük Görüntüleme, İzinler, Roller, Oauth), Yönetici ayarları (İleti, Hesap, Tutma Politikası, Dosya Karşıya Yükleme, Şifreleme)</li>
       <li xml:lang="uk">Підтримка адміністрування (відомості щодо сервера, кімнат, нетипові стани користувачів, нетипові звуки, нетипові емодзі, користувачі, запрошення, перегляд журналу, права доступу, ролі, Oauth), параметри адміністрування (повідомлення, обліковий запис, правила збереження, вивантаження файлів, шифрування)</li>
-      <li xml:lang="x-test">xxAdministrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)xx</li>
       <li>Export Messages</li>
       <li xml:lang="ca">Exportació de missatges</li>
       <li xml:lang="ca-valencia">Exportació de missatges</li>
@@ -712,7 +682,6 @@
       <li xml:lang="sv">Exportera meddelanden</li>
       <li xml:lang="tr">İletileri Dışa Aktar</li>
       <li xml:lang="uk">Експорт повідомлень</li>
-      <li xml:lang="x-test">xxExport Messagesxx</li>
       <li>Video Conference</li>
       <li xml:lang="ca">Conferència de vídeo</li>
       <li xml:lang="ca-valencia">Conferència de vídeo</li>
@@ -733,7 +702,6 @@
       <li xml:lang="sv">Videokonferens</li>
       <li xml:lang="tr">Video Konferans</li>
       <li xml:lang="uk">Відеоконференція</li>
-      <li xml:lang="x-test">xxVideo Conferencexx</li>
     </ul>
     <p>
       Extra features:
@@ -758,7 +726,6 @@
     <p xml:lang="sv">Extrafunktioner:</p>
     <p xml:lang="tr">Ek özellikler:</p>
     <p xml:lang="uk">Додаткові можливості:</p>
-    <p xml:lang="x-test">xxExtra features:xx</p>
     <ul>
       <li>Allow to reply directly to message from notification (kde features)</li>
       <li xml:lang="ca">Permet respondre directament al missatge des d'una notificació (característiques del KDE)</li>
@@ -780,7 +747,6 @@
       <li xml:lang="sv">Tillåt att svara direkt på meddelande från underrättelser (KDE-funktion)</li>
       <li xml:lang="tr">İletiyi doğrudan bildirimden yanıtlama (KDE özelliği)</li>
       <li xml:lang="uk">Можливість відповідати на повідомлення безпосередньо з панелі сповіщення (можливість KDE)</li>
-      <li xml:lang="x-test">xxAllow to reply directly to message from notification (kde features)xx</li>
       <li>Dnd image from ruqola to website or local folder</li>
       <li xml:lang="ca">Imatges Dnd des del Ruqola a lloc web o carpeta local</li>
       <li xml:lang="ca-valencia">Imatges Dnd des de Ruqola a lloc web o carpeta local</li>
@@ -801,7 +767,6 @@
       <li xml:lang="sv">Dra och släpp bild from Ruqola till webbplats eller lokal katalog</li>
       <li xml:lang="tr">Roka'dan web sitesine veya yerel klasöre rahatsız etmeyin görseli</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
-      <li xml:lang="x-test">xxDnd image from ruqola to website or local folderxx</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
@@ -822,7 +787,6 @@
       <li xml:lang="sv">Lagra meddelanden i lokal databas så de går att söka i nerkopplad</li>
       <li xml:lang="tr">İletileri yerel bir veritabanında depola, böylece çevrimdışıyken aranabilir</li>
       <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
-      <li xml:lang="x-test">xxStore message in local database so we can search in offlinexx</li>
       <li>Mark All Channels are read</li>
       <li xml:lang="ca">Marcar tots els canals com a llegits</li>
       <li xml:lang="ca-valencia">Marca tots els canals com a llegits</li>
@@ -844,7 +808,6 @@
       <li xml:lang="sv">Markera alla kanaler som lästa</li>
       <li xml:lang="tr">Tüm kanalları okundu olarak imle</li>
       <li xml:lang="uk">Позначення усіх каналів, як прочитаних</li>
-      <li xml:lang="x-test">xxMark All Channels are readxx</li>
       <li>Add notification history</li>
       <li xml:lang="ca">Afegeix un historial de notificacions</li>
       <li xml:lang="ca-valencia">Afig un historial de notificacions</li>
@@ -866,7 +829,6 @@
       <li xml:lang="sv">Lägg till underrättelsehistorik</li>
       <li xml:lang="tr">Bildirim geçmişi ekle</li>
       <li xml:lang="uk">Журнал сповіщень</li>
-      <li xml:lang="x-test">xxAdd notification historyxx</li>
       <li>New RocketChat Server Information Support</li>
       <li xml:lang="ca">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="ca-valencia">Implementació nova d'informació del servidor RocketChat</li>
@@ -887,7 +849,6 @@
       <li xml:lang="sv">Stöd för information om ny RocketChat-server</li>
       <li xml:lang="tr">Yeni Rocket.Chat Sunucusu Bilgi Desteği</li>
       <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
-      <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
       <li>Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="ca">Gestiona el dispositiu (RC &gt;= 5.0)</li>
       <li xml:lang="ca-valencia">Gestiona el dispositiu (RC &gt;= 5.0)</li>
@@ -910,7 +871,6 @@
       <li xml:lang="sv">Hantera enhet (RC ≥ 5.0)</li>
       <li xml:lang="tr">Aygıt Yönet (RC &gt;= 5.0)</li>
       <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
-      <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
       <li>Manage Personal Access Token</li>
       <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
       <li xml:lang="ca-valencia">Gestioneu el testimoni d'accés personal</li>
@@ -930,7 +890,6 @@
       <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
-      <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
       <li>Add support for local translation</li>
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la traducció local</li>
@@ -952,7 +911,6 @@
       <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
-      <li xml:lang="x-test">xxAdd support for local translationxx</li>
       <li>Add support for text auto-correction</li>
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la correcció automàtica</li>
@@ -974,7 +932,6 @@
       <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
       <li xml:lang="tr">Metin otomatik düzeltme için destek ekle</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
-      <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
@@ -1006,7 +963,6 @@
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
       <caption xml:lang="tr">Roka'da sohbet odası</caption>
       <caption xml:lang="uk">Кімната спілкування у Ruqola</caption>
-      <caption xml:lang="x-test">xxChat room in Ruqolaxx</caption>
       <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
     </screenshot>
   </screenshots>
