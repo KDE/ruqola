@@ -33,8 +33,8 @@ Dependencies:
     'frameworks/breeze-icons': '@latest-kf6'
     'frameworks/karchive': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
+    'frameworks/kuserfeedback': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
-    'libraries/kuserfeedback': '@latest-kf6'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
@@ -62,8 +62,8 @@ Dependencies:
     'frameworks/knotifyconfig': '@stable'
     'frameworks/breeze-icons': '@stable'
     'frameworks/karchive': '@stable'
+    'frameworks/kuserfeedback': '@stable'
     'libraries/ktextaddons': '@stable'
-    'libraries/kuserfeedback': '@stable'
 
 - 'on': ['Linux/Qt6', 'Linux/Qt5']
   'require':
