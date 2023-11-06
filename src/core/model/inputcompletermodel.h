@@ -37,6 +37,8 @@ public:
 
     void setDefaultUserCompletion();
 
+    void setSearchUserString(const QString &str);
+
 private:
     Q_DISABLE_COPY(InputCompleterModel)
     [[nodiscard]] QIcon channelIconName(const Channel &channel) const;
@@ -44,5 +46,6 @@ private:
     [[nodiscard]] QString channelName(const Channel &channel) const;
     [[nodiscard]] static Channel createHereChannel();
     [[nodiscard]] static Channel createAllChannel();
+    QString mSetSearchUserString;
     QVector<Channel> mChannel;
 };

@@ -48,6 +48,11 @@ void InputCompleterModel::setDefaultUserCompletion()
     setChannels(customCompletion);
 }
 
+void InputCompleterModel::setSearchUserString(const QString &str)
+{
+    mSetSearchUserString = str;
+}
+
 void InputCompleterModel::setChannels(const QVector<Channel> &channels)
 {
     if (rowCount() != 0) {
@@ -81,10 +86,10 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonObject o = users.at(i).toObject();
         Channel user;
         user.parseChannel(o, Channel::ChannelType::DirectChannel);
-        if (!needToAddAll && (user.userName().contains(QLatin1Char('a')) || user.name().contains(QLatin1Char('a')))) {
+        if (!needToAddAll && mSetSearchUserString.startsWith(QLatin1Char('a'))) {
             needToAddAll = true;
         }
-        if (!needToAddHere && (user.userName().contains(QLatin1Char('h')) || user.name().contains(QLatin1Char('h')))) {
+        if (!needToAddHere && mSetSearchUserString.startsWith(QLatin1Char('h'))) {
             needToAddHere = true;
         }
         // Verify that it's valid
