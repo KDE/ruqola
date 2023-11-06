@@ -75,12 +75,26 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         channelList.append(std::move(channel));
     }
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
+    bool needToAddAll = false;
+    bool needToAddHere = false;
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
-        Channel channel;
-        channel.parseChannel(o, Channel::ChannelType::DirectChannel);
+        Channel user;
+        user.parseChannel(o, Channel::ChannelType::DirectChannel);
+        if (!needToAddAll && (user.userName().contains(QLatin1Char('a')) || user.name().contains(QLatin1Char('a')))) {
+            needToAddAll = true;
+        }
+        if (!needToAddHere && (user.userName().contains(QLatin1Char('h')) || user.name().contains(QLatin1Char('h')))) {
+            needToAddHere = true;
+        }
         // Verify that it's valid
-        channelList.append(std::move(channel));
+        channelList.append(std::move(user));
+    }
+    if (needToAddAll) {
+        channelList.append(createAllChannel());
+    }
+    if (needToAddHere) {
+        channelList.append(createHereChannel());
     }
     setChannels(channelList);
 }
