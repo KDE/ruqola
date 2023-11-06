@@ -42,5 +42,7 @@ private:
     [[nodiscard]] QIcon channelIconName(const Channel &channel) const;
     [[nodiscard]] QString completerName(const Channel &channel) const;
     [[nodiscard]] QString channelName(const Channel &channel) const;
+    [[nodiscard]] static Channel createHereChannel();
+    [[nodiscard]] static Channel createAllChannel();
     QVector<Channel> mChannel;
 };

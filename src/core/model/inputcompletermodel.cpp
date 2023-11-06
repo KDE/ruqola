@@ -19,22 +19,31 @@ InputCompleterModel::InputCompleterModel(QObject *parent)
 
 InputCompleterModel::~InputCompleterModel() = default;
 
+Channel InputCompleterModel::createHereChannel()
+{
+    Channel here;
+    here.setUserName(QStringLiteral("here"));
+    here.setStatus(QStringLiteral("online"));
+    here.setType(Channel::ChannelType::DirectChannel);
+    return here;
+}
+
+Channel InputCompleterModel::createAllChannel()
+{
+    Channel all;
+    all.setUserName(QStringLiteral("all"));
+    all.setStatus(QStringLiteral("online"));
+    all.setType(Channel::ChannelType::DirectChannel);
+    return all;
+}
+
 void InputCompleterModel::setDefaultUserCompletion()
 {
     // Show here/all when we only use "@"
     QVector<Channel> customCompletion;
 
-    Channel here;
-    here.setUserName(QStringLiteral("here"));
-    here.setStatus(QStringLiteral("online"));
-    here.setType(Channel::ChannelType::DirectChannel);
-    customCompletion.append(std::move(here));
-
-    Channel all;
-    all.setUserName(QStringLiteral("all"));
-    all.setStatus(QStringLiteral("online"));
-    all.setType(Channel::ChannelType::DirectChannel);
-    customCompletion.append(std::move(all));
+    customCompletion.append(createHereChannel());
+    customCompletion.append(createAllChannel());
 
     setChannels(customCompletion);
 }
