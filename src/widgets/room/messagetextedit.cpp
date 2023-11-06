@@ -423,6 +423,9 @@ void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForT
 void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
+    if (completerName.isEmpty()) {
+        return;
+    }
     int textPos = textCursor().position();
     const QString newText = mCurrentInputTextManager->applyCompletion(completerName + QLatin1Char(' '), text(), &textPos);
 
