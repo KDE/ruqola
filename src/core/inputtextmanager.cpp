@@ -175,7 +175,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             if (str.isEmpty()) {
                 mInputCompleterModel->setDefaultUserCompletion();
             } else {
-                mInputCompleterModel->setSearchUserString(str);
+                mInputCompleterModel->setSearchUserString(str); // necessary for make sure to show @here or @all
                 Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::User);
             }
         } else if (word.startsWith(QLatin1Char('#'))) {
