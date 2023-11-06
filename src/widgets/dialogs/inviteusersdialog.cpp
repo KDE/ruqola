@@ -62,14 +62,14 @@ void InviteUsersDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(300, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myInviteUsersDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myInviteUsersDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void InviteUsersDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myInviteUsersDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myInviteUsersDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

@@ -68,14 +68,14 @@ void CreateVideoMessageWizard::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateVideoMessageWizardGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigCreateVideoMessageWizardGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void CreateVideoMessageWizard::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigCreateVideoMessageWizardGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigCreateVideoMessageWizardGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

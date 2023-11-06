@@ -57,14 +57,14 @@ void AdministratorCustomSoundsCreateDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigAdministratorCustomSoundsCreateDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorCustomSoundsCreateDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigAdministratorCustomSoundsCreateDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

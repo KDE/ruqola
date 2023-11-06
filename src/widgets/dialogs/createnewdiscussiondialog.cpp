@@ -56,14 +56,14 @@ void CreateNewDiscussionDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myCreateNewDiscussionDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myCreateNewDiscussionDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void CreateNewDiscussionDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myCreateNewDiscussionDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myCreateNewDiscussionDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

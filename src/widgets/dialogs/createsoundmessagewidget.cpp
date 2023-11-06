@@ -88,7 +88,7 @@ CreateSoundMessageWidget::~CreateSoundMessageWidget()
 
 void CreateSoundMessageWidget::loadSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), mySoundGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(mySoundGroupName));
     const QByteArray deviceIdentifier = group.readEntry("SoundDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
         for (int i = 0; i < mDeviceComboBox->count(); ++i) {
@@ -103,7 +103,7 @@ void CreateSoundMessageWidget::loadSettings()
 
 void CreateSoundMessageWidget::saveSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), mySoundGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(mySoundGroupName));
     const auto device = mDeviceComboBox->itemData(mDeviceComboBox->currentIndex()).value<QAudioDevice>();
     if (!device.isNull()) {
         const QByteArray deviceIdentifier = device.id();

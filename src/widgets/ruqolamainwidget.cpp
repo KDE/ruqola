@@ -74,13 +74,13 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     connect(mChannelList, &ChannelListWidget::roomPressed, this, &RuqolaMainWidget::slotRoomPressed);
     connect(mChannelList, &ChannelListWidget::selectMessageIdRequested, mRoomWidget, &RoomWidget::scrollToMessageId);
 
-    KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myRuqolaMainWidgetGroupName));
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());

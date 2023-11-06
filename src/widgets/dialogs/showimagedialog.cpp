@@ -80,14 +80,14 @@ void ShowImageDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myShowImageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myShowImageDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ShowImageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myShowImageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myShowImageDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

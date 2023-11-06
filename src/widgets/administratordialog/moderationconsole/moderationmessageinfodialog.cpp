@@ -51,14 +51,14 @@ void ModerationMessageInfoDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myModerationMessageInfoDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myModerationMessageInfoDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ModerationMessageInfoDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myModerationMessageInfoDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myModerationMessageInfoDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

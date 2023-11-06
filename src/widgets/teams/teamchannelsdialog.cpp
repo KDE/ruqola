@@ -50,14 +50,14 @@ void TeamChannelsDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myTeamChannelsDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myTeamChannelsDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void TeamChannelsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myTeamChannelsDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myTeamChannelsDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

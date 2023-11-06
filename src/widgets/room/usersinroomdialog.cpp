@@ -50,7 +50,7 @@ void UsersInRoomDialog::setRoom(Room *room)
 
 void UsersInRoomDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myUsersInRoomDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myUsersInRoomDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
@@ -58,7 +58,7 @@ void UsersInRoomDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myUsersInRoomDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myUsersInRoomDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }

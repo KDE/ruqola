@@ -52,14 +52,14 @@ void ReportMessageDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myReportMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myReportMessageDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ReportMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myReportMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myReportMessageDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

@@ -51,14 +51,14 @@ void ThreadMessageDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myThreadMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myThreadMessageDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ThreadMessageDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myThreadMessageDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myThreadMessageDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

@@ -57,14 +57,14 @@ void AdministratorSettingsDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorSettingsDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myAdministratorSettingsDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorSettingsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorSettingsDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myAdministratorSettingsDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

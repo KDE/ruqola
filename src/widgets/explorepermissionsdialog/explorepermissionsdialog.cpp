@@ -46,14 +46,14 @@ void ExplorePermissionsDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myExplorePermissionDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myExplorePermissionDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ExplorePermissionsDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myExplorePermissionDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myExplorePermissionDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
