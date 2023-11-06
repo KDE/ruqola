@@ -43,7 +43,7 @@ private:
     Q_DISABLE_COPY(InputCompleterModel)
     [[nodiscard]] QIcon channelIconName(const Channel &channel) const;
     [[nodiscard]] QString completerName(const Channel &channel) const;
-    [[nodiscard]] QString channelName(const Channel &channel) const;
+    [[nodiscard]] QString displayName(const Channel &channel) const;
     [[nodiscard]] static Channel createHereChannel();
     [[nodiscard]] static Channel createAllChannel();
     QString mSetSearchUserString;
