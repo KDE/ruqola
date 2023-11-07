@@ -326,7 +326,7 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
         connect(job, &RocketChatRestApi::UsersListJob::userListDone, this, &AdministratorUsersWidget::slotSearchDone);
     }
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersListJob job";
     }
 }
 

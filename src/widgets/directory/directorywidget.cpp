@@ -148,7 +148,7 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
         connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &DirectoryWidget::slotSearchDone);
     }
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start DirectoryJob job";
     }
 }
 

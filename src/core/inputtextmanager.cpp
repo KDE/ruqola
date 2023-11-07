@@ -143,7 +143,7 @@ void InputTextManager::slotCompletionChannels(const QString &pattern)
         mAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &InputTextManager::slotCompletionChannelDone);
         if (!job->start()) {
-            qCWarning(RUQOLA_COMPLETION_LOG) << "Impossible to start searchRoomUser job";
+            qCWarning(RUQOLA_COMPLETION_LOG) << "Impossible to start DirectoryJob job";
         }
     }
 }

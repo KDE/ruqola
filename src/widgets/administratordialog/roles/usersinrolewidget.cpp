@@ -179,7 +179,7 @@ void UsersInRoleWidget::slotLoadElements(int offset, int count, const QString &s
         connect(job, &RocketChatRestApi::GetUsersInRoleJob::getUsersInRoleDone, this, &UsersInRoleWidget::slotSearchDone);
     }
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetUsersInRoleJob job";
     }
 }
 
