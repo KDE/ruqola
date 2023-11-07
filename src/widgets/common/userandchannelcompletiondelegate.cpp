@@ -28,13 +28,42 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     }
 
     const int margin = DelegatePaintUtil::margin();
-    const QFontMetrics fontMetrics(painter->font());
-    const QIcon icon = index.data(InputCompleterModel::Icon).value<QIcon>();
+    const QFont oldFont = painter->font();
+
+    QFont boldFont = oldFont;
+    boldFont.setBold(true);
+    painter->setFont(boldFont);
+
+    int xPos = -1;
+    const QIcon icon = index.data(InputCompleterModel::IconStatus).value<QIcon>();
     if (!icon.isNull()) {
-        // const int emojiWidth = fontMetrics.horizontalAdvance(QStringLiteral("MM"));
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         drawDecoration(painter, option, displayRect, icon.pixmap(option.rect.height(), option.rect.height()));
-        // painter->drawText(margin + emojiWidth, option.rect.y() + fontMetrics.ascent(), emojiText);
+        xPos = margin + option.rect.height();
     }
-    // TODO
+
+    const QFontMetrics fontMetrics(boldFont);
+    const QString name = index.data(InputCompleterModel::DisplayName).toString();
+    const QString userName = index.data(InputCompleterModel::UserName).toString();
+    int nameWidth = -1;
+    const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
+    if (name.isEmpty()) {
+        nameWidth = fontMetrics.horizontalAdvance(userName);
+        painter->drawText(xPos + margin, defaultCharHeight, userName);
+        xPos += nameWidth;
+    } else {
+        nameWidth = fontMetrics.horizontalAdvance(name);
+        painter->drawText(xPos + margin, defaultCharHeight, name);
+        xPos += nameWidth;
+        if (!userName.isEmpty()) {
+            nameWidth = fontMetrics.horizontalAdvance(userName);
+            painter->drawText(xPos + margin, defaultCharHeight, userName);
+            xPos += nameWidth;
+        }
+    }
+
+    const QString description = index.data(InputCompleterModel::Description).toString();
+    if (!description.isEmpty()) {
+        painter->drawText(xPos + margin, defaultCharHeight, description);
+    }
 }
