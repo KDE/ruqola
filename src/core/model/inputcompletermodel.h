@@ -20,6 +20,7 @@ public:
         CompleterName, // keep value in sync with EmoticonModel
         Icon,
         ChannelType,
+        Description,
     };
     Q_ENUM(InputCompleterRoles)
 
