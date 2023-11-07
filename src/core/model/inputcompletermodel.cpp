@@ -5,7 +5,7 @@
 */
 
 #include "inputcompletermodel.h"
-#include "ruqola_debug.h"
+#include <KLocalizedString>
 
 #include <QJsonArray>
 
@@ -19,28 +19,28 @@ InputCompleterModel::InputCompleterModel(QObject *parent)
 
 InputCompleterModel::~InputCompleterModel() = default;
 
-Channel InputCompleterModel::createHereChannel()
+ChannelUserCompleter InputCompleterModel::createHereChannel()
 {
-    Channel here;
-    here.setUserName(QStringLiteral("here"));
-    here.setStatus(QStringLiteral("online"));
-    here.setType(Channel::ChannelType::DirectChannel);
+    ChannelUserCompleter here;
+    here.setName(QStringLiteral("here"));
+    here.setDescription(i18n("Notify all in this room"));
+    here.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
     return here;
 }
 
-Channel InputCompleterModel::createAllChannel()
+ChannelUserCompleter InputCompleterModel::createAllChannel()
 {
-    Channel all;
-    all.setUserName(QStringLiteral("all"));
-    all.setStatus(QStringLiteral("online"));
-    all.setType(Channel::ChannelType::DirectChannel);
+    ChannelUserCompleter all;
+    all.setName(QStringLiteral("all"));
+    all.setDescription(i18n("Notify active users in this room"));
+    all.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
     return all;
 }
 
 void InputCompleterModel::setDefaultUserCompletion()
 {
     // Show here/all when we only use "@"
-    QVector<Channel> customCompletion;
+    QVector<ChannelUserCompleter> customCompletion;
 
     customCompletion.append(createHereChannel());
     customCompletion.append(createAllChannel());
@@ -53,7 +53,7 @@ void InputCompleterModel::setSearchUserString(const QString &str)
     mSetSearchUserString = str;
 }
 
-void InputCompleterModel::setChannels(const QVector<Channel> &channels)
+void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &channels)
 {
     if (rowCount() != 0) {
         beginResetModel();
@@ -69,13 +69,13 @@ void InputCompleterModel::setChannels(const QVector<Channel> &channels)
 
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
-    QVector<Channel> channelList;
+    QVector<ChannelUserCompleter> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
     channelList.reserve(rooms.size());
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
-        Channel channel;
-        channel.parseChannel(o, Channel::ChannelType::Room);
+        ChannelUserCompleter channel;
+        channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
         // Verify that it's valid
         channelList.append(std::move(channel));
     }
@@ -84,8 +84,8 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
     bool needToAddHere = false;
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
-        Channel user;
-        user.parseChannel(o, Channel::ChannelType::DirectChannel);
+        ChannelUserCompleter user;
+        user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
         if (!needToAddAll && mSetSearchUserString.startsWith(QLatin1Char('a'))) {
             needToAddAll = true;
         }
@@ -124,75 +124,22 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mChannel.count()) {
         return {};
     }
-    const Channel channel = mChannel.at(index.row());
+    const ChannelUserCompleter channel = mChannel.at(index.row());
     switch (role) {
     case InputCompleterModel::DisplayName:
     case Qt::DisplayRole:
-        return displayName(channel);
-    case InputCompleterModel::CompleterName:
-        return completerName(channel);
-    case InputCompleterModel::Icon:
-    case Qt::DecorationRole:
-        return channelIconName(channel);
-    case InputCompleterModel::ChannelType:
-        return channel.type();
-    case InputCompleterModel::Description:
-        return {}; // TODO
-    }
-    return {};
-}
-
-QString InputCompleterModel::completerName(const Channel &channel) const
-{
-    // Specific channelId for opening room
-    // For private channel we need to use username for channel we need roomId
-    switch (channel.type()) {
-    case Channel::ChannelType::DirectChannel:
-        return channel.userName();
-    case Channel::ChannelType::Room:
-        return channel.roomName();
-    case Channel::ChannelType::Unknown:
-        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
-        return {};
-    }
-
-    return {};
-}
-
-QString InputCompleterModel::displayName(const Channel &channel) const
-{
-    switch (channel.type()) {
-    case Channel::ChannelType::DirectChannel: {
-        QString text = channel.userName();
-        const QString name = channel.name();
-        if (!name.isEmpty()) {
-            text += QLatin1String(" (") + name + QLatin1Char(')');
-        }
-        return text;
-    }
-    case Channel::ChannelType::Room:
-        return channel.roomName();
-    case Channel::ChannelType::Unknown:
         return channel.name();
-    }
-    return {};
-}
-
-QIcon InputCompleterModel::channelIconName(const Channel &channel) const
-{
-    switch (channel.type()) {
-    case Channel::ChannelType::DirectChannel:
-        return QIcon::fromTheme(channel.iconFromStatus());
-    case Channel::ChannelType::Room:
-        if (channel.roomType() == QLatin1Char('c')) {
-            return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
-        } else if (channel.roomType() == QLatin1Char('p')) {
-            return QIcon::fromTheme(QStringLiteral("lock"));
-        }
-        qCWarning(RUQOLA_LOG) << "Unknown room type!" << channel.roomType();
-        return {};
-    case Channel::ChannelType::Unknown:
-        return {};
+    case InputCompleterModel::CompleterName:
+        return channel.name();
+    case InputCompleterModel::IconStatus:
+    case Qt::DecorationRole:
+        return channel.statusIcon();
+    case InputCompleterModel::ChannelUserIcon:
+        return channel.channelUserIcon();
+    case InputCompleterModel::Description:
+        return channel.description();
+    case InputCompleterModel::UserName:
+        return channel.userName();
     }
     return {};
 }

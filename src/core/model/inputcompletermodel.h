@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "channel.h"
+#include "channelusercompleter.h"
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
 #include <QJsonObject>
@@ -18,9 +18,11 @@ public:
     enum InputCompleterRoles {
         DisplayName = Qt::UserRole + 1,
         CompleterName, // keep value in sync with EmoticonModel
-        Icon,
+        IconStatus,
         ChannelType,
         Description,
+        UserName,
+        ChannelUserIcon,
     };
     Q_ENUM(InputCompleterRoles)
 
@@ -30,7 +32,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    void setChannels(const QVector<Channel> &channels);
+    void setChannels(const QVector<ChannelUserCompleter> &channels);
 
     void parseChannels(const QJsonObject &obj);
 
@@ -42,11 +44,8 @@ public:
 
 private:
     Q_DISABLE_COPY(InputCompleterModel)
-    [[nodiscard]] QIcon channelIconName(const Channel &channel) const;
-    [[nodiscard]] QString completerName(const Channel &channel) const;
-    [[nodiscard]] QString displayName(const Channel &channel) const;
-    [[nodiscard]] static Channel createHereChannel();
-    [[nodiscard]] static Channel createAllChannel();
+    [[nodiscard]] static ChannelUserCompleter createHereChannel();
+    [[nodiscard]] static ChannelUserCompleter createAllChannel();
     QString mSetSearchUserString;
-    QVector<Channel> mChannel;
+    QVector<ChannelUserCompleter> mChannel;
 };
