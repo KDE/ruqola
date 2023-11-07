@@ -233,8 +233,6 @@ target_sources(libruqolacore PRIVATE
     model/roomlistheadingsproxymodel.h
     model/roommodel.cpp
     model/roommodel.h
-    model/searchchannelfilterproxymodel.cpp
-    model/searchchannelfilterproxymodel.h
     model/searchchannelmodel.cpp
     model/searchchannelmodel.h
     model/commonmessagefilterproxymodel.cpp
