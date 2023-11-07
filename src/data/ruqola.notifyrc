@@ -28,6 +28,7 @@ Name[sl]=Ruqola
 Name[sv]=Ruqola
 Name[tr]=Roka
 Name[uk]=Ruqola
+Name[x-test]=xxRuqolaxx
 Name[zh_TW]=Ruqola
 DesktopEntry=org.kde.ruqola
 Comment=Notification
@@ -58,6 +59,7 @@ Comment[sl]=Obvestilo
 Comment[sv]=Underrättelse
 Comment[tr]=Bildirim
 Comment[uk]=Сповіщення
+Comment[x-test]=xxNotificationxx
 
 [Event/Otr-end]
 Name=Off the record ended
@@ -83,6 +85,7 @@ Name[sl]=Off the record končan
 Name[sv]=Utanför protokollet slutade
 Name[tr]=Kayıt dışı sohbet bitti
 Name[uk]=Режим без записування завершено
+Name[x-test]=xxOff the record endedxx
 Action=Popup
 Urgency=Normal
 
@@ -111,6 +114,7 @@ Name[sl]=Off the record zanikan
 Name[sv]=Utanför protokollet nekades
 Name[tr]=Kayıt dışı sohbet reddedildi
 Name[uk]=У режимі без записування відмовлено
+Name[x-test]=xxOff the record deniedxx
 Action=Popup
 Urgency=Normal
 
@@ -138,6 +142,7 @@ Name[sl]=Prosi za kreiranje Otr-ja
 Name[sv]=Be om att få skapa OTR
 Name[tr]=Kayıt dışı sohbet isteği
 Name[uk]=Запит щодо створення OTR
+Name[x-test]=xxAsk to create Otrxx
 Action=Popup
 Urgency=Normal
 
@@ -167,6 +172,7 @@ Name[sl]=Sporočila izvožena
 Name[sv]=Meddelanden exporterade
 Name[tr]=İletiler Dışa Aktarıldı
 Name[uk]=Експортовано повідомлення
+Name[x-test]=xxMessages Exportedxx
 Action=Popup
 Urgency=Normal
 
@@ -198,6 +204,7 @@ Name[sl]=Prišlo je obvestilo
 Name[sv]=En underrättelse anlände
 Name[tr]=Bildirim Geldi
 Name[uk]=З'явилося сповіщення
+Name[x-test]=xxA Notification Arrivedxx
 Action=Popup
 Urgency=Normal
 
@@ -223,6 +230,7 @@ Name[sl]=Dohodni videokonferenčni klic
 Name[sv]=Inkommande videokonferenssamtal
 Name[tr]=Gelen Video Konferans Çağrısı
 Name[uk]=Вхідний виклик відеоконференції
+Name[x-test]=xxIncoming Video Conference Callxx
 Action=Popup
 Urgency=Normal
 
