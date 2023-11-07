@@ -130,7 +130,7 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return channel.name();
     case InputCompleterModel::CompleterName:
-        return channel.name();
+        return channel.userName();
     case InputCompleterModel::IconStatus:
     case Qt::DecorationRole:
         return channel.statusIcon();
