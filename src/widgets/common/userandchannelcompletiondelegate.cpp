@@ -28,13 +28,13 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     }
 
     const int margin = DelegatePaintUtil::margin();
-    // const QFontMetricsF emojiFontMetrics;
+    const QFontMetrics fontMetrics(painter->font());
     const QIcon icon = index.data(InputCompleterModel::Icon).value<QIcon>();
     if (!icon.isNull()) {
-        // const int emojiWidth = emojiFontMetrics.horizontalAdvance(QStringLiteral("MM"));
-        // const QRect displayRect(margin, option.rect.y(), emojiWidth, option.rect.height());
-        // drawDecoration(painter, option, displayRect, icon.pixmap(emojiWidth, option.rect.height()));
-        // painter->drawText(margin + emojiWidth, option.rect.y() + emojiFontMetrics.ascent(), emojiText);
+        // const int emojiWidth = fontMetrics.horizontalAdvance(QStringLiteral("MM"));
+        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
+        drawDecoration(painter, option, displayRect, icon.pixmap(option.rect.height(), option.rect.height()));
+        // painter->drawText(margin + emojiWidth, option.rect.y() + fontMetrics.ascent(), emojiText);
     }
     // TODO
 }
