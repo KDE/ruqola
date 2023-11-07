@@ -93,7 +93,6 @@ public:
     void filesInRoom(const QString &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QString &roomId, const QString &userId);
 
-    void listEmojiCustom();
     void searchRoomUser(const QString &pattern);
     void searchMessages(const QString &roomId, const QString &pattern, bool useRegularExpression = false);
     void markRoomAsRead(const QString &roomId);
@@ -214,7 +213,6 @@ Q_SIGNALS:
     void channelFilesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
-    void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);
     void searchMessageDone(const QJsonObject &obj);

@@ -50,6 +50,7 @@
 #include "ddpapi/ddpclient.h"
 #include "directmessage/opendmjob.h"
 #include "discussions/discussions.h"
+#include "emoji/loademojicustomjob.h"
 #include "license/licensesisenterprisejob.h"
 #include "listmessages.h"
 #include "localdatabase/localdatabasemanager.h"
@@ -487,7 +488,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RocketChatRestApi::Connection(this);
-        connect(mRestApi, &RocketChatRestApi::Connection::loadEmojiCustomDone, this, &RocketChatAccount::loadEmoji);
         connect(mRestApi, &RocketChatRestApi::Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &RocketChatRestApi::Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
@@ -794,7 +794,12 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 
 void RocketChatAccount::listEmojiCustom()
 {
-    restApi()->listEmojiCustom();
+    auto job = new RocketChatRestApi::LoadEmojiCustomJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::LoadEmojiCustomJob::loadEmojiCustomDone, this, &RocketChatAccount::loadEmoji);
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start listEmojiCustom job";
+    }
 }
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QString &messageStatus)

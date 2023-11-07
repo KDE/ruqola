@@ -27,8 +27,6 @@
 
 #include "misc/owninfojob.h"
 
-#include "emoji/loademojicustomjob.h"
-
 #include "authentication/loginjob.h"
 #include "authentication/logoutjob.h"
 
@@ -802,16 +800,6 @@ void Connection::addUserInGroup(const QString &roomId, const QString &userId)
     job->setInviteUserId(userId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInGroup job";
-    }
-}
-
-void Connection::listEmojiCustom()
-{
-    auto job = new LoadEmojiCustomJob(this);
-    initializeRestApiJob(job);
-    connect(job, &LoadEmojiCustomJob::loadEmojiCustomDone, this, &Connection::loadEmojiCustomDone);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start listEmojiCustom job";
     }
 }
 
