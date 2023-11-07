@@ -18,13 +18,16 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     d << "Name " << t.name();
     d << "description " << t.description();
     d << "userName " << t.userName();
+    d << "AvatarTag " << t.avatarTag();
     return d;
 }
 
 void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCompleterType type)
 {
+    // qDebug() << " object " << object;
     mType = type;
     mName = object.value(QLatin1String("name")).toString();
+    mAvatarTag = object.value(QLatin1String("avatarETag")).toString();
     if (mType == ChannelUserCompleterType::DirectChannel) {
         mUserName = object.value(QLatin1String("username")).toString();
         mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value(QLatin1String("status")).toString()));
@@ -36,12 +39,15 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
             mStatusIcon = QIcon::fromTheme(QStringLiteral("lock"));
         }
     }
+
+    // Use "outside"
     // TODO mChannelUserIcon
 }
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const
 {
-    return (mType == other.type()) && (mName == other.name()) && (mDescription == other.description() && (mUserName == other.userName()));
+    return (mType == other.type()) && (mName == other.name())
+        && (mDescription == other.description() && (mUserName == other.userName()) && (mAvatarTag == other.avatarTag()));
 }
 
 QString ChannelUserCompleter::description() const
@@ -92,6 +98,16 @@ QString ChannelUserCompleter::userName() const
 void ChannelUserCompleter::setUserName(const QString &newUserName)
 {
     mUserName = newUserName;
+}
+
+QString ChannelUserCompleter::avatarTag() const
+{
+    return mAvatarTag;
+}
+
+void ChannelUserCompleter::setAvatarTag(const QString &newAvatarTag)
+{
+    mAvatarTag = newAvatarTag;
 }
 
 #include "moc_channelusercompleter.cpp"

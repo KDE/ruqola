@@ -44,12 +44,16 @@ public:
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);
 
+    [[nodiscard]] QString avatarTag() const;
+    void setAvatarTag(const QString &newAvatarTag);
+
 private:
+    QIcon mStatusIcon;
+    QIcon mChannelUserIcon;
     QString mDescription;
     QString mName;
     QString mUserName;
-    QIcon mStatusIcon;
-    QIcon mChannelUserIcon;
+    QString mAvatarTag;
 
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
 };
