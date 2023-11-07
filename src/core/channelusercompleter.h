@@ -22,6 +22,8 @@ public:
         Unknown,
     };
     Q_ENUM(ChannelUserCompleterType)
+
+    void parseChannel(const QJsonObject &object, ChannelUserCompleter::ChannelUserCompleterType);
 };
 Q_DECLARE_TYPEINFO(ChannelUserCompleter, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelUserCompleter &t);

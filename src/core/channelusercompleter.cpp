@@ -15,3 +15,8 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     // TODO
     return d;
 }
+
+void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCompleterType)
+{
+    // TODO
+}
