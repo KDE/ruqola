@@ -32,12 +32,10 @@ void InputCompleterModelTest::shouldAssignValues()
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
     QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
-    QVector<Channel> channelList;
+    QVector<ChannelUserCompleter> channelList;
     for (int i = 0; i < 10; ++i) {
-        Channel c;
-        c.setRoomId(QStringLiteral("roomid%1").arg(i));
-        c.setRoomName(QStringLiteral("roomname%1").arg(i));
-        c.setRoomType(QStringLiteral("online"));
+        ChannelUserCompleter c;
+        c.setName(QStringLiteral("roomname%1").arg(i));
         channelList.append(std::move(c));
     }
     w.setChannels(channelList);
@@ -82,10 +80,8 @@ void InputCompleterModelTest::shouldAssignValues()
     modelAboutToResetSpy.clear();
 
     for (int i = 0; i < 5; ++i) {
-        Channel c;
-        c.setRoomId(QStringLiteral("roomid%1").arg(i));
-        c.setRoomName(QStringLiteral("roomname%1").arg(i));
-        c.setRoomType(QStringLiteral("online"));
+        ChannelUserCompleter c;
+        c.setName(QStringLiteral("roomname%1").arg(i));
         channelList.append(std::move(c));
     }
     w.setChannels(channelList);
@@ -146,12 +142,14 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
 
     // Test room
     QCOMPARE(w.data(w.index(2), InputCompleterModel::CompleterName).toString(), QStringLiteral("bal3"));
-    QCOMPARE(w.data(w.index(2), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::Room);
+    QCOMPARE(w.data(w.index(2), InputCompleterModel::ChannelType).value<ChannelUserCompleter::ChannelUserCompleterType>(),
+             ChannelUserCompleter::ChannelUserCompleterType::Room);
     QCOMPARE(w.data(w.index(2), InputCompleterModel::DisplayName).toString(), QStringLiteral("bal3"));
 
     // Test user
     QCOMPARE(w.data(w.index(6), InputCompleterModel::CompleterName).toString(), QStringLiteral("bla.foo4"));
-    QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::DirectChannel);
+    QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<ChannelUserCompleter::ChannelUserCompleterType>(),
+             ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
     // We use for user a channelid == channel name as we use it for opening direct channel
     QCOMPARE(w.data(w.index(6), InputCompleterModel::DisplayName).toString(), QStringLiteral("bla.foo4 (foo4)"));
 
