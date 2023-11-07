@@ -42,7 +42,7 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
         xPos = margin + option.rect.height();
     }
 
-    const QFontMetrics fontMetrics(boldFont);
+    QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(InputCompleterModel::DisplayName).toString();
     const QString userName = index.data(InputCompleterModel::UserName).toString();
     int nameWidth = -1;
@@ -56,14 +56,21 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
         painter->drawText(xPos + margin, defaultCharHeight, name);
         xPos += nameWidth;
         if (!userName.isEmpty()) {
+            painter->setFont(oldFont);
+            fontMetrics = QFontMetrics(oldFont);
             nameWidth = fontMetrics.horizontalAdvance(userName);
-            painter->drawText(xPos + margin, defaultCharHeight, userName);
+            painter->drawText(xPos + margin * 2, defaultCharHeight, userName);
             xPos += nameWidth;
         }
     }
 
     const QString description = index.data(InputCompleterModel::Description).toString();
     if (!description.isEmpty()) {
-        painter->drawText(xPos + margin, defaultCharHeight, description);
+        QFont italicFont = oldFont;
+        italicFont.setItalic(true);
+        painter->setFont(italicFont);
+
+        painter->drawText(xPos + margin * 2, defaultCharHeight, description);
     }
+    painter->setFont(oldFont);
 }
