@@ -78,13 +78,18 @@ int AdminCustomEmojiModel::total() const
     return mCustomEmojiList.count();
 }
 
+void AdminCustomEmojiModel::clear()
+{
+    if (!mCustomEmojiList.isEmpty()) {
+        beginResetModel();
+        mCustomEmojiList.clear();
+        endResetModel();
+    }
+}
+
 void AdminCustomEmojiModel::parseElements(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
-        mCustomEmojiList.clear();
-        endRemoveRows();
-    }
+    clear();
     mCustomEmojiList.parseCustomEmojis(obj);
     if (!mCustomEmojiList.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
@@ -106,11 +111,7 @@ const CustomEmojisInfo &AdminCustomEmojiModel::customEmojis() const
 
 void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmojis)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
-        mCustomEmojiList.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!mCustomEmojiList.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
         mCustomEmojiList = newCustomEmojis;
