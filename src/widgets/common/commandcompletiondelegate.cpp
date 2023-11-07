@@ -29,7 +29,7 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
-    const QFontMetrics commandFontMetrics(painter->font());
+    const QFontMetrics commandFontMetrics(oldFont);
     const QString commandText = index.data(CommandsModel::CommandName).toString();
     const int commandWidth = commandFontMetrics.horizontalAdvance(commandText);
 
