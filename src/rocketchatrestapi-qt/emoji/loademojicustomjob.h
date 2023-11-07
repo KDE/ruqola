@@ -8,12 +8,12 @@
 
 #include "restapiabstractjob.h"
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT LoadEmojiCustomJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT LoadEmojiCustomJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
