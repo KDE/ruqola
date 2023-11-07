@@ -8,6 +8,7 @@
 #include "common/commandcompletiondelegate.h"
 #include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
+#include "common/userandchannelcompletiondelegate.h"
 #include "model/inputcompletermodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -46,6 +47,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 
     connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged, this, &QWidget::updateGeometry);
 
+    mUserAndChannelCompletionListView->setItemDelegate(new UserAndChannelCompletionDelegate(mUserAndChannelCompletionListView));
     mUserAndChannelCompletionListView->setTextWidget(this);
     connect(mUserAndChannelCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 
