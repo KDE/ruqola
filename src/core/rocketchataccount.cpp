@@ -25,7 +25,6 @@
 #include "model/listmessagesfilterproxymodel.h"
 #include "model/loginmethodmodel.h"
 #include "model/messagesmodel.h"
-#include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
 #include "model/statusmodel.h"
 #include "model/threadmessagemodel.h"
@@ -171,9 +170,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserCompleterFilterModelProxy = new UserCompleterFilterProxyModel(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
-    mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
-    mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
-
     mSearchMessageModel = new CommonMessagesModel(this, this);
     mSearchMessageFilterProxyModel = new CommonMessageFilterProxyModel(mSearchMessageModel, this);
 
@@ -314,11 +310,6 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     // Try to send queue message
     mMessageQueue->processQueue();
-}
-
-SearchChannelFilterProxyModel *RocketChatAccount::searchChannelFilterProxyModel() const
-{
-    return mSearchChannelFilterProxyModel;
 }
 
 SearchChannelModel *RocketChatAccount::searchChannelModel() const

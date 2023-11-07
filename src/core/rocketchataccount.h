@@ -60,7 +60,6 @@ class OtrManager;
 class FilesForRoomFilterProxyModel;
 class FilesForRoomModel;
 class SearchChannelModel;
-class SearchChannelFilterProxyModel;
 class LoginMethodModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
@@ -249,7 +248,6 @@ public:
     MessagesModel *threadMessageModel() const;
     EmoticonModel *emoticonModel() const;
     CommandsModel *commandsModel() const;
-    SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
     DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
     SearchChannelModel *searchChannelModel() const;
@@ -670,7 +668,6 @@ private:
     RocketChatCache *mCache = nullptr;
     OtrManager *const mOtrManager;
     SearchChannelModel *const mSearchChannelModel;
-    SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *const mLoginMethodModel;
     InputTextManager *const mInputTextManager;
 

@@ -37,7 +37,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.loginMethodModel());
     QVERIFY(w.inputTextManager());
     QVERIFY(w.inputThreadMessageTextManager());
-    QVERIFY(w.searchChannelFilterProxyModel());
     QVERIFY(w.searchMessageModel());
     QCOMPARE(w.searchMessageFilterProxyModel()->sourceModel(), w.searchMessageModel());
     QVERIFY(w.receiveTypingNotificationManager());
