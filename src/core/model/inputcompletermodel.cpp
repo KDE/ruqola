@@ -107,9 +107,9 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
 void InputCompleterModel::clear()
 {
     if (!mChannel.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        beginResetModel();
         mChannel.clear();
-        endRemoveRows();
+        endResetModel();
     }
 }
 
