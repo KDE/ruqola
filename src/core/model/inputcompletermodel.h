@@ -18,7 +18,7 @@ public:
     enum InputCompleterRoles {
         DisplayName = Qt::UserRole + 1,
         CompleterName, // keep value in sync with EmoticonModel
-        IconName,
+        Icon,
         ChannelType,
     };
     Q_ENUM(InputCompleterRoles)
