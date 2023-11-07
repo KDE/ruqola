@@ -23,3 +23,5 @@ void ChannelUserCompleterTest::shouldHaveDefaultValues()
     QVERIFY(w.statusIcon().isNull());
     QVERIFY(w.channelUserIcon().isNull());
 }
+
+#include "moc_channelusercompletertest.cpp"

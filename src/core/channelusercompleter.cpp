@@ -93,3 +93,5 @@ void ChannelUserCompleter::setUserName(const QString &newUserName)
 {
     mUserName = newUserName;
 }
+
+#include "moc_channelusercompleter.cpp"
