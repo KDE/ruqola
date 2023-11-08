@@ -147,6 +147,8 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
         return channel.description();
     case InputCompleterModel::UserName:
         return channel.userName();
+    case InputCompleterModel::OutsideRoom:
+        return channel.outsideRoom();
     }
     return {};
 }

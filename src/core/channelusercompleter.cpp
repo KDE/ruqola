@@ -19,6 +19,7 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     d << "description " << t.description();
     d << "userName " << t.userName();
     d << "AvatarTag " << t.avatarTag();
+    d << "outsideRoom " << t.outsideRoom();
     return d;
 }
 
@@ -39,15 +40,15 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
             mStatusIcon = QIcon::fromTheme(QStringLiteral("lock"));
         }
     }
-
-    // Use "outside"
+    mOutsideRoom = object.value(QLatin1String("outside")).toBool();
     // TODO mChannelUserIcon
 }
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const
 {
     return (mType == other.type()) && (mName == other.name())
-        && (mDescription == other.description() && (mUserName == other.userName()) && (mAvatarTag == other.avatarTag()));
+        && (mDescription == other.description() && (mUserName == other.userName()) && (mAvatarTag == other.avatarTag())
+            && (mOutsideRoom == other.outsideRoom()));
 }
 
 QString ChannelUserCompleter::description() const
@@ -108,6 +109,16 @@ QString ChannelUserCompleter::avatarTag() const
 void ChannelUserCompleter::setAvatarTag(const QString &newAvatarTag)
 {
     mAvatarTag = newAvatarTag;
+}
+
+bool ChannelUserCompleter::outsideRoom() const
+{
+    return mOutsideRoom;
+}
+
+void ChannelUserCompleter::setOutsideRoom(bool newOutsideRoom)
+{
+    mOutsideRoom = newOutsideRoom;
 }
 
 #include "moc_channelusercompleter.cpp"

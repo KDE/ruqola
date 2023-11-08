@@ -23,6 +23,7 @@ void ChannelUserCompleterTest::shouldHaveDefaultValues()
     QCOMPARE(w.type(), ChannelUserCompleter::ChannelUserCompleterType::Unknown);
     QVERIFY(w.statusIcon().isNull());
     QVERIFY(w.channelUserIcon().isNull());
+    QVERIFY(!w.outsideRoom());
 }
 
 #include "moc_channelusercompletertest.cpp"

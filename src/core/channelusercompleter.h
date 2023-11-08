@@ -47,6 +47,9 @@ public:
     [[nodiscard]] QString avatarTag() const;
     void setAvatarTag(const QString &newAvatarTag);
 
+    [[nodiscard]] bool outsideRoom() const;
+    void setOutsideRoom(bool newOutsideRoom);
+
 private:
     QIcon mStatusIcon;
     QIcon mChannelUserIcon;
@@ -56,6 +59,7 @@ private:
     QString mAvatarTag;
 
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
+    bool mOutsideRoom = false;
 };
 Q_DECLARE_TYPEINFO(ChannelUserCompleter, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelUserCompleter &t);
