@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2023-11-08 00:43+0000\n"
 "PO-Revision-Date: 2023-10-23 14:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -835,6 +835,18 @@ msgstr "Unisciti su"
 msgid "Custom"
 msgstr "Personalizzato"
 
+#: core/model/inputcompletermodel.cpp:26
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
+msgid "Notify all in this room"
+msgstr "L'utente non è in questa stanza"
+
+#: core/model/inputcompletermodel.cpp:35
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
+msgid "Notify active users in this room"
+msgstr "L'utente non è in questa stanza"
+
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
 msgid "Starred Messages"
@@ -1325,12 +1337,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2783
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2784
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -8216,37 +8228,37 @@ msgstr "Elimina messaggio"
 msgid "Translator Error"
 msgstr "Errore del traduttore"
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Paste Image"
 msgstr "Incolla immagine"
 
-#: widgets/room/messagetextedit.cpp:201
+#: widgets/room/messagetextedit.cpp:203
 #, kde-format
 msgid "Change Text Format"
 msgstr "Cambia formato del testo"
 
-#: widgets/room/messagetextedit.cpp:203
+#: widgets/room/messagetextedit.cpp:205
 #, kde-format
 msgid "Bold"
 msgstr "Grassetto"
 
-#: widgets/room/messagetextedit.cpp:204
+#: widgets/room/messagetextedit.cpp:206
 #, kde-format
 msgid "Italic"
 msgstr "Corsivo"
 
-#: widgets/room/messagetextedit.cpp:205
+#: widgets/room/messagetextedit.cpp:207
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrato"
 
-#: widgets/room/messagetextedit.cpp:207
+#: widgets/room/messagetextedit.cpp:209
 #, kde-format
 msgid "Code Block"
 msgstr "Blocco di codice"
 
-#: widgets/room/messagetextedit.cpp:209
+#: widgets/room/messagetextedit.cpp:211
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL Markdown"

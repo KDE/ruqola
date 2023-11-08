@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2023-11-08 00:43+0000\n"
 "PO-Revision-Date: 2023-10-30 05:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -834,6 +834,18 @@ msgstr "ჩართვის დრო"
 msgid "Custom"
 msgstr "ხელით მითითებული"
 
+#: core/model/inputcompletermodel.cpp:26
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
+msgid "Notify all in this room"
+msgstr "მომხმარებელი ამ ოთახში არაა"
+
+#: core/model/inputcompletermodel.cpp:35
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
+msgid "Notify active users in this room"
+msgstr "მომხმარებელი ამ ოთახში არაა"
+
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
 msgid "Starred Messages"
@@ -1324,12 +1336,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2783
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2784
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -8054,37 +8066,37 @@ msgstr "შეტყობინების წაშლა"
 msgid "Translator Error"
 msgstr "მთარგმნელის შეცდომა"
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Paste Image"
 msgstr "გამოსახულების ჩასმა"
 
-#: widgets/room/messagetextedit.cpp:201
+#: widgets/room/messagetextedit.cpp:203
 #, kde-format
 msgid "Change Text Format"
 msgstr "ტექსტის ფორმატის შეცვლა"
 
-#: widgets/room/messagetextedit.cpp:203
+#: widgets/room/messagetextedit.cpp:205
 #, kde-format
 msgid "Bold"
 msgstr "გასქელება"
 
-#: widgets/room/messagetextedit.cpp:204
+#: widgets/room/messagetextedit.cpp:206
 #, kde-format
 msgid "Italic"
 msgstr "დახრა"
 
-#: widgets/room/messagetextedit.cpp:205
+#: widgets/room/messagetextedit.cpp:207
 #, kde-format
 msgid "Strike-out"
 msgstr "გადასმა"
 
-#: widgets/room/messagetextedit.cpp:207
+#: widgets/room/messagetextedit.cpp:209
 #, kde-format
 msgid "Code Block"
 msgstr "კოდის ბლოკი"
 
-#: widgets/room/messagetextedit.cpp:209
+#: widgets/room/messagetextedit.cpp:211
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown -ის ბმული"
