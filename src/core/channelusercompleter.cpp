@@ -27,8 +27,8 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
     // qDebug() << " object " << object;
     mType = type;
     mName = object.value(QLatin1String("name")).toString();
-    mAvatarTag = object.value(QLatin1String("avatarETag")).toString();
     if (mType == ChannelUserCompleterType::DirectChannel) {
+        mAvatarTag = object.value(QLatin1String("avatarETag")).toString();
         mUserName = object.value(QLatin1String("username")).toString();
         mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value(QLatin1String("status")).toString()));
     } else {
