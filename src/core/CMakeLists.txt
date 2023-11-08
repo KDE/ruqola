@@ -583,11 +583,6 @@ if (HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
-if (HAVE_TEXT_AUTOCORRECTION)
-    target_link_libraries(libruqolacore
-        KF${KF_MAJOR_VERSION}::TextAutoCorrection
-    )
-endif()
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolacore
         KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets

@@ -122,15 +122,6 @@ set_package_properties(KF${KF_MAJOR_VERSION}TextAutoCorrectionWidgets PROPERTIES
 )
 if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets)
     set(HAVE_TEXT_AUTOCORRECTION_WIDGETS TRUE)
-else()
-    find_package(KF${KF_MAJOR_VERSION}TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG)
-    set_package_properties(KF${KF_MAJOR_VERSION}TextAutoCorrection PROPERTIES DESCRIPTION
-        "Add support for text auto correction (ktextaddons)"
-        TYPE OPTIONAL
-    )
-    if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrection)
-        set(HAVE_TEXT_AUTOCORRECTION TRUE)
-    endif()
 endif()
 
 find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)

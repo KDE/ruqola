@@ -7,11 +7,6 @@
 #include "configureautocorrectionwidget.h"
 #include "ruqola.h"
 
-#if HAVE_TEXT_AUTOCORRECTION
-#include "textautocorrection/autocorrection.h"
-#include "textautocorrection/textautocorrectionsettings.h"
-#include <TextAutoCorrection/AutoCorrectionWidget>
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 #include "textautocorrectioncore/textautocorrectionsettings.h"
 #include <TextAutoCorrectionCore/AutoCorrection>
@@ -22,9 +17,6 @@
 
 ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     : QWidget{parent}
-#if HAVE_TEXT_AUTOCORRECTION
-    , mAutoCorrectionWidget(new TextAutoCorrection::AutoCorrectionWidget(this))
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     , mAutoCorrectionWidget(new TextAutoCorrectionWidgets::AutoCorrectionWidget(this))
 #endif
@@ -43,9 +35,6 @@ ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
 void ConfigureAutoCorrectionWidget::save()
 {
     mAutoCorrectionWidget->writeConfig();
-#if HAVE_TEXT_AUTOCORRECTION
-    TextAutoCorrection::TextAutoCorrectionSettings::self()->save();
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::TextAutoCorrectionSettings::self()->save();
 #endif

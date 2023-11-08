@@ -24,10 +24,6 @@
 #include <TextTranslator/TranslatorConfigureListsWidget>
 #endif
 
-#if HAVE_TEXT_AUTOCORRECTION
-#include "configureautocorrectionwidget.h"
-#endif
-
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 #include "configureautocorrectionwidget.h"
 #endif
@@ -51,9 +47,6 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     , mConfigureGeneralWidget(new ConfigureGeneralWidget(this))
     , mConfigureFontWidget(new ConfigureFontWidget(this))
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
-    , mConfigureAutoCorrectionWidget(new ConfigureAutoCorrectionWidget(this))
-#endif
-#if HAVE_TEXT_AUTOCORRECTION
     , mConfigureAutoCorrectionWidget(new ConfigureAutoCorrectionWidget(this))
 #endif
 #if HAVE_KUSERFEEDBACK
@@ -86,12 +79,6 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
     addPage(mConfigureFontWidgetPage);
 
-#if HAVE_TEXT_AUTOCORRECTION
-    const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
-    mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
-    // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
-    addPage(mConfigureAutoCorrectionWidgetPage);
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
     mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
@@ -163,9 +150,6 @@ void ConfigureSettingsDialog::slotAccepted()
 #if HAVE_TEXT_TRANSLATOR
     mConfigureTranslateWidget->save();
 #endif
-#if HAVE_TEXT_AUTOCORRECTION
-    mConfigureAutoCorrectionWidget->save();
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mConfigureAutoCorrectionWidget->save();
 #endif
@@ -185,9 +169,6 @@ void ConfigureSettingsDialog::load()
     mConfigureFontWidget->load();
 #if HAVE_TEXT_TRANSLATOR
     mConfigureTranslateWidget->load();
-#endif
-#if HAVE_TEXT_AUTOCORRECTION
-    mConfigureAutoCorrectionWidget->load();
 #endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mConfigureAutoCorrectionWidget->load();

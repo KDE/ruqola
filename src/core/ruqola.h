@@ -46,9 +46,6 @@ public:
     void setCurrentAccount(const QString &accountName);
 
     void openMessageUrl(const QString &url);
-#if HAVE_TEXT_AUTOCORRECTION
-    TextAutoCorrection::AutoCorrection *autoCorrection() const;
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::AutoCorrection *autoCorrection() const;
 #endif
@@ -63,9 +60,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
-#if HAVE_TEXT_AUTOCORRECTION
-    TextAutoCorrection::AutoCorrection *const mAutoCorrection = nullptr;
-#endif
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::AutoCorrection *const mAutoCorrection = nullptr;
 #endif

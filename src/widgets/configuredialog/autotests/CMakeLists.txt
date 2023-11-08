@@ -14,10 +14,6 @@ add_ruqolaconfiguredialog_test(configuresettingsdialogtest.cpp)
 add_ruqolaconfiguredialog_test(configuregeneralwidgettest.cpp)
 add_ruqolaconfiguredialog_test(configurefontwidgettest.cpp)
 
-if (HAVE_TEXT_AUTOCORRECTION)
-    add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
-endif()
-
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
 endif()

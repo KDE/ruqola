@@ -780,12 +780,6 @@ target_sources(libruqolawidgets PRIVATE
     offlinewidget/offlinewidget.cpp
 )
 
-if (HAVE_TEXT_AUTOCORRECTION)
-    target_sources(libruqolawidgets PRIVATE
-        configuredialog/configureautocorrectionwidget.h
-        configuredialog/configureautocorrectionwidget.cpp
-    )
-endif()
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureautocorrectionwidget.h
@@ -878,11 +872,6 @@ if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
 		KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
 endif()	
 
-if (HAVE_TEXT_AUTOCORRECTION)
-    target_link_libraries(libruqolawidgets
-        KF${KF_MAJOR_VERSION}::TextAutoCorrection
-    )
-endif()
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolawidgets
         KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets
