@@ -252,18 +252,20 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id)
 {
-    return searchRoomUsers(pattern, exceptions, false, true, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
-{
-    return searchRoomUsers(pattern, exceptions, true, false, id);
+    return searchRoomUsers(roomId, pattern, exceptions, false, true, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
+RocketChatMessage::inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id)
+{
+    return searchRoomUsers(roomId, pattern, exceptions, true, false, id);
+}
+
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::searchRoomUsers(const QString &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
 {
     QJsonArray params;
     params.append(pattern);
@@ -280,6 +282,9 @@ RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &except
     }
     secondParams[QLatin1String("mentions")] = true;
     params.append(std::move(secondParams));
+    if (!roomId.isEmpty()) {
+        params.append(roomId);
+    }
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 

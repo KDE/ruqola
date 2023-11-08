@@ -40,9 +40,11 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
+    searchRoomUsers(const QString &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
+    inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
+    inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
 

@@ -509,9 +509,9 @@ quint64 DDPClient::roomNameExists(const QString &roomName)
     return method(result, room_name_exist, DDPClient::Persistent);
 }
 
-quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog)
+quint64 DDPClient::inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(pattern, exceptions, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(roomId, pattern, exceptions, m_uid);
     if (threadDialog) {
         return method(result, input_user_channel_autocomplete_thread, DDPClient::Persistent);
     } else {
@@ -519,9 +519,9 @@ quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QStrin
     }
 }
 
-quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &exceptions, bool threadDialog)
+quint64 DDPClient::inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(pattern, exceptions, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(roomId, pattern, exceptions, m_uid);
     if (threadDialog) {
         return method(result, input_user_channel_autocomplete_thread, DDPClient::Persistent);
     } else {

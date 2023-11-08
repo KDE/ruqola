@@ -140,7 +140,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
             &InputTextManager::completionRequested,
             this,
             [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
-                inputAutocomplete(pattern, exceptions, type, false);
+                // TODO add roomId
+                inputAutocomplete(QString(), pattern, exceptions, type, false);
             });
 
     mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
@@ -148,7 +149,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
             &InputTextManager::completionRequested,
             this,
             [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
-                inputAutocomplete(pattern, exceptions, type, true);
+                // TODO add roomId
+                inputAutocomplete(QString(), pattern, exceptions, type, true);
             });
 
     initializeAuthenticationPlugins();
@@ -2111,15 +2113,19 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     }
 }
 
-void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog)
+void RocketChatAccount::inputAutocomplete(const QString &roomId,
+                                          const QString &pattern,
+                                          const QString &exceptions,
+                                          InputTextManager::CompletionForType type,
+                                          bool threadDialog)
 {
     // TODO look at for restapi support.
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
-        ddp()->inputChannelAutocomplete(pattern, exceptions, threadDialog);
+        ddp()->inputChannelAutocomplete(roomId, pattern, exceptions, threadDialog);
         break;
     case InputTextManager::CompletionForType::User:
-        ddp()->inputUserAutocomplete(pattern, exceptions, threadDialog);
+        ddp()->inputUserAutocomplete(roomId, pattern, exceptions, threadDialog);
         break;
     default:
         break;

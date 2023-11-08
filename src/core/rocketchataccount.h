@@ -619,7 +619,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void checkInitializedRoom(const QString &roomId);
     LIBRUQOLACORE_NO_EXPORT void clearTypingNotification();
     LIBRUQOLACORE_NO_EXPORT void
-    inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog);
+    inputAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog);
     LIBRUQOLACORE_NO_EXPORT void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
     LIBRUQOLACORE_NO_EXPORT void slotUserAutoCompleterDone(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void slotListCommandDone(const QJsonObject &obj);

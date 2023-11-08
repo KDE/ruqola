@@ -35,6 +35,7 @@ private Q_SLOTS:
     void inputChannelAutocomplete();
 
     void inputUserAutocomplete();
+    void inputUserWithRoomIdAutocomplete();
 
     void blockUser();
     void unBlockUser();
