@@ -166,6 +166,9 @@ void ConfigureSettingsDialog::slotAccepted()
 #if HAVE_TEXT_AUTOCORRECTION
     mConfigureAutoCorrectionWidget->save();
 #endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    mConfigureAutoCorrectionWidget->save();
+#endif
 #if HAVE_TEXT_TO_SPEECH
     mConfigureTextToSpeechWidget->save();
 #endif
