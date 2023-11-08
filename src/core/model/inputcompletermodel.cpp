@@ -28,6 +28,14 @@ ChannelUserCompleter InputCompleterModel::createHereChannel()
     return here;
 }
 
+ChannelUserCompleter InputCompleterModel::noFoundChannelUser()
+{
+    ChannelUserCompleter noFound;
+    noFound.setDescription(i18n("No result found."));
+    noFound.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+    return noFound;
+}
+
 ChannelUserCompleter InputCompleterModel::createAllChannel()
 {
     ChannelUserCompleter all;
@@ -55,11 +63,7 @@ void InputCompleterModel::setSearchUserString(const QString &str)
 
 void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &channels)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mChannel.clear();
-        endResetModel();
-    }
+    clear();
     if (!channels.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, channels.count() - 1);
         mChannel = channels;
@@ -100,6 +104,9 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
     }
     if (needToAddHere) {
         channelList.append(createHereChannel());
+    }
+    if (channelList.isEmpty()) {
+        channelList.append(noFoundChannelUser());
     }
     setChannels(channelList);
 }

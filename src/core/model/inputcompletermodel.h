@@ -46,6 +46,7 @@ private:
     Q_DISABLE_COPY(InputCompleterModel)
     [[nodiscard]] static ChannelUserCompleter createHereChannel();
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
+    [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
     QString mSetSearchUserString;
     QVector<ChannelUserCompleter> mChannel;
 };
