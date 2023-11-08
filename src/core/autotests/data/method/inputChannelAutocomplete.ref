@@ -8,8 +8,8 @@
             "exception"
         ],
         {
-            "rooms": true,
-            "users": false
+            "mentions": true,
+            "rooms": true
         }
     ]
 }

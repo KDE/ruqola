@@ -9,7 +9,7 @@
             "bla"
         ],
         {
-            "rooms": false,
+            "mentions": true,
             "users": true
         }
     ]

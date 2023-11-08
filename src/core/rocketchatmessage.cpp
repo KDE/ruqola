@@ -272,8 +272,13 @@ RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &except
     params.append(std::move(exceptionJson));
 
     QJsonObject secondParams;
-    secondParams[QLatin1String("rooms")] = searchRoom;
-    secondParams[QLatin1String("users")] = searchUser;
+    if (searchRoom) {
+        secondParams[QLatin1String("rooms")] = searchRoom;
+    }
+    if (searchUser) {
+        secondParams[QLatin1String("users")] = searchUser;
+    }
+    secondParams[QLatin1String("mentions")] = true;
     params.append(std::move(secondParams));
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
