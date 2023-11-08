@@ -8,6 +8,8 @@
 #include "common/delegatepaintutil.h"
 #include "model/inputcompletermodel.h"
 
+#include <KLocalizedString>
+
 #include <QFontMetricsF>
 #include <QPainter>
 
@@ -20,6 +22,8 @@ UserAndChannelCompletionDelegate::~UserAndChannelCompletionDelegate() = default;
 
 void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // TODO use AvatarCacheManager
+
     // [M] icon ? status name (username) (description if necessary)
     drawBackground(painter, option, index);
 
@@ -35,10 +39,18 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     painter->setFont(boldFont);
 
     int xPos = -1;
-    const QIcon icon = index.data(InputCompleterModel::IconStatus).value<QIcon>();
+
+    const QIcon icon = index.data(InputCompleterModel::ChannelUserIcon).value<QIcon>();
     if (!icon.isNull()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         drawDecoration(painter, option, displayRect, icon.pixmap(option.rect.height(), option.rect.height()));
+        xPos = margin + option.rect.height();
+    }
+
+    const QIcon iconStatus = index.data(InputCompleterModel::IconStatus).value<QIcon>();
+    if (!iconStatus.isNull()) {
+        const QRect displayRect(margin + xPos, option.rect.y(), option.rect.height(), option.rect.height());
+        drawDecoration(painter, option, displayRect, iconStatus.pixmap(option.rect.height(), option.rect.height()));
         xPos = margin + option.rect.height();
     }
 
@@ -72,5 +84,14 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
 
         painter->drawText(xPos + margin * 2, defaultCharHeight, description);
     }
+
     painter->setFont(oldFont);
+
+    if (index.data(InputCompleterModel::OutsideRoom).toBool()) {
+        fontMetrics = QFontMetrics(oldFont);
+        const QString inRoomStr = i18n("Not in channel");
+        const int inRoomStrWidth = fontMetrics.horizontalAdvance(inRoomStr);
+
+        painter->drawText(option.rect.width() - inRoomStrWidth - margin, defaultCharHeight, inRoomStr);
+    }
 }
