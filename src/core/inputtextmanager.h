@@ -40,7 +40,7 @@ public:
 
     [[nodiscard]] QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
 
-    void setInputTextChanged(const QString &str, int position);
+    void setInputTextChanged(const QString &roomId, const QString &str, int position);
 
     void clearCompleter();
 
@@ -53,7 +53,7 @@ public:
 Q_SIGNALS:
     // Trigger autocompletion request in DDPClient (via RocketChatAccount)
     // Emitted with Channel and User, never Emoji or None
-    void completionRequested(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+    void completionRequested(const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void completionTypeChanged(InputTextManager::CompletionForType type);
 
 private:

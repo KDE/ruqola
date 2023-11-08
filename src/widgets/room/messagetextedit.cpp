@@ -182,7 +182,7 @@ void MessageTextEdit::changeText(const QString &newText, int cursorPosition)
     cursor.setPosition(cursorPosition);
     setTextCursor(cursor);
 
-    mCurrentInputTextManager->setInputTextChanged(text(), cursorPosition);
+    mCurrentInputTextManager->setInputTextChanged(roomId(), text(), cursorPosition);
 }
 
 QMenu *MessageTextEdit::mousePopupMenu()
@@ -210,6 +210,16 @@ QMenu *MessageTextEdit::mousePopupMenu()
     formatMenu->addSeparator();
     formatMenu->addAction(i18n("Markdown Url"), this, &MessageTextEdit::slotInsertMarkdownUrl);
     return menu;
+}
+
+void MessageTextEdit::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+QString MessageTextEdit::roomId() const
+{
+    return mRoomId;
 }
 
 void MessageTextEdit::slotInsertMarkdownUrl()
@@ -348,12 +358,12 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             // We will clear all text => we will send textEditing is empty => clear notification
             Q_EMIT textEditing(true);
         } else {
-            mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
+            mCurrentInputTextManager->setInputTextChanged(roomId(), text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
     } else {
         if (!e->text().isEmpty() || e->matches(QKeySequence::Paste) || e->matches(QKeySequence::Redo) || e->matches(QKeySequence::Undo)) {
-            mCurrentInputTextManager->setInputTextChanged(text(), textCursor().position());
+            mCurrentInputTextManager->setInputTextChanged(roomId(), text(), textCursor().position());
             Q_EMIT textEditing(document()->isEmpty());
         }
     }

@@ -85,26 +85,26 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     QSignalSpy typeChangedSpy(&manager, &InputTextManager::completionTypeChanged);
     QSignalSpy requestSpy(&manager, &InputTextManager::completionRequested);
 
-    manager.setInputTextChanged(QStringLiteral("a @"), 3);
+    manager.setInputTextChanged(QString(), QStringLiteral("a @"), 3);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
     QCOMPARE(requestSpy.count(), 0); // We don't send signal when we have only "@" now.
     typeChangedSpy.clear();
     requestSpy.clear();
 
-    manager.setInputTextChanged(QStringLiteral("a :"), 3);
+    manager.setInputTextChanged(QString(), QStringLiteral("a :"), 3);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Emoji);
     typeChangedSpy.clear();
     QCOMPARE(requestSpy.count(), 0); // emoji completion doesn't use this signal
     requestSpy.clear();
 
-    manager.setInputTextChanged(QStringLiteral("a "), 2);
+    manager.setInputTextChanged(QString(), QStringLiteral("a "), 2);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::None);
     typeChangedSpy.clear();
 
-    manager.setInputTextChanged(QStringLiteral("a #c"), 4);
+    manager.setInputTextChanged(QString(), QStringLiteral("a #c"), 4);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Channel);
     QCOMPARE(requestSpy.count(), 1);
@@ -112,7 +112,7 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     typeChangedSpy.clear();
     requestSpy.clear();
 
-    manager.setInputTextChanged(QStringLiteral("hello @foo"), 10);
+    manager.setInputTextChanged(QString(), QStringLiteral("hello @foo"), 10);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
     QCOMPARE(requestSpy.count(), 1);
@@ -120,21 +120,21 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     requestSpy.clear();
     typeChangedSpy.clear();
 
-    manager.setInputTextChanged(QStringLiteral("@foo hello"), 4);
+    manager.setInputTextChanged(QString(), QStringLiteral("@foo hello"), 4);
     QCOMPARE(typeChangedSpy.count(), 0); // User again
     QCOMPARE(requestSpy.count(), 1);
     QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
     requestSpy.clear();
     typeChangedSpy.clear();
 
-    manager.setInputTextChanged(QStringLiteral("a :heart:"), 9);
+    manager.setInputTextChanged(QString(), QStringLiteral("a :heart:"), 9);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Emoji);
     QCOMPARE(requestSpy.count(), 0);
     typeChangedSpy.clear();
 
     // If the cursor isn't at the end of the word, don't trigger completion
-    manager.setInputTextChanged(QStringLiteral("@foo"), 2);
+    manager.setInputTextChanged(QString(), QStringLiteral("@foo"), 2);
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::None);
     QCOMPARE(requestSpy.count(), 0);

@@ -83,7 +83,6 @@ private:
     void slotSendSoundMessage();
     void slotPrivateSettingsChanged();
 
-    QString mRoomId;
     QString mThreadMessageId;
     QString mMessageIdBeingEdited;
     QString mQuotePermalink;

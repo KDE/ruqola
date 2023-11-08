@@ -133,7 +133,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 // a command ?
-                if (mCurrentRocketChatAccount->runCommand(msg, mRoomId, mThreadMessageId)) {
+                if (mCurrentRocketChatAccount->runCommand(msg, roomId(), mThreadMessageId)) {
                     setMode(MessageLineWidget::EditingMode::NewMessage);
                     return;
                 }
@@ -180,23 +180,23 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                 }
             }
             if (mThreadMessageId.isEmpty()) {
-                mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
+                mCurrentRocketChatAccount->sendMessage(roomId(), msg);
             } else {
-                mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, msg);
+                mCurrentRocketChatAccount->replyOnThread(roomId(), mThreadMessageId, msg);
                 if (!mReplyInThreadDialogBox) {
                     setThreadMessageId({});
                 }
             }
         } else if (!mMessageIdBeingEdited.isEmpty()) {
             // TODO check message size
-            mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+            mCurrentRocketChatAccount->updateMessage(roomId(), mMessageIdBeingEdited, msg);
             clearMessageIdBeingEdited();
         } else if (!mQuotePermalink.isEmpty()) {
             const QString newMessage = QStringLiteral("[ ](%1) %2").arg(mQuotePermalink, msg);
             if (mThreadMessageId.isEmpty()) {
-                mCurrentRocketChatAccount->sendMessage(mRoomId, newMessage);
+                mCurrentRocketChatAccount->sendMessage(roomId(), newMessage);
             } else {
-                mCurrentRocketChatAccount->replyOnThread(mRoomId, mThreadMessageId, newMessage);
+                mCurrentRocketChatAccount->replyOnThread(roomId(), mThreadMessageId, newMessage);
                 if (!mReplyInThreadDialogBox) {
                     setThreadMessageId({});
                 }
@@ -214,7 +214,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.description = uploadFileInfo.description;
     info.messageText = QString();
     info.filenameUrl = uploadFileInfo.fileUrl;
-    info.roomId = mRoomId;
+    info.roomId = roomId();
     info.threadMessageId = mThreadMessageId;
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
@@ -456,7 +456,7 @@ void MessageLineWidget::setMode(EditingMode mode)
 void MessageLineWidget::slotTextEditing(bool clearNotification)
 {
     mSendMessageButton->setEnabled(!clearNotification);
-    mCurrentRocketChatAccount->textEditing(mRoomId, clearNotification);
+    mCurrentRocketChatAccount->textEditing(roomId(), clearNotification);
 }
 
 QString MessageLineWidget::messageIdBeingEdited() const
@@ -471,12 +471,12 @@ void MessageLineWidget::setMessageIdBeingEdited(const QString &messageIdBeingEdi
 
 QString MessageLineWidget::roomId() const
 {
-    return mRoomId;
+    return mMessageTextEdit->roomId();
 }
 
 void MessageLineWidget::setRoomId(const QString &roomId)
 {
-    mRoomId = roomId;
+    mMessageTextEdit->setRoomId(roomId);
 }
 
 bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
@@ -519,7 +519,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
 MessagesModel *MessageLineWidget::messageModel() const
 {
     MessagesModel *model =
-        mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(mRoomId) : mCurrentRocketChatAccount->threadMessageModel();
+        mThreadMessageId.isEmpty() ? mCurrentRocketChatAccount->messageModelForRoom(roomId()) : mCurrentRocketChatAccount->threadMessageModel();
     Q_ASSERT(model);
     return model;
 }
@@ -560,7 +560,7 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
 void MessageLineWidget::textEditClicked()
 {
     if (RuqolaGlobalConfig::self()->markAsReadOnTextClicked()) {
-        mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
+        mCurrentRocketChatAccount->markRoomAsRead(roomId());
     }
 }
 

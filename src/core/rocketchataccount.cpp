@@ -139,18 +139,16 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mInputTextManager,
             &InputTextManager::completionRequested,
             this,
-            [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
-                // TODO add roomId
-                inputAutocomplete(QString(), pattern, exceptions, type, false);
+            [this](const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
+                inputAutocomplete(roomId, pattern, exceptions, type, false);
             });
 
     mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
     connect(mInputThreadMessageTextManager,
             &InputTextManager::completionRequested,
             this,
-            [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
-                // TODO add roomId
-                inputAutocomplete(QString(), pattern, exceptions, type, true);
+            [this](const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
+                inputAutocomplete(roomId, pattern, exceptions, type, true);
             });
 
     initializeAuthenticationPlugins();

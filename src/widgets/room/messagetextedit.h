@@ -36,6 +36,9 @@ public:
 
     QMenu *mousePopupMenu() override;
 
+    void setRoomId(const QString &roomId);
+    [[nodiscard]] QString roomId() const;
+
 Q_SIGNALS:
 
     void sendMessage(const QString &str);
@@ -73,4 +76,5 @@ private:
     CompletionListView *const mUserAndChannelCompletionListView;
     CompletionListView *const mEmojiCompletionListView;
     CompletionListView *const mCommandCompletionListView;
+    QString mRoomId;
 };

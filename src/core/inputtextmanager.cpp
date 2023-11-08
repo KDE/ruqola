@@ -154,7 +154,7 @@ void InputTextManager::slotCompletionChannelDone(const QJsonObject &root)
     inputTextCompleter(obj);
 }
 
-void InputTextManager::setInputTextChanged(const QString &text, int position)
+void InputTextManager::setInputTextChanged(const QString &roomId, const QString &text, int position)
 {
     if (text.isEmpty()) {
         clearCompleter();
@@ -176,12 +176,12 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
                 mInputCompleterModel->setDefaultUserCompletion();
             } else {
                 mInputCompleterModel->setSearchUserString(str); // necessary for make sure to show @here or @all
-                Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::User);
+                Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::User);
             }
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             mCurrentCompletionPattern = str;
-            Q_EMIT completionRequested(str, QString(), InputTextManager::CompletionForType::Channel);
+            Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::Channel);
             // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
