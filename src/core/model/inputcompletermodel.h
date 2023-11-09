@@ -49,5 +49,5 @@ private:
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
     QString mSetSearchUserString;
-    QVector<ChannelUserCompleter> mChannel;
+    QVector<ChannelUserCompleter> mChannelUserCompleters;
 };

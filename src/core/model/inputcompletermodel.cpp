@@ -66,7 +66,7 @@ void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &chann
     clear();
     if (!channels.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, channels.count() - 1);
-        mChannel = channels;
+        mChannelUserCompleters = channels;
         endInsertRows();
     }
 }
@@ -113,9 +113,9 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
 
 void InputCompleterModel::clear()
 {
-    if (!mChannel.isEmpty()) {
+    if (!mChannelUserCompleters.isEmpty()) {
         beginResetModel();
-        mChannel.clear();
+        mChannelUserCompleters.clear();
         endResetModel();
     }
 }
@@ -123,34 +123,34 @@ void InputCompleterModel::clear()
 int InputCompleterModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mChannel.count();
+    return mChannelUserCompleters.count();
 }
 
 QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mChannel.count()) {
+    if (index.row() < 0 || index.row() >= mChannelUserCompleters.count()) {
         return {};
     }
-    const ChannelUserCompleter channel = mChannel.at(index.row());
+    const ChannelUserCompleter channelUserCompleter = mChannelUserCompleters.at(index.row());
     switch (role) {
     case InputCompleterModel::DisplayName:
     case Qt::DisplayRole:
-        return channel.name();
+        return channelUserCompleter.name();
     case InputCompleterModel::CompleterName:
-        return channel.completerName();
+        return channelUserCompleter.completerName();
     case InputCompleterModel::IconStatus:
     case Qt::DecorationRole:
-        return channel.statusIcon();
+        return channelUserCompleter.statusIcon();
     case InputCompleterModel::AvatarInfo:
-        return QVariant::fromValue(channel.avatarInfo());
+        return QVariant::fromValue(channelUserCompleter.avatarInfo());
     case InputCompleterModel::Description:
-        return channel.description();
+        return channelUserCompleter.description();
     case InputCompleterModel::UserName:
-        return channel.userName();
+        return channelUserCompleter.userName();
     case InputCompleterModel::OutsideRoom:
-        return channel.outsideRoom();
+        return channelUserCompleter.outsideRoom();
     case InputCompleterModel::ChannelType:
-        return channel.type();
+        return channelUserCompleter.type();
     }
     return {};
 }
