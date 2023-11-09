@@ -56,7 +56,7 @@ Utils::AvatarInfo ChannelUserCompleter::avatarInfo() const
 
 void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCompleterType type)
 {
-    qDebug() << " object " << object;
+    // qDebug() << " object " << object;
     mType = type;
     mName = object.value(QLatin1String("name")).toString();
     mIdentifier = object.value(QLatin1String("_id")).toString();
