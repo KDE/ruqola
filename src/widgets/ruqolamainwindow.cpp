@@ -930,8 +930,8 @@ void RuqolaMainWindow::createSystemTray()
         mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
         mContextStatusMenu->menuAction()->setVisible(false);
 
-        trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
-        trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
+        trayMenu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Preferences)));
+        trayMenu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ConfigureNotifications)));
 
         // Create systray to show notifications on Desktop
         connect(mNotification, &Notification::alert, this, [this]() {
@@ -1046,7 +1046,7 @@ void RuqolaMainWindow::updateHamburgerMenu()
     menu->addSeparator();
     menu->addAction(actionCollection()->action(QStringLiteral("logout")));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))));
+    menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Quit)));
     mHamburgerMenu->setMenu(menu);
 }
 
