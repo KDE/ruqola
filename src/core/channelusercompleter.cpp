@@ -49,6 +49,11 @@ void ChannelUserCompleter::setIdentifier(const QString &newIdentifier)
     mIdentifier = newIdentifier;
 }
 
+Utils::AvatarInfo ChannelUserCompleter::avatarInfo() const
+{
+    return mAvatarInfo;
+}
+
 void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCompleterType type)
 {
     qDebug() << " object " << object;
@@ -68,6 +73,14 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
         }
     }
     mOutsideRoom = object.value(QLatin1String("outside")).toBool();
+    createAvatarInfo();
+}
+
+void ChannelUserCompleter::createAvatarInfo()
+{
+    mAvatarInfo.avatarType = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? Utils::AvatarType::Room : Utils::AvatarType::User);
+    mAvatarInfo.etag = mAvatarTag;
+    mAvatarInfo.identifier = mIdentifier;
 }
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const

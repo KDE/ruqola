@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "utils.h"
 #include <QDebug>
 #include <QIcon>
 
@@ -54,13 +55,17 @@ public:
     [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
+    [[nodiscard]] Utils::AvatarInfo avatarInfo() const;
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void createAvatarInfo();
     QIcon mStatusIcon;
     QString mDescription;
     QString mName;
     QString mUserName;
     QString mAvatarTag;
     QString mIdentifier;
+    Utils::AvatarInfo mAvatarInfo;
 
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
     bool mOutsideRoom = false;

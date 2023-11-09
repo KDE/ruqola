@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "utils.h"
 #include <QItemDelegate>
 class AvatarCacheManager;
 class RocketChatAccount;
@@ -21,6 +20,5 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 private:
-    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QString &identifier, Utils::AvatarType type, const QWidget *widget, int maxHeight) const;
     AvatarCacheManager *const mAvatarCacheManager;
 };

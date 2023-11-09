@@ -41,22 +41,11 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     painter->setFont(boldFont);
 
     int xPos = -1;
-    const QString identifier = index.data(InputCompleterModel::Identifier).toString();
-    if (!identifier.isEmpty()) {
-        const ChannelUserCompleter::ChannelUserCompleterType channelType =
-            index.data(InputCompleterModel::ChannelType).value<ChannelUserCompleter::ChannelUserCompleterType>();
-#if 0
-        Utils::AvatarInfo info;
-        info.avatarType = (channelType == ChannelUserCompleter::ChannelUserCompleterType::Room ? Utils::AvatarType::Room : Utils::AvatarType::User);
-        info.etag = index.data(InputCompleterModel::).value<ChannelUserCompleter::ChannelUserCompleterType>();
-        info.identifier = identifier;
-#endif
+    const Utils::AvatarInfo info = index.data(InputCompleterModel::AvatarInfo).value<Utils::AvatarInfo>();
+    if (info.isValid()) {
+        qDebug() << " info " << info;
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix =
-            makeAvatarPixmap(identifier,
-                             (channelType == ChannelUserCompleter::ChannelUserCompleterType::Room ? Utils::AvatarType::Room : Utils::AvatarType::User),
-                             option.widget,
-                             option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, info, option.rect.height());
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
             xPos = margin + option.rect.height();
@@ -115,12 +104,4 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
 void UserAndChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);
-}
-
-QPixmap UserAndChannelCompletionDelegate::makeAvatarPixmap(const QString &identifier, Utils::AvatarType type, const QWidget *widget, int maxHeight) const
-{
-    Utils::AvatarInfo info;
-    info.avatarType = type;
-    info.identifier = identifier;
-    return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
 }
