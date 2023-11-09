@@ -20,6 +20,7 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     d << "userName " << t.userName();
     d << "AvatarTag " << t.avatarTag();
     d << "outsideRoom " << t.outsideRoom();
+    d << "identifier " << t.identifier();
     return d;
 }
 
@@ -38,11 +39,22 @@ QString ChannelUserCompleter::completerName() const
     return {};
 }
 
+QString ChannelUserCompleter::identifier() const
+{
+    return mIdentifier;
+}
+
+void ChannelUserCompleter::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
+}
+
 void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCompleterType type)
 {
-    // qDebug() << " object " << object;
+    qDebug() << " object " << object;
     mType = type;
     mName = object.value(QLatin1String("name")).toString();
+    mIdentifier = object.value(QLatin1String("_id")).toString();
     if (mType == ChannelUserCompleterType::DirectChannel) {
         mAvatarTag = object.value(QLatin1String("avatarETag")).toString();
         mUserName = object.value(QLatin1String("username")).toString();
@@ -56,14 +68,13 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
         }
     }
     mOutsideRoom = object.value(QLatin1String("outside")).toBool();
-    // TODO mChannelUserIcon
 }
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const
 {
     return (mType == other.type()) && (mName == other.name())
-        && (mDescription == other.description() && (mUserName == other.userName()) && (mAvatarTag == other.avatarTag())
-            && (mOutsideRoom == other.outsideRoom()));
+        && (mDescription == other.description() && (mUserName == other.userName()) && (mAvatarTag == other.avatarTag()) && (mOutsideRoom == other.outsideRoom())
+            && (mIdentifier == other.identifier()));
 }
 
 QString ChannelUserCompleter::description() const
@@ -99,11 +110,6 @@ void ChannelUserCompleter::setType(ChannelUserCompleterType newType)
 QIcon ChannelUserCompleter::statusIcon() const
 {
     return mStatusIcon;
-}
-
-QIcon ChannelUserCompleter::channelUserIcon() const
-{
-    return mChannelUserIcon;
 }
 
 QString ChannelUserCompleter::userName() const

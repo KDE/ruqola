@@ -22,8 +22,8 @@ void ChannelUserCompleterTest::shouldHaveDefaultValues()
     QVERIFY(w.avatarTag().isEmpty());
     QCOMPARE(w.type(), ChannelUserCompleter::ChannelUserCompleterType::Unknown);
     QVERIFY(w.statusIcon().isNull());
-    QVERIFY(w.channelUserIcon().isNull());
     QVERIFY(!w.outsideRoom());
+    QVERIFY(w.identifier().isEmpty());
 }
 
 void ChannelUserCompleterTest::shouldReturnCompleterName()

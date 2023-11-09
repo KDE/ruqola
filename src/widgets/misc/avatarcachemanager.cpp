@@ -32,14 +32,13 @@ qreal AvatarCacheManager::checkIfNeededToClearCache(const QWidget *widget) const
 
 void AvatarCacheManager::slotAvatarChanged(const Utils::AvatarInfo &info)
 {
-    if (info.avatarType == mAvatarType) {
+    if ((info.avatarType == mAvatarType) || (mAvatarType == Utils::AvatarType::UserAndRoom)) {
         const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
         if (iconUrlStr.isEmpty()) {
             return;
         }
         auto &cache = mAvatarCache.cache;
         auto downScaled = cache.findCachedPixmap(iconUrlStr);
-        // Perhaps we can optimize it and not cleaning all cache, only pixmap from useridentifier.
         if (!downScaled.isNull()) {
             mAvatarCache.cache.remove(iconUrlStr);
             mRocketChatAccount->updateAvatarCache(info);

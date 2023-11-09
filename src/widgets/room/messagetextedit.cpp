@@ -43,7 +43,8 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
 
     connect(document()->documentLayout(), &QAbstractTextDocumentLayout::documentSizeChanged, this, &QWidget::updateGeometry);
 
-    mUserAndChannelCompletionListView->setItemDelegate(new UserAndChannelCompletionDelegate(mUserAndChannelCompletionListView));
+    mUserAndChannelCompletionDelegate = new UserAndChannelCompletionDelegate(mUserAndChannelCompletionListView);
+    mUserAndChannelCompletionListView->setItemDelegate(mUserAndChannelCompletionDelegate);
     mUserAndChannelCompletionListView->setTextWidget(this);
     connect(mUserAndChannelCompletionListView, &CompletionListView::complete, this, &MessageTextEdit::slotComplete);
 
@@ -117,6 +118,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
     mUserAndChannelCompletionListView->setModel(mCurrentInputTextManager->inputCompleterModel());
     mEmojiCompletionListView->setModel(mCurrentInputTextManager->emojiCompleterModel());
     mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());
+    mUserAndChannelCompletionDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
     connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
     connect(mCurrentInputTextManager, &InputTextManager::selectFirstTextCompleter, this, &MessageTextEdit::slotSelectFirstTextCompleter);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);

@@ -13,7 +13,7 @@
 #include <QPointer>
 class RocketChatAccount;
 class CompletionListView;
-
+class UserAndChannelCompletionDelegate;
 /**
  * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
  */
@@ -77,5 +77,6 @@ private:
     CompletionListView *const mUserAndChannelCompletionListView;
     CompletionListView *const mEmojiCompletionListView;
     CompletionListView *const mCommandCompletionListView;
+    UserAndChannelCompletionDelegate *mUserAndChannelCompletionDelegate = nullptr;
     QString mRoomId;
 };

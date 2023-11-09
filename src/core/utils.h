@@ -54,6 +54,7 @@ enum class AvatarType {
     Unknown,
     Room,
     User,
+    UserAndRoom,
 };
 
 struct LIBRUQOLACORE_EXPORT AvatarInfo {

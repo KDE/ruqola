@@ -22,7 +22,7 @@ public:
         ChannelType,
         Description,
         UserName,
-        ChannelUserIcon,
+        Identifier,
         OutsideRoom,
     };
     Q_ENUM(InputCompleterRoles)

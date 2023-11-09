@@ -18,8 +18,8 @@
 RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
+    , mAvatarManager(new AvatarManager(mAccount, this))
 {
-    mAvatarManager = new AvatarManager(mAccount, this);
     connect(mAvatarManager, &AvatarManager::insertAvatarUrl, this, &RocketChatCache::insertAvatarUrl);
     loadAvatarCache();
 }

@@ -6,8 +6,10 @@
 
 #pragma once
 
+#include "utils.h"
 #include <QItemDelegate>
-
+class AvatarCacheManager;
+class RocketChatAccount;
 class UserAndChannelCompletionDelegate : public QItemDelegate
 {
 public:
@@ -15,4 +17,10 @@ public:
     ~UserAndChannelCompletionDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+
+private:
+    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QString &identifier, Utils::AvatarType type, const QWidget *widget, int maxHeight) const;
+    AvatarCacheManager *const mAvatarCacheManager;
 };

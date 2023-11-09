@@ -6,8 +6,8 @@
 
 #include "emojicompletiondelegate.h"
 #include "common/delegatepaintutil.h"
+#include "model/emoticonmodel.h"
 #include "utils.h"
-#include <model/emoticonmodel.h>
 
 #include <QPainter>
 

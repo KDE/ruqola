@@ -40,8 +40,6 @@ public:
 
     [[nodiscard]] QIcon statusIcon() const;
 
-    [[nodiscard]] QIcon channelUserIcon() const;
-
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);
 
@@ -53,13 +51,16 @@ public:
 
     [[nodiscard]] QString completerName() const;
 
+    [[nodiscard]] QString identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
 private:
     QIcon mStatusIcon;
-    QIcon mChannelUserIcon;
     QString mDescription;
     QString mName;
     QString mUserName;
     QString mAvatarTag;
+    QString mIdentifier;
 
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
     bool mOutsideRoom = false;

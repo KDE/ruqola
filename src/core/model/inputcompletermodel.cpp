@@ -141,14 +141,16 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
     case InputCompleterModel::IconStatus:
     case Qt::DecorationRole:
         return channel.statusIcon();
-    case InputCompleterModel::ChannelUserIcon:
-        return channel.channelUserIcon();
+    case InputCompleterModel::Identifier:
+        return channel.identifier();
     case InputCompleterModel::Description:
         return channel.description();
     case InputCompleterModel::UserName:
         return channel.userName();
     case InputCompleterModel::OutsideRoom:
         return channel.outsideRoom();
+    case InputCompleterModel::ChannelType:
+        return channel.type();
     }
     return {};
 }

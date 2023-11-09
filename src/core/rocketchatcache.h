@@ -57,5 +57,5 @@ private:
     QHash<QString, QUrl> mAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *const mAccount;
-    AvatarManager *mAvatarManager = nullptr;
+    AvatarManager *const mAvatarManager;
 };
