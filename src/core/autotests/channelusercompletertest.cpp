@@ -26,4 +26,21 @@ void ChannelUserCompleterTest::shouldHaveDefaultValues()
     QVERIFY(!w.outsideRoom());
 }
 
+void ChannelUserCompleterTest::shouldReturnCompleterName()
+{
+    ChannelUserCompleter w;
+    const QString name{QStringLiteral("name")};
+    const QString userName{QStringLiteral("userName")};
+    w.setName(name);
+    w.setUserName(userName);
+    w.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
+    QCOMPARE(w.completerName(), name);
+    w.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+    QCOMPARE(w.completerName(), userName);
+    w.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
+    QCOMPARE(w.completerName(), name);
+    w.setType(ChannelUserCompleter::ChannelUserCompleterType::Unknown);
+    QCOMPARE(w.completerName(), QString());
+}
+
 #include "moc_channelusercompletertest.cpp"
