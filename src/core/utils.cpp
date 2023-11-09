@@ -313,6 +313,7 @@ QUrl Utils::avatarUrl(const QString &serverRcUrl, const AvatarInfo &avatarInfo)
         break;
     case AvatarType::Unknown:
     case AvatarType::User:
+    case AvatarType::UserAndRoom:
         break;
     }
     subFolder += QLatin1Char('/') + avatarInfo.identifier;

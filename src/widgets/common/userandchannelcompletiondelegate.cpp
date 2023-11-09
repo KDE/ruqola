@@ -43,7 +43,6 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     int xPos = -1;
     const Utils::AvatarInfo info = index.data(InputCompleterModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        qDebug() << " info " << info;
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, info, option.rect.height());
         if (!pix.isNull()) {

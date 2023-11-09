@@ -80,7 +80,7 @@ void ChannelUserCompleter::createAvatarInfo()
 {
     mAvatarInfo.avatarType = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? Utils::AvatarType::Room : Utils::AvatarType::User);
     mAvatarInfo.etag = mAvatarTag;
-    mAvatarInfo.identifier = mIdentifier;
+    mAvatarInfo.identifier = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? mIdentifier : mUserName);
 }
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const
