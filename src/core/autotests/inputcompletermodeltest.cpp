@@ -151,15 +151,15 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<ChannelUserCompleter::ChannelUserCompleterType>(),
              ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
     // We use for user a channelid == channel name as we use it for opening direct channel
-    QCOMPARE(w.data(w.index(6), InputCompleterModel::DisplayName).toString(), QStringLiteral("bla.foo4 (foo4)"));
+    QCOMPARE(w.data(w.index(6), InputCompleterModel::DisplayName).toString(), QStringLiteral("foo4"));
 
     // Test without name/username !
 
     obj = loadFile(QStringLiteral("channelparentempty.json"));
     w.parseChannels(obj);
-    QCOMPARE(w.rowCount(), 0);
-    QCOMPARE(rowInsertedSpy.count(), 0);
-    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(w.rowCount(), 1); // "No found result" item
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
     QCOMPARE(modelAboutToResetSpy.count(), 1);
 }
 
@@ -187,7 +187,7 @@ void InputCompleterModelTest::shouldClearModel()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(modelAboutToBeResetSpy.count(), 0);
+    QCOMPARE(modelAboutToBeResetSpy.count(), 1);
 }
 
 #include "moc_inputcompletermodeltest.cpp"
