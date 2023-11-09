@@ -60,14 +60,14 @@ void UploadFileDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myUploadFileDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myUploadFileDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void UploadFileDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myUploadFileDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myUploadFileDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

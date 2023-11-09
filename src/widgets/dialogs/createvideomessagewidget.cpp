@@ -97,7 +97,7 @@ CreateVideoMessageWidget::~CreateVideoMessageWidget()
 
 void CreateVideoMessageWidget::loadSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myVideoGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myVideoGroupName));
     const QByteArray deviceIdentifier = group.readEntry("VideoDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
         for (int i = 0; i < mListCamera->count(); ++i) {
@@ -112,7 +112,7 @@ void CreateVideoMessageWidget::loadSettings()
 
 void CreateVideoMessageWidget::saveSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), myVideoGroupName);
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myVideoGroupName));
     const auto device = mListCamera->itemData(mListCamera->currentIndex()).value<QCameraDevice>();
     if (!device.isNull()) {
         const QByteArray deviceIdentifier = device.id();

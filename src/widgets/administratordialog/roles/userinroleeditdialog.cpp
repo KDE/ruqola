@@ -67,14 +67,14 @@ void UserInRoleEditDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myUserInRoleEditDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myUserInRoleEditDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void UserInRoleEditDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myUserInRoleEditDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myUserInRoleEditDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

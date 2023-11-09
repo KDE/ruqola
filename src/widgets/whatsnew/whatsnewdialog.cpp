@@ -46,14 +46,14 @@ void WhatsNewDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myWhatsNewDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myWhatsNewDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void WhatsNewDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myWhatsNewDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myWhatsNewDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

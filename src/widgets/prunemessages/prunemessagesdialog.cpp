@@ -64,14 +64,14 @@ void PruneMessagesDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myPruneMessagesDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myPruneMessagesDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void PruneMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myPruneMessagesDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myPruneMessagesDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

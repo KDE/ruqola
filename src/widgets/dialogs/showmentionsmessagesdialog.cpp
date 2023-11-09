@@ -32,14 +32,14 @@ void ShowMentionsMessagesDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myShowMentionsMessagesDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ShowMentionsMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myShowMentionsMessagesDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

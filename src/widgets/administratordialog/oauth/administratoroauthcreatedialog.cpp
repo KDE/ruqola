@@ -60,14 +60,14 @@ void AdministratorOauthCreateDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorOauthCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigAdministratorOauthCreateDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorOauthCreateDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorOauthCreateDialogGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigAdministratorOauthCreateDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

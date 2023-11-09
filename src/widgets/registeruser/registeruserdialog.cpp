@@ -48,14 +48,14 @@ void RegisterUserDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myRegisterUserDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myRegisterUserDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void RegisterUserDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myRegisterUserDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myRegisterUserDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

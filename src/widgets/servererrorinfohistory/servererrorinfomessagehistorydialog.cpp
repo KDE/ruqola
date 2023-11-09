@@ -51,14 +51,14 @@ void ServerErrorInfoMessageHistoryDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), myServerErrorInfoMessageHistoryDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myServerErrorInfoMessageHistoryDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ServerErrorInfoMessageHistoryDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myServerErrorInfoMessageHistoryDialogConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myServerErrorInfoMessageHistoryDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

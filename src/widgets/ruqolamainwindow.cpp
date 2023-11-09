@@ -142,7 +142,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 RuqolaMainWindow::~RuqolaMainWindow()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group = config->group(myRuqolaMainWindowGroupName);
+    KConfigGroup group = config->group(QLatin1String(myRuqolaMainWindowGroupName));
     group.writeEntry("Size", size());
 
     delete mMainWidget; // before Ruqola::destroy()
@@ -356,7 +356,7 @@ bool RuqolaMainWindow::hasBannerInfo() const
 void RuqolaMainWindow::readConfig()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    KConfigGroup group = KConfigGroup(config, myRuqolaMainWindowGroupName);
+    KConfigGroup group = KConfigGroup(config, QLatin1String(myRuqolaMainWindowGroupName));
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
