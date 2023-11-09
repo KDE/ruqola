@@ -21,6 +21,7 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     d << "AvatarTag " << t.avatarTag();
     d << "outsideRoom " << t.outsideRoom();
     d << "identifier " << t.identifier();
+    d << "avatarinfo " << t.avatarInfo();
     return d;
 }
 
