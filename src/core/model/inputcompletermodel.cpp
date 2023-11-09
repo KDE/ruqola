@@ -24,7 +24,7 @@ ChannelUserCompleter InputCompleterModel::createHereChannel()
     ChannelUserCompleter here;
     here.setName(QStringLiteral("here"));
     here.setDescription(i18n("Notify all in this room"));
-    here.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+    here.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
     return here;
 }
 
@@ -32,7 +32,7 @@ ChannelUserCompleter InputCompleterModel::noFoundChannelUser()
 {
     ChannelUserCompleter noFound;
     noFound.setDescription(i18n("No result found."));
-    noFound.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+    noFound.setType(ChannelUserCompleter::ChannelUserCompleterType::Unknown);
     return noFound;
 }
 
@@ -41,7 +41,7 @@ ChannelUserCompleter InputCompleterModel::createAllChannel()
     ChannelUserCompleter all;
     all.setName(QStringLiteral("all"));
     all.setDescription(i18n("Notify active users in this room"));
-    all.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+    all.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
     return all;
 }
 
@@ -137,7 +137,7 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return channel.name();
     case InputCompleterModel::CompleterName:
-        return channel.userName();
+        return channel.completerName();
     case InputCompleterModel::IconStatus:
     case Qt::DecorationRole:
         return channel.statusIcon();

@@ -23,6 +23,21 @@ QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
     return d;
 }
 
+QString ChannelUserCompleter::completerName() const
+{
+    switch (mType) {
+    case ChannelUserCompleterType::DirectChannel:
+        return userName();
+    case ChannelUserCompleterType::Room:
+    case ChannelUserCompleterType::Notification:
+        return name();
+    case ChannelUserCompleterType::Unknown:
+        return {};
+    }
+
+    return {};
+}
+
 void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCompleterType type)
 {
     // qDebug() << " object " << object;

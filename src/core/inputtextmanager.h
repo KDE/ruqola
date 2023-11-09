@@ -55,6 +55,7 @@ Q_SIGNALS:
     // Emitted with Channel and User, never Emoji or None
     void completionRequested(const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void completionTypeChanged(InputTextManager::CompletionForType type);
+    void selectFirstTextCompleter();
 
 private:
     Q_DISABLE_COPY(InputTextManager)

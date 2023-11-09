@@ -109,6 +109,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
 {
     if (mCurrentInputTextManager) {
         disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
+        disconnect(mCurrentInputTextManager, &InputTextManager::selectFirstTextCompleter, this, &MessageTextEdit::slotSelectFirstTextCompleter);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);
     }
     mCurrentRocketChatAccount = account;
@@ -117,6 +118,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
     mEmojiCompletionListView->setModel(mCurrentInputTextManager->emojiCompleterModel());
     mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());
     connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
+    connect(mCurrentInputTextManager, &InputTextManager::selectFirstTextCompleter, this, &MessageTextEdit::slotSelectFirstTextCompleter);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::updateMessageFailed, this, &MessageTextEdit::slotUpdateMessageFailed);
 }
@@ -415,6 +417,12 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
     mCommandCompletionListView->hide();
 
     changeText(newText, textPos);
+}
+
+void MessageTextEdit::slotSelectFirstTextCompleter()
+{
+    QModelIndex Index = mUserAndChannelCompletionListView->model()->index(0, 0);
+    mUserAndChannelCompletionListView->selectionModel()->select(Index, QItemSelectionModel::Select);
 }
 
 #include "moc_messagetextedit.cpp"

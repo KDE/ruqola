@@ -225,8 +225,10 @@ void InputTextManager::inputTextCompleter(const QJsonObject &obj)
         const QString completerName = mInputCompleterModel->index(0, 0).data(InputCompleterModel::CompleterName).toString();
         if (mCurrentCompletionPattern == completerName) {
             clearCompleter();
+            return;
         }
     }
+    Q_EMIT selectFirstTextCompleter();
 }
 
 #include "moc_inputtextmanager.cpp"

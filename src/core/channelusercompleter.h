@@ -21,6 +21,7 @@ public:
         Unknown,
         Room,
         DirectChannel,
+        Notification,
     };
     Q_ENUM(ChannelUserCompleterType)
 
@@ -49,6 +50,8 @@ public:
 
     [[nodiscard]] bool outsideRoom() const;
     void setOutsideRoom(bool newOutsideRoom);
+
+    [[nodiscard]] QString completerName() const;
 
 private:
     QIcon mStatusIcon;

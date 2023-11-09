@@ -70,6 +70,7 @@ private:
     void slotLoginChanged();
     void switchAutoCorrectionLanguage(const QString &lang);
     void slotUpdateMessageFailed(const QString &str);
+    void slotSelectFirstTextCompleter();
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
