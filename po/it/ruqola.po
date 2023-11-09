@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 00:43+0000\n"
+"POT-Creation-Date: 2023-11-09 00:42+0000\n"
 "PO-Revision-Date: 2023-10-23 14:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -841,7 +841,13 @@ msgstr "Personalizzato"
 msgid "Notify all in this room"
 msgstr "L'utente non è in questa stanza"
 
-#: core/model/inputcompletermodel.cpp:35
+#: core/model/inputcompletermodel.cpp:34
+#, fuzzy, kde-format
+#| msgid "No result found"
+msgid "No result found."
+msgstr "Nessun risultato trovato"
+
+#: core/model/inputcompletermodel.cpp:43
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
@@ -1337,12 +1343,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2783
+#: core/rocketchataccount.cpp:2787
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2784
+#: core/rocketchataccount.cpp:2788
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -6039,6 +6045,12 @@ msgstr "Canale successivo"
 msgid "Error saving file"
 msgstr "Errore nel salvataggio del file"
 
+#: widgets/common/userandchannelcompletiondelegate.cpp:92
+#, fuzzy, kde-format
+#| msgid "Join the given channel"
+msgid "Not in channel"
+msgstr "Unisciti al canale fornito"
+
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -6161,56 +6173,55 @@ msgstr "Immagine Gif animata"
 msgid "Use local dataBase (experimental)"
 msgstr "Usa la banca dati locale (sperimentale)"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:69
+#: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configura Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:74
+#: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Generale"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:79
+#: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Account"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:84
+#: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Carattere"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:90
-#: widgets/configuredialog/configuresettingsdialog.cpp:96
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "Correzione automatica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Controllo ortografico"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:108
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Traduci"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:115
+#: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Segnalazioni degli utenti"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:122
+#: widgets/configuredialog/configuresettingsdialog.cpp:109
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
@@ -8228,37 +8239,37 @@ msgstr "Elimina messaggio"
 msgid "Translator Error"
 msgstr "Errore del traduttore"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:185
 #, kde-format
 msgid "Paste Image"
 msgstr "Incolla immagine"
 
-#: widgets/room/messagetextedit.cpp:203
+#: widgets/room/messagetextedit.cpp:192
 #, kde-format
 msgid "Change Text Format"
 msgstr "Cambia formato del testo"
 
-#: widgets/room/messagetextedit.cpp:205
+#: widgets/room/messagetextedit.cpp:194
 #, kde-format
 msgid "Bold"
 msgstr "Grassetto"
 
-#: widgets/room/messagetextedit.cpp:206
+#: widgets/room/messagetextedit.cpp:195
 #, kde-format
 msgid "Italic"
 msgstr "Corsivo"
 
-#: widgets/room/messagetextedit.cpp:207
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrato"
 
-#: widgets/room/messagetextedit.cpp:209
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Code Block"
 msgstr "Blocco di codice"
 
-#: widgets/room/messagetextedit.cpp:211
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL Markdown"
@@ -9887,9 +9898,6 @@ msgstr "Dimensioni dei messaggi nella cache (ottimizzazione)"
 #~ msgctxt "@title:window"
 #~ msgid "Search Channel"
 #~ msgstr "Cerca canale"
-
-#~ msgid "No result found"
-#~ msgstr "Nessun risultato trovato"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Segui messaggio..."

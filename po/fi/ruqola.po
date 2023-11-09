@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 00:43+0000\n"
+"POT-Creation-Date: 2023-11-09 00:42+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -839,7 +839,13 @@ msgstr "Mukautettu"
 msgid "Notify all in this room"
 msgstr "Käyttäjä ei ole tässä huoneessa"
 
-#: core/model/inputcompletermodel.cpp:35
+#: core/model/inputcompletermodel.cpp:34
+#, fuzzy, kde-format
+#| msgid "No result found"
+msgid "No result found."
+msgstr "Tuloksia ei löytynyt"
+
+#: core/model/inputcompletermodel.cpp:43
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
@@ -1339,12 +1345,12 @@ msgstr "<strong>%1</strong> kirjoittaa…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:2783
+#: core/rocketchataccount.cpp:2787
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:2784
+#: core/rocketchataccount.cpp:2788
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -5889,6 +5895,12 @@ msgstr "Seuraava kanava"
 msgid "Error saving file"
 msgstr "Virhe tallennettaessa tiedostoa"
 
+#: widgets/common/userandchannelcompletiondelegate.cpp:92
+#, fuzzy, kde-format
+#| msgid "Join the given channel"
+msgid "Not in channel"
+msgstr "Liity annetulle kanavalle"
+
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -6011,56 +6023,55 @@ msgstr "Animoi Gif-kuva"
 msgid "Use local dataBase (experimental)"
 msgstr "Talleta viestit paikalliseen tietokantaan"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:69
+#: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqolan asetukset"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:74
+#: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Perusasetukset"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:79
+#: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Tili"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:84
+#: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Fontti"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:90
-#: widgets/configuredialog/configuresettingsdialog.cpp:96
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "Automaattikorjaus"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:108
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Käännä"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:115
+#: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Käyttäjäpalaute"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:122
+#: widgets/configuredialog/configuresettingsdialog.cpp:109
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
@@ -8071,39 +8082,39 @@ msgstr "Poista viesti"
 msgid "Translator Error"
 msgstr "Käännösvirhe"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:185
 #, kde-format
 msgid "Paste Image"
 msgstr ""
 "Liitä kuva\n"
 "kuvan liittäminen"
 
-#: widgets/room/messagetextedit.cpp:203
+#: widgets/room/messagetextedit.cpp:192
 #, kde-format
 msgid "Change Text Format"
 msgstr "Muuta tekstin muotoa"
 
-#: widgets/room/messagetextedit.cpp:205
+#: widgets/room/messagetextedit.cpp:194
 #, kde-format
 msgid "Bold"
 msgstr "Lihavoitu"
 
-#: widgets/room/messagetextedit.cpp:206
+#: widgets/room/messagetextedit.cpp:195
 #, kde-format
 msgid "Italic"
 msgstr "Kursivoitu"
 
-#: widgets/room/messagetextedit.cpp:207
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Strike-out"
 msgstr "Yliviivattu"
 
-#: widgets/room/messagetextedit.cpp:209
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Code Block"
 msgstr "Koodilohko"
 
-#: widgets/room/messagetextedit.cpp:211
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown-verkko-osoite"
@@ -9332,9 +9343,6 @@ msgstr "viestisi (valinnainen)"
 #~ msgctxt "@title:window"
 #~ msgid "Search Channel"
 #~ msgstr "Etsi kanavaa"
-
-#~ msgid "No result found"
-#~ msgstr "Tuloksia ei löytynyt"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Seuraa viestiä…"

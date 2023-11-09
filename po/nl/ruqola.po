@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 00:43+0000\n"
-"PO-Revision-Date: 2023-10-28 11:38+0200\n"
+"POT-Creation-Date: 2023-11-09 00:42+0000\n"
+"PO-Revision-Date: 2023-11-08 10:02+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -836,16 +836,20 @@ msgid "Custom"
 msgstr "Aangepast"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "Gebruiker is niet in deze room"
+msgstr "Allen in deze room berichten"
 
-#: core/model/inputcompletermodel.cpp:35
+#: core/model/inputcompletermodel.cpp:34
 #, fuzzy, kde-format
-#| msgid "User is not in this room"
+#| msgid "No result found"
+msgid "No result found."
+msgstr "Geen resultaat gevonden"
+
+#: core/model/inputcompletermodel.cpp:43
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "Gebruiker is niet in deze room"
+msgstr "Actieve gebruikers in deze room berichten"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -1339,12 +1343,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2783
+#: core/rocketchataccount.cpp:2787
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2784
+#: core/rocketchataccount.cpp:2788
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -6041,6 +6045,12 @@ msgstr "Volgend kanaal"
 msgid "Error saving file"
 msgstr "Fout bij opslaan van bestand"
 
+#: widgets/common/userandchannelcompletiondelegate.cpp:92
+#, fuzzy, kde-format
+#| msgid "Join the given channel"
+msgid "Not in channel"
+msgstr "Met het gegeven kanaal meedoen"
+
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
@@ -6162,56 +6172,55 @@ msgstr "Gif-afbeelding animeren"
 msgid "Use local dataBase (experimental)"
 msgstr "Lokale database gebruiken (experimenteel)"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:69
+#: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqola configureren"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:74
+#: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Algemeen"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:79
+#: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Account"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:84
+#: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Lettertype"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:90
-#: widgets/configuredialog/configuresettingsdialog.cpp:96
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "Autocorrectie"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Spellingcontrole"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:108
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Vertalen"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:115
+#: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Terugkoppeling van gebruiker"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:122
+#: widgets/configuredialog/configuresettingsdialog.cpp:109
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
@@ -8229,37 +8238,37 @@ msgstr "Bericht verwijderen"
 msgid "Translator Error"
 msgstr "Fout van vertaler"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:185
 #, kde-format
 msgid "Paste Image"
 msgstr "Afbeelding plakken"
 
-#: widgets/room/messagetextedit.cpp:203
+#: widgets/room/messagetextedit.cpp:192
 #, kde-format
 msgid "Change Text Format"
 msgstr "Tekstformaat wijzigen"
 
-#: widgets/room/messagetextedit.cpp:205
+#: widgets/room/messagetextedit.cpp:194
 #, kde-format
 msgid "Bold"
 msgstr "Vet"
 
-#: widgets/room/messagetextedit.cpp:206
+#: widgets/room/messagetextedit.cpp:195
 #, kde-format
 msgid "Italic"
 msgstr "Cursief"
 
-#: widgets/room/messagetextedit.cpp:207
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Strike-out"
 msgstr "Doorstrepen"
 
-#: widgets/room/messagetextedit.cpp:209
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Code Block"
 msgstr "Codeblok"
 
-#: widgets/room/messagetextedit.cpp:211
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url in markdown"
@@ -9892,9 +9901,6 @@ msgstr "Grootte van cache voor berichten (optimalisatie)"
 #~ msgctxt "@title:window"
 #~ msgid "Search Channel"
 #~ msgstr "Kanaal doorzoeken"
-
-#~ msgid "No result found"
-#~ msgstr "Geen resultaat gevonden"
 
 #~ msgid "Follow Message..."
 #~ msgstr "Bericht volgen..."
