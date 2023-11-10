@@ -56,7 +56,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::addOAuthApp(const 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(const QString &appId, quint64 id)
 {
     const QJsonArray params{{appId}};
-    qDebug() << " DELETE " << appId;
+    // qDebug() << " DELETE " << appId;
     return generateMethod(QStringLiteral("deleteOAuthApp"), QJsonDocument(params), id);
 }
 
