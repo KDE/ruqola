@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 00:42+0000\n"
+"POT-Creation-Date: 2023-11-10 00:42+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1075,25 +1075,25 @@ msgstr "Mezu pribatua"
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:347
+#: core/model/statusmodel.cpp:61 core/utils.cpp:348
 #, kde-format
 msgid "Online"
 msgstr "Lerroan"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:349
+#: core/model/statusmodel.cpp:63 core/utils.cpp:350
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Lanpetuta"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:351
+#: core/model/statusmodel.cpp:65 core/utils.cpp:352
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Aldendua"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:353
+#: core/utils.cpp:354
 #, kde-format
 msgid "Offline"
 msgstr "Lerroz kanpo"
@@ -5908,7 +5908,7 @@ msgstr "Hurrengo kanala"
 msgid "Error saving file"
 msgstr "Errorea fitxategia gordetzean"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:92
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, fuzzy, kde-format
 #| msgid "Join the given channel"
 msgid "Not in channel"
@@ -8109,38 +8109,38 @@ msgstr "Ezabatu mezua"
 msgid "Translator Error"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:185
+#: widgets/room/messagetextedit.cpp:189
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgid "Paste Image"
 msgstr "Gorde irudia"
 
-#: widgets/room/messagetextedit.cpp:192
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Change Text Format"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Bold"
 msgstr "Lodia"
 
-#: widgets/room/messagetextedit.cpp:195
+#: widgets/room/messagetextedit.cpp:199
 #, kde-format
 msgid "Italic"
 msgstr "Etzana"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Strike-out"
 msgstr "Marratua"
 
-#: widgets/room/messagetextedit.cpp:198
+#: widgets/room/messagetextedit.cpp:202
 #, kde-format
 msgid "Code Block"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:200
+#: widgets/room/messagetextedit.cpp:204
 #, kde-format
 msgid "Markdown Url"
 msgstr ""
@@ -8981,6 +8981,12 @@ msgstr ""
 #| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
 msgstr "zure mezua (hautazkoa)"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+msgid ""
+"Improve select room or user in message line edit (show icon, inform if user "
+"is in channel)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Partekatu"

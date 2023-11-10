@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 00:42+0000\n"
+"POT-Creation-Date: 2023-11-10 00:42+0000\n"
 "PO-Revision-Date: 2023-10-23 14:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1070,25 +1070,25 @@ msgstr "Messaggi privati"
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:347
+#: core/model/statusmodel.cpp:61 core/utils.cpp:348
 #, kde-format
 msgid "Online"
 msgstr "In linea"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:349
+#: core/model/statusmodel.cpp:63 core/utils.cpp:350
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Occupato"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:351
+#: core/model/statusmodel.cpp:65 core/utils.cpp:352
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Assente"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:353
+#: core/utils.cpp:354
 #, kde-format
 msgid "Offline"
 msgstr "Non in linea"
@@ -6045,7 +6045,7 @@ msgstr "Canale successivo"
 msgid "Error saving file"
 msgstr "Errore nel salvataggio del file"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:92
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, fuzzy, kde-format
 #| msgid "Join the given channel"
 msgid "Not in channel"
@@ -8239,37 +8239,37 @@ msgstr "Elimina messaggio"
 msgid "Translator Error"
 msgstr "Errore del traduttore"
 
-#: widgets/room/messagetextedit.cpp:185
+#: widgets/room/messagetextedit.cpp:189
 #, kde-format
 msgid "Paste Image"
 msgstr "Incolla immagine"
 
-#: widgets/room/messagetextedit.cpp:192
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Change Text Format"
 msgstr "Cambia formato del testo"
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Bold"
 msgstr "Grassetto"
 
-#: widgets/room/messagetextedit.cpp:195
+#: widgets/room/messagetextedit.cpp:199
 #, kde-format
 msgid "Italic"
 msgstr "Corsivo"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrato"
 
-#: widgets/room/messagetextedit.cpp:198
+#: widgets/room/messagetextedit.cpp:202
 #, kde-format
 msgid "Code Block"
 msgstr "Blocco di codice"
 
-#: widgets/room/messagetextedit.cpp:200
+#: widgets/room/messagetextedit.cpp:204
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL Markdown"
@@ -9104,6 +9104,12 @@ msgstr "Correzione della perdita di memoria"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Cache message size (optimization)"
 msgstr "Dimensioni dei messaggi nella cache (ottimizzazione)"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+msgid ""
+"Improve select room or user in message line edit (show icon, inform if user "
+"is in channel)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Condividi"

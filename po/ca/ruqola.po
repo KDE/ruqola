@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 00:42+0000\n"
-"PO-Revision-Date: 2023-11-08 10:09+0100\n"
+"POT-Creation-Date: 2023-11-10 00:42+0000\n"
+"PO-Revision-Date: 2023-11-09 12:24+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -844,10 +844,9 @@ msgid "Notify all in this room"
 msgstr "Notifica a tothom en aquesta sala"
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No result found."
-msgstr "No s'ha trobat cap sala"
+msgstr "No s'ha trobat cap resultat."
 
 #: core/model/inputcompletermodel.cpp:43
 #, kde-format
@@ -1071,25 +1070,25 @@ msgstr "Missatges privats"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:347
+#: core/model/statusmodel.cpp:61 core/utils.cpp:348
 #, kde-format
 msgid "Online"
 msgstr "Connectat"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:349
+#: core/model/statusmodel.cpp:63 core/utils.cpp:350
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Ocupat"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:351
+#: core/model/statusmodel.cpp:65 core/utils.cpp:352
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Absent"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:353
+#: core/utils.cpp:354
 #, kde-format
 msgid "Offline"
 msgstr "Desconnectat"
@@ -6041,11 +6040,10 @@ msgstr "Canal següent"
 msgid "Error saving file"
 msgstr "Error en desar el fitxer"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:92
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
+#, kde-format
 msgid "Not in channel"
-msgstr "Uneix-te al canal indicat"
+msgstr "No en el canal"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -8235,37 +8233,37 @@ msgstr "Supressió de missatge"
 msgid "Translator Error"
 msgstr "Error del traductor"
 
-#: widgets/room/messagetextedit.cpp:185
+#: widgets/room/messagetextedit.cpp:189
 #, kde-format
 msgid "Paste Image"
 msgstr "Enganxa una imatge"
 
-#: widgets/room/messagetextedit.cpp:192
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Change Text Format"
 msgstr "Canvia el format del text"
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/messagetextedit.cpp:195
+#: widgets/room/messagetextedit.cpp:199
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrat"
 
-#: widgets/room/messagetextedit.cpp:198
+#: widgets/room/messagetextedit.cpp:202
 #, kde-format
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/messagetextedit.cpp:200
+#: widgets/room/messagetextedit.cpp:204
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL en Markdown"
@@ -9104,3 +9102,9 @@ msgstr "Corregeix una fuita de memòria"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Cache message size (optimization)"
 msgstr "Mida de la memòria cau dels missatges (optimització)"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+msgid ""
+"Improve select room or user in message line edit (show icon, inform if user "
+"is in channel)"
+msgstr ""

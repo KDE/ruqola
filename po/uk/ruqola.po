@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 00:42+0000\n"
-"PO-Revision-Date: 2023-11-08 08:36+0200\n"
+"POT-Creation-Date: 2023-11-10 00:42+0000\n"
+"PO-Revision-Date: 2023-11-09 08:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -844,10 +844,9 @@ msgid "Notify all in this room"
 msgstr "Сповістити усіх у цій кімнаті"
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No result found"
+#, kde-format
 msgid "No result found."
-msgstr "Нічого не знайдено"
+msgstr "Нічого не знайдено."
 
 #: core/model/inputcompletermodel.cpp:43
 #, kde-format
@@ -1073,25 +1072,25 @@ msgstr "Конфіденційні повідомлення"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:347
+#: core/model/statusmodel.cpp:61 core/utils.cpp:348
 #, kde-format
 msgid "Online"
 msgstr "У мережі"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:349
+#: core/model/statusmodel.cpp:63 core/utils.cpp:350
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:351
+#: core/model/statusmodel.cpp:65 core/utils.cpp:352
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:353
+#: core/utils.cpp:354
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
@@ -6065,11 +6064,10 @@ msgstr "Наступний канал"
 msgid "Error saving file"
 msgstr "Помилка під час збереження файла"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:92
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
+#, kde-format
 msgid "Not in channel"
-msgstr "Долучитися до вказаного каналу"
+msgstr "Не на каналі"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -8290,37 +8288,37 @@ msgstr "Вилучення повідомлення"
 msgid "Translator Error"
 msgstr "Помилка під час перекладу"
 
-#: widgets/room/messagetextedit.cpp:185
+#: widgets/room/messagetextedit.cpp:189
 #, kde-format
 msgid "Paste Image"
 msgstr "Вставити зображення"
 
-#: widgets/room/messagetextedit.cpp:192
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Change Text Format"
 msgstr "Зміна форматування тексту"
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Bold"
 msgstr "Напівжирний"
 
-#: widgets/room/messagetextedit.cpp:195
+#: widgets/room/messagetextedit.cpp:199
 #, kde-format
 msgid "Italic"
 msgstr "Курсив"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:200
 #, kde-format
 msgid "Strike-out"
 msgstr "Закреслений"
 
-#: widgets/room/messagetextedit.cpp:198
+#: widgets/room/messagetextedit.cpp:202
 #, kde-format
 msgid "Code Block"
 msgstr "Блок коду"
 
-#: widgets/room/messagetextedit.cpp:200
+#: widgets/room/messagetextedit.cpp:204
 #, kde-format
 msgid "Markdown Url"
 msgstr "Адреса Markdown"
@@ -9159,6 +9157,12 @@ msgstr "Виправлено виток пам'яті"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Cache message size (optimization)"
 msgstr "Реалізовано кешування розміру повідомлень (оптимізація)"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+msgid ""
+"Improve select room or user in message line edit (show icon, inform if user "
+"is in channel)"
+msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Оприлюднити"
