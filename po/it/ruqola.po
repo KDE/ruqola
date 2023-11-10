@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 02:30+0000\n"
+"POT-Creation-Date: 2023-11-10 02:38+0000\n"
 "PO-Revision-Date: 2023-09-29 15:08+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1239,51 +1239,52 @@ msgstr "%1 ha %2 messaggi non letti"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:31
+#: core/notifications/notifierjob.cpp:38 core/notifications/notifierjob.cpp:41
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "Apri canale"
 
-#: core/notifications/notifierjob.cpp:35
+#: core/notifications/notifierjob.cpp:46
 #, kde-format
 msgid "Reply"
 msgstr "Rispondi"
 
-#: core/notifications/notifierjob.cpp:36
+#: core/notifications/notifierjob.cpp:47
 #, kde-format
 msgid "Reply..."
 msgstr "Rispondi..."
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
-#: core/otr/otrnotificationjob.cpp:68
+#: core/otr/otrnotificationjob.cpp:90
 #: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "OTR"
 
-#: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/otr/otrnotificationjob.cpp:60 core/otr/otrnotificationjob.cpp:66
+#: core/videoconference/videoconferencenotificationjob.cpp:62
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Reject"
 msgstr "Rifiuta"
 
-#: core/otr/otrnotificationjob.cpp:58
+#: core/otr/otrnotificationjob.cpp:63 core/otr/otrnotificationjob.cpp:66
 #, kde-format
 msgid "Ok"
 msgstr "Ok"
 
-#: core/otr/otrnotificationjob.cpp:92
+#: core/otr/otrnotificationjob.cpp:114
 #, kde-format
 msgid "%1 ended the OTR session."
 msgstr "%1 ha terminato la sessione OTR."
 
-#: core/otr/otrnotificationjob.cpp:97
+#: core/otr/otrnotificationjob.cpp:119
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
 msgstr "%1 vuole avviare OTR. Vuoi accettare?"
 
-#: core/otr/otrnotificationjob.cpp:101
+#: core/otr/otrnotificationjob.cpp:123
 #, kde-format
 msgid "%1 denied the OTR session."
 msgstr "%1 ha negato la sessione OTR."
@@ -1419,7 +1420,8 @@ msgstr "Chiamata in corso"
 msgid "InComing Call"
 msgstr "Chiamata in arrivo"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:56
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Accetta"
@@ -3483,7 +3485,7 @@ msgstr "Cifratura"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1002
 #, kde-format
 msgid "Message"
 msgstr "Messaggio"
@@ -8649,7 +8651,7 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1029
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8658,7 +8660,7 @@ msgstr ""
 "<qt>Questo nasconderà completamente la barra dei menu. Potrai mostrarla "
 "nuovamente digitando %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1028
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Nascondi la barra dei menu"

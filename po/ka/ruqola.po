@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 02:30+0000\n"
+"POT-Creation-Date: 2023-11-10 02:38+0000\n"
 "PO-Revision-Date: 2023-10-05 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1238,51 +1238,52 @@ msgstr "%1-ს %2 წაუკითხავი შეტყობინებ�
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/notifications/notifierjob.cpp:31
+#: core/notifications/notifierjob.cpp:38 core/notifications/notifierjob.cpp:41
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
 msgstr "არხის გახსნა"
 
-#: core/notifications/notifierjob.cpp:35
+#: core/notifications/notifierjob.cpp:46
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
 
-#: core/notifications/notifierjob.cpp:36
+#: core/notifications/notifierjob.cpp:47
 #, kde-format
 msgid "Reply..."
 msgstr "პასუხი…"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
-#: core/otr/otrnotificationjob.cpp:68
+#: core/otr/otrnotificationjob.cpp:90
 #: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "OTR"
 
-#: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/otr/otrnotificationjob.cpp:60 core/otr/otrnotificationjob.cpp:66
+#: core/videoconference/videoconferencenotificationjob.cpp:62
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: core/otr/otrnotificationjob.cpp:58
+#: core/otr/otrnotificationjob.cpp:63 core/otr/otrnotificationjob.cpp:66
 #, kde-format
 msgid "Ok"
 msgstr "დიახ"
 
-#: core/otr/otrnotificationjob.cpp:92
+#: core/otr/otrnotificationjob.cpp:114
 #, kde-format
 msgid "%1 ended the OTR session."
 msgstr "%1 -მა OTR სესია დაასრულა."
 
-#: core/otr/otrnotificationjob.cpp:97
+#: core/otr/otrnotificationjob.cpp:119
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
 msgstr "%1-ს   OTR-ის დაწყება უნდა. ეთანხმებით?."
 
-#: core/otr/otrnotificationjob.cpp:101
+#: core/otr/otrnotificationjob.cpp:123
 #, kde-format
 msgid "%1 denied the OTR session."
 msgstr "%1 -მა უარყო OTR სესია."
@@ -1418,7 +1419,8 @@ msgstr "ზარი მიმდინარეობს"
 msgid "InComing Call"
 msgstr "შემომავალი ზარი"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:56
+#: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
@@ -3463,7 +3465,7 @@ msgstr "დაშიფვრა"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:998
+#: widgets/ruqolamainwindow.cpp:1002
 #, kde-format
 msgid "Message"
 msgstr "შეტყობინება"
@@ -8480,7 +8482,7 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "მდგომარეობა"
 
-#: widgets/ruqolamainwindow.cpp:1025
+#: widgets/ruqolamainwindow.cpp:1029
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8489,7 +8491,7 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1028
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"
