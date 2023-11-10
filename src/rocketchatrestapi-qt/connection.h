@@ -118,7 +118,6 @@ public:
     void getChannelRoles(const QString &roomId);
     void getUsernameSuggestion();
     void listAllPermissions();
-    void listCommands();
     void fetchMyKeys();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void muteGroupMentions(const QString &roomId, bool value);
@@ -220,7 +219,6 @@ Q_SIGNALS:
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void permissionListAllDone(const QJsonObject &obj);
-    void listCommandsDone(const QJsonObject &obj);
     void getCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();
     void setJoinCodeDone();

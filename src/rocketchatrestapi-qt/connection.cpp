@@ -115,7 +115,6 @@
 #include "permissions/permissionslistalljob.h"
 
 #include "commands/getcommandsjob.h"
-#include "commands/listcommandsjob.h"
 
 #include "e2e/fetchmykeysjob.h"
 
@@ -1200,16 +1199,6 @@ void Connection::listAllPermissions()
     auto job = new PermissionsListAllJob(this);
     initializeRestApiJob(job);
     connect(job, &PermissionsListAllJob::permissionListAllDone, this, &Connection::permissionListAllDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
-    }
-}
-
-void Connection::listCommands()
-{
-    auto job = new ListCommandsJob(this);
-    initializeRestApiJob(job);
-    connect(job, &ListCommandsJob::listCommandsDone, this, &Connection::listCommandsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
     }

@@ -7,6 +7,7 @@
 #include "rocketchataccount.h"
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
+#include "commands/listcommandsjob.h"
 #include "config-ruqola.h"
 #include "customemojiiconmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
@@ -524,7 +525,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
         connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi, &RocketChatRestApi::Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
@@ -2425,7 +2425,12 @@ void RocketChatAccount::slotFileLanguagedParsed()
 
 void RocketChatAccount::getListCommands()
 {
-    restApi()->listCommands();
+    auto job = new RocketChatRestApi::ListCommandsJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::ListCommandsJob::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_LOG) << "Impossible to start ListPermissionsJob job";
+    }
 }
 
 void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
