@@ -51,7 +51,7 @@ void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 
 void DirectoryUsersModel::parseElements(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
+    if (!mUsers.isEmpty()) {
         beginResetModel();
         mUsers.clear();
         endResetModel();

@@ -87,11 +87,7 @@ void FilesForRoomModel::setRoomId(const QString &roomId)
 
 void FilesForRoomModel::setFiles(const QVector<File> &files)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mFileAttachments->clear();
-        endResetModel();
-    }
+    clear();
     if (!files.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, files.count() - 1);
         mFileAttachments->setFileAttachments(files);

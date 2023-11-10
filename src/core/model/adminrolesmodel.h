@@ -39,5 +39,6 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminRolesModel)
+    LIBRUQOLACORE_NO_EXPORT void clear();
     QVector<RoleInfo> mListRoleInfos;
 };

@@ -45,5 +45,6 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminOauthModel)
+    LIBRUQOLACORE_NO_EXPORT void clear();
     QVector<OauthInfo> mAdminOauth;
 };

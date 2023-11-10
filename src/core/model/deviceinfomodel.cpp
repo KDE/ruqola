@@ -90,13 +90,18 @@ int DeviceInfoModel::total() const
     return mDeviceInfos.count();
 }
 
-void DeviceInfoModel::parseElements(const QJsonObject &obj)
+void DeviceInfoModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mDeviceInfos.isEmpty()) {
         beginResetModel();
         mDeviceInfos.clear();
         endResetModel();
     }
+}
+
+void DeviceInfoModel::parseElements(const QJsonObject &obj)
+{
+    clear();
     mDeviceInfos.parseDeviceInfos(obj);
     if (!mDeviceInfos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
@@ -118,11 +123,7 @@ const DeviceInfos &DeviceInfoModel::deviceInfos() const
 
 void DeviceInfoModel::setDeviceInfos(const DeviceInfos &newDeviceInfos)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
-        mDeviceInfos.clear();
-        endRemoveRows();
-    }
+    clear();
     if (!mDeviceInfos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
         mDeviceInfos = newDeviceInfos;

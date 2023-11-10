@@ -43,5 +43,6 @@ public:
 private:
     Q_DISABLE_COPY(AdminInviteModel)
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
+    LIBRUQOLACORE_NO_EXPORT void clear();
     QVector<InviteInfo> mAdminInvites;
 };

@@ -65,7 +65,7 @@ QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) 
 
 void NotificationHistoryModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mNotificationInfo.isEmpty()) {
         beginResetModel();
         mNotificationInfo.clear();
         endResetModel();

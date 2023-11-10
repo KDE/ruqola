@@ -42,5 +42,6 @@ public:
 private:
     Q_DISABLE_COPY(AdminCustomSoundModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
+    LIBRUQOLACORE_NO_EXPORT void clear();
     CustomSoundsInfo mCustomSounds;
 };

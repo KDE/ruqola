@@ -57,13 +57,18 @@ const QVector<InviteInfo> &AdminInviteModel::adminInvites() const
     return mAdminInvites;
 }
 
-void AdminInviteModel::setAdminInvites(const QVector<InviteInfo> &newAdminInvites)
+void AdminInviteModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mAdminInvites.isEmpty()) {
         beginResetModel();
         mAdminInvites.clear();
         endResetModel();
     }
+}
+
+void AdminInviteModel::setAdminInvites(const QVector<InviteInfo> &newAdminInvites)
+{
+    clear();
     if (!newAdminInvites.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
         mAdminInvites = newAdminInvites;

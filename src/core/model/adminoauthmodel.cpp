@@ -60,13 +60,18 @@ const QVector<OauthInfo> &AdminOauthModel::adminOauth() const
     return mAdminOauth;
 }
 
-void AdminOauthModel::setAdminOauth(const QVector<OauthInfo> &newAdminInvites)
+void AdminOauthModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mAdminOauth.isEmpty()) {
         beginResetModel();
         mAdminOauth.clear();
         endResetModel();
     }
+}
+
+void AdminOauthModel::setAdminOauth(const QVector<OauthInfo> &newAdminInvites)
+{
+    clear();
     if (!newAdminInvites.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
         mAdminOauth = newAdminInvites;

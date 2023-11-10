@@ -41,7 +41,7 @@ void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
 
 void UsersInRoleModel::parseElements(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
+    if (!mUsers.isEmpty()) {
         beginResetModel();
         mUsers.clear();
         endResetModel();

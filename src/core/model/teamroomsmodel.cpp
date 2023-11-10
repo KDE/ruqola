@@ -53,7 +53,7 @@ QVector<TeamRoom> TeamRoomsModel::teamRooms() const
 
 void TeamRoomsModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
 {
-    if (rowCount() != 0) {
+    if (!mTeamRooms.isEmpty()) {
         beginResetModel();
         mTeamRooms.clear();
         endResetModel();

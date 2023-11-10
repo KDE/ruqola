@@ -44,7 +44,7 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
 
 void ServerErrorInfoHistoryModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mServerErrorInfo.isEmpty()) {
         beginResetModel();
         mServerErrorInfo.clear();
         endResetModel();

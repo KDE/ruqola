@@ -53,7 +53,7 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
 
 void PersonalAccessTokenInfosModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mPersonalAccessTokenInfos.isEmpty()) {
         beginResetModel();
         mPersonalAccessTokenInfos.clear();
         endResetModel();

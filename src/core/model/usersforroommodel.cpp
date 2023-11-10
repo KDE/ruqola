@@ -23,11 +23,6 @@ UsersForRoomModel::~UsersForRoomModel() = default;
 void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
     if (mUsers.isEmpty()) {
-        if (rowCount() != 0) {
-            beginResetModel();
-            mUsers.clear();
-            endResetModel();
-        }
         if (!users.isEmpty()) {
             beginInsertRows(QModelIndex(), 0, users.count() - 1);
             mUsers = users;

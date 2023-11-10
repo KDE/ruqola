@@ -92,13 +92,18 @@ int ModerationModel::total() const
     return mModerationInfos.count();
 }
 
-void ModerationModel::parseElements(const QJsonObject &obj)
+void ModerationModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mModerationInfos.isEmpty()) {
         beginResetModel();
         mModerationInfos.clear();
         endResetModel();
     }
+}
+
+void ModerationModel::parseElements(const QJsonObject &obj)
+{
+    clear();
     mModerationInfos.parseModerationInfos(obj);
     if (!mModerationInfos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
@@ -120,11 +125,7 @@ const ModerationInfos &ModerationModel::moderationInfos() const
 
 void ModerationModel::setModerationInfos(const ModerationInfos &newDeviceInfos)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mModerationInfos.clear();
-        endResetModel();
-    }
+    clear();
     if (!mModerationInfos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
         mModerationInfos = newDeviceInfos;

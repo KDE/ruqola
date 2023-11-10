@@ -92,7 +92,7 @@ void DiscussionsModel::clear()
 void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
+    if (!mDiscussions->isEmpty()) {
         beginResetModel();
         mDiscussions->clear();
         endResetModel();

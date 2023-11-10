@@ -49,7 +49,7 @@ Permissions PermissionsModel::permissions() const
 
 void PermissionsModel::setPermissions(const Permissions &newPermissions)
 {
-    if (rowCount() != 0) {
+    if (!mPermissions.isEmpty()) {
         beginResetModel();
         mPermissions.clear();
         endResetModel();
