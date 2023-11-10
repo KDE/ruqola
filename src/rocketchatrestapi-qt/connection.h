@@ -17,7 +17,6 @@
 #include "rooms/adminroomsjob.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "rooms/roomscleanhistoryjob.h"
-#include "rooms/roomsexportjob.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
 #include "users/setstatusjob.h"
@@ -194,7 +193,6 @@ public:
     void deleteCustomUserStatus(const QString &customUserStatusId);
     void updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void resetAvatar(const UserBaseJob::UserInfo &info);
-    void exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info);
     void statistics(bool refresh);
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QString &roomId, int offset = 0, int count = 50);
@@ -282,7 +280,6 @@ Q_SIGNALS:
     void customUserUpdateDone();
     void postMessageDone(const QJsonObject &replyObject);
     void resetAvatarDone();
-    void roomExportDone();
     void statisticDone(const QJsonObject &replyObject);
     void directoryDone(const QJsonObject &replyObject);
     void updateMessageFailed(const QString &str);

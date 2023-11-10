@@ -13,6 +13,8 @@
 #include "emoticons/emojimanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
+#include "rooms/roomsexportjob.h"
+
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
 #include "model/commonmessagefilterproxymodel.h"
@@ -526,7 +528,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi, &RocketChatRestApi::Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
         connect(mRestApi, &RocketChatRestApi::Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::networkSessionFailedError, this, [this]() {
@@ -2778,7 +2779,13 @@ void RocketChatAccount::setImageUrl(const QUrl &url)
 
 void RocketChatAccount::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
 {
-    restApi()->exportMessages(info);
+    auto job = new RocketChatRestApi::RoomsExportJob(this);
+    job->setRoomExportInfo(info);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsExportJob::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_LOG) << "Impossible to start RoomsExportJob";
+    }
 }
 
 void RocketChatAccount::slotRoomExportDone()

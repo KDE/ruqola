@@ -2000,17 +2000,6 @@ void Connection::resetAvatar(const UserBaseJob::UserInfo &info)
     }
 }
 
-void Connection::exportMessages(const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &info)
-{
-    auto job = new RoomsExportJob(this);
-    job->setRoomExportInfo(info);
-    initializeRestApiJob(job);
-    connect(job, &RoomsExportJob::roomExportDone, this, &Connection::roomExportDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsExportJob";
-    }
-}
-
 void Connection::statistics(bool refresh)
 {
     auto job = new StatisticsJob(this);
