@@ -1214,7 +1214,7 @@ void RocketChatAccount::setShowRoomAvatar(bool checked)
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.userId = userId();
     info.sidebarDisplayAvatar = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
-    setUserPreferences(info);
+    setUserPreferences(std::move(info));
 }
 
 void RocketChatAccount::setShowFavoriteRoom(bool checked)
@@ -1222,7 +1222,7 @@ void RocketChatAccount::setShowFavoriteRoom(bool checked)
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.userId = userId();
     info.sidebarShowFavorites = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
-    setUserPreferences(info);
+    setUserPreferences(std::move(info));
 }
 
 void RocketChatAccount::loadMoreListMessages(const QString &roomId)
@@ -1872,7 +1872,7 @@ void RocketChatAccount::setSortUnreadOnTop(bool checked)
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.userId = userId();
     info.sidebarShowUnread = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
-    setUserPreferences(info);
+    setUserPreferences(std::move(info));
 }
 
 bool RocketChatAccount::sortUnreadOnTop() const
@@ -1900,7 +1900,7 @@ void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrd
         qCWarning(RUQOLA_LOG) << " OwnUserPreferences::RoomListSortOrder::Unknown is a bug";
         return;
     }
-    setUserPreferences(info);
+    setUserPreferences(std::move(info));
 }
 
 OwnUserPreferences::RoomListSortOrder RocketChatAccount::roomListSortOrder() const
@@ -2911,11 +2911,7 @@ CustomSoundsManager *RocketChatAccount::customSoundManager() const
 
 void RocketChatAccount::slotAwayStatusChanged(bool away)
 {
-    if (away) {
-        restApi()->setUserStatus(userId(), RocketChatRestApi::SetStatusJob::Away, {});
-    } else {
-        restApi()->setUserStatus(userId(), RocketChatRestApi::SetStatusJob::OnLine, {});
-    }
+    restApi()->setUserStatus(userId(), away ? RocketChatRestApi::SetStatusJob::Away : RocketChatRestApi::SetStatusJob::OnLine, {});
     qCDebug(RUQOLA_LOG) << "RocketChatAccount::slotAwayStatusChanged  " << away;
 }
 
