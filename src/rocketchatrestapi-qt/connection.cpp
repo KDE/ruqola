@@ -118,7 +118,6 @@
 
 #include "e2e/fetchmykeysjob.h"
 
-#include "autotranslate/getsupportedlanguagesjob.h"
 #include "autotranslate/translatesavesettingsjob.h"
 
 #include "custom/customuserstatusdeletejob.h"
@@ -1724,18 +1723,6 @@ void Connection::sendMessage(const QString &roomId, const QString &text, const Q
     job->setSendMessageArguments(args);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
-    }
-}
-
-void Connection::getSupportedLanguagesMessages(bool needTagetLanguage)
-{
-    auto job = new GetSupportedLanguagesJob(this);
-    job->setNeedTargetLanguage(needTagetLanguage);
-    initializeRestApiJob(job);
-
-    connect(job, &GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &Connection::getSupportedLanguagesDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getSupportedLanguagesMessages";
     }
 }
 

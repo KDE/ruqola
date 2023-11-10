@@ -7,6 +7,7 @@
 #include "rocketchataccount.h"
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
+#include "autotranslate/getsupportedlanguagesjob.h"
 #include "commands/listcommandsjob.h"
 #include "config-ruqola.h"
 #include "customemojiiconmanager.h"
@@ -522,7 +523,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::StarredMessages);
         });
 
-        connect(mRestApi, &RocketChatRestApi::Connection::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
         connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
@@ -2295,7 +2295,13 @@ void RocketChatAccount::getSupportedLanguages()
         if (ruqolaServerConfig()->hasAtLeastVersion(5, 1, 0)) {
             needTargetLanguage = true;
         }
-        restApi()->getSupportedLanguagesMessages(needTargetLanguage);
+        auto job = new RocketChatRestApi::GetSupportedLanguagesJob(this);
+        job->setNeedTargetLanguage(needTargetLanguage);
+        restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
+        if (!job->start()) {
+            qCDebug(RUQOLA_LOG) << "Impossible to start getSupportedLanguagesMessages";
+        }
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSupportedLanguages is not supported before server 2.0.0";
     }
