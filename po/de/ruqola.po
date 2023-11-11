@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:42+0000\n"
+"POT-Creation-Date: 2023-11-11 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -643,12 +643,12 @@ msgstr ""
 msgid "Expiration"
 msgstr "Ablaufdatum"
 
-#: core/model/admininvitemodel.cpp:109
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Ablaufdatum in %1 Tagen"
 
-#: core/model/admininvitemodel.cpp:111
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Expired"
 msgstr "Abgelaufen"
@@ -1409,12 +1409,12 @@ msgstr "<strong>%1</strong> schreibt gerade ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2805
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2806
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""

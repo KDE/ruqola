@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# Vit Pelcak <vit@pelcak.org>, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:42+0000\n"
-"PO-Revision-Date: 2023-08-10 15:46+0200\n"
+"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"PO-Revision-Date: 2023-11-09 15:47+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -621,12 +621,12 @@ msgstr "Použití zbývá"
 msgid "Expiration"
 msgstr "Vypršení"
 
-#: core/model/admininvitemodel.cpp:109
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expire in %1 days"
 msgstr ""
 
-#: core/model/admininvitemodel.cpp:111
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Expired"
 msgstr "Prošlý"
@@ -833,22 +833,19 @@ msgid "Custom"
 msgstr "Vlastní"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "Uživatel není v této místnosti"
+msgstr ""
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No result found."
-msgstr "Nenalezena žádná zpráva"
+msgstr ""
 
 #: core/model/inputcompletermodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "Uživatel není v této místnosti"
+msgstr ""
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -909,7 +906,7 @@ msgstr ""
 #: core/model/moderationmodel.cpp:44
 #, kde-format
 msgid "Room"
-msgstr ""
+msgstr "Místnost"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -1341,12 +1338,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2805
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2806
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2631,7 +2628,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
-msgstr ""
+msgstr "Zahodit"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
 #, kde-format
@@ -2886,7 +2883,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
-msgstr ""
+msgstr "Odstranit uživatele"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
 #: widgets/administratordialog/users/administratoruserswidget.cpp:294
@@ -3378,7 +3375,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
-msgstr ""
+msgstr "Obnovit klíč E2E"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
@@ -3401,7 +3398,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
-msgstr ""
+msgstr "Obnovit TOTP"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
@@ -5852,10 +5849,9 @@ msgid "Error saving file"
 msgstr "Chyba při ukládání souboru"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:96
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#, kde-format
 msgid "Not in channel"
-msgstr "Připojit se k danému kanálu"
+msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -7857,12 +7853,12 @@ msgstr "Připojit soubor"
 #: widgets/room/messagelinewidget.cpp:72
 #, kde-format
 msgid "Video Message"
-msgstr ""
+msgstr "Vytvořit zprávu"
 
 #: widgets/room/messagelinewidget.cpp:82
 #, kde-format
 msgid "Sound Message"
-msgstr ""
+msgstr "Zvuková zpráva"
 
 #: widgets/room/messagelinewidget.cpp:94
 #, kde-format
@@ -7883,7 +7879,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
-msgstr ""
+msgstr "Zpráva je příliš velká"
 
 #: widgets/room/messagelinewidget.cpp:388
 #, kde-format
@@ -8152,7 +8148,7 @@ msgstr "Opravdu si přejete odstranit historii?"
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
-msgstr ""
+msgstr "Odstranit historii"
 
 #: widgets/room/roomwidget.cpp:466
 #, kde-format
@@ -8763,12 +8759,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
 #, kde-format
 msgid "Version 2.0"
-msgstr ""
+msgstr "Verze 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
 #, kde-format
 msgid "Version 2.1"
-msgstr ""
+msgstr "Verze 2.1"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format

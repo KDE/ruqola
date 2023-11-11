@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:42+0000\n"
-"PO-Revision-Date: 2023-11-09 08:05+0200\n"
+"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"PO-Revision-Date: 2023-11-10 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -627,12 +627,12 @@ msgstr "Лишилося використань"
 msgid "Expiration"
 msgstr "Строк дії"
 
-#: core/model/admininvitemodel.cpp:109
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Строк дії буде вичерпано за %1 днів"
 
-#: core/model/admininvitemodel.cpp:111
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Expired"
 msgstr "Строк дії вичерпано"
@@ -1346,12 +1346,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2805
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2806
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -9163,6 +9163,9 @@ msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
+"Удосконалено засіб вибору кімнати або користувача у рядку редагування "
+"повідомлення (показ піктограми, інформування про те, що користувач присутній "
+"на каналі)"
 
 #~ msgid "Share"
 #~ msgstr "Оприлюднити"

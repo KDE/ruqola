@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:42+0000\n"
-"PO-Revision-Date: 2023-10-30 05:32+0100\n"
+"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"PO-Revision-Date: 2023-11-10 05:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -623,12 +623,12 @@ msgstr "დარჩენილი გამოყენება"
 msgid "Expiration"
 msgstr "ვადა ეწურება"
 
-#: core/model/admininvitemodel.cpp:109
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "ვადა %1 დღეში გაუვა"
 
-#: core/model/admininvitemodel.cpp:111
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Expired"
 msgstr "ვადაგასული"
@@ -835,22 +835,19 @@ msgid "Custom"
 msgstr "ხელით მითითებული"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "მომხმარებელი ამ ოთახში არაა"
+msgstr "ვინც ამ ოთახშია, ყველას გაფრთხილება"
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No result found."
-msgstr "ოთახი ვერ ვიპოვე"
+msgstr "შედეგი ვერ ვიპოვე."
 
 #: core/model/inputcompletermodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "მომხმარებელი ამ ოთახში არაა"
+msgstr "ამ ოთახში მყოფი აქტიური მომხმარებლების გაფრთხილება"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -1342,12 +1339,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2805
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2806
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -5908,10 +5905,9 @@ msgid "Error saving file"
 msgstr "ფაილის შენახვის შეცდომა"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:96
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#, kde-format
 msgid "Not in channel"
-msgstr "შეუერთდით მოცემულ არხს"
+msgstr "არხში არაა"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format

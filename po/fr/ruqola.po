@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:42+0000\n"
-"PO-Revision-Date: 2023-11-01 15:58+0100\n"
+"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"PO-Revision-Date: 2023-11-09 12:50+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -621,12 +621,12 @@ msgstr "Utilises à gauche"
 msgid "Expiration"
 msgstr "Expiration"
 
-#: core/model/admininvitemodel.cpp:109
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Expiration dans %1 jours"
 
-#: core/model/admininvitemodel.cpp:111
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Expired"
 msgstr "Expiré"
@@ -833,10 +833,9 @@ msgid "Custom"
 msgstr "Personnalisé"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "L'utilisateur n'est pas dans ce salon"
+msgstr "Envoyer des notifications à tout le monde dans ce salon"
 
 #: core/model/inputcompletermodel.cpp:34
 #, fuzzy, kde-format
@@ -845,10 +844,9 @@ msgid "No result found."
 msgstr "Aucun résultat trouvé"
 
 #: core/model/inputcompletermodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "L'utilisateur n'est pas dans ce salon"
+msgstr "Envoyer des notifications à tous les personnes actives de ce salon"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -1344,12 +1342,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2805
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2806
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."

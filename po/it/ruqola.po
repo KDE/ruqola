@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 00:42+0000\n"
-"PO-Revision-Date: 2023-10-23 14:11+0200\n"
+"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"PO-Revision-Date: 2023-11-08 15:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -624,12 +624,12 @@ msgstr "Usi rimasti"
 msgid "Expiration"
 msgstr "Scadenza"
 
-#: core/model/admininvitemodel.cpp:109
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Scade tra %1 giorni"
 
-#: core/model/admininvitemodel.cpp:111
+#: core/model/admininvitemodel.cpp:116
 #, kde-format
 msgid "Expired"
 msgstr "Scaduto"
@@ -836,10 +836,9 @@ msgid "Custom"
 msgstr "Personalizzato"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "L'utente non è in questa stanza"
+msgstr "Avvisa tutti in questa stanza"
 
 #: core/model/inputcompletermodel.cpp:34
 #, fuzzy, kde-format
@@ -848,10 +847,9 @@ msgid "No result found."
 msgstr "Nessun risultato trovato"
 
 #: core/model/inputcompletermodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "L'utente non è in questa stanza"
+msgstr "Avvisa gli utenti attivi in questa stanza"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -1343,12 +1341,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2787
+#: core/rocketchataccount.cpp:2805
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2788
+#: core/rocketchataccount.cpp:2806
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -8213,10 +8211,9 @@ msgid "View Reports"
 msgstr "Visualizza i report"
 
 #: widgets/room/messagelistview.cpp:534
-#, fuzzy, kde-format
-#| msgid "Dismiss reports"
+#, kde-format
 msgid "Dismiss Reports"
-msgstr "Ignora segnalazioni"
+msgstr "Ignora le segnalazioni"
 
 #: widgets/room/messagelistview.cpp:603
 #, kde-format
