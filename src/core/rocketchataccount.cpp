@@ -1836,7 +1836,7 @@ bool RocketChatAccount::videoRecorderEnabled() const
 
 bool RocketChatAccount::teamEnabled() const
 {
-    return mRuqolaServerConfig->hasAtLeastVersion(3, 13, 0) && hasPermission(QStringLiteral("create-team"));
+    return hasPermission(QStringLiteral("create-team"));
 }
 
 bool RocketChatAccount::ldapEnabled() const
