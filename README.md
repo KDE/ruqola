@@ -1,7 +1,8 @@
+# Ruqola
 
-# ruqola
+Ruqola is a [Rocket.Chat](https://www.rocket.chat/) client for the KDE desktop.
 
-Ruqola is a Rocket.Chat client for the KDE desktop.
+![Ruqola Main Window](https://cdn.kde.org/screenshots/ruqola/ruqola.png)
 
 ## Features
 
