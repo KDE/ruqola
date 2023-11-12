@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-11 00:42+0000\n"
-"PO-Revision-Date: 2023-10-28 12:37+0200\n"
+"PO-Revision-Date: 2023-11-10 16:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -838,22 +838,19 @@ msgid "Custom"
 msgstr "Personalizado"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "El usuario no se encuentra en esta sala"
+msgstr "Notificar a todos en esta sala"
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No result found."
-msgstr "No se encontró ninguna habitación"
+msgstr "No se encontró ningún resultado."
 
 #: core/model/inputcompletermodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "El usuario no se encuentra en esta sala"
+msgstr "Notificar usuarios activos en esta sala"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -2899,7 +2896,7 @@ msgstr "Añadir usuarios al rol"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:80
 #, kde-format
 msgid "Do you want to remove this user \"%1\"?"
-msgstr "¿Quiere eliminar este usuario \"%1\"?"
+msgstr "¿Quiere eliminar este usuario «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
@@ -6047,10 +6044,9 @@ msgid "Error saving file"
 msgstr "Error guardando archivo"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:96
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#, kde-format
 msgid "Not in channel"
-msgstr "Unirse al canal dado"
+msgstr "No se encuentra en el canal"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -9112,3 +9108,5 @@ msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
+"Mejorar selección de sala o usuario en edición en línea del mensaje (mostrar "
+"icono, informar si el usuario se encuentra en el canal)"

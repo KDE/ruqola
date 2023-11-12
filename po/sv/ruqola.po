@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-11 00:42+0000\n"
-"PO-Revision-Date: 2023-11-01 07:33+0100\n"
+"PO-Revision-Date: 2023-11-11 09:38+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -834,22 +834,19 @@ msgid "Custom"
 msgstr "Egen"
 
 #: core/model/inputcompletermodel.cpp:26
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "Användare finns inte i det här rummet"
+msgstr "Underrätta alla i det här rummet"
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No result found"
+#, kde-format
 msgid "No result found."
-msgstr "Inget resultat hittades"
+msgstr "Inga resultat hittades."
 
 #: core/model/inputcompletermodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "Användare finns inte i det här rummet"
+msgstr "Underrätta aktiva användare i det här rummet"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -6008,10 +6005,9 @@ msgid "Error saving file"
 msgstr "Fel när filen skulle sparas"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:96
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#, kde-format
 msgid "Not in channel"
-msgstr "Gå med i den angivna kanalen"
+msgstr "Inte i kanalen"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -9056,6 +9052,8 @@ msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
+"Förbättra val av rum eller användare i meddelandets radeditor (visa ikon, "
+"informera om användare är i kanal)"
 
 #~ msgid "Share"
 #~ msgstr "Dela"
