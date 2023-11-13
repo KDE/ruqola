@@ -261,6 +261,8 @@ target_sources(libruqolawidgets PRIVATE
     common/emojicompletiondelegate.h
     common/flowlayout.cpp
     common/flowlayout.h
+    common/usercompletiondelegate.h
+    common/usercompletiondelegate.cpp
 
     common/userandchannelcompletiondelegate.h
     common/userandchannelcompletiondelegate.cpp
