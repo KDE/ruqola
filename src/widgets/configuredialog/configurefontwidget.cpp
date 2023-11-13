@@ -20,7 +20,6 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     mFontChooser->setMinVisibleItems(4);
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
 
     mCustomFontCheck->setObjectName(QStringLiteral("mCustomFontCheck"));
     mainLayout->addWidget(mCustomFontCheck);
