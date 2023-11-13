@@ -872,7 +872,7 @@ void RocketChatAccount::deleteMessage(const QString &messageId, const QString &r
 
 void RocketChatAccount::insertCompleterUsers()
 {
-    userCompleterModel()->insertUsers(rocketChatBackend()->users());
+    userCompleterModel()->addUsers(rocketChatBackend()->users());
 }
 
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
@@ -1033,7 +1033,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
 void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
     const QVector<User> users = User::parseUsersList(obj, roleInfo());
-    mUserCompleterModel->insertUsers(users);
+    mUserCompleterModel->addUsers(users);
 }
 
 User::PresenceStatus RocketChatAccount::presenceStatus() const

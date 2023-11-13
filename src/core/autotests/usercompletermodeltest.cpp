@@ -41,7 +41,7 @@ void UserCompleterModelTest::shouldAddValues()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));
     }
-    w.insertUsers(users);
+    w.addUsers(users);
     QCOMPARE(w.rowCount(), 10);
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
@@ -57,7 +57,7 @@ void UserCompleterModelTest::shouldAddValues()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));
     }
-    w.insertUsers(users);
+    w.addUsers(users);
     QCOMPARE(w.rowCount(), 3);
     QCOMPARE(rowInsertedSpy.count(), 2);
     QCOMPARE(rowABTInserted.count(), 2);
@@ -77,7 +77,7 @@ void UserCompleterModelTest::shouldVerifyData()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(std::move(user));
     }
-    w.insertUsers(users);
+    w.addUsers(users);
     QCOMPARE(w.rowCount(), 10);
 
     for (int i = 0; i < 10; ++i) {

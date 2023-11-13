@@ -24,8 +24,9 @@ void UserCompleterModel::clear()
     }
 }
 
-void UserCompleterModel::insertUsers(const QVector<User> &users)
+void UserCompleterModel::addUsers(const QVector<User> &users)
 {
+    // qDebug() << " users " << users;
     clear();
     if (!users.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, users.count() - 1);
