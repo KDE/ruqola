@@ -76,7 +76,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 
 void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObject &obj)
 {
-    // qDebug() << " obj " << obj;
+    qDebug() << " obj " << obj;
     const QJsonArray items = obj[QLatin1String("items")].toArray();
     QVector<TeamRoomCompleter> teams;
     for (int i = 0, total = items.count(); i < total; ++i) {
@@ -84,7 +84,10 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
         teamCompleter.parse(items.at(i).toObject());
         teams.append(std::move(teamCompleter));
     }
-    mTeamRoomCompleterModel->insertRooms(teams);
+    mTeamRoomCompleterModel->setRooms(teams);
+    if (teams.isEmpty()) {
+        mCompletionListView->hide();
+    }
 }
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
