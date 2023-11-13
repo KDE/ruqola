@@ -48,18 +48,28 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     const User user = mUsers.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
+    case DisplayName:
         return displayUserName(user);
     case UserName:
         return user.userName();
     case UserId:
         return user.userId();
+    case UserIconStatus:
     case Qt::DecorationRole:
         return QIcon::fromTheme(user.iconFromStatus());
-    case UserIconStatus:
-        return user.iconFromStatus();
+    case AvatarInfo:
+        return QVariant::fromValue(avatarInfo(user));
     }
 
     return {};
+}
+
+Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user) const
+{
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = user.userName();
+    return info;
 }
 
 QString UserCompleterModel::displayUserName(const User &user) const

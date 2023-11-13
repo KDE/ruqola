@@ -6,6 +6,7 @@
 
 #include "adduserscompletionlineedit.h"
 #include "common/completionlistview.h"
+#include "common/usercompletiondelegate.h"
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/usercompletermodel.h"
 #include "rocketchataccount.h"
@@ -23,6 +24,10 @@ AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *accoun
     if (mRocketChatAccount) {
         setCompletionModel(mRocketChatAccount->userCompleterFilterProxyModel());
     }
+    auto delegate = new UserCompletionDelegate(mCompletionListView);
+    delegate->setRocketChatAccount(mRocketChatAccount);
+    mCompletionListView->setItemDelegate(delegate);
+
     connect(mSearchTimer, &QTimer::timeout, this, &AddUsersCompletionLineEdit::slotSearchTimerFired);
     connect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
 

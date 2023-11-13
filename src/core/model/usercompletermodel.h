@@ -8,6 +8,7 @@
 
 #include "libruqola_private_export.h"
 #include "user.h"
+#include "utils.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModel : public QAbstractListModel
@@ -16,8 +17,10 @@ class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModel : public QAbstractListModel
 public:
     enum UserRoles {
         UserName = Qt::UserRole + 1,
+        DisplayName,
         UserId,
         UserIconStatus,
+        AvatarInfo,
     };
     Q_ENUM(UserRoles)
 
@@ -28,10 +31,11 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertUsers(const QVector<User> &users);
+    void addUsers(const QVector<User> &users);
 
 private:
     [[nodiscard]] QString displayUserName(const User &user) const;
+    [[nodiscard]] Utils::AvatarInfo avatarInfo(const User &user) const;
     Q_DISABLE_COPY(UserCompleterModel)
     QVector<User> mUsers;
 };
