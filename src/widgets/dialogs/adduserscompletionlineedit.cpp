@@ -21,7 +21,7 @@ AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *accoun
     , mSearchTimer(new QTimer(this))
 {
     if (mRocketChatAccount) {
-        setCompletionModel(mRocketChatAccount->userCompleterFilterModelProxy());
+        setCompletionModel(mRocketChatAccount->userCompleterFilterProxyModel());
     }
     connect(mSearchTimer, &QTimer::timeout, this, &AddUsersCompletionLineEdit::slotSearchTimerFired);
     connect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);

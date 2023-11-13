@@ -242,7 +242,7 @@ public:
     CommonMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
-    UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
+    UserCompleterFilterProxyModel *userCompleterFilterProxyModel() const;
 
     UsersModel *usersModel() const;
     MessagesModel *threadMessageModel() const;

@@ -327,7 +327,7 @@ UserCompleterModel *RocketChatAccount::userCompleterModel() const
     return mUserCompleterModel;
 }
 
-UserCompleterFilterProxyModel *RocketChatAccount::userCompleterFilterModelProxy() const
+UserCompleterFilterProxyModel *RocketChatAccount::userCompleterFilterProxyModel() const
 {
     return mUserCompleterFilterModelProxy;
 }
