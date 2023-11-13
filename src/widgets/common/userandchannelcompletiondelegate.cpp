@@ -24,8 +24,6 @@ UserAndChannelCompletionDelegate::~UserAndChannelCompletionDelegate() = default;
 
 void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // TODO use AvatarCacheManager
-
     // [M] icon ? status name (username) (description if necessary)
     drawBackground(painter, option, index);
 
