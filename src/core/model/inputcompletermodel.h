@@ -48,6 +48,7 @@ private:
     [[nodiscard]] static ChannelUserCompleter createHereChannel();
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
+    void searchOpenedRooms();
     QString mSetSearchUserString;
     QVector<ChannelUserCompleter> mChannelUserCompleters;
 };

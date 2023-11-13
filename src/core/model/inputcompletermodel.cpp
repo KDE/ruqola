@@ -71,6 +71,11 @@ void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &chann
     }
 }
 
+void InputCompleterModel::searchOpenedRooms()
+{
+    // TODO
+}
+
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QVector<ChannelUserCompleter> channelList;
