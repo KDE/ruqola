@@ -24,10 +24,9 @@ public:
 
     [[nodiscard]] QPixmap makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
     [[nodiscard]] QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
-public Q_SLOTS:
-    void slotAvatarChanged(const Utils::AvatarInfo &info);
 
 private:
+    void slotAvatarChanged(const Utils::AvatarInfo &info);
     [[nodiscard]] qreal checkIfNeededToClearCache(const QWidget *widget) const;
 
     // DPR-dependent cache of avatars
