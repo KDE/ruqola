@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QItemDelegate>
+
 class AvatarCacheManager;
 class RocketChatAccount;
 class UserCompletionDelegate : public QItemDelegate

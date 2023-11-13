@@ -29,7 +29,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertRooms(const QVector<TeamRoomCompleter> &rooms);
+    void setRooms(const QVector<TeamRoomCompleter> &rooms);
 
 private:
     Q_DISABLE_COPY(TeamRoomCompleterModel)

@@ -63,6 +63,9 @@ void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
         channelList.append(std::move(channel));
     }
     mChannelCompleterModel->insertChannels(channelList);
+    if (channelList.isEmpty()) {
+        mCompletionListView->hide();
+    }
 }
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)

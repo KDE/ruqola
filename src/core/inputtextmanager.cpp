@@ -18,7 +18,7 @@ InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     , mInputCompleterModel(new InputCompleterModel(this))
     , mEmoticonFilterProxyModel(new EmoticonFilterProxyModel(this))
     , mCommandFilterProxyModel(new CommandsModelFilterProxyModel(this))
-    , mAccount(account)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -140,7 +140,7 @@ void InputTextManager::slotCompletionChannels(const QString &pattern)
         info.pattern = pattern;
         info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
         job->setDirectoryInfo(info);
-        mAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &InputTextManager::slotCompletionChannelDone);
         if (!job->start()) {
             qCWarning(RUQOLA_COMPLETION_LOG) << "Impossible to start DirectoryJob job";
@@ -185,7 +185,7 @@ void InputTextManager::setInputTextChanged(const QString &roomId, const QString 
             // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);
         } else if (word.startsWith(QLatin1Char(':'))) {
-            if (mAccount && mAccount->ownUserPreferences().useEmojis()) {
+            if (mRocketChatAccount && mRocketChatAccount->ownUserPreferences().useEmojis()) {
                 mEmoticonFilterProxyModel->setFilterFixedString(word);
                 setCompletionType(InputTextManager::CompletionForType::Emoji);
             }

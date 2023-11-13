@@ -23,7 +23,7 @@ void TeamRoomCompleterModel::clear()
     }
 }
 
-void TeamRoomCompleterModel::insertRooms(const QVector<TeamRoomCompleter> &rooms)
+void TeamRoomCompleterModel::setRooms(const QVector<TeamRoomCompleter> &rooms)
 {
     clear();
     if (!rooms.isEmpty()) {

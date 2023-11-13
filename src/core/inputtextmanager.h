@@ -67,7 +67,7 @@ private:
     InputCompleterModel *const mInputCompleterModel;
     EmoticonFilterProxyModel *const mEmoticonFilterProxyModel;
     CommandsModelFilterProxyModel *const mCommandFilterProxyModel;
-    RocketChatAccount *const mAccount;
+    RocketChatAccount *const mRocketChatAccount;
     CompletionForType mCurrentCompletionType = None;
     QString mCurrentCompletionPattern;
 };
