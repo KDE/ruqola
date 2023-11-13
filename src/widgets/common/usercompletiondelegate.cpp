@@ -9,8 +9,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/usercompletermodel.h"
 
-#include <KLocalizedString>
-
 #include <QFontMetricsF>
 #include <QPainter>
 
@@ -24,7 +22,7 @@ UserCompletionDelegate::~UserCompletionDelegate() = default;
 
 void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // [M] icon ? status name (username) (description if necessary)
+    // [M] icon ? status name (username)
     drawBackground(painter, option, index);
 
     if (option.state & QStyle::State_Selected) {
@@ -62,17 +60,17 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     int nameWidth = -1;
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     if (name.isEmpty()) {
-        nameWidth = fontMetrics.horizontalAdvance(userName);
+        // nameWidth = fontMetrics.horizontalAdvance(userName);
         painter->drawText(xPos + margin, defaultCharHeight, userName);
-        xPos += nameWidth;
+        // xPos += nameWidth;
     } else {
         nameWidth = fontMetrics.horizontalAdvance(name);
         painter->drawText(xPos + margin, defaultCharHeight, name);
         xPos += nameWidth;
         if (!userName.isEmpty()) {
             painter->setFont(oldFont);
-            fontMetrics = QFontMetrics(oldFont);
-            nameWidth = fontMetrics.horizontalAdvance(userName);
+            // fontMetrics = QFontMetrics(oldFont);
+            // nameWidth = fontMetrics.horizontalAdvance(userName);
             painter->drawText(xPos + margin * 2, defaultCharHeight, userName);
             // xPos += nameWidth;
         }
