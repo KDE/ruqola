@@ -423,8 +423,9 @@ void MessageTextEdit::slotComplete(const QModelIndex &index)
 
 void MessageTextEdit::slotSelectFirstTextCompleter()
 {
-    const QModelIndex Index = mUserAndChannelCompletionListView->model()->index(0, 0);
-    mUserAndChannelCompletionListView->selectionModel()->select(Index, QItemSelectionModel::Select);
+    const QModelIndex idx = mUserAndChannelCompletionListView->model()->index(0, 0);
+    // qDebug() << " idx " << idx;
+    mUserAndChannelCompletionListView->selectionModel()->select(idx, QItemSelectionModel::Select);
 }
 
 #include "moc_messagetextedit.cpp"
