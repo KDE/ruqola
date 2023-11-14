@@ -182,7 +182,8 @@ bool KTextToHTMLHelper::atUrl() const
         || segment.startsWith(QLatin1String("fish://")) || segment.startsWith(QLatin1String("ftp://")) || segment.startsWith(QLatin1String("ftps://"))
         || segment.startsWith(QLatin1String("sftp://")) || segment.startsWith(QLatin1String("smb://")) || segment.startsWith(QLatin1String("mailto:"))
         || segment.startsWith(QLatin1String("www.")) || segment.startsWith(QLatin1String("ftp.")) || segment.startsWith(QLatin1String("file://"))
-        || segment.startsWith(QLatin1String("news:")) || segment.startsWith(QLatin1String("tel:")) || segment.startsWith(QLatin1String("xmpp:"));
+        || segment.startsWith(QLatin1String("news:")) || segment.startsWith(QLatin1String("tel:")) || segment.startsWith(QLatin1String("xmpp:"))
+        || segment.startsWith(QLatin1String("irc://")) || segment.startsWith(QLatin1String("ircs://"));
 }
 
 bool KTextToHTMLHelper::isEmptyUrl(const QString &url) const
@@ -191,7 +192,7 @@ bool KTextToHTMLHelper::isEmptyUrl(const QString &url) const
         || url == QLatin1String("ftp://") || url == QLatin1String("ftps://") || url == QLatin1String("sftp://") || url == QLatin1String("smb://")
         || url == QLatin1String("vnc://") || url == QLatin1String("mailto") || url == QLatin1String("mailto:") || url == QLatin1String("www")
         || url == QLatin1String("ftp") || url == QLatin1String("news:") || url == QLatin1String("news://") || url == QLatin1String("tel")
-        || url == QLatin1String("tel:") || url == QLatin1String("xmpp:");
+        || url == QLatin1String("tel:") || url == QLatin1String("xmpp:") || url == QLatin1String("irc://") || url == QLatin1String("ircs://");
 }
 
 QString KTextToHTMLHelper::getUrl(bool *badurl)
