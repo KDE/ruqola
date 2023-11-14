@@ -29,11 +29,11 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
         switch (static_cast<AdminInviteRoles>(section)) {
         case AdminInviteModel::UserIdentifier:
         case AdminInviteModel::RoomId:
+        case AdminInviteModel::CreateAt:
             break;
         case AdminInviteModel::Identifier:
             return i18n("Token");
         case AdminInviteModel::CreateAtStr:
-        case AdminInviteModel::CreateAt:
             return i18n("Created at");
         case AdminInviteModel::Uses:
             return i18n("Uses");
