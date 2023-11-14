@@ -75,12 +75,7 @@ Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user) const
 
 QString UserCompleterModel::displayUserName(const User &user) const
 {
-    QString text = user.userName();
-    const QString name = user.name();
-    if (!name.isEmpty()) {
-        text += QLatin1String(" (") + name + QLatin1Char(')');
-    }
-    return text;
+    return user.name();
 }
 
 #include "moc_usercompletermodel.cpp"
