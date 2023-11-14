@@ -51,13 +51,18 @@ Commands CommandsModel::commands() const
     return mCommands;
 }
 
-void CommandsModel::setCommands(const Commands &commands)
+void CommandsModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mCommands.isEmpty()) {
         beginResetModel();
         mCommands.clear();
         endResetModel();
     }
+}
+
+void CommandsModel::setCommands(const Commands &commands)
+{
+    clear();
     if (!commands.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, commands.count() - 1);
         mCommands = commands;

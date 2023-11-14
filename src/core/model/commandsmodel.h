@@ -37,5 +37,6 @@ public:
 
 private:
     Q_DISABLE_COPY(CommandsModel)
+    LIBRUQOLACORE_NO_EXPORT void clear();
     Commands mCommands;
 };
