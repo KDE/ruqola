@@ -6,7 +6,7 @@
 */
 
 #pragma once
-#include "libruqolacore_export.h"
+#include "libruqola_private_export.h"
 #include <QString>
 
 /**
@@ -75,5 +75,5 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Options)
  *
  * @since 5.5.0
  */
-LIBRUQOLACORE_EXPORT QString convertToHtml(const QString &plainText, RuqolaKTextToHTML::Options options, int maxUrlLen = 4096, int maxAddressLen = 255);
+LIBRUQOLACORE_TESTS_EXPORT QString convertToHtml(const QString &plainText, RuqolaKTextToHTML::Options options, int maxUrlLen = 4096, int maxAddressLen = 255);
 }

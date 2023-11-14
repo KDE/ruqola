@@ -6,20 +6,20 @@
 */
 
 #pragma once
-#include "libruqolacore_export.h"
+#include "libruqola_private_export.h"
 #include <QString>
 
-class LIBRUQOLACORE_EXPORT KTextToHTMLHelper
+class LIBRUQOLACORE_TESTS_EXPORT KTextToHTMLHelper
 {
 public:
     KTextToHTMLHelper(const QString &plainText, int pos = 0, int maxUrlLen = 4096, int maxAddressLen = 255);
 
-    QString getEmailAddress();
-    QString getPhoneNumber();
-    bool atUrl() const;
-    bool isEmptyUrl(const QString &url) const;
-    QString getUrl(bool *badurl = nullptr);
-    QString highlightedText();
+    [[nodiscard]] QString getEmailAddress();
+    [[nodiscard]] QString getPhoneNumber();
+    [[nodiscard]] bool atUrl() const;
+    [[nodiscard]] bool isEmptyUrl(const QString &url) const;
+    [[nodiscard]] QString getUrl(bool *badurl = nullptr);
+    [[nodiscard]] QString highlightedText();
 
     QString mText;
     int mMaxUrlLen;
