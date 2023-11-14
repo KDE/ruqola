@@ -6,10 +6,10 @@
 */
 
 #pragma once
-
+#include "libruqolacore_export.h"
 #include <QString>
 
-class KTextToHTMLHelper
+class LIBRUQOLACORE_EXPORT KTextToHTMLHelper
 {
 public:
     KTextToHTMLHelper(const QString &plainText, int pos = 0, int maxUrlLen = 4096, int maxAddressLen = 255);
