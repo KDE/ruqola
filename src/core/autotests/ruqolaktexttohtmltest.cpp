@@ -280,8 +280,8 @@ void KTextToHTMLTest::testHtmlConvert_data()
     QTest::newRow("") << "Ce paragraphe _contient_ des mots ou des _groupes de mots_ à mettre en"
                          " forme…"
                       << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                      << "Ce paragraphe <u>_contient_</u> des mots ou des"
-                         " <u>_groupes de mots_</u> à mettre en forme…";
+                      << "Ce paragraphe <u>contient</u> des mots ou des"
+                         " <u>groupes de mots</u> à mettre en forme…";
     QTest::newRow("punctation-bug") << "Ce texte *a l'air* de _fonctionner_, à condition"
                                        " d’utiliser le guillemet ASCII."
                                     << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
@@ -298,13 +298,13 @@ void KTextToHTMLTest::testHtmlConvert_data()
                       << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
                       << "Je vais tenter de repérer des faux positif*";
     QTest::newRow("") << "*Ouais !* *Yes!*" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                      << "<b>*Ouais !*</b> <b>*Yes!*</b>";
+                      << "<b>Ouais !</b> <b>Yes!</b>";
 
     QTest::newRow("multispace") << "*Ouais     foo*" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                                << "<b>*Ouais     foo*</b>";
+                                << "<b>Ouais     foo</b>";
 
     QTest::newRow("multispace3") << "*Ouais:     foo*" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                                 << "<b>*Ouais:     foo*</b>";
+                                 << "<b>Ouais:     foo</b>";
 
     QTest::newRow("multi-") << "** Ouais:  foo **" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
                             << "** Ouais:&nbsp;&nbsp;foo **";
@@ -323,7 +323,7 @@ void KTextToHTMLTest::testHtmlConvert_data()
 
     QTest::newRow("nohtmlversion3") << "* Ouais: *ff sfsdf* foo *"
                                     << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                                    << "* Ouais: <b>*ff sfsdf*</b> foo *";
+                                    << "* Ouais: <b>ff sfsdf</b> foo *";
 
     QTest::newRow("") << "the /etc/{rsyslog.d,syslog-ng.d}/package.rpmnew file"
                       << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
