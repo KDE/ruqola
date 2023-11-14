@@ -130,6 +130,7 @@ void KTextToHTMLTest::testGetUrl2(const QString &left, const QString &right)
     schemas << QStringLiteral("ircs://");
 
     QStringList urls;
+    urls << QStringLiteral("en.wikipedia.org/wiki/%C3%98_(disambiguation)");
     urls << QStringLiteral("www.kde.org");
     urls << QStringLiteral("user@www.kde.org");
     urls << QStringLiteral("user:pass@www.kde.org");
