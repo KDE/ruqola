@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"POT-Creation-Date: 2023-11-14 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -6171,7 +6171,7 @@ msgstr "Kanal erstellen"
 msgid "Error saving file"
 msgstr "Fehler beim Speichern der Datei"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:96
+#: widgets/common/userandchannelcompletiondelegate.cpp:94
 #, fuzzy, kde-format
 #| msgid "Join the given channel"
 msgid "Not in channel"

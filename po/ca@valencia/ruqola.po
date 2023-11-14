@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 00:42+0000\n"
+"POT-Creation-Date: 2023-11-14 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 18:58+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -6042,7 +6042,7 @@ msgstr "Canal següent"
 msgid "Error saving file"
 msgstr "S'ha produït un error en guardar el fitxer"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:96
+#: widgets/common/userandchannelcompletiondelegate.cpp:94
 #, kde-format
 msgid "Not in channel"
 msgstr "No en el canal"
