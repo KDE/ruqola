@@ -112,6 +112,11 @@ QString SearchMessageWidget::displayShowSearch() const
     return displayMessageStr;
 }
 
+RocketChatAccount *SearchMessageWidget::currentRocketChatAccount() const
+{
+    return mCurrentRocketChatAccount;
+}
+
 void SearchMessageWidget::setModel(CommonMessageFilterProxyModel *model)
 {
     mResultListWidget->setModel(model);

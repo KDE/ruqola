@@ -67,4 +67,9 @@ void CreateDirectMessagesWidget::checkMaximumUsers(bool state)
     Q_EMIT updateOkButton(result);
 }
 
+RocketChatAccount *CreateDirectMessagesWidget::rocketChatAccount() const
+{
+    return mRocketChatAccount;
+}
+
 #include "moc_createdirectmessageswidget.cpp"

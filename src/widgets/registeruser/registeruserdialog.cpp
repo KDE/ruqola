@@ -23,7 +23,6 @@ const char myRegisterUserDialogConfigGroupName[] = "RegisterUserDialog";
 RegisterUserDialog::RegisterUserDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mRegisterUserWidget(new RegisterUserWidget(account, this))
-    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Register User"));
     auto mainLayout = new QVBoxLayout(this);

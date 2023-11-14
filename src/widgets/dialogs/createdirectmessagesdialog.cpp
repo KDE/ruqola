@@ -25,7 +25,6 @@ static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectM
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(account, this))
-    , mCurrentRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Create Direct Messages - %1", account ? account->accountName() : QStringLiteral("account")));
     auto mainLayout = new QVBoxLayout(this);
@@ -55,7 +54,7 @@ CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
 void CreateDirectMessagesDialog::slotAccepted()
 {
     const QStringList usernames = userNames();
-    mCurrentRocketChatAccount->createDirectMessages(usernames);
+    mCreateDirectMessagesWidget->rocketChatAccount()->createDirectMessages(usernames);
 }
 
 QStringList CreateDirectMessagesDialog::userNames() const

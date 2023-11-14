@@ -33,6 +33,8 @@ public:
 
     void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);
+    [[nodiscard]] RocketChatAccount *currentRocketChatAccount() const;
+
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
 

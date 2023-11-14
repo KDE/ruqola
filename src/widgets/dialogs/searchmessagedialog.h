@@ -32,5 +32,4 @@ private:
     void writeConfig();
 
     SearchMessageWidget *const mSearchMessageWidget;
-    RocketChatAccount *const mRocketChatAccount;
 };

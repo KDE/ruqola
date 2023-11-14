@@ -23,5 +23,4 @@ private:
     void readConfig();
     void writeConfig();
     RegisterUserWidget *const mRegisterUserWidget;
-    RocketChatAccount *const mRocketChatAccount;
 };

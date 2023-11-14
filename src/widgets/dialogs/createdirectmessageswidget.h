@@ -19,6 +19,8 @@ public:
     explicit CreateDirectMessagesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateDirectMessagesWidget() override;
     [[nodiscard]] QStringList userNames() const;
+    [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
+
 Q_SIGNALS:
     void updateOkButton(bool state);
 

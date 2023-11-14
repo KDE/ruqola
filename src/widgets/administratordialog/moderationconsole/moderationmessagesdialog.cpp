@@ -23,7 +23,6 @@ static const char myModerationMessagesDialogGroupName[] = "ModerationMessagesDia
 ModerationMessagesDialog::ModerationMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mModerationMessagesWidget(new ModerationMessagesWidget(account, this))
-    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Moderation Messages"));
     auto mainLayout = new QVBoxLayout(this);

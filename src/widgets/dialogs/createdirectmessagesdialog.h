@@ -25,5 +25,4 @@ private:
     void slotAccepted();
 
     CreateDirectMessagesWidget *const mCreateDirectMessagesWidget;
-    RocketChatAccount *const mCurrentRocketChatAccount;
 };

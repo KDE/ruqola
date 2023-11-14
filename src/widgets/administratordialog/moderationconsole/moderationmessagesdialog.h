@@ -28,5 +28,4 @@ private:
     void writeConfig();
 
     ModerationMessagesWidget *const mModerationMessagesWidget;
-    RocketChatAccount *const mRocketChatAccount;
 };
