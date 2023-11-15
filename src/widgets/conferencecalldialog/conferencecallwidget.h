@@ -25,7 +25,6 @@ public:
     void setConferenceCallInfo(const ConferenceCallStart &infoCallStart);
 
 private:
-    RocketChatAccount *const mRocketChatAccount;
     QToolButton *const mMicroButton;
     QToolButton *const mCameraButton;
 };
