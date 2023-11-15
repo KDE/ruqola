@@ -10,6 +10,8 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDialogButtonBox>
+#include <QFrame>
+#include <QStyle>
 #include <QVBoxLayout>
 #include <QWindow>
 
@@ -25,11 +27,23 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
     setWindowTitle(i18nc("@title:window", "Thread"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins({});
 
     mThreadMessageWidget->setObjectName(QStringLiteral("mThreadMessageWidget"));
     mainLayout->addWidget(mThreadMessageWidget);
 
+    auto separator = new QFrame(this);
+    separator->setFrameShape(QFrame::HLine);
+    separator->setFixedHeight(1);
+
+    mainLayout->addWidget(separator);
+
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                               style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                               style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                               style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ThreadMessageDialog::reject);

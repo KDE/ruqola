@@ -21,6 +21,10 @@ RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
     auto cancelReplyingInThreadAction = new QAction(i18n("Cancel"), this);
     connect(cancelReplyingInThreadAction, &QAction::triggered, this, &RoomReplyThreadWidget::cancelReplyingInThread);
     addAction(cancelReplyingInThreadAction);
+
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    setPosition(KMessageWidget::Footer);
+#endif
 }
 
 RoomReplyThreadWidget::~RoomReplyThreadWidget() = default;
