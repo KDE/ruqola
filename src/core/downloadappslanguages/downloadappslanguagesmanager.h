@@ -35,8 +35,8 @@ Q_SIGNALS:
 
 private:
     [[nodiscard]] QString storedFileName() const;
-    void slotFileDownloaded(const QByteArray &data);
-    void parseLanguageFile();
+    LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QByteArray &data);
+    LIBRUQOLACORE_NO_EXPORT void parseLanguageFile();
     QString mAccountName;
     QString mServerVersion;
     //<id, DownloadAppsLanguagesInfo>

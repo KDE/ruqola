@@ -230,13 +230,13 @@ private Q_SLOTS:
 
 private:
     Q_DISABLE_COPY(DDPClient)
-    void initializeWebSocket();
-    void connectWebSocket();
+    LIBRUQOLACORE_NO_EXPORT void initializeWebSocket();
+    LIBRUQOLACORE_NO_EXPORT void connectWebSocket();
 
-    QUrl adaptUrl(const QString &url);
+    LIBRUQOLACORE_NO_EXPORT QUrl adaptUrl(const QString &url);
 
-    void pong();
-    void executeSubsCallBack(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void pong();
+    LIBRUQOLACORE_NO_EXPORT void executeSubsCallBack(const QJsonObject &root);
 
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;

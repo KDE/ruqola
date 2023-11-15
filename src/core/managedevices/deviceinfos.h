@@ -41,7 +41,7 @@ public:
     DeviceInfo takeAt(int index);
 
 private:
-    void parseDeviceInfosObj(const QJsonObject &discussionsObj);
+    LIBRUQOLACORE_NO_EXPORT void parseDeviceInfosObj(const QJsonObject &discussionsObj);
     QVector<DeviceInfo> mDeviceInfosList;
     int mDeviceInfosCount = 0;
     int mOffset = 0;

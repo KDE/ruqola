@@ -103,16 +103,16 @@ private:
     // Used when sending OTP
     QJsonObject mLastLoginPayload;
 
-    void processMethodResponseImpl(int operationId, const QJsonObject &response) override;
+    LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(int operationId, const QJsonObject &response) override;
 
     // Authentication doesn't involve any subscriptions
-    void processSubscriptionResultImpl(int subscriptionId, const QJsonObject &result) override
+    LIBRUQOLACORE_NO_EXPORT void processSubscriptionResultImpl(int subscriptionId, const QJsonObject &result) override
     {
         Q_UNUSED(subscriptionId)
         Q_UNUSED(result)
     }
 
-    void loginImpl(const QJsonArray &params);
-    void clientConnectedChangedSlot();
-    [[nodiscard]] bool checkGenericError() const;
+    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
+    LIBRUQOLACORE_NO_EXPORT void clientConnectedChangedSlot();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
 };
