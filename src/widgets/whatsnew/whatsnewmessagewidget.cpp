@@ -15,6 +15,9 @@ WhatsNewMessageWidget::WhatsNewMessageWidget(QWidget *parent)
     setCloseButtonVisible(true);
     setMessageType(Information);
     setText(i18n("What's new in Ruqola. %1", QStringLiteral("<a href=\"show_whats_new\">%1</a>").arg(i18n("(Show News in Ruqola)"))));
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    setPosition(KMessageWidget::Header);
+#endif
     connect(this, &KMessageWidget::linkActivated, this, &WhatsNewMessageWidget::slotLinkActivated);
 }
 
