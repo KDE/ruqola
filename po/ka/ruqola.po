@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 00:42+0000\n"
+"POT-Creation-Date: 2023-11-15 00:43+0000\n"
 "PO-Revision-Date: 2023-11-10 05:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -598,7 +598,7 @@ msgstr "იდენტიფიკატორი"
 msgid "Aliases"
 msgstr "მეტსახელები"
 
-#: core/model/admininvitemodel.cpp:34
+#: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
 msgstr "ტოკენი"
@@ -2662,7 +2662,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "მოდერაციის ანგარიშის ჩვენება"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -6395,7 +6395,7 @@ msgstr "პაროლის დადასტურება"
 msgid "For your security, you must enter your current password to continue"
 msgstr "თქვენივე უსაფრთხოებისთვის აუცილებელია პაროლი შეიყვანოთ"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:30
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
@@ -6747,7 +6747,7 @@ msgstr "გამოსახულება"
 msgid "Select Room Avatar"
 msgstr "აირჩეთ ოთახის ავატარი"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
+#: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
@@ -7734,7 +7734,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "%3-ში %1-დან %2-მდე ყველა შეტყობინების წაშლა."
 
-#: widgets/registeruser/registeruserdialog.cpp:28
+#: widgets/registeruser/registeruserdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"

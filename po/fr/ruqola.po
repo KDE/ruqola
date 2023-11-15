@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 00:42+0000\n"
+"POT-Creation-Date: 2023-11-15 00:43+0000\n"
 "PO-Revision-Date: 2023-11-11 20:23+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -596,7 +596,7 @@ msgstr "Identifiant"
 msgid "Aliases"
 msgstr "Alias"
 
-#: core/model/admininvitemodel.cpp:34
+#: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
 msgstr "Jeton"
@@ -2683,7 +2683,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Afficher le rapport de modération"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -6572,7 +6572,7 @@ msgstr ""
 "Pour votre sécurité, vous devez saisir votre mot de passe actuel pour "
 "continuer."
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:30
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
@@ -6927,7 +6927,7 @@ msgstr "Image"
 msgid "Select Room Avatar"
 msgstr "Sélectionnez un avatar pour le salon de discussions"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
+#: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
@@ -7936,7 +7936,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "Ceci supprimera tous les messages dans %3 entre %1 et %2."
 
-#: widgets/registeruser/registeruserdialog.cpp:28
+#: widgets/registeruser/registeruserdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"

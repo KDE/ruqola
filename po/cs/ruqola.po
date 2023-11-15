@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 00:42+0000\n"
-"PO-Revision-Date: 2023-11-09 15:47+0100\n"
+"POT-Creation-Date: 2023-11-15 00:43+0000\n"
+"PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -596,7 +596,7 @@ msgstr "Identifikátor"
 msgid "Aliases"
 msgstr "Zkratky"
 
-#: core/model/admininvitemodel.cpp:34
+#: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
 msgstr "Výraz"
@@ -840,7 +840,7 @@ msgstr ""
 #: core/model/inputcompletermodel.cpp:34
 #, kde-format
 msgid "No result found."
-msgstr ""
+msgstr "Nebyl nalezen žádný výsledek."
 
 #: core/model/inputcompletermodel.cpp:43
 #, kde-format
@@ -2651,7 +2651,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -5851,7 +5851,7 @@ msgstr "Chyba při ukládání souboru"
 #: widgets/common/userandchannelcompletiondelegate.cpp:94
 #, kde-format
 msgid "Not in channel"
-msgstr ""
+msgstr "Není v kanále"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -6342,7 +6342,7 @@ msgstr "Potvrdit heslo"
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:30
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
@@ -6691,7 +6691,7 @@ msgstr "Obrázek"
 msgid "Select Room Avatar"
 msgstr ""
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
+#: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
@@ -7673,7 +7673,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr ""
 
-#: widgets/registeruser/registeruserdialog.cpp:28
+#: widgets/registeruser/registeruserdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"

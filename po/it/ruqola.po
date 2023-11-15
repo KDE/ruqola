@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 00:42+0000\n"
-"PO-Revision-Date: 2023-11-08 15:09+0100\n"
+"POT-Creation-Date: 2023-11-15 00:43+0000\n"
+"PO-Revision-Date: 2023-11-12 10:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -599,7 +599,7 @@ msgstr "Identificatore"
 msgid "Aliases"
 msgstr "Alias"
 
-#: core/model/admininvitemodel.cpp:34
+#: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
 msgstr "Token"
@@ -841,10 +841,9 @@ msgid "Notify all in this room"
 msgstr "Avvisa tutti in questa stanza"
 
 #: core/model/inputcompletermodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "No result found"
+#, kde-format
 msgid "No result found."
-msgstr "Nessun risultato trovato"
+msgstr "Nessun risultato trovato."
 
 #: core/model/inputcompletermodel.cpp:43
 #, kde-format
@@ -2670,7 +2669,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Mostra rapporto di moderazione"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -6044,10 +6043,9 @@ msgid "Error saving file"
 msgstr "Errore nel salvataggio del file"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:94
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#, kde-format
 msgid "Not in channel"
-msgstr "Unisciti al canale fornito"
+msgstr "Non nel canale"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:17
 #, kde-format
@@ -6537,7 +6535,7 @@ msgid "For your security, you must enter your current password to continue"
 msgstr ""
 "Per la tua sicurezza, devi digitare la tua password attuale per continuare"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:30
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
@@ -6891,7 +6889,7 @@ msgstr "Immagine"
 msgid "Select Room Avatar"
 msgstr "Seleziona avatar della stanza"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
+#: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
@@ -7897,7 +7895,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "Questo eliminerà tutti i messaggi in %3 tra %1 e %2."
 
-#: widgets/registeruser/registeruserdialog.cpp:28
+#: widgets/registeruser/registeruserdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"
@@ -9107,6 +9105,8 @@ msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
+"Migliora la selezione della stanza o di un utente nella riga della riga dei "
+"messaggi (mostra l'icona, informa se l'utente è nel canale)"
 
 #~ msgid "Share"
 #~ msgstr "Condividi"

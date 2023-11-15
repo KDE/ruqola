@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 00:42+0000\n"
+"POT-Creation-Date: 2023-11-15 00:43+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -616,7 +616,7 @@ msgstr "Идентификатор"
 msgid "Aliases"
 msgstr "Альтернативные варианты"
 
-#: core/model/admininvitemodel.cpp:34
+#: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
 msgstr "Маркер"
@@ -2714,7 +2714,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Показ сообщений с упоминаниями — %1"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages - %1"
@@ -6589,7 +6589,7 @@ msgstr ""
 "Для продолжения необходимо указать ваш текущий пароль (это обеспечит "
 "безопасность)"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:30
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
@@ -6956,7 +6956,7 @@ msgstr "Изображение"
 msgid "Select Room Avatar"
 msgstr "Выбор аватара комнаты"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
+#: widgets/dialogs/searchmessagedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
@@ -8014,7 +8014,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "В результате будут удалены все сообщения в %3 с %1 по %2."
 
-#: widgets/registeruser/registeruserdialog.cpp:28
+#: widgets/registeruser/registeruserdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 00:42+0000\n"
+"POT-Creation-Date: 2023-11-15 00:43+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -619,7 +619,7 @@ msgstr ""
 msgid "Aliases"
 msgstr ""
 
-#: core/model/admininvitemodel.cpp:34
+#: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
 msgstr ""
@@ -2759,7 +2759,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Súkromné adresy"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@title:window"
@@ -6689,7 +6689,7 @@ msgstr "Hesla kanála"
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:30
+#: widgets/dialogs/createdirectmessagesdialog.cpp:29
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@title:window"
@@ -7067,7 +7067,7 @@ msgstr "Obrázok"
 msgid "Select Room Avatar"
 msgstr "Heslo:"
 
-#: widgets/dialogs/searchmessagedialog.cpp:29
+#: widgets/dialogs/searchmessagedialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgctxt "@title:window"
@@ -8145,7 +8145,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr ""
 
-#: widgets/registeruser/registeruserdialog.cpp:28
+#: widgets/registeruser/registeruserdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgctxt "@title:window"
