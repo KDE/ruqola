@@ -7,6 +7,7 @@
 #include "file.h"
 #include "utils.h"
 #include <QDateTime>
+#include <QJsonObject>
 
 File::File() = default;
 
