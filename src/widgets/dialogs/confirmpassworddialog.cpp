@@ -30,7 +30,7 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
     auto okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    connect(mConfirmPasswordWidget, &ConfirmPasswordWidget::enabledOkButton, [okButton](bool enabled) {
+    connect(mConfirmPasswordWidget, &ConfirmPasswordWidget::enabledOkButton, this, [okButton](bool enabled) {
         okButton->setEnabled(enabled);
     });
 }
