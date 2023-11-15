@@ -7,10 +7,9 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "permission.h"
-#include "roles/roleinfo.h"
 #include <QJsonObject>
 #include <QVector>
-
+class RoleInfo;
 class LIBRUQOLACORE_EXPORT Permissions
 {
 public:

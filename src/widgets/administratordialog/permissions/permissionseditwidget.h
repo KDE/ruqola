@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roles/roleinfo.h"
 #include <QWidget>
 class RolesComboBox;
+class RoleInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditWidget : public QWidget
 {
     Q_OBJECT

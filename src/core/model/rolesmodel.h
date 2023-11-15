@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "roles/roleinfo.h"
 #include <QStandardItemModel>
 #include <QVector>
+class RoleInfo;
 class LIBRUQOLACORE_EXPORT RolesModel : public QStandardItemModel
 {
     Q_OBJECT

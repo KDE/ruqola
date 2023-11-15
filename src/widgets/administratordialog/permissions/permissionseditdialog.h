@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roles/roleinfo.h"
 #include <QDialog>
 class PermissionsEditWidget;
+class RoleInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsEditDialog : public QDialog
 {
     Q_OBJECT

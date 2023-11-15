@@ -11,6 +11,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QString>
+
 class LIBRUQOLACORE_EXPORT User
 {
     Q_GADGET

@@ -5,7 +5,9 @@
 */
 
 #include "rolesmodel.h"
+#include "roles/roleinfo.h"
 #include "ruqola_debug.h"
+
 #include <KLocalizedString>
 RolesModel::RolesModel(QObject *parent)
     : QStandardItemModel(parent)

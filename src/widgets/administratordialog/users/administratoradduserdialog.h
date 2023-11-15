@@ -8,14 +8,13 @@
 
 #include <QDialog>
 
-#include "roles/roleinfo.h"
-
 #include "users/userscreatejob.h"
 
 #include "libruqolawidgets_private_export.h"
 class AdministratorAddUserWidget;
 class User;
 class RocketChatAccount;
+class RoleInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserDialog : public QDialog
 {
     Q_OBJECT

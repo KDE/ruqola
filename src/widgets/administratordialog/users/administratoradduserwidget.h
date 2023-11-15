@@ -9,7 +9,6 @@
 #include <QWidget>
 
 #include "rocketchataccount.h"
-#include "roles/roleinfo.h"
 
 #include "users/userscreatejob.h"
 
@@ -21,6 +20,7 @@ class KPasswordLineEdit;
 class RolesComboBox;
 class QPlainTextEdit;
 class RocketChatAccount;
+class RoleInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT

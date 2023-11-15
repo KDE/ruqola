@@ -5,7 +5,6 @@
 */
 
 #pragma once
-#include "roles/roleinfo.h"
 #include <QDialog>
 #include <QVector>
 
@@ -13,6 +12,7 @@
 class DirectChannelInfoWidget;
 class User;
 class RocketChatAccount;
+class RoleInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 {
     Q_OBJECT
