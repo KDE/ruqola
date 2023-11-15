@@ -9,7 +9,6 @@
 #include "deviceinfo.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QJsonObject>
 #include <QString>
 #include <QVector>
 

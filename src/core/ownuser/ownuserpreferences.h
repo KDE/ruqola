@@ -9,7 +9,6 @@
 #include "libruqolacore_export.h"
 
 #include <QDebug>
-#include <QJsonObject>
 #include <QObject>
 
 class LIBRUQOLACORE_EXPORT OwnUserPreferences

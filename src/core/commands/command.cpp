@@ -8,6 +8,7 @@
 #include "ruqola_commands_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
+#include <QJsonObject>
 
 Command::Command() = default;
 

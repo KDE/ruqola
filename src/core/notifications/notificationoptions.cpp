@@ -6,6 +6,7 @@
 
 #include "notificationoptions.h"
 #include "ruqola_debug.h"
+#include <QJsonObject>
 
 NotificationOptions::NotificationOptions() = default;
 

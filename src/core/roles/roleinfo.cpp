@@ -5,6 +5,7 @@
 */
 
 #include "roleinfo.h"
+#include <QJsonObject>
 
 //{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
 RoleInfo::RoleInfo() = default;

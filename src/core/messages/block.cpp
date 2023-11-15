@@ -7,6 +7,7 @@
 #include "block.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
+#include <QJsonObject>
 
 Block::Block() = default;
 

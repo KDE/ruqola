@@ -5,6 +5,7 @@
 */
 
 #include "customsoundinfo.h"
+#include <QJsonObject>
 
 CustomSoundInfo::CustomSoundInfo() = default;
 

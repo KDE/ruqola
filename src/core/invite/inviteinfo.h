@@ -9,7 +9,6 @@
 #include "libruqolacore_export.h"
 #include <QDateTime>
 #include <QDebug>
-#include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT InviteInfo
 {

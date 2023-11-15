@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QAction>
 #include <QDesktopServices>
+#include <QUrl>
 
 BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     : KMessageWidget(parent)

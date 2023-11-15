@@ -9,7 +9,6 @@
 #include "channelusercompleter.h"
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
-#include <QJsonObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
 {

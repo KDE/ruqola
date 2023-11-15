@@ -5,6 +5,7 @@
 */
 
 #include "messageattachmentfield.h"
+#include <QJsonObject>
 
 MessageAttachmentField::MessageAttachmentField() = default;
 

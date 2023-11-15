@@ -8,6 +8,7 @@
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 
 Permissions::Permissions() = default;
 

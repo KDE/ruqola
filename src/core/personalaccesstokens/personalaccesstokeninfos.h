@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "personalaccesstokeninfo.h"
-#include <QJsonObject>
 #include <QVector>
 
 class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfos

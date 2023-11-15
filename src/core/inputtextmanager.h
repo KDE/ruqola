@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QJsonObject>
 #include <QObject>
 
 #include "model/inputcompletermodel.h"

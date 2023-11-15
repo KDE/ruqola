@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 #include <QDebug>
-#include <QJsonObject>
+
 class LIBRUQOLACORE_EXPORT CustomUserStatus
 {
 public:

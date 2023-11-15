@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QJsonObject>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT Role

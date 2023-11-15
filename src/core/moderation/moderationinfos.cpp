@@ -8,6 +8,7 @@
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 
 ModerationInfos::ModerationInfos() = default;
 

@@ -16,7 +16,6 @@
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
 #include "utils.h"
-#include <QJsonObject>
 #include <QString>
 #include <QVector>
 class EmojiManager;

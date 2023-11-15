@@ -7,6 +7,7 @@
 #include "customsoundsmanager.h"
 #include "ruqola_custom_sounds_debug.h"
 #include <QJsonArray>
+#include <QJsonObject>
 
 CustomSoundsManager::CustomSoundsManager(QObject *parent)
     : QObject{parent}

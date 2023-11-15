@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT ModerationInfo
 {

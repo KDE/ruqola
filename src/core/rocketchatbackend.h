@@ -13,7 +13,6 @@
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include "user.h"
-#include <QJsonObject>
 #include <QObject>
 
 class RocketChatAccount;

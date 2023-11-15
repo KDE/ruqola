@@ -8,7 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "messagesmodel.h"
-#include <QJsonObject>
+
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT CommonMessagesModel : public MessagesModel
 {

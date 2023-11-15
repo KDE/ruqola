@@ -5,7 +5,7 @@
 */
 
 #include "moderationmessage.h"
-
+#include <QJsonObject>
 ModerationMessage::ModerationMessage() = default;
 
 ModerationMessage::~ModerationMessage() = default;

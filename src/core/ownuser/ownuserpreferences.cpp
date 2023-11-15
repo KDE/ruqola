@@ -7,6 +7,7 @@
 #include "ownuserpreferences.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 
 OwnUserPreferences::OwnUserPreferences() = default;
 

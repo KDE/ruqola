@@ -9,7 +9,6 @@
 #include "libruqola_private_export.h"
 #include "roles/roleinfo.h"
 #include <QDebug>
-#include <QJsonObject>
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT Permission

@@ -11,7 +11,6 @@
 #include "servicepassword.h"
 #include "user.h"
 
-#include <QJsonObject>
 class LIBRUQOLACORE_EXPORT OwnUser
 {
 public:

@@ -8,6 +8,7 @@
 #include "ruqola_debug.h"
 #include <QDebug>
 #include <QJsonArray>
+#include <QJsonObject>
 PermissionManager::PermissionManager() = default;
 
 PermissionManager::~PermissionManager() = default;

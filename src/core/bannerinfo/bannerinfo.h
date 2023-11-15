@@ -8,7 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QJsonObject>
+
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT BannerInfo

@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
 #include <QDebug>
-#include <QJsonObject>
+
 class LIBRUQOLACORE_EXPORT Block
 {
     Q_GADGET

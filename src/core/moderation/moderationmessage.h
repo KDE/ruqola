@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QJsonObject>
+#include <QDebug>
 #include <QString>
 
 class LIBRUQOLACORE_EXPORT ModerationMessage

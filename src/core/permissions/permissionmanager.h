@@ -8,7 +8,6 @@
 
 #include "libruqola_private_export.h"
 #include "permission.h"
-#include <QJsonObject>
 #include <QMap>
 #include <QString>
 

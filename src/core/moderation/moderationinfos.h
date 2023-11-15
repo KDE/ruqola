@@ -9,7 +9,6 @@
 #include "libruqolacore_export.h"
 #include "moderationinfo.h"
 #include <QDebug>
-#include <QJsonObject>
 #include <QString>
 #include <QVector>
 

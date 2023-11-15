@@ -9,7 +9,6 @@
 #include "customuserstatus.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QJsonObject>
 #include <QVector>
 
 class LIBRUQOLACORE_EXPORT CustomUserStatuses
