@@ -9,7 +9,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QJsonArray>
 #include <QSignalSpy>
-#include <QTest>
+
 QTEST_MAIN(RolesManagerTest)
 RolesManagerTest::RolesManagerTest(QObject *parent)
     : QObject{parent}

@@ -9,7 +9,6 @@
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
 #include <QPlainTextEdit>
-#include <QTest>
 QTEST_MAIN(AnalyticsWidgetTest)
 AnalyticsWidgetTest::AnalyticsWidgetTest(QObject *parent)
     : QObject{parent}

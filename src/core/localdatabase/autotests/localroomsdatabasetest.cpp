@@ -9,7 +9,6 @@
 #include "ruqola_autotest_helper.h"
 #include <QFile>
 #include <QStandardPaths>
-#include <QTest>
 
 QTEST_GUILESS_MAIN(LocalRoomsDatabaseTest)
 static QString accountName()

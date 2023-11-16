@@ -6,7 +6,7 @@
 #include "moderationinfotest.h"
 #include "moderation/moderationinfo.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(ModerationInfoTest)
 ModerationInfoTest::ModerationInfoTest(QObject *parent)
     : QObject{parent}

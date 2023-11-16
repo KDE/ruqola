@@ -7,7 +7,6 @@
 #include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
-#include <QTest>
 
 QTEST_MAIN(WebDavSettingsWidgetTest)
 WebDavSettingsWidgetTest::WebDavSettingsWidgetTest(QObject *parent)

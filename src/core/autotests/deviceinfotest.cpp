@@ -7,7 +7,7 @@
 #include "deviceinfotest.h"
 #include "managedevices/deviceinfo.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(DeviceInfoTest)
 DeviceInfoTest::DeviceInfoTest(QObject *parent)
     : QObject{parent}

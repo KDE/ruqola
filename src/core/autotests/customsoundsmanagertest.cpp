@@ -8,7 +8,7 @@
 #include "customsound/customsoundsmanager.h"
 #include "ruqola_autotest_helper.h"
 #include <QSignalSpy>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(CustomSoundsManagerTest)
 
 CustomSoundsManagerTest::CustomSoundsManagerTest(QObject *parent)

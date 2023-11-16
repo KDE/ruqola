@@ -10,7 +10,6 @@
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 
 QTEST_MAIN(LDapSettingsWidgetTest)
 LDapSettingsWidgetTest::LDapSettingsWidgetTest(QObject *parent)

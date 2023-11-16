@@ -13,7 +13,6 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(EmailSettingsWidgetTest)
 EmailSettingsWidgetTest::EmailSettingsWidgetTest(QObject *parent)
     : QObject{parent}

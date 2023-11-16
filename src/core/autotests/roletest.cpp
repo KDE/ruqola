@@ -7,7 +7,6 @@
 #include "roletest.h"
 #include "roles/role.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
 
 QTEST_GUILESS_MAIN(RoleTest)
 

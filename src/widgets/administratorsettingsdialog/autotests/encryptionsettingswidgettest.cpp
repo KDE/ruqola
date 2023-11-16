@@ -9,7 +9,6 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
-#include <QTest>
 
 QTEST_MAIN(EncryptionSettingsWidgetTest)
 EncryptionSettingsWidgetTest::EncryptionSettingsWidgetTest(QObject *parent)

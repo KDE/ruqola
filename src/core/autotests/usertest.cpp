@@ -9,7 +9,7 @@
 #include "user.h"
 
 #include <QJsonObject>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(UserTest)
 
 UserTest::UserTest(QObject *parent)

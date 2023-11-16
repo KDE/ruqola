@@ -9,7 +9,6 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QLineEdit>
-#include <QTest>
 QTEST_MAIN(OauthSettingsWidgetTest)
 OauthSettingsWidgetTest::OauthSettingsWidgetTest(QObject *parent)
     : QObject{parent}

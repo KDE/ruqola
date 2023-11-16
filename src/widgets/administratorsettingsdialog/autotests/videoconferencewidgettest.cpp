@@ -10,7 +10,6 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QLineEdit>
-#include <QTest>
 QTEST_MAIN(VideoConferenceWidgetTest)
 VideoConferenceWidgetTest::VideoConferenceWidgetTest(QObject *parent)
     : QObject{parent}

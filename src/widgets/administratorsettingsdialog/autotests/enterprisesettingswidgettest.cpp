@@ -8,7 +8,6 @@
 #include "settingswidgetshelper.h"
 #include <QLabel>
 #include <QLineEdit>
-#include <QTest>
 QTEST_MAIN(EnterpriseSettingsWidgetTest)
 
 EnterpriseSettingsWidgetTest::EnterpriseSettingsWidgetTest(QObject *parent)

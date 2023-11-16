@@ -7,7 +7,7 @@
 #include "manageloadhistoryparsesyncmessagesutilstest.h"
 #include "manageloadhistoryparsesyncmessagesutils.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_MAIN(ManageLoadHistoryParseSyncMessagesUtilsTest)
 ManageLoadHistoryParseSyncMessagesUtilsTest::ManageLoadHistoryParseSyncMessagesUtilsTest(QObject *parent)
     : QObject{parent}

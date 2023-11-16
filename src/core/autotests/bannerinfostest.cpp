@@ -7,7 +7,7 @@
 #include "bannerinfostest.h"
 #include "bannerinfo/bannerinfos.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(BannerInfosTest)
 BannerInfosTest::BannerInfosTest(QObject *parent)
     : QObject{parent}

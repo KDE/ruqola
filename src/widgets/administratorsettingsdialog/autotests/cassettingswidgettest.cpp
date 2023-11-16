@@ -12,7 +12,6 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <QTest>
 QTEST_MAIN(CasSettingsWidgetTest)
 CasSettingsWidgetTest::CasSettingsWidgetTest(QObject *parent)
     : QObject{parent}

@@ -7,7 +7,7 @@
 #include "channelcounterinfotest.h"
 #include "channelcounterinfo.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(ChannelCounterInfoTest)
 ChannelCounterInfoTest::ChannelCounterInfoTest(QObject *parent)
     : QObject(parent)

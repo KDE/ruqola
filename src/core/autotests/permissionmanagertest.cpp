@@ -7,7 +7,7 @@
 #include "permissionmanagertest.h"
 #include "permissions/permissionmanager.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(PermissionManagerTest)
 PermissionManagerTest::PermissionManagerTest(QObject *parent)
     : QObject(parent)

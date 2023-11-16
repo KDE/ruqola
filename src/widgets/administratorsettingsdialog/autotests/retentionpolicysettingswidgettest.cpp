@@ -10,7 +10,6 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QSpinBox>
-#include <QTest>
 
 QTEST_MAIN(RetentionPolicySettingsWidgetTest)
 RetentionPolicySettingsWidgetTest::RetentionPolicySettingsWidgetTest(QObject *parent)

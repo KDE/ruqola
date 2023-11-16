@@ -9,7 +9,6 @@
 #include "settingswidgetshelper.h"
 #include <QComboBox>
 #include <QFormLayout>
-#include <QTest>
 
 QTEST_MAIN(ConferenceCallSettingsWidgetTest)
 ConferenceCallSettingsWidgetTest::ConferenceCallSettingsWidgetTest(QObject *parent)

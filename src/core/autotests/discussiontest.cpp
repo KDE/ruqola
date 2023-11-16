@@ -8,7 +8,6 @@
 #include "discussions/discussion.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-#include <QTest>
 
 QTEST_GUILESS_MAIN(DiscussionTest)
 DiscussionTest::DiscussionTest(QObject *parent)

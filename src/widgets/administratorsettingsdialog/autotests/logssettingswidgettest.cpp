@@ -10,7 +10,6 @@
 #include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 
 QTEST_MAIN(LogsSettingsWidgetTest)
 LogsSettingsWidgetTest::LogsSettingsWidgetTest(QObject *parent)

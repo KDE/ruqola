@@ -10,7 +10,6 @@
 #include <QComboBox>
 #include <QFormLayout>
 #include <QLineEdit>
-#include <QTest>
 
 QTEST_MAIN(WebRtcSettingsWidgetTest)
 

@@ -9,7 +9,6 @@
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 
 QTEST_MAIN(IrcWidgetTest)
 

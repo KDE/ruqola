@@ -11,7 +11,6 @@
 #include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 
 QTEST_MAIN(IrcFederationWidgetTest)
 IrcFederationWidgetTest::IrcFederationWidgetTest(QObject *parent)

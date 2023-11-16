@@ -11,7 +11,6 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(PasswordSettingsWidgetTest)
 PasswordSettingsWidgetTest::PasswordSettingsWidgetTest(QObject *parent)
     : QObject{parent}

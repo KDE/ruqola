@@ -13,7 +13,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 
 QTEST_MAIN(GeneralSettingsWidgetTest)
 GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)

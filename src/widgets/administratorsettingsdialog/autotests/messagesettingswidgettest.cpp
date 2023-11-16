@@ -12,7 +12,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(MessageSettingsWidgetTest)
 
 MessageSettingsWidgetTest::MessageSettingsWidgetTest(QObject *parent)

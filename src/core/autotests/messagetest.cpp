@@ -10,7 +10,7 @@
 #include <QCborMap>
 #include <QCborValue>
 #include <QJsonDocument>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)

@@ -8,7 +8,6 @@
 #include "settingswidgetshelper.h"
 #include <QLabel>
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(RateLimiterWidgetTest)
 RateLimiterWidgetTest::RateLimiterWidgetTest(QObject *parent)
     : QObject{parent}

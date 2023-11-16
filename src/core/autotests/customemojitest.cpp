@@ -8,7 +8,6 @@
 #include "emoticons/customemoji.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-#include <QTest>
 
 QTEST_GUILESS_MAIN(CustomEmojiTest)
 

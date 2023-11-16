@@ -8,7 +8,6 @@
 #include "administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QFormLayout>
-#include <QTest>
 
 QTEST_MAIN(TroubleshootSettingsWidgetTest)
 TroubleshootSettingsWidgetTest::TroubleshootSettingsWidgetTest(QObject *parent)

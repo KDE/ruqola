@@ -13,7 +13,6 @@
 #include <QCborValue>
 #include <QJsonDocument>
 #include <QSignalSpy>
-#include <QTest>
 
 QTEST_GUILESS_MAIN(RoomTest)
 

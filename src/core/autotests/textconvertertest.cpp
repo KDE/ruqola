@@ -12,7 +12,6 @@
 #include "utils.h"
 #include <QJsonObject>
 #include <QRegularExpression>
-#include <QTest>
 
 #include <KColorScheme>
 

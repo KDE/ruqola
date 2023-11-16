@@ -7,7 +7,7 @@
 #include "ownuserpreferencestest.h"
 #include "ownuser/ownuserpreferences.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(OwnUserPreferencesTest)
 OwnUserPreferencesTest::OwnUserPreferencesTest(QObject *parent)
     : QObject(parent)

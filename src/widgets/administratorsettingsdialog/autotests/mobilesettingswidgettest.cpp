@@ -10,7 +10,6 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(MobileSettingsWidgetTest)
 MobileSettingsWidgetTest::MobileSettingsWidgetTest(QObject *parent)
     : QObject{parent}

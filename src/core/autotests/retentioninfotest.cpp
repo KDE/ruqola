@@ -8,7 +8,7 @@
 #include "retentioninfo.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(RetentionInfoTest)
 RetentionInfoTest::RetentionInfoTest(QObject *parent)
     : QObject(parent)

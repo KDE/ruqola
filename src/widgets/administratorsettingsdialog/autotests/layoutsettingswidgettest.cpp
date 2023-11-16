@@ -7,7 +7,6 @@
 #include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(LayoutSettingsWidgetTest)
 
 LayoutSettingsWidgetTest::LayoutSettingsWidgetTest(QObject *parent)

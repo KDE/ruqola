@@ -7,7 +7,7 @@
 #include "videoconferenceinfotest.h"
 #include "ruqola_autotest_helper.h"
 #include "videoconference/videoconferenceinfo.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(VideoConferenceInfoTest)
 VideoConferenceInfoTest::VideoConferenceInfoTest(QObject *parent)
     : QObject{parent}

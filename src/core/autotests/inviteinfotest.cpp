@@ -7,7 +7,7 @@
 #include "inviteinfotest.h"
 #include "invite/inviteinfo.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
+
 QTEST_GUILESS_MAIN(InviteInfoTest)
 
 InviteInfoTest::InviteInfoTest(QObject *parent)

@@ -7,7 +7,6 @@
 #include "filetest.h"
 #include "attachments/file.h"
 #include "ruqola_autotest_helper.h"
-#include <QTest>
 
 QTEST_GUILESS_MAIN(FileTest)
 

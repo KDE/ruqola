@@ -15,7 +15,7 @@
 #include <QJsonObject>
 #include <QSignalSpy>
 #include <QStandardPaths>
-#include <QTest>
+
 #include <qglobal.h>
 #include <rocketchataccount.h>
 

@@ -8,7 +8,7 @@
 #include "ownuser/ownuser.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(OwnUserTest)
 
 OwnUserTest::OwnUserTest(QObject *parent)

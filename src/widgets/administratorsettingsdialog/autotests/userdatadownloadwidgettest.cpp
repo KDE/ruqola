@@ -10,7 +10,6 @@
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSpinBox>
-#include <QTest>
 QTEST_MAIN(UserDataDownloadWidgetTest)
 
 UserDataDownloadWidgetTest::UserDataDownloadWidgetTest(QObject *parent)

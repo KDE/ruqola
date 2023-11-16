@@ -10,7 +10,6 @@
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QPlainTextEdit>
-#include <QTest>
 QTEST_MAIN(SlackBridgeWidgetTest)
 SlackBridgeWidgetTest::SlackBridgeWidgetTest(QObject *parent)
     : QObject{parent}

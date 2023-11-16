@@ -9,7 +9,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QDebug>
 #include <QJsonObject>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(ReactionsTest)
 
 ReactionsTest::ReactionsTest(QObject *parent)

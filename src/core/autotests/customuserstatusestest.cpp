@@ -10,7 +10,6 @@
 #include "ruqola_autotest_helper.h"
 #include "utils.h"
 
-#include <QTest>
 QTEST_GUILESS_MAIN(CustomUserStatusesTest)
 
 CustomUserStatusesTest::CustomUserStatusesTest(QObject *parent)
