@@ -5,6 +5,7 @@
 */
 #include "rolescombobox.h"
 #include "model/rolesmodel.h"
+#include "roles/roleinfo.h"
 
 RolesComboBox::RolesComboBox(QWidget *parent)
     : QComboBox(parent)

@@ -6,9 +6,9 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roles/roleinfo.h"
 #include <QComboBox>
 class RolesModel;
+class RoleInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RolesComboBox : public QComboBox
 {
     Q_OBJECT
