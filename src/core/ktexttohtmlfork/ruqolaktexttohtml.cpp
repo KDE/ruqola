@@ -235,7 +235,6 @@ QString KTextToHTMLHelper::getUrl(bool *badurl)
         bool previousCharIsSpace = false;
         bool previousCharIsADoubleQuote = false;
         bool previousIsAnAnchor = false;
-        bool hasParenthese = false;
         while ((mPos < mText.length()) && (mText.at(mPos).isPrint() || mText.at(mPos).isSpace())
                && ((afterUrl.isNull() && !mText.at(mPos).isSpace()) || (!afterUrl.isNull() && mText.at(mPos) != afterUrl))) {
             if (!previousCharIsSpace && (mText.at(mPos) == QLatin1Char('<')) && ((mPos + 1) < mText.length())) {
