@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 00:43+0000\n"
+"POT-Creation-Date: 2023-11-16 00:43+0000\n"
 "PO-Revision-Date: 2023-11-10 09:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -156,7 +156,7 @@ msgstr "Na voljo so naslednji računi:"
 msgid "Server not found: %1"
 msgstr "Strežnika ni mogoče najti: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:45
+#: core/bannerinfo/bannerinfo.cpp:46
 #, kde-format
 msgid "New version available %1"
 msgstr "Nova verzija na voljo %1"
@@ -166,132 +166,132 @@ msgstr "Nova verzija na voljo %1"
 msgid "(link)"
 msgstr "(povezava)"
 
-#: core/commands/command.cpp:52
+#: core/commands/command.cpp:53
 #, kde-format
 msgid "Status message"
 msgstr "Sporočilo o stanju"
 
-#: core/commands/command.cpp:54
+#: core/commands/command.cpp:55
 #, kde-format
 msgid "Topic message"
 msgstr "Sporočilo teme"
 
-#: core/commands/command.cpp:56
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "your message"
 msgstr "vaše sporočilo"
 
-#: core/commands/command.cpp:58
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "your message (optional)"
 msgstr "vaše sporočilo (neobvezno)"
 
-#: core/commands/command.cpp:74
+#: core/commands/command.cpp:75
 #, kde-format
 msgid "Archive"
 msgstr "Arhiviraj"
 
-#: core/commands/command.cpp:76
+#: core/commands/command.cpp:77
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Prikaže ༼ つ◕_◕ ༽つ pred vašim sporočilom"
 
-#: core/commands/command.cpp:78
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Prikaže ( ͡° ͜ʖ ͡°) po vašem sporočilu"
 
-#: core/commands/command.cpp:80
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Prikaže ̄\\_(ツ)_/ ̄ po vašem sporočilu"
 
-#: core/commands/command.cpp:82
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Prikaže (╯°□°)╯( ┻━┻"
 
-#: core/commands/command.cpp:84
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "Prikaže ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:86
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Ustvari nov kanal"
 
-#: core/commands/command.cpp:88
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Pokaži seznam tipkovnih bližnjic"
 
-#: core/commands/command.cpp:90
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Hide Room"
 msgstr "Skrij sobo"
 
-#: core/commands/command.cpp:92
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Povabite enega uporabnika, da se pridruži temu kanalu"
 
-#: core/commands/command.cpp:94
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Povabi vse uporabnike iz tega kanala, da se pridružijo [#channel]"
 
-#: core/commands/command.cpp:96
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Povabi vse uporabnike iz [#channel], da se pridružijo temu kanalu"
 
-#: core/commands/command.cpp:98
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Join the given channel"
 msgstr "Pridružite se danem kanalu"
 
-#: core/commands/command.cpp:100
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Odstranite nekoga iz sobe"
 
-#: core/commands/command.cpp:102
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Zapustite trenutni kanal"
 
-#: core/commands/command.cpp:104
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Displays action text"
 msgstr "Prikaže besedilo dejanja"
 
-#: core/commands/command.cpp:106
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Direct message someone"
 msgstr "Neposredno sporočajte drugim"
 
-#: core/commands/command.cpp:108
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Utišajte nekatere uporabnike v sobi"
 
-#: core/commands/command.cpp:110
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Prekličite utišanje uporabnika v sobi"
 
-#: core/commands/command.cpp:112
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Set your status message"
 msgstr "Nastavite sporočilo o stanju"
 
-#: core/commands/command.cpp:114
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Set topic"
 msgstr "Nastavi temo"
 
-#: core/commands/command.cpp:116
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Unarchive"
 msgstr "Povrni iz arhiva"
@@ -301,7 +301,7 @@ msgstr "Povrni iz arhiva"
 msgid "(Last Message: %1)"
 msgstr "(Zadnje sporočilo: %1)"
 
-#: core/messages/block.cpp:85 core/messages/message.cpp:641
+#: core/messages/block.cpp:86 core/messages/message.cpp:641
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -985,7 +985,7 @@ msgstr "Vsa sporočila"
 msgid "Mentions"
 msgstr "Omembe"
 
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:31
 #: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
@@ -5910,7 +5910,7 @@ msgstr "Prikaži neprebrano"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:20
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
 #, kde-format
 msgid "Mark as Read"
 msgstr "Označi kot prebrano"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 00:43+0000\n"
+"POT-Creation-Date: 2023-11-16 00:43+0000\n"
 "PO-Revision-Date: 2023-11-10 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -158,7 +158,7 @@ msgstr "Доступні такі облікові записи:"
 msgid "Server not found: %1"
 msgstr "Сервер не знайдено: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:45
+#: core/bannerinfo/bannerinfo.cpp:46
 #, kde-format
 msgid "New version available %1"
 msgstr "Випущено нову версію %1"
@@ -168,132 +168,132 @@ msgstr "Випущено нову версію %1"
 msgid "(link)"
 msgstr "(посилання)"
 
-#: core/commands/command.cpp:52
+#: core/commands/command.cpp:53
 #, kde-format
 msgid "Status message"
 msgstr "Повідомлення стану"
 
-#: core/commands/command.cpp:54
+#: core/commands/command.cpp:55
 #, kde-format
 msgid "Topic message"
 msgstr "Повідомлення теми"
 
-#: core/commands/command.cpp:56
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "your message"
 msgstr "ваше повідомлення"
 
-#: core/commands/command.cpp:58
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "your message (optional)"
 msgstr "ваше повідомлення (необов'язкове)"
 
-#: core/commands/command.cpp:74
+#: core/commands/command.cpp:75
 #, kde-format
 msgid "Archive"
 msgstr "Архівувати"
 
-#: core/commands/command.cpp:76
+#: core/commands/command.cpp:77
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Додати ༼ つ ◕_◕ ༽つ перед вашим повідомленням"
 
-#: core/commands/command.cpp:78
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Додати ( ͡° ͜ʖ ͡°) після вашого повідомлення"
 
-#: core/commands/command.cpp:80
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Додати ¯\\_(ツ)_/¯ після вашого повідомлення"
 
-#: core/commands/command.cpp:82
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Вивести (╯°□°）╯︵ ┻━┻"
 
-#: core/commands/command.cpp:84
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "Вивести ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:86
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Створити канал"
 
-#: core/commands/command.cpp:88
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Показати список клавіатурних скорочень"
 
-#: core/commands/command.cpp:90
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Hide Room"
 msgstr "Приховати кімнату"
 
-#: core/commands/command.cpp:92
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Запросити одного користувача долучитися до цього каналу"
 
-#: core/commands/command.cpp:94
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Запросити усіх користувачів цього каналу долучитися до каналу [#канал]"
 
-#: core/commands/command.cpp:96
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Запросити усіх користувачів з [#канал] долучитися до цього каналу"
 
-#: core/commands/command.cpp:98
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Join the given channel"
 msgstr "Долучитися до вказаного каналу"
 
-#: core/commands/command.cpp:100
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Вилучити когось з кімнати"
 
-#: core/commands/command.cpp:102
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Полишити поточний канал"
 
-#: core/commands/command.cpp:104
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Displays action text"
 msgstr "Показати список дій"
 
-#: core/commands/command.cpp:106
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Direct message someone"
 msgstr "Надіслати комусь безпосереднє повідомлення"
 
-#: core/commands/command.cpp:108
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Вимкнути когось у кімнаті"
 
-#: core/commands/command.cpp:110
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Скасувати вимикання когось у кімнаті"
 
-#: core/commands/command.cpp:112
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Set your status message"
 msgstr "Встановити ваше повідомлення стану"
 
-#: core/commands/command.cpp:114
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Set topic"
 msgstr "Встановити тему"
 
-#: core/commands/command.cpp:116
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Unarchive"
 msgstr "Скасувати архівування"
@@ -303,7 +303,7 @@ msgstr "Скасувати архівування"
 msgid "(Last Message: %1)"
 msgstr "(Останнє повідомлення: %1)"
 
-#: core/messages/block.cpp:85 core/messages/message.cpp:641
+#: core/messages/block.cpp:86 core/messages/message.cpp:641
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -987,7 +987,7 @@ msgstr "Всі повідомлення"
 msgid "Mentions"
 msgstr "Згадування"
 
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:31
 #: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
@@ -5959,7 +5959,7 @@ msgstr "Показати непрочитані"
 msgid "Copy Text"
 msgstr "Скопіювати текст"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:20
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
 #, kde-format
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"

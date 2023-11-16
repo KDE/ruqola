@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 00:43+0000\n"
+"POT-Creation-Date: 2023-11-16 00:43+0000\n"
 "PO-Revision-Date: 2023-11-10 18:58+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -157,7 +157,7 @@ msgstr "Estan disponibles els comptes següents:"
 msgid "Server not found: %1"
 msgstr "No s'ha trobat el servidor: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:45
+#: core/bannerinfo/bannerinfo.cpp:46
 #, kde-format
 msgid "New version available %1"
 msgstr "Hi ha disponible una versió nova %1"
@@ -167,133 +167,133 @@ msgstr "Hi ha disponible una versió nova %1"
 msgid "(link)"
 msgstr "(enllaç)"
 
-#: core/commands/command.cpp:52
+#: core/commands/command.cpp:53
 #, kde-format
 msgid "Status message"
 msgstr "Missatge d'estat"
 
-#: core/commands/command.cpp:54
+#: core/commands/command.cpp:55
 #, kde-format
 msgid "Topic message"
 msgstr "Missatge de tema"
 
-#: core/commands/command.cpp:56
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "your message"
 msgstr "el vostre missatge"
 
-#: core/commands/command.cpp:58
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "your message (optional)"
 msgstr "el vostre missatge (opcional)"
 
-#: core/commands/command.cpp:74
+#: core/commands/command.cpp:75
 #, kde-format
 msgid "Archive"
 msgstr "Arxiva"
 
-#: core/commands/command.cpp:76
+#: core/commands/command.cpp:77
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Mostra ༼ つ ◕_◕ ༽つ abans del vostre missatge"
 
-#: core/commands/command.cpp:78
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Mostra ( ͡° ͜ʖ ͡°) després del vostre missatge"
 
-#: core/commands/command.cpp:80
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Mostra ¯\\_(ツ)_/¯ després del vostre missatge"
 
 # skip-rule: t-par_obe_tan
-#: core/commands/command.cpp:82
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Mostra (╯°□°）╯︵ ┻━┻"
 
-#: core/commands/command.cpp:84
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "Mostra ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:86
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Crea un canal nou"
 
-#: core/commands/command.cpp:88
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Mostra la llista de dreceres de teclat"
 
-#: core/commands/command.cpp:90
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Hide Room"
 msgstr "Oculta la sala"
 
-#: core/commands/command.cpp:92
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Convida un usuari a unir-se a aquest canal"
 
-#: core/commands/command.cpp:94
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Convida tots els usuaris d'aquest canal a unir-se a [#canal]"
 
-#: core/commands/command.cpp:96
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Convida tots els usuaris de [#canal] a unir-se a aquest canal"
 
-#: core/commands/command.cpp:98
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Join the given channel"
 msgstr "Uneix-te al canal indicat"
 
-#: core/commands/command.cpp:100
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Elimina a algú de la sala"
 
-#: core/commands/command.cpp:102
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Surt del canal actual"
 
-#: core/commands/command.cpp:104
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Displays action text"
 msgstr "Mostra el text de l'acció"
 
-#: core/commands/command.cpp:106
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Direct message someone"
 msgstr "Missatge directe a algú"
 
-#: core/commands/command.cpp:108
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Silencia a algú de la sala"
 
-#: core/commands/command.cpp:110
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Deixa de silenciar a algú de la sala"
 
-#: core/commands/command.cpp:112
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Set your status message"
 msgstr "Establiu el vostre missatge d'estat"
 
-#: core/commands/command.cpp:114
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Set topic"
 msgstr "Estableix el tema"
 
-#: core/commands/command.cpp:116
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Unarchive"
 msgstr "Desarxiva"
@@ -303,7 +303,7 @@ msgstr "Desarxiva"
 msgid "(Last Message: %1)"
 msgstr "(Últim missatge: %1)"
 
-#: core/messages/block.cpp:85 core/messages/message.cpp:641
+#: core/messages/block.cpp:86 core/messages/message.cpp:641
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -985,7 +985,7 @@ msgstr "Tots els missatges"
 msgid "Mentions"
 msgstr "Mencions"
 
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:31
 #: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
@@ -5937,7 +5937,7 @@ msgstr "Mostra els no llegits"
 msgid "Copy Text"
 msgstr "Copia el text"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:20
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marca com a llegit"

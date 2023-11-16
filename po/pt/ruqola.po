@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 00:43+0000\n"
+"POT-Creation-Date: 2023-11-16 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -183,7 +183,7 @@ msgstr "Estão disponíveis as seguintes contas:"
 msgid "Server not found: %1"
 msgstr "Servidor não encontrado: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:45
+#: core/bannerinfo/bannerinfo.cpp:46
 #, kde-format
 msgid "New version available %1"
 msgstr "Nova versão %1 disponível"
@@ -193,132 +193,132 @@ msgstr "Nova versão %1 disponível"
 msgid "(link)"
 msgstr "(ligação)"
 
-#: core/commands/command.cpp:52
+#: core/commands/command.cpp:53
 #, kde-format
 msgid "Status message"
 msgstr "Mensagem de estado"
 
-#: core/commands/command.cpp:54
+#: core/commands/command.cpp:55
 #, kde-format
 msgid "Topic message"
 msgstr "Mensagem do tópico"
 
-#: core/commands/command.cpp:56
+#: core/commands/command.cpp:57
 #, kde-format
 msgid "your message"
 msgstr "a sua mensagem"
 
-#: core/commands/command.cpp:58
+#: core/commands/command.cpp:59
 #, kde-format
 msgid "your message (optional)"
 msgstr "a sua mensagem (opcional)"
 
-#: core/commands/command.cpp:74
+#: core/commands/command.cpp:75
 #, kde-format
 msgid "Archive"
 msgstr "Arquivo"
 
-#: core/commands/command.cpp:76
+#: core/commands/command.cpp:77
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Mostra um ༼ つ ◕_◕ ༽つ antes da sua mensagem"
 
-#: core/commands/command.cpp:78
+#: core/commands/command.cpp:79
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Mostra um ( ͡° ͜ʖ ͡°) a seguir à sua mensagem"
 
-#: core/commands/command.cpp:80
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Mostra um ¯\\_(ツ)_/¯ a seguir à sua mensagem"
 
-#: core/commands/command.cpp:82
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Mostra um (╯°□°）╯︵ ┻━┻"
 
-#: core/commands/command.cpp:84
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 msgstr "Mostra um ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:86
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Criar um Novo Canal"
 
-#: core/commands/command.cpp:88
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Mostra a lista de atalhos do teclado"
 
-#: core/commands/command.cpp:90
+#: core/commands/command.cpp:91
 #, kde-format
 msgid "Hide Room"
 msgstr "Esconder a Sala"
 
-#: core/commands/command.cpp:92
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Convidar um utilizador a juntar-se a este canal"
 
-#: core/commands/command.cpp:94
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Convidar todos os utilizadores deste canal a juntar-se ao [#canal]"
 
-#: core/commands/command.cpp:96
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Convidar todos os utilizadores do [#canal] a juntar-se a este canal"
 
-#: core/commands/command.cpp:98
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Join the given channel"
 msgstr "Juntar-se ao canal indicado"
 
-#: core/commands/command.cpp:100
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Remover alguém da sala"
 
-#: core/commands/command.cpp:102
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Sair do canal actual"
 
-#: core/commands/command.cpp:104
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Displays action text"
 msgstr "Mostra o texto da acção"
 
-#: core/commands/command.cpp:106
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Direct message someone"
 msgstr "Mensagem directa a alguém"
 
-#: core/commands/command.cpp:108
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Silenciar alguém na sala"
 
-#: core/commands/command.cpp:110
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Remover o silêncio de alguém na sala"
 
-#: core/commands/command.cpp:112
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Set your status message"
 msgstr "Definir a sua mensagem de estado"
 
-#: core/commands/command.cpp:114
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Set topic"
 msgstr "Definir o tópico"
 
-#: core/commands/command.cpp:116
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Unarchive"
 msgstr "Retirar do arquivo"
@@ -328,7 +328,7 @@ msgstr "Retirar do arquivo"
 msgid "(Last Message: %1)"
 msgstr "(Última Mensagem: %1)"
 
-#: core/messages/block.cpp:85 core/messages/message.cpp:641
+#: core/messages/block.cpp:86 core/messages/message.cpp:641
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1017,7 +1017,7 @@ msgstr "Todas as Mensagens"
 msgid "Mentions"
 msgstr "Menções"
 
-#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:31
 #: widgets/administratordialog/administratorwidget.cpp:77
 #: widgets/dialogs/channelrolesinfowidget.cpp:21
 #, kde-format
@@ -5981,7 +5981,7 @@ msgstr "Mostrar os Não-Lidos"
 msgid "Copy Text"
 msgstr "Copiar o Texto"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:20
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marcar como Lido"
