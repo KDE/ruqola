@@ -1115,12 +1115,12 @@ msgstr "Oculta els missatges «Sala desarxivada»"
 #: core/model/systemmessagesmodel.cpp:44
 #, kde-format
 msgid "Hide \"Room encryption disabled\" messages"
-msgstr "Oculta els missatges «Encriptació desactivat de sala»"
+msgstr "Oculta els missatges «Encriptació desactivada de sala»"
 
 #: core/model/systemmessagesmodel.cpp:45
 #, kde-format
 msgid "Hide \"Room encryption enabled\" messages"
-msgstr "Oculta els missatges «Encriptació activat de sala»"
+msgstr "Oculta els missatges «Encriptació activada de sala»"
 
 #: core/model/systemmessagesmodel.cpp:46
 #, kde-format
@@ -1155,12 +1155,12 @@ msgstr "Oculta els missatges «Sala arxivada»"
 #: core/model/systemmessagesmodel.cpp:52
 #, kde-format
 msgid "Hide \"Encryption Enabled\" messages"
-msgstr "Oculta els missatges «Encriptació activat»"
+msgstr "Oculta els missatges «Encriptació activada»"
 
 #: core/model/systemmessagesmodel.cpp:53
 #, kde-format
 msgid "Hide \"Encryption Disabled\" messages"
-msgstr "Oculta els missatges «Encriptació desactivat»"
+msgstr "Oculta els missatges «Encriptació desactivada»"
 
 #: core/model/systemmessagesmodel.cpp:54
 #, kde-format
@@ -3991,7 +3991,7 @@ msgstr "S'ha canviat la contrasenya"
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
 msgid "Enabled E2E encryption"
-msgstr "Encriptació E2E activat"
+msgstr "Encriptació E2E activada"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:17
 #, kde-format
@@ -4014,7 +4014,7 @@ msgid ""
 "Enable option to create encrypted groups and be able to change groups and "
 "direct messages to be encrypted."
 msgstr ""
-"Activa l'opció de crear grups encriptats i ser capaç de canviar grups i "
+"Selecciona l'opció de crear grups encriptats i ser capaç de canviar grups i "
 "missatges directes per a que es puguen encriptar."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:36
@@ -4024,9 +4024,10 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
-"Activa l'opció per a utilitzar els missatges «off-the-record» (OTR) en els "
-"missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren en el "
-"servidor i s'intercanvien de manera directa i encriptada entre els 2 usuaris."
+"Selecciona l'opció per a utilitzar els missatges «off-the-record» (OTR) en "
+"els missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren "
+"en el servidor i s'intercanvien de manera directa i encriptada entre els 2 "
+"usuaris."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:20
 #, kde-format
@@ -4086,7 +4087,7 @@ msgstr "Només els usuaris autenticats hi tindran accés"
 #, kde-format
 msgid "Enabling this setting may cause image quality loss"
 msgstr ""
-"L'activació d'esta opció pot provocar una pèrdua de qualitat de les imatges"
+"La selecció d'esta opció pot provocar una pèrdua de qualitat de les imatges"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:50
 #, kde-format
@@ -5757,7 +5758,7 @@ msgid ""
 msgstr ""
 "Una llista de servidors STUN i TURN separats per comes.\n"
 "Es permet el nom d'usuari, contrasenya i port en el format nomusuari:"
-"contrasenya@stun:host:port o nomusuari:contrasenya@turn:host:port."
+"contrasenya@stun:amfitrió:port o nomusuari:contrasenya@turn:amfitrió:port."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
