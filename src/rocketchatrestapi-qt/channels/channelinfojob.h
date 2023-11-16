@@ -7,7 +7,6 @@
 #pragma once
 #include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT ChannelInfoJob : public ChannelGroupBaseJob

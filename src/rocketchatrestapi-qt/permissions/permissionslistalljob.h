@@ -10,7 +10,6 @@
 #include "restapiabstractjob.h"
 
 #include <QDateTime>
-#include <QNetworkRequest>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT PermissionsListAllJob : public RestApiAbstractJob

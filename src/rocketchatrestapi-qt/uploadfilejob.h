@@ -8,7 +8,6 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-#include <QNetworkRequest>
 class QObject;
 #include <QUrl>
 namespace RocketChatRestApi

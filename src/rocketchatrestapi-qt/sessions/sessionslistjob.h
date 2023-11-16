@@ -10,7 +10,6 @@
 
 #include "librocketchatrestapi-qt_export.h"
 
-#include <QNetworkRequest>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT SessionsListJob : public RestApiAbstractJob

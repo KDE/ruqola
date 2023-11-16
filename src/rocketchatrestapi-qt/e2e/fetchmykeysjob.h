@@ -9,7 +9,6 @@
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
-#include <QNetworkRequest>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT FetchMyKeysJob : public RestApiAbstractJob
