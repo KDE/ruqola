@@ -26,5 +26,4 @@ private:
     [[nodiscard]] QString selectedText(const QModelIndex &index) override;
     [[nodiscard]] QString selectedText() const;
     BannerInfoListViewDelegate *const mBannerInfoListViewDelegate;
-    RocketChatAccount *const mRocketChatAccount;
 };

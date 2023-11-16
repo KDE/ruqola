@@ -17,7 +17,6 @@
 BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
     , mBannerInfoListViewDelegate(new BannerInfoListViewDelegate(this, account, this))
-    , mRocketChatAccount(account)
 {
     setItemDelegate(mBannerInfoListViewDelegate);
     setContextMenuPolicy(Qt::CustomContextMenu);
