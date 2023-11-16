@@ -8,7 +8,6 @@
 
 #include "conferencecallwidget.h"
 #include "libruqolawidgets_private_export.h"
-#include "rocketchataccount.h"
 
 #include <QDialog>
 class RocketChatAccount;

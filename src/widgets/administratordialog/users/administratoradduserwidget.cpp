@@ -6,6 +6,7 @@
 #include "administratoradduserwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/rolescombobox.h"
+#include "rocketchataccount.h"
 #include "user.h"
 #include <KAuthorized>
 #include <KLocalizedString>

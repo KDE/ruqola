@@ -5,6 +5,7 @@
 */
 
 #include "conferencecalldialog.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
