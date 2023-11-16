@@ -15,7 +15,6 @@
 #include "invite/findorcreateinvitejob.h"
 #include "librocketchatrestapi-qt_export.h"
 #include "rooms/adminroomsjob.h"
-#include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"

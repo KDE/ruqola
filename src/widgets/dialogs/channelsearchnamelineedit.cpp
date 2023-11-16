@@ -10,6 +10,7 @@
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
 #include "rocketchataccount.h"
+#include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "ruqolawidgets_debug.h"
 #include <QJsonObject>
 
