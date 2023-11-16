@@ -8,7 +8,6 @@
 #include "rooms/changearchivationstatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(ChangeArchivationStateJobTest)
 using namespace RocketChatRestApi;
 ChangeArchivationStateJobTest::ChangeArchivationStateJobTest(QObject *parent)

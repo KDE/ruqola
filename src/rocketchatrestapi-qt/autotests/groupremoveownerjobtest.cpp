@@ -8,7 +8,6 @@
 #include "groups/groupremoveownerjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(GroupRemoveOwnerJobTest)
 using namespace RocketChatRestApi;
 GroupRemoveOwnerJobTest::GroupRemoveOwnerJobTest(QObject *parent)

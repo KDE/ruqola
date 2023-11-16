@@ -8,7 +8,6 @@
 #include "groups/groupsdeletejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(GroupsDeleteJobTest)
 using namespace RocketChatRestApi;
 GroupsDeleteJobTest::GroupsDeleteJobTest(QObject *parent)

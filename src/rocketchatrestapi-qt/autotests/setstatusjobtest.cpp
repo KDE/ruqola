@@ -8,7 +8,6 @@
 #include "ruqola_restapi_helper.h"
 #include "users/setstatusjob.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(SetStatusJobTest)
 using namespace RocketChatRestApi;
 SetStatusJobTest::SetStatusJobTest(QObject *parent)

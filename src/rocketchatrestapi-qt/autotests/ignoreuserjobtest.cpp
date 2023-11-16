@@ -7,7 +7,6 @@
 #include "ignoreuserjobtest.h"
 #include "chat/ignoreuserjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(IgnoreUserJobTest)
 using namespace RocketChatRestApi;

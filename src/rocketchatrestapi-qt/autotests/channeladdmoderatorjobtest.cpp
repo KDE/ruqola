@@ -8,7 +8,6 @@
 #include "channels/channeladdmoderatorjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(ChannelAddModeratorJobTest)
 using namespace RocketChatRestApi;
 ChannelAddModeratorJobTest::ChannelAddModeratorJobTest(QObject *parent)

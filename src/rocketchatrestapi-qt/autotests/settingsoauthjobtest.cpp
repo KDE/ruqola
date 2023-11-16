@@ -7,7 +7,6 @@
 #include "settingsoauthjobtest.h"
 #include "misc/settingsoauthjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(SettingsOauthJobTest)
 using namespace RocketChatRestApi;

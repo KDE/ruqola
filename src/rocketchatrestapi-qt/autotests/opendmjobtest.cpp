@@ -8,7 +8,6 @@
 #include "directmessage/opendmjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(OpenDmJobTest)
 using namespace RocketChatRestApi;
 OpenDmJobTest::OpenDmJobTest(QObject *parent)

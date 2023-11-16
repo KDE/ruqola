@@ -7,7 +7,6 @@
 #include "statisticsjobtest.h"
 #include "misc/statisticsjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(StatisticsJobTest)
 using namespace RocketChatRestApi;

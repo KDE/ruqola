@@ -8,7 +8,6 @@
 #include "moderation/moderationdismissreportsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(ModerationDismissReportsJobTest)
 using namespace RocketChatRestApi;
 ModerationDismissReportsJobTest::ModerationDismissReportsJobTest(QObject *parent)

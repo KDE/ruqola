@@ -8,7 +8,6 @@
 #include "ruqola_restapi_helper.h"
 #include "teams/teamdeletejob.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(TeamDeleteJobTest)
 using namespace RocketChatRestApi;
 TeamDeleteJobTest::TeamDeleteJobTest(QObject *parent)

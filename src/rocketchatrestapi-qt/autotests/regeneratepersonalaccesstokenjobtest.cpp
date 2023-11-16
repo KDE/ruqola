@@ -8,7 +8,6 @@
 #include "personalaccesstoken/regeneratepersonalaccesstokenjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(RegeneratePersonalAccessTokenJobTest)
 using namespace RocketChatRestApi;
 RegeneratePersonalAccessTokenJobTest::RegeneratePersonalAccessTokenJobTest(QObject *parent)

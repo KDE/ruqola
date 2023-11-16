@@ -8,7 +8,6 @@
 #include "groups/groupremovemoderatorjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(GroupRemoveModeratorJobTest)
 using namespace RocketChatRestApi;
 GroupRemoveModeratorJobTest::GroupRemoveModeratorJobTest(QObject *parent)

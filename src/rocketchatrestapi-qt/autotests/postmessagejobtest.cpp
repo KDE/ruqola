@@ -8,7 +8,6 @@
 #include "chat/postmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(PostMessageJobTest)
 using namespace RocketChatRestApi;
 PostMessageJobTest::PostMessageJobTest(QObject *parent)

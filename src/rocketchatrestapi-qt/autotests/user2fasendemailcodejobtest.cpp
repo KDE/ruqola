@@ -8,7 +8,6 @@
 #include "2fa/user2fasendemailcodejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(User2FASendEmailCodeJobTest)
 using namespace RocketChatRestApi;
 User2FASendEmailCodeJobTest::User2FASendEmailCodeJobTest(QObject *parent)

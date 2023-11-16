@@ -8,7 +8,6 @@
 #include "channels/setjoincodechanneljob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(SetJoinCodeChannelJobTest)
 using namespace RocketChatRestApi;
 SetJoinCodeChannelJobTest::SetJoinCodeChannelJobTest(QObject *parent)

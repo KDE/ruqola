@@ -8,7 +8,6 @@
 #include "channels/changechanneldescriptionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(ChangeChannelDescriptionJobTest)
 using namespace RocketChatRestApi;
 ChangeChannelDescriptionJobTest::ChangeChannelDescriptionJobTest(QObject *parent)

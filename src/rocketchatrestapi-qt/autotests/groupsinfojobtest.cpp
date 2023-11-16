@@ -7,7 +7,6 @@
 #include "groupsinfojobtest.h"
 #include "groups/groupsinfojob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 QTEST_GUILESS_MAIN(GroupsInfoJobTest)
 using namespace RocketChatRestApi;
 GroupsInfoJobTest::GroupsInfoJobTest(QObject *parent)

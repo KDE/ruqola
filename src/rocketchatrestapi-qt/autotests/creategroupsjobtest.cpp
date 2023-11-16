@@ -8,7 +8,6 @@
 #include "groups/creategroupsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(CreateGroupsJobTest)
 using namespace RocketChatRestApi;
 CreateGroupsJobTest::CreateGroupsJobTest(QObject *parent)

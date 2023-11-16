@@ -8,7 +8,6 @@
 #include "ruqola_restapi_helper.h"
 #include "teams/groupsconverttoteamjob.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(GroupsConvertToTeamJobTest)
 using namespace RocketChatRestApi;
 GroupsConvertToTeamJobTest::GroupsConvertToTeamJobTest(QObject *parent)

@@ -7,7 +7,6 @@
 #include "licenseslistjobtest.h"
 #include "license/licenseslistjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(LicensesListJobTest)
 using namespace RocketChatRestApi;

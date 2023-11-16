@@ -8,7 +8,6 @@
 #include "emoji/emojicustomcreatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(EmojiCustomCreateJobTest)
 using namespace RocketChatRestApi;
 EmojiCustomCreateJobTest::EmojiCustomCreateJobTest(QObject *parent)

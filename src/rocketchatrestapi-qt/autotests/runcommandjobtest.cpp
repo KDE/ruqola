@@ -8,7 +8,6 @@
 #include "commands/runcommandjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(RunCommandJobTest)
 using namespace RocketChatRestApi;
 RunCommandJobTest::RunCommandJobTest(QObject *parent)

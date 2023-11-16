@@ -9,7 +9,6 @@
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QTest>
 QTEST_GUILESS_MAIN(FindOrCreateInviteJobTest)
 using namespace RocketChatRestApi;
 FindOrCreateInviteJobTest::FindOrCreateInviteJobTest(QObject *parent)

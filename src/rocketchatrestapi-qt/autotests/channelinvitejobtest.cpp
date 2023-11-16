@@ -8,7 +8,6 @@
 #include "channels/channelinvitejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(ChannelInviteJobTest)
 using namespace RocketChatRestApi;
 ChannelInviteJobTest::ChannelInviteJobTest(QObject *parent)

@@ -7,7 +7,6 @@
 #include "listcommandsjobtest.h"
 #include "commands/listcommandsjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListCommandsJobTest)
 using namespace RocketChatRestApi;

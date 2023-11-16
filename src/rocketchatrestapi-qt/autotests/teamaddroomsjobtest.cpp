@@ -8,7 +8,6 @@
 #include "ruqola_restapi_helper.h"
 #include "teams/teamaddroomsjob.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(TeamAddRoomsJobTest)
 using namespace RocketChatRestApi;
 TeamAddRoomsJobTest::TeamAddRoomsJobTest(QObject *parent)

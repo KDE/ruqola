@@ -8,7 +8,6 @@
 #include "e2e/updategroupkeyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(UpdateGroupKeyJobTest)
 using namespace RocketChatRestApi;
 UpdateGroupKeyJobTest::UpdateGroupKeyJobTest(QObject *parent)

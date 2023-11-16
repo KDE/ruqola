@@ -8,7 +8,6 @@
 #include "authentication/facebookauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(FacebookAuthJobTest)
 using namespace RocketChatRestApi;
 FacebookAuthJobTest::FacebookAuthJobTest(QObject *parent)

@@ -7,7 +7,6 @@
 #include "roleslistjobtest.h"
 #include "misc/roleslistjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(RolesListJobTest)
 using namespace RocketChatRestApi;

@@ -7,7 +7,6 @@
 #include "directoryjobtest.h"
 #include "misc/directoryjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(DirectoryJobTest)
 using namespace RocketChatRestApi;

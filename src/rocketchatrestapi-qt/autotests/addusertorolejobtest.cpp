@@ -8,7 +8,7 @@
 #include "role/addusertorolejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
+
 QTEST_GUILESS_MAIN(AddUserToRoleJobTest)
 using namespace RocketChatRestApi;
 AddUserToRoleJobTest::AddUserToRoleJobTest(QObject *parent)

@@ -8,7 +8,6 @@
 #include "rooms/roomsexportjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(RoomsExportJobTest)
 using namespace RocketChatRestApi;
 RoomsExportJobTest::RoomsExportJobTest(QObject *parent)

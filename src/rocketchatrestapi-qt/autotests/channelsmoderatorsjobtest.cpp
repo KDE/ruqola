@@ -7,7 +7,6 @@
 #include "channelsmoderatorsjobtest.h"
 #include "channels/channelsmoderatorsjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 QTEST_GUILESS_MAIN(ChannelsModeratorsJobTest)
 using namespace RocketChatRestApi;
 ChannelsModeratorsJobTest::ChannelsModeratorsJobTest(QObject *parent)

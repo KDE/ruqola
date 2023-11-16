@@ -8,7 +8,6 @@
 #include "channels/channeladdownerjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(ChannelAddOwnerJobTest)
 using namespace RocketChatRestApi;
 ChannelAddOwnerJobTest::ChannelAddOwnerJobTest(QObject *parent)

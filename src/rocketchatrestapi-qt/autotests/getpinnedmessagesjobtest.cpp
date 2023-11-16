@@ -7,7 +7,6 @@
 #include "getpinnedmessagesjobtest.h"
 #include "chat/getpinnedmessagesjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 QTEST_GUILESS_MAIN(GetPinnedMessagesJobTest)
 using namespace RocketChatRestApi;
 GetPinnedMessagesJobTest::GetPinnedMessagesJobTest(QObject *parent)

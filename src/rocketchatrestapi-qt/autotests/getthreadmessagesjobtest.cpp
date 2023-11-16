@@ -7,7 +7,6 @@
 #include "getthreadmessagesjobtest.h"
 #include "chat/getthreadmessagesjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 QTEST_GUILESS_MAIN(GetThreadMessagesJobTest)
 using namespace RocketChatRestApi;
 GetThreadMessagesJobTest::GetThreadMessagesJobTest(QObject *parent)

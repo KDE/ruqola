@@ -7,7 +7,6 @@
 #include "videoconferenceinfojobtest.h"
 #include "ruqola_restapi_helper.h"
 #include "video-conference/videoconferenceinfojob.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(VideoConferenceInfoJobTest)
 using namespace RocketChatRestApi;

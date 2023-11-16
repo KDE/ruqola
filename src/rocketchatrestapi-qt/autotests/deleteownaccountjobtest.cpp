@@ -8,7 +8,6 @@
 #include "ruqola_restapi_helper.h"
 #include "users/deleteownaccountjob.h"
 #include <QJsonDocument>
-#include <QTest>
 QTEST_GUILESS_MAIN(DeleteOwnAccountJobTest)
 using namespace RocketChatRestApi;
 DeleteOwnAccountJobTest::DeleteOwnAccountJobTest(QObject *parent)

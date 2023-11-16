@@ -7,7 +7,6 @@
 #include "moderationreportsbyusersjobtest.h"
 #include "moderation/moderationreportsbyusersjob.h"
 #include "ruqola_restapi_helper.h"
-#include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(ModerationReportsByUsersJobTest)
 using namespace RocketChatRestApi;

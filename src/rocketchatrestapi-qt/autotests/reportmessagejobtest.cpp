@@ -8,7 +8,6 @@
 #include "chat/reportmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <QTest>
 #include <restapimethod.h>
 
 QTEST_GUILESS_MAIN(ReportMessageJobTest)
