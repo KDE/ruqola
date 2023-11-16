@@ -10,6 +10,7 @@
 #include "notificationhistorymanager.h"
 #include "notifications/notifierjob.h"
 #include "parsemessageurlutils.h"
+#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <KLocalizedString>

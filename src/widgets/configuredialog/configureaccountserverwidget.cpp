@@ -8,6 +8,7 @@
 #include "removeaccountdialog.h"
 #include "ui_configureaccountserverwidget.h"
 #include <KLocalizedString>
+#include <QPointer>
 
 ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     : QWidget(parent)

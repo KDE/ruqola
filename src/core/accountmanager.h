@@ -9,9 +9,10 @@
 #include "libruqolacore_export.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
-#include "rocketchataccount.h"
+#include "parsemessageurlutils.h"
 
 #include <QObject>
+class RocketChatAccount;
 
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
