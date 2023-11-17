@@ -55,7 +55,7 @@ You can get ruqola from:
 
 ## Requirements
 
-`cmake`, `cmake-extra-tools`, `qt5-websockets`, `qt5-networkauth`, `qt5-multimedia`, `kwidgetaddons`, `ki18n`, `kcrash`, `kcoreaddons`, `syntaxhighlighting`, `sonnet`, `textwidgets`, `notifyconfig`, `kio`, `iconthemes`, `xmlgui`
+`cmake`, `cmake-extra-tools`, `qt-websockets`, `qt-networkauth`, `qt-multimedia`, `kwidgetaddons`, `ki18n`, `kcrash`, `kcoreaddons`, `syntaxhighlighting`, `sonnet`, `textwidgets`, `notifyconfig`, `kio`, `iconthemes`, `xmlgui`, `ktextaddons`, `qtkeychain`
 
 ## How to build ruqola
 
