@@ -27,23 +27,29 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
     setWindowTitle(i18nc("@title:window", "Thread"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins({});
+#endif
 
     mThreadMessageWidget->setObjectName(QStringLiteral("mThreadMessageWidget"));
     mainLayout->addWidget(mThreadMessageWidget);
 
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     auto separator = new QFrame(this);
     separator->setFrameShape(QFrame::HLine);
     separator->setFixedHeight(1);
 
     mainLayout->addWidget(separator);
+#endif
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     button->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
                                style()->pixelMetric(QStyle::PM_LayoutTopMargin),
                                style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+#endif
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ThreadMessageDialog::reject);

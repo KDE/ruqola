@@ -28,11 +28,15 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mainLayout->setSpacing(0);
+#endif
     mainLayout->setContentsMargins({});
 
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mChannelView->setProperty("_breeze_force_frame", false);
+#endif
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::selectMessageIdRequested, this, &ChannelListWidget::selectMessageIdRequested);
     connect(mChannelView, &ChannelListView::roomPressed, this, &ChannelListWidget::roomPressed);
@@ -53,8 +57,10 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoomLineEdit->setPlaceholderText(i18n("Filter channels (CTRL + K)"));
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mSearchRoomLineEdit->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
     mSearchRoomLineEdit->setMinimumHeight(36); // match the default size of the message text field
+#endif
     mainLayout->addWidget(mSearchRoomLineEdit);
     connect(mSearchRoomLineEdit, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
 

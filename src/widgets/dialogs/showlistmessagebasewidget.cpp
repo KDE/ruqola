@@ -43,7 +43,9 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
     mMessageListInfo->setTextFormat(Qt::RichText);
     mMessageListInfo->setContextMenuPolicy(Qt::NoContextMenu);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mMessageListView->setProperty("_breeze_borders_sides", QVariant{});
+#endif
     QFont labFont = mMessageListInfo->font();
     labFont.setBold(true);
     mMessageListInfo->setFont(labFont);

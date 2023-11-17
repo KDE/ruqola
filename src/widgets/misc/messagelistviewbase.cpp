@@ -18,7 +18,9 @@
 MessageListViewBase::MessageListViewBase(QWidget *parent)
     : QListView(parent)
 {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::BottomEdge}));
+#endif
     setSelectionMode(QAbstractItemView::NoSelection);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
