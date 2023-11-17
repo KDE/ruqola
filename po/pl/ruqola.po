@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 00:43+0000\n"
+"POT-Creation-Date: 2023-11-17 00:42+0000\n"
 "PO-Revision-Date: 2023-10-29 09:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "Optymalizacje, naprawa obsługi Windowsa/macOSa"
 msgid "The following accounts are available:"
 msgstr "Następujące konta są dostępne:"
 
-#: core/accountmanager.cpp:62
+#: core/accountmanager.cpp:63
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Nie znaleziono serwera: %1"
@@ -2349,7 +2349,7 @@ msgstr "Nazwa własnego emoji i jego aliasy powinny być różne."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:52
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:33
@@ -2719,7 +2719,7 @@ msgid "Speak Text"
 msgstr "Wypowiedz tekst"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:304
@@ -2797,7 +2797,7 @@ msgid "Edit '%1' Permission"
 msgstr "Edytuj '%1' uprawnienia"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:129
 #, kde-format
 msgid "Roles:"
@@ -3269,27 +3269,27 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "Edytuj użytkownika"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:25
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
 #, kde-format
 msgid "Join Default Channels"
 msgstr "Połącz domyślne kanały"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgid "Send Welcome Email"
 msgstr "Wyślij wiadomość powitalną"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgid "Require Password Change"
 msgstr "Żądaj zmiany hasła"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgid "Set random password and send by email"
 msgstr "Ustaw losowe hasło i wyślij je pocztą"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
@@ -3299,12 +3299,12 @@ msgstr "Ustaw losowe hasło i wyślij je pocztą"
 msgid "Username:"
 msgstr "Nazwa użytkownika:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
 #, kde-format
 msgid "Status Message:"
 msgstr "Wiadomość dostępności:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:154
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
@@ -3313,7 +3313,7 @@ msgstr "Wiadomość dostępności:"
 msgid "Email:"
 msgstr "E-mail:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3322,7 +3322,7 @@ msgstr "E-mail:"
 msgid "Password:"
 msgstr "Hasło:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
 #, kde-format
 msgid "Bio:"
 msgstr "Opis:"
@@ -5926,7 +5926,7 @@ msgstr "Szczegóły banera"
 msgid "Show Unread"
 msgstr "Pokaż nieprzeczytane"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:56
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
 msgstr "Skopiuj tekst"
@@ -6040,13 +6040,13 @@ msgstr "Błąd zapisywania pliku"
 msgid "Not in channel"
 msgstr "Dołącz do danego kanału"
 
-#: widgets/conferencecalldialog/conferencecalldialog.cpp:17
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
 msgstr "Rozpocznij rozmowę"
 
-#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:27
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
@@ -6104,13 +6104,13 @@ msgstr "Adres URL spotkania:"
 msgid "Provider:"
 msgstr "Dostawca:"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:24
+#: widgets/configuredialog/configureaccountserverwidget.cpp:25
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr "W górę"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:30
+#: widgets/configuredialog/configureaccountserverwidget.cpp:31
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"

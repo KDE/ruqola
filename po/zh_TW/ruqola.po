@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 00:43+0000\n"
+"POT-Creation-Date: 2023-11-17 00:42+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -153,7 +153,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:62
+#: core/accountmanager.cpp:63
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server not found: %1"
@@ -2422,7 +2422,7 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:52
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:33
@@ -2814,7 +2814,7 @@ msgid "Speak Text"
 msgstr "狀態文字："
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:304
@@ -2900,7 +2900,7 @@ msgid "Edit '%1' Permission"
 msgstr "討論"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:129
 #, kde-format
 msgid "Roles:"
@@ -3431,29 +3431,29 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "自訂使用者狀態"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:25
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Join Default Channels"
 msgstr "下一個頻道"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgid "Send Welcome Email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Require Password Change"
 msgstr "密碼"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgid "Set random password and send by email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
@@ -3463,14 +3463,14 @@ msgstr ""
 msgid "Username:"
 msgstr "使用者名稱："
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Status Message:"
 msgstr "%1 則訊息"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:154
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
@@ -3480,7 +3480,7 @@ msgstr "%1 則訊息"
 msgid "Email:"
 msgstr "電子信箱"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3489,7 +3489,7 @@ msgstr "電子信箱"
 msgid "Password:"
 msgstr "密碼："
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
 #, kde-format
 msgid "Bio:"
 msgstr ""
@@ -6041,7 +6041,7 @@ msgstr "頻道資訊"
 msgid "Show Unread"
 msgstr "討論串"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:56
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Copy Text"
@@ -6167,13 +6167,13 @@ msgstr ""
 msgid "Not in channel"
 msgstr "下一個頻道"
 
-#: widgets/conferencecalldialog/conferencecalldialog.cpp:17
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:27
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
@@ -6234,13 +6234,13 @@ msgstr "伺服器網址："
 msgid "Provider:"
 msgstr "刪除聊天室"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:24
+#: widgets/configuredialog/configureaccountserverwidget.cpp:25
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr ""
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:30
+#: widgets/configuredialog/configureaccountserverwidget.cpp:31
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
