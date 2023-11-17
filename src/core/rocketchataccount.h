@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "accountroomsettings.h"
 #include "authenticationinfo.h"
 #include "bannerinfo/bannerinfos.h"
 #include "channelgroupbasejob.h"
@@ -87,6 +86,7 @@ class VideoConferenceManager;
 class VideoConferenceMessageInfoManager;
 class LocalDatabaseManager;
 class ManageLocalDatabase;
+class AccountRoomSettings;
 
 namespace RocketChatRestApi
 {

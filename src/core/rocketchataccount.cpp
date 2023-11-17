@@ -5,6 +5,8 @@
 */
 
 #include "rocketchataccount.h"
+#include "accountroomsettings.h"
+
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
 #include "autotranslate/getsupportedlanguagesjob.h"

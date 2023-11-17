@@ -5,6 +5,7 @@
 */
 
 #include "roomwidget.h"
+#include "accountroomsettings.h"
 #include "conferencecalldialog/conferencecalldialog.h"
 #include "conferencecalldialog/conferencedirectcalldialog.h"
 #include "connection.h"
