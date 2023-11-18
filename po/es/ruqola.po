@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 00:43+0000\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 16:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -152,7 +152,7 @@ msgstr "Optimización, arreglos en windows/mac"
 msgid "The following accounts are available:"
 msgstr "Las siguientes cuentas están disponibles:"
 
-#: core/accountmanager.cpp:62
+#: core/accountmanager.cpp:63
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Servidor no encontrado %1"
@@ -1342,12 +1342,12 @@ msgstr "<strong>%1</strong> está escribiendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:2805
+#: core/rocketchataccount.cpp:2807
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: core/rocketchataccount.cpp:2806
+#: core/rocketchataccount.cpp:2808
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
@@ -2354,7 +2354,7 @@ msgstr "El nombre de emoji personalizado y sus alias deben ser diferentes."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:52
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:33
@@ -2721,7 +2721,7 @@ msgid "Speak Text"
 msgstr "Dictar texto"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:93
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:52
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:304
@@ -2799,7 +2799,7 @@ msgid "Edit '%1' Permission"
 msgstr "Editar el permiso «%1»"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
 #: widgets/dialogs/directchannelinfowidget.cpp:129
 #, kde-format
 msgid "Roles:"
@@ -3269,27 +3269,27 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "Editar usuario"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:25
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
 #, kde-format
 msgid "Join Default Channels"
 msgstr "Unirse a canales por omisión"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgid "Send Welcome Email"
 msgstr "Enviar correo electrónico de bienvenida"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgid "Require Password Change"
 msgstr "Requerir cambio de contraseña"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgid "Set random password and send by email"
 msgstr "Establecer contraseña al azar y enviar por correo electrónico"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
@@ -3299,12 +3299,12 @@ msgstr "Establecer contraseña al azar y enviar por correo electrónico"
 msgid "Username:"
 msgstr "Nombre del usuario:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
 #, kde-format
 msgid "Status Message:"
 msgstr "Mensaje de estado:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:154
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
@@ -3313,7 +3313,7 @@ msgstr "Mensaje de estado:"
 msgid "Email:"
 msgstr "Correo electrónico:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -3322,7 +3322,7 @@ msgstr "Correo electrónico:"
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
 #, kde-format
 msgid "Bio:"
 msgstr "Biografía:"
@@ -3683,7 +3683,7 @@ msgid "Password"
 msgstr "Contraseña"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:467
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferencia de vídeo"
@@ -5935,7 +5935,7 @@ msgstr "Pancarta de información"
 msgid "Show Unread"
 msgstr "Mostrar no leídos"
 
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:56
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
 msgid "Copy Text"
 msgstr "Copiar texto"
@@ -6048,13 +6048,13 @@ msgstr "Error guardando archivo"
 msgid "Not in channel"
 msgstr "No se encuentra en el canal"
 
-#: widgets/conferencecalldialog/conferencecalldialog.cpp:17
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
 msgstr "Iniciar una llamada"
 
-#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:27
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
@@ -6112,13 +6112,13 @@ msgstr "URL de la reunión:"
 msgid "Provider:"
 msgstr "Proveedor:"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:24
+#: widgets/configuredialog/configureaccountserverwidget.cpp:25
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
 msgstr "Arriba"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:30
+#: widgets/configuredialog/configureaccountserverwidget.cpp:31
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
@@ -8357,18 +8357,18 @@ msgstr "Respondiendo en un hilo"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responder en el hilo al mensaje: «%1»"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "¿De verdad quiere eliminar el historial?"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Eliminar historial"
 
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:467
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

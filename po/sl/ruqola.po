@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 00:42+0000\n"
+"POT-Creation-Date: 2023-11-18 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 09:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1343,12 +1343,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2805
+#: core/rocketchataccount.cpp:2807
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2806
+#: core/rocketchataccount.cpp:2808
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -3682,7 +3682,7 @@ msgid "Password"
 msgstr "Geslo"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:467
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konferenca"
@@ -8350,18 +8350,18 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: »%1«"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:467
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
