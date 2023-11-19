@@ -10,6 +10,9 @@
 OffLineWidget::OffLineWidget(QWidget *parent)
     : KMessageWidget{parent}
 {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    setPosition(KMessageWidget::Header);
+#endif
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);

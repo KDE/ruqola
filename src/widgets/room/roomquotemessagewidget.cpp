@@ -14,6 +14,9 @@ RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
 {
     setCloseButtonVisible(false);
     setMessageType(Information);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    setPosition(KMessageWidget::Header);
+#endif
     setWordWrap(true);
     setVisible(false);
     auto cancelReplyingInThreadAction = new QAction(i18n("Cancel"), this);

@@ -12,6 +12,9 @@ PluginTextMessageWidget::PluginTextMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
     setVisible(false);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    setPosition(KMessageWidget::Header);
+#endif
     setCloseButtonVisible(true);
     connect(this, &KMessageWidget::linkActivated, this, [](const QString &contents) {
         QDesktopServices::openUrl(QUrl(contents));
