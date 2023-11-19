@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-18 00:42+0000\n"
+"POT-Creation-Date: 2023-11-19 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 11:36+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2680,7 +2680,7 @@ msgstr "Moderatieberichten tonen"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:96
+#: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -2689,7 +2689,7 @@ msgstr "Bezig met laden..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:98
+#: widgets/dialogs/showlistmessagebasewidget.cpp:101
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -6019,22 +6019,22 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Naar team converteren"
 
-#: widgets/channellist/channellistwidget.cpp:51
+#: widgets/channellist/channellistwidget.cpp:57
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Kanalen filteren (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:58
+#: widgets/channellist/channellistwidget.cpp:68
 #, kde-format
 msgid "Search Channels"
 msgstr "Kanalen doorzoeken"
 
-#: widgets/channellist/channellistwidget.cpp:65
+#: widgets/channellist/channellistwidget.cpp:75
 #, kde-format
 msgid "Previous Channel"
 msgstr "Vorig kanaal"
 
-#: widgets/channellist/channellistwidget.cpp:73
+#: widgets/channellist/channellistwidget.cpp:83
 #, kde-format
 msgid "Next Channel"
 msgstr "Volgend kanaal"
@@ -6985,7 +6985,7 @@ msgstr[0] "%1 bijlage in room (totaal: %2)"
 msgstr[1] "%1 bijlagen in room (totaal: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:106
+#: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -7039,7 +7039,7 @@ msgstr "Afbeelding opslaan"
 msgid "Search messages..."
 msgstr "Berichten doorzoeken..."
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:104
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -8169,13 +8169,13 @@ msgid "Copy Link To Message"
 msgstr "Koppeling naar bericht kopiëren"
 
 #: widgets/room/messagelistview.cpp:342
-#: widgets/threadwidget/threadmessagewidget.cpp:114
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Bericht niet volgen"
 
 #: widgets/room/messagelistview.cpp:342
-#: widgets/threadwidget/threadmessagewidget.cpp:114
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Follow Message"
 msgstr "Bericht volgen"
@@ -8354,7 +8354,7 @@ msgstr "Bericht aanhalen: '%1'"
 msgid "Replying in a thread"
 msgstr "In een discussie antwoorden"
 
-#: widgets/room/roomreplythreadwidget.cpp:34
+#: widgets/room/roomreplythreadwidget.cpp:38
 #, kde-format
 msgid "Reply in Thread for Message: '%1'"
 msgstr "In discussiebundeling antwoorden op bericht: '%1'"
@@ -8961,7 +8961,7 @@ msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Rooms verwijderen"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:25
+#: widgets/threadwidget/threadmessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"

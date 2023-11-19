@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-18 00:42+0000\n"
+"POT-Creation-Date: 2023-11-19 00:42+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2659,7 +2659,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:96
+#: widgets/dialogs/showlistmessagebasewidget.cpp:99
 #: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -2668,7 +2668,7 @@ msgstr "Probíhá načítání..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:98
+#: widgets/dialogs/showlistmessagebasewidget.cpp:101
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -5823,22 +5823,22 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:51
+#: widgets/channellist/channellistwidget.cpp:57
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:58
+#: widgets/channellist/channellistwidget.cpp:68
 #, kde-format
 msgid "Search Channels"
 msgstr "Vyhledat v kanálech"
 
-#: widgets/channellist/channellistwidget.cpp:65
+#: widgets/channellist/channellistwidget.cpp:75
 #, kde-format
 msgid "Previous Channel"
 msgstr "Předchozí kanál"
 
-#: widgets/channellist/channellistwidget.cpp:73
+#: widgets/channellist/channellistwidget.cpp:83
 #, kde-format
 msgid "Next Channel"
 msgstr "Následující kanál"
@@ -6787,7 +6787,7 @@ msgstr[1] "%1 přílohy v místnosti (celkem: %2)"
 msgstr[2] "%1 příloh v místnosti (celkem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:100
-#: widgets/dialogs/showlistmessagebasewidget.cpp:106
+#: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:70
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -6841,7 +6841,7 @@ msgstr "Uložit obrázek"
 msgid "Search messages..."
 msgstr "Hledat zprávy..."
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:104
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7947,13 +7947,13 @@ msgid "Copy Link To Message"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:342
-#: widgets/threadwidget/threadmessagewidget.cpp:114
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Přestat sledovat zprávu"
 
 #: widgets/room/messagelistview.cpp:342
-#: widgets/threadwidget/threadmessagewidget.cpp:114
+#: widgets/threadwidget/threadmessagewidget.cpp:117
 #, kde-format
 msgid "Follow Message"
 msgstr "Sledovat zprávu"
@@ -8133,7 +8133,7 @@ msgstr ""
 msgid "Replying in a thread"
 msgstr "Odpovídáte ve vláknu"
 
-#: widgets/room/roomreplythreadwidget.cpp:34
+#: widgets/room/roomreplythreadwidget.cpp:38
 #, kde-format
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
@@ -8730,7 +8730,7 @@ msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Smazat místnosti"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:25
+#: widgets/threadwidget/threadmessagedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"
