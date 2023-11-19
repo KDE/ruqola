@@ -143,7 +143,7 @@ void RoomWidget::createPluginTextMessateWidget()
 {
     mPluginTextMessageWidget = new PluginTextMessageWidget(this);
     mPluginTextMessageWidget->setObjectName(QStringLiteral("mPluginTextMessageWidget"));
-    mRoomWidgetLayout->addWidget(mPluginTextMessageWidget);
+    mRoomWidgetLayout->insertWidget(1, mPluginTextMessageWidget);
 }
 
 // TODO using it
