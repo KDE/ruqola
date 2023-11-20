@@ -127,6 +127,7 @@ QString WhatsNewWidget::createVersionInformationsV2_1() const
         for (int i = 0; i < numRuqolaBugfixing2_1; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_1[i].toString());
         }
+        message += QStringLiteral("</ul>");
     }
     return message;
 }
@@ -138,7 +139,7 @@ QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionTyp
         return {};
     case WhatsNewComboBoxWidget::VersionType::Version2_0:
     case WhatsNewComboBoxWidget::VersionType::Version2_1:
-        return QStringLiteral("<h1><i> %1 </i><hr/></h1><br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
+        return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
     }
     return {};
 }
