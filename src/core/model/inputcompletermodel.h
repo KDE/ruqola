@@ -9,7 +9,7 @@
 #include "channelusercompleter.h"
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -26,7 +26,7 @@ public:
     };
     Q_ENUM(InputCompleterRoles)
 
-    explicit InputCompleterModel(QObject *parent = nullptr);
+    explicit InputCompleterModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputCompleterModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -40,7 +40,7 @@ public:
 
     void setDefaultUserCompletion();
 
-    void setSearchUserString(const QString &str);
+    void setSearchString(const QString &str);
 
 private:
     Q_DISABLE_COPY(InputCompleterModel)
@@ -48,6 +48,7 @@ private:
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
     void searchOpenedRooms();
-    QString mSetSearchUserString;
+    QString mSearchString;
     QVector<ChannelUserCompleter> mChannelUserCompleters;
+    RocketChatAccount *const mRocketChatAccount;
 };

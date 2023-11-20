@@ -59,13 +59,13 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void createAvatarInfo();
+    Utils::AvatarInfo mAvatarInfo;
     QIcon mStatusIcon;
     QString mDescription;
     QString mName;
     QString mUserName;
     QString mAvatarTag;
     QString mIdentifier;
-    Utils::AvatarInfo mAvatarInfo;
 
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
     bool mOutsideRoom = false;

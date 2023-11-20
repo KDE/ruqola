@@ -15,7 +15,7 @@
 
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
-    , mInputCompleterModel(new InputCompleterModel(this))
+    , mInputCompleterModel(new InputCompleterModel(account, this))
     , mEmoticonFilterProxyModel(new EmoticonFilterProxyModel(this))
     , mCommandFilterProxyModel(new CommandsModelFilterProxyModel(this))
     , mRocketChatAccount(account)
@@ -175,12 +175,13 @@ void InputTextManager::setInputTextChanged(const QString &roomId, const QString 
             if (str.isEmpty()) {
                 mInputCompleterModel->setDefaultUserCompletion();
             } else {
-                mInputCompleterModel->setSearchUserString(str); // necessary for make sure to show @here or @all
+                mInputCompleterModel->setSearchString(str); // necessary for make sure to show @here or @all
                 Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::User);
             }
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             mCurrentCompletionPattern = str;
+            mInputCompleterModel->setSearchString(str);
             Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::Channel);
             // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);

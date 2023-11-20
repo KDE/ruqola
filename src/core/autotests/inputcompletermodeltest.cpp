@@ -21,13 +21,13 @@ InputCompleterModelTest::InputCompleterModelTest(QObject *parent)
 
 void InputCompleterModelTest::shouldHaveDefaultValue()
 {
-    InputCompleterModel w;
+    InputCompleterModel w(nullptr);
     QCOMPARE(w.rowCount(), 0);
 }
 
 void InputCompleterModelTest::shouldAssignValues()
 {
-    InputCompleterModel w;
+    InputCompleterModel w(nullptr);
     QSignalSpy rowInsertedSpy(&w, &InputCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
     QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
@@ -122,7 +122,7 @@ QJsonObject loadFile(const QString &file)
 
 void InputCompleterModelTest::shouldLoadValueFromJson()
 {
-    InputCompleterModel w;
+    InputCompleterModel w(nullptr);
     QSignalSpy rowInsertedSpy(&w, &InputCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
     QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
@@ -165,7 +165,7 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
 
 void InputCompleterModelTest::shouldClearModel()
 {
-    InputCompleterModel w;
+    InputCompleterModel w(nullptr);
     QSignalSpy rowInsertedSpy(&w, &InputCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
     QSignalSpy modelAboutToBeResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);

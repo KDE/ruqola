@@ -12,8 +12,9 @@
 #include <QIcon>
 #include <QModelIndex>
 
-InputCompleterModel::InputCompleterModel(QObject *parent)
+InputCompleterModel::InputCompleterModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -56,9 +57,9 @@ void InputCompleterModel::setDefaultUserCompletion()
     setChannels(customCompletion);
 }
 
-void InputCompleterModel::setSearchUserString(const QString &str)
+void InputCompleterModel::setSearchString(const QString &str)
 {
-    mSetSearchUserString = str;
+    mSearchString = str;
 }
 
 void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &channels)
@@ -73,6 +74,9 @@ void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &chann
 
 void InputCompleterModel::searchOpenedRooms()
 {
+    if (mRocketChatAccount) {
+        // TODO search channels.
+    }
     // TODO
 }
 
@@ -95,10 +99,10 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonObject o = users.at(i).toObject();
         ChannelUserCompleter user;
         user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-        if (!needToAddAll && mSetSearchUserString.startsWith(QLatin1Char('a'))) {
+        if (!needToAddAll && mSearchString.startsWith(QLatin1Char('a'))) {
             needToAddAll = true;
         }
-        if (!needToAddHere && mSetSearchUserString.startsWith(QLatin1Char('h'))) {
+        if (!needToAddHere && mSearchString.startsWith(QLatin1Char('h'))) {
             needToAddHere = true;
         }
         // Verify that it's valid
