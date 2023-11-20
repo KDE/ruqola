@@ -34,6 +34,7 @@ It supports RC feature:
 - Two-factor authentication via email
 - Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)
 - Export Messages
+- Console Moderation
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
@@ -50,8 +51,8 @@ Extra features:
 You can get ruqola from:
 
 - <https://github.com/KDE/ruqola>
-- git@invent.kde.org:network/ruqola.git 
-- https://invent.kde.org/network/ruqola.git
+- git clone git@invent.kde.org:network/ruqola.git 
+- git clone https://invent.kde.org/network/ruqola.git
 
 ## Requirements
 
