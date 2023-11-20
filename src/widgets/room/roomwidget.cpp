@@ -88,6 +88,9 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomWidgetLayout = new QVBoxLayout(roomWidget);
     mRoomWidgetLayout->setObjectName(QStringLiteral("roomWidgetLayout"));
     mRoomWidgetLayout->setContentsMargins({});
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mRoomWidgetLayout->setSpacing(0);
+#endif
 
     mUsersInRoomFlowWidget->setObjectName(QStringLiteral("mUsersInRoomFlowWidget"));
     mRoomWidgetLayout->addWidget(mUsersInRoomFlowWidget);

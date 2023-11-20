@@ -42,6 +42,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QCOMPARE(mainLayout->spacing(), 0);
+#endif
 
     auto mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
     QVERIFY(mRoomHeaderWidget);
