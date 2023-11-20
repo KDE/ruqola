@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-19 00:42+0000\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -5966,7 +5966,7 @@ msgstr "Показать непрочитанное"
 msgid "Copy Text"
 msgstr "Зачитать текст"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:24
 #, kde-format
 msgid "Mark as Read"
 msgstr "Отметить как прочитанное"
@@ -6939,7 +6939,7 @@ msgid "Reset Avatar"
 msgstr "Сбросить аватар"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/room/roomquotemessagewidget.cpp:19
+#: widgets/room/roomquotemessagewidget.cpp:22
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
@@ -7940,22 +7940,22 @@ msgstr "Уведомление"
 msgid "Go to Message"
 msgstr "Перейти к сообщению"
 
-#: widgets/offlinewidget/offlinewidget.cpp:16
+#: widgets/offlinewidget/offlinewidget.cpp:19
 #, kde-format
 msgid "Network is offline mode."
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:18
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgid "Otr Activated"
 msgstr "Режим ОTR активирован"
 
-#: widgets/otr/otrwidget.cpp:19
+#: widgets/otr/otrwidget.cpp:22
 #, kde-format
 msgid "End OTR"
 msgstr "Завершить OTR"
 
-#: widgets/otr/otrwidget.cpp:24
+#: widgets/otr/otrwidget.cpp:27
 #, kde-format
 msgid "Refresh Keys"
 msgstr "Обновить ключи"
@@ -8405,17 +8405,17 @@ msgstr "Блок кода"
 msgid "Markdown Url"
 msgstr "Адрес Markdown"
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr "(Попробовать переподключиться)"
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 сек. до переподключения. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:35
+#: widgets/room/roomcounterinfowidget.cpp:38
 #, kde-format
 msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
@@ -8424,12 +8424,12 @@ msgstr[1] "%4 %1 новых сообщения с %2. %3"
 msgstr[2] "%4 %1 новых сообщений с %2. %3"
 msgstr[3] "%4 %1 новое сообщение с %2. %3"
 
-#: widgets/room/roomcounterinfowidget.cpp:39
+#: widgets/room/roomcounterinfowidget.cpp:42
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "(Отметить как прочитанное)"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:43
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr "(Перейти к первому непрочитанному)"
@@ -8481,7 +8481,7 @@ msgstr "Поиск сообщений..."
 msgid "Team's Information"
 msgstr "Сведения о команде"
 
-#: widgets/room/roomquotemessagewidget.cpp:28
+#: widgets/room/roomquotemessagewidget.cpp:31
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Цитировать сообщение: «%1»"
@@ -9002,14 +9002,14 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Сведения о баннере"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Banner Information"
 msgid "(Show Errors)"
 msgstr "Сведения о баннере"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Server not found: %1"
 msgid "Server errors reported. %1"

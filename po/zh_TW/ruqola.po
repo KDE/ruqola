@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-19 00:42+0000\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -6047,7 +6047,7 @@ msgstr "討論串"
 msgid "Copy Text"
 msgstr "狀態文字："
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark as Read"
@@ -7027,7 +7027,7 @@ msgid "Reset Avatar"
 msgstr "密碼"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/room/roomquotemessagewidget.cpp:19
+#: widgets/room/roomquotemessagewidget.cpp:22
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
@@ -8031,23 +8031,23 @@ msgstr "通知"
 msgid "Go to Message"
 msgstr ""
 
-#: widgets/offlinewidget/offlinewidget.cpp:16
+#: widgets/offlinewidget/offlinewidget.cpp:19
 #, kde-format
 msgid "Network is offline mode."
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:18
+#: widgets/otr/otrwidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Otr Activated"
 msgstr "加入使用者"
 
-#: widgets/otr/otrwidget.cpp:19
+#: widgets/otr/otrwidget.cpp:22
 #, kde-format
 msgid "End OTR"
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:24
+#: widgets/otr/otrwidget.cpp:27
 #, kde-format
 msgid "Refresh Keys"
 msgstr ""
@@ -8514,17 +8514,17 @@ msgstr ""
 msgid "Markdown Url"
 msgstr ""
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr ""
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr ""
 
-#: widgets/room/roomcounterinfowidget.cpp:35
+#: widgets/room/roomcounterinfowidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -8532,13 +8532,13 @@ msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
-#: widgets/room/roomcounterinfowidget.cpp:39
+#: widgets/room/roomcounterinfowidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "(Mark As Read)"
 msgstr "找不到訊息"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:43
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr ""
@@ -8592,7 +8592,7 @@ msgstr "搜尋訊息…"
 msgid "Team's Information"
 msgstr ""
 
-#: widgets/room/roomquotemessagewidget.cpp:28
+#: widgets/room/roomquotemessagewidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Thread Messages: %1"
 msgid "Quote Message: '%1'"
@@ -9142,13 +9142,13 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "頻道資訊"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "(Show Errors)"
 msgstr "頻道資訊"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server errors reported. %1"

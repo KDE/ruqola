@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-19 00:42+0000\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -6059,7 +6059,7 @@ msgstr "Ungelesen"
 msgid "Copy Text"
 msgstr "Text vorlesen"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Mark As Read"
 msgid "Mark as Read"
@@ -7036,7 +7036,7 @@ msgid "Reset Avatar"
 msgstr "Avatar zurücksetzen"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/room/roomquotemessagewidget.cpp:19
+#: widgets/room/roomquotemessagewidget.cpp:22
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
@@ -8033,23 +8033,23 @@ msgstr "Benachrichtigungen"
 msgid "Go to Message"
 msgstr "Nachricht"
 
-#: widgets/offlinewidget/offlinewidget.cpp:16
+#: widgets/offlinewidget/offlinewidget.cpp:19
 #, kde-format
 msgid "Network is offline mode."
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:18
+#: widgets/otr/otrwidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "User is not activated"
 msgid "Otr Activated"
 msgstr "Benutzer ist nicht aktiviert"
 
-#: widgets/otr/otrwidget.cpp:19
+#: widgets/otr/otrwidget.cpp:22
 #, kde-format
 msgid "End OTR"
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:24
+#: widgets/otr/otrwidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Refresh"
 msgid "Refresh Keys"
@@ -8516,29 +8516,29 @@ msgstr ""
 msgid "Markdown Url"
 msgstr ""
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr ""
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr ""
 
-#: widgets/room/roomcounterinfowidget.cpp:35
+#: widgets/room/roomcounterinfowidget.cpp:38
 #, kde-format
 msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "%4 %1 neue Nachricht seit %2. %3"
 msgstr[1] "%4 %1 neue Nachrichten seit %2. %3"
 
-#: widgets/room/roomcounterinfowidget.cpp:39
+#: widgets/room/roomcounterinfowidget.cpp:42
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "(Als gelesen markieren)"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:43
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr ""
@@ -8591,7 +8591,7 @@ msgstr "Nachrichten suchen ..."
 msgid "Team's Information"
 msgstr "Team-Information"
 
-#: widgets/room/roomquotemessagewidget.cpp:28
+#: widgets/room/roomquotemessagewidget.cpp:31
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Nachricht zitieren: „%1“"
@@ -9124,13 +9124,13 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Kanalinformation"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgid "(Show Errors)"
 msgstr "Kanalinformation"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgid "Server errors reported. %1"

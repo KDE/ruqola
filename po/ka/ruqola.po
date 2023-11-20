@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-19 00:42+0000\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 05:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -5800,7 +5800,7 @@ msgstr "წაუკითხავის ჩვენება"
 msgid "Copy Text"
 msgstr "ტექსტის კოპირება"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:24
 #, kde-format
 msgid "Mark as Read"
 msgstr "მონიშნე როგორც წაკითხული"
@@ -6730,7 +6730,7 @@ msgid "Reset Avatar"
 msgstr "ავატარის საწყის მნიშვნელობაზე დაყენება"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/room/roomquotemessagewidget.cpp:19
+#: widgets/room/roomquotemessagewidget.cpp:22
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
@@ -7660,22 +7660,22 @@ msgstr "შეტყობინება"
 msgid "Go to Message"
 msgstr "შეტყობინებაზე გადასვლა"
 
-#: widgets/offlinewidget/offlinewidget.cpp:16
+#: widgets/offlinewidget/offlinewidget.cpp:19
 #, kde-format
 msgid "Network is offline mode."
 msgstr "ქსელი გათიშულ რეჟიმშია."
 
-#: widgets/otr/otrwidget.cpp:18
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgid "Otr Activated"
 msgstr "Otr აქტივირებულია"
 
-#: widgets/otr/otrwidget.cpp:19
+#: widgets/otr/otrwidget.cpp:22
 #, kde-format
 msgid "End OTR"
 msgstr "OTR-ის დასრულება"
 
-#: widgets/otr/otrwidget.cpp:24
+#: widgets/otr/otrwidget.cpp:27
 #, kde-format
 msgid "Refresh Keys"
 msgstr "გასაღებების განახლება"
@@ -8108,29 +8108,29 @@ msgstr "კოდის ბლოკი"
 msgid "Markdown Url"
 msgstr "Markdown -ის ბმული"
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr "(თავიდან დაკავშირების ცდა)"
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 წამი თავიდან მიერთებამდე. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:35
+#: widgets/room/roomcounterinfowidget.cpp:38
 #, kde-format
 msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "%4 %1 ახალი შეტყობინება %2. %3"
 msgstr[1] "%4 %1 ახალი შეტყობინება %2. %3"
 
-#: widgets/room/roomcounterinfowidget.cpp:39
+#: widgets/room/roomcounterinfowidget.cpp:42
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "(წაკითხულად მონიშვნა)"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:43
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr "(პირველ წაუკითხავ შეტყობინებაზე გადასვლა)"
@@ -8181,7 +8181,7 @@ msgstr "შეტყობინებებში ძებნა..."
 msgid "Team's Information"
 msgstr "გუნდის ინფორმაცია"
 
-#: widgets/room/roomquotemessagewidget.cpp:28
+#: widgets/room/roomquotemessagewidget.cpp:31
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "შეტყობინების ციტირება: '%1'"
@@ -8684,12 +8684,12 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "სერვერის შეცდომის ინფორმაცია"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "(Show Errors)"
 msgstr "(შეცდომების ჩვენება)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "Server errors reported. %1"
 msgstr "აღმოჩენილია სერვერის შეცდომები. %1"

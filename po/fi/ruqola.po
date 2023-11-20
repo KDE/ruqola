@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-19 00:42+0000\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -5791,7 +5791,7 @@ msgstr "Näytät lukematta olevat"
 msgid "Copy Text"
 msgstr "Kopioi teksti"
 
-#: widgets/bannerinfodialog/bannermessagewidget.cpp:21
+#: widgets/bannerinfodialog/bannermessagewidget.cpp:24
 #, kde-format
 msgid "Mark as Read"
 msgstr "Merkitse luetuksi"
@@ -6726,7 +6726,7 @@ msgid "Reset Avatar"
 msgstr "Tyhjennä avatar"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/room/roomquotemessagewidget.cpp:19
+#: widgets/room/roomquotemessagewidget.cpp:22
 #: widgets/room/roomreplythreadwidget.cpp:21
 #, kde-format
 msgid "Cancel"
@@ -7662,22 +7662,22 @@ msgstr "Ilmoitus"
 msgid "Go to Message"
 msgstr "Siirry viestiin"
 
-#: widgets/offlinewidget/offlinewidget.cpp:16
+#: widgets/offlinewidget/offlinewidget.cpp:19
 #, kde-format
 msgid "Network is offline mode."
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:18
+#: widgets/otr/otrwidget.cpp:21
 #, kde-format
 msgid "Otr Activated"
 msgstr "OTR aktivoitu"
 
-#: widgets/otr/otrwidget.cpp:19
+#: widgets/otr/otrwidget.cpp:22
 #, kde-format
 msgid "End OTR"
 msgstr ""
 
-#: widgets/otr/otrwidget.cpp:24
+#: widgets/otr/otrwidget.cpp:27
 #, kde-format
 msgid "Refresh Keys"
 msgstr "Virkistä avaimet"
@@ -8119,29 +8119,29 @@ msgstr "Koodilohko"
 msgid "Markdown Url"
 msgstr "Markdown-verkko-osoite"
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "(Try Reconnect)"
 msgstr "(Yritä yhdistää uudelleen)"
 
-#: widgets/room/reconnectinfowidget.cpp:70
+#: widgets/room/reconnectinfowidget.cpp:73
 #, kde-format
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 sekuntia ennen uudelleenyhdistämistä. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:35
+#: widgets/room/roomcounterinfowidget.cpp:38
 #, kde-format
 msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "%4 %1 uusi viesti %2 jälkeen. %3"
 msgstr[1] "%4 %1 uutta viestiä %2 jälkeen. %3"
 
-#: widgets/room/roomcounterinfowidget.cpp:39
+#: widgets/room/roomcounterinfowidget.cpp:42
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "(Merkitse luetuksi)"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:43
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr "(Siirry ensimmäisen lukematta olevaan)"
@@ -8192,7 +8192,7 @@ msgstr "Etsi viestejä…"
 msgid "Team's Information"
 msgstr "Ryhmän tiedot"
 
-#: widgets/room/roomquotemessagewidget.cpp:28
+#: widgets/room/roomquotemessagewidget.cpp:31
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Lainaa viestiä: ”%1”"
@@ -8699,12 +8699,12 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Palvelinvirheen tiedot"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "(Show Errors)"
 msgstr "(Näytä virheet)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "Server errors reported. %1"
 msgstr "Ilmoitettiin palvelinvirheitä. %1"
