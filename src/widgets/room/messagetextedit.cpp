@@ -425,7 +425,6 @@ void MessageTextEdit::slotSelectFirstTextCompleter()
 {
     const QModelIndex idx = mUserAndChannelCompletionListView->model()->index(0, 0);
     // qDebug() << " idx " << idx;
-    mUserAndChannelCompletionListView->selectionModel()->select(idx, QItemSelectionModel::Select);
     mUserAndChannelCompletionListView->setCurrentIndex(idx);
 }
 
