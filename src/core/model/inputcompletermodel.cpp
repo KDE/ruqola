@@ -72,12 +72,14 @@ void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &chann
     }
 }
 
-void InputCompleterModel::searchOpenedRooms()
+QVector<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
 {
     if (mRocketChatAccount) {
+        if (!mSearchString.isEmpty()) { }
         // TODO search channels.
     }
     // TODO
+    return {};
 }
 
 void InputCompleterModel::parseChannels(const QJsonObject &obj)

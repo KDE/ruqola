@@ -47,7 +47,7 @@ private:
     [[nodiscard]] static ChannelUserCompleter createHereChannel();
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
-    void searchOpenedRooms();
+    [[nodiscard]] QVector<ChannelUserCompleter> searchOpenedRooms();
     QString mSearchString;
     QVector<ChannelUserCompleter> mChannelUserCompleters;
     RocketChatAccount *const mRocketChatAccount;
