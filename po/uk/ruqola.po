@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-20 00:42+0000\n"
+"POT-Creation-Date: 2023-11-21 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -838,17 +838,17 @@ msgstr "Приєднатися"
 msgid "Custom"
 msgstr "Нетиповий"
 
-#: core/model/inputcompletermodel.cpp:26
+#: core/model/inputcompletermodel.cpp:27
 #, kde-format
 msgid "Notify all in this room"
 msgstr "Сповістити усіх у цій кімнаті"
 
-#: core/model/inputcompletermodel.cpp:34
+#: core/model/inputcompletermodel.cpp:35
 #, kde-format
 msgid "No result found."
 msgstr "Нічого не знайдено."
 
-#: core/model/inputcompletermodel.cpp:43
+#: core/model/inputcompletermodel.cpp:44
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Сповістити активних користувачів у цій кімнаті"
@@ -3702,7 +3702,7 @@ msgid "Password"
 msgstr "Пароль"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:467
+#: widgets/room/roomwidget.cpp:470
 #, kde-format
 msgid "Video Conference"
 msgstr "Відеоконференція"
@@ -8413,18 +8413,18 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:277
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:278
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Вилучення журналу"
 
-#: widgets/room/roomwidget.cpp:467
+#: widgets/room/roomwidget.cpp:470
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

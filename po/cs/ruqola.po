@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-20 00:42+0000\n"
+"POT-Creation-Date: 2023-11-21 00:42+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -832,17 +832,17 @@ msgstr ""
 msgid "Custom"
 msgstr "Vlastní"
 
-#: core/model/inputcompletermodel.cpp:26
+#: core/model/inputcompletermodel.cpp:27
 #, kde-format
 msgid "Notify all in this room"
 msgstr ""
 
-#: core/model/inputcompletermodel.cpp:34
+#: core/model/inputcompletermodel.cpp:35
 #, kde-format
 msgid "No result found."
 msgstr "Nebyl nalezen žádný výsledek."
 
-#: core/model/inputcompletermodel.cpp:43
+#: core/model/inputcompletermodel.cpp:44
 #, kde-format
 msgid "Notify active users in this room"
 msgstr ""
@@ -3654,7 +3654,7 @@ msgid "Password"
 msgstr "Heslo"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:467
+#: widgets/room/roomwidget.cpp:470
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konference"
@@ -8139,18 +8139,18 @@ msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
 # power-off message
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:277
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:278
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstranit historii"
 
-#: widgets/room/roomwidget.cpp:467
+#: widgets/room/roomwidget.cpp:470
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

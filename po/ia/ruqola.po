@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-20 00:42+0000\n"
+"POT-Creation-Date: 2023-11-21 00:42+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -831,19 +831,19 @@ msgstr "Uni a"
 msgid "Custom"
 msgstr "Personalisate"
 
-#: core/model/inputcompletermodel.cpp:26
+#: core/model/inputcompletermodel.cpp:27
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify all in this room"
 msgstr "Usator non es in iste sala"
 
-#: core/model/inputcompletermodel.cpp:34
+#: core/model/inputcompletermodel.cpp:35
 #, fuzzy, kde-format
 #| msgid "No result found"
 msgid "No result found."
 msgstr "Necun exito trovate"
 
-#: core/model/inputcompletermodel.cpp:43
+#: core/model/inputcompletermodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
@@ -3692,7 +3692,7 @@ msgid "Password"
 msgstr "Contrasigno"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:467
+#: widgets/room/roomwidget.cpp:470
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Conferentia"
@@ -8210,19 +8210,19 @@ msgstr "Respondente a un topico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responde a un Topico per Message: '%1'"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:277
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Tu vole vermente remover chronologia?"
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:278
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remove Chronologia"
 
-#: widgets/room/roomwidget.cpp:467
+#: widgets/room/roomwidget.cpp:470
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
