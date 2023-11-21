@@ -68,7 +68,7 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
     } else {
         const QString roomType = object.value(QLatin1String("t")).toString();
         if (roomType == QLatin1Char('c')) {
-            mStatusIcon = QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
+            setChannelIcon();
         } else if (roomType == QLatin1Char('p')) {
             mStatusIcon = QIcon::fromTheme(QStringLiteral("lock"));
         }
@@ -77,11 +77,21 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
     createAvatarInfo();
 }
 
+void ChannelUserCompleter::setChannelIcon()
+{
+    mStatusIcon = QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
+}
+
 void ChannelUserCompleter::createAvatarInfo()
 {
     mAvatarInfo.avatarType = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? Utils::AvatarType::Room : Utils::AvatarType::User);
     mAvatarInfo.etag = mAvatarTag;
     mAvatarInfo.identifier = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? mIdentifier : mUserName);
+}
+
+void ChannelUserCompleter::setAvatarInfo(const Utils::AvatarInfo &newAvatarInfo)
+{
+    mAvatarInfo = newAvatarInfo;
 }
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const

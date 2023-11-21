@@ -41,6 +41,17 @@ void RoomModel::clear()
     }
 }
 
+QVector<Room *> RoomModel::findRoomNameConstains(const QString &str) const
+{
+    QVector<Room *> rooms;
+    for (Room *r : std::as_const(mRoomsList)) {
+        if (r->displayRoomName().contains(str)) {
+            rooms.append(r);
+        }
+    }
+    return rooms;
+}
+
 Room *RoomModel::findRoom(const QString &roomID) const
 {
     for (Room *r : std::as_const(mRoomsList)) {

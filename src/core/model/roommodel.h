@@ -114,6 +114,7 @@ public:
 
     static QString sectionName(RoomModel::Section sectionId);
 
+    [[nodiscard]] QVector<Room *> findRoomNameConstains(const QString &str) const;
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();

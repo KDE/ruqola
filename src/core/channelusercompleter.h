@@ -57,6 +57,10 @@ public:
 
     [[nodiscard]] Utils::AvatarInfo avatarInfo() const;
 
+    void setChannelIcon();
+
+    void setAvatarInfo(const Utils::AvatarInfo &newAvatarInfo);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void createAvatarInfo();
     Utils::AvatarInfo mAvatarInfo;

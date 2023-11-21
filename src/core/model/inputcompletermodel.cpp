@@ -5,6 +5,7 @@
 */
 
 #include "inputcompletermodel.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 
 #include <QJsonArray>
@@ -74,12 +75,24 @@ void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &chann
 
 QVector<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
 {
+    QVector<ChannelUserCompleter> channels;
     if (mRocketChatAccount) {
-        if (!mSearchString.isEmpty()) { }
-        // TODO search channels.
+        if (!mSearchString.isEmpty()) {
+            const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchString);
+            for (const Room *room : rooms) {
+                if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
+                    ChannelUserCompleter channel;
+                    channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
+                    channel.setName(room->displayRoomName());
+                    channel.setIdentifier(room->roomId());
+                    channel.setChannelIcon();
+                    channel.setAvatarInfo(room->avatarInfo());
+                    channels.append(std::move(channel));
+                }
+            }
+        }
     }
-    // TODO
-    return {};
+    return channels;
 }
 
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
@@ -94,6 +107,8 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         // Verify that it's valid
         channelList.append(std::move(channel));
     }
+    channelList.append(searchOpenedRooms());
+
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
     bool needToAddAll = false;
     bool needToAddHere = false;
