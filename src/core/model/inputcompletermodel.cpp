@@ -58,11 +58,6 @@ void InputCompleterModel::setDefaultUserCompletion()
     setChannels(customCompletion);
 }
 
-void InputCompleterModel::setSearchString(const QString &str)
-{
-    mSearchString = str;
-}
-
 void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &channels)
 {
     clear();
@@ -77,8 +72,8 @@ QVector<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
 {
     QVector<ChannelUserCompleter> channels;
     if (mRocketChatAccount) {
-        if (!mSearchString.isEmpty()) {
-            const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchString);
+        if (!mSearchInfo.searchString.isEmpty()) {
+            const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchInfo.searchString);
             for (const Room *room : rooms) {
                 if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
                     ChannelUserCompleter channel;
@@ -95,6 +90,11 @@ QVector<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
     return channels;
 }
 
+void InputCompleterModel::setSearchInfo(const SearchInfo &newSearchInfo)
+{
+    mSearchInfo = newSearchInfo;
+}
+
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QVector<ChannelUserCompleter> channelList;
@@ -107,7 +107,9 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         // Verify that it's valid
         channelList.append(std::move(channel));
     }
-    channelList.append(searchOpenedRooms());
+    if (mSearchInfo.searchType == SearchInfo::Channels) {
+        channelList.append(searchOpenedRooms());
+    }
 
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
     bool needToAddAll = false;
@@ -116,10 +118,10 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonObject o = users.at(i).toObject();
         ChannelUserCompleter user;
         user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-        if (!needToAddAll && mSearchString.startsWith(QLatin1Char('a'))) {
+        if (!needToAddAll && mSearchInfo.searchString.startsWith(QLatin1Char('a'))) {
             needToAddAll = true;
         }
-        if (!needToAddHere && mSearchString.startsWith(QLatin1Char('h'))) {
+        if (!needToAddHere && mSearchInfo.searchString.startsWith(QLatin1Char('h'))) {
             needToAddHere = true;
         }
         // Verify that it's valid

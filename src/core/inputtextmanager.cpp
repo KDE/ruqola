@@ -175,13 +175,19 @@ void InputTextManager::setInputTextChanged(const QString &roomId, const QString 
             if (str.isEmpty()) {
                 mInputCompleterModel->setDefaultUserCompletion();
             } else {
-                mInputCompleterModel->setSearchString(str); // necessary for make sure to show @here or @all
+                InputCompleterModel::SearchInfo searchInfo;
+                searchInfo.searchString = str;
+                searchInfo.searchType = InputCompleterModel::SearchInfo::SearchType::Users;
+                mInputCompleterModel->setSearchInfo(std::move(searchInfo)); // necessary for make sure to show @here or @all
                 Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::User);
             }
         } else if (word.startsWith(QLatin1Char('#'))) {
             // Trigger autocompletion request in DDPClient (via RocketChatAccount)
             mCurrentCompletionPattern = str;
-            mInputCompleterModel->setSearchString(str);
+            InputCompleterModel::SearchInfo searchInfo;
+            searchInfo.searchType = InputCompleterModel::SearchInfo::SearchType::Channels;
+            searchInfo.searchString = str;
+            mInputCompleterModel->setSearchInfo(std::move(searchInfo));
             Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::Channel);
             // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);

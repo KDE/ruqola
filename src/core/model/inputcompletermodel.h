@@ -26,6 +26,16 @@ public:
     };
     Q_ENUM(InputCompleterRoles)
 
+    struct SearchInfo {
+        enum SearchType {
+            Unknown,
+            Users,
+            Channels,
+        };
+        SearchType searchType = SearchType::Unknown;
+        QString searchString;
+    };
+
     explicit InputCompleterModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputCompleterModel() override;
 
@@ -40,7 +50,7 @@ public:
 
     void setDefaultUserCompletion();
 
-    void setSearchString(const QString &str);
+    void setSearchInfo(const SearchInfo &newSearchInfo);
 
 private:
     Q_DISABLE_COPY(InputCompleterModel)
@@ -48,7 +58,7 @@ private:
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
     [[nodiscard]] QVector<ChannelUserCompleter> searchOpenedRooms();
-    QString mSearchString;
+    SearchInfo mSearchInfo;
     QVector<ChannelUserCompleter> mChannelUserCompleters;
     RocketChatAccount *const mRocketChatAccount;
 };
