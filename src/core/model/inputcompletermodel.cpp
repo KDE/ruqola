@@ -21,10 +21,20 @@ InputCompleterModel::InputCompleterModel(RocketChatAccount *account, QObject *pa
 
 InputCompleterModel::~InputCompleterModel() = default;
 
+QString InputCompleterModel::here()
+{
+    return QStringLiteral("here");
+}
+
+QString InputCompleterModel::all()
+{
+    return QStringLiteral("all");
+}
+
 ChannelUserCompleter InputCompleterModel::createHereChannel()
 {
     ChannelUserCompleter here;
-    here.setName(QStringLiteral("here"));
+    here.setName(InputCompleterModel::here());
     here.setDescription(i18n("Notify all in this room"));
     here.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
     return here;
@@ -41,7 +51,7 @@ ChannelUserCompleter InputCompleterModel::noFoundChannelUser()
 ChannelUserCompleter InputCompleterModel::createAllChannel()
 {
     ChannelUserCompleter all;
-    all.setName(QStringLiteral("all"));
+    all.setName(InputCompleterModel::all());
     all.setDescription(i18n("Notify active users in this room"));
     all.setType(ChannelUserCompleter::ChannelUserCompleterType::Notification);
     return all;
@@ -118,10 +128,10 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonObject o = users.at(i).toObject();
         ChannelUserCompleter user;
         user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-        if (!needToAddAll && mSearchInfo.searchString.startsWith(QLatin1Char('a'))) {
+        if (!needToAddAll && InputCompleterModel::all().startsWith(mSearchInfo.searchString)) {
             needToAddAll = true;
         }
-        if (!needToAddHere && mSearchInfo.searchString.startsWith(QLatin1Char('h'))) {
+        if (!needToAddHere && InputCompleterModel::here().startsWith(mSearchInfo.searchString)) {
             needToAddHere = true;
         }
         // Verify that it's valid
