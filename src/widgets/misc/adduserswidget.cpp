@@ -51,9 +51,9 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
+            userWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
             mMap.remove(username);
-            delete userWidget;
         }
     }
     Q_EMIT userListChanged(!mMap.isEmpty());
