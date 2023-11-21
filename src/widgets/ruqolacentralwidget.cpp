@@ -27,6 +27,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 {
     mMainLayout->setContentsMargins({});
     mMainLayout->setObjectName(QStringLiteral("mainlayout"));
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mMainLayout->setSpacing(0);
+#endif
 
     const QString newFeaturesMD5 = WhatsNewWidget::newFeaturesMD5();
     const bool hasNewFeature = (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5);
