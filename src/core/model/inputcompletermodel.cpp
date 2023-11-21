@@ -108,40 +108,40 @@ void InputCompleterModel::setSearchInfo(const SearchInfo &newSearchInfo)
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QVector<ChannelUserCompleter> channelList;
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
-    channelList.reserve(rooms.size());
-    for (int i = 0; i < rooms.size(); i++) {
-        const QJsonObject o = rooms.at(i).toObject();
-        ChannelUserCompleter channel;
-        channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
-        // Verify that it's valid
-        channelList.append(std::move(channel));
-    }
     if (mSearchInfo.searchType == SearchInfo::Channels) {
+        const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+        channelList.reserve(rooms.size());
+        for (int i = 0; i < rooms.size(); i++) {
+            const QJsonObject o = rooms.at(i).toObject();
+            ChannelUserCompleter channel;
+            channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
+            // Verify that it's valid
+            channelList.append(std::move(channel));
+        }
         channelList.append(searchOpenedRooms());
-    }
-
-    const QJsonArray users = obj.value(QLatin1String("users")).toArray();
-    bool needToAddAll = false;
-    bool needToAddHere = false;
-    for (int i = 0; i < users.size(); i++) {
-        const QJsonObject o = users.at(i).toObject();
-        ChannelUserCompleter user;
-        user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-        if (!needToAddAll && InputCompleterModel::all().startsWith(mSearchInfo.searchString)) {
-            needToAddAll = true;
+    } else {
+        const QJsonArray users = obj.value(QLatin1String("users")).toArray();
+        bool needToAddAll = false;
+        bool needToAddHere = false;
+        for (int i = 0; i < users.size(); i++) {
+            const QJsonObject o = users.at(i).toObject();
+            ChannelUserCompleter user;
+            user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+            if (!needToAddAll && InputCompleterModel::all().startsWith(mSearchInfo.searchString)) {
+                needToAddAll = true;
+            }
+            if (!needToAddHere && InputCompleterModel::here().startsWith(mSearchInfo.searchString)) {
+                needToAddHere = true;
+            }
+            // Verify that it's valid
+            channelList.append(std::move(user));
         }
-        if (!needToAddHere && InputCompleterModel::here().startsWith(mSearchInfo.searchString)) {
-            needToAddHere = true;
+        if (needToAddAll) {
+            channelList.append(createAllChannel());
         }
-        // Verify that it's valid
-        channelList.append(std::move(user));
-    }
-    if (needToAddAll) {
-        channelList.append(createAllChannel());
-    }
-    if (needToAddHere) {
-        channelList.append(createHereChannel());
+        if (needToAddHere) {
+            channelList.append(createHereChannel());
+        }
     }
     if (channelList.isEmpty()) {
         channelList.append(noFoundChannelUser());
