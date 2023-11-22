@@ -127,7 +127,7 @@ void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QVector<ChannelUserCompleter> channelList;
-    if (mSearchInfo.searchType == SearchInfo::Channels) {
+    if (mSearchInfo.searchType == SearchInfo::Channels || mSearchInfo.searchType == SearchInfo::ChannelsAndUsers) {
         const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
         channelList.reserve(rooms.size());
         for (int i = 0; i < rooms.size(); i++) {
@@ -138,7 +138,8 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
             channelList.append(std::move(channel));
         }
         channelList.append(searchOpenedRooms());
-    } else {
+    }
+    if (mSearchInfo.searchType == SearchInfo::Users || mSearchInfo.searchType == SearchInfo::ChannelsAndUsers) {
         const QJsonArray users = obj.value(QLatin1String("users")).toArray();
         bool needToAddAll = false;
         bool needToAddHere = false;
@@ -146,11 +147,13 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
             const QJsonObject o = users.at(i).toObject();
             ChannelUserCompleter user;
             user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-            if (!needToAddAll && InputCompleterModel::all().startsWith(mSearchInfo.searchString)) {
-                needToAddAll = true;
-            }
-            if (!needToAddHere && InputCompleterModel::here().startsWith(mSearchInfo.searchString)) {
-                needToAddHere = true;
+            if (!mSearchInfo.searchString.isEmpty()) {
+                if (!needToAddAll && InputCompleterModel::all().startsWith(mSearchInfo.searchString)) {
+                    needToAddAll = true;
+                }
+                if (!needToAddHere && InputCompleterModel::here().startsWith(mSearchInfo.searchString)) {
+                    needToAddHere = true;
+                }
             }
             // Verify that it's valid
             channelList.append(std::move(user));

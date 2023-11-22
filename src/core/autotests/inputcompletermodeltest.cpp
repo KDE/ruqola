@@ -128,6 +128,9 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
     QJsonObject obj = loadFile(QStringLiteral("channelparent.json"));
+    InputCompleterModel::SearchInfo info;
+    info.searchType = InputCompleterModel::SearchInfo::ChannelsAndUsers;
+    w.setSearchInfo(std::move(info));
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);
@@ -171,6 +174,9 @@ void InputCompleterModelTest::shouldClearModel()
     QSignalSpy modelAboutToBeResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
     QJsonObject obj = loadFile(QStringLiteral("channelparent.json"));
+    InputCompleterModel::SearchInfo info;
+    info.searchType = InputCompleterModel::SearchInfo::ChannelsAndUsers;
+    w.setSearchInfo(std::move(info));
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);

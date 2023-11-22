@@ -32,6 +32,7 @@ public:
             Unknown,
             Users,
             Channels,
+            ChannelsAndUsers,
         };
         SearchType searchType = SearchType::Unknown;
         QString searchString;
