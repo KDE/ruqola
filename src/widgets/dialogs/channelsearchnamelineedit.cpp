@@ -52,15 +52,14 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 
 void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
 {
-    Channel c;
-    QVector<Channel> channelList;
+    QVector<ChannelUserCompleter> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("items")).toArray();
     const auto roomsSize(rooms.size());
     channelList.reserve(roomsSize);
     for (auto i = 0; i < roomsSize; i++) {
         const QJsonObject o = rooms.at(i).toObject();
-        Channel channel;
-        channel.parseChannel(o, Channel::ChannelType::Room);
+        ChannelUserCompleter channel;
+        channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
         // Verify that it's valid
         channelList.append(std::move(channel));
     }

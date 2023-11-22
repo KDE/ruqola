@@ -23,7 +23,7 @@ void ChannelCompleterModel::clear()
     }
 }
 
-void ChannelCompleterModel::insertChannels(const QVector<Channel> &channels)
+void ChannelCompleterModel::insertChannels(const QVector<ChannelUserCompleter> &channels)
 {
     clear();
     if (!channels.isEmpty()) {
@@ -44,14 +44,14 @@ QVariant ChannelCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mChannels.count()) {
         return {};
     }
-    const Channel channel = mChannels.at(index.row());
+    const ChannelUserCompleter channel = mChannels.at(index.row());
     switch (role) {
     // TODO    case Qt::DecorationRole:
     case Qt::DisplayRole:
     case RoomName:
-        return channel.roomName();
+        return channel.name();
     case ChannelId:
-        return channel.roomId();
+        return channel.identifier();
     }
     return {};
 }

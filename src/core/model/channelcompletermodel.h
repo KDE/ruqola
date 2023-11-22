@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "channel.h"
+#include "channelusercompleter.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
@@ -27,9 +27,9 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertChannels(const QVector<Channel> &users);
+    void insertChannels(const QVector<ChannelUserCompleter> &users);
 
 private:
     Q_DISABLE_COPY(ChannelCompleterModel)
-    QVector<Channel> mChannels;
+    QVector<ChannelUserCompleter> mChannels;
 };
