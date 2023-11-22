@@ -5,6 +5,7 @@
 */
 #include "channelsearchnamelineedit.h"
 #include "common/completionlistview.h"
+#include "common/userandchannelcompletiondelegate.h"
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/channelcompleterfilterproxymodel.h"
@@ -25,6 +26,12 @@ ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account,
     connect(this, &QLineEdit::textChanged, this, &ChannelSearchNameLineEdit::slotTextChanged);
     setCompletionModel(mChannelCompleterFilterProxyModel);
     connect(this, &ChannelSearchNameLineEdit::complete, this, &ChannelSearchNameLineEdit::slotComplete);
+
+    auto userAndChannelCompletionDelegate = new UserAndChannelCompletionDelegate(mCompletionListView);
+    userAndChannelCompletionDelegate->setRocketChatAccount(account);
+    mCompletionListView->setItemDelegate(userAndChannelCompletionDelegate);
+
+    mCompletionListView->setTextWidget(this);
 }
 
 ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit() = default;
