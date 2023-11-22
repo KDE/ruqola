@@ -5,13 +5,13 @@
 */
 
 #include "channelcompleterfilterproxymodel.h"
-#include "channelcompletermodel.h"
+#include "inputcompletermodel.h"
 
 ChannelCompleterFilterProxyModel::ChannelCompleterFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(ChannelCompleterModel::RoomName);
+    setFilterRole(InputCompleterModel::CompleterName);
     sort(0);
 }
 
@@ -19,7 +19,7 @@ ChannelCompleterFilterProxyModel::~ChannelCompleterFilterProxyModel() = default;
 
 void ChannelCompleterFilterProxyModel::clear()
 {
-    static_cast<ChannelCompleterModel *>(sourceModel())->clear();
+    static_cast<InputCompleterModel *>(sourceModel())->clear();
 }
 
 bool ChannelCompleterFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
@@ -28,8 +28,8 @@ bool ChannelCompleterFilterProxyModel::lessThan(const QModelIndex &left, const Q
         return false;
     }
     if (left.isValid() && right.isValid()) {
-        const QString leftString = sourceModel()->data(left, ChannelCompleterModel::RoomName).toString();
-        const QString rightString = sourceModel()->data(right, ChannelCompleterModel::RoomName).toString();
+        const QString leftString = sourceModel()->data(left, InputCompleterModel::CompleterName).toString();
+        const QString rightString = sourceModel()->data(right, InputCompleterModel::CompleterName).toString();
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return false;

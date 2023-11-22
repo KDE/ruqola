@@ -161,8 +161,6 @@ target_sources(libruqolacore PRIVATE
     model/bannerinfosfilterproxymodel.cpp
     model/channelcompleterfilterproxymodel.cpp
     model/channelcompleterfilterproxymodel.h
-    model/channelcompletermodel.cpp
-    model/channelcompletermodel.h
     model/commandsmodel.cpp
     model/commandsmodelfilterproxymodel.cpp
     model/commandsmodelfilterproxymodel.h
