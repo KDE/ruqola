@@ -60,11 +60,6 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
 {
     mChannelCompleterModel->parseSearchChannels(obj);
-#if 0
-    if (channelList.isEmpty()) {
-        mCompletionListView->hide();
-    }
-#endif
 }
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
