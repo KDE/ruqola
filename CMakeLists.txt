@@ -252,7 +252,7 @@ configure_file(config-ruqola.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
 if(BUILD_TESTING)
     find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
-   add_definitions(-DBUILD_TESTING)
+    add_definitions(-DBUILD_TESTING)
 endif(BUILD_TESTING)
 
 if (PLUGINS_AUTHENTICATION_BASED_ON_O2)
