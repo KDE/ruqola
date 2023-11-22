@@ -5,7 +5,6 @@
 */
 
 #include "channelusercompleter.h"
-#include "utils.h"
 #include <QJsonObject>
 
 ChannelUserCompleter::ChannelUserCompleter() = default;

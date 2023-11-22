@@ -56,7 +56,6 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>
-#include <QVBoxLayout>
 
 #include "video-conference/videoconferencecapabilitiesjob.h"
 #include <config-ruqola.h>

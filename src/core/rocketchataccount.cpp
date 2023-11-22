@@ -17,7 +17,6 @@
 #include "emoticons/emojimanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
-#include "rooms/roomsexportjob.h"
 
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"

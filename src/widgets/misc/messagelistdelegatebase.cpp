@@ -8,7 +8,6 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 
-#include "messagelisttextui.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
