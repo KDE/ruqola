@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QTreeView>
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenTreeView : public QTreeView
 {
     Q_OBJECT
