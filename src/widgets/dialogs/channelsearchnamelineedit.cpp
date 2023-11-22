@@ -46,6 +46,7 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
         }
     } else {
         mChannelCompleterModel->clear();
+        mCompletionListView->hide();
     }
 }
 
