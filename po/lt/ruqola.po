@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 00:42+0000\n"
+"POT-Creation-Date: 2023-11-22 00:42+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -849,7 +849,7 @@ msgstr "Kanalo pavadinimas"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:531
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -874,19 +874,19 @@ msgstr ""
 msgid "Custom"
 msgstr "Tinkinta naudotojo būsena"
 
-#: core/model/inputcompletermodel.cpp:27
+#: core/model/inputcompletermodel.cpp:38
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify all in this room"
 msgstr "Naudotojo nėra šiame kambaryje"
 
-#: core/model/inputcompletermodel.cpp:35
+#: core/model/inputcompletermodel.cpp:46
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No result found."
 msgstr "Nerasta jokių žinučių"
 
-#: core/model/inputcompletermodel.cpp:44
+#: core/model/inputcompletermodel.cpp:55
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
@@ -1070,62 +1070,62 @@ msgstr "Tapatybės nustatymo metodas"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:442
+#: core/model/roommodel.cpp:453
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Teams Room"
 msgstr "Ištrinti kambarį"
 
-#: core/model/roommodel.cpp:448
+#: core/model/roommodel.cpp:459
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privatus kambarys:"
 
-#: core/model/roommodel.cpp:450
+#: core/model/roommodel.cpp:461
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Discussion Room"
 msgstr "Atverti diskusiją"
 
-#: core/model/roommodel.cpp:454
+#: core/model/roommodel.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Informacija apie kanalą"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:525
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Gijos"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:529
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:533
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:524
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:537
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"

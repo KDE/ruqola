@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 00:42+0000\n"
+"POT-Creation-Date: 2023-11-22 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 16:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -813,7 +813,7 @@ msgstr "Tipo de canal"
 msgid "Belongs To"
 msgstr "Pertenece a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:531
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -837,17 +837,17 @@ msgstr "Unirse a"
 msgid "Custom"
 msgstr "Personalizado"
 
-#: core/model/inputcompletermodel.cpp:27
+#: core/model/inputcompletermodel.cpp:38
 #, kde-format
 msgid "Notify all in this room"
 msgstr "Notificar a todos en esta sala"
 
-#: core/model/inputcompletermodel.cpp:35
+#: core/model/inputcompletermodel.cpp:46
 #, kde-format
 msgid "No result found."
 msgstr "No se encontró ningún resultado."
 
-#: core/model/inputcompletermodel.cpp:44
+#: core/model/inputcompletermodel.cpp:55
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Notificar usuarios activos en esta sala"
@@ -1016,55 +1016,55 @@ msgstr "Autenticación de dos factores"
 msgid "Last token part"
 msgstr "Última parte del símbolo"
 
-#: core/model/roommodel.cpp:442
+#: core/model/roommodel.cpp:453
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala de Equipos"
 
-#: core/model/roommodel.cpp:448
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:450
+#: core/model/roommodel.cpp:461
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de la discusión"
 
-#: core/model/roommodel.cpp:454
+#: core/model/roommodel.cpp:465
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala del canal"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:525
 #, kde-format
 msgid "Unread"
 msgstr "No leído"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:529
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Equipos"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:533
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discusiones"
 
-#: core/model/roommodel.cpp:524
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensajes privados"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:537
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"

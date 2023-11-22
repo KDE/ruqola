@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-21 00:42+0000\n"
+"POT-Creation-Date: 2023-11-22 00:42+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -831,7 +831,7 @@ msgstr "Тип канала"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:520
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:531
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -855,19 +855,19 @@ msgstr "Присоединение"
 msgid "Custom"
 msgstr "Другой"
 
-#: core/model/inputcompletermodel.cpp:27
+#: core/model/inputcompletermodel.cpp:38
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify all in this room"
 msgstr "Пользователя нет в этой комнате"
 
-#: core/model/inputcompletermodel.cpp:35
+#: core/model/inputcompletermodel.cpp:46
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No result found."
 msgstr "Комнат не найдено"
 
-#: core/model/inputcompletermodel.cpp:44
+#: core/model/inputcompletermodel.cpp:55
 #, fuzzy, kde-format
 #| msgid "User is not in this room"
 msgid "Notify active users in this room"
@@ -1042,55 +1042,55 @@ msgstr "Двухфакторная аутентификация"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:442
+#: core/model/roommodel.cpp:453
 #, kde-format
 msgid "Teams Room"
 msgstr "Комната команд"
 
-#: core/model/roommodel.cpp:448
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "Private Room"
 msgstr "Закрытая комната"
 
-#: core/model/roommodel.cpp:450
+#: core/model/roommodel.cpp:461
 #, kde-format
 msgid "Discussion Room"
 msgstr "Переговорная комната"
 
-#: core/model/roommodel.cpp:454
+#: core/model/roommodel.cpp:465
 #, kde-format
 msgid "Channel Room"
 msgstr "Комната канала"
 
-#: core/model/roommodel.cpp:514
+#: core/model/roommodel.cpp:525
 #, kde-format
 msgid "Unread"
 msgstr "Не прочитано"
 
-#: core/model/roommodel.cpp:516
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "Favorites"
 msgstr "Избранное"
 
-#: core/model/roommodel.cpp:518
+#: core/model/roommodel.cpp:529
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Команды"
 
-#: core/model/roommodel.cpp:522
+#: core/model/roommodel.cpp:533
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Обсуждения"
 
-#: core/model/roommodel.cpp:524
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Private Messages"
 msgstr "Личные сообщения"
 
-#: core/model/roommodel.cpp:526
+#: core/model/roommodel.cpp:537
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
