@@ -88,7 +88,7 @@ QVector<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
                 if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
                     ChannelUserCompleter channel;
                     channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
-                    channel.setName(room->displayRoomName());
+                    channel.setName(room->displayFName());
                     channel.setIdentifier(room->roomId());
                     channel.setChannelIcon();
                     channel.setAvatarInfo(room->avatarInfo());
