@@ -5,7 +5,6 @@
 */
 
 #include "inputtextmanager.h"
-#include "connection.h"
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonfilterproxymodel.h"
 #include "ownuser/ownuserpreferences.h"
