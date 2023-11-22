@@ -9,7 +9,7 @@
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 class QJsonObject;
-class ChannelCompleterModel;
+class InputCompleterModel;
 class ChannelCompleterFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public CompletionLineEdit
@@ -30,6 +30,6 @@ private:
     void slotComplete(const QModelIndex &index);
     void slotSearchDone(const QJsonObject &obj);
     ChannelCompleterFilterProxyModel *const mChannelCompleterFilterProxyModel;
-    ChannelCompleterModel *const mChannelCompleterModel;
+    InputCompleterModel *const mChannelCompleterModel;
     RocketChatAccount *const mRocketChatAccount;
 };

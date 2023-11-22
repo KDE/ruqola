@@ -23,6 +23,7 @@ public:
         UserName,
         AvatarInfo,
         OutsideRoom,
+        Identifier,
     };
     Q_ENUM(InputCompleterRoles)
 
@@ -45,6 +46,7 @@ public:
     void setChannels(const QVector<ChannelUserCompleter> &channels);
 
     void parseChannels(const QJsonObject &obj);
+    void parseSearchChannels(const QJsonObject &obj);
 
     void clear();
 

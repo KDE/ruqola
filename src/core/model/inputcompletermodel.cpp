@@ -105,6 +105,25 @@ void InputCompleterModel::setSearchInfo(const SearchInfo &newSearchInfo)
     mSearchInfo = newSearchInfo;
 }
 
+void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
+{
+    QVector<ChannelUserCompleter> channelList;
+    const QJsonArray rooms = obj.value(QLatin1String("items")).toArray();
+    const auto roomsSize(rooms.size());
+    channelList.reserve(roomsSize);
+    for (auto i = 0; i < roomsSize; i++) {
+        const QJsonObject o = rooms.at(i).toObject();
+        ChannelUserCompleter channel;
+        channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
+        // Verify that it's valid
+        channelList.append(std::move(channel));
+    }
+    if (channelList.isEmpty()) {
+        channelList.append(noFoundChannelUser());
+    }
+    setChannels(channelList);
+}
+
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
     QVector<ChannelUserCompleter> channelList;
@@ -189,6 +208,8 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
         return channelUserCompleter.outsideRoom();
     case InputCompleterModel::ChannelType:
         return channelUserCompleter.type();
+    case InputCompleterModel::Identifier:
+        return channelUserCompleter.identifier();
     }
     return {};
 }

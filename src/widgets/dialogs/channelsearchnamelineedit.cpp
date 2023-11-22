@@ -8,7 +8,7 @@
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/channelcompleterfilterproxymodel.h"
-#include "model/channelcompletermodel.h"
+#include "model/inputcompletermodel.h"
 #include "rocketchataccount.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "ruqolawidgets_debug.h"
@@ -17,7 +17,7 @@
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
-    , mChannelCompleterModel(new ChannelCompleterModel(this))
+    , mChannelCompleterModel(new InputCompleterModel(account, this))
     , mRocketChatAccount(account)
 {
     new LineEditCatchReturnKey(this, this);
@@ -52,27 +52,18 @@ void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 
 void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
 {
-    QVector<ChannelUserCompleter> channelList;
-    const QJsonArray rooms = obj.value(QLatin1String("items")).toArray();
-    const auto roomsSize(rooms.size());
-    channelList.reserve(roomsSize);
-    for (auto i = 0; i < roomsSize; i++) {
-        const QJsonObject o = rooms.at(i).toObject();
-        ChannelUserCompleter channel;
-        channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
-        // Verify that it's valid
-        channelList.append(std::move(channel));
-    }
-    mChannelCompleterModel->insertChannels(channelList);
+    mChannelCompleterModel->parseSearchChannels(obj);
+#if 0
     if (channelList.isEmpty()) {
         mCompletionListView->hide();
     }
+#endif
 }
 
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
 {
-    const QString completerName = index.data(ChannelCompleterModel::RoomName).toString();
-    const QString roomId = index.data(ChannelCompleterModel::ChannelId).toString();
+    const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
+    const QString roomId = index.data(InputCompleterModel::Identifier).toString();
     ChannelCompletionInfo info;
     info.channelName = completerName;
     info.channelId = roomId;
