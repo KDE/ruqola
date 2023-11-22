@@ -313,16 +313,6 @@ void Connection::logout()
     }
 }
 
-void Connection::channelList()
-{
-    auto job = new ChannelListJob(this);
-    connect(job, &ChannelListJob::channelListDone, this, &Connection::channelListDone);
-    initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelList job";
-    }
-}
-
 void Connection::getAvatar(const UserBaseJob::UserInfo &info)
 {
     auto job = new GetAvatarJob(this);
@@ -798,31 +788,6 @@ void Connection::addUserInGroup(const QString &roomId, const QString &userId)
     job->setInviteUserId(userId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInGroup job";
-    }
-}
-
-void Connection::searchRoomUser(const QString &pattern)
-{
-    auto job = new SpotlightJob(this);
-    job->setSearchPattern(pattern);
-    initializeRestApiJob(job);
-    connect(job, &SpotlightJob::spotlightDone, this, &Connection::spotlightDone);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchRoomUser job";
-    }
-}
-
-void Connection::searchRooms(const QString &pattern)
-{
-    auto job = new DirectoryJob(this);
-    DirectoryJob::DirectoryInfo info;
-    info.searchType = DirectoryJob::SearchType::Rooms;
-    info.pattern = pattern;
-    job->setDirectoryInfo(info);
-    initializeRestApiJob(job);
-    connect(job, &DirectoryJob::directoryDone, this, &Connection::directoryDone);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchRoomUser job";
     }
 }
 

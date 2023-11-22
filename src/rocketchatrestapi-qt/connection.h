@@ -60,7 +60,6 @@ public:
 
     void login();
     void logout();
-    void channelList();
     void getAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
 
     void serverInfo(bool useDeprecatedVersion);
@@ -91,7 +90,6 @@ public:
     void filesInRoom(const QString &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QString &roomId, const QString &userId);
 
-    void searchRoomUser(const QString &pattern);
     void searchMessages(const QString &roomId, const QString &pattern, bool useRegularExpression = false);
     void markRoomAsRead(const QString &roomId);
     void getRooms();
@@ -208,8 +206,6 @@ Q_SIGNALS:
     void channelFilesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void channelMembersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
-    void spotlightDone(const QJsonObject &obj);
-    void channelListDone(const QJsonObject &obj);
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
@@ -276,7 +272,6 @@ Q_SIGNALS:
     void postMessageDone(const QJsonObject &replyObject);
     void resetAvatarDone();
     void statisticDone(const QJsonObject &replyObject);
-    void directoryDone(const QJsonObject &replyObject);
     void updateMessageFailed(const QString &str);
 
 private:

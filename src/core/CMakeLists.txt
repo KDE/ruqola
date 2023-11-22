@@ -35,8 +35,6 @@ target_sources(libruqolacore PRIVATE
 
     channelcounterinfo.cpp
     channelcounterinfo.h
-    channel.cpp
-    channel.h
     colors.cpp
     colors.h
     commands/command.cpp
@@ -231,8 +229,6 @@ target_sources(libruqolacore PRIVATE
     model/roomlistheadingsproxymodel.h
     model/roommodel.cpp
     model/roommodel.h
-    model/searchchannelmodel.cpp
-    model/searchchannelmodel.h
     model/commonmessagefilterproxymodel.cpp
     model/commonmessagefilterproxymodel.h
     model/commonmessagesmodel.cpp

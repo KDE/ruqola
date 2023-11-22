@@ -31,7 +31,6 @@
 #include "model/listmessagesfilterproxymodel.h"
 #include "model/loginmethodmodel.h"
 #include "model/messagesmodel.h"
-#include "model/searchchannelmodel.h"
 #include "model/statusmodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/usercompleterfilterproxymodel.h"
@@ -106,7 +105,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mUserCompleterModel(new UserCompleterModel(this))
     , mStatusModel(new StatusModel(this))
     , mOtrManager(new OtrManager(this, this))
-    , mSearchChannelModel(new SearchChannelModel(this))
     , mLoginMethodModel(new LoginMethodModel(this))
     , mInputTextManager(new InputTextManager(this, this))
     , mInputThreadMessageTextManager(new InputTextManager(this, this))
@@ -319,11 +317,6 @@ void RocketChatAccount::clearModels()
     mMessageQueue->processQueue();
 }
 
-SearchChannelModel *RocketChatAccount::searchChannelModel() const
-{
-    return mSearchChannelModel;
-}
-
 UserCompleterModel *RocketChatAccount::userCompleterModel() const
 {
     return mUserCompleterModel;
@@ -500,11 +493,8 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         connect(mRestApi, &RocketChatRestApi::Connection::failed, this, &RocketChatAccount::slotJobFailed);
-        connect(mRestApi, &RocketChatRestApi::Connection::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::directoryDone, this, &RocketChatAccount::slotDirectoryDone);
         connect(mRestApi, &RocketChatRestApi::Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::channelListDone, this, &RocketChatAccount::slotChannelListDone);
         connect(mRestApi, &RocketChatRestApi::Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
         connect(mRestApi, &RocketChatRestApi::Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
         connect(mRestApi, &RocketChatRestApi::Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
@@ -783,18 +773,6 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
     mManageChannels->channelJoin(info, joinCode);
 }
 
-void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
-{
-    if (pattern.isEmpty()) {
-        searchChannelModel()->clear();
-    } else {
-        // Use restapi
-        // Avoid to show own user
-        // restApi()->searchRooms(pattern);
-        restApi()->searchRoomUser(pattern);
-    }
-}
-
 void RocketChatAccount::listEmojiCustom()
 {
     auto job = new RocketChatRestApi::LoadEmojiCustomJob(this);
@@ -1056,25 +1034,6 @@ ListMessagesFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() 
 ListMessagesModel *RocketChatAccount::listMessageModel() const
 {
     return mListMessageModel;
-}
-
-void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)
-{
-    qDebug() << "void RocketChatAccount::slotDirectoryDone(const QJsonObject &obj)" << obj;
-    mSearchChannelModel->parseChannels(obj);
-}
-
-void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
-{
-    // qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
-    // If empty ! show empty list
-    mSearchChannelModel->parseChannels(obj);
-}
-
-void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)
-{
-    // qDebug() << " void RocketChatAccount::slotChannelListDone(const QJsonObject &obj)" << obj;
-    mSearchChannelModel->parseAllChannels(obj);
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
