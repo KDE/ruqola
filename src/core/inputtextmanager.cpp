@@ -6,7 +6,6 @@
 
 #include "inputtextmanager.h"
 #include "connection.h"
-#include "misc/directoryjob.h"
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonfilterproxymodel.h"
 #include "ownuser/ownuserpreferences.h"
@@ -130,28 +129,6 @@ void InputTextManager::setCompletionType(InputTextManager::CompletionForType typ
         mCurrentCompletionType = type;
         Q_EMIT completionTypeChanged(type);
     }
-}
-
-void InputTextManager::slotCompletionChannels(const QString &pattern)
-{
-    if (!pattern.isEmpty()) {
-        auto job = new RocketChatRestApi::DirectoryJob(this);
-        RocketChatRestApi::DirectoryJob::DirectoryInfo info;
-        info.pattern = pattern;
-        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
-        job->setDirectoryInfo(info);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &InputTextManager::slotCompletionChannelDone);
-        if (!job->start()) {
-            qCWarning(RUQOLA_COMPLETION_LOG) << "Impossible to start DirectoryJob job";
-        }
-    }
-}
-
-void InputTextManager::slotCompletionChannelDone(const QJsonObject &root)
-{
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    inputTextCompleter(obj);
 }
 
 void InputTextManager::setInputTextChanged(const QString &roomId, const QString &text, int position)
