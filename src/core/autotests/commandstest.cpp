@@ -40,7 +40,7 @@ void CommandsTest::shouldLoadCommands()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
-    r.parseCommands(obj, nullptr); // TODO add support for permissions
+    r.parseCommands(obj);
     QCOMPARE(r.commandsCount(), commandsCount);
 }
 
@@ -50,7 +50,7 @@ void CommandsTest::shouldLoadPermissions()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
-    r.parseCommands(obj, nullptr); // TODO add support for permissions
+    r.parseCommands(obj);
     QCOMPARE(r.commandsCount(), 3);
 
     QVector<Command> result;

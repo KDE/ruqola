@@ -6,7 +6,6 @@
 
 #include "commands.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
-#include "rocketchataccount.h"
 #include "ruqola_commands_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -37,16 +36,16 @@ Command Commands::at(int index) const
     return mCommands.at(index);
 }
 
-void Commands::parseMoreCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
+void Commands::parseMoreCommands(const QJsonObject &commandsObj)
 {
     const int commandsCount = commandsObj[QLatin1String("count")].toInt();
     mOffset = commandsObj[QLatin1String("offset")].toInt();
     mTotal = commandsObj[QLatin1String("total")].toInt();
-    parseListCommands(commandsObj, account);
+    parseListCommands(commandsObj);
     mCommandsCount += commandsCount;
 }
 
-void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
+void Commands::parseListCommands(const QJsonObject &commandsObj)
 {
     const QJsonArray commandsArray = commandsObj[QLatin1String("commands")].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
@@ -66,28 +65,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                     m.setParams(parameters);
                 }
             }
-            if (account) {
-                const QStringList permissionRoles{m.permissions()};
-                // qCDebug(RUQOLA_COMMANDS_LOG) << " permissionRoles " << permissionRoles;
-                bool hasAllPermission = true;
-                for (const QString &role : permissionRoles) {
-                    if (role.isEmpty()) {
-                        hasAllPermission = false;
-                        break;
-                    }
-                    if (!account->hasPermission(role)) {
-                        hasAllPermission = false;
-                        break;
-                    }
-                }
-                if (hasAllPermission) {
-                    mCommands.append(std::move(m));
-                } else {
-                    // qCDebug(RUQOLA_COMMANDS_LOG) << " command not added " << m;
-                }
-            } else {
-                mCommands.append(std::move(m));
-            }
+            mCommands.append(std::move(m));
         } else {
             qCWarning(RUQOLA_COMMANDS_LOG) << "Problem when parsing commands" << current.type();
         }
@@ -124,13 +102,13 @@ void Commands::setCommands(const QVector<Command> &commands)
     mCommands = commands;
 }
 
-void Commands::parseCommands(const QJsonObject &commandsObj, RocketChatAccount *account)
+void Commands::parseCommands(const QJsonObject &commandsObj)
 {
     mCommandsCount = commandsObj[QLatin1String("count")].toInt();
     mOffset = commandsObj[QLatin1String("offset")].toInt();
     mTotal = commandsObj[QLatin1String("total")].toInt();
     mCommands.clear();
-    parseListCommands(commandsObj, account);
+    parseListCommands(commandsObj);
 }
 
 int Commands::offset() const

@@ -10,7 +10,6 @@
 #include "libruqola_private_export.h"
 #include <QDebug>
 #include <QVector>
-class RocketChatAccount;
 class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT Commands
 {
@@ -28,8 +27,8 @@ public:
     [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    void parseCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
-    void parseMoreCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
+    void parseCommands(const QJsonObject &commandsObj);
+    void parseMoreCommands(const QJsonObject &commandsObj);
 
     [[nodiscard]] QVector<Command> commands() const;
     void setCommands(const QVector<Command> &commands);
@@ -41,7 +40,7 @@ public:
     void setDownloadManager(DownloadAppsLanguagesManager *downloadManager);
 
 private:
-    void parseListCommands(const QJsonObject &commandsObj, RocketChatAccount *account);
+    void parseListCommands(const QJsonObject &commandsObj);
     QVector<Command> mCommands;
     int mCommandsCount = 0;
     int mOffset = 0;

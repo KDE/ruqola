@@ -15,7 +15,7 @@ InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mInputCompleterModel(new InputCompleterModel(account, this))
     , mEmoticonFilterProxyModel(new EmoticonFilterProxyModel(this))
-    , mCommandFilterProxyModel(new CommandsModelFilterProxyModel(this))
+    , mCommandFilterProxyModel(new CommandsModelFilterProxyModel(account, this))
     , mRocketChatAccount(account)
 {
 }
@@ -173,6 +173,7 @@ void InputTextManager::setInputTextChanged(const QString &roomId, const QString 
                 setCompletionType(InputTextManager::CompletionForType::Emoji);
             }
         } else if (word.startsWith(QLatin1Char('/')) && position == word.length()) { // "/" must be at beginning of text
+            mCommandFilterProxyModel->setRoomId(roomId);
             mCommandFilterProxyModel->setFilterFixedString(word);
             setCompletionType(InputTextManager::CompletionForType::Command);
         } else {
