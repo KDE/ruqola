@@ -107,26 +107,30 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
     QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(admRoomType, this);
     dlg->setRoomEditInfo(info);
     if (dlg->exec()) {
-        info = dlg->roomEditInfo();
+        AdministratorRoomsEditBaseWidget::RoomEditInfo newInfo = dlg->roomEditInfo();
         const QString roomIdentifier = roomInfo.identifier();
-        const bool archived = info.archived;
-        const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(info, roomType, roomIdentifier);
+        const bool oldArchivedValue = info.archived;
+        const bool newArchivedValue = newInfo.archived;
+        const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(newInfo, roomType, roomIdentifier);
         auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
-        connect(saveRoomSettingsJob, &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone, this, [this, archived](const QString &roomId) {
-            slotSaveRoomSettingsDone(roomId);
-            // TODO add support for un archive it
-            if (archived) {
-                auto changeArchivationStateJob = new RocketChatRestApi::ChangeArchivationStateJob(this);
-                mRocketChatAccount->restApi()->initializeRestApiJob(changeArchivationStateJob);
-                changeArchivationStateJob->setArchive(true);
-                connect(changeArchivationStateJob, &RocketChatRestApi::ChangeArchivationStateJob::changeArchivationStateDone, this, []() {
+        connect(saveRoomSettingsJob,
+                &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone,
+                this,
+                [this, oldArchivedValue, newArchivedValue](const QString &roomId) {
+                    slotSaveRoomSettingsDone(roomId);
+                    // TODO add support for un archive it
+                    if (newArchivedValue != oldArchivedValue) {
+                        auto changeArchivationStateJob = new RocketChatRestApi::ChangeArchivationStateJob(this);
+                        mRocketChatAccount->restApi()->initializeRestApiJob(changeArchivationStateJob);
+                        changeArchivationStateJob->setArchive(newArchivedValue);
+                        connect(changeArchivationStateJob, &RocketChatRestApi::ChangeArchivationStateJob::changeArchivationStateDone, this, []() {
 
+                        });
+                        if (!changeArchivationStateJob->start()) {
+                            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start changeArchivationStateJob";
+                        }
+                    }
                 });
-                if (!changeArchivationStateJob->start()) {
-                    qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start changeArchivationStateJob";
-                }
-            }
-        });
         saveRoomSettingsJob->setSaveRoomSettingsInfo(saveInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
         if (!saveRoomSettingsJob->start()) {
