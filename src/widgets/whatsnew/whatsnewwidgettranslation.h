@@ -53,5 +53,6 @@ static const KLazyLocalizedString ruqolaBugfixing2_1[] = {
     kli18n("Fix mem leak"),
     kli18n("Cache message size (optimization)"),
     kli18n("Improve select room or user in message line edit (show icon, inform if user is in channel)"),
+    kli18n("Fix show commands in message line edit (Hide action when room doesn't support it)."),
 };
 static const int numRuqolaBugfixing2_1 = sizeof ruqolaBugfixing2_1 / sizeof *ruqolaBugfixing2_1;
