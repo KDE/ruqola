@@ -729,6 +729,7 @@
       <li xml:lang="nl">Videoconferentie</li>
       <li xml:lang="pl">Wideokonferencja</li>
       <li xml:lang="pt">Vídeo-Conferência</li>
+      <li xml:lang="ru">Видеоконференция</li>
       <li xml:lang="sl">Video konferenca</li>
       <li xml:lang="sv">Videokonferens</li>
       <li xml:lang="tr">Video Konferans</li>
@@ -926,6 +927,7 @@
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
       <li xml:lang="pl">Zarządzanie osobistym tokenem dostępowym</li>
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
+      <li xml:lang="ru">Управление личным маркером доступа</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
       <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
@@ -948,6 +950,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
       <li xml:lang="pl">Dodanie obsługi dla miejscowych tłumaczeń</li>
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
+      <li xml:lang="ru">Добавление поддержки локального перевода</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
       <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
       <li xml:lang="tr">Yerel çeviri desteği</li>
@@ -970,6 +973,7 @@
       <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
       <li xml:lang="pl">Dodanie obsługi poprawiania tekstu</li>
       <li xml:lang="pt">Adição do suporte para a correcção automática do texto</li>
+      <li xml:lang="ru">Добавление поддержки автоматического исправления текста</li>
       <li xml:lang="sl">Dodaj podporo za samodejno popravljanje besedila</li>
       <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
       <li xml:lang="tr">Metin otomatik düzeltme için destek ekle</li>
