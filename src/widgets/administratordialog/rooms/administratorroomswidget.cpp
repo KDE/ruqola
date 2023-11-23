@@ -163,7 +163,7 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
     if (roomType == Room::RoomType::Direct) {
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Featured;
         roomSettingsInfo.featured = info.featured;
-        //        mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
+        // mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
         // TODO
     } else {
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomName;
@@ -176,6 +176,8 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
         roomSettingsInfo.roomDescription = info.description;
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomTopic;
         roomSettingsInfo.roomTopic = info.topic;
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::DefaultValue;
+        roomSettingsInfo.defaultValue = info.defaultRoom;
     }
     return roomSettingsInfo;
 }

@@ -129,9 +129,14 @@ QJsonDocument SaveRoomSettingsJob::json() const
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomDescription) {
         jsonObj[QLatin1String("roomDescription")] = mSaveRoomSettingsInfo.roomDescription;
     }
+    QJsonObject jsonObjFavorite;
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::Favorite) {
-        jsonObj[QLatin1String("favorite")] = mSaveRoomSettingsInfo.favorite;
+        jsonObjFavorite[QLatin1String("favorite")] = mSaveRoomSettingsInfo.favorite;
     }
+    if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::DefaultValue) {
+        jsonObjFavorite[QLatin1String("defaultValue")] = mSaveRoomSettingsInfo.defaultValue;
+    }
+    jsonObj[QLatin1String("favorite")] = jsonObjFavorite;
     if (mSaveRoomSettingsInfo.mSettingsWillBeChanged & SaveRoomSettingsInfo::RoomType) {
         jsonObj[QLatin1String("roomType")] = mSaveRoomSettingsInfo.roomType;
     }
