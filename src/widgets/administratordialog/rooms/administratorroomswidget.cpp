@@ -118,7 +118,6 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
                 this,
                 [this, oldArchivedValue, newArchivedValue](const QString &roomId) {
                     slotSaveRoomSettingsDone(roomId);
-                    // TODO add support for un archive it
                     if (newArchivedValue != oldArchivedValue) {
                         auto changeArchivationStateJob = new RocketChatRestApi::ChangeArchivationStateJob(this);
                         mRocketChatAccount->restApi()->initializeRestApiJob(changeArchivationStateJob);
