@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:42+0000\n"
+"POT-Creation-Date: 2023-11-23 00:42+0000\n"
 "PO-Revision-Date: 2023-11-11 20:23+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -147,7 +147,7 @@ msgstr "Optimisation, prise en charge des corrections sous Windows / MacOS"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/accountmanager.cpp:63
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Impossible de trouver le serveur : %1"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2807
+#: core/rocketchataccount.cpp:2765
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2808
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -3697,7 +3697,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid "Video Conference"
 msgstr "Vidéo conférence"
@@ -8399,18 +8399,18 @@ msgstr "Réponse dans le fil de discussions"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Répondre dans le fil de discussion pour le message : « %1 »"
 
-#: widgets/room/roomwidget.cpp:277
+#: widgets/room/roomwidget.cpp:276
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
-#: widgets/room/roomwidget.cpp:278
+#: widgets/room/roomwidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Supprimer l'historique"
 
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

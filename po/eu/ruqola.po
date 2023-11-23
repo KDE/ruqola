@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:42+0000\n"
+"POT-Creation-Date: 2023-11-23 00:42+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -151,7 +151,7 @@ msgstr "Optimizazioa, Windows/Mac euskarria konpontzea"
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
-#: core/accountmanager.cpp:63
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Zerbitzaria ez da aurkitu: %1"
@@ -1348,12 +1348,12 @@ msgstr "<strong>%1</strong> tekleatzen ari da..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> idaten ari dira..."
 
-#: core/rocketchataccount.cpp:2807
+#: core/rocketchataccount.cpp:2765
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:2808
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -3687,7 +3687,7 @@ msgid "Password"
 msgstr "Pasahitza"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid "Video Conference"
 msgstr "Bideo-konferentzia"
@@ -8233,19 +8233,19 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:277
+#: widgets/room/roomwidget.cpp:276
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:278
+#: widgets/room/roomwidget.cpp:277
 #, fuzzy, kde-format
 #| msgid "Remove User"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Kendu erabiltzailea"
 
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

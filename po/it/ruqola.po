@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:42+0000\n"
+"POT-Creation-Date: 2023-11-23 00:42+0000\n"
 "PO-Revision-Date: 2023-11-12 10:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "Ottimizzazione, correzione supporto windows/mac"
 msgid "The following accounts are available:"
 msgstr "Sono disponibili i seguenti account:"
 
-#: core/accountmanager.cpp:63
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Server non trovato: %1"
@@ -1340,12 +1340,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2807
+#: core/rocketchataccount.cpp:2765
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2808
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -3682,7 +3682,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferenza"
@@ -8357,18 +8357,18 @@ msgstr "Rispondi in una discussione"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Risposta alla discussione per messaggio: «%1»"
 
-#: widgets/room/roomwidget.cpp:277
+#: widgets/room/roomwidget.cpp:276
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vuoi davvero rimuovere la cronologia?"
 
-#: widgets/room/roomwidget.cpp:278
+#: widgets/room/roomwidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

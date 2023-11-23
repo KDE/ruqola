@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:42+0000\n"
+"POT-Creation-Date: 2023-11-23 00:42+0000\n"
 "PO-Revision-Date: 2023-11-10 05:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "ოპტიმიზაცია, Windows/Mac-ის მხარდა
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/accountmanager.cpp:63
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "სერვერი ვერ ვიპოვე: %1"
@@ -1339,12 +1339,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2807
+#: core/rocketchataccount.cpp:2765
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2808
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -3663,7 +3663,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid "Video Conference"
 msgstr "ვიდეო კონფერენცია"
@@ -8196,18 +8196,18 @@ msgstr "ნაკადში პასუხი"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "ნაკადში პასუხი შეტყობინებაზე: '%1'"
 
-#: widgets/room/roomwidget.cpp:277
+#: widgets/room/roomwidget.cpp:276
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "მართლა გნებავთ ისტორიის წაშლა?"
 
-#: widgets/room/roomwidget.cpp:278
+#: widgets/room/roomwidget.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "ისტორიის წაშლა"
 
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

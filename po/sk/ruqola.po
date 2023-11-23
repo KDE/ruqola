@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 00:42+0000\n"
+"POT-Creation-Date: 2023-11-23 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/accountmanager.cpp:63
+#: core/accountmanager.cpp:62
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server not found: %1"
@@ -1419,13 +1419,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2807
+#: core/rocketchataccount.cpp:2765
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2808
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3853,7 +3853,7 @@ msgid "Password"
 msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -8657,19 +8657,19 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Správa"
 
-#: widgets/room/roomwidget.cpp:277
+#: widgets/room/roomwidget.cpp:276
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:278
+#: widgets/room/roomwidget.cpp:277
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrániť účet"
 
-#: widgets/room/roomwidget.cpp:470
+#: widgets/room/roomwidget.cpp:469
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
