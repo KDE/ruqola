@@ -25,6 +25,7 @@ QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo
     d << "privateRoom " << t.privateRoom;
     d << "archived " << t.archived;
     d << "userOwnerName " << t.userOwnerName;
+    d << "favorite " << t.favorite;
     return d;
 }
 
