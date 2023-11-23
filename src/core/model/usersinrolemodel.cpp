@@ -97,7 +97,8 @@ QVariant UsersInRoleModel::headerData(int section, Qt::Orientation orientation, 
 int UsersInRoleModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(UsersInRoleModel::LastColumn) + 1;
+    constexpr int val = static_cast<int>(UsersInRoleModel::LastColumn) + 1;
+    return val;
 }
 
 int UsersInRoleModel::total() const

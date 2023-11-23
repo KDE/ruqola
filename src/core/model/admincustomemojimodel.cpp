@@ -46,7 +46,8 @@ QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientat
 int AdminCustomEmojiModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(CustomEmojiRoles::LastColumn) + 1;
+    constexpr int val = static_cast<int>(CustomEmojiRoles::LastColumn) + 1;
+    return val;
 }
 
 QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const

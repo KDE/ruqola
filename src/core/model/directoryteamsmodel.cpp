@@ -105,7 +105,8 @@ QVariant DirectoryTeamsModel::headerData(int section, Qt::Orientation orientatio
 int DirectoryTeamsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(DirectoryTeamsModel::LastColumn) + 1;
+    constexpr int val = static_cast<int>(DirectoryTeamsModel::LastColumn) + 1;
+    return val;
 }
 
 int DirectoryTeamsModel::total() const

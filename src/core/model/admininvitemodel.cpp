@@ -49,7 +49,8 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
 int AdminInviteModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(AdminInviteModel::LastColumn) + 1;
+    constexpr int val = static_cast<int>(AdminInviteModel::LastColumn) + 1;
+    return val;
 }
 
 const QVector<InviteInfo> &AdminInviteModel::adminInvites() const

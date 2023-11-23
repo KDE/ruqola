@@ -50,7 +50,8 @@ QVariant DeviceInfoModel::headerData(int section, Qt::Orientation orientation, i
 int DeviceInfoModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(DeviceInfoRoles::LastColumn) + 1;
+    constexpr int val = static_cast<int>(DeviceInfoRoles::LastColumn) + 1;
+    return val;
 }
 
 QVariant DeviceInfoModel::data(const QModelIndex &index, int role) const

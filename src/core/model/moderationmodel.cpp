@@ -50,7 +50,8 @@ QVariant ModerationModel::headerData(int section, Qt::Orientation orientation, i
 int ModerationModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(ModerationInfoRoles::LastColumn) + 1;
+    constexpr int val = static_cast<int>(ModerationInfoRoles::LastColumn) + 1;
+    return val;
 }
 
 QVariant ModerationModel::data(const QModelIndex &index, int role) const

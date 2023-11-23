@@ -54,7 +54,8 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
 int AdminRoomsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(AdminRoomsRoles::LastColumn) + 1;
+    constexpr int val = static_cast<int>(AdminRoomsRoles::LastColumn) + 1;
+    return val;
 }
 
 QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
