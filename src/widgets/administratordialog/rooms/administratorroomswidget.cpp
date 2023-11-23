@@ -160,6 +160,7 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
     roomSettingsInfo.roomId = roomIdentifier;
     roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
     roomSettingsInfo.favorite = info.favorite;
+    roomSettingsInfo.roomType = Room::roomFromRoomType(roomType);
     if (roomType == Room::RoomType::Direct) {
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Featured;
         roomSettingsInfo.featured = info.featured;
