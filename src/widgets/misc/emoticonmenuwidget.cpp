@@ -5,6 +5,7 @@
 */
 
 #include "emoticonmenuwidget.h"
+#include "config-ruqola.h"
 #include "customemojiiconmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -20,9 +21,18 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     const QSize popupMenuSize = QSize(400, 250);
     setFixedSize(popupMenuSize);
     TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiIconManager(Ruqola::self()->customEmojiIconManager());
+    loadExcludeEmoticons();
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget() = default;
+
+void EmoticonMenuWidget::loadExcludeEmoticons()
+{
+#if HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT
+    const QStringList lst = QStringList({QStringLiteral(":saluting_face:")});
+    TextEmoticonsCore::EmojiModelManager::self()->setExcludeEmoticons(lst);
+#endif
+}
 
 void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {

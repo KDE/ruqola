@@ -139,6 +139,16 @@ set_package_properties(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PROPERTIES DESC
     TYPE OPTIONAL
 )
 
+if (${KF${KF_MAJOR_VERSION}TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
+    set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
+else()
+    if (${KF${KF_MAJOR_VERSION}TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.3)
+        if (${KF${KF_MAJOR_VERSION}TextEmoticonsWidgets_VERSION} VERSION_LESS_EQUAL 1.5.30)
+            set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
+        endif()
+    endif()
+endif()
+
 find_package(KF${KF_MAJOR_VERSION}TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF${KF_MAJOR_VERSION}TextUtils PROPERTIES DESCRIPTION
     "Add utils text functions (ktextaddons)"
