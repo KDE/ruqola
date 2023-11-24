@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-23 00:42+0000\n"
+"POT-Creation-Date: 2023-11-24 00:42+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -625,12 +625,12 @@ msgstr "Ezkerra erabiltzen du"
 msgid "Expiration"
 msgstr "Iraungitze-data"
 
-#: core/model/admininvitemodel.cpp:114
+#: core/model/admininvitemodel.cpp:115
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "%1 egun barru iraungitzen da"
 
-#: core/model/admininvitemodel.cpp:116
+#: core/model/admininvitemodel.cpp:117
 #, kde-format
 msgid "Expired"
 msgstr "Iraungita"
@@ -650,7 +650,7 @@ msgstr "Bezeroaren sekretua"
 msgid "Redirect Url"
 msgstr "Birbideratu URLa"
 
-#: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
+#: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:161
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
 #: widgets/administratordialog/users/administratoruserswidget.cpp:253
@@ -736,7 +736,7 @@ msgstr "E-posta"
 msgid "Role"
 msgstr "Rola"
 
-#: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
+#: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:161
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
 #, kde-format
 msgid "Disabled"
@@ -2424,7 +2424,7 @@ msgstr "Gehitu..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #: widgets/configuredialog/configureaccountserverwidget.ui:46
 #, kde-format
@@ -2439,7 +2439,7 @@ msgstr "Aldatu..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:118
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
@@ -2507,7 +2507,7 @@ msgid "Presence"
 msgstr ""
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:116
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:188
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "\"%1\" kendu nahi duzu?"
@@ -2993,17 +2993,17 @@ msgstr "Iragarpena:"
 msgid "Public"
 msgstr "Publikoa"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:40
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
 #, kde-format
 msgid "Search rooms"
 msgstr "Bilatu gelak"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:74
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:76
 #, kde-format
 msgid "No room found"
 msgstr "Ez da gelarik aurkitu"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:79
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
 #: widgets/directory/directorywidget.cpp:180
 #, kde-format
 msgid "%1 room (Total: %2)"
@@ -3011,7 +3011,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "Gela %1 (Guztira: %2)"
 msgstr[1] "%1 gela (Guztira: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:189
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:212
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -8986,6 +8986,12 @@ msgstr "zure mezua (hautazkoa)"
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+msgid ""
+"Fix show commands in message line edit (Hide action when room doesn't "
+"support it)."
 msgstr ""
 
 #~ msgid "Share"

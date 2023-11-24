@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-23 00:42+0000\n"
+"POT-Creation-Date: 2023-11-24 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -648,13 +648,13 @@ msgstr ""
 msgid "Expiration"
 msgstr "Aegumine (päevades)"
 
-#: core/model/admininvitemodel.cpp:114
+#: core/model/admininvitemodel.cpp:115
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Expire in %1 days"
 msgstr "Aegumine (päevades)"
 
-#: core/model/admininvitemodel.cpp:116
+#: core/model/admininvitemodel.cpp:117
 #, kde-format
 msgid "Expired"
 msgstr ""
@@ -675,7 +675,7 @@ msgstr ""
 msgid "Redirect Url"
 msgstr "Serveri URL:"
 
-#: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
+#: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:161
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
 #: widgets/administratordialog/users/administratoruserswidget.cpp:253
@@ -770,7 +770,7 @@ msgstr "E-post"
 msgid "Role"
 msgstr ""
 
-#: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
+#: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:161
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
 #, kde-format
 msgid "Disabled"
@@ -2548,7 +2548,7 @@ msgstr "Lisa ..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
 #: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #: widgets/configuredialog/configureaccountserverwidget.ui:46
 #, kde-format
@@ -2563,7 +2563,7 @@ msgstr "Muuda ..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:118
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:42
@@ -2641,7 +2641,7 @@ msgid "Presence"
 msgstr ""
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:116
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:188
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:211
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want to remove \"%1\"?"
@@ -3161,19 +3161,19 @@ msgstr "Teadaanne:"
 msgid "Public"
 msgstr ""
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:40
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Search Rooms"
 msgid "Search rooms"
 msgstr "Toa otsimine"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:74
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "No Mention found"
 msgid "No room found"
 msgstr "Ühtegi mainimist ei leitud"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:79
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:81
 #: widgets/directory/directorywidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
@@ -3183,7 +3183,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:189
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:212
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"
@@ -9543,6 +9543,12 @@ msgstr ""
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+msgid ""
+"Fix show commands in message line edit (Hide action when room doesn't "
+"support it)."
 msgstr ""
 
 #, fuzzy
