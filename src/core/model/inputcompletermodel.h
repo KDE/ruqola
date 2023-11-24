@@ -7,10 +7,10 @@
 #pragma once
 
 #include "channelusercompleter.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT InputCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
