@@ -48,7 +48,7 @@ void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const
             menu.addSeparator();
             auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
             copyAction->setShortcut(QKeySequence::Copy);
-            connect(copyAction, &QAction::triggered, this, [=]() {
+            connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
             });
             menu.addAction(copyAction);
@@ -59,7 +59,7 @@ void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const
 #if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
             auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
-            connect(speakAction, &QAction::triggered, this, [=]() {
+            connect(speakAction, &QAction::triggered, this, [this, index]() {
                 slotTextToSpeech(index);
             });
 #endif

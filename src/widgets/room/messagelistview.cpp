@@ -273,7 +273,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
-    connect(copyAction, &QAction::triggered, this, [=]() {
+    connect(copyAction, &QAction::triggered, this, [this, index]() {
         copyMessageToClipboard(index);
     });
     QAction *setPinnedMessage = nullptr;
@@ -296,38 +296,38 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     QAction *deleteAction = nullptr;
     if (index.data(MessagesModel::CanDeleteMessage).toBool()) {
         deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
-        connect(deleteAction, &QAction::triggered, this, [=]() {
+        connect(deleteAction, &QAction::triggered, this, [this, index]() {
             slotDeleteMessage(index);
         });
     }
 
     auto selectAllAction = new QAction(i18n("Select All"), &menu);
-    connect(selectAllAction, &QAction::triggered, this, [=]() {
+    connect(selectAllAction, &QAction::triggered, this, [this, index]() {
         slotSelectAll(index);
     });
 
     auto markMessageAsUnReadAction = new QAction(i18n("Mark Message As Unread"), &menu);
-    connect(markMessageAsUnReadAction, &QAction::triggered, this, [=]() {
+    connect(markMessageAsUnReadAction, &QAction::triggered, this, [this, index]() {
         slotMarkMessageAsUnread(index);
     });
 
     auto showFullThreadAction = new QAction(i18n("Show Full Thread"), &menu);
-    connect(showFullThreadAction, &QAction::triggered, this, [=]() {
+    connect(showFullThreadAction, &QAction::triggered, this, [this, index]() {
         slotShowFullThread(index);
     });
 
     auto editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
-    connect(editAction, &QAction::triggered, this, [=]() {
+    connect(editAction, &QAction::triggered, this, [this, index]() {
         slotEditMessage(index);
     });
 
     auto quoteAction = new QAction(QIcon::fromTheme(QStringLiteral("format-text-blockquote")), i18n("Quote"), &menu);
-    connect(quoteAction, &QAction::triggered, this, [=]() {
+    connect(quoteAction, &QAction::triggered, this, [this, index]() {
         slotQuoteMessage(index);
     });
 
     auto copyLinkToMessageAction = new QAction(i18n("Copy Link To Message"), &menu); // TODO add icon
-    connect(copyLinkToMessageAction, &QAction::triggered, this, [=]() {
+    connect(copyLinkToMessageAction, &QAction::triggered, this, [this, index]() {
         slotCopyLinkToMessage(index);
     });
 
@@ -341,7 +341,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         new QAction(messageIsFollowing ? QIcon::fromTheme(QStringLiteral("notifications-disabled")) : QIcon::fromTheme(QStringLiteral("notifications")),
                     messageIsFollowing ? i18n("Unfollow Message") : i18n("Follow Message"),
                     &menu);
-    connect(followingToMessageAction, &QAction::triggered, this, [=]() {
+    connect(followingToMessageAction, &QAction::triggered, this, [this, index, messageIsFollowing]() {
         slotFollowMessage(index, messageIsFollowing);
     });
 
@@ -400,14 +400,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     switch (mMode) {
     case Mode::Editing: {
         auto startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
-        connect(startDiscussion, &QAction::triggered, this, [=]() {
+        connect(startDiscussion, &QAction::triggered, this, [this, index]() {
             slotStartDiscussion(index);
         });
         menu.addAction(startDiscussion);
         menu.addSeparator();
         if (mCurrentRocketChatAccount->threadsEnabled()) {
             auto replyInThreadAction = new QAction(i18n("Reply in Thread"), &menu);
-            connect(replyInThreadAction, &QAction::triggered, this, [=]() {
+            connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
                 slotReplyInThread(index);
             });
             menu.addAction(replyInThreadAction);
@@ -467,7 +467,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             createSeparator(menu);
             const bool isTranslated = message->showTranslatedMessage();
             auto translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
-            connect(translateAction, &QAction::triggered, this, [=]() {
+            connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
                 slotTranslateMessage(index, !isTranslated);
             });
             menu.addAction(translateAction);
@@ -576,7 +576,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #endif
         menu.addSeparator();
         auto goToMessageAction = new QAction(i18n("Go to Message"), &menu); // Add icon
-        connect(goToMessageAction, &QAction::triggered, this, [=]() {
+        connect(goToMessageAction, &QAction::triggered, this, [this, index, message]() {
             const QString messageId = message->messageId();
             const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
             Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
@@ -593,7 +593,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #if HAVE_TEXT_TO_SPEECH
     createSeparator(menu);
     auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
-    connect(speakAction, &QAction::triggered, this, [=]() {
+    connect(speakAction, &QAction::triggered, this, [this, index]() {
         slotTextToSpeech(index);
     });
 #endif
@@ -601,7 +601,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (mMode != Mode::Moderation && isNotOwnerOfMessage) {
         createSeparator(menu);
         auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
-        connect(reportMessageAction, &QAction::triggered, this, [=]() {
+        connect(reportMessageAction, &QAction::triggered, this, [this, index]() {
             slotReportMessage(index);
         });
         menu.addAction(reportMessageAction);
@@ -628,14 +628,14 @@ void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
     createSeparator(menu);
     if (index.isValid()) {
         auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
-        connect(debugMessageAction, &QAction::triggered, this, [=]() {
+        connect(debugMessageAction, &QAction::triggered, this, [this, index]() {
             slotDebugMessage(index);
         });
         menu.addAction(debugMessageAction);
         createSeparator(menu);
     }
     auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu); // Don't translate it.
-    connect(debugRoomAction, &QAction::triggered, this, [=]() {
+    connect(debugRoomAction, &QAction::triggered, this, [this]() {
         // Dump info about room => don't use qCDebug here.
         qDebug() << " mRoom " << *mRoom;
     });

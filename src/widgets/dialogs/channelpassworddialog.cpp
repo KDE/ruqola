@@ -29,7 +29,7 @@ ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    connect(mChannelPasswordWidget, &ChannelPasswordWidget::updateOkButton, this, [=](bool state) {
+    connect(mChannelPasswordWidget, &ChannelPasswordWidget::updateOkButton, this, [okButton](bool state) {
         okButton->setEnabled(state);
     });
 }

@@ -54,7 +54,7 @@ void BannerInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addSeparator();
             auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Text"), &menu);
             copyAction->setShortcut(QKeySequence::Copy);
-            connect(copyAction, &QAction::triggered, this, [=]() {
+            connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
             });
             menu.addAction(copyAction);

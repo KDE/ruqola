@@ -116,7 +116,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     const bool isUnRead = index.data(RoomModel::RoomAlert).toBool();
     const QString actionMarkAsText = isUnRead ? i18n("Mark As Read") : i18n("Mark As Unread");
     auto markAsChannel = new QAction(actionMarkAsText, &menu);
-    connect(markAsChannel, &QAction::triggered, this, [=]() {
+    connect(markAsChannel, &QAction::triggered, this, [this, index, isUnRead]() {
         if (index.isValid()) {
             slotMarkAsChannel(index, isUnRead);
         }
@@ -126,7 +126,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     const bool isFavorite = index.data(RoomModel::RoomFavorite).toBool();
     const QString actionFavoriteText = isFavorite ? i18n("Unset as Favorite") : i18n("Set as Favorite");
     auto favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
-    connect(favoriteAction, &QAction::triggered, this, [=]() {
+    connect(favoriteAction, &QAction::triggered, this, [this, index, isFavorite]() {
         if (index.isValid()) {
             slotChangeFavorite(index, isFavorite);
         }
@@ -134,7 +134,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(favoriteAction);
 
     auto hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
-    connect(hideChannel, &QAction::triggered, this, [=]() {
+    connect(hideChannel, &QAction::triggered, this, [this, index, roomType]() {
         if (index.isValid()) {
             slotHideChannel(index, roomType);
         }
@@ -151,7 +151,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     if (mainTeamId.isEmpty() && room->hasPermission(QStringLiteral("convert-team"))) {
                         menu.addSeparator();
                         auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
-                        connect(convertToTeam, &QAction::triggered, this, [=]() {
+                        connect(convertToTeam, &QAction::triggered, this, [this, index, roomType]() {
                             if (index.isValid()) {
                                 slotConvertToTeam(index, roomType);
                             }
@@ -162,7 +162,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     if (room->hasPermission(QStringLiteral("convert-team"))) {
                         menu.addSeparator();
                         auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
-                        connect(convertToChanne, &QAction::triggered, this, [=]() {
+                        connect(convertToChanne, &QAction::triggered, this, [this, index]() {
                             if (index.isValid()) {
                                 slotConvertToChannel(index);
                             }
@@ -174,7 +174,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 if (mainTeamId.isEmpty() && !mainTeam && room->hasPermission(QStringLiteral("add-team-channel"))) {
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
-                    connect(moveToTeam, &QAction::triggered, this, [=]() {
+                    connect(moveToTeam, &QAction::triggered, this, [this, index]() {
                         if (index.isValid()) {
                             slotMoveToTeam(index);
                         }
@@ -191,14 +191,14 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             auto configureNotificationChannel =
                 new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), &menu);
-            connect(configureNotificationChannel, &QAction::triggered, this, [=]() {
+            connect(configureNotificationChannel, &QAction::triggered, this, [this, room]() {
                 slotConfigureNotification(room);
             });
             menu.addAction(configureNotificationChannel);
         }
         menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
-        connect(quitChannel, &QAction::triggered, this, [=]() {
+        connect(quitChannel, &QAction::triggered, this, [this, index, roomType]() {
             if (index.isValid()) {
                 slotLeaveChannel(index, roomType);
             }

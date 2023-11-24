@@ -161,11 +161,11 @@ void AccountsOverviewWidget::updateButtons()
             mTabBar->setTabIcon(i, icon);
         };
         connect(account, &RocketChatAccount::accountNameChanged, this, updateTabText);
-        connect(account, &RocketChatAccount::loginStatusChanged, this, [=]() {
+        connect(account, &RocketChatAccount::loginStatusChanged, this, [updateTabText, updateTabToolTip]() {
             updateTabText();
             updateTabToolTip();
         });
-        connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [=]() {
+        connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [updateTabText, updateTabIcon]() {
             updateTabText();
             updateTabIcon();
         });

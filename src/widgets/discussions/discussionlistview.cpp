@@ -66,7 +66,7 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
 #if HAVE_TEXT_TO_SPEECH
         menu.addSeparator();
         auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
-        connect(speakAction, &QAction::triggered, this, [=]() {
+        connect(speakAction, &QAction::triggered, this, [index, this]() {
             slotTextToSpeech(index);
         });
 #endif

@@ -55,7 +55,7 @@ void VideoConferenceMessageInfoManager::updateVideoConferenceInfo(const QString 
     auto conferenceInfoJob = new RocketChatRestApi::VideoConferenceInfoJob(this);
     conferenceInfoJob->setCallId(callId);
     mRocketChatAccount->restApi()->initializeRestApiJob(conferenceInfoJob);
-    connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [=](const QJsonObject &videoConfObj) {
+    connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [this](const QJsonObject &videoConfObj) {
         VideoConferenceInfo info;
         info.parse(videoConfObj);
         UpdateVideoConferenceMessageJob *job = new UpdateVideoConferenceMessageJob(this);
