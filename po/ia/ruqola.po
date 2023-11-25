@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-24 00:42+0000\n"
+"POT-Creation-Date: 2023-11-25 00:42+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -739,7 +739,7 @@ msgstr "Dishabilitate"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:528
+#: widgets/ruqolamainwindow.cpp:523
 #, kde-format
 msgid "Status"
 msgstr "Stato"
@@ -1427,7 +1427,7 @@ msgstr "Mancante information de traductor. Il es un bug"
 msgid "User"
 msgstr "Usator"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:483
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "Administrator"
 msgstr "Administrator"
@@ -2499,7 +2499,7 @@ msgstr "Modifica stato de usator"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:535
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:530
 #, kde-format
 msgid "Status:"
 msgstr "Stato:"
@@ -3658,7 +3658,7 @@ msgstr "Cryptation"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:999
+#: widgets/ruqolamainwindow.cpp:994
 #, kde-format
 msgid "Message"
 msgstr "Message"
@@ -8449,179 +8449,179 @@ msgstr "Accesso falleva: Usator non es activate"
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Accesso falleva: Usator de app non es permittite a acceder."
 
-#: widgets/ruqolamainwindow.cpp:215 widgets/ruqolamainwindow.cpp:217
+#: widgets/ruqolamainwindow.cpp:210 widgets/ruqolamainwindow.cpp:212
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Monsta nove notificationes"
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:384
 #, kde-format
 msgid "Add Server..."
 msgstr "Adde Servitor..."
 
-#: widgets/ruqolamainwindow.cpp:394
+#: widgets/ruqolamainwindow.cpp:389
 #, kde-format
 msgid "Server Info..."
 msgstr "Info de servitor..."
 
-#: widgets/ruqolamainwindow.cpp:398
+#: widgets/ruqolamainwindow.cpp:393
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Claude session de servitor currente"
 
-#: widgets/ruqolamainwindow.cpp:402
+#: widgets/ruqolamainwindow.cpp:397
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Salta a proxime canal non legite"
 
-#: widgets/ruqolamainwindow.cpp:407
+#: widgets/ruqolamainwindow.cpp:402
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Crea Nove Canal..."
 
-#: widgets/ruqolamainwindow.cpp:411
+#: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Crea message directe..."
 
-#: widgets/ruqolamainwindow.cpp:415
+#: widgets/ruqolamainwindow.cpp:410
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Crea discussion..."
 
-#: widgets/ruqolamainwindow.cpp:419
+#: widgets/ruqolamainwindow.cpp:414
 #, kde-format
 msgid "Create Team..."
 msgstr "Crea equipa..."
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:422
 #, kde-format
 msgid "Unread on Top"
 msgstr "Non legite in alto"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:430
 #, kde-format
 msgid "By Last Message"
 msgstr "Per Ultime message"
 
-#: widgets/ruqolamainwindow.cpp:441
+#: widgets/ruqolamainwindow.cpp:436
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alphabeticamente"
 
-#: widgets/ruqolamainwindow.cpp:447
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Monstra registro de canal"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:446
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Monstra errores de servitor"
 
-#: widgets/ruqolamainwindow.cpp:470
+#: widgets/ruqolamainwindow.cpp:465
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Marca omnes canales como legite"
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:470
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registra un nove usator..."
 
-#: widgets/ruqolamainwindow.cpp:479
+#: widgets/ruqolamainwindow.cpp:474
 #, kde-format
 msgid "My Account..."
 msgstr "Mi conto ..."
 
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:479
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrator..."
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:485
 #, kde-format
 msgid "Server Settings..."
 msgstr "Preferentias de servitor..."
 
-#: widgets/ruqolamainwindow.cpp:495
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Directorio..."
 
-#: widgets/ruqolamainwindow.cpp:516
+#: widgets/ruqolamainwindow.cpp:511
 #, kde-format
 msgid "&Next Server"
 msgstr "Pro&xime Servitor"
 
-#: widgets/ruqolamainwindow.cpp:521
+#: widgets/ruqolamainwindow.cpp:516
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Previe Servitor"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:547
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Previe Canale seligite"
 
-#: widgets/ruqolamainwindow.cpp:559
+#: widgets/ruqolamainwindow.cpp:554
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Proxime Canale seligite"
 
-#: widgets/ruqolamainwindow.cpp:593
+#: widgets/ruqolamainwindow.cpp:588
 #, kde-format
 msgid "Show Notify History"
 msgstr "Monsta chronologia de  notificationes"
 
-#: widgets/ruqolamainwindow.cpp:597
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Monstra Information de RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:596
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Monstra avatar de sala"
 
-#: widgets/ruqolamainwindow.cpp:606
+#: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Monstra Sala Favorite"
 
-#: widgets/ruqolamainwindow.cpp:611
+#: widgets/ruqolamainwindow.cpp:606
 #, kde-format
 msgid "What's new"
 msgstr "Que es de novo"
 
-#: widgets/ruqolamainwindow.cpp:615
+#: widgets/ruqolamainwindow.cpp:610
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importa Contos"
 
-#: widgets/ruqolamainwindow.cpp:619
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exporta Contos"
 
-#: widgets/ruqolamainwindow.cpp:651
+#: widgets/ruqolamainwindow.cpp:646
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea equipa"
 
-#: widgets/ruqolamainwindow.cpp:806
+#: widgets/ruqolamainwindow.cpp:801
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:806
+#: widgets/ruqolamainwindow.cpp:801
 #, kde-format
 msgid "Show Log"
 msgstr "Monstra registro"
 
-#: widgets/ruqolamainwindow.cpp:868
+#: widgets/ruqolamainwindow.cpp:863
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8631,18 +8631,18 @@ msgstr ""
 "Si tu non recipe in breve un e-posta, pro favor tu retorna e essaya "
 "novemente."
 
-#: widgets/ruqolamainwindow.cpp:869
+#: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Register New User"
 msgstr "Registra nove usator"
 
-#: widgets/ruqolamainwindow.cpp:927
+#: widgets/ruqolamainwindow.cpp:922
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1026
+#: widgets/ruqolamainwindow.cpp:1021
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8651,7 +8651,7 @@ msgstr ""
 "<qt>Isto celera completemente le barra de menu. Tu pote monstrar lo de nove "
 "per typar %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1024
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Cela barra de menu"
