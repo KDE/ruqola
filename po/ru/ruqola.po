@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 02:38+0000\n"
-"PO-Revision-Date: 2023-11-23 17:21+0300\n"
+"PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -3849,6 +3849,17 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Использовать эти входные данные JSON для создания внутренних атрибутов "
+"(ключ) из внешних атрибутов (значение).\n"
+"Имена внешних атрибутов, которые взяты в «%», будет обработаны до строк "
+"значений.<br/>Пример: {\"email\":\"%email%\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"Карта атрибутов обрабатывается всегда. В CAS 1.0 доступным является только "
+"атрибут имени пользователя. Доступные внутренние атрибуты: username, name, "
+"email, rooms;\n"
+"rooms — разделённый запятыми список комнат, к которым следует присоединиться "
+"после создания пользователя. Пример: {\"rooms\": \"%team%,%department%\"} — "
+"после создания присоединить пользователей CAS к комнатам их команды и отдела."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
 #, kde-format
@@ -4770,6 +4781,14 @@ msgid ""
 "between user and messages: This option will assign all messages and files of "
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
+"Определить, что делать с сообщениями пользователей, которые удалили свою "
+"учётную запись. «Сохранить сообщения и имя пользователя»: журнал сообщений и "
+"файлов пользователя будет удалён из личных сообщений, но останется в других "
+"комнатах. «Удалить все сообщения»: все сообщения и файлы будут удалены из "
+"базы данных, поиск данных этого пользователя станет невозможным. «Удалить "
+"связь между пользователем и сообщениями»: при выборе этого варианта все "
+"сообщения и файлы пользователя будут связаны с ботом Rocket.Chat, а личные "
+"сообщения будут удалены."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
@@ -5294,16 +5313,14 @@ msgid "Limit by Connection"
 msgstr "Ограничить по соединению"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Limit by User"
+#, kde-format
 msgid "Limit by User per Method"
-msgstr "Ограничить по пользователю"
+msgstr "Ограничить по пользователю на метод"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Limit by Connection"
+#, kde-format
 msgid "Limit by Connection per Method"
-msgstr "Ограничить по соединению"
+msgstr "Ограничить по соединению на метод"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format
@@ -6088,11 +6105,9 @@ msgid "Remove Account"
 msgstr "Удаление учётной записи"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Custom Sound"
+#, kde-format
 msgid "Remove logs stored on disk"
-msgstr "Удаление нестандартного звука"
+msgstr "Удалить записи журнала, хранящиеся на диске"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -7936,10 +7951,9 @@ msgid "Save Sound"
 msgstr "Сохранить звук"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
-#, fuzzy, kde-format
-#| msgid "Join At"
+#, kde-format
 msgid "Join"
-msgstr "Присоединение"
+msgstr "Присоединиться"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, kde-format
