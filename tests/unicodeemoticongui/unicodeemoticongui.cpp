@@ -41,9 +41,15 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     mWidgetInfo = new UnicodeEmoticonInfo(this);
     hboxLayout->addWidget(mWidgetInfo);
 
-    auto save = new QPushButton(QStringLiteral("Save"), this);
-    mainLayout->addWidget(save);
+    auto buttonLayout = new QHBoxLayout;
+    mainLayout->addLayout(buttonLayout);
+    auto save = new QPushButton(QStringLiteral("Save..."), this);
+    buttonLayout->addWidget(save);
     connect(save, &QPushButton::clicked, this, &UnicodeEmoticonGui::save);
+
+    auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers..."), this);
+    buttonLayout->addWidget(exportIdentifier);
+    connect(exportIdentifier, &QPushButton::clicked, this, &UnicodeEmoticonGui::slotExportIdentifier);
 
     connect(mListWidget, &QListWidget::itemClicked, this, &UnicodeEmoticonGui::slotItemChanged);
     connect(mListWidget, &QListWidget::itemSelectionChanged, this, &UnicodeEmoticonGui::slotItemSelectionChanged);
@@ -90,6 +96,11 @@ void UnicodeEmoticonGui::save()
     QJsonDocument doc;
     QJsonObject o;
     doc.setObject(o);
+    // TODO
+}
+
+void UnicodeEmoticonGui::slotExportIdentifier()
+{
     // TODO
 }
 
