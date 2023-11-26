@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 02:38+0000\n"
-"PO-Revision-Date: 2023-10-07 18:30+0200\n"
+"PO-Revision-Date: 2023-11-25 17:24+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -8869,19 +8869,19 @@ msgstr "¿Que hay de nuevo en Ruqola?. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:18
 msgid "Store Message in Local Database (experimental)"
-msgstr "Almacenar mensaje en base de datos local (experimental)"
+msgstr "Almacenaje de mensajes en base de datos local (experimental)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Download Server Icon from Server"
-msgstr "Descargar icono de servidor desde el servidor"
+msgstr "Descarga del icono de servidor desde el servidor"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr "Mostrar información de error del servidor en un diálogo específico"
+msgstr "Muestra de información de error del servidor en un diálogo específico"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Permitir copiar imagen al portapapeles"
+msgstr "Permite copiar imagen al portapapeles"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
@@ -8894,7 +8894,7 @@ msgstr "Soporte añadido para texto citado (texto que comienza por «>»)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:32
 msgid "Show leader/moderator/owner in channel info."
-msgstr "Mostrar líder/moderador/propietario en la información del canal."
+msgstr "Muestra del líder/moderador/propietario en la información del canal."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:33
 msgid "Video/Sound Message support (kf6 only)."
@@ -8902,7 +8902,7 @@ msgstr "Soporte para mensajes de audio/vídeo (solo en kf6)."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:34
 msgid "Import/Export Accounts."
-msgstr "Importar/Exportar cuentas."
+msgstr "Importación/Exportación de cuentas."
 
 #: widgets/whatsnew/whatsnewwidget.cpp:40
 msgid "Fix avatar support"
