@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-25 00:42+0000\n"
-"PO-Revision-Date: 2023-11-10 16:57+0100\n"
+"PO-Revision-Date: 2023-11-25 17:24+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -9035,19 +9035,19 @@ msgstr "Algunas correcciones de errores:"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:14
 msgid "Store Message in Local Database (experimental)"
-msgstr "Almacenar mensaje en base de datos local (experimental)"
+msgstr "Almacenaje de mensajes en base de datos local (experimental)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:23
 msgid "Download Server Icon from Server"
-msgstr "Descargar icono de servidor desde el servidor"
+msgstr "Descarga del icono de servidor desde el servidor"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:24
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr "Mostrar información de error del servidor en un diálogo específico"
+msgstr "Muestra de información de error del servidor en un diálogo específico"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:25
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Permitir copiar imagen al portapapeles"
+msgstr "Permite copiar imagen al portapapeles"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:26
 msgid "Improve debug support (Allow to show current account permissions)"
@@ -9060,7 +9060,7 @@ msgstr "Soporte añadido para texto citado (texto que comienza por «>»)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:28
 msgid "Show leader/moderator/owner in channel info."
-msgstr "Mostrar líder/moderador/propietario en la información del canal."
+msgstr "Muestra del líder/moderador/propietario en la información del canal."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:29
 msgid "Video/Sound Message support (kf6 only)."
@@ -9068,7 +9068,7 @@ msgstr "Soporte para mensajes de audio/vídeo (solo en kf6)."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:30
 msgid "Import/Export Accounts."
-msgstr "Importar/Exportar cuentas."
+msgstr "Importación/Exportación de cuentas."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
@@ -9108,11 +9108,13 @@ msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
-"Mejorar selección de sala o usuario en edición en línea del mensaje (mostrar "
-"icono, informar si el usuario se encuentra en el canal)"
+"Mejora en la selección de sala o usuario en edición en línea del mensaje "
+"(muestra icono, informa si el usuario se encuentra en el canal)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:56
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
+"Mejora en las órdenes de muestra en la edición de mensajes en línea "
+"(Ocultación de la acción cuando la sala no la admite)."
