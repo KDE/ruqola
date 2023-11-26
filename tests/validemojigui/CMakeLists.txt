@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 
-# add_executable(validemojigui)
-# target_sources(validemojigui PRIVATE validemojigui.cpp validemojigui.h ../../src/core/ruqolacore.qrc)
+add_executable(validemoticongui)
+target_sources(validemoticongui PRIVATE validemoticongui.cpp validemoticongui.h)
 
-# target_link_libraries(validemojigui
-#     Qt::Widgets
-#     KF${KF_MAJOR_VERSION}::ItemViews
-#     libruqolacore
-#     KF${KF_MAJOR_VERSION}::TextEmoticonsCore
-# )
-# set_target_properties(validemojigui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+target_link_libraries(validemoticongui
+    Qt::Widgets
+    KF${KF_MAJOR_VERSION}::ItemViews
+    libruqolacore
+    KF${KF_MAJOR_VERSION}::TextEmoticonsCore
+)
+set_target_properties(validemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

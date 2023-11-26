@@ -38,40 +38,20 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     mainComponentLayout->addWidget(mListWidget);
     hboxLayout->addLayout(mainComponentLayout);
 
-    mWidgetInfo = new UnicodeEmoticonInfo(this);
-    hboxLayout->addWidget(mWidgetInfo);
+    // auto buttonLayout = new QHBoxLayout;
+    // mainLayout->addLayout(buttonLayout);
+    // auto save = new QPushButton(QStringLiteral("Save..."), this);
+    // buttonLayout->addWidget(save);
+    // connect(save, &QPushButton::clicked, this, &ValidEmoticonGui::save);
 
-    auto buttonLayout = new QHBoxLayout;
-    mainLayout->addLayout(buttonLayout);
-    auto save = new QPushButton(QStringLiteral("Save..."), this);
-    buttonLayout->addWidget(save);
-    connect(save, &QPushButton::clicked, this, &ValidEmoticonGui::save);
+    // auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers..."), this);
+    // buttonLayout->addWidget(exportIdentifier);
+    // connect(exportIdentifier, &QPushButton::clicked, this, &ValidEmoticonGui::slotExportIdentifier);
 
-    auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers..."), this);
-    buttonLayout->addWidget(exportIdentifier);
-    connect(exportIdentifier, &QPushButton::clicked, this, &ValidEmoticonGui::slotExportIdentifier);
-
-    connect(mListWidget, &QListWidget::itemClicked, this, &ValidEmoticonGui::slotItemChanged);
-    connect(mListWidget, &QListWidget::itemSelectionChanged, this, &ValidEmoticonGui::slotItemSelectionChanged);
     load();
 }
 
 ValidEmoticonGui::~ValidEmoticonGui() = default;
-
-void ValidEmoticonGui::slotItemSelectionChanged()
-{
-    QListWidgetItem *item = mListWidget->currentItem();
-    slotItemChanged(item);
-}
-
-void ValidEmoticonGui::slotItemChanged(QListWidgetItem *item)
-{
-    if (item) {
-        auto itemResult = static_cast<UnicodeEmoticonListWidgetItem *>(item);
-        TextEmoticonsCore::UnicodeEmoticon info = itemResult->info();
-        mWidgetInfo->setInfo(info);
-    }
-}
 
 void ValidEmoticonGui::load()
 {
@@ -91,63 +71,6 @@ void ValidEmoticonGui::load()
     }
 }
 
-void ValidEmoticonGui::save()
-{
-    QJsonDocument doc;
-    QJsonObject o;
-    doc.setObject(o);
-    // TODO
-}
-
-void ValidEmoticonGui::slotExportIdentifier()
-{
-    // TODO
-}
-
-int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-    QStandardPaths::setTestModeEnabled(true);
-
-    ValidEmoticonGui w;
-    w.show();
-    return app.exec();
-}
-
-UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
-    : QWidget(parent)
-{
-    auto mainLayout = new QFormLayout(this);
-    mainLayout->setContentsMargins({});
-    mIdentifier = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("identifier:"), mIdentifier);
-    mUnicode = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("unicode:"), mUnicode);
-    mAliases = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("aliases:"), mAliases);
-    mCategory = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("category:"), mCategory);
-    mOrder = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("order:"), mOrder);
-}
-
-UnicodeEmoticonInfo::~UnicodeEmoticonInfo() = default;
-
-TextEmoticonsCore::UnicodeEmoticon UnicodeEmoticonInfo::info() const
-{
-    return mInfo;
-}
-
-void UnicodeEmoticonInfo::setInfo(const TextEmoticonsCore::UnicodeEmoticon &info)
-{
-    mIdentifier->setText(info.identifier());
-    mUnicode->setText(info.unicode());
-    mAliases->setText(info.aliases().join(QLatin1Char(',')));
-    mCategory->setText(info.category());
-    mOrder->setText(QString::number(info.order()));
-    mInfo = info;
-}
-
 UnicodeEmoticonListWidgetItem::UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent)
     : QListWidgetItem(str, parent)
 {
@@ -163,4 +86,12 @@ void UnicodeEmoticonListWidgetItem::setInfo(const TextEmoticonsCore::UnicodeEmot
     mInfo = info;
 }
 
-#include "moc_unicodeemoticongui.cpp"
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    QStandardPaths::setTestModeEnabled(true);
+
+    ValidEmoticonGui w;
+    w.show();
+    return app.exec();
+}

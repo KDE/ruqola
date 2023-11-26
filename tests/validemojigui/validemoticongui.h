@@ -12,24 +12,6 @@
 
 class QLineEdit;
 class KListWidgetSearchLine;
-class UnicodeEmoticonInfo : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit UnicodeEmoticonInfo(QWidget *parent = nullptr);
-    ~UnicodeEmoticonInfo() override;
-
-    [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon info() const;
-    void setInfo(const TextEmoticonsCore::UnicodeEmoticon &info);
-
-private:
-    QLineEdit *mIdentifier = nullptr;
-    QLineEdit *mUnicode = nullptr;
-    QLineEdit *mAliases = nullptr;
-    QLineEdit *mCategory = nullptr;
-    QLineEdit *mOrder = nullptr;
-    TextEmoticonsCore::UnicodeEmoticon mInfo;
-};
 
 class UnicodeEmoticonListWidgetItem : public QListWidgetItem
 {
@@ -52,12 +34,7 @@ public:
     ~ValidEmoticonGui() override;
 
 private:
-    void save();
     void load();
-    void slotItemChanged(QListWidgetItem *item);
-    void slotItemSelectionChanged();
-    void slotExportIdentifier();
     QListWidget *mListWidget = nullptr;
-    UnicodeEmoticonInfo *mWidgetInfo = nullptr;
     KListWidgetSearchLine *mSearchEmoticon = nullptr;
 };
