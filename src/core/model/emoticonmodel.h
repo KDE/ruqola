@@ -39,10 +39,6 @@ public:
     [[nodiscard]] const QVector<CustomEmoji> &customEmojiList() const;
     void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
 
-    void deleteEmojiCustom(const QStringList &lst);
-
-    void addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList);
-
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon createCustomIcon(const QString &name) const;
     Q_DISABLE_COPY(EmoticonModel)

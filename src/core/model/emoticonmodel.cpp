@@ -142,14 +142,4 @@ void EmoticonModel::setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmoj
     endResetModel();
 }
 
-void EmoticonModel::deleteEmojiCustom(const QStringList &lst)
-{
-    // TODO
-}
-
-void EmoticonModel::addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList)
-{
-    // TODO
-}
-
 #include "moc_emoticonmodel.cpp"
