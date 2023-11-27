@@ -10,6 +10,7 @@
 #include <KUrlRequester>
 
 #include <QApplication>
+#include <QDebug>
 #include <QFile>
 #include <QHBoxLayout>
 #include <QJsonDocument>
@@ -19,6 +20,7 @@
 #include <QListWidget>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QVBoxLayout>
 #include <TextEmoticonsCore/UnicodeEmoticonParser>
@@ -52,6 +54,7 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     hboxLayoutUrlRequester->addWidget(label);
 
     auto urlRequester = new KUrlRequester(this);
+    urlRequester->setPlaceholderText(QStringLiteral("<foo>/packages/livechat/src/components/Emoji/emojis.ts"));
     hboxLayoutUrlRequester->addWidget(urlRequester);
 
     auto plainTextEdit = new QPlainTextEdit(this);
@@ -70,10 +73,24 @@ ValidEmoticonGui::~ValidEmoticonGui() = default;
 
 QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QStringList &identifiers) const
 {
-    // TODO parse file
-
-    // TODO generate exclude emoticons list
-    return {};
+    QFile file(url.toLocalFile());
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return {};
+    }
+    QString result;
+    QTextStream in(&file);
+    while (!file.atEnd()) {
+        const QString line = in.readLine();
+        static QRegularExpression regular{QStringLiteral("':(.*):':")};
+        QRegularExpressionMatch match;
+        if (line.contains(regular, &match)) {
+            const QString captured = match.captured(1);
+            if (!identifiers.contains(captured)) {
+                result.append(QStringLiteral("QStringLiteral(\"%1\")").arg(captured));
+            }
+        }
+    }
+    return result;
 }
 
 QStringList ValidEmoticonGui::load()
