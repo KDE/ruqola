@@ -20,7 +20,4 @@ public:
 
 protected:
     QSize sizeHint() const override;
-
-private:
-    void loadExcludeEmoticons();
 };

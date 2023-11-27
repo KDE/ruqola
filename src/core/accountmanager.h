@@ -70,6 +70,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loadAccount();
     LIBRUQOLACORE_NO_EXPORT void connectToAccount(RocketChatAccount *account);
     LIBRUQOLACORE_NO_EXPORT void slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
+    LIBRUQOLACORE_NO_EXPORT void loadExcludeEmoticons();
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
