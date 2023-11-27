@@ -62,7 +62,6 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     vboxLayout->addWidget(plainTextEdit);
 
     const QStringList identifiers = load();
-    qDebug() << " identifier " << identifiers;
     connect(urlRequester, &KUrlRequester::urlSelected, this, [this, plainTextEdit, identifiers](const QUrl &url) {
         if (url.isValid()) {
             plainTextEdit->setPlainText(generateExcludeEmoticon(url, identifiers));
@@ -80,9 +79,8 @@ QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QString
     }
     QStringList resultRocketChatEmoticons;
     QTextStream in(&file);
-    while (!file.atEnd()) {
+    while (!in.atEnd()) {
         const QString line = in.readLine();
-        qDebug() << " line " << line;
         static QRegularExpression regular{QStringLiteral("':(.*):':")};
         QRegularExpressionMatch match;
         if (line.contains(regular, &match)) {
@@ -91,12 +89,8 @@ QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QString
         }
     }
     QString result;
-    qDebug() << " resultRocketChatEmoticons " << resultRocketChatEmoticons;
     for (const auto &emoticons : identifiers) {
-        qDebug() << "BEFORE emoticons " << emoticons;
-
         if (!resultRocketChatEmoticons.contains(emoticons)) {
-            qDebug() << "emoticons  " << emoticons;
             result.append(QStringLiteral("QStringLiteral(\"%1\")\n").arg(emoticons));
         }
     }
