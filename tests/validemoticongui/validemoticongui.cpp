@@ -91,7 +91,7 @@ QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QString
     QString result;
     for (const auto &emoticons : identifiers) {
         if (!resultRocketChatEmoticons.contains(emoticons)) {
-            result.append(QStringLiteral("{QStringLiteral(\"%1\")},\n").arg(emoticons));
+            result.append(QStringLiteral("QStringLiteral(\"%1\"),\n").arg(emoticons));
         }
     }
 
