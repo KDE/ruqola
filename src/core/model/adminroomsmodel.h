@@ -52,7 +52,6 @@ public:
     void updateElement(const QJsonObject &obj) override;
 
 private:
-    Q_DISABLE_COPY(AdminRoomsModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     RoomsInfo mAdminRooms;
 };

@@ -59,7 +59,6 @@ public:
     [[nodiscard]] QVector<PluginAuthentication *> pluginsList() const;
 
 private:
-    Q_DISABLE_COPY(AuthenticationManager)
     LIBRUQOLACORE_NO_EXPORT void initializePluginList();
     LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
     LIBRUQOLACORE_NO_EXPORT PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);

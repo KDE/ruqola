@@ -47,7 +47,6 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    Q_DISABLE_COPY(CustomBaseModel)
     bool mLoadMoreInProgress = false;
     bool mHasFullList = false;
 };

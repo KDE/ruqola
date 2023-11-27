@@ -41,7 +41,6 @@ public:
     void loadCache();
 
 private:
-    Q_DISABLE_COPY(MessageQueue)
     void onLoginStatusChanged();
     RocketChatAccount *const mRocketChatAccount;
 };

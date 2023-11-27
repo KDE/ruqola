@@ -38,7 +38,6 @@ public:
     [[nodiscard]] QVector<RoleInfo> roles() const;
 
 private:
-    Q_DISABLE_COPY(AdminRolesModel)
     LIBRUQOLACORE_NO_EXPORT void clear();
     QVector<RoleInfo> mListRoleInfos;
 };

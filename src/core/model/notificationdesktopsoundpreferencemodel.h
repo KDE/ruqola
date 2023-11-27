@@ -38,7 +38,6 @@ Q_SIGNALS:
     void currentNotificationPreferenceChanged();
 
 private:
-    Q_DISABLE_COPY(NotificationDesktopSoundPreferenceModel)
     LIBRUQOLACORE_NO_EXPORT void fillModel();
     QVector<NotificationDesktopSoundPreferenceInfo> mNotificationDestktopSoundPreferenceList;
     int mCurrentPreference = 0;

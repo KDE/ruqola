@@ -64,7 +64,6 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    Q_DISABLE_COPY(FilesForRoomModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QString mRoomId;
     bool mHasFullList = false;

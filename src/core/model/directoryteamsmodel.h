@@ -41,7 +41,6 @@ protected:
     [[nodiscard]] QList<int> hideColumns() const override;
 
 private:
-    Q_DISABLE_COPY(DirectoryTeamsModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     RoomsInfo mRoomsInfo;
 };

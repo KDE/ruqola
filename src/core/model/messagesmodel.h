@@ -144,7 +144,6 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
-    Q_DISABLE_COPY(MessagesModel)
     /**
      * @brief Adds a message to the model
      *

@@ -62,8 +62,6 @@ Q_SIGNALS:
     void messageUrlNotFound(const QString &str);
 
 private:
-    Q_DISABLE_COPY(AccountManager)
-
     LIBRUQOLACORE_NO_EXPORT void removeDatabaseAccount(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void removeDirectory(const QString &directory);
     LIBRUQOLACORE_NO_EXPORT void removeLogs(const QString &accountName);

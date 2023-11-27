@@ -38,7 +38,6 @@ Q_SIGNALS:
     void currentNotificationPreferenceChanged();
 
 private:
-    Q_DISABLE_COPY(NotificationDesktopDurationPreferenceModel)
     LIBRUQOLACORE_NO_EXPORT void fillModel();
     QVector<NotificationDesktopDurationPreferenceInfo> mNotificationDestktopDurationPreferenceList;
     int mCurrentPreference = 0;

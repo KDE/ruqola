@@ -47,6 +47,5 @@ Q_SIGNALS:
     void accountNumberChanged();
 
 private:
-    Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;
 };

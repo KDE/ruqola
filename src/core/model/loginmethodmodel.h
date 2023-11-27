@@ -40,7 +40,6 @@ Q_SIGNALS:
     void currentLoginMethodChanged();
 
 private:
-    Q_DISABLE_COPY(LoginMethodModel)
     QVector<AuthenticationInfo> mAuthentications;
     int mCurrentLoginMethod = 0;
 };

@@ -121,7 +121,6 @@ Q_SIGNALS:
     void roomRemoved(const QString &roomId);
 
 private:
-    Q_DISABLE_COPY(RoomModel)
     LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;

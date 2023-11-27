@@ -21,7 +21,6 @@ Q_SIGNALS:
     void informTypingStatus(const QString &room, bool typing);
 
 private:
-    Q_DISABLE_COPY(TypingNotification)
     void slotTimeout();
     QString mRoomId;
     bool mTypingInprogress = false;

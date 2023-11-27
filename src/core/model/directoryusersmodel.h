@@ -46,7 +46,4 @@ protected:
     Users mUsers;
     QVector<RoleInfo> mRoleInfo;
     void checkFullList() override;
-
-private:
-    Q_DISABLE_COPY(DirectoryUsersModel)
 };

@@ -56,7 +56,6 @@ public:
     void setSearchInfo(const SearchInfo &newSearchInfo);
 
 private:
-    Q_DISABLE_COPY(InputCompleterModel)
     [[nodiscard]] static ChannelUserCompleter createHereChannel();
     [[nodiscard]] static ChannelUserCompleter createAllChannel();
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();

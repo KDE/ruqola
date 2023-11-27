@@ -34,6 +34,5 @@ public:
     void setPermissions(const Permissions &newPermissions);
 
 private:
-    Q_DISABLE_COPY(PermissionsModel)
     Permissions mPermissions;
 };

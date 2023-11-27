@@ -31,7 +31,6 @@ protected:
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    Q_DISABLE_COPY(User2FAEnableEmailJob)
     void slotEnabledEmail();
 };
 }

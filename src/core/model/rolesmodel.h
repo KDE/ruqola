@@ -31,7 +31,6 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &identifier);
 
-    Q_DISABLE_COPY(RolesModel)
     QStringList mRolesSelected;
     void fillRoleSelected();
 };

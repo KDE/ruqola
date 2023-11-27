@@ -51,7 +51,6 @@ Q_SIGNALS:
     void customEmojiChanged(bool fetchListCustom);
 
 private:
-    Q_DISABLE_COPY(EmojiManager)
     LIBRUQOLACORE_NO_EXPORT void clearCustomEmojiCachedHtml();
     // Use identifier in a QMap ???
     QVector<CustomEmoji> mCustomEmojiList;

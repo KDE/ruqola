@@ -46,7 +46,6 @@ protected:
     void removeElement(const QString &identifier) override;
 
 private:
-    Q_DISABLE_COPY(AdminCustomEmojiModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     LIBRUQOLACORE_NO_EXPORT void clear();
     CustomEmojisInfo mCustomEmojiList;

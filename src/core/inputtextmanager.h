@@ -57,8 +57,6 @@ Q_SIGNALS:
     void selectFirstTextCompleter();
 
 private:
-    Q_DISABLE_COPY(InputTextManager)
-
     LIBRUQOLACORE_NO_EXPORT void setCompletionType(CompletionForType type);
 
     InputCompleterModel *const mInputCompleterModel;

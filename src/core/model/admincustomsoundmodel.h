@@ -40,7 +40,6 @@ public:
     void removeElement(const QString &identifier) override;
 
 private:
-    Q_DISABLE_COPY(AdminCustomSoundModel)
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     LIBRUQOLACORE_NO_EXPORT void clear();
     CustomSoundsInfo mCustomSounds;

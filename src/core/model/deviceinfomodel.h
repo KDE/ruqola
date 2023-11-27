@@ -46,7 +46,6 @@ public:
     void setDeviceInfos(const DeviceInfos &newDeviceInfos);
 
 private:
-    Q_DISABLE_COPY(DeviceInfoModel)
     LIBRUQOLACORE_NO_EXPORT void clear();
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     DeviceInfos mDeviceInfos;

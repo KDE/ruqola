@@ -41,7 +41,6 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon createCustomIcon(const QString &name) const;
-    Q_DISABLE_COPY(EmoticonModel)
     QList<TextEmoticonsCore::UnicodeEmoticon> mEmoticons;
     QVector<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons

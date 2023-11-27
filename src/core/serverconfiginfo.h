@@ -23,6 +23,5 @@ public:
     [[nodiscard]] QString faviconUrl() const;
 
 private:
-    Q_DISABLE_COPY(ServerConfigInfo)
     RocketChatAccount *const mAccount;
 };
