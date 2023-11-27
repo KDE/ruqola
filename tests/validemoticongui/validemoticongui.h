@@ -34,7 +34,8 @@ public:
     ~ValidEmoticonGui() override;
 
 private:
-    void load();
+    [[nodiscard]] QStringList load();
+    [[nodiscard]] QString generateExcludeEmoticon(const QUrl &url, const QStringList &identifiers) const;
     QListWidget *mListWidget = nullptr;
     KListWidgetSearchLine *mSearchEmoticon = nullptr;
 };

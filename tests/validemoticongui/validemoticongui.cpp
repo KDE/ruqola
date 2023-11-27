@@ -58,27 +58,44 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     plainTextEdit->setReadOnly(true);
     vboxLayout->addWidget(plainTextEdit);
 
-    load();
+    const QStringList identifiers = load();
+    connect(urlRequester, &KUrlRequester::urlSelected, this, [this, plainTextEdit, identifiers](const QUrl &url) {
+        if (url.isValid()) {
+            plainTextEdit->setPlainText(generateExcludeEmoticon(url, identifiers));
+        }
+    });
 }
 
 ValidEmoticonGui::~ValidEmoticonGui() = default;
 
-void ValidEmoticonGui::load()
+QString ValidEmoticonGui::generateExcludeEmoticon(const QUrl &url, const QStringList &identifiers) const
+{
+    // TODO parse file
+
+    // TODO generate exclude emoticons list
+    return {};
+}
+
+QStringList ValidEmoticonGui::load()
 {
     TextEmoticonsCore::UnicodeEmoticonParser unicodeParser;
     QFile file(QStringLiteral(":/emoji.json"));
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "Impossible to open file: " << file.errorString();
-        return;
+        return {};
     }
     const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
 
+    QStringList lst;
     const QJsonObject obj = doc.object();
     const QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
     for (const TextEmoticonsCore::UnicodeEmoticon &emoticon : unicodeEmojiList) {
-        auto item = new UnicodeEmoticonListWidgetItem(emoticon.identifier(), mListWidget);
+        const auto identifier = emoticon.identifier();
+        auto item = new UnicodeEmoticonListWidgetItem(identifier, mListWidget);
         item->setInfo(emoticon);
+        lst << identifier;
     }
+    return lst;
 }
 
 UnicodeEmoticonListWidgetItem::UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent)
