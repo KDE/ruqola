@@ -9,7 +9,6 @@
 #include <KListWidgetSearchLine>
 #include <QApplication>
 #include <QFile>
-#include <QFormLayout>
 #include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,6 +36,10 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     mainComponentLayout->addWidget(mSearchEmoticon);
     mainComponentLayout->addWidget(mListWidget);
     hboxLayout->addLayout(mainComponentLayout);
+
+    auto vboxLayout = new QVBoxLayout;
+    vboxLayout->setContentsMargins({});
+    mainLayout->addLayout(vboxLayout);
 
     // auto buttonLayout = new QHBoxLayout;
     // mainLayout->addLayout(buttonLayout);
