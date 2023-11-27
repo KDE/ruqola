@@ -10,5 +10,6 @@ target_link_libraries(validemoticongui
     KF${KF_MAJOR_VERSION}::ItemViews
     libruqolacore
     KF${KF_MAJOR_VERSION}::TextEmoticonsCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
 )
 set_target_properties(validemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

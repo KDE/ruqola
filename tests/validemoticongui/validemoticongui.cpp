@@ -7,13 +7,17 @@
 #include "validemoticongui.h"
 
 #include <KListWidgetSearchLine>
+#include <KUrlRequester>
+
 #include <QApplication>
 #include <QFile>
 #include <QHBoxLayout>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLabel>
 #include <QLineEdit>
 #include <QListWidget>
+#include <QPlainTextEdit>
 #include <QPushButton>
 #include <QStandardPaths>
 #include <QVBoxLayout>
@@ -41,15 +45,18 @@ ValidEmoticonGui::ValidEmoticonGui(QWidget *parent)
     vboxLayout->setContentsMargins({});
     mainLayout->addLayout(vboxLayout);
 
-    // auto buttonLayout = new QHBoxLayout;
-    // mainLayout->addLayout(buttonLayout);
-    // auto save = new QPushButton(QStringLiteral("Save..."), this);
-    // buttonLayout->addWidget(save);
-    // connect(save, &QPushButton::clicked, this, &ValidEmoticonGui::save);
+    auto hboxLayoutUrlRequester = new QHBoxLayout;
+    vboxLayout->addLayout(hboxLayoutUrlRequester);
 
-    // auto exportIdentifier = new QPushButton(QStringLiteral("Export identifiers..."), this);
-    // buttonLayout->addWidget(exportIdentifier);
-    // connect(exportIdentifier, &QPushButton::clicked, this, &ValidEmoticonGui::slotExportIdentifier);
+    auto label = new QLabel(QStringLiteral("Path emoji RocketChat:"), this);
+    hboxLayoutUrlRequester->addWidget(label);
+
+    auto urlRequester = new KUrlRequester(this);
+    hboxLayoutUrlRequester->addWidget(urlRequester);
+
+    auto plainTextEdit = new QPlainTextEdit(this);
+    plainTextEdit->setReadOnly(true);
+    vboxLayout->addWidget(plainTextEdit);
 
     load();
 }
