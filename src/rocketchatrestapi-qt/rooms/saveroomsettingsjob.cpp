@@ -61,6 +61,14 @@ QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject 
 {
     if (str == QLatin1String("error-invalid-room-name")) {
         return i18n("\'%1\' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
+    } else if (str == QLatin1String("error-action-not-allowed")) {
+        const QString detailActionStr = detail[QStringLiteral("action")].toString();
+        // qDebug() << " detailActionStr " << detailActionStr;
+        if (detailActionStr == QLatin1String("Change_Room_Encrypted")) {
+            return i18n("Only groups or direct channels can enable encryption");
+        } else if (detailActionStr == QLatin1String("Editing_room")) {
+            return i18n("Room does not have retention policy");
+        }
     }
     return RestApiAbstractJob::errorMessage(str, detail);
 }
