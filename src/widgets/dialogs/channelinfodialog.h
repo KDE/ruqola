@@ -17,9 +17,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ChannelInfoDialog(Room *room, RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoDialog() override;
-    void setRoom(Room *room);
 
     [[nodiscard]] RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 

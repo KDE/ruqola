@@ -20,10 +20,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ChannelInfoWidget(Room *room, RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoWidget() override;
-
-    void setRoom(Room *room);
 
     void updateUiFromPermission();
 
@@ -34,6 +32,7 @@ Q_SIGNALS:
     void roomNameValid(bool valid);
 
 private:
+    void setRoom(Room *room);
     QStackedWidget *const mStackedWidget;
     QPointer<Room> mRoom;
     ChannelInfoEditableWidget *const mChannelInfoEditableWidget;

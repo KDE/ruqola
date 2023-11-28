@@ -24,9 +24,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoEditableWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoEditableWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit ChannelInfoEditableWidget(Room *room, RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoEditableWidget() override;
-    void setRoom(Room *room);
     [[nodiscard]] RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
 
     void updateEditableChannelInfo();

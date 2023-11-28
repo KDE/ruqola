@@ -16,10 +16,10 @@
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
-ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
+ChannelInfoWidget::ChannelInfoWidget(Room *room, RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
-    , mChannelInfoEditableWidget(new ChannelInfoEditableWidget(account, this))
+    , mChannelInfoEditableWidget(new ChannelInfoEditableWidget(room, account, this))
     , mChannelInfoReadOnlyWidget(new ChannelInfoReadOnlyWidget(account, this))
     , mChannelRolesInfoWidget(new ChannelRolesInfoWidget(this))
 {
@@ -36,6 +36,7 @@ ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::roomNameValid, this, &ChannelInfoWidget::roomNameValid);
     mainLayout->addWidget(mChannelRolesInfoWidget);
     mainLayout->addStretch(1);
+    setRoom(room);
 }
 
 ChannelInfoWidget::~ChannelInfoWidget() = default;
@@ -59,8 +60,6 @@ void ChannelInfoWidget::setRoom(Room *room)
     mChannelRolesInfoWidget->setRoom(room);
     auto *currentWidget = mStackedWidget->currentWidget();
     if (mRoom->canBeModify()) {
-        mChannelInfoEditableWidget->setRoom(mRoom);
-
         if (currentWidget != mChannelInfoEditableWidget) {
             if (currentWidget) {
                 mStackedWidget->removeWidget(currentWidget);

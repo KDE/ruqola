@@ -26,8 +26,9 @@
 #include <QPointer>
 #include <QPushButton>
 
-ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account, QWidget *parent)
+ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
+    , mRoom(room)
     , mName(new QLineEdit(this))
     , mComment(new MessageTextEditor(this))
     , mAnnouncement(new MessageTextEditor(this))
@@ -186,11 +187,6 @@ void ChannelInfoEditableWidget::slotTeamDeleteDone()
     Q_EMIT channelDeleted();
 }
 
-void ChannelInfoEditableWidget::setRoom(Room *room)
-{
-    mRoom = room;
-}
-
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditableWidget::saveRoomSettingsInfo() const
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
@@ -317,7 +313,7 @@ void ChannelInfoEditableWidget::updateUiFromPermission()
 
 bool ChannelInfoEditableWidget::hasRetentionPermission() const
 {
-    return mRocketChatAccount->hasPermission(QStringLiteral("edit-room-retention-policy"));
+    return mRoom->hasPermission(QStringLiteral("edit-room-retention-policy"));
 }
 
 #include "moc_channelinfoeditablewidget.cpp"

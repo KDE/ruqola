@@ -18,7 +18,7 @@ ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)
 
 void ChannelInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelInfoWidget w(nullptr);
+    ChannelInfoWidget w(nullptr, nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

@@ -193,8 +193,7 @@ void RoomWidget::slotChannelInfoRequested()
         dlg.setUserName(mRoom->name());
         dlg.exec();
     } else {
-        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(mCurrentRocketChatAccount, this);
-        dlg->setRoom(mRoom);
+        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(mRoom, mCurrentRocketChatAccount, this);
         if (dlg->exec()) {
             const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info = dlg->saveRoomSettingsInfo();
             if (info.isValid()) {

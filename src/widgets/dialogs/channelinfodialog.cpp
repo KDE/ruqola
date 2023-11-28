@@ -22,9 +22,9 @@ namespace
 static const char myConfigChannelInfoDialogGroupName[] = "ChannelInfoDialog";
 }
 
-ChannelInfoDialog::ChannelInfoDialog(RocketChatAccount *account, QWidget *parent)
+ChannelInfoDialog::ChannelInfoDialog(Room *room, RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mChannelInfoWidget(new ChannelInfoWidget(account, this))
+    , mChannelInfoWidget(new ChannelInfoWidget(room, account, this))
     , mButtonBox(new QDialogButtonBox(this))
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));
@@ -41,6 +41,11 @@ ChannelInfoDialog::ChannelInfoDialog(RocketChatAccount *account, QWidget *parent
     connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
     connect(mChannelInfoWidget, &ChannelInfoWidget::fnameChanged, this, &ChannelInfoDialog::slotFnameChanged);
     connect(mChannelInfoWidget, &ChannelInfoWidget::roomNameValid, this, &ChannelInfoDialog::slotRoomNameValid);
+
+    mButtonBox->setStandardButtons(room->canBeModify() ? QDialogButtonBox::Ok | QDialogButtonBox::Cancel : QDialogButtonBox::Close);
+    mOkButton = mButtonBox->button(QDialogButtonBox::Ok);
+    mIsATeam = room->teamInfo().mainTeam();
+    slotFnameChanged(room->displayFName());
     readConfig();
 }
 
@@ -52,15 +57,6 @@ ChannelInfoDialog::~ChannelInfoDialog()
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::saveRoomSettingsInfo() const
 {
     return mChannelInfoWidget->saveRoomSettingsInfo();
-}
-
-void ChannelInfoDialog::setRoom(Room *room)
-{
-    mButtonBox->setStandardButtons(room->canBeModify() ? QDialogButtonBox::Ok | QDialogButtonBox::Cancel : QDialogButtonBox::Close);
-    mOkButton = mButtonBox->button(QDialogButtonBox::Ok);
-    mIsATeam = room->teamInfo().mainTeam();
-    slotFnameChanged(room->displayFName());
-    mChannelInfoWidget->setRoom(room);
 }
 
 void ChannelInfoDialog::slotFnameChanged(const QString &fname)
