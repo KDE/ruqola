@@ -225,7 +225,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
     }
 
-    if ((mRoom->channelType() == Room::RoomType::Private) != mPrivate->isChecked()) {
+    if (/*(mRoom->channelType() == Room::RoomType::Private) != mPrivate->isChecked()*/ 1) { // TODO verify
         info.roomType = mPrivate->isChecked() ? QStringLiteral("p") : QStringLiteral("c");
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomType;
     }
