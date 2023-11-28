@@ -831,6 +831,9 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_import
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_sizehint_cache_debug.h IDENTIFIER RUQOLA_SIZEHINT_CACHE_LOG CATEGORY_NAME org.kde.ruqola.widgets.sizehint.cache
     DESCRIPTION "ruqola sizehint cache" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_translatemessage_debug.h IDENTIFIER RUQOLA_TRANSLATEMESSAGE_LOG CATEGORY_NAME org.kde.ruqola.widgets.translatemessage
+    DESCRIPTION "ruqola translate message" EXPORT RUQOLA)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)

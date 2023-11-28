@@ -20,6 +20,7 @@
 #include "room.h"
 #include "roomutil.h"
 #include "ruqola.h"
+#include "ruqola_translatemessage_debug.h"
 #include "ruqolawidgets_debug.h"
 #include "selectedmessagebackgroundanimation.h"
 #include "threadwidget/threadmessagedialog.h"
@@ -904,8 +905,8 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
     if (modelIndex.isValid()) {
         const QString originalMessage = modelIndex.data(MessagesModel::OriginalMessage).toString();
         if (!originalMessage.isEmpty()) {
-            // qDebug() << " originalMessage " << originalMessage;
-            // qDebug() << " from " << from << " to " << to;
+            qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " originalMessage " << originalMessage;
+            qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " from " << from << " to " << to;
             TranslateTextJob::TranslateInfo info;
             info.from = from;
             info.to = to;
@@ -914,9 +915,10 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
             job->setInfo(info);
             connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex, job](const QString &str) {
                 auto messageModel = qobject_cast<MessagesModel *>(model());
-                // qDebug() << " modelIndex " << modelIndex;
+                qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " modelIndex " << modelIndex;
+                // qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " messageModel " << messageModel;
                 messageModel->setData(modelIndex, str, MessagesModel::LocalTranslation);
-                // qDebug() << " str" << str;
+                qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " translated string :" << str;
                 job->deleteLater();
             });
             connect(job, &TranslateTextJob::translateFailed, this, [this, job](const QString &errorMessage) {
