@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-25 00:42+0000\n"
+"POT-Creation-Date: 2023-11-28 00:41+0000\n"
 "PO-Revision-Date: 2023-11-24 09:20+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -151,7 +151,7 @@ msgstr "Optimizacija, popravek podpore za Windows/macOS"
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
 
-#: core/accountmanager.cpp:62
+#: core/accountmanager.cpp:711
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Strežnika ni mogoče najti: %1"
@@ -2188,6 +2188,17 @@ msgstr "To je zmožnost za podjetja"
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Neveljavna naročnina"
+
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
+#, kde-format
+msgid "Only groups or direct channels can enable encryption"
+msgstr ""
+
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
+#, fuzzy, kde-format
+#| msgid "Override global retention policy"
+msgid "Room does not have retention policy"
+msgstr "Preglasi globalno politiko zadrževanja"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format

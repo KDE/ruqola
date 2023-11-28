@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-25 00:42+0000\n"
+"POT-Creation-Date: 2023-11-28 00:41+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -151,7 +151,7 @@ msgstr "Optimizazioa, Windows/Mac euskarria konpontzea"
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
-#: core/accountmanager.cpp:62
+#: core/accountmanager.cpp:711
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Zerbitzaria ez da aurkitu: %1"
@@ -2197,6 +2197,16 @@ msgstr ""
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Harpidetza baliogabea"
+
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
+#, kde-format
+msgid "Only groups or direct channels can enable encryption"
+msgstr ""
+
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
+#, kde-format
+msgid "Room does not have retention policy"
+msgstr ""
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-25 00:42+0000\n"
+"POT-Creation-Date: 2023-11-28 00:41+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -153,7 +153,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:62
+#: core/accountmanager.cpp:711
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server not found: %1"
@@ -2257,6 +2257,16 @@ msgstr ""
 #: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
+msgstr ""
+
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
+#, kde-format
+msgid "Only groups or direct channels can enable encryption"
+msgstr ""
+
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
+#, kde-format
+msgid "Room does not have retention policy"
 msgstr ""
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
