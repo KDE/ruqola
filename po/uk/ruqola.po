@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-29 00:42+0000\n"
-"PO-Revision-Date: 2023-11-28 17:25+0200\n"
+"PO-Revision-Date: 2023-11-29 09:36+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1622,10 +1622,9 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:230
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
+#, kde-format
 msgid "'%1' is not allowed"
-msgstr "__action__ заборонено"
+msgstr "«%1» заборонено"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:232
 #, kde-format
@@ -1633,10 +1632,9 @@ msgid "Application not found"
 msgstr "Програму не знайдено."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:235
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
+#, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr "Вже існує архівований канал із назвою «__room_name__»"
+msgstr "Вже існує архівований канал із назвою «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:237
 #, kde-format
@@ -1694,16 +1692,14 @@ msgid "The email domain is blacklisted"
 msgstr "Домен електронної пошти перебуває у «чорному» списку"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:263
-#, fuzzy, kde-format
-#| msgid "Error trying to send email %1"
+#, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Помилка під час спроби надіслати повідомлення %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:266
-#, fuzzy, kde-format
-#| msgid "%1 is already in use."
+#, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 вже використано."
+msgstr "«%1» вже використано :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 #, kde-format
@@ -1733,10 +1729,9 @@ msgid "The file to be imported was not found on the specified path."
 msgstr "Файл, який слід імпортувати, не знайдено за вказаним шляхом."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:280
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "%1 is not a valid %2"
-msgstr "«%1» не є коректною назвою кімнати"
+msgstr "«%1» не є коректною %2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
@@ -1798,8 +1793,7 @@ msgid "Invalid domain"
 msgstr "Некоректний домен"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:305
-#, fuzzy, kde-format
-#| msgid "Invalid Email '%1'."
+#, kde-format
 msgid "Invalid email '%1'"
 msgstr "Некоректна адреса електронної пошти «%1»"
 
@@ -1875,10 +1869,9 @@ msgid "Invalid room"
 msgstr "Некоректна кімната"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "'%1' is not a valid room type."
-msgstr "«%1» не є коректною назвою кімнати"
+msgstr "«%1» не є коректним типом кімнати."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 #, kde-format
@@ -2043,10 +2036,9 @@ msgid "Room is not closed"
 msgstr "Кімнату не зачинено"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:401
-#, fuzzy, kde-format
-#| msgid "The field __field__ is required."
+#, kde-format
 msgid "The field '%1' is required."
-msgstr "Слід вказати поле __field__."
+msgstr "Поле «%1» є обов'язковим до заповнення."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:403
 #, kde-format
@@ -2069,16 +2061,13 @@ msgid "Token does not exists"
 msgstr "Жетона не існує"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:412
-#, fuzzy, kde-format
-#| msgid ""
-#| "Error, too many requests. Please slow down. You must wait __seconds__ "
-#| "seconds before trying again."
+#, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
-"Помилка, занадто багато запитів. Будь ласка, повільніше. Зачекайте "
-"__seconds__ секунд, перш ніж повторювати спробу."
+"Помилка, занадто багато запитів. Будь ласка, повільніше. Зачекайте %1 "
+"секунд, перш ніж повторювати спробу."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:414
 #, kde-format
