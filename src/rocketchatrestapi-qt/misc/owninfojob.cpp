@@ -39,6 +39,7 @@ bool OwnInfoJob::start()
 void OwnInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
+    qDebug() << " OwnInfoJob " << replyObject << " replyErrorString " << replyErrorString;
     // TODO check success !
     addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
     Q_EMIT ownInfoDone(replyObject);
