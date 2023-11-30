@@ -281,8 +281,8 @@ void KTextToHTMLTest::testHtmlConvert_data()
     QTest::newRow("") << "Ce paragraphe _contient_ des mots ou des _groupes de mots_ à mettre en"
                          " forme…"
                       << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                      << "Ce paragraphe <u>contient</u> des mots ou des"
-                         " <u>groupes de mots</u> à mettre en forme…";
+                      << "Ce paragraphe <i>contient</i> des mots ou des"
+                         " <i>groupes de mots</i> à mettre en forme…";
     QTest::newRow("punctation-bug") << "Ce texte *a l'air* de _fonctionner_, à condition"
                                        " d’utiliser le guillemet ASCII."
                                     << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
@@ -496,20 +496,20 @@ void KTextToHTMLTest::testEmoticons_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString();
-    QTest::newRow("trailing") << s("Hello :-)") << s("Hello 🙂");
-    QTest::newRow("embedded") << s("Hello :-) How are you?") << s("Hello 🙂 How are you?");
-    QTest::newRow("leading") << s(":-( Bye") << s("🙁 Bye");
+    QTest::newRow("trailing") << s("Hello :-)") << s("Hello :-)");
+    QTest::newRow("embedded") << s("Hello :-) How are you?") << s("Hello :-) How are you?");
+    QTest::newRow("leading") << s(":-( Bye") << s(":-( Bye");
     QTest::newRow("embedded-html") << s("<b>:(</b>") << s("&lt;b&gt;:(&lt;/b&gt;");
     QTest::newRow("html-attribute") << s("<img src=\"...\" title=\":-)\" />") << s("&lt;img src=&quot;...&quot; title=&quot;:-)&quot; /&gt;");
-    QTest::newRow("broken-1") << s(":))") << s("😆");
-    QTest::newRow("broken-4") << s(":D and :-D are not the same as :d and :-d") << s("😀 and 😀 are not the same as :d and :-d");
+    QTest::newRow("broken-1") << s(":))") << s(":))");
+    QTest::newRow("broken-4") << s(":D and :-D are not the same as :d and :-d") << s(":D and :-D are not the same as :d and :-d");
     QTest::newRow("broken-5") << s("4d:D>:)F:/&gt;:-(:Pu:d9") << s("4d:D&gt;:)F:/&amp;gt;:-(:Pu:d9");
     QTest::newRow("broken-6") << s("&lt;::pvar:: test=1&gt;") << s("&amp;lt;::pvar:: test=1&amp;gt;");
     QTest::newRow("working-5") << s("(&amp;)") << s("(&amp;amp;)");
     QTest::newRow("working-6") << s("Bla (&nbsp;)") << s("Bla (&amp;nbsp;)");
     QTest::newRow("working-7") << s("a non-breaking space (&nbsp;) character") << s("a non-breaking space (&amp;nbsp;) character");
 
-    QTest::newRow("angle-bracket-1") << s(">:)") << s("😈");
+    QTest::newRow("angle-bracket-1") << s(">:)") << s("&gt;:)");
     QTest::newRow("angle-bracket-2") << s("<b>:)") << s("&lt;b&gt;:)");
 }
 
