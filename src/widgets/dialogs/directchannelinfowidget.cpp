@@ -106,6 +106,12 @@ void DirectChannelInfoWidget::setUser(const User &user)
         mMainLayout->addRow(i18n("Custom Status:"), customStatusLabel);
     }
 
+    if (!user.bio().isEmpty()) {
+        auto bioLabel = new QLabel(user.bio(), this);
+        bioLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Bio:"), bioLabel);
+    }
+
     auto timeZoneLabel = new QLabel(this);
     timeZoneLabel->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
     timeZoneLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
