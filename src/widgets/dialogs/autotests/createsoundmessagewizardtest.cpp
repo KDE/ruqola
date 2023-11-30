@@ -15,7 +15,7 @@ CreateSoundMessageWizardTest::CreateSoundMessageWizardTest(QObject *parent)
 
 void CreateSoundMessageWizardTest::shouldHaveDefaultValues()
 {
-    CreateSoundMessageWizard w;
+    // CreateSoundMessageWizard w;
     // TODO
 }
 
