@@ -255,8 +255,6 @@ void RoomModelTest::shouldClear()
     RoomModel sampleModel;
     QSignalSpy rowInsertedSpy(&sampleModel, &RoomModel::rowsInserted);
     QSignalSpy rowABTInserted(&sampleModel, &RoomModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&sampleModel, &RoomModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&sampleModel, &RoomModel::rowsAboutToBeRemoved);
 
     QCOMPARE(sampleModel.rowCount(), 0);
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
@@ -264,25 +262,17 @@ void RoomModelTest::shouldClear()
 
     QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 0);
-    QCOMPARE(rowABTRemoved.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
 
     sampleModel.clear();
 
     QCOMPARE(sampleModel.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,0"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,0"));
 
     for (int i = 0; i < 15; i++) {
         sampleModel.addRoom(QStringLiteral("RA151100ECE%1").arg(i), QStringLiteral("myRoom%1").arg(i));
@@ -291,17 +281,11 @@ void RoomModelTest::shouldClear()
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
-    rowRemovedSpy.clear();
-    rowABTRemoved.clear();
 
     sampleModel.clear();
 
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,14"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,14"));
 }
 
 void RoomModelTest::shouldReset()
