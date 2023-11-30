@@ -57,6 +57,9 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoWidget::
 void ChannelInfoWidget::setRoom(Room *room)
 {
     mRoom = room;
+    if (!mRoom) {
+        return;
+    }
     mChannelRolesInfoWidget->setRoom(room);
     auto *currentWidget = mStackedWidget->currentWidget();
     if (mRoom->canBeModify()) {
