@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-29 00:42+0000\n"
-"PO-Revision-Date: 2023-11-28 15:26+0100\n"
+"PO-Revision-Date: 2023-11-29 18:09+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1618,10 +1618,9 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:230
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
+#, kde-format
 msgid "'%1' is not allowed"
-msgstr "__action__ is niet toegestaan"
+msgstr "'%1' is niet toegestaan"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:232
 #, kde-format
@@ -1629,10 +1628,9 @@ msgid "Application not found"
 msgstr "Programma niet gevonden"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:235
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
+#, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr "Er is een gearchiveerd kanaal met naam '__room_name__'"
+msgstr "Er is een gearchiveerd kanaal met naam '%1'"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:237
 #, kde-format
@@ -1692,16 +1690,14 @@ msgid "The email domain is blacklisted"
 msgstr "Het e-maildomein staat op de zwarte lijst"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:263
-#, fuzzy, kde-format
-#| msgid "Error trying to send email %1"
+#, kde-format
 msgid "Error trying to send email: %1"
-msgstr "Fout bij poging e-mail te verzenden %1"
+msgstr "Fout bij poging e-mail te verzenden: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:266
-#, fuzzy, kde-format
-#| msgid "%1 is already in use."
+#, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 is al in gebruik."
+msgstr "'%1' is al in gebruik :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 #, kde-format
@@ -1731,10 +1727,9 @@ msgid "The file to be imported was not found on the specified path."
 msgstr "Het te importeren bestand is niet gevonden in het gespecificeerde pad."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:280
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "%1 is not a valid %2"
-msgstr "'%1' is geen geldige roomnaam"
+msgstr "'%1' is geen geldige %2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
@@ -1796,10 +1791,9 @@ msgid "Invalid domain"
 msgstr "Ongeldig domein"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:305
-#, fuzzy, kde-format
-#| msgid "Invalid Email '%1'."
+#, kde-format
 msgid "Invalid email '%1'"
-msgstr "Ongeldige e-mailbericht '%1'."
+msgstr "Ongeldig e-mailbericht '%1'"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #, kde-format
@@ -1873,10 +1867,9 @@ msgid "Invalid room"
 msgstr "Ongeldige room"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "'%1' is not a valid room type."
-msgstr "'%1' is geen geldige roomnaam"
+msgstr "'%1' is geen geldige type room."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 #, kde-format
@@ -2041,10 +2034,9 @@ msgid "Room is not closed"
 msgstr "Room is niet gesloten"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:401
-#, fuzzy, kde-format
-#| msgid "The field __field__ is required."
+#, kde-format
 msgid "The field '%1' is required."
-msgstr "Het veld __field__ is vereist."
+msgstr "Het veld '%1' is vereist."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:403
 #, kde-format
@@ -2067,16 +2059,13 @@ msgid "Token does not exists"
 msgstr "Token bestaat niet"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:412
-#, fuzzy, kde-format
-#| msgid ""
-#| "Error, too many requests. Please slow down. You must wait __seconds__ "
-#| "seconds before trying again."
+#, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
-"Fout, teveel verzoeken. Doe rustig aan. u moet __seconds__ seconden wachten "
-"alvorens het opnieuw te proberen."
+"Fout, teveel verzoeken. Doe rustig aan. U moet %1 seconden wachten alvorens "
+"het opnieuw te proberen."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:414
 #, kde-format
