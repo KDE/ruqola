@@ -5,6 +5,7 @@
 */
 
 #include "bannerinfolistsearchlinewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QHBoxLayout>
@@ -22,6 +23,7 @@ BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search..."));
     mSearchLineEdit->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &BannerInfoListSearchLineWidget::filterChanged);
 
