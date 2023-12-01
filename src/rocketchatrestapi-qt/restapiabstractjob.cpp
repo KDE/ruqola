@@ -207,6 +207,10 @@ QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << " errorType not defined as translated message: " << errorType;
             return i18n("Unauthorized");
         }
+    } else if (replyObject[QLatin1String("status")].toString() == QLatin1String("error")) {
+        const QString message = replyObject[QLatin1String("message")].toString();
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "message error " << message;
+        return generateErrorMessage(message);
     } else {
         const QString error = replyObject[QLatin1String("error")].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
@@ -450,6 +454,14 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("Invalid Password");
     } else if (str == QLatin1String("error-room-not-found")) {
         return i18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any channel");
+    } else if (str == QLatin1String("error-role-already-present")) {
+        return i18n("A role with this name already exists");
+    } else if (str == QLatin1String("error-pinning-message")) {
+        return i18n("Message could not be pinned");
+    } else if (str == QLatin1String("error-password-in-history")) {
+        return i18n("Entered password has been previously used");
+    } else if (str == QLatin1String("error-max-rooms-per-guest-reached")) {
+        return i18n("The maximum number of rooms per guest has been reached.");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};

@@ -39,10 +39,13 @@ bool OwnInfoJob::start()
 void OwnInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    qDebug() << " OwnInfoJob " << replyObject << " replyErrorString " << replyErrorString;
-    // TODO check success !
-    addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-    Q_EMIT ownInfoDone(replyObject);
+    if (replyObject[QLatin1String("status")].toString() == QLatin1String("error")) {
+        emitFailedMessage(replyErrorString, replyObject);
+        addLoggerWarning(QByteArrayLiteral("OwnInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+    } else {
+        addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT ownInfoDone(replyObject);
+    }
 }
 
 QNetworkRequest OwnInfoJob::request() const
