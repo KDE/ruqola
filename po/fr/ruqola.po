@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 00:42+0000\n"
-"PO-Revision-Date: 2023-11-25 16:49+0100\n"
+"POT-Creation-Date: 2023-12-01 00:41+0000\n"
+"PO-Revision-Date: 2023-11-29 09:08+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -2216,12 +2216,12 @@ msgstr "Abonnement non valable"
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr ""
+"Seuls les groupes ou les canaux directs peuvent activer le chiffrement."
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Override global retention policy"
+#, kde-format
 msgid "Room does not have retention policy"
-msgstr "Remplacer la politique de rétention globale"
+msgstr "Le salon ne propose aucune politique de rétention."
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
@@ -2825,7 +2825,7 @@ msgstr "Modifier la permission « %1 »"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:135
 #, kde-format
 msgid "Roles:"
 msgstr "Rôles :"
@@ -3331,7 +3331,7 @@ msgid "Status Message:"
 msgstr "Message d'état :"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
-#: widgets/dialogs/directchannelinfowidget.cpp:154
+#: widgets/dialogs/directchannelinfowidget.cpp:160
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -3349,6 +3349,7 @@ msgid "Password:"
 msgstr "Mot de passe :"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:58
+#: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Bio :"
@@ -6778,32 +6779,32 @@ msgstr "Informations concernant l'utilisateur"
 msgid "Custom Status:"
 msgstr "État personnalisé :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:112
+#: widgets/dialogs/directchannelinfowidget.cpp:118
 #, kde-format
 msgid "Timezone:"
 msgstr "Fuseau horaire :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:136
+#: widgets/dialogs/directchannelinfowidget.cpp:142
 #, kde-format
 msgid "Created At:"
 msgstr "Créer à :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:143
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Last Login:"
 msgstr "Dernière connexion :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Verified"
 msgstr "Vérifié"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Not verified"
 msgstr "Non vérifié"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
