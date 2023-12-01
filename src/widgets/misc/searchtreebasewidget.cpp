@@ -24,9 +24,14 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    mainLayout->setContentsMargins({});
+#endif
 
     mSearchLayout = new QVBoxLayout;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mSearchLayout->setContentsMargins({});
+#endif
     mainLayout->addLayout(mSearchLayout);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLayout->addWidget(mSearchLineEdit);
@@ -47,6 +52,10 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     mainLayout->addLayout(treeViewLayout);
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    mTreeView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
+#endif
+
     mTreeView->setRootIsDecorated(false);
     mTreeView->setSortingEnabled(true);
     mTreeView->sortByColumn(0, Qt::AscendingOrder);
