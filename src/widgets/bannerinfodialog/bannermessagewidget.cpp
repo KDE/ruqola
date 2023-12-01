@@ -38,7 +38,6 @@ void BannerMessageWidget::slotReadInfo()
         const auto info = mBannerInfos.takeFirst();
 
         Q_EMIT infoWasRead(info.identifier);
-        // TODO emit signal for inform server that we read identifier
         updateInfo();
     }
 }
