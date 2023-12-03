@@ -83,7 +83,7 @@ set(REQUIRED_QT_VERSION "5.15.2")
 
 if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.5.0")
-    set(KF_MIN_VERSION "5.245.0")
+    set(KF_MIN_VERSION "5.246.0")
     set(KF_MAJOR_VERSION "6")
 else()
     set(KF_MAJOR_VERSION "5")
@@ -241,7 +241,7 @@ set_package_properties(KF${KF_MAJOR_VERSION}NetworkManagerQt PROPERTIES DESCRIPT
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.5
-    KF 5.245.0
+    KF 5.246.0
     )
 if (OPTION_BUILD_PYTHON_BINDINGS)
    remove_definitions(-DQT_STRICT_ITERATORS)
