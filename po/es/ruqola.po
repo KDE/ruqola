@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-02 00:42+0000\n"
-"PO-Revision-Date: 2023-11-25 17:24+0100\n"
+"PO-Revision-Date: 2023-12-02 11:29+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1619,10 +1619,9 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
+#, kde-format
 msgid "'%1' is not allowed"
-msgstr "La __accion__ no está permitida"
+msgstr "«%1» no está permitido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -1630,10 +1629,9 @@ msgid "Application not found"
 msgstr "Aplicación no encontrada"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:239
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
+#, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr "Hay un canal archivado con nombre «__nombre_de_la_sala__»"
+msgstr "Hay un canal archivado con nombre «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
@@ -1692,16 +1690,14 @@ msgid "The email domain is blacklisted"
 msgstr "El dominio del correo electrónico está en la lista negra"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
-#, fuzzy, kde-format
-#| msgid "Error trying to send email %1"
+#, kde-format
 msgid "Error trying to send email: %1"
-msgstr "Error al intentar enviar el correo electrónico %1"
+msgstr "Error al intentar enviar el correo electrónico: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, fuzzy, kde-format
-#| msgid "%1 is already in use."
+#, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 ya está en uso."
+msgstr "«%1» ya está en uso :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
@@ -1730,10 +1726,9 @@ msgid "The file to be imported was not found on the specified path."
 msgstr "El archivo a importar no se encontró en la ruta especificada"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "%1 is not a valid %2"
-msgstr "«%1» no es un nombre válido de sala"
+msgstr "%1 no es un %2 válido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
@@ -1795,10 +1790,9 @@ msgid "Invalid domain"
 msgstr "Dominio no válido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, fuzzy, kde-format
-#| msgid "Invalid Email '%1'."
+#, kde-format
 msgid "Invalid email '%1'"
-msgstr "Email inválido: «%1»."
+msgstr "Correo electrónico inválido: «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
@@ -1872,10 +1866,9 @@ msgid "Invalid room"
 msgstr "Sala inválida"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "'%1' is not a valid room type."
-msgstr "«%1» no es un nombre válido de sala"
+msgstr "«%1» no es un tipo válido de sala."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
@@ -2041,10 +2034,9 @@ msgid "Room is not closed"
 msgstr "La sala no está cerrada"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:405
-#, fuzzy, kde-format
-#| msgid "The field __field__ is required."
+#, kde-format
 msgid "The field '%1' is required."
-msgstr "El campo __campo__ es necesario."
+msgstr "El campo «%1» es necesario."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
@@ -2067,16 +2059,13 @@ msgid "Token does not exists"
 msgstr "El símbolo no existe"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, fuzzy, kde-format
-#| msgid ""
-#| "Error, too many requests. Please slow down. You must wait __seconds__ "
-#| "seconds before trying again."
+#, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
 "Error, demasiadas peticiones. Por favor, inténtelo más lentamente. Debe "
-"esperar __segundos__ segundos antes de probar de nuevo."
+"esperar %1 segundos antes de probar de nuevo."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
@@ -2189,26 +2178,24 @@ msgstr ""
 "concuerdan con ningún canal"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "A role with this name already exists"
-msgstr "Ya existe un símbolo con este nombre"
+msgstr "Ya existe un rol con este nombre"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message could not be pinned"
-msgstr "El mensaje ha sido fijado"
+msgstr "El mensaje no pudo ser fijado"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr ""
+msgstr "La contraseña introducida ya ha sido usada previamente"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
+msgstr "Se ha alcanzado el número máximo del salas por invitado."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2228,13 +2215,12 @@ msgstr "Suscripción no válida"
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
-msgstr ""
+msgstr "Solo los grupos o canales directos pueden activar el cifrado"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Override global retention policy"
+#, kde-format
 msgid "Room does not have retention policy"
-msgstr "Sobrescribir política de retención global"
+msgstr "La sala no tiene política de retención"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
@@ -9155,24 +9141,3 @@ msgid ""
 msgstr ""
 "Mejora en las órdenes de muestra en la edición de mensajes en línea "
 "(Ocultación de la acción cuando la sala no la admite)."
-
-#~ msgid "A channel with name '__channel_name__' exists"
-#~ msgstr "Ya existe un canal con nombre «__nombre_de_canal__»"
-
-#~ msgid "Error trying to send email: __message__"
-#~ msgstr "Error al intentar enviar el correo electrónico: __message__"
-
-#~ msgid "<strong>__field__</strong> is already in use :("
-#~ msgstr "<strong>__field__</strong> ya está en uso :("
-
-#~ msgid "__input__ is not a valid __field__"
-#~ msgstr "__input__ no es un __field__ válido"
-
-#~ msgid "Invalid email __email__"
-#~ msgstr "Correo electrónico __email__ no válido"
-
-#~ msgid "<strong>__room_name__</strong> is not a valid room name"
-#~ msgstr "<strong>__room_name__</strong> no es un nombre válido de sala"
-
-#~ msgid "<strong>__type__</strong> is not a valid room type."
-#~ msgstr "<strong>__type__</strong> no es un tipo de sala válida."
