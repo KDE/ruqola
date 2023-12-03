@@ -73,9 +73,7 @@ public:
 
     void updatePixmap(const QPixmap &pix, const QString &path);
     [[nodiscard]] QPixmap pixmap() const;
-public Q_SLOTS:
-    void zoomIn(QPointF centerPos = {});
-    void zoomOut(QPointF centerPos = {});
+
     void fitToView();
 
 protected:
@@ -87,8 +85,10 @@ Q_SIGNALS:
     void maximumZoomChanged(qreal zoom);
 
 private:
+    void zoomIn(QPointF centerPos = {});
+    void zoomOut(QPointF centerPos = {});
     void updateRanges();
-    QSize originalImageSize() const;
+    [[nodiscard]] QSize originalImageSize() const;
 
     QString mImagePath;
 
