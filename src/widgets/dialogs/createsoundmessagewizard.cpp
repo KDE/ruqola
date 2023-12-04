@@ -40,7 +40,7 @@ CreateSoundMessageWizard::CreateSoundMessageInfo CreateSoundMessageWizard::sound
     CreateSoundMessageWizard::CreateSoundMessageInfo info;
     info.mDescription = mGenerateSoundMessagePage->description();
     info.mFileName = mGenerateSoundMessagePage->fileName();
-    info.mFilePath = mGenerateSoundMessagePage->fileNamePath();
+    info.mFileUrl = mGenerateSoundMessagePage->fileNameUrl();
     return info;
 }
 
@@ -49,7 +49,7 @@ CreateSoundMessageWizard::~CreateSoundMessageWizard() = default;
 void CreateSoundMessageWizard::slotCurrentIdChanged(int id)
 {
     if (id == GenerateSoundMessage) {
-        mGenerateSoundMessagePage->setFileNamePath(mCreateSoundMessagePage->fileNamePath().toLocalFile());
+        mGenerateSoundMessagePage->setFileNamePath(mCreateSoundMessagePage->fileNameUrl().toLocalFile());
     }
 }
 
@@ -65,7 +65,7 @@ CreateSoundMessagePage::CreateSoundMessagePage(QWidget *parent)
     connect(mCreateSoundMessageWidget, &CreateSoundMessageWidget::recordDone, this, &CreateSoundMessagePage::completeChanged);
 }
 
-QUrl CreateSoundMessagePage::fileNamePath() const
+QUrl CreateSoundMessagePage::fileNameUrl() const
 {
     return mCreateSoundMessageWidget->temporaryFilePath();
 }
@@ -126,12 +126,12 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(RocketChatAccount *account, Q
 
 GenerateSoundMessagePage::~GenerateSoundMessagePage() = default;
 
-void GenerateSoundMessagePage::setFileNamePath(const QString &url)
+void GenerateSoundMessagePage::setFileNamePath(const QString &path)
 {
-    mShowSoundWidget->setAudioPath(url);
+    mShowSoundWidget->setAudioPath(path);
 }
 
-QUrl GenerateSoundMessagePage::fileNamePath() const
+QUrl GenerateSoundMessagePage::fileNameUrl() const
 {
     return mShowSoundWidget->audioUrl();
 }

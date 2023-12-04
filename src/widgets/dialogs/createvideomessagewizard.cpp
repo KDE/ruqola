@@ -60,7 +60,7 @@ CreateVideoMessageWizard::CreateVideoMessageInfo CreateVideoMessageWizard::video
     CreateVideoMessageInfo info;
     info.mDescription = mCreateMessagePage->description();
     info.mFileName = mCreateMessagePage->fileName();
-    info.mFilePath = mCreateMessagePage->fileNamePath();
+    info.mFileUrl = mCreateMessagePage->fileNameUrl();
     return info;
 }
 
@@ -168,7 +168,7 @@ void GenerateVideoMessagePage::setFileNamePath(const QString &url)
     mShowVideoWidget->setVideoPath(url);
 }
 
-QUrl GenerateVideoMessagePage::fileNamePath() const
+QUrl GenerateVideoMessagePage::fileNameUrl() const
 {
     return mShowVideoWidget->videoUrl();
 }
@@ -183,7 +183,7 @@ QDebug operator<<(QDebug d, const CreateVideoMessageWizard::CreateVideoMessageIn
 
 bool CreateVideoMessageWizard::CreateVideoMessageInfo::isValid() const
 {
-    return mFilePath.isValid();
+    return mFileUrl.isValid();
 }
 
 #include "moc_createvideomessagewizard.cpp"

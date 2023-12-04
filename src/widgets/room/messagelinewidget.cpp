@@ -339,7 +339,7 @@ void MessageLineWidget::slotSendSoundMessage()
         const CreateSoundMessageWizard::CreateSoundMessageInfo info = dlg->soundMessageInfo();
         UploadFileDialog::UploadFileInfo result;
         result.description = info.mDescription;
-        result.fileUrl = info.mFilePath;
+        result.fileUrl = info.mFileUrl;
         result.fileName = info.mFileName;
         result.deleteTemporaryFile = true;
         sendFile(result);
@@ -357,7 +357,7 @@ void MessageLineWidget::slotSendVideoMessage()
         if (info.isValid()) {
             UploadFileDialog::UploadFileInfo result;
             result.description = info.mDescription;
-            result.fileUrl = info.mFilePath;
+            result.fileUrl = info.mFileUrl;
             result.deleteTemporaryFile = true;
             result.fileName = info.mFileName;
             sendFile(result);

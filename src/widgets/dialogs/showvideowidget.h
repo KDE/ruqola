@@ -25,7 +25,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 public:
     explicit ShowVideoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowVideoWidget() override;
+
     void setVideoPath(const QString &videoPath);
+
     [[nodiscard]] QUrl videoUrl() const;
 
 Q_SIGNALS:

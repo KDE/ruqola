@@ -23,7 +23,7 @@ public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageInfo {
         QString mDescription;
         QString mFileName;
-        QUrl mFilePath;
+        QUrl mFileUrl;
         [[nodiscard]] bool isValid() const;
     };
 
@@ -75,7 +75,7 @@ public:
     [[nodiscard]] QString fileName() const;
     [[nodiscard]] QString description() const;
     void setFileNamePath(const QString &url);
-    [[nodiscard]] QUrl fileNamePath() const;
+    [[nodiscard]] QUrl fileNameUrl() const;
 
 private:
     ShowVideoWidget *const mShowVideoWidget;

@@ -21,7 +21,7 @@ public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageInfo {
         QString mDescription;
         QString mFileName;
-        QUrl mFilePath;
+        QUrl mFileUrl;
         [[nodiscard]] bool isValid() const;
     };
 
@@ -49,7 +49,7 @@ public:
     explicit CreateSoundMessagePage(QWidget *parent = nullptr);
     ~CreateSoundMessagePage() override;
 
-    [[nodiscard]] QUrl fileNamePath() const;
+    [[nodiscard]] QUrl fileNameUrl() const;
 
     [[nodiscard]] bool validatePage() override;
 
@@ -71,8 +71,8 @@ public:
 
     [[nodiscard]] QString fileName() const;
     [[nodiscard]] QString description() const;
-    [[nodiscard]] QUrl fileNamePath() const;
-    void setFileNamePath(const QString &url);
+    [[nodiscard]] QUrl fileNameUrl() const;
+    void setFileNamePath(const QString &path);
 
 private:
     PlaySoundWidget *const mShowSoundWidget;
