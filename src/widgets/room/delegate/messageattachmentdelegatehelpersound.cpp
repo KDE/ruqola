@@ -8,6 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
+#include "messageattachmentdownloadjob.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -82,8 +83,15 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
 
         const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            DelegateUtil::saveFile(parentWidget, layout.audioPath, i18n("Save Sound"));
+            MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
+            info.type = MessageAttachmentDownloadJob::AttachmentType::Sound;
+            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.audioPath);
+            info.parentWidget = const_cast<QWidget *>(option.widget);
+            info.attachmentPath = layout.audioPath;
+            auto job = new MessageAttachmentDownloadJob(this);
+            job->setRocketChatAccount(mRocketChatAccount);
+            job->setInfo(info);
+            job->start();
             return true;
         } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
                    || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
@@ -106,7 +114,6 @@ MessageAttachmentDelegateHelperSound::SoundLayout
 MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     SoundLayout layout;
-    const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link());
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
@@ -115,8 +122,6 @@ MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAt
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.playerVolumeButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.downloadButtonRect = layout.playerVolumeButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
-    if (url.isLocalFile()) {
-        layout.audioPath = url.toLocalFile();
-    }
+    layout.audioPath = msgAttach.link();
     return layout;
 }

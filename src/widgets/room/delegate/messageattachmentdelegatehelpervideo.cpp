@@ -8,6 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/showvideodialog.h"
+#include "messageattachmentdownloadjob.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -74,8 +75,15 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
 
         const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            DelegateUtil::saveFile(parentWidget, layout.videoPath, i18n("Save Image"));
+            MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
+            info.type = MessageAttachmentDownloadJob::AttachmentType::Video;
+            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
+            info.parentWidget = const_cast<QWidget *>(option.widget);
+            info.attachmentPath = layout.videoPath;
+            auto job = new MessageAttachmentDownloadJob(this);
+            job->setRocketChatAccount(mRocketChatAccount);
+            job->setInfo(info);
+            job->start();
             return true;
         } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
                    || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
@@ -98,7 +106,6 @@ MessageAttachmentDelegateHelperVideo::VideoLayout
 MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     VideoLayout layout;
-    const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link());
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
@@ -107,9 +114,7 @@ MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAt
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.showButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.downloadButtonRect = layout.showButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
-    if (url.isLocalFile()) {
-        layout.videoPath = url.toLocalFile();
-    }
+    layout.videoPath = msgAttach.link();
     return layout;
 }
 
