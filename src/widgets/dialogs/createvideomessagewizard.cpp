@@ -22,10 +22,10 @@ namespace
 {
 static const char myConfigCreateVideoMessageWizardGroupName[] = "CreateVideoMessageWizard";
 }
-CreateVideoMessageWizard::CreateVideoMessageWizard(QWidget *parent)
+CreateVideoMessageWizard::CreateVideoMessageWizard(RocketChatAccount *account, QWidget *parent)
     : QWizard(parent)
     , mCreateVideoMessagePage(new CreateVideoMessagePage(this))
-    , mCreateMessagePage(new GenerateVideoMessagePage(this))
+    , mCreateMessagePage(new GenerateVideoMessagePage(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Create Video Message"));
     setPage(CreateVideo, mCreateVideoMessagePage);
@@ -51,7 +51,7 @@ void CreateVideoMessageWizard::slotAccepted()
 void CreateVideoMessageWizard::slotCurrentIdChanged(int id)
 {
     if (id == CreateMessage) {
-        mCreateMessagePage->setFileNamePath(mCreateVideoMessagePage->fileNamePath());
+        mCreateMessagePage->setFileNamePath(mCreateVideoMessagePage->fileNamePath().toLocalFile());
     }
 }
 
@@ -118,9 +118,9 @@ bool CreateVideoMessagePage::validatePage()
     return !mCreateVideoMessageWidget->temporaryFilePath().isEmpty();
 }
 
-GenerateVideoMessagePage::GenerateVideoMessagePage(QWidget *parent)
+GenerateVideoMessagePage::GenerateVideoMessagePage(RocketChatAccount *account, QWidget *parent)
     : QWizardPage(parent)
-    , mShowVideoWidget(new ShowVideoWidget(this))
+    , mShowVideoWidget(new ShowVideoWidget(account, this))
     , mFileName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
 {
@@ -163,7 +163,7 @@ QString GenerateVideoMessagePage::description() const
     return mDescription->text();
 }
 
-void GenerateVideoMessagePage::setFileNamePath(const QUrl &url)
+void GenerateVideoMessagePage::setFileNamePath(const QString &url)
 {
     mShowVideoWidget->setVideoUrl(url);
 }

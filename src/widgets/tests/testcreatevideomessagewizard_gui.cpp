@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     parser.addHelpOption();
 
     parser.process(app);
-    auto d = new CreateVideoMessageWizard;
+    auto d = new CreateVideoMessageWizard(nullptr);
     d->resize(800, 600);
     d->show();
 

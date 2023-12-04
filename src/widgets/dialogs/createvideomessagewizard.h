@@ -14,6 +14,7 @@ class CreateVideoMessagePage;
 class CreateVideoMessageWidget;
 class ShowVideoWidget;
 class QLineEdit;
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWizard : public QWizard
 {
@@ -26,7 +27,7 @@ public:
         [[nodiscard]] bool isValid() const;
     };
 
-    explicit CreateVideoMessageWizard(QWidget *parent = nullptr);
+    explicit CreateVideoMessageWizard(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateVideoMessageWizard() override;
 
     [[nodiscard]] CreateVideoMessageInfo videoMessageInfo() const;
@@ -68,12 +69,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT GenerateVideoMessagePage : public QWizardPag
 {
     Q_OBJECT
 public:
-    explicit GenerateVideoMessagePage(QWidget *parent = nullptr);
+    explicit GenerateVideoMessagePage(RocketChatAccount *account, QWidget *parent = nullptr);
     ~GenerateVideoMessagePage() override;
 
     [[nodiscard]] QString fileName() const;
     [[nodiscard]] QString description() const;
-    void setFileNamePath(const QUrl &url);
+    void setFileNamePath(const QString &url);
     [[nodiscard]] QUrl fileNamePath() const;
 
 private:

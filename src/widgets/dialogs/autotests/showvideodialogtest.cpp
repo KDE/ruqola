@@ -20,7 +20,7 @@ ShowVideoDialogTest::ShowVideoDialogTest(QObject *parent)
 
 void ShowVideoDialogTest::shouldHaveDefaultValues()
 {
-    ShowVideoDialog w;
+    ShowVideoDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

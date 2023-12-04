@@ -84,7 +84,8 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
         const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
-            info.type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Sound;
+            info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Sound;
+            info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave;
             info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.audioPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
             info.attachmentPath = layout.audioPath;

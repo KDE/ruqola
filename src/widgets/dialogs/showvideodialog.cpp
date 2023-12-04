@@ -19,9 +19,9 @@ namespace
 static const char myShowVideoDialogGroupName[] = "ShowVideoDialog";
 }
 
-ShowVideoDialog::ShowVideoDialog(QWidget *parent)
+ShowVideoDialog::ShowVideoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mShowVideoWidget(new ShowVideoWidget(this))
+    , mShowVideoWidget(new ShowVideoWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Video"));
     auto mainLayout = new QVBoxLayout(this);
@@ -42,10 +42,10 @@ ShowVideoDialog::~ShowVideoDialog()
     writeConfig();
 }
 
-void ShowVideoDialog::setVideoUrl(const QUrl &videoPath)
+void ShowVideoDialog::setVideoUrl(const QString &videoPath)
 {
     mShowVideoWidget->setVideoUrl(videoPath);
-    setWindowTitle(i18nc("@title:window", "Video: %1", videoPath.fileName()));
+    setWindowTitle(i18nc("@title:window", "Video: %1", QUrl::fromLocalFile(videoPath).fileName()));
 }
 
 void ShowVideoDialog::readConfig()

@@ -9,13 +9,14 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ShowVideoWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ShowVideoDialog(QWidget *parent = nullptr);
+    explicit ShowVideoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowVideoDialog() override;
-    void setVideoUrl(const QUrl &videoPath);
+    void setVideoUrl(const QString &videoPath);
 
 private:
     void readConfig();

@@ -76,7 +76,8 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
         const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
-            info.type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
+            info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
+            info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave;
             info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
             info.attachmentPath = layout.videoPath;
@@ -88,9 +89,8 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
         } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
                    || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
-            ShowVideoDialog dlg(parentWidget);
-            const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(layout.videoPath);
-            dlg.setVideoUrl(url);
+            ShowVideoDialog dlg(mRocketChatAccount, parentWidget);
+            dlg.setVideoUrl(layout.videoPath);
             dlg.exec();
             return true;
         }

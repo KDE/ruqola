@@ -351,7 +351,7 @@ void MessageLineWidget::slotSendSoundMessage()
 void MessageLineWidget::slotSendVideoMessage()
 {
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-    QPointer<CreateVideoMessageWizard> dlg = new CreateVideoMessageWizard(this);
+    QPointer<CreateVideoMessageWizard> dlg = new CreateVideoMessageWizard(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const CreateVideoMessageWizard::CreateVideoMessageInfo info = dlg->videoMessageInfo();
         if (info.isValid()) {

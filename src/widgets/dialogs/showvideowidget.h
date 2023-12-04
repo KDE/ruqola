@@ -18,13 +18,14 @@ class QComboBox;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 class QAudioOutput;
 #endif
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ShowVideoWidget(QWidget *parent = nullptr);
+    explicit ShowVideoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowVideoWidget() override;
-    void setVideoUrl(const QUrl &videoPath);
+    void setVideoUrl(const QString &videoPath);
     [[nodiscard]] QUrl videoUrl() const;
 
 private:
@@ -43,6 +44,7 @@ private:
     void play();
     void initializeAudioOutput();
     void audioOutputChanged(int index);
+    void slotAttachmentFileDownloadDone(const QString &url);
 
     qint64 mDuration;
     QMediaPlayer *const mMediaPlayer;
@@ -57,4 +59,5 @@ private:
     QAudioOutput *const mAudioOutput;
     QComboBox *const mSoundDeviceComboBox;
 #endif
+    RocketChatAccount *const mRocketChatAccount;
 };

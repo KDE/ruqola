@@ -21,8 +21,8 @@ int main(int argc, char **argv)
     if (!parser.positionalArguments().isEmpty()) {
         filename = parser.positionalArguments().at(0);
     }
-    auto d = new ShowVideoDialog;
-    d->setVideoUrl(QUrl::fromLocalFile(filename));
+    auto d = new ShowVideoDialog(nullptr);
+    d->setVideoUrl(filename);
     d->resize(800, 600);
     d->show();
 

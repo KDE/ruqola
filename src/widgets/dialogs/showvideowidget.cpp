@@ -5,6 +5,7 @@
 */
 
 #include "showvideowidget.h"
+#include "rocketchataccount.h"
 #include "room/delegate/messageattachmentdownloadandsavejob.h"
 #include "ruqolaglobalconfig.h"
 
@@ -27,7 +28,7 @@
 #include <QMediaDevices>
 #endif
 
-ShowVideoWidget::ShowVideoWidget(QWidget *parent)
+ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mMediaPlayer(new QMediaPlayer(this
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -46,6 +47,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     , mAudioOutput(new QAudioOutput(this))
     , mSoundDeviceComboBox(new QComboBox(this))
 #endif
+    , mRocketChatAccount(account)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setAudioOutput(mAudioOutput);
@@ -201,30 +203,37 @@ void ShowVideoWidget::slotMuteChanged(bool state)
     mSoundButton->setIcon(state ? QIcon::fromTheme(QStringLiteral("player-volume-muted")) : QIcon::fromTheme(QStringLiteral("player-volume")));
 }
 
-void ShowVideoWidget::setVideoUrl(const QUrl &url)
+void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
 {
-#if 0
-    MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
-    info.type = MessageAttachmentDownloadJob::AttachmentType::Video;
-    info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
-    info.parentWidget = this;
-    info.attachmentPath = url.toLocalFile();
-    auto job = new MessageAttachmentDownloadJob(this);
-    job->setRocketChatAccount(mRocketChatAccount);
-    job->setInfo(info);
-    job->start();
-#endif
-
-    qDebug() << " void ShowVideoWidget::setVideoUrl(const QUrl &url) " << url;
+    qDebug() << " void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url) " << url;
     mMessageWidget->setText(QString());
     mMessageWidget->hide();
-    setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
+    setWindowFilePath(url);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setMedia(url);
 #else
-    mMediaPlayer->setSource(url);
+    mMediaPlayer->setSource(QUrl::fromLocalFile(url));
 #endif
     mPlayButton->setEnabled(true);
+}
+
+void ShowVideoWidget::setVideoUrl(const QString &url)
+{
+    if (mRocketChatAccount) {
+        MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
+        info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
+        info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly;
+        info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(url);
+        info.parentWidget = this;
+        info.attachmentPath = url;
+        auto job = new MessageAttachmentDownloadAndSaveJob(this);
+        connect(job, &MessageAttachmentDownloadAndSaveJob::attachmentFileDownloadDone, this, &ShowVideoWidget::slotAttachmentFileDownloadDone);
+        job->setRocketChatAccount(mRocketChatAccount);
+        job->setInfo(info);
+        job->start();
+    } else {
+        slotAttachmentFileDownloadDone(url);
+    }
 }
 
 QUrl ShowVideoWidget::videoUrl() const
