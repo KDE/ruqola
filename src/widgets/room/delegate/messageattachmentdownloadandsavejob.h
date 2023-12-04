@@ -13,7 +13,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadAndSaveJob : public
 {
     Q_OBJECT
 public:
-    enum AttachmentType {
+    enum class ActionType {
+        Unknown = 0,
+        DownloadOnly,
+        DownloadAndSave,
+    };
+
+    enum class AttachmentType {
         Unknown = 0,
         Image,
         Video,
@@ -23,7 +29,8 @@ public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadJobInfo {
         [[nodiscard]] bool canStart() const;
         QString attachmentPath;
-        MessageAttachmentDownloadAndSaveJob::AttachmentType type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown;
+        MessageAttachmentDownloadAndSaveJob::AttachmentType attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown;
+        MessageAttachmentDownloadAndSaveJob::ActionType actionType = MessageAttachmentDownloadAndSaveJob::ActionType::Unknown;
         bool needToDownloadAttachment = false;
         QWidget *parentWidget = nullptr;
     };
@@ -41,7 +48,12 @@ public:
 
     void start();
 
+Q_SIGNALS:
+    void downloadDone(const QString &url);
+    void attachmentFileDownloadDone(const QString &url);
+
 private:
+    void slotDownloadDone(const QString &path);
     void slotDownloadCancel();
     void assignProgressDialogStr(QProgressDialog *progressDialog);
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

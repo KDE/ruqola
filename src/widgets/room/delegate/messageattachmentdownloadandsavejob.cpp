@@ -14,9 +14,26 @@
 MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadAndSaveJob(QObject *parent)
     : QObject{parent}
 {
+    connect(this, &MessageAttachmentDownloadAndSaveJob::downloadDone, this, &MessageAttachmentDownloadAndSaveJob::slotDownloadDone);
 }
 
 MessageAttachmentDownloadAndSaveJob::~MessageAttachmentDownloadAndSaveJob() = default;
+
+void MessageAttachmentDownloadAndSaveJob::slotDownloadDone(const QString &path)
+{
+    switch (mInfo.actionType) {
+    case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave:
+        DelegateUtil::saveFile(mInfo.parentWidget, path, saveFileString());
+        break;
+    case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly:
+        Q_EMIT attachmentFileDownloadDone(path);
+        break;
+    case MessageAttachmentDownloadAndSaveJob::ActionType::Unknown:
+        qCWarning(RUQOLAWIDGETS_LOG) << "ActionType is unknown. It's a bug";
+        break;
+    }
+    slotDownloadCancel();
+}
 
 bool MessageAttachmentDownloadAndSaveJob::canStart() const
 {
@@ -28,15 +45,14 @@ void MessageAttachmentDownloadAndSaveJob::slotFileDownloaded(const QString &file
     qCDebug(RUQOLAWIDGETS_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheAttachmentUrl;
     if (filePath == QUrl(mInfo.attachmentPath).toString()) {
         const QString cacheAttachmentUrlPath{cacheAttachmentUrl.toLocalFile()};
-        DelegateUtil::saveFile(mInfo.parentWidget, cacheAttachmentUrlPath, saveFileString());
-        slotDownloadCancel();
+        Q_EMIT downloadDone(cacheAttachmentUrlPath);
     }
 }
 
 QString MessageAttachmentDownloadAndSaveJob::saveFileString() const
 {
     QString str;
-    switch (mInfo.type) {
+    switch (mInfo.attachmentType) {
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown:
         break;
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Image:
@@ -54,7 +70,7 @@ QString MessageAttachmentDownloadAndSaveJob::saveFileString() const
 
 void MessageAttachmentDownloadAndSaveJob::assignProgressDialogStr(QProgressDialog *progressDialog)
 {
-    switch (mInfo.type) {
+    switch (mInfo.attachmentType) {
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown:
         break;
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Image:
@@ -78,7 +94,6 @@ void MessageAttachmentDownloadAndSaveJob::slotDownloadCancel()
         mProgressDialogBox->hide();
         mProgressDialogBox->deleteLater();
     }
-    mProgressDialogBox = nullptr;
     deleteLater();
 }
 
@@ -86,6 +101,11 @@ void MessageAttachmentDownloadAndSaveJob::start()
 {
     if (!canStart()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Attachment url empty";
+        deleteLater();
+        return;
+    }
+    if (!mRocketChatAccount) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "mRocketChatAccount is empty. It's a bug";
         deleteLater();
         return;
     }
@@ -106,8 +126,7 @@ void MessageAttachmentDownloadAndSaveJob::start()
             (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath);
         }
     } else {
-        DelegateUtil::saveFile(mInfo.parentWidget, mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath).toLocalFile(), saveFileString());
-        deleteLater();
+        Q_EMIT downloadDone(mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath).toLocalFile());
     }
 }
 
@@ -133,7 +152,7 @@ void MessageAttachmentDownloadAndSaveJob::setInfo(const MessageAttachmentDownloa
 
 bool MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo::canStart() const
 {
-    if (type == MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown) {
+    if (attachmentType == MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Attachment type not defined";
         return false;
     }
