@@ -211,7 +211,7 @@ void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
     mMessageWidget->hide();
     setWindowFilePath(url);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mMediaPlayer->setMedia(url);
+    mMediaPlayer->setMedia(QUrl::fromLocalFile(url));
 #else
     mMediaPlayer->setSource(localUrl);
 #endif
