@@ -13,9 +13,17 @@ class MessageAttachmentDownloadJob : public QObject
 {
     Q_OBJECT
 public:
-    struct MessageImageDownloadJobInfo {
+    enum AttachmentType {
+        Unknown = 0,
+        Image,
+        Video,
+        Sound,
+    };
+
+    struct MessageAttachmentDownloadJobInfo {
         [[nodiscard]] bool canStart() const;
         QString bigImagePath;
+        MessageAttachmentDownloadJob::AttachmentType type = MessageAttachmentDownloadJob::AttachmentType::Unknown;
         bool needToDownloadBigImage = false;
         QWidget *parentWidget = nullptr;
     };
@@ -23,8 +31,8 @@ public:
     explicit MessageAttachmentDownloadJob(QObject *parent = nullptr);
     ~MessageAttachmentDownloadJob() override;
 
-    [[nodiscard]] MessageImageDownloadJobInfo info() const;
-    void setInfo(const MessageImageDownloadJobInfo &newInfo);
+    [[nodiscard]] MessageAttachmentDownloadJobInfo info() const;
+    void setInfo(const MessageAttachmentDownloadJobInfo &newInfo);
 
     [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
@@ -36,7 +44,8 @@ public:
 private:
     void slotDownloadCancel();
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
-    MessageImageDownloadJobInfo mInfo;
+    [[nodiscard]] QString saveFileString() const;
+    MessageAttachmentDownloadJobInfo mInfo;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QProgressDialog *mProgressDialogBox = nullptr;
 };

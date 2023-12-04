@@ -23,14 +23,33 @@ bool MessageAttachmentDownloadJob::canStart() const
     return mInfo.canStart();
 }
 
-void MessageAttachmentDownloadJob::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+void MessageAttachmentDownloadJob::slotFileDownloaded(const QString &filePath, const QUrl &cacheAttachmentUrl)
 {
-    qCDebug(RUQOLAWIDGETS_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheImageUrl;
+    qCDebug(RUQOLAWIDGETS_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheAttachmentUrl;
     if (filePath == QUrl(mInfo.bigImagePath).toString()) {
-        const QString cacheImageUrlPath{cacheImageUrl.toLocalFile()};
-        DelegateUtil::saveFile(mInfo.parentWidget, cacheImageUrlPath, i18n("Save Image"));
+        const QString cacheAttachmentUrlPath{cacheAttachmentUrl.toLocalFile()};
+        DelegateUtil::saveFile(mInfo.parentWidget, cacheAttachmentUrlPath, saveFileString());
         slotDownloadCancel();
     }
+}
+
+QString MessageAttachmentDownloadJob::saveFileString() const
+{
+    QString str;
+    switch (mInfo.type) {
+    case MessageAttachmentDownloadJob::AttachmentType::Unknown:
+        break;
+    case MessageAttachmentDownloadJob::AttachmentType::Image:
+        str = i18n("Save Image");
+        break;
+    case MessageAttachmentDownloadJob::AttachmentType::Video:
+        str = i18n("Save Video");
+        break;
+    case MessageAttachmentDownloadJob::AttachmentType::Sound:
+        str = i18n("Save Sound");
+        break;
+    }
+    return str;
 }
 
 void MessageAttachmentDownloadJob::slotDownloadCancel()
@@ -67,7 +86,7 @@ void MessageAttachmentDownloadJob::start()
             (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath);
         }
     } else {
-        DelegateUtil::saveFile(mInfo.parentWidget, mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath).toLocalFile(), i18n("Save Image"));
+        DelegateUtil::saveFile(mInfo.parentWidget, mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath).toLocalFile(), saveFileString());
         deleteLater();
     }
 }
@@ -82,18 +101,22 @@ void MessageAttachmentDownloadJob::setRocketChatAccount(RocketChatAccount *newRo
     mRocketChatAccount = newRocketChatAccount;
 }
 
-MessageAttachmentDownloadJob::MessageImageDownloadJobInfo MessageAttachmentDownloadJob::info() const
+MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo MessageAttachmentDownloadJob::info() const
 {
     return mInfo;
 }
 
-void MessageAttachmentDownloadJob::setInfo(const MessageImageDownloadJobInfo &newInfo)
+void MessageAttachmentDownloadJob::setInfo(const MessageAttachmentDownloadJobInfo &newInfo)
 {
     mInfo = newInfo;
 }
 
-bool MessageAttachmentDownloadJob::MessageImageDownloadJobInfo::canStart() const
+bool MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo::canStart() const
 {
+    if (type == MessageAttachmentDownloadJob::AttachmentType::Unknown) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Attachment type not defined";
+        return false;
+    }
     return !bigImagePath.isEmpty();
 }
 
