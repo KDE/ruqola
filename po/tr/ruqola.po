@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 02:26+0000\n"
-"PO-Revision-Date: 2023-09-03 21:36+0300\n"
+"PO-Revision-Date: 2023-12-03 13:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1653,7 +1653,7 @@ msgstr "İzinleri düzenlemeye izin verilmiyor"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:257
 #, kde-format
 msgid "The email domain is blacklisted"
-msgstr "E-posta alan adı kara listeye alınmış"
+msgstr "E-posta etki alanı kara listeye alınmış"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:259
 #, kde-format
@@ -1752,7 +1752,7 @@ msgstr "Geçersiz açıklama"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:295
 #, kde-format
 msgid "Invalid domain"
-msgstr "Geçersiz alan adı"
+msgstr "Geçersiz etki alanı"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:297
 #, kde-format
@@ -3394,12 +3394,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "Öntanımlı Engelli Etki Alanları Listesini Kullan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "DNS Etki Alanı Denetimi Kullan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
 #, kde-format
@@ -3445,22 +3445,22 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "İzin verilen etki alanlarının virgülle ayrılmış listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
 #, kde-format
 msgid "Allowed Domains List"
-msgstr ""
+msgstr "İzin Verilen Etki Alanları Listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "Engellenmiş etki alanlarının virgülle ayrılmış listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
 #, kde-format
 msgid "Blocked Domains List"
-msgstr ""
+msgstr "Engelli Etki Alanları Listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
@@ -3625,7 +3625,7 @@ msgstr "Alan Adı"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "All Subdomains"
-msgstr ""
+msgstr "Tüm Alt Etki Alanları"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
 #, fuzzy, kde-format
@@ -3698,12 +3698,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "İzleme yaparken site etki alanını sayfa adresinin önüne koy"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "Ziyaretçileri tüm alt etki alanları boyunca izle"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
@@ -5091,7 +5091,7 @@ msgstr "Jeton"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "Örnek: https://etkialanı.com (sondaki eğik çizgi olmadan)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
@@ -5651,7 +5651,7 @@ msgstr "BüyükMaviDüğme"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
 #, kde-format
 msgid "Domain"
-msgstr "Alan Adı"
+msgstr "Etki Alanı"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:48
 #, kde-format
