@@ -89,7 +89,7 @@ void MessageAttachmentDownloadJob::start()
         return;
     }
 
-    if (mInfo.needToDownloadBigImage) {
+    if (mInfo.needToDownloadAttachment) {
         if (mRocketChatAccount) {
             mProgressDialogBox = new QProgressDialog(mInfo.parentWidget);
             assignProgressDialogStr(mProgressDialogBox);

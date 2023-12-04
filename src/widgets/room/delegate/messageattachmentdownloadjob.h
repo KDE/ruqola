@@ -24,7 +24,7 @@ public:
         [[nodiscard]] bool canStart() const;
         QString bigImagePath;
         MessageAttachmentDownloadJob::AttachmentType type = MessageAttachmentDownloadJob::AttachmentType::Unknown;
-        bool needToDownloadBigImage = false;
+        bool needToDownloadAttachment = false;
         QWidget *parentWidget = nullptr;
     };
 
