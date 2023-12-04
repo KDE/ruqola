@@ -43,6 +43,7 @@ public:
 
 private:
     void slotDownloadCancel();
+    void assignProgressDialogStr(QProgressDialog *progressDialog);
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     [[nodiscard]] QString saveFileString() const;
     MessageAttachmentDownloadJobInfo mInfo;

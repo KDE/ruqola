@@ -52,6 +52,26 @@ QString MessageAttachmentDownloadJob::saveFileString() const
     return str;
 }
 
+void MessageAttachmentDownloadJob::assignProgressDialogStr(QProgressDialog *progressDialog)
+{
+    switch (mInfo.type) {
+    case MessageAttachmentDownloadJob::AttachmentType::Unknown:
+        break;
+    case MessageAttachmentDownloadJob::AttachmentType::Image:
+        progressDialog->setWindowTitle(i18nc("@title:window", "Download Image"));
+        progressDialog->setLabelText(i18n("Download Image..."));
+        break;
+    case MessageAttachmentDownloadJob::AttachmentType::Video:
+        progressDialog->setWindowTitle(i18nc("@title:window", "Download Video"));
+        progressDialog->setLabelText(i18n("Download Video..."));
+        break;
+    case MessageAttachmentDownloadJob::AttachmentType::Sound:
+        progressDialog->setWindowTitle(i18nc("@title:window", "Download Sound"));
+        progressDialog->setLabelText(i18n("Download Sound..."));
+        break;
+    }
+}
+
 void MessageAttachmentDownloadJob::slotDownloadCancel()
 {
     if (mProgressDialogBox) {
@@ -72,8 +92,7 @@ void MessageAttachmentDownloadJob::start()
     if (mInfo.needToDownloadBigImage) {
         if (mRocketChatAccount) {
             mProgressDialogBox = new QProgressDialog(mInfo.parentWidget);
-            mProgressDialogBox->setWindowTitle(i18nc("@title:window", "Download Image"));
-            mProgressDialogBox->setLabelText(i18n("Download Image..."));
+            assignProgressDialogStr(mProgressDialogBox);
             mProgressDialogBox->reset();
             mProgressDialogBox->setRange(0, 0);
             mProgressDialogBox->setValue(0);
