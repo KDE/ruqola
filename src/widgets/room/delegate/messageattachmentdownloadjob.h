@@ -22,7 +22,7 @@ public:
 
     struct MessageAttachmentDownloadJobInfo {
         [[nodiscard]] bool canStart() const;
-        QString bigImagePath;
+        QString attachmentPath;
         MessageAttachmentDownloadJob::AttachmentType type = MessageAttachmentDownloadJob::AttachmentType::Unknown;
         bool needToDownloadAttachment = false;
         QWidget *parentWidget = nullptr;

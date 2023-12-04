@@ -133,7 +133,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             info.type = MessageAttachmentDownloadJob::AttachmentType::Image;
             info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
-            info.bigImagePath = layout.imageBigPath;
+            info.attachmentPath = layout.imageBigPath;
             auto job = new MessageAttachmentDownloadJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
             job->setInfo(info);

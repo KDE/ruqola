@@ -26,7 +26,7 @@ bool MessageAttachmentDownloadJob::canStart() const
 void MessageAttachmentDownloadJob::slotFileDownloaded(const QString &filePath, const QUrl &cacheAttachmentUrl)
 {
     qCDebug(RUQOLAWIDGETS_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheAttachmentUrl;
-    if (filePath == QUrl(mInfo.bigImagePath).toString()) {
+    if (filePath == QUrl(mInfo.attachmentPath).toString()) {
         const QString cacheAttachmentUrlPath{cacheAttachmentUrl.toLocalFile()};
         DelegateUtil::saveFile(mInfo.parentWidget, cacheAttachmentUrlPath, saveFileString());
         slotDownloadCancel();
@@ -102,10 +102,10 @@ void MessageAttachmentDownloadJob::start()
             mProgressDialogBox->setMinimumDuration(0);
             connect(mProgressDialogBox, &QProgressDialog::canceled, this, &MessageAttachmentDownloadJob::slotDownloadCancel);
             connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageAttachmentDownloadJob::slotFileDownloaded);
-            (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath);
+            (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath);
         }
     } else {
-        DelegateUtil::saveFile(mInfo.parentWidget, mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath).toLocalFile(), saveFileString());
+        DelegateUtil::saveFile(mInfo.parentWidget, mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.attachmentPath).toLocalFile(), saveFileString());
         deleteLater();
     }
 }
@@ -136,7 +136,7 @@ bool MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo::canStart() 
         qCWarning(RUQOLAWIDGETS_LOG) << "Attachment type not defined";
         return false;
     }
-    return !bigImagePath.isEmpty();
+    return !attachmentPath.isEmpty();
 }
 
 #include "moc_messageattachmentdownloadjob.cpp"
