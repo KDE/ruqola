@@ -4,26 +4,26 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "messageimagedownloadjob.h"
+#include "messageattachmentdownloadjob.h"
 #include "common/delegateutil.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QProgressDialog>
 
-MessageImageDownloadJob::MessageImageDownloadJob(QObject *parent)
+MessageAttachmentDownloadJob::MessageAttachmentDownloadJob(QObject *parent)
     : QObject{parent}
 {
 }
 
-MessageImageDownloadJob::~MessageImageDownloadJob() = default;
+MessageAttachmentDownloadJob::~MessageAttachmentDownloadJob() = default;
 
-bool MessageImageDownloadJob::canStart() const
+bool MessageAttachmentDownloadJob::canStart() const
 {
     return mInfo.canStart();
 }
 
-void MessageImageDownloadJob::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+void MessageAttachmentDownloadJob::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
     qCDebug(RUQOLAWIDGETS_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheImageUrl;
     if (filePath == QUrl(mInfo.bigImagePath).toString()) {
@@ -33,7 +33,7 @@ void MessageImageDownloadJob::slotFileDownloaded(const QString &filePath, const 
     }
 }
 
-void MessageImageDownloadJob::slotDownloadCancel()
+void MessageAttachmentDownloadJob::slotDownloadCancel()
 {
     if (mProgressDialogBox) {
         mProgressDialogBox->hide();
@@ -43,7 +43,7 @@ void MessageImageDownloadJob::slotDownloadCancel()
     deleteLater();
 }
 
-void MessageImageDownloadJob::start()
+void MessageAttachmentDownloadJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -62,8 +62,8 @@ void MessageImageDownloadJob::start()
             mProgressDialogBox->setAutoClose(false);
             mProgressDialogBox->setAutoReset(false);
             mProgressDialogBox->setMinimumDuration(0);
-            connect(mProgressDialogBox, &QProgressDialog::canceled, this, &MessageImageDownloadJob::slotDownloadCancel);
-            connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageImageDownloadJob::slotFileDownloaded);
+            connect(mProgressDialogBox, &QProgressDialog::canceled, this, &MessageAttachmentDownloadJob::slotDownloadCancel);
+            connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageAttachmentDownloadJob::slotFileDownloaded);
             (void)mRocketChatAccount->attachmentUrlFromLocalCache(mInfo.bigImagePath);
         }
     } else {
@@ -72,29 +72,29 @@ void MessageImageDownloadJob::start()
     }
 }
 
-RocketChatAccount *MessageImageDownloadJob::rocketChatAccount() const
+RocketChatAccount *MessageAttachmentDownloadJob::rocketChatAccount() const
 {
     return mRocketChatAccount;
 }
 
-void MessageImageDownloadJob::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+void MessageAttachmentDownloadJob::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mRocketChatAccount = newRocketChatAccount;
 }
 
-MessageImageDownloadJob::MessageImageDownloadJobInfo MessageImageDownloadJob::info() const
+MessageAttachmentDownloadJob::MessageImageDownloadJobInfo MessageAttachmentDownloadJob::info() const
 {
     return mInfo;
 }
 
-void MessageImageDownloadJob::setInfo(const MessageImageDownloadJobInfo &newInfo)
+void MessageAttachmentDownloadJob::setInfo(const MessageImageDownloadJobInfo &newInfo)
 {
     mInfo = newInfo;
 }
 
-bool MessageImageDownloadJob::MessageImageDownloadJobInfo::canStart() const
+bool MessageAttachmentDownloadJob::MessageImageDownloadJobInfo::canStart() const
 {
     return !bigImagePath.isEmpty();
 }
 
-#include "moc_messageimagedownloadjob.cpp"
+#include "moc_messageattachmentdownloadjob.cpp"

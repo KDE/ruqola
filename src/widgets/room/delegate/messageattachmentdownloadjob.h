@@ -9,7 +9,7 @@
 #include <QObject>
 class RocketChatAccount;
 class QProgressDialog;
-class MessageImageDownloadJob : public QObject
+class MessageAttachmentDownloadJob : public QObject
 {
     Q_OBJECT
 public:
@@ -20,8 +20,8 @@ public:
         QWidget *parentWidget = nullptr;
     };
 
-    explicit MessageImageDownloadJob(QObject *parent = nullptr);
-    ~MessageImageDownloadJob() override;
+    explicit MessageAttachmentDownloadJob(QObject *parent = nullptr);
+    ~MessageAttachmentDownloadJob() override;
 
     [[nodiscard]] MessageImageDownloadJobInfo info() const;
     void setInfo(const MessageImageDownloadJobInfo &newInfo);

@@ -569,8 +569,8 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagedelegatehelperconferencevideo.h
     room/delegate/messagedelegatehelperconferencevideo.cpp
 
-    room/delegate/messageimagedownloadjob.h
-    room/delegate/messageimagedownloadjob.cpp
+    room/delegate/messageattachmentdownloadjob.h
+    room/delegate/messageattachmentdownloadjob.cpp
 
     room/delegate/messageblockdelegatehelperbase.h
     room/delegate/messageblockdelegatehelperbase.cpp

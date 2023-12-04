@@ -7,7 +7,7 @@
 #include "messageattachmentdelegatehelperimage.h"
 #include "common/delegatepaintutil.h"
 #include "dialogs/showimagedialog.h"
-#include "messageimagedownloadjob.h"
+#include "messageattachmentdownloadjob.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
@@ -129,11 +129,11 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessagesModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            MessageImageDownloadJob::MessageImageDownloadJobInfo info;
+            MessageAttachmentDownloadJob::MessageImageDownloadJobInfo info;
             info.needToDownloadBigImage = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
             info.bigImagePath = layout.imageBigPath;
-            auto job = new MessageImageDownloadJob(this);
+            auto job = new MessageAttachmentDownloadJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
             job->setInfo(info);
             job->start();
