@@ -28,6 +28,9 @@ public:
     void setVideoUrl(const QString &videoPath);
     [[nodiscard]] QUrl videoUrl() const;
 
+Q_SIGNALS:
+    void updateTitle(const QUrl &url);
+
 private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);

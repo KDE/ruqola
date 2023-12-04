@@ -19,6 +19,7 @@ public:
     void setVideoUrl(const QString &videoPath);
 
 private:
+    void slotUpdateTitle(const QUrl &url);
     void readConfig();
     void writeConfig();
     ShowVideoWidget *const mShowVideoWidget;

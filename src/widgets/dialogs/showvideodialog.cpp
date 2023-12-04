@@ -29,6 +29,7 @@ ShowVideoDialog::ShowVideoDialog(RocketChatAccount *account, QWidget *parent)
 
     mShowVideoWidget->setObjectName(QStringLiteral("mShowVideoWidget"));
     mainLayout->addWidget(mShowVideoWidget);
+    connect(mShowVideoWidget, &ShowVideoWidget::updateTitle, this, &ShowVideoDialog::slotUpdateTitle);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
@@ -42,10 +43,14 @@ ShowVideoDialog::~ShowVideoDialog()
     writeConfig();
 }
 
+void ShowVideoDialog::slotUpdateTitle(const QUrl &url)
+{
+    setWindowTitle(i18nc("@title:window", "Video: %1", url.fileName()));
+}
+
 void ShowVideoDialog::setVideoUrl(const QString &videoPath)
 {
     mShowVideoWidget->setVideoUrl(videoPath);
-    setWindowTitle(i18nc("@title:window", "Video: %1", QUrl::fromLocalFile(videoPath).fileName()));
 }
 
 void ShowVideoDialog::readConfig()

@@ -205,14 +205,15 @@ void ShowVideoWidget::slotMuteChanged(bool state)
 
 void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
 {
-    qDebug() << " void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url) " << url;
+    const QUrl localUrl = QUrl::fromLocalFile(url);
+    Q_EMIT updateTitle(localUrl);
     mMessageWidget->setText(QString());
     mMessageWidget->hide();
     setWindowFilePath(url);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setMedia(url);
 #else
-    mMediaPlayer->setSource(QUrl::fromLocalFile(url));
+    mMediaPlayer->setSource(localUrl);
 #endif
     mPlayButton->setEnabled(true);
 }
