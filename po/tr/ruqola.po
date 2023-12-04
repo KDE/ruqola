@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-02 00:42+0000\n"
-"PO-Revision-Date: 2023-12-02 14:31+0300\n"
+"PO-Revision-Date: 2023-12-03 13:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1679,7 +1679,7 @@ msgstr "İzinleri düzenlemeye izin verilmiyor"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:264
 #, kde-format
 msgid "The email domain is blacklisted"
-msgstr "E-posta alan adı kara listeye alınmış"
+msgstr "E-posta etki alanı kara listeye alınmış"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
@@ -1778,7 +1778,7 @@ msgstr "Geçersiz açıklama"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
 msgid "Invalid domain"
-msgstr "Geçersiz alan adı"
+msgstr "Geçersiz etki alanı"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, kde-format
@@ -3549,12 +3549,12 @@ msgstr "Yeni Kullanıcıları Elle Onayla"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr "Öntanımlı Engelli Alan Adları Listesini Kullan"
+msgstr "Öntanımlı Engelli Etki Alanları Listesini Kullan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr "DNS Alan Adı Denetimi Kullan"
+msgstr "DNS Etki Alanı Denetimi Kullan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
 #, kde-format
@@ -3600,22 +3600,22 @@ msgstr "Öntanımlı Kullanıcı Adı Öneki Önerisi"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr "İzin verilen alan adlarının virgülle ayrılmış listesi"
+msgstr "İzin verilen etki alanlarının virgülle ayrılmış listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
 #, kde-format
 msgid "Allowed Domains List"
-msgstr "İzin Verilen Alan Adları Listesi"
+msgstr "İzin Verilen Etki Alanları Listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr "Engellenmiş alan adlarının virgülle ayrılmış listesi"
+msgstr "Engellenmiş etki alanlarının virgülle ayrılmış listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
 #, kde-format
 msgid "Blocked Domains List"
-msgstr "Engelli Alan Adları Listesi"
+msgstr "Engelli Etki Alanları Listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
@@ -3774,12 +3774,12 @@ msgstr "Etkinleştir"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #, kde-format
 msgid "Prepend Domain"
-msgstr "Önüne Alan Adı Ekle"
+msgstr "Önüne Etki Alanı Ekle"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "All Subdomains"
-msgstr "Tüm Alt Alan Adları"
+msgstr "Tüm Alt Etki Alanları"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
 #, kde-format
@@ -3857,12 +3857,12 @@ msgstr "Ek Piwik Siteleri"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr "İzleme yaparken site alan adını sayfa adresinin önüne koy"
+msgstr "İzleme yaparken site etki alanını sayfa adresinin önüne koy"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr "Ziyaretçileri tüm alt alan adları boyunca izle"
+msgstr "Ziyaretçileri tüm alt etki alanları boyunca izle"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
@@ -5242,7 +5242,7 @@ msgstr "Tokenpass"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr "Örnek: https://alanadı.com (sondaki eğik çizgi olmadan)"
+msgstr "Örnek: https://etkialanı.com (sondaki eğik çizgi olmadan)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
@@ -5813,7 +5813,7 @@ msgstr "BüyükMaviDüğme"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
 #, kde-format
 msgid "Domain"
-msgstr "Alan Adı"
+msgstr "Etki Alanı"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:48
 #, kde-format
