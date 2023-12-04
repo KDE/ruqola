@@ -130,6 +130,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
+            info.type = MessageAttachmentDownloadJob::AttachmentType::Image;
             info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
             info.bigImagePath = layout.imageBigPath;
