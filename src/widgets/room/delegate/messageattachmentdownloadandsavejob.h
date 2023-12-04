@@ -9,7 +9,7 @@
 #include <QObject>
 class RocketChatAccount;
 class QProgressDialog;
-class MessageAttachmentDownloadJob : public QObject
+class MessageAttachmentDownloadAndSaveJob : public QObject
 {
     Q_OBJECT
 public:
@@ -23,13 +23,13 @@ public:
     struct MessageAttachmentDownloadJobInfo {
         [[nodiscard]] bool canStart() const;
         QString attachmentPath;
-        MessageAttachmentDownloadJob::AttachmentType type = MessageAttachmentDownloadJob::AttachmentType::Unknown;
+        MessageAttachmentDownloadAndSaveJob::AttachmentType type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown;
         bool needToDownloadAttachment = false;
         QWidget *parentWidget = nullptr;
     };
 
-    explicit MessageAttachmentDownloadJob(QObject *parent = nullptr);
-    ~MessageAttachmentDownloadJob() override;
+    explicit MessageAttachmentDownloadAndSaveJob(QObject *parent = nullptr);
+    ~MessageAttachmentDownloadAndSaveJob() override;
 
     [[nodiscard]] MessageAttachmentDownloadJobInfo info() const;
     void setInfo(const MessageAttachmentDownloadJobInfo &newInfo);

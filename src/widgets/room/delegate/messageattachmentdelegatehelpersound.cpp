@@ -8,7 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
-#include "messageattachmentdownloadjob.h"
+#include "messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -83,12 +83,12 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
 
         const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
-            info.type = MessageAttachmentDownloadJob::AttachmentType::Sound;
+            MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
+            info.type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Sound;
             info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.audioPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
             info.attachmentPath = layout.audioPath;
-            auto job = new MessageAttachmentDownloadJob(this);
+            auto job = new MessageAttachmentDownloadAndSaveJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
             job->setInfo(info);
             job->start();

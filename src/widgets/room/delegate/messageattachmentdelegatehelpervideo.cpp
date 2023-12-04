@@ -8,7 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/showvideodialog.h"
-#include "messageattachmentdownloadjob.h"
+#include "messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -75,12 +75,12 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
 
         const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
-            info.type = MessageAttachmentDownloadJob::AttachmentType::Video;
+            MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
+            info.type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
             info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
             info.parentWidget = const_cast<QWidget *>(option.widget);
             info.attachmentPath = layout.videoPath;
-            auto job = new MessageAttachmentDownloadJob(this);
+            auto job = new MessageAttachmentDownloadAndSaveJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
             job->setInfo(info);
             job->start();

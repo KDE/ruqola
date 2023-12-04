@@ -5,6 +5,7 @@
 */
 
 #include "showvideowidget.h"
+#include "room/delegate/messageattachmentdownloadandsavejob.h"
 #include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
@@ -202,6 +203,18 @@ void ShowVideoWidget::slotMuteChanged(bool state)
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)
 {
+#if 0
+    MessageAttachmentDownloadJob::MessageAttachmentDownloadJobInfo info;
+    info.type = MessageAttachmentDownloadJob::AttachmentType::Video;
+    info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
+    info.parentWidget = this;
+    info.attachmentPath = url.toLocalFile();
+    auto job = new MessageAttachmentDownloadJob(this);
+    job->setRocketChatAccount(mRocketChatAccount);
+    job->setInfo(info);
+    job->start();
+#endif
+
     qDebug() << " void ShowVideoWidget::setVideoUrl(const QUrl &url) " << url;
     mMessageWidget->setText(QString());
     mMessageWidget->hide();
