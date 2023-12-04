@@ -85,6 +85,7 @@ void MessageAttachmentDownloadJob::slotDownloadCancel()
 void MessageAttachmentDownloadJob::start()
 {
     if (!canStart()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Attachment url empty";
         deleteLater();
         return;
     }
