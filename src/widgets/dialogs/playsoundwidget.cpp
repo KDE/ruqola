@@ -5,6 +5,8 @@
 */
 
 #include "playsoundwidget.h"
+#include "rocketchataccount.h"
+#include "room/delegate/messageattachmentdownloadandsavejob.h"
 #include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
@@ -29,7 +31,7 @@
 #include <QAudioOutput>
 #endif
 
-PlaySoundWidget::PlaySoundWidget(QWidget *parent)
+PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mMediaPlayer(new QMediaPlayer(this))
     , mPlayButton(new QPushButton(this))
@@ -43,6 +45,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mAudioOutput(new QAudioOutput(this))
     , mDeviceComboBox(new QComboBox(this))
 #endif
+    , mRocketChatAccount(account)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setAudioOutput(mAudioOutput);
@@ -219,15 +222,36 @@ QUrl PlaySoundWidget::audioUrl() const
 #endif
 }
 
-void PlaySoundWidget::setAudioUrl(const QUrl &url)
+void PlaySoundWidget::slotAttachmentFileDownloadDone(const QString &url)
 {
-    setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
+    const QUrl localUrl = QUrl::fromLocalFile(url);
+    Q_EMIT updateTitle(localUrl);
+    // setWindowFilePath(localUrl);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mMediaPlayer->setMedia(url);
+    mMediaPlayer->setMedia(localUrl);
 #else
-    mMediaPlayer->setSource(url);
+    mMediaPlayer->setSource(localUrl);
 #endif
     mPlayButton->setEnabled(true);
+}
+
+void PlaySoundWidget::setAudioUrl(const QString &url)
+{
+    if (mRocketChatAccount) {
+        MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
+        info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Sound;
+        info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly;
+        info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(url);
+        info.parentWidget = this;
+        info.attachmentPath = url;
+        auto job = new MessageAttachmentDownloadAndSaveJob(this);
+        connect(job, &MessageAttachmentDownloadAndSaveJob::attachmentFileDownloadDone, this, &PlaySoundWidget::slotAttachmentFileDownloadDone);
+        job->setRocketChatAccount(mRocketChatAccount);
+        job->setInfo(info);
+        job->start();
+    } else {
+        slotAttachmentFileDownloadDone(url);
+    }
 }
 
 void PlaySoundWidget::play()

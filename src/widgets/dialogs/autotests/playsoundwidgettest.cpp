@@ -24,7 +24,7 @@ PlaySoundWidgetTest::PlaySoundWidgetTest(QObject *parent)
 
 void PlaySoundWidgetTest::shouldHaveDefaultValues()
 {
-    PlaySoundWidget w;
+    PlaySoundWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

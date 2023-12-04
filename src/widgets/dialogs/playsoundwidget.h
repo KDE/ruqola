@@ -16,6 +16,7 @@ class QSlider;
 class QLabel;
 class QComboBox;
 class KMessageWidget;
+class RocketChatAccount;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 class QAudioOutput;
 #endif
@@ -23,11 +24,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PlaySoundWidget(QWidget *parent = nullptr);
+    explicit PlaySoundWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PlaySoundWidget() override;
 
-    void setAudioUrl(const QUrl &url);
+    void setAudioUrl(const QString &url);
     [[nodiscard]] QUrl audioUrl() const;
+
+Q_SIGNALS:
+    void updateTitle(const QUrl &url);
 
 private:
     void play();
@@ -45,6 +49,7 @@ private:
 #else
     void mediaStateChanged(QMediaPlayer::PlaybackState state);
 #endif
+    void slotAttachmentFileDownloadDone(const QString &url);
     qint64 mDuration;
     QMediaPlayer *const mMediaPlayer;
     QPushButton *const mPlayButton;
@@ -58,4 +63,5 @@ private:
     QAudioOutput *const mAudioOutput;
     QComboBox *const mDeviceComboBox;
 #endif
+    RocketChatAccount *const mRocketChatAccount;
 };

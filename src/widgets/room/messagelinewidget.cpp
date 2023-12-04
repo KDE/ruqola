@@ -334,7 +334,7 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 void MessageLineWidget::slotSendSoundMessage()
 {
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-    QPointer<CreateSoundMessageWizard> dlg = new CreateSoundMessageWizard(this);
+    QPointer<CreateSoundMessageWizard> dlg = new CreateSoundMessageWizard(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const CreateSoundMessageWizard::CreateSoundMessageInfo info = dlg->soundMessageInfo();
         UploadFileDialog::UploadFileInfo result;

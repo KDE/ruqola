@@ -10,9 +10,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-PlaySoundDialog::PlaySoundDialog(QWidget *parent)
+PlaySoundDialog::PlaySoundDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mSoundWidget(new PlaySoundWidget(this))
+    , mSoundWidget(new PlaySoundWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Play Sound"));
     auto mainLayout = new QVBoxLayout(this);
@@ -20,6 +20,7 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
 
     mSoundWidget->setObjectName(QStringLiteral("mSoundWidget"));
     mainLayout->addWidget(mSoundWidget);
+    connect(mSoundWidget, &PlaySoundWidget::updateTitle, this, &PlaySoundDialog::slotUpdateTitle);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
@@ -29,9 +30,13 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
 
 PlaySoundDialog::~PlaySoundDialog() = default;
 
-void PlaySoundDialog::setAudioUrl(const QUrl &url)
+void PlaySoundDialog::setAudioUrl(const QString &url)
 {
     mSoundWidget->setAudioUrl(url);
+}
+
+void PlaySoundDialog::slotUpdateTitle(const QUrl &url)
+{
     setWindowTitle(i18nc("@title:window", "Sound: %1", url.fileName()));
 }
 

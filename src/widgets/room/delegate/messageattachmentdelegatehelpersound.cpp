@@ -97,9 +97,8 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
         } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
                    || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
-            PlaySoundDialog dlg(parentWidget);
-            const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(layout.audioPath);
-            dlg.setAudioUrl(url);
+            PlaySoundDialog dlg(mRocketChatAccount, parentWidget);
+            dlg.setAudioUrl(layout.audioPath);
             dlg.exec();
             return true;
         }

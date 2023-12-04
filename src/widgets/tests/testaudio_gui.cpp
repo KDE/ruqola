@@ -21,8 +21,8 @@ int main(int argc, char **argv)
     if (!parser.positionalArguments().isEmpty()) {
         filename = parser.positionalArguments().at(0);
     }
-    auto d = new PlaySoundDialog;
-    d->setAudioUrl(QUrl::fromLocalFile(filename));
+    auto d = new PlaySoundDialog(nullptr);
+    d->setAudioUrl(filename);
     d->resize(800, 600);
     d->show();
 

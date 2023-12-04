@@ -12,6 +12,7 @@ class GenerateSoundMessagePage;
 class CreateSoundMessagePage;
 class QLineEdit;
 class PlaySoundWidget;
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWizard : public QWizard
 {
@@ -24,7 +25,7 @@ public:
         [[nodiscard]] bool isValid() const;
     };
 
-    explicit CreateSoundMessageWizard(QWidget *parent = nullptr);
+    explicit CreateSoundMessageWizard(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateSoundMessageWizard() override;
 
     [[nodiscard]] CreateSoundMessageInfo soundMessageInfo() const;
@@ -65,13 +66,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT GenerateSoundMessagePage : public QWizardPag
 {
     Q_OBJECT
 public:
-    explicit GenerateSoundMessagePage(QWidget *parent = nullptr);
+    explicit GenerateSoundMessagePage(RocketChatAccount *account, QWidget *parent = nullptr);
     ~GenerateSoundMessagePage() override;
 
     [[nodiscard]] QString fileName() const;
     [[nodiscard]] QString description() const;
     [[nodiscard]] QUrl fileNamePath() const;
-    void setFileNamePath(const QUrl &url);
+    void setFileNamePath(const QString &url);
 
 private:
     PlaySoundWidget *const mShowSoundWidget;

@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     parser.addHelpOption();
 
     parser.process(app);
-    auto d = new CreateSoundMessageWizard;
+    auto d = new CreateSoundMessageWizard(nullptr);
     d->show();
 
     return app.exec();

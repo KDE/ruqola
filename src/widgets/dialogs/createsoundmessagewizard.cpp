@@ -14,10 +14,10 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-CreateSoundMessageWizard::CreateSoundMessageWizard(QWidget *parent)
+CreateSoundMessageWizard::CreateSoundMessageWizard(RocketChatAccount *account, QWidget *parent)
     : QWizard(parent)
     , mCreateSoundMessagePage(new CreateSoundMessagePage(this))
-    , mGenerateSoundMessagePage(new GenerateSoundMessagePage(this))
+    , mGenerateSoundMessagePage(new GenerateSoundMessagePage(account, this))
 
 {
     setWindowTitle(i18nc("@title:window", "Create Sound Message"));
@@ -49,7 +49,7 @@ CreateSoundMessageWizard::~CreateSoundMessageWizard() = default;
 void CreateSoundMessageWizard::slotCurrentIdChanged(int id)
 {
     if (id == GenerateSoundMessage) {
-        mGenerateSoundMessagePage->setFileNamePath(mCreateSoundMessagePage->fileNamePath());
+        mGenerateSoundMessagePage->setFileNamePath(mCreateSoundMessagePage->fileNamePath().toLocalFile());
     }
 }
 
@@ -92,9 +92,9 @@ bool CreateSoundMessagePage::validatePage()
 
 CreateSoundMessagePage::~CreateSoundMessagePage() = default;
 
-GenerateSoundMessagePage::GenerateSoundMessagePage(QWidget *parent)
+GenerateSoundMessagePage::GenerateSoundMessagePage(RocketChatAccount *account, QWidget *parent)
     : QWizardPage(parent)
-    , mShowSoundWidget(new PlaySoundWidget(this))
+    , mShowSoundWidget(new PlaySoundWidget(account, this))
     , mFileName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
 {
@@ -126,7 +126,7 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(QWidget *parent)
 
 GenerateSoundMessagePage::~GenerateSoundMessagePage() = default;
 
-void GenerateSoundMessagePage::setFileNamePath(const QUrl &url)
+void GenerateSoundMessagePage::setFileNamePath(const QString &url)
 {
     mShowSoundWidget->setAudioUrl(url);
 }

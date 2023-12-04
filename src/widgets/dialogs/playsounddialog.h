@@ -8,16 +8,17 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class RocketChatAccount;
 class PlaySoundWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PlaySoundDialog(QWidget *parent = nullptr);
+    explicit PlaySoundDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PlaySoundDialog() override;
-    void setAudioUrl(const QUrl &url);
+    void setAudioUrl(const QString &url);
 
 private:
+    void slotUpdateTitle(const QUrl &url);
     PlaySoundWidget *const mSoundWidget;
 };
