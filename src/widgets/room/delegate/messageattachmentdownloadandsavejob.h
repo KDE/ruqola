@@ -5,11 +5,11 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QObject>
 class RocketChatAccount;
 class QProgressDialog;
-class MessageAttachmentDownloadAndSaveJob : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadAndSaveJob : public QObject
 {
     Q_OBJECT
 public:
@@ -20,7 +20,7 @@ public:
         Sound,
     };
 
-    struct MessageAttachmentDownloadJobInfo {
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadJobInfo {
         [[nodiscard]] bool canStart() const;
         QString attachmentPath;
         MessageAttachmentDownloadAndSaveJob::AttachmentType type = MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown;
