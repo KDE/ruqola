@@ -218,7 +218,7 @@ void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
     mPlayButton->setEnabled(true);
 }
 
-void ShowVideoWidget::setVideoUrl(const QString &url)
+void ShowVideoWidget::setVideoPath(const QString &url)
 {
     if (mRocketChatAccount) {
         MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;

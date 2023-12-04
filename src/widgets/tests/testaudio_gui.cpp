@@ -22,7 +22,7 @@ int main(int argc, char **argv)
         filename = parser.positionalArguments().at(0);
     }
     auto d = new PlaySoundDialog(nullptr);
-    d->setAudioUrl(filename);
+    d->setAudioPath(filename);
     d->resize(800, 600);
     d->show();
 

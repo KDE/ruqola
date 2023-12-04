@@ -30,9 +30,9 @@ PlaySoundDialog::PlaySoundDialog(RocketChatAccount *account, QWidget *parent)
 
 PlaySoundDialog::~PlaySoundDialog() = default;
 
-void PlaySoundDialog::setAudioUrl(const QString &url)
+void PlaySoundDialog::setAudioPath(const QString &url)
 {
-    mSoundWidget->setAudioUrl(url);
+    mSoundWidget->setAudioPath(url);
 }
 
 void PlaySoundDialog::slotUpdateTitle(const QUrl &url)

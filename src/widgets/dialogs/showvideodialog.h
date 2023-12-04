@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoDialog : public QDialog
 public:
     explicit ShowVideoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowVideoDialog() override;
-    void setVideoUrl(const QString &videoPath);
+    void setVideoPath(const QString &videoPath);
 
 private:
     void slotUpdateTitle(const QUrl &url);

@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundDialog : public QDialog
 public:
     explicit PlaySoundDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PlaySoundDialog() override;
-    void setAudioUrl(const QString &url);
+    void setAudioPath(const QString &url);
 
 private:
     void slotUpdateTitle(const QUrl &url);

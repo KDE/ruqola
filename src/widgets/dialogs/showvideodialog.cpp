@@ -48,9 +48,9 @@ void ShowVideoDialog::slotUpdateTitle(const QUrl &url)
     setWindowTitle(i18nc("@title:window", "Video: %1", url.fileName()));
 }
 
-void ShowVideoDialog::setVideoUrl(const QString &videoPath)
+void ShowVideoDialog::setVideoPath(const QString &videoPath)
 {
-    mShowVideoWidget->setVideoUrl(videoPath);
+    mShowVideoWidget->setVideoPath(videoPath);
 }
 
 void ShowVideoDialog::readConfig()

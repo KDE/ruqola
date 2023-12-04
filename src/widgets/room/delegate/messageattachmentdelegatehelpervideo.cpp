@@ -90,7 +90,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
                    || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             ShowVideoDialog dlg(mRocketChatAccount, parentWidget);
-            dlg.setVideoUrl(layout.videoPath);
+            dlg.setVideoPath(layout.videoPath);
             dlg.exec();
             return true;
         }

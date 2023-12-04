@@ -128,7 +128,7 @@ GenerateSoundMessagePage::~GenerateSoundMessagePage() = default;
 
 void GenerateSoundMessagePage::setFileNamePath(const QString &url)
 {
-    mShowSoundWidget->setAudioUrl(url);
+    mShowSoundWidget->setAudioPath(url);
 }
 
 QUrl GenerateSoundMessagePage::fileNamePath() const

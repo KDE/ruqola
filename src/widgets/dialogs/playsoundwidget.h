@@ -27,7 +27,7 @@ public:
     explicit PlaySoundWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PlaySoundWidget() override;
 
-    void setAudioUrl(const QString &url);
+    void setAudioPath(const QString &url);
     [[nodiscard]] QUrl audioUrl() const;
 
 Q_SIGNALS:

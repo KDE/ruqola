@@ -165,7 +165,7 @@ QString GenerateVideoMessagePage::description() const
 
 void GenerateVideoMessagePage::setFileNamePath(const QString &url)
 {
-    mShowVideoWidget->setVideoUrl(url);
+    mShowVideoWidget->setVideoPath(url);
 }
 
 QUrl GenerateVideoMessagePage::fileNamePath() const
