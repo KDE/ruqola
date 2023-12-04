@@ -202,6 +202,7 @@ void ShowVideoWidget::slotMuteChanged(bool state)
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)
 {
+    qDebug() << " void ShowVideoWidget::setVideoUrl(const QUrl &url) " << url;
     mMessageWidget->setText(QString());
     mMessageWidget->hide();
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
