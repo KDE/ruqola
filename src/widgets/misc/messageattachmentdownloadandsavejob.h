@@ -18,6 +18,7 @@ public:
         DownloadOnly,
         DownloadAndSave,
     };
+    Q_ENUM(ActionType)
 
     enum class AttachmentType {
         Unknown = 0,
@@ -25,6 +26,7 @@ public:
         Video,
         Sound,
     };
+    Q_ENUM(AttachmentType)
 
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadJobInfo {
         [[nodiscard]] bool canStart() const;

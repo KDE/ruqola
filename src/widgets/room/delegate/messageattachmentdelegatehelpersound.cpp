@@ -8,7 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
-#include "messageattachmentdownloadandsavejob.h"
+#include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>

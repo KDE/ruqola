@@ -501,6 +501,10 @@ target_sources(libruqolawidgets PRIVATE
     misc/messagelisttextui.h
     misc/messagelisttextui.cpp
 
+    misc/messageattachmentdownloadandsavejob.h
+    misc/messageattachmentdownloadandsavejob.cpp
+
+
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
@@ -568,9 +572,6 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messageattachmentdelegatehelpervideo.h
     room/delegate/messagedelegatehelperconferencevideo.h
     room/delegate/messagedelegatehelperconferencevideo.cpp
-
-    room/delegate/messageattachmentdownloadandsavejob.h
-    room/delegate/messageattachmentdownloadandsavejob.cpp
 
     room/delegate/messageblockdelegatehelperbase.h
     room/delegate/messageblockdelegatehelperbase.cpp

@@ -7,7 +7,7 @@
 #include "messageattachmentdelegatehelperimage.h"
 #include "common/delegatepaintutil.h"
 #include "dialogs/showimagedialog.h"
-#include "messageattachmentdownloadandsavejob.h"
+#include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"

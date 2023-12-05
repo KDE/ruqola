@@ -5,8 +5,8 @@
 */
 
 #include "playsoundwidget.h"
+#include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
-#include "room/delegate/messageattachmentdownloadandsavejob.h"
 #include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
