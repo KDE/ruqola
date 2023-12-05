@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    channelusercompleter.h channelusercompleter.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -53,6 +52,9 @@ target_sources(libruqolacore PRIVATE
     customusers/customuserstatuses.cpp
     customusers/customuserstatuses.h
     customusers/customuserstatus.h
+
+    channelusercompleter.h
+    channelusercompleter.cpp
 
     managedevices/deviceinfo.h
     managedevices/deviceinfo.cpp
