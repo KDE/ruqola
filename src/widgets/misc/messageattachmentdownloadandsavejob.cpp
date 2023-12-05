@@ -37,7 +37,7 @@ void MessageAttachmentDownloadAndSaveJob::slotDownloadDone(const QString &path)
 
 bool MessageAttachmentDownloadAndSaveJob::canStart() const
 {
-    return mInfo.canStart();
+    return mInfo.isValid();
 }
 
 void MessageAttachmentDownloadAndSaveJob::slotFileDownloaded(const QString &filePath, const QUrl &cacheAttachmentUrl)
@@ -150,7 +150,7 @@ void MessageAttachmentDownloadAndSaveJob::setInfo(const MessageAttachmentDownloa
     mInfo = newInfo;
 }
 
-bool MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo::canStart() const
+bool MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo::isValid() const
 {
     if (attachmentType == MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Attachment type not defined";

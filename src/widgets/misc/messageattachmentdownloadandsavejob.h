@@ -29,7 +29,7 @@ public:
     Q_ENUM(AttachmentType)
 
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDownloadJobInfo {
-        [[nodiscard]] bool canStart() const;
+        [[nodiscard]] bool isValid() const;
         QString attachmentPath;
         MessageAttachmentDownloadAndSaveJob::AttachmentType attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown;
         MessageAttachmentDownloadAndSaveJob::ActionType actionType = MessageAttachmentDownloadAndSaveJob::ActionType::Unknown;
