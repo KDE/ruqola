@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 00:42+0000\n"
+"POT-Creation-Date: 2023-12-05 00:41+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -925,8 +925,8 @@ msgstr "Gelak"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
-#: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:148
+#: widgets/dialogs/playsoundwidget.cpp:151
+#: widgets/dialogs/showvideowidget.cpp:151
 #, kde-format
 msgid "Default"
 msgstr "Lehenetsia"
@@ -6744,14 +6744,14 @@ msgctxt "@title:window"
 msgid "Play Sound"
 msgstr "Soinua jo"
 
-#: widgets/dialogs/playsounddialog.cpp:35
+#: widgets/dialogs/playsounddialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Soinua: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:278
+#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "
 msgstr "Errorea:"
@@ -6912,7 +6912,7 @@ msgid "Display Image"
 msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiatu irudia arbelera"
@@ -6938,9 +6938,7 @@ msgid "Fit to View"
 msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:31
-#: widgets/room/delegate/messageimagedownloadjob.cpp:70
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Gorde irudia"
@@ -7897,9 +7895,50 @@ msgstr "Gorde &honela..."
 msgid "Save File"
 msgstr "Gorde fitxategia"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save Video"
+msgstr "Gorde fitxategia"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
 msgid "Save Sound"
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
+#, kde-format
+msgid "Download Image..."
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
+#, kde-format
+msgid "Download Video..."
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Soinua jo"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
+#, kde-format
+msgid "Download Sound..."
 msgstr ""
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
@@ -7907,17 +7946,6 @@ msgstr ""
 #| msgid "Join At"
 msgid "Join"
 msgstr "Batu honetara"
-
-#: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, kde-format
-msgctxt "@title:window"
-msgid "Download Image"
-msgstr ""
-
-#: widgets/room/delegate/messageimagedownloadjob.cpp:57
-#, kde-format
-msgid "Download Image..."
-msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
@@ -9028,6 +9056,10 @@ msgstr ""
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 
 #~ msgid "A channel with name '__channel_name__' exists"

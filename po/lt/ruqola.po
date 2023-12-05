@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 00:42+0000\n"
+"POT-Creation-Date: 2023-12-05 00:41+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -966,8 +966,8 @@ msgstr "Slėpti kambarį"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
-#: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:148
+#: widgets/dialogs/playsoundwidget.cpp:151
+#: widgets/dialogs/showvideowidget.cpp:151
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -7025,15 +7025,15 @@ msgctxt "@title:window"
 msgid "Play Sound"
 msgstr "Atkurti garsą"
 
-#: widgets/dialogs/playsounddialog.cpp:35
+#: widgets/dialogs/playsounddialog.cpp:40
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Įrašyti failą"
 
-#: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:278
+#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "
 msgstr "Klaida: "
@@ -7208,7 +7208,7 @@ msgid "Display Image"
 msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr ""
@@ -7234,9 +7234,7 @@ msgid "Fit to View"
 msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:31
-#: widgets/room/delegate/messageimagedownloadjob.cpp:70
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Įrašyti paveikslą"
@@ -8275,25 +8273,55 @@ msgstr ""
 msgid "Save File"
 msgstr "Įrašyti failą"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save Video"
+msgstr "Įrašyti failą"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
 msgid "Save Sound"
 msgstr ""
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
-#, kde-format
-msgid "Join"
-msgstr ""
-
-#: widgets/room/delegate/messageimagedownloadjob.cpp:56
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
 msgstr ""
 
-#: widgets/room/delegate/messageimagedownloadjob.cpp:57
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
 #, kde-format
 msgid "Download Image..."
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
+#, kde-format
+msgid "Download Video..."
+msgstr ""
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Atkurti garsą"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
+#, kde-format
+msgid "Download Sound..."
+msgstr ""
+
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#, kde-format
+msgid "Join"
 msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:311
@@ -9483,6 +9511,10 @@ msgstr ""
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 00:42+0000\n"
+"POT-Creation-Date: 2023-12-05 00:41+0000\n"
 "PO-Revision-Date: 2023-12-02 11:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -917,8 +917,8 @@ msgstr "Room"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
-#: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:148
+#: widgets/dialogs/playsoundwidget.cpp:151
+#: widgets/dialogs/showvideowidget.cpp:151
 #, kde-format
 msgid "Default"
 msgstr "Standaard"
@@ -6856,14 +6856,14 @@ msgctxt "@title:window"
 msgid "Play Sound"
 msgstr "Geluid afspelen"
 
-#: widgets/dialogs/playsounddialog.cpp:35
+#: widgets/dialogs/playsounddialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Geluid: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:278
+#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "
 msgstr "Fout: "
@@ -7024,7 +7024,7 @@ msgid "Display Image"
 msgstr "Afbeelding tonen"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Afbeelding naar klembord kopiëren"
@@ -7050,9 +7050,7 @@ msgid "Fit to View"
 msgstr "Laten passen om te bekijken"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:31
-#: widgets/room/delegate/messageimagedownloadjob.cpp:70
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Afbeelding opslaan"
@@ -8023,26 +8021,59 @@ msgstr "Opslaan &als..."
 msgid "Save File"
 msgstr "Bestand opslaan"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
+#, kde-format
+msgid "Save Video"
+msgstr "Video opslaan"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
 msgid "Save Sound"
 msgstr "Geluid opslaan"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
-#, kde-format
-msgid "Join"
-msgstr "Deelnemen"
-
-#: widgets/room/delegate/messageimagedownloadjob.cpp:56
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
 msgstr "Afbeelding downloaden"
 
-#: widgets/room/delegate/messageimagedownloadjob.cpp:57
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
 #, kde-format
 msgid "Download Image..."
 msgstr "Afbeelding downloaden..."
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Afbeelding downloaden"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "Afbeelding downloaden..."
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Geluid afspelen"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "Afbeelding downloaden..."
+
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#, kde-format
+msgid "Join"
+msgstr "Deelnemen"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
@@ -9142,6 +9173,10 @@ msgstr ""
 "Tonen van commando's in bewerken van berichtregel (actie verbergen wanneer "
 "room het niet ondersteunt)."
 
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+msgid "Fix download sound/video file when it's not in cache."
+msgstr ""
+
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Een kanaal met de naam '__channel_name__' bestaat"
 
@@ -9968,9 +10003,6 @@ msgstr ""
 
 #~ msgid "Error"
 #~ msgstr "Fout"
-
-#~ msgid "Save Video"
-#~ msgstr "Video opslaan"
 
 #~ msgid "Duration:"
 #~ msgstr "Duur:"

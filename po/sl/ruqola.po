@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 00:42+0000\n"
+"POT-Creation-Date: 2023-12-05 00:41+0000\n"
 "PO-Revision-Date: 2023-12-02 08:40+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -918,8 +918,8 @@ msgstr "Soba"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
-#: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:148
+#: widgets/dialogs/playsoundwidget.cpp:151
+#: widgets/dialogs/showvideowidget.cpp:151
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"
@@ -6831,14 +6831,14 @@ msgctxt "@title:window"
 msgid "Play Sound"
 msgstr "Predvajaj zvok"
 
-#: widgets/dialogs/playsounddialog.cpp:35
+#: widgets/dialogs/playsounddialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Zvok: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:278
+#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "
 msgstr "Napaka: "
@@ -7001,7 +7001,7 @@ msgid "Display Image"
 msgstr "Pokaži sliko"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiraj sliko na odložišče"
@@ -7027,9 +7027,7 @@ msgid "Fit to View"
 msgstr "Prilagodi pogledu"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:31
-#: widgets/room/delegate/messageimagedownloadjob.cpp:70
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Shrani sliko"
@@ -8008,26 +8006,60 @@ msgstr "Shrani &kot ..."
 msgid "Save File"
 msgstr "Shrani datoteko"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save Video"
+msgstr "Shrani datoteko"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
 msgid "Save Sound"
 msgstr "Shrani zvok"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
-#, kde-format
-msgid "Join"
-msgstr "Pridružite se"
-
-#: widgets/room/delegate/messageimagedownloadjob.cpp:56
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
 msgstr "Prenesi sliko"
 
-#: widgets/room/delegate/messageimagedownloadjob.cpp:57
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
 #, kde-format
 msgid "Download Image..."
 msgstr "Prenesi sliko..."
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Prenesi sliko"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "Prenesi sliko..."
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Predvajaj zvok"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "Prenesi sliko..."
+
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#, kde-format
+msgid "Join"
+msgstr "Pridružite se"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
@@ -9125,6 +9157,10 @@ msgid ""
 msgstr ""
 "Popravi ukaze za prikaz pri urejanju vrstice sporočila (Skrij dejanje, ko ga "
 "soba ne podpira)."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+msgid "Fix download sound/video file when it's not in cache."
+msgstr ""
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Kanal z imenom »__channel_name__« obstaja"

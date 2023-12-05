@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-02 00:42+0000\n"
-"PO-Revision-Date: 2023-11-30 09:54+0100\n"
+"POT-Creation-Date: 2023-12-05 00:41+0000\n"
+"PO-Revision-Date: 2023-12-03 17:41+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -914,8 +914,8 @@ msgstr "Salon"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
-#: widgets/dialogs/playsoundwidget.cpp:148
-#: widgets/dialogs/showvideowidget.cpp:148
+#: widgets/dialogs/playsoundwidget.cpp:151
+#: widgets/dialogs/showvideowidget.cpp:151
 #, kde-format
 msgid "Default"
 msgstr "Par défaut"
@@ -2187,26 +2187,24 @@ msgstr ""
 "correspond à aucun canal."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "A role with this name already exists"
-msgstr "Un jeton portant ce nom existe déjà"
+msgstr "Un role avec ce nom existe déjà"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message could not be pinned"
-msgstr "Le message a été agrafé."
+msgstr "Il a été impossible d'épingler le message."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr ""
+msgstr "Le mot de passe saisi a déjà été utilisé"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
+msgstr "Le nombre maximum de salons par personne a été atteint."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -6895,14 +6893,14 @@ msgctxt "@title:window"
 msgid "Play Sound"
 msgstr "Jouer un son"
 
-#: widgets/dialogs/playsounddialog.cpp:35
+#: widgets/dialogs/playsounddialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Son : %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:275
-#: widgets/dialogs/showvideowidget.cpp:278
+#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "
 msgstr "Erreur :"
@@ -7063,7 +7061,7 @@ msgid "Display Image"
 msgstr "Afficher une image"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:246
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copier l'image dans le presse-papier"
@@ -7089,9 +7087,7 @@ msgid "Fit to View"
 msgstr "Adapter à l'affichage"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:31
-#: widgets/room/delegate/messageimagedownloadjob.cpp:70
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Enregistrer une image"
@@ -8065,26 +8061,59 @@ msgstr "Enregistrer &sous..."
 msgid "Save File"
 msgstr "Enregistrer un fichier"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
+#, kde-format
+msgid "Save Video"
+msgstr "Enregistrer une vidéo"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
 msgid "Save Sound"
 msgstr "Enregistrer un son"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
-#, kde-format
-msgid "Join"
-msgstr "Rejoindre"
-
-#: widgets/room/delegate/messageimagedownloadjob.cpp:56
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
 msgstr "Télécharger une image"
 
-#: widgets/room/delegate/messageimagedownloadjob.cpp:57
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
 #, kde-format
 msgid "Download Image..."
 msgstr "Télécharger une image..."
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Télécharger une image"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "Télécharger une image..."
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Jouer un son"
+
+#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "Télécharger une image..."
+
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#, kde-format
+msgid "Join"
+msgstr "Rejoindre"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:311
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
@@ -9194,6 +9223,10 @@ msgstr ""
 "Correction des commandes d’affichage dans l’édition de la ligne de messages "
 "(Masquer l’action lorsque le salon ne la prend pas en charge)."
 
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+msgid "Fix download sound/video file when it's not in cache."
+msgstr ""
+
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Un canal portant le nom « __channel_name__ » existe déjà"
 
@@ -9982,9 +10015,6 @@ msgstr ""
 
 #~ msgid "Error"
 #~ msgstr "Erreur"
-
-#~ msgid "Save Video"
-#~ msgstr "Enregistrer une vidéo"
 
 #~ msgid "Duration:"
 #~ msgstr "Durée :"
