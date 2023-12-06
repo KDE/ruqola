@@ -81,6 +81,8 @@ endif()
 set(KTEXTADDONS_MIN_VERSION "1.5.2")
 set(REQUIRED_QT_VERSION "5.15.2")
 
+set(KLLMCORE_VERSION "0.1.0")
+
 if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.5.0")
     set(KF_MIN_VERSION "5.246.0")
@@ -186,6 +188,14 @@ find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
 set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
+)
+
+find_package(KLLMCore ${KLLMCORE_VERSION})
+set_package_properties(KLLMCore PROPERTIES
+    TYPE RECOMMENDED
+    PURPOSE "Required for building IA plugins support"
+    DESCRIPTION "Use local IA plugin"
+    URL https://invent.kde.org/lorendb/kandalf/
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
