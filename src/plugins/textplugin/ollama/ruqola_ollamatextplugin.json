@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "Id": "ollamatextplugin",
+        "ServiceTypes": [
+            "Ruqola/TextPlugin"
+        ],
+        "Version": "1.0"
+    }
+}
