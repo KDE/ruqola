@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 00:41+0000\n"
+"POT-Creation-Date: 2023-12-06 00:42+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -7042,7 +7042,7 @@ msgid "Fit to View"
 msgstr "Fit to View"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Save Image"
@@ -7417,6 +7417,55 @@ msgstr "Unknown state"
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Unnamed)"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
+#, kde-format
+msgid "Save Video"
+msgstr "Save Video"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
+#, kde-format
+msgid "Save Sound"
+msgstr "Save Sound"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "Download Image"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
+#, kde-format
+msgid "Download Image..."
+msgstr "Download Image..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Download Image"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "Download Image..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Play Sound"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "Download Image..."
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8023,55 +8072,6 @@ msgstr "Save &As..."
 #, kde-format
 msgid "Save File"
 msgstr "Save File"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
-#, kde-format
-msgid "Save Video"
-msgstr "Save Video"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
-#, kde-format
-msgid "Save Sound"
-msgstr "Save Sound"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
-#, kde-format
-msgctxt "@title:window"
-msgid "Download Image"
-msgstr "Download Image"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr "Download Image..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
-msgctxt "@title:window"
-msgid "Download Video"
-msgstr "Download Image"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Video..."
-msgstr "Download Image..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
-msgctxt "@title:window"
-msgid "Download Sound"
-msgstr "Play Sound"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Sound..."
-msgstr "Download Image..."
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format

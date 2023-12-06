@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 00:41+0000\n"
+"POT-Creation-Date: 2023-12-06 00:42+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -6916,7 +6916,7 @@ msgid "Fit to View"
 msgstr "Sovita näkymään"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Tallenna kuva"
@@ -7276,6 +7276,55 @@ msgstr "Tuntematon tila"
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Nimetön)"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
+#, kde-format
+msgid "Save Video"
+msgstr "Tallenna video"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
+#, kde-format
+msgid "Save Sound"
+msgstr "Tallenna ääni"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "Lataa kuva"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
+#, kde-format
+msgid "Download Image..."
+msgstr "Lataa kuva…"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Lataa kuva"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "Lataa kuva…"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Toista ääni"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "Lataa kuva…"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -7872,55 +7921,6 @@ msgstr "Tallenna &nimellä…"
 #, kde-format
 msgid "Save File"
 msgstr "Tallenna tiedosto"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
-#, kde-format
-msgid "Save Video"
-msgstr "Tallenna video"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
-#, kde-format
-msgid "Save Sound"
-msgstr "Tallenna ääni"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
-#, kde-format
-msgctxt "@title:window"
-msgid "Download Image"
-msgstr "Lataa kuva"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr "Lataa kuva…"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
-msgctxt "@title:window"
-msgid "Download Video"
-msgstr "Lataa kuva"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Video..."
-msgstr "Lataa kuva…"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
-msgctxt "@title:window"
-msgid "Download Sound"
-msgstr "Toista ääni"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Sound..."
-msgstr "Lataa kuva…"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format

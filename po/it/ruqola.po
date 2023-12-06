@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 00:41+0000\n"
-"PO-Revision-Date: 2023-11-12 10:41+0100\n"
+"POT-Creation-Date: 2023-12-06 00:42+0000\n"
+"PO-Revision-Date: 2023-12-03 12:01+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -1617,10 +1617,9 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
+#, kde-format
 msgid "'%1' is not allowed"
-msgstr "Non è permesso «__action__»"
+msgstr "«%1» non è consentito"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -1628,10 +1627,9 @@ msgid "Application not found"
 msgstr "Applicazione non trovata."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:239
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
+#, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr "C'è un canale archiviato di nome «__room_name__»"
+msgstr "C'è un canale archiviato di nome «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
@@ -1691,16 +1689,14 @@ msgid "The email domain is blacklisted"
 msgstr "Il dominio di posta elettronica è nella lista nera"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
-#, fuzzy, kde-format
-#| msgid "Error trying to send email %1"
+#, kde-format
 msgid "Error trying to send email: %1"
-msgstr "Errore durante il tentativo di invio dell messaggio di posta %1"
+msgstr "Errore durante il tentativo di invio del messaggio di posta: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, fuzzy, kde-format
-#| msgid "%1 is already in use."
+#, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 è già in uso."
+msgstr "'%1 è già in uso :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
@@ -1729,10 +1725,9 @@ msgid "The file to be imported was not found on the specified path."
 msgstr "Il file da importare non è stato trovato nel percorso specificato."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "%1 is not a valid %2"
-msgstr "«%1» non è un nome di stanza valido"
+msgstr "%1 non è un %2 valido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
@@ -1794,10 +1789,9 @@ msgid "Invalid domain"
 msgstr "Dominio non valido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, fuzzy, kde-format
-#| msgid "Invalid Email '%1'."
+#, kde-format
 msgid "Invalid email '%1'"
-msgstr "Indirizzo di posta elettronica «%1» non valido."
+msgstr "Indirizzo di posta elettronica «%1» non valido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
@@ -1871,10 +1865,9 @@ msgid "Invalid room"
 msgstr "Stanza non valida"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "'%1' is not a valid room type."
-msgstr "«%1» non è un nome di stanza valido"
+msgstr "«%1» non è un tipo di stanza valido."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
@@ -2040,10 +2033,9 @@ msgid "Room is not closed"
 msgstr "La stanza non è chiusa"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:405
-#, fuzzy, kde-format
-#| msgid "The field __field__ is required."
+#, kde-format
 msgid "The field '%1' is required."
-msgstr "È richiesto il campo __field__"
+msgstr "È richiesto il campo «%1»."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
@@ -2066,16 +2058,13 @@ msgid "Token does not exists"
 msgstr "Il token non esiste"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, fuzzy, kde-format
-#| msgid ""
-#| "Error, too many requests. Please slow down. You must wait __seconds__ "
-#| "seconds before trying again."
+#, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
-"Errore, troppe richieste. Rallenta. Devi aspettare __seconds__ secondi prima "
-"di provare nuovamente."
+"Errore, troppe richieste. Rallenta. Devi aspettare %1 secondi prima di "
+"provare nuovamente."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
@@ -2187,26 +2176,24 @@ msgstr ""
 "corrisponde a un canale"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "A role with this name already exists"
-msgstr "Esiste già un token con questo nome"
+msgstr "Esiste già un ruolo con questo nome"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message could not be pinned"
-msgstr "Il messaggio è stato appuntato"
+msgstr "Il messaggio non può essere appuntato"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr ""
+msgstr "La password digitata è stata utilizzata in precedenza"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
+msgstr "È stato raggiunto il numero massimo di stanze per ospite."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2226,13 +2213,12 @@ msgstr "Sottoscrizione non valida"
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
-msgstr ""
+msgstr "Solo i gruppi o i canali diretti possono abilitare la cifratura"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Override global retention policy"
+#, kde-format
 msgid "Room does not have retention policy"
-msgstr "Ignora la politica di conservazione globale"
+msgstr "La stanza non prevede criteri di conservazione"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
@@ -7062,7 +7048,7 @@ msgid "Fit to View"
 msgstr "Adatta alla vista"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Salva immagine"
@@ -7422,6 +7408,55 @@ msgstr "Stato sconosciuto"
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(senza nome)"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
+#, kde-format
+msgid "Save Video"
+msgstr "Salva video"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
+#, kde-format
+msgid "Save Sound"
+msgstr "Salva suono"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "Scarica immagine"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
+#, kde-format
+msgid "Download Image..."
+msgstr "Scarica immagine..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Scarica immagine"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "Scarica immagine..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Riproduci suono"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "Scarica immagine..."
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8032,55 +8067,6 @@ msgstr "Salv&a come..."
 #, kde-format
 msgid "Save File"
 msgstr "Salva file"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
-#, kde-format
-msgid "Save Video"
-msgstr "Salva video"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
-#, kde-format
-msgid "Save Sound"
-msgstr "Salva suono"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
-#, kde-format
-msgctxt "@title:window"
-msgid "Download Image"
-msgstr "Scarica immagine"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr "Scarica immagine..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
-msgctxt "@title:window"
-msgid "Download Video"
-msgstr "Scarica immagine"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Video..."
-msgstr "Scarica immagine..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
-msgctxt "@title:window"
-msgid "Download Sound"
-msgstr "Riproduci suono"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Sound..."
-msgstr "Scarica immagine..."
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format
@@ -9181,6 +9167,8 @@ msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
+"Correggi i comandi show nella modifica della riga del messaggio (nascondi "
+"l'azione quando la stanza non la supporta)."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid "Fix download sound/video file when it's not in cache."

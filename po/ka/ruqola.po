@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 00:41+0000\n"
+"POT-Creation-Date: 2023-12-06 00:42+0000\n"
 "PO-Revision-Date: 2023-12-01 07:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6908,7 +6908,7 @@ msgid "Fit to View"
 msgstr "ხედში ჩატევა"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "გამოსახულების შენახვა"
@@ -7267,6 +7267,56 @@ msgstr "უცნობი მდგომარეობა"
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(უსახელო)"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save Video"
+msgstr "ფაილის შენახვა"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
+#, kde-format
+msgid "Save Sound"
+msgstr "ხმის შენახვა"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "გამოსახულების გადმოწერა"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
+#, kde-format
+msgid "Download Image..."
+msgstr "სურათის გადმოწერა..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "გამოსახულების გადმოწერა"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Video..."
+msgstr "სურათის გადმოწერა..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "ხმის დაკვრა"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download Image..."
+msgid "Download Sound..."
+msgstr "სურათის გადმოწერა..."
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -7859,56 +7909,6 @@ msgstr "შეინახვა &როგორც..."
 #, kde-format
 msgid "Save File"
 msgstr "ფაილის შენახვა"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
-#, fuzzy, kde-format
-#| msgid "Save File"
-msgid "Save Video"
-msgstr "ფაილის შენახვა"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
-#, kde-format
-msgid "Save Sound"
-msgstr "ხმის შენახვა"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
-#, kde-format
-msgctxt "@title:window"
-msgid "Download Image"
-msgstr "გამოსახულების გადმოწერა"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr "სურათის გადმოწერა..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
-msgctxt "@title:window"
-msgid "Download Video"
-msgstr "გამოსახულების გადმოწერა"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Video..."
-msgstr "სურათის გადმოწერა..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
-msgctxt "@title:window"
-msgid "Download Sound"
-msgstr "ხმის დაკვრა"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Sound..."
-msgstr "სურათის გადმოწერა..."
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 00:41+0000\n"
-"PO-Revision-Date: 2023-12-02 11:23+0100\n"
+"POT-Creation-Date: 2023-12-06 00:42+0000\n"
+"PO-Revision-Date: 2023-12-05 10:48+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7050,7 +7050,7 @@ msgid "Fit to View"
 msgstr "Laten passen om te bekijken"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:59
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:59
 #, kde-format
 msgid "Save Image"
 msgstr "Afbeelding opslaan"
@@ -7410,6 +7410,49 @@ msgstr "Onbekende status"
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Naamloos)"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
+#, kde-format
+msgid "Save Video"
+msgstr "Video opslaan"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
+#, kde-format
+msgid "Save Sound"
+msgstr "Geluid opslaan"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "Afbeelding downloaden"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
+#, kde-format
+msgid "Download Image..."
+msgstr "Afbeelding downloaden..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Video"
+msgstr "Video downloaden"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
+#, kde-format
+msgid "Download Video..."
+msgstr "Video downloaden..."
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
+#, kde-format
+msgctxt "@title:window"
+msgid "Download Sound"
+msgstr "Geluid downloaden"
+
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
+#, kde-format
+msgid "Download Sound..."
+msgstr "Geluid downloaden..."
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8020,55 +8063,6 @@ msgstr "Opslaan &als..."
 #, kde-format
 msgid "Save File"
 msgstr "Bestand opslaan"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:62
-#, kde-format
-msgid "Save Video"
-msgstr "Video opslaan"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:65
-#, kde-format
-msgid "Save Sound"
-msgstr "Geluid opslaan"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:77
-#, kde-format
-msgctxt "@title:window"
-msgid "Download Image"
-msgstr "Afbeelding downloaden"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:78
-#, kde-format
-msgid "Download Image..."
-msgstr "Afbeelding downloaden..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
-msgctxt "@title:window"
-msgid "Download Video"
-msgstr "Afbeelding downloaden"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Video..."
-msgstr "Afbeelding downloaden..."
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
-msgctxt "@title:window"
-msgid "Download Sound"
-msgstr "Geluid afspelen"
-
-#: widgets/room/delegate/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
-msgid "Download Sound..."
-msgstr "Afbeelding downloaden..."
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format
@@ -9176,6 +9170,7 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
+"Downloaden van bestand met geluid/video wanneer het niet in de cache is."
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Een kanaal met de naam '__channel_name__' bestaat"
