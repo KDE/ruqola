@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-06 00:42+0000\n"
-"PO-Revision-Date: 2023-12-01 07:15+0100\n"
+"PO-Revision-Date: 2023-12-06 06:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2169,26 +2169,24 @@ msgstr ""
 "ერთ არც ერთ არხს არ ემთხვევა"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "A role with this name already exists"
-msgstr "კოდი ამ სახელით უკვე არსებობს"
+msgstr "როლი ამ სახელით უკვე არსებობს"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message could not be pinned"
-msgstr "შეტყობინება მიმაგრდა"
+msgstr "შეტყობინების მიმაგრება შეუძლებელია"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr ""
+msgstr "შეყვანილი პაროლი ადრე უკვე გამოიყენებოდა"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
+msgstr "მიღწეულია თითოეული სტუმრისთვის ოთახების მაქსიმალური რაოდენობა."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2208,7 +2206,7 @@ msgstr "არასწორი გამოწერა"
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
-msgstr ""
+msgstr "დაშიფვრის ჩართვა, მხოლოდ, ჯგუფებს ან პირდაპირ არხებს შეუძლიათ"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
 #, kde-format
@@ -7269,10 +7267,9 @@ msgid "(Unnamed)"
 msgstr "(უსახელო)"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save Video"
-msgstr "ფაილის შენახვა"
+msgstr "ვიდეოს შენახვა"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
@@ -7291,32 +7288,26 @@ msgid "Download Image..."
 msgstr "სურათის გადმოწერა..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Video"
-msgstr "გამოსახულების გადმოწერა"
+msgstr "ვიდეოს გადმოწერა"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Video..."
-msgstr "სურათის გადმოწერა..."
+msgstr "ვიდეოს გადმოწერა..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Sound"
-msgstr "ხმის დაკვრა"
+msgstr "ხმის გადმოწერა"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Sound..."
-msgstr "სურათის გადმოწერა..."
+msgstr "ხმის გადმოწერა..."
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -9004,7 +8995,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid "Fix download sound/video file when it's not in cache."
-msgstr ""
+msgstr "ხმის/ვიდეოს ფაილის გადმოწერის გასწორება, როცა ის კეშში არაა."
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "არხი სახელით '__channel_name__' უკვე არსებობს"

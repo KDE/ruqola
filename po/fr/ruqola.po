@@ -7450,8 +7450,7 @@ msgid "(Unnamed)"
 msgstr "(Sans nom)"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
-#, fuzzy, kde-format
-#| msgid "Save Video"
+#, kde-format
 msgid "Save Video"
 msgstr "Enregistrer une vidéo"
 
