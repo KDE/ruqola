@@ -60,8 +60,9 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     connect(mFollowButton, &QToolButton::clicked, this, &ThreadMessageWidget::slotFollowThreadChanged);
 
     mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
-    mThreadPreview->setContextMenuPolicy(Qt::CustomContextMenu);
+    mThreadPreview->setContextMenuPolicy(Qt::NoContextMenu);
     mThreadPreview->setWordWrap(true);
+    mThreadPreview->setTextInteractionFlags(Qt::TextBrowserInteraction);
     hboxLayout->addWidget(mThreadPreview);
 
 #if HAVE_TEXT_TO_SPEECH
