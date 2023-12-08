@@ -5,6 +5,7 @@
 */
 
 #include "authenticationwidget.h"
+#include "authenticationbutton.h"
 #include "authenticationinfo.h"
 #include "model/loginmethodmodel.h"
 #include "rocketchataccount.h"
@@ -24,8 +25,10 @@ void AuthenticationWidget::switchRocketChatAccount(RocketChatAccount *account)
 {
     const QVector<AuthenticationInfo> authenticationInfos = account->loginMethodModel()->authentications();
     for (const AuthenticationInfo &info : authenticationInfos) {
-        // TODO add button
-        // addItem(QIcon::fromTheme(info.iconName()), info.name(), QVariant::fromValue(info.oauthType()));
+        auto button = new AuthenticationButton(this);
+        connect(button, &AuthenticationButton::authentication, this, &AuthenticationWidget::authentication);
+        button->setAuthenticationInfo(info);
+        mMainLayout->addWidget(button);
     }
 }
 

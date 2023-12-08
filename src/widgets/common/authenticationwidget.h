@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "authenticationmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
@@ -19,6 +20,9 @@ public:
     ~AuthenticationWidget() override;
 
     void switchRocketChatAccount(RocketChatAccount *account);
+
+Q_SIGNALS:
+    void authentication(AuthenticationManager::OauthType type);
 
 private:
     QVBoxLayout *const mMainLayout;
