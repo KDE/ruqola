@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-06 00:42+0000\n"
+"POT-Creation-Date: 2023-12-08 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8593,14 +8593,14 @@ msgid "Copy Link To Message"
 msgstr "Liikumine sõnumile"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Unfollow Message"
 msgstr "Kõik sõnumid"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Follow Message"
@@ -9319,7 +9319,7 @@ msgid "&Help"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:74
+#: widgets/ruqolaui.rc:75
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Peamine tööriistariba"

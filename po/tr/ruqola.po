@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-06 00:42+0000\n"
+"POT-Creation-Date: 2023-12-08 00:42+0000\n"
 "PO-Revision-Date: 2023-12-05 16:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -8165,13 +8165,13 @@ msgid "Copy Link To Message"
 msgstr "Bağlantıyı İletiye Kopyala"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, kde-format
 msgid "Unfollow Message"
 msgstr "İletiyi Takipten Çıkar"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, kde-format
 msgid "Follow Message"
 msgstr "İletiyi Takip Et"
@@ -8837,7 +8837,7 @@ msgid "&Help"
 msgstr "&Yardım"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:74
+#: widgets/ruqolaui.rc:75
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"

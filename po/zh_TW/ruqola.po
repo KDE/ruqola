@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-06 00:42+0000\n"
+"POT-Creation-Date: 2023-12-08 00:42+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -8456,14 +8456,14 @@ msgid "Copy Link To Message"
 msgstr "取消訊息置頂"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Unfollow Message"
 msgstr "檢舉訊息"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Follow Message"
@@ -9182,7 +9182,7 @@ msgid "&Help"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:74
+#: widgets/ruqolaui.rc:75
 #, kde-format
 msgid "Main Toolbar"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-06 00:42+0000\n"
+"POT-Creation-Date: 2023-12-08 00:42+0000\n"
 "PO-Revision-Date: 2023-12-06 06:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -8054,13 +8054,13 @@ msgid "Copy Link To Message"
 msgstr "შეტყობინების ბმულის კოპირება"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, kde-format
 msgid "Unfollow Message"
 msgstr "შეტყობინების მიყოლის გაუქმება"
 
 #: widgets/room/messagelistview.cpp:343
-#: widgets/threadwidget/threadmessagewidget.cpp:117
+#: widgets/threadwidget/threadmessagewidget.cpp:118
 #, kde-format
 msgid "Follow Message"
 msgstr "შეტყობინების მიყოლა"
@@ -8721,7 +8721,7 @@ msgid "&Help"
 msgstr "&დახმარება"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:74
+#: widgets/ruqolaui.rc:75
 #, kde-format
 msgid "Main Toolbar"
 msgstr "ხელსაწყოთა მთავარი ზოლი"
