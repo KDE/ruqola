@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "authenticationinfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QPushButton>
 
@@ -15,4 +16,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationButton : public QPushButton
 public:
     explicit AuthenticationButton(QWidget *parent = nullptr);
     ~AuthenticationButton() override;
+    void setAuthenticationInfo(const AuthenticationInfo &info);
+
+Q_SIGNALS:
+    void authentication(AuthenticationManager::OauthType type);
+
+private:
+    AuthenticationInfo mInfo;
 };
