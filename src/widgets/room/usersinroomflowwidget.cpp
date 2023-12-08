@@ -122,13 +122,13 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             if (numberOfUsers >= MAX_NUMBER_USER) {
                 auto openExternalDialogLabel = new QLabel(QStringLiteral("<a href=\"openexternaldialog\">%1</a>").arg(i18n("(Open External Dialog...)")), this);
                 openExternalDialogLabel->setTextFormat(Qt::RichText);
-                openExternalDialogLabel->setContextMenuPolicy(Qt::CustomContextMenu);
+                openExternalDialogLabel->setContextMenuPolicy(Qt::NoContextMenu);
                 connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
                 mFlowLayout->addWidget(openExternalDialogLabel);
             } else if (!mUsersForRoomFilterProxyModel->hasFullList()) {
                 auto loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
-                loadingMoreLabel->setContextMenuPolicy(Qt::CustomContextMenu);
+                loadingMoreLabel->setContextMenuPolicy(Qt::NoContextMenu);
                 connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsers);
                 mFlowLayout->addWidget(loadingMoreLabel);
             }
