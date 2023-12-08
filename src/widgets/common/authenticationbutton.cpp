@@ -10,7 +10,7 @@ AuthenticationButton::AuthenticationButton(QWidget *parent)
     : QPushButton(parent)
 {
     connect(this, &QPushButton::clicked, this, [this]() {
-        Q_EMIT authentication(mInfo.oauthType());
+        Q_EMIT authentication(mAuthenticationInfo.oauthType());
     });
 }
 
@@ -18,9 +18,14 @@ AuthenticationButton::~AuthenticationButton() = default;
 
 void AuthenticationButton::setAuthenticationInfo(const AuthenticationInfo &info)
 {
-    mInfo = info;
+    mAuthenticationInfo = info;
     setText(info.name());
     setIcon(QIcon::fromTheme(info.iconName()));
+}
+
+AuthenticationInfo AuthenticationButton::authenticationInfo() const
+{
+    return mAuthenticationInfo;
 }
 
 #include "moc_authenticationbutton.cpp"

@@ -17,6 +17,7 @@ AuthenticationWidget::AuthenticationWidget(QWidget *parent)
 {
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
+    setVisible(false);
 }
 
 AuthenticationWidget::~AuthenticationWidget() = default;
@@ -24,6 +25,7 @@ AuthenticationWidget::~AuthenticationWidget() = default;
 void AuthenticationWidget::switchRocketChatAccount(RocketChatAccount *account)
 {
     const QVector<AuthenticationInfo> authenticationInfos = account->loginMethodModel()->authentications();
+    setVisible(!authenticationInfos.isEmpty());
     for (const AuthenticationInfo &info : authenticationInfos) {
         auto button = new AuthenticationButton(this);
         connect(button, &AuthenticationButton::authentication, this, &AuthenticationWidget::authentication);

@@ -18,9 +18,11 @@ public:
     ~AuthenticationButton() override;
     void setAuthenticationInfo(const AuthenticationInfo &info);
 
+    [[nodiscard]] AuthenticationInfo authenticationInfo() const;
+
 Q_SIGNALS:
     void authentication(AuthenticationManager::OauthType type);
 
 private:
-    AuthenticationInfo mInfo;
+    AuthenticationInfo mAuthenticationInfo;
 };
