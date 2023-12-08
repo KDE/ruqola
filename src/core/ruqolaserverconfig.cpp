@@ -150,25 +150,25 @@ bool RuqolaServerConfig::serverHasSupportForOauthType(AuthenticationManager::Oau
 
 void RuqolaServerConfig::addOauthService(const QString &service)
 {
-    const QString serviceLower = service.toLower();
-    if (serviceLower.endsWith(QLatin1String("twitter"))) {
+    qDebug() << " serviceLower " << service;
+    if (service.endsWith(QLatin1String("twitter"))) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Twitter;
-    } else if (serviceLower.endsWith(QLatin1String("facebook"))) {
+    } else if (service.endsWith(QLatin1String("facebook"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::FaceBook;
-    } else if (serviceLower.endsWith(QLatin1String("github"))) {
+    } else if (service.endsWith(QLatin1String("github"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::GitHub;
-    } else if (serviceLower.endsWith(QLatin1String("gitlab"))) {
+    } else if (service.endsWith(QLatin1String("gitlab"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::GitLab;
-    } else if (serviceLower.endsWith(QLatin1String("google"))) {
+    } else if (service.endsWith(QLatin1String("google"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Google;
-    } else if (serviceLower.endsWith(QLatin1String("linkedin"))) {
+    } else if (service.endsWith(QLatin1String("linkedin"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Linkedin;
-    } else if (serviceLower.endsWith(QLatin1String("wordpress"))) {
+    } else if (service.endsWith(QLatin1String("wordpress"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Wordpress;
-    } else if (serviceLower.endsWith(QLatin1String("_oauth_proxy_host"))) {
+    } else if (service.endsWith(QLatin1String("_oauth_proxy_host"), Qt::CaseInsensitive)) {
         // Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";
-    } else if (serviceLower.endsWith(QLatin1String("_oauth_meteor"))) {
+    } else if (service.endsWith(QLatin1String("_oauth_meteor"), Qt::CaseInsensitive)) {
         qCDebug(RUQOLA_LOG) << "Accounts_OAuth_Meteor found ";
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
@@ -420,7 +420,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     // qDebug() << " currentConfObject " << currentConfObject;
     const QString id = currentConfObject[QLatin1String("_id")].toString();
     const QVariant value = currentConfObject[QLatin1String("value")].toVariant();
-    static const QRegularExpression regExp(QStringLiteral("^Accounts_OAuth_\\w+"));
+    static const QRegularExpression regularExpressionOAuth(QStringLiteral("^Accounts_OAuth_\\w+"));
     if (id == QLatin1String("uniqueID")) {
         setUniqueId(value.toString());
     } else if (id == QLatin1String("Jitsi_Enabled")) {
@@ -443,7 +443,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setBlockDeletingMessageInMinutes(value.toInt());
     } else if (id == QLatin1String("OTR_Enable")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::OtrEnabled);
-    } else if (id.contains(regExp)) {
+    } else if (id.contains(regularExpressionOAuth)) {
         if (value.toBool()) {
             addOauthService(id);
         }
