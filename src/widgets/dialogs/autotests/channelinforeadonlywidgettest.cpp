@@ -28,7 +28,7 @@ void ChannelInfoReadOnlyWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mNameReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mNameReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mNameReadOnly->openExternalLinks());
-
+#if 0 // Now it's loaded on demand
     auto mCommentReadOnly = w.findChild<QLabel *>(QStringLiteral("mCommentReadOnly"));
     QVERIFY(mCommentReadOnly);
     QCOMPARE(mCommentReadOnly->textFormat(), Qt::RichText);
@@ -46,6 +46,7 @@ void ChannelInfoReadOnlyWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mDescriptionReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextBrowserInteraction);
     QVERIFY(mDescriptionReadOnly->openExternalLinks());
+#endif
 }
 
 #include "moc_channelinforeadonlywidgettest.cpp"

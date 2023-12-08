@@ -25,10 +25,13 @@ public:
 private:
     void updateReadOnlyChannelInfo();
     void connectReadOnlyWidget();
+    void createCommentReadOnly();
+    void createAnnouncementReadOnly();
+    void createDescriptionReadOnly();
     QLabel *const mNameReadOnly;
-    QLabel *const mCommentReadOnly;
-    QLabel *const mAnnouncementReadOnly;
-    QLabel *const mDescriptionReadOnly;
+    QLabel *mCommentReadOnly = nullptr;
+    QLabel *mAnnouncementReadOnly = nullptr;
+    QLabel *mDescriptionReadOnly = nullptr;
     RoomAvatarReadOnlyWidget *const mRoomAvatarWidget;
     QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
