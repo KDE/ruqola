@@ -245,6 +245,13 @@ target_sources(libruqolawidgets PRIVATE
     channellist/channellistview.h
     channellist/channellistwidget.cpp
     channellist/channellistwidget.h
+
+    common/authenticationwidget.h
+    common/authenticationwidget.cpp
+
+    common/authenticationbutton.h
+    common/authenticationbutton.cpp
+
     common/authenticationcombobox.cpp
     common/authenticationcombobox.h
     common/commandcompletiondelegate.cpp
