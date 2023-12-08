@@ -12,6 +12,7 @@ class QLabel;
 class Room;
 class RoomAvatarReadOnlyWidget;
 class RocketChatAccount;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
 {
     Q_OBJECT
@@ -31,4 +32,5 @@ private:
     RoomAvatarReadOnlyWidget *const mRoomAvatarWidget;
     QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
+    QFormLayout *const mLayoutReadOnly;
 };

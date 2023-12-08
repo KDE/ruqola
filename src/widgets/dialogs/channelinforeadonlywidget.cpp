@@ -20,20 +20,20 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account,
     , mDescriptionReadOnly(new QLabel(this))
     , mRoomAvatarWidget(new RoomAvatarReadOnlyWidget(this))
     , mRocketChatAccount(account)
+    , mLayoutReadOnly(new QFormLayout(this))
 {
-    auto layoutReadOnly = new QFormLayout(this);
-    layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
-    layoutReadOnly->setContentsMargins({});
+    mLayoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
+    mLayoutReadOnly->setContentsMargins({});
 
     mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
-    layoutReadOnly->addRow(QStringLiteral(" "), mRoomAvatarWidget);
+    mLayoutReadOnly->addRow(QStringLiteral(" "), mRoomAvatarWidget);
 
     mNameReadOnly->setTextFormat(Qt::RichText);
     mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
     mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mNameReadOnly->setOpenExternalLinks(true);
     mNameReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
+    mLayoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
 
     mCommentReadOnly->setTextFormat(Qt::RichText);
     mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
@@ -41,7 +41,7 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account,
     mCommentReadOnly->setOpenExternalLinks(true);
     mCommentReadOnly->setWordWrap(true);
     mCommentReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
+    mLayoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
 
     mAnnouncementReadOnly->setTextFormat(Qt::RichText);
     mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
@@ -49,7 +49,7 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account,
     mAnnouncementReadOnly->setOpenExternalLinks(true);
     mAnnouncementReadOnly->setWordWrap(true);
     mAnnouncementReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
+    mLayoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
 
     mDescriptionReadOnly->setTextFormat(Qt::RichText);
     mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
@@ -57,7 +57,7 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account,
     mDescriptionReadOnly->setOpenExternalLinks(true);
     mDescriptionReadOnly->setWordWrap(true);
     mDescriptionReadOnly->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
+    mLayoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
 
 ChannelInfoReadOnlyWidget::~ChannelInfoReadOnlyWidget() = default;
@@ -72,9 +72,15 @@ void ChannelInfoReadOnlyWidget::setRoom(Room *room)
 void ChannelInfoReadOnlyWidget::updateReadOnlyChannelInfo()
 {
     mNameReadOnly->setText(mRoom->displayFName());
-    mCommentReadOnly->setText(mRoom->displayTopic());
-    mAnnouncementReadOnly->setText(mRoom->displayAnnouncement());
-    mDescriptionReadOnly->setText(mRoom->description());
+    if (!mRoom->displayTopic().isEmpty()) {
+        mCommentReadOnly->setText(mRoom->displayTopic());
+    }
+    if (!mRoom->displayAnnouncement().isEmpty()) {
+        mAnnouncementReadOnly->setText(mRoom->displayAnnouncement());
+    }
+    if (!mRoom->description().isEmpty()) {
+        mDescriptionReadOnly->setText(mRoom->description());
+    }
 }
 
 void ChannelInfoReadOnlyWidget::connectReadOnlyWidget()
