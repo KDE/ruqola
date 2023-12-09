@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 00:42+0000\n"
-"PO-Revision-Date: 2023-12-03 17:41+0100\n"
+"POT-Creation-Date: 2023-12-09 00:41+0000\n"
+"PO-Revision-Date: 2023-12-07 10:50+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -2390,7 +2390,7 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
-#: widgets/dialogs/channelinforeadonlywidget.cpp:36
+#: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
@@ -2886,7 +2886,7 @@ msgstr "Utiliser une authentification à deux facteurs"
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:69
-#: widgets/dialogs/channelinforeadonlywidget.cpp:60
+#: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
 #: widgets/dialogs/uploadfilewidget.cpp:38
@@ -3002,14 +3002,14 @@ msgstr "Créateur du salon :"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:61
-#: widgets/dialogs/channelinforeadonlywidget.cpp:44
+#: widgets/dialogs/channelinforeadonlywidget.cpp:59
 #, kde-format
 msgid "Comment:"
 msgstr "Commentaire :"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
 #: widgets/dialogs/channelinfoeditablewidget.cpp:65
-#: widgets/dialogs/channelinforeadonlywidget.cpp:52
+#: widgets/dialogs/channelinforeadonlywidget.cpp:71
 #, kde-format
 msgid "Announcement:"
 msgstr "Annonce :"
@@ -7471,32 +7471,26 @@ msgid "Download Image..."
 msgstr "Télécharger une image..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Video"
-msgstr "Télécharger une image"
+msgstr "Télécharger une vidéo"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Video..."
-msgstr "Télécharger une image..."
+msgstr "Télécharger une vidéo..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Sound"
-msgstr "Jouer un son"
+msgstr "Télécharger un son"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Sound..."
-msgstr "Télécharger une image..."
+msgstr "Télécharger un son..."
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -9226,6 +9220,8 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
+"Correction du téléchargement d'un fichier de son / de vidéo, lorsqu'il est "
+"absent du cache."
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Un canal portant le nom « __channel_name__ » existe déjà"
