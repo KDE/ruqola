@@ -43,7 +43,7 @@ private:
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     QLabel *const mFailedError;
     TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;
-    QWidget *const mAuthenticationWidget;
+    QWidget *const mTwoFactorAuthenticationWidget;
     QWidget *const mAuthenticationAccountWidget;
     AuthenticationComboBox *const mAuthenticationCombobox;
     RocketChatAccount *mRocketChatAccount = nullptr;

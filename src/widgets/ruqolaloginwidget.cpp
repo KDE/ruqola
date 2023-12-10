@@ -32,7 +32,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new QLabel(this))
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
-    , mAuthenticationWidget(new QWidget(this))
+    , mTwoFactorAuthenticationWidget(new QWidget(this))
     , mAuthenticationAccountWidget(new QWidget(this))
     , mAuthenticationCombobox(new AuthenticationComboBox(this))
 {
@@ -74,10 +74,10 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
 
     // Two Factor authentication
-    mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
-    mAuthenticationWidget->setVisible(false);
+    mTwoFactorAuthenticationWidget->setObjectName(QStringLiteral("mTwoFactorAuthenticationWidget"));
+    mTwoFactorAuthenticationWidget->setVisible(false);
 
-    auto twoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
+    auto twoFactorAuthenticationLayout = new QVBoxLayout(mTwoFactorAuthenticationWidget);
     twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));
     twoFactorAuthenticationLayout->setContentsMargins(QMargins{});
 
@@ -89,7 +89,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
-    mainLayout->addWidget(mAuthenticationWidget);
+    mainLayout->addWidget(mTwoFactorAuthenticationWidget);
 
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
     mainLayout->addWidget(mLoginButton);
@@ -171,19 +171,19 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
     case DDPAuthenticationManager::LoginStatus::LoginOngoing:
         mBusyIndicatorWidget->show();
         changeWidgetStatus(false);
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoggedOut:
     case DDPAuthenticationManager::LoginStatus::LoggedIn:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: invalid username or password"));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginFailedInvalidOtp:
         showError(i18n("Login failed: Invalid OTP code."));
@@ -191,50 +191,50 @@ void RuqolaLoginWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus sta
     case DDPAuthenticationManager::LoginStatus::LoginOtpRequired:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        mAuthenticationWidget->setVisible(true);
+        mTwoFactorAuthenticationWidget->setVisible(true);
         break;
     case DDPAuthenticationManager::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Installation Problem found. No plugins found here."));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::GenericError:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: generic error"));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginFailedLoginBlockForIp:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: Login has been temporarily blocked For IP."));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginFailedLoginBlockedForUser:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: Login has been temporarily blocked For User."));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoginFailedUserNotActivated:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: User is not activated."));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginStatus::LoginFailedLoginAppNotAllowedToLogin:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         showError(i18n("Login Failed: App user is not allowed to login."));
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         break;
     case DDPAuthenticationManager::LoginOtpAuthOngoing:
     case DDPAuthenticationManager::LogoutOngoing:
     case DDPAuthenticationManager::LogoutCleanUpOngoing:
     case DDPAuthenticationManager::LoggedOutAndCleanedUp:
         // TODO
-        mAuthenticationWidget->setVisible(false);
+        mTwoFactorAuthenticationWidget->setVisible(false);
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         break;
