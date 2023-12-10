@@ -28,6 +28,7 @@ void AuthenticationWidget::switchRocketChatAccount(RocketChatAccount *account)
     setVisible(!authenticationInfos.isEmpty());
     for (const AuthenticationInfo &info : authenticationInfos) {
         auto button = new AuthenticationButton(this);
+        button->setObjectName(QStringLiteral("button_%1").arg(info.name()));
         connect(button, &AuthenticationButton::authentication, this, &AuthenticationWidget::authentication);
         button->setAuthenticationInfo(info);
         mMainLayout->addWidget(button);
