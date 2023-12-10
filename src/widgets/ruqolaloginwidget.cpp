@@ -6,7 +6,7 @@
 
 #include "ruqolaloginwidget.h"
 #include "colors.h"
-#include "common/authenticationcombobox.h"
+#include "common/authenticationwidget.h"
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
@@ -34,7 +34,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
     , mTwoFactorAuthenticationWidget(new QWidget(this))
     , mAuthenticationAccountWidget(new QWidget(this))
-    , mAuthenticationCombobox(new AuthenticationComboBox(this))
+    , mAuthenticationWidget(new AuthenticationWidget(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -62,8 +62,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     authenticationAccountLabel->setObjectName(QStringLiteral("authenticationAccountLabel"));
     authenticationAccountLayout->addWidget(authenticationAccountLabel);
 
-    mAuthenticationCombobox->setObjectName(QStringLiteral("mAuthenticationCombobox"));
-    authenticationAccountLayout->addWidget(mAuthenticationCombobox);
+    mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
+    authenticationAccountLayout->addWidget(mAuthenticationWidget);
     mainLayout->addWidget(mAuthenticationAccountWidget);
     mAuthenticationAccountWidget->setVisible(false);
 
@@ -135,8 +135,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
                                              << mRocketChatAccount->password().isEmpty();
         mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
     });
-    mAuthenticationCombobox->switchRocketChatAccount(mRocketChatAccount); // Authentication is rocketchatAccount specific
-    mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
+    mAuthenticationWidget->switchRocketChatAccount(mRocketChatAccount); // Authentication is rocketchatAccount specific
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
     mPasswordLineEditWidget->setAllowPasswordReset(mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
 }

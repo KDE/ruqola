@@ -14,7 +14,7 @@ class QLineEdit;
 class QPushButton;
 class QLabel;
 class KBusyIndicatorWidget;
-class AuthenticationComboBox;
+class AuthenticationWidget;
 class PasswordLineEditWidget;
 class TwoAuthenticationPasswordWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
@@ -45,6 +45,6 @@ private:
     TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;
     QWidget *const mTwoFactorAuthenticationWidget;
     QWidget *const mAuthenticationAccountWidget;
-    AuthenticationComboBox *const mAuthenticationCombobox;
+    AuthenticationWidget *const mAuthenticationWidget;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };

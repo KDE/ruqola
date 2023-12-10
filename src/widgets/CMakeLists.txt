@@ -252,8 +252,6 @@ target_sources(libruqolawidgets PRIVATE
     common/authenticationbutton.h
     common/authenticationbutton.cpp
 
-    common/authenticationcombobox.cpp
-    common/authenticationcombobox.h
     common/commandcompletiondelegate.cpp
     common/commandcompletiondelegate.h
     common/completionlineedit.cpp

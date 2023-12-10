@@ -10,7 +10,6 @@ macro(add_ruqolacommon_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqolacommon_test(authenticationcomboboxtest.cpp)
 add_ruqolacommon_test(completionlistviewtest.cpp)
 add_ruqolacommon_test(authenticationbuttontest.cpp)
 add_ruqolacommon_test(authenticationwidgettest.cpp)
