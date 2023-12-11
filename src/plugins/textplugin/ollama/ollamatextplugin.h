@@ -17,5 +17,5 @@ public:
     explicit OllamaTextPlugin(QObject *parent = nullptr, const QVariantList & = {});
     ~OllamaTextPlugin() override;
 
-    PluginTextInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
 };

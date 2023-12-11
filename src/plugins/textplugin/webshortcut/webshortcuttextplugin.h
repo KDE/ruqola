@@ -17,5 +17,5 @@ public:
     explicit WebShortcutTextPlugin(QObject *parent = nullptr, const QVariantList & = {});
     ~WebShortcutTextPlugin() override;
 
-    PluginTextInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
 };

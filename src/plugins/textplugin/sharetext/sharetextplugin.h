@@ -17,5 +17,5 @@ public:
     explicit ShareTextPlugin(QObject *parent = nullptr, const QVariantList & = {});
     ~ShareTextPlugin() override;
 
-    PluginTextInterface *createInterface(QObject *parent) override;
+    [[nodiscard]] PluginTextInterface *createInterface(QObject *parent) override;
 };
