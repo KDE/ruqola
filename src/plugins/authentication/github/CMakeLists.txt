@@ -21,5 +21,6 @@ target_link_libraries(ruqola_githubauthenticationplugin
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)
+    add_subdirectory(tests)
 endif()
 
