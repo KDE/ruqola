@@ -5,6 +5,7 @@
 */
 
 #include "ruqolaserverconfig.h"
+#include "ruqola_authentication_debug.h"
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -150,7 +151,7 @@ bool RuqolaServerConfig::serverHasSupportForOauthType(AuthenticationManager::Oau
 
 void RuqolaServerConfig::addOauthService(const QString &service)
 {
-    qDebug() << " serviceLower " << service;
+    qCDebug(RUQOLA_AUTHENTICATION_LOG) << " serviceLower " << service;
     if (service.endsWith(QLatin1String("twitter"))) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Twitter;
     } else if (service.endsWith(QLatin1String("facebook"), Qt::CaseInsensitive)) {
@@ -173,7 +174,7 @@ void RuqolaServerConfig::addOauthService(const QString &service)
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
-    qDebug() << " authentication service " << mServerOauthTypes;
+    qCDebug(RUQOLA_AUTHENTICATION_LOG) << " authentication service " << mServerOauthTypes;
 }
 
 void RuqolaServerConfig::adaptToServerVersion()
