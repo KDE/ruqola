@@ -190,7 +190,7 @@ set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-find_package(KLLMWidgets ${KLLMCORE_VERSION})
+find_package(KLLMWidgets ${KLLMWIDGETS_VERSION})
 set_package_properties(KLLMWidgets PROPERTIES
     TYPE RECOMMENDED
     PURPOSE "Required for building IA plugins support"
