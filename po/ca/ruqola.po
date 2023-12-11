@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-09 00:41+0000\n"
+"POT-Creation-Date: 2023-12-11 00:41+0000\n"
 "PO-Revision-Date: 2023-12-05 12:55+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -7374,7 +7374,7 @@ msgstr ""
 "Es requereix una contrasenya d'un ús per a completar el procediment d'inici "
 "de sessió."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:188
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ha fallat l'inici de la sessió: codi OTP no vàlid."
@@ -8609,42 +8609,42 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi de reserva."
 
-#: widgets/ruqolaloginwidget.cpp:185
+#: widgets/ruqolaloginwidget.cpp:184
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Ha fallat l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/ruqolaloginwidget.cpp:199
+#: widgets/ruqolaloginwidget.cpp:198
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Aquí no s'ha trobat cap connector."
 
-#: widgets/ruqolaloginwidget.cpp:205
+#: widgets/ruqolaloginwidget.cpp:204
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Ha fallat l'inici de la sessió: error genèric"
 
-#: widgets/ruqolaloginwidget.cpp:211
+#: widgets/ruqolaloginwidget.cpp:210
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Ha fallat l'inici de la sessió: temporalment s'ha bloquejat l'inici de "
 "sessió per IP."
 
-#: widgets/ruqolaloginwidget.cpp:217
+#: widgets/ruqolaloginwidget.cpp:216
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Ha fallat l'inici de la sessió: temporalment s'ha bloquejat l'inici de "
 "sessió per usuari."
 
-#: widgets/ruqolaloginwidget.cpp:223
+#: widgets/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Ha fallat l'inici de la sessió: l'usuari no està activat."
 
-#: widgets/ruqolaloginwidget.cpp:229
+#: widgets/ruqolaloginwidget.cpp:228
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
