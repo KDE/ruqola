@@ -173,6 +173,7 @@ void RuqolaServerConfig::addOauthService(const QString &service)
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
+    qDebug() << " authentication service " << mServerOauthTypes;
 }
 
 void RuqolaServerConfig::adaptToServerVersion()
