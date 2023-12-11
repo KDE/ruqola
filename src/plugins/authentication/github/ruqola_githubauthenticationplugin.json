@@ -1,0 +1,10 @@
+{
+    "KPlugin": {
+        "Id": "githubauthenticationplugin",
+        "Name": "Github Authentication Plugin",
+        "ServiceTypes": [
+            "Ruqola/Authentication"
+        ],
+        "Version": "1.0"
+    }
+}
