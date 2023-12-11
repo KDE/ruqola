@@ -5,6 +5,7 @@
 */
 
 #include "createnewserverwidget.h"
+#include "common/authenticationwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <KAuthorized>
 #include <QFormLayout>
@@ -19,6 +20,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
+    , mAuthenticationWidget(new AuthenticationWidget(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -46,6 +48,9 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     connect(mUserName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
     connect(mServerUrl, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
+
+    mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
+    mainLayout->addWidget(mAuthenticationWidget);
 
     // TODO add support for two factor ?
 }

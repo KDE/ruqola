@@ -5,6 +5,7 @@
 */
 
 #include "createnewserverwidgettest.h"
+#include "common/authenticationwidget.h"
 #include "dialogs/createnewserverwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -45,6 +46,9 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
 
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
+
+    auto mAuthenticationWidget = w.findChild<AuthenticationWidget *>(QStringLiteral("mAuthenticationWidget"));
+    QVERIFY(mAuthenticationWidget);
 }
 
 #include "moc_createnewserverwidgettest.cpp"

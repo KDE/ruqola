@@ -12,6 +12,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class KPasswordLineEdit;
+class AuthenticationWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerWidget : public QWidget
 {
     Q_OBJECT
@@ -35,5 +36,6 @@ private:
     QLineEdit *const mServerUrl;
     QLineEdit *const mUserName;
     KPasswordLineEdit *const mPasswordLineEdit;
+    AuthenticationWidget *const mAuthenticationWidget;
     AccountManager::AccountManagerInfo mAccountInfo;
 };
