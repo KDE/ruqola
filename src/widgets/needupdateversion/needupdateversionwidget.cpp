@@ -8,12 +8,15 @@
 #include "needupdateversionwidget.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QAction>
 
 NeedUpdateVersionWidget::NeedUpdateVersionWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
     setVisible(false);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     setPosition(KMessageWidget::Header);
+#endif
     setCloseButtonVisible(true);
     auto action = new QAction(i18n("Disable version check"), this);
     addAction(action);
