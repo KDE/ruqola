@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDate>
+#include <QMetaType>
 #include <QString>
 namespace NeedUpdateVersionUtils
 {
