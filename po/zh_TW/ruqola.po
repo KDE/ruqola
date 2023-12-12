@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 00:41+0000\n"
+"POT-Creation-Date: 2023-12-12 00:41+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -1547,6 +1547,11 @@ msgstr ""
 #: core/videoconference/videoconferencenotificationjob.cpp:68
 #, kde-format
 msgid "Accept"
+msgstr ""
+
+#: plugins/authentication/github/githubpluginauthentication.cpp:33
+#, kde-format
+msgid "GitHub"
 msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -3478,7 +3483,7 @@ msgid "Set random password and send by email"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:40
+#: widgets/dialogs/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3506,7 +3511,7 @@ msgstr "電子信箱"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:44
+#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
@@ -6838,13 +6843,13 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr ""
 
-#: widgets/dialogs/createnewserverwidget.cpp:30
+#: widgets/dialogs/createnewserverwidget.cpp:32
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "帳戶名稱："
 
-#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/createnewserverwidget.cpp:37
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:48
 #, fuzzy, kde-format

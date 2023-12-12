@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 00:41+0000\n"
+"POT-Creation-Date: 2023-12-12 00:41+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1468,6 +1468,11 @@ msgstr "Appello in arrivata"
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
+
+#: plugins/authentication/github/githubpluginauthentication.cpp:33
+#, kde-format
+msgid "GitHub"
+msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
@@ -3337,7 +3342,7 @@ msgid "Set random password and send by email"
 msgstr "Fixa contrasigno casual e invia per e-posta"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:40
+#: widgets/dialogs/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3362,7 +3367,7 @@ msgstr "E-posta:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:44
+#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
@@ -6555,13 +6560,13 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modifica conto"
 
-#: widgets/dialogs/createnewserverwidget.cpp:30
+#: widgets/dialogs/createnewserverwidget.cpp:32
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Nomine de conto:"
 
-#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/createnewserverwidget.cpp:37
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:48
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 00:41+0000\n"
+"POT-Creation-Date: 2023-12-12 00:41+0000\n"
 "PO-Revision-Date: 2023-12-06 06:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1464,6 +1464,11 @@ msgstr "შემომავალი ზარი"
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
+
+#: plugins/authentication/github/githubpluginauthentication.cpp:33
+#, kde-format
+msgid "GitHub"
+msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
@@ -3302,7 +3307,7 @@ msgid "Set random password and send by email"
 msgstr "შემთხვევითი პაროლის დაყენება და ელფოსტაზე გაგზავნა"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:40
+#: widgets/dialogs/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3327,7 +3332,7 @@ msgstr "ელფოტა:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:44
+#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
@@ -6552,13 +6557,13 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "ანგარიშის პარამეტრების შეცვლა"
 
-#: widgets/dialogs/createnewserverwidget.cpp:30
+#: widgets/dialogs/createnewserverwidget.cpp:32
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "ანგარიშის სახელი:"
 
-#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/createnewserverwidget.cpp:37
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
