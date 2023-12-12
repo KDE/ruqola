@@ -786,6 +786,13 @@ target_sources(libruqolawidgets PRIVATE
 
     offlinewidget/offlinewidget.h
     offlinewidget/offlinewidget.cpp
+
+    needupdateversion/needupdateversionwidget.h
+    needupdateversion/needupdateversionwidget.cpp
+
+    needupdateversion/needupdateversionutils.h
+    needupdateversion/needupdateversionutils.cpp
+
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
@@ -943,6 +950,8 @@ if (BUILD_TESTING)
     add_subdirectory(importexportdata/autotests)
     add_subdirectory(importexportdata/tests)
     add_subdirectory(offlinewidget/autotests)
+    add_subdirectory(needupdateversion/tests)
+    add_subdirectory(needupdateversion/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

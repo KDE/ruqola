@@ -1,0 +1,23 @@
+/*
+  SPDX-FileCopyrightText: 2023 Laurent Montel <montel@kde.org>
+
+  SPDX-License-Identifier: GPL-2.0-or-later
+*/
+
+#pragma once
+#include "libruqolawidgets_private_export.h"
+#include <QDate>
+#include <QString>
+namespace NeedUpdateVersionUtils
+{
+enum class LIBRUQOLAWIDGETS_TESTS_EXPORT ObsoleteVersion {
+    Unknown,
+    NotObsoleteYet,
+    OlderThan6Months,
+    OlderThan12Months,
+};
+
+void disableCheckVersion();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT bool checkVersion();
+[[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT NeedUpdateVersionUtils::ObsoleteVersion obsoleteVersionStatus(const QString &str, const QDate &currentDate);
+};
