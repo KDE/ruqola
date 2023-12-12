@@ -13,6 +13,7 @@ NeedUpdateVersionUtilsTest::NeedUpdateVersionUtilsTest(QObject *parent)
     : QObject{parent}
 {
     QStandardPaths::setTestModeEnabled(true);
+    qRegisterMetaType<NeedUpdateVersionUtils::ObsoleteVersion>();
 }
 
 void NeedUpdateVersionUtilsTest::shouldReturnObsoleteVersionStatus()

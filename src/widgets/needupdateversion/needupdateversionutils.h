@@ -21,3 +21,4 @@ void disableCheckVersion();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT bool checkVersion();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT NeedUpdateVersionUtils::ObsoleteVersion obsoleteVersionStatus(const QString &str, const QDate &currentDate);
 };
+Q_DECLARE_METATYPE(NeedUpdateVersionUtils::ObsoleteVersion)
