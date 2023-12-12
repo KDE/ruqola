@@ -33,6 +33,7 @@ private:
     void slotLogin();
     void slotResetPasswordRequested(const QString &email);
     void slotUpdateLoginButton();
+    void slotCheckOauth();
 
     QLineEdit *const mAccountName;
     QLineEdit *const mServerUrl;

@@ -46,6 +46,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mainLayout->addRow(i18n("Server URL:"), mServerUrl);
+    connect(mServerUrl, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotCheckOauth);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("Username or Email:"), mUserName);
@@ -249,6 +250,11 @@ void RuqolaLoginWidget::showError(const QString &text)
 void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     mRocketChatAccount->requestNewPassword(email);
+}
+
+void RuqolaLoginWidget::slotCheckOauth()
+{
+    // TODO
 }
 
 #include "moc_ruqolaloginwidget.cpp"
