@@ -64,7 +64,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(account, view, mTextSelectionImpl))
     , mHelperConferenceVideo(new MessageDelegateHelperConferenceVideo(account, view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
-    , mMessageListLayoutBase(new MessageListCompactLayout(this))
+    , mMessageListLayoutBase(new MessageListNormalLayout(this))
 {
     mTextSelectionImpl->textSelection()->setTextHelperFactory(mHelperText.data());
     mTextSelectionImpl->textSelection()->setAttachmentFactories({mHelperAttachmentImage.data(),

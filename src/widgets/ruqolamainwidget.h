@@ -18,7 +18,6 @@ class QSplitter;
 class RocketChatAccount;
 class Room;
 class BannerMessageWidget;
-class NeedUpdateVersionWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
@@ -43,7 +42,6 @@ private:
     void slotMarkBannerAsRead(const QString &identifier);
     void slotRoomPressed(const QString &roomId);
     void createBannerMessageWidget();
-    void createNeedUpdateVersionWidget();
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;
@@ -51,7 +49,6 @@ private:
     RoomWidget *const mRoomWidget;
     QWidget *const mEmptyRoomWidget;
     BannerMessageWidget *mBannerMessageWidget = nullptr;
-    NeedUpdateVersionWidget *mNeedUpdateVersionWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QVBoxLayout *const mTopLayout;
 };

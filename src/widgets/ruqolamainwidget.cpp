@@ -79,9 +79,10 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
     if (NeedUpdateVersionUtils::checkVersion()) {
-        createNeedUpdateVersionWidget();
-        mNeedUpdateVersionWidget->setObsoleteVersion(
-            NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(RUQOLA_RELEASE_VERSION), QDate::currentDate()));
+        auto needUpdateVersionWidget = new NeedUpdateVersionWidget(this);
+        needUpdateVersionWidget->setObjectName(QStringLiteral("needUpdateVersionWidget"));
+        mTopLayout->insertWidget(0, needUpdateVersionWidget);
+        needUpdateVersionWidget->setObsoleteVersion(NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(RUQOLA_RELEASE_VERSION), QDate::currentDate()));
     }
 }
 
@@ -100,14 +101,6 @@ void RuqolaMainWidget::createBannerMessageWidget()
     mBannerMessageWidget->setObjectName(QStringLiteral("mBannerMessageWidget"));
     mTopLayout->insertWidget(0, mBannerMessageWidget);
     connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
-}
-
-void RuqolaMainWidget::createNeedUpdateVersionWidget()
-{
-    // FIXME: use it
-    mNeedUpdateVersionWidget = new NeedUpdateVersionWidget(this);
-    mNeedUpdateVersionWidget->setObjectName(QStringLiteral("mNeedUpdateVersionWidget"));
-    mTopLayout->insertWidget(0, mNeedUpdateVersionWidget);
 }
 
 void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
