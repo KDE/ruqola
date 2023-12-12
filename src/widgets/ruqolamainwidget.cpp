@@ -8,6 +8,7 @@
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
+#include "config-ruqola.h"
 #include "model/switchchannelhistorymodel.h"
 #include "needupdateversion/needupdateversionwidget.h"
 #include "rocketchataccount.h"
@@ -77,6 +78,11 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
+    if (NeedUpdateVersionUtils::checkVersion()) {
+        createNeedUpdateVersionWidget();
+        mNeedUpdateVersionWidget->setObsoleteVersion(
+            NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(RUQOLA_RELEASE_VERSION), QDate::currentDate()));
+    }
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
