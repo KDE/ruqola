@@ -829,7 +829,7 @@ void MessageListDelegate::switchMessageLayout()
 #else
     if (mRocketChatAccount) {
         delete mMessageListLayoutBase;
-        const int i = mRocketChatAccount->ownUserPreferences().messageViewMode();
+        const int i = mRocketChatAccount->messageViewMode();
         switch (i) {
         case 0:
             mMessageListLayoutBase = new MessageListNormalLayout(this);
