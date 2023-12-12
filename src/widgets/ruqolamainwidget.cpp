@@ -9,6 +9,7 @@
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
 #include "model/switchchannelhistorymodel.h"
+#include "needupdateversion/needupdateversionwidget.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "room/roomwidget.h"
@@ -93,6 +94,14 @@ void RuqolaMainWidget::createBannerMessageWidget()
     mBannerMessageWidget->setObjectName(QStringLiteral("mBannerMessageWidget"));
     mTopLayout->insertWidget(0, mBannerMessageWidget);
     connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
+}
+
+void RuqolaMainWidget::createNeedUpdateVersionWidget()
+{
+    // FIXME: use it
+    mNeedUpdateVersionWidget = new NeedUpdateVersionWidget(this);
+    mNeedUpdateVersionWidget->setObjectName(QStringLiteral("mNeedUpdateVersionWidget"));
+    mTopLayout->insertWidget(0, mNeedUpdateVersionWidget);
 }
 
 void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
