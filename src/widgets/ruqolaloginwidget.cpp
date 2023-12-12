@@ -7,7 +7,9 @@
 #include "ruqolaloginwidget.h"
 #include "colors.h"
 #include "common/authenticationwidget.h"
+#include "connection.h"
 #include "misc/passwordlineeditwidget.h"
+#include "misc/settingsoauthjob.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola_password_widgets_debug.h"
@@ -254,7 +256,21 @@ void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
 
 void RuqolaLoginWidget::slotCheckOauth()
 {
-    // TODO
+#if 0
+    const QUrl serverUrl{mServerUrl->text()};
+    if (serverUrl.isValid()) {
+        mRocketChatAccount->setServerUrl(mServerUrl->text());
+        auto job = new RocketChatRestApi::SettingsOauthJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::SettingsOauthJob::settingsOauthDone, this, [](const QJsonObject &obj) {
+            qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " obj" << obj;
+            // TODO switch to new team ?
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_PASSWORD_WIDGETS_LOG) << "Impossible to start SettingsOauthJob";
+        }
+    }
+#endif
 }
 
 #include "moc_ruqolaloginwidget.cpp"
