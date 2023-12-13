@@ -125,35 +125,36 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     // Align top of sender rect so it matches the baseline of the richtext
     layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
-    layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
+    const double senderRectY{layout.senderRect.y()};
+    layout.avatarPos = QPointF(option.rect.x() + margin, senderRectY);
     // Same for the roles and edit icon
     if (hasRoles) {
-        layout.rolesIconRect = QRect(editIconX - iconSize - margin, layout.senderRect.y(), iconSize, iconSize);
+        layout.rolesIconRect = QRect(editIconX - iconSize - margin, senderRectY, iconSize, iconSize);
     }
     if (message->wasEdited()) {
-        layout.editedIconRect = QRect(editIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.editedIconRect = QRect(editIconX, senderRectY, iconSize, iconSize);
     }
 
     if (message->isStarred()) {
-        layout.favoriteIconRect = QRect(favoriteIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.favoriteIconRect = QRect(favoriteIconX, senderRectY, iconSize, iconSize);
     }
 
     if (message->isPinned()) {
-        layout.pinIconRect = QRect(pinIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.pinIconRect = QRect(pinIconX, senderRectY, iconSize, iconSize);
     }
     if (layout.messageIsFollowing) {
-        layout.followingIconRect = QRect(followingIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
     }
     if (message->isAutoTranslated()) {
-        layout.translatedIconRect = QRect(translatedIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
     }
 
     if (ignoreMessage) {
-        layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, layout.senderRect.y(), iconSize, iconSize);
+        layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, senderRectY, iconSize, iconSize);
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
 
-    layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
+    layout.addReactionRect = QRect(textLeft + maxWidth, senderRectY, iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
     generateAttachmentLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
