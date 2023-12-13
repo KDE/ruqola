@@ -5,20 +5,21 @@
 #
 # Automatically generated, 2019.
 # Yi-Jyun Pan <pan93412@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-12 00:41+0000\n"
-"PO-Revision-Date: 2020-02-28 01:44+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"POT-Creation-Date: 2023-12-13 00:42+0000\n"
+"PO-Revision-Date: 2023-12-13 03:32+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 19.12.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -28,7 +29,7 @@ msgstr "Ruqola"
 #: apps/main.cpp:56
 #, kde-format
 msgid "Rocket Chat Client"
-msgstr ""
+msgstr "Rocket Chat 用戶端"
 
 #: apps/main.cpp:58
 #, fuzzy, kde-format
@@ -70,7 +71,7 @@ msgstr ""
 #: apps/main.cpp:66
 #, kde-format
 msgid "Kevin Funk"
-msgstr ""
+msgstr "Kevin Funk"
 
 #: apps/main.cpp:66 apps/main.cpp:67 apps/main.cpp:68 apps/main.cpp:70
 #: apps/main.cpp:71
@@ -81,72 +82,72 @@ msgstr "臭蟲修正"
 #: apps/main.cpp:67
 #, kde-format
 msgid "Olivier JG"
-msgstr ""
+msgstr "Olivier JG"
 
 #: apps/main.cpp:68
 #, kde-format
 msgid "Milian Wolff"
-msgstr ""
+msgstr "Milian Wolff"
 
 #: apps/main.cpp:69
 #, kde-format
 msgid "Till Adam"
-msgstr ""
+msgstr "Till Adam"
 
 #: apps/main.cpp:69
 #, kde-format
 msgid "Windows compile bug fixing"
-msgstr ""
+msgstr "Windows 編譯與錯誤修正"
 
 #: apps/main.cpp:70
 #, kde-format
 msgid "Shantanu Tushar"
-msgstr ""
+msgstr "Shantanu Tushar"
 
 #: apps/main.cpp:71
 #, kde-format
 msgid "Alessandro Ambrosano"
-msgstr ""
+msgstr "Alessandro Ambrosano"
 
 #: apps/main.cpp:72
 #, kde-format
 msgid "Hannah von Reth"
-msgstr ""
+msgstr "Hannah von Reth"
 
 #: apps/main.cpp:72
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
-msgstr ""
+msgstr "Windows/Mac 的錯誤修正"
 
 #: apps/main.cpp:73
 #, kde-format
 msgid "Allen Winter"
-msgstr ""
+msgstr "Allen Winter"
 
 #: apps/main.cpp:73
 #, kde-format
 msgid "Packaging"
-msgstr ""
+msgstr "打包"
 
 #: apps/main.cpp:74
 #, kde-format
 msgid "Waqar Ahmed"
-msgstr ""
+msgstr "Waqar Ahmed"
 
 #: apps/main.cpp:74
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr ""
+msgstr "錯誤修正（編譯、網路崩潰...）"
 
 #: apps/main.cpp:75
 #, kde-format
 msgid "Nicolas Fella"
-msgstr ""
+msgstr "Nicolas Fella"
 
 #: apps/main.cpp:75
 #, kde-format
 msgid "Optimization, fix windows/mac support"
-msgstr ""
+msgstr "最佳化、修正 Windows/Mac 支援"
 
 #: apps/main.cpp:100
 #, kde-format
@@ -154,15 +155,14 @@ msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
 #: core/accountmanager.cpp:711
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Server not found: %1"
-msgstr "伺服器資訊"
+msgstr "找不到伺服器：%1"
 
 #: core/bannerinfo/bannerinfo.cpp:46
 #, kde-format
 msgid "New version available %1"
-msgstr ""
+msgstr "有新版可用 %1"
 
 #: core/bannerinfo/bannerinfos.cpp:64
 #, fuzzy, kde-format
@@ -606,10 +606,9 @@ msgstr ""
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgid "Name"
-msgstr "名稱："
+msgstr "名稱"
 
 #: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
@@ -627,7 +626,7 @@ msgstr ""
 #: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
-msgstr ""
+msgstr "權杖"
 
 #: core/model/admininvitemodel.cpp:37
 #, fuzzy, kde-format
@@ -1047,25 +1046,22 @@ msgstr "封存的聊天室"
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
 msgid "Required"
-msgstr ""
+msgstr "必要"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgid "Ignored"
-msgstr "無視"
+msgstr "已忽略"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:80
-#, fuzzy, kde-format
-#| msgid "Create Account"
+#, kde-format
 msgid "Create At"
-msgstr "建立帳戶"
+msgstr "建立於"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:82
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
+#, kde-format
 msgid "Two Factor Authentication"
-msgstr "身份驗證方式"
+msgstr "兩步驟驗證"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:84
 #, kde-format
@@ -1257,10 +1253,9 @@ msgid "Hide \"Room Archived\" messages"
 msgstr ""
 
 #: core/model/systemmessagesmodel.cpp:52
-#, fuzzy, kde-format
-#| msgid "Pinned Messages"
+#, kde-format
 msgid "Hide \"Encryption Enabled\" messages"
-msgstr "置頂的訊息"
+msgstr "隱藏「已啟用加密」訊息"
 
 #: core/model/systemmessagesmodel.cpp:53
 #, kde-format
@@ -1418,10 +1413,9 @@ msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
 #: core/rocketchataccount.cpp:2765
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Export Messages"
-msgstr "檢舉訊息"
+msgstr "匯出訊息"
 
 #: core/rocketchataccount.cpp:2766
 #, kde-format
@@ -1773,7 +1767,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:264
 #, kde-format
 msgid "The email domain is blacklisted"
-msgstr ""
+msgstr "電子郵件網域在黑名單中"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 #, kde-format
@@ -1870,7 +1864,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
 msgid "Invalid domain"
-msgstr ""
+msgstr "無效的網域"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, fuzzy, kde-format
@@ -1967,7 +1961,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 #, kde-format
 msgid "Invalid token"
-msgstr ""
+msgstr "無效的權杖"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 #, kde-format
@@ -2017,7 +2011,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:369
 #, kde-format
 msgid "There are no tokens for this user"
-msgstr ""
+msgstr "這個使用者沒有權杖"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:371
 #, kde-format
@@ -2116,17 +2110,17 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:409
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
-msgstr ""
+msgstr "個人存取權杖目前已停用"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:411
 #, kde-format
 msgid "A token with this name already exists"
-msgstr ""
+msgstr "已經存在相同名稱的權杖"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:413
 #, kde-format
 msgid "Token does not exists"
-msgstr ""
+msgstr "權杖不存在"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:416
 #, kde-format
@@ -2210,7 +2204,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:446
 #, kde-format
 msgid "App user is not allowed to login"
-msgstr ""
+msgstr "應用程式使用者不被允許登入"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:448
 #, kde-format
@@ -2519,7 +2513,7 @@ msgstr "移除"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add..."
-msgstr ""
+msgstr "新增..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
@@ -2900,7 +2894,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:49
 #, kde-format
 msgid "Access Token URL:"
-msgstr ""
+msgstr "存取權杖網址："
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:33
 #, fuzzy, kde-format
@@ -3504,16 +3498,15 @@ msgstr "%1 則訊息"
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
 #: widgets/registeruser/registeruserwidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Email"
+#, kde-format
 msgid "Email:"
-msgstr "電子信箱"
+msgstr "電子郵件："
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:76
 #, kde-format
 msgid "Password:"
 msgstr "密碼："
@@ -3657,23 +3650,20 @@ msgid "Allow Email Change"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Allow Password Change"
-msgstr "密碼"
+msgstr "允許密碼變更"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Disable Notifications:"
+#, kde-format
 msgid "Allow Email Notifications"
-msgstr "停用通知："
+msgstr "允許電子郵件通知"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgid "Allow Users to Delete Own Account"
-msgstr "刪除帳戶"
+msgstr "允許使用者刪除自己的帳戶"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #, kde-format
@@ -3686,10 +3676,9 @@ msgid "Allow Anonymous Read"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Allow Password Change for OAuth Users"
-msgstr "密碼"
+msgstr "為 OAuth 使用者允許密碼變更"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
@@ -3742,7 +3731,7 @@ msgstr "密碼"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Only Allow Verified Users to Login"
-msgstr ""
+msgstr "只允許已驗證的使用者登入"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
@@ -3757,12 +3746,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "使用預設已封鎖網域列表"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:49
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "使用 DNS 網域檢查"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
 #, kde-format
@@ -3790,11 +3779,9 @@ msgid "How many failed attempts until block by IP"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Invite Users"
+#, kde-format
 msgid "Registration"
-msgstr "邀請使用者"
+msgstr "註冊"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
 #, kde-format
@@ -3809,22 +3796,22 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "允許的網域，以逗號分隔"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
 #, kde-format
 msgid "Allowed Domains List"
-msgstr ""
+msgstr "允許網域列表"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "被封鎖的網域，以逗號分隔"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
 #, kde-format
 msgid "Blocked Domains List"
-msgstr ""
+msgstr "封鎖網域列表"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
@@ -3844,10 +3831,9 @@ msgid "Administrator Server Settings - %1"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
-#, fuzzy, kde-format
-#| msgid "Account Name"
+#, kde-format
 msgid "Accounts"
-msgstr "帳戶名稱"
+msgstr "帳戶"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #: widgets/room/roomheaderwidget.cpp:65
@@ -3911,7 +3897,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "Webdav"
-msgstr ""
+msgstr "Webdav"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
@@ -3988,17 +3974,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #, kde-format
 msgid "Prepend Domain"
-msgstr ""
+msgstr "前綴網域"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "All Subdomains"
-msgstr ""
+msgstr "所有子網域"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
 #, kde-format
 msgid "Features Enabled"
-msgstr ""
+msgstr "已啟用的功能"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
 #, kde-format
@@ -4086,7 +4072,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "已啟用"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, fuzzy, kde-format
@@ -4126,7 +4112,7 @@ msgstr ""
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
-msgstr ""
+msgstr "您的外部 SSO 服務的登入網址，例如 https://sso.example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:53
@@ -4204,7 +4190,7 @@ msgstr "停用通知："
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "將寄件者新增到回覆地址"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
 #, fuzzy, kde-format
@@ -4375,10 +4361,9 @@ msgid "Enterprise License"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "File Uploaded: %1"
+#, kde-format
 msgid "Enabled File Upload"
-msgstr "已上傳檔案：%1"
+msgstr "已啟用檔案上傳"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:20
 #, fuzzy, kde-format
@@ -4441,7 +4426,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
 #, kde-format
 msgid "Accepted Media Types"
-msgstr ""
+msgstr "接受的媒體類型"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:63
 #, kde-format
@@ -4460,32 +4445,32 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
 #, kde-format
 msgid "GridFS"
-msgstr ""
+msgstr "GridFS"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:73
 #, kde-format
 msgid "AmazonS3"
-msgstr ""
+msgstr "Amazon S3"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:74
 #, kde-format
 msgid "GoogleCloudStorage"
-msgstr ""
+msgstr "Google 雲端儲存"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:75
 #, kde-format
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:76
 #, kde-format
 msgid "FileSystem"
-msgstr ""
+msgstr "檔案系統"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:78
 #, kde-format
 msgid "Storage Type"
-msgstr ""
+msgstr "儲存類型"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:20
 #, fuzzy, kde-format
@@ -4501,17 +4486,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
 msgid "Enable the Update Checker"
-msgstr ""
+msgstr "啟用更新檢查工具"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "傳送統計資料到 Rocket.Chat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
 #, kde-format
 msgid "Site URL"
-msgstr ""
+msgstr "網站 URL"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
 #, fuzzy, kde-format
@@ -4522,17 +4507,17 @@ msgstr "名稱："
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "UTF8"
-msgstr ""
+msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
 #, kde-format
 msgid "RegExp that will be used to validate usernames"
-msgstr ""
+msgstr "用來檢查使用者名稱的正則表達式"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
 #, kde-format
 msgid "UTF8 Usernames Validation"
-msgstr ""
+msgstr "UTF8 使用者名稱檢查"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
 #, kde-format
@@ -4547,7 +4532,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "First Channel After Login"
-msgstr ""
+msgstr "登入後第一個頻道"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:68
 #, kde-format
@@ -4790,7 +4775,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
 msgid "LDAP Enabled"
-msgstr ""
+msgstr "已啟用 LDAP"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:22
 #, fuzzy, kde-format
@@ -5227,37 +5212,37 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
 msgid "Twitter Login"
-msgstr ""
+msgstr "Twitter 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
 #, kde-format
 msgid "LinkedIn Login"
-msgstr ""
+msgstr "LinkedIn 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
 #, kde-format
 msgid "Meteor Login"
-msgstr ""
+msgstr "Meteor 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgid "Facebook Login"
-msgstr ""
+msgstr "Facebook 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
 #, kde-format
 msgid "Github Login"
-msgstr ""
+msgstr "Github 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
 #, kde-format
 msgid "Tokenpass Login"
-msgstr ""
+msgstr "Tokenpass 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
 #, kde-format
 msgid "Google Login"
-msgstr ""
+msgstr "Google 登入"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
 #, kde-format
@@ -5358,50 +5343,50 @@ msgstr "上一個頻道"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:137
 #, kde-format
 msgid "Meteor"
-msgstr ""
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:146
 #, kde-format
 msgid "Meteor Id"
-msgstr ""
+msgstr "Meteor ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:149
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
 #, kde-format
 msgid "Meteor Secret"
-msgstr ""
+msgstr "Meteor 秘密"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:155
 #, kde-format
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
 #, kde-format
 msgid "Facebook Id"
-msgstr ""
+msgstr "Facebook ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
 msgid "Facebook Secret"
-msgstr ""
+msgstr "Facebook 秘密"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:173
 #, kde-format
 msgid "Github"
-msgstr ""
+msgstr "Github"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
 msgid "Github Id"
-msgstr ""
+msgstr "Github ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:185
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:188
 #, kde-format
 msgid "Github Secret"
-msgstr ""
+msgstr "Github 秘密"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:191
 #, kde-format
@@ -5411,7 +5396,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "例如：https://domain.com (不含結尾的斜線)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
@@ -5421,24 +5406,24 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:204
 #, kde-format
 msgid "Tokenpass Id"
-msgstr ""
+msgstr "Tokenpass ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:210
 #, kde-format
 msgid "Tokenpass Secret"
-msgstr ""
+msgstr "Tokenpass 秘密"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Id"
-msgstr ""
+msgstr "Google ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:225
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:228
 #, kde-format
 msgid "Google Secret"
-msgstr ""
+msgstr "Google 秘密"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, fuzzy, kde-format
@@ -5578,7 +5563,7 @@ msgstr "刪除聊天室"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:16
 #, kde-format
 msgid "Limit by IP"
-msgstr ""
+msgstr "依 IP 進行限制"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:19
 #, fuzzy, kde-format
@@ -5774,7 +5759,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
 msgid "API Tokens"
-msgstr ""
+msgstr "API Token"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
@@ -5977,7 +5962,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
 #, kde-format
 msgid "Domain"
-msgstr ""
+msgstr "網域"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:48
 #, kde-format
@@ -6024,7 +6009,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:13
 #, kde-format
 msgid "Webdav Integration Enabled"
-msgstr ""
+msgstr "Webdav 整合已啟用"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
 #, fuzzy, kde-format
@@ -6851,7 +6836,7 @@ msgstr "帳戶名稱："
 
 #: widgets/dialogs/createnewserverwidget.cpp:37
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:48
+#: widgets/ruqolaloginwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
@@ -7571,7 +7556,7 @@ msgstr ""
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:188
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr ""
@@ -7830,10 +7815,9 @@ msgid "Manage Device"
 msgstr "搜尋檔案…"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Personal Access Token"
-msgstr "搜尋討論區…"
+msgstr "個人存取權杖 (Personal Access Token)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, fuzzy, kde-format
@@ -7863,11 +7847,10 @@ msgid "Disconnect"
 msgstr "邀請使用者"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create Personal Token"
-msgstr "移除"
+msgstr "建立個人權杖"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, fuzzy, kde-format
@@ -7876,10 +7859,9 @@ msgid "Ignore Two Factor Authentication"
 msgstr "身份驗證方式"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Search Personal Access Token..."
-msgstr "搜尋討論區…"
+msgstr "搜尋個人存取權杖..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:120
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:194
@@ -7890,51 +7872,45 @@ msgid ""
 msgstr ""
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Personal Token Created"
-msgstr "搜尋討論區…"
+msgstr "已建立個人權杖"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
-#, fuzzy, kde-format
-#| msgid "Search Discussions..."
+#, kde-format
 msgid "Personal Token removed."
-msgstr "搜尋討論區…"
+msgstr "已移除個人權杖。"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Personal Token"
-msgstr "移除"
+msgstr "移除個人權杖"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "已重新產生個人權杖"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgid "Regenerate..."
-msgstr ""
+msgstr "重新產生..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:54
-#, fuzzy, kde-format
-#| msgid "Do you want to delete this room?"
+#, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
-msgstr "您確定要刪除此聊天室嗎？"
+msgstr "您確定要刪除 \"%1\" 權杖嗎？"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Token"
-msgstr "移除"
+msgstr "移除權杖"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgid "Use Emojis"
-msgstr "自訂使用者狀態"
+msgstr "使用表情符號"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
@@ -7948,10 +7924,9 @@ msgid "Hide roles"
 msgstr "封存的聊天室"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Display avatars"
-msgstr "密碼"
+msgstr "顯示頭貼"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
@@ -7969,29 +7944,24 @@ msgid "Use ',' for separating words"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "List of users separated by ','"
-#| msgid "User separate with ','"
+#, kde-format
 msgid "Separate each word with ','."
-msgstr "使用者，用 ',' 分隔"
+msgstr "用 ',' 分隔每個詞。"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Disable Notifications:"
+#, kde-format
 msgid "Desktop notification:"
-msgstr "停用通知："
+msgstr "桌面通知："
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Disable Notifications:"
+#, kde-format
 msgid "Offline Email notification:"
-msgstr "停用通知："
+msgstr "線下電子郵件通知："
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Push notification:"
-msgstr "通知"
+msgstr "推送通知："
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
 #, kde-format
@@ -8027,22 +7997,19 @@ msgid "Each Mentions"
 msgstr "提及"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Select Image"
-msgstr "密碼"
+msgstr "選擇影像"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "Channel Name"
+#, kde-format
 msgid "Change Url"
-msgstr "頻道名稱"
+msgstr "變更網址"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Define Avatar Url:"
-msgstr "密碼"
+msgstr "定義頭貼網址："
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:99
 #, kde-format
@@ -8050,10 +8017,9 @@ msgid "Change URL for avatar..."
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgid "Delete my Account"
-msgstr "刪除帳戶"
+msgstr "刪除我的帳戶"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
@@ -8061,36 +8027,47 @@ msgid "Logout From Other Logged In Locations"
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgid "Nickname:"
-msgstr "名稱："
+msgstr "暱稱："
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Status Text:"
+#, kde-format
 msgid "Status text:"
 msgstr "狀態文字："
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:93
-#, fuzzy, kde-format
-#| msgid "Do you want to delete '%1' account?"
+#, kde-format
 msgid "Do you really delete your account ?"
-msgstr "您確定要刪除「%1」帳戶嗎？"
+msgstr "您確定要刪除您的帳戶嗎？"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Delete Account"
+#, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
-msgstr "刪除帳戶"
+msgstr "刪除我的帳戶"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:161
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Current Password"
-msgstr "密碼"
+msgstr "目前密碼"
+
+#: widgets/needupdateversion/needupdateversionwidget.cpp:21
+#, kde-format
+msgid "Disable version check"
+msgstr ""
+
+#: widgets/needupdateversion/needupdateversionwidget.cpp:37
+#, kde-format
+msgid "Your version is older than 6 months, we encourage you to upgrade."
+msgstr ""
+
+#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#, kde-format
+msgid ""
+"Your version is older than 1 year, we strongly encourage you to upgrade."
+msgstr ""
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, fuzzy, kde-format
@@ -8849,79 +8826,78 @@ msgstr "檢舉訊息"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:33
 #, kde-format
 msgid "Login"
-msgstr ""
+msgstr "登入"
 
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account Name:"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#: widgets/ruqolaloginwidget.cpp:46
+#, kde-format
 msgid "Account name"
-msgstr "帳戶名稱："
+msgstr "帳戶名稱"
 
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Username:"
 msgid "Username or Email:"
 msgstr "使用者名稱："
 
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "Username or email"
 msgstr "使用者名稱"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:63
 #, kde-format
 msgid "Authentication Method"
 msgstr "身份驗證方式"
 
-#: widgets/ruqolaloginwidget.cpp:85
+#: widgets/ruqolaloginwidget.cpp:88
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:184
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:198
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "發現安裝問題。此處找不到外掛程式。"
 
-#: widgets/ruqolaloginwidget.cpp:204
+#: widgets/ruqolaloginwidget.cpp:207
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: generic error"
 msgstr "登入失敗"
 
-#: widgets/ruqolaloginwidget.cpp:210
+#: widgets/ruqolaloginwidget.cpp:213
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:216
+#: widgets/ruqolaloginwidget.cpp:219
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:222
+#: widgets/ruqolaloginwidget.cpp:225
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: User is not activated."
 msgstr "登入失敗"
 
-#: widgets/ruqolaloginwidget.cpp:228
+#: widgets/ruqolaloginwidget.cpp:231
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9018,10 +8994,9 @@ msgid "Register a New User..."
 msgstr "邀請使用者"
 
 #: widgets/ruqolamainwindow.cpp:474
-#, fuzzy, kde-format
-#| msgid "Add Account"
+#, kde-format
 msgid "My Account..."
-msgstr "加入帳戶"
+msgstr "我的帳戶..."
 
 #: widgets/ruqolamainwindow.cpp:479
 #, kde-format
@@ -9094,16 +9069,14 @@ msgid "What's new"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:610
-#, fuzzy, kde-format
-#| msgid "Account Name"
+#, kde-format
 msgid "Import Accounts"
-msgstr "帳戶名稱"
+msgstr "匯入名稱"
 
 #: widgets/ruqolamainwindow.cpp:614
-#, fuzzy, kde-format
-#| msgid "Account Name"
+#, kde-format
 msgid "Export Accounts"
-msgstr "帳戶名稱"
+msgstr "匯出帳戶"
 
 #: widgets/ruqolamainwindow.cpp:646
 #, fuzzy, kde-format
@@ -9330,16 +9303,14 @@ msgid "Thread"
 msgstr "討論串"
 
 #: widgets/userfeedback/accountinfosource.cpp:22
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#, kde-format
 msgid "Account information"
-msgstr "帳戶名稱："
+msgstr "帳戶資訊"
 
 #: widgets/userfeedback/accountinfosource.cpp:27
-#, fuzzy, kde-format
-#| msgid "Return lists of accounts"
+#, kde-format
 msgid "Return the number of account."
-msgstr "回到帳戶列表"
+msgstr "回傳帳戶數量。"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
 #, fuzzy, kde-format
@@ -9431,10 +9402,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:30
-#, fuzzy
-#| msgid "Account Name"
 msgid "Import/Export Accounts."
-msgstr "帳戶名稱"
+msgstr "匯入/匯出帳戶。"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
