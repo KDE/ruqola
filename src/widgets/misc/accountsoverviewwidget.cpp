@@ -134,6 +134,7 @@ void AccountsOverviewWidget::updateButtons()
         auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
         disconnect(account, nullptr, this, nullptr);
+        disconnect(account->roomModel(), nullptr, this, nullptr);
 
         mTabBar->setTabData(i, QVariant::fromValue(account));
         mTabBar->setTabVisible(i, account->accountEnabled());
