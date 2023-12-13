@@ -163,30 +163,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
-
-    if (message->attachments().isEmpty()) {
-        layout.reactionsY = attachmentsY;
-    } else {
-        const auto attachments = message->attachments();
-        QSize attachmentsSize;
-        int topAttachment = attachmentsY;
-        // TODO add spacing between attachment
-        for (const MessageAttachment &msgAttach : attachments) {
-            const MessageAttachmentDelegateHelperBase *helper = mDelegate->attachmentsHelper(msgAttach);
-            if (attachmentsSize.isEmpty()) {
-                attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
-                layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attachmentsSize.width(), attachmentsSize.height()));
-                topAttachment += attachmentsSize.height();
-            } else {
-                const QSize attSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
-                layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attSize.width(), attSize.height()));
-                attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
-                topAttachment += attSize.height();
-            }
-        }
-        layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
-        layout.reactionsY = attachmentsY + layout.attachmentsRect.height();
-    }
+    generateAttachmentLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();
 
     // Replies

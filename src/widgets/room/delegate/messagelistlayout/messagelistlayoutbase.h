@@ -101,6 +101,14 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 protected:
+    void generateAttachmentLayout(MessageListDelegate *delegate,
+                                  Layout &layout,
+                                  const Message *message,
+                                  int attachmentsY,
+                                  int textLeft,
+                                  int maxWidth,
+                                  const QStyleOptionViewItem &option,
+                                  const QModelIndex &index) const;
     [[nodiscard]] bool sameSenderAsPreviousMessage(const QModelIndex &index, const Message *message) const;
     [[nodiscard]] QString senderText(const Message *message) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
