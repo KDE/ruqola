@@ -22,3 +22,5 @@ void AuthenticationWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMainLayout);
     QCOMPARE(mMainLayout->contentsMargins(), QMargins{});
 }
+
+#include "moc_authenticationwidgettest.cpp"

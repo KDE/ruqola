@@ -19,3 +19,5 @@ void AuthenticationButtonTest::shouldHaveDefaultValues()
     QVERIFY(w.text().isEmpty());
     QVERIFY(!w.authenticationInfo().isValid());
 }
+
+#include "moc_authenticationbuttontest.cpp"
