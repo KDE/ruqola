@@ -33,7 +33,6 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setDisplayAvatars(replyObject.value(QLatin1String("displayAvatars")).toBool(true));
     setIdleTimeLimit(replyObject.value(QLatin1String("idleTimeLimit")).toInt(-1));
     setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
-    setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
     setShowUnread(replyObject.value(QLatin1String("sidebarShowUnread")).toBool(false));
     const QString sidebarSortBy = replyObject.value(QLatin1String("sidebarSortby")).toString();
     if (sidebarSortBy == QLatin1String("activity")) {
@@ -53,9 +52,9 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
-        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode()
-        && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite()
-        && mRoomListSortOrder == other.roomListSortOrder() && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail();
+        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mShowUnread == other.showUnread()
+        && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite() && mRoomListSortOrder == other.roomListSortOrder()
+        && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -107,16 +106,6 @@ void OwnUserPreferences::setPushNotifications(const QString &pushNotifications)
 QString OwnUserPreferences::pushNotifications() const
 {
     return mPushNotifications;
-}
-
-int OwnUserPreferences::messageViewMode() const
-{
-    return mMessageViewMode;
-}
-
-void OwnUserPreferences::setMessageViewMode(int newMessageViewMode)
-{
-    mMessageViewMode = newMessageViewMode;
 }
 
 bool OwnUserPreferences::showUnread() const
@@ -241,7 +230,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mIdleTimeLimit " << t.idleTimeLimit();
     d << "mEnableAutoAway " << t.enableAutoAway();
     d << "mPushNotifications " << t.pushNotifications();
-    d << "mMessageViewMode " << t.messageViewMode();
     d << "mShowUnread " << t.showUnread();
     d << "mRoomListSortOrder " << t.roomListSortOrder();
     d << "mShowRoomAvatar " << t.showRoomAvatar();

@@ -62,7 +62,6 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setEmailNotificationMode(QStringLiteral("mentions"));
     ownUser.setIdleTimeLimit(300);
     ownUser.setEnableAutoAway(true);
-    ownUser.setMessageViewMode(0);
     ownUser.setDisplayAvatars(false);
     ownUser.setShowFavorite(true);
     ownUser.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);

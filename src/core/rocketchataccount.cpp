@@ -2633,10 +2633,6 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 ownUserPreferences.setDisplayAvatars(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QLatin1String("settings.preferences.messageViewMode")) {
-                ownUserPreferences.setMessageViewMode(updateJson.value(key).toInt());
-                mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT needUpdateMessageView();
             } else if (key == QLatin1String("settings.preferences.sidebarViewMode")) { // Channel List view mode
                 // TODO
             } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
@@ -2850,7 +2846,8 @@ bool RocketChatAccount::displayAvatars() const
 
 int RocketChatAccount::messageViewMode() const
 {
-    return ownUser().ownUserPreferences().messageViewMode();
+    // TODO
+    return -1;
 }
 
 void RocketChatAccount::slotLoadRoles()

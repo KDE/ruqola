@@ -25,7 +25,6 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(p.useEmojis());
     QVERIFY(!p.hideRoles());
     QVERIFY(p.displayAvatars());
-    QCOMPARE(p.messageViewMode(), -1);
     QCOMPARE(p.idleTimeLimit(), -1);
     QVERIFY(!p.showUnread());
     QVERIFY(!p.showRoomAvatar());
@@ -50,7 +49,6 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setConvertAsciiEmoji(false);
         preferences.setUseEmojis(false);
         preferences.setIdleTimeLimit(300);
-        preferences.setMessageViewMode(0);
         preferences.setDisplayAvatars(true);
         preferences.setShowFavorite(true);
         preferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);

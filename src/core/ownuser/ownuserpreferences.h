@@ -51,9 +51,6 @@ public:
     void setPushNotifications(const QString &pushNotifications);
     [[nodiscard]] QString pushNotifications() const;
 
-    [[nodiscard]] int messageViewMode() const;
-    void setMessageViewMode(int newMessageViewMode);
-
     [[nodiscard]] bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
@@ -81,7 +78,6 @@ private:
     QString mDesktopNotifications;
     QString mPushNotifications;
     int mIdleTimeLimit = -1;
-    int mMessageViewMode = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;
