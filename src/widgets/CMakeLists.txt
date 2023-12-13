@@ -509,6 +509,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/messageattachmentdownloadandsavejob.h
     misc/messageattachmentdownloadandsavejob.cpp
 
+    misc/messagestylelayoutmenu.h
+    misc/messagestylelayoutmenu.cpp
 
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
