@@ -2,6 +2,14 @@
     "KPlugin": {
         "Id": "githubauthenticationplugin",
         "Name": "Github Authentication Plugin",
+        "Name[ca@valencia]": "Connector d'autenticació de GitHub",
+        "Name[ca]": "Connector d'autenticació de Github",
+        "Name[eo]": "Github Aŭtentiga Kromprogramo",
+        "Name[nl]": "Plug-in voor authenticatie in Github",
+        "Name[sl]": "Vtičnik overovljanja Googla",
+        "Name[tr]": "Github Kimlik Doğrulama Eklentisi",
+        "Name[uk]": "Додаток розпізнавання Github",
+        "Name[x-test]": "xxGithub Authentication Pluginxx",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],
