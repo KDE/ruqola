@@ -541,6 +541,12 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMediaWhiteList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
     } else if (id == QLatin1String("FileUpload_MediaTypeBlackList")) {
         setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
+    } else if (id == QLatin1String("Accounts_ShowFormLogin")) {
+        if (value.toBool()) {
+            mServerOauthTypes |= AuthenticationManager::OauthType::Password;
+        } else {
+            mServerOauthTypes &= AuthenticationManager::OauthType::Password;
+        }
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
