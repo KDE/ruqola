@@ -152,7 +152,7 @@ bool RuqolaServerConfig::serverHasSupportForOauthType(AuthenticationManager::Oau
 void RuqolaServerConfig::addOauthService(const QString &service)
 {
     qCDebug(RUQOLA_AUTHENTICATION_LOG) << " serviceLower " << service;
-    if (service.endsWith(QLatin1String("twitter"))) {
+    if (service.endsWith(QLatin1String("twitter"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Twitter;
     } else if (service.endsWith(QLatin1String("facebook"), Qt::CaseInsensitive)) {
         mServerOauthTypes |= AuthenticationManager::OauthType::FaceBook;
