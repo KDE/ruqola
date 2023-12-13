@@ -32,11 +32,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     Q_ASSERT(message);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     Layout layout;
-    if (mRocketChatAccount) {
-        layout.senderText = QLatin1Char('@') + (mRocketChatAccount->useRealName() && !message->name().isEmpty() ? message->name() : message->username());
-    } else {
-        layout.senderText = QLatin1Char('@') + message->username();
-    }
+    layout.senderText = senderText(message);
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
     layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage(index, message);

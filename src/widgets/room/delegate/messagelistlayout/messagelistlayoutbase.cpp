@@ -42,3 +42,12 @@ bool MessageListLayoutBase::sameSenderAsPreviousMessage(const QModelIndex &index
         return true;
     return false;
 }
+
+QString MessageListLayoutBase::senderText(const Message *message) const
+{
+    if (mRocketChatAccount) {
+        return QLatin1Char('@') + (mRocketChatAccount->useRealName() && !message->name().isEmpty() ? message->name() : message->username());
+    } else {
+        return QLatin1Char('@') + message->username();
+    }
+}

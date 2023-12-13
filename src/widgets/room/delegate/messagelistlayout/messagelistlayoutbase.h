@@ -102,6 +102,7 @@ public:
 
 protected:
     [[nodiscard]] bool sameSenderAsPreviousMessage(const QModelIndex &index, const Message *message) const;
+    [[nodiscard]] QString senderText(const Message *message) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
     MessageListDelegate *mDelegate = nullptr;
 };
