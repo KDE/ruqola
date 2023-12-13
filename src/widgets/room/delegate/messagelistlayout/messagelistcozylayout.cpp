@@ -154,7 +154,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
 
-    layout.addReactionRect = QRect(textLeft + maxWidth, senderRectY, iconSize, iconSize);
+    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
     generateAttachmentLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);

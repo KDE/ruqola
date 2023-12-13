@@ -54,7 +54,6 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
     usableRect.setTop(usableRect.top() + senderAscent); // FIXME position.
-#if 1
     const qreal margin = MessageDelegateUtils::basicMargin();
     const int avatarWidth = MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width();
     const int senderX = option.rect.x() + avatarWidth + 2 * margin;
@@ -145,18 +144,31 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         layout.rolesIconRect = QRect(editIconX - iconSize - margin, senderRectY, iconSize, iconSize);
     }
     if (message->wasEdited()) {
-        layout.editedIconRect = QRect(editIconX, senderRectY, iconSize, iconSize);
+        if (layout.sameSenderAsPreviousMessage) {
+            layout.editedIconRect = QRect(senderX - margin - avatarWidth / 2, senderRectY, iconSize, iconSize);
+        } else {
+            layout.editedIconRect = QRect(editIconX, senderRectY, iconSize, iconSize);
+        }
     }
 
     if (message->isStarred()) {
-        layout.favoriteIconRect = QRect(favoriteIconX, senderRectY, iconSize, iconSize);
+        if (layout.sameSenderAsPreviousMessage) {
+            // TODO
+            layout.favoriteIconRect = QRect(favoriteIconX, senderRectY, iconSize, iconSize);
+        } else {
+            layout.favoriteIconRect = QRect(favoriteIconX, senderRectY, iconSize, iconSize);
+        }
     }
 
     if (message->isPinned()) {
         layout.pinIconRect = QRect(pinIconX, senderRectY, iconSize, iconSize);
     }
     if (layout.messageIsFollowing) {
-        layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
+        if (layout.sameSenderAsPreviousMessage) {
+            layout.followingIconRect = QRect(senderX - margin - avatarWidth, senderRectY, iconSize, iconSize);
+        } else {
+            layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
+        }
     }
     if (message->isAutoTranslated()) {
         layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
@@ -167,7 +179,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
 
-    layout.addReactionRect = QRect(textLeft + maxWidth, senderRectY, iconSize, iconSize);
+    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
     generateAttachmentLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
@@ -182,7 +194,6 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     if (!message->discussionRoomId().isEmpty()) {
         layout.discussionsHeight = option.fontMetrics.height();
     }
-#endif
     return layout;
 }
 
