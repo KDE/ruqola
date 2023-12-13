@@ -53,8 +53,8 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-    usableRect.setTop(usableRect.top() + 20); // FIXME position.
-
+    usableRect.setTop(usableRect.top() + senderAscent); // FIXME position.
+#if 1
     const qreal margin = MessageDelegateUtils::basicMargin();
     const int avatarWidth = MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width();
     const int senderX = option.rect.x() + avatarWidth + 2 * margin;
@@ -118,7 +118,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     int attachmentsY;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin + layout.senderRect.height(), maxWidth, textSize.height() + textVMargin);
+        layout.textRect = QRect(textLeft,
+                                usableRect.top() + textVMargin + (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.height()),
+                                maxWidth,
+                                textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
         layout.baseLine += option.rect.top(); // make it absolute
     } else {
@@ -130,6 +133,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     // Align top of sender rect so it matches the baseline of the richtext
     layout.senderRect =
         QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.height()));
+    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
+        layout.baseLine += option.fontMetrics.height();
+        layout.senderRect.setTop(layout.senderRect.top() + senderAscent);
+    }
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};
     layout.avatarPos = QPointF(option.rect.x() + margin, senderRectY);
@@ -175,7 +182,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     if (!message->discussionRoomId().isEmpty()) {
         layout.discussionsHeight = option.fontMetrics.height();
     }
-
+#endif
     return layout;
 }
 
@@ -192,8 +199,10 @@ QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, cons
 
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
     const int contentsHeight = layout.repliesY + layout.repliesHeight + layout.discussionsHeight - option.rect.y();
-    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
-                                                layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
+    const int senderAndAvatarHeight = qMax<int>(
+        (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.y()) + (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.height())
+            - option.rect.y(),
+        (layout.sameSenderAsPreviousMessage ? 0 : layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height()) - option.rect.y());
 
     // qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
     //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
