@@ -5,6 +5,8 @@
 */
 
 #include "messagelistlayoutbase.h"
+#include "model/messagesmodel.h"
+#include "rocketchataccount.h"
 #include "room/delegate/messagelistdelegate.h"
 
 MessageListLayoutBase::MessageListLayoutBase(MessageListDelegate *delegate)
@@ -22,4 +24,21 @@ RocketChatAccount *MessageListLayoutBase::rocketChatAccount() const
 void MessageListLayoutBase::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mRocketChatAccount = newRocketChatAccount;
+}
+
+bool MessageListLayoutBase::sameSenderAsPreviousMessage(const QModelIndex &index, const Message *message) const
+{
+    if (index.row() < 1) {
+        return false;
+    }
+
+    const auto previousIndex = index.siblingAtRow(index.row() - 1);
+    const auto previousMessage = previousIndex.data(MessagesModel::MessagePointer).value<Message *>();
+    Q_ASSERT(previousMessage);
+
+    const int diffDate = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->messageGroupingPeriod() * 1000 : 0;
+    if ((message->userId() == previousMessage->userId()) && (message->threadMessageId() == previousMessage->threadMessageId())
+        && (message->timeStamp() <= (previousMessage->timeStamp() + diffDate)))
+        return true;
+    return false;
 }

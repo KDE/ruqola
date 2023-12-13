@@ -15,6 +15,7 @@
 
 class RocketChatAccount;
 class MessageListDelegate;
+class Message;
 class MessageListLayoutBase
 {
 public:
@@ -100,6 +101,7 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 protected:
+    [[nodiscard]] bool sameSenderAsPreviousMessage(const QModelIndex &index, const Message *message) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
     MessageListDelegate *mDelegate = nullptr;
 };

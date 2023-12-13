@@ -31,23 +31,6 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-
-    const auto sameSenderAsPreviousMessage = [&] {
-        if (index.row() < 1) {
-            return false;
-        }
-
-        const auto previousIndex = index.siblingAtRow(index.row() - 1);
-        const auto previousMessage = previousIndex.data(MessagesModel::MessagePointer).value<Message *>();
-        Q_ASSERT(previousMessage);
-
-        const int diffDate = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->messageGroupingPeriod() * 1000 : 0;
-        if ((message->userId() == previousMessage->userId()) && (message->threadMessageId() == previousMessage->threadMessageId())
-            && (message->timeStamp() <= (previousMessage->timeStamp() + diffDate)))
-            return true;
-        return false;
-    }();
-
     Layout layout;
     if (mRocketChatAccount) {
         layout.senderText = QLatin1Char('@') + (mRocketChatAccount->useRealName() && !message->name().isEmpty() ? message->name() : message->username());
@@ -56,7 +39,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     }
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
-    layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage;
+    layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage(index, message);
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
