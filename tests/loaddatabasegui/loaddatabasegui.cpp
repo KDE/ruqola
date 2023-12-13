@@ -42,8 +42,10 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     auto label = new QLabel(QStringLiteral("Account name:"), this);
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mAccountName);
+    mAccountName->setPlaceholderText(QStringLiteral("<account name>"));
     label = new QLabel(QStringLiteral("Room name:"), this);
     hboxLayout->addWidget(label);
+    mRoomName->setPlaceholderText(QStringLiteral("all"));
     hboxLayout->addWidget(mRoomName);
 
     hboxLayout->addWidget(mNumberElement);
