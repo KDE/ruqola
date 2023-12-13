@@ -38,7 +38,7 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
     QVERIFY(mThreadPreview);
     QVERIFY(mThreadPreview->wordWrap());
-    QCOMPARE(mThreadPreview->contextMenuPolicy(), Qt::CustomContextMenu);
+    QCOMPARE(mThreadPreview->contextMenuPolicy(), Qt::NoContextMenu);
     QVERIFY(mThreadPreview->text().isEmpty());
 
     auto mRoomWidgetBase = w.findChild<RoomWidgetBase *>(QStringLiteral("mRoomWidgetBase"));
