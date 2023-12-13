@@ -101,6 +101,7 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 protected:
+    void generateSenderInfo(Layout &layout, const Message *message, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void generateAttachmentLayout(MessageListDelegate *delegate,
                                   Layout &layout,
                                   const Message *message,

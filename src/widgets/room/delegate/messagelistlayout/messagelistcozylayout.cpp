@@ -32,10 +32,8 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     Q_ASSERT(message);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     Layout layout;
-    layout.senderText = senderText(message);
-    layout.senderFont = option.font;
-    layout.senderFont.setBold(true);
-    layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage(index, message);
+    generateSenderInfo(layout, message, option, index);
+
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);

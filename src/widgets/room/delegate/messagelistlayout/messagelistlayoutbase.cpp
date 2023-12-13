@@ -58,6 +58,14 @@ QString MessageListLayoutBase::senderText(const Message *message) const
     }
 }
 
+void MessageListLayoutBase::generateSenderInfo(Layout &layout, const Message *message, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    layout.senderText = senderText(message);
+    layout.senderFont = option.font;
+    layout.senderFont.setBold(true);
+    layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage(index, message);
+}
+
 void MessageListLayoutBase::generateAttachmentLayout(MessageListDelegate *delegate,
                                                      Layout &layout,
                                                      const Message *message,
