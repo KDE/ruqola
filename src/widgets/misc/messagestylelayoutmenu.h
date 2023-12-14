@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "ruqolaglobalconfig.h"
 #include <KActionMenu>
 class QActionGroup;
 class MessageStyleLayoutMenu : public KActionMenu
@@ -19,4 +20,5 @@ Q_SIGNALS:
 
 private:
     QActionGroup *const mActionGroup;
+    void addMessageStyleAction(const QString &name, RuqolaGlobalConfig::EnumMessageStyle::type status);
 };

@@ -5,7 +5,6 @@
 */
 
 #include "messagestylelayoutmenu.h"
-#include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
 #include <QActionGroup>
 #include <QMenu>
@@ -17,27 +16,25 @@ MessageStyleLayoutMenu::MessageStyleLayoutMenu(QObject *parent)
     setText(i18n("Message Style"));
     mActionGroup->setExclusive(true);
 
-    auto action = new QAction(i18nc("Message Style", "Normal"), this);
-    action->setData(RuqolaGlobalConfig::EnumMessageStyle::Normal);
-    mActionGroup->addAction(action);
-    menu()->addAction(action);
-    action->setCheckable(true);
-    connect(action, &QAction::triggered, this, [this]() {
-        RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Normal);
-        Q_EMIT styleChanged();
-    });
-
-    action = new QAction(i18nc("Message Style", "Compact"), this);
-    action->setData(RuqolaGlobalConfig::EnumMessageStyle::Compact);
-    connect(action, &QAction::triggered, this, [this]() {
-        RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Compact);
-        Q_EMIT styleChanged();
-    });
-    mActionGroup->addAction(action);
-    menu()->addAction(action);
-    action->setCheckable(true);
+    addMessageStyleAction(i18nc("Message Style", "Normal"), RuqolaGlobalConfig::EnumMessageStyle::Normal);
+    addMessageStyleAction(i18nc("Message Style", "Compact"), RuqolaGlobalConfig::EnumMessageStyle::Compact);
+    addMessageStyleAction(i18nc("Message Style", "Cozy"), RuqolaGlobalConfig::EnumMessageStyle::Cozy);
 }
 
 MessageStyleLayoutMenu::~MessageStyleLayoutMenu() = default;
+
+void MessageStyleLayoutMenu::addMessageStyleAction(const QString &name, RuqolaGlobalConfig::EnumMessageStyle::type status)
+{
+    auto action = new QAction(i18nc("Message Style", "Cozy"), this);
+    action->setData(status);
+    action->setChecked(RuqolaGlobalConfig::self()->messageStyle() == status);
+    mActionGroup->addAction(action);
+    menu()->addAction(action);
+    action->setCheckable(true);
+    connect(action, &QAction::triggered, this, [this, status]() {
+        RuqolaGlobalConfig::self()->setMessageStyle(status);
+        Q_EMIT styleChanged();
+    });
+}
 
 #include "moc_messagestylelayoutmenu.cpp"
