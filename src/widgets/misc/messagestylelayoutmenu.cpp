@@ -22,14 +22,16 @@ MessageStyleLayoutMenu::MessageStyleLayoutMenu(QObject *parent)
     mActionGroup->addAction(action);
     menu()->addAction(action);
     action->setCheckable(true);
-    connect(action, &QAction::triggered, this, []() {
+    connect(action, &QAction::triggered, this, [this]() {
         RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Normal);
+        Q_EMIT styleChanged();
     });
 
     action = new QAction(i18nc("Message Style", "Compact"), this);
     action->setData(RuqolaGlobalConfig::EnumMessageStyle::Compact);
-    connect(action, &QAction::triggered, this, []() {
+    connect(action, &QAction::triggered, this, [this]() {
         RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Compact);
+        Q_EMIT styleChanged();
     });
     mActionGroup->addAction(action);
     menu()->addAction(action);
