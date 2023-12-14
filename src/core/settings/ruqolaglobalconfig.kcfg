@@ -39,8 +39,14 @@
     <entry name="AnimateGifImage" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="MessageStyle" type="Enum">
+        <choices>
+          <choice name="Compact"/>
+          <choice name="Normal"/>
+        </choices>
+        <default>Compact</default>	    
+    </entry>    
   </group>
-
   <group name="Behavior">
     <entry name="MarkAsReadOnTextClicked" type="Bool">
       <default>false</default>
