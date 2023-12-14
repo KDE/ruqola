@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 00:42+0000\n"
+"POT-Creation-Date: 2023-12-14 00:41+0000\n"
 "PO-Revision-Date: 2023-12-07 10:50+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2761
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2762
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -7497,6 +7497,12 @@ msgstr "Télécharger un son"
 msgid "Download Sound..."
 msgstr "Télécharger un son..."
 
+#: widgets/misc/messagestylelayoutmenu.cpp:13
+#, fuzzy, kde-format
+#| msgid "Message Status:"
+msgid "Message Style"
+msgstr "État du message :"
+
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
@@ -7926,12 +7932,12 @@ msgstr "Mot de passe actuel"
 msgid "Disable version check"
 msgstr "Désactiver la surveillance de sessions"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:37
+#: widgets/needupdateversion/needupdateversionwidget.cpp:36
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."

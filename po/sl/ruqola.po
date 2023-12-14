@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 00:42+0000\n"
-"PO-Revision-Date: 2023-12-12 09:41+0100\n"
+"POT-Creation-Date: 2023-12-14 00:41+0000\n"
+"PO-Revision-Date: 2023-12-13 06:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1343,12 +1343,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2761
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2762
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -7443,6 +7443,12 @@ msgstr "Prenesi zvok"
 msgid "Download Sound..."
 msgstr "Prenesi zvok..."
 
+#: widgets/misc/messagestylelayoutmenu.cpp:13
+#, fuzzy, kde-format
+#| msgid "Message Status:"
+msgid "Message Style"
+msgstr "Stanje sporočila:"
+
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
@@ -7866,21 +7872,22 @@ msgid "Current Password"
 msgstr "Trenutno geslo"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgid "Disable version check"
-msgstr "Onemogoči monitorja sej"
+msgstr "Onemogoči preverjanje različice"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:37
+#: widgets/needupdateversion/needupdateversionwidget.cpp:36
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
+"Vaša različica je starejša od 6 mesecev, priporočamo, da jo nadgradite."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
+"Vaša različica je starejša od 1 leta, toplo priporočamo, da jo nadgradite."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format

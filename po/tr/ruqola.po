@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 00:42+0000\n"
-"PO-Revision-Date: 2023-12-12 15:57+0300\n"
+"POT-Creation-Date: 2023-12-14 00:41+0000\n"
+"PO-Revision-Date: 2023-12-13 21:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1339,12 +1339,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2761
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2762
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -7407,6 +7407,12 @@ msgstr "Sesi İndir"
 msgid "Download Sound..."
 msgstr "Sesi İndir..."
 
+#: widgets/misc/messagestylelayoutmenu.cpp:13
+#, fuzzy, kde-format
+#| msgid "Message Status:"
+msgid "Message Style"
+msgstr "İleti Durumu:"
+
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
@@ -7828,21 +7834,22 @@ msgid "Current Password"
 msgstr "Geçerli Parola"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgid "Disable version check"
-msgstr "Oturumlar Monitörünü Devre Dışı Bırak"
+msgstr "Sürüm denetimini devre dışı bırak"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:37
+#: widgets/needupdateversion/needupdateversionwidget.cpp:36
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
+"Kullandığınız sürüm 6 aydan daha eski, güncel sürüme yükseltmeniz önerilir."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
+"Kullandığınız sürüm 1 yıldan daha eski, güncel sürüme yükseltmeniz önerilir."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 00:42+0000\n"
+"POT-Creation-Date: 2023-12-14 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1419,13 +1419,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2761
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2762
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -7695,6 +7695,12 @@ msgstr "Zvuk:"
 msgid "Download Sound..."
 msgstr ""
 
+#: widgets/misc/messagestylelayoutmenu.cpp:13
+#, fuzzy, kde-format
+#| msgid "Message:"
+msgid "Message Style"
+msgstr "Správa:"
+
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Password:"
@@ -8136,12 +8142,12 @@ msgstr "Heslo:"
 msgid "Disable version check"
 msgstr ""
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:37
+#: widgets/needupdateversion/needupdateversionwidget.cpp:36
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."

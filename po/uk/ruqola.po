@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 00:42+0000\n"
-"PO-Revision-Date: 2023-12-12 09:21+0200\n"
+"POT-Creation-Date: 2023-12-14 00:41+0000\n"
+"PO-Revision-Date: 2023-12-13 14:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1346,12 +1346,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2765
+#: core/rocketchataccount.cpp:2761
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2762
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -7504,6 +7504,12 @@ msgstr "Отримання звукових даних"
 msgid "Download Sound..."
 msgstr "Отримати звукові дані…"
 
+#: widgets/misc/messagestylelayoutmenu.cpp:13
+#, fuzzy, kde-format
+#| msgid "Message Status:"
+msgid "Message Style"
+msgstr "Стан повідомлення:"
+
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
@@ -7928,21 +7934,21 @@ msgid "Current Password"
 msgstr "Поточний пароль"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Disable Sessions Monitor"
+#, kde-format
 msgid "Disable version check"
-msgstr "Вимкнути монітор сеансів"
+msgstr "Вимкнути перевірку версій"
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:37
+#: widgets/needupdateversion/needupdateversionwidget.cpp:36
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
-msgstr ""
+msgstr "Ваша версія застаріла на понад 6 місяців. Ми рекомендуємо її оновити."
 
-#: widgets/needupdateversion/needupdateversionwidget.cpp:42
+#: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
+"Ваша версія застаріла на понад 1 рік. Ми наполегливо рекомендуємо її оновити."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format
