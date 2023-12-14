@@ -26,7 +26,9 @@
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
+#if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
+#endif
 #include "ruqola_thread_message_widgets_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
