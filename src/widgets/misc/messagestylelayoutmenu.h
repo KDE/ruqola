@@ -6,7 +6,7 @@
 
 #pragma once
 #include <KActionMenu>
-
+class QActionGroup;
 class MessageStyleLayoutMenu : public KActionMenu
 {
     Q_OBJECT
@@ -16,4 +16,7 @@ public:
 
 Q_SIGNALS:
     void styleChanged();
+
+private:
+    QActionGroup *const mActionGroup;
 };
