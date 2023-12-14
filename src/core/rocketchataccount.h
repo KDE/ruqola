@@ -499,7 +499,6 @@ public:
 
     [[nodiscard]] bool useRealName() const;
 
-    [[nodiscard]] int messageViewMode() const;
     [[nodiscard]] bool hasLicense(const QString &name);
     void parseLicenses(const QJsonArray &replyArray);
     // Only for test

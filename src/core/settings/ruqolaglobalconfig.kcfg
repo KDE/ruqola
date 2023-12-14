@@ -42,7 +42,8 @@
     <entry name="MessageStyle" type="Enum">
         <choices>
           <choice name="Compact"/>
-          <choice name="Normal"/>
+	  <choice name="Normal"/>
+	  <choice name="Cozy"/>
         </choices>
         <default>Compact</default>	    
     </entry>    

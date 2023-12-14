@@ -827,27 +827,24 @@ void MessageListDelegate::switchMessageLayout()
 #if 1
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
 #else
-    if (mRocketChatAccount) {
-        delete mMessageListLayoutBase;
-        const int i = mRocketChatAccount->messageViewMode();
-        switch (i) {
-        case 0:
-            mMessageListLayoutBase = new MessageListNormalLayout(this);
-            break;
-        case 1:
-            mMessageListLayoutBase = new MessageListCozyLayout(this);
-            break;
-        case 2:
-            mMessageListLayoutBase = new MessageListCompactLayout(this);
-            break;
-        default:
-            qCWarning(RUQOLAWIDGETS_LOG) << "Invalid Message Layout type " << i;
-            mMessageListLayoutBase = new MessageListCompactLayout(this);
-            break;
-        }
-        mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
-        updateView();
+    delete mMessageListLayoutBase;
+    switch (RuqolaGlobalConfig::self()->messageStyle()) {
+    case RuqolaGlobalConfig::EnumMessageStyle::Normal:
+        mMessageListLayoutBase = new MessageListNormalLayout(this);
+        break;
+    case RuqolaGlobalConfig::EnumMessageStyle::Cozy:
+        mMessageListLayoutBase = new MessageListCozyLayout(this);
+        break;
+    case RuqolaGlobalConfig::EnumMessageStyle::Compact:
+        mMessageListLayoutBase = new MessageListCompactLayout(this);
+        break;
+    default:
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid Message Layout type " << RuqolaGlobalConfig::self()->messageStyle();
+        mMessageListLayoutBase = new MessageListCompactLayout(this);
+        break;
     }
+    mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
+    updateView();
 #endif
 }
 

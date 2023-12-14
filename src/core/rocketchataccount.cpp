@@ -2844,12 +2844,6 @@ bool RocketChatAccount::displayAvatars() const
     return ownUser().ownUserPreferences().displayAvatars();
 }
 
-int RocketChatAccount::messageViewMode() const
-{
-    // TODO
-    return -1;
-}
-
 void RocketChatAccount::slotLoadRoles()
 {
     // First load list of roles.
