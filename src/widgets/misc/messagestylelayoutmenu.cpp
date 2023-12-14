@@ -5,6 +5,7 @@
 */
 
 #include "messagestylelayoutmenu.h"
+#include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
 #include <QActionGroup>
 #include <QMenu>
@@ -17,11 +18,19 @@ MessageStyleLayoutMenu::MessageStyleLayoutMenu(QObject *parent)
     mActionGroup->setExclusive(true);
 
     auto action = new QAction(i18nc("Message Style", "Normal"), this);
+    action->setData(RuqolaGlobalConfig::EnumMessageStyle::Normal);
     mActionGroup->addAction(action);
     menu()->addAction(action);
     action->setCheckable(true);
+    connect(action, &QAction::triggered, this, []() {
+        RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Normal);
+    });
 
     action = new QAction(i18nc("Message Style", "Compact"), this);
+    action->setData(RuqolaGlobalConfig::EnumMessageStyle::Compact);
+    connect(action, &QAction::triggered, this, []() {
+        RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Compact);
+    });
     mActionGroup->addAction(action);
     menu()->addAction(action);
     action->setCheckable(true);
