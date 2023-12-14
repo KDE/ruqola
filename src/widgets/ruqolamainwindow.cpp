@@ -32,6 +32,7 @@
 #include "importexportdata/importdata/importdatawizard.h"
 #include "localdatabase/localmessagelogger.h"
 #include "misc/accountsoverviewwidget.h"
+#include "misc/messagestylelayoutmenu.h"
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"
 #include "model/statusmodel.h"
@@ -614,6 +615,10 @@ void RuqolaMainWindow::setupActions()
     mExportAccountsAction = new QAction(QIcon::fromTheme(QStringLiteral("document-export")), i18n("Export Accounts"), this);
     connect(mExportAccountsAction, &QAction::triggered, this, &RuqolaMainWindow::slotExportAccounts);
     ac->addAction(QStringLiteral("export_accounts"), mExportAccountsAction);
+
+    auto messageStyleAction = new MessageStyleLayoutMenu(this);
+    ac->addAction(QStringLiteral("message_style"), messageStyleAction);
+    // TODO add action
 }
 
 void RuqolaMainWindow::slotWhatsNew()

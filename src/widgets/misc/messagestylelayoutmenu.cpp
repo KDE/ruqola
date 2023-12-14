@@ -25,7 +25,7 @@ MessageStyleLayoutMenu::~MessageStyleLayoutMenu() = default;
 
 void MessageStyleLayoutMenu::addMessageStyleAction(const QString &name, RuqolaGlobalConfig::EnumMessageStyle::type status)
 {
-    auto action = new QAction(i18nc("Message Style", "Cozy"), this);
+    auto action = new QAction(name, this);
     action->setData(status);
     action->setChecked(RuqolaGlobalConfig::self()->messageStyle() == status);
     mActionGroup->addAction(action);
