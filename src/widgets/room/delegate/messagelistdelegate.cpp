@@ -77,6 +77,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
     connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
+    connect(&Colors::self(), &Colors::needUpdateMessageStyle, this, &MessageListDelegate::switchMessageLayout);
     slotUpdateColors();
     mSizeHintCache.setMaxEntries(32); // Enough ?
 }
@@ -826,7 +827,7 @@ void MessageListDelegate::switchMessageLayout()
 {
     // FIXME reactivate it when layout will be implemented correctly
     // Move this line at end when we reactivate code
-#if 1
+#if 0
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
 #else
     delete mMessageListLayoutBase;

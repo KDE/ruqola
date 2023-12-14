@@ -94,6 +94,7 @@
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
 #endif
+#include "colors.h"
 
 namespace
 {
@@ -618,7 +619,12 @@ void RuqolaMainWindow::setupActions()
 
     auto messageStyleAction = new MessageStyleLayoutMenu(this);
     ac->addAction(QStringLiteral("message_style"), messageStyleAction);
-    // TODO add action
+    connect(messageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
+}
+
+void RuqolaMainWindow::slotMessageStyleChanged()
+{
+    Q_EMIT Colors::self().needUpdateMessageStyle();
 }
 
 void RuqolaMainWindow::slotWhatsNew()

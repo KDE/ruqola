@@ -33,6 +33,7 @@ void MessageStyleLayoutMenu::addMessageStyleAction(const QString &name, RuqolaGl
     action->setCheckable(true);
     connect(action, &QAction::triggered, this, [this, status]() {
         RuqolaGlobalConfig::self()->setMessageStyle(status);
+        RuqolaGlobalConfig::self()->save();
         Q_EMIT styleChanged();
     });
 }

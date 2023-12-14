@@ -26,6 +26,7 @@ public:
 
 Q_SIGNALS:
     void needToUpdateColors();
+    void needUpdateMessageStyle();
 
 protected:
     bool event(QEvent *e) override;

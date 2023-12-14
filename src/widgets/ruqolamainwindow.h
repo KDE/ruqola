@@ -112,6 +112,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowPermissions();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotImportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageStyleChanged();
 
     bool mReallyClose{false};
 
