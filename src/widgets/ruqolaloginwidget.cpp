@@ -256,17 +256,18 @@ void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
 
 void RuqolaLoginWidget::slotCheckOauth()
 {
-#if 0
+#if 1
     const QUrl serverUrl{mServerUrl->text()};
     if (serverUrl.isValid()) {
         mRocketChatAccount->setServerUrl(mServerUrl->text());
         auto job = new RocketChatRestApi::SettingsOauthJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::SettingsOauthJob::settingsOauthDone, this, [](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
             qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " obj" << obj;
-            // TODO switch to new team ?
         });
         if (!job->start()) {
+            qDebug() << " impossible to start";
             qCWarning(RUQOLA_PASSWORD_WIDGETS_LOG) << "Impossible to start SettingsOauthJob";
         }
     }
