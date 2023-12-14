@@ -846,7 +846,7 @@ void MessageListDelegate::switchMessageLayout()
         break;
     }
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
-    updateView();
+    Q_EMIT updateView();
 #endif
 }
 
