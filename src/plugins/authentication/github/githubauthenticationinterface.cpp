@@ -6,8 +6,8 @@
 
 #include "githubauthenticationinterface.h"
 #include "ddpapi/ddpauthenticationmanager.h"
-#include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
+#include <QOAuth2AuthorizationCodeFlow>
 
 GitHubAuthenticationInterface::GitHubAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)

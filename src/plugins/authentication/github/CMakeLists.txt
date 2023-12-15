@@ -6,6 +6,8 @@ set(ruqola_githubauthenticationplugin_SRCS
     githubpluginauthentication.cpp
     githubauthenticationinterface.h
     githubpluginauthentication.h
+    githubauthenticationjob.h
+    githubauthenticationjob.cpp
 )
 
 ecm_qt_declare_logging_category(ruqola_githubauthenticationplugin_SRCS HEADER githubauthenticationplugin_debug.h
