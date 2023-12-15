@@ -338,6 +338,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     sessions/sessionslogoutmejob.cpp
     settings/privateinfojob.cpp
     settings/privateinfojob.h
+    settings/publicsettingsjob.cpp
+    settings/publicsettingsjob.h
     settings/updateadminsettingsjob.cpp
     settings/updateadminsettingsjob.h
     spotlightjob.cpp
