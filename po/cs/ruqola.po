@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-14 00:41+0000\n"
+"POT-Creation-Date: 2023-12-15 00:41+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -740,7 +740,7 @@ msgstr "Zakázáno"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:523
+#: widgets/ruqolamainwindow.cpp:525
 #, kde-format
 msgid "Status"
 msgstr "Stav"
@@ -1422,7 +1422,7 @@ msgstr ""
 msgid "User"
 msgstr "Uživatel"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:478
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:480
 #, kde-format
 msgid "Administrator"
 msgstr "Administrátor"
@@ -1467,7 +1467,7 @@ msgstr "Přijmout"
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
@@ -1618,10 +1618,9 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
+#, kde-format
 msgid "'%1' is not allowed"
-msgstr "__action__ není povoleno"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -1629,10 +1628,9 @@ msgid "Application not found"
 msgstr "Aplikace nenalezena"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:239
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
+#, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr "Existuje archivovaný kanál s názvem '__room_name__'"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
@@ -1692,16 +1690,14 @@ msgid "The email domain is blacklisted"
 msgstr "Emailová doména je na seznamu zakázaných domén"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
-#, fuzzy, kde-format
-#| msgid "Error trying to send email: __message__"
+#, kde-format
 msgid "Error trying to send email: %1"
-msgstr "Při odesílání emailu došlo k chybě: __message__"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, fuzzy, kde-format
-#| msgid "%1 is already in use."
+#, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 se již používá."
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
@@ -1729,10 +1725,9 @@ msgid "The file to be imported was not found on the specified path."
 msgstr "Soubor, který má být importován, nebyl v daném umístění nalezen."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, fuzzy, kde-format
-#| msgid "User is not a leader"
+#, kde-format
 msgid "%1 is not a valid %2"
-msgstr "Uživatel není vedoucí"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
@@ -1794,10 +1789,9 @@ msgid "Invalid domain"
 msgstr "Neplatná doména"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, fuzzy, kde-format
-#| msgid "Invalid Email '%1'."
+#, kde-format
 msgid "Invalid email '%1'"
-msgstr "Neplatný e-mail '%1'."
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
@@ -1871,10 +1865,9 @@ msgid "Invalid room"
 msgstr "Neplatná místnost"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
-#, fuzzy, kde-format
-#| msgid "<strong>__type__</strong> is not a valid room type."
+#, kde-format
 msgid "'%1' is not a valid room type."
-msgstr "<strong>__type__</strong> není platný typ místnosti."
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
@@ -2030,10 +2023,9 @@ msgid "Room is not closed"
 msgstr "Místnost není uzavřena"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:405
-#, fuzzy, kde-format
-#| msgid "The field __field__ is required."
+#, kde-format
 msgid "The field '%1' is required."
-msgstr "Pole __field__ je povinné."
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
@@ -2056,16 +2048,11 @@ msgid "Token does not exists"
 msgstr "Token neexistuje"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, fuzzy, kde-format
-#| msgid ""
-#| "Error, too many requests. Please slow down. You must wait __seconds__ "
-#| "seconds before trying again."
+#, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
-"Chyba: příliš mnoho požadavků. Zpomalte, prosím. Před dalším pokusem je "
-"potřeba počkat __seconds__  sekund."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
@@ -2177,16 +2164,14 @@ msgstr ""
 "žádnému kanálu"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "A role with this name already exists"
-msgstr "Token s tímto názvem již existuje"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, fuzzy, kde-format
-#| msgid "Direct Messages can not be archived"
+#, kde-format
 msgid "Message could not be pinned"
-msgstr "Soukromé zprávy nelze archivovat"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
@@ -2523,7 +2508,7 @@ msgstr "Upravit stav uživatele"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:530
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:532
 #, kde-format
 msgid "Status:"
 msgstr "Stav:"
@@ -3661,7 +3646,7 @@ msgstr "Šifrování"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:994
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Message"
 msgstr "Zpráva"
@@ -7235,10 +7220,9 @@ msgid "(Unnamed)"
 msgstr "(Nepojmenované)"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save Video"
-msgstr "Uložit soubor"
+msgstr "Uložit video"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
@@ -7257,38 +7241,49 @@ msgid "Download Image..."
 msgstr "Stáhnout obrázek..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Video"
-msgstr "Stáhnout obrázek"
+msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Video..."
-msgstr "Stáhnout obrázek..."
+msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Sound"
-msgstr "Přehrát zvuk"
+msgstr ""
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Sound..."
-msgstr "Stáhnout obrázek..."
+msgstr ""
 
-#: widgets/misc/messagestylelayoutmenu.cpp:13
-#, fuzzy, kde-format
-#| msgid "Message Status:"
+#: widgets/misc/messagestylelayoutmenu.cpp:16
+#, kde-format
 msgid "Message Style"
-msgstr "Stav zprávy:"
+msgstr ""
+
+#: widgets/misc/messagestylelayoutmenu.cpp:19
+#, kde-format
+msgctxt "Message Style"
+msgid "Normal"
+msgstr ""
+
+#: widgets/misc/messagestylelayoutmenu.cpp:20
+#, kde-format
+msgctxt "Message Style"
+msgid "Compact"
+msgstr ""
+
+#: widgets/misc/messagestylelayoutmenu.cpp:21
+#, kde-format
+msgctxt "Message Style"
+msgid "Cozy"
+msgstr ""
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -7892,19 +7887,19 @@ msgstr "Uložit soubor"
 msgid "Join"
 msgstr "Připojit"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:311
+#: widgets/room/delegate/messagelistdelegate.cpp:314
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informace o uživateli"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:320
+#: widgets/room/delegate/messagelistdelegate.cpp:323
 #: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Začít soukromou konverzaci"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:511
+#: widgets/room/delegate/messagelistdelegate.cpp:514
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -7912,7 +7907,7 @@ msgstr[0] "1 odpověď"
 msgstr[1] "%1 odpovědi"
 msgstr[2] "%1 odpovědí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:518
+#: widgets/room/delegate/messagelistdelegate.cpp:521
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -7920,22 +7915,22 @@ msgstr[0] "1 Zpráva"
 msgstr[1] "%1 zprávy"
 msgstr[2] "%1 zpráv"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:518
+#: widgets/room/delegate/messagelistdelegate.cpp:521
 #, kde-format
 msgid "No message yet"
 msgstr "Zatím žádné zprávy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:773
+#: widgets/room/delegate/messagelistdelegate.cpp:776
 #, kde-format
 msgid "Following"
 msgstr "Sledujete"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:777
+#: widgets/room/delegate/messagelistdelegate.cpp:780
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:781
+#: widgets/room/delegate/messagelistdelegate.cpp:784
 #, kde-format
 msgid "Message has been starred"
 msgstr ""
@@ -8473,197 +8468,197 @@ msgstr "Přihlášení selhalo: Uživatel není aktivován."
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Přihlášení selhalo: Uživatel aplikace nemá povoleno se přihlásit"
 
-#: widgets/ruqolamainwindow.cpp:210 widgets/ruqolamainwindow.cpp:212
+#: widgets/ruqolamainwindow.cpp:212 widgets/ruqolamainwindow.cpp:214
 #, kde-format
 msgid "Show New Notifications"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:384
+#: widgets/ruqolamainwindow.cpp:386
 #, kde-format
 msgid "Add Server..."
 msgstr "Přidat server..."
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:391
 #, kde-format
 msgid "Server Info..."
 msgstr "Informace o serveru..."
 
-#: widgets/ruqolamainwindow.cpp:393
+#: widgets/ruqolamainwindow.cpp:395
 #, kde-format
 msgid "Logout Current Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:399
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:402
+#: widgets/ruqolamainwindow.cpp:404
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Vytvořit nový kanál..."
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:408
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:412
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Vytvořit diskuzi..."
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:416
 #, kde-format
 msgid "Create Team..."
 msgstr "Vytvořit tým..."
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:424
 #, kde-format
 msgid "Unread on Top"
 msgstr "Nepřečtené nahoře"
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "By Last Message"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:436
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "Alphabetically"
 msgstr "Podle abecedy"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:444
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Zobrazit záznam kanálu"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:448
 #, kde-format
 msgid "Show Server Errors"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:467
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:470
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registrovat nového uživatele..."
 
-#: widgets/ruqolamainwindow.cpp:474
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgid "My Account..."
 msgstr "Můj účet..."
 
-#: widgets/ruqolamainwindow.cpp:479
+#: widgets/ruqolamainwindow.cpp:481
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrátor..."
 
-#: widgets/ruqolamainwindow.cpp:485
+#: widgets/ruqolamainwindow.cpp:487
 #, kde-format
 msgid "Server Settings..."
 msgstr "Nastavení serveru..."
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Adresář..."
 
-#: widgets/ruqolamainwindow.cpp:511
+#: widgets/ruqolamainwindow.cpp:513
 #, kde-format
 msgid "&Next Server"
 msgstr "&Následující server"
 
-#: widgets/ruqolamainwindow.cpp:516
+#: widgets/ruqolamainwindow.cpp:518
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Předchozí server"
 
-#: widgets/ruqolamainwindow.cpp:547
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Předchozí vybraný kanál"
 
-#: widgets/ruqolamainwindow.cpp:554
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Následující vybraný kanál"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:594
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:598
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Zobrazit avatara místnosti"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:603
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Zobrazit oblíbenou místnost"
 
-#: widgets/ruqolamainwindow.cpp:606
+#: widgets/ruqolamainwindow.cpp:608
 #, kde-format
 msgid "What's new"
 msgstr "Co je nového"
 
-#: widgets/ruqolamainwindow.cpp:610
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importovat účty"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportovat účty"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Vytvořit tým"
 
-#: widgets/ruqolamainwindow.cpp:801
+#: widgets/ruqolamainwindow.cpp:812
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:801
+#: widgets/ruqolamainwindow.cpp:812
 #, kde-format
 msgid "Show Log"
 msgstr "Zobrazit záznamy"
 
-#: widgets/ruqolamainwindow.cpp:863
+#: widgets/ruqolamainwindow.cpp:874
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:864
+#: widgets/ruqolamainwindow.cpp:875
 #, kde-format
 msgid "Register New User"
 msgstr "Registrovat nového uživatele"
 
-#: widgets/ruqolamainwindow.cpp:922
+#: widgets/ruqolamainwindow.cpp:933
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stav"
 
-#: widgets/ruqolamainwindow.cpp:1021
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8672,7 +8667,7 @@ msgstr ""
 "<qt>Toto úplně skryje panel nabídky. Můžete ji opětovně zobrazit pomocí %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1024
+#: widgets/ruqolamainwindow.cpp:1035
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Skrýt nabídku"
@@ -8702,13 +8697,13 @@ msgid "View"
 msgstr "Pohled"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:70
+#: widgets/ruqolaui.rc:72
 #, kde-format
 msgid "&Help"
 msgstr "Nápo&věda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:75
+#: widgets/ruqolaui.rc:77
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Hlavní panel nástrojů"
@@ -8950,45 +8945,34 @@ msgstr "Oprava podpory kf6"
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:52
-msgid "Fix markdown support (header + check mark)"
+#: widgets/whatsnew/whatsnewwidgettranslation.h:47
+msgid "Implement message style"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
-msgid "Fix mem leak"
+msgid "Fix markdown support (header + check mark)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-msgid "Cache message size (optimization)"
+msgid "Fix mem leak"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:55
+msgid "Cache message size (optimization)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
-
-#~ msgid "A channel with name '__channel_name__' exists"
-#~ msgstr "Kanál s názvem '__channel_name__' již existuje"
-
-#~ msgid "<strong>__field__</strong> is already in use :("
-#~ msgstr "<strong>__field__</strong> se již používá :("
-
-#~ msgid "__input__ is not a valid __field__"
-#~ msgstr "__input__ není platný __field__"
-
-#~ msgid "Invalid email __email__"
-#~ msgstr "Neplatný email __email__"
-
-#~ msgid "<strong>__room_name__</strong> is not a valid room name"
-#~ msgstr "<strong>__room_name__</strong> není platný název místnosti"

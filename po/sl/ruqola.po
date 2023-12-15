@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-14 00:41+0000\n"
-"PO-Revision-Date: 2023-12-13 06:47+0100\n"
+"POT-Creation-Date: 2023-12-15 00:41+0000\n"
+"PO-Revision-Date: 2023-12-14 06:41+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -744,7 +744,7 @@ msgstr "Onemogočeno"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:523
+#: widgets/ruqolamainwindow.cpp:525
 #, kde-format
 msgid "Status"
 msgstr "Stanje"
@@ -1427,7 +1427,7 @@ msgstr "Manjkajoče informacije o prevajalcu. To je programska napaka"
 msgid "User"
 msgstr "Uporabnik"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:478
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:480
 #, kde-format
 msgid "Administrator"
 msgstr "Skrbnik"
@@ -2517,7 +2517,7 @@ msgstr "Uredi stanje uporabnika"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:530
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:532
 #, kde-format
 msgid "Status:"
 msgstr "Stanje:"
@@ -3676,7 +3676,7 @@ msgstr "Šifriranje"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:994
+#: widgets/ruqolamainwindow.cpp:1005
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
@@ -7443,11 +7443,31 @@ msgstr "Prenesi zvok"
 msgid "Download Sound..."
 msgstr "Prenesi zvok..."
 
-#: widgets/misc/messagestylelayoutmenu.cpp:13
-#, fuzzy, kde-format
-#| msgid "Message Status:"
+#: widgets/misc/messagestylelayoutmenu.cpp:16
+#, kde-format
 msgid "Message Style"
-msgstr "Stanje sporočila:"
+msgstr "Slog sporočila"
+
+#: widgets/misc/messagestylelayoutmenu.cpp:19
+#, fuzzy, kde-format
+#| msgid "Normal"
+msgctxt "Message Style"
+msgid "Normal"
+msgstr "Običajni"
+
+#: widgets/misc/messagestylelayoutmenu.cpp:20
+#, fuzzy, kde-format
+#| msgid "Compact"
+msgctxt "Message Style"
+msgid "Compact"
+msgstr "Kompaktni"
+
+#: widgets/misc/messagestylelayoutmenu.cpp:21
+#, fuzzy, kde-format
+#| msgid "Cozy"
+msgctxt "Message Style"
+msgid "Cozy"
+msgstr "Udobni"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8083,19 +8103,19 @@ msgstr "Shrani datoteko"
 msgid "Join"
 msgstr "Pridružite se"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:311
+#: widgets/room/delegate/messagelistdelegate.cpp:314
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:320
+#: widgets/room/delegate/messagelistdelegate.cpp:323
 #: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:511
+#: widgets/room/delegate/messagelistdelegate.cpp:514
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8104,7 +8124,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:518
+#: widgets/room/delegate/messagelistdelegate.cpp:521
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8113,22 +8133,22 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:518
+#: widgets/room/delegate/messagelistdelegate.cpp:521
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:773
+#: widgets/room/delegate/messagelistdelegate.cpp:776
 #, kde-format
 msgid "Following"
 msgstr "Sledite"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:777
+#: widgets/room/delegate/messagelistdelegate.cpp:780
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Sporočilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:781
+#: widgets/room/delegate/messagelistdelegate.cpp:784
 #, kde-format
 msgid "Message has been starred"
 msgstr "Sporočilo označeno z zvezdico"
@@ -8669,179 +8689,179 @@ msgstr "Prijava ni uspela: Uporabnik ni aktiviran."
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Prijava ni uspela: Uporabniku aplikacije ni dovoljena prijava."
 
-#: widgets/ruqolamainwindow.cpp:210 widgets/ruqolamainwindow.cpp:212
+#: widgets/ruqolamainwindow.cpp:212 widgets/ruqolamainwindow.cpp:214
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Prikaži nova obvestila"
 
-#: widgets/ruqolamainwindow.cpp:384
+#: widgets/ruqolamainwindow.cpp:386
 #, kde-format
 msgid "Add Server..."
 msgstr "Dodaj strežnik ..."
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:391
 #, kde-format
 msgid "Server Info..."
 msgstr "Podatki o strežniku ..."
 
-#: widgets/ruqolamainwindow.cpp:393
+#: widgets/ruqolamainwindow.cpp:395
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Odjavi se iz trenutnega strežnika"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:399
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Skoči na naslednji neprebrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:402
+#: widgets/ruqolamainwindow.cpp:404
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Ustvari nov kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:408
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Ustvari neposredna sporočila ..."
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:412
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Ustvari razpravo ..."
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:416
 #, kde-format
 msgid "Create Team..."
 msgstr "Ustvari ekipo ..."
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:424
 #, kde-format
 msgid "Unread on Top"
 msgstr "Neprebrano na vrhu"
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "By Last Message"
 msgstr "Z zadnjim sporočilom"
 
-#: widgets/ruqolamainwindow.cpp:436
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "Alphabetically"
 msgstr "Po abecednem redu"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:444
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Pokaži zapisnik kanala"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:448
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Pokaži napake strežnika"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:467
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Označi vse kanale kot prebrane"
 
-#: widgets/ruqolamainwindow.cpp:470
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registriraj novega uporabnika ..."
 
-#: widgets/ruqolamainwindow.cpp:474
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgid "My Account..."
 msgstr "Moj račun ..."
 
-#: widgets/ruqolamainwindow.cpp:479
+#: widgets/ruqolamainwindow.cpp:481
 #, kde-format
 msgid "Administrator..."
 msgstr "Skrbnik ..."
 
-#: widgets/ruqolamainwindow.cpp:485
+#: widgets/ruqolamainwindow.cpp:487
 #, kde-format
 msgid "Server Settings..."
 msgstr "Nastavitve strežnika..."
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Imenik..."
 
-#: widgets/ruqolamainwindow.cpp:511
+#: widgets/ruqolamainwindow.cpp:513
 #, kde-format
 msgid "&Next Server"
 msgstr "&Naslednji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:516
+#: widgets/ruqolamainwindow.cpp:518
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Prejšnji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:547
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Prejšnji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:554
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Naslednji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgid "Show Notify History"
 msgstr "Prikaži zgodovino obvestil"
 
-#: widgets/ruqolamainwindow.cpp:592
+#: widgets/ruqolamainwindow.cpp:594
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Prikaži informacijo o RocketChatu"
 
-#: widgets/ruqolamainwindow.cpp:596
+#: widgets/ruqolamainwindow.cpp:598
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Pokaži avatarja sobe"
 
-#: widgets/ruqolamainwindow.cpp:601
+#: widgets/ruqolamainwindow.cpp:603
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Prikaži priljubljeno sobo"
 
-#: widgets/ruqolamainwindow.cpp:606
+#: widgets/ruqolamainwindow.cpp:608
 #, kde-format
 msgid "What's new"
 msgstr "Kaj je novega"
 
-#: widgets/ruqolamainwindow.cpp:610
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgid "Import Accounts"
 msgstr "Uvozi račune"
 
-#: widgets/ruqolamainwindow.cpp:614
+#: widgets/ruqolamainwindow.cpp:616
 #, kde-format
 msgid "Export Accounts"
 msgstr "Izvozi račune"
 
-#: widgets/ruqolamainwindow.cpp:646
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Ustvari ekipo"
 
-#: widgets/ruqolamainwindow.cpp:801
+#: widgets/ruqolamainwindow.cpp:812
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Ni mogoče odpreti dnevnika."
 
-#: widgets/ruqolamainwindow.cpp:801
+#: widgets/ruqolamainwindow.cpp:812
 #, kde-format
 msgid "Show Log"
 msgstr "Prikaži dnevnik"
 
-#: widgets/ruqolamainwindow.cpp:863
+#: widgets/ruqolamainwindow.cpp:874
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8850,18 +8870,18 @@ msgstr ""
 "Poslali smo vam e-poštno sporočilo, da potrdite svojo registracijo.\n"
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
-#: widgets/ruqolamainwindow.cpp:864
+#: widgets/ruqolamainwindow.cpp:875
 #, kde-format
 msgid "Register New User"
 msgstr "Registriraj novega uporabnika"
 
-#: widgets/ruqolamainwindow.cpp:922
+#: widgets/ruqolamainwindow.cpp:933
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/ruqolamainwindow.cpp:1021
+#: widgets/ruqolamainwindow.cpp:1032
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8870,7 +8890,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1024
+#: widgets/ruqolamainwindow.cpp:1035
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Krij menijsko vrstico"
@@ -8900,13 +8920,13 @@ msgid "View"
 msgstr "Pogled"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:70
+#: widgets/ruqolaui.rc:72
 #, kde-format
 msgid "&Help"
 msgstr "Pomoč"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:75
+#: widgets/ruqolaui.rc:77
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
@@ -9152,19 +9172,25 @@ msgstr "Popravi podporo kf6"
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Dodaj moderatorsko konzolo (Administiranje, RC server 6.2)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:52
+#: widgets/whatsnew/whatsnewwidgettranslation.h:47
+#, fuzzy
+#| msgid "See messages"
+msgid "Implement message style"
+msgstr "Glej sporočila"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix markdown support (header + check mark)"
 msgstr "Popravi podporo za markdovn (glava + kljukica)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:53
+#: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix mem leak"
 msgstr "Popravi napako rabe pomnilnika"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:54
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
 msgid "Cache message size (optimization)"
 msgstr "Velikost sporočila v predpomnilniku (optimizacija)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
@@ -9172,7 +9198,7 @@ msgstr ""
 "Izboljšaj izbrano sobo ali uporabnika v urejanju vrstice za sporočila "
 "(prikaži ikono, obvesti, če je uporabnik v kanalu)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
@@ -9180,7 +9206,7 @@ msgstr ""
 "Popravi ukaze za prikaz pri urejanju vrstice sporočila (Skrij dejanje, ko ga "
 "soba ne podpira)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Popravi prenos zvočne/video datoteke, ko ni v predpomnilniku."
 
@@ -9272,15 +9298,6 @@ msgstr "Popravi prenos zvočne/video datoteke, ko ni v predpomnilniku."
 
 #~ msgid "View mode:"
 #~ msgstr "Način pogleda:"
-
-#~ msgid "Normal"
-#~ msgstr "Običajni"
-
-#~ msgid "Cozy"
-#~ msgstr "Udobni"
-
-#~ msgid "Compact"
-#~ msgstr "Kompaktni"
 
 #~ msgid "Room is Empty."
 #~ msgstr "Soba je prazna."
