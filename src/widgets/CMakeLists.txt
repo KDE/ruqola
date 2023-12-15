@@ -361,10 +361,16 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createnewdiscussiondialog.h
     dialogs/createnewdiscussionwidget.cpp
     dialogs/createnewdiscussionwidget.h
+
+
     dialogs/createnewserverdialog.cpp
     dialogs/createnewserverdialog.h
     dialogs/createnewserverwidget.cpp
     dialogs/createnewserverwidget.h
+    dialogs/createnewserverstackwidget.h
+    dialogs/createnewserverstackwidget.cpp
+    dialogs/createnewservercheckurlwidget.h
+    dialogs/createnewservercheckurlwidget.cpp
 
 
     dialogs/directchannelinfodialog.cpp
