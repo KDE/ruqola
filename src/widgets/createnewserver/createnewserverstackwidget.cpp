@@ -19,6 +19,9 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
     addWidget(mCreateNewServerWidget);
     setCurrentWidget(mCreateNewServerCheckUrlWidget);
+    connect(mCreateNewServerCheckUrlWidget, &CreateNewServerCheckUrlWidget::serverUrlFound, this, [this]() {
+        setCurrentWidget(mCreateNewServerWidget);
+    });
 }
 
 CreateNewServerStackWidget::~CreateNewServerStackWidget() = default;
