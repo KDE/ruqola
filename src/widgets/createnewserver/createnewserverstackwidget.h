@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 class CreateNewServerCheckUrlWidget;
+class CreateNewServerWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerStackWidget : public QStackedWidget
 {
     Q_OBJECT
@@ -18,4 +19,5 @@ public:
 
 private:
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;
+    CreateNewServerWidget *const mCreateNewServerWidget;
 };

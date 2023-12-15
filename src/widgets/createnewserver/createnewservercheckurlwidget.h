@@ -15,6 +15,9 @@ public:
     explicit CreateNewServerCheckUrlWidget(QWidget *parent = nullptr);
     ~CreateNewServerCheckUrlWidget() override;
 
+Q_SIGNALS:
+    void serverUrlFound();
+
 private:
     void slotTestConnection();
     QLineEdit *const mServerUrl;
