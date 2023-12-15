@@ -8,6 +8,8 @@
 
 #include <QWidget>
 class QLineEdit;
+class QLabel;
+class KBusyIndicatorWidget;
 class CreateNewServerCheckUrlWidget : public QWidget
 {
     Q_OBJECT
@@ -21,4 +23,6 @@ Q_SIGNALS:
 private:
     void slotTestConnection();
     QLineEdit *const mServerUrl;
+    KBusyIndicatorWidget *const mBusyIndicatorWidget;
+    QLabel *const mFailedError;
 };
