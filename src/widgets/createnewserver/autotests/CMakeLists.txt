@@ -13,4 +13,4 @@ endmacro()
 add_ruqolacreatenewserver_test(createnewserverstackwidgettest.cpp)
 add_ruqolacreatenewserver_test(createnewserverdialogtest.cpp)
 add_ruqolacreatenewserver_test(createnewserverwidgettest.cpp)
-
+add_ruqolacreatenewserver_test(createnewservercheckurlwidgettest.cpp)
