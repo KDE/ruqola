@@ -9,6 +9,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include <KBusyIndicatorWidget>
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -18,7 +19,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     : QWidget{parent}
     , mServerUrl(new QLineEdit(this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
-    , mFailedError(new QLabel(this))
+    , mFailedError(new KMessageWidget(this))
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
@@ -48,12 +49,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     mBusyIndicatorWidget->hide();
 
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
-    QPalette pal = mFailedError->palette();
-    pal.setColor(foregroundRole(), Colors::self().schemeView().foreground(KColorScheme::NegativeText).color());
-    mFailedError->setPalette(pal);
-    QFont font = mFailedError->font();
-    font.setBold(true);
-    mFailedError->setFont(font);
+    mFailedError->setMessageType(KMessageWidget::Error);
 
     topLayout->addWidget(mFailedError);
     // Hide by default
@@ -64,6 +60,12 @@ CreateNewServerCheckUrlWidget::~CreateNewServerCheckUrlWidget() = default;
 
 void CreateNewServerCheckUrlWidget::slotTestConnection()
 {
+    // TODO
+}
+
+void CreateNewServerCheckUrlWidget::slotErrorConnection()
+{
+    mFailedError->animatedShow();
     // TODO
 }
 

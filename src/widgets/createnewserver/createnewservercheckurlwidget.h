@@ -5,12 +5,12 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLineEdit;
-class QLabel;
+class KMessageWidget;
 class KBusyIndicatorWidget;
-class CreateNewServerCheckUrlWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerCheckUrlWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -22,7 +22,8 @@ Q_SIGNALS:
 
 private:
     void slotTestConnection();
+    void slotErrorConnection();
     QLineEdit *const mServerUrl;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
-    QLabel *const mFailedError;
+    KMessageWidget *const mFailedError;
 };
