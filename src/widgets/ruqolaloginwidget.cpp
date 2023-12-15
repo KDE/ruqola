@@ -13,6 +13,7 @@
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola_password_widgets_debug.h"
+#include "settings/publicsettingsjob.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -256,7 +257,7 @@ void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
 
 void RuqolaLoginWidget::slotCheckOauth()
 {
-#if 1
+#if 0
     const QUrl serverUrl{mServerUrl->text()};
     if (serverUrl.isValid()) {
         mRocketChatAccount->setServerUrl(mServerUrl->text());
@@ -267,9 +268,20 @@ void RuqolaLoginWidget::slotCheckOauth()
             qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " obj" << obj;
         });
         if (!job->start()) {
-            qDebug() << " impossible to start";
+            qDebug() << " impossible to start SettingsOauthJob";
             qCWarning(RUQOLA_PASSWORD_WIDGETS_LOG) << "Impossible to start SettingsOauthJob";
         }
+    }
+
+    auto job = new RocketChatRestApi::PublicSettingsJob(this);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::PublicSettingsJob::publicSettingsDone, this, [](const QJsonObject &obj) {
+        qDebug() << " public settings obj " << obj;
+        qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " obj" << obj;
+    });
+    if (!job->start()) {
+        qDebug() << " impossible to start PublicSettingsJob";
+        qCWarning(RUQOLA_PASSWORD_WIDGETS_LOG) << "Impossible to start SettingsOauthJob";
     }
 #endif
 }
