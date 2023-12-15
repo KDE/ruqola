@@ -26,15 +26,15 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mAccountName->setObjectName(QStringLiteral("mAccountName"));
-    mAccountName->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mAccountName, this);
-    mainLayout->addRow(i18n("Account name:"), mAccountName);
-
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mServerUrl->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mServerUrl, this);
     mainLayout->addRow(i18n("Server URL:"), mServerUrl);
+
+    mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mAccountName->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mAccountName, this);
+    mainLayout->addRow(i18n("Account name:"), mAccountName);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
