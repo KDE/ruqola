@@ -85,7 +85,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         positionIcon += iconSizeMargin;
     }
 
-    const int followingIconX = textLeft;
+    const int followingIconX = positionIcon;
     layout.messageIsFollowing = mRocketChatAccount && message->replies().contains(mRocketChatAccount->userId());
     // Following icon
     if (layout.messageIsFollowing) {
@@ -102,7 +102,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     // showIgnoreMessage icon
     const bool ignoreMessage = MessageDelegateUtils::showIgnoreMessages(index);
     if (ignoreMessage) {
-        positionIcon += iconSizeMargin;
+        textLeft += iconSizeMargin;
     }
 
     // Timestamp
@@ -145,7 +145,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
     if (message->wasEdited()) {
         if (layout.sameSenderAsPreviousMessage) {
-            layout.editedIconRect = QRect(senderX - margin - avatarWidth / 2, senderRectY, iconSize, iconSize);
+            layout.editedIconRect = QRect(senderX - margin - avatarWidth / 2, usableRect.top(), iconSize, iconSize);
         } else {
             layout.editedIconRect = QRect(editIconX, senderRectY, iconSize, iconSize);
         }
@@ -153,25 +153,32 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     if (message->isStarred()) {
         if (layout.sameSenderAsPreviousMessage) {
-            // TODO
-            layout.favoriteIconRect = QRect(favoriteIconX, senderRectY, iconSize, iconSize);
+            layout.favoriteIconRect = QRect(senderX - margin - avatarWidth / 2, usableRect.top() + iconSize, iconSize, iconSize);
         } else {
             layout.favoriteIconRect = QRect(favoriteIconX, senderRectY, iconSize, iconSize);
         }
     }
 
     if (message->isPinned()) {
-        layout.pinIconRect = QRect(pinIconX, senderRectY, iconSize, iconSize);
+        if (layout.sameSenderAsPreviousMessage) {
+            layout.pinIconRect = QRect(senderX - margin - avatarWidth, usableRect.top() + iconSize, iconSize, iconSize);
+        } else {
+            layout.pinIconRect = QRect(pinIconX, senderRectY, iconSize, iconSize);
+        }
     }
     if (layout.messageIsFollowing) {
         if (layout.sameSenderAsPreviousMessage) {
-            layout.followingIconRect = QRect(senderX - margin - avatarWidth, senderRectY, iconSize, iconSize);
+            layout.followingIconRect = QRect(senderX - margin - avatarWidth, usableRect.top(), iconSize, iconSize);
         } else {
             layout.followingIconRect = QRect(followingIconX, senderRectY, iconSize, iconSize);
         }
     }
     if (message->isAutoTranslated()) {
-        layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
+        if (layout.sameSenderAsPreviousMessage) {
+            layout.translatedIconRect = QRect(senderX - margin - avatarWidth / 2, usableRect.top() + 2 * iconSize, iconSize, iconSize);
+        } else {
+            layout.translatedIconRect = QRect(translatedIconX, senderRectY, iconSize, iconSize);
+        }
     }
 
     if (ignoreMessage) {
@@ -179,7 +186,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
 
-    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
+    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.textRect.y(), iconSize, iconSize);
+    if (layout.sameSenderAsPreviousMessage) {
+        layout.addReactionRect.moveTop(senderRectY);
+    }
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
     generateAttachmentLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
