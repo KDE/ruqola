@@ -363,14 +363,14 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createnewdiscussionwidget.h
 
 
-    dialogs/createnewserverdialog.cpp
-    dialogs/createnewserverdialog.h
-    dialogs/createnewserverwidget.cpp
-    dialogs/createnewserverwidget.h
-    dialogs/createnewserverstackwidget.h
-    dialogs/createnewserverstackwidget.cpp
-    dialogs/createnewservercheckurlwidget.h
-    dialogs/createnewservercheckurlwidget.cpp
+    createnewserver/createnewserverdialog.cpp
+    createnewserver/createnewserverdialog.h
+    createnewserver/createnewserverwidget.cpp
+    createnewserver/createnewserverwidget.h
+    createnewserver/createnewserverstackwidget.h
+    createnewserver/createnewserverstackwidget.cpp
+    createnewserver/createnewservercheckurlwidget.h
+    createnewserver/createnewservercheckurlwidget.cpp
 
 
     dialogs/directchannelinfodialog.cpp
@@ -960,6 +960,7 @@ if (BUILD_TESTING)
     add_subdirectory(offlinewidget/autotests)
     add_subdirectory(needupdateversion/tests)
     add_subdirectory(needupdateversion/autotests)
+    add_subdirectory(createnewserver/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

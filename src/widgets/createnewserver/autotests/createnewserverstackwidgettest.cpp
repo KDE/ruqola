@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "createnewserverstackwidgettest.h"
-#include "dialogs/createnewserverstackwidget.h"
+#include "createnewserver/createnewserverstackwidget.h"
 #include <QTest>
 QTEST_MAIN(CreateNewServerStackWidgetTest)
 CreateNewServerStackWidgetTest::CreateNewServerStackWidgetTest(QObject *parent)

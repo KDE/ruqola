@@ -6,7 +6,7 @@
 
 #include "createnewserverwidgettest.h"
 #include "common/authenticationwidget.h"
-#include "dialogs/createnewserverwidget.h"
+#include "createnewserver/createnewserverwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
