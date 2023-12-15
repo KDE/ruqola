@@ -18,7 +18,8 @@ MessageStyleLayoutMenu::MessageStyleLayoutMenu(QObject *parent)
 
     addMessageStyleAction(i18nc("Message Style", "Normal"), RuqolaGlobalConfig::EnumMessageStyle::Normal);
     addMessageStyleAction(i18nc("Message Style", "Compact"), RuqolaGlobalConfig::EnumMessageStyle::Compact);
-    addMessageStyleAction(i18nc("Message Style", "Cozy"), RuqolaGlobalConfig::EnumMessageStyle::Cozy);
+    // Disable for the moment as Cozy is not implemented
+    // addMessageStyleAction(i18nc("Message Style", "Cozy"), RuqolaGlobalConfig::EnumMessageStyle::Cozy);
 }
 
 MessageStyleLayoutMenu::~MessageStyleLayoutMenu() = default;
