@@ -24,6 +24,7 @@ MessageListCozyLayout::~MessageListCozyLayout() = default;
 // [margin] <pixmap> [margin] <sender>
 // [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
 //                                                                  <attachments>
+//                                                                  <blocks>
 //                                                                  <reactions>
 //                                                                  <N replies>
 MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

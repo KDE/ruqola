@@ -25,6 +25,7 @@ MessageListNormalLayout::~MessageListNormalLayout() = default;
 // [margin] <pixmap> [margin] <sender>
 // [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
 //                                                                  <attachments>
+//                                                                  <blocks>
 //                                                                  <reactions>
 //                                                                  <N replies>
 MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
