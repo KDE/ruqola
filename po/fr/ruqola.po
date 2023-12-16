@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:41+0000\n"
+"POT-Creation-Date: 2023-12-16 00:42+0000\n"
 "PO-Revision-Date: 2023-12-07 10:50+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
@@ -3330,7 +3330,7 @@ msgstr ""
 "Définir un mot de passe aléatoire et l'envoyer par courrier électronique"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:42
+#: widgets/createnewserver/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3354,10 +3354,10 @@ msgid "Email:"
 msgstr "Courriel :"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/createnewserver/createnewserverwidget.cpp:46
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:76
+#: widgets/ruqolaloginwidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "Mot de passe :"
@@ -6303,6 +6303,42 @@ msgstr "Supprimer les journaux enregistrés sur le disque"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Voulez-vous vraiment supprimer ce compte « %1 » ?"
 
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:33
+#, kde-format
+msgid "Server Url:"
+msgstr "URL du serveur :"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "Connecting"
+msgid "Connection"
+msgstr "Connexion en cours"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Server"
+msgstr "Ajouter un serveur"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:60
+#, kde-format
+msgctxt "@title:window"
+msgid "Modify Account"
+msgstr "Modifier un compte"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:32
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Server URL:"
+msgstr "URL du serveur :"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:37
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "Nom du compte :"
+
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -6725,31 +6761,6 @@ msgid ""
 msgstr ""
 "En général, une discussion commence par une question comme « Comment puis-je "
 "envoyer une image ? »."
-
-#: widgets/dialogs/createnewserverdialog.cpp:27
-#, kde-format
-msgctxt "@title:window"
-msgid "Add Server"
-msgstr "Ajouter un serveur"
-
-#: widgets/dialogs/createnewserverdialog.cpp:60
-#, kde-format
-msgctxt "@title:window"
-msgid "Modify Account"
-msgstr "Modifier un compte"
-
-#: widgets/dialogs/createnewserverwidget.cpp:32
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "Nom du compte :"
-
-#: widgets/dialogs/createnewserverwidget.cpp:37
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:50
-#, kde-format
-msgid "Server URL:"
-msgstr "URL du serveur :"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:143
 #: widgets/dialogs/createvideomessagewidget.cpp:241
@@ -7419,7 +7430,7 @@ msgstr ""
 "Un mot de passe à usage unique est nécessaire pour terminer la procédure de "
 "connexion."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Échec de la connexion : code « OTP » non valable"
@@ -7516,13 +7527,6 @@ msgstr "Normal"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "Synthétique"
-
-#: widgets/misc/messagestylelayoutmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Cozy"
-msgctxt "Message Style"
-msgid "Cozy"
-msgstr "Élégant"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8663,37 +8667,37 @@ msgstr "Afficher un message"
 msgid "Lists the available options for user feedback"
 msgstr "Liste les options disponibles pour le retour utilisateur"
 
-#: widgets/ruqolaloginwidget.cpp:33
+#: widgets/ruqolaloginwidget.cpp:34
 #, kde-format
 msgid "Login"
 msgstr "Connexion"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account Name:"
 msgstr "Nom du compte :"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:47
 #, kde-format
 msgid "Account name"
 msgstr "Nom du compte"
 
-#: widgets/ruqolaloginwidget.cpp:54
+#: widgets/ruqolaloginwidget.cpp:55
 #, kde-format
 msgid "Username or Email:"
 msgstr "Nom d'utilisateur ou courriel :"
 
-#: widgets/ruqolaloginwidget.cpp:55
+#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Username or email"
 msgstr "Nom d'utilisateur ou courriel"
 
-#: widgets/ruqolaloginwidget.cpp:63
+#: widgets/ruqolaloginwidget.cpp:64
 #, kde-format
 msgid "Authentication Method"
 msgstr "Méthode d'authentification"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8702,41 +8706,41 @@ msgstr ""
 "Vous avez activé l'authentification par double facteur. \n"
 "Veuillez saisir le code généré ou un code de secours."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:188
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Problème d'installation découvert. Aucun module externe disponible ici."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Échec de la connexion : erreur générique"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Connexion impossible : la connexion a été temporairement bloquée par IP."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:220
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Connexion impossible : la connexion a été temporairement bloquée pour "
 "l'utilisateur."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:226
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Connexion impossible : l'utilisateur n'est pas activé."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:232
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9277,6 +9281,12 @@ msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Correction du téléchargement d'un fichier de son / de vidéo, lorsqu'il est "
 "absent du cache."
+
+#, fuzzy
+#~| msgid "Cozy"
+#~ msgctxt "Message Style"
+#~ msgid "Cozy"
+#~ msgstr "Élégant"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Un canal portant le nom « __channel_name__ » existe déjà"
@@ -9849,9 +9859,6 @@ msgstr ""
 
 #~ msgid "Libre Translate"
 #~ msgstr "Libre Translate"
-
-#~ msgid "Server Url:"
-#~ msgstr "URL du serveur :"
 
 #, fuzzy
 #~| msgid "Server not found: %1"

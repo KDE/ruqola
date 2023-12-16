@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:41+0000\n"
+"POT-Creation-Date: 2023-12-16 00:42+0000\n"
 "PO-Revision-Date: 2023-12-06 06:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3307,7 +3307,7 @@ msgid "Set random password and send by email"
 msgstr "შემთხვევითი პაროლის დაყენება და ელფოსტაზე გაგზავნა"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:42
+#: widgets/createnewserver/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3331,10 +3331,10 @@ msgid "Email:"
 msgstr "ელფოტა:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/createnewserver/createnewserverwidget.cpp:46
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:76
+#: widgets/ruqolaloginwidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "პაროლი:"
@@ -6128,6 +6128,42 @@ msgstr "დისკზე დამახსოვრებულ ჟურნ�
 msgid "Do you want to remove this account '%1'?"
 msgstr "მართლა გნებავთ ამ ანგარიშის (%1) წაშლა?"
 
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:33
+#, kde-format
+msgid "Server Url:"
+msgstr "სერვერის URL:"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "Connecting"
+msgid "Connection"
+msgstr "დაკავშირება"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Server"
+msgstr "სერვერის დამატება"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:60
+#, kde-format
+msgctxt "@title:window"
+msgid "Modify Account"
+msgstr "ანგარიშის პარამეტრების შეცვლა"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:32
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Server URL:"
+msgstr "სერვერის URL:"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:37
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "ანგარიშის სახელი:"
+
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -6544,31 +6580,6 @@ msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
 msgstr "ჩვეულებრივ, საუბარი იწყება კითხვით, მაგ: \"როგორ ავტვირთო სურათი?\""
-
-#: widgets/dialogs/createnewserverdialog.cpp:27
-#, kde-format
-msgctxt "@title:window"
-msgid "Add Server"
-msgstr "სერვერის დამატება"
-
-#: widgets/dialogs/createnewserverdialog.cpp:60
-#, kde-format
-msgctxt "@title:window"
-msgid "Modify Account"
-msgstr "ანგარიშის პარამეტრების შეცვლა"
-
-#: widgets/dialogs/createnewserverwidget.cpp:32
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "ანგარიშის სახელი:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:37
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:50
-#, kde-format
-msgid "Server URL:"
-msgstr "სერვერის URL:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:143
 #: widgets/dialogs/createvideomessagewidget.cpp:241
@@ -7236,7 +7247,7 @@ msgstr "შესვლა ვერ მოხერხდა: ზოგად�
 msgid "A one-time password is required to complete the login procedure."
 msgstr "შესვლის პროცედურის დასასრულებლად საჭიროა ერთჯერადი პაროლი."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "შესვლის შეცდომა: OTP კოდი არასწორია."
@@ -7333,13 +7344,6 @@ msgstr "ნორმალური"
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "დაპატარავება"
-
-#: widgets/misc/messagestylelayoutmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Cozy"
-msgctxt "Message Style"
-msgid "Cozy"
-msgstr "მყუდრო"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8459,37 +8463,37 @@ msgstr "შეტყობინების ჩვენება"
 msgid "Lists the available options for user feedback"
 msgstr "მომხმარებლის უკუკავშირის ხელმისაწვდომი ვარიანტები"
 
-#: widgets/ruqolaloginwidget.cpp:33
+#: widgets/ruqolaloginwidget.cpp:34
 #, kde-format
 msgid "Login"
 msgstr "შესვლა"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account Name:"
 msgstr "ანგარიშის სახელი:"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:47
 #, kde-format
 msgid "Account name"
 msgstr "ანგარიშის სახელი"
 
-#: widgets/ruqolaloginwidget.cpp:54
+#: widgets/ruqolaloginwidget.cpp:55
 #, kde-format
 msgid "Username or Email:"
 msgstr "მომხმარებელი ან ელფოსტა:"
 
-#: widgets/ruqolaloginwidget.cpp:55
+#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Username or email"
 msgstr "მომხმარებლის სახელი ან ელ-ფოსტა"
 
-#: widgets/ruqolaloginwidget.cpp:63
+#: widgets/ruqolaloginwidget.cpp:64
 #, kde-format
 msgid "Authentication Method"
 msgstr "ავთენტიკაციის მეთოდი"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8498,37 +8502,37 @@ msgstr ""
 "თქვენ ჩართეთ 2.\n"
 "შეიყვანეთ გენერირებული ან მარქაფი კოდი."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:188
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "შესვლის შეცდომა: მომხმარებელი ან პაროლი არასწორია"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "დაყენების შეცდომა. დამატებები ვერ ვიპოვე."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "შესვლის შეცდომ: ამ IP-დან შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:220
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "შესვლის შეცდომა: ამ მომხმარებლით შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:226
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "შესვლის შეცდომა: მომხმარებელი გააქტიურებული არაა."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:232
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "შესვლის შეცდომა: აპის მომხმარებელს შესვლის უფლება არ აქვს."
@@ -9051,6 +9055,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "ხმის/ვიდეოს ფაილის გადმოწერის გასწორება, როცა ის კეშში არაა."
+
+#, fuzzy
+#~| msgid "Cozy"
+#~ msgctxt "Message Style"
+#~ msgid "Cozy"
+#~ msgstr "მყუდრო"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "არხი სახელით '__channel_name__' უკვე არსებობს"
@@ -9657,9 +9667,6 @@ msgstr "ხმის/ვიდეოს ფაილის გადმოწე
 
 #~ msgid "Server required Api Key"
 #~ msgstr "სერვერისთვის საჭირო API გასაღები"
-
-#~ msgid "Server Url:"
-#~ msgstr "სერვერის URL:"
 
 #~ msgid "Server url is not defined."
 #~ msgstr "სერვერის URL მითითებული არაა."

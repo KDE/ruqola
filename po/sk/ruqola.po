@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:41+0000\n"
+"POT-Creation-Date: 2023-12-16 00:42+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3476,7 +3476,7 @@ msgid "Set random password and send by email"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:42
+#: widgets/createnewserver/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3503,10 +3503,10 @@ msgid "Email:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/createnewserver/createnewserverwidget.cpp:46
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:76
+#: widgets/ruqolaloginwidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
@@ -6395,6 +6395,47 @@ msgstr "Odstrániť účet"
 msgid "Do you want to remove this account '%1'?"
 msgstr ""
 
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:33
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server Url:"
+msgstr "URL serveru:"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "Enter Username"
+msgid "Connection"
+msgstr "Zadajte užívateľské meno"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:27
+#, fuzzy, kde-format
+#| msgid "Server Url"
+msgctxt "@title:window"
+msgid "Add Server"
+msgstr "URL serveru"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:60
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgctxt "@title:window"
+msgid "Modify Account"
+msgstr "Pridať účet"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:32
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
+msgstr "URL serveru:"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:37
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name:"
+msgstr "Meno účtu"
+
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, fuzzy, kde-format
 #| msgid "User Info"
@@ -6845,35 +6886,6 @@ msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
 msgstr ""
-
-#: widgets/dialogs/createnewserverdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Server Url"
-msgctxt "@title:window"
-msgid "Add Server"
-msgstr "URL serveru"
-
-#: widgets/dialogs/createnewserverdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Add Account"
-msgctxt "@title:window"
-msgid "Modify Account"
-msgstr "Pridať účet"
-
-#: widgets/dialogs/createnewserverwidget.cpp:32
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account Name"
-msgid "Account name:"
-msgstr "Meno účtu"
-
-#: widgets/dialogs/createnewserverwidget.cpp:37
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Server Url:"
-msgid "Server URL:"
-msgstr "URL serveru:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:143
 #: widgets/dialogs/createvideomessagewidget.cpp:241
@@ -7612,7 +7624,7 @@ msgstr "Prihlásenie zlyhalo"
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: Invalid OTP code."
@@ -7711,12 +7723,6 @@ msgstr ""
 #, kde-format
 msgctxt "Message Style"
 msgid "Compact"
-msgstr ""
-
-#: widgets/misc/messagestylelayoutmenu.cpp:21
-#, kde-format
-msgctxt "Message Style"
-msgid "Cozy"
 msgstr ""
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
@@ -8932,80 +8938,80 @@ msgstr "Všetky správy"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:33
+#: widgets/ruqolaloginwidget.cpp:34
 #, kde-format
 msgid "Login"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Account Name:"
 msgstr "Meno účtu"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Account name"
 msgstr "Meno účtu"
 
-#: widgets/ruqolaloginwidget.cpp:54
+#: widgets/ruqolaloginwidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "User name: %1"
 msgid "Username or Email:"
 msgstr "Meno používateľa: %1"
 
-#: widgets/ruqolaloginwidget.cpp:55
+#: widgets/ruqolaloginwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "User name: %1"
 msgid "Username or email"
 msgstr "Meno používateľa: %1"
 
-#: widgets/ruqolaloginwidget.cpp:63
+#: widgets/ruqolaloginwidget.cpp:64
 #, kde-format
 msgid "Authentication Method"
 msgstr "Autentifikačná metóda"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:188
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:208
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: generic error"
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:220
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:226
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: User is not activated."
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:232
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9719,11 +9725,6 @@ msgstr ""
 #~| msgid "Translation"
 #~ msgid "Libre Translate"
 #~ msgstr "Preklad"
-
-#, fuzzy
-#~| msgid "Server Url:"
-#~ msgid "Server Url:"
-#~ msgstr "URL serveru:"
 
 #, fuzzy
 #~| msgid "Server Info"

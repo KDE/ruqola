@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:41+0000\n"
-"PO-Revision-Date: 2023-12-14 06:41+0100\n"
+"POT-Creation-Date: 2023-12-16 00:42+0000\n"
+"PO-Revision-Date: 2023-12-15 07:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3317,7 +3317,7 @@ msgid "Set random password and send by email"
 msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/dialogs/createnewserverwidget.cpp:42
+#: widgets/createnewserver/createnewserverwidget.cpp:42
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3341,10 +3341,10 @@ msgid "Email:"
 msgstr "E-naslov:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/createnewserver/createnewserverwidget.cpp:46
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/dialogs/createnewserverwidget.cpp:46
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:76
+#: widgets/ruqolaloginwidget.cpp:77
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
@@ -6239,6 +6239,42 @@ msgstr "Odstrani dnevnike shranjene na disku"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Ali želite odstraniti ta račun »%1«?"
 
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:33
+#, kde-format
+msgid "Server Url:"
+msgstr "Url strežnika:"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "Connecting"
+msgid "Connection"
+msgstr "Povezovanje v teku"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Server"
+msgstr "Dodaj strežnik"
+
+#: widgets/createnewserver/createnewserverdialog.cpp:60
+#, kde-format
+msgctxt "@title:window"
+msgid "Modify Account"
+msgstr "Spremeni račun"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:32
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Server URL:"
+msgstr "Url strežnika:"
+
+#: widgets/createnewserver/createnewserverwidget.cpp:37
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "Ime računa:"
+
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -6661,31 +6697,6 @@ msgid ""
 "Usually a discussion starts with a question, like \"How do I upload a "
 "picture?\""
 msgstr "Navadno se debata začne z vprašanjem kot npr. »Kako naložim sliko?«"
-
-#: widgets/dialogs/createnewserverdialog.cpp:27
-#, kde-format
-msgctxt "@title:window"
-msgid "Add Server"
-msgstr "Dodaj strežnik"
-
-#: widgets/dialogs/createnewserverdialog.cpp:60
-#, kde-format
-msgctxt "@title:window"
-msgid "Modify Account"
-msgstr "Spremeni račun"
-
-#: widgets/dialogs/createnewserverwidget.cpp:32
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "Ime računa:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:37
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:50
-#, kde-format
-msgid "Server URL:"
-msgstr "Url strežnika:"
 
 #: widgets/dialogs/createsoundmessagewidget.cpp:143
 #: widgets/dialogs/createvideomessagewidget.cpp:241
@@ -7365,7 +7376,7 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Za dokončanje postopka prijave je potrebno enkratno geslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prijava ni uspela: neveljavna koda OTP."
@@ -7449,25 +7460,16 @@ msgid "Message Style"
 msgstr "Slog sporočila"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:19
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "Message Style"
 msgid "Normal"
-msgstr "Običajni"
+msgstr "Normalni"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:20
-#, fuzzy, kde-format
-#| msgid "Compact"
+#, kde-format
 msgctxt "Message Style"
 msgid "Compact"
 msgstr "Kompaktni"
-
-#: widgets/misc/messagestylelayoutmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Cozy"
-msgctxt "Message Style"
-msgid "Cozy"
-msgstr "Udobni"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -8615,37 +8617,37 @@ msgstr "Prikaži sporočilo"
 msgid "Lists the available options for user feedback"
 msgstr "Seznam razpoložljivih možnosti za uporabnikov odziv"
 
-#: widgets/ruqolaloginwidget.cpp:33
+#: widgets/ruqolaloginwidget.cpp:34
 #, kde-format
 msgid "Login"
 msgstr "Prijava"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account Name:"
 msgstr "Ime računa:"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:47
 #, kde-format
 msgid "Account name"
 msgstr "Ime računa"
 
-#: widgets/ruqolaloginwidget.cpp:54
+#: widgets/ruqolaloginwidget.cpp:55
 #, kde-format
 msgid "Username or Email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
-#: widgets/ruqolaloginwidget.cpp:55
+#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Username or email"
 msgstr "Uporabniško ime ali naslov e-pošte"
 
-#: widgets/ruqolaloginwidget.cpp:63
+#: widgets/ruqolaloginwidget.cpp:64
 #, kde-format
 msgid "Authentication Method"
 msgstr "Metoda preverjanja pristnosti"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8654,37 +8656,37 @@ msgstr ""
 "Omogočili ste dvostopenjsko preverjanje pristnosti.\n"
 "Vnesite ustvarjeno kodo ali nadomestno varnostno kodo."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:188
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Prijava ni uspela: neveljavno uporabniško ime ali geslo"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Prijava ni uspela: Prijava je bila začasno blokirana za IP."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:220
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Prijava ni uspela: Prijava je bila začasno blokirana za uporabnika."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:226
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Prijava ni uspela: Uporabnik ni aktiviran."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:232
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Prijava ni uspela: Uporabniku aplikacije ni dovoljena prijava."
@@ -9173,10 +9175,8 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "Dodaj moderatorsko konzolo (Administiranje, RC server 6.2)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
-#, fuzzy
-#| msgid "See messages"
 msgid "Implement message style"
-msgstr "Glej sporočila"
+msgstr "Izvedi slog sporočila"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:53
 msgid "Fix markdown support (header + check mark)"
@@ -9209,6 +9209,10 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Popravi prenos zvočne/video datoteke, ko ni v predpomnilniku."
+
+#~ msgctxt "Message Style"
+#~ msgid "Cozy"
+#~ msgstr "Udobni"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Kanal z imenom »__channel_name__« obstaja"
@@ -9819,9 +9823,6 @@ msgstr "Popravi prenos zvočne/video datoteke, ko ni v predpomnilniku."
 
 #~ msgid "Server required Api Key"
 #~ msgstr "Strežnik je potreboval ključ api"
-
-#~ msgid "Server Url:"
-#~ msgstr "Url strežnika:"
 
 #~ msgid "Server url is not defined."
 #~ msgstr "Url strežnika ni določen."
