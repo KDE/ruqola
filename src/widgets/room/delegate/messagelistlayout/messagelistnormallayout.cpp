@@ -228,7 +228,6 @@ QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosi
         return QRect(senderX - margin - avatarWidth / 2, iconPosition + iconSize, iconSize, iconSize);
     case 4:
         return QRect(senderX - margin - avatarWidth / 2, iconPosition + 2 * iconSize, iconSize, iconSize);
-        ;
     }
     Q_UNREACHABLE();
     return {};
