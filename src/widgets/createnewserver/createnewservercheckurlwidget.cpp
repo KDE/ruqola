@@ -7,6 +7,7 @@
 #include "createnewservercheckurlwidget.h"
 #include "colorsandmessageviewstyle.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "rocketchataccount.h"
 #include <KBusyIndicatorWidget>
 #include <KLocalizedString>
 #include <KMessageWidget>
@@ -60,7 +61,10 @@ CreateNewServerCheckUrlWidget::~CreateNewServerCheckUrlWidget() = default;
 
 void CreateNewServerCheckUrlWidget::slotTestConnection()
 {
-    // TODO
+    auto account = new RocketChatAccount();
+    account->setServerUrl(mServerUrl->text());
+
+    // TODO verify url!!!
 }
 
 void CreateNewServerCheckUrlWidget::slotErrorConnection()
