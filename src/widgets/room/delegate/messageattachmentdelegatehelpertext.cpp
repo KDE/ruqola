@@ -5,7 +5,7 @@
 */
 
 #include "messageattachmentdelegatehelpertext.h"
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
@@ -41,7 +41,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     if (!layout.title.isEmpty()) {
         const QFont oldFont = painter->font();
         if (!msgAttach.link().isEmpty()) {
-            painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
+            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::LinkText).color());
         }
         painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);

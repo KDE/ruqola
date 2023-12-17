@@ -94,7 +94,7 @@
 #include <KUserFeedback/NotificationPopup>
 #include <KUserFeedback/Provider>
 #endif
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 
 namespace
 {
@@ -624,7 +624,7 @@ void RuqolaMainWindow::setupActions()
 
 void RuqolaMainWindow::slotMessageStyleChanged()
 {
-    Q_EMIT Colors::self().needUpdateMessageStyle();
+    Q_EMIT ColorsAndMessageViewStyle::self().needUpdateMessageStyle();
 }
 
 void RuqolaMainWindow::slotWhatsNew()

@@ -5,7 +5,7 @@
 */
 
 #include "textconverter.h"
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "emoticons/emojimanager.h"
 #include "messagecache.h"
 #include "messages/message.h"
@@ -223,8 +223,8 @@ QString generateRichText(const QString &str,
     }
 
     if (!highlightWords.isEmpty()) {
-        const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
-        const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
+        const auto userHighlightForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
+        const auto userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -263,8 +263,8 @@ QString generateRichText(const QString &str,
     }
 
     if (!searchedText.isEmpty()) {
-        const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
-        const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
+        const auto userHighlightForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
+        const auto userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -302,8 +302,8 @@ QString generateRichText(const QString &str,
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    const auto userMentionForegroundColor = Colors::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
-    const auto userMentionBackgroundColor = Colors::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
+    const auto userMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
+    const auto userMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -414,8 +414,8 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 
     QString richText;
     QTextStream richTextStream(&richText);
-    const auto codeBackgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color();
-    const auto codeBorderColor = Colors::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
+    const auto codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color();
+    const auto codeBorderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
 
     QString highlighted;
     QTextStream stream(&highlighted);

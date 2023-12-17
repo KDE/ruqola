@@ -5,7 +5,7 @@
 */
 
 #include "createnewservercheckurlwidget.h"
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <KBusyIndicatorWidget>
 #include <KLocalizedString>

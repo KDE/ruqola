@@ -12,7 +12,7 @@
 #include <QPainter>
 #include <QToolTip>
 
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
@@ -73,7 +73,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     DelegatePaintUtil::drawLighterText(painter, messageStr, QPoint(layout.textRect.left(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     const QString discussionsText = i18n("Open Discussion");
-    painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
+    painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::LinkText).color());
     painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
 
     // debug

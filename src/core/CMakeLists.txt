@@ -34,8 +34,8 @@ target_sources(libruqolacore PRIVATE
 
     channelcounterinfo.cpp
     channelcounterinfo.h
-    colors.cpp
-    colors.h
+    colorsandmessageviewstyle.cpp
+    colorsandmessageviewstyle.h
     commands/command.cpp
     commands/command.h
     commands/commands.cpp

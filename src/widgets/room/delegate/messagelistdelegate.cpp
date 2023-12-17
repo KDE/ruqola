@@ -5,7 +5,7 @@
 */
 
 #include "messagelistdelegate.h"
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -76,8 +76,8 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
                                                                  mHelperAttachmentText.data()});
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
-    connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
-    connect(&Colors::self(), &Colors::needUpdateMessageStyle, this, &MessageListDelegate::switchMessageLayout);
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateMessageStyle, this, &MessageListDelegate::switchMessageLayout);
     slotUpdateColors();
     mSizeHintCache.setMaxEntries(32); // Enough ?
 }
@@ -90,8 +90,8 @@ MessageListDelegate::~MessageListDelegate()
 
 void MessageListDelegate::slotUpdateColors()
 {
-    const KColorScheme scheme = Colors::self().schemeView();
-    mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
+    const KColorScheme scheme = ColorsAndMessageViewStyle::self().schemeView();
+    mThreadedMessageBackgroundColor = ColorsAndMessageViewStyle::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
     mHoverHightlightColor = scheme.background(KColorScheme::AlternateBackground).color();

@@ -12,13 +12,13 @@
 
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT Colors : public QObject
+class LIBRUQOLACORE_EXPORT ColorsAndMessageViewStyle : public QObject
 {
     Q_OBJECT
 public:
-    static Colors &self();
+    static ColorsAndMessageViewStyle &self();
 
-    Colors();
+    ColorsAndMessageViewStyle();
 
     [[nodiscard]] KColorScheme schemeView() const;
 

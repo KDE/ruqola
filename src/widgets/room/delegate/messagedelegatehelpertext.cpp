@@ -5,7 +5,7 @@
 */
 
 #include "messagedelegatehelpertext.h"
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_selection_debug.h"
@@ -331,7 +331,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     }
     auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
     auto ret = doc.get();
-    connect(&Colors::self(), &Colors::needToUpdateColors, ret, [this, persistentIndex, ret]() {
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, ret, [this, persistentIndex, ret]() {
         ret->setHtml(makeMessageText(persistentIndex, false));
         auto that = const_cast<MessageDelegateHelperText *>(this);
         that->updateView(persistentIndex);

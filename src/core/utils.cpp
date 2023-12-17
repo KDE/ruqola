@@ -5,7 +5,7 @@
 */
 
 #include "utils.h"
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 
@@ -43,8 +43,8 @@ QString Utils::extractRoomUserFromUrl(QString url)
 QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-    const auto backgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
-    const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
+    const auto backgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
+    const auto borderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::LinkText).color().name();
     QString dateTimeInfo;
     if (!info.displayTime.isEmpty()) {
         if (!info.url.isEmpty()) {

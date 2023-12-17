@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 
 #include <QApplication>
 
-Colors::Colors()
+ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
     : QObject()
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -17,30 +17,30 @@ Colors::Colors()
     regenerateColorScheme();
 }
 
-Colors &Colors::self()
+ColorsAndMessageViewStyle &ColorsAndMessageViewStyle::self()
 {
-    static Colors c;
+    static ColorsAndMessageViewStyle c;
     return c;
 }
 
-KColorScheme Colors::schemeView() const
+KColorScheme ColorsAndMessageViewStyle::schemeView() const
 {
     return mSchemeView;
 }
 
-KColorScheme Colors::schemeWindow() const
+KColorScheme ColorsAndMessageViewStyle::schemeWindow() const
 {
     return mSchemeWindow;
 }
 
-void Colors::regenerateColorScheme()
+void ColorsAndMessageViewStyle::regenerateColorScheme()
 {
     mSchemeView = KColorScheme();
     mSchemeWindow = KColorScheme(QPalette::Active, KColorScheme::Window);
     Q_EMIT needToUpdateColors();
 }
 
-bool Colors::event(QEvent *e)
+bool ColorsAndMessageViewStyle::event(QEvent *e)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (e->type() == QEvent::ApplicationPaletteChange) {
@@ -50,4 +50,4 @@ bool Colors::event(QEvent *e)
     return QObject::event(e);
 }
 
-#include "moc_colors.cpp"
+#include "moc_colorsandmessageviewstyle.cpp"

@@ -7,7 +7,7 @@
 #include "selectedmessagebackgroundanimation.h"
 #include "model/messagesmodel.h"
 
-#include "colors.h"
+#include "colorsandmessageviewstyle.h"
 #include "ruqolawidgets_debug.h"
 #include <QPropertyAnimation>
 
@@ -55,7 +55,7 @@ void SelectedMessageBackgroundAnimation::start()
 {
     auto animation = new QPropertyAnimation(this, "backgroundColor", this);
     animation->setDuration(2000);
-    const auto color = Colors::self().schemeView().foreground(KColorScheme::NeutralText).color();
+    const auto color = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color();
     animation->setStartValue(color);
     animation->setEndValue(QColor(Qt::transparent));
     animation->setEasingCurve(QEasingCurve::InOutQuad);
