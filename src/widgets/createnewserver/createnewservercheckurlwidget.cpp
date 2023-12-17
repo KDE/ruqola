@@ -66,7 +66,12 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
 void CreateNewServerCheckUrlWidget::slotErrorConnection()
 {
     mFailedError->animatedShow();
-    // TODO
+    // TODO add error message.
+}
+
+void CreateNewServerCheckUrlWidget::slotSuccessConnection()
+{
+    Q_EMIT serverUrlFound();
 }
 
 #include "moc_createnewservercheckurlwidget.cpp"
