@@ -735,7 +735,7 @@ void RuqolaMainWindow::slotAddServer()
     dlg->setExistingAccountName(lst);
     if (dlg->exec()) {
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-        mAccountManager->addAccount(info);
+        mAccountManager->addAccount(std::move(info));
     }
     delete dlg;
 }
