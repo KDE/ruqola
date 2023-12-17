@@ -86,7 +86,7 @@ void AccountServerListWidget::modifyAccountConfig()
     dlg->setAccountInfo(serverListItem->accountInfo());
     if (dlg->exec()) {
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-        serverListItem->setAccountInfo(info);
+        serverListItem->setAccountInfo(std::move(info));
     }
     delete dlg;
 }
