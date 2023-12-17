@@ -1333,6 +1333,11 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
     }
 }
 
+void RocketChatAccount::parseCustomSounds(const QJsonArray &obj)
+{
+    customSoundManager()->parseCustomSounds(obj);
+}
+
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj, bool update)
 {
     mRuqolaServerConfig->parsePublicSettings(obj, update);

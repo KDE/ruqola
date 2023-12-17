@@ -515,6 +515,7 @@ public:
     void addMessageToDataBase(const QString &roomName, const Message &message);
     void deleteMessageFromDatabase(const QString &roomName, const QString &messageId);
     void loadAccountSettings();
+    void parseCustomSounds(const QJsonArray &obj);
 
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);

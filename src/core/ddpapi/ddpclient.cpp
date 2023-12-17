@@ -8,7 +8,6 @@
  */
 
 #include "ddpclient.h"
-#include "customsound/customsoundsmanager.h"
 #include "messagequeue.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccount.h"
@@ -89,7 +88,7 @@ void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
     }
     const QJsonArray obj = root.value(QLatin1String("result")).toArray();
-    account->customSoundManager()->parseCustomSounds(obj);
+    account->parseCustomSounds(obj);
 }
 
 void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
