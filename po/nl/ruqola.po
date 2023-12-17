@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 00:42+0000\n"
-"PO-Revision-Date: 2023-12-15 11:36+0100\n"
+"PO-Revision-Date: 2023-12-16 11:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6274,10 +6274,9 @@ msgid "Server Url:"
 msgstr "URL-adres server:"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Connecting"
+#, kde-format
 msgid "Connection"
-msgstr "Bezig met verbinden"
+msgstr "Verbinding"
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
