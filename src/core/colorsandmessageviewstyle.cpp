@@ -12,7 +12,7 @@ ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
     : QObject()
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(qApp, &QApplication::paletteChanged, this, &Colors::regenerateColorScheme);
+    connect(qApp, &QApplication::paletteChanged, this, &ColorsAndMessageViewStyle::regenerateColorScheme);
 #endif
     regenerateColorScheme();
 }
