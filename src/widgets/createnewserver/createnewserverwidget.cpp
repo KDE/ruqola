@@ -22,6 +22,8 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mAuthenticationWidget(new AuthenticationWidget(this))
 {
+    // TODO add icon from server
+    // TODO add info from server ?
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -50,6 +52,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
 
     mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
+    // TODO update list of authentication.
     mainLayout->addWidget(mAuthenticationWidget);
 
     // TODO add support for two factor ?
