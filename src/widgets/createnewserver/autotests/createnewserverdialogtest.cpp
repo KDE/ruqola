@@ -6,7 +6,7 @@
 
 #include "createnewserverdialogtest.h"
 #include "createnewserver/createnewserverdialog.h"
-#include "createnewserver/createnewserverwidget.h"
+#include "createnewserver/createnewserverstackwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -25,8 +25,8 @@ void CreateNewServerDialogTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mNewAccountWidget = w.findChild<CreateNewServerWidget *>(QStringLiteral("mNewAccountWidget"));
-    QVERIFY(mNewAccountWidget);
+    auto mCreateNewServerStackWidget = w.findChild<CreateNewServerStackWidget *>(QStringLiteral("mCreateNewServerStackWidget"));
+    QVERIFY(mCreateNewServerStackWidget);
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
