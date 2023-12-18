@@ -23,7 +23,6 @@ Q_SIGNALS:
 private:
     void slotTestConnection();
     void slotErrorConnection();
-    void slotSuccessConnection();
     QLineEdit *const mServerUrl;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     KMessageWidget *const mFailedError;

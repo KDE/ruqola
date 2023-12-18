@@ -1359,11 +1359,13 @@ void RocketChatAccount::parsePublicSettings()
 void RocketChatAccount::fillOauthModel()
 {
     QVector<AuthenticationInfo> fillModel;
+    // qDebug() << " before " << mLstInfos;
     for (int i = 0, total = mLstInfos.count(); i < total; ++i) {
         if (mRuqolaServerConfig->canShowOauthService(mLstInfos.at(i).oauthType())) {
             fillModel.append(mLstInfos.at(i));
         }
     }
+    // qDebug() << "void RocketChatAccount::fillOauthModel()  " << fillModel;
     mLoginMethodModel->setAuthenticationInfos(fillModel);
 }
 

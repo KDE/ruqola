@@ -6,8 +6,11 @@
 
 #include "createnewservercheckurlwidgettest.h"
 #include "createnewserver/createnewservercheckurlwidget.h"
+#include <KBusyIndicatorWidget>
+#include <KMessageWidget>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(CreateNewServerCheckUrlWidgetTest)
@@ -31,6 +34,16 @@ void CreateNewServerCheckUrlWidgetTest::shouldHaveDefaultValues()
 
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(!label->text().isEmpty());
+
+    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
+    QVERIFY(mServerUrl->text().isEmpty());
+
+    auto mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
+    QVERIFY(mBusyIndicatorWidget);
+
+    auto mFailedError = w.findChild<KMessageWidget *>(QStringLiteral("mFailedError"));
+    QVERIFY(mFailedError);
+    QCOMPARE(mFailedError->messageType(), KMessageWidget::Error);
 }
 
 #include "moc_createnewservercheckurlwidgettest.cpp"
