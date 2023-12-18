@@ -18,3 +18,5 @@ void GitHubAuthenticationJob::start()
 {
     // TODO
 }
+
+#include "moc_githubauthenticationjob.cpp"

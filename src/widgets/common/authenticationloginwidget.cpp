@@ -12,3 +12,5 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
 }
 
 AuthenticationLoginWidget::~AuthenticationLoginWidget() = default;
+
+#include "moc_authenticationloginwidget.cpp"
