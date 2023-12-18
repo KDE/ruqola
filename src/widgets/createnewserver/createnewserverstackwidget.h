@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 class CreateNewServerCheckUrlWidget;
@@ -16,6 +17,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerStackWidget : public QStacked
 public:
     explicit CreateNewServerStackWidget(QWidget *parent = nullptr);
     ~CreateNewServerStackWidget() override;
+
+    void setExistingAccountName(const QStringList &lst);
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
+
+    void setAccountInfo(const AccountManager::AccountManagerInfo &info);
+
+Q_SIGNALS:
+    void updateOkButton(bool state);
 
 private:
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;

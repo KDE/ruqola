@@ -19,11 +19,30 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
     addWidget(mCreateNewServerWidget);
     setCurrentWidget(mCreateNewServerCheckUrlWidget);
-    connect(mCreateNewServerCheckUrlWidget, &CreateNewServerCheckUrlWidget::serverUrlFound, this, [this]() {
+    connect(mCreateNewServerCheckUrlWidget, &CreateNewServerCheckUrlWidget::serverUrlFound, this, [this](const QString &serverUrl) {
         setCurrentWidget(mCreateNewServerWidget);
+        AccountManager::AccountManagerInfo info;
+        info.serverUrl = serverUrl;
+        mCreateNewServerWidget->setAccountInfo(std::move(info));
     });
+    connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
 }
 
 CreateNewServerStackWidget::~CreateNewServerStackWidget() = default;
 
+void CreateNewServerStackWidget::setExistingAccountName(const QStringList &lst)
+{
+    mCreateNewServerWidget->setExistingAccountName(lst);
+}
+
+AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() const
+{
+    const AccountManager::AccountManagerInfo info = mCreateNewServerWidget->accountInfo();
+    return info;
+}
+
+void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
+{
+    mCreateNewServerWidget->setAccountInfo(info);
+}
 #include "moc_createnewserverstackwidget.cpp"

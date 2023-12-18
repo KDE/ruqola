@@ -9,7 +9,7 @@
 
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
-class CreateNewServerWidget;
+class CreateNewServerStackWidget;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerDialog : public QDialog
 {
@@ -24,6 +24,6 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    CreateNewServerWidget *const mNewAccountWidget;
+    CreateNewServerStackWidget *const mCreateNewServerStackWidget;
     QPushButton *mOkButton = nullptr;
 };

@@ -18,7 +18,7 @@ public:
     ~CreateNewServerCheckUrlWidget() override;
 
 Q_SIGNALS:
-    void serverUrlFound();
+    void serverUrlFound(const QString &url);
 
 private:
     void slotTestConnection();

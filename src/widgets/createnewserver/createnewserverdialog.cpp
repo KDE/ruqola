@@ -5,7 +5,7 @@
 */
 
 #include "createnewserverdialog.h"
-#include "createnewserverwidget.h"
+#include "createnewserver/createnewserverstackwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -22,14 +22,14 @@ static const char myConfigCreateNewAccountDialogGroupName[] = "CreateNewAccountD
 
 CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     : QDialog(parent)
-    , mNewAccountWidget(new CreateNewServerWidget(this))
+    , mCreateNewServerStackWidget(new CreateNewServerStackWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Add Server"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mNewAccountWidget->setObjectName(QStringLiteral("mNewAccountWidget"));
-    mainLayout->addWidget(mNewAccountWidget);
+    mCreateNewServerStackWidget->setObjectName(QStringLiteral("mCreateNewServerStackWidget"));
+    mainLayout->addWidget(mCreateNewServerStackWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
@@ -39,7 +39,7 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     readConfig();
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setEnabled(false);
-    connect(mNewAccountWidget, &CreateNewServerWidget::updateOkButton, this, [this](bool state) {
+    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::updateOkButton, this, [this](bool state) {
         mOkButton->setEnabled(state);
     });
 }
@@ -51,19 +51,19 @@ CreateNewServerDialog::~CreateNewServerDialog()
 
 AccountManager::AccountManagerInfo CreateNewServerDialog::accountInfo() const
 {
-    const AccountManager::AccountManagerInfo info = mNewAccountWidget->accountInfo();
+    const AccountManager::AccountManagerInfo info = mCreateNewServerStackWidget->accountInfo();
     return info;
 }
 
 void CreateNewServerDialog::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     setWindowTitle(i18nc("@title:window", "Modify Account"));
-    mNewAccountWidget->setAccountInfo(info);
+    mCreateNewServerStackWidget->setAccountInfo(info);
 }
 
 void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 {
-    mNewAccountWidget->setExistingAccountName(lst);
+    mCreateNewServerStackWidget->setExistingAccountName(lst);
 }
 
 void CreateNewServerDialog::readConfig()
