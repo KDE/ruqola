@@ -63,11 +63,13 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
     auto account = new RocketChatAccount();
     account->setServerUrl(mServerUrl->text());
 
+    // Use DDPclient here.
     // TODO verify url!!!
 }
 
 void CreateNewServerCheckUrlWidget::slotErrorConnection()
 {
+    mFailedError->setText(i18n("Impossible to access to server."));
     mFailedError->animatedShow();
     // TODO add error message.
 }
