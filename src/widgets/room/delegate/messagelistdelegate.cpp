@@ -826,6 +826,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 void MessageListDelegate::switchMessageLayout()
 {
     clearSizeHintCache();
+    mAvatarCacheManager->clearCache();
     delete mMessageListLayoutBase;
     switch (RuqolaGlobalConfig::self()->messageStyle()) {
     case RuqolaGlobalConfig::EnumMessageStyle::Normal:

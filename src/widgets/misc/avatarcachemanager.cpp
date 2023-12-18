@@ -87,6 +87,11 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
     return downScaled;
 }
 
+void AvatarCacheManager::clearCache()
+{
+    mAvatarCache.cache.clear();
+}
+
 QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
 {
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
