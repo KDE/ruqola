@@ -5,7 +5,6 @@
 */
 
 #include "createnewservercheckurlwidget.h"
-#include "colorsandmessageviewstyle.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include <KBusyIndicatorWidget>
