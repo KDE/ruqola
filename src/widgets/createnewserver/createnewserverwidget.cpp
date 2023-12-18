@@ -5,7 +5,7 @@
 */
 
 #include "createnewserverwidget.h"
-#include "common/authenticationwidget.h"
+#include "common/authenticationoauthwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <KAuthorized>
 #include <QFormLayout>
@@ -20,7 +20,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
-    , mAuthenticationWidget(new AuthenticationWidget(this))
+    , mAuthenticationWidget(new AuthenticationOauthWidget(this))
 {
     // TODO add icon from server
     // TODO add info from server ?

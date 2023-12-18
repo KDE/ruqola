@@ -4,14 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "authenticationwidget.h"
+#include "authenticationoauthwidget.h"
 #include "authenticationbutton.h"
 #include "authenticationinfo.h"
 #include "model/loginmethodmodel.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
 
-AuthenticationWidget::AuthenticationWidget(QWidget *parent)
+AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
     : QWidget{parent}
     , mMainLayout(new QVBoxLayout(this))
 {
@@ -20,19 +20,19 @@ AuthenticationWidget::AuthenticationWidget(QWidget *parent)
     setVisible(false);
 }
 
-AuthenticationWidget::~AuthenticationWidget() = default;
+AuthenticationOauthWidget::~AuthenticationOauthWidget() = default;
 
-void AuthenticationWidget::switchRocketChatAccount(RocketChatAccount *account)
+void AuthenticationOauthWidget::switchRocketChatAccount(RocketChatAccount *account)
 {
     const QVector<AuthenticationInfo> authenticationInfos = account->loginMethodModel()->authentications();
     setVisible(!authenticationInfos.isEmpty());
     for (const AuthenticationInfo &info : authenticationInfos) {
         auto button = new AuthenticationButton(this);
         button->setObjectName(QStringLiteral("button_%1").arg(info.name()));
-        connect(button, &AuthenticationButton::authentication, this, &AuthenticationWidget::authentication);
+        connect(button, &AuthenticationButton::authentication, this, &AuthenticationOauthWidget::authentication);
         button->setAuthenticationInfo(info);
         mMainLayout->addWidget(button);
     }
 }
 
-#include "moc_authenticationwidget.cpp"
+#include "moc_authenticationoauthwidget.cpp"

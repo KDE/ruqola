@@ -6,7 +6,7 @@
 
 #include "ruqolaloginwidget.h"
 #include "colorsandmessageviewstyle.h"
-#include "common/authenticationwidget.h"
+#include "common/authenticationoauthwidget.h"
 #include "connection.h"
 #include "misc/passwordlineeditwidget.h"
 #include "misc/settingsoauthjob.h"
@@ -37,7 +37,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
     , mTwoFactorAuthenticationWidget(new QWidget(this))
     , mAuthenticationAccountWidget(new QWidget(this))
-    , mAuthenticationWidget(new AuthenticationWidget(this))
+    , mAuthenticationWidget(new AuthenticationOauthWidget(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

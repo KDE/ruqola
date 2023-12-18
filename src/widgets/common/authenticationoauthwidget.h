@@ -12,12 +12,12 @@
 
 class RocketChatAccount;
 class QVBoxLayout;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationOauthWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AuthenticationWidget(QWidget *parent = nullptr);
-    ~AuthenticationWidget() override;
+    explicit AuthenticationOauthWidget(QWidget *parent = nullptr);
+    ~AuthenticationOauthWidget() override;
 
     void switchRocketChatAccount(RocketChatAccount *account);
 

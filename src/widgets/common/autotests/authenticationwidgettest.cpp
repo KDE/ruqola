@@ -5,7 +5,7 @@
 */
 
 #include "authenticationwidgettest.h"
-#include "common/authenticationwidget.h"
+#include "common/authenticationoauthwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -17,7 +17,7 @@ AuthenticationWidgetTest::AuthenticationWidgetTest(QWidget *parent)
 
 void AuthenticationWidgetTest::shouldHaveDefaultValues()
 {
-    AuthenticationWidget w;
+    AuthenticationOauthWidget w;
     auto mMainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mMainLayout);
     QCOMPARE(mMainLayout->contentsMargins(), QMargins{});

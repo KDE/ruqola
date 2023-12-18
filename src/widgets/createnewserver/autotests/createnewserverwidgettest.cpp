@@ -5,7 +5,7 @@
 */
 
 #include "createnewserverwidgettest.h"
-#include "common/authenticationwidget.h"
+#include "common/authenticationoauthwidget.h"
 #include "createnewserver/createnewserverwidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -47,7 +47,7 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
 
-    auto mAuthenticationWidget = w.findChild<AuthenticationWidget *>(QStringLiteral("mAuthenticationWidget"));
+    auto mAuthenticationWidget = w.findChild<AuthenticationOauthWidget *>(QStringLiteral("mAuthenticationWidget"));
     QVERIFY(mAuthenticationWidget);
 }
 
