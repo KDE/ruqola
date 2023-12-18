@@ -6,12 +6,32 @@
 
 #pragma once
 
+#include "accountmanager.h"
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class AuthenticationLoginWidget : public QWidget
+class QLineEdit;
+class KPasswordLineEdit;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationLoginWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AuthenticationLoginWidget(QWidget *parent = nullptr);
     ~AuthenticationLoginWidget() override;
+
+    void setExistingAccountName(const QStringList &lst);
+
+    void setAccountInfo(const AccountManager::AccountManagerInfo &info);
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo();
+
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
+
+private:
+    void slotChangeOkButtonEnabled();
+    QStringList mNames;
+    AccountManager::AccountManagerInfo mAccountInfo;
+    QLineEdit *const mAccountName;
+    QLineEdit *const mServerUrl;
+    QLineEdit *const mUserName;
+    KPasswordLineEdit *const mPasswordLineEdit;
 };
