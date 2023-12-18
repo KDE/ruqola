@@ -29,8 +29,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
-    mServerUrl->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mServerUrl, this);
+    mServerUrl->setReadOnly(true);
     mainLayout->addRow(i18n("Server URL:"), mServerUrl);
 
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
