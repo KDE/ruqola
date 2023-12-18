@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:42+0000\n"
+"POT-Creation-Date: 2023-12-18 00:41+0000\n"
 "PO-Revision-Date: 2023-12-16 09:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4.1\n"
 
 #: apps/main.cpp:54
@@ -1343,12 +1343,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2761
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2762
+#: core/rocketchataccount.cpp:2767
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -3317,7 +3317,7 @@ msgid "Set random password and send by email"
 msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/createnewserver/createnewserverwidget.cpp:42
+#: widgets/createnewserver/createnewserverwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3341,7 +3341,7 @@ msgid "Email:"
 msgstr "E-naslov:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/createnewserver/createnewserverwidget.cpp:46
+#: widgets/createnewserver/createnewserverwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -6239,12 +6239,12 @@ msgstr "Odstrani dnevnike shranjene na disku"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Ali želite odstraniti ta račun »%1«?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:33
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:34
 #, kde-format
 msgid "Server Url:"
 msgstr "Url strežnika:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:42
 #, kde-format
 msgid "Connection"
 msgstr "Povezava"
@@ -6261,14 +6261,14 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Spremeni račun"
 
-#: widgets/createnewserver/createnewserverwidget.cpp:32
+#: widgets/createnewserver/createnewserverwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Server URL:"
 msgstr "Url strežnika:"
 
-#: widgets/createnewserver/createnewserverwidget.cpp:37
+#: widgets/createnewserver/createnewserverwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"

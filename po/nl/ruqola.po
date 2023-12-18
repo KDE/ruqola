@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:42+0000\n"
+"POT-Creation-Date: 2023-12-18 00:41+0000\n"
 "PO-Revision-Date: 2023-12-16 11:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1342,12 +1342,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2761
+#: core/rocketchataccount.cpp:2766
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2762
+#: core/rocketchataccount.cpp:2767
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -3317,7 +3317,7 @@ msgid "Set random password and send by email"
 msgstr "Willekeurig wachtwoord instellen en verzenden per e-mail"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/createnewserver/createnewserverwidget.cpp:42
+#: widgets/createnewserver/createnewserverwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3341,7 +3341,7 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/createnewserver/createnewserverwidget.cpp:46
+#: widgets/createnewserver/createnewserverwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -6268,12 +6268,12 @@ msgstr "Logs opgeslagen op schijf verwijderen"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Wilt u dit account verwijderen: \"%1\"?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:33
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:34
 #, kde-format
 msgid "Server Url:"
 msgstr "URL-adres server:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:41
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:42
 #, kde-format
 msgid "Connection"
 msgstr "Verbinding"
@@ -6290,14 +6290,14 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Account wijzigen"
 
-#: widgets/createnewserver/createnewserverwidget.cpp:32
+#: widgets/createnewserver/createnewserverwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Server URL:"
 msgstr "Server-URL:"
 
-#: widgets/createnewserver/createnewserverwidget.cpp:37
+#: widgets/createnewserver/createnewserverwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
