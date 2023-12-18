@@ -249,6 +249,9 @@ target_sources(libruqolawidgets PRIVATE
     common/authenticationwidget.h
     common/authenticationwidget.cpp
 
+    common/authenticationloginwidget.h
+    common/authenticationloginwidget.cpp
+
     common/authenticationbutton.h
     common/authenticationbutton.cpp
 
