@@ -82,11 +82,12 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
             account->deleteLater();
         });
         connect(account, &RocketChatAccount::publicSettingChanged, this, [this, ddpClient, account]() {
-            slotSuccessConnection();
             mBusyIndicatorWidget->hide();
             slotErrorConnection();
             ddpClient->deleteLater();
             account->deleteLater();
+            // TODO get loging info account->
+            Q_EMIT serverUrlFound(mServerUrl->text().trimmed());
         });
 
         ddpClient->setServerUrl(mServerUrl->text());
@@ -99,12 +100,6 @@ void CreateNewServerCheckUrlWidget::slotErrorConnection()
 {
     mFailedError->setText(i18n("Impossible to access to server."));
     mFailedError->animatedShow();
-}
-
-void CreateNewServerCheckUrlWidget::slotSuccessConnection()
-{
-    mBusyIndicatorWidget->hide();
-    Q_EMIT serverUrlFound(mServerUrl->text().trimmed());
 }
 
 #include "moc_createnewservercheckurlwidget.cpp"
