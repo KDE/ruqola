@@ -10,9 +10,8 @@
 
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class KPasswordLineEdit;
 class AuthenticationOauthWidget;
+class AuthenticationLoginWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerWidget : public QWidget
 {
     Q_OBJECT
@@ -29,13 +28,7 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    void slotChangeOkButtonEnabled();
-    QStringList mNames;
-
-    QLineEdit *const mAccountName;
-    QLineEdit *const mServerUrl;
-    QLineEdit *const mUserName;
-    KPasswordLineEdit *const mPasswordLineEdit;
     AuthenticationOauthWidget *const mAuthenticationWidget;
+    AuthenticationLoginWidget *const mAuthenticationLoginWidget;
     AccountManager::AccountManagerInfo mAccountInfo;
 };
