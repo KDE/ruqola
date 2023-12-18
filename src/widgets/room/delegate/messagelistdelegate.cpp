@@ -825,11 +825,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 
 void MessageListDelegate::switchMessageLayout()
 {
-    // FIXME reactivate it when layout will be implemented correctly
-    // Move this line at end when we reactivate code
-#if 0
-    mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
-#else
+    clearSizeHintCache();
     delete mMessageListLayoutBase;
     switch (RuqolaGlobalConfig::self()->messageStyle()) {
     case RuqolaGlobalConfig::EnumMessageStyle::Normal:
@@ -848,7 +844,6 @@ void MessageListDelegate::switchMessageLayout()
     }
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
     Q_EMIT updateView();
-#endif
 }
 
 #include "moc_messagelistdelegate.cpp"
