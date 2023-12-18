@@ -25,7 +25,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins({});
 
-    auto serverUrlLayout = new QHBoxLayout(this);
+    auto serverUrlLayout = new QHBoxLayout;
     serverUrlLayout->setObjectName(QStringLiteral("serverUrlLayout"));
     serverUrlLayout->setContentsMargins({});
     topLayout->addLayout(serverUrlLayout);
