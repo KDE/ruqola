@@ -13,7 +13,8 @@
 #include "utils.h"
 
 #include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
+#include <QHelpEvent>
+#include <QMouseEvent>
 #include <QMovie>
 #include <QPainter>
 #include <QStyleOptionViewItem>
@@ -194,9 +195,13 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     int reactionsHeight = 0;
-    const QVector<Reaction> reactions = message->reactions().reactions();
-    if (!reactions.isEmpty()) {
+    if (!message->reactions().isEmpty()) {
         const QFontMetrics emojiFontMetrics(mEmojiFont);
+        // const QVector<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()), option);
+        // for (auto t : layouts) {
+        //     qDebug() << " t " << t.reactionRect << " maxWidth " << maxWidth;
+        // }
+        // qDebug() << " layouts" << layouts;
         reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + DelegatePaintUtil::margin();
     }
     return {maxWidth, reactionsHeight};
