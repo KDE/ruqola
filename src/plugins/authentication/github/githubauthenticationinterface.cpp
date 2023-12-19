@@ -5,9 +5,8 @@
 */
 
 #include "githubauthenticationinterface.h"
-#include "ddpapi/ddpauthenticationmanager.h"
+#include "githubauthenticationjob.h"
 #include "rocketchataccount.h"
-#include <QOAuth2AuthorizationCodeFlow>
 
 GitHubAuthenticationInterface::GitHubAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
@@ -18,7 +17,8 @@ GitHubAuthenticationInterface::~GitHubAuthenticationInterface() = default;
 
 void GitHubAuthenticationInterface::login()
 {
-    // TODO
+    auto job = new GitHubAuthenticationJob(this);
+    job->start();
 }
 
 #include "moc_githubauthenticationinterface.cpp"

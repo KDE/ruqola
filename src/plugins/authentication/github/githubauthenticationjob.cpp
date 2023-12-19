@@ -17,6 +17,7 @@ GitHubAuthenticationJob::~GitHubAuthenticationJob() = default;
 void GitHubAuthenticationJob::start()
 {
     // TODO
+    deleteLater();
 }
 
 #include "moc_githubauthenticationjob.cpp"
