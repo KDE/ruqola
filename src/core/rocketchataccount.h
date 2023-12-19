@@ -517,6 +517,8 @@ public:
     void loadAccountSettings();
     void parseCustomSounds(const QJsonArray &obj);
 
+    [[nodiscard]] QVector<AuthenticationInfo> authenticationMethodInfos() const;
+
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
@@ -599,7 +601,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotNeedToUpdateNotification();
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QString &accountFileName);
     LIBRUQOLACORE_NO_EXPORT void clearModels();
-    LIBRUQOLACORE_NO_EXPORT void fillOauthModel();
+    LIBRUQOLACORE_NO_EXPORT void fillAuthenticationModel();
     LIBRUQOLACORE_NO_EXPORT void initializeAuthenticationPlugins();
     LIBRUQOLACORE_NO_EXPORT void setDefaultAuthentication(AuthenticationManager::AuthMethodType type);
     LIBRUQOLACORE_NO_EXPORT void userStatusChanged(const User &user);

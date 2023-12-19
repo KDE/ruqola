@@ -1350,7 +1350,7 @@ void RocketChatAccount::parsePublicSettings()
         localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
     }
 
-    fillOauthModel();
+    fillAuthenticationModel();
     // Download logo/favicon if possible
     (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->logoUrl().url);
     (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->faviconUrl().url);
@@ -1358,7 +1358,7 @@ void RocketChatAccount::parsePublicSettings()
     Q_EMIT publicSettingChanged();
 }
 
-void RocketChatAccount::fillOauthModel()
+void RocketChatAccount::fillAuthenticationModel()
 {
     QVector<AuthenticationInfo> fillModel;
     qDebug() << " before " << mLstInfos;
@@ -1367,13 +1367,18 @@ void RocketChatAccount::fillOauthModel()
             fillModel.append(mLstInfos.at(i));
         }
     }
-    qDebug() << "void RocketChatAccount::fillOauthModel()  " << fillModel;
+    qDebug() << "void RocketChatAccount::fillAuthenticationModel()  " << fillModel;
     mLoginMethodModel->setAuthenticationInfos(fillModel);
 }
 
 void RocketChatAccount::changeDefaultAuthentication(int index)
 {
     setDefaultAuthentication(mLoginMethodModel->loginType(index));
+}
+
+QVector<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
+{
+    return mLoginMethodModel->authentications();
 }
 
 void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::AuthMethodType type)

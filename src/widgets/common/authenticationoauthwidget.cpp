@@ -7,8 +7,6 @@
 #include "authenticationoauthwidget.h"
 #include "authenticationbutton.h"
 #include "authenticationinfo.h"
-#include "model/loginmethodmodel.h"
-#include "rocketchataccount.h"
 #include <QVBoxLayout>
 
 AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
@@ -22,9 +20,8 @@ AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
 
 AuthenticationOauthWidget::~AuthenticationOauthWidget() = default;
 
-void AuthenticationOauthWidget::switchRocketChatAccount(RocketChatAccount *account)
+void AuthenticationOauthWidget::setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos)
 {
-    const QVector<AuthenticationInfo> authenticationInfos = account->loginMethodModel()->authentications();
     setVisible(!authenticationInfos.isEmpty());
     for (const AuthenticationInfo &info : authenticationInfos) {
         auto button = new AuthenticationButton(this);
