@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "authenticationinfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLineEdit;
@@ -18,7 +19,7 @@ public:
     ~CreateNewServerCheckUrlWidget() override;
 
 Q_SIGNALS:
-    void serverUrlFound(const QString &url);
+    void serverUrlFound(const QString &url, const QVector<AuthenticationInfo> authenticationInfos);
 
 private:
     void slotTestConnection();

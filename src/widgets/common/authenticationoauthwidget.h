@@ -22,6 +22,7 @@ public:
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos);
 
+    void addAuthenticationMethod(const AuthenticationInfo &info);
 Q_SIGNALS:
     void authentication(AuthenticationManager::AuthMethodType type);
 

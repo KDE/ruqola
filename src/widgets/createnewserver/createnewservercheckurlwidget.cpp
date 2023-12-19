@@ -86,8 +86,8 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
             mBusyIndicatorWidget->hide();
             ddpClient->deleteLater();
             account->deleteLater();
-            // TODO get Authentication info account->
-            Q_EMIT serverUrlFound(mServerUrl->text().trimmed());
+            const QVector<AuthenticationInfo> authenticationInfos = account->authenticationMethodInfos();
+            Q_EMIT serverUrlFound(mServerUrl->text().trimmed(), authenticationInfos);
         });
 
         ddpClient->setServerUrl(mServerUrl->text());

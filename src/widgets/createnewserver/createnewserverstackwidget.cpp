@@ -19,12 +19,16 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
     addWidget(mCreateNewServerWidget);
     setCurrentWidget(mCreateNewServerCheckUrlWidget);
-    connect(mCreateNewServerCheckUrlWidget, &CreateNewServerCheckUrlWidget::serverUrlFound, this, [this](const QString &serverUrl) {
-        setCurrentWidget(mCreateNewServerWidget);
-        AccountManager::AccountManagerInfo info;
-        info.serverUrl = serverUrl;
-        mCreateNewServerWidget->setAccountInfo(std::move(info));
-    });
+    connect(mCreateNewServerCheckUrlWidget,
+            &CreateNewServerCheckUrlWidget::serverUrlFound,
+            this,
+            [this](const QString &serverUrl, const QVector<AuthenticationInfo> &authenticationInfos) {
+                setCurrentWidget(mCreateNewServerWidget);
+                AccountManager::AccountManagerInfo info;
+                info.serverUrl = serverUrl;
+                mCreateNewServerWidget->setAccountInfo(std::move(info));
+                mCreateNewServerWidget->setAuthenticationInfos(authenticationInfos);
+            });
     connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
 }
 

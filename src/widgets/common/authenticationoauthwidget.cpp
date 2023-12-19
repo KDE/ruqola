@@ -16,6 +16,7 @@ AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
     setVisible(false);
+    mMainLayout->addStretch(1);
 }
 
 AuthenticationOauthWidget::~AuthenticationOauthWidget() = default;
@@ -30,6 +31,15 @@ void AuthenticationOauthWidget::setAuthenticationInfos(const QVector<Authenticat
         button->setAuthenticationInfo(info);
         mMainLayout->addWidget(button);
     }
+}
+
+void AuthenticationOauthWidget::addAuthenticationMethod(const AuthenticationInfo &info)
+{
+    auto button = new AuthenticationButton(this);
+    button->setObjectName(QStringLiteral("button_%1").arg(info.name()));
+    connect(button, &AuthenticationButton::authentication, this, &AuthenticationOauthWidget::authentication);
+    button->setAuthenticationInfo(info);
+    mMainLayout->addWidget(button);
 }
 
 #include "moc_authenticationoauthwidget.cpp"

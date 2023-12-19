@@ -49,4 +49,18 @@ void CreateNewServerWidget::setExistingAccountName(const QStringList &lst)
     mAuthenticationLoginWidget->setExistingAccountName(lst);
 }
 
+void CreateNewServerWidget::setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos)
+{
+    mAuthenticationLoginWidget->hide();
+    mAuthenticationWidget->hide();
+    for (const auto &info : authenticationInfos) {
+        if (info.oauthType() == AuthenticationManager::AuthMethodType::Password) {
+            mAuthenticationLoginWidget->setVisible(true);
+        } else {
+            mAuthenticationWidget->show();
+            mAuthenticationWidget->addAuthenticationMethod(info);
+        }
+    }
+}
+
 #include "moc_createnewserverwidget.cpp"
