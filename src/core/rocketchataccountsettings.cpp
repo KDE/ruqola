@@ -55,7 +55,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
-    if (mAccountEnabled) {
+    if (mAccountEnabled && !mAccountName.isEmpty()) {
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
         auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
         connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
