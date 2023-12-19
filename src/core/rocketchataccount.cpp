@@ -1346,7 +1346,9 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj, bool update)
 
 void RocketChatAccount::parsePublicSettings()
 {
-    localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
+    if (!accountName().isEmpty()) {
+        localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
+    }
 
     fillOauthModel();
     // Download logo/favicon if possible
