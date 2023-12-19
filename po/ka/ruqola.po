@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-18 00:41+0000\n"
+"POT-Creation-Date: 2023-12-19 00:41+0000\n"
 "PO-Revision-Date: 2023-12-16 06:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1339,12 +1339,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2768
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2767
+#: core/rocketchataccount.cpp:2769
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -3307,7 +3307,7 @@ msgid "Set random password and send by email"
 msgstr "შემთხვევითი პაროლის დაყენება და ელფოსტაზე გაგზავნა"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/createnewserver/createnewserverwidget.cpp:44
+#: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3331,7 +3331,7 @@ msgid "Email:"
 msgstr "ელფოტა:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/createnewserver/createnewserverwidget.cpp:48
+#: widgets/common/authenticationloginwidget.cpp:42
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -5927,6 +5927,19 @@ msgstr "წინა არხი"
 msgid "Next Channel"
 msgstr "შემდეგი არხი"
 
+#: widgets/common/authenticationloginwidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Server URL:"
+msgstr "სერვერის URL:"
+
+#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "ანგარიშის სახელი:"
+
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
 msgid "Error saving file"
@@ -6128,15 +6141,21 @@ msgstr "დისკზე დამახსოვრებულ ჟურნ�
 msgid "Do you want to remove this account '%1'?"
 msgstr "მართლა გნებავთ ამ ანგარიშის (%1) წაშლა?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:34
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:35
 #, kde-format
 msgid "Server Url:"
 msgstr "სერვერის URL:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:42
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
 #, kde-format
 msgid "Connection"
 msgstr "კავშირი"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#, fuzzy, kde-format
+#| msgid "Impossible to copy file"
+msgid "Impossible to access to server."
+msgstr "ფაილის კოპირება შეუძლებელია"
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6149,19 +6168,6 @@ msgstr "სერვერის დამატება"
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "ანგარიშის პარამეტრების შეცვლა"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "Server URL:"
-msgstr "სერვერის URL:"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "ანგარიშის სახელი:"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, kde-format

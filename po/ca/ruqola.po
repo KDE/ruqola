@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-18 00:41+0000\n"
+"POT-Creation-Date: 2023-12-19 00:41+0000\n"
 "PO-Revision-Date: 2023-12-16 14:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1344,12 +1344,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2768
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2767
+#: core/rocketchataccount.cpp:2769
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -3316,7 +3316,7 @@ msgid "Set random password and send by email"
 msgstr "Estableix una contrasenya aleatòria i l'envia per correu"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/createnewserver/createnewserverwidget.cpp:44
+#: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3340,7 +3340,7 @@ msgid "Email:"
 msgstr "Correu electrònic:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/createnewserver/createnewserverwidget.cpp:48
+#: widgets/common/authenticationloginwidget.cpp:42
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -6063,6 +6063,19 @@ msgstr "Canal anterior"
 msgid "Next Channel"
 msgstr "Canal següent"
 
+#: widgets/common/authenticationloginwidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Server URL:"
+msgstr "URL del servidor:"
+
+#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "Nom del compte:"
+
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
 msgid "Error saving file"
@@ -6264,15 +6277,21 @@ msgstr "Elimina els registres emmagatzemats al disc"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Voleu eliminar aquest compte «%1»?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:34
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:35
 #, kde-format
 msgid "Server Url:"
 msgstr "URL del servidor:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:42
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
 #, kde-format
 msgid "Connection"
 msgstr "Connexió"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#, fuzzy, kde-format
+#| msgid "Impossible to copy file"
+msgid "Impossible to access to server."
+msgstr "Impossible copiar el fitxer"
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6285,19 +6304,6 @@ msgstr "Afegir un servidor"
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modifica el compte"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "Server URL:"
-msgstr "URL del servidor:"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "Nom del compte:"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, kde-format

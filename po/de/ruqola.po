@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-18 00:41+0000\n"
+"POT-Creation-Date: 2023-12-19 00:41+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1409,12 +1409,12 @@ msgstr "<strong>%1</strong> schreibt gerade ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2768
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: core/rocketchataccount.cpp:2767
+#: core/rocketchataccount.cpp:2769
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3461,7 +3461,7 @@ msgid "Set random password and send by email"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/createnewserver/createnewserverwidget.cpp:44
+#: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3486,7 +3486,7 @@ msgid "Email:"
 msgstr "E-Mail:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/createnewserver/createnewserverwidget.cpp:48
+#: widgets/common/authenticationloginwidget.cpp:42
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -6201,6 +6201,21 @@ msgstr "Kanal verlassen"
 msgid "Next Channel"
 msgstr "Kanal erstellen"
 
+#: widgets/common/authenticationloginwidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
+msgstr "Server-Adresse:"
+
+#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name:"
+msgstr "Zugangsname"
+
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
 msgid "Error saving file"
@@ -6413,16 +6428,21 @@ msgstr "Zugang entfernen"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Möchten Sie diesen Zugang  „%1“ entfernen?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:34
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:35
 #, kde-format
 msgid "Server Url:"
 msgstr "Server-Adresse:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:42
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Connecting"
 msgid "Connection"
 msgstr "Verbindung wird hergestellt"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#, kde-format
+msgid "Impossible to access to server."
+msgstr ""
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6435,21 +6455,6 @@ msgstr "Server hinzufügen"
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Zugang bearbeiten"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Server Url:"
-msgid "Server URL:"
-msgstr "Server-Adresse:"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account Name"
-msgid "Account name:"
-msgstr "Zugangsname"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, fuzzy, kde-format

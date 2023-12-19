@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-18 00:41+0000\n"
+"POT-Creation-Date: 2023-12-19 00:41+0000\n"
 "PO-Revision-Date: 2023-12-15 20:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1339,12 +1339,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2766
+#: core/rocketchataccount.cpp:2768
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2767
+#: core/rocketchataccount.cpp:2769
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -3293,7 +3293,7 @@ msgid "Set random password and send by email"
 msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/createnewserver/createnewserverwidget.cpp:44
+#: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
@@ -3317,7 +3317,7 @@ msgid "Email:"
 msgstr "E-posta:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/createnewserver/createnewserverwidget.cpp:48
+#: widgets/common/authenticationloginwidget.cpp:42
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -6014,6 +6014,19 @@ msgstr "Önceki Kanal"
 msgid "Next Channel"
 msgstr "Sonraki Kanal"
 
+#: widgets/common/authenticationloginwidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Server URL:"
+msgstr "Sunucu URL'si:"
+
+#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "Hesap adı:"
+
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
 msgid "Error saving file"
@@ -6215,17 +6228,21 @@ msgstr "Diskte depolanan günlükleri kaldır"
 msgid "Do you want to remove this account '%1'?"
 msgstr "'%1' hesabını kaldırmak istediğinize emin misiniz?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:35
+#, kde-format
 msgid "Server Url:"
 msgstr "Sunucu URL'si:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Connecting"
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#, kde-format
 msgid "Connection"
-msgstr "Bağlanıyor"
+msgstr "Bağlantı"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#, fuzzy, kde-format
+#| msgid "Impossible to copy file"
+msgid "Impossible to access to server."
+msgstr "Dosyayı kopyalamak olanaksız"
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6238,19 +6255,6 @@ msgstr "Sunucu Ekle"
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Hesabı Değiştir"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "Server URL:"
-msgstr "Sunucu URL'si:"
-
-#: widgets/createnewserver/createnewserverwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "Hesap adı:"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
 #, kde-format
@@ -9171,28 +9175,3 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Önbellekte değilken ses/video indirme sorununu çöz."
-
-#~ msgctxt "Message Style"
-#~ msgid "Cozy"
-#~ msgstr "Rahat"
-
-#~ msgid "A channel with name '__channel_name__' exists"
-#~ msgstr "'__channel_name__' adında bir kanal adı var"
-
-#~ msgid "Error trying to send email: __message__"
-#~ msgstr "E-posta gönderilmeye çalışılırken hata: __message__"
-
-#~ msgid "<strong>__field__</strong> is already in use :("
-#~ msgstr "<strong>__field__</strong>, halihazırda kullanımda :("
-
-#~ msgid "__input__ is not a valid __field__"
-#~ msgstr "__input__, geçerli bir __field__ değil"
-
-#~ msgid "Invalid email __email__"
-#~ msgstr "Geçersiz e-posta: __email__"
-
-#~ msgid "<strong>__room_name__</strong> is not a valid room name"
-#~ msgstr "<strong>__room_name__</strong>, geçerli bir oda adı değil"
-
-#~ msgid "<strong>__type__</strong> is not a valid room type."
-#~ msgstr "<strong>__type__</strong>, geçerli bir oda türü değil."
