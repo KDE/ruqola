@@ -20,9 +20,8 @@ public:
     explicit AuthenticationOauthWidget(QWidget *parent = nullptr);
     ~AuthenticationOauthWidget() override;
 
-    void setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos);
-
     void addAuthenticationMethod(const AuthenticationInfo &info);
+
 Q_SIGNALS:
     void authentication(AuthenticationManager::AuthMethodType type);
 

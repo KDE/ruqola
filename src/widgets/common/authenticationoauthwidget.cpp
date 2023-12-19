@@ -21,18 +21,6 @@ AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
 
 AuthenticationOauthWidget::~AuthenticationOauthWidget() = default;
 
-void AuthenticationOauthWidget::setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos)
-{
-    setVisible(!authenticationInfos.isEmpty());
-    for (const AuthenticationInfo &info : authenticationInfos) {
-        auto button = new AuthenticationButton(this);
-        button->setObjectName(QStringLiteral("button_%1").arg(info.name()));
-        connect(button, &AuthenticationButton::authentication, this, &AuthenticationOauthWidget::authentication);
-        button->setAuthenticationInfo(info);
-        mMainLayout->addWidget(button);
-    }
-}
-
 void AuthenticationOauthWidget::addAuthenticationMethod(const AuthenticationInfo &info)
 {
     auto button = new AuthenticationButton(this);
