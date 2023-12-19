@@ -84,10 +84,9 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
         });
         connect(account, &RocketChatAccount::publicSettingChanged, this, [this, ddpClient, account]() {
             mBusyIndicatorWidget->hide();
-            slotErrorConnection();
             ddpClient->deleteLater();
             account->deleteLater();
-            // TODO get loging info account->
+            // TODO get Authentication info account->
             Q_EMIT serverUrlFound(mServerUrl->text().trimmed());
         });
 
