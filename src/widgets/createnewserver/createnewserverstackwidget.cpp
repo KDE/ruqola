@@ -48,5 +48,6 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mCreateNewServerWidget->setAccountInfo(info);
+    setCurrentWidget(mCreateNewServerWidget);
 }
 #include "moc_createnewserverstackwidget.cpp"

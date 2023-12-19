@@ -5,6 +5,7 @@
 */
 
 #include "authenticationbutton.h"
+#include <KLocalizedString>
 
 AuthenticationButton::AuthenticationButton(QWidget *parent)
     : QPushButton(parent)
@@ -19,7 +20,7 @@ AuthenticationButton::~AuthenticationButton() = default;
 void AuthenticationButton::setAuthenticationInfo(const AuthenticationInfo &info)
 {
     mAuthenticationInfo = info;
-    setText(info.name());
+    setText(i18n("Sign in with %1", info.name()));
     setIcon(QIcon::fromTheme(info.iconName()));
 }
 

@@ -12,7 +12,6 @@
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
 #include "model/listmessagesfilterproxymodel.h"
-#include "model/listmessagesmodel.h"
 #include "rocketchataccount.h"
 #include <QStandardPaths>
 #include <QTest>
@@ -34,7 +33,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(!w.ruqolaLogger());
     QVERIFY(w.ruqolaServerConfig());
     QVERIFY(w.userCompleterFilterProxyModel());
-    QVERIFY(w.loginMethodModel());
     QVERIFY(w.inputTextManager());
     QVERIFY(w.inputThreadMessageTextManager());
     QVERIFY(w.searchMessageModel());

@@ -44,6 +44,8 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
+    // TODO add "create new account"
+    // TODO add "forgot password"
 }
 
 void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)

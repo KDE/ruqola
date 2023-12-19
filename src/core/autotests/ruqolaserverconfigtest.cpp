@@ -244,6 +244,14 @@ void RuqolaServerConfigTest::shouldAddRuqolaAuthenticationSupport()
     QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Linkedin));
     config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::Linkedin);
     QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Linkedin));
+
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Apple));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::Apple);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Apple));
+
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::NextCloud));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::NextCloud);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::NextCloud));
 }
 
 void RuqolaServerConfigTest::shouldTestVersion_data()

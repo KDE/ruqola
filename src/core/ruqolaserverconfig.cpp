@@ -167,6 +167,10 @@ void RuqolaServerConfig::addOauthService(const QString &service)
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Linkedin;
     } else if (service.endsWith(QLatin1String("wordpress"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Wordpress;
+    } else if (service.endsWith(QLatin1String("apple"), Qt::CaseInsensitive)) {
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::Apple;
+    } else if (service.endsWith(QLatin1String("nextcloud"), Qt::CaseInsensitive)) {
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::NextCloud;
     } else if (service.endsWith(QLatin1String("_oauth_proxy_host"), Qt::CaseInsensitive)) {
         // Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";

@@ -28,7 +28,6 @@
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
 #include "model/listmessagesfilterproxymodel.h"
-#include "model/loginmethodmodel.h"
 #include "model/messagesmodel.h"
 #include "model/statusmodel.h"
 #include "model/threadmessagemodel.h"
@@ -104,7 +103,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mUserCompleterModel(new UserCompleterModel(this))
     , mStatusModel(new StatusModel(this))
     , mOtrManager(new OtrManager(this, this))
-    , mLoginMethodModel(new LoginMethodModel(this))
     , mInputTextManager(new InputTextManager(this, this))
     , mInputThreadMessageTextManager(new InputTextManager(this, this))
     , mReceiveTypingNotificationManager(new ReceiveTypingNotificationManager(this))
@@ -1362,23 +1360,23 @@ void RocketChatAccount::fillAuthenticationModel()
 {
     QVector<AuthenticationInfo> fillModel;
     // qDebug() << " before " << mLstInfos;
-    for (int i = 0, total = mLstInfos.count(); i < total; ++i) {
-        if (mRuqolaServerConfig->canShowAuthMethod(mLstInfos.at(i).oauthType())) {
-            fillModel.append(mLstInfos.at(i));
+    for (int i = 0, total = mAuthenticationMethodInfos.count(); i < total; ++i) {
+        if (mRuqolaServerConfig->canShowAuthMethod(mAuthenticationMethodInfos.at(i).oauthType())) {
+            fillModel.append(mAuthenticationMethodInfos.at(i));
         }
     }
     // qDebug() << "void RocketChatAccount::fillAuthenticationModel()  " << fillModel;
-    mLoginMethodModel->setAuthenticationInfos(fillModel);
+    mAccountAvailableAuthenticationMethodInfos = fillModel;
 }
 
 void RocketChatAccount::changeDefaultAuthentication(int index)
 {
-    setDefaultAuthentication(mLoginMethodModel->loginType(index));
+    setDefaultAuthentication(mAccountAvailableAuthenticationMethodInfos.at(index).oauthType());
 }
 
 QVector<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
 {
-    return mLoginMethodModel->authentications();
+    return mAccountAvailableAuthenticationMethodInfos;
 }
 
 void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::AuthMethodType type)
@@ -1414,14 +1412,14 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     }
     mLstPluginAuthenticationInterface.clear();
 
-    mLstInfos.clear();
+    mAuthenticationMethodInfos.clear();
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         AuthenticationInfo info;
         info.setIconName(abstractPlugin->iconName());
         info.setName(abstractPlugin->name());
         info.setOauthType(abstractPlugin->type());
         if (info.isValid()) {
-            mLstInfos.append(std::move(info));
+            mAuthenticationMethodInfos.append(std::move(info));
         }
 
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
@@ -1440,11 +1438,6 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
 {
     return mDefaultAuthenticationInterface;
-}
-
-LoginMethodModel *RocketChatAccount::loginMethodModel() const
-{
-    return mLoginMethodModel;
 }
 
 QString RocketChatAccount::authToken() const

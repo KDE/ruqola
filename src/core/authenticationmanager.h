@@ -47,6 +47,8 @@ public:
         Linkedin = 32,
         Wordpress = 64,
         Password = 128,
+        Apple = 256,
+        NextCloud = 512,
     };
     Q_ENUM(AuthMethodType)
     Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)

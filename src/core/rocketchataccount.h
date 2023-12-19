@@ -58,7 +58,6 @@ class EmojiManager;
 class OtrManager;
 class FilesForRoomFilterProxyModel;
 class FilesForRoomModel;
-class LoginMethodModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
 class Room;
@@ -255,7 +254,6 @@ public:
 
     DDPClient *ddp();
     [[nodiscard]] RoomModel *roomModel() const;
-    [[nodiscard]] LoginMethodModel *loginMethodModel() const;
     [[nodiscard]] bool editingMode() const;
     [[nodiscard]] bool sortUnreadOnTop() const;
     [[nodiscard]] OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
@@ -645,7 +643,8 @@ private:
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
     QHash<AuthenticationManager::AuthMethodType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
-    QVector<AuthenticationInfo> mLstInfos;
+    QVector<AuthenticationInfo> mAccountAvailableAuthenticationMethodInfos;
+    QVector<AuthenticationInfo> mAuthenticationMethodInfos;
     RocketChatAccountSettings *mSettings = nullptr;
 
     EmojiManager *mEmojiManager = nullptr;
@@ -663,7 +662,6 @@ private:
     StatusModel *const mStatusModel;
     RocketChatCache *mCache = nullptr;
     OtrManager *const mOtrManager;
-    LoginMethodModel *const mLoginMethodModel;
     InputTextManager *const mInputTextManager;
 
     InputTextManager *const mInputThreadMessageTextManager;
