@@ -38,6 +38,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     serverUrlLayout->addWidget(mServerUrl);
+    mServerUrl->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mServerUrl, this);
 
     auto connectionPushButton = new QPushButton(i18n("Connection"), this);
