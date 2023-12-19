@@ -21,7 +21,7 @@ public:
 
     virtual PluginAuthenticationInterface *createInterface(QObject *parent) = 0;
 
-    [[nodiscard]] virtual AuthenticationManager::OauthType type() const = 0;
+    [[nodiscard]] virtual AuthenticationManager::AuthMethodType type() const = 0;
 
     [[nodiscard]] virtual QString name() const = 0;
     [[nodiscard]] virtual QString iconName() const = 0;

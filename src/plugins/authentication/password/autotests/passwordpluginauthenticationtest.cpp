@@ -19,7 +19,7 @@ void PasswordPluginAuthenticationTest::shouldHaveDefaultValue()
 {
     PasswordPluginAuthentication w(nullptr, {});
     QVERIFY(!w.name().isEmpty());
-    QCOMPARE(w.type(), AuthenticationManager::OauthType::Password);
+    QCOMPARE(w.type(), AuthenticationManager::AuthMethodType::Password);
 }
 
 #include "moc_passwordpluginauthenticationtest.cpp"

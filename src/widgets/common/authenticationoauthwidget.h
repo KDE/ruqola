@@ -22,7 +22,7 @@ public:
     void switchRocketChatAccount(RocketChatAccount *account);
 
 Q_SIGNALS:
-    void authentication(AuthenticationManager::OauthType type);
+    void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
     QVBoxLayout *const mMainLayout;

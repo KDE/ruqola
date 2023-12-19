@@ -21,7 +21,7 @@ public:
     [[nodiscard]] AuthenticationInfo authenticationInfo() const;
 
 Q_SIGNALS:
-    void authentication(AuthenticationManager::OauthType type);
+    void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
     AuthenticationInfo mAuthenticationInfo;

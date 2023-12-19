@@ -87,14 +87,14 @@ public:
 
     void addOauthService(const QString &service);
 
-    [[nodiscard]] AuthenticationManager::OauthTypes serverOauthTypes() const;
+    [[nodiscard]] AuthenticationManager::AuthMethodTypes serverAuthMethodTypes() const;
 
-    [[nodiscard]] bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
+    [[nodiscard]] bool serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType type) const;
 
-    [[nodiscard]] bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
-    [[nodiscard]] bool canShowOauthService(AuthenticationManager::OauthType type) const;
-    void addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type);
-    [[nodiscard]] AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
+    [[nodiscard]] bool ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType type) const;
+    [[nodiscard]] bool canShowAuthMethod(AuthenticationManager::AuthMethodType type) const;
+    void addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType type);
+    [[nodiscard]] AuthenticationManager::AuthMethodTypes ruqolaOauthTypes() const;
 
     [[nodiscard]] QString siteUrl() const;
     void setSiteUrl(const QString &siteUrl);
@@ -215,8 +215,8 @@ private:
     QString mAutoTranslateGoogleKey;
     QString mChannelNameValidation;
     QString mUserNameValidation;
-    AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Unknown;
-    AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Unknown;
+    AuthenticationManager::AuthMethodTypes mServerAuthTypes = AuthenticationManager::AuthMethodType::Unknown;
+    AuthenticationManager::AuthMethodTypes mRuqolaAuthMethodTypes = AuthenticationManager::AuthMethodType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
     int mBlockDeletingMessageInMinutes = 5;
     int mServerVersionMajor = -1;

@@ -37,7 +37,7 @@ class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
 {
     Q_OBJECT
 public:
-    enum OauthType {
+    enum AuthMethodType {
         Unknown = 0,
         Twitter = 1,
         FaceBook = 2,
@@ -48,8 +48,8 @@ public:
         Wordpress = 64,
         Password = 128,
     };
-    Q_ENUM(OauthType)
-    Q_DECLARE_FLAGS(OauthTypes, OauthType)
+    Q_ENUM(AuthMethodType)
+    Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)
 
     explicit AuthenticationManager(QObject *parent = nullptr);
     ~AuthenticationManager() override;
@@ -65,5 +65,5 @@ private:
     QVector<AuthenticationManagerInfo> mPluginList;
     QVector<PluginUtilData> mPluginDataList;
 };
-Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
-Q_DECLARE_METATYPE(AuthenticationManager::OauthType)
+Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodTypes)
+Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodType)

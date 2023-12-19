@@ -27,8 +27,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
     QCOMPARE(config.blockDeletingMessageInMinutes(), 5);
-    QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Password);
-    QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Password);
+    QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::AuthMethodType::Unknown);
+    QCOMPARE(config.serverAuthMethodTypes(), AuthenticationManager::AuthMethodType::Unknown);
     QVERIFY(config.autoTranslateGoogleKey().isEmpty());
     QCOMPARE(config.fileMaxFileSize(), -1);
     QVERIFY(config.logoUrl().isEmpty());
@@ -143,51 +143,51 @@ void RuqolaServerConfigTest::shouldEnabledRc60()
 void RuqolaServerConfigTest::shouldVerifyOauthType_data()
 {
     QTest::addColumn<QStringList>("oauthlist");
-    QTest::addColumn<AuthenticationManager::OauthTypes>("types");
+    QTest::addColumn<AuthenticationManager::AuthMethodTypes>("types");
 
     {
         QStringList lst;
         // By default ruqola has password support
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::Unknown;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::Unknown;
         QTest::newRow("empty") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_FaceBook")};
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::FaceBook;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::FaceBook;
         QTest::newRow("fb") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Twitter")};
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::Twitter;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::Twitter;
         QTest::newRow("tw") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Google")};
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::Google;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::Google;
         QTest::newRow("go") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Google"), QStringLiteral("Accounts_OAuth_Twitter"), QStringLiteral("Accounts_OAuth_FaceBook")};
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::Google;
-        types |= AuthenticationManager::OauthType::FaceBook;
-        types |= AuthenticationManager::OauthType::Twitter;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::Google;
+        types |= AuthenticationManager::AuthMethodType::FaceBook;
+        types |= AuthenticationManager::AuthMethodType::Twitter;
         QTest::newRow("go-tw-fb") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable")};
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::Unknown;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::Unknown;
         QTest::newRow("unknown") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable"), QStringLiteral("Accounts_OAuth_Twitter")};
-        AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
-        types |= AuthenticationManager::OauthType::Twitter;
+        AuthenticationManager::AuthMethodTypes types;
+        types |= AuthenticationManager::AuthMethodType::Twitter;
         QTest::newRow("unknown-2") << lst << types;
     }
 }
@@ -195,55 +195,55 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
 void RuqolaServerConfigTest::shouldVerifyOauthType()
 {
     QFETCH(QStringList, oauthlist);
-    QFETCH(AuthenticationManager::OauthTypes, types);
+    QFETCH(AuthenticationManager::AuthMethodTypes, types);
     RuqolaServerConfig config;
     for (const QString &t : oauthlist) {
         config.addOauthService(t);
     }
-    QCOMPARE(config.serverOauthTypes(), types);
+    QCOMPARE(config.serverAuthMethodTypes(), types);
 }
 
 void RuqolaServerConfigTest::shouldVerifyThatServerSupportService()
 {
     RuqolaServerConfig config;
-    QVERIFY(!config.serverHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
+    QVERIFY(!config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Twitter));
     config.addOauthService(QStringLiteral("Accounts_OAuth_Twitter"));
-    QVERIFY(config.serverHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
+    QVERIFY(config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Twitter));
 
-    QVERIFY(!config.serverHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
+    QVERIFY(!config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::FaceBook));
     config.addOauthService(QStringLiteral("Accounts_OAuth_Google"));
-    QVERIFY(config.serverHasSupportForOauthType(AuthenticationManager::OauthType::Google));
+    QVERIFY(config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Google));
 
     config.addOauthService(QStringLiteral("Accounts_OAuth_FaceBook"));
-    QVERIFY(config.serverHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
+    QVERIFY(config.serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::FaceBook));
 }
 
 void RuqolaServerConfigTest::shouldAddRuqolaAuthenticationSupport()
 {
     RuqolaServerConfig config;
-    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
-    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Twitter);
-    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Twitter));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::Twitter);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Twitter));
 
-    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
-    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::FaceBook);
-    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::FaceBook));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::FaceBook);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::FaceBook));
 
-    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Google));
-    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Google);
-    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Google));
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Google));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::Google);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Google));
 
-    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitHub));
-    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::GitHub);
-    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitHub));
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::GitHub));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::GitHub);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::GitHub));
 
-    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitLab));
-    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::GitLab);
-    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitLab));
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::GitLab));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::GitLab);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::GitLab));
 
-    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
-    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Linkedin);
-    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
+    QVERIFY(!config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Linkedin));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType::Linkedin);
+    QVERIFY(config.ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType::Linkedin));
 }
 
 void RuqolaServerConfigTest::shouldTestVersion_data()
@@ -277,14 +277,37 @@ void RuqolaServerConfigTest::shouldTestVersion()
 void RuqolaServerConfigTest::shouldSerializeConfig_data()
 {
     QTest::addColumn<QString>("name");
+    QTest::addColumn<AuthenticationManager::AuthMethodTypes>("authentications");
 
-    QTest::newRow("empty") << QStringLiteral("empty.json");
-    QTest::newRow("test1") << QStringLiteral("test1.json");
+    {
+        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Unknown;
+        QTest::newRow("empty") << QStringLiteral("empty.json") << type;
+    }
+    {
+        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Password;
+        QTest::newRow("test1") << QStringLiteral("test1.json") << type;
+    }
+    {
+        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
+        QTest::newRow("onlygithub") << QStringLiteral("onlygithub.json") << type;
+    }
+    {
+        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
+        type |= AuthenticationManager::AuthMethodType::GitLab;
+        QTest::newRow("github-gitlab") << QStringLiteral("github-gitlab.json") << type;
+    }
+    {
+        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
+        type |= AuthenticationManager::AuthMethodType::GitLab;
+        type |= AuthenticationManager::AuthMethodType::Password;
+        QTest::newRow("github-gitlab-password") << QStringLiteral("github-gitlab-password.json") << type;
+    }
 }
 
 void RuqolaServerConfigTest::shouldSerializeConfig()
 {
     QFETCH(QString, name);
+    QFETCH(AuthenticationManager::AuthMethodTypes, authentications);
 
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/serverconfig/%1").arg(name);
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
@@ -305,6 +328,7 @@ void RuqolaServerConfigTest::shouldSerializeConfig()
         qDebug() << "config " << config;
         qDebug() << "newConfig " << newConfig;
     }
+    QCOMPARE(config.serverAuthMethodTypes(), authentications);
     QVERIFY(compare);
 }
 

@@ -601,7 +601,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void clearModels();
     LIBRUQOLACORE_NO_EXPORT void fillOauthModel();
     LIBRUQOLACORE_NO_EXPORT void initializeAuthenticationPlugins();
-    LIBRUQOLACORE_NO_EXPORT void setDefaultAuthentication(AuthenticationManager::OauthType type);
+    LIBRUQOLACORE_NO_EXPORT void setDefaultAuthentication(AuthenticationManager::AuthMethodType type);
     LIBRUQOLACORE_NO_EXPORT void userStatusChanged(const User &user);
     LIBRUQOLACORE_NO_EXPORT void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotChannelGetCountersDone(const QJsonObject &obj,
@@ -642,7 +642,7 @@ private:
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
-    QHash<AuthenticationManager::OauthType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
+    QHash<AuthenticationManager::AuthMethodType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
     QVector<AuthenticationInfo> mLstInfos;
     RocketChatAccountSettings *mSettings = nullptr;
 

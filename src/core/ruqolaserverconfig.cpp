@@ -129,44 +129,44 @@ QString RuqolaServerConfig::serverVersion() const
     return mServerVersionStr;
 }
 
-bool RuqolaServerConfig::ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const
+bool RuqolaServerConfig::ruqolaHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType type) const
 {
-    return mRuqolaOauthTypes & type;
+    return mRuqolaAuthMethodTypes & type;
 }
 
-bool RuqolaServerConfig::canShowOauthService(AuthenticationManager::OauthType type) const
+bool RuqolaServerConfig::canShowAuthMethod(AuthenticationManager::AuthMethodType type) const
 {
-    const bool hasSupport = serverHasSupportForOauthType(type) && ruqolaHasSupportForOauthType(type);
+    const bool hasSupport = serverHasSupportForAuthMethodType(type) && ruqolaHasSupportForAuthMethodType(type);
     return hasSupport;
 }
 
-void RuqolaServerConfig::addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type)
+void RuqolaServerConfig::addRuqolaAuthenticationSupport(AuthenticationManager::AuthMethodType type)
 {
-    mRuqolaOauthTypes |= type;
+    mRuqolaAuthMethodTypes |= type;
 }
 
-bool RuqolaServerConfig::serverHasSupportForOauthType(AuthenticationManager::OauthType type) const
+bool RuqolaServerConfig::serverHasSupportForAuthMethodType(AuthenticationManager::AuthMethodType type) const
 {
-    return mServerOauthTypes & type;
+    return mServerAuthTypes & type;
 }
 
 void RuqolaServerConfig::addOauthService(const QString &service)
 {
     qCDebug(RUQOLA_AUTHENTICATION_LOG) << " serviceLower " << service;
     if (service.endsWith(QLatin1String("twitter"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::Twitter;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::Twitter;
     } else if (service.endsWith(QLatin1String("facebook"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::FaceBook;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::FaceBook;
     } else if (service.endsWith(QLatin1String("github"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::GitHub;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::GitHub;
     } else if (service.endsWith(QLatin1String("gitlab"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::GitLab;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::GitLab;
     } else if (service.endsWith(QLatin1String("google"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::Google;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::Google;
     } else if (service.endsWith(QLatin1String("linkedin"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::Linkedin;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::Linkedin;
     } else if (service.endsWith(QLatin1String("wordpress"), Qt::CaseInsensitive)) {
-        mServerOauthTypes |= AuthenticationManager::OauthType::Wordpress;
+        mServerAuthTypes |= AuthenticationManager::AuthMethodType::Wordpress;
     } else if (service.endsWith(QLatin1String("_oauth_proxy_host"), Qt::CaseInsensitive)) {
         // Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";
@@ -175,7 +175,7 @@ void RuqolaServerConfig::addOauthService(const QString &service)
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
-    qCDebug(RUQOLA_AUTHENTICATION_LOG) << " authentication service " << mServerOauthTypes;
+    qCDebug(RUQOLA_AUTHENTICATION_LOG) << " authentication service " << mServerAuthTypes;
 }
 
 void RuqolaServerConfig::adaptToServerVersion()
@@ -335,14 +335,14 @@ void RuqolaServerConfig::setSiteUrl(const QString &siteUrl)
     mSiteUrl = siteUrl;
 }
 
-AuthenticationManager::OauthTypes RuqolaServerConfig::ruqolaOauthTypes() const
+AuthenticationManager::AuthMethodTypes RuqolaServerConfig::ruqolaOauthTypes() const
 {
-    return mRuqolaOauthTypes;
+    return mRuqolaAuthMethodTypes;
 }
 
-AuthenticationManager::OauthTypes RuqolaServerConfig::serverOauthTypes() const
+AuthenticationManager::AuthMethodTypes RuqolaServerConfig::serverAuthMethodTypes() const
 {
-    return mServerOauthTypes;
+    return mServerAuthTypes;
 }
 
 RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::logoUrl() const
@@ -380,7 +380,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mFileUploadStorageType " << t.fileUploadStorageType();
     d << "mSiteUrl " << t.siteUrl();
     d << "mSiteName " << t.siteName();
-    d << "mServerOauthTypes " << t.serverOauthTypes();
+    d << "mServerOauthTypes " << t.serverAuthMethodTypes();
     d << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
     d << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
     d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
@@ -544,10 +544,12 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
     } else if (id == QLatin1String("Accounts_ShowFormLogin")) {
         if (value.toBool()) {
-            mServerOauthTypes |= AuthenticationManager::OauthType::Password;
+            mServerAuthTypes |= AuthenticationManager::AuthMethodType::Password;
         } else {
-            mServerOauthTypes &= ~AuthenticationManager::OauthType::Password;
+            mServerAuthTypes &= ~AuthenticationManager::AuthMethodType::Password;
         }
+    } else if (id == QLatin1String("AuthenticationServerMethod")) {
+        mServerAuthTypes = static_cast<AuthenticationManager::AuthMethodTypes>(value.toInt());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -690,6 +692,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeWhiteList"), mMediaWhiteList.join(QLatin1Char(','))));
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
     array.append(createJsonObject(QStringLiteral("FileUpload_MaxFileSize"), mFileMaxFileSize));
+    array.append(createJsonObject(QStringLiteral("AuthenticationServerMethod"), static_cast<int>(mServerAuthTypes)));
 
     o[QLatin1String("result")] = array;
 #if 0
@@ -853,7 +856,7 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mFileUploadStorageType == other.mFileUploadStorageType && mSiteUrl == other.mSiteUrl && mSiteName == other.mSiteName
         && mServerVersionStr == other.mServerVersionStr && mAutoTranslateGoogleKey == other.mAutoTranslateGoogleKey
         && mChannelNameValidation == other.mChannelNameValidation && mUserNameValidation == other.mUserNameValidation
-        && mServerOauthTypes == other.mServerOauthTypes && mRuqolaOauthTypes == other.mRuqolaOauthTypes
+        && mServerAuthTypes == other.mServerAuthTypes && mRuqolaAuthMethodTypes == other.mRuqolaAuthMethodTypes
         && mBlockEditingMessageInMinutes == other.mBlockEditingMessageInMinutes && mBlockDeletingMessageInMinutes == other.mBlockDeletingMessageInMinutes
         && mServerVersionMajor == other.mServerVersionMajor && mServerVersionMinor == other.mServerVersionMinor
         && mServerVersionPatch == other.mServerVersionPatch && mFileMaxFileSize == other.mFileMaxFileSize

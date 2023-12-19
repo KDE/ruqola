@@ -30,12 +30,12 @@ void AuthenticationInfo::setIconName(const QString &iconName)
     mIconName = iconName;
 }
 
-AuthenticationManager::OauthType AuthenticationInfo::oauthType() const
+AuthenticationManager::AuthMethodType AuthenticationInfo::oauthType() const
 {
     return mOauthType;
 }
 
-void AuthenticationInfo::setOauthType(AuthenticationManager::OauthType oauthType)
+void AuthenticationInfo::setOauthType(AuthenticationManager::AuthMethodType oauthType)
 {
     mOauthType = oauthType;
 }

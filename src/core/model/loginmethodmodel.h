@@ -29,7 +29,7 @@ public:
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);
     void clear();
 
-    [[nodiscard]] AuthenticationManager::OauthType loginType(int index);
+    [[nodiscard]] AuthenticationManager::AuthMethodType loginType(int index);
 
     [[nodiscard]] int currentLoginMethod() const;
     void setCurrentLoginMethod(int currentLoginMethod);

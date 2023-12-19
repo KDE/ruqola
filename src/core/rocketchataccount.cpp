@@ -1361,13 +1361,13 @@ void RocketChatAccount::parsePublicSettings()
 void RocketChatAccount::fillOauthModel()
 {
     QVector<AuthenticationInfo> fillModel;
-    // qDebug() << " before " << mLstInfos;
+    qDebug() << " before " << mLstInfos;
     for (int i = 0, total = mLstInfos.count(); i < total; ++i) {
-        if (mRuqolaServerConfig->canShowOauthService(mLstInfos.at(i).oauthType())) {
+        if (mRuqolaServerConfig->canShowAuthMethod(mLstInfos.at(i).oauthType())) {
             fillModel.append(mLstInfos.at(i));
         }
     }
-    // qDebug() << "void RocketChatAccount::fillOauthModel()  " << fillModel;
+    qDebug() << "void RocketChatAccount::fillOauthModel()  " << fillModel;
     mLoginMethodModel->setAuthenticationInfos(fillModel);
 }
 
@@ -1376,7 +1376,7 @@ void RocketChatAccount::changeDefaultAuthentication(int index)
     setDefaultAuthentication(mLoginMethodModel->loginType(index));
 }
 
-void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)
+void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::AuthMethodType type)
 {
     PluginAuthenticationInterface *interface = mLstPluginAuthenticationInterface.value(type);
     if (interface) {
@@ -1424,7 +1424,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
         mLstPluginAuthenticationInterface.insert(abstractPlugin->type(), interface);
         // For the moment initialize default interface
-        if (abstractPlugin->type() == AuthenticationManager::OauthType::Password) {
+        if (abstractPlugin->type() == AuthenticationManager::AuthMethodType::Password) {
             mDefaultAuthenticationInterface = interface;
         }
         qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->type();

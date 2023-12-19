@@ -22,15 +22,15 @@ public:
     [[nodiscard]] QString iconName() const;
     void setIconName(const QString &iconName);
 
-    [[nodiscard]] AuthenticationManager::OauthType oauthType() const;
-    void setOauthType(AuthenticationManager::OauthType oauthType);
+    [[nodiscard]] AuthenticationManager::AuthMethodType oauthType() const;
+    void setOauthType(AuthenticationManager::AuthMethodType oauthType);
 
     [[nodiscard]] bool isValid() const;
 
 private:
     QString mName;
     QString mIconName;
-    AuthenticationManager::OauthType mOauthType = AuthenticationManager::OauthType::Unknown;
+    AuthenticationManager::AuthMethodType mOauthType = AuthenticationManager::AuthMethodType::Unknown;
 };
 Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AuthenticationInfo &t);

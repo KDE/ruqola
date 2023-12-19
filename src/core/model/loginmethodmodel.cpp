@@ -29,7 +29,7 @@ void LoginMethodModel::clear()
     }
 }
 
-AuthenticationManager::OauthType LoginMethodModel::loginType(int index)
+AuthenticationManager::AuthMethodType LoginMethodModel::loginType(int index)
 {
     return mAuthentications.at(index).oauthType();
 }
