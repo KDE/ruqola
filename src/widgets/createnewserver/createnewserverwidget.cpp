@@ -55,7 +55,7 @@ void CreateNewServerWidget::setAuthenticationInfos(const QVector<AuthenticationI
     mAuthenticationWidget->hide();
     for (const auto &info : authenticationInfos) {
         if (info.oauthType() == AuthenticationManager::AuthMethodType::Password) {
-            mAuthenticationLoginWidget->setVisible(true);
+            mAuthenticationLoginWidget->show();
         } else {
             mAuthenticationWidget->show();
             mAuthenticationWidget->addAuthenticationMethod(info);

@@ -28,6 +28,7 @@ void AuthenticationOauthWidget::addAuthenticationMethod(const AuthenticationInfo
     connect(button, &AuthenticationButton::authentication, this, &AuthenticationOauthWidget::authentication);
     button->setAuthenticationInfo(info);
     mMainLayout->addWidget(button);
+    mMainLayout->addStretch(1);
 }
 
 #include "moc_authenticationoauthwidget.cpp"
