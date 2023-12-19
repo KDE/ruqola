@@ -28,18 +28,25 @@ void RESTAuthenticationManager::login()
 
 void RESTAuthenticationManager::login(const QString &user, const QString &password)
 {
+    Q_UNUSED(user);
+    Q_UNUSED(password);
 }
 
 void RESTAuthenticationManager::loginLDAP(const QString &user, const QString &password)
 {
+    Q_UNUSED(user);
+    Q_UNUSED(password);
 }
 
 void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
+    Q_UNUSED(credentialToken);
+    Q_UNUSED(credentialSecret);
 }
 
 void RESTAuthenticationManager::sendOTP(const QString &otp)
 {
+    Q_UNUSED(otp);
 }
 
 void RESTAuthenticationManager::logout()
