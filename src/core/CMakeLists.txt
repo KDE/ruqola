@@ -201,8 +201,6 @@ target_sources(libruqolacore PRIVATE
     model/listmessagesfilterproxymodel.cpp
     model/listmessagesfilterproxymodel.h
     model/listmessagesmodel.h
-    model/loginmethodmodel.cpp
-    model/loginmethodmodel.h
     model/messagesmodel.cpp
     model/messagesmodel.h
     model/notificationdesktopdurationpreferencemodel.cpp
