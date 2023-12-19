@@ -215,8 +215,8 @@ private:
     QString mAutoTranslateGoogleKey;
     QString mChannelNameValidation;
     QString mUserNameValidation;
-    AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
-    AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
+    AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Unknown;
+    AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
     int mBlockDeletingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
