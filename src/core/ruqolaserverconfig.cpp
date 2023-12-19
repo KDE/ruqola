@@ -136,7 +136,8 @@ bool RuqolaServerConfig::ruqolaHasSupportForOauthType(AuthenticationManager::Oau
 
 bool RuqolaServerConfig::canShowOauthService(AuthenticationManager::OauthType type) const
 {
-    return serverHasSupportForOauthType(type) && ruqolaHasSupportForOauthType(type);
+    const bool hasSupport = serverHasSupportForOauthType(type) && ruqolaHasSupportForOauthType(type);
+    return hasSupport;
 }
 
 void RuqolaServerConfig::addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type)
@@ -545,7 +546,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         if (value.toBool()) {
             mServerOauthTypes |= AuthenticationManager::OauthType::Password;
         } else {
-            mServerOauthTypes &= AuthenticationManager::OauthType::Password;
+            mServerOauthTypes &= ~AuthenticationManager::OauthType::Password;
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
