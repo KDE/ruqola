@@ -87,7 +87,9 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
             ddpClient->deleteLater();
             account->deleteLater();
             const QVector<AuthenticationInfo> authenticationInfos = account->authenticationMethodInfos();
-            Q_EMIT serverUrlFound(mServerUrl->text().trimmed(), authenticationInfos);
+
+            const bool allowResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
+            Q_EMIT serverUrlFound(mServerUrl->text().trimmed(), authenticationInfos, allowResetPassword);
         });
 
         ddpClient->setServerUrl(mServerUrl->text());

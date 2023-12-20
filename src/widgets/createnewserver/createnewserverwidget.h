@@ -26,6 +26,7 @@ public:
     void setExistingAccountName(const QStringList &lst);
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos);
+
 Q_SIGNALS:
     void updateOkButton(bool state);
 

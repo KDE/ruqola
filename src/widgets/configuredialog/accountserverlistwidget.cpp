@@ -37,6 +37,8 @@ void AccountServerListWidget::load()
         info.serverUrl = account->serverUrl();
         info.userName = account->userName();
         info.password = account->password();
+        info.canResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
+        info.authenticationInfos = account->authenticationMethodInfos();
         item->setAccountInfo(info);
         item->setNewAccount(false);
         item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);

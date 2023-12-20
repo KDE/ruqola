@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "authenticationinfo.h"
 #include "libruqolacore_export.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
@@ -19,11 +20,13 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
     Q_OBJECT
 public:
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
+        QVector<AuthenticationInfo> authenticationInfos;
         QString displayName;
         QString accountName;
         QString userName;
         QString serverUrl;
         QString password;
+        bool canResetPassword = false;
         bool enabled = true;
     };
 

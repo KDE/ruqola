@@ -19,7 +19,7 @@ public:
     ~CreateNewServerCheckUrlWidget() override;
 
 Q_SIGNALS:
-    void serverUrlFound(const QString &url, const QVector<AuthenticationInfo> authenticationInfos);
+    void serverUrlFound(const QString &url, const QVector<AuthenticationInfo> authenticationInfos, bool canResetPassword);
 
 private:
     void slotTestConnection();

@@ -58,6 +58,7 @@ AccountManager::AccountManagerInfo CreateNewServerDialog::accountInfo() const
 void CreateNewServerDialog::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     setWindowTitle(i18nc("@title:window", "Modify Account"));
+    // TODO allow to reset password
     mCreateNewServerStackWidget->setAccountInfo(info);
 }
 
