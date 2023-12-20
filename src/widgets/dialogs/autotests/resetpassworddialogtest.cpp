@@ -53,3 +53,5 @@ void ResetPasswordDialogTest::shouldUpdateOkButton()
     mEmail->setText(QStringLiteral("foo"));
     QVERIFY(!okButton->isEnabled());
 }
+
+#include "moc_resetpassworddialogtest.cpp"

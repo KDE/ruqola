@@ -18,3 +18,5 @@ void ResetPasswordWidgetTest::shouldHaveDefaultValues()
     ReportMessageWidget w;
     // TODO
 }
+
+#include "moc_resetpasswordwidgettest.cpp"
