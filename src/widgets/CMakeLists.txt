@@ -888,6 +888,7 @@ target_link_libraries(libruqolawidgets
     KF${KF_MAJOR_VERSION}::Prison
     KF${KF_MAJOR_VERSION}::KIOFileWidgets
     KF${KF_MAJOR_VERSION}::Archive
+    KF${KF_MAJOR_VERSION}::Codecs
     librocketchatrestapi-qt
     libruqolacore
 )

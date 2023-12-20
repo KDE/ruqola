@@ -6,6 +6,7 @@
 
 #include "passwordlineeditwidget.h"
 #include <KAuthorized>
+#include <KEmailAddress>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
@@ -48,8 +49,10 @@ void PasswordLineEditWidget::slotResetPasswordButton()
     bool ok = false;
     const QString email = QInputDialog::getText(this, i18n("Reset Password"), i18n("Email:"), QLineEdit::Normal, {}, &ok);
     if (ok && !email.trimmed().isEmpty()) {
-        // Validate email ?
-        Q_EMIT resetPasswordRequested(email);
+        // Validate email
+        if (KEmailAddress::isValidAddress(email)) {
+            Q_EMIT resetPasswordRequested(email);
+        }
     }
 }
 
