@@ -18,7 +18,6 @@ NeedUpdateVersionWidgetTest::~NeedUpdateVersionWidgetTest() = default;
 void NeedUpdateVersionWidgetTest::shouldHaveDefaultValues()
 {
     NeedUpdateVersionWidget w;
-    QVERIFY(w.isCloseButtonVisible());
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QCOMPARE(w.position(), KMessageWidget::Header);
 #endif

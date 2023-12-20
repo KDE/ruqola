@@ -5,11 +5,10 @@
 */
 
 #include "createnewserverwidgettest.h"
+#include "common/authenticationloginwidget.h"
 #include "common/authenticationoauthwidget.h"
 #include "createnewserver/createnewserverwidget.h"
-#include <KPasswordLineEdit>
 #include <QFormLayout>
-#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(CreateNewServerWidgetTest)
 CreateNewServerWidgetTest::CreateNewServerWidgetTest(QObject *parent)
@@ -25,30 +24,15 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
-    QVERIFY(mAccountName);
-    QVERIFY(mAccountName->text().isEmpty());
-    QVERIFY(mAccountName->isClearButtonEnabled());
-
-    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
-    QVERIFY(mServerUrl);
-    QVERIFY(mServerUrl->text().isEmpty());
-    QVERIFY(mServerUrl->isClearButtonEnabled());
-
-    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
-    QVERIFY(mUserName);
-    QVERIFY(mUserName->text().isEmpty());
-    QVERIFY(mUserName->isClearButtonEnabled());
-
     QVERIFY(w.accountInfo().userName.isEmpty());
     QVERIFY(w.accountInfo().serverUrl.isEmpty());
     QVERIFY(w.accountInfo().accountName.isEmpty());
 
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
-    QVERIFY(mPasswordLineEdit);
-
     auto mAuthenticationWidget = w.findChild<AuthenticationOauthWidget *>(QStringLiteral("mAuthenticationWidget"));
     QVERIFY(mAuthenticationWidget);
+
+    auto mAuthenticationLoginWidget = w.findChild<AuthenticationLoginWidget *>(QStringLiteral("mAuthenticationLoginWidget"));
+    QVERIFY(mAuthenticationLoginWidget);
 }
 
 #include "moc_createnewserverwidgettest.cpp"

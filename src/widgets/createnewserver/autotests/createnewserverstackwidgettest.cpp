@@ -21,7 +21,7 @@ void CreateNewServerStackWidgetTest::shouldHaveDefaultValues()
     auto mCreateNewServerCheckUrlWidget = w.findChild<CreateNewServerCheckUrlWidget *>(QStringLiteral("mCreateNewServerCheckUrlWidget"));
     QVERIFY(mCreateNewServerCheckUrlWidget);
 
-    auto mCreateNewServerWidget = w.findChild<CreateNewServerCheckUrlWidget *>(QStringLiteral("mCreateNewServerWidget"));
+    auto mCreateNewServerWidget = w.findChild<CreateNewServerWidget *>(QStringLiteral("mCreateNewServerWidget"));
     QVERIFY(mCreateNewServerWidget);
 }
 
