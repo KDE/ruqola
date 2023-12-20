@@ -365,6 +365,11 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createnewdiscussionwidget.cpp
     dialogs/createnewdiscussionwidget.h
 
+    dialogs/resetpassworddialog.h
+    dialogs/resetpassworddialog.cpp
+
+    dialogs/resetpasswordwidget.h
+    dialogs/resetpasswordwidget.cpp
 
     createnewserver/createnewserverdialog.cpp
     createnewserver/createnewserverdialog.h
