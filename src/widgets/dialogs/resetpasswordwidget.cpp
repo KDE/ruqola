@@ -16,7 +16,7 @@ ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
     : QWidget{parent}
     , mEmail(new QLineEdit(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
@@ -35,11 +35,7 @@ ResetPasswordWidget::~ResetPasswordWidget() = default;
 void ResetPasswordWidget::slotEmailChanged(const QString &str)
 {
     const QString email = str.trimmed();
-    if (KEmailAddress::isValidAddress(email)) {
-        Q_EMIT updateOkButton(true);
-    } else {
-        Q_EMIT updateOkButton(false);
-    }
+    Q_EMIT updateOkButton(KEmailAddress::isValidAddress(email) == KEmailAddress::AddressOk);
 }
 
 QString ResetPasswordWidget::email() const
