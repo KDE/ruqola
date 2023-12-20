@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
+#include <QPointer>
 #include <QPushButton>
 
 PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
@@ -45,7 +46,7 @@ void PasswordLineEditWidget::setAllowPasswordReset(bool allowPassword)
 
 void PasswordLineEditWidget::slotResetPasswordButton()
 {
-    ResetPasswordDialog *dialog = new ResetPasswordDialog(this);
+    QPointer<ResetPasswordDialog> dialog = new ResetPasswordDialog(this);
     if (dialog->exec()) {
         Q_EMIT resetPasswordRequested(dialog->email());
     }
