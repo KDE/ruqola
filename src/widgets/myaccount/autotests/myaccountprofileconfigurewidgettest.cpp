@@ -9,6 +9,7 @@
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
@@ -35,6 +36,9 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
     QVERIFY(mEmail);
+
+    auto mEmailInfo = w.findChild<QLabel *>(QStringLiteral("mEmailInfo"));
+    QVERIFY(mEmailInfo);
 
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     QVERIFY(mName);
