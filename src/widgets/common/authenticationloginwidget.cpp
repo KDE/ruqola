@@ -6,7 +6,7 @@
 
 #include "authenticationloginwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include <KAuthorized>
+#include "misc/passwordlineeditwidget.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -17,7 +17,7 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     , mAccountName(new QLineEdit(this))
     , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
-    , mPasswordLineEdit(new KPasswordLineEdit(this))
+    , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,9 +37,8 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     new LineEditCatchReturnKey(mUserName, this);
     mainLayout->addRow(i18n("Username:"), mUserName);
 
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
-    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+    mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
 
     connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
@@ -74,7 +73,7 @@ AccountManager::AccountManagerInfo AuthenticationLoginWidget::accountInfo()
         mAccountInfo.serverUrl.chop(1);
     }
     mAccountInfo.userName = mUserName->text().trimmed();
-    mAccountInfo.password = mPasswordLineEdit->password();
+    mAccountInfo.password = mPasswordLineEditWidget->passwordLineEdit()->password();
     return mAccountInfo;
 }
 
@@ -84,7 +83,8 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
     mAccountName->setText(info.displayName.isEmpty() ? info.accountName : info.displayName);
     mUserName->setText(info.userName);
     mServerUrl->setText(info.serverUrl);
-    mPasswordLineEdit->setPassword(info.password);
+    mPasswordLineEditWidget->passwordLineEdit()->setPassword(info.password);
+    mPasswordLineEditWidget->setAllowPasswordReset(info.canResetPassword);
 }
 
 #include "moc_authenticationloginwidget.cpp"
