@@ -75,4 +75,5 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     add_ruqoladialog_test(createvideomessagewizardtest.cpp)
     add_ruqoladialog_test(createsoundmessagewizardtest.cpp)
 endif()
-
+add_ruqoladialog_test(resetpassworddialogtest.cpp)
+add_ruqoladialog_test(resetpasswordwidgettest.cpp)

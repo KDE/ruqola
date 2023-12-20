@@ -5,22 +5,22 @@
 */
 
 #include "resetpassworddialog.h"
+#include "resetpasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
 
 ResetPasswordDialog::ResetPasswordDialog(QWidget *parent)
     : QDialog(parent)
+    , mResetPasswordWidget(new ResetPasswordWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Reset Password"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // mReportMessageWidget->setObjectName(QStringLiteral("mReportMessageWidget"));
-    // mainLayout->addWidget(mReportMessageWidget);
-    // mainLayout->addStretch(1);
+    mResetPasswordWidget->setObjectName(QStringLiteral("mResetPasswordWidget"));
+    mainLayout->addWidget(mResetPasswordWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
@@ -30,7 +30,7 @@ ResetPasswordDialog::ResetPasswordDialog(QWidget *parent)
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    // connect(mReportMessageWidget, &ReportMessageWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    connect(mResetPasswordWidget, &ResetPasswordWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
 ResetPasswordDialog::~ResetPasswordDialog() = default;

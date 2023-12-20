@@ -7,10 +7,15 @@
 #include "resetpasswordwidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 
 ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 ResetPasswordWidget::~ResetPasswordWidget() = default;

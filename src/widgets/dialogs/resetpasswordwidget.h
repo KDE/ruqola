@@ -5,13 +5,16 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class ResetPasswordWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ResetPasswordWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ResetPasswordWidget(QWidget *parent = nullptr);
     ~ResetPasswordWidget() override;
+
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
 };

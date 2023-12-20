@@ -7,11 +7,14 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class ResetPasswordWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ResetPasswordDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ResetPasswordDialog(QWidget *parent = nullptr);
     ~ResetPasswordDialog() override;
+
+private:
+    ResetPasswordWidget *const mResetPasswordWidget;
 };
