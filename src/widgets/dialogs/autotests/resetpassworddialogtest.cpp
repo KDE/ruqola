@@ -5,13 +5,14 @@
 */
 
 #include "resetpassworddialogtest.h"
-#include "dialogs/reportmessagewidget.h"
 #include "dialogs/resetpassworddialog.h"
+#include "dialogs/resetpasswordwidget.h"
 #include <QDialogButtonBox>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+
 QTEST_MAIN(ResetPasswordDialogTest)
 ResetPasswordDialogTest::ResetPasswordDialogTest(QObject *parent)
     : QObject{parent}
@@ -26,7 +27,7 @@ void ResetPasswordDialogTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mResetPasswordWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mResetPasswordWidget"));
+    auto mResetPasswordWidget = w.findChild<ResetPasswordWidget *>(QStringLiteral("mResetPasswordWidget"));
     QVERIFY(mResetPasswordWidget);
 
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
@@ -41,7 +42,7 @@ void ResetPasswordDialogTest::shouldHaveDefaultValues()
 void ResetPasswordDialogTest::shouldUpdateOkButton()
 {
     ResetPasswordDialog w;
-    auto mResetPasswordWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mResetPasswordWidget"));
+    auto mResetPasswordWidget = w.findChild<ResetPasswordWidget *>(QStringLiteral("mResetPasswordWidget"));
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
 
     auto mEmail = mResetPasswordWidget->findChild<QLineEdit *>(QStringLiteral("mEmail"));
