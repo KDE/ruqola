@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
 "PO-Revision-Date: 2023-10-29 09:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -6071,6 +6071,12 @@ msgstr "Poprzedni kanał"
 msgid "Next Channel"
 msgstr "Następny kanał"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Wejdź przez Apple"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6292,7 +6298,7 @@ msgstr "Czy usunąć to konto '%1'?"
 msgid "Server Url:"
 msgstr "URL Serwera:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Connecting"
 msgid "Connection"
@@ -7412,7 +7418,7 @@ msgstr "Nie udało się zalogować: błąd ogólny"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Aby ukończyć logowanie, wymagane jest jednorazowe hasło."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Nie udało się zalogować: Nieprawidłowy kod OTP."
@@ -8694,37 +8700,37 @@ msgstr ""
 "Włączyłeś uwierzytelnianie drugiego stopnia.\n"
 "Wpisz wytworzony kod lub kod zapasowy."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Nie udało się zalogować: niepoprawna nazwa użytkownika lub hasło"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Napotkano usterkę wgrywania. Nie znaleziono tutaj wtyczek."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Nie udało się zalogować: błąd ogólny"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Nie udało się wejść: Tymczasowo zablokowano dostęp dla IP."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Nie udało się wejść: Tymczasowo zablokowano dostęp dla użytkownika."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Nie udało się wejść: Użytkownik nie został włączony."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9247,6 +9253,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Sposób uwierzytelniania"
 
 #, fuzzy
 #~| msgid "Cozy"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
 "PO-Revision-Date: 2023-12-16 06:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -5927,6 +5927,12 @@ msgstr "წინა არხი"
 msgid "Next Channel"
 msgstr "შემდეგი არხი"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Apple-ით შესვლა"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6146,7 +6152,7 @@ msgstr "მართლა გნებავთ ამ ანგარიში
 msgid "Server Url:"
 msgstr "სერვერის URL:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, kde-format
 msgid "Connection"
 msgstr "კავშირი"
@@ -7252,7 +7258,7 @@ msgstr "შესვლა ვერ მოხერხდა: ზოგად�
 msgid "A one-time password is required to complete the login procedure."
 msgstr "შესვლის პროცედურის დასასრულებლად საჭიროა ერთჯერადი პაროლი."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "შესვლის შეცდომა: OTP კოდი არასწორია."
@@ -8503,37 +8509,37 @@ msgstr ""
 "თქვენ ჩართეთ 2.\n"
 "შეიყვანეთ გენერირებული ან მარქაფი კოდი."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "შესვლის შეცდომა: მომხმარებელი ან პაროლი არასწორია"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "დაყენების შეცდომა. დამატებები ვერ ვიპოვე."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "შესვლის შეცდომ: ამ IP-დან შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "შესვლის შეცდომა: ამ მომხმარებლით შემოსვლა დროებით დაბლოკილია."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "შესვლის შეცდომა: მომხმარებელი გააქტიურებული არაა."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "შესვლის შეცდომა: აპის მომხმარებელს შესვლის უფლება არ აქვს."
@@ -9054,6 +9060,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "ხმის/ვიდეოს ფაილის გადმოწერის გასწორება, როცა ის კეშში არაა."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "ავთენტიკაციის მეთოდი"
 
 #, fuzzy
 #~| msgid "Cozy"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
-"PO-Revision-Date: 2023-12-15 20:51+0300\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"PO-Revision-Date: 2023-12-19 11:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -6014,6 +6014,12 @@ msgstr "Önceki Kanal"
 msgid "Next Channel"
 msgstr "Sonraki Kanal"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Apple ile giriş yap"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6233,16 +6239,15 @@ msgstr "'%1' hesabını kaldırmak istediğinize emin misiniz?"
 msgid "Server Url:"
 msgstr "Sunucu URL'si:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, kde-format
 msgid "Connection"
 msgstr "Bağlantı"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Dosyayı kopyalamak olanaksız"
+msgstr "Sunucuya erişim olanaksız."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -7345,7 +7350,7 @@ msgstr ""
 "Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
 "gerekiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
@@ -8616,40 +8621,40 @@ msgstr ""
 "İki adımlı kimlik doğrulamayı etkinleştirdiniz.\n"
 "Üretilen kodu veya bir yedek kodunu girin."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Kurulum sorunu bulundu. Burada hiçbir eklenti yok."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Oturum açma başarısız: Genel hata"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Oturum açma başarısız. Bu IP için oturum açma geçici olarak engellendi."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Oturum açma başarısız. Bu kullanıcı için oturum açma geçici olarak "
 "engellendi."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Oturum açma başarısız: Kullanıcı etkinleştirilmemiş."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9175,3 +9180,9 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Önbellekte değilken ses/video indirme sorununu çöz."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Kimlik Doğrulama Yöntemi"

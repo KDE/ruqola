@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
-"PO-Revision-Date: 2023-12-16 14:12+0100\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"PO-Revision-Date: 2023-12-19 15:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6063,6 +6063,12 @@ msgstr "Canal anterior"
 msgid "Next Channel"
 msgstr "Canal següent"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Inicia la sessió amb Apple"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6282,16 +6288,15 @@ msgstr "Voleu eliminar aquest compte «%1»?"
 msgid "Server Url:"
 msgstr "URL del servidor:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, kde-format
 msgid "Connection"
 msgstr "Connexió"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Impossible copiar el fitxer"
+msgstr "És impossible accedir al servidor."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -7395,7 +7400,7 @@ msgstr ""
 "Es requereix una contrasenya d'un ús per a completar el procediment d'inici "
 "de sessió."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ha fallat l'inici de la sessió: codi OTP no vàlid."
@@ -8666,42 +8671,42 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi de reserva."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Ha fallat l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Aquí no s'ha trobat cap connector."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Ha fallat l'inici de la sessió: error genèric"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Ha fallat l'inici de la sessió: temporalment s'ha bloquejat l'inici de "
 "sessió per IP."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Ha fallat l'inici de la sessió: temporalment s'ha bloquejat l'inici de "
 "sessió per usuari."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Ha fallat l'inici de la sessió: l'usuari no està activat."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9232,6 +9237,12 @@ msgstr ""
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Corregeix la baixada del fitxer de so/vídeo quan no està en la memòria cau."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Mètode d'autenticació"
 
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"

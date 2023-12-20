@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
-"PO-Revision-Date: 2023-12-16 11:33+0100\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"PO-Revision-Date: 2023-12-19 13:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6067,6 +6067,12 @@ msgstr "Vorig kanaal"
 msgid "Next Channel"
 msgstr "Volgend kanaal"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Aanmelden met Apple"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6286,16 +6292,15 @@ msgstr "Wilt u dit account verwijderen: \"%1\"?"
 msgid "Server Url:"
 msgstr "URL-adres server:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, kde-format
 msgid "Connection"
 msgstr "Verbinding"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Bestand kopiëren is onmogelijk"
+msgstr "Toegang tot server is onmogelijk."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -7397,7 +7402,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Een eenmalig wachtwoord is vereist om de aanmeldprocedure te voltooien."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Aanmelden is mislukt: ongeldige OTP-code"
@@ -8669,39 +8674,39 @@ msgstr ""
 "U hebt tweefactor authenticatie ingeschakeld.\n"
 "Voer de gegenereerde code of een backupcode in."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Aanmelden is mislukt: ongeldige gebruikersnaam of wachtwoord"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Installatieprobleem gevonden. Hier geen plug-ins gevonden."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Aanmelden is mislukt: algemene fout"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Aanmelden is mislukt: aanmelden is tijdelijk geblokkeerd voor IP-adres."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Aanmelden is mislukt: aanmelden is tijdelijk geblokkeerd voor gebruiker."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Aanmelden is mislukt: gebruiker is niet geactiveerd."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9231,6 +9236,12 @@ msgstr ""
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Downloaden van bestand met geluid/video wanneer het niet in de cache is."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Authenticatiemethode"
 
 #~| msgid "Cozy"
 #~ msgctxt "Message Style"

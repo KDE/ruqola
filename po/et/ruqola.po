@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -6286,6 +6286,11 @@ msgstr "Eelmine kanal"
 msgid "Next Channel"
 msgstr "Kanali loomine"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, kde-format
+msgid "Sign in with %1"
+msgstr ""
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6518,7 +6523,7 @@ msgstr "Kas eemaldada konto \"%1\"?"
 msgid "Server Url:"
 msgstr "Serveri URL:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Connection"
@@ -7717,7 +7722,7 @@ msgstr "Sisselogimine nurjus: üldine tõrge"
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, fuzzy, kde-format
 #| msgid "Login failed: invalid username or password"
 msgid "Login failed: Invalid OTP code."
@@ -9077,38 +9082,38 @@ msgstr ""
 "Oled lubanud kaheastmelise autentimise.\n"
 "Palun sisesta genereeritud kood või varukood."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Sisselogimine nurjus: vale kasutajanimi või parool"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Leiti paigaldamise probleem. Ei leitud ühtegi pluginat."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Sisselogimine nurjus: üldine tõrge"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, fuzzy, kde-format
 #| msgid "User is not activated"
 msgid "Login Failed: User is not activated."
 msgstr "Kasutaja ei ole aktiveeritud"
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, fuzzy, kde-format
 #| msgid "App user is not allowed to login"
 msgid "Login Failed: App user is not allowed to login."
@@ -9684,6 +9689,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Autentimisviis"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Kanal nimega '__channel_name__' on juba olemas"

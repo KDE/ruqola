@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
-"PO-Revision-Date: 2023-12-16 08:48+0200\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"PO-Revision-Date: 2023-12-19 22:40+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -6086,6 +6086,12 @@ msgstr "Попередній канал"
 msgid "Next Channel"
 msgstr "Наступний канал"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Увійти за допомогою Apple"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6305,16 +6311,15 @@ msgstr "Хочете вилучити обліковий запис «%1»?"
 msgid "Server Url:"
 msgstr "Адреса сервера:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, kde-format
 msgid "Connection"
 msgstr "З'єднання"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Не вдалося скопіювати файл"
+msgstr "Неможливо отримати доступ до сервера."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -7442,7 +7447,7 @@ msgstr "Помилка під час спроби увійти: загальна
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Для завершення процедури входу слід ввести одноразовий пароль."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Помилка під час спроби увійти: некоректний код OTP."
@@ -8722,39 +8727,39 @@ msgstr ""
 "Вами увімкнено двофакторне розпізнавання.\n"
 "Будь ласка, введіть створений код або резервний код."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Помилка під час спроби увійти: некоректне ім'я користувача або пароль"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Виявлено проблему зі встановленням. Не знайдено додатків."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Помилка під час спроби увійти: загальна помилка"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Не вдалося увійти: вхід користувача було тимчасово заблоковано для IP."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Не вдалося увійти: вхід користувача було тимчасово заблоковано для "
 "користувача."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Не вдалося увійти: запис користувача не активовано."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9286,6 +9291,12 @@ msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Виправити отриманий файл звукових даних або відео, коли він не перебуває у "
 "кеші."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Спосіб розпізнавання"
 
 #~| msgid "Cozy"
 #~ msgctxt "Message Style"

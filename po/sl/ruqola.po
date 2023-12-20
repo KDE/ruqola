@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 00:41+0000\n"
-"PO-Revision-Date: 2023-12-16 09:29+0100\n"
+"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"PO-Revision-Date: 2023-12-19 07:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.1\n"
 
 #: apps/main.cpp:54
@@ -6038,6 +6038,12 @@ msgstr "Prejšnji kanal"
 msgid "Next Channel"
 msgstr "Naslednji kanal"
 
+#: widgets/common/authenticationbutton.cpp:23
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
+msgid "Sign in with %1"
+msgstr "Prijavite se v Apple"
+
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6257,16 +6263,15 @@ msgstr "Ali želite odstraniti ta račun »%1«?"
 msgid "Server Url:"
 msgstr "Url strežnika:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:43
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
 #, kde-format
 msgid "Connection"
 msgstr "Povezava"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Ni mogoče kopirati datoteke"
+msgstr "Ni mogoče pristopiti do strežnika"
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -7381,7 +7386,7 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Za dokončanje postopka prijave je potrebno enkratno geslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prijava ni uspela: neveljavna koda OTP."
@@ -8661,37 +8666,37 @@ msgstr ""
 "Omogočili ste dvostopenjsko preverjanje pristnosti.\n"
 "Vnesite ustvarjeno kodo ali nadomestno varnostno kodo."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Prijava ni uspela: neveljavno uporabniško ime ali geslo"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:203
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:209
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Prijava ni uspela: Prijava je bila začasno blokirana za IP."
 
-#: widgets/ruqolaloginwidget.cpp:220
+#: widgets/ruqolaloginwidget.cpp:221
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Prijava ni uspela: Prijava je bila začasno blokirana za uporabnika."
 
-#: widgets/ruqolaloginwidget.cpp:226
+#: widgets/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Prijava ni uspela: Uporabnik ni aktiviran."
 
-#: widgets/ruqolaloginwidget.cpp:232
+#: widgets/ruqolaloginwidget.cpp:233
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Prijava ni uspela: Uporabniku aplikacije ni dovoljena prijava."
@@ -9214,6 +9219,12 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Popravi prenos zvočne/video datoteke, ko ni v predpomnilniku."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Fix list of authentication method."
+msgstr "Metoda preverjanja pristnosti"
 
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"
