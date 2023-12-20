@@ -15,6 +15,7 @@
 #include <KMessageBox>
 #include <KPasswordDialog>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QPointer>
 #include <QPushButton>
@@ -22,6 +23,7 @@
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mEmail(new QLineEdit(this))
+    , mEmailInfo(new QLabel(i18n("Your administrator has disabled the changing of email."), this))
     , mName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mNickName(new QLineEdit(this))
@@ -55,6 +57,9 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     mEmail->setObjectName(QStringLiteral("mEmail"));
     new LineEditCatchReturnKey(mEmail, this);
     mainLayout->addRow(i18n("Email:"), mEmail);
+
+    mEmailInfo->setObjectName(QStringLiteral("mEmailInfo"));
+    mainLayout->addWidget(mEmailInfo);
 
     mNickName->setObjectName(QStringLiteral("mNickName"));
     new LineEditCatchReturnKey(mNickName, this);
@@ -108,6 +113,8 @@ void MyAccountProfileConfigureWidget::initialize()
 {
     mUserName->setReadOnly(!mRocketChatAccount->allowUsernameChange());
     mEmail->setReadOnly(!mRocketChatAccount->allowEmailChange());
+    mEmailInfo->setVisible(!mRocketChatAccount->allowEmailChange());
+
     mPasswordConfirmWidget->setVisible(mRocketChatAccount->allowPasswordChange());
     mDeleteMyAccount->setVisible(mRocketChatAccount->allowDeleteOwnAccount());
     mConfigureAvatarWidget->setVisible(mRocketChatAccount->allowAvatarChanged());

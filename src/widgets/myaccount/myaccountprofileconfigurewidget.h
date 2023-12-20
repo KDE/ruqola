@@ -14,6 +14,7 @@ class QPushButton;
 class PasswordConfirmWidget;
 class MyAccountProfileConfigureAvatarWidget;
 class RocketChatAccount;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -28,6 +29,7 @@ private:
     void slotLogoutFromOtherLocation();
     void slotDeleteMyAccount();
     QLineEdit *const mEmail;
+    QLabel *const mEmailInfo;
     QLineEdit *const mName;
     QLineEdit *const mUserName;
     QLineEdit *const mNickName;
