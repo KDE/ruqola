@@ -40,6 +40,7 @@ void RuqolaMainWindowTest::shouldHaveDefaultValues()
     auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
     QVERIFY(mSplitter);
     switchToMainWidget(w);
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     auto statusAction = qobject_cast<QWidgetAction *>(w.action("status"));
 #else
