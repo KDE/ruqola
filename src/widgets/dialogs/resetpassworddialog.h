@@ -15,6 +15,8 @@ public:
     explicit ResetPasswordDialog(QWidget *parent = nullptr);
     ~ResetPasswordDialog() override;
 
+    [[nodiscard]] QString email() const;
+
 private:
     ResetPasswordWidget *const mResetPasswordWidget;
 };

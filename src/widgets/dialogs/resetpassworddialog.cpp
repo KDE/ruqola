@@ -35,4 +35,9 @@ ResetPasswordDialog::ResetPasswordDialog(QWidget *parent)
 
 ResetPasswordDialog::~ResetPasswordDialog() = default;
 
+QString ResetPasswordDialog::email() const
+{
+    return mResetPasswordWidget->email();
+}
+
 #include "moc_resetpassworddialog.cpp"
