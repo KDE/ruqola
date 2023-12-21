@@ -42,14 +42,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mainLayout->addRow(i18n("Server URL:"), mServerUrl);
+    connect(mServerUrl, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotCheckOauth);
+
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
     mAccountName->setPlaceholderText(i18n("Account name"));
     connect(mAccountName, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotUpdateLoginButton);
-
-    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
-    mainLayout->addRow(i18n("Server URL:"), mServerUrl);
-    connect(mServerUrl, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotCheckOauth);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("Username or Email:"), mUserName);
@@ -130,6 +130,8 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     mAccountName->setText(mRocketChatAccount->displayName());
     mAccountName->setReadOnly(!mRocketChatAccount->displayName().isEmpty());
     mServerUrl->setText(mRocketChatAccount->serverUrl());
+    mServerUrl->setReadOnly(true);
+
     mUserName->setText(mRocketChatAccount->userName());
     disconnect(mUpdatePasswordConnection);
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
