@@ -19,6 +19,9 @@ void GitHubAuthenticationInterface::login()
 {
     auto job = new GitHubAuthenticationJob(this);
     job->start();
+    connect(job, &GitHubAuthenticationJob::authenticated, this, [this]() {
+        // TODO
+    });
 }
 
 #include "moc_githubauthenticationinterface.cpp"

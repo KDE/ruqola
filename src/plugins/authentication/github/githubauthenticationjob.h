@@ -7,12 +7,20 @@
 #pragma once
 
 #include <QObject>
-
+class QOAuth2AuthorizationCodeFlow;
 class GitHubAuthenticationJob : public QObject
 {
     Q_OBJECT
 public:
     explicit GitHubAuthenticationJob(QObject *parent = nullptr);
     ~GitHubAuthenticationJob() override;
+
     void start();
+
+Q_SIGNALS:
+    void authenticated();
+
+private:
+    void slotAuthenticated();
+    QOAuth2AuthorizationCodeFlow *const mOAuth2;
 };
