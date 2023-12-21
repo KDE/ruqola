@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"POT-Creation-Date: 2023-12-21 00:42+0000\n"
 "PO-Revision-Date: 2023-07-13 22:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2402,7 +2402,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr "Nomine:"
@@ -3345,7 +3345,7 @@ msgstr "Fixa contrasigno casual e invia per e-posta"
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
 msgid "Username:"
@@ -3358,15 +3358,15 @@ msgstr "Message de stato:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:160
-#: widgets/misc/passwordlineeditwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
+#: widgets/dialogs/resetpasswordwidget.cpp:23
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
 msgid "Email:"
 msgstr "E-posta:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:41
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -3700,7 +3700,7 @@ msgstr "Cryptation"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid "Message"
 msgstr "Message"
@@ -6156,7 +6156,7 @@ msgstr "URL de servitor:"
 msgid "Connection"
 msgstr "Il es connectente"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:103
 #, fuzzy, kde-format
 #| msgid "Impossible to copy file"
 msgid "Impossible to access to server."
@@ -6770,6 +6770,13 @@ msgstr "Message:"
 msgid "Why you signal this message?"
 msgstr "Proque tu signala iste message?"
 
+#: widgets/dialogs/resetpassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Reset Password"
+msgctxt "@title:window"
+msgid "Reset Password"
+msgstr "Refixa Contrasigno"
+
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
 #, kde-format
@@ -7380,8 +7387,7 @@ msgstr "Nove contrasigno:"
 msgid "Confirm Password:"
 msgstr "Confirma contrasigno:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:18
-#: widgets/misc/passwordlineeditwidget.cpp:49
+#: widgets/misc/passwordlineeditwidget.cpp:19
 #, kde-format
 msgid "Reset Password"
 msgstr "Refixa Contrasigno"
@@ -7748,39 +7754,44 @@ msgstr "Define Url de Avatar:"
 msgid "Change URL for avatar..."
 msgstr "Cambia URL per avatar..."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#, kde-format
+msgid "Your administrator has disabled the changing of email."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr "Dele mi conto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Claude session ex altere locationes de session aperite"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr "Pseudonymo:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr "Texto de stato:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Tu vermente vole deler tu conto?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Dele mi conto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:168
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasigno currente"
@@ -8774,7 +8785,7 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stato"
 
-#: widgets/ruqolamainwindow.cpp:1032
+#: widgets/ruqolamainwindow.cpp:1031
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8783,7 +8794,7 @@ msgstr ""
 "<qt>Isto celera completemente le barra de menu. Tu pote monstrar lo de nove "
 "per typar %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1034
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Cela barra de menu"

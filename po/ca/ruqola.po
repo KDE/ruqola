@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 00:41+0000\n"
-"PO-Revision-Date: 2023-12-19 15:59+0100\n"
+"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"PO-Revision-Date: 2023-12-20 11:40+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2387,7 +2387,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr "Nom:"
@@ -3319,7 +3319,7 @@ msgstr "Estableix una contrasenya aleatòria i l'envia per correu"
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
 msgid "Username:"
@@ -3332,15 +3332,15 @@ msgstr "Missatge d'estat:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:160
-#: widgets/misc/passwordlineeditwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
+#: widgets/dialogs/resetpasswordwidget.cpp:23
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
 msgid "Email:"
 msgstr "Correu electrònic:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:41
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -3677,7 +3677,7 @@ msgstr "Encriptatge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
@@ -6064,10 +6064,9 @@ msgid "Next Channel"
 msgstr "Canal següent"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgid "Sign in with Apple"
+#, kde-format
 msgid "Sign in with %1"
-msgstr "Inicia la sessió amb Apple"
+msgstr "Inicia la sessió amb %1"
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6293,7 +6292,7 @@ msgstr "URL del servidor:"
 msgid "Connection"
 msgstr "Connexió"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:103
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "És impossible accedir al servidor."
@@ -6906,6 +6905,13 @@ msgstr "Missatge:"
 msgid "Why you signal this message?"
 msgstr "Per què assenyaleu aquest missatge?"
 
+#: widgets/dialogs/resetpassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Reset Password"
+msgctxt "@title:window"
+msgid "Reset Password"
+msgstr "Reinicia la contrasenya"
+
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
 #, kde-format
@@ -7506,8 +7512,7 @@ msgstr "Contrasenya nova:"
 msgid "Confirm Password:"
 msgstr "Confirma la contrasenya:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:18
-#: widgets/misc/passwordlineeditwidget.cpp:49
+#: widgets/misc/passwordlineeditwidget.cpp:19
 #, kde-format
 msgid "Reset Password"
 msgstr "Reinicia la contrasenya"
@@ -7878,39 +7883,44 @@ msgstr "Defineix l'URL de l'avatar:"
 msgid "Change URL for avatar..."
 msgstr "Canvia l'URL de l'avatar..."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#, kde-format
+msgid "Your administrator has disabled the changing of email."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr "Suprimeix el meu compte"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Desconnecta des d'altres ubicacions connectades"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr "Sobrenom:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr "Text de l'estat:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Esteu segur de suprimir el vostre compte?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Supressió del meu compte"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:168
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasenya actual"
@@ -8905,7 +8915,7 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/ruqolamainwindow.cpp:1032
+#: widgets/ruqolamainwindow.cpp:1031
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8914,7 +8924,7 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1034
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Oculta la barra de menús"
@@ -9239,10 +9249,8 @@ msgstr ""
 "Corregeix la baixada del fitxer de so/vídeo quan no està en la memòria cau."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
-#, fuzzy
-#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "Mètode d'autenticació"
+msgstr "Corregeix la llista de mètodes d'autenticació."
 
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"

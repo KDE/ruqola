@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 00:41+0000\n"
-"PO-Revision-Date: 2023-12-19 07:10+0100\n"
+"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"PO-Revision-Date: 2023-12-20 07:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2375,7 +2375,7 @@ msgstr "Ime emodžija po meri in njegovi vzdevki morajo biti različni."
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
@@ -3320,7 +3320,7 @@ msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
 msgid "Username:"
@@ -3333,15 +3333,15 @@ msgstr "Sporočilo o stanju:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:160
-#: widgets/misc/passwordlineeditwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
+#: widgets/dialogs/resetpasswordwidget.cpp:23
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
 msgid "Email:"
 msgstr "E-naslov:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:41
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -3676,7 +3676,7 @@ msgstr "Šifriranje"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
@@ -6039,10 +6039,9 @@ msgid "Next Channel"
 msgstr "Naslednji kanal"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgid "Sign in with Apple"
+#, kde-format
 msgid "Sign in with %1"
-msgstr "Prijavite se v Apple"
+msgstr "Prijavite se z %1"
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6268,10 +6267,10 @@ msgstr "Url strežnika:"
 msgid "Connection"
 msgstr "Povezava"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:103
 #, kde-format
 msgid "Impossible to access to server."
-msgstr "Ni mogoče pristopiti do strežnika"
+msgstr "Ni mogoče pristopiti do strežnika."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6885,6 +6884,13 @@ msgstr "Sporočilo:"
 msgid "Why you signal this message?"
 msgstr "Zakaj podajate to sporočilo?"
 
+#: widgets/dialogs/resetpassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Reset Password"
+msgctxt "@title:window"
+msgid "Reset Password"
+msgstr "Ponastavi geslo"
+
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
 #, kde-format
@@ -7492,8 +7498,7 @@ msgstr "Novo geslo:"
 msgid "Confirm Password:"
 msgstr "Potrdite geslo:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:18
-#: widgets/misc/passwordlineeditwidget.cpp:49
+#: widgets/misc/passwordlineeditwidget.cpp:19
 #, kde-format
 msgid "Reset Password"
 msgstr "Ponastavi geslo"
@@ -7866,39 +7871,44 @@ msgstr "Določi Url avatarja:"
 msgid "Change URL for avatar..."
 msgstr "Spremeni URL za avatar ..."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#, kde-format
+msgid "Your administrator has disabled the changing of email."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr "Izbriši moj račun"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Odjava iz drugih prijavljenih mest"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr "Vzdevek:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr "Besedilo stanja:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Ali res želite izbrisati svoj račun?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Izbriši moj račun"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:168
 #, kde-format
 msgid "Current Password"
 msgstr "Trenutno geslo"
@@ -8893,7 +8903,7 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/ruqolamainwindow.cpp:1032
+#: widgets/ruqolamainwindow.cpp:1031
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8902,7 +8912,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1034
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Krij menijsko vrstico"
@@ -9221,10 +9231,8 @@ msgid "Fix download sound/video file when it's not in cache."
 msgstr "Popravi prenos zvočne/video datoteke, ko ni v predpomnilniku."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
-#, fuzzy
-#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "Metoda preverjanja pristnosti"
+msgstr "Popravi seznam metod avtentikacije."
 
 #~ msgctxt "Message Style"
 #~ msgid "Cozy"

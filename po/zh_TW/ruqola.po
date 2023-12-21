@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 00:41+0000\n"
+"POT-Creation-Date: 2023-12-21 00:42+0000\n"
 "PO-Revision-Date: 2023-12-13 03:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2451,7 +2451,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr "名稱："
@@ -3480,7 +3480,7 @@ msgstr ""
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
 msgid "Username:"
@@ -3495,15 +3495,15 @@ msgstr "%1 則訊息"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:160
-#: widgets/misc/passwordlineeditwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
+#: widgets/dialogs/resetpasswordwidget.cpp:23
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
 msgid "Email:"
 msgstr "電子郵件："
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:41
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -3844,7 +3844,7 @@ msgstr "加密："
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -6413,7 +6413,7 @@ msgstr "伺服器網址："
 msgid "Connection"
 msgstr "邀請使用者"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:103
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""
@@ -7050,6 +7050,13 @@ msgstr "訊息："
 #, kde-format
 msgid "Why you signal this message?"
 msgstr ""
+
+#: widgets/dialogs/resetpassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:window"
+msgid "Reset Password"
+msgstr "密碼"
 
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
@@ -7691,8 +7698,7 @@ msgstr "密碼："
 msgid "Confirm Password:"
 msgstr "密碼："
 
-#: widgets/misc/passwordlineeditwidget.cpp:18
-#: widgets/misc/passwordlineeditwidget.cpp:49
+#: widgets/misc/passwordlineeditwidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Reset Password"
@@ -8057,39 +8063,44 @@ msgstr "定義頭貼網址："
 msgid "Change URL for avatar..."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#, kde-format
+msgid "Your administrator has disabled the changing of email."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr "刪除我的帳戶"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr "暱稱："
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr "狀態文字："
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "您確定要刪除您的帳戶嗎？"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "刪除我的帳戶"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:168
 #, kde-format
 msgid "Current Password"
 msgstr "目前密碼"
@@ -9158,14 +9169,14 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態："
 
-#: widgets/ruqolamainwindow.cpp:1032
+#: widgets/ruqolamainwindow.cpp:1031
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1034
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""

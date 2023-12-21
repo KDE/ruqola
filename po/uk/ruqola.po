@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 00:41+0000\n"
-"PO-Revision-Date: 2023-12-19 22:40+0200\n"
+"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"PO-Revision-Date: 2023-12-20 08:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2390,7 +2390,7 @@ msgstr ""
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr "Назва:"
@@ -3335,7 +3335,7 @@ msgstr "Встановити випадковий пароль і надісла
 #: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
 msgid "Username:"
@@ -3348,15 +3348,15 @@ msgstr "Повідомлення стану:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:160
-#: widgets/misc/passwordlineeditwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
+#: widgets/dialogs/resetpasswordwidget.cpp:23
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
 msgid "Email:"
 msgstr "Ел. пошта:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:42
+#: widgets/common/authenticationloginwidget.cpp:41
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:39
 #: widgets/ruqolaloginwidget.cpp:77
@@ -3695,7 +3695,7 @@ msgstr "Шифрування"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1004
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
@@ -6087,10 +6087,9 @@ msgid "Next Channel"
 msgstr "Наступний канал"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgid "Sign in with Apple"
+#, kde-format
 msgid "Sign in with %1"
-msgstr "Увійти за допомогою Apple"
+msgstr "Увійти за допомогою %1"
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6316,7 +6315,7 @@ msgstr "Адреса сервера:"
 msgid "Connection"
 msgstr "З'єднання"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:101
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:103
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Неможливо отримати доступ до сервера."
@@ -6946,6 +6945,13 @@ msgstr "Повідомлення:"
 msgid "Why you signal this message?"
 msgstr "Чому ви скаржитеся на це повідомлення?"
 
+#: widgets/dialogs/resetpassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Reset Password"
+msgctxt "@title:window"
+msgid "Reset Password"
+msgstr "Скинути пароль"
+
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
 #, kde-format
@@ -7553,8 +7559,7 @@ msgstr "Новий пароль:"
 msgid "Confirm Password:"
 msgstr "Підтвердження пароля:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:18
-#: widgets/misc/passwordlineeditwidget.cpp:49
+#: widgets/misc/passwordlineeditwidget.cpp:19
 #, kde-format
 msgid "Reset Password"
 msgstr "Скинути пароль"
@@ -7928,39 +7933,44 @@ msgstr "Визначення адреси аватара:"
 msgid "Change URL for avatar..."
 msgstr "Змінити адресу аватара…"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#, kde-format
+msgid "Your administrator has disabled the changing of email."
+msgstr ""
+
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr "Вилучити обліковий запис"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Вийти із інших місць, куди було здійснено вхід"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr "Псевдонім:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr "Текст стану:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:93
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Ви справді хочете вилучити свій обліковий запис:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:94
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Вилучення облікового запису"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:104
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:168
 #, kde-format
 msgid "Current Password"
 msgstr "Поточний пароль"
@@ -8959,7 +8969,7 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/ruqolamainwindow.cpp:1032
+#: widgets/ruqolamainwindow.cpp:1031
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8968,7 +8978,7 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1034
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
@@ -9293,10 +9303,8 @@ msgstr ""
 "кеші."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
-#, fuzzy
-#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "Спосіб розпізнавання"
+msgstr "Виправлено список способів розпізнавання."
 
 #~| msgid "Cozy"
 #~ msgctxt "Message Style"
