@@ -9,7 +9,6 @@
 #include <QWidget>
 
 #include "accountmanager.h"
-#include "authenticationinfo.h"
 #include "libruqolawidgets_private_export.h"
 class AuthenticationOauthWidget;
 class AuthenticationLoginWidget;
@@ -24,8 +23,6 @@ public:
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
     void setExistingAccountName(const QStringList &lst);
-
-    void setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos);
 
 Q_SIGNALS:
     void updateOkButton(bool state);

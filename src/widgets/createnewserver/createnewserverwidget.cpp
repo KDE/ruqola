@@ -38,28 +38,24 @@ AccountManager::AccountManagerInfo CreateNewServerWidget::accountInfo()
     return mAuthenticationLoginWidget->accountInfo();
 }
 
-void CreateNewServerWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
-{
-    mAuthenticationLoginWidget->setAccountInfo(info);
-}
-
-void CreateNewServerWidget::setExistingAccountName(const QStringList &lst)
-{
-    mAuthenticationLoginWidget->setExistingAccountName(lst);
-}
-
-void CreateNewServerWidget::setAuthenticationInfos(const QVector<AuthenticationInfo> &authenticationInfos)
+void CreateNewServerWidget::setAccountInfo(const AccountManager::AccountManagerInfo &accountInfo)
 {
     mAuthenticationLoginWidget->hide();
     mAuthenticationWidget->hide();
-    for (const auto &info : authenticationInfos) {
+    for (const auto &info : accountInfo.authenticationInfos) {
         if (info.oauthType() == AuthenticationManager::AuthMethodType::Password) {
             mAuthenticationLoginWidget->show();
+            mAuthenticationLoginWidget->setAccountInfo(accountInfo);
         } else {
             mAuthenticationWidget->show();
             mAuthenticationWidget->addAuthenticationMethod(info);
         }
     }
+}
+
+void CreateNewServerWidget::setExistingAccountName(const QStringList &lst)
+{
+    mAuthenticationLoginWidget->setExistingAccountName(lst);
 }
 
 #include "moc_createnewserverwidget.cpp"
