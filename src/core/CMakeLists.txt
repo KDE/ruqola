@@ -597,6 +597,7 @@ if (WIN32 OR APPLE)
 endif()
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_link_libraries(libruqolacore qt6keychain)
+    target_link_libraries(libruqolacore KF6::StatusNotifierItem)
 else()
     target_link_libraries(libruqolacore qt5keychain)
 endif()
@@ -604,10 +605,6 @@ target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
 if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
     target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
-endif()
-
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(libruqolacore KF6::StatusNotifierItem)
 endif()
 
 set_target_properties(libruqolacore
