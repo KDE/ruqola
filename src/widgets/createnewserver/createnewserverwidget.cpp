@@ -25,7 +25,6 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mAuthenticationLoginWidget->setObjectName(QStringLiteral("mAuthenticationLoginWidget"));
     mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
     mainLayout->addWidget(mAuthenticationLoginWidget);
-    // TODO update list of authentication.
     mainLayout->addWidget(mAuthenticationWidget);
     // TODO add support for two factor ?
 
