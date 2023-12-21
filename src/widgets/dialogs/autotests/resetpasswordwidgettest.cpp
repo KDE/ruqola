@@ -6,6 +6,9 @@
 
 #include "resetpasswordwidgettest.h"
 #include "dialogs/reportmessagewidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(ResetPasswordWidgetTest)
 ResetPasswordWidgetTest::ResetPasswordWidgetTest(QObject *parent)
@@ -16,7 +19,18 @@ ResetPasswordWidgetTest::ResetPasswordWidgetTest(QObject *parent)
 void ResetPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ReportMessageWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    auto mEmail = w.findChild<QLineEdit *>(QStringLiteral("mEmail"));
+    QVERIFY(mEmail);
+    QVERIFY(mEmail->text().isEmpty());
 }
 
 #include "moc_resetpasswordwidgettest.cpp"
