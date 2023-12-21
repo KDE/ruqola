@@ -6,6 +6,7 @@
 
 #include "passwordlineeditwidget.h"
 #include "dialogs/resetpassworddialog.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -29,6 +30,7 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     mResetPasswordButton->setObjectName(QStringLiteral("mResetPasswordButton"));
     mainLayout->addWidget(mPasswordLineEdit);
     mainLayout->addWidget(mResetPasswordButton);
+    new LineEditCatchReturnKey(mPasswordLineEdit->lineEdit(), this);
     connect(mResetPasswordButton, &QPushButton::clicked, this, &PasswordLineEditWidget::slotResetPasswordButton);
 }
 
