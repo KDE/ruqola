@@ -197,7 +197,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.textRect.y(), iconSize, iconSize);
     if (layout.sameSenderAsPreviousMessage) {
-        layout.addReactionRect.moveTop(senderRectY);
+        layout.addReactionRect.moveTop(layout.textRect.y());
     }
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
@@ -212,6 +212,15 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     // Discussions
     if (!message->discussionRoomId().isEmpty()) {
         layout.discussionsHeight = option.fontMetrics.height();
+    }
+    // Increase size when we have more than 2 icons
+    if (layout.sameSenderAsPreviousMessage) {
+        if (iconIndex > 2) {
+            layout.discussionsHeight += margin;
+        }
+        if (iconIndex > 4) {
+            layout.discussionsHeight += iconSize;
+        }
     }
     return layout;
 }
