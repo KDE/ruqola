@@ -23,13 +23,11 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
             &CreateNewServerCheckUrlWidget::serverUrlFound,
             this,
             [this](const QString &serverUrl, const QVector<AuthenticationInfo> &authenticationInfos, bool canResetPassword) {
-                setCurrentWidget(mCreateNewServerWidget);
                 AccountManager::AccountManagerInfo info;
                 info.serverUrl = serverUrl;
                 info.authenticationInfos = authenticationInfos;
                 info.canResetPassword = canResetPassword;
-
-                mCreateNewServerWidget->setAccountInfo(std::move(info));
+                setAccountInfo(std::move(info));
             });
     connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
 }
