@@ -25,6 +25,7 @@ public:
 
 Q_SIGNALS:
     void updateOkButton(bool state);
+    void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;

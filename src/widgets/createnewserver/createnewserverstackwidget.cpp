@@ -30,6 +30,7 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
                 setAccountInfo(std::move(info));
             });
     connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
+    connect(mCreateNewServerWidget, &CreateNewServerWidget::authentication, this, &CreateNewServerStackWidget::authentication);
 }
 
 CreateNewServerStackWidget::~CreateNewServerStackWidget() = default;

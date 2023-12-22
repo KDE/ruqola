@@ -21,6 +21,9 @@ public:
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     void setExistingAccountName(const QStringList &lst);
 
+Q_SIGNALS:
+    void authentication(AuthenticationManager::AuthMethodType type);
+
 private:
     void readConfig();
     void writeConfig();

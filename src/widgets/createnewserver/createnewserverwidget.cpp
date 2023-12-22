@@ -29,6 +29,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     // TODO add support for two factor ?
 
     connect(mAuthenticationLoginWidget, &AuthenticationLoginWidget::updateOkButton, this, &CreateNewServerWidget::updateOkButton);
+    connect(mAuthenticationWidget, &AuthenticationOauthWidget::authentication, this, &CreateNewServerWidget::authentication);
 }
 
 CreateNewServerWidget::~CreateNewServerWidget() = default;
