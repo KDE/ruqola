@@ -6,7 +6,6 @@
 
 #include "authenticationoauthwidget.h"
 #include "authenticationbutton.h"
-#include "authenticationinfo.h"
 #include <QVBoxLayout>
 
 AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
