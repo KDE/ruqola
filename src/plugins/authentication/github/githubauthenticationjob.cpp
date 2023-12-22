@@ -9,11 +9,6 @@
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QOAuthHttpServerReplyHandler>
 
-using namespace Qt::StringLiterals;
-static constexpr auto authorizationUrl("https://github.com/login/oauth/authorize"_L1);
-static constexpr auto accessTokenUrl("https://github.com/login/oauth/access_token"_L1);
-static constexpr auto scope("identity read"_L1);
-
 GitHubAuthenticationJob::GitHubAuthenticationJob(QObject *parent)
     : QObject{parent}
     , mOAuth2(new QOAuth2AuthorizationCodeFlow(this))
@@ -26,9 +21,9 @@ void GitHubAuthenticationJob::start()
 {
     auto replyHandler = new QOAuthHttpServerReplyHandler(1337, this);
     mOAuth2->setReplyHandler(replyHandler);
-    mOAuth2->setAuthorizationUrl(QUrl(authorizationUrl));
-    mOAuth2->setAccessTokenUrl(QUrl(accessTokenUrl));
-    mOAuth2->setScope(scope);
+    mOAuth2->setAuthorizationUrl(QUrl(QStringLiteral("https://github.com/login/oauth/authorize")));
+    mOAuth2->setAccessTokenUrl(QUrl(QStringLiteral("https://github.com/login/oauth/access_token")));
+    mOAuth2->setScope(QStringLiteral("identity read"));
     mOAuth2->setClientIdentifier(QStringLiteral("clientIdentifier")); // TODO
 
     connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::granted, this, &GitHubAuthenticationJob::slotAuthenticated);
