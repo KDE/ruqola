@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1570,6 +1570,11 @@ msgstr ""
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
+msgstr ""
+
+#: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
+#, kde-format
+msgid "GitLab"
 msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -6293,7 +6298,7 @@ msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
@@ -7729,7 +7734,7 @@ msgstr "Sisselogimine nurjus: üldine tõrge"
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, fuzzy, kde-format
 #| msgid "Login failed: invalid username or password"
 msgid "Login failed: Invalid OTP code."
@@ -7849,7 +7854,7 @@ msgstr "Parool:"
 msgid "Confirm Password:"
 msgstr "Kanali parool:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:19
+#: widgets/misc/passwordlineeditwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Reset Password"
@@ -9056,12 +9061,12 @@ msgstr "Kasutaja tagasiside saadaolevate valikute loend"
 msgid "Login"
 msgstr "Logi sisse"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Account Name:"
 msgstr "Konto nimi:"
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Account name"
@@ -9093,38 +9098,38 @@ msgstr ""
 "Oled lubanud kaheastmelise autentimise.\n"
 "Palun sisesta genereeritud kood või varukood."
 
-#: widgets/ruqolaloginwidget.cpp:189
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Sisselogimine nurjus: vale kasutajanimi või parool"
 
-#: widgets/ruqolaloginwidget.cpp:203
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Leiti paigaldamise probleem. Ei leitud ühtegi pluginat."
 
-#: widgets/ruqolaloginwidget.cpp:209
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Sisselogimine nurjus: üldine tõrge"
 
-#: widgets/ruqolaloginwidget.cpp:215
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:221
+#: widgets/ruqolaloginwidget.cpp:223
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:227
+#: widgets/ruqolaloginwidget.cpp:229
 #, fuzzy, kde-format
 #| msgid "User is not activated"
 msgid "Login Failed: User is not activated."
 msgstr "Kasutaja ei ole aktiveeritud"
 
-#: widgets/ruqolaloginwidget.cpp:233
+#: widgets/ruqolaloginwidget.cpp:235
 #, fuzzy, kde-format
 #| msgid "App user is not allowed to login"
 msgid "Login Failed: App user is not allowed to login."

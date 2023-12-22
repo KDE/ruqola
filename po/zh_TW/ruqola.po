@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
 "PO-Revision-Date: 2023-12-13 03:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1546,6 +1546,11 @@ msgstr ""
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
+msgstr ""
+
+#: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
+#, kde-format
+msgid "GitLab"
 msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -6178,7 +6183,7 @@ msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
@@ -7586,7 +7591,7 @@ msgstr ""
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr ""
@@ -7698,7 +7703,7 @@ msgstr "密碼："
 msgid "Confirm Password:"
 msgstr "密碼："
 
-#: widgets/misc/passwordlineeditwidget.cpp:19
+#: widgets/misc/passwordlineeditwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Reset Password"
@@ -8883,12 +8888,12 @@ msgstr ""
 msgid "Login"
 msgstr "登入"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Account Name:"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Account name"
 msgstr "帳戶名稱"
@@ -8917,39 +8922,39 @@ msgid ""
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:189
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:203
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "發現安裝問題。此處找不到外掛程式。"
 
-#: widgets/ruqolaloginwidget.cpp:209
+#: widgets/ruqolaloginwidget.cpp:211
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: generic error"
 msgstr "登入失敗"
 
-#: widgets/ruqolaloginwidget.cpp:215
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:221
+#: widgets/ruqolaloginwidget.cpp:223
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:227
+#: widgets/ruqolaloginwidget.cpp:229
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: User is not activated."
 msgstr "登入失敗"
 
-#: widgets/ruqolaloginwidget.cpp:233
+#: widgets/ruqolaloginwidget.cpp:235
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""

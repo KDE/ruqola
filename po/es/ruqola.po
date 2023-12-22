@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
 "PO-Revision-Date: 2023-12-02 11:29+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1471,6 +1471,11 @@ msgstr "Aceptar"
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
+msgstr ""
+
+#: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
+#, kde-format
+msgid "GitLab"
 msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -6074,7 +6079,7 @@ msgstr "Registrarse con Apple"
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
@@ -7411,7 +7416,7 @@ msgstr ""
 "Una contaseña de un solo uso es necesaria para completar el proceso de "
 "acceso."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "El inicio de sesión ha fallado: código OTP inválido."
@@ -7525,7 +7530,7 @@ msgstr "Nueva contraseña:"
 msgid "Confirm Password:"
 msgstr "Confirmar contraseña:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:19
+#: widgets/misc/passwordlineeditwidget.cpp:20
 #, kde-format
 msgid "Reset Password"
 msgstr "Reiniciar contraseña"
@@ -8658,12 +8663,12 @@ msgstr "Mostrar las opciones disponibles para comentarios de usuario"
 msgid "Login"
 msgstr "Abrir sesión"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Account Name:"
 msgstr "Nombre de la cuenta:"
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Account name"
 msgstr "Nombre de la cuenta"
@@ -8692,44 +8697,44 @@ msgstr ""
 "Ha activado la autenticación de dos factores.\n"
 "Introduzca el código generado o un código de recuperación."
 
-#: widgets/ruqolaloginwidget.cpp:189
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "El inicio de sesión ha fallado: nombre de usuario o contraseña erróneos"
 
-#: widgets/ruqolaloginwidget.cpp:203
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Se ha encontrado un problema de instalación. No se han encontrado "
 "complementos."
 
-#: widgets/ruqolaloginwidget.cpp:209
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "El inicio de sesión ha fallado: error genérico"
 
-#: widgets/ruqolaloginwidget.cpp:215
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Inicio de sesión fallido: El inicio ha sido bloqueado temporalmente para la "
 "IP."
 
-#: widgets/ruqolaloginwidget.cpp:221
+#: widgets/ruqolaloginwidget.cpp:223
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Inicio de sesión fallido: El inicio ha sido bloqueado temporalmente para el "
 "usuario."
 
-#: widgets/ruqolaloginwidget.cpp:227
+#: widgets/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Inicio de sesión fallido: El usuario no está activado."
 
-#: widgets/ruqolaloginwidget.cpp:233
+#: widgets/ruqolaloginwidget.cpp:235
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""

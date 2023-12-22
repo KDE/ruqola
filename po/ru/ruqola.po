@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-21 00:42+0000\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1482,6 +1482,11 @@ msgstr "Принять"
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
+msgstr ""
+
+#: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
+#, kde-format
+msgid "GitLab"
 msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -6113,7 +6118,7 @@ msgstr "Войти с помощью данных Apple"
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Server URL:"
 msgstr "Адрес сервера:"
@@ -7470,7 +7475,7 @@ msgstr "Ошибка входа: общая ошибка"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Для завершения процедуры входа требуется одноразовый пароль."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:193
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ошибка входа: неверный код OTP."
@@ -7586,7 +7591,7 @@ msgstr "Новый пароль:"
 msgid "Confirm Password:"
 msgstr "Подтверждение пароля:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:19
+#: widgets/misc/passwordlineeditwidget.cpp:20
 #, kde-format
 msgid "Reset Password"
 msgstr "Сбросить пароль"
@@ -8730,12 +8735,12 @@ msgstr "Показать доступные варианты обратной с
 msgid "Login"
 msgstr "Войти"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Account Name:"
 msgstr "Имя учётной записи:"
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Account name"
 msgstr "Имя учётной записи"
@@ -8764,37 +8769,37 @@ msgstr ""
 "Включена двухфакторная аутентификация.\n"
 "Введите сгенерированный код или резервный код."
 
-#: widgets/ruqolaloginwidget.cpp:189
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Ошибка входа: неверное имя пользователя или пароль"
 
-#: widgets/ruqolaloginwidget.cpp:203
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Обнаружена ошибка установки. Модулей не найдено."
 
-#: widgets/ruqolaloginwidget.cpp:209
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Ошибка входа: общая ошибка"
 
-#: widgets/ruqolaloginwidget.cpp:215
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Ошибка входа: по этому IP-адресу временно запрещён вход."
 
-#: widgets/ruqolaloginwidget.cpp:221
+#: widgets/ruqolaloginwidget.cpp:223
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Ошибка входа: этому пользователю временно запрещён вход."
 
-#: widgets/ruqolaloginwidget.cpp:227
+#: widgets/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Ошибка входа: пользователь не активирован."
 
-#: widgets/ruqolaloginwidget.cpp:233
+#: widgets/ruqolaloginwidget.cpp:235
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Ошибка входа: пользователю приложения запрещён вход."
