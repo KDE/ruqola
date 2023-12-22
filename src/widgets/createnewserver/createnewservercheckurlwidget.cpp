@@ -58,6 +58,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
 
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
     mFailedError->setMessageType(KMessageWidget::Error);
+    mFailedError->setCloseButtonVisible(false);
 
     topLayout->addWidget(mFailedError);
     // Hide by default
