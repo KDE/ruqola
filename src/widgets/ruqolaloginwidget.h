@@ -33,12 +33,12 @@ private:
     void slotLogin();
     void slotResetPasswordRequested(const QString &email);
     void slotUpdateLoginButton();
-    void slotCheckOauth();
 
     QLineEdit *const mAccountName;
     QLineEdit *const mServerUrl;
     QLineEdit *const mUserName;
     PasswordLineEditWidget *const mPasswordLineEditWidget;
+
     QMetaObject::Connection mUpdatePasswordConnection;
     QPushButton *const mLoginButton;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;

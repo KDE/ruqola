@@ -7,13 +7,10 @@
 #include "ruqolaloginwidget.h"
 #include "colorsandmessageviewstyle.h"
 #include "common/authenticationoauthwidget.h"
-#include "connection.h"
 #include "misc/passwordlineeditwidget.h"
-#include "misc/settingsoauthjob.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola_password_widgets_debug.h"
-#include "settings/publicsettingsjob.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -44,7 +41,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mainLayout->addRow(i18n("Server URL:"), mServerUrl);
-    connect(mServerUrl, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotCheckOauth);
 
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
@@ -256,37 +252,6 @@ void RuqolaLoginWidget::showError(const QString &text)
 void RuqolaLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     mRocketChatAccount->requestNewPassword(email);
-}
-
-void RuqolaLoginWidget::slotCheckOauth()
-{
-#if 0
-    const QUrl serverUrl{mServerUrl->text()};
-    if (serverUrl.isValid()) {
-        mRocketChatAccount->setServerUrl(mServerUrl->text());
-        auto job = new RocketChatRestApi::SettingsOauthJob(this);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::SettingsOauthJob::settingsOauthDone, this, [](const QJsonObject &obj) {
-            qDebug() << " obj " << obj;
-            qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " obj" << obj;
-        });
-        if (!job->start()) {
-            qDebug() << " impossible to start SettingsOauthJob";
-            qCWarning(RUQOLA_PASSWORD_WIDGETS_LOG) << "Impossible to start SettingsOauthJob";
-        }
-    }
-
-    auto job = new RocketChatRestApi::PublicSettingsJob(this);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::PublicSettingsJob::publicSettingsDone, this, [](const QJsonObject &obj) {
-        qDebug() << " public settings obj " << obj;
-        qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " obj" << obj;
-    });
-    if (!job->start()) {
-        qDebug() << " impossible to start PublicSettingsJob";
-        qCWarning(RUQOLA_PASSWORD_WIDGETS_LOG) << "Impossible to start SettingsOauthJob";
-    }
-#endif
 }
 
 #include "moc_ruqolaloginwidget.cpp"
