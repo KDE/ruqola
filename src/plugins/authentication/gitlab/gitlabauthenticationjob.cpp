@@ -5,9 +5,11 @@
 */
 
 #include "gitlabauthenticationjob.h"
+#include "gitlabauthenticationplugin_debug.h"
 #include <QDesktopServices>
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QOAuthHttpServerReplyHandler>
+#include <QTimer>
 
 GitLabAuthenticationJob::GitLabAuthenticationJob(QObject *parent)
     : QObject{parent}
@@ -17,24 +19,87 @@ GitLabAuthenticationJob::GitLabAuthenticationJob(QObject *parent)
 
 GitLabAuthenticationJob::~GitLabAuthenticationJob() = default;
 
+void GitLabAuthenticationJob::doRequest()
+{
+    // TODO
+#if 0
+    auto reply = oauth2.get(QUrl(QLatin1String("https://telemetry.kde.org/secure/")));
+    QObject::connect(reply, &QNetworkReply::finished, &oauth2, [&oauth2, reply]() {
+        reply->deleteLater();
+        for (const auto &h : reply->request().rawHeaderList()) {
+            qDebug() << h << ":" << reply->request().rawHeader(h);
+        }
+        qDebug() << QDateTime::currentDateTime() << oauth2.expirationAt() << reply->readAll() << reply->errorString();
+        QTimer::singleShot(5* 60 * 1000, [&oauth2]() { doRequest(oauth2); });
+    });
+    QObject::connect(reply, &QNetworkReply::sslErrors, &oauth2, [reply](const auto &errors) {
+        reply->ignoreSslErrors(errors); // self sign cert on the set setup
+    });
+#endif
+
+    deleteLater();
+}
+
+GitLabAuthenticationJob::GitLabInfo GitLabAuthenticationJob::gitLabInfo() const
+{
+    return mGitLabInfo;
+}
+
+void GitLabAuthenticationJob::setGitLabInfo(const GitLabInfo &newGitLabInfo)
+{
+    mGitLabInfo = newGitLabInfo;
+}
+
 void GitLabAuthenticationJob::start()
 {
-    auto replyHandler = new QOAuthHttpServerReplyHandler(1337, this);
+    if (!mGitLabInfo.isValid()) {
+        qCWarning(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "Lab info is invalid";
+        deleteLater();
+        return;
+    }
+    auto replyHandler = new QOAuthHttpServerReplyHandler(11450, mOAuth2);
+    mOAuth2->setClientIdentifier(mGitLabInfo.clientId);
     mOAuth2->setReplyHandler(replyHandler);
     mOAuth2->setAuthorizationUrl(QUrl(QStringLiteral("https://gitlab.com/login/oauth/authorize")));
     mOAuth2->setAccessTokenUrl(QUrl(QStringLiteral("https://gitlab.com/login/oauth/access_token")));
-    mOAuth2->setScope(QStringLiteral("identity read"));
-    mOAuth2->setClientIdentifier(QStringLiteral("clientIdentifier")); // TODO
+    mOAuth2->setScope(QStringLiteral("openid"));
 
-    connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::granted, this, &GitLabAuthenticationJob::slotAuthenticated);
-    connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, this, &QDesktopServices::openUrl);
-    deleteLater();
+    mOAuth2->setToken(mGitLabInfo.token);
+    mOAuth2->setRefreshToken(mGitLabInfo.refreshToken);
+
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::statusChanged, [this](QAbstractOAuth::Status status) {
+#if 0
+        QSettings settings;
+        settings.setValue("BearerToken", oauth2.token());
+        settings.setValue("RefreshToken", oauth2.refreshToken());
+#endif
+        qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG)
+            << (int)status << mOAuth2->token() << mOAuth2->refreshToken() << mOAuth2->expirationAt() << mOAuth2->extraTokens();
+        if (status == QAbstractOAuth::Status::Granted) {
+            qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "authorization granted";
+            doRequest();
+            QTimer::singleShot(std::max<qint64>(5 * 60 * 1000, QDateTime::currentDateTime().secsTo(mOAuth2->expirationAt()) * 800),
+                               mOAuth2,
+                               &QOAuth2AuthorizationCodeFlow::refreshAccessToken);
+        }
+    });
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizationCallbackReceived, [](const QVariantMap &m) {
+        qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "auth callback received" << m;
+    });
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::error, [](const QString &err, const QString &desc) {
+        qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "error" << err << desc;
+    });
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, &QDesktopServices::openUrl);
+
+    if (mOAuth2->refreshToken().isEmpty()) {
+        mOAuth2->grant();
+    } else if (!mOAuth2->expirationAt().isValid() || mOAuth2->expirationAt() < QDateTime::currentDateTimeUtc()) {
+        mOAuth2->refreshAccessToken();
+    }
 }
 
-void GitLabAuthenticationJob::slotAuthenticated()
+bool GitLabAuthenticationJob::GitLabInfo::isValid() const
 {
-    Q_EMIT authenticated();
-    deleteLater();
+    return !url.isEmpty() && !clientId.isEmpty();
 }
-
 #include "moc_gitlabauthenticationjob.cpp"

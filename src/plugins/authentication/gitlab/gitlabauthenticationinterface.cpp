@@ -19,9 +19,9 @@ void GitLabAuthenticationInterface::login()
 {
     auto job = new GitLabAuthenticationJob(this);
     job->start();
-    connect(job, &GitLabAuthenticationJob::authenticated, this, [this]() {
-        // TODO
-    });
+    // connect(job, &GitLabAuthenticationJob::authenticated, this, [this]() {
+    //     // TODO
+    // });
 }
 
 #include "moc_gitlabauthenticationinterface.cpp"

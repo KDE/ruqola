@@ -12,15 +12,27 @@ class GitHubAuthenticationJob : public QObject
 {
     Q_OBJECT
 public:
+    struct GitHubInfo {
+        QString url;
+        QString token;
+        QString refreshToken;
+        QString clientId;
+
+        [[nodiscard]] bool isValid() const;
+    };
     explicit GitHubAuthenticationJob(QObject *parent = nullptr);
     ~GitHubAuthenticationJob() override;
 
     void start();
 
+    [[nodiscard]] GitHubInfo gitHubInfo() const;
+    void setGitHubInfo(const GitHubInfo &newGitHubInfo);
+
 Q_SIGNALS:
-    void authenticated();
+    void authenticateDone();
 
 private:
-    void slotAuthenticated();
+    void doRequest();
+    GitHubInfo mGitHubInfo;
     QOAuth2AuthorizationCodeFlow *const mOAuth2;
 };

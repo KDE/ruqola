@@ -12,15 +12,27 @@ class GitLabAuthenticationJob : public QObject
 {
     Q_OBJECT
 public:
+    struct GitLabInfo {
+        QString clientId;
+        QString url;
+        QString token;
+        QString refreshToken;
+
+        [[nodiscard]] bool isValid() const;
+    };
     explicit GitLabAuthenticationJob(QObject *parent = nullptr);
     ~GitLabAuthenticationJob() override;
 
     void start();
 
+    [[nodiscard]] GitLabInfo gitLabInfo() const;
+    void setGitLabInfo(const GitLabInfo &newGitLabInfo);
+
 Q_SIGNALS:
-    void authenticated();
+    void authenticateDone();
 
 private:
-    void slotAuthenticated();
+    void doRequest();
+    GitLabInfo mGitLabInfo;
     QOAuth2AuthorizationCodeFlow *const mOAuth2;
 };
