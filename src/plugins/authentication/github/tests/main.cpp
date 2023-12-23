@@ -24,10 +24,9 @@ int main(int argc, char **argv)
         const QString value = parser.value(clientId);
         auto job = new GitHubAuthenticationJob();
         GitHubAuthenticationJob::GitHubInfo info;
-        // info.url;
         info.url = QStringLiteral("foo");
         info.clientId = value;
-        job->setGitHubInfo(info);
+        job->setGitHubInfo(std::move(info));
         job->start();
         app.exec();
     } else {

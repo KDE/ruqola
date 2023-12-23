@@ -27,9 +27,8 @@ int main(int argc, char **argv)
         // Make url
         info.url = QStringLiteral("foo");
         info.clientId = value;
-        job->setGitLabInfo(info);
+        job->setGitLabInfo(std::move(info));
         job->start();
-        // TODO
         app.exec();
     } else {
         parser.showHelp();
