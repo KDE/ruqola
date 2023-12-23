@@ -68,14 +68,10 @@ void GitLabAuthenticationJob::start()
     mOAuth2->setRefreshToken(mGitLabInfo.refreshToken);
 
     QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::statusChanged, [this](QAbstractOAuth::Status status) {
-#if 0
-        QSettings settings;
-        settings.setValue("BearerToken", oauth2.token());
-        settings.setValue("RefreshToken", oauth2.refreshToken());
-#endif
         qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG)
             << (int)status << mOAuth2->token() << mOAuth2->refreshToken() << mOAuth2->expirationAt() << mOAuth2->extraTokens();
         if (status == QAbstractOAuth::Status::Granted) {
+            // TODO store info in qtkeychain
             qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "authorization granted";
             doRequest();
             QTimer::singleShot(std::max<qint64>(5 * 60 * 1000, QDateTime::currentDateTime().secsTo(mOAuth2->expirationAt()) * 800),
