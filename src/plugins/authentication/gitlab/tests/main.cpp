@@ -21,10 +21,12 @@ int main(int argc, char **argv)
     parser.process(app);
 
     if (parser.isSet(clientId)) {
-        const int value = parser.value(clientId).toInt();
+        const QString value = parser.value(clientId);
         auto job = new GitLabAuthenticationJob();
         GitLabAuthenticationJob::GitLabInfo info;
-        // info.url;
+        // Make url
+        info.url = QStringLiteral("foo");
+        info.clientId = value;
         job->setGitLabInfo(info);
         job->start();
         // TODO
