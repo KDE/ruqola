@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-23 00:41+0000\n"
-"PO-Revision-Date: 2023-12-16 06:44+0100\n"
+"PO-Revision-Date: 2023-12-24 05:18+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1473,7 +1473,7 @@ msgstr "GitHub"
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
 #, kde-format
 msgid "GitLab"
-msgstr ""
+msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
@@ -5933,10 +5933,9 @@ msgid "Next Channel"
 msgstr "შემდეგი არხი"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, fuzzy, kde-format
-#| msgid "Sign in with Apple"
+#, kde-format
 msgid "Sign in with %1"
-msgstr "Apple-ით შესვლა"
+msgstr "%1-ით შესვლა"
 
 #: widgets/common/authenticationloginwidget.cpp:28
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6163,10 +6162,9 @@ msgid "Connection"
 msgstr "კავშირი"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "ფაილის კოპირება შეუძლებელია"
+msgstr "სერვერთან წვდომა შეუძლებელია."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6773,11 +6771,10 @@ msgid "Why you signal this message?"
 msgstr "რატომ მიუთითებთ ამ შეტყობინებაზე?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Password"
-msgstr "პაროლის აღდგენა"
+msgstr "პაროლის ჩამოყრა"
 
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
@@ -9078,10 +9075,8 @@ msgid "Fix download sound/video file when it's not in cache."
 msgstr "ხმის/ვიდეოს ფაილის გადმოწერის გასწორება, როცა ის კეშში არაა."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
-#, fuzzy
-#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "ავთენტიკაციის მეთოდი"
+msgstr "ავთენტიკაციის მეთოდების სიის გასწორება."
 
 #, fuzzy
 #~| msgid "Cozy"
