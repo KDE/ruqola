@@ -22,6 +22,7 @@ GitLabAuthenticationJob::~GitLabAuthenticationJob() = default;
 void GitLabAuthenticationJob::doRequest()
 {
     // TODO
+    // TODO use https://github.com/login/device/code
 
     deleteLater();
 }
