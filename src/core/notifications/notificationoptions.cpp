@@ -174,15 +174,15 @@ void NotificationOptions::setHideMentionStatus(bool newHideMentionStatus)
 
 QDebug operator<<(QDebug d, const NotificationOptions &t)
 {
-    d << "mAudioNotificationValue: " << t.audioNotificationValue();
-    d << "mDesktopNotifications: " << t.desktopNotifications();
-    d << "mMobilePushNotification: " << t.mobilePushNotification();
-    d << "mEmailNotifications: " << t.emailNotifications();
-    d << "mDisableNotifications: " << t.disableNotifications();
-    d << "hideUnreadStatus: " << t.hideUnreadStatus();
-    d << "unreadTrayIconAlert: " << t.unreadTrayIconAlert();
-    d << "mMuteGroupMentions: " << t.muteGroupMentions();
-    d << "mHideMentionStatus: " << t.hideMentionStatus();
+    d.space() << "mAudioNotificationValue:" << t.audioNotificationValue();
+    d.space() << "mDesktopNotifications:" << t.desktopNotifications();
+    d.space() << "mMobilePushNotification:" << t.mobilePushNotification();
+    d.space() << "mEmailNotifications:" << t.emailNotifications();
+    d.space() << "mDisableNotifications:" << t.disableNotifications();
+    d.space() << "hideUnreadStatus:" << t.hideUnreadStatus();
+    d.space() << "unreadTrayIconAlert:" << t.unreadTrayIconAlert();
+    d.space() << "mMuteGroupMentions:" << t.muteGroupMentions();
+    d.space() << "mHideMentionStatus:" << t.hideMentionStatus();
     return d;
 }
 

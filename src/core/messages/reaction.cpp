@@ -84,8 +84,8 @@ bool Reaction::operator==(const Reaction &other) const
 
 QDebug operator<<(QDebug d, const Reaction &t)
 {
-    d << "ReactionName " << t.reactionName();
-    d << "UserNames " << t.userNames();
+    d.space() << "ReactionName" << t.reactionName();
+    d.space() << "UserNames" << t.userNames();
     return d;
 }
 

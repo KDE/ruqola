@@ -73,8 +73,8 @@ void ModerationMessage::setRoomName(const QString &newRoomName)
 
 QDebug operator<<(QDebug d, const ModerationMessage &t)
 {
-    d << " mRoomName " << t.roomName();
-    d << " mRoomId " << t.roomId();
-    d << " mRoomFName " << t.roomFName();
+    d.space() << "mRoomName" << t.roomName();
+    d.space() << "mRoomId" << t.roomId();
+    d.space() << "mRoomFName" << t.roomFName();
     return d;
 }

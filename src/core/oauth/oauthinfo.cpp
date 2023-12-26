@@ -12,13 +12,13 @@ OauthInfo::OauthInfo() = default;
 
 QDebug operator<<(QDebug d, const OauthInfo &t)
 {
-    d << "Identifier " << t.identifier();
-    d << "Active " << t.active();
-    d << "Name " << t.name();
-    d << "ClientId " << t.clientId();
-    d << "ClientSecret " << t.clientSecret();
-    d << "RedirectUri " << t.redirectUri();
-    d << "CreatedBy" << t.createdBy();
+    d.space() << "Identifier" << t.identifier();
+    d.space() << "Active" << t.active();
+    d.space() << "Name" << t.name();
+    d.space() << "ClientId" << t.clientId();
+    d.space() << "ClientSecret" << t.clientSecret();
+    d.space() << "RedirectUri" << t.redirectUri();
+    d.space() << "CreatedBy" << t.createdBy();
     return d;
 }
 

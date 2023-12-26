@@ -54,7 +54,7 @@ MessageAttachmentField MessageAttachmentField::deserialize(const QJsonObject &o)
 
 QDebug operator<<(QDebug d, const MessageAttachmentField &t)
 {
-    d << " title " << t.title();
-    d << " value " << t.value();
+    d.space() << "title" << t.title();
+    d.space() << "value" << t.value();
     return d;
 }

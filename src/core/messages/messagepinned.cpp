@@ -51,8 +51,8 @@ QJsonObject MessagePinned::serialize(const MessagePinned &messagePinned)
 
 QDebug operator<<(QDebug d, const MessagePinned &t)
 {
-    d << "isPinned " << t.pinned();
-    d << "pinnedby " << t.pinnedBy();
+    d.space() << "isPinned" << t.pinned();
+    d.space() << "pinnedby" << t.pinnedBy();
     return d;
 }
 

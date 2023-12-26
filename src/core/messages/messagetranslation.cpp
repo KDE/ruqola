@@ -11,7 +11,7 @@ MessageTranslation::MessageTranslation() = default;
 
 QDebug operator<<(QDebug d, const MessageTranslation &t)
 {
-    d << " translate string " << t.translatedString();
+    d.space() << "translate string" << t.translatedString();
     return d;
 }
 

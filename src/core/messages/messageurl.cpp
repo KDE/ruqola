@@ -71,9 +71,9 @@ bool MessageUrl::operator==(const MessageUrl &other) const
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
 {
-    d << "Url: " << t.url();
-    d << "Page Title: " << t.pageTitle();
-    d << "Description: " << t.description();
+    d.space() << "Url:" << t.url();
+    d.space() << "Page Title:" << t.pageTitle();
+    d.space() << "Description:" << t.description();
     return d;
 }
 

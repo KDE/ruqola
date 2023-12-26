@@ -13,9 +13,9 @@ ModerationReportInfos::ModerationReportInfos() = default;
 
 QDebug operator<<(QDebug d, const ModerationReportInfos &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "ModerationReportInfosCount " << t.moderationReportInfosCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "ModerationReportInfosCount" << t.moderationReportInfosCount() << "\n";
     for (int i = 0, total = t.moderationReportInfosList().count(); i < total; ++i) {
         d << t.moderationReportInfosList().at(i) << "\n";
     }

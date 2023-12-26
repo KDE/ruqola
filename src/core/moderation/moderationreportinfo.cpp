@@ -114,11 +114,11 @@ void ModerationReportInfo::parseRoom(const QJsonObject &o)
 
 QDebug operator<<(QDebug d, const ModerationReportInfo &t)
 {
-    d << "mDescription " << t.description();
-    d << "mReportIdentifier " << t.reportIdentifier();
-    d << "mTimeStamp " << t.timeStamp();
-    d << "mRoomId " << t.roomId();
-    d << "mUserId " << t.userId();
-    d << "mUserName " << t.userName();
+    d.space() << "mDescription" << t.description();
+    d.space() << "mReportIdentifier" << t.reportIdentifier();
+    d.space() << "mTimeStamp" << t.timeStamp();
+    d.space() << "mRoomId" << t.roomId();
+    d.space() << "mUserId" << t.userId();
+    d.space() << "mUserName" << t.userName();
     return d;
 }

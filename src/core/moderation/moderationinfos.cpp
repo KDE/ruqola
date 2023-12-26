@@ -14,11 +14,11 @@ ModerationInfos::ModerationInfos() = default;
 
 QDebug operator<<(QDebug d, const ModerationInfos &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "ModerationInfosCount " << t.moderationInfosCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "ModerationInfosCount" << t.moderationInfosCount() << "\n";
     for (int i = 0, total = t.moderationInfosList().count(); i < total; ++i) {
-        d << t.moderationInfosList().at(i) << "\n";
+        d.space() << t.moderationInfosList().at(i) << "\n";
     }
     return d;
 }

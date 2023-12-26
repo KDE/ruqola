@@ -52,7 +52,7 @@ bool Reactions::operator==(const Reactions &other) const
 QDebug operator<<(QDebug d, const Reactions &t)
 {
     for (int i = 0; i < t.reactions().count(); i++) {
-        d << t.reactions().at(i) << "\n";
+        d.space() << t.reactions().at(i) << "\n";
     }
     return d;
 }

@@ -11,15 +11,15 @@ ModerationInfo::ModerationInfo() = default;
 
 QDebug operator<<(QDebug d, const ModerationInfo &t)
 {
-    d << "userId " << t.userId();
-    d << "name " << t.name();
-    d << "username " << t.userName();
-    d << "msgId " << t.msgId();
-    d << "mCount " << t.count();
-    d << "mIsUserDeleted " << t.isUserDeleted();
-    d << "mMessage " << t.message();
-    d << "mCreatedAt " << t.createdAt();
-    d << "mRoomName " << t.roomList();
+    d.space() << "userId" << t.userId();
+    d.space() << "name" << t.name();
+    d.space() << "username" << t.userName();
+    d.space() << "msgId" << t.msgId();
+    d.space() << "mCount" << t.count();
+    d.space() << "mIsUserDeleted" << t.isUserDeleted();
+    d.space() << "mMessage" << t.message();
+    d.space() << "mCreatedAt" << t.createdAt();
+    d.space() << "mRoomName" << t.roomList();
     return d;
 }
 
