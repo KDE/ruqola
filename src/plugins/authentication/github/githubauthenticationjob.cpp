@@ -22,20 +22,6 @@ GitHubAuthenticationJob::~GitHubAuthenticationJob() = default;
 void GitHubAuthenticationJob::doRequest()
 {
     // TODO
-#if 0
-    auto reply = oauth2.get(QUrl(QLatin1String("https://telemetry.kde.org/secure/")));
-    QObject::connect(reply, &QNetworkReply::finished, &oauth2, [&oauth2, reply]() {
-        reply->deleteLater();
-        for (const auto &h : reply->request().rawHeaderList()) {
-            qDebug() << h << ":" << reply->request().rawHeader(h);
-        }
-        qDebug() << QDateTime::currentDateTime() << oauth2.expirationAt() << reply->readAll() << reply->errorString();
-        QTimer::singleShot(5* 60 * 1000, [&oauth2]() { doRequest(oauth2); });
-    });
-    QObject::connect(reply, &QNetworkReply::sslErrors, &oauth2, [reply](const auto &errors) {
-        reply->ignoreSslErrors(errors); // self sign cert on the set setup
-    });
-#endif
 
     deleteLater();
 }
