@@ -14,8 +14,8 @@
 
 AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     : QWidget{parent}
-    , mAccountName(new QLineEdit(this))
     , mServerUrl(new QLineEdit(this))
+    , mAccountName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
 {

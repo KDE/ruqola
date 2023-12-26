@@ -30,8 +30,8 @@ private:
     void slotChangeOkButtonEnabled();
     QStringList mNames;
     AccountManager::AccountManagerInfo mAccountInfo;
-    QLineEdit *const mAccountName;
     QLineEdit *const mServerUrl;
+    QLineEdit *const mAccountName;
     QLineEdit *const mUserName;
     PasswordLineEditWidget *const mPasswordLineEditWidget;
 };
