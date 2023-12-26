@@ -166,12 +166,12 @@ bool CustomEmoji::operator==(const CustomEmoji &other) const
 
 QDebug operator<<(QDebug d, const CustomEmoji &t)
 {
-    d << "Name: " << t.name() << " ";
-    d << "Identifier: " << t.identifier() << " ";
-    d << "extension: " << t.extension() << " ";
-    d << "aliases: " << t.aliases() << " ";
-    d << "UpdatedAt: " << t.updatedAt() << " ";
-    d << "EmojiIdentifier: " << t.emojiIdentifier();
+    d.space() << "Name:" << t.name();
+    d.space() << "Identifier:" << t.identifier();
+    d.space() << "extension:" << t.extension();
+    d.space() << "aliases:" << t.aliases();
+    d.space() << "UpdatedAt:" << t.updatedAt();
+    d.space() << "EmojiIdentifier:" << t.emojiIdentifier();
     return d;
 }
 

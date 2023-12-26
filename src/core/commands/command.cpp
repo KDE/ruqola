@@ -193,11 +193,11 @@ QString Command::translatedDescription() const
 
 QDebug operator<<(QDebug d, const Command &t)
 {
-    d << " mParams : " << t.params();
-    d << " mCommandName : " << t.commandName();
-    d << " mDescription : " << t.description();
-    d << " mClientOnly : " << t.clientOnly();
-    d << " mProvidesPreview : " << t.providesPreview();
-    d << " mPermissions : " << t.permissions();
+    d.space() << "mParams:" << t.params();
+    d.space() << "mCommandName:" << t.commandName();
+    d.space() << "mDescription:" << t.description();
+    d.space() << "mClientOnly:" << t.clientOnly();
+    d.space() << "mProvidesPreview:" << t.providesPreview();
+    d.space() << "mPermissions:" << t.permissions();
     return d;
 }

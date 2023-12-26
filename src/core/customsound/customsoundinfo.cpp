@@ -53,8 +53,8 @@ bool CustomSoundInfo::isValid() const
 
 QDebug operator<<(QDebug d, const CustomSoundInfo &t)
 {
-    d << "Identifier: " << t.identifier();
-    d << "Name: " << t.name();
-    d << "Extension: " << t.extension();
+    d.space() << "Identifier:" << t.identifier();
+    d.space() << "Name:" << t.name();
+    d.space() << "Extension:" << t.extension();
     return d;
 }

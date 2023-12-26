@@ -160,12 +160,12 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 
 QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t)
 {
-    d << " roomName " << t.roomName;
-    d << " roomID " << t.roomId;
-    d << " initial " << t.initial;
-    d << " timeStamp " << t.timeStamp;
-    d << " lastSeenAt " << t.lastSeenAt;
-    d << " roomModel " << t.roomModel;
+    d.space() << "roomName" << t.roomName;
+    d.space() << "roomID" << t.roomId;
+    d.space() << "initial" << t.initial;
+    d.space() << "timeStamp" << t.timeStamp;
+    d.space() << "lastSeenAt" << t.lastSeenAt;
+    d.space() << "roomModel" << t.roomModel;
     return d;
 }
 

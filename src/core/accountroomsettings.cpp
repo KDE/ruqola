@@ -38,11 +38,11 @@ bool AccountRoomSettings::PendingTypedInfo::isValid() const
 
 QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
 {
-    d << " text " << t.text;
-    d << " messageIdBeingEdited " << t.messageIdBeingEdited;
-    d << " scrollbarPosition " << t.scrollbarPosition;
-    d << " threadMessageId " << t.threadMessageId;
-    d << " quotePermalink " << t.quotePermalink;
-    d << " quoteText " << t.quoteText;
+    d.space() << "text" << t.text;
+    d.space() << "messageIdBeingEdited" << t.messageIdBeingEdited;
+    d.space() << "scrollbarPosition" << t.scrollbarPosition;
+    d.space() << "threadMessageId" << t.threadMessageId;
+    d.space() << "quotePermalink" << t.quotePermalink;
+    d.space() << "quoteText" << t.quoteText;
     return d;
 }

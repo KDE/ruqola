@@ -98,14 +98,14 @@ void Discussion::setTimeStamp(qint64 timeStamp)
 
 QDebug operator<<(QDebug d, const Discussion &t)
 {
-    d << "Parent Id " << t.parentRoomId();
-    d << "Last Message " << t.lastMessage();
-    d << "Number of Messages " << t.numberMessages();
-    d << "Description " << t.description();
-    d << "Discussion Room Id " << t.discussionRoomId();
-    d << "timestamp " << t.timeStamp();
-    d << "fname " << t.fname();
-    d << "mUserName " << t.userName();
+    d.space() << "Parent Id" << t.parentRoomId();
+    d.space() << "Last Message" << t.lastMessage();
+    d.space() << "Number of Messages" << t.numberMessages();
+    d.space() << "Description" << t.description();
+    d.space() << "Discussion Room Id" << t.discussionRoomId();
+    d.space() << "timestamp" << t.timeStamp();
+    d.space() << "fname" << t.fname();
+    d.space() << "mUserName" << t.userName();
     return d;
 }
 

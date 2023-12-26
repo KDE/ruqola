@@ -47,9 +47,9 @@ bool AuthenticationInfo::isValid() const
 
 QDebug operator<<(QDebug d, const AuthenticationInfo &t)
 {
-    d << "Iconname: " << t.iconName();
-    d << "Name: " << t.name();
-    d << "Type: " << t.oauthType();
+    d.space() << "Iconname:" << t.iconName();
+    d.space() << "Name:" << t.name();
+    d.space() << "Type:" << t.oauthType();
     return d;
 }
 

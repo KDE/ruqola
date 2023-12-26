@@ -102,12 +102,12 @@ bool InviteInfo::operator==(const InviteInfo &other) const
 
 QDebug operator<<(QDebug d, const InviteInfo &t)
 {
-    d << "mIdentifier: " << t.identifier();
-    d << "mUserIdentifier: " << t.userIdentifier();
-    d << "mMaxUses: " << t.maxUses();
-    d << "uses: " << t.uses();
-    d << "mRoomId: " << t.roomId();
-    d << "mExpireDateTime: " << t.expireDateTime();
-    d << "mCreateDateTime: " << t.createDateTime();
+    d.space() << "mIdentifier:" << t.identifier();
+    d.space() << "mUserIdentifier:" << t.userIdentifier();
+    d.space() << "mMaxUses:" << t.maxUses();
+    d.space() << "uses:" << t.uses();
+    d.space() << "mRoomId:" << t.roomId();
+    d.space() << "mExpireDateTime:" << t.expireDateTime();
+    d.space() << "mCreateDateTime:" << t.createDateTime();
     return d;
 }

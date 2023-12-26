@@ -168,12 +168,12 @@ Block Block::deserialize(const QJsonObject &o)
 
 QDebug operator<<(QDebug d, const Block &t)
 {
-    d << "blockId " << t.blockId();
-    d << "callId " << t.callId();
-    d << "appId " << t.appId();
-    d << "blockTypeStr " << t.blockTypeStr();
-    d << "mBlockType" << t.blockType();
-    d << "Video conf info " << t.videoConferenceInfo();
+    d.space() << "blockId" << t.blockId();
+    d.space() << "callId" << t.callId();
+    d.space() << "appId" << t.appId();
+    d.space() << "blockTypeStr" << t.blockTypeStr();
+    d.space() << "mBlockType" << t.blockType();
+    d.space() << "Video conf info" << t.videoConferenceInfo();
     return d;
 }
 

@@ -13,12 +13,12 @@ DeviceInfo::~DeviceInfo() = default;
 
 QDebug operator<<(QDebug d, const DeviceInfo &t)
 {
-    d << "Identifier " << t.identifier();
-    d << "Host " << t.host();
-    d << "SessionId " << t.sessionId();
-    d << "Ip " << t.ip();
-    d << "UserId " << t.userId();
-    d << "LoginAt " << t.loginAt();
+    d.space() << "Identifier" << t.identifier();
+    d.space() << "Host" << t.host();
+    d.space() << "SessionId" << t.sessionId();
+    d.space() << "Ip" << t.ip();
+    d.space() << "UserId" << t.userId();
+    d.space() << "LoginAt" << t.loginAt();
     return d;
 }
 

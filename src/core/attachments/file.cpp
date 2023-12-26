@@ -161,17 +161,17 @@ void File::setTypeGroup(const QString &typeGroup)
 
 QDebug operator<<(QDebug d, const File &t)
 {
-    d << "Name : " << t.fileName();
-    d << "Description: " << t.description();
-    d << "Url :" << t.url();
-    d << "UserId: " << t.userId();
-    d << "Mimetype : " << t.mimeType();
-    d << "Uploaded time: " << t.uploadedAt();
-    d << "File Id: " << t.fileId();
-    d << "Rid: " << t.rid();
-    d << "Username: " << t.userName();
-    d << "Complete: " << t.complete();
-    d << "TypeGroup: " << t.typeGroup();
+    d.space() << "Name:" << t.fileName();
+    d.space() << "Description:" << t.description();
+    d.space() << "Url:" << t.url();
+    d.space() << "UserId:" << t.userId();
+    d.space() << "Mimetype:" << t.mimeType();
+    d.space() << "Uploaded time:" << t.uploadedAt();
+    d.space() << "File Id:" << t.fileId();
+    d.space() << "Rid:" << t.rid();
+    d.space() << "Username:" << t.userName();
+    d.space() << "Complete:" << t.complete();
+    d.space() << "TypeGroup:" << t.typeGroup();
     return d;
 }
 

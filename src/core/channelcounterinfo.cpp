@@ -87,9 +87,9 @@ void ChannelCounterInfo::setUnreadMessageTimeStep(qint64 unreadMessageTimeStep)
 
 QDebug operator<<(QDebug d, const ChannelCounterInfo &t)
 {
-    d << "Unread Messages " << t.unreadMessages();
-    d << "Messages count " << t.messageCount();
-    d << "Unread from " << t.unreadFrom();
-    d << "joined " << t.joined();
+    d.space() << "Unread Messages" << t.unreadMessages();
+    d.space() << "Messages count" << t.messageCount();
+    d.space() << "Unread from" << t.unreadFrom();
+    d.space() << "joined" << t.joined();
     return d;
 }

@@ -1065,54 +1065,54 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
 QDebug operator<<(QDebug d, const Message &t)
 {
-    d << "mMessageId : " << t.messageId();
-    d << "mText: " << t.text();
-    d << "mTimeStamp: " << t.timeStamp();
-    d << "mUsername: " << t.username();
-    d << "mName: " << t.name();
-    d << "mUserId: " << t.userId();
-    d << "mUpdatedAt: " << t.updatedAt();
-    d << "mEditedAt: " << t.editedAt();
-    d << "mEditedByUsername: " << t.editedByUsername();
-    d << "mEditedByUserId: " << t.editedByUserId();
-    d << "mAlias: " << t.alias();
-    d << "mSystemMessageType: " << t.systemMessageType();
-    d << "mRoomId: " << t.roomId();
-    d << "mAvatar: " << t.avatar();
-    d << "mGroupable: " << t.groupable();
-    d << "mParseUrls: " << t.parseUrls();
+    d.space() << "mMessageId:" << t.messageId();
+    d.space() << "mText:" << t.text();
+    d.space() << "mTimeStamp:" << t.timeStamp();
+    d.space() << "mUsername:" << t.username();
+    d.space() << "mName:" << t.name();
+    d.space() << "mUserId:" << t.userId();
+    d.space() << "mUpdatedAt:" << t.updatedAt();
+    d.space() << "mEditedAt:" << t.editedAt();
+    d.space() << "mEditedByUsername:" << t.editedByUsername();
+    d.space() << "mEditedByUserId:" << t.editedByUserId();
+    d.space() << "mAlias:" << t.alias();
+    d.space() << "mSystemMessageType:" << t.systemMessageType();
+    d.space() << "mRoomId:" << t.roomId();
+    d.space() << "mAvatar:" << t.avatar();
+    d.space() << "mGroupable:" << t.groupable();
+    d.space() << "mParseUrls:" << t.parseUrls();
     for (int i = 0, total = t.attachments().count(); i < total; ++i) {
-        d << "Attachment :" << t.attachments().at(i);
+        d.space() << "Attachment:" << t.attachments().at(i);
     }
     for (int i = 0, total = t.urls().count(); i < total; ++i) {
-        d << "Urls :" << t.urls().at(i);
+        d.space() << "Urls:" << t.urls().at(i);
     }
-    d << "Mentions :" << t.mentions();
-    d << "mMessageType: " << t.messageType();
-    d << "mRole: " << t.role();
-    d << "mReaction: " << t.reactions();
-    d << "mUnread: " << t.unread();
-    d << "starred " << t.messageStarred();
-    d << "pinned " << t.messagePinned();
-    d << "threadcount " << t.threadCount();
-    d << "threadlastmessage " << t.threadLastMessage();
-    d << "discussioncount " << t.discussionCount();
-    d << "discussionlastmessage " << t.discussionLastMessage();
-    d << "discussionRoomId " << t.discussionRoomId();
-    d << "threadMessageId " << t.threadMessageId();
-    d << "messagetranslation" << t.messageTranslation();
-    d << "mShowOriginalMessage " << t.showTranslatedMessage();
-    d << "mReplies " << t.replies();
-    d << "mEmoji " << t.emoji();
-    d << "mPendingMessage " << t.pendingMessage();
-    d << "mShowIgnoredMessage " << t.showIgnoredMessage();
-    d << "mChannels " << t.channels();
-    d << "mLocalTranslation " << t.localTranslation();
-    d << "mDiscussionCount " << t.discussionCount();
-    d << "mDiscussionLastMessage " << t.discussionLastMessage();
+    d.space() << "Mentions:" << t.mentions();
+    d.space() << "mMessageType:" << t.messageType();
+    d.space() << "mRole:" << t.role();
+    d.space() << "mReaction:" << t.reactions();
+    d.space() << "mUnread:" << t.unread();
+    d.space() << "starred" << t.messageStarred();
+    d.space() << "pinned" << t.messagePinned();
+    d.space() << "threadcount" << t.threadCount();
+    d.space() << "threadlastmessage" << t.threadLastMessage();
+    d.space() << "discussioncount" << t.discussionCount();
+    d.space() << "discussionlastmessage" << t.discussionLastMessage();
+    d.space() << "discussionRoomId" << t.discussionRoomId();
+    d.space() << "threadMessageId" << t.threadMessageId();
+    d.space() << "messagetranslation" << t.messageTranslation();
+    d.space() << "mShowOriginalMessage" << t.showTranslatedMessage();
+    d.space() << "mReplies" << t.replies();
+    d.space() << "mEmoji" << t.emoji();
+    d.space() << "mPendingMessage" << t.pendingMessage();
+    d.space() << "mShowIgnoredMessage" << t.showIgnoredMessage();
+    d.space() << "mChannels" << t.channels();
+    d.space() << "mLocalTranslation" << t.localTranslation();
+    d.space() << "mDiscussionCount" << t.discussionCount();
+    d.space() << "mDiscussionLastMessage" << t.discussionLastMessage();
 
     for (int i = 0, total = t.blocks().count(); i < total; ++i) {
-        d << "block :" << t.blocks().at(i);
+        d.space() << "block:" << t.blocks().at(i);
     }
 
     return d;

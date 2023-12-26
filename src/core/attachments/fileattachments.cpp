@@ -111,11 +111,11 @@ void FileAttachments::setFileAttachments(const QVector<File> &fileAttachments)
 
 QDebug operator<<(QDebug d, const FileAttachments &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "fileAttachmentsCount " << t.filesCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "fileAttachmentsCount" << t.filesCount() << "\n";
     for (int i = 0, total = t.fileAttachments().count(); i < total; ++i) {
-        d << t.fileAttachments().at(i) << "\n";
+        d.space() << t.fileAttachments().at(i) << "\n";
     }
     return d;
 }

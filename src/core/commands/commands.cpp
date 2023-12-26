@@ -133,11 +133,11 @@ void Commands::setTotal(int total)
 
 QDebug operator<<(QDebug d, const Commands &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "commandsCount " << t.commandsCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "commandsCount" << t.commandsCount() << "\n";
     for (int i = 0, total = t.commands().count(); i < total; ++i) {
-        d << t.commands().at(i) << "\n";
+        d.space() << t.commands().at(i) << "\n";
     }
     return d;
 }

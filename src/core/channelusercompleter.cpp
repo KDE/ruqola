@@ -13,14 +13,14 @@ ChannelUserCompleter::~ChannelUserCompleter() = default;
 
 QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
 {
-    d << "Type " << t.type();
-    d << "Name " << t.name();
-    d << "description " << t.description();
-    d << "userName " << t.userName();
-    d << "AvatarTag " << t.avatarTag();
-    d << "outsideRoom " << t.outsideRoom();
-    d << "identifier " << t.identifier();
-    d << "avatarinfo " << t.avatarInfo();
+    d.space() << "Type" << t.type();
+    d.space() << "Name" << t.name();
+    d.space() << "description" << t.description();
+    d.space() << "userName" << t.userName();
+    d.space() << "AvatarTag" << t.avatarTag();
+    d.space() << "outsideRoom" << t.outsideRoom();
+    d.space() << "identifie " << t.identifier();
+    d.space() << "avatarinfo" << t.avatarInfo();
     return d;
 }
 

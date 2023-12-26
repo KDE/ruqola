@@ -154,11 +154,11 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
 
 QDebug operator<<(QDebug d, const CustomUserStatuses &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "customStatus Count " << t.count() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "customStatus Count" << t.count() << "\n";
     for (int i = 0, total = t.customUserses().count(); i < total; ++i) {
-        d << t.customUserses().at(i) << "\n";
+        d.space() << t.customUserses().at(i) << "\n";
     }
     return d;
 }

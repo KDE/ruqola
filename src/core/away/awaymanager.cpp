@@ -132,8 +132,8 @@ int AwayManager::timeValue() const
 
 QDebug operator<<(QDebug d, const AwayManager &t)
 {
-    d << "mEnabled " << t.enabled();
-    d << "mIdleTiming " << t.idleTiming();
+    d.space() << "mEnabled" << t.enabled();
+    d.space() << "mIdleTiming" << t.idleTiming();
     return d;
 }
 

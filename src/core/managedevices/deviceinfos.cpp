@@ -14,11 +14,11 @@ DeviceInfos::DeviceInfos() = default;
 
 QDebug operator<<(QDebug d, const DeviceInfos &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "deviceInfosCount " << t.deviceInfosCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "deviceInfosCount" << t.deviceInfosCount() << "\n";
     for (int i = 0, total = t.deviceInfosList().count(); i < total; ++i) {
-        d << t.deviceInfosList().at(i) << "\n";
+        d.space() << t.deviceInfosList().at(i) << "\n";
     }
     return d;
 }

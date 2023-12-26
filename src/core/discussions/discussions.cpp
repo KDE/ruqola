@@ -116,11 +116,11 @@ void Discussions::setTotal(int total)
 
 QDebug operator<<(QDebug d, const Discussions &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "discussionsCount " << t.discussionsCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "discussionsCount" << t.discussionsCount() << "\n";
     for (int i = 0, total = t.discussions().count(); i < total; ++i) {
-        d << t.discussions().at(i) << "\n";
+        d.space() << t.discussions().at(i) << "\n";
     }
     return d;
 }

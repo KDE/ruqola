@@ -103,11 +103,11 @@ QVector<Message> ListMessages::listMessages() const
 
 QDebug operator<<(QDebug d, const ListMessages &t)
 {
-    d << "total " << t.total();
-    d << "offset " << t.offset();
-    d << "MessagesCount " << t.messagesCount() << "\n";
+    d.space() << "total" << t.total();
+    d.space() << "offset" << t.offset();
+    d.space() << "MessagesCount" << t.messagesCount() << "\n";
     for (int i = 0, total = t.count(); i < total; ++i) {
-        d << t.at(i) << "\n";
+        d.space() << t.at(i) << "\n";
     }
     return d;
 }

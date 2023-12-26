@@ -73,10 +73,10 @@ void CustomUserStatus::setStatusType(User::PresenceStatus statusType)
 
 QDebug operator<<(QDebug d, const CustomUserStatus &t)
 {
-    d << "name " << t.name() << '\n';
-    d << "identifier " << t.identifier() << '\n';
-    d << "updatedAt " << t.updatedAt() << '\n';
-    d << "StatusType " << t.statusType() << '\n';
+    d.space() << "name" << t.name() << '\n';
+    d.space() << "identifier" << t.identifier() << '\n';
+    d.space() << "updatedAt" << t.updatedAt() << '\n';
+    d.space() << "StatusType" << t.statusType() << '\n';
     return d;
 }
 
