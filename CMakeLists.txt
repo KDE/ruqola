@@ -213,9 +213,9 @@ set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
 
-if (Qt${QT_MAJOR_VERSION}Keychain_VERSION VERSION_LESS 0.14.99)
+if (Qt${QT_MAJOR_VERSION}Keychain_VERSION VERSION_LESS 0.14.2)
     if (QT_MAJOR_VERSION STREQUAL "6")
-        MESSAGE(STATUS "Qt${QT_MAJOR_VERSION}KeyChain version is less 0.14.99. It will not support KWallet 6... It will not able to load password. Please update it.")
+        MESSAGE(STATUS "Qt${QT_MAJOR_VERSION}KeyChain version is less 0.14.2. It will not support KWallet 6... It will not able to load password. Please update it.")
     endif()
 endif()
 
