@@ -78,6 +78,8 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
         account->setServerUrl(mServerUrl->text());
         auto ddpClient = new DDPClient(account, this);
         connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient, account](QAbstractSocket::SocketError error, const QString &strError) {
+            Q_UNUSED(error);
+            Q_UNUSED(strError);
             mBusyIndicatorWidget->hide();
             slotErrorConnection();
             ddpClient->deleteLater();
