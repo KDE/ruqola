@@ -43,6 +43,7 @@ Extra features:
 - Mark All Channels are read
 - Add notification history.
 - Add import export Accounts.
+- Implement message layout (normal/compact)
 
 
 
