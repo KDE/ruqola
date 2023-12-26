@@ -8,6 +8,8 @@ target_sources(githubtestapps
     main.cpp
     ../githubauthenticationjob.h
     ../githubauthenticationjob.cpp
+    ../githubauthenticationsettings.h
+    ../githubauthenticationsettings.cpp
 )
 
 ecm_qt_declare_logging_category(githubtestapps HEADER githubauthenticationplugin_debug.h
