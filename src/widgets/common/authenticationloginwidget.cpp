@@ -85,6 +85,7 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
     mServerUrl->setText(info.serverUrl);
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(info.password);
     mPasswordLineEditWidget->setAllowPasswordReset(info.canResetPassword);
+    // TODO use info.canRegisterAccount
 }
 
 #include "moc_authenticationloginwidget.cpp"

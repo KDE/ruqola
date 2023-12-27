@@ -20,6 +20,7 @@ public:
         QString url;
         QVector<AuthenticationInfo> authenticationInfos;
         bool canResetPassword = false;
+        bool canRegisterAccount = false;
     };
 
     explicit CreateNewServerCheckUrlWidget(QWidget *parent = nullptr);
