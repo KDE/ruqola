@@ -5,6 +5,7 @@
 */
 
 #include "authenticationloginwidget.h"
+#include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/passwordlineeditwidget.h"
 #include "registeruser/registeruserdialog.h"
@@ -12,6 +13,7 @@
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPointer>
 #include <QPushButton>
 
 AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
@@ -97,8 +99,12 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
 void AuthenticationLoginWidget::slotRegisterAccount()
 {
 #if 0
-    RegisterUserDialog dlg(nullptr, this);
-    dlg.exec();
+    QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
+    connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
+        mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
+    });
+    dlg->exec();
+    delete dlg;
 #endif
 }
 
