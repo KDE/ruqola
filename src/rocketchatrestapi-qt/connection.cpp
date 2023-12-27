@@ -137,10 +137,10 @@ using namespace RocketChatRestApi;
 
 Connection::Connection(QObject *parent)
     : QObject(parent)
+    , mNetworkAccessManager(new QNetworkAccessManager(this))
+    , mCookieJar(new QNetworkCookieJar(this))
+    , mRestApiMethod(new RestApiMethod)
 {
-    mRestApiMethod = new RestApiMethod;
-    mCookieJar = new QNetworkCookieJar(this);
-    mNetworkAccessManager = new QNetworkAccessManager(this);
     mNetworkAccessManager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     mNetworkAccessManager->setCookieJar(mCookieJar);
     connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &Connection::slotResult);

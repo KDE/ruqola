@@ -283,9 +283,9 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
 
-    QNetworkAccessManager *mNetworkAccessManager = nullptr;
-    QNetworkCookieJar *mCookieJar = nullptr;
-    RestApiMethod *mRestApiMethod = nullptr;
+    QNetworkAccessManager *const mNetworkAccessManager;
+    QNetworkCookieJar *const mCookieJar;
+    RestApiMethod *const mRestApiMethod;
     RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
     QString mUserId;
     QString mAuthToken;
