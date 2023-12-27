@@ -11,6 +11,7 @@
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPushButton>
 
 AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     : QWidget{parent}
@@ -18,6 +19,7 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     , mAccountName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
+    , mRegisterAccount(new QPushButton(i18n("Register Account"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -40,10 +42,13 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
 
+    mRegisterAccount->setObjectName(QStringLiteral("mRegisterAccount"));
+    mainLayout->addRow(QString(), mRegisterAccount);
+    connect(mRegisterAccount, &QPushButton::clicked, this, &AuthenticationLoginWidget::slotRegisterAccount);
+
     connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
-    // TODO add "create new account"
     // TODO add "forgot password"
 }
 
@@ -85,7 +90,12 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
     mServerUrl->setText(info.serverUrl);
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(info.password);
     mPasswordLineEditWidget->setAllowPasswordReset(info.canResetPassword);
-    // TODO use info.canRegisterAccount
+    mRegisterAccount->setVisible(info.canRegisterAccount);
+}
+
+void AuthenticationLoginWidget::slotRegisterAccount()
+{
+    // TODO
 }
 
 #include "moc_authenticationloginwidget.cpp"

@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLineEdit;
+class QPushButton;
 class PasswordLineEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationLoginWidget : public QWidget
 {
@@ -28,10 +29,12 @@ Q_SIGNALS:
 
 private:
     void slotChangeOkButtonEnabled();
+    void slotRegisterAccount();
     QStringList mNames;
     AccountManager::AccountManagerInfo mAccountInfo;
     QLineEdit *const mServerUrl;
     QLineEdit *const mAccountName;
     QLineEdit *const mUserName;
     PasswordLineEditWidget *const mPasswordLineEditWidget;
+    QPushButton *const mRegisterAccount;
 };
