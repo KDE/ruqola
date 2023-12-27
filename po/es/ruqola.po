@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
+"POT-Creation-Date: 2023-12-27 00:41+0000\n"
 "PO-Revision-Date: 2023-12-02 11:29+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -6303,7 +6303,7 @@ msgstr "URL del servidor:"
 msgid "Connection"
 msgstr "Conectando"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:104
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Impossible to copy file"
 msgid "Impossible to access to server."

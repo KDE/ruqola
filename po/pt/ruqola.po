@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
+"POT-Creation-Date: 2023-12-27 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -6363,7 +6363,7 @@ msgstr "URL do servidor:"
 msgid "Connection"
 msgstr "A ligar"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:104
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Impossible to copy file"
 msgid "Impossible to access to server."

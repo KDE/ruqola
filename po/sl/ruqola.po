@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
+"POT-Creation-Date: 2023-12-27 00:41+0000\n"
 "PO-Revision-Date: 2023-12-22 10:00+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -6272,7 +6272,7 @@ msgstr "Url strežnika:"
 msgid "Connection"
 msgstr "Povezava"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:104
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:106
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Ni mogoče pristopiti do strežnika."

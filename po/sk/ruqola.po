@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
+"POT-Creation-Date: 2023-12-27 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -6432,7 +6432,7 @@ msgstr "URL serveru:"
 msgid "Connection"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:104
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:106
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""

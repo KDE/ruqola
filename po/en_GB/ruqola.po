@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
+"POT-Creation-Date: 2023-12-27 00:41+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -6296,7 +6296,7 @@ msgstr "Server URL:"
 msgid "Connection"
 msgstr "Connecting"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:104
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Impossible to open log."
 msgid "Impossible to access to server."
