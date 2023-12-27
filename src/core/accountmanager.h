@@ -28,6 +28,7 @@ public:
         QString password;
         bool canResetPassword = false;
         bool enabled = true;
+        bool canRegisterAccount = false;
     };
 
     explicit AccountManager(QObject *parent = nullptr);
