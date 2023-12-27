@@ -213,6 +213,7 @@ Q_SIGNALS:
     void removed(const QJsonObject &item);
     void socketError(QAbstractSocket::SocketError error, const QString &errorString);
     void disconnectedByServer();
+    void wsClosedSocketError();
 
     /**
      * @brief Emitted whenever a result is received

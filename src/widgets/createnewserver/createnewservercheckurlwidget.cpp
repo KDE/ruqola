@@ -22,6 +22,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new KMessageWidget(this))
+    , mConnectionPushButton(new QPushButton(i18n("Connection"), this))
 {
     auto topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
@@ -41,14 +42,16 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     mServerUrl->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mServerUrl, this);
 
-    auto connectionPushButton = new QPushButton(i18n("Connection"), this);
-    connectionPushButton->setObjectName(QStringLiteral("connectionPushButton"));
-    connectionPushButton->setEnabled(false);
-    serverUrlLayout->addWidget(connectionPushButton);
+    mConnectionPushButton->setObjectName(QStringLiteral("connectionPushButton"));
+    mConnectionPushButton->setEnabled(false);
+    serverUrlLayout->addWidget(mConnectionPushButton);
 
-    connect(connectionPushButton, &QPushButton::clicked, this, &CreateNewServerCheckUrlWidget::slotTestConnection);
-    connect(mServerUrl, &QLineEdit::textChanged, this, [connectionPushButton](const QString &str) {
-        connectionPushButton->setEnabled(!str.trimmed().isEmpty());
+    connect(mConnectionPushButton, &QPushButton::clicked, this, [this]() {
+        mConnectionPushButton->setEnabled(false);
+        slotTestConnection();
+    });
+    connect(mServerUrl, &QLineEdit::textChanged, this, [this](const QString &str) {
+        mConnectionPushButton->setEnabled(!str.trimmed().isEmpty());
     });
 
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
@@ -77,9 +80,17 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
         auto account = new RocketChatAccount();
         account->setServerUrl(mServerUrl->text());
         auto ddpClient = new DDPClient(account, this);
+        connect(ddpClient, &DDPClient::wsClosedSocketError, this, [this, ddpClient, account]() {
+            mBusyIndicatorWidget->hide();
+            mConnectionPushButton->setEnabled(true);
+            slotErrorConnection();
+            ddpClient->deleteLater();
+            account->deleteLater();
+        });
         connect(ddpClient, &DDPClient::socketError, this, [this, ddpClient, account](QAbstractSocket::SocketError error, const QString &strError) {
             Q_UNUSED(error);
             Q_UNUSED(strError);
+            mConnectionPushButton->setEnabled(true);
             mBusyIndicatorWidget->hide();
             slotErrorConnection();
             ddpClient->deleteLater();

@@ -11,6 +11,7 @@
 class QLineEdit;
 class KMessageWidget;
 class KBusyIndicatorWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerCheckUrlWidget : public QWidget
 {
     Q_OBJECT
@@ -27,4 +28,5 @@ private:
     QLineEdit *const mServerUrl;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     KMessageWidget *const mFailedError;
+    QPushButton *const mConnectionPushButton;
 };

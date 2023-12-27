@@ -990,6 +990,7 @@ void DDPClient::onWSclosed()
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
                                      << " close code : " << mWebSocket->closeCode() << " error string " << mWebSocket->errorString();
+        Q_EMIT wsClosedSocketError();
     }
 
     m_connected = false;
