@@ -16,11 +16,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerCheckUrlWidget : public QWidg
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfo {
+        QString url;
+        QVector<AuthenticationInfo> authenticationInfos;
+        bool canResetPassword = false;
+    };
+
     explicit CreateNewServerCheckUrlWidget(QWidget *parent = nullptr);
     ~CreateNewServerCheckUrlWidget() override;
 
 Q_SIGNALS:
-    void serverUrlFound(const QString &url, const QVector<AuthenticationInfo> authenticationInfos, bool canResetPassword);
+    void serverUrlFound(const CreateNewServerCheckUrlWidget::ServerInfo &info);
 
 private:
     void slotTestConnection();
@@ -30,3 +36,4 @@ private:
     KMessageWidget *const mFailedError;
     QPushButton *const mConnectionPushButton;
 };
+Q_DECLARE_TYPEINFO(CreateNewServerCheckUrlWidget::ServerInfo, Q_MOVABLE_TYPE);

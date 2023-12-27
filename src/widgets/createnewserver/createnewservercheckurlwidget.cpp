@@ -100,10 +100,13 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
             mBusyIndicatorWidget->hide();
             ddpClient->deleteLater();
             account->deleteLater();
-            const QVector<AuthenticationInfo> authenticationInfos = account->authenticationMethodInfos();
+            ServerInfo info;
+            info.authenticationInfos = account->authenticationMethodInfos();
 
             const bool allowResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
-            Q_EMIT serverUrlFound(mServerUrl->text().trimmed(), authenticationInfos, allowResetPassword);
+            info.url = mServerUrl->text().trimmed();
+            info.canResetPassword = allowResetPassword;
+            Q_EMIT serverUrlFound(info);
         });
 
         ddpClient->setServerUrl(mServerUrl->text());
