@@ -9,15 +9,18 @@
 #include "libruqolawidgets_private_export.h"
 #include "users/registeruserjob.h"
 #include <QDialog>
+
 class RegisterUserWidget;
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit RegisterUserDialog(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit RegisterUserDialog(QWidget *parent = nullptr);
     ~RegisterUserDialog() override;
     [[nodiscard]] RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
+
+Q_SIGNALS:
+    void registerNewAccount();
 
 private:
     void readConfig();

@@ -12,17 +12,18 @@
 class QLineEdit;
 class KPasswordLineEdit;
 class QPushButton;
-class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit RegisterUserWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    explicit RegisterUserWidget(QWidget *parent = nullptr);
     ~RegisterUserWidget() override;
+
     [[nodiscard]] RocketChatRestApi::RegisterUserJob::RegisterUserInfo registerUserInfo() const;
 
 Q_SIGNALS:
     void updateOkButton(bool b);
+    void registerNewAccount();
 
 private:
     void slotRegisterNewUser();
@@ -32,5 +33,4 @@ private:
     QLineEdit *const mEmail;
     KPasswordLineEdit *const mPasswordLineEdit;
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
-    RocketChatAccount *const mRocketchatAccount;
 };

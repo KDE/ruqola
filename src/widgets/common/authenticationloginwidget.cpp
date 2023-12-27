@@ -7,6 +7,7 @@
 #include "authenticationloginwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/passwordlineeditwidget.h"
+#include "registeruser/registeruserdialog.h"
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
@@ -95,7 +96,10 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
 
 void AuthenticationLoginWidget::slotRegisterAccount()
 {
-    // TODO
+#if 0
+    RegisterUserDialog dlg(nullptr, this);
+    dlg.exec();
+#endif
 }
 
 #include "moc_authenticationloginwidget.cpp"

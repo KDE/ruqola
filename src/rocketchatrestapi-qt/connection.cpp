@@ -8,12 +8,9 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include "channellistjob.h"
 #include "downloadfilejob.h"
-#include "misc/directoryjob.h"
 #include "serverinfojob.h"
 #include "settings/privateinfojob.h"
-#include "spotlightjob.h"
 
 #include "users/deleteownaccountjob.h"
 #include "users/forgotpasswordjob.h"

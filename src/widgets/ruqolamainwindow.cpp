@@ -863,8 +863,12 @@ void RuqolaMainWindow::slotConfigureNotifications()
 
 void RuqolaMainWindow::slotRegisterNewUser()
 {
-    RegisterUserDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.exec();
+    QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
+    connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
+        mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
+    });
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotRegisterUserSuccessed()
