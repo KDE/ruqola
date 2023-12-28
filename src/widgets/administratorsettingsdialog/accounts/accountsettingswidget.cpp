@@ -48,6 +48,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mUseDefaultBlockedDomainsList(new QCheckBox(i18n("Use Default Blocked Domains List"), this))
     , mUseDNSDomainCheck(new QCheckBox(i18n("Use DNS Domain Check"), this))
     , mAllowFeaturePreview(new QCheckBox(i18n("Allow Feature Preview"), this))
+    , mRegistrationAuthenticationServices(new QCheckBox(i18n("Registration with Authentication Services"), this))
+    , mRegistrationAuthenticationServicesDefaultRoles(new QLineEdit(this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -192,6 +194,17 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mUseDNSDomainCheck->setObjectName(QStringLiteral("mUseDNSDomainCheck"));
     mMainLayout->addWidget(mUseDNSDomainCheck);
     connectCheckBox(mUseDNSDomainCheck, QStringLiteral("Accounts_UseDNSDomainCheck"));
+
+    mRegistrationAuthenticationServices->setObjectName(QStringLiteral("mRegistrationAuthenticationServices"));
+    mMainLayout->addWidget(mRegistrationAuthenticationServices);
+    connectCheckBox(mRegistrationAuthenticationServices, QStringLiteral("Accounts_Registration_AuthenticationServices_Enabled"));
+
+    mRegistrationAuthenticationServicesDefaultRoles->setObjectName(QStringLiteral("mRegistrationAuthenticationServicesDefaultRoles"));
+    mRegistrationAuthenticationServicesDefaultRoles->setToolTip(
+        i18n("Default roles (comma-separated) users will be given when registering through authentication services"));
+    addLineEdit(i18n("Default Roles for Authentication Services"),
+                mRegistrationAuthenticationServicesDefaultRoles,
+                QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -232,6 +245,8 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUseDefaultBlockedDomainsList, mapSettings, true);
     initializeWidget(mUseDNSDomainCheck, mapSettings, false);
     initializeWidget(mAllowFeaturePreview, mapSettings, false);
+    initializeWidget(mRegistrationAuthenticationServices, mapSettings, true);
+    initializeWidget(mRegistrationAuthenticationServicesDefaultRoles, mapSettings, QStringLiteral("user"));
 }
 
 #include "moc_accountsettingswidget.cpp"

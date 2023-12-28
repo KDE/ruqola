@@ -232,6 +232,21 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowFeaturePreview->isChecked());
     QVERIFY(!mAllowFeaturePreview->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowFeaturePreview), QStringLiteral("Accounts_AllowFeaturePreview"));
+
+    auto mRegistrationAuthenticationServices = w.findChild<QCheckBox *>(QStringLiteral("mRegistrationAuthenticationServices"));
+    QVERIFY(mRegistrationAuthenticationServices);
+    QVERIFY(!mRegistrationAuthenticationServices->isChecked());
+    QVERIFY(!mRegistrationAuthenticationServices->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRegistrationAuthenticationServices),
+             QStringLiteral("Accounts_Registration_AuthenticationServices_Enabled"));
+
+    auto mRegistrationAuthenticationServicesDefaultRoles = w.findChild<QLineEdit *>(QStringLiteral("mRegistrationAuthenticationServicesDefaultRoles"));
+    QVERIFY(mRegistrationAuthenticationServicesDefaultRoles);
+    QVERIFY(mRegistrationAuthenticationServicesDefaultRoles->text().isEmpty());
+    QVERIFY(!mRegistrationAuthenticationServicesDefaultRoles->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRegistrationAuthenticationServicesDefaultRoles),
+             QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
 }
 
 #include "moc_accountsettingswidgettest.cpp"

@@ -56,4 +56,6 @@ private:
     QCheckBox *const mUseDefaultBlockedDomainsList;
     QCheckBox *const mUseDNSDomainCheck;
     QCheckBox *const mAllowFeaturePreview;
+    QCheckBox *const mRegistrationAuthenticationServices;
+    QLineEdit *const mRegistrationAuthenticationServicesDefaultRoles;
 };
