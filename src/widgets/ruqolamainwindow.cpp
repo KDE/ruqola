@@ -316,7 +316,7 @@ void RuqolaMainWindow::updateActions()
     const auto roomListSortOrder = mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder();
     mRoomListSortByLastMessage->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     mRoomListSortAlphabetically->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::Alphabetically);
-    mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFromEnabled());
+    mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFormEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn));
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};

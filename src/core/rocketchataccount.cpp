@@ -1771,9 +1771,9 @@ bool RocketChatAccount::broadCastEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::BroadCastEnabled;
 }
 
-bool RocketChatAccount::registrationFromEnabled() const
+bool RocketChatAccount::registrationFormEnabled() const
 {
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFromEnabled;
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::RegistrationFormEnabled;
 }
 
 bool RocketChatAccount::allowDeleteOwnAccount() const

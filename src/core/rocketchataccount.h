@@ -377,7 +377,7 @@ public:
     void sendUserEmailCode();
     void requestNewPassword(const QString &email);
     [[nodiscard]] bool allowDeleteOwnAccount() const;
-    [[nodiscard]] bool registrationFromEnabled() const;
+    [[nodiscard]] bool registrationFormEnabled() const;
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
     void deleteOwnAccount(const QString &password);
 

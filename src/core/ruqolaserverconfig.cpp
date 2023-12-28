@@ -265,7 +265,7 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
 void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
 {
     if (registrationFromValue == QLatin1String("Public")) {
-        mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
+        mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFormEnabled;
     } else if (registrationFromValue == QLatin1String("Disabled")) {
         // Nothing => disabled
         ;

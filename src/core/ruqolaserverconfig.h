@@ -44,7 +44,7 @@ public:
         VideoRecorderEnabled = 0x4000,
         AudioRecorderEnabled = 0x8000,
         AllowDeleteOwnAccount = 0x10000,
-        RegistrationFromEnabled = 0x20000,
+        RegistrationFormEnabled = 0x20000,
         AllowPasswordReset = 0x40000,
         AllowEmailChange = 0x80000,
         AllowPasswordChange = 0x100000,
