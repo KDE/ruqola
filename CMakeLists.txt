@@ -12,7 +12,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(KF_MIN_VERSION "5.108.0")
 
-
 # Do NOT add quote
 set(RUQOLA_DEV_VERSION alpha)
 
