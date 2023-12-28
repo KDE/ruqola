@@ -98,14 +98,12 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
 
 void AuthenticationLoginWidget::slotRegisterAccount()
 {
-#if 0
     QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
     connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
-        mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
+        // FIXME mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
     });
     dlg->exec();
     delete dlg;
-#endif
 }
 
 #include "moc_authenticationloginwidget.cpp"
