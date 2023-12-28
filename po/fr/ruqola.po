@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:41+0000\n"
+"POT-Creation-Date: 2023-12-28 00:41+0000\n"
 "PO-Revision-Date: 2023-12-24 15:39+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -3335,11 +3335,11 @@ msgstr ""
 "Définir un mot de passe aléatoire et l'envoyer par courrier électronique"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:43
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
-#: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
 msgstr "Nom d'utilisateur :"
@@ -3353,15 +3353,15 @@ msgstr "Message d'état :"
 #: widgets/dialogs/directchannelinfowidget.cpp:160
 #: widgets/dialogs/resetpasswordwidget.cpp:23
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
-#: widgets/registeruser/registeruserwidget.cpp:34
+#: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
 msgstr "Courriel :"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:41
+#: widgets/common/authenticationloginwidget.cpp:46
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/registeruser/registeruserwidget.cpp:39
+#: widgets/registeruser/registeruserwidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
@@ -3697,7 +3697,7 @@ msgstr "Chiffrement"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1004
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgid "Message"
 msgstr "Message"
@@ -6112,14 +6112,21 @@ msgstr "Canal suivant"
 msgid "Sign in with %1"
 msgstr "Se connecter avec %1"
 
-#: widgets/common/authenticationloginwidget.cpp:28
+#: widgets/common/authenticationloginwidget.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove Account"
+msgid "Register Account"
+msgstr "Supprimer un compte"
+
+#: widgets/common/authenticationloginwidget.cpp:33
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Server URL:"
 msgstr "URL du serveur :"
 
-#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
@@ -6326,17 +6333,17 @@ msgstr "Supprimer les journaux enregistrés sur le disque"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Voulez-vous vraiment supprimer ce compte « %1 » ?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:35
-#, kde-format
-msgid "Server Url:"
-msgstr "URL du serveur :"
-
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:44
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:25
 #, kde-format
 msgid "Connection"
 msgstr "Connexion"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:106
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
+#, kde-format
+msgid "Server Url:"
+msgstr "URL du serveur :"
+
+#: widgets/createnewserver/createnewservercheckurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Impossible d'accéder au serveur."
@@ -7551,7 +7558,7 @@ msgid "New Password:"
 msgstr "Nouveau mot de passe :"
 
 #: widgets/misc/passwordconfirmwidget.cpp:28
-#: widgets/registeruser/registeruserwidget.cpp:44
+#: widgets/registeruser/registeruserwidget.cpp:43
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Confirmer le mot de passe :"
@@ -8943,7 +8950,7 @@ msgstr "Impossible d'ouvrir un journal."
 msgid "Show Log"
 msgstr "Afficher un journal"
 
-#: widgets/ruqolamainwindow.cpp:874
+#: widgets/ruqolamainwindow.cpp:878
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8953,18 +8960,18 @@ msgstr ""
 "Si vous n'avez pas reçu ce message à court terme, veuillez revenir et ré-"
 "essayer."
 
-#: widgets/ruqolamainwindow.cpp:875
+#: widgets/ruqolamainwindow.cpp:879
 #, kde-format
 msgid "Register New User"
 msgstr "Enregistrer un nouvel utilisateur"
 
-#: widgets/ruqolamainwindow.cpp:933
+#: widgets/ruqolamainwindow.cpp:937
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "État"
 
-#: widgets/ruqolamainwindow.cpp:1031
+#: widgets/ruqolamainwindow.cpp:1035
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8973,7 +8980,7 @@ msgstr ""
 "<qt>Ceci masquera totalement la barre de menus. Vous pouvez l'afficher à "
 "nouveau en saisissant %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1034
+#: widgets/ruqolamainwindow.cpp:1038
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Masquer la barre de menus"
