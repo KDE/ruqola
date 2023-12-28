@@ -106,7 +106,7 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
             const bool allowResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
             info.url = mServerUrl->text().trimmed();
             info.canResetPassword = allowResetPassword;
-            // TODO info.canRegisterAccount = ...
+            info.canRegisterAccount = account->registrationFormEnabled();
             Q_EMIT serverUrlFound(info);
         });
 
