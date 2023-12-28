@@ -10,6 +10,7 @@
 #include "misc/passwordlineeditwidget.h"
 #include "registeruser/registeruserdialog.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -100,10 +101,21 @@ void AuthenticationLoginWidget::slotRegisterAccount()
 {
     QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
     connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
-        // FIXME mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
+        auto mRestApi = new RocketChatRestApi::Connection(this);
+        connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, &AuthenticationLoginWidget::slotRegisterUserDone);
+        mRestApi->setServerUrl(mAccountInfo.serverUrl);
+        mRestApi->registerNewUser(dlg->registerUserInfo());
     });
     dlg->exec();
     delete dlg;
+}
+
+void AuthenticationLoginWidget::slotRegisterUserDone()
+{
+    KMessageBox::information(
+        this,
+        i18n("We have sent you an email to confirm your registration.\nIf you do not receive an email shortly, please come back and try again."),
+        i18n("Register New User"));
 }
 
 #include "moc_authenticationloginwidget.cpp"

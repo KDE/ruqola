@@ -28,6 +28,7 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
+    void slotRegisterUserDone();
     void slotChangeOkButtonEnabled();
     void slotRegisterAccount();
     QStringList mNames;
