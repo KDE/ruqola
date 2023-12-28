@@ -47,6 +47,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mBlockedUsernameList(new QLineEdit(this))
     , mUseDefaultBlockedDomainsList(new QCheckBox(i18n("Use Default Blocked Domains List"), this))
     , mUseDNSDomainCheck(new QCheckBox(i18n("Use DNS Domain Check"), this))
+    , mAllowFeaturePreview(new QCheckBox(i18n("Allow Feature Preview"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -95,6 +96,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mAllowPasswordChangeOauthUsers->setObjectName(QStringLiteral("mAllowPasswordChangeOauthUsers"));
     mMainLayout->addWidget(mAllowPasswordChangeOauthUsers);
     connectCheckBox(mAllowPasswordChangeOauthUsers, QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
+
+    mAllowFeaturePreview->setObjectName(QStringLiteral("mAllowFeaturePreview"));
+    mMainLayout->addWidget(mAllowFeaturePreview);
+    connectCheckBox(mAllowFeaturePreview, QStringLiteral("Accounts_AllowFeaturePreview"));
 
     mLoginExpirationInDays->setObjectName(QStringLiteral("mLoginExpirationInDays"));
     addSpinbox(i18n("Login Expiration in Days"), mLoginExpirationInDays, QStringLiteral("Accounts_LoginExpiration"));
@@ -226,6 +231,7 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mBlockedUsernameList, mapSettings, QString());
     initializeWidget(mUseDefaultBlockedDomainsList, mapSettings, true);
     initializeWidget(mUseDNSDomainCheck, mapSettings, false);
+    initializeWidget(mAllowFeaturePreview, mapSettings, false);
 }
 
 #include "moc_accountsettingswidget.cpp"

@@ -226,6 +226,12 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseDNSDomainCheck->isChecked());
     QVERIFY(!mUseDNSDomainCheck->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseDNSDomainCheck), QStringLiteral("Accounts_UseDNSDomainCheck"));
+
+    auto mAllowFeaturePreview = w.findChild<QCheckBox *>(QStringLiteral("mAllowFeaturePreview"));
+    QVERIFY(mAllowFeaturePreview);
+    QVERIFY(!mAllowFeaturePreview->isChecked());
+    QVERIFY(!mAllowFeaturePreview->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowFeaturePreview), QStringLiteral("Accounts_AllowFeaturePreview"));
 }
 
 #include "moc_accountsettingswidgettest.cpp"
