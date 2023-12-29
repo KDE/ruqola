@@ -5,7 +5,7 @@
 */
 
 #include "resetpasswordwidgettest.h"
-#include "dialogs/reportmessagewidget.h"
+#include "dialogs/resetpasswordwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -18,7 +18,7 @@ ResetPasswordWidgetTest::ResetPasswordWidgetTest(QObject *parent)
 
 void ResetPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    ReportMessageWidget w;
+    ResetPasswordWidget w;
 
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
