@@ -56,17 +56,17 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
 
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     serverUrlLayout->addWidget(mBusyIndicatorWidget);
-    // Hide by default
-    mBusyIndicatorWidget->hide();
 
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
     mFailedError->setMessageType(KMessageWidget::Error);
     mFailedError->setCloseButtonVisible(false);
 
     topLayout->addWidget(mFailedError);
-    // Hide by default
-    mFailedError->hide();
     topLayout->addStretch(1);
+
+    // Hide by default
+    mBusyIndicatorWidget->hide();
+    mFailedError->hide();
 }
 
 CreateNewServerCheckUrlWidget::~CreateNewServerCheckUrlWidget() = default;
