@@ -19,7 +19,10 @@ AuthenticationOauthTestWidget::AuthenticationOauthTestWidget(QWidget *parent)
     mainLayout->addWidget(button);
 
     connect(button, &QPushButton::clicked, this, [this]() {
-        // TODO
+        static int val = 0;
+        AuthenticationInfo info;
+        info.setName(QStringLiteral("foo %1").arg(val));
+        mAuthenticationOauthWidget->addAuthenticationMethod(info);
     });
 
     mainLayout->addWidget(mAuthenticationOauthWidget);
