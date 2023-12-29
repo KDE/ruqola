@@ -58,4 +58,6 @@ private:
     QCheckBox *const mAllowFeaturePreview;
     QCheckBox *const mRegistrationAuthenticationServices;
     QLineEdit *const mRegistrationAuthenticationServicesDefaultRoles;
+    QLineEdit *const mRegistrationUsersDefaultRoles;
+    QCheckBox *const mPasswordReset;
 };

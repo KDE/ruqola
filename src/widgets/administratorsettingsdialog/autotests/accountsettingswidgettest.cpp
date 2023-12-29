@@ -247,6 +247,19 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRegistrationAuthenticationServicesDefaultRoles),
              QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
+
+    auto mRegistrationUsersDefaultRoles = w.findChild<QLineEdit *>(QStringLiteral("mRegistrationUsersDefaultRoles"));
+    QVERIFY(mRegistrationUsersDefaultRoles);
+    QVERIFY(mRegistrationUsersDefaultRoles->text().isEmpty());
+    QVERIFY(!mRegistrationUsersDefaultRoles->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRegistrationUsersDefaultRoles), QStringLiteral("Accounts_Registration_Users_Default_Roles"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Registration_Users_Default_Roles"));
+
+    auto mPasswordReset = w.findChild<QCheckBox *>(QStringLiteral("mPasswordReset"));
+    QVERIFY(mPasswordReset);
+    QVERIFY(!mPasswordReset->isChecked());
+    QVERIFY(!mPasswordReset->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPasswordReset), QStringLiteral("Accounts_PasswordReset"));
 }
 
 #include "moc_accountsettingswidgettest.cpp"

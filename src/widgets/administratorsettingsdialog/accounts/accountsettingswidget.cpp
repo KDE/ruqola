@@ -50,6 +50,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowFeaturePreview(new QCheckBox(i18n("Allow Feature Preview"), this))
     , mRegistrationAuthenticationServices(new QCheckBox(i18n("Registration with Authentication Services"), this))
     , mRegistrationAuthenticationServicesDefaultRoles(new QLineEdit(this))
+    , mRegistrationUsersDefaultRoles(new QLineEdit(this))
+    , mPasswordReset(new QCheckBox(i18n("Password Reset"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -205,6 +207,15 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     addLineEdit(i18n("Default Roles for Authentication Services"),
                 mRegistrationAuthenticationServicesDefaultRoles,
                 QStringLiteral("Accounts_Registration_AuthenticationServices_Default_Roles"));
+
+    mRegistrationUsersDefaultRoles->setObjectName(QStringLiteral("mRegistrationUsersDefaultRoles"));
+    mRegistrationUsersDefaultRoles->setToolTip(
+        i18n("Default roles (comma-separated) users will be given when registering through manual registration (including via API)"));
+    addLineEdit(i18n("Default Roles for Users"), mRegistrationUsersDefaultRoles, QStringLiteral("Accounts_Registration_Users_Default_Roles"));
+
+    mPasswordReset->setObjectName(QStringLiteral("mPasswordReset"));
+    mMainLayout->addWidget(mPasswordReset);
+    connectCheckBox(mPasswordReset, QStringLiteral("Accounts_PasswordReset"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -247,6 +258,8 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowFeaturePreview, mapSettings, false);
     initializeWidget(mRegistrationAuthenticationServices, mapSettings, true);
     initializeWidget(mRegistrationAuthenticationServicesDefaultRoles, mapSettings, QStringLiteral("user"));
+    initializeWidget(mRegistrationUsersDefaultRoles, mapSettings, QStringLiteral("user"));
+    initializeWidget(mPasswordReset, mapSettings, true);
 }
 
 #include "moc_accountsettingswidget.cpp"
