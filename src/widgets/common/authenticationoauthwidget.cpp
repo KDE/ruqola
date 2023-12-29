@@ -10,10 +10,17 @@
 
 AuthenticationOauthWidget::AuthenticationOauthWidget(QWidget *parent)
     : QWidget{parent}
-    , mMainLayout(new QVBoxLayout(this))
+    , mMainLayout(new QVBoxLayout)
 {
+    auto topLayout = new QHBoxLayout(this);
+    topLayout->setObjectName(QStringLiteral("topLayout"));
+    topLayout->setContentsMargins({});
+
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
+    topLayout->addStretch(0);
+    topLayout->addLayout(mMainLayout);
+    topLayout->addStretch(0);
     setVisible(false);
     mMainLayout->addStretch(1);
 }
