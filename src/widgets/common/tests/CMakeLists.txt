@@ -1,2 +1,5 @@
 # SPDX-FileCopyrightText: 2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
+
+add_executable(authenticationoauthwidget_gui authenticationoauthwidget_gui.cpp)
+target_link_libraries(authenticationoauthwidget_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
