@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 00:41+0000\n"
+"POT-Creation-Date: 2023-12-29 00:41+0000\n"
 "PO-Revision-Date: 2023-12-24 05:18+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3312,7 +3312,7 @@ msgid "Set random password and send by email"
 msgstr "შემთხვევითი პაროლის დაყენება და ელფოსტაზე გაგზავნა"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
@@ -3336,7 +3336,7 @@ msgid "Email:"
 msgstr "ელფოტა:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:46
+#: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:73
@@ -3572,76 +3572,100 @@ msgstr "ნაგულისხმები დაბლოკილი დო�
 msgid "Use DNS Domain Check"
 msgstr "DNS დომენის შემოწმების გამოყენება"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#, fuzzy, kde-format
+#| msgid "Allow user creation"
+msgid "Allow Feature Preview"
+msgstr "მომხმარებლის შექმნის უფლების მიცემა"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
+#, kde-format
+msgid "Registration with Authentication Services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "რეგისტრაციის ვადა, დღეებში"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "შესვლის წარუმატებელი მცდელობები"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "მცდელობების რიცხვი, დაბლოკვამდე"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "მომხმარებლის განბლოკვის დრო (წუთებში)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "მცდელობების რიცხვი IP-ს დაბლოკვამდე"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
 #, kde-format
 msgid "Registration"
 msgstr "რეგისტრაცია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr "ამ თვისების გამოსაყენებლად დარწმუნდით, რომ SMTP პარამეტრები სწორია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "მომხმარებლის სახელის პრეფიქსის ნაგულისხმებად მინიშნება"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr "დაშვებული დომენების მძიმით გამოყოფილი სია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "დაშვებული დომენების სია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr "დაბლოკილი დომენების მძიმით გამოყოფილი სია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "დაბლოკილი დომენების სია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "დაბლოკილი მომხმარებლის სახელების (რეგისტრის მიუხედავად) მძიმით გამოყოფილი სია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
 #, kde-format
 msgid "Blocked Username List"
 msgstr "დაბლოკილი მომხმარებლების სია"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#, kde-format
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"authentication services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
+msgid "Default Roles for Authentication Services"
+msgstr "შეიყვანეთ ავთენტიკაციის კოდი"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -5937,25 +5961,41 @@ msgstr "შემდეგი არხი"
 msgid "Sign in with %1"
 msgstr "%1-ით შესვლა"
 
-#: widgets/common/authenticationloginwidget.cpp:25
+#: widgets/common/authenticationloginwidget.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
 msgid "Register Account"
 msgstr "ანგარიშის წაშლა"
 
-#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Server URL:"
 msgstr "სერვერის URL:"
 
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "ანგარიშის სახელი:"
+
+#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/ruqolamainwindow.cpp:878
+#, kde-format
+msgid ""
+"We have sent you an email to confirm your registration.\n"
+"If you do not receive an email shortly, please come back and try again."
+msgstr ""
+"ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
+"თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
+
+#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/ruqolamainwindow.cpp:879
+#, kde-format
+msgid "Register New User"
+msgstr "ახალი მომხმარებლის რეგისტრაცია"
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
@@ -8735,20 +8775,6 @@ msgstr "ჟურნალის გახსნა შეუძლებელ�
 #, kde-format
 msgid "Show Log"
 msgstr "ჟურნალის ჩვენება"
-
-#: widgets/ruqolamainwindow.cpp:878
-#, kde-format
-msgid ""
-"We have sent you an email to confirm your registration.\n"
-"If you do not receive an email shortly, please come back and try again."
-msgstr ""
-"ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
-"თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
-
-#: widgets/ruqolamainwindow.cpp:879
-#, kde-format
-msgid "Register New User"
-msgstr "ახალი მომხმარებლის რეგისტრაცია"
 
 #: widgets/ruqolamainwindow.cpp:937
 #, kde-format

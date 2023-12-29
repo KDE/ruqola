@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 00:41+0000\n"
+"POT-Creation-Date: 2023-12-29 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3552,7 +3552,7 @@ msgid "Set random password and send by email"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
@@ -3578,7 +3578,7 @@ msgid "Email:"
 msgstr "E-post"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:46
+#: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:73
@@ -3830,78 +3830,102 @@ msgstr ""
 msgid "Use DNS Domain Check"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
+msgid "Allow Feature Preview"
+msgstr "Sõnum kustutatud"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
+#, kde-format
+msgid "Registration with Authentication Services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Aegumine (päevades)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Registration"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Allowed Domains List"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
 #, kde-format
 msgid "Blocked Domains List"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgid "Blocked Username List"
 msgstr "Blokeeri kasutaja"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#, kde-format
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"authentication services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Authentication Method"
+msgid "Default Roles for Authentication Services"
+msgstr "Autentimisviis"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6296,14 +6320,14 @@ msgstr "Kanali loomine"
 msgid "Sign in with %1"
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:25
+#: widgets/common/authenticationloginwidget.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
 msgid "Register Account"
 msgstr "Konto eemaldamine"
 
-#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:43
 #, fuzzy, kde-format
@@ -6311,11 +6335,26 @@ msgstr "Konto eemaldamine"
 msgid "Server URL:"
 msgstr "Serveri URL:"
 
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Konto nimi:"
+
+#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/ruqolamainwindow.cpp:878
+#, kde-format
+msgid ""
+"We have sent you an email to confirm your registration.\n"
+"If you do not receive an email shortly, please come back and try again."
+msgstr ""
+
+#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/ruqolamainwindow.cpp:879
+#, fuzzy, kde-format
+#| msgid "Invite Users"
+msgid "Register New User"
+msgstr "Kutsu kasutajaid"
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
@@ -9340,19 +9379,6 @@ msgstr ""
 #| msgid "No Channel found"
 msgid "Show Log"
 msgstr "Ühtegi kanalit ei leitud"
-
-#: widgets/ruqolamainwindow.cpp:878
-#, kde-format
-msgid ""
-"We have sent you an email to confirm your registration.\n"
-"If you do not receive an email shortly, please come back and try again."
-msgstr ""
-
-#: widgets/ruqolamainwindow.cpp:879
-#, fuzzy, kde-format
-#| msgid "Invite Users"
-msgid "Register New User"
-msgstr "Kutsu kasutajaid"
 
 #: widgets/ruqolamainwindow.cpp:937
 #, fuzzy, kde-format

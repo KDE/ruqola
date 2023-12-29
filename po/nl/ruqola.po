@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 00:41+0000\n"
-"PO-Revision-Date: 2023-12-22 10:49+0100\n"
+"POT-Creation-Date: 2023-12-29 00:41+0000\n"
+"PO-Revision-Date: 2023-12-28 23:58+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3322,7 +3322,7 @@ msgid "Set random password and send by email"
 msgstr "Willekeurig wachtwoord instellen en verzenden per e-mail"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
@@ -3346,7 +3346,7 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:46
+#: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:73
@@ -3590,78 +3590,102 @@ msgstr "Standaard geblokkeerde lijst met domeinen gebruiken"
 msgid "Use DNS Domain Check"
 msgstr "DNS domeincontrole gebruiken"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#, fuzzy, kde-format
+#| msgid "Allow user creation"
+msgid "Allow Feature Preview"
+msgstr "Aanmaken van gebruiker toestaan"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
+#, kde-format
+msgid "Registration with Authentication Services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Verlopen van kunnen aanmelden in dagen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Mislukte pogingen tot aanmelden"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 "Hoeveel mislukte pogingen tot aanmelden totdat gebruiker wordt geblokkeerd"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Tijd om blokkering van gebruiker op te heffen (in minuten)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Hoeveel mislukte pogingen tot aanmelden totdat IP wordt geblokkeerd"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
 #, kde-format
 msgid "Registration"
 msgstr "Registratie"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr "Ga na dat u juiste SMTP-instellingen hebt om deze functie te gebruiken"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Suggestie voor standaard voorvoegsel van gebruikersnaam"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr "Komma-gescheiden lijst met toegestane domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Lijst met toegestane domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr "Komma-gescheiden lijst met geblokkeerde domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Lijst met geblokkeerde domeinen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "Komma-gescheiden lijst met geblokkeerde gebruikersnamen (geen onderscheid "
 "tussen hoofd- en kleine letters)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Lijst met geblokkeerde gebruikersnamen"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#, kde-format
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"authentication services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
+msgid "Default Roles for Authentication Services"
+msgstr "Authenticatiecode invoeren"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6077,25 +6101,40 @@ msgstr "Volgend kanaal"
 msgid "Sign in with %1"
 msgstr "Aanmelden met %1"
 
-#: widgets/common/authenticationloginwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#: widgets/common/authenticationloginwidget.cpp:26
+#, kde-format
 msgid "Register Account"
-msgstr "Account verwijderen"
+msgstr "Account registreren"
 
-#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Server URL:"
 msgstr "Server-URL:"
 
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Accountnaam:"
+
+#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/ruqolamainwindow.cpp:878
+#, kde-format
+msgid ""
+"We have sent you an email to confirm your registration.\n"
+"If you do not receive an email shortly, please come back and try again."
+msgstr ""
+"We hebben u een e-mail gestuurd om uw registratie te bevestigen.\n"
+"Als u binnenkort geen e-mail hebt ontvangen, kom dan terug en probeer "
+"opnieuw."
+
+#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/ruqolamainwindow.cpp:879
+#, kde-format
+msgid "Register New User"
+msgstr "Nieuwe gebruiker registreren"
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
@@ -8904,21 +8943,6 @@ msgstr "Log openen is onmogelijk"
 #, kde-format
 msgid "Show Log"
 msgstr "Log tonen"
-
-#: widgets/ruqolamainwindow.cpp:878
-#, kde-format
-msgid ""
-"We have sent you an email to confirm your registration.\n"
-"If you do not receive an email shortly, please come back and try again."
-msgstr ""
-"We hebben u een e-mail gestuurd om uw registratie te bevestigen.\n"
-"Als u binnenkort geen e-mail hebt ontvangen, kom dan terug en probeer "
-"opnieuw."
-
-#: widgets/ruqolamainwindow.cpp:879
-#, kde-format
-msgid "Register New User"
-msgstr "Nieuwe gebruiker registreren"
 
 #: widgets/ruqolamainwindow.cpp:937
 #, kde-format

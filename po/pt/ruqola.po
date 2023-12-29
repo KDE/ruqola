@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 00:41+0000\n"
+"POT-Creation-Date: 2023-12-29 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3373,7 +3373,7 @@ msgid "Set random password and send by email"
 msgstr "Definir uma senha aleatória e enviar por e-mail"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
@@ -3397,7 +3397,7 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/common/authenticationloginwidget.cpp:46
+#: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/registeruser/registeruserwidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:73
@@ -3643,79 +3643,103 @@ msgstr "Usar a Lista Predefinida de Domínios Bloqueados"
 msgid "Use DNS Domain Check"
 msgstr "Usar a Verificação do Domínio de DNS"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
+#, fuzzy, kde-format
+#| msgid "Allow user creation"
+msgid "Allow Feature Preview"
+msgstr "Permitir a criação de utilizadores"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
+#, kde-format
+msgid "Registration with Authentication Services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Validade da Sessão em Dias"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Tentativas de Autenticação Falhadas"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Quantas Tentativas Falhadas Até Bloquear o Utilizador"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Tempo até Desbloquear o Utilizador (em Minutos):"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Quantas tentativas falhadas até bloquear o IP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
 #, kde-format
 msgid "Registration"
 msgstr "Registo"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Certifique-se que tem a configuração do SMTP correcta para usar esta "
 "funcionalidade"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Sugestão de Prefixos de Utilizadores Predefinida"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:172
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr "Lista separada por vírgulas dos domínios permitidos"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Lista de Domínios Permitidos"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr "Lista separada por vírgulas dos domínios bloqueados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Lista de Domínios Bloqueados"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "Lista separada por vírgulas dos utilizadores bloqueados (sem distinção de "
 "maiúsculas/minúsculas)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Lista de Utilizadores Bloqueados"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#, kde-format
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"authentication services"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
+msgid "Default Roles for Authentication Services"
+msgstr "Indique o código de autenticação"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6135,25 +6159,41 @@ msgstr "Canal Seguinte"
 msgid "Sign in with %1"
 msgstr "Autenticar-se com a Apple"
 
-#: widgets/common/authenticationloginwidget.cpp:25
+#: widgets/common/authenticationloginwidget.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
 msgid "Register Account"
 msgstr "Remover a Conta"
 
-#: widgets/common/authenticationloginwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Server URL:"
 msgstr "URL do servidor:"
 
-#: widgets/common/authenticationloginwidget.cpp:38
+#: widgets/common/authenticationloginwidget.cpp:39
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Nome da conta:"
+
+#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/ruqolamainwindow.cpp:878
+#, kde-format
+msgid ""
+"We have sent you an email to confirm your registration.\n"
+"If you do not receive an email shortly, please come back and try again."
+msgstr ""
+"Enviámos-lhe um e-mail para confirmar o seu registo.\n"
+"Se não receber em breve um e-mail, por favor regresse e tente de novo."
+
+#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/ruqolamainwindow.cpp:879
+#, kde-format
+msgid "Register New User"
+msgstr "Registar um Novo Utilizador"
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
@@ -8996,20 +9036,6 @@ msgstr "Não é possível abrir o registo."
 #, kde-format
 msgid "Show Log"
 msgstr "Mostrar o Registo"
-
-#: widgets/ruqolamainwindow.cpp:878
-#, kde-format
-msgid ""
-"We have sent you an email to confirm your registration.\n"
-"If you do not receive an email shortly, please come back and try again."
-msgstr ""
-"Enviámos-lhe um e-mail para confirmar o seu registo.\n"
-"Se não receber em breve um e-mail, por favor regresse e tente de novo."
-
-#: widgets/ruqolamainwindow.cpp:879
-#, kde-format
-msgid "Register New User"
-msgstr "Registar um Novo Utilizador"
 
 #: widgets/ruqolamainwindow.cpp:937
 #, kde-format
