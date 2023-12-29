@@ -137,8 +137,6 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
                                              << mRocketChatAccount->password().isEmpty();
         mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
     });
-    // TODO
-    // mAuthenticationWidget->switchRocketChatAccount(mRocketChatAccount); // Authentication is rocketchatAccount specific
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
     mPasswordLineEditWidget->setAllowPasswordReset(mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
 }
