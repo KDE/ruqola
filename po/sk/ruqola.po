@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 00:41+0000\n"
+"POT-Creation-Date: 2023-12-30 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3772,89 +3772,108 @@ msgstr "Všetky správy"
 msgid "Registration with Authentication Services"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Invalid password"
+msgid "Password Reset"
+msgstr "Neplatné heslo"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Registration"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
 #, kde-format
 msgid "Allowed Domains List"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
 #, kde-format
 msgid "Blocked Domains List"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
 #, fuzzy, kde-format
 #| msgid "Block user"
 msgid "Blocked Username List"
 msgstr "Blokovať používateľa"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Default Roles for Authentication Services"
+msgstr "Autentifikačná metóda"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#, kde-format
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"manual registration (including via API)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#, fuzzy, kde-format
+#| msgid "Authentication Method"
+msgid "Default Roles for Users"
 msgstr "Autentifikačná metóda"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
@@ -7691,7 +7710,7 @@ msgstr "Prihlásenie zlyhalo"
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: Invalid OTP code."
@@ -9050,39 +9069,39 @@ msgid ""
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:205
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: generic error"
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:223
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: User is not activated."
 msgstr "Prihlásenie zlyhalo"
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""

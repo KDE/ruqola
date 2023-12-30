@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 00:41+0000\n"
-"PO-Revision-Date: 2023-12-28 12:48+0100\n"
+"POT-Creation-Date: 2023-12-30 00:41+0000\n"
+"PO-Revision-Date: 2023-12-29 19:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3590,101 +3590,125 @@ msgid "Use DNS Domain Check"
 msgstr "Uporabi preverjanje DNS domene"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow Feature Preview"
-msgstr "Dovoli ustvarjanje uporabnika"
+msgstr "Dovoli predogled zmožnosti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr ""
+msgstr "Registracija s storitvami avtentikacije"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Password History"
+msgid "Password Reset"
+msgstr "Zgodovina gesel"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Potek prijave v dnevih"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Zgrešeni poskusi prijav"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Koliko zgrešenih poskusov pred blokiranjem uporabnika"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Čas za deblokiranje uporabnika (v minutah)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Koliko zgrešenih poskusov pred blokiranjem na IP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
 #, kde-format
 msgid "Registration"
 msgstr "Registracija"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Za uporabo te funkcije se prepričajte, da imate pravilne nastavitve SMTP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Predlog predpone privzeto uporabniško ime"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr "Seznam dovoljenih domen ločenih z vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "Seznam dovoljenih domen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr "Seznam blokiranih domen ločenih z vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Seznam blokiranih domen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "Seznam blokiranih uporabniških imen (neodvisno male/velike črke) ločenih z "
 "vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Seznam blokiranih uporabniških imen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"Privzete vloge (ločene z vejico) uporabnikov bodo dane ob registraciji s "
+"storitvami avtentikacije"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "Vnesite kodo preverjanja pristnosti"
+msgstr "Privzete vloge za storitve avtentikacije"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#, fuzzy, kde-format
+#| msgid ""
+#| "Default roles (comma-separated) users will be given when registering "
+#| "through authentication services"
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"manual registration (including via API)"
+msgstr ""
+"Privzete vloge (ločene z vejico) uporabnikov bodo dane ob registraciji s "
+"storitvami avtentikacije"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#, fuzzy, kde-format
+#| msgid "Default Roles for Authentication Services"
+msgid "Default Roles for Users"
+msgstr "Privzete vloge za storitve avtentikacije"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -7441,7 +7465,7 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Za dokončanje postopka prijave je potrebno enkratno geslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prijava ni uspela: neveljavna koda OTP."
@@ -8725,37 +8749,37 @@ msgstr ""
 "Omogočili ste dvostopenjsko preverjanje pristnosti.\n"
 "Vnesite ustvarjeno kodo ali nadomestno varnostno kodo."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Prijava ni uspela: neveljavno uporabniško ime ali geslo"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Prijava ni uspela: Prijava je bila začasno blokirana za IP."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Prijava ni uspela: Prijava je bila začasno blokirana za uporabnika."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:223
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Prijava ni uspela: Uporabnik ni aktiviran."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Prijava ni uspela: Uporabniku aplikacije ni dovoljena prijava."

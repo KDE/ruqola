@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 00:41+0000\n"
-"PO-Revision-Date: 2023-12-28 10:26+0300\n"
+"POT-Creation-Date: 2023-12-30 00:41+0000\n"
+"PO-Revision-Date: 2023-12-29 13:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -549,12 +549,12 @@ msgstr "Oda konusu, %2 tarafından değiştirildi: %1"
 #: core/messages/messageattachment.cpp:248
 #, kde-format
 msgid "File Uploaded:"
-msgstr "Dosya Karşıya Yüklendi:"
+msgstr "Dosya karşıya yüklendi:"
 
 #: core/messages/messageattachment.cpp:379
 #, kde-format
 msgid "File Uploaded: %1"
-msgstr "Dosya Karşıya Yüklendi: %1"
+msgstr "Dosya karşıya yüklendi: %1"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -2252,7 +2252,7 @@ msgstr "Avatar Al"
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:71
 #, kde-format
 msgid "Invalid Email '%1'."
-msgstr "Geçersiz E-posta: '%1'."
+msgstr "Geçersiz e-posta: '%1'."
 
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:110
 #, kde-format
@@ -2756,7 +2756,7 @@ msgstr "Oauth Uygulamaları Ekle"
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:34
 #, kde-format
 msgid "Redirect Url:"
-msgstr "Yeniden Yönlendirme URL'si:"
+msgstr "Yeniden yönlendirme URL'si:"
 
 #: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:25
 #, kde-format
@@ -2767,12 +2767,12 @@ msgstr "Oauth Uygulamalarını Düzenle"
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:37
 #, kde-format
 msgid "Client ID:"
-msgstr "İstemci Kimliği:"
+msgstr "İstemci kimliği:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:41
 #, kde-format
 msgid "Client Secret:"
-msgstr "İstemci Gizi:"
+msgstr "İstemci gizi:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:45
 #, kde-format
@@ -2972,7 +2972,7 @@ msgstr "Arşivlenmiş"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
 #, kde-format
 msgid "Room's Creator:"
-msgstr "Odanın Yaratıcısı:"
+msgstr "Odanın yaratıcısı:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:61
@@ -3305,12 +3305,12 @@ msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 #: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
-msgstr "Kullanıcı Adı:"
+msgstr "Kullanıcı adı:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:55
 #, kde-format
 msgid "Status Message:"
-msgstr "Durum İletisi:"
+msgstr "Durum iletisi:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/directchannelinfowidget.cpp:160
@@ -3567,101 +3567,125 @@ msgid "Use DNS Domain Check"
 msgstr "DNS Etki Alanı Denetimi Kullan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow Feature Preview"
-msgstr "Kullanıcı oluşturmaya izin ver"
+msgstr "Özellik önizlemesine izin ver"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr ""
+msgstr "Kimlik Doğrulama Hizmetleriyle Kayıt"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Password History"
+msgid "Password Reset"
+msgstr "Parola Geçmişi"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Gün Türünden Oturum Açma Süresi Dolumu"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Başarısız Oturum Açma Denemeleri"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Kullanıcı engellenmeden önce kaç hatalı giriş denemesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Kullanıcı Engelini Kaldırma Süresi (Dakika)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "IP engellenmeden önce kaç hatalı giriş denemesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
 #, kde-format
 msgid "Registration"
 msgstr "Kayıt"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:164
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Bu özelliği kullanmak için SMTP ayarlarınızın doğru yapıldığından emin olun"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:178
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Öntanımlı Kullanıcı Adı Öneki Önerisi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:179
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:181
 #, kde-format
 msgid "Comma-separated list of allowed domains"
 msgstr "İzin verilen etki alanlarının virgülle ayrılmış listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:182
 #, kde-format
 msgid "Allowed Domains List"
 msgstr "İzin Verilen Etki Alanları Listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:183
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:185
 #, kde-format
 msgid "Comma-separated list of blocked domains"
 msgstr "Engellenmiş etki alanlarının virgülle ayrılmış listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:184
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:186
 #, kde-format
 msgid "Blocked Domains List"
 msgstr "Engelli Etki Alanları Listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:187
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:189
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 "Engellenmiş kullanıcı adlarının virgülle ayrılmış listesi (BÜYÜK/küçük harf "
 "duyarsız)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:188
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:190
 #, kde-format
 msgid "Blocked Username List"
 msgstr "Engelli Kullanıcı Adları Listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:204
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:206
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"Kimlik doğrulama hizmetleriyle kayıt olurken öntanımlı kullanıcı rolleri "
+"(virgülle ayrılan) verilecektir."
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
+#, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "Kimlik doğrulama kodunu gir"
+msgstr "Kimlik Doğrulama Hizmetleri için Öntanımlı Roller"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
+#, fuzzy, kde-format
+#| msgid ""
+#| "Default roles (comma-separated) users will be given when registering "
+#| "through authentication services"
+msgid ""
+"Default roles (comma-separated) users will be given when registering through "
+"manual registration (including via API)"
+msgstr ""
+"Kimlik doğrulama hizmetleriyle kayıt olurken öntanımlı kullanıcı rolleri "
+"(virgülle ayrılan) verilecektir."
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
+#, fuzzy, kde-format
+#| msgid "Default Roles for Authentication Services"
+msgid "Default Roles for Users"
+msgstr "Kimlik Doğrulama Hizmetleri için Öntanımlı Roller"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6286,7 +6310,7 @@ msgstr "'%1' hesabını kaldırmak istediğinize emin misiniz?"
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:25
 #, kde-format
 msgid "Connection"
-msgstr "Bağlantı"
+msgstr "Bağlan"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
 #, kde-format
@@ -6417,7 +6441,7 @@ msgstr "Şifreli:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Hide System Messages:"
-msgstr "Sistem İletilerini Gizle:"
+msgstr "Sistem iletilerini gizle:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:116
 #, kde-format
@@ -6506,7 +6530,7 @@ msgstr "Parola Ekle"
 #: widgets/dialogs/channelpasswordwidget.cpp:22
 #, kde-format
 msgid "Channel Password:"
-msgstr "Kanal Parolası:"
+msgstr "Kanal parolası:"
 
 #: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
@@ -6685,12 +6709,12 @@ msgstr "Yalnızca davet edilmiş kullanıcılar katılabilir"
 #: widgets/dialogs/createnewchannelwidget.cpp:57
 #, kde-format
 msgid "Private Room:"
-msgstr "Özel Oda:"
+msgstr "Özel oda:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:61
 #, kde-format
 msgid "Encrypted Room:"
-msgstr "Şifreli Oda:"
+msgstr "Şifreli oda:"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:28
 #, kde-format
@@ -6769,12 +6793,12 @@ msgstr "Kullanıcı Bilgisi"
 #: widgets/dialogs/directchannelinfowidget.cpp:106
 #, kde-format
 msgid "Custom Status:"
-msgstr "Özel Durum:"
+msgstr "Özel durum:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:118
 #, kde-format
 msgid "Timezone:"
-msgstr "Zaman Dilimi:"
+msgstr "Zaman dilimi:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:142
 #, kde-format
@@ -6784,7 +6808,7 @@ msgstr "Oluşturulma:"
 #: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Last Login:"
-msgstr "Son Oturum Açma:"
+msgstr "Son oturum açma:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
@@ -6810,7 +6834,7 @@ msgstr "Kullanıcıları Davet Et"
 #: widgets/dialogs/inviteuserswidget.cpp:41
 #, kde-format
 msgid "Invite Link:"
-msgstr "Davet Bağlantısı:"
+msgstr "Davet bağlantısı:"
 
 #: widgets/dialogs/inviteuserswidget.cpp:54
 #, kde-format
@@ -6870,7 +6894,7 @@ msgstr "Durumu Değiştir"
 #: widgets/dialogs/modifystatuswidget.cpp:31
 #, kde-format
 msgid "Message Status:"
-msgstr "İleti Durumu:"
+msgstr "İleti durumu:"
 
 #: widgets/dialogs/playsounddialog.cpp:17
 #, kde-format
@@ -6978,7 +7002,7 @@ msgstr "Lisans:"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:19
 #: widgets/room/usersinroomcombobox.cpp:20
@@ -7248,7 +7272,7 @@ msgstr "İletileri Dışa Aktar"
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
 msgid "Output Format:"
-msgstr "Çıktı Biçimi:"
+msgstr "Çıktı biçimi:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
@@ -7303,7 +7327,7 @@ msgstr "Hesaplar dışa aktarıldı."
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, kde-format
 msgid "Select Accounts:"
-msgstr "Hesapları Seç:"
+msgstr "Hesapları seç:"
 
 #: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
 #, kde-format
@@ -7405,7 +7429,7 @@ msgstr ""
 "Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
 "gerekiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
@@ -7503,13 +7527,13 @@ msgstr "Sıkışık"
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
-msgstr "Yeni Parola:"
+msgstr "Yeni parola:"
 
 #: widgets/misc/passwordconfirmwidget.cpp:28
 #: widgets/registeruser/registeruserwidget.cpp:43
 #, kde-format
 msgid "Confirm Password:"
-msgstr "Parolayı Onayla:"
+msgstr "Parolayı onayla:"
 
 #: widgets/misc/passwordlineeditwidget.cpp:20
 #, kde-format
@@ -7875,7 +7899,7 @@ msgstr "URL Değiştir"
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
 #, kde-format
 msgid "Define Avatar Url:"
-msgstr "Avatar URL'sini Tanımla:"
+msgstr "Avatar URL'sini tanımla:"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:99
 #, kde-format
@@ -7900,7 +7924,7 @@ msgstr "Diğer Oturum Açılmış Konumlardan Çık"
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
-msgstr "Takma Ad:"
+msgstr "Takma ad:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
@@ -8463,7 +8487,7 @@ msgstr "Takım Bilgisi"
 #: widgets/room/roomquotemessagewidget.cpp:31
 #, kde-format
 msgid "Quote Message: '%1'"
-msgstr "İletiyi Alıntıla: '%1'"
+msgstr "İletiyi alıntıla: '%1'"
 
 #: widgets/room/roomreplythreadwidget.cpp:19
 #, kde-format
@@ -8649,7 +8673,7 @@ msgstr "Oturum Aç"
 #: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account Name:"
-msgstr "Hesap Adı:"
+msgstr "Hesap adı:"
 
 #: widgets/ruqolaloginwidget.cpp:47
 #, kde-format
@@ -8659,7 +8683,7 @@ msgstr "Hesap adı"
 #: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or Email:"
-msgstr "Kullanıcı Adı veya E-posta:"
+msgstr "Kullanıcı adı veya e-posta:"
 
 #: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
@@ -8680,40 +8704,40 @@ msgstr ""
 "İki adımlı kimlik doğrulamayı etkinleştirdiniz.\n"
 "Üretilen kodu veya bir yedek kodunu girin."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Kurulum sorunu bulundu. Burada hiçbir eklenti yok."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Oturum açma başarısız: Genel hata"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Oturum açma başarısız. Bu IP için oturum açma geçici olarak engellendi."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:217
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Oturum açma başarısız. Bu kullanıcı için oturum açma geçici olarak "
 "engellendi."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:223
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Oturum açma başarısız: Kullanıcı etkinleştirilmemiş."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -8973,7 +8997,7 @@ msgstr "Takım Ara"
 #: widgets/teams/searchteamwidget.cpp:20
 #, kde-format
 msgid "Team Name:"
-msgstr "Takım Adı:"
+msgstr "Takım adı:"
 
 #: widgets/teams/teamchannelscombobox.cpp:20
 #, kde-format
