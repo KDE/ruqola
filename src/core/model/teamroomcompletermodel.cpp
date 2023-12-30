@@ -23,12 +23,12 @@ void TeamRoomCompleterModel::clear()
     }
 }
 
-void TeamRoomCompleterModel::setRooms(const QVector<TeamRoomCompleter> &rooms)
+void TeamRoomCompleterModel::setRooms(const QVector<TeamRoomCompleter> &teams)
 {
     clear();
-    if (!rooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, rooms.count() - 1);
-        mRooms = rooms;
+    if (!teams.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, teams.count() - 1);
+        mRooms = teams;
         endInsertRows();
     }
 }

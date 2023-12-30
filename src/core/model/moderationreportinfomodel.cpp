@@ -49,12 +49,12 @@ void ModerationReportInfoModel::clear()
     }
 }
 
-void ModerationReportInfoModel::addModerationReportInfos(const ModerationReportInfos &infos)
+void ModerationReportInfoModel::addModerationReportInfos(const ModerationReportInfos &moderationReportInfos)
 {
     clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mModerationReportInfos = infos;
+    if (!moderationReportInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, moderationReportInfos.count() - 1);
+        mModerationReportInfos = moderationReportInfos;
         endInsertRows();
     }
 }
