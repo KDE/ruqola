@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-29 15:52+0100\n"
+"PO-Revision-Date: 2023-12-30 23:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3601,10 +3601,9 @@ msgid "Registration with Authentication Services"
 msgstr "Registratie met authenticatie services"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Wachtwoordgeschiedenis"
+msgstr "Wachtwoord resetten"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3694,22 +3693,18 @@ msgid "Default Roles for Authentication Services"
 msgstr "Standaard rollen voor authenticatieservices"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid ""
-#| "Default roles (comma-separated) users will be given when registering "
-#| "through authentication services"
+#, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
 "Standaard rollen (komma-gescheiden) ven gebruikers zullen gegeven worden bij "
-"registeren via authenticatieservices"
+"registeren via handmatige registratie (inclusief via API)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Default Roles for Authentication Services"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Standaard rollen voor authenticatieservices"
+msgstr "Standaard rollen voor gebruikers"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

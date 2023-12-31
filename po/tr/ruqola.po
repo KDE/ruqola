@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-29 13:25+0300\n"
+"PO-Revision-Date: 2023-12-30 16:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3577,10 +3577,9 @@ msgid "Registration with Authentication Services"
 msgstr "Kimlik Doğrulama Hizmetleriyle Kayıt"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Parola Geçmişi"
+msgstr "Parolayı Sıfırla"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3670,22 +3669,18 @@ msgid "Default Roles for Authentication Services"
 msgstr "Kimlik Doğrulama Hizmetleri için Öntanımlı Roller"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid ""
-#| "Default roles (comma-separated) users will be given when registering "
-#| "through authentication services"
+#, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
-"Kimlik doğrulama hizmetleriyle kayıt olurken öntanımlı kullanıcı rolleri "
-"(virgülle ayrılan) verilecektir."
+"Elle kayıt olurken (API de içerilir) öntanımlı kullanıcı rolleri (virgülle "
+"ayrılan) verilecektir"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Default Roles for Authentication Services"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Kimlik Doğrulama Hizmetleri için Öntanımlı Roller"
+msgstr "Kullanıcılar için Öntanımlı Roller"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-29 19:09+0100\n"
+"PO-Revision-Date: 2023-12-30 08:45+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3600,10 +3600,9 @@ msgid "Registration with Authentication Services"
 msgstr "Registracija s storitvami avtentikacije"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Zgodovina gesel"
+msgstr "Ponovno nastavi geslo"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3693,22 +3692,18 @@ msgid "Default Roles for Authentication Services"
 msgstr "Privzete vloge za storitve avtentikacije"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid ""
-#| "Default roles (comma-separated) users will be given when registering "
-#| "through authentication services"
+#, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
 "Privzete vloge (ločene z vejico) uporabnikov bodo dane ob registraciji s "
-"storitvami avtentikacije"
+"storitvami avtentikacije (vključno prek API)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Default Roles for Authentication Services"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Privzete vloge za storitve avtentikacije"
+msgstr "Privzete vloge za uporabnike"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

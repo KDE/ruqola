@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-29 08:50+0200\n"
+"PO-Revision-Date: 2023-12-30 08:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3600,10 +3600,9 @@ msgid "Registration with Authentication Services"
 msgstr "Registre amb serveis d'autenticació"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Historial de contrasenyes"
+msgstr "Reinici de la contrasenya"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3694,22 +3693,18 @@ msgid "Default Roles for Authentication Services"
 msgstr "Rols predeterminats per a serveis d'autenticació"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
-#, fuzzy, kde-format
-#| msgid ""
-#| "Default roles (comma-separated) users will be given when registering "
-#| "through authentication services"
+#, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
 "Es donaran rols predeterminats (separats per comes) als usuaris quan es "
-"registrin a través de serveis d'autenticació"
+"registrin a través d'un registre manual (incloent-hi via una API)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Default Roles for Authentication Services"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Rols predeterminats per a serveis d'autenticació"
+msgstr "Rols predeterminats per a usuaris"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
