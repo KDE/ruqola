@@ -6873,7 +6873,7 @@ msgstr "Mostra una imatge"
 #: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:245
 #, kde-format
 msgid "Copy Image to Clipboard"
-msgstr "Copia la imatge al porta-retalls"
+msgstr "Copia la imatge a dins del porta-retalls"
 
 #: widgets/dialogs/showimagedialog.cpp:43
 #, kde-format
@@ -8881,7 +8881,7 @@ msgstr "Mostra la informació d'error del servidor en un diàleg específic"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Permet copiar la imatge en el porta-retalls"
+msgstr "Permet copiar la imatge a dins del porta-retalls"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Improve debug support (Allow to show current account permissions)"
