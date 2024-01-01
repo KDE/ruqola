@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 ecm_qt_declare_logging_category(ruqola_googleauthenticationplugin_test_SRCS HEADER googleauthenticationplugin_debug.h
     IDENTIFIER RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_googleauthenticationplugin)

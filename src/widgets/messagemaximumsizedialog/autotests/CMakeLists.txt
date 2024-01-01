@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2022-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 macro(add_ruqolamessagemaximumsize_test _source)
     set(_test ${_source})

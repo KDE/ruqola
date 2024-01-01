@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2022-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_executable(notificationhistorygui)
 target_sources(notificationhistorygui PRIVATE notificationhistorygui.h notificationhistorygui.cpp)

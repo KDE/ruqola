@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2021-2023 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2021-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 macro(add_ruqola_otrwidget_test _source)
     set(_test ${_source})
