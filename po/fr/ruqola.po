@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-24 15:39+0100\n"
+"PO-Revision-Date: 2023-12-30 09:38+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -3605,15 +3605,14 @@ msgid "Use DNS Domain Check"
 msgstr "Utiliser la vérification de domaine « DNS »"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow Feature Preview"
-msgstr "Autoriser la création d'utilisateur"
+msgstr "Autoriser l’aperçu des fonctionnalités"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr ""
+msgstr "Enregistrement avec des services d’authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
 #, fuzzy, kde-format
@@ -3701,12 +3700,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"Les utilisateurs avec des rôles par défaut (séparés par des virgules)  "
+"seront donnés lors de l’enregistrement grâce aux services d’authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "Saisissez un code d'authentification"
+msgstr "Rôles par défaut pour des services d'authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
 #, kde-format
@@ -6156,11 +6156,9 @@ msgid "Sign in with %1"
 msgstr "Se connecter avec %1"
 
 #: widgets/common/authenticationloginwidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#, kde-format
 msgid "Register Account"
-msgstr "Supprimer un compte"
+msgstr "Enregistrer un compte"
 
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44

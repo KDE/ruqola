@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-20 14:57+0100\n"
+"PO-Revision-Date: 2023-12-30 14:35+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1474,7 +1474,7 @@ msgstr "GitHub"
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
 #, kde-format
 msgid "GitLab"
-msgstr ""
+msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
@@ -3589,21 +3589,19 @@ msgid "Use DNS Domain Check"
 msgstr "Usa il controllo del dominio DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow Feature Preview"
-msgstr "Consenti la creazione di utenti"
+msgstr "Consenti anteprima delle funzionalità"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr ""
+msgstr "Registrazione con servizi di autenticazione"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Cronologia delle password"
+msgstr "Ripristino della password"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3685,12 +3683,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"Agli utenti saranno assegnati ruoli predefiniti (separati da virgole) al "
+"momento della registrazione tramite i servizi di autenticazione"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "Digita il codice di autenticazione"
+msgstr "Ruoli predefiniti per i servizi di autenticazione"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
 #, kde-format
@@ -3698,12 +3697,14 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
+"Agli utenti saranno assegnati ruoli predefiniti (separati da virgole) al "
+"momento della registrazione tramite la registrazione manuale (anche tramite "
+"API)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Digita il codice di autenticazione"
+msgstr "Ruoli predefiniti per gli utenti"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6119,11 +6120,9 @@ msgid "Sign in with %1"
 msgstr "Accedi con %1"
 
 #: widgets/common/authenticationloginwidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#, kde-format
 msgid "Register Account"
-msgstr "Rimuovi account"
+msgstr "Registra account"
 
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6979,11 +6978,10 @@ msgid "Why you signal this message?"
 msgstr "Perché segnali questo messaggio?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Password"
-msgstr "Reimposta password"
+msgstr "Ripristina password"
 
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
@@ -7959,6 +7957,8 @@ msgstr "Modifica URL dell'avatar..."
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
+"L'amministratore ha disabilitato la modifica dei messaggi di posta "
+"elettronica."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
