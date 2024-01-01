@@ -6878,7 +6878,7 @@ msgstr "Copia la imatge a dins del porta-retalls"
 #: widgets/dialogs/showimagedialog.cpp:43
 #, kde-format
 msgid "Copy Location to Clipboard"
-msgstr "Copia la ubicació al porta-retalls"
+msgstr "Copia la ubicació a dins del porta-retalls"
 
 #: widgets/dialogs/showimagewidget.cpp:267
 #, kde-format
