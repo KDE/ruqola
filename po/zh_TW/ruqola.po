@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-30 00:41+0000\n"
+"POT-Creation-Date: 2024-01-02 00:41+0000\n"
 "PO-Revision-Date: 2023-12-13 03:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -34,7 +34,7 @@ msgstr "Rocket Chat 用戶端"
 #: apps/main.cpp:58
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020 Ruqola authors"
-msgid "Copyright © 2020-2023 Ruqola authors"
+msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "著作權所有 © 2020 Ruqola 作者群"
 
 #: apps/main.cpp:60

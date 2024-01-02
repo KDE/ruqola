@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-30 00:41+0000\n"
+"POT-Creation-Date: 2024-01-02 00:41+0000\n"
 "PO-Revision-Date: 2023-12-30 13:42\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: apps/main.cpp:58
 #, kde-format
-msgid "Copyright © 2020-2023 Ruqola authors"
+msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr ""
 
 #: apps/main.cpp:60

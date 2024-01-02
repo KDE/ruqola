@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-30 00:41+0000\n"
-"PO-Revision-Date: 2023-12-30 09:38+0100\n"
+"POT-Creation-Date: 2024-01-02 00:41+0000\n"
+"PO-Revision-Date: 2023-12-31 10:50+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -27,8 +27,9 @@ msgid "Rocket Chat Client"
 msgstr "Client de discussion Rocket"
 
 #: apps/main.cpp:58
-#, kde-format
-msgid "Copyright © 2020-2023 Ruqola authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2023 Ruqola authors"
+msgid "Copyright © 2020-2024 Ruqola authors"
 msgstr "Copyright © 2017 - 2023 Les auteurs de Ruqola"
 
 #: apps/main.cpp:60
@@ -3615,10 +3616,9 @@ msgid "Registration with Authentication Services"
 msgstr "Enregistrement avec des services d’authentification"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Historique des mots de passe"
+msgstr "Ré-initialisation de mots de passe"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3714,12 +3714,13 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
+"Les utilisateurs avec des rôles par défaut (séparés par des virgules) seront "
+"fournis lors de l’enregistrement (y compris grâce aux services « API »)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Saisissez un code d'authentification"
+msgstr "Rôles par défaut pour les utilisateurs"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
