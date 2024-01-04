@@ -246,6 +246,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     license/licenseslistjob.h
     license/licensesisenterprisejob.cpp
     license/licensesisenterprisejob.h
+    license/licensesmaxactiveusersjob.cpp
+    license/licensesmaxactiveusersjob.h
 
     misc/directoryjob.cpp
     misc/directoryjob.h
