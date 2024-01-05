@@ -416,23 +416,7 @@ void Message::parseUrls(const QJsonArray &urls)
         for (int i = 0; i < urls.size(); i++) {
             const QJsonObject url = urls.at(i).toObject();
             MessageUrl messageUrl;
-            const QJsonValue urlStr = url.value(QLatin1String("url"));
-            if (!urlStr.isUndefined()) {
-                messageUrl.setUrl(urlStr.toString());
-            }
-            const QJsonObject meta = url.value(QLatin1String("meta")).toObject();
-            if (!meta.isEmpty()) {
-                const QJsonValue pageTitleStr = meta.value(QLatin1String("pageTitle"));
-                if (!pageTitleStr.isUndefined()) {
-                    messageUrl.setPageTitle(pageTitleStr.toString());
-                }
-                const QJsonValue descriptionStr = meta.value(QLatin1String("description"));
-                if (!descriptionStr.isUndefined()) {
-                    messageUrl.setDescription(descriptionStr.toString());
-                }
-            }
-            // TODO add more
-
+            messageUrl.parseUrl(url);
             if (!messageUrl.isEmpty()) {
                 mUrls.append(messageUrl);
             }

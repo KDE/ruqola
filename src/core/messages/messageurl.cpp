@@ -12,6 +12,22 @@ MessageUrl::MessageUrl() = default;
 
 void MessageUrl::parseUrl(const QJsonObject &url)
 {
+    const QJsonValue urlStr = url.value(QLatin1String("url"));
+    if (!urlStr.isUndefined()) {
+        setUrl(urlStr.toString());
+    }
+    const QJsonObject meta = url.value(QLatin1String("meta")).toObject();
+    if (!meta.isEmpty()) {
+        const QJsonValue pageTitleStr = meta.value(QLatin1String("pageTitle"));
+        if (!pageTitleStr.isUndefined()) {
+            setPageTitle(pageTitleStr.toString());
+        }
+        const QJsonValue descriptionStr = meta.value(QLatin1String("description"));
+        if (!descriptionStr.isUndefined()) {
+            setDescription(descriptionStr.toString());
+        }
+    }
+
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
     // TODO
 }
