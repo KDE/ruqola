@@ -33,6 +33,9 @@ public:
     [[nodiscard]] QString imageUrl() const;
     void setImageUrl(const QString &newImageUrl);
 
+    [[nodiscard]] QString authorName() const;
+    void setAuthorName(const QString &newAuthorName);
+
 private:
     [[nodiscard]] QStringList pageTitleElements() const;
     [[nodiscard]] QStringList descriptionElements() const;
@@ -41,6 +44,7 @@ private:
     QString mPageTitle;
     QString mDescription;
     QString mImageUrl;
+    QString mAuthorName;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);

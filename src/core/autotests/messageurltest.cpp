@@ -23,6 +23,7 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QVERIFY(url.description().isEmpty());
     QVERIFY(url.isEmpty());
     QVERIFY(url.imageUrl().isEmpty());
+    QVERIFY(url.authorName().isEmpty());
 }
 
 void MessageUrlTest::shouldSerializeData()
@@ -57,6 +58,16 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
+        const QJsonObject ba = MessageUrl::serialize(input);
+        const MessageUrl output = MessageUrl::deserialize(ba);
+        QCOMPARE(input, output);
+    }
+    {
+        MessageUrl input;
+        input.setUrl(QStringLiteral("foo1"));
+        input.setDescription(QStringLiteral("foo3"));
+        input.setImageUrl(QStringLiteral("foo4"));
+        input.setAuthorName(QStringLiteral("foo5"));
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);

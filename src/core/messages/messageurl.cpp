@@ -25,6 +25,16 @@ QStringList MessageUrl::imageUrlElements() const
     return {QStringLiteral("ogImage"), QStringLiteral("twitterImage"), QStringLiteral("msapplicationTileImage"), QStringLiteral("oembedThumbnailUrl")};
 }
 
+QString MessageUrl::authorName() const
+{
+    return mAuthorName;
+}
+
+void MessageUrl::setAuthorName(const QString &newAuthorName)
+{
+    mAuthorName = newAuthorName;
+}
+
 QString MessageUrl::imageUrl() const
 {
     return mImageUrl;
@@ -79,6 +89,9 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     if (!url.imageUrl().isEmpty()) {
         obj[QLatin1String("imageUrl")] = url.imageUrl();
     }
+    if (!url.authorName().isEmpty()) {
+        obj[QLatin1String("authorName")] = url.authorName();
+    }
     // TODO add more "ogTitle/ogDescription/ogUrl/ogImage/ogSiteName"
     return obj;
 }
@@ -90,6 +103,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setUrl(o.value(QLatin1String("url")).toString());
     url.setDescription(o.value(QLatin1String("description")).toString());
     url.setImageUrl(o.value(QLatin1String("imageUrl")).toString());
+    url.setAuthorName(o.value(QLatin1String("authorName")).toString());
     return url;
 }
 
@@ -130,7 +144,8 @@ void MessageUrl::setDescription(const QString &description)
 
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
-    return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl());
+    return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
+        && (mAuthorName == other.authorName());
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -138,7 +153,8 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "Url:" << t.url();
     d.space() << "Page Title:" << t.pageTitle();
     d.space() << "Description:" << t.description();
-    d.space() << "ImageURl:" << t.imageUrl();
+    d.space() << "ImageUrl:" << t.imageUrl();
+    d.space() << "AuthorName:" << t.authorName();
     return d;
 }
 
