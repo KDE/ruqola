@@ -22,11 +22,7 @@ QStringList MessageUrl::descriptionElements() const
 
 QStringList MessageUrl::imageUrlElements() const
 {
-    return {QStringLiteral("ogImage"),
-            QStringLiteral("twitterImage"),
-            QStringLiteral("msapplicationTileImage"),
-            QStringLiteral("oembedThumbnailUrl"),
-            QStringLiteral("oembedThumbnailUrl")};
+    return {QStringLiteral("ogImage"), QStringLiteral("twitterImage"), QStringLiteral("msapplicationTileImage"), QStringLiteral("oembedThumbnailUrl")};
 }
 
 QString MessageUrl::imageUrl() const
