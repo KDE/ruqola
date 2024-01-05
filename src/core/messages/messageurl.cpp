@@ -10,10 +10,16 @@
 
 MessageUrl::MessageUrl() = default;
 
+void MessageUrl::parseUrl(const QJsonObject &url)
+{
+    // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
+    // TODO
+}
+
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
 {
     QJsonObject obj;
-    obj[QLatin1String("pagetitle")] = url.pageTitle();
+    obj[QLatin1String("pageTitle")] = url.pageTitle();
     obj[QLatin1String("url")] = url.url();
     obj[QLatin1String("description")] = url.description();
     // TODO add more "ogTitle/ogDescription/ogUrl/ogImage/ogSiteName"
@@ -23,7 +29,7 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
 MessageUrl MessageUrl::deserialize(const QJsonObject &o)
 {
     MessageUrl url;
-    url.setPageTitle(o.value(QLatin1String("pagetitle")).toString());
+    url.setPageTitle(o.value(QLatin1String("pageTitle")).toString());
     url.setUrl(o.value(QLatin1String("url")).toString());
     url.setDescription(o.value(QLatin1String("description")).toString());
     return url;

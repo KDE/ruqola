@@ -28,6 +28,8 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
+    void parseUrl(const QJsonObject &url);
+
 private:
     QString mUrl;
     QString mPageTitle;
