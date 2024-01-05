@@ -21,7 +21,10 @@
     "urls": [
         {
             "description": "quassel-webserver - A web server/client for Quassel",
-            "pagetitle": "GitHub - magne4000/quassel-webserver: A web server/client for Quassel",
+            "imageUrl": "https://avatars2.githubusercontent.com/u/1098371?s=400&v=4",
+            "pageTitle": "magne4000/quassel-webserver",
+            "siteName": "GitHub",
+            "siteUrl": "https://github.com/magne4000/quassel-webserver",
             "url": "https://github.com/magne4000/quassel-webserver"
         }
     ],

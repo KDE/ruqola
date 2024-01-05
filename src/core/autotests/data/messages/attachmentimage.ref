@@ -27,7 +27,7 @@
     "urls": [
         {
             "description": "",
-            "pagetitle": "",
+            "pageTitle": "",
             "url": "https://www.kde.org/foo.jpg"
         }
     ],
