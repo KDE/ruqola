@@ -30,12 +30,17 @@ public:
 
     void parseUrl(const QJsonObject &url);
 
+    [[nodiscard]] QString imageUrl() const;
+    void setImageUrl(const QString &newImageUrl);
+
 private:
     [[nodiscard]] QStringList pageTitleElements() const;
     [[nodiscard]] QStringList descriptionElements() const;
+    [[nodiscard]] QStringList imageUrlElements() const;
     QString mUrl;
     QString mPageTitle;
     QString mDescription;
+    QString mImageUrl;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);

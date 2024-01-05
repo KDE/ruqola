@@ -20,6 +20,25 @@ QStringList MessageUrl::descriptionElements() const
     return {QStringLiteral("ogDescription"), QStringLiteral("twitterDescription"), QStringLiteral("description")};
 }
 
+QStringList MessageUrl::imageUrlElements() const
+{
+    return {QStringLiteral("ogImage"),
+            QStringLiteral("twitterImage"),
+            QStringLiteral("msapplicationTileImage"),
+            QStringLiteral("oembedThumbnailUrl"),
+            QStringLiteral("oembedThumbnailUrl")};
+}
+
+QString MessageUrl::imageUrl() const
+{
+    return mImageUrl;
+}
+
+void MessageUrl::setImageUrl(const QString &newImageUrl)
+{
+    mImageUrl = newImageUrl;
+}
+
 void MessageUrl::parseUrl(const QJsonObject &url)
 {
     const QJsonValue urlStr = url.value(QLatin1String("url"));
@@ -42,8 +61,16 @@ void MessageUrl::parseUrl(const QJsonObject &url)
                 break;
             }
         }
+        for (const QString &element : imageUrlElements()) {
+            const QJsonValue imageUrlStr = meta.value(element);
+            if (!imageUrlStr.isUndefined()) {
+                setImageUrl(imageUrlStr.toString());
+                break;
+            }
+        }
     }
 
+    // qDebug() << " *this " << *this << " is empty " << isEmpty();
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
 }
 
@@ -53,6 +80,9 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     obj[QLatin1String("pageTitle")] = url.pageTitle();
     obj[QLatin1String("url")] = url.url();
     obj[QLatin1String("description")] = url.description();
+    if (!url.imageUrl().isEmpty()) {
+        obj[QLatin1String("imageUrl")] = url.imageUrl();
+    }
     // TODO add more "ogTitle/ogDescription/ogUrl/ogImage/ogSiteName"
     return obj;
 }
@@ -63,6 +93,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setPageTitle(o.value(QLatin1String("pageTitle")).toString());
     url.setUrl(o.value(QLatin1String("url")).toString());
     url.setDescription(o.value(QLatin1String("description")).toString());
+    url.setImageUrl(o.value(QLatin1String("imageUrl")).toString());
     return url;
 }
 
@@ -103,7 +134,7 @@ void MessageUrl::setDescription(const QString &description)
 
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
-    return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description());
+    return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl());
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -111,6 +142,7 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "Url:" << t.url();
     d.space() << "Page Title:" << t.pageTitle();
     d.space() << "Description:" << t.description();
+    d.space() << "ImageURl:" << t.imageUrl();
     return d;
 }
 
