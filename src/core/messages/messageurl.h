@@ -36,15 +36,29 @@ public:
     [[nodiscard]] QString authorName() const;
     void setAuthorName(const QString &newAuthorName);
 
+    [[nodiscard]] QString authorUrl() const;
+    void setAuthorUrl(const QString &newAuthorUrl);
+
+    [[nodiscard]] QString siteUrl() const;
+    void setSiteUrl(const QString &newSiteUrl);
+
+    [[nodiscard]] QString siteName() const;
+    void setSiteName(const QString &newSiteName);
+
 private:
     [[nodiscard]] QStringList pageTitleElements() const;
     [[nodiscard]] QStringList descriptionElements() const;
     [[nodiscard]] QStringList imageUrlElements() const;
+    [[nodiscard]] QStringList siteUrlElements() const;
+    [[nodiscard]] QStringList siteNameElements() const;
     QString mUrl;
     QString mPageTitle;
     QString mDescription;
     QString mImageUrl;
     QString mAuthorName;
+    QString mAuthorUrl;
+    QString mSiteUrl;
+    QString mSiteName;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);
