@@ -31,6 +31,8 @@ public:
     void parseUrl(const QJsonObject &url);
 
 private:
+    [[nodiscard]] QStringList pageTitleElements() const;
+    [[nodiscard]] QStringList descriptionElements() const;
     QString mUrl;
     QString mPageTitle;
     QString mDescription;

@@ -10,6 +10,16 @@
 
 MessageUrl::MessageUrl() = default;
 
+QStringList MessageUrl::pageTitleElements() const
+{
+    return {QStringLiteral("ogTitle"), QStringLiteral("twitterTitle"), QStringLiteral("title"), QStringLiteral("pageTitle"), QStringLiteral("oembedTitle")};
+}
+
+QStringList MessageUrl::descriptionElements() const
+{
+    return {QStringLiteral("ogDescription"), QStringLiteral("twitterDescription"), QStringLiteral("description")};
+}
+
 void MessageUrl::parseUrl(const QJsonObject &url)
 {
     const QJsonValue urlStr = url.value(QLatin1String("url"));
@@ -18,18 +28,23 @@ void MessageUrl::parseUrl(const QJsonObject &url)
     }
     const QJsonObject meta = url.value(QLatin1String("meta")).toObject();
     if (!meta.isEmpty()) {
-        const QJsonValue pageTitleStr = meta.value(QLatin1String("pageTitle"));
-        if (!pageTitleStr.isUndefined()) {
-            setPageTitle(pageTitleStr.toString());
+        for (const QString &element : pageTitleElements()) {
+            const QJsonValue pageTitleStr = meta.value(element);
+            if (!pageTitleStr.isUndefined()) {
+                setPageTitle(pageTitleStr.toString());
+                break;
+            }
         }
-        const QJsonValue descriptionStr = meta.value(QLatin1String("description"));
-        if (!descriptionStr.isUndefined()) {
-            setDescription(descriptionStr.toString());
+        for (const QString &element : descriptionElements()) {
+            const QJsonValue descriptionStr = meta.value(element);
+            if (!descriptionStr.isUndefined()) {
+                setDescription(descriptionStr.toString());
+                break;
+            }
         }
     }
 
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
-    // TODO
 }
 
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
