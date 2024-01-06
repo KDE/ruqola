@@ -34,7 +34,8 @@ public:
 
     virtual void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
-    virtual QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
+    [[nodiscard]] virtual QSize
+    sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
     virtual bool handleMouseEvent(const MessageAttachment &msgAttach,
                                   QMouseEvent *mouseEvent,
                                   QRect attachmentsRect,
@@ -44,16 +45,17 @@ public:
     [[nodiscard]] bool
     maybeStartDrag(const MessageAttachment &msgAttach, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option);
+    [[nodiscard]] virtual bool
+    handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option);
 
     [[nodiscard]] QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
-    virtual bool contextMenu(const QPoint &pos,
-                             const QPoint &globalPos,
-                             const MessageAttachment &msgAttach,
-                             QRect attachmentsRect,
-                             const QStyleOptionViewItem &option,
-                             QMenu *menu);
+    [[nodiscard]] virtual bool contextMenu(const QPoint &pos,
+                                           const QPoint &globalPos,
+                                           const MessageAttachment &msgAttach,
+                                           QRect attachmentsRect,
+                                           const QStyleOptionViewItem &option,
+                                           QMenu *menu);
 
 protected:
     [[nodiscard]] virtual QPoint
