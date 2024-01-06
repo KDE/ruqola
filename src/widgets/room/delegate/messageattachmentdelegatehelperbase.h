@@ -14,8 +14,6 @@
 #include <QPersistentModelIndex>
 #include <QSize>
 
-#include <memory>
-
 class QTextDocument;
 class QPainter;
 class QRect;
@@ -32,7 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperBase : public
 {
 public:
     explicit MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
-    virtual ~MessageAttachmentDelegateHelperBase();
+    ~MessageAttachmentDelegateHelperBase() override;
 
     virtual void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
