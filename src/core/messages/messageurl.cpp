@@ -166,18 +166,17 @@ void MessageUrl::parseUrl(const QJsonObject &url)
                 break;
             }
         }
-        // TODO verify it
         for (const QString &element : imageHeightElements()) {
             const QJsonValue imageHeightStr = meta.value(element);
             if (!imageHeightStr.isUndefined()) {
-                setImageHeight(imageHeightStr.toInt(-1));
+                setImageHeight(imageHeightStr.toString().toInt());
                 break;
             }
         }
         for (const QString &element : imageWidthElements()) {
             const QJsonValue imageWidthStr = meta.value(element);
             if (!imageWidthStr.isUndefined()) {
-                setImageWidth(imageWidthStr.toInt(-1));
+                setImageWidth(imageWidthStr.toString().toInt());
                 break;
             }
         }

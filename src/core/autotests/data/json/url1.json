@@ -64,6 +64,8 @@
                 "twitterDescription": "Closes #23",
                 "twitterImageSrc": "https://avatar.foo.com/u/84974957?s=400&v=4",
                 "twitterSite": "@github",
+                "ogImageHeight": "600",
+                "ogImageWidth": "1200",
                 "twitterTitle": "Deferred connection evaluation by blabla · Pull Request #48 · "
             },
             "url": "https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"
