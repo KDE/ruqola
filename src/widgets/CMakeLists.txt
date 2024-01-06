@@ -607,6 +607,10 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagelistdelegate.h
     room/delegate/runninganimatedimage.cpp
     room/delegate/runninganimatedimage.h
+
+    room/delegate/messagedelegatehelperurlpreview.h
+    room/delegate/messagedelegatehelperurlpreview.cpp
+
     room/messagelinewidget.cpp
     room/messagelinewidget.h
     room/messagelistview.cpp
