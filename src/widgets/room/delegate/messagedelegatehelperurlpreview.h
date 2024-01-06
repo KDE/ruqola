@@ -19,4 +19,18 @@ public:
     [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
 
     void draw(const MessageUrl &messageUrl, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+
+    [[nodiscard]] QSize sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
+
+private:
+    Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
+    struct PreviewLayout {
+        QString title;
+        QString description;
+        QSize titleSize;
+        QSize imageSize;
+        QSize descriptionSize;
+        QRect hideShowButtonRect;
+        bool isShown = true;
+    };
 };

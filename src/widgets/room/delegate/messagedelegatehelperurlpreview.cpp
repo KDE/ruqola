@@ -36,3 +36,9 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
 {
     // TODO
 }
+
+QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+{
+    // TODO
+    return {};
+}
