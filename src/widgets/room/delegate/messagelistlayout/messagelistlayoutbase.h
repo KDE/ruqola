@@ -73,6 +73,10 @@ public:
         QRect blocksRect;
         QVector<QRect> blocksRectList;
 
+        // MessageUrl preview
+        QRect messageUrlsRect;
+        QVector<QRect> messageUrlsRectList;
+
         // Reactions
         qreal reactionsY = 0;
         qreal reactionsHeight = 0;

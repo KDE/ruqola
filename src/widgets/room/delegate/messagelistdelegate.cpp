@@ -528,6 +528,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // TODO add preview url!
+    if (!message->urls().isEmpty()) {
+        const QVector<MessageUrl> messageUrls = message->urls();
+        for (const MessageUrl &messageUrl : messageUrls) {
+            mHelperUrlPreview.get()->draw(messageUrl, painter, reactionsRect, index, option);
+        }
+    }
 
     // drawFocus(painter, option, messageRect);
 

@@ -27,3 +27,12 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const Block &bl
 {
     return nullptr;
 }
+
+void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
+                                           QPainter *painter,
+                                           QRect attachmentsRect,
+                                           const QModelIndex &index,
+                                           const QStyleOptionViewItem &option) const
+{
+    // TODO
+}
