@@ -78,8 +78,10 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
         MessageUrl url;
         url.setUrl(QStringLiteral("https://foo.com/event/C8CT"));
-        url.setPageTitle(QStringLiteral(" Trainers Panel I"));
-        url.setDescription(QStringLiteral("Description"));
+        url.setPageTitle(QStringLiteral("Trainers Panel I"));
+        url.setDescription(QStringLiteral("View more about this event at CppCon 2017"));
+        url.setImageUrl(QStringLiteral("http://foo.com/img/app-icon.png?1504596901"));
+        url.setSiteUrl(QStringLiteral("https://foo.com/event/C8CT"));
         urlMessageRef.setUrls({url});
         QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
     }
