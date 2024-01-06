@@ -16,8 +16,6 @@
 class QTextDocument;
 #include <lrucache.h>
 
-#include <memory>
-
 class QListView;
 class QPainter;
 class QRect;
