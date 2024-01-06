@@ -52,13 +52,13 @@ public:
     void setImageWidth(int newImageWidth);
 
 private:
-    [[nodiscard]] QStringList pageTitleElements() const;
-    [[nodiscard]] QStringList descriptionElements() const;
-    [[nodiscard]] QStringList imageUrlElements() const;
-    [[nodiscard]] QStringList siteUrlElements() const;
-    [[nodiscard]] QStringList siteNameElements() const;
-    [[nodiscard]] QStringList imageHeightElements() const;
-    [[nodiscard]] QStringList imageWidthElements() const;
+    [[nodiscard]] static QStringList pageTitleElements();
+    [[nodiscard]] static QStringList descriptionElements();
+    [[nodiscard]] static QStringList imageUrlElements();
+    [[nodiscard]] static QStringList siteUrlElements();
+    [[nodiscard]] static QStringList siteNameElements();
+    [[nodiscard]] static QStringList imageHeightElements();
+    [[nodiscard]] static QStringList imageWidthElements();
     QString mUrl;
     QString mPageTitle;
     QString mDescription;

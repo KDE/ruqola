@@ -10,37 +10,37 @@
 
 MessageUrl::MessageUrl() = default;
 
-QStringList MessageUrl::pageTitleElements() const
+QStringList MessageUrl::pageTitleElements()
 {
     return {QStringLiteral("ogTitle"), QStringLiteral("twitterTitle"), QStringLiteral("title"), QStringLiteral("pageTitle"), QStringLiteral("oembedTitle")};
 }
 
-QStringList MessageUrl::descriptionElements() const
+QStringList MessageUrl::descriptionElements()
 {
     return {QStringLiteral("ogDescription"), QStringLiteral("twitterDescription"), QStringLiteral("description")};
 }
 
-QStringList MessageUrl::imageUrlElements() const
+QStringList MessageUrl::imageUrlElements()
 {
     return {QStringLiteral("ogImage"), QStringLiteral("twitterImage"), QStringLiteral("msapplicationTileImage"), QStringLiteral("oembedThumbnailUrl")};
 }
 
-QStringList MessageUrl::siteUrlElements() const
+QStringList MessageUrl::siteUrlElements()
 {
     return {QStringLiteral("ogUrl"), QStringLiteral("oembedProviderUrl")};
 }
 
-QStringList MessageUrl::siteNameElements() const
+QStringList MessageUrl::siteNameElements()
 {
     return {QStringLiteral("ogSiteName"), QStringLiteral("oembedProviderName")};
 }
 
-QStringList MessageUrl::imageHeightElements() const
+QStringList MessageUrl::imageHeightElements()
 {
     return {QStringLiteral("ogImageHeight"), QStringLiteral("oembedHeight"), QStringLiteral("oembedThumbnailHeight")};
 }
 
-QStringList MessageUrl::imageWidthElements() const
+QStringList MessageUrl::imageWidthElements()
 {
     return {QStringLiteral("ogImageWidth"), QStringLiteral("oembedWidth"), QStringLiteral("oembedThumbnailWidth")};
 }
