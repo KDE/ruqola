@@ -28,3 +28,5 @@ AuthenticationOauthTestWidget::AuthenticationOauthTestWidget(QWidget *parent)
     mainLayout->addWidget(mAuthenticationOauthWidget);
     mAuthenticationOauthWidget->setVisible(true);
 }
+
+#include "moc_authenticationoauthtestwidget.cpp"
