@@ -1,0 +1,72 @@
+{
+    "_id": "yZPPxBQ79M9jG5hS6",
+    "_updatedAt": {
+        "$date": 1704484544886
+    },
+    "alias": "",
+    "attachments": [
+    ],
+    "channels": [
+    ],
+    "groupable": false,
+    "md": [
+        {
+            "type": "PARAGRAPH",
+            "value": [
+                {
+                    "type": "LINK",
+                    "value": {
+                        "label": [
+                            {
+                                "type": "PLAIN_TEXT",
+                                "value": "https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"
+                            }
+                        ],
+                        "src": {
+                            "type": "PLAIN_TEXT",
+                            "value": "https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "mentions": [
+    ],
+    "msg": "https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149",
+    "parseUrls": true,
+    "rid": "wWTrQstz3mex5Mm",
+    "ts": {
+        "$date": 1704484544725
+    },
+    "u": {
+        "_id": "uKK39zoekdacidH",
+        "name": "test1 test2",
+        "username": "test1"
+    },
+    "urls": [
+        {
+            "headers": {
+                "contentType": "text/html; charset=utf-8"
+            },
+            "meta": {
+                "description": "Closes #23",
+                "fbAppId": "1401488693436528",
+                "ogDescription": "Closes #23",
+                "ogImage": "https://avatar.foo.com/u/84974957?s=400&v=4",
+                "ogImageAlt": "Closes #23",
+                "ogSiteName": "GitHub",
+                "ogTitle": "Deferred connection evaluation by blabla · Pull Request #48 · ",
+                "ogType": "object",
+                "ogUrl": "https://foo/pull/48",
+                "pageTitle": "Deferred connection evaluation by blabla · Pull Request #48 ·  · GitHub",
+                "twitterCard": "summary_large_image",
+                "twitterDescription": "Closes #23",
+                "twitterImageSrc": "https://avatar.foo.com/u/84974957?s=400&v=4",
+                "twitterSite": "@github",
+                "twitterTitle": "Deferred connection evaluation by blabla · Pull Request #48 · "
+            },
+            "url": "https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"
+        }
+    ]
+}

@@ -86,6 +86,31 @@ void MessageTest::shouldParseMessage_data()
         QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
     }
     {
+        Message urlMessageRef;
+        urlMessageRef.setMessageId(QStringLiteral("yZPPxBQ79M9jG5hS6"));
+        urlMessageRef.setGroupable(false);
+        urlMessageRef.setName(QStringLiteral("test1 test2"));
+        urlMessageRef.setTimeStamp(1704484544725);
+        urlMessageRef.setUsername(QStringLiteral("test1"));
+        urlMessageRef.setUserId(QStringLiteral("uKK39zoekdacidH"));
+        urlMessageRef.setMessageType(Message::NormalText);
+        urlMessageRef.setUpdatedAt(1704484544886);
+        urlMessageRef.setEditedAt(-1);
+        urlMessageRef.setIsStarred(false);
+        urlMessageRef.setParseUrls(true);
+        urlMessageRef.setRoomId(QStringLiteral("wWTrQstz3mex5Mm"));
+        urlMessageRef.setText(QStringLiteral("https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"));
+        MessageUrl url;
+        url.setUrl(QStringLiteral("https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"));
+        url.setPageTitle(QStringLiteral("Deferred connection evaluation by blabla · Pull Request #48 · "));
+        url.setDescription(QStringLiteral("Closes #23"));
+        url.setImageUrl(QStringLiteral("https://avatar.foo.com/u/84974957?s=400&v=4"));
+        url.setSiteUrl(QStringLiteral("https://foo/pull/48"));
+        url.setSiteName(QStringLiteral("GitHub"));
+        urlMessageRef.setUrls({url});
+        QTest::addRow("url1") << QStringLiteral("url1") << urlMessageRef;
+    }
+    {
         // Image
         Message imageMessageRef;
         imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
