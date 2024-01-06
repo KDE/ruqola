@@ -6,6 +6,9 @@
 
 #include "messagedelegatehelperurlpreview.h"
 
-MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview()
+MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
+
+MessageDelegateHelperUrlPreview::~MessageDelegateHelperUrlPreview() = default;

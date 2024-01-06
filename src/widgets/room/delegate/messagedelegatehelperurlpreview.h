@@ -5,9 +5,12 @@
 */
 
 #pragma once
+#include "libruqolawidgets_private_export.h"
+#include "messagedelegatehelperbase.h"
 
-class MessageDelegateHelperUrlPreview
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperUrlPreview : public MessageDelegateHelperBase
 {
 public:
-    MessageDelegateHelperUrlPreview();
+    explicit MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
+    ~MessageDelegateHelperUrlPreview() override;
 };
