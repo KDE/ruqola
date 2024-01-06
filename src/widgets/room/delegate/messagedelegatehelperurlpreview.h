@@ -27,10 +27,12 @@ private:
     struct PreviewLayout {
         QString title;
         QString description;
+        QString imageUrl;
         QSize titleSize;
         QSize imageSize;
         QSize descriptionSize;
         QRect hideShowButtonRect;
         bool isShown = true;
     };
+    [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option) const;
 };
