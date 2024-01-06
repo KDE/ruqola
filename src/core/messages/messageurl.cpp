@@ -35,6 +35,36 @@ QStringList MessageUrl::siteNameElements() const
     return {QStringLiteral("ogSiteName"), QStringLiteral("oembedProviderName")};
 }
 
+QStringList MessageUrl::imageHeightElements() const
+{
+    return {QStringLiteral("ogImageHeight"), QStringLiteral("oembedHeight"), QStringLiteral("oembedThumbnailHeight")};
+}
+
+QStringList MessageUrl::imageWidthElements() const
+{
+    return {QStringLiteral("ogImageWidth"), QStringLiteral("oembedWidth"), QStringLiteral("oembedThumbnailWidth")};
+}
+
+int MessageUrl::imageWidth() const
+{
+    return mImageWidth;
+}
+
+void MessageUrl::setImageWidth(int newImageWidth)
+{
+    mImageWidth = newImageWidth;
+}
+
+int MessageUrl::imageHeight() const
+{
+    return mImageHeight;
+}
+
+void MessageUrl::setImageHeight(int newImageHeight)
+{
+    mImageHeight = newImageHeight;
+}
+
 QString MessageUrl::siteName() const
 {
     return mSiteName;
@@ -136,9 +166,24 @@ void MessageUrl::parseUrl(const QJsonObject &url)
                 break;
             }
         }
+        // TODO verify it
+        for (const QString &element : imageHeightElements()) {
+            const QJsonValue imageHeightStr = meta.value(element);
+            if (!imageHeightStr.isUndefined()) {
+                setImageHeight(imageHeightStr.toInt(-1));
+                break;
+            }
+        }
+        for (const QString &element : imageWidthElements()) {
+            const QJsonValue imageWidthStr = meta.value(element);
+            if (!imageWidthStr.isUndefined()) {
+                setImageWidth(imageWidthStr.toInt(-1));
+                break;
+            }
+        }
     }
 
-    // qDebug() << " *this " << *this << " is empty " << isEmpty();
+    // qDebug() << " *this " << *this << " is empty " << isEmpty() << " url" << url;
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
 }
 
@@ -163,7 +208,12 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     if (!url.siteName().isEmpty()) {
         obj[QLatin1String("siteName")] = url.siteName();
     }
-    // TODO add more "ogTitle/ogDescription/ogUrl/ogImage/ogSiteName"
+    if (url.imageHeight() > -1) {
+        obj[QLatin1String("imageHeight")] = url.imageHeight();
+    }
+    if (url.imageWidth() > -1) {
+        obj[QLatin1String("imageWidth")] = url.imageWidth();
+    }
     return obj;
 }
 
@@ -178,6 +228,8 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setAuthorUrl(o.value(QLatin1String("authorUrl")).toString());
     url.setSiteUrl(o.value(QLatin1String("siteUrl")).toString());
     url.setSiteName(o.value(QLatin1String("siteName")).toString());
+    url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
+    url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
     return url;
 }
 
@@ -219,7 +271,8 @@ void MessageUrl::setDescription(const QString &description)
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
     return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
-        && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName());
+        && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
+        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth());
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -232,6 +285,8 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "AuthorUrl:" << t.authorUrl();
     d.space() << "SiteUrl:" << t.siteUrl();
     d.space() << "SiteName:" << t.siteName();
+    d.space() << "ImageHeight:" << t.imageHeight();
+    d.space() << "ImageWidth:" << t.imageWidth();
     return d;
 }
 

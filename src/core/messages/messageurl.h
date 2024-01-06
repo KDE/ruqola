@@ -45,12 +45,20 @@ public:
     [[nodiscard]] QString siteName() const;
     void setSiteName(const QString &newSiteName);
 
+    [[nodiscard]] int imageHeight() const;
+    void setImageHeight(int newImageHeight);
+
+    [[nodiscard]] int imageWidth() const;
+    void setImageWidth(int newImageWidth);
+
 private:
     [[nodiscard]] QStringList pageTitleElements() const;
     [[nodiscard]] QStringList descriptionElements() const;
     [[nodiscard]] QStringList imageUrlElements() const;
     [[nodiscard]] QStringList siteUrlElements() const;
     [[nodiscard]] QStringList siteNameElements() const;
+    [[nodiscard]] QStringList imageHeightElements() const;
+    [[nodiscard]] QStringList imageWidthElements() const;
     QString mUrl;
     QString mPageTitle;
     QString mDescription;
@@ -59,6 +67,8 @@ private:
     QString mAuthorUrl;
     QString mSiteUrl;
     QString mSiteName;
+    int mImageHeight = -1;
+    int mImageWidth = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);

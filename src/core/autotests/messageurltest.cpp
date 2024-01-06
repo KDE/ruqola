@@ -26,6 +26,8 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QVERIFY(url.authorName().isEmpty());
     QVERIFY(url.authorUrl().isEmpty());
     QVERIFY(url.siteUrl().isEmpty());
+    QCOMPARE(url.imageHeight(), -1);
+    QCOMPARE(url.imageWidth(), -1);
 }
 
 void MessageUrlTest::shouldSerializeData()
@@ -93,6 +95,33 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
+        const QJsonObject ba = MessageUrl::serialize(input);
+        const MessageUrl output = MessageUrl::deserialize(ba);
+        QCOMPARE(input, output);
+    }
+    {
+        MessageUrl input;
+        input.setUrl(QStringLiteral("foo1"));
+        input.setDescription(QStringLiteral("foo3"));
+        input.setImageUrl(QStringLiteral("foo4"));
+        input.setAuthorName(QStringLiteral("foo5"));
+        input.setAuthorUrl(QStringLiteral("foo6"));
+        input.setSiteUrl(QStringLiteral("foo7"));
+        input.setImageHeight(8);
+        const QJsonObject ba = MessageUrl::serialize(input);
+        const MessageUrl output = MessageUrl::deserialize(ba);
+        QCOMPARE(input, output);
+    }
+    {
+        MessageUrl input;
+        input.setUrl(QStringLiteral("foo1"));
+        input.setDescription(QStringLiteral("foo3"));
+        input.setImageUrl(QStringLiteral("foo4"));
+        input.setAuthorName(QStringLiteral("foo5"));
+        input.setAuthorUrl(QStringLiteral("foo6"));
+        input.setSiteUrl(QStringLiteral("foo7"));
+        input.setImageHeight(8);
+        input.setImageWidth(32);
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
