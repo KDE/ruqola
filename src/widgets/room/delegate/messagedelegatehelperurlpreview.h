@@ -13,4 +13,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperUrlPreview : public Mes
 public:
     explicit MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageDelegateHelperUrlPreview() override;
+    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
 };

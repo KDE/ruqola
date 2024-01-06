@@ -29,6 +29,7 @@
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
+#include "messagedelegatehelperurlpreview.h"
 #include "ruqola_thread_message_widgets_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -65,6 +66,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(account, view, mTextSelectionImpl))
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(account, view, mTextSelectionImpl))
     , mHelperConferenceVideo(new MessageDelegateHelperConferenceVideo(account, view, mTextSelectionImpl))
+    , mHelperUrlPreview(new MessageDelegateHelperUrlPreview(account, view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mMessageListLayoutBase(new MessageListCompactLayout(this))
 {

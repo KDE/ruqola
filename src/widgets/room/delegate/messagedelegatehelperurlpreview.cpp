@@ -12,3 +12,18 @@ MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview(RocketChatAccou
 }
 
 MessageDelegateHelperUrlPreview::~MessageDelegateHelperUrlPreview() = default;
+
+QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const QModelIndex &index) const
+{
+    return nullptr;
+}
+
+QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const MessageAttachment &msgAttach) const
+{
+    return nullptr;
+}
+
+QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const Block &block) const
+{
+    return nullptr;
+}

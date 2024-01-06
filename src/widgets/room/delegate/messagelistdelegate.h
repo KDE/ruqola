@@ -26,6 +26,7 @@ class MessageAttachmentDelegateHelperVideo;
 class MessageAttachmentDelegateHelperSound;
 class MessageAttachmentDelegateHelperText;
 class MessageDelegateHelperConferenceVideo;
+class MessageDelegateHelperUrlPreview;
 class MessageAttachment;
 class AvatarCacheManager;
 class TextSelectionImpl;
@@ -139,6 +140,7 @@ private:
     QScopedPointer<MessageAttachmentDelegateHelperSound> mHelperAttachmentSound;
     QScopedPointer<MessageAttachmentDelegateHelperText> mHelperAttachmentText;
     QScopedPointer<MessageDelegateHelperConferenceVideo> mHelperConferenceVideo;
+    QScopedPointer<MessageDelegateHelperUrlPreview> mHelperUrlPreview;
     AvatarCacheManager *const mAvatarCacheManager;
     MessageListLayoutBase *mMessageListLayoutBase = nullptr;
     bool mEmojiMenuEnabled = true;
