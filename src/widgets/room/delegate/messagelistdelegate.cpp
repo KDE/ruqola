@@ -125,6 +125,7 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
     mHelperAttachmentSound->setRocketChatAccount(mRocketChatAccount);
     mHelperAttachmentText->setRocketChatAccount(mRocketChatAccount);
     mHelperConferenceVideo->setRocketChatAccount(mRocketChatAccount);
+    mHelperUrlPreview->setRocketChatAccount(mRocketChatAccount);
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
@@ -525,6 +526,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
     }
+
+    // TODO add preview url!
 
     // drawFocus(painter, option, messageRect);
 
