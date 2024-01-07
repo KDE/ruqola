@@ -223,9 +223,6 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     if (url.imageWidth() > -1) {
         obj[QLatin1String("imageWidth")] = url.imageWidth();
     }
-    if (!url.urlId().isEmpty()) {
-        obj[QLatin1String("urlId")] = url.urlId();
-    }
     return obj;
 }
 
@@ -242,7 +239,6 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setSiteName(o.value(QLatin1String("siteName")).toString());
     url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
     url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
-    url.setUrlId(o.value(QLatin1String("urlId")).toString());
     return url;
 }
 

@@ -416,6 +416,7 @@ void Message::parseUrls(const QJsonArray &urls)
         for (int i = 0; i < urls.size(); i++) {
             const QJsonObject url = urls.at(i).toObject();
             MessageUrl messageUrl;
+            messageUrl.setUrlId(Message::generateUniqueId(mMessageId, i));
             messageUrl.parseUrl(url);
             if (!messageUrl.isEmpty()) {
                 mUrls.append(messageUrl);
@@ -468,7 +469,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
             messageAttachement.parseAttachment(attachment);
-            messageAttachement.setAttachmentId(Message::generateAttachmentId(messageId(), i));
+            messageAttachement.setAttachmentId(Message::generateUniqueId(messageId(), i));
             if (messageAttachement.isValid()) {
                 mAttachments.append(messageAttachement);
             }
@@ -806,7 +807,7 @@ void Message::setGroupable(bool groupable)
     mGroupable = groupable;
 }
 
-QString Message::generateAttachmentId(const QString &messageId, int index)
+QString Message::generateUniqueId(const QString &messageId, int index)
 {
     return QStringLiteral("%1_%2").arg(messageId, QString::number(index));
 }
@@ -860,7 +861,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         MessageAttachment att = MessageAttachment::deserialize(attachment);
-        att.setAttachmentId(Message::generateAttachmentId(message.messageId(), i));
+        att.setAttachmentId(Message::generateUniqueId(message.messageId(), i));
         if (att.isValid()) {
             message.mAttachments.append(std::move(att));
         }
@@ -868,7 +869,8 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     const QJsonArray urlsArray = o.value(QLatin1String("urls")).toArray();
     for (int i = 0; i < urlsArray.count(); ++i) {
         const QJsonObject urlObj = urlsArray.at(i).toObject();
-        const MessageUrl url = MessageUrl::deserialize(urlObj);
+        MessageUrl url = MessageUrl::deserialize(urlObj);
+        url.setUrlId(Message::generateUniqueId(message.messageId(), i));
         if (!url.isEmpty()) {
             message.mUrls.append(std::move(url));
         }

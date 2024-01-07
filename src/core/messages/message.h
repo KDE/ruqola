@@ -214,7 +214,7 @@ public:
     void setModerationMessage(const ModerationMessage &newModerationMessage);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString generateAttachmentId(const QString &messageId, int index);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString generateUniqueId(const QString &messageId, int index);
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
     LIBRUQOLACORE_NO_EXPORT void parseUrls(const QJsonArray &urls);
