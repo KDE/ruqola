@@ -59,6 +59,18 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     return layout;
 }
 
+QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(const Block &block, int width) const
+{
+    // TODO
+    return nullptr;
+}
+
+QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const Block &block, int width) const
+{
+    // TODO
+    return {};
+}
+
 QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option /*, previewsRect.width(), previewsRect.height()*/);
@@ -74,4 +86,13 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
     return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
+}
+
+bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
+                                                      QRect messageRect,
+                                                      const MessageUrl &messageUrl,
+                                                      const QStyleOptionViewItem &option)
+{
+    // TODO
+    return false;
 }

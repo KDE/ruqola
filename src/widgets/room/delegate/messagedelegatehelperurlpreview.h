@@ -9,6 +9,7 @@
 #include "messagedelegatehelperbase.h"
 class QStyleOptionViewItem;
 class MessageUrl;
+class QHelpEvent;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperUrlPreview : public MessageDelegateHelperBase
 {
 public:
@@ -21,6 +22,8 @@ public:
     void draw(const MessageUrl &messageUrl, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
 
     [[nodiscard]] QSize sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
+
+    [[nodiscard]] bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageUrl &messageUrl, const QStyleOptionViewItem &option);
 
 private:
     Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
@@ -35,4 +38,6 @@ private:
         bool isShown = true;
     };
     [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const Block &block, int width) const;
+    [[nodiscard]] QSize documentDescriptionForIndexSize(const Block &block, int width) const;
 };
