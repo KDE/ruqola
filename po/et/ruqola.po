@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 00:41+0000\n"
+"POT-Creation-Date: 2024-01-07 00:41+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8572,49 +8572,49 @@ msgstr "Faili salvestamine"
 msgid "Join"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:314
+#: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/delegate/messagelistdelegate.cpp:326
 #: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:514
+#: widgets/room/delegate/messagelistdelegate.cpp:517
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastus"
 msgstr[1] "%1 vastust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:521
+#: widgets/room/delegate/messagelistdelegate.cpp:524
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:521
+#: widgets/room/delegate/messagelistdelegate.cpp:524
 #, kde-format
 msgid "No message yet"
 msgstr "Ühtegi sõnumit pole veel"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:776
+#: widgets/room/delegate/messagelistdelegate.cpp:787
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:780
+#: widgets/room/delegate/messagelistdelegate.cpp:791
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:784
+#: widgets/room/delegate/messagelistdelegate.cpp:795
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"

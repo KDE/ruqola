@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 00:41+0000\n"
+"POT-Creation-Date: 2024-01-07 00:41+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -8091,48 +8091,48 @@ msgstr "Gorde fitxategia"
 msgid "Join"
 msgstr "Batu honetara"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:314
+#: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Erabiltzailearen informazioa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/delegate/messagelistdelegate.cpp:326
 #: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:514
+#: widgets/room/delegate/messagelistdelegate.cpp:517
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "Erantzun 1"
 msgstr[1] "%1 erantzun"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:521
+#: widgets/room/delegate/messagelistdelegate.cpp:524
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "Mezua 1"
 msgstr[1] "%1 mezu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:521
+#: widgets/room/delegate/messagelistdelegate.cpp:524
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:776
+#: widgets/room/delegate/messagelistdelegate.cpp:787
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:780
+#: widgets/room/delegate/messagelistdelegate.cpp:791
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:784
+#: widgets/room/delegate/messagelistdelegate.cpp:795
 #, kde-format
 msgid "Message has been starred"
 msgstr ""

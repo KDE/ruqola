@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 00:41+0000\n"
+"POT-Creation-Date: 2024-01-07 00:41+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -8288,48 +8288,48 @@ msgstr "Gravar o Ficheiro"
 msgid "Join"
 msgstr "Juntar-se"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:314
+#: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informações do Utilizador"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/delegate/messagelistdelegate.cpp:326
 #: widgets/room/messagelistview.cpp:387
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Iniciar uma Conversação Privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:514
+#: widgets/room/delegate/messagelistdelegate.cpp:517
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:521
+#: widgets/room/delegate/messagelistdelegate.cpp:524
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensagem"
 msgstr[1] "%1 mensagens"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:521
+#: widgets/room/delegate/messagelistdelegate.cpp:524
 #, kde-format
 msgid "No message yet"
 msgstr "Ainda sem mensagem"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:776
+#: widgets/room/delegate/messagelistdelegate.cpp:787
 #, kde-format
 msgid "Following"
 msgstr "A Seguir"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:780
+#: widgets/room/delegate/messagelistdelegate.cpp:791
 #, kde-format
 msgid "Message has been pinned"
 msgstr "A mensagem ficou fixa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:784
+#: widgets/room/delegate/messagelistdelegate.cpp:795
 #, kde-format
 msgid "Message has been starred"
 msgstr "A mensagem ficou marcada com uma estrela"
