@@ -45,6 +45,16 @@ QStringList MessageUrl::imageWidthElements()
     return {QStringLiteral("ogImageWidth"), QStringLiteral("oembedWidth"), QStringLiteral("oembedThumbnailWidth")};
 }
 
+QString MessageUrl::urlId() const
+{
+    return mUrlId;
+}
+
+void MessageUrl::setUrlId(const QString &newUrlId)
+{
+    mUrlId = newUrlId;
+}
+
 int MessageUrl::imageWidth() const
 {
     return mImageWidth;
@@ -213,6 +223,9 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     if (url.imageWidth() > -1) {
         obj[QLatin1String("imageWidth")] = url.imageWidth();
     }
+    if (!url.urlId().isEmpty()) {
+        obj[QLatin1String("urlId")] = url.urlId();
+    }
     return obj;
 }
 
@@ -229,6 +242,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setSiteName(o.value(QLatin1String("siteName")).toString());
     url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
     url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
+    url.setUrlId(o.value(QLatin1String("urlId")).toString());
     return url;
 }
 
@@ -271,7 +285,7 @@ bool MessageUrl::operator==(const MessageUrl &other) const
 {
     return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
         && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
-        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth());
+        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mUrlId == urlId());
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -286,6 +300,7 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "SiteName:" << t.siteName();
     d.space() << "ImageHeight:" << t.imageHeight();
     d.space() << "ImageWidth:" << t.imageWidth();
+    d.space() << "UrlId:" << t.urlId();
     return d;
 }
 

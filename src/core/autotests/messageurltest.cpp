@@ -26,6 +26,7 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QVERIFY(url.authorName().isEmpty());
     QVERIFY(url.authorUrl().isEmpty());
     QVERIFY(url.siteUrl().isEmpty());
+    QVERIFY(url.urlId().isEmpty());
     QCOMPARE(url.imageHeight(), -1);
     QCOMPARE(url.imageWidth(), -1);
 }

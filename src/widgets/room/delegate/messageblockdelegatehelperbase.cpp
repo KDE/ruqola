@@ -57,8 +57,8 @@ bool MessageBlockDelegateHelperBase::maybeStartDrag(const Block &block,
 
 QTextDocument *MessageBlockDelegateHelperBase::documentDescriptionForIndex(const Block &block, int width) const
 {
-    const QString attachmentId = block.blockId();
-    auto it = mDocumentCache.find(attachmentId);
+    const QString blockId = block.blockId();
+    auto it = mDocumentCache.find(blockId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
         if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {

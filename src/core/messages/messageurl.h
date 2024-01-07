@@ -51,6 +51,9 @@ public:
     [[nodiscard]] int imageWidth() const;
     void setImageWidth(int newImageWidth);
 
+    [[nodiscard]] QString urlId() const;
+    void setUrlId(const QString &newUrlId);
+
 private:
     [[nodiscard]] static QStringList pageTitleElements();
     [[nodiscard]] static QStringList descriptionElements();
@@ -67,6 +70,7 @@ private:
     QString mAuthorUrl;
     QString mSiteUrl;
     QString mSiteName;
+    QString mUrlId;
     int mImageHeight = -1;
     int mImageWidth = -1;
 };
