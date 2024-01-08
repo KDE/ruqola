@@ -54,6 +54,9 @@ public:
     [[nodiscard]] QString urlId() const;
     void setUrlId(const QString &newUrlId);
 
+    [[nodiscard]] bool showPreview() const;
+    void setShowPreview(bool newShowPreview);
+
 private:
     [[nodiscard]] static QStringList pageTitleElements();
     [[nodiscard]] static QStringList descriptionElements();
@@ -73,6 +76,7 @@ private:
     QString mUrlId;
     int mImageHeight = -1;
     int mImageWidth = -1;
+    bool mShowPreview = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);

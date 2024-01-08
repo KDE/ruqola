@@ -45,6 +45,16 @@ QStringList MessageUrl::imageWidthElements()
     return {QStringLiteral("ogImageWidth"), QStringLiteral("oembedWidth"), QStringLiteral("oembedThumbnailWidth")};
 }
 
+bool MessageUrl::showPreview() const
+{
+    return mShowPreview;
+}
+
+void MessageUrl::setShowPreview(bool newShowPreview)
+{
+    mShowPreview = newShowPreview;
+}
+
 QString MessageUrl::urlId() const
 {
     return mUrlId;

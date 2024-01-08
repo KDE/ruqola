@@ -308,6 +308,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.showTranslatedMessage();
     case MessagesModel::DisplayAttachment:
         return {}; // Unused.
+    case MessagesModel::DisplayUrlPreview:
+        return {}; // Unused.
     case MessagesModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
@@ -391,6 +393,22 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
             }
         }
         message.setAttachments(attachments);
+        Q_EMIT dataChanged(index, index);
+        return true;
+    }
+    case MessagesModel::DisplayUrlPreview: {
+        const auto visibility = value.value<AttachmentAndUrlPreviewVisibility>();
+        auto urls = message.urls();
+        for (int i = 0, total = urls.count(); i < total; ++i) {
+            const MessageUrl att = urls.at(i);
+            if (att.urlId() == visibility.ElementId) {
+                MessageUrl changeUrlPreview = urls.takeAt(i);
+                changeUrlPreview.setShowPreview(visibility.show);
+                urls.insert(i, changeUrlPreview);
+                break;
+            }
+        }
+        message.setUrls(urls);
         Q_EMIT dataChanged(index, index);
         return true;
     }

@@ -69,6 +69,7 @@ public:
         ShowTranslatedMessage,
         DisplayAttachment,
         DisplayLastSeenMessage,
+        DisplayUrlPreview,
         Emoji,
         AvatarInfo,
         PendingMessage,
