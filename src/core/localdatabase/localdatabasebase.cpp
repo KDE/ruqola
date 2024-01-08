@@ -41,7 +41,7 @@ QString LocalDatabaseBase::schemaDatabaseStr() const
 
 QString LocalDatabaseBase::schemaDataBase() const
 {
-    Q_ASSERT(true);
+    Q_ASSERT(false);
     return {};
 }
 

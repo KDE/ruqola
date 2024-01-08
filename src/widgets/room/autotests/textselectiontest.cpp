@@ -49,14 +49,14 @@ public:
     {
         // Unused here
         Q_UNUSED(msgAttach)
-        Q_ASSERT(true);
+        Q_ASSERT(false);
         return nullptr;
     }
     QTextDocument *documentForIndex(const Block &block) const override
     {
         // Unused here
         Q_UNUSED(block)
-        Q_ASSERT(true);
+        Q_ASSERT(false);
         return nullptr;
     }
 

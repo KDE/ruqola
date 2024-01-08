@@ -25,21 +25,21 @@ MessageDelegateHelperUrlPreview::~MessageDelegateHelperUrlPreview() = default;
 QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const QModelIndex &index) const
 {
     Q_UNUSED(index);
-    Q_ASSERT(true);
+    Q_ASSERT(false);
     return nullptr;
 }
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const MessageAttachment &msgAttach) const
 {
     Q_UNUSED(msgAttach);
-    Q_ASSERT(true);
+    Q_ASSERT(false);
     return nullptr;
 }
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const Block &block) const
 {
     Q_UNUSED(block);
-    Q_ASSERT(true);
+    Q_ASSERT(false);
     return nullptr;
 }
 

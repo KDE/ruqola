@@ -58,7 +58,7 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
     case LocalDatabaseUtils::DatabasePath::Global:
         return QStringLiteral("global/");
     }
-    Q_ASSERT(true);
+    Q_UNREACHABLE();
     return {};
 }
 
