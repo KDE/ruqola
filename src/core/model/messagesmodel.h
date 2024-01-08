@@ -171,3 +171,4 @@ private:
     std::unique_ptr<LoadRecentHistoryManager> mLoadRecentHistoryManager;
 };
 Q_DECLARE_METATYPE(MessagesModel::AttachmentAndUrlPreviewVisibility)
+Q_DECLARE_TYPEINFO(MessagesModel::AttachmentAndUrlPreviewVisibility, Q_MOVABLE_TYPE);
