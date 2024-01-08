@@ -33,6 +33,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(attachment.attachmentFields().isEmpty());
     QVERIFY(!attachment.collapsed());
     QVERIFY(!attachment.showAttachment());
+    QVERIFY(!attachment.hasDescription());
 }
 
 void MessageAttachmentTest::shouldSerializeData()

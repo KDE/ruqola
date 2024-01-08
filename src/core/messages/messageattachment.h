@@ -90,6 +90,8 @@ public:
 
     [[nodiscard]] const QString &imageUrlPreview() const;
 
+    [[nodiscard]] bool hasDescription() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     QVector<MessageAttachmentField> mAttachmentFields;

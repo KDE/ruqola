@@ -381,6 +381,11 @@ QString MessageAttachment::displayTitle() const
     return QStringLiteral("<a href=\'%1'>%2</a>").arg(link(), title());
 }
 
+bool MessageAttachment::hasDescription() const
+{
+    return !mDescription.isEmpty();
+}
+
 QString MessageAttachment::description() const
 {
     return mDescription;
