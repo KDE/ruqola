@@ -55,6 +55,17 @@ void MessageUrl::setShowPreview(bool newShowPreview)
     mShowPreview = newShowPreview;
 }
 
+bool MessageUrl::previewUrl() const
+{
+    if (!mPageTitle.isEmpty() || !mDescription.isEmpty()) {
+        return true;
+    }
+    if (!mImageUrl.isEmpty()) {
+        return true;
+    }
+    return false;
+}
+
 QString MessageUrl::urlId() const
 {
     return mUrlId;

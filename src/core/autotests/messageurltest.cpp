@@ -30,6 +30,7 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QCOMPARE(url.imageHeight(), -1);
     QCOMPARE(url.imageWidth(), -1);
     QVERIFY(!url.showPreview());
+    QVERIFY(!url.previewUrl());
 }
 
 void MessageUrlTest::shouldSerializeData()
@@ -128,6 +129,19 @@ void MessageUrlTest::shouldSerializeData()
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
     }
+}
+
+void MessageUrlTest::shouldTestPreviewUrl()
+{
+    MessageUrl url;
+    QVERIFY(!url.previewUrl());
+    url.setDescription(QStringLiteral("bla"));
+    QVERIFY(url.previewUrl());
+    url.setDescription(QString());
+    url.setAuthorUrl(QStringLiteral("bla"));
+    QVERIFY(!url.previewUrl());
+    url.setImageUrl(QStringLiteral("bla1"));
+    QVERIFY(url.previewUrl());
 }
 
 #include "moc_messageurltest.cpp"

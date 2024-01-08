@@ -17,4 +17,5 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldSerializeData();
+    void shouldTestPreviewUrl();
 };

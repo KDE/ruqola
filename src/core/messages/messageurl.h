@@ -57,6 +57,8 @@ public:
     [[nodiscard]] bool showPreview() const;
     void setShowPreview(bool newShowPreview);
 
+    [[nodiscard]] bool previewUrl() const;
+
 private:
     [[nodiscard]] static QStringList pageTitleElements();
     [[nodiscard]] static QStringList descriptionElements();
