@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "messagemodeltest.h"
+#include "messagesmodeltest.h"
 #include "model/messagesmodel.h"
 #include "test_model_helpers.h"
 #include <QStandardPaths>
@@ -12,14 +12,14 @@
 #include <rocketchataccount.h>
 #include <ruqola.h>
 
-QTEST_GUILESS_MAIN(MessageModelTest)
+QTEST_GUILESS_MAIN(MessagesModelTest)
 
-MessageModelTest::MessageModelTest(QObject *parent)
+MessagesModelTest::MessagesModelTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void MessageModelTest::initTestCase()
+void MessagesModelTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -27,7 +27,7 @@ void MessageModelTest::initTestCase()
     rcAccount->settings()->setUserId(QStringLiteral("userid1"));
 }
 
-void MessageModelTest::shouldHaveDefaultValue()
+void MessagesModelTest::shouldHaveDefaultValue()
 {
     MessagesModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
@@ -53,7 +53,7 @@ static void fillTestMessage(Message &input)
     input.setMessageType(Message::MessageType::NormalText);
 }
 
-void MessageModelTest::shouldAddMessage()
+void MessagesModelTest::shouldAddMessage()
 {
     MessagesModel w;
     Message input;
@@ -88,7 +88,7 @@ void MessageModelTest::shouldAddMessage()
     QCOMPARE(w.rowCount(), 4);
 }
 
-void MessageModelTest::shouldRemoveMessage()
+void MessagesModelTest::shouldRemoveMessage()
 {
     MessagesModel w;
     Message input;
@@ -143,7 +143,7 @@ void MessageModelTest::shouldRemoveMessage()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
 }
 
-void MessageModelTest::shouldRemoveNotExistingMessage()
+void MessagesModelTest::shouldRemoveNotExistingMessage()
 {
     MessagesModel w;
     Message input;
@@ -170,7 +170,7 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     QCOMPARE(w.rowCount(), 2);
 }
 
-void MessageModelTest::shouldDetectDateChange()
+void MessagesModelTest::shouldDetectDateChange()
 {
     MessagesModel model;
     Message first;
@@ -205,7 +205,7 @@ static QByteArrayList extractMessageIds(MessagesModel &m)
     return ret;
 }
 
-void MessageModelTest::shouldAddMessages()
+void MessagesModelTest::shouldAddMessages()
 {
     MessagesModel model;
     Message input;
@@ -249,7 +249,7 @@ void MessageModelTest::shouldAddMessages()
     QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }
 
-void MessageModelTest::shouldUpdateFirstMessage()
+void MessagesModelTest::shouldUpdateFirstMessage()
 {
     MessagesModel model;
     Message input;
@@ -261,7 +261,7 @@ void MessageModelTest::shouldUpdateFirstMessage()
     QCOMPARE(model.index(0, 0).data(MessagesModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }
 
-void MessageModelTest::shouldAllowEditing()
+void MessagesModelTest::shouldAllowEditing()
 {
     // GIVEN a message from me
     MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
@@ -288,7 +288,7 @@ void MessageModelTest::shouldAllowEditing()
     QVERIFY(!model.index(1, 0).data(MessagesModel::CanDeleteMessage).toBool());
 }
 
-void MessageModelTest::shouldFindPrevNextMessage()
+void MessagesModelTest::shouldFindPrevNextMessage()
 {
     // GIVEN an empty model
     MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
@@ -328,4 +328,4 @@ void MessageModelTest::shouldFindPrevNextMessage()
     QCOMPARE(model.findNextMessageAfter(QStringLiteral("msgA"), isByMe).messageId(), QStringLiteral("msgC"));
 }
 
-#include "moc_messagemodeltest.cpp"
+#include "moc_messagesmodeltest.cpp"

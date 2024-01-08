@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class MessageModelTest : public QObject
+class MessagesModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit MessageModelTest(QObject *parent = nullptr);
-    ~MessageModelTest() override = default;
+    explicit MessagesModelTest(QObject *parent = nullptr);
+    ~MessagesModelTest() override = default;
 
 private Q_SLOTS:
     void initTestCase();
