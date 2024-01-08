@@ -13,6 +13,7 @@
 #include "room/delegate/messageblockdelegatehelperbase.h"
 #include "room/delegate/messagedelegatehelperreactions.h"
 #include "room/delegate/messagedelegatehelpertext.h"
+#include "room/delegate/messagedelegatehelperurlpreview.h"
 #include "room/delegate/messagelistdelegate.h"
 
 MessageListLayoutBase::MessageListLayoutBase(MessageListDelegate *delegate)
@@ -66,16 +67,16 @@ void MessageListLayoutBase::generateSenderInfo(Layout &layout, const Message *me
     layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage(index, message);
 }
 
-void MessageListLayoutBase::generateAttachmentLayout(MessageListDelegate *delegate,
-                                                     Layout &layout,
-                                                     const Message *message,
-                                                     int attachmentsY,
-                                                     int textLeft,
-                                                     int maxWidth,
-                                                     const QStyleOptionViewItem &option,
-                                                     const QModelIndex &index) const
+void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageListDelegate *delegate,
+                                                                       Layout &layout,
+                                                                       const Message *message,
+                                                                       int attachmentsY,
+                                                                       int textLeft,
+                                                                       int maxWidth,
+                                                                       const QStyleOptionViewItem &option,
+                                                                       const QModelIndex &index) const
 {
-    if (message->attachments().isEmpty() && message->blocks().isEmpty()) {
+    if (message->attachments().isEmpty() && message->blocks().isEmpty() && message->urls().isEmpty()) {
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
@@ -118,7 +119,28 @@ void MessageListLayoutBase::generateAttachmentLayout(MessageListDelegate *delega
             // qDebug() << " topBlock " << topBlock;
             layout.blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
-        layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height();
+        if (!message->urls().isEmpty()) {
+            const auto urls = message->urls();
+            QSize urlsPreviewSize;
+            int topUrlPreview = topAttachment;
+            for (const MessageUrl &url : urls) {
+                if (url.hasPreviewUrl()) {
+                    const MessageDelegateHelperUrlPreview *helperUrlPreview = delegate->helperUrlPreview();
+                    if (urlsPreviewSize.isEmpty()) {
+                        urlsPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
+                        layout.messageUrlsRectList.append(QRect(layout.senderRect.x(), topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height()));
+                        topUrlPreview += urlsPreviewSize.height();
+                    } else {
+                        const QSize urlPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
+                        layout.messageUrlsRectList.append(QRect(layout.senderRect.x(), topUrlPreview, urlPreviewSize.width(), urlPreviewSize.height()));
+                        urlsPreviewSize = QSize(qMax(urlsPreviewSize.width(), urlPreviewSize.width()), urlPreviewSize.height() + urlsPreviewSize.height());
+                        topUrlPreview += urlPreviewSize.height();
+                    }
+                }
+            }
+            // qDebug() << " topUrlPreview " << topUrlPreview;
+            layout.messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
+        }
+        layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height() + layout.messageUrlsRect.height();
     }
-    // TODO add url preview support too.
 }

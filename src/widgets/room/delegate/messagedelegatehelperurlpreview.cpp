@@ -10,6 +10,7 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "messages/message.h"
 #include "messages/messageurl.h"
+#include "rocketchataccount.h"
 #include "textconverter.h"
 
 #include <QPainter>
@@ -51,6 +52,14 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option /*, previewsRect.width(), previewsRect.height()*/);
     painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), layout.title);
+
+    if (!layout.imageUrl.isEmpty()) {
+        qDebug() << " drawIcon " << layout.imageUrl;
+        // Draw title and buttons
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
+        // TODO
+    }
     // TODO
 }
 
@@ -63,6 +72,10 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
 
     layout.description = messageUrl.description();
     layout.imageUrl = messageUrl.imageUrl();
+    if (!layout.imageUrl.isEmpty()) {
+        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+    }
     layout.isShown = messageUrl.showPreview();
     // TODO layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, attachmentsWidth);
     // TODO
@@ -71,7 +84,6 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const
 {
-#if 0
     const QString urlId = messageUrl.urlId();
     auto it = mDocumentCache.find(urlId);
     if (it != mDocumentCache.end()) {
@@ -90,17 +102,16 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
     // Laurent Ruqola::self()->rocketChatAccount() only for test.
-    auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
     int maximumRecursiveQuotedText = -1;
-    if (account) {
-        maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
+    if (mRocketChatAccount) {
+        maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
     }
     const TextConverter::ConvertMessageTextSettings settings(description,
-                                                             account->userName(),
+                                                             mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
                                                              {},
-                                                             account->highlightWords(),
-                                                             account->emojiManager(),
-                                                             account->messageCache(),
+                                                             mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
+                                                             mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr,
+                                                             mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
                                                              {},
                                                              {},
                                                              {},
@@ -112,9 +123,6 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
     auto ret = doc.get();
     mDocumentCache.insert(urlId, std::move(doc));
     return ret;
-#else
-    return nullptr;
-#endif
 }
 
 QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const
@@ -130,8 +138,8 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
-        // pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
-        // height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
+        pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
+        height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
     }
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
@@ -142,13 +150,56 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
 }
 
 bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
-                                                      QRect messageRect,
+                                                      QRect previewRect,
                                                       const MessageUrl &messageUrl,
                                                       const QStyleOptionViewItem &option)
 {
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
+    // TODO
+    return false;
+}
+
+bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &msgAttach,
+                                                       QMouseEvent *mouseEvent,
+                                                       QRect previewRect,
+                                                       const QStyleOptionViewItem &option,
+                                                       const QModelIndex &index)
+{
+#if 0
+    const QEvent::Type eventType = mouseEvent->type();
+    switch (eventType) {
+    case QEvent::MouseButtonRelease: {
+        const QPoint pos = mouseEvent->pos();
+
+        const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
+        if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
+            info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
+            info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave;
+            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
+            info.parentWidget = const_cast<QWidget *>(option.widget);
+            info.attachmentPath = layout.videoPath;
+            auto job = new MessageAttachmentDownloadAndSaveJob(this);
+            job->setRocketChatAccount(mRocketChatAccount);
+            job->setInfo(info);
+            job->start();
+            return true;
+        } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
+                   || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            auto parentWidget = const_cast<QWidget *>(option.widget);
+            ShowVideoDialog dlg(mRocketChatAccount, parentWidget);
+            dlg.setVideoPath(layout.videoPath);
+            dlg.exec();
+            return true;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+#endif
     // TODO
     return false;
 }

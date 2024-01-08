@@ -507,6 +507,15 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         ++blockIndex;
     }
 
+    // Preview Url
+    const QVector<MessageUrl> messageUrls = message->urls();
+    for (const MessageUrl &messageUrl : messageUrls) {
+        if (messageUrl.hasPreviewUrl()) {
+            qDebug() << "messageUrl  " << messageUrl;
+            mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRect, index, option);
+        }
+    }
+
     // Reactions
     const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
     mHelperReactions->draw(painter, reactionsRect, index, option);
@@ -515,24 +524,20 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const int threadCount = message->threadCount();
     if (threadCount > 0) {
         const QString repliesText = i18np("1 reply", "%1 replies", threadCount);
+        const QColor oldColor = painter->pen().color();
         painter->setPen(mReplyThreadColorMode);
         painter->drawText(layout.usableRect.x(), layout.repliesY + option.fontMetrics.ascent(), repliesText);
+        painter->setPen(oldColor);
     }
     // Discussion
     if (!message->discussionRoomId().isEmpty()) {
+        const QColor oldColor = painter->pen().color();
         const QString discussionsText =
             (message->discussionCount() > 0) ? i18np("1 message", "%1 messages", message->discussionCount()) : i18n("No message yet");
         painter->setPen(mOpenDiscussionColorMode);
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
-    }
-
-    // TODO add preview url!
-    if (!message->urls().isEmpty()) {
-        const QVector<MessageUrl> messageUrls = message->urls();
-        for (const MessageUrl &messageUrl : messageUrls) {
-            mHelperUrlPreview.get()->draw(messageUrl, painter, reactionsRect, index, option);
-        }
+        painter->setPen(oldColor);
     }
 
     // drawFocus(painter, option, messageRect);
@@ -552,6 +557,11 @@ QString MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     return message->messageId();
+}
+
+MessageDelegateHelperUrlPreview *MessageListDelegate::helperUrlPreview() const
+{
+    return mHelperUrlPreview.get();
 }
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

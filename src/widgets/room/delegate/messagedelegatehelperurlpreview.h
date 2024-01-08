@@ -7,8 +7,10 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "messagedelegatehelperbase.h"
+#include <QPixmap>
 class QStyleOptionViewItem;
 class MessageUrl;
+class QMouseEvent;
 class QHelpEvent;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperUrlPreview : public MessageDelegateHelperBase
 {
@@ -19,15 +21,19 @@ public:
     [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
     [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
 
-    void draw(const MessageUrl &messageUrl, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    void draw(const MessageUrl &messageUrl, QPainter *painter, QRect previewRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
 
     [[nodiscard]] QSize sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
 
-    [[nodiscard]] bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageUrl &messageUrl, const QStyleOptionViewItem &option);
+    [[nodiscard]] bool handleHelpEvent(QHelpEvent *helpEvent, QRect previewRect, const MessageUrl &messageUrl, const QStyleOptionViewItem &option);
+
+    [[nodiscard]] bool
+    handleMouseEvent(const MessageUrl &messageUrl, QMouseEvent *mouseEvent, QRect previewRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 private:
     Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
     struct PreviewLayout {
+        QPixmap pixmap;
         QString title;
         QString description;
         QString imageUrl;

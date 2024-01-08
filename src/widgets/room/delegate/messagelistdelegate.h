@@ -89,6 +89,8 @@ public:
 
     [[nodiscard]] MessageDelegateHelperReactions *helperReactions() const;
 
+    [[nodiscard]] MessageDelegateHelperUrlPreview *helperUrlPreview() const;
+
     void removeMessageCache(const QString &messageId, const QStringList &attachmentIdList);
 
     void setEnableEmojiMenu(bool b);

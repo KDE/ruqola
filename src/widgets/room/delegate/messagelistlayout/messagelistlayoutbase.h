@@ -106,14 +106,14 @@ public:
 
 protected:
     void generateSenderInfo(Layout &layout, const Message *message, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void generateAttachmentLayout(MessageListDelegate *delegate,
-                                  Layout &layout,
-                                  const Message *message,
-                                  int attachmentsY,
-                                  int textLeft,
-                                  int maxWidth,
-                                  const QStyleOptionViewItem &option,
-                                  const QModelIndex &index) const;
+    void generateAttachmentBlockAndUrlPreviewLayout(MessageListDelegate *delegate,
+                                                    Layout &layout,
+                                                    const Message *message,
+                                                    int attachmentsY,
+                                                    int textLeft,
+                                                    int maxWidth,
+                                                    const QStyleOptionViewItem &option,
+                                                    const QModelIndex &index) const;
     [[nodiscard]] bool sameSenderAsPreviousMessage(const QModelIndex &index, const Message *message) const;
     [[nodiscard]] QString senderText(const Message *message) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
