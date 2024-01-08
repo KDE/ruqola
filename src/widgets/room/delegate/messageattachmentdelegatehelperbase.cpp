@@ -217,11 +217,11 @@ QTextDocument *MessageAttachmentDelegateHelperBase::documentDescriptionForIndex(
         maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
     }
     const TextConverter::ConvertMessageTextSettings settings(description,
-                                                             account->userName(),
+                                                             account ? account->userName() : QString(),
                                                              {},
-                                                             account->highlightWords(),
-                                                             account->emojiManager(),
-                                                             account->messageCache(),
+                                                             account ? account->highlightWords() : QStringList(),
+                                                             account ? account->emojiManager() : nullptr,
+                                                             account ? account->messageCache() : nullptr,
                                                              {},
                                                              {},
                                                              {},
