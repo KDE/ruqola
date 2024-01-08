@@ -54,6 +54,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
 
     layout.description = messageUrl.description();
     layout.imageUrl = messageUrl.imageUrl();
+    layout.isShown = messageUrl.showPreview();
     // TODO layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
     // TODO
     return layout;
