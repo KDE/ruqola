@@ -379,11 +379,11 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
 
     switch (role) {
     case MessagesModel::DisplayAttachment: {
-        const auto visibility = value.value<AttachmentVisibility>();
+        const auto visibility = value.value<AttachmentAndUrlPreviewVisibility>();
         auto attachments = message.attachments();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
             const MessageAttachment att = attachments.at(i);
-            if (att.attachmentId() == visibility.attachmentId) {
+            if (att.attachmentId() == visibility.ElementId) {
                 MessageAttachment changeAttachment = attachments.takeAt(i);
                 changeAttachment.setShowAttachment(visibility.show);
                 attachments.insert(i, changeAttachment);
