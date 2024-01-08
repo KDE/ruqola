@@ -55,7 +55,7 @@ void MessageUrl::setShowPreview(bool newShowPreview)
     mShowPreview = newShowPreview;
 }
 
-bool MessageUrl::previewUrl() const
+bool MessageUrl::hasPreviewUrl() const
 {
     if (!mPageTitle.isEmpty() || !mDescription.isEmpty()) {
         return true;

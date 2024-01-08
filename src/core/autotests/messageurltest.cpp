@@ -30,7 +30,7 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QCOMPARE(url.imageHeight(), -1);
     QCOMPARE(url.imageWidth(), -1);
     QVERIFY(!url.showPreview());
-    QVERIFY(!url.previewUrl());
+    QVERIFY(!url.hasPreviewUrl());
 }
 
 void MessageUrlTest::shouldSerializeData()
@@ -134,14 +134,14 @@ void MessageUrlTest::shouldSerializeData()
 void MessageUrlTest::shouldTestPreviewUrl()
 {
     MessageUrl url;
-    QVERIFY(!url.previewUrl());
+    QVERIFY(!url.hasPreviewUrl());
     url.setDescription(QStringLiteral("bla"));
-    QVERIFY(url.previewUrl());
+    QVERIFY(url.hasPreviewUrl());
     url.setDescription(QString());
     url.setAuthorUrl(QStringLiteral("bla"));
-    QVERIFY(!url.previewUrl());
+    QVERIFY(!url.hasPreviewUrl());
     url.setImageUrl(QStringLiteral("bla1"));
-    QVERIFY(url.previewUrl());
+    QVERIFY(url.hasPreviewUrl());
 }
 
 #include "moc_messageurltest.cpp"
