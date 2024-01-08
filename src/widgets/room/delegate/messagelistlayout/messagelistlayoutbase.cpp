@@ -120,4 +120,5 @@ void MessageListLayoutBase::generateAttachmentLayout(MessageListDelegate *delega
         }
         layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height();
     }
+    // TODO add url preview support too.
 }
