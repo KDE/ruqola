@@ -38,6 +38,6 @@ private:
         bool isShown = true;
     };
     [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option) const;
-    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const Block &block, int width) const;
-    [[nodiscard]] QSize documentDescriptionForIndexSize(const Block &block, int width) const;
+    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const;
+    [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const;
 };

@@ -55,18 +55,18 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     layout.description = messageUrl.description();
     layout.imageUrl = messageUrl.imageUrl();
     layout.isShown = messageUrl.showPreview();
-    // TODO layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
+    // TODO layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, attachmentsWidth);
     // TODO
     return layout;
 }
 
-QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(const Block &block, int width) const
+QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const
 {
     // TODO
     return nullptr;
 }
 
-QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const Block &block, int width) const
+QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const
 {
     // TODO
     return {};
