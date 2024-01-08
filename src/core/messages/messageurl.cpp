@@ -57,8 +57,17 @@ void MessageUrl::setShowPreview(bool newShowPreview)
 
 void MessageUrl::generateHtmlDescription()
 {
-    // TODO
-    // mHtmlDescription;
+    // FIXME
+    mHtmlDescription.clear();
+    if (!mPageTitle.isEmpty()) {
+        mHtmlDescription = QStringLiteral(" <a href=\'%2'>%1</a>").arg(mPageTitle, mUrl);
+    }
+    if (!mDescription.isEmpty()) {
+        mHtmlDescription += QStringLiteral("<a>%1</a>").arg(mDescription);
+    }
+    if (!mSiteName.isEmpty()) {
+        mHtmlDescription += QStringLiteral("<a>%1</a>").arg(mSiteName);
+    }
 }
 
 QString MessageUrl::htmlDescription() const

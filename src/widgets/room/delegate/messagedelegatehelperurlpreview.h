@@ -41,7 +41,14 @@ private:
         QRect hideShowButtonRect;
         bool isShown = true;
     };
-    [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout
+    layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
     [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const;
     [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const;
+    void drawDescription(const MessageUrl &messageUrl,
+                         QRect previewRect,
+                         QPainter *painter,
+                         int topPos,
+                         const QModelIndex &index,
+                         const QStyleOptionViewItem &option) const;
 };

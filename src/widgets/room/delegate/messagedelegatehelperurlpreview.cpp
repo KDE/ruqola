@@ -52,7 +52,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
                                            const QModelIndex &index,
                                            const QStyleOptionViewItem &option) const
 {
-    const PreviewLayout layout = layoutPreview(messageUrl, option /*, previewsRect.width(), previewsRect.height()*/);
+    const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
     painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), i18n("Preview"));
 
     if (!layout.imageUrl.isEmpty()) {
@@ -66,7 +66,9 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
 }
 
 MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::layoutPreview(const MessageUrl &messageUrl,
-                                                                                              const QStyleOptionViewItem &option) const
+                                                                                              const QStyleOptionViewItem &option,
+                                                                                              int urlsPreviewWidth,
+                                                                                              int urlsPreviewHeight) const
 {
     MessageDelegateHelperUrlPreview::PreviewLayout layout;
     layout.imageUrl = messageUrl.imageUrl();
@@ -75,7 +77,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
         layout.hideShowButtonRect = QRect(layout.descriptionSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     }
     layout.isShown = messageUrl.showPreview();
-    // TODO layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, attachmentsWidth);
+    layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth);
     return layout;
 }
 
@@ -91,8 +93,9 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
         return ret;
     }
 
-    const QString description = messageUrl.description();
+    const QString description = messageUrl.htmlDescription();
 
+    qDebug() << " description " << description;
     if (description.isEmpty()) {
         return nullptr;
     }
@@ -118,6 +121,7 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
+    qDebug() << " contextString " << contextString;
     mDocumentCache.insert(urlId, std::move(doc));
     return ret;
 }
@@ -129,9 +133,24 @@ QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const Mes
     return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
+void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageUrl,
+                                                      QRect previewRect,
+                                                      QPainter *painter,
+                                                      int topPos,
+                                                      const QModelIndex &index,
+                                                      const QStyleOptionViewItem &option) const
+{
+    auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
+    if (!doc) {
+        return;
+    }
+
+    // FIXME MessageDelegateUtils::drawSelection(doc, previewRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), messageUrl);
+}
+
 QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-    const PreviewLayout layout = layoutPreview(messageUrl, option /*, previewsRect.width(), previewsRect.height()*/);
+    const PreviewLayout layout = layoutPreview(messageUrl, option, maxWidth, -1);
     int height = layout.descriptionSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
