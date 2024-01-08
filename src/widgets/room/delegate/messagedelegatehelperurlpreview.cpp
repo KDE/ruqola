@@ -7,7 +7,10 @@
 #include "messagedelegatehelperurlpreview.h"
 
 #include "common/delegatepaintutil.h"
+#include "delegateutils/messagedelegateutils.h"
+#include "messages/message.h"
 #include "messages/messageurl.h"
+#include "textconverter.h"
 
 #include <QPainter>
 #include <QStyleOptionViewItem>
@@ -62,14 +65,57 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const
 {
-    // TODO
+#if 0
+    const QString urlId = messageUrl.urlId();
+    auto it = mDocumentCache.find(urlId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
+            ret->setTextWidth(width);
+        }
+        return ret;
+    }
+
+    const QString description = messageUrl.description();
+
+    if (description.isEmpty()) {
+        return nullptr;
+    }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    QString needUpdateMessageId; // TODO use it ?
+    // Laurent Ruqola::self()->rocketChatAccount() only for test.
+    auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
+    int maximumRecursiveQuotedText = -1;
+    if (account) {
+        maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
+    }
+    const TextConverter::ConvertMessageTextSettings settings(description,
+                                                             account->userName(),
+                                                             {},
+                                                             account->highlightWords(),
+                                                             account->emojiManager(),
+                                                             account->messageCache(),
+                                                             {},
+                                                             {},
+                                                             {},
+                                                             maximumRecursiveQuotedText);
+
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+    auto ret = doc.get();
+    mDocumentCache.insert(urlId, std::move(doc));
+    return ret;
+#else
     return nullptr;
+#endif
 }
 
 QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const
 {
-    // TODO
-    return {};
+    auto *doc = documentDescriptionForIndex(messageUrl, width);
+    // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
+    return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
 QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
