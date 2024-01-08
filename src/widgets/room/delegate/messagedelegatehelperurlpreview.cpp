@@ -24,16 +24,22 @@ MessageDelegateHelperUrlPreview::~MessageDelegateHelperUrlPreview() = default;
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
+    Q_ASSERT(true);
     return nullptr;
 }
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const MessageAttachment &msgAttach) const
 {
+    Q_UNUSED(msgAttach);
+    Q_ASSERT(true);
     return nullptr;
 }
 
 QTextDocument *MessageDelegateHelperUrlPreview::documentForIndex(const Block &block) const
 {
+    Q_UNUSED(block);
+    Q_ASSERT(true);
     return nullptr;
 }
 
@@ -140,6 +146,9 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
                                                       const MessageUrl &messageUrl,
                                                       const QStyleOptionViewItem &option)
 {
+    if (helpEvent->type() != QEvent::ToolTip) {
+        return false;
+    }
     // TODO
     return false;
 }
