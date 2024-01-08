@@ -61,6 +61,7 @@ void ModerationReportInfoDelegate::paint(QPainter *painter, const QStyleOptionVi
                                                 option,
                                                 mTextSelectionImpl->textSelection(),
                                                 {},
+                                                {},
                                                 false);
         }
     }

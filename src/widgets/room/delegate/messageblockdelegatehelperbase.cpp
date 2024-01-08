@@ -120,6 +120,6 @@ void MessageBlockDelegateHelperBase::drawDescription(const Block &block,
     if (!doc) {
         return;
     }
-    // TODO MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
+    // TODO MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach, {});
 #endif
 }

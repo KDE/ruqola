@@ -78,10 +78,11 @@ QVector<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(
                                                                                 const QModelIndex &index,
                                                                                 const QStyleOptionViewItem &option,
                                                                                 const MessageAttachment &msgAttach,
+                                                                                const MessageUrl &msgUrl,
                                                                                 bool isAMessage)
 {
     QVector<QAbstractTextDocumentLayout::Selection> selections;
-    const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc, msgAttach);
+    const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc, msgAttach, msgUrl);
     if (!selectionTextCursor.isNull()) {
         QTextCharFormat selectionFormat;
         selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
@@ -106,6 +107,7 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
                                          const QStyleOptionViewItem &option,
                                          TextSelection *selection,
                                          const MessageAttachment &msgAttach,
+                                         const MessageUrl &msgUrl,
                                          bool isAMessage)
 {
     painter->save();
@@ -115,7 +117,7 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
     QAbstractTextDocumentLayout::PaintContext ctx;
     if (selection) {
         const QVector<QAbstractTextDocumentLayout::Selection> selections =
-            MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, isAMessage);
+            MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, msgUrl, isAMessage);
         // Same as pDoc->drawContents(painter, clip) but we also set selections
         ctx.selections = selections;
         if (clip.isValid()) {

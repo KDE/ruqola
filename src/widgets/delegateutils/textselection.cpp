@@ -122,7 +122,7 @@ bool TextSelection::contains(const QModelIndex &index, int charPos, const Messag
     }
 }
 
-QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att) const
+QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att, const MessageUrl &msgUrl) const
 {
     if (!hasSelection())
         return {};
@@ -149,6 +149,8 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
         }
     }
     // TODO add block
+
+    // TODO add msgUrl
 
     // qDebug() << "AFTER toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
     const int row = index.row();

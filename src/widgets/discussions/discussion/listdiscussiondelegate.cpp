@@ -64,6 +64,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
                                                 option,
                                                 mTextSelectionImpl->textSelection(),
                                                 {},
+                                                {},
                                                 false);
         }
     }

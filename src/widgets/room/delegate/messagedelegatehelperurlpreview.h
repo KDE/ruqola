@@ -35,7 +35,9 @@ private:
     struct PreviewLayout {
         QPixmap pixmap;
         QString imageUrl;
-        QString description;
+        bool hasDescription = false;
+        QSize previewTitleSize;
+        QString previewTitle;
         QSize descriptionSize;
         QSize imageSize;
         QRect hideShowButtonRect;

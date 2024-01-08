@@ -68,6 +68,7 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
                                                 option,
                                                 mTextSelectionImpl->textSelection(),
                                                 {},
+                                                {},
                                                 false);
         }
     }

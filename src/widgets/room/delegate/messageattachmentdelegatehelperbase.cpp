@@ -161,7 +161,7 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
         return;
     }
 
-    MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), msgAttach);
+    MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), msgAttach, {});
 }
 
 QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const

@@ -57,17 +57,21 @@ void MessageUrl::setShowPreview(bool newShowPreview)
 
 void MessageUrl::generateHtmlDescription()
 {
-    // FIXME
     mHtmlDescription.clear();
     if (!mPageTitle.isEmpty()) {
-        mHtmlDescription = QStringLiteral(" <a href=\'%2'>%1</a>").arg(mPageTitle, mUrl);
+        mHtmlDescription = QStringLiteral("[%1](%2)").arg(mPageTitle, mUrl);
     }
     if (!mDescription.isEmpty()) {
-        mHtmlDescription += QStringLiteral("<a>%1</a>").arg(mDescription);
+        mHtmlDescription += QStringLiteral("\n%1").arg(mDescription);
     }
     if (!mSiteName.isEmpty()) {
-        mHtmlDescription += QStringLiteral("<a>%1</a>").arg(mSiteName);
+        mHtmlDescription += QStringLiteral("\n[%1](%2)").arg(mSiteName, mSiteUrl);
     }
+}
+
+bool MessageUrl::hasHtmlDescription() const
+{
+    return !mHtmlDescription.isEmpty();
 }
 
 QString MessageUrl::htmlDescription() const

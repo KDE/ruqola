@@ -1,5 +1,6 @@
 /*
    SPDX-FileCopyrightText: 2021 David Faure <faure@kde.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -9,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "messages/block.h"
 #include "messages/messageattachment.h"
+#include "messages/messageurl.h"
 
 #include <QObject>
 #include <QPersistentModelIndex>
@@ -43,7 +45,8 @@ public:
     };
     [[nodiscard]] QString selectedText(Format format) const;
     [[nodiscard]] bool contains(const QModelIndex &index, int charPos, const MessageAttachment &att = {}) const;
-    [[nodiscard]] QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att = {}) const;
+    [[nodiscard]] QTextCursor
+    selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att = {}, const MessageUrl &msgUrl = {}) const;
 
     void clear();
     void setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});

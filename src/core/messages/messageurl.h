@@ -61,6 +61,8 @@ public:
 
     [[nodiscard]] QString htmlDescription() const;
 
+    [[nodiscard]] bool hasHtmlDescription() const;
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList pageTitleElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList descriptionElements();

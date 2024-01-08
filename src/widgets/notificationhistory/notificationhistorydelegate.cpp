@@ -95,6 +95,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
                                                 option,
                                                 mTextSelectionImpl->textSelection(),
                                                 {},
+                                                {},
                                                 false);
         }
     }

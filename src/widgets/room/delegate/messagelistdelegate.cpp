@@ -509,11 +509,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Preview Url
     const QVector<MessageUrl> messageUrls = message->urls();
+    int messageUrlIndex = 0;
     for (const MessageUrl &messageUrl : messageUrls) {
         if (messageUrl.hasPreviewUrl()) {
-            qDebug() << "messageUrl  " << messageUrl;
-            mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRect, index, option);
+            // qDebug() << "messageUrl  " << messageUrl;
+            mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
         }
+        messageUrlIndex++;
     }
 
     // Reactions
@@ -700,6 +702,14 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
             ++blockIndex;
         }
+        const auto messageUrls = message->urls();
+        int messageUrlsIndex = 0;
+        for (const MessageUrl &url : messageUrls) {
+            if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
+                return true;
+            }
+            ++messageUrlsIndex;
+        }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
@@ -717,6 +727,14 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                     return true;
                 }
                 ++i;
+            }
+            const auto messageUrls = message->urls();
+            int messageUrlsIndex = 0;
+            for (const MessageUrl &url : messageUrls) {
+                if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
+                    return true;
+                }
+                ++messageUrlsIndex;
             }
         }
     }
@@ -751,6 +769,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
         }
         ++blockIndex;
     }
+
     return false;
 }
 
@@ -835,6 +854,15 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             ++blockIndex;
         }
 
+        const auto messageUrls = message->urls();
+        int messageUrlsIndex = 0;
+        for (const MessageUrl &url : messageUrls) {
+            if (layout.blocksRectList.at(messageUrlsIndex).contains(helpEventPos)
+                && mHelperUrlPreview->handleHelpEvent(helpEvent, layout.messageUrlsRectList.at(messageUrlsIndex), url, option)) {
+                return true;
+            }
+            ++messageUrlsIndex;
+        }
         if (layout.timeStampRect.contains(helpEvent->pos())) {
             const QString dateStr = index.data(MessagesModel::Date).toString();
             QToolTip::showText(helpEvent->globalPos(), dateStr, view);

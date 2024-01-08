@@ -46,6 +46,7 @@ void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionView
                                                 option,
                                                 mTextSelectionImpl->textSelection(),
                                                 {},
+                                                {},
                                                 false);
         }
     }

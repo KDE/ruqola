@@ -31,6 +31,7 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QCOMPARE(url.imageWidth(), -1);
     QVERIFY(!url.showPreview());
     QVERIFY(!url.hasPreviewUrl());
+    QVERIFY(!url.hasHtmlDescription());
 }
 
 void MessageUrlTest::shouldSerializeData()

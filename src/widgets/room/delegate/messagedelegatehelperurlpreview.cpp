@@ -53,7 +53,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
                                            const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
-    painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), i18n("Preview"));
+    painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), layout.previewTitle);
 
     if (!layout.imageUrl.isEmpty()) {
         qDebug() << " drawIcon " << layout.imageUrl;
@@ -62,7 +62,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
         // TODO
     }
-    // TODO
+    drawDescription(messageUrl, previewRect, painter, previewRect.y() + option.fontMetrics.ascent(), index, option);
 }
 
 MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::layoutPreview(const MessageUrl &messageUrl,
@@ -72,9 +72,12 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
 {
     MessageDelegateHelperUrlPreview::PreviewLayout layout;
     layout.imageUrl = messageUrl.imageUrl();
+    layout.previewTitle = i18n("Link Preview");
+    layout.previewTitleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.previewTitle);
+    layout.hasDescription = messageUrl.hasHtmlDescription();
     if (!layout.imageUrl.isEmpty()) {
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.descriptionSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     }
     layout.isShown = messageUrl.showPreview();
     layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth);
@@ -95,7 +98,7 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
 
     const QString description = messageUrl.htmlDescription();
 
-    qDebug() << " description " << description;
+    // qDebug() << " description " << description;
     if (description.isEmpty()) {
         return nullptr;
     }
@@ -121,7 +124,7 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
-    qDebug() << " contextString " << contextString;
+    // qDebug() << " contextString " << contextString;
     mDocumentCache.insert(urlId, std::move(doc));
     return ret;
 }
@@ -145,24 +148,24 @@ void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageU
         return;
     }
 
-    // FIXME MessageDelegateUtils::drawSelection(doc, previewRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), messageUrl);
+    MessageDelegateUtils::drawSelection(doc, previewRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), {}, messageUrl);
 }
 
 QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option, maxWidth, -1);
-    int height = layout.descriptionSize.height() + DelegatePaintUtil::margin();
+    int height = layout.previewTitleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
         pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
         height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
     }
     int descriptionWidth = 0;
-    if (!layout.description.isEmpty()) {
+    if (layout.hasDescription) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(pixmapWidth, layout.descriptionSize.width()), descriptionWidth), height};
+    return {qMax(qMax(pixmapWidth, layout.previewTitleSize.width()), descriptionWidth), height};
 }
 
 bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
@@ -177,45 +180,29 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
     return false;
 }
 
-bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &msgAttach,
+bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &messageUrl,
                                                        QMouseEvent *mouseEvent,
                                                        QRect previewRect,
                                                        const QStyleOptionViewItem &option,
                                                        const QModelIndex &index)
 {
-#if 0
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
-
-        const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
-        if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
-            info.attachmentType = MessageAttachmentDownloadAndSaveJob::AttachmentType::Video;
-            info.actionType = MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave;
-            info.needToDownloadAttachment = !mRocketChatAccount->attachmentIsInLocalCache(layout.videoPath);
-            info.parentWidget = const_cast<QWidget *>(option.widget);
-            info.attachmentPath = layout.videoPath;
-            auto job = new MessageAttachmentDownloadAndSaveJob(this);
-            job->setRocketChatAccount(mRocketChatAccount);
-            job->setInfo(info);
-            job->start();
-            return true;
-        } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
-                   || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            ShowVideoDialog dlg(mRocketChatAccount, parentWidget);
-            dlg.setVideoPath(layout.videoPath);
-            dlg.exec();
+        const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
+        if (layout.hideShowButtonRect.translated(previewRect.topLeft()).contains(pos)) {
+            MessagesModel::AttachmentAndUrlPreviewVisibility attachmentVisibility;
+            attachmentVisibility.show = !layout.isShown;
+            attachmentVisibility.ElementId = messageUrl.urlId();
+            auto model = const_cast<QAbstractItemModel *>(index.model());
+            model->setData(index, QVariant::fromValue(attachmentVisibility), MessagesModel::DisplayUrlPreview);
             return true;
         }
-        break;
     }
     default:
         break;
     }
-#endif
-    // TODO
+    // TODO add selection
     return false;
 }
