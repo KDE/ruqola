@@ -13,6 +13,8 @@
 #include "rocketchataccount.h"
 #include "textconverter.h"
 
+#include <KLocalizedString>
+
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
@@ -51,7 +53,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
                                            const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option /*, previewsRect.width(), previewsRect.height()*/);
-    painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), layout.title);
+    painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), i18n("Preview"));
 
     if (!layout.imageUrl.isEmpty()) {
         qDebug() << " drawIcon " << layout.imageUrl;
@@ -67,18 +69,13 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
                                                                                               const QStyleOptionViewItem &option) const
 {
     MessageDelegateHelperUrlPreview::PreviewLayout layout;
-    layout.title = messageUrl.pageTitle();
-    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-
-    layout.description = messageUrl.description();
     layout.imageUrl = messageUrl.imageUrl();
     if (!layout.imageUrl.isEmpty()) {
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.hideShowButtonRect = QRect(layout.descriptionSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     }
     layout.isShown = messageUrl.showPreview();
     // TODO layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, attachmentsWidth);
-    // TODO
     return layout;
 }
 
@@ -135,7 +132,7 @@ QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const Mes
 QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option /*, previewsRect.width(), previewsRect.height()*/);
-    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
+    int height = layout.descriptionSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
     if (layout.isShown) {
         pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
@@ -146,7 +143,7 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
+    return {qMax(qMax(pixmapWidth, layout.descriptionSize.width()), descriptionWidth), height};
 }
 
 bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,

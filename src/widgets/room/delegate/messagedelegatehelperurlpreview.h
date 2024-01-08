@@ -34,12 +34,10 @@ private:
     Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
     struct PreviewLayout {
         QPixmap pixmap;
-        QString title;
-        QString description;
         QString imageUrl;
-        QSize titleSize;
-        QSize imageSize;
+        QString description;
         QSize descriptionSize;
+        QSize imageSize;
         QRect hideShowButtonRect;
         bool isShown = true;
     };

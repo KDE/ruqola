@@ -55,6 +55,17 @@ void MessageUrl::setShowPreview(bool newShowPreview)
     mShowPreview = newShowPreview;
 }
 
+void MessageUrl::generateHtmlDescription()
+{
+    // TODO
+    // mHtmlDescription;
+}
+
+QString MessageUrl::htmlDescription() const
+{
+    return mHtmlDescription;
+}
+
 bool MessageUrl::hasPreviewUrl() const
 {
     if (!mPageTitle.isEmpty() || !mDescription.isEmpty()) {
@@ -213,6 +224,7 @@ void MessageUrl::parseUrl(const QJsonObject &url)
         }
     }
 
+    generateHtmlDescription();
     // qDebug() << " *this " << *this << " is empty " << isEmpty() << " url" << url;
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
 }
@@ -260,6 +272,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setSiteName(o.value(QLatin1String("siteName")).toString());
     url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
     url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
+    url.generateHtmlDescription();
     return url;
 }
 

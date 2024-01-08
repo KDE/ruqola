@@ -59,14 +59,18 @@ public:
 
     [[nodiscard]] bool hasPreviewUrl() const;
 
+    [[nodiscard]] QString htmlDescription() const;
+
 private:
-    [[nodiscard]] static QStringList pageTitleElements();
-    [[nodiscard]] static QStringList descriptionElements();
-    [[nodiscard]] static QStringList imageUrlElements();
-    [[nodiscard]] static QStringList siteUrlElements();
-    [[nodiscard]] static QStringList siteNameElements();
-    [[nodiscard]] static QStringList imageHeightElements();
-    [[nodiscard]] static QStringList imageWidthElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList pageTitleElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList descriptionElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageUrlElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList siteUrlElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList siteNameElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageHeightElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageWidthElements();
+    LIBRUQOLACORE_NO_EXPORT void generateHtmlDescription();
+
     QString mUrl;
     QString mPageTitle;
     QString mDescription;
@@ -76,6 +80,7 @@ private:
     QString mSiteUrl;
     QString mSiteName;
     QString mUrlId;
+    QString mHtmlDescription;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mShowPreview = false;
