@@ -69,7 +69,9 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
         // TODO
     }
-    drawDescription(messageUrl, previewRect, painter, previewRect.y() + option.fontMetrics.ascent(), index, option);
+    if (layout.isShown) {
+        drawDescription(messageUrl, previewRect, painter, previewRect.y() + option.fontMetrics.ascent(), index, option);
+    }
 }
 
 MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::layoutPreview(const MessageUrl &messageUrl,
@@ -87,7 +89,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
         layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     }
     layout.isShown = messageUrl.showPreview();
-    layout.descriptionSize = documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth);
+    layout.descriptionSize = layout.isShown ? documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth) : QSize();
     return layout;
 }
 
@@ -168,7 +170,7 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
         height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
     }
     int descriptionWidth = 0;
-    if (layout.hasDescription) {
+    if (layout.hasDescription && layout.isShown) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
