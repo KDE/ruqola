@@ -55,11 +55,17 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
     const QFont oldFont = painter->font();
+    const QPen origPen = painter->pen();
+    QColor lightColor(painter->pen().color());
+    lightColor.setAlpha(60);
+    painter->setPen(lightColor);
     QFont italicFont = oldFont;
     italicFont.setItalic(true);
+    italicFont.setBold(true);
     painter->setFont(italicFont);
     painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), layout.previewTitle);
     painter->setFont(oldFont);
+    painter->setPen(origPen);
 
     if (!layout.imageUrl.isEmpty()) {
         // qDebug() << " drawIcon " << layout.imageUrl;
@@ -128,7 +134,6 @@ QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(cons
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
-    // Laurent Ruqola::self()->rocketChatAccount() only for test.
     int maximumRecursiveQuotedText = -1;
     if (mRocketChatAccount) {
         maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
@@ -239,8 +244,8 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         // Clicks on links
         auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
         if (doc) {
-            // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
-            const QPoint mouseClickPos = pos - previewRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+            const QPoint mouseClickPos = pos - previewRect.topLeft()
+                - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin() + DelegatePaintUtil::margin());
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 Q_EMIT mRocketChatAccount->openLinkRequested(link);
