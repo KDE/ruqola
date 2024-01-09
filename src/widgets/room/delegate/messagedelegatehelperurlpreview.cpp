@@ -67,9 +67,11 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
         // Draw title and buttons
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
-        // TODO
     }
     if (layout.isShown) {
+        QPixmap scaledPixmap;
+        scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        painter->drawPixmap(previewRect.x(), layout.hideShowButtonRect.y(), scaledPixmap);
         drawDescription(messageUrl, previewRect, painter, previewRect.y() + option.fontMetrics.ascent(), index, option);
     }
 }
@@ -90,6 +92,11 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     }
     layout.isShown = messageUrl.showPreview();
     layout.descriptionSize = layout.isShown ? documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth) : QSize();
+    layout.pixmap = mPixmapCache.pixmapForLocalFile(messageUrl.imageUrl());
+    layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
+    const auto dpr = layout.pixmap.devicePixelRatioF();
+    layout.imageSize = layout.pixmap.size().scaled(urlsPreviewWidth * dpr, /*imageMaxHeight*/ 200 * dpr, Qt::KeepAspectRatio);
+
     return layout;
 }
 

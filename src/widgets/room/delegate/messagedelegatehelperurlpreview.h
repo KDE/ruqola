@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "messagedelegatehelperbase.h"
+#include "misc/pixmapcache.h"
 #include <QPixmap>
 class QStyleOptionViewItem;
 class MessageUrl;
@@ -53,4 +54,6 @@ private:
                          int topPos,
                          const QModelIndex &index,
                          const QStyleOptionViewItem &option) const;
+
+    mutable PixmapCache mPixmapCache;
 };
