@@ -55,7 +55,12 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
                                            const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
+    const QFont oldFont = painter->font();
+    QFont italicFont = oldFont;
+    italicFont.setItalic(true);
+    painter->setFont(italicFont);
     painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), layout.previewTitle);
+    painter->setFont(oldFont);
 
     if (!layout.imageUrl.isEmpty()) {
         qDebug() << " drawIcon " << layout.imageUrl;
