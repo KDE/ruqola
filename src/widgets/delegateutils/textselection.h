@@ -46,6 +46,12 @@ public:
         Q_ASSERT(false);
         return nullptr;
     }
+    [[nodiscard]] virtual QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const
+    {
+        Q_UNUSED(messageUrl);
+        Q_ASSERT(false);
+        return nullptr;
+    }
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject

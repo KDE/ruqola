@@ -10,6 +10,7 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "messages/messageurl.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
 #include <KLocalizedString>
@@ -22,6 +23,7 @@
 MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
+    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperUrlPreview::updateView);
 }
 
 MessageDelegateHelperUrlPreview::~MessageDelegateHelperUrlPreview() = default;
@@ -205,9 +207,9 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
                                                        const QModelIndex &index)
 {
     const QEvent::Type eventType = mouseEvent->type();
+    const QPoint pos = mouseEvent->pos();
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
-        const QPoint pos = mouseEvent->pos();
         const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
         if (layout.hideShowButtonRect.translated(previewRect.topLeft()).contains(pos)) {
             MessagesModel::AttachmentAndUrlPreviewVisibility previewUrlVisibility;
@@ -228,9 +230,77 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
                 return true;
             }
         }
+        break;
     }
+    case QEvent::MouseButtonPress:
+        mTextSelectionImpl->setMightStartDrag(false);
+        if (const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width())) {
+            const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
+            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
+            if (charPos == -1) {
+                return false;
+            }
+            if (mTextSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mTextSelectionImpl->setMightStartDrag(true);
+                return true;
+            }
+
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            // (look there if you want to add these things)
+
+            mTextSelectionImpl->textSelection()->setStart(index, charPos);
+            return true;
+        } else {
+            mTextSelectionImpl->textSelection()->clear();
+        }
+        break;
+    case QEvent::MouseMove:
+        if (!mTextSelectionImpl->mightStartDrag()) {
+            if (const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width())) {
+                const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
+                if (charPos != -1) {
+                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                    mTextSelectionImpl->textSelection()->setEnd(index, charPos);
+                    return true;
+                }
+            }
+        }
+        break;
+    case QEvent::MouseButtonDblClick:
+        if (!mTextSelectionImpl->textSelection()->hasSelection()) {
+            if (const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width())) {
+                const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
+                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
+                if (charPos == -1) {
+                    return false;
+                }
+                mTextSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this);
+                return true;
+            }
+        }
+        break;
     default:
         break;
     }
     return false;
+}
+
+int MessageDelegateHelperUrlPreview::charPosition(const QTextDocument *doc,
+                                                  const MessageUrl &messageUrl,
+                                                  QRect previewRect,
+                                                  const QPoint &pos,
+                                                  const QStyleOptionViewItem &option)
+{
+    const QPoint relativePos = adaptMousePosition(pos, messageUrl, previewRect, option);
+    const int charPos = doc->documentLayout()->hitTest(relativePos, Qt::FuzzyHit);
+    return charPos;
+}
+
+QPoint
+MessageDelegateHelperUrlPreview::adaptMousePosition(const QPoint &pos, const MessageUrl &messageUrl, QRect previewRect, const QStyleOptionViewItem &option)
+{
+    const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
+    const QPoint relativePos =
+        pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
+    return relativePos;
 }
