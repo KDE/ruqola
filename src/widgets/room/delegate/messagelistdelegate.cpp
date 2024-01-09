@@ -857,7 +857,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         const auto messageUrls = message->urls();
         int messageUrlsIndex = 0;
         for (const MessageUrl &url : messageUrls) {
-            if (layout.blocksRectList.at(messageUrlsIndex).contains(helpEventPos)
+            if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)
                 && mHelperUrlPreview->handleHelpEvent(helpEvent, layout.messageUrlsRectList.at(messageUrlsIndex), url, option)) {
                 return true;
             }
