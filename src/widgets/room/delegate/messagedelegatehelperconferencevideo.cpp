@@ -177,29 +177,6 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     return layout;
 }
 
-QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QModelIndex &index) const
-{
-    // Unused
-    Q_UNUSED(index);
-    return nullptr;
-}
-
-QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const MessageAttachment &msgAttach) const
-{
-    // Unused.
-    Q_UNUSED(msgAttach);
-    Q_ASSERT(false);
-    return nullptr;
-}
-
-QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const Block &block) const
-{
-    // Unused
-    Q_UNUSED(block);
-    Q_ASSERT(false);
-    return nullptr;
-}
-
 void MessageDelegateHelperConferenceVideo::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);

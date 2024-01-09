@@ -40,8 +40,6 @@ Q_SIGNALS:
 
 protected:
     [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
     [[nodiscard]] QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
 
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;

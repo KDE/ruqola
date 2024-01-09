@@ -164,24 +164,9 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
     MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mTextSelectionImpl->textSelection(), msgAttach, {});
 }
 
-QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const
+QTextDocument *MessageAttachmentDelegateHelperBase::documentForAttachement(const MessageAttachment &msgAttach) const
 {
     return documentDescriptionForIndex(msgAttach, -1);
-}
-
-QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const QModelIndex &index) const
-{
-    Q_UNUSED(index)
-    // Unused here
-    return nullptr;
-}
-
-QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const Block &block) const
-{
-    Q_UNUSED(block)
-    Q_ASSERT(false);
-    // Unused here
-    return nullptr;
 }
 
 QSize MessageAttachmentDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const

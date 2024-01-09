@@ -78,9 +78,7 @@ protected:
      * @param widget The view to update when fetching thread context on demand. nullptr if this isn't needed (e.g. from SelectionManager)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
+    [[nodiscard]] QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const override;
 
 private:
     QPersistentModelIndex mCurrentIndex;

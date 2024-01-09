@@ -56,9 +56,6 @@ private:
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
     [[nodiscard]] ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 
-    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
     [[nodiscard]] QPixmap makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const;
 
     const QIcon mInfoIcon;

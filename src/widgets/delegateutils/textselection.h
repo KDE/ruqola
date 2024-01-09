@@ -28,9 +28,24 @@ public:
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    [[nodiscard]] virtual QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
-    [[nodiscard]] virtual QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const = 0;
-    [[nodiscard]] virtual QTextDocument *documentForIndex(const Block &block) const = 0;
+    [[nodiscard]] virtual QTextDocument *documentForIndex(const QModelIndex &index) const
+    {
+        Q_UNUSED(index);
+        Q_ASSERT(false);
+        return nullptr;
+    }
+    [[nodiscard]] virtual QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const
+    {
+        Q_UNUSED(msgAttach);
+        Q_ASSERT(false);
+        return nullptr;
+    }
+    [[nodiscard]] virtual QTextDocument *documentForBlock(const Block &block) const
+    {
+        Q_UNUSED(block);
+        Q_ASSERT(false);
+        return nullptr;
+    }
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject

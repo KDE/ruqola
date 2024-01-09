@@ -291,21 +291,6 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     return documentForIndex(index, -1, false);
 }
 
-QTextDocument *MessageDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach) const
-{
-    Q_UNUSED(msgAttach)
-    Q_ASSERT(false);
-    // Unused here
-    return nullptr;
-}
-
-QTextDocument *MessageDelegateHelperText::documentForIndex(const Block &block) const
-{
-    Q_UNUSED(block);
-    Q_ASSERT(false);
-    return nullptr;
-}
-
 QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const
 {
     Q_ASSERT(index.isValid());

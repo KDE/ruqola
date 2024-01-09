@@ -87,7 +87,7 @@ QString TextSelection::selectedText(Format format) const
             const auto attachments = message->attachments();
             for (const auto &att : attachments) {
                 for (auto factory : std::as_const(mAttachmentFactories)) {
-                    doc = factory->documentForIndex(att);
+                    doc = factory->documentForAttachement(att);
                     if (doc) {
                         if (!str.endsWith(QLatin1Char('\n'))) {
                             str += QLatin1Char('\n');
@@ -280,7 +280,7 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         return;
     }
     if (msgAttach.isValid()) {
-        QTextDocument *doc = factory->documentForIndex(msgAttach);
+        QTextDocument *doc = factory->documentForAttachement(msgAttach);
         selectWord(index, charPos, doc);
 
         AttachmentSelection selection;
@@ -307,7 +307,7 @@ void TextSelection::selectMessage(const QModelIndex &index)
         const auto attachments = message->attachments();
         for (const auto &att : attachments) {
             for (auto factory : std::as_const(mAttachmentFactories)) {
-                doc = factory->documentForIndex(att);
+                doc = factory->documentForAttachement(att);
                 if (doc) {
                     AttachmentSelection selection;
                     selection.attachment = att;

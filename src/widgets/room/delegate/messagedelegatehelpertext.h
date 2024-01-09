@@ -57,8 +57,6 @@ private:
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
     [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const Block &block) const override;
     [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
 
     QString mSearchText;
