@@ -180,7 +180,7 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
     int pixmapWidth = 0;
     if (layout.isShown) {
         pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
-        height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
+        height += qMin(layout.pixmap.height(), 100) + DelegatePaintUtil::margin();
     }
     int descriptionWidth = 0;
     if (layout.hasDescription && layout.isShown) {
