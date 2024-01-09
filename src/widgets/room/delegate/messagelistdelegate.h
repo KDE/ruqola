@@ -97,6 +97,8 @@ public:
 
     void clearSizeHintCache();
 
+    void removeSizeHintCache(const QString &messageId);
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);

@@ -393,7 +393,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
             }
         }
         message.setAttachments(attachments);
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessagesModel::DisplayAttachment});
         return true;
     }
     case MessagesModel::DisplayUrlPreview: {
@@ -409,7 +409,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
             }
         }
         message.setUrls(urls);
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessagesModel::DisplayUrlPreview});
         return true;
     }
     case MessagesModel::ShowTranslatedMessage:

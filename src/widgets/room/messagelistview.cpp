@@ -193,6 +193,11 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
                 }
                 mMessageListDelegate->removeMessageCache(message->messageId(), attachmentIdList);
             }
+        } else if (roles.contains(MessagesModel::DisplayUrlPreview) || roles.contains(MessagesModel::DisplayAttachment)) {
+            const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
+            if (message) {
+                mMessageListDelegate->removeSizeHintCache(message->messageId());
+            }
         }
     });
 
