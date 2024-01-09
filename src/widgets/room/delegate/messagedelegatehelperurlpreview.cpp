@@ -69,11 +69,14 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
     }
     if (layout.isShown) {
-        QPixmap scaledPixmap;
-        scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         int nextY = previewRect.y() + option.fontMetrics.ascent() + DelegatePaintUtil::margin();
-        painter->drawPixmap(previewRect.x(), nextY, scaledPixmap);
-        nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
+        if (!layout.pixmap.isNull()) {
+            QPixmap scaledPixmap;
+            scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+            painter->drawPixmap(previewRect.x(), nextY, scaledPixmap);
+            nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
+        }
+        // qDebug() << " nextY " << nextY;
         drawDescription(messageUrl, previewRect, painter, nextY, index, option);
     }
 }
