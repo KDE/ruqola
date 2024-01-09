@@ -136,6 +136,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                         urlsPreviewSize = QSize(qMax(urlsPreviewSize.width(), urlPreviewSize.width()), urlPreviewSize.height() + urlsPreviewSize.height());
                         topUrlPreview += urlPreviewSize.height();
                     }
+                } else {
+                    layout.messageUrlsRectList.append(QRect{});
                 }
             }
             // qDebug() << " topUrlPreview " << topUrlPreview;
