@@ -186,7 +186,8 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
-    const QPoint pos = helpEvent->pos() - previewRect.topLeft() - QPoint(0, /* layout.titleRect.height()*/ +DelegatePaintUtil::margin());
+    const QPoint pos =
+        helpEvent->pos() - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
@@ -217,8 +218,8 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         // Clicks on links
         auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
         if (doc) {
-            const QPoint mouseClickPos = pos - previewRect.topLeft()
-                - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin() + DelegatePaintUtil::margin());
+            const QPoint mouseClickPos =
+                pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 Q_EMIT mRocketChatAccount->openLinkRequested(link);
