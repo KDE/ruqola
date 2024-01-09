@@ -35,7 +35,7 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
 
     const MessageAttachmentDelegateHelperImage::ImageLayout layout = helper.layoutImage(msgAttach, option, 500, 500);
     QCOMPARE(layout.title, msgAttach.title());
-    QCOMPARE(layout.description, msgAttach.description());
+    QCOMPARE(layout.hasDescription, msgAttach.hasDescription());
     QVERIFY(layout.isShown);
     QVERIFY(!layout.isAnimatedImage);
     QVERIFY(layout.imagePreviewPath.endsWith(QLatin1String("/testfile.png")));

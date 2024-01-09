@@ -37,7 +37,6 @@ private:
         QString imagePreviewPath;
         QString imageBigPath;
         QString title;
-        QString description;
         QSize titleSize;
         QSize imageSize;
         QSize descriptionSize;
@@ -45,6 +44,7 @@ private:
         QRect downloadButtonRect;
         bool isShown = true;
         bool isAnimatedImage = false;
+        bool hasDescription = false;
     };
     [[nodiscard]] ImageLayout
     layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;

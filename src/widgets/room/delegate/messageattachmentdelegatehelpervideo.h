@@ -30,11 +30,11 @@ private:
     struct VideoLayout {
         QString videoPath;
         QString title;
-        QString description;
         QSize titleSize;
         QSize descriptionSize;
         QRect downloadButtonRect;
         QRect showButtonRect;
+        bool hasDescription = false;
     };
     [[nodiscard]] VideoLayout layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
     [[nodiscard]] QPoint

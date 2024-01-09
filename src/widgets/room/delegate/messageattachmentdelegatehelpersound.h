@@ -29,11 +29,11 @@ private:
     struct SoundLayout {
         QString audioPath;
         QString title;
-        QString description;
         QSize titleSize;
         QSize descriptionSize;
         QRect playerVolumeButtonRect;
         QRect downloadButtonRect;
+        bool hasDescription = false;
     };
     [[nodiscard]] QPoint
     adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;

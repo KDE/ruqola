@@ -55,7 +55,7 @@ QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &ms
     const VideoLayout layout = layoutVideo(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;
-    if (!layout.description.isEmpty()) {
+    if (layout.hasDescription) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
@@ -109,7 +109,7 @@ MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAt
     VideoLayout layout;
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
-    layout.description = msgAttach.description();
+    layout.hasDescription = msgAttach.hasDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);

@@ -103,7 +103,7 @@ QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &ms
         height += qMin(layout.pixmap.height(), 200) + DelegatePaintUtil::margin();
     }
     int descriptionWidth = 0;
-    if (!layout.description.isEmpty()) {
+    if (layout.hasDescription) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
@@ -176,7 +176,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview())
                                                     : Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
     layout.title = msgAttach.title();
-    layout.description = msgAttach.description();
+    layout.hasDescription = msgAttach.hasDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
 
     layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
@@ -197,7 +197,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
             // Vertically: attachmentsHeight = title | DelegatePaintUtil::margin() | image | DelegatePaintUtil::margin() [| description |
             // DelegatePaintUtil::margin()]
             int imageMaxHeight = attachmentsHeight - layout.titleSize.height() - DelegatePaintUtil::margin() * 2;
-            if (!layout.description.isEmpty()) {
+            if (layout.hasDescription) {
                 imageMaxHeight -= layout.descriptionSize.height() + DelegatePaintUtil::margin();
             }
             const auto dpr = layout.pixmap.devicePixelRatioF();
