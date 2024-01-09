@@ -46,12 +46,8 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
     painter->setFont(oldFont);
     painter->setPen(origPen);
 
-    if (!layout.imageUrl.isEmpty()) {
-        // qDebug() << " drawIcon " << layout.imageUrl;
-        // Draw title and buttons
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
-        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
-    }
+    const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+    hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
     if (layout.isShown) {
         int nextY = previewRect.y() + option.fontMetrics.ascent() + DelegatePaintUtil::margin();
         if (!layout.pixmap.isNull()) {
@@ -78,10 +74,8 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     if (previewImageUrl.isLocalFile()) {
         layout.imageUrl = messageUrl.imageUrl();
     }
-    if (!layout.imageUrl.isEmpty()) {
-        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
-    }
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.isShown = messageUrl.showPreview();
     layout.descriptionSize = layout.isShown ? documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth) : QSize();
     const QString imagePreviewPath = previewImageUrl.toLocalFile();
