@@ -66,6 +66,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
                                                                                               int urlsPreviewWidth,
                                                                                               int urlsPreviewHeight) const
 {
+    Q_UNUSED(urlsPreviewHeight);
     MessageDelegateHelperUrlPreview::PreviewLayout layout;
     layout.previewTitle = i18n("Link Preview");
     layout.previewTitleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.previewTitle);
@@ -155,6 +156,7 @@ void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageU
 
 QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(index);
     const PreviewLayout layout = layoutPreview(messageUrl, option, maxWidth, -1);
     int height = layout.previewTitleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
