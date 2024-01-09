@@ -15,8 +15,10 @@
 
 #include <KLocalizedString>
 
+#include <QListView>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <QToolTip>
 
 MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
@@ -176,8 +178,21 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
-    // TODO
-    return false;
+
+    const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
+
+    const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
+    if (!doc) {
+        return false;
+    }
+
+    const QPoint pos = helpEvent->pos() - previewRect.topLeft() - QPoint(0, /* layout.titleRect.height()*/ +DelegatePaintUtil::margin());
+    QString formattedTooltip;
+    if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
+        QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
+        return true;
+    }
+    return true;
 }
 
 bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &messageUrl,
@@ -192,17 +207,27 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         const QPoint pos = mouseEvent->pos();
         const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
         if (layout.hideShowButtonRect.translated(previewRect.topLeft()).contains(pos)) {
-            MessagesModel::AttachmentAndUrlPreviewVisibility attachmentVisibility;
-            attachmentVisibility.show = !layout.isShown;
-            attachmentVisibility.ElementId = messageUrl.urlId();
+            MessagesModel::AttachmentAndUrlPreviewVisibility previewUrlVisibility;
+            previewUrlVisibility.show = !layout.isShown;
+            previewUrlVisibility.ElementId = messageUrl.urlId();
             auto model = const_cast<QAbstractItemModel *>(index.model());
-            model->setData(index, QVariant::fromValue(attachmentVisibility), MessagesModel::DisplayUrlPreview);
+            model->setData(index, QVariant::fromValue(previewUrlVisibility), MessagesModel::DisplayUrlPreview);
             return true;
+        }
+        // Clicks on links
+        auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
+        if (doc) {
+            // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
+            const QPoint mouseClickPos = pos - previewRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+            const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
+            if (!link.isEmpty()) {
+                Q_EMIT mRocketChatAccount->openLinkRequested(link);
+                return true;
+            }
         }
     }
     default:
         break;
     }
-    // TODO add selection
     return false;
 }
