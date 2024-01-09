@@ -42,18 +42,21 @@ public:
     void updateAvatar(const Utils::AvatarInfo &info);
     [[nodiscard]] bool attachmentIsInLocalCache(const QString &url);
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
-    [[nodiscard]] QUrl urlFromLocalCache(const QString &url, bool needAuthentication);
+    [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
 private:
     Q_DISABLE_COPY(RocketChatCache)
+    [[nodiscard]] QUrl urlFromLocalCache(const QString &url, bool needAuthentication);
+    [[nodiscard]] QUrl urlPreviewFromLocalCache(const QString &url);
     [[nodiscard]] bool fileInCache(const QUrl &url);
     [[nodiscard]] QString fileCachePath(const QUrl &url);
     void downloadAvatarFromServer(const Utils::AvatarInfo &info);
     void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
     void removeAvatar(const QString &avatarIdentifier);
     void loadAvatarCache();
+    void downloadFileFromWebSite(const QString &filename);
     QHash<QString, QUrl> mAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *const mAccount;

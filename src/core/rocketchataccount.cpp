@@ -1647,6 +1647,11 @@ QUrl RocketChatAccount::faviconLogoUrlFromLocalCache(const QString &url)
     return mCache->faviconLogoUrlFromLocalCache(url);
 }
 
+QUrl RocketChatAccount::previewUrlFromLocalCache(const QString &url)
+{
+    return mCache->previewUrlFromLocalCache(url);
+}
+
 QUrl RocketChatAccount::attachmentUrlFromLocalCache(const QString &url)
 {
     return mCache->attachmentUrlFromLocalCache(url);

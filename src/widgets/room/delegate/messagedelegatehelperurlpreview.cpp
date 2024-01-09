@@ -63,7 +63,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
     painter->setFont(oldFont);
 
     if (!layout.imageUrl.isEmpty()) {
-        qDebug() << " drawIcon " << layout.imageUrl;
+        // qDebug() << " drawIcon " << layout.imageUrl;
         // Draw title and buttons
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
@@ -71,8 +71,10 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
     if (layout.isShown) {
         QPixmap scaledPixmap;
         scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        painter->drawPixmap(previewRect.x(), layout.hideShowButtonRect.y(), scaledPixmap);
-        drawDescription(messageUrl, previewRect, painter, previewRect.y() + option.fontMetrics.ascent(), index, option);
+        int nextY = previewRect.y() + option.fontMetrics.ascent() + DelegatePaintUtil::margin();
+        painter->drawPixmap(previewRect.x(), nextY, scaledPixmap);
+        nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
+        drawDescription(messageUrl, previewRect, painter, nextY, index, option);
     }
 }
 
@@ -85,8 +87,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     layout.previewTitle = i18n("Link Preview");
     layout.previewTitleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.previewTitle);
     layout.hasDescription = messageUrl.hasHtmlDescription();
-    // TODO use download from web site directly
-    const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->attachmentUrlFromLocalCache(messageUrl.imageUrl()) : QUrl{};
+    const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->previewUrlFromLocalCache(messageUrl.imageUrl()) : QUrl{};
     if (previewImageUrl.isLocalFile()) {
         layout.imageUrl = messageUrl.imageUrl();
     }
@@ -96,10 +97,11 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     }
     layout.isShown = messageUrl.showPreview();
     layout.descriptionSize = layout.isShown ? documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth) : QSize();
-    layout.pixmap = mPixmapCache.pixmapForLocalFile(messageUrl.imageUrl());
+    const QString imagePreviewPath = previewImageUrl.toLocalFile();
+    layout.pixmap = mPixmapCache.pixmapForLocalFile(imagePreviewPath);
     layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
     const auto dpr = layout.pixmap.devicePixelRatioF();
-    layout.imageSize = layout.pixmap.size().scaled(urlsPreviewWidth * dpr, /*imageMaxHeight*/ 200 * dpr, Qt::KeepAspectRatio);
+    layout.imageSize = layout.pixmap.size().scaled(urlsPreviewWidth * dpr, /*imageMaxHeight*/ 100 * dpr, Qt::KeepAspectRatio);
 
     return layout;
 }

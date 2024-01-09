@@ -121,6 +121,16 @@ QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthenticat
     return {};
 }
 
+QUrl RocketChatCache::urlPreviewFromLocalCache(const QString &url)
+{
+    return urlFromLocalCache(url, false);
+}
+
+QUrl RocketChatCache::previewUrlFromLocalCache(const QString &url)
+{
+    return urlPreviewFromLocalCache(url);
+}
+
 QUrl RocketChatCache::attachmentUrlFromLocalCache(const QString &url)
 {
     return urlFromLocalCache(url, true);
@@ -139,6 +149,18 @@ void RocketChatCache::downloadFileFromServer(const QString &filename, bool needA
         const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl));
         mAccount->restApi()->downloadFile(mAccount->urlForLink(filename), destFileUrl, "text/plain", needAuthentication);
         // this will call slotDataDownloaded
+    }
+}
+
+void RocketChatCache::downloadFileFromWebSite(const QString &filename)
+{
+    qDebug() << " void RocketChatCache::downloadFileFromWebSite(const QString &filename)" << filename;
+    if (!mFileInDownload.contains(filename)) {
+        // TODO
+        mFileInDownload.insert(filename);
+        const QUrl downloadUrl = mAccount->urlForLink(filename);
+        const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl));
+        qDebug() << " downloadUrl " << downloadUrl << " destFileUrl " << destFileUrl;
     }
 }
 
