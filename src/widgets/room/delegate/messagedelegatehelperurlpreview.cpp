@@ -82,10 +82,14 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
                                                                                               int urlsPreviewHeight) const
 {
     MessageDelegateHelperUrlPreview::PreviewLayout layout;
-    layout.imageUrl = messageUrl.imageUrl();
     layout.previewTitle = i18n("Link Preview");
     layout.previewTitleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.previewTitle);
     layout.hasDescription = messageUrl.hasHtmlDescription();
+    // TODO use download from web site directly
+    const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->attachmentUrlFromLocalCache(messageUrl.imageUrl()) : QUrl{};
+    if (previewImageUrl.isLocalFile()) {
+        layout.imageUrl = messageUrl.imageUrl();
+    }
     if (!layout.imageUrl.isEmpty()) {
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
