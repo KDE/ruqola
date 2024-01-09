@@ -8,7 +8,6 @@
 
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "messages/message.h"
 #include "messages/messageurl.h"
 #include "rocketchataccount.h"
 #include "textconverter.h"
