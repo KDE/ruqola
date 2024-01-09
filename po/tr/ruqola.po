@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 00:42+0000\n"
+"POT-Creation-Date: 2024-01-09 00:41+0000\n"
 "PO-Revision-Date: 2024-01-02 16:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -879,7 +879,7 @@ msgstr "Okunmayan İlmekli İletiler"
 msgid "Edited at %1 by %2"
 msgstr "%2 tarafından %1 tarihinde düzenlendi"
 
-#: core/model/messagesmodel.cpp:360
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
@@ -7217,14 +7217,14 @@ msgstr[1] "%1 takım (Toplam: %2)"
 msgid "Search rooms..."
 msgstr "Odalar ara..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 ileti"
 msgstr[1] "%1 ileti"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:76
 #, kde-format
 msgid "Open Discussion"
 msgstr "Tartışma Aç"
@@ -8156,6 +8156,11 @@ msgstr "Dosyayı Kaydet"
 msgid "Join"
 msgstr "Katıl"
 
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:75
+#, kde-format
+msgid "Link Preview"
+msgstr ""
+
 #: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
@@ -8168,36 +8173,36 @@ msgstr "Kullanıcı Bilgisi"
 msgid "Start a Private Conversation"
 msgstr "Özel bir Konuşma Başlat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:517
+#: widgets/room/delegate/messagelistdelegate.cpp:528
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 yanıt"
 msgstr[1] "%1 yanıt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 ileti"
 msgstr[1] "%1 ileti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "No message yet"
 msgstr "Henüz ileti yok"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:787
+#: widgets/room/delegate/messagelistdelegate.cpp:816
 #, kde-format
 msgid "Following"
 msgstr "Takip Ediliyor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:791
+#: widgets/room/delegate/messagelistdelegate.cpp:820
 #, kde-format
 msgid "Message has been pinned"
 msgstr "İleti sabitlendi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:795
+#: widgets/room/delegate/messagelistdelegate.cpp:824
 #, kde-format
 msgid "Message has been starred"
 msgstr "İleti yıldızlandı"
@@ -9213,19 +9218,23 @@ msgstr "Moderasyon Konsolu Ekle (yönetim, RC sunucusu, sürüm 6.2)"
 msgid "Implement message style"
 msgstr "İleti biçemi seçimi"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:53
+#: widgets/whatsnew/whatsnewwidgettranslation.h:48
+msgid "Implement Url Preview"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
 msgstr "Markdown desteğini onar (başlık ve onay kutusu)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:54
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
 msgid "Fix mem leak"
 msgstr "Bellek sızıntısını onar"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
 msgid "Cache message size (optimization)"
 msgstr "Önbellek iletisi boyutu (eniyileme)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
@@ -9233,7 +9242,7 @@ msgstr ""
 "Oda veya ileti satırı düzenlerken kullanıcı seçmeyi iyileştir (simgeyi "
 "göster, kullanıcı kanaldaysa bildir)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
@@ -9241,10 +9250,10 @@ msgstr ""
 "İleti satırı düzenlemesinde komutları göstermeyi onar (Oda desteklemiyrosa "
 "eylemi gizle)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:58
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "Önbellekte değilken ses/video indirme sorununu çöz."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#: widgets/whatsnew/whatsnewwidgettranslation.h:60
 msgid "Fix list of authentication method."
 msgstr "Kimlik doğrulama yöntemi listesini düzelt."

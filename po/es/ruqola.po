@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 00:42+0000\n"
+"POT-Creation-Date: 2024-01-09 00:41+0000\n"
 "PO-Revision-Date: 2024-01-06 17:05+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -882,7 +882,7 @@ msgstr "Marcar como no leídos los mensajes de los hilos"
 msgid "Edited at %1 by %2"
 msgstr "Editado el %1 por %2"
 
-#: core/model/messagesmodel.cpp:360
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mensaje ignorado"
@@ -7267,14 +7267,14 @@ msgstr[1] "%1 equipos (Total: %2)"
 msgid "Search rooms..."
 msgstr "Buscar salas..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 mensaje"
 msgstr[1] "%1 mensajes"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:76
 #, kde-format
 msgid "Open Discussion"
 msgstr "Abrir discusión"
@@ -8207,6 +8207,11 @@ msgstr "Guardar archivo"
 msgid "Join"
 msgstr "Unirse"
 
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:75
+#, kde-format
+msgid "Link Preview"
+msgstr ""
+
 #: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
@@ -8219,36 +8224,36 @@ msgstr "Información del usuario"
 msgid "Start a Private Conversation"
 msgstr "Iniciar una conversación privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:517
+#: widgets/room/delegate/messagelistdelegate.cpp:528
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 respuesta"
 msgstr[1] "%1 respuestas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensaje"
 msgstr[1] "%1 mensajes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "No message yet"
 msgstr "Ningún mensaje todavía"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:787
+#: widgets/room/delegate/messagelistdelegate.cpp:816
 #, kde-format
 msgid "Following"
 msgstr "Siguiendo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:791
+#: widgets/room/delegate/messagelistdelegate.cpp:820
 #, kde-format
 msgid "Message has been pinned"
 msgstr "El mensaje ha sido fijado"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:795
+#: widgets/room/delegate/messagelistdelegate.cpp:824
 #, kde-format
 msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"
@@ -9269,19 +9274,23 @@ msgstr "Añade consola de moderación (Administración, RC server 6.2)"
 msgid "Implement message style"
 msgstr "Implementación del estilo del mensaje"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:53
+#: widgets/whatsnew/whatsnewwidgettranslation.h:48
+msgid "Implement Url Preview"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
 msgstr "Corrección del soporte de markdown (marcas de cabecera y verificación)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:54
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
 msgid "Fix mem leak"
 msgstr "Reducción del uso de memoria"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
 msgid "Cache message size (optimization)"
 msgstr "Almacenaje del tamaño del mensaje (optimización)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
@@ -9289,7 +9298,7 @@ msgstr ""
 "Mejora en la selección de sala o usuario en edición en línea del mensaje "
 "(muestra icono, informa si el usuario se encuentra en el canal)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
@@ -9297,12 +9306,12 @@ msgstr ""
 "Mejora en las órdenes de muestra en la edición de mensajes en línea "
 "(Ocultación de la acción cuando la sala no la admite)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:58
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Mejora en la descarga de archivos de audio/vídeo cuando no se encuentran en "
 "caché."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#: widgets/whatsnew/whatsnewwidgettranslation.h:60
 msgid "Fix list of authentication method."
 msgstr "Mejora en el listado de los métodos de autenticación."

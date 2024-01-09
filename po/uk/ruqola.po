@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 00:42+0000\n"
+"POT-Creation-Date: 2024-01-09 00:41+0000\n"
 "PO-Revision-Date: 2024-01-02 08:45+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -883,7 +883,7 @@ msgstr "Повідомлення з непрочитаних гілок"
 msgid "Edited at %1 by %2"
 msgstr "Редаговано %1, %2"
 
-#: core/model/messagesmodel.cpp:360
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
@@ -7314,7 +7314,7 @@ msgstr[3] "%1 команда (загалом: %2)"
 msgid "Search rooms..."
 msgstr "Шукати кімнати…"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
@@ -7323,7 +7323,7 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:76
 #, kde-format
 msgid "Open Discussion"
 msgstr "Відкрити обговорення"
@@ -8256,6 +8256,11 @@ msgstr "Збереження файла"
 msgid "Join"
 msgstr "Приєднатися"
 
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:75
+#, kde-format
+msgid "Link Preview"
+msgstr ""
+
 #: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
@@ -8268,7 +8273,7 @@ msgstr "Інформація про користувача"
 msgid "Start a Private Conversation"
 msgstr "Почати конфіденційне спілкування"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:517
+#: widgets/room/delegate/messagelistdelegate.cpp:528
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8277,7 +8282,7 @@ msgstr[1] "%1 відповіді"
 msgstr[2] "%1 відповідей"
 msgstr[3] "%1 відповідь"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8286,22 +8291,22 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:787
+#: widgets/room/delegate/messagelistdelegate.cpp:816
 #, kde-format
 msgid "Following"
 msgstr "Стеження"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:791
+#: widgets/room/delegate/messagelistdelegate.cpp:820
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Повідомлення пришпилено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:795
+#: widgets/room/delegate/messagelistdelegate.cpp:824
 #, kde-format
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
@@ -9321,19 +9326,23 @@ msgstr "Додано консоль модерування (адміністру
 msgid "Implement message style"
 msgstr "Реалізовано стиль повідомлень"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:53
+#: widgets/whatsnew/whatsnewwidgettranslation.h:48
+msgid "Implement Url Preview"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
 msgstr "Виправлено підтримку markdown (заголовок + позначка)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:54
+#: widgets/whatsnew/whatsnewwidgettranslation.h:55
 msgid "Fix mem leak"
 msgstr "Виправлено виток пам'яті"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:55
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
 msgid "Cache message size (optimization)"
 msgstr "Реалізовано кешування розміру повідомлень (оптимізація)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
@@ -9342,7 +9351,7 @@ msgstr ""
 "повідомлення (показ піктограми, інформування про те, що користувач присутній "
 "на каналі)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
@@ -9350,13 +9359,13 @@ msgstr ""
 "Виправлено показ команд у рядку редагування повідомлень (приховування дій, "
 "підтримки яких у кімнаті не передбачено)."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:58
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 "Виправити отриманий файл звукових даних або відео, коли він не перебуває у "
 "кеші."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#: widgets/whatsnew/whatsnewwidgettranslation.h:60
 msgid "Fix list of authentication method."
 msgstr "Виправлено список способів розпізнавання."
 

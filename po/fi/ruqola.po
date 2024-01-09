@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 00:42+0000\n"
+"POT-Creation-Date: 2024-01-09 00:41+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -882,7 +882,7 @@ msgstr "Merkitse säikeen viestien olevan lukematta"
 msgid "Edited at %1 by %2"
 msgstr "%2 muokannut %1"
 
-#: core/model/messagesmodel.cpp:360
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ohitettu viesti"
@@ -7144,14 +7144,14 @@ msgstr[1] "%1 ryhmää (kaikkiaan: %2)"
 msgid "Search rooms..."
 msgstr "Etsi huoneita…"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:76
 #, kde-format
 msgid "Open Discussion"
 msgstr "Avaa keskustelu"
@@ -8074,6 +8074,11 @@ msgstr "Tallenna tiedosto"
 msgid "Join"
 msgstr "Liity"
 
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:75
+#, kde-format
+msgid "Link Preview"
+msgstr ""
+
 #: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
@@ -8086,36 +8091,36 @@ msgstr "Käyttäjän tiedot"
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:517
+#: widgets/room/delegate/messagelistdelegate.cpp:528
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:787
+#: widgets/room/delegate/messagelistdelegate.cpp:816
 #, kde-format
 msgid "Following"
 msgstr "Seuraa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:791
+#: widgets/room/delegate/messagelistdelegate.cpp:820
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Viesti on kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:795
+#: widgets/room/delegate/messagelistdelegate.cpp:824
 #, kde-format
 msgid "Message has been starred"
 msgstr "Viesti on merkitty tähdellä"
@@ -9145,37 +9150,41 @@ msgstr ""
 msgid "Implement message style"
 msgstr "Etsi viestejä"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:53
-msgid "Fix markdown support (header + check mark)"
+#: widgets/whatsnew/whatsnewwidgettranslation.h:48
+msgid "Implement Url Preview"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-msgid "Fix mem leak"
+msgid "Fix markdown support (header + check mark)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:55
+msgid "Fix mem leak"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:56
 #, fuzzy
 #| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
 msgstr "viestisi (valinnainen)"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:58
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#: widgets/whatsnew/whatsnewwidgettranslation.h:60
 #, fuzzy
 #| msgid "Authentication Method"
 msgid "Fix list of authentication method."

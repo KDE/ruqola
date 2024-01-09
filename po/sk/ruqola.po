@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 00:42+0000\n"
+"POT-Creation-Date: 2024-01-09 00:41+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -925,7 +925,7 @@ msgstr "Súkromné adresy"
 msgid "Edited at %1 by %2"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:360
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
@@ -7482,7 +7482,7 @@ msgstr[2] ""
 msgid "Search rooms..."
 msgstr "Hľadať súbor..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:72
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
@@ -7492,7 +7492,7 @@ msgstr[0] "1 správa"
 msgstr[1] "%1 správy"
 msgstr[2] "%1 správ"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:76
 #, kde-format
 msgid "Open Discussion"
 msgstr ""
@@ -8476,6 +8476,11 @@ msgstr "Hľadať súbor..."
 msgid "Join"
 msgstr ""
 
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:75
+#, kde-format
+msgid "Link Preview"
+msgstr ""
+
 #: widgets/room/delegate/messagelistdelegate.cpp:317
 #: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
 #, kde-format
@@ -8489,7 +8494,7 @@ msgstr "Informácie o užívateľovi"
 msgid "Start a Private Conversation"
 msgstr "Konverzácia"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:517
+#: widgets/room/delegate/messagelistdelegate.cpp:528
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8497,7 +8502,7 @@ msgstr[0] "1 odpoveď"
 msgstr[1] "%1 odpovede"
 msgstr[2] "%1 odpovedí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8505,24 +8510,24 @@ msgstr[0] "1 správa"
 msgstr[1] "%1 správy"
 msgstr[2] "%1 správ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:524
+#: widgets/room/delegate/messagelistdelegate.cpp:538
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "No message yet"
 msgstr "1 správa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:787
+#: widgets/room/delegate/messagelistdelegate.cpp:816
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:791
+#: widgets/room/delegate/messagelistdelegate.cpp:820
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:795
+#: widgets/room/delegate/messagelistdelegate.cpp:824
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Message has been starred"
@@ -9629,35 +9634,39 @@ msgstr ""
 msgid "Implement message style"
 msgstr "Hľadať súbor..."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:53
-msgid "Fix markdown support (header + check mark)"
+#: widgets/whatsnew/whatsnewwidgettranslation.h:48
+msgid "Implement Url Preview"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
-msgid "Fix mem leak"
+msgid "Fix markdown support (header + check mark)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:55
-msgid "Cache message size (optimization)"
+msgid "Fix mem leak"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:56
+msgid "Cache message size (optimization)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:57
+#: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:58
+#: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:59
+#: widgets/whatsnew/whatsnewwidgettranslation.h:60
 #, fuzzy
 #| msgid "Authentication Method"
 msgid "Fix list of authentication method."
