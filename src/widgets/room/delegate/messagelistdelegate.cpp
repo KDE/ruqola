@@ -841,6 +841,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             ++i;
         }
 
+        // Block
         const auto blocks = message->blocks();
         int blockIndex = 0;
         for (const Block &block : blocks) {
@@ -854,6 +855,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             ++blockIndex;
         }
 
+        // messageurls
         const auto messageUrls = message->urls();
         int messageUrlsIndex = 0;
         for (const MessageUrl &url : messageUrls) {
