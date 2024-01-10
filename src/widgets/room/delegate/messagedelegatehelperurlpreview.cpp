@@ -276,7 +276,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
                 if (charPos == -1) {
                     return false;
                 }
-                mTextSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this);
+                mTextSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this, messageUrl);
                 return true;
             }
         }
