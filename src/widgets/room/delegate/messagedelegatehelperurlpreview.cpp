@@ -97,7 +97,7 @@ MessageDelegateHelperBase::DocumentDescriptionInfo MessageDelegateHelperUrlPrevi
 {
     MessageDelegateHelperBase::DocumentDescriptionInfo info;
     info.documentId = messageUrl.urlId();
-    info.description = messageUrl.description();
+    info.description = messageUrl.htmlDescription();
     info.width = width;
     return info;
 }
