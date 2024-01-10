@@ -9,7 +9,6 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"
-#include "textconverter.h"
 
 #include <QAbstractTextDocumentLayout>
 #include <QDrag>
