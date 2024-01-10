@@ -37,7 +37,8 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
     switch (mouseEvent->type()) {
     case QEvent::MouseMove: {
         if (!mTextSelectionImpl->mightStartDrag()) {
-            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+            if (const auto *doc =
+                    documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()) /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 if (charPos != -1) {
@@ -54,7 +55,8 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
         // Clicks on links
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME
+            if (const auto *doc =
+                    documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()) /*, true*/)) { // FIXME
                 const QPoint pos = mouseEvent->pos();
                 const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
                 const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
@@ -72,7 +74,8 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
     }
     case QEvent::MouseButtonDblClick: {
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+            if (const auto *doc =
+                    documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()) /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
@@ -88,7 +91,8 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
     case QEvent::MouseButtonPress: {
         mTextSelectionImpl->setMightStartDrag(false);
         mCurrentIndex = QModelIndex();
-        if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+        if (const auto *doc =
+                documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()) /*, true*/)) { // FIXME ME!
             const QPoint pos = mouseEvent->pos();
             const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
@@ -156,7 +160,7 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
                                                           const QModelIndex &index,
                                                           const QStyleOptionViewItem &option) const
 {
-    auto *doc = documentDescriptionForIndex(msgAttach, descriptionRect.width());
+    auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, descriptionRect.width()));
     if (!doc) {
         return;
     }
@@ -166,58 +170,17 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
 
 QTextDocument *MessageAttachmentDelegateHelperBase::documentForAttachement(const MessageAttachment &msgAttach) const
 {
-    return documentDescriptionForIndex(msgAttach, -1);
+    return documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, -1));
 }
 
-QSize MessageAttachmentDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
+MessageDelegateHelperBase::DocumentDescriptionInfo
+MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const
 {
-    auto *doc = documentDescriptionForIndex(msgAttach, width);
-    // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
-    return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
-}
-
-QTextDocument *MessageAttachmentDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const
-{
-    const QString attachmentId = msgAttach.attachmentId();
-    auto it = mDocumentCache.find(attachmentId);
-    if (it != mDocumentCache.end()) {
-        auto ret = it->value.get();
-        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
-            ret->setTextWidth(width);
-        }
-        return ret;
-    }
-
-    const QString description = msgAttach.description();
-
-    if (description.isEmpty()) {
-        return nullptr;
-    }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
-    // Laurent Ruqola::self()->rocketChatAccount() only for test.
-    auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
-    int maximumRecursiveQuotedText = -1;
-    if (account) {
-        maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
-    }
-    const TextConverter::ConvertMessageTextSettings settings(description,
-                                                             account ? account->userName() : QString(),
-                                                             {},
-                                                             account ? account->highlightWords() : QStringList(),
-                                                             account ? account->emojiManager() : nullptr,
-                                                             account ? account->messageCache() : nullptr,
-                                                             {},
-                                                             {},
-                                                             {},
-                                                             maximumRecursiveQuotedText);
-
-    int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    mDocumentCache.insert(attachmentId, std::move(doc));
-    return ret;
+    MessageDelegateHelperBase::DocumentDescriptionInfo info;
+    info.documentId = msgAttach.attachmentId();
+    info.description = msgAttach.description();
+    info.width = width;
+    return info;
 }
 
 bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
@@ -229,7 +192,7 @@ bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
-    const auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
+    const auto *doc = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, messageRect.width()));
     if (!doc) {
         return false;
     }
@@ -245,7 +208,7 @@ bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
 
 QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
 {
-    auto document = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/);
+    auto document = documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsRect.width()) /*, true*/);
     if (!document) {
         return {};
     }

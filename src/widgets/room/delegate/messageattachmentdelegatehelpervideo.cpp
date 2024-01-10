@@ -111,7 +111,7 @@ MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAt
     layout.title = msgAttach.title();
     layout.hasDescription = msgAttach.hasDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
+    layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.showButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.downloadButtonRect = layout.showButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);

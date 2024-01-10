@@ -24,8 +24,4 @@ public:
     virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option);
 
     virtual QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
-
-protected:
-    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const Block &block, int width) const;
-    [[nodiscard]] QSize documentDescriptionForIndexSize(const Block &block, int width) const;
 };

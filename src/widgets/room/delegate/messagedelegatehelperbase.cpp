@@ -6,7 +6,10 @@
 
 #include "messagedelegatehelperbase.h"
 
+#include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "textconverter.h"
 #include <QListView>
 
 MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
@@ -37,4 +40,52 @@ void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
 void MessageDelegateHelperBase::clearTextDocumentCache()
 {
     TextUiBase::clearCache();
+}
+
+QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const DocumentDescriptionInfo &info) const
+{
+    auto *doc = documentDescriptionForIndex(info);
+    // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
+    return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
+}
+
+QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const DocumentDescriptionInfo &info) const
+{
+    auto it = mDocumentCache.find(info.documentId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (info.width != -1 && !qFuzzyCompare(ret->textWidth(), info.width)) {
+            ret->setTextWidth(info.width);
+        }
+        return ret;
+    }
+
+    if (info.description.isEmpty()) {
+        return nullptr;
+    }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    QString needUpdateMessageId; // TODO use it ?
+    // Laurent Ruqola::self()->rocketChatAccount() only for test.
+    auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
+    int maximumRecursiveQuotedText = -1;
+    if (account) {
+        maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
+    }
+    const TextConverter::ConvertMessageTextSettings settings(info.description,
+                                                             account ? account->userName() : QString(),
+                                                             {},
+                                                             account ? account->highlightWords() : QStringList(),
+                                                             account ? account->emojiManager() : nullptr,
+                                                             account ? account->messageCache() : nullptr,
+                                                             {},
+                                                             {},
+                                                             {},
+                                                             maximumRecursiveQuotedText);
+
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, info.width);
+    auto ret = doc.get();
+    mDocumentCache.insert(info.documentId, std::move(doc));
+    return ret;
 }

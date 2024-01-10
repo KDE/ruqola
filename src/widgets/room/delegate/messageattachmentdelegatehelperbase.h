@@ -63,8 +63,6 @@ protected:
 
     [[nodiscard]] int
     charPosition(const QTextDocument *doc, const MessageAttachment &msgAttach, QRect attachmentsRect, const QPoint &pos, const QStyleOptionViewItem &option);
-    [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
-    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;
     void drawDescription(const MessageAttachment &msgAttach,
                          QRect messageRect,
                          QPainter *painter,
@@ -79,6 +77,10 @@ protected:
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
     [[nodiscard]] QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const override;
+
+protected:
+    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach,
+                                                                                                                int width) const;
 
 private:
     QPersistentModelIndex mCurrentIndex;

@@ -90,7 +90,7 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     layout.description = msgAttach.description();
     layout.link = msgAttach.link();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
+    layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
     layout.y = y;
     layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height());
     if (msgAttach.canDownloadAttachment()) {

@@ -43,8 +43,7 @@ private:
     };
     [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout
     layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
-    [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const;
-    [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const;
+    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;
     [[nodiscard]] int
     charPosition(const QTextDocument *doc, const MessageUrl &messageUrl, QRect previewRect, const QPoint &pos, const QStyleOptionViewItem &option);
     [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, const MessageUrl &messageUrl, QRect previewRect, const QStyleOptionViewItem &option);

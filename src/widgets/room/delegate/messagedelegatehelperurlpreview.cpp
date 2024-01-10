@@ -11,7 +11,6 @@
 #include "messages/messageurl.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_selection_debug.h"
-#include "textconverter.h"
 
 #include <KLocalizedString>
 
@@ -87,60 +86,20 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.isShown = messageUrl.showPreview();
-    layout.descriptionSize = layout.isShown ? documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth) : QSize();
+    layout.descriptionSize =
+        layout.isShown ? documentDescriptionForIndexSize(convertMessageUrlToDocumentDescriptionInfo(messageUrl, urlsPreviewWidth)) : QSize();
 
     return layout;
 }
 
-QTextDocument *MessageDelegateHelperUrlPreview::documentDescriptionForIndex(const MessageUrl &messageUrl, int width) const
+MessageDelegateHelperBase::DocumentDescriptionInfo MessageDelegateHelperUrlPreview::convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl,
+                                                                                                                               int width) const
 {
-    const QString urlId = messageUrl.urlId();
-    auto it = mDocumentCache.find(urlId);
-    if (it != mDocumentCache.end()) {
-        auto ret = it->value.get();
-        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
-            ret->setTextWidth(width);
-        }
-        return ret;
-    }
-
-    const QString description = messageUrl.htmlDescription();
-
-    // qDebug() << " description " << description;
-    if (description.isEmpty()) {
-        return nullptr;
-    }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
-    int maximumRecursiveQuotedText = -1;
-    if (mRocketChatAccount) {
-        maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
-    }
-    const TextConverter::ConvertMessageTextSettings settings(description,
-                                                             mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
-                                                             {},
-                                                             mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
-                                                             mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr,
-                                                             mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
-                                                             {},
-                                                             {},
-                                                             {},
-                                                             maximumRecursiveQuotedText);
-
-    int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    // qDebug() << " contextString " << contextString;
-    mDocumentCache.insert(urlId, std::move(doc));
-    return ret;
-}
-
-QSize MessageDelegateHelperUrlPreview::documentDescriptionForIndexSize(const MessageUrl &messageUrl, int width) const
-{
-    auto *doc = documentDescriptionForIndex(messageUrl, width);
-    // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
-    return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
+    MessageDelegateHelperBase::DocumentDescriptionInfo info;
+    info.documentId = messageUrl.urlId();
+    info.description = messageUrl.description();
+    info.width = width;
+    return info;
 }
 
 void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageUrl,
@@ -150,7 +109,7 @@ void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageU
                                                       const QModelIndex &index,
                                                       const QStyleOptionViewItem &option) const
 {
-    auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
+    auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
     if (!doc) {
         return;
     }
@@ -187,7 +146,7 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
 
     const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
 
-    const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
+    const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
     if (!doc) {
         return false;
     }
@@ -222,7 +181,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
             return true;
         }
         // Clicks on links
-        auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width());
+        auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
         if (doc) {
             const QPoint mouseClickPos =
                 pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
@@ -236,7 +195,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
     }
     case QEvent::MouseButtonPress:
         mTextSelectionImpl->setMightStartDrag(false);
-        if (const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width())) {
+        if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
             const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
@@ -258,7 +217,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         break;
     case QEvent::MouseMove:
         if (!mTextSelectionImpl->mightStartDrag()) {
-            if (const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width())) {
+            if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
                 const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
@@ -270,7 +229,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         break;
     case QEvent::MouseButtonDblClick:
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentDescriptionForIndex(messageUrl, previewRect.width())) {
+            if (const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()))) {
                 const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
