@@ -98,21 +98,19 @@ QString TextSelection::selectedText(Format format) const
                 }
             }
 
+#if 0 // FIXME
             const auto messageUrls = message->urls();
             for (const auto &url : messageUrls) {
-#if 0 // FIXME
-                for (auto factory : std::as_const(mAttachmentFactories)) {
-                    doc = factory->documentForAttachement(att);
-                    if (doc) {
-                        if (!str.endsWith(QLatin1Char('\n'))) {
-                            str += QLatin1Char('\n');
-                        }
-                        selectionText(ordered, format, row, index, doc, str, att);
-                        break;
+                doc = factory->documentForUrlPreview(messageUrls);
+                if (doc) {
+                    if (!str.endsWith(QLatin1Char('\n'))) {
+                        str += QLatin1Char('\n');
                     }
+                    selectionText(ordered, format, row, index, doc, str, att);
+                    break;
                 }
-#endif
             }
+#endif
         }
     }
     return str;
