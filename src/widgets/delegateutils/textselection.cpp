@@ -253,7 +253,7 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
             if (mAttachmentSelection.at(i).attachment == msgAttach) {
                 AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
                 attachmentSelectFound.toCharPos = charPos;
-                mAttachmentSelection.append(attachmentSelectFound);
+                mAttachmentSelection.append(std::move(attachmentSelectFound));
                 return;
             }
         }
