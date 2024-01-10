@@ -7,7 +7,9 @@
 #include "bannerinfolistviewdelegate.h"
 #include "config-ruqola.h"
 #include "model/bannerinfosmodel.h"
+#if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
+#endif
 
 #include <KColorScheme>
 #include <KLocalizedString>
