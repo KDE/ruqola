@@ -17,6 +17,7 @@ OtrWidgetTest::OtrWidgetTest(QObject *parent)
 void OtrWidgetTest::shouldHaveDefaultValues()
 {
     OtrWidget w;
+    w.show();
     // QVERIFY(!w.isVisible());
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);

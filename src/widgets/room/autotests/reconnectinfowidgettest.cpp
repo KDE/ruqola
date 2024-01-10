@@ -17,7 +17,7 @@ ReconnectInfoWidgetTest::ReconnectInfoWidgetTest(QObject *parent)
 void ReconnectInfoWidgetTest::shouldHaveDefaultValues()
 {
     ReconnectInfoWidget w;
-    QVERIFY(!w.isVisible());
+    w.show();
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QCOMPARE(w.reconnectSecondDelay(), -1);

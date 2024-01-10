@@ -18,11 +18,10 @@ RoomReplyThreadWidgetTest::RoomReplyThreadWidgetTest(QObject *parent)
 void RoomReplyThreadWidgetTest::shouldHaveDefaultValues()
 {
     RoomReplyThreadWidget w;
-
+    w.show();
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QVERIFY(w.wordWrap());
-    QVERIFY(!w.isVisible());
 }
 
 #include "moc_roomreplythreadwidgettest.cpp"

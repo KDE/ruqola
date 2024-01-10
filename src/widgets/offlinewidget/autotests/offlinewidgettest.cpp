@@ -17,6 +17,7 @@ OffLineWidgetTest::OffLineWidgetTest(QObject *parent)
 void OffLineWidgetTest::shouldHaveDefaultValues()
 {
     OffLineWidget w;
+    w.show();
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QVERIFY(!w.text().isEmpty());

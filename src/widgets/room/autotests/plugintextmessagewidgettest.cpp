@@ -17,9 +17,9 @@ PluginTextMessageWidgetTest::PluginTextMessageWidgetTest(QObject *parent)
 void PluginTextMessageWidgetTest::shouldHaveDefaultValues()
 {
     PluginTextMessageWidget w;
+    w.show();
     QVERIFY(w.text().isEmpty());
-    QVERIFY(!w.isVisible());
-    // QVERIFY(w.isCloseButtonVisible());
+    QVERIFY(w.isCloseButtonVisible());
 }
 
 #include "moc_plugintextmessagewidgettest.cpp"

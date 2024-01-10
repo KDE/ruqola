@@ -16,10 +16,10 @@ RoomQuoteMessageWidgetTest::RoomQuoteMessageWidgetTest(QObject *parent)
 void RoomQuoteMessageWidgetTest::shouldHaveDefaultValues()
 {
     RoomQuoteMessageWidget w;
+    w.show();
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QVERIFY(w.wordWrap());
-    QVERIFY(!w.isVisible());
 }
 
 #include "moc_roomquotemessagewidgettest.cpp"
