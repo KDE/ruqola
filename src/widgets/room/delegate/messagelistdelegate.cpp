@@ -764,17 +764,6 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
         }
         ++i;
     }
-    const auto blocks = message->blocks();
-    int blockIndex = 0;
-    for (const Block &block : blocks) {
-        MessageBlockDelegateHelperBase *helper = blocksHelper(block);
-        if (helper) {
-            if (helper && helper->maybeStartDrag(block, event, layout.blocksRectList.at(blockIndex), option, index)) {
-                return true;
-            }
-        }
-        ++blockIndex;
-    }
 
     return false;
 }

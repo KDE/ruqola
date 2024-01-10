@@ -41,20 +41,6 @@ bool MessageBlockDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRec
     return false;
 }
 
-bool MessageBlockDelegateHelperBase::maybeStartDrag(const Block &block,
-                                                    QMouseEvent *mouseEvent,
-                                                    QRect blocksRect,
-                                                    const QStyleOptionViewItem &option,
-                                                    const QModelIndex &index)
-{
-    Q_UNUSED(block)
-    Q_UNUSED(mouseEvent)
-    Q_UNUSED(blocksRect)
-    Q_UNUSED(option)
-    Q_UNUSED(index)
-    return false;
-}
-
 QTextDocument *MessageBlockDelegateHelperBase::documentDescriptionForIndex(const Block &block, int width) const
 {
     const QString blockId = block.blockId();

@@ -23,8 +23,6 @@ public:
 
     virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option);
 
-    [[nodiscard]] bool maybeStartDrag(const Block &block, QMouseEvent *event, QRect blocksRect, const QStyleOptionViewItem &option, const QModelIndex &index);
-
     virtual QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
 
 protected:
