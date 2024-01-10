@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 00:41+0000\n"
+"POT-Creation-Date: 2024-01-10 00:41+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Klient pro Rocket Chat"
 
 #: apps/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2023 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2024 Ruqola authors"
-msgstr "Autorská práva © 2020-2023 Autoři Ruqola"
+msgstr ""
 
 #: apps/main.cpp:60
 #, kde-format
@@ -1339,12 +1338,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2768
+#: core/rocketchataccount.cpp:2773
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2769
+#: core/rocketchataccount.cpp:2774
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1473,7 +1472,7 @@ msgstr "GitHub"
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
 #, kde-format
 msgid "GitLab"
-msgstr ""
+msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
@@ -2716,7 +2715,7 @@ msgstr[2] "%1 zpráv v místnosti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:275
+#: widgets/room/messagelistview.cpp:280
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
 #, kde-format
 msgid "Copy Message"
@@ -2725,7 +2724,7 @@ msgstr "Kopírovat zprávu"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:596
+#: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
 #, kde-format
 msgid "Speak Text"
@@ -2735,7 +2734,7 @@ msgstr "Přečíst text"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:305
+#: widgets/room/messagelistview.cpp:310
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgid "Select All"
@@ -3574,10 +3573,9 @@ msgid "Registration with Authentication Services"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgid "Password Reset"
-msgstr "Heslo"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3669,10 +3667,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Default Room"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Výchozí místnost"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -5834,7 +5831,7 @@ msgid "Mark As Unread"
 msgstr "Označit jako nepřečtené"
 
 #: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Přidat do oblíbených"
@@ -5922,11 +5919,9 @@ msgid "Sign in with %1"
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#, kde-format
 msgid "Register Account"
-msgstr "Odstranit účet"
+msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6157,22 +6152,19 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Chcete odstranit tento účet '%1'?"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Connecting"
+#, kde-format
 msgid "Connection"
-msgstr "Navazuji spojení"
+msgstr "Spojení"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Server Url:"
 msgstr "URL serveru:"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Nelze zkopírovat soubor"
+msgstr ""
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6245,7 +6237,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informace o kanálu '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:304
 #, kde-format
 msgid "Delete"
 msgstr "Smazat"
@@ -6779,11 +6771,10 @@ msgid "Why you signal this message?"
 msgstr "Proč chcete nahlásit tuto zprávu?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Reset Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Password"
-msgstr "Obnovit heslo"
+msgstr ""
 
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
@@ -7075,7 +7066,7 @@ msgstr[2] ""
 msgid "Search rooms..."
 msgstr "Hledat místnosti..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:75
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
@@ -7083,7 +7074,7 @@ msgstr[0] "%1 zpráva"
 msgstr[1] "%1 zprávy"
 msgstr[2] "%1 zpráv"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:76
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
 msgid "Open Discussion"
 msgstr "Otevřít diskuzi"
@@ -7798,7 +7789,7 @@ msgid "Notification"
 msgstr "Upozornění"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:579
+#: widgets/room/messagelistview.cpp:584
 #, kde-format
 msgid "Go to Message"
 msgstr "Přejít na zprávu"
@@ -7983,24 +7974,24 @@ msgstr "Uložit soubor"
 msgid "Join"
 msgstr "Připojit"
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:75
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:73
 #, kde-format
 msgid "Link Preview"
-msgstr ""
+msgstr "Náhled odkazu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:317
-#: widgets/room/messagelistview.cpp:379 widgets/room/usersinroommenu.cpp:86
+#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informace o uživateli"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:326
-#: widgets/room/messagelistview.cpp:387
+#: widgets/room/delegate/messagelistdelegate.cpp:332
+#: widgets/room/messagelistview.cpp:392
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Začít soukromou konverzaci"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:528
+#: widgets/room/delegate/messagelistdelegate.cpp:534
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8008,7 +7999,7 @@ msgstr[0] "1 odpověď"
 msgstr[1] "%1 odpovědi"
 msgstr[2] "%1 odpovědí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:538
+#: widgets/room/delegate/messagelistdelegate.cpp:544
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8016,22 +8007,22 @@ msgstr[0] "1 Zpráva"
 msgstr[1] "%1 zprávy"
 msgstr[2] "%1 zpráv"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:538
+#: widgets/room/delegate/messagelistdelegate.cpp:544
 #, kde-format
 msgid "No message yet"
 msgstr "Zatím žádné zprávy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:816
+#: widgets/room/delegate/messagelistdelegate.cpp:822
 #, kde-format
 msgid "Following"
 msgstr "Sledujete"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:820
+#: widgets/room/delegate/messagelistdelegate.cpp:826
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:824
+#: widgets/room/delegate/messagelistdelegate.cpp:830
 #, kde-format
 msgid "Message has been starred"
 msgstr ""
@@ -8097,110 +8088,110 @@ msgstr "Připojili jste se k nové přímé zprávě"
 msgid "Start of conversation"
 msgstr "Zahájení rozhovoru"
 
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Unpin Message"
 msgstr "Odepnout zprávu"
 
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:288
 #, kde-format
 msgid "Pin Message"
 msgstr "Připnout zprávu"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Odebrat z oblíbených"
 
-#: widgets/room/messagelistview.cpp:310
+#: widgets/room/messagelistview.cpp:315
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Označit zprávu jako nepřečtenou"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:320
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Zobrazit celé vlákno"
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:325
 #, kde-format
 msgid "Edit"
 msgstr "Upravit"
 
-#: widgets/room/messagelistview.cpp:325
+#: widgets/room/messagelistview.cpp:330
 #, kde-format
 msgid "Quote"
 msgstr "Citát kratší"
 
-#: widgets/room/messagelistview.cpp:330
+#: widgets/room/messagelistview.cpp:335
 #, kde-format
 msgid "Copy Link To Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:348
 #: widgets/threadwidget/threadmessagewidget.cpp:118
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Přestat sledovat zprávu"
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:348
 #: widgets/threadwidget/threadmessagewidget.cpp:118
 #, kde-format
 msgid "Follow Message"
 msgstr "Sledovat zprávu"
 
-#: widgets/room/messagelistview.cpp:356
+#: widgets/room/messagelistview.cpp:361
 #, kde-format
 msgid "Copy URL"
 msgstr "Kopírovat URL"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:408
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Začít diskuzi"
 
-#: widgets/room/messagelistview.cpp:410
+#: widgets/room/messagelistview.cpp:415
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Odpovědět ve vláknu"
 
-#: widgets/room/messagelistview.cpp:470
+#: widgets/room/messagelistview.cpp:475
 #, kde-format
 msgid "Show Original Message"
 msgstr "Zobrazit původní zprávu"
 
-#: widgets/room/messagelistview.cpp:470
+#: widgets/room/messagelistview.cpp:475
 #, kde-format
 msgid "Translate Message"
 msgstr "Přeložit zprávu"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:517
 #, kde-format
 msgid "View Reports"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:535
+#: widgets/room/messagelistview.cpp:540
 #, kde-format
 msgid "Dismiss Reports"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:604
+#: widgets/room/messagelistview.cpp:609
 #, kde-format
 msgid "Report Message"
 msgstr "Nahlásit zprávu"
 
-#: widgets/room/messagelistview.cpp:784
+#: widgets/room/messagelistview.cpp:789
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Chcete tuto zprávu odstranit?"
 
-#: widgets/room/messagelistview.cpp:785
+#: widgets/room/messagelistview.cpp:790
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Smazat zprávu"
 
-#: widgets/room/messagelistview.cpp:925
+#: widgets/room/messagelistview.cpp:930
 #, kde-format
 msgid "Translator Error"
 msgstr ""
@@ -9071,7 +9062,5 @@ msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:60
-#, fuzzy
-#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "Metoda ověření"
+msgstr ""
