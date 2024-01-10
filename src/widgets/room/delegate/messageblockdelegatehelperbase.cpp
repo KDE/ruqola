@@ -101,25 +101,3 @@ QSize MessageBlockDelegateHelperBase::documentDescriptionForIndexSize(const Bloc
     // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
     return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
-
-void MessageBlockDelegateHelperBase::drawDescription(const Block &block,
-                                                     QRect descriptionRect,
-                                                     QPainter *painter,
-                                                     int topPos,
-                                                     const QModelIndex &index,
-                                                     const QStyleOptionViewItem &option) const
-{
-    Q_UNUSED(painter)
-    Q_UNUSED(topPos)
-    Q_UNUSED(index)
-    Q_UNUSED(option)
-    Q_UNUSED(block)
-    Q_UNUSED(descriptionRect)
-#if 0
-    auto *doc = documentDescriptionForIndex(block, descriptionRect.width());
-    if (!doc) {
-        return;
-    }
-    // TODO MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach, {});
-#endif
-}
