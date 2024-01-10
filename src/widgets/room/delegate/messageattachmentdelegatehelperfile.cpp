@@ -84,7 +84,7 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
 {
     const int buttonMargin = DelegatePaintUtil::margin();
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    int y = 0;
+    const int y = 0;
     FileLayout layout;
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
