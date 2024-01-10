@@ -306,6 +306,16 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
             }
             i++;
         }
+
+        const auto urlsMessage = message->urls();
+        int messageUrlIndex = 0;
+        for (const MessageUrl &messageUrl : urlsMessage) {
+            url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
+            if (!url.isEmpty()) {
+                return url;
+            }
+            messageUrlIndex++;
+        }
     }
     return url;
 }

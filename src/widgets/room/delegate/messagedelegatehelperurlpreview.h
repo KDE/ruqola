@@ -28,6 +28,8 @@ public:
     [[nodiscard]] bool
     handleMouseEvent(const MessageUrl &messageUrl, QMouseEvent *mouseEvent, QRect previewRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
+    [[nodiscard]] QString urlAt(const QStyleOptionViewItem &option, const MessageUrl &messageUrl, QRect previewsRect, QPoint pos);
+
 private:
     Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
     struct PreviewLayout {

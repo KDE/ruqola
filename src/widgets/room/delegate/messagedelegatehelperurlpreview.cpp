@@ -265,3 +265,13 @@ MessageDelegateHelperUrlPreview::adaptMousePosition(const QPoint &pos, const Mes
         pos - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
     return relativePos;
 }
+
+QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &option, const MessageUrl &messageUrl, QRect previewsRect, QPoint pos)
+{
+    auto document = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()));
+    if (!document) {
+        return {};
+    }
+    const QPoint relativePos = adaptMousePosition(pos, messageUrl, previewsRect, option);
+    return document->documentLayout()->anchorAt(relativePos);
+}
