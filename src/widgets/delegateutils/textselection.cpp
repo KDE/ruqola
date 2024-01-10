@@ -97,6 +97,22 @@ QString TextSelection::selectedText(Format format) const
                     }
                 }
             }
+
+            const auto messageUrls = message->urls();
+            for (const auto &url : messageUrls) {
+#if 0 // FIXME
+                for (auto factory : std::as_const(mAttachmentFactories)) {
+                    doc = factory->documentForAttachement(att);
+                    if (doc) {
+                        if (!str.endsWith(QLatin1Char('\n'))) {
+                            str += QLatin1Char('\n');
+                        }
+                        selectionText(ordered, format, row, index, doc, str, att);
+                        break;
+                    }
+                }
+#endif
+            }
         }
     }
     return str;
@@ -299,7 +315,7 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
     }
 #if 0
     if (msgUrl.isValid()) {
-        QTextDocument *doc = factory->documentForAttachement(msgAttach);
+        QTextDocument *doc = factory->documentForUrlPreview(msgUrl);
         selectWord(index, charPos, doc);
 
         AttachmentSelection selection;
