@@ -73,19 +73,21 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     layout.previewTitle = i18n("Link Preview");
     layout.previewTitleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.previewTitle);
     layout.hasDescription = messageUrl.hasHtmlDescription();
-    const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->previewUrlFromLocalCache(messageUrl.imageUrl()) : QUrl{};
+    const QUrl previewImageUrl =
+        messageUrl.imageUrl().isEmpty() ? QUrl{} : (mRocketChatAccount ? mRocketChatAccount->previewUrlFromLocalCache(messageUrl.imageUrl()) : QUrl{});
     if (previewImageUrl.isLocalFile()) {
         layout.imageUrl = messageUrl.imageUrl();
+
+        const QString imagePreviewPath = previewImageUrl.toLocalFile();
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(imagePreviewPath);
+        layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
+        const auto dpr = layout.pixmap.devicePixelRatioF();
+        layout.imageSize = layout.pixmap.size().scaled(urlsPreviewWidth * dpr, /*imageMaxHeight*/ 100 * dpr, Qt::KeepAspectRatio);
     }
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     layout.isShown = messageUrl.showPreview();
     layout.descriptionSize = layout.isShown ? documentDescriptionForIndexSize(messageUrl, urlsPreviewWidth) : QSize();
-    const QString imagePreviewPath = previewImageUrl.toLocalFile();
-    layout.pixmap = mPixmapCache.pixmapForLocalFile(imagePreviewPath);
-    layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
-    const auto dpr = layout.pixmap.devicePixelRatioF();
-    layout.imageSize = layout.pixmap.size().scaled(urlsPreviewWidth * dpr, /*imageMaxHeight*/ 100 * dpr, Qt::KeepAspectRatio);
 
     return layout;
 }
