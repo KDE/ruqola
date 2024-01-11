@@ -30,7 +30,6 @@
 MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
-    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
 }
 
 MessageDelegateHelperText::~MessageDelegateHelperText() = default;

@@ -24,7 +24,6 @@ MessageAttachmentDelegateHelperBase::~MessageAttachmentDelegateHelperBase() = de
 MessageAttachmentDelegateHelperBase::MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
-    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageAttachmentDelegateHelperBase::updateView);
 }
 
 bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,

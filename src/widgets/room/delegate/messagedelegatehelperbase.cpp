@@ -16,6 +16,7 @@ MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account,
     : TextUiBase(textSelectionImpl, view)
     , mRocketChatAccount(account)
 {
+    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
     TextUiBase::setCacheMaxEntries(32); // Enough?
 }
 

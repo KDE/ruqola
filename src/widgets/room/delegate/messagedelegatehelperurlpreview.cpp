@@ -22,7 +22,6 @@
 MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
-    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperUrlPreview::updateView);
 }
 
 MessageDelegateHelperUrlPreview::~MessageDelegateHelperUrlPreview() = default;
