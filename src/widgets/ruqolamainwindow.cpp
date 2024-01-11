@@ -307,7 +307,9 @@ void RuqolaMainWindow::slotRaiseWindow()
 
 void RuqolaMainWindow::slotPermissionChanged()
 {
-    mCreateTeam->setEnabled(mCurrentRocketChatAccount->teamEnabled());
+    mCreateNewChannel->setEnabled(canCreateChannels());
+    mCreateDirectMessages->setEnabled(canCreateDirectMessages());
+    mCreateTeam->setEnabled(canCreateTeams());
 }
 
 void RuqolaMainWindow::updateActions()
