@@ -55,6 +55,7 @@ private:
                          int topPos,
                          const QModelIndex &index,
                          const QStyleOptionViewItem &option) const;
+    [[nodiscard]] QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
 
     mutable PixmapCache mPixmapCache;
 };

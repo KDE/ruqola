@@ -84,6 +84,9 @@ public:
 
     [[nodiscard]] const QVector<DocumentFactoryInterface *> &attachmentFactories() const;
 
+    [[nodiscard]] DocumentFactoryInterface *messageUrlHelperFactory() const;
+    void setMessageUrlHelperFactory(DocumentFactoryInterface *newMessageUrlHelperFactory);
+
 Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
 
@@ -115,7 +118,8 @@ private:
                        const QModelIndex &index,
                        QTextDocument *doc,
                        QString &str,
-                       const MessageAttachment &att = {}) const;
+                       const MessageAttachment &att = {},
+                       const MessageUrl &messageUrl = {}) const;
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
@@ -125,5 +129,6 @@ private:
     int mEndPos = -1; // last selected character in end row
 
     DocumentFactoryInterface *mTextHelperFactory = nullptr;
+    DocumentFactoryInterface *mMessageUrlHelperFactory = nullptr;
     QVector<DocumentFactoryInterface *> mAttachmentFactories;
 };

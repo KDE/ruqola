@@ -70,6 +70,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mMessageListLayoutBase(new MessageListCompactLayout(this))
 {
+    mTextSelectionImpl->textSelection()->setMessageUrlHelperFactory(mHelperUrlPreview.data());
     mTextSelectionImpl->textSelection()->setTextHelperFactory(mHelperText.data());
     mTextSelectionImpl->textSelection()->setAttachmentFactories({mHelperAttachmentImage.data(),
                                                                  mHelperAttachmentFile.data(),

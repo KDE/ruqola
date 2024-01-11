@@ -19,7 +19,8 @@ DocumentFactoryInterface::~DocumentFactoryInterface() = default;
 
 bool TextSelection::hasSelection() const
 {
-    return mStartIndex.isValid() && mEndIndex.isValid() && ((mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos) || !mAttachmentSelection.isEmpty());
+    return mStartIndex.isValid() && mEndIndex.isValid()
+        && ((mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos) || !mAttachmentSelection.isEmpty() || !mMessageUrlSelection.isEmpty());
 }
 
 TextSelection::OrderedPositions TextSelection::orderedPositions() const
@@ -39,14 +40,25 @@ void TextSelection::selectionText(const OrderedPositions ordered,
                                   const QModelIndex &index,
                                   QTextDocument *doc,
                                   QString &str,
-                                  const MessageAttachment &att) const
+                                  const MessageAttachment &att,
+                                  const MessageUrl &messageUrl) const
 {
-    const QTextCursor cursor = selectionForIndex(index, doc, att);
+    const QTextCursor cursor = selectionForIndex(index, doc, att, messageUrl);
     const QTextDocumentFragment fragment(cursor);
     str += format == Text ? fragment.toPlainText() : fragment.toHtml();
     if (row < ordered.toRow) {
         str += QLatin1Char('\n');
     }
+}
+
+DocumentFactoryInterface *TextSelection::messageUrlHelperFactory() const
+{
+    return mMessageUrlHelperFactory;
+}
+
+void TextSelection::setMessageUrlHelperFactory(DocumentFactoryInterface *newMessageUrlHelperFactory)
+{
+    mMessageUrlHelperFactory = newMessageUrlHelperFactory;
 }
 
 DocumentFactoryInterface *TextSelection::textHelperFactory() const
@@ -98,19 +110,17 @@ QString TextSelection::selectedText(Format format) const
                 }
             }
 
-#if 0 // FIXME
             const auto messageUrls = message->urls();
             for (const auto &url : messageUrls) {
-                doc = factory->documentForUrlPreview(messageUrls);
+                doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
                 if (doc) {
                     if (!str.endsWith(QLatin1Char('\n'))) {
                         str += QLatin1Char('\n');
                     }
-                    selectionText(ordered, format, row, index, doc, str, att);
+                    selectionText(ordered, format, row, index, doc, str, {}, url);
                     break;
                 }
             }
-#endif
         }
     }
     return str;
@@ -157,14 +167,22 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
             if (attSelection.attachment == att) {
                 fromCharPos = attSelection.fromCharPos;
                 toCharPos = attSelection.toCharPos;
-                // qDebug() << "ATTACHNMENT toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
+                // qDebug() << "ATTACHMENT toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
                 break;
             }
         }
     }
     // TODO add block
-
-    // TODO add msgUrl
+    if (msgUrl.hasHtmlDescription()) {
+        for (const MessageUrlSelection &messageUrlSelection : std::as_const(mMessageUrlSelection)) {
+            if (messageUrlSelection.messageUrl == msgUrl) {
+                fromCharPos = messageUrlSelection.fromCharPos;
+                toCharPos = messageUrlSelection.toCharPos;
+                // qDebug() << "MessageUrl toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
+                break;
+            }
+        }
+    }
 
     // qDebug() << "AFTER toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
     const int row = index.row();
@@ -312,16 +330,14 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         return;
     }
     if (msgUrl.hasHtmlDescription()) {
-#if 0
-        QTextDocument *doc = factory->documentForUrlPreview(msgUrl);
+        QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(msgUrl);
         selectWord(index, charPos, doc);
 
-        AttachmentSelection selection;
+        MessageUrlSelection selection;
         selection.fromCharPos = mStartPos;
         selection.toCharPos = mEndPos;
-        selection.attachment = msgAttach;
-        mAttachmentSelection.append(std::move(selection));
-#endif
+        selection.messageUrl = msgUrl;
+        mMessageUrlSelection.append(std::move(selection));
     }
 }
 

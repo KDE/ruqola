@@ -275,3 +275,8 @@ QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &optio
     const QPoint relativePos = adaptMousePosition(pos, messageUrl, previewsRect, option);
     return document->documentLayout()->anchorAt(relativePos);
 }
+
+QTextDocument *MessageDelegateHelperUrlPreview::documentForUrlPreview(const MessageUrl &messageUrl) const
+{
+    return documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, -1));
+}
