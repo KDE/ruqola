@@ -311,8 +311,8 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         qCWarning(RUQOLAWIDGETS_SELECTION_LOG) << " Factory is null. It's a bug";
         return;
     }
+    if (msgUrl.hasHtmlDescription()) {
 #if 0
-    if (msgUrl.isValid()) {
         QTextDocument *doc = factory->documentForUrlPreview(msgUrl);
         selectWord(index, charPos, doc);
 
@@ -321,8 +321,8 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         selection.toCharPos = mEndPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
-    }
 #endif
+    }
 }
 
 void TextSelection::selectMessage(const QModelIndex &index)
