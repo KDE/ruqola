@@ -102,6 +102,12 @@ private:
         int toCharPos = 0;
     };
 
+    struct MessageUrlSelection {
+        MessageUrl messageUrl;
+        int fromCharPos = 0;
+        int toCharPos = 0;
+    };
+
     [[nodiscard]] OrderedPositions orderedPositions() const;
     void selectionText(const OrderedPositions ordered,
                        Format format,
@@ -114,6 +120,7 @@ private:
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
     QVector<AttachmentSelection> mAttachmentSelection;
+    QVector<MessageUrlSelection> mMessageUrlSelection;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
 
