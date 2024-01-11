@@ -259,16 +259,24 @@ void MessageListDelegate::removeSizeHintCache(const QString &messageId)
     mSizeHintCache.remove(messageId);
 }
 
-void MessageListDelegate::removeMessageCache(const QString &messageId, const QStringList &attachmentIdList)
+void MessageListDelegate::removeMessageCache(const Message *message)
 {
+    const QString messageId = message->messageId();
     removeSizeHintCache(messageId);
     mHelperText->removeMessageCache(messageId);
-    for (const auto &attachmentId : attachmentIdList) {
+
+    const auto attachments{message->attachments()};
+    for (const auto &attachment : attachments) {
+        const QString attachmentId = attachment.attachmentId();
         mHelperAttachmentImage->removeMessageCache(attachmentId);
         mHelperAttachmentFile->removeMessageCache(attachmentId);
         mHelperAttachmentVideo->removeMessageCache(attachmentId);
         mHelperAttachmentSound->removeMessageCache(attachmentId);
         mHelperAttachmentText->removeMessageCache(attachmentId);
+    }
+    const auto messageUrls{message->urls()};
+    for (const auto &url : messageUrls) {
+        mHelperUrlPreview->removeMessageCache(url.urlId());
     }
 }
 

@@ -185,13 +185,7 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
         if (roles.contains(MessagesModel::OriginalMessageOrAttachmentDescription)) {
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
             if (message) {
-                QStringList attachmentIdList;
-                const auto attachments{message->attachments()};
-                attachmentIdList.reserve(attachments.count());
-                for (const auto &attachment : attachments) {
-                    attachmentIdList.append(attachment.attachmentId());
-                }
-                mMessageListDelegate->removeMessageCache(message->messageId(), attachmentIdList);
+                mMessageListDelegate->removeMessageCache(message);
             }
         } else if (roles.contains(MessagesModel::DisplayUrlPreview) || roles.contains(MessagesModel::DisplayAttachment)) {
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();

@@ -91,7 +91,7 @@ public:
 
     [[nodiscard]] MessageDelegateHelperUrlPreview *helperUrlPreview() const;
 
-    void removeMessageCache(const QString &messageId, const QStringList &attachmentIdList);
+    void removeMessageCache(const Message *message);
 
     void setEnableEmojiMenu(bool b);
 
