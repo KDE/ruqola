@@ -153,7 +153,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     Q_ASSERT(index.model() == mStartIndex.model());
     Q_ASSERT(index.model() == mEndIndex.model());
 
-    if (att.isValid() && mAttachmentSelection.isEmpty()) {
+    if (att.isValid() && mAttachmentSelection.isEmpty() && mMessageUrlSelection.isEmpty() && msgUrl.hasHtmlDescription()) {
         return {};
     }
     const OrderedPositions ordered = orderedPositions();
@@ -173,6 +173,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
         }
     }
     // TODO add block
+
     if (msgUrl.hasHtmlDescription()) {
         for (const MessageUrlSelection &messageUrlSelection : std::as_const(mMessageUrlSelection)) {
             if (messageUrlSelection.messageUrl == msgUrl) {
@@ -211,6 +212,7 @@ void TextSelection::clear()
     mStartPos = -1;
     mEndPos = -1;
     mAttachmentSelection.clear();
+    mMessageUrlSelection.clear();
 
     // Repaint indexes that are no longer selected
     if (ordered.fromRow > -1) {
