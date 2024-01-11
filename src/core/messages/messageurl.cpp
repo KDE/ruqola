@@ -5,10 +5,13 @@
 */
 
 #include "messageurl.h"
-
+#include "ruqolaglobalconfig.h"
 #include <QJsonObject>
 
-MessageUrl::MessageUrl() = default;
+MessageUrl::MessageUrl()
+{
+    mShowPreview = RuqolaGlobalConfig::self()->showImage();
+}
 
 QStringList MessageUrl::pageTitleElements()
 {
