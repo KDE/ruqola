@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 00:41+0000\n"
+"POT-Creation-Date: 2024-01-11 01:36+0000\n"
 "PO-Revision-Date: 2024-01-09 16:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -8156,53 +8156,53 @@ msgstr "Dosyayı Kaydet"
 msgid "Join"
 msgstr "Katıl"
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:73
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:72
 #, kde-format
 msgid "Link Preview"
 msgstr "Bağlantı Önizlemesi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/delegate/messagelistdelegate.cpp:333
 #: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:332
+#: widgets/room/delegate/messagelistdelegate.cpp:342
 #: widgets/room/messagelistview.cpp:392
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Özel bir Konuşma Başlat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:534
+#: widgets/room/delegate/messagelistdelegate.cpp:544
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 yanıt"
 msgstr[1] "%1 yanıt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:554
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 ileti"
 msgstr[1] "%1 ileti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:554
 #, kde-format
 msgid "No message yet"
 msgstr "Henüz ileti yok"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:822
+#: widgets/room/delegate/messagelistdelegate.cpp:821
 #, kde-format
 msgid "Following"
 msgstr "Takip Ediliyor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:826
+#: widgets/room/delegate/messagelistdelegate.cpp:825
 #, kde-format
 msgid "Message has been pinned"
 msgstr "İleti sabitlendi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:830
+#: widgets/room/delegate/messagelistdelegate.cpp:829
 #, kde-format
 msgid "Message has been starred"
 msgstr "İleti yıldızlandı"

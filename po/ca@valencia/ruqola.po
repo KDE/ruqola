@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 00:41+0000\n"
-"PO-Revision-Date: 2024-01-02 08:27+0200\n"
+"POT-Creation-Date: 2024-01-11 01:36+0000\n"
+"PO-Revision-Date: 2024-01-09 15:40+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -8207,53 +8207,53 @@ msgstr "Guarda el fitxer"
 msgid "Join"
 msgstr "Unix-te"
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:73
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:72
 #, kde-format
 msgid "Link Preview"
-msgstr ""
+msgstr "Visualització prèvia de l'enllaç"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/delegate/messagelistdelegate.cpp:333
 #: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:332
+#: widgets/room/delegate/messagelistdelegate.cpp:342
 #: widgets/room/messagelistview.cpp:392
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Inicia una conversa privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:534
+#: widgets/room/delegate/messagelistdelegate.cpp:544
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:554
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 missatge"
 msgstr[1] "%1 missatges"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:554
 #, kde-format
 msgid "No message yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:822
+#: widgets/room/delegate/messagelistdelegate.cpp:821
 #, kde-format
 msgid "Following"
 msgstr "Següent"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:826
+#: widgets/room/delegate/messagelistdelegate.cpp:825
 #, kde-format
 msgid "Message has been pinned"
 msgstr "El missatge s'ha fixat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:830
+#: widgets/room/delegate/messagelistdelegate.cpp:829
 #, kde-format
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
@@ -9277,7 +9277,7 @@ msgstr "Implementa els estils dels missatges"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
-msgstr ""
+msgstr "Implementa la previsualització dels URL"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"

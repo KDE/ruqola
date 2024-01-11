@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 00:41+0000\n"
+"POT-Creation-Date: 2024-01-11 01:36+0000\n"
 "PO-Revision-Date: 2023-12-13 03:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -8397,53 +8397,53 @@ msgstr ""
 msgid "Join"
 msgstr ""
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:73
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:72
 #, kde-format
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:323
+#: widgets/room/delegate/messagelistdelegate.cpp:333
 #: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:332
+#: widgets/room/delegate/messagelistdelegate.cpp:342
 #: widgets/room/messagelistview.cpp:392
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "加密對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:534
+#: widgets/room/delegate/messagelistdelegate.cpp:544
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:554
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:554
 #, fuzzy, kde-format
 #| msgid "Any message yet"
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:822
+#: widgets/room/delegate/messagelistdelegate.cpp:821
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:826
+#: widgets/room/delegate/messagelistdelegate.cpp:825
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:830
+#: widgets/room/delegate/messagelistdelegate.cpp:829
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Message has been starred"
