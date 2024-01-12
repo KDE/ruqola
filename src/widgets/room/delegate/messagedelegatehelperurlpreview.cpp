@@ -288,7 +288,7 @@ bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUr
                                                      const QStyleOptionViewItem &option,
                                                      const QModelIndex &index)
 {
-    if (!mTextSelectionImpl->mightStartDrag() || index != mCurrentIndex || !previewsRect.contains(mouseEvent->pos())) {
+    if (!mTextSelectionImpl->mightStartDrag() || !previewsRect.contains(mouseEvent->pos())) {
         return false;
     }
     const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
