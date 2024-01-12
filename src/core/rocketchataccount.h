@@ -518,6 +518,7 @@ public:
     [[nodiscard]] QVector<AuthenticationInfo> authenticationMethodInfos() const;
 
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
+    [[nodiscard]] bool previewEmbed() const;
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);

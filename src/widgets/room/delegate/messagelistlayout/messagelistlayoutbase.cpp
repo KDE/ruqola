@@ -119,29 +119,31 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             // qDebug() << " topBlock " << topBlock;
             layout.blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
-        if (!message->urls().isEmpty()) {
-            const auto urls = message->urls();
-            QSize urlsPreviewSize;
-            int topUrlPreview = topAttachment;
-            for (const MessageUrl &url : urls) {
-                if (url.hasPreviewUrl()) {
-                    const MessageDelegateHelperUrlPreview *helperUrlPreview = delegate->helperUrlPreview();
-                    if (urlsPreviewSize.isEmpty()) {
-                        urlsPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
-                        layout.messageUrlsRectList.append(QRect(layout.senderRect.x(), topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height()));
-                        topUrlPreview += urlsPreviewSize.height();
+        if (mRocketChatAccount && mRocketChatAccount->previewEmbed()) {
+            if (!message->urls().isEmpty()) {
+                const auto urls = message->urls();
+                QSize urlsPreviewSize;
+                int topUrlPreview = topAttachment;
+                for (const MessageUrl &url : urls) {
+                    if (url.hasPreviewUrl()) {
+                        const MessageDelegateHelperUrlPreview *helperUrlPreview = delegate->helperUrlPreview();
+                        if (urlsPreviewSize.isEmpty()) {
+                            urlsPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
+                            layout.messageUrlsRectList.append(QRect(layout.senderRect.x(), topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height()));
+                            topUrlPreview += urlsPreviewSize.height();
+                        } else {
+                            const QSize urlPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
+                            layout.messageUrlsRectList.append(QRect(layout.senderRect.x(), topUrlPreview, urlPreviewSize.width(), urlPreviewSize.height()));
+                            urlsPreviewSize = QSize(qMax(urlsPreviewSize.width(), urlPreviewSize.width()), urlPreviewSize.height() + urlsPreviewSize.height());
+                            topUrlPreview += urlPreviewSize.height();
+                        }
                     } else {
-                        const QSize urlPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
-                        layout.messageUrlsRectList.append(QRect(layout.senderRect.x(), topUrlPreview, urlPreviewSize.width(), urlPreviewSize.height()));
-                        urlsPreviewSize = QSize(qMax(urlsPreviewSize.width(), urlPreviewSize.width()), urlPreviewSize.height() + urlsPreviewSize.height());
-                        topUrlPreview += urlPreviewSize.height();
+                        layout.messageUrlsRectList.append(QRect{});
                     }
-                } else {
-                    layout.messageUrlsRectList.append(QRect{});
                 }
+                // qDebug() << " topUrlPreview " << topUrlPreview;
+                layout.messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
             }
-            // qDebug() << " topUrlPreview " << topUrlPreview;
-            layout.messageUrlsRect = QRect(textLeft, topUrlPreview, urlsPreviewSize.width(), urlsPreviewSize.height());
         }
         layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height() + layout.messageUrlsRect.height();
     }

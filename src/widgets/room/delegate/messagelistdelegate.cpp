@@ -187,10 +187,12 @@ void MessageListDelegate::setSearchText(const QString &newSearchText)
         mHelperText->clearTextDocumentCache();
         needClearDocumentCache = true;
     }
-    if (mHelperUrlPreview->searchText() != newSearchText) {
-        mHelperUrlPreview->setSearchText(newSearchText);
-        mHelperUrlPreview->clearTextDocumentCache();
-        needClearDocumentCache = true;
+    if (mPreviewEmbed) {
+        if (mHelperUrlPreview->searchText() != newSearchText) {
+            mHelperUrlPreview->setSearchText(newSearchText);
+            mHelperUrlPreview->clearTextDocumentCache();
+            needClearDocumentCache = true;
+        }
     }
     if (mHelperAttachmentText->searchText() != newSearchText) {
         mHelperAttachmentText->setSearchText(newSearchText);
@@ -309,9 +311,11 @@ void MessageListDelegate::removeMessageCache(const Message *message)
         mHelperAttachmentSound->removeMessageCache(attachmentId);
         mHelperAttachmentText->removeMessageCache(attachmentId);
     }
-    const auto messageUrls{message->urls()};
-    for (const auto &url : messageUrls) {
-        mHelperUrlPreview->removeMessageCache(url.urlId());
+    if (mPreviewEmbed) {
+        const auto messageUrls{message->urls()};
+        for (const auto &url : messageUrls) {
+            mHelperUrlPreview->removeMessageCache(url.urlId());
+        }
     }
 }
 
@@ -324,7 +328,9 @@ void MessageListDelegate::clearTextDocumentCache()
     mHelperAttachmentVideo->clearTextDocumentCache();
     mHelperAttachmentSound->clearTextDocumentCache();
     mHelperAttachmentText->clearTextDocumentCache();
-    mHelperUrlPreview->clearTextDocumentCache();
+    if (mPreviewEmbed) {
+        mHelperUrlPreview->clearTextDocumentCache();
+    }
 }
 
 void MessageListDelegate::clearSelection()
@@ -351,14 +357,16 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
             i++;
         }
 
-        const auto urlsMessage = message->urls();
-        int messageUrlIndex = 0;
-        for (const MessageUrl &messageUrl : urlsMessage) {
-            url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
-            if (!url.isEmpty()) {
-                return url;
+        if (mPreviewEmbed) {
+            const auto urlsMessage = message->urls();
+            int messageUrlIndex = 0;
+            for (const MessageUrl &messageUrl : urlsMessage) {
+                url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
+                if (!url.isEmpty()) {
+                    return url;
+                }
+                messageUrlIndex++;
             }
-            messageUrlIndex++;
         }
     }
     return url;
@@ -567,15 +575,17 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         ++blockIndex;
     }
 
-    // Preview Url
-    const QVector<MessageUrl> messageUrls = message->urls();
-    int messageUrlIndex = 0;
-    for (const MessageUrl &messageUrl : messageUrls) {
-        if (messageUrl.hasPreviewUrl()) {
-            // qDebug() << "messageUrl  " << messageUrl;
-            mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
+    if (mPreviewEmbed) {
+        // Preview Url
+        const QVector<MessageUrl> messageUrls = message->urls();
+        int messageUrlIndex = 0;
+        for (const MessageUrl &messageUrl : messageUrls) {
+            if (messageUrl.hasPreviewUrl()) {
+                // qDebug() << "messageUrl  " << messageUrl;
+                mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
+            }
+            messageUrlIndex++;
         }
-        messageUrlIndex++;
     }
 
     // Reactions
@@ -762,13 +772,15 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
             ++blockIndex;
         }
-        const auto messageUrls = message->urls();
-        int messageUrlsIndex = 0;
-        for (const MessageUrl &url : messageUrls) {
-            if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
-                return true;
+        if (mPreviewEmbed) {
+            const auto messageUrls = message->urls();
+            int messageUrlsIndex = 0;
+            for (const MessageUrl &url : messageUrls) {
+                if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
+                    return true;
+                }
+                ++messageUrlsIndex;
             }
-            ++messageUrlsIndex;
         }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto mev = static_cast<QMouseEvent *>(event);
@@ -788,13 +800,15 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 }
                 ++i;
             }
-            const auto messageUrls = message->urls();
-            int messageUrlsIndex = 0;
-            for (const MessageUrl &url : messageUrls) {
-                if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
-                    return true;
+            if (mPreviewEmbed) {
+                const auto messageUrls = message->urls();
+                int messageUrlsIndex = 0;
+                for (const MessageUrl &url : messageUrls) {
+                    if (mHelperUrlPreview->handleMouseEvent(url, mev, layout.messageUrlsRectList.at(messageUrlsIndex), option, index)) {
+                        return true;
+                    }
+                    ++messageUrlsIndex;
                 }
-                ++messageUrlsIndex;
             }
         }
     }
@@ -821,13 +835,15 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
         }
     }
     {
-        const auto urls = message->urls();
-        int i = 0;
-        for (const MessageUrl &url : urls) {
-            if (mHelperUrlPreview->maybeStartDrag(url, event, layout.messageUrlsRectList.at(i), option, index)) {
-                return true;
+        if (mPreviewEmbed) {
+            const auto urls = message->urls();
+            int i = 0;
+            for (const MessageUrl &url : urls) {
+                if (mHelperUrlPreview->maybeStartDrag(url, event, layout.messageUrlsRectList.at(i), option, index)) {
+                    return true;
+                }
+                ++i;
             }
-            ++i;
         }
     }
 
@@ -916,15 +932,17 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             ++blockIndex;
         }
 
-        // messageurls
-        const auto messageUrls = message->urls();
-        int messageUrlsIndex = 0;
-        for (const MessageUrl &url : messageUrls) {
-            if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)
-                && mHelperUrlPreview->handleHelpEvent(helpEvent, layout.messageUrlsRectList.at(messageUrlsIndex), url, option)) {
-                return true;
+        if (mPreviewEmbed) {
+            // messageurls
+            const auto messageUrls = message->urls();
+            int messageUrlsIndex = 0;
+            for (const MessageUrl &url : messageUrls) {
+                if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)
+                    && mHelperUrlPreview->handleHelpEvent(helpEvent, layout.messageUrlsRectList.at(messageUrlsIndex), url, option)) {
+                    return true;
+                }
+                ++messageUrlsIndex;
             }
-            ++messageUrlsIndex;
         }
         if (layout.timeStampRect.contains(helpEvent->pos())) {
             const QString dateStr = index.data(MessagesModel::Date).toString();
@@ -956,6 +974,7 @@ void MessageListDelegate::switchMessageLayout()
         break;
     }
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
+    mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->previewEmbed() : true;
     Q_EMIT updateView();
 }
 

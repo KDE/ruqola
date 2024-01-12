@@ -192,6 +192,9 @@ public:
 
     void loadAccountSettingsFromLocalDataBase(const QByteArray &ba);
 
+    [[nodiscard]] bool previewEmbed() const;
+    void setPreviewEmbed(bool newPreviewEmbed);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
@@ -247,6 +250,7 @@ private:
     bool mDeviceManagementEnableLoginEmails = false;
     bool mDeviceManagementAllowLoginEmailpreference = false;
     bool mAllowCustomStatusMessage = false;
+    bool mPreviewEmbed = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);

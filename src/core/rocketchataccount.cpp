@@ -552,6 +552,11 @@ int RocketChatAccount::messageMaximumAllowedSize() const
     return mRuqolaServerConfig->messageMaximumAllowedSize();
 }
 
+bool RocketChatAccount::previewEmbed() const
+{
+    return mRuqolaServerConfig->previewEmbed();
+}
+
 bool RocketChatAccount::messageAllowConvertLongMessagesToAttachment() const
 {
     return mRuqolaServerConfig->messageAllowConvertLongMessagesToAttachment();

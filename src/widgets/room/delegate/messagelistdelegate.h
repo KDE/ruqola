@@ -148,4 +148,5 @@ private:
     AvatarCacheManager *const mAvatarCacheManager;
     MessageListLayoutBase *mMessageListLayoutBase = nullptr;
     bool mEmojiMenuEnabled = true;
+    bool mPreviewEmbed = true;
 };

@@ -402,6 +402,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mUserDataDownloadEnabled " << t.userDataDownloadEnabled();
     d << "mMediaBlackList " << t.mediaBlackList();
     d << "mMediaWhiteList " << t.mediaWhiteList();
+    d << "previewEmbed " << t.previewEmbed();
     return d;
 }
 
@@ -420,6 +421,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     value.defaultUrl = o[QLatin1String("defaultUrl")].toString();
     value.url = o[QLatin1String("url")].toString();
     return value;
+}
+
+bool RuqolaServerConfig::previewEmbed() const
+{
+    return mPreviewEmbed;
+}
+
+void RuqolaServerConfig::setPreviewEmbed(bool newPreviewEmbed)
+{
+    mPreviewEmbed = newPreviewEmbed;
 }
 
 void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
@@ -554,6 +565,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         }
     } else if (id == QLatin1String("AuthenticationServerMethod")) {
         mServerAuthTypes = static_cast<AuthenticationManager::AuthMethodTypes>(value.toInt());
+    } else if (id == QLatin1String("API_Embed")) {
+        setPreviewEmbed(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -697,6 +710,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("FileUpload_MediaTypeBlackList"), mMediaBlackList.join(QLatin1Char(','))));
     array.append(createJsonObject(QStringLiteral("FileUpload_MaxFileSize"), mFileMaxFileSize));
     array.append(createJsonObject(QStringLiteral("AuthenticationServerMethod"), static_cast<int>(mServerAuthTypes)));
+    array.append(createJsonObject(QStringLiteral("API_Embed"), previewEmbed()));
 
     o[QLatin1String("result")] = array;
 #if 0
@@ -873,7 +887,7 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mHasEnterpriseSupport == other.mHasEnterpriseSupport && mAccountsAllowInvisibleStatusOption == other.mAccountsAllowInvisibleStatusOption
         && mUserDataDownloadEnabled == other.mUserDataDownloadEnabled && mDeviceManagementEnableLoginEmails == other.mDeviceManagementEnableLoginEmails
         && mDeviceManagementAllowLoginEmailpreference == other.mDeviceManagementAllowLoginEmailpreference
-        && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage;
+        && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage && mPreviewEmbed == other.mPreviewEmbed;
 }
 
 void RuqolaServerConfig::loadAccountSettingsFromLocalDataBase(const QByteArray &ba)
