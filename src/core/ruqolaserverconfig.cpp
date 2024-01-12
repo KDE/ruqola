@@ -567,6 +567,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         mServerAuthTypes = static_cast<AuthenticationManager::AuthMethodTypes>(value.toInt());
     } else if (id == QLatin1String("API_Embed")) {
         setPreviewEmbed(value.toBool());
+        // TODO API_EmbedCacheExpirationDays
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
