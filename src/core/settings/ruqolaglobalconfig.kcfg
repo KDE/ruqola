@@ -21,6 +21,9 @@
     <entry name="ShowImage" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="ShowPreviewUrl" type="Bool">
+      <default>true</default>
+    </entry>    
     <entry name="EnableSystemTray" type="Bool">
       <default>true</default>
     </entry>

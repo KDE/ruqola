@@ -10,7 +10,7 @@
 
 MessageUrl::MessageUrl()
 {
-    mShowPreview = RuqolaGlobalConfig::self()->showImage();
+    mShowPreview = RuqolaGlobalConfig::self()->showPreviewUrl();
 }
 
 QStringList MessageUrl::pageTitleElements()

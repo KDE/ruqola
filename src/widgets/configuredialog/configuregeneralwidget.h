@@ -22,6 +22,7 @@ public:
 private:
     QCheckBox *const mSetOnlineForAllAccount;
     QCheckBox *const mShowImageByDefault;
+    QCheckBox *const mShowPreviewUrlByDefault;
     QCheckBox *const mMarkAsReadOnTextClicked;
     QCheckBox *const mEnableSystemTray;
     QCheckBox *const mEnableLogging;

@@ -37,6 +37,11 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mShowImageByDefault->isChecked());
     QVERIFY(!mShowImageByDefault->text().isEmpty());
 
+    auto mShowPreviewUrlByDefault = w.findChild<QCheckBox *>(QStringLiteral("mShowPreviewUrlByDefault"));
+    QVERIFY(mShowPreviewUrlByDefault);
+    QVERIFY(mShowPreviewUrlByDefault->isChecked());
+    QVERIFY(!mShowPreviewUrlByDefault->text().isEmpty());
+
     auto mMarkAsReadOnTextClicked = w.findChild<QCheckBox *>(QStringLiteral("mMarkAsReadOnTextClicked"));
     QVERIFY(mMarkAsReadOnTextClicked);
     QVERIFY(!mMarkAsReadOnTextClicked->isChecked());

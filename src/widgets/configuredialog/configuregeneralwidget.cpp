@@ -14,6 +14,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     : QWidget(parent)
     , mSetOnlineForAllAccount(new QCheckBox(i18n("Set accounts online on startup"), this))
     , mShowImageByDefault(new QCheckBox(i18n("Show images by default"), this))
+    , mShowPreviewUrlByDefault(new QCheckBox(i18n("Show preview url by default"), this))
     , mMarkAsReadOnTextClicked(new QCheckBox(i18n("Mark room as read when clicking to write a reply"), this))
     , mEnableSystemTray(new QCheckBox(i18n("Enable system tray icon"), this))
     , mEnableLogging(new QCheckBox(i18n("Enable logging"), this))
@@ -29,6 +30,9 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
 
     mShowImageByDefault->setObjectName(QStringLiteral("mShowImageByDefault"));
     mainLayout->addWidget(mShowImageByDefault);
+
+    mShowPreviewUrlByDefault->setObjectName(QStringLiteral("mShowPreviewUrlByDefault"));
+    mainLayout->addWidget(mShowPreviewUrlByDefault);
 
     mMarkAsReadOnTextClicked->setObjectName(QStringLiteral("mMarkAsReadOnTextClicked"));
     mainLayout->addWidget(mMarkAsReadOnTextClicked);
@@ -63,6 +67,7 @@ void ConfigureGeneralWidget::save()
     RuqolaGlobalConfig::self()->setShowHoverHighlights(mShowHoverHightLights->isChecked());
     RuqolaGlobalConfig::self()->setAnimateGifImage(mAnimateGif->isChecked());
     RuqolaGlobalConfig::self()->setStoreMessageInDataBase(mStoreMessageInDataBase->isChecked());
+    RuqolaGlobalConfig::self()->setShowPreviewUrl(mShowPreviewUrlByDefault->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
 
@@ -76,6 +81,7 @@ void ConfigureGeneralWidget::load()
     mShowHoverHightLights->setChecked(RuqolaGlobalConfig::self()->showHoverHighlights());
     mAnimateGif->setChecked(RuqolaGlobalConfig::self()->animateGifImage());
     mStoreMessageInDataBase->setChecked(RuqolaGlobalConfig::self()->storeMessageInDataBase());
+    mShowPreviewUrlByDefault->setChecked(RuqolaGlobalConfig::self()->showPreviewUrl());
 }
 
 #include "moc_configuregeneralwidget.cpp"
