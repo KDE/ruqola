@@ -36,16 +36,9 @@ public:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     void setShowThreadContext(bool b);
-    [[nodiscard]] bool showThreadContext() const
-    {
-        return mShowThreadContext;
-    }
-
-    void setSearchText(const QString &newSearchText);
+    [[nodiscard]] bool showThreadContext() const;
 
     [[nodiscard]] QString urlAt(const QModelIndex &index, QPoint relativePos) const;
-
-    [[nodiscard]] QString searchText() const;
 
 private:
     friend class TextSelection; // for documentForIndex
@@ -59,6 +52,5 @@ private:
     [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
     [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
 
-    QString mSearchText;
     bool mShowThreadContext = true;
 };

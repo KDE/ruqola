@@ -90,3 +90,13 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
     mDocumentCache.insert(info.documentId, std::move(doc));
     return ret;
 }
+
+void MessageDelegateHelperBase::setSearchText(const QString &newSearchText)
+{
+    mSearchText = newSearchText;
+}
+
+QString MessageDelegateHelperBase::searchText() const
+{
+    return mSearchText;
+}

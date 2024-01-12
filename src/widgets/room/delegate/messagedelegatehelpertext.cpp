@@ -124,11 +124,6 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
     return text;
 }
 
-void MessageDelegateHelperText::setSearchText(const QString &newSearchText)
-{
-    mSearchText = newSearchText;
-}
-
 QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relativePos) const
 {
     auto document = documentForIndex(index);
@@ -285,6 +280,11 @@ void MessageDelegateHelperText::setShowThreadContext(bool b)
     mShowThreadContext = b;
 }
 
+bool MessageDelegateHelperText::showThreadContext() const
+{
+    return mShowThreadContext;
+}
+
 QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index) const
 {
     return documentForIndex(index, -1, false);
@@ -321,11 +321,6 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     });
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
-}
-
-QString MessageDelegateHelperText::searchText() const
-{
-    return mSearchText;
 }
 
 #include "moc_messagedelegatehelpertext.cpp"

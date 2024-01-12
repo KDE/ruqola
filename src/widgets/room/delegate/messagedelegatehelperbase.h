@@ -30,10 +30,14 @@ public:
 
     void clearTextDocumentCache();
 
+    void setSearchText(const QString &newSearchText);
+    [[nodiscard]] QString searchText() const;
+
 protected:
     [[nodiscard]] QTextDocument *documentDescriptionForIndex(const MessageDelegateHelperBase::DocumentDescriptionInfo &info) const;
     [[nodiscard]] QSize documentDescriptionForIndexSize(const MessageDelegateHelperBase::DocumentDescriptionInfo &info) const;
     void updateView(const QModelIndex &index);
     RocketChatAccount *mRocketChatAccount = nullptr;
+    QString mSearchText;
 };
 Q_DECLARE_TYPEINFO(MessageDelegateHelperBase::DocumentDescriptionInfo, Q_MOVABLE_TYPE);
