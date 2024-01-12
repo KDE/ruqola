@@ -1,5 +1,6 @@
 /*
    SPDX-FileCopyrightText: 2020 David Faure <faure@kde.org>
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -110,9 +111,11 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
     if (mRocketChatAccount) {
         disconnect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
+        disconnect(mRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageListDelegate::slotPrivateSettingsChanged);
     }
     mRocketChatAccount = rcAccount;
     connect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
+    connect(mRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageListDelegate::slotPrivateSettingsChanged);
 
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
     // Switch messageLayout after set rocketchatAccount
@@ -951,6 +954,11 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
     }
     return false;
+}
+
+void MessageListDelegate::slotPrivateSettingsChanged()
+{
+    mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->previewEmbed() : true;
 }
 
 void MessageListDelegate::switchMessageLayout()
