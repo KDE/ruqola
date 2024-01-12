@@ -42,6 +42,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mDirectMessageMaxUsers(new QSpinBox(this))
     , mMaximumNumberChainedQuotes(new QSpinBox(this))
     , mMessageErasureType(new QComboBox(this))
+    , mApiEmbed(new QCheckBox(i18n("Embed Link Previews"), this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -179,6 +180,11 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mMicrosoftApiKey->setObjectName(QStringLiteral("mMicrosoftApiKey"));
     addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
+
+    mApiEmbed->setObjectName(QStringLiteral("mApiEmbed"));
+    mApiEmbed->setToolTip(i18n("Whether embedded link previews are enabled or not when a user posts a link to a website."));
+    mMainLayout->addWidget(mApiEmbed);
+    connectCheckBox(mApiEmbed, QStringLiteral("API_Embed"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -212,6 +218,7 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mDirectMessageMaxUsers, mapSettings, 8);
     initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);
     initializeWidget(mMessageErasureType, mapSettings, QStringLiteral("Delete"));
+    initializeWidget(mApiEmbed, mapSettings, true);
 }
 
 #include "moc_messagesettingswidget.cpp"

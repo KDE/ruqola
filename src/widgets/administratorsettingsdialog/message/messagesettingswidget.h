@@ -48,4 +48,5 @@ private:
     QSpinBox *const mDirectMessageMaxUsers;
     QSpinBox *const mMaximumNumberChainedQuotes;
     QComboBox *const mMessageErasureType;
+    QCheckBox *const mApiEmbed;
 };

@@ -194,6 +194,13 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mMessageErasureType->count(), 3);
     QVERIFY(!mMessageErasureType->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessageErasureType), QStringLiteral("Message_ErasureType"));
+
+    auto mApiEmbed = w.findChild<QCheckBox *>(QStringLiteral("mApiEmbed"));
+    QVERIFY(mApiEmbed);
+    QVERIFY(!mApiEmbed->isChecked());
+    QVERIFY(!mApiEmbed->text().isEmpty());
+    QVERIFY(!mApiEmbed->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mApiEmbed), QStringLiteral("API_Embed"));
 }
 
 #include "moc_messagesettingswidgettest.cpp"
