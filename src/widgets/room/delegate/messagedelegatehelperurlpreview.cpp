@@ -14,7 +14,9 @@
 
 #include <KLocalizedString>
 
+#include <QDrag>
 #include <QListView>
+#include <QMimeData>
 #include <QPainter>
 #include <QStyleOptionViewItem>
 #include <QToolTip>
@@ -278,4 +280,31 @@ QString MessageDelegateHelperUrlPreview::urlAt(const QStyleOptionViewItem &optio
 QTextDocument *MessageDelegateHelperUrlPreview::documentForUrlPreview(const MessageUrl &messageUrl) const
 {
     return documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, -1));
+}
+
+bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUrl,
+                                                     QMouseEvent *mouseEvent,
+                                                     QRect previewsRect,
+                                                     const QStyleOptionViewItem &option,
+                                                     const QModelIndex &index)
+{
+    if (!mTextSelectionImpl->mightStartDrag() || index != mCurrentIndex || !previewsRect.contains(mouseEvent->pos())) {
+        return false;
+    }
+    const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
+    if (mTextSelectionImpl->textSelection()->hasSelection()) {
+        const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()));
+        const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
+            auto mimeData = new QMimeData;
+            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Html));
+            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Text));
+            auto drag = new QDrag(const_cast<QWidget *>(option.widget));
+            drag->setMimeData(mimeData);
+            drag->exec(Qt::CopyAction);
+            mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
+            return true;
+        }
+    }
+    return false;
 }

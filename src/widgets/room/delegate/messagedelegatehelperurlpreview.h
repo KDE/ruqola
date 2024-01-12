@@ -30,6 +30,9 @@ public:
 
     [[nodiscard]] QString urlAt(const QStyleOptionViewItem &option, const MessageUrl &messageUrl, QRect previewsRect, QPoint pos);
 
+    [[nodiscard]] bool
+    maybeStartDrag(const MessageUrl &messageUrl, QMouseEvent *mouseEvent, QRect previewsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+
 private:
     Q_DISABLE_COPY(MessageDelegateHelperUrlPreview)
     struct PreviewLayout {
@@ -57,5 +60,6 @@ private:
                          const QStyleOptionViewItem &option) const;
     [[nodiscard]] QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
 
+    QPersistentModelIndex mCurrentIndex;
     mutable PixmapCache mPixmapCache;
 };

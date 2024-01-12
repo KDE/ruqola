@@ -774,14 +774,26 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     }
 
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-    const auto attachments = message->attachments();
-    int i = 0;
-    for (const MessageAttachment &att : attachments) {
-        MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
-        if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
-            return true;
+    {
+        const auto attachments = message->attachments();
+        int i = 0;
+        for (const MessageAttachment &att : attachments) {
+            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
+            if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
+                return true;
+            }
+            ++i;
         }
-        ++i;
+    }
+    {
+        const auto urls = message->urls();
+        int i = 0;
+        for (const MessageUrl &url : urls) {
+            if (mHelperUrlPreview->maybeStartDrag(url, event, layout.messageUrlsRectList.at(i), option, index)) {
+                return true;
+            }
+            ++i;
+        }
     }
 
     return false;
