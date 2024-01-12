@@ -10,9 +10,7 @@
 
 #include <QApplication>
 #include <QClipboard>
-#include <QModelIndex>
 #include <QPainter>
-#include <QStyleOptionViewItem>
 #include <QTextFrame>
 #include <QTextFrameFormat>
 #include <QTextStream>

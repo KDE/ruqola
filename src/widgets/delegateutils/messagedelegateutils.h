@@ -15,9 +15,7 @@
 #include <QVector>
 #include <memory>
 
-class QModelIndex;
 class TextSelection;
-class QStyleOptionViewItem;
 class QTextDocument;
 class MessageUrl;
 namespace MessageDelegateUtils
