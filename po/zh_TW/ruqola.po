@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 01:36+0000\n"
+"POT-Creation-Date: 2024-01-13 01:46+0000\n"
 "PO-Revision-Date: 2023-12-13 03:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -781,7 +781,7 @@ msgstr ""
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:525
+#: widgets/ruqolamainwindow.cpp:527
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Status"
@@ -1412,12 +1412,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2773
+#: core/rocketchataccount.cpp:2778
 #, kde-format
 msgid "Export Messages"
 msgstr "匯出訊息"
 
-#: core/rocketchataccount.cpp:2774
+#: core/rocketchataccount.cpp:2779
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1500,7 +1500,7 @@ msgstr ""
 msgid "User"
 msgstr "使用者："
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:480
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:482
 #, kde-format
 msgid "Administrator"
 msgstr ""
@@ -1554,7 +1554,7 @@ msgid "GitLab"
 msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2607,7 +2607,7 @@ msgstr "自訂使用者狀態"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:532
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:534
 #, kde-format
 msgid "Status:"
 msgstr "狀態："
@@ -2824,7 +2824,7 @@ msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:274
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
@@ -2834,7 +2834,7 @@ msgstr "取消訊息置頂"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:601
+#: widgets/room/messagelistview.cpp:595
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
 #, fuzzy, kde-format
 #| msgid "Status Text:"
@@ -2845,7 +2845,7 @@ msgstr "狀態文字："
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:310
+#: widgets/room/messagelistview.cpp:304
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgid "Select All"
@@ -3892,7 +3892,7 @@ msgstr "加密："
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1008
+#: widgets/ruqolamainwindow.cpp:1010
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -4991,7 +4991,7 @@ msgid "Show Deleted Status"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Allow Message Pinning"
@@ -5035,75 +5035,80 @@ msgstr ""
 msgid "Enable Auto-Translate"
 msgstr "自動翻譯"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
+#, kde-format
+msgid "Embed Link Previews"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Block Message Editing After (n) Minutes"
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "檢舉訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:66
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
 #, kde-format
 msgid "Safe Ports"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, kde-format
 msgid "Maximum Number of Chained Quotes"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
 #, kde-format
 msgid "Keep Messages and User Name"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Delete All Messages"
 msgstr "刪除訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid "Remove Link Between User and Messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
 #, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
@@ -5115,43 +5120,43 @@ msgid ""
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:113
 #, kde-format
 msgid "Message Erasure Type"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:122
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
 msgid "Direct Message Maximum Users"
 msgstr "開始視訊聊天"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgid "Message Attachments"
 msgstr "附件"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:136
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5159,63 +5164,70 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:147
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgid "Audio Message"
 msgstr "置頂訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgid "Audio Message Bit Rate"
 msgstr "置頂訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:159
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "自動翻譯"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "Deepl"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
 #, kde-format
 msgid "Microsoft"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Service Provider"
 msgstr "刪除聊天室"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
 #, kde-format
 msgid "DeepL API Key"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
 #, kde-format
 msgid "Google API Key"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
 #, kde-format
 msgid "Microsoft API Key"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:185
+#, kde-format
+msgid ""
+"Whether embedded link previews are enabled or not when a user posts a link "
+"to a website."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
@@ -6129,7 +6141,7 @@ msgid "Mark As Unread"
 msgstr "找不到訊息"
 
 #: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Set as Favorite"
 msgstr "收藏"
@@ -6245,7 +6257,7 @@ msgid "Account name:"
 msgstr "帳戶名稱："
 
 #: widgets/common/authenticationloginwidget.cpp:117
-#: widgets/ruqolamainwindow.cpp:878
+#: widgets/ruqolamainwindow.cpp:880
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6253,7 +6265,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:118
-#: widgets/ruqolamainwindow.cpp:879
+#: widgets/ruqolamainwindow.cpp:881
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Invite Users"
@@ -6368,31 +6380,36 @@ msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
 #, kde-format
-msgid "Mark room as read when clicking to write a reply"
+msgid "Show preview url by default"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
-msgid "Enable system tray icon"
+msgid "Mark room as read when clicking to write a reply"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
-msgid "Enable logging"
+msgid "Enable system tray icon"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
-msgid "Show hover highlights"
+msgid "Enable logging"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:21
+#, kde-format
+msgid "Show hover highlights"
+msgstr ""
+
+#: widgets/configuredialog/configuregeneralwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Image"
 msgid "Animate Gif Image"
 msgstr "圖片"
 
-#: widgets/configuredialog/configuregeneralwidget.cpp:22
+#: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
 msgid "Use local dataBase (experimental)"
 msgstr ""
@@ -6565,7 +6582,7 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:304
+#: widgets/room/messagelistview.cpp:298
 #, kde-format
 msgid "Delete"
 msgstr "刪除"
@@ -7975,35 +7992,35 @@ msgstr "建立個人權杖"
 msgid "Ignore Two Factor Authentication"
 msgstr "身份驗證方式"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:43
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:47
 #, kde-format
 msgid "Search Personal Access Token..."
 msgstr "搜尋個人存取權杖..."
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:120
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:194
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:127
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:201
 #, kde-format
 msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:132
 #, kde-format
 msgid "Personal Token Created"
 msgstr "已建立個人權杖"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:167
 #, kde-format
 msgid "Personal Token removed."
 msgstr "已移除個人權杖。"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:167
 #, kde-format
 msgid "Remove Personal Token"
 msgstr "移除個人權杖"
 
-#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:206
 #, kde-format
 msgid "Personal Token Regenerated"
 msgstr "已重新產生個人權杖"
@@ -8199,7 +8216,7 @@ msgid "Notification"
 msgstr "通知"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:584
+#: widgets/room/messagelistview.cpp:578
 #, kde-format
 msgid "Go to Message"
 msgstr ""
@@ -8397,53 +8414,53 @@ msgstr ""
 msgid "Join"
 msgstr ""
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:72
+#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:73
 #, kde-format
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:333
-#: widgets/room/messagelistview.cpp:384 widgets/room/usersinroommenu.cpp:86
+#: widgets/room/delegate/messagelistdelegate.cpp:388
+#: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:342
-#: widgets/room/messagelistview.cpp:392
+#: widgets/room/delegate/messagelistdelegate.cpp:397
+#: widgets/room/messagelistview.cpp:386
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "加密對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:544
+#: widgets/room/delegate/messagelistdelegate.cpp:601
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:554
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:554
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, fuzzy, kde-format
 #| msgid "Any message yet"
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:821
+#: widgets/room/delegate/messagelistdelegate.cpp:896
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:825
+#: widgets/room/delegate/messagelistdelegate.cpp:900
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:829
+#: widgets/room/delegate/messagelistdelegate.cpp:904
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Message has been starred"
@@ -8520,120 +8537,120 @@ msgstr "開始視訊聊天"
 msgid "Start of conversation"
 msgstr "加密對話"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "移出收藏"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:309
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark Message As Unread"
 msgstr "找不到訊息"
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:314
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Threads"
 msgid "Show Full Thread"
 msgstr "顯示討論串"
 
-#: widgets/room/messagelistview.cpp:325
+#: widgets/room/messagelistview.cpp:319
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:330
+#: widgets/room/messagelistview.cpp:324
 #, kde-format
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:329
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgid "Copy Link To Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:342
 #: widgets/threadwidget/threadmessagewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Unfollow Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:348
+#: widgets/room/messagelistview.cpp:342
 #: widgets/threadwidget/threadmessagewidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Follow Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:355
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy URL"
 msgstr "複製"
 
-#: widgets/room/messagelistview.cpp:408
+#: widgets/room/messagelistview.cpp:402
 #, kde-format
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:415
+#: widgets/room/messagelistview.cpp:409
 #, kde-format
 msgid "Reply in Thread"
 msgstr "回覆討論串"
 
-#: widgets/room/messagelistview.cpp:475
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgid "Show Original Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:475
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgid "Translate Message"
 msgstr "翻譯訊息"
 
-#: widgets/room/messagelistview.cpp:517
+#: widgets/room/messagelistview.cpp:511
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "View Reports"
 msgstr "回報臭蟲"
 
-#: widgets/room/messagelistview.cpp:540
+#: widgets/room/messagelistview.cpp:534
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Dismiss Reports"
 msgstr "回報臭蟲"
 
-#: widgets/room/messagelistview.cpp:609
+#: widgets/room/messagelistview.cpp:603
 #, kde-format
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:789
+#: widgets/room/messagelistview.cpp:783
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:790
+#: widgets/room/messagelistview.cpp:784
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:930
+#: widgets/room/messagelistview.cpp:924
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"
@@ -9035,209 +9052,209 @@ msgstr ""
 msgid "Show New Notifications"
 msgstr "停用通知："
 
-#: widgets/ruqolamainwindow.cpp:386
+#: widgets/ruqolamainwindow.cpp:388
 #, kde-format
 msgid "Add Server..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:391
+#: widgets/ruqolamainwindow.cpp:393
 #, kde-format
 msgid "Server Info..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:395
+#: widgets/ruqolamainwindow.cpp:397
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Logout Current Server"
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:399
+#: widgets/ruqolamainwindow.cpp:401
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Create New Channel..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:408
+#: widgets/ruqolamainwindow.cpp:410
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
 msgid "Create Direct Messages..."
 msgstr "開始視訊聊天"
 
-#: widgets/ruqolamainwindow.cpp:412
+#: widgets/ruqolamainwindow.cpp:414
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Create Discussion..."
 msgstr "建立討論區"
 
-#: widgets/ruqolamainwindow.cpp:416
+#: widgets/ruqolamainwindow.cpp:418
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Create Team..."
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:424
+#: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:434
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgid "By Last Message"
 msgstr "翻譯訊息"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:444
+#: widgets/ruqolamainwindow.cpp:446
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgid "Show Channel Log"
 msgstr "找不到頻道"
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:450
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Show Server Errors"
 msgstr "頻道資訊"
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:469
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark All Channels as Read"
 msgstr "找不到訊息"
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:474
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Invite Users"
 msgid "Register a New User..."
 msgstr "邀請使用者"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "My Account..."
 msgstr "我的帳戶..."
 
-#: widgets/ruqolamainwindow.cpp:481
+#: widgets/ruqolamainwindow.cpp:483
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:487
+#: widgets/ruqolamainwindow.cpp:489
 #, fuzzy, kde-format
 #| msgid "Server version:"
 msgid "Server Settings..."
 msgstr "伺服器版本："
 
-#: widgets/ruqolamainwindow.cpp:492
+#: widgets/ruqolamainwindow.cpp:494
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:513
+#: widgets/ruqolamainwindow.cpp:515
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "&Next Server"
 msgstr "伺服器資訊"
 
-#: widgets/ruqolamainwindow.cpp:518
+#: widgets/ruqolamainwindow.cpp:520
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "&Previous Server"
 msgstr "上一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "Previous Selected Channel"
 msgstr "上一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:558
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Next Selected Channel"
 msgstr "下一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:592
 #, fuzzy, kde-format
 #| msgid "Disable Notifications:"
 msgid "Show Notify History"
 msgstr "停用通知："
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:596
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat 登入"
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:600
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Show Room Avatar"
 msgstr "密碼"
 
-#: widgets/ruqolamainwindow.cpp:603
+#: widgets/ruqolamainwindow.cpp:605
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Show Favorite Room"
 msgstr "刪除聊天室"
 
-#: widgets/ruqolamainwindow.cpp:608
+#: widgets/ruqolamainwindow.cpp:610
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:612
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "Import Accounts"
 msgstr "匯入名稱"
 
-#: widgets/ruqolamainwindow.cpp:616
+#: widgets/ruqolamainwindow.cpp:618
 #, kde-format
 msgid "Export Accounts"
 msgstr "匯出帳戶"
 
-#: widgets/ruqolamainwindow.cpp:657
+#: widgets/ruqolamainwindow.cpp:659
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:812
+#: widgets/ruqolamainwindow.cpp:814
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:812
+#: widgets/ruqolamainwindow.cpp:814
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgid "Show Log"
 msgstr "找不到頻道"
 
-#: widgets/ruqolamainwindow.cpp:937
+#: widgets/ruqolamainwindow.cpp:939
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態："
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1038
+#: widgets/ruqolamainwindow.cpp:1040
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
