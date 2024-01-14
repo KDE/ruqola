@@ -60,7 +60,7 @@ protected:
     RocketChatAccount *const mAccount;
 
 private:
-    void updateSettings(const QString &settingName,
+    bool updateSettings(const QString &settingName,
                         const QVariant &value,
                         RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
                         const QString &buttonObjectName = {});

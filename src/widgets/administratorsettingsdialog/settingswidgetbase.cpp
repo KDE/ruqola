@@ -47,16 +47,19 @@ SettingsWidgetBase::~SettingsWidgetBase() = default;
 void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)
 {
     checkBox->setProperty(s_property, variable);
-    connect(checkBox, &QCheckBox::clicked, this, [this, variable](bool checked) {
-        updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Boolean);
+    connect(checkBox, &QCheckBox::clicked, this, [this, variable, checkBox](bool checked) {
+        if (!updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Boolean)) {
+            checkBox->setChecked(!checked);
+        }
     });
 }
 
-void SettingsWidgetBase::updateSettings(const QString &settingName,
+bool SettingsWidgetBase::updateSettings(const QString &settingName,
                                         const QVariant &value,
                                         RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
                                         const QString &buttonObjectName)
 {
+    bool status = false;
     if (mAccount) {
         QString password;
         QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
@@ -76,10 +79,16 @@ void SettingsWidgetBase::updateSettings(const QString &settingName,
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UpdateAdminSettingsJob job";
+                status = false;
+            } else {
+                status = true;
             }
+        } else {
+            status = false;
         }
         delete dialog;
     }
+    return status;
 }
 
 void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName)
