@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:46+0000\n"
-"PO-Revision-Date: 2024-01-09 15:40+0100\n"
+"PO-Revision-Date: 2024-01-13 18:11+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -4909,10 +4909,9 @@ msgid "Enable Auto-Translate"
 msgstr "Activa la traducció automàtica"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Link Preview"
+#, kde-format
 msgid "Embed Link Previews"
-msgstr "Visualització prèvia de l'enllaç"
+msgstr "Incrusta la vista prèvia dels enllaços"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, kde-format
@@ -5114,6 +5113,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"Si les previsualitzacions d'enllaços incrustats estan habilitades o no quan "
+"un usuari publica un enllaç a un lloc web."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6265,10 +6266,9 @@ msgid "Show images by default"
 msgstr "Mostra les imatges de manera predeterminada"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
+#, kde-format
 msgid "Show preview url by default"
-msgstr "Mostra les imatges de manera predeterminada"
+msgstr "Mostra l'URL de la vista prèvia de manera predeterminada"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format

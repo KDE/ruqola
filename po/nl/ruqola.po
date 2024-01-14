@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:46+0000\n"
-"PO-Revision-Date: 2024-01-09 12:17+0100\n"
+"PO-Revision-Date: 2024-01-13 13:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4908,10 +4908,9 @@ msgid "Enable Auto-Translate"
 msgstr "Automatisch vertalen inschakelen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Link Preview"
+#, kde-format
 msgid "Embed Link Previews"
-msgstr "Koppelingsvoorbeeld"
+msgstr "Koppelingsvoorbeeld inbedden"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, kde-format
@@ -5115,6 +5114,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"Of ingebedde koppelingsvoorbeelden zijn ingeschakeld of niet wanneer een "
+"gebruiker een koppeling stuurt naar een website."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6270,10 +6271,9 @@ msgid "Show images by default"
 msgstr "Standaard afbeeldingen tonen"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
+#, kde-format
 msgid "Show preview url by default"
-msgstr "Standaard afbeeldingen tonen"
+msgstr "Standaard voorbeeld van url tonen"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format

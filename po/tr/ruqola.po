@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:46+0000\n"
-"PO-Revision-Date: 2024-01-09 16:07+0300\n"
+"PO-Revision-Date: 2024-01-13 16:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -4873,10 +4873,9 @@ msgid "Enable Auto-Translate"
 msgstr "Otomatik Çeviriyi Etkinleştir"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Link Preview"
+#, kde-format
 msgid "Embed Link Previews"
-msgstr "Bağlantı Önizlemesi"
+msgstr "Bağlantı Önizlemelerini Göm"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, kde-format
@@ -5077,6 +5076,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"Bir kullanıcı, bir web sayfasına olan bir bağlantıyı gönderdiğinde gömülü "
+"bağlantı önizlemelerinin etkinleştirip etkinleştirilmeyeceği."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6216,10 +6217,9 @@ msgid "Show images by default"
 msgstr "Görselleri öntanımlı olarak göster"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
+#, kde-format
 msgid "Show preview url by default"
-msgstr "Görselleri öntanımlı olarak göster"
+msgstr "Öntanımlı olarak önizleme URL'sini göster"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
