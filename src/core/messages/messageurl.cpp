@@ -58,14 +58,21 @@ void MessageUrl::setShowPreview(bool newShowPreview)
     mShowPreview = newShowPreview;
 }
 
+QString MessageUrl::cleanText(const QString &str)
+{
+    QString newStr = str;
+    newStr.remove(QLatin1Char('\n'));
+    return newStr;
+}
+
 void MessageUrl::generateHtmlDescription()
 {
     mHtmlDescription.clear();
     if (!mPageTitle.isEmpty()) {
-        mHtmlDescription = QStringLiteral("[%1](%2)").arg(mPageTitle, mUrl);
+        mHtmlDescription = QStringLiteral("[%1](%2)").arg(MessageUrl::cleanText(mPageTitle), mUrl);
     }
     if (!mDescription.isEmpty()) {
-        mHtmlDescription += QStringLiteral("\n%1").arg(mDescription);
+        mHtmlDescription += QStringLiteral("\n%1").arg(MessageUrl::cleanText(mDescription));
     }
     if (!mSiteName.isEmpty()) {
         mHtmlDescription += QStringLiteral("\n[%1](%2)").arg(mSiteName, mSiteUrl);

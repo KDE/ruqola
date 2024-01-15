@@ -150,23 +150,8 @@ void MessageUrlTest::shouldGenerateHtmlDescription()
     QFETCH(MessageUrl, messageUrl);
     QFETCH(QString, htmlDescription);
     messageUrl.generateHtmlDescription();
+    qDebug() << " messageUrl.htmlDescription()" << messageUrl.htmlDescription();
     QCOMPARE(messageUrl.htmlDescription(), htmlDescription);
-
-#if 0
-    void MessageUrl::generateHtmlDescription()
-    {
-        mHtmlDescription.clear();
-        if (!mPageTitle.isEmpty()) {
-            mHtmlDescription = QStringLiteral("[%1](%2)").arg(mPageTitle, mUrl);
-        }
-        if (!mDescription.isEmpty()) {
-            mHtmlDescription += QStringLiteral("\n%1").arg(mDescription);
-        }
-        if (!mSiteName.isEmpty()) {
-            mHtmlDescription += QStringLiteral("\n[%1](%2)").arg(mSiteName, mSiteUrl);
-        }
-    }
-#endif
 }
 
 void MessageUrlTest::shouldGenerateHtmlDescription_data()
@@ -204,6 +189,26 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
     {
         MessageUrl url;
         QTest::newRow("generateHtmlDescription-test4") << url << QString();
+    }
+    {
+        MessageUrl url;
+        url.setPageTitle(QStringLiteral(
+            " Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden #queenshanhadden #egirl #minecraft\""));
+        url.setUrl(QStringLiteral("https://www.instagram.com/p/C0vwctGuxnI/"));
+
+        url.setDescription(
+            QStringLiteral("19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden "
+                           "#queenshanhadden #egirl #minecraft\""));
+
+        url.setSiteName(QStringLiteral("Instagram"));
+        url.setSiteUrl(QStringLiteral("https://www.instagram.com/reel/C0vwctGuxnI/"));
+
+        QTest::newRow("generateHtmlDescription-test5")
+            << url
+            << QStringLiteral(
+                   "[ Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all. . . #shanhadden #queenshanhadden #egirl "
+                   "#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
+                   "that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\"\n[Instagram](https://www.instagram.com/reel/C0vwctGuxnI/)");
     }
 }
 

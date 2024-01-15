@@ -73,6 +73,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList siteNameElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageHeightElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageWidthElements();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString cleanText(const QString &str);
 
     QString mUrl;
     QString mPageTitle;
