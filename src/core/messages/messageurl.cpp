@@ -347,6 +347,7 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "ImageHeight:" << t.imageHeight();
     d.space() << "ImageWidth:" << t.imageWidth();
     d.space() << "UrlId:" << t.urlId();
+    d.space() << "htmlDescription:" << t.htmlDescription();
     return d;
 }
 
