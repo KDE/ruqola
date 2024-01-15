@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 01:46+0000\n"
+"POT-Creation-Date: 2024-01-15 01:38+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -5710,11 +5710,11 @@ msgstr "Максимальный возраст сообщений в закры
 msgid "Maximum message age in direct messages"
 msgstr "Максимальный возраст сообщений в личных сообщениях"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:107
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:136
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:180
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:209
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:248
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:116
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:145
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:189
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:218
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:257
 #, kde-format
 msgid "Apply"
 msgstr "Применить"
