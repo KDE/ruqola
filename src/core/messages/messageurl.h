@@ -63,6 +63,8 @@ public:
 
     [[nodiscard]] bool hasHtmlDescription() const;
 
+    void generateHtmlDescription();
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList pageTitleElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList descriptionElements();
@@ -71,7 +73,6 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList siteNameElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageHeightElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageWidthElements();
-    LIBRUQOLACORE_NO_EXPORT void generateHtmlDescription();
 
     QString mUrl;
     QString mPageTitle;

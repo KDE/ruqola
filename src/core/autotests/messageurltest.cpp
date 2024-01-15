@@ -145,4 +145,66 @@ void MessageUrlTest::shouldTestPreviewUrl()
     QVERIFY(url.hasPreviewUrl());
 }
 
+void MessageUrlTest::shouldGenerateHtmlDescription()
+{
+    QFETCH(MessageUrl, messageUrl);
+    QFETCH(QString, htmlDescription);
+    messageUrl.generateHtmlDescription();
+    QCOMPARE(messageUrl.htmlDescription(), htmlDescription);
+
+#if 0
+    void MessageUrl::generateHtmlDescription()
+    {
+        mHtmlDescription.clear();
+        if (!mPageTitle.isEmpty()) {
+            mHtmlDescription = QStringLiteral("[%1](%2)").arg(mPageTitle, mUrl);
+        }
+        if (!mDescription.isEmpty()) {
+            mHtmlDescription += QStringLiteral("\n%1").arg(mDescription);
+        }
+        if (!mSiteName.isEmpty()) {
+            mHtmlDescription += QStringLiteral("\n[%1](%2)").arg(mSiteName, mSiteUrl);
+        }
+    }
+#endif
+}
+
+void MessageUrlTest::shouldGenerateHtmlDescription_data()
+{
+    QTest::addColumn<MessageUrl>("messageUrl");
+    QTest::addColumn<QString>("htmlDescription");
+    {
+        MessageUrl url;
+        url.setPageTitle(QStringLiteral("Title"));
+        url.setUrl(QStringLiteral("Title_url"));
+
+        url.setDescription(QStringLiteral("Description"));
+
+        url.setSiteName(QStringLiteral("SiteName"));
+        url.setSiteUrl(QStringLiteral("SiteUrl"));
+
+        QTest::newRow("generateHtmlDescription-test1") << url << QStringLiteral("[Title](Title_url)\nDescription\n[SiteName](SiteUrl)");
+    }
+
+    {
+        MessageUrl url;
+        url.setPageTitle(QStringLiteral("Title"));
+        url.setUrl(QStringLiteral("Title_url"));
+
+        url.setDescription(QStringLiteral("Description"));
+        QTest::newRow("generateHtmlDescription-test2") << url << QStringLiteral("[Title](Title_url)\nDescription");
+    }
+    {
+        MessageUrl url;
+        url.setPageTitle(QStringLiteral("Title"));
+        url.setUrl(QStringLiteral("Title_url"));
+
+        QTest::newRow("generateHtmlDescription-test3") << url << QStringLiteral("[Title](Title_url)");
+    }
+    {
+        MessageUrl url;
+        QTest::newRow("generateHtmlDescription-test4") << url << QString();
+    }
+}
+
 #include "moc_messageurltest.cpp"
