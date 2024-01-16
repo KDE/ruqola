@@ -210,6 +210,25 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
                    "#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
                    "that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\"\n[Instagram](https://www.instagram.com/reel/C0vwctGuxnI/)");
     }
+    {
+        MessageUrl url;
+        url.setPageTitle(QStringLiteral("ZED 2 - AI Stereo Camera | Stereolabs"));
+        url.setUrl(QStringLiteral("https://www.stereolabs.com/products/zed-2"));
+
+        url.setDescription(
+            QStringLiteral("The ZED 2 family is a next-generation series of USB 3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI "
+                           "capabilities. This combination empowers you to develop cutting-edge spatial intelligence applications"));
+
+        url.setSiteName(QString());
+        url.setSiteUrl(QStringLiteral("https://www.stereolabs.com/products/zed-"));
+
+        QTest::newRow("generateHtmlDescription-test6")
+            << url
+            << QStringLiteral(
+                   "[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
+                   "3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
+                   "cutting-edge spatial intelligence applications");
+    }
 }
 
 #include "moc_messageurltest.cpp"
