@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-15 01:38+0000\n"
-"PO-Revision-Date: 2024-01-06 17:05+0100\n"
+"PO-Revision-Date: 2024-01-13 18:23+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -4913,7 +4913,7 @@ msgstr "Activar auto-traducción"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, kde-format
 msgid "Embed Link Previews"
-msgstr ""
+msgstr "Vista previa integrada de enlaces"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, kde-format
@@ -5116,6 +5116,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"Si la vista previa integrada del enlace está activada o no cuando un usuario "
+"escribe el enlace de una página web."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6267,10 +6269,9 @@ msgid "Show images by default"
 msgstr "Mostrar imágenes por omisión"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
+#, kde-format
 msgid "Show preview url by default"
-msgstr "Mostrar imágenes por omisión"
+msgstr "Mostrar vista previa de URL por omisión"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -8228,7 +8229,7 @@ msgstr "Unirse"
 #: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:73
 #, kde-format
 msgid "Link Preview"
-msgstr ""
+msgstr "Vista previa del enlace"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:388
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
@@ -9294,7 +9295,7 @@ msgstr "Implementación del estilo del mensaje"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
-msgstr ""
+msgstr "Implementación de la vista previa de URL"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
