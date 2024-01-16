@@ -99,10 +99,10 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             }
             layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
         }
+        int topBlock = topAttachment;
         if (!message->blocks().isEmpty()) {
             const auto blocks = message->blocks();
             QSize blocksSize;
-            int topBlock = topAttachment;
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = delegate->blocksHelper(block);
                 if (blocksSize.isEmpty()) {
@@ -123,7 +123,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
             if (!message->urls().isEmpty()) {
                 const auto urls = message->urls();
                 QSize urlsPreviewSize;
-                int topUrlPreview = topAttachment;
+                int topUrlPreview = topBlock;
                 for (const MessageUrl &url : urls) {
                     if (url.hasPreviewUrl()) {
                         const MessageDelegateHelperUrlPreview *helperUrlPreview = delegate->helperUrlPreview();
