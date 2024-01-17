@@ -584,6 +584,7 @@ Q_SIGNALS:
     void bannerInfoChanged();
     void privateSettingsChanged();
     void updateMessageFailed(const QString &str);
+    void wsClosedSocketError();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -622,7 +623,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotListCommandDone(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
 
-    LIBRUQOLACORE_NO_EXPORT void loginStatusChangedSlot();
+    LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotFileLanguagedParsed();
     LIBRUQOLACORE_NO_EXPORT void slotRegisterUserDone();
     LIBRUQOLACORE_NO_EXPORT void slotRoomNeedAttention();

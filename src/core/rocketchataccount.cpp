@@ -607,13 +607,14 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
-        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::loginStatusChangedSlot);
+        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
         connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
         connect(mDdp, &DDPClient::socketError, this, &RocketChatAccount::socketError);
         connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToServer);
+        connect(mDdp, &DDPClient::wsClosedSocketError, this, &RocketChatAccount::wsClosedSocketError);
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
@@ -2463,7 +2464,7 @@ void RocketChatAccount::markRoomAsUnRead(const QString &roomId)
     restApi()->markRoomAsUnRead(roomId);
 }
 
-void RocketChatAccount::loginStatusChangedSlot()
+void RocketChatAccount::slotLoginStatusChanged()
 {
     if (loginStatus() == DDPAuthenticationManager::LoggedOut) {
         Q_EMIT logoutDone(accountName());
