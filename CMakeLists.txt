@@ -197,10 +197,10 @@ set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
 
 find_package(KLLMWidgets ${KLLMWIDGETS_VERSION})
 set_package_properties(KLLMWidgets PROPERTIES
-    TYPE RECOMMENDED
+    TYPE OPTIONAL
     PURPOSE "Required for building IA plugins support"
     DESCRIPTION "Use local IA plugin"
-    URL https://invent.kde.org/lorendb/kandalf/
+    URL https://invent.kde.org/utilities/alpaka 
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
