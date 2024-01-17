@@ -56,9 +56,16 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
             QPixmap scaledPixmap;
             scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             painter->drawPixmap(previewRect.x(), nextY, scaledPixmap);
+            // qDebug() << " image size " << scaledPixmap.size();
             nextY += scaledPixmap.height() / scaledPixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
         }
         // qDebug() << " nextY " << nextY;
+#if 0
+        painter->save();
+        painter->setPen(Qt::red);
+        painter->drawRect(previewRect);
+        painter->restore();
+#endif
         drawDescription(messageUrl, previewRect, painter, nextY, index, option);
     }
 }
@@ -83,6 +90,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         const auto dpr = layout.pixmap.devicePixelRatioF();
         layout.imageSize = layout.pixmap.size().scaled(urlsPreviewWidth * dpr, /*imageMaxHeight*/ 100 * dpr, Qt::KeepAspectRatio);
+        // qDebug() << " layout.imageSize " << layout.imageSize;
     }
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.hideShowButtonRect = QRect(layout.previewTitleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
@@ -123,15 +131,18 @@ QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, co
     Q_UNUSED(index);
     const PreviewLayout layout = layoutPreview(messageUrl, option, maxWidth, -1);
     int height = layout.previewTitleSize.height() + DelegatePaintUtil::margin();
+    // qDebug() << " height 1 " << height;
     int pixmapWidth = 0;
     if (layout.isShown) {
         pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
-        height += qMin(layout.pixmap.height(), 100) + DelegatePaintUtil::margin();
+        height += qMin(layout.imageSize.height(), 100) + DelegatePaintUtil::margin();
+        // qDebug() << " height 2 " << height << "  layout.pixmap.height() " << layout.imageSize.height();
     }
     int descriptionWidth = 0;
     if (layout.hasDescription && layout.isShown) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
+        // qDebug() << " height 3 " << height;
     }
     return {qMax(qMax(pixmapWidth, layout.previewTitleSize.width()), descriptionWidth), height};
 }
