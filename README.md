@@ -35,6 +35,7 @@ It supports RC feature:
 - Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)
 - Export Messages
 - Console Moderation
+- Implement Message Url Preview
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
