@@ -16,7 +16,10 @@ AdministratorCustomUserStatusWidget::AdministratorCustomUserStatusWidget(RocketC
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    mainLayout->setContentsMargins({});
+    mainLayout->setSpacing(0);
+#endif
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
 
