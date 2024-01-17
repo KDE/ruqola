@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "messagedelegatehelperbase.h"
 #include "misc/pixmapcache.h"
+#include <QDebug>
 #include <QPixmap>
 class QStyleOptionViewItem;
 class MessageUrl;
@@ -46,6 +47,7 @@ private:
         QRect hideShowButtonRect;
         bool isShown = true;
     };
+    void dump(const PreviewLayout &layout);
     [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout
     layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
     [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;

@@ -319,3 +319,17 @@ bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUr
     }
     return false;
 }
+
+void MessageDelegateHelperUrlPreview::dump(const PreviewLayout &layout)
+{
+    // Don't use debug category as we want to show it.
+    qDebug() << " pixmap " << layout.pixmap;
+    qDebug() << " imageUrl " << layout.imageUrl;
+    qDebug() << " hasDescription " << layout.hasDescription;
+    qDebug() << " previewTitleSize " << layout.previewTitleSize;
+    qDebug() << " previewTitle " << layout.previewTitle;
+    qDebug() << " descriptionSize " << layout.descriptionSize;
+    qDebug() << " imageSize " << layout.imageSize;
+    qDebug() << " hideShowButtonRect " << layout.hideShowButtonRect;
+    qDebug() << " isShown " << layout.isShown;
+}
