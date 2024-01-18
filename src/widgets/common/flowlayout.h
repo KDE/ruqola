@@ -41,8 +41,6 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT int doFlow(QRect rect, bool effective) const;
-
-private:
     QVector<QLayoutItem *> mItems;
     int mHorizontalSpacing = -1;
     int mVerticalSpacing = -1;
