@@ -42,7 +42,7 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
         return info.lastTokenPart();
     }
     case PersonalAccessTokenInfosModel::ByPassTwoFactor: {
-        return info.bypassTwoFactor() ? i18n("Required") : i18n("Ignored");
+        return info.bypassTwoFactor() ? i18n("Ignored") : i18n("Required");
     }
     case PersonalAccessTokenInfosModel::Name: {
         return info.name();
