@@ -49,6 +49,8 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     case Video:
         path += QStringLiteral("/Ruqola/recordings");
         break;
+    case PreviewUrl:
+        path += QStringLiteral("/PreviewUrl");
     case Config:
     case Cache:
         break;
@@ -65,5 +67,6 @@ void ManagerDataPaths::initializePaths()
     mPathTypeHash.insert(PathType::Cache, QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
     mPathTypeHash.insert(PathType::Video, QStandardPaths::writableLocation(QStandardPaths::MoviesLocation));
     mPathTypeHash.insert(PathType::Picture, QStandardPaths::writableLocation(QStandardPaths::PicturesLocation));
+    mPathTypeHash.insert(PathType::PreviewUrl, QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
     qCDebug(RUQOLA_LOG) << "mPathTypeHash:" << mPathTypeHash;
 }

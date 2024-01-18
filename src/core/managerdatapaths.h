@@ -18,6 +18,7 @@ public:
         Cache = 1,
         Picture = 2,
         Video = 3,
+        PreviewUrl = 4,
     };
     ManagerDataPaths();
     static ManagerDataPaths *self();
