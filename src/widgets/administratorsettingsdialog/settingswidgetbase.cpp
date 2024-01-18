@@ -120,7 +120,12 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox, toolButton]() {
-        updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer, toolButton->objectName());
+        if (!updateSettings(variable,
+                            spinBox->value(),
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer,
+                            toolButton->objectName())) {
+            spinBox->setValue(spinBox->property(s_property_default_value).toInt());
+        }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
@@ -163,7 +168,12 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     });
     if (!readOnly) {
         connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
-            updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
+            if (!updateSettings(variable,
+                                lineEdit->text(),
+                                RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                                toolButton->objectName())) {
+                lineEdit->setText(lineEdit->property(s_property_default_value).toString());
+            }
         });
         connect(lineEdit, &QLineEdit::textChanged, this, [toolButton, lineEdit](const QString &str) {
             if (lineEdit->property(s_property_default_value).toString() == str) {
@@ -203,10 +213,12 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
-        updateSettings(variable,
-                       plainTextEdit->toPlainText(),
-                       RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
-                       toolButton->objectName());
+        if (!updateSettings(variable,
+                            plainTextEdit->toPlainText(),
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                            toolButton->objectName())) {
+            plainTextEdit->setPlainText(plainTextEdit->property(s_property_default_value).toString());
+        }
     });
     connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit]() {
         if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_default_value).toString()) {
