@@ -301,8 +301,12 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
             toolButton->setEnabled(false);
         }
     });
-    connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton]() {
-        toolButton->setEnabled(true);
+    connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton, comboBox]() {
+        if (comboBox->currentIndex() == comboBox->findData(comboBox->property(s_property_default_value).toString())) {
+            toolButton->setEnabled(false);
+        } else {
+            toolButton->setEnabled(true);
+        }
     });
 
     mMainLayout->addRow(layout);
@@ -373,6 +377,7 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
         value = mapSettings.value(variableName).toString();
     }
     comboBox->setCurrentIndex(comboBox->findData(value));
+    comboBox->setProperty(s_property_default_value, value);
     disableTooButton(variableName);
 }
 
