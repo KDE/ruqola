@@ -27,6 +27,7 @@
 namespace
 {
 const char s_property[] = "settings_name";
+const char s_property_default_value[] = "default_value";
 }
 
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
@@ -126,8 +127,12 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
             toolButton->setEnabled(false);
         }
     });
-    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton]() {
-        toolButton->setEnabled(true);
+    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox](int value) {
+        if (spinBox->property(s_property_default_value).toInt() == value) {
+            toolButton->setEnabled(false);
+        } else {
+            toolButton->setEnabled(true);
+        }
     });
 
     mMainLayout->addRow(layout);
@@ -328,6 +333,8 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
         spinboxValue = mapSettings.value(variableName).toInt();
     }
     spinbox->setValue(spinboxValue);
+    spinbox->setProperty(s_property_default_value, spinboxValue);
+
     disableTooButton(variableName);
 }
 
