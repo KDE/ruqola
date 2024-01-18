@@ -122,9 +122,10 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox, toolButton]() {
         updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer, toolButton->objectName());
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, spinBox](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
+            spinBox->setProperty(s_property_default_value, spinBox->value());
         }
     });
     connect(spinBox, &QSpinBox::valueChanged, this, [toolButton, spinBox](int value) {
@@ -154,9 +155,10 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     toolButton->setVisible(!readOnly);
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, lineEdit](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
+            lineEdit->setProperty(s_property_default_value, lineEdit->text());
         }
     });
     if (!readOnly) {
@@ -213,8 +215,9 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
             toolButton->setEnabled(true);
         }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, plainTextEdit](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
+            plainTextEdit->setProperty(s_property_default_value, plainTextEdit->toPlainText());
             toolButton->setEnabled(false);
         }
     });
