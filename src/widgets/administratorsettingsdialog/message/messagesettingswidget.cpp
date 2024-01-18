@@ -43,6 +43,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mMaximumNumberChainedQuotes(new QSpinBox(this))
     , mMessageErasureType(new QComboBox(this))
     , mApiEmbed(new QCheckBox(i18n("Embed Link Previews"), this))
+    , mEmbedCacheExpirationDays(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -185,6 +186,9 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mApiEmbed->setToolTip(i18n("Whether embedded link previews are enabled or not when a user posts a link to a website."));
     mMainLayout->addWidget(mApiEmbed);
     connectCheckBox(mApiEmbed, QStringLiteral("API_Embed"));
+
+    mEmbedCacheExpirationDays->setObjectName(QStringLiteral("mEmbedCacheExpirationDays"));
+    addSpinbox(i18n("Embed Cache Expiration Days"), mEmbedCacheExpirationDays, QStringLiteral("API_EmbedCacheExpirationDays"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -219,6 +223,7 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);
     initializeWidget(mMessageErasureType, mapSettings, QStringLiteral("Delete"));
     initializeWidget(mApiEmbed, mapSettings, true);
+    initializeWidget(mEmbedCacheExpirationDays, mapSettings, 30);
 }
 
 #include "moc_messagesettingswidget.cpp"

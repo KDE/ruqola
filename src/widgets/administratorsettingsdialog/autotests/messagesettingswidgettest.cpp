@@ -201,6 +201,11 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mApiEmbed->text().isEmpty());
     QVERIFY(!mApiEmbed->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mApiEmbed), QStringLiteral("API_Embed"));
+
+    auto mEmbedCacheExpirationDays = w.findChild<QSpinBox *>(QStringLiteral("mEmbedCacheExpirationDays"));
+    QVERIFY(mEmbedCacheExpirationDays);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEmbedCacheExpirationDays), QStringLiteral("API_EmbedCacheExpirationDays"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_EmbedCacheExpirationDays"));
 }
 
 #include "moc_messagesettingswidgettest.cpp"

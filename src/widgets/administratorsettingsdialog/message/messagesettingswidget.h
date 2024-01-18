@@ -49,4 +49,5 @@ private:
     QSpinBox *const mMaximumNumberChainedQuotes;
     QComboBox *const mMessageErasureType;
     QCheckBox *const mApiEmbed;
+    QSpinBox *const mEmbedCacheExpirationDays;
 };
