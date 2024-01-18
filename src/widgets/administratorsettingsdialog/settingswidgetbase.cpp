@@ -163,8 +163,12 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
         connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
             updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
         });
-        connect(lineEdit, &QLineEdit::textChanged, this, [toolButton]() {
-            toolButton->setEnabled(true);
+        connect(lineEdit, &QLineEdit::textChanged, this, [toolButton, lineEdit](const QString &str) {
+            if (lineEdit->property(s_property_default_value).toString() == str) {
+                toolButton->setEnabled(false);
+            } else {
+                toolButton->setEnabled(true);
+            }
         });
     }
 
@@ -182,25 +186,32 @@ void SettingsWidgetBase::addLabel(const QString &labelStr, QLabel *labelElement,
     mMainLayout->addRow(layout);
 }
 
-void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdit *lineEdit, const QString &variable)
+void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdit *plainTextEdit, const QString &variable)
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label, 0, Qt::AlignTop);
-    layout->addWidget(lineEdit);
+    layout->addWidget(plainTextEdit);
     auto toolButton = new QToolButton(this);
     toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
-    lineEdit->setProperty(s_property, variable);
+    plainTextEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
-        updateSettings(variable, lineEdit->toPlainText(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, plainTextEdit, toolButton]() {
+        updateSettings(variable,
+                       plainTextEdit->toPlainText(),
+                       RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                       toolButton->objectName());
     });
-    connect(lineEdit, &QPlainTextEdit::textChanged, this, [toolButton]() {
-        toolButton->setEnabled(true);
+    connect(plainTextEdit, &QPlainTextEdit::textChanged, this, [toolButton, plainTextEdit]() {
+        if (plainTextEdit->toPlainText() != plainTextEdit->property(s_property_default_value).toString()) {
+            toolButton->setEnabled(false);
+        } else {
+            toolButton->setEnabled(true);
+        }
     });
     connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
@@ -290,6 +301,7 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
         value = mapSettings.value(variableName).toString();
     }
     lineEdit->setText(value);
+    lineEdit->setProperty(s_property_default_value, value);
     disableTooButton(variableName);
 }
 
@@ -357,6 +369,7 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const Q
         value = mapSettings.value(variableName).toString();
     }
     plainTextEdit->setPlainText(value);
+    plainTextEdit->setProperty(s_property_default_value, value);
     disableTooButton(variableName);
 }
 
