@@ -49,7 +49,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatCache)
     [[nodiscard]] QUrl urlFromLocalCache(const QString &url, bool needAuthentication);
-    [[nodiscard]] QUrl urlPreviewFromLocalCache(const QString &url);
     [[nodiscard]] bool fileInCache(const QUrl &url);
     [[nodiscard]] QString fileCachePath(const QUrl &url);
     void downloadAvatarFromServer(const Utils::AvatarInfo &info);
