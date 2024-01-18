@@ -27,6 +27,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelListJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &reply) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &reply) override;
 };
 }
