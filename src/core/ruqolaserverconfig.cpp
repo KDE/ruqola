@@ -568,7 +568,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     } else if (id == QLatin1String("API_Embed")) {
         setPreviewEmbed(value.toBool());
     } else if (id == QLatin1String("API_EmbedCacheExpirationDays")) {
-        qDebug() << "API_EmbedCacheExpirationDays value.toBool() " << value.toBool();
+        qDebug() << "API_EmbedCacheExpirationDays value.toInt() " << value.toInt();
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
