@@ -123,7 +123,9 @@ QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthenticat
 
 QUrl RocketChatCache::previewUrlFromLocalCache(const QString &url)
 {
-    return urlFromLocalCache(url, false);
+    const QUrl previewUrl = urlFromLocalCache(url, false, ManagerDataPaths::PreviewUrl);
+    // qDebug() << "previewUrl  " << previewUrl;
+    return previewUrl;
 }
 
 QUrl RocketChatCache::attachmentUrlFromLocalCache(const QString &url)
