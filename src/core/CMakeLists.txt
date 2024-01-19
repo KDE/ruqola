@@ -469,6 +469,9 @@ target_sources(libruqolacore PRIVATE
 
     moderation/moderationlistmessages.h
     moderation/moderationlistmessages.cpp
+
+    previewurlcachemanager.h
+    previewurlcachemanager.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
