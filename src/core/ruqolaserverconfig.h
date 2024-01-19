@@ -195,6 +195,9 @@ public:
     [[nodiscard]] bool previewEmbed() const;
     void setPreviewEmbed(bool newPreviewEmbed);
 
+    [[nodiscard]] int embedCacheExpirationDays() const;
+    void setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
@@ -243,6 +246,7 @@ private:
     int mMessageGroupingPeriod = -1;
     int mDirectMessageMaximumUser = -1;
     int mMessageQuoteChainLimit = -1;
+    int mEmbedCacheExpirationDays = 30; // Default value in RC
 
     bool mHasEnterpriseSupport = false;
     bool mAccountsAllowInvisibleStatusOption = true; // Default true

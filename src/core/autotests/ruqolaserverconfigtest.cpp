@@ -56,6 +56,9 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(defaultValue.url.isEmpty());
     QVERIFY(defaultValue.defaultUrl.isEmpty());
     QVERIFY(defaultValue.isEmpty());
+    QVERIFY(!config.previewEmbed());
+
+    QCOMPARE(config.embedCacheExpirationDays(), 30);
 
     defaultValue.url = QStringLiteral("dd");
     QVERIFY(defaultValue.isEmpty());

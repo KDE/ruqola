@@ -403,6 +403,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d.space() << "mMediaBlackList " << t.mediaBlackList();
     d.space() << "mMediaWhiteList " << t.mediaWhiteList();
     d.space() << "previewEmbed " << t.previewEmbed();
+    d.space() << "embedCacheExpirationDays " << t.embedCacheExpirationDays();
     return d;
 }
 
@@ -421,6 +422,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     value.defaultUrl = o[QLatin1String("defaultUrl")].toString();
     value.url = o[QLatin1String("url")].toString();
     return value;
+}
+
+int RuqolaServerConfig::embedCacheExpirationDays() const
+{
+    return mEmbedCacheExpirationDays;
+}
+
+void RuqolaServerConfig::setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays)
+{
+    mEmbedCacheExpirationDays = newEmbedCacheExpirationDays;
 }
 
 bool RuqolaServerConfig::previewEmbed() const
@@ -568,7 +579,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     } else if (id == QLatin1String("API_Embed")) {
         setPreviewEmbed(value.toBool());
     } else if (id == QLatin1String("API_EmbedCacheExpirationDays")) {
-        qDebug() << "API_EmbedCacheExpirationDays value.toInt() " << value.toInt();
+        setEmbedCacheExpirationDays(value.toInt());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -713,6 +724,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("FileUpload_MaxFileSize"), mFileMaxFileSize));
     array.append(createJsonObject(QStringLiteral("AuthenticationServerMethod"), static_cast<int>(mServerAuthTypes)));
     array.append(createJsonObject(QStringLiteral("API_Embed"), previewEmbed()));
+    array.append(createJsonObject(QStringLiteral("API_EmbedCacheExpirationDays"), embedCacheExpirationDays()));
 
     o[QLatin1String("result")] = array;
 #if 0
@@ -889,7 +901,8 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mHasEnterpriseSupport == other.mHasEnterpriseSupport && mAccountsAllowInvisibleStatusOption == other.mAccountsAllowInvisibleStatusOption
         && mUserDataDownloadEnabled == other.mUserDataDownloadEnabled && mDeviceManagementEnableLoginEmails == other.mDeviceManagementEnableLoginEmails
         && mDeviceManagementAllowLoginEmailpreference == other.mDeviceManagementAllowLoginEmailpreference
-        && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage && mPreviewEmbed == other.mPreviewEmbed;
+        && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage && mPreviewEmbed == other.mPreviewEmbed
+        && mEmbedCacheExpirationDays == other.mEmbedCacheExpirationDays;
 }
 
 void RuqolaServerConfig::loadAccountSettingsFromLocalDataBase(const QByteArray &ba)
