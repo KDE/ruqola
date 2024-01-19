@@ -113,7 +113,13 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
 
     auto timeZoneLabel = new QLabel(this);
-    timeZoneLabel->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
+    QString urlStr = QStringLiteral("UTC");
+    if (user.utcOffset() > 0) {
+        urlStr += QLatin1Char('+') + QString::number(user.utcOffset());
+    } else if (user.utcOffset() < 0) {
+        urlStr += QString::number(user.utcOffset());
+    }
+    timeZoneLabel->setText(urlStr);
     timeZoneLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mMainLayout->addRow(i18n("Timezone:"), timeZoneLabel);
 
