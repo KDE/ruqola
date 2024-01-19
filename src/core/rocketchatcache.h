@@ -56,7 +56,6 @@ private:
     void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
     void removeAvatar(const QString &avatarIdentifier);
     void loadAvatarCache();
-    void downloadFileFromWebSite(const QString &filename);
     QHash<QString, QUrl> mAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *const mAccount;

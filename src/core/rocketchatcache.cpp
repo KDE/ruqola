@@ -147,18 +147,6 @@ void RocketChatCache::downloadFileFromServer(const QString &filename, bool needA
     }
 }
 
-void RocketChatCache::downloadFileFromWebSite(const QString &filename)
-{
-    qDebug() << " void RocketChatCache::downloadFileFromWebSite(const QString &filename)" << filename;
-    if (!mFileInDownload.contains(filename)) {
-        // TODO
-        mFileInDownload.insert(filename);
-        const QUrl downloadUrl = mAccount->urlForLink(filename);
-        const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl));
-        qDebug() << " downloadUrl " << downloadUrl << " destFileUrl " << destFileUrl;
-    }
-}
-
 QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
 {
     const QUrl avatarUrl = mAvatarUrl.value(userId);
