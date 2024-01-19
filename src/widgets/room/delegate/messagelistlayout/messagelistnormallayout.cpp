@@ -132,7 +132,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     // Align top of sender rect so it matches the baseline of the richtext
     layout.senderRect =
-        QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.height()));
+        QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
     if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         layout.baseLine += option.fontMetrics.height();
         layout.senderRect.setTop(layout.senderRect.top() + senderAscent);
