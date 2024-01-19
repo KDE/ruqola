@@ -50,9 +50,9 @@ bool RocketChatCache::fileInCache(const QUrl &url)
     return f.exists();
 }
 
-QString RocketChatCache::fileCachePath(const QUrl &url)
+QString RocketChatCache::fileCachePath(const QUrl &url, ManagerDataPaths::PathType type)
 {
-    QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
+    QString cachePath = ManagerDataPaths::self()->path(type, mAccount->accountName());
     cachePath += QLatin1Char('/') + url.path();
     if (url.hasQuery()) {
         const QUrlQuery query(url);
@@ -109,14 +109,14 @@ QUrl RocketChatCache::faviconLogoUrlFromLocalCache(const QString &url)
     return urlFromLocalCache(url, false);
 }
 
-QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthentication)
+QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthentication, ManagerDataPaths::PathType type)
 {
-    const QString cachePath = fileCachePath(QUrl(url));
+    const QString cachePath = fileCachePath(QUrl(url), type);
     if (QFileInfo::exists(cachePath)) {
         // QML wants a QUrl here. The widgets code would be simpler with just a QString path.
         return QUrl::fromLocalFile(cachePath);
     } else {
-        downloadFileFromServer(url, needAuthentication);
+        downloadFileFromServer(url, needAuthentication, type);
     }
     return {};
 }
@@ -136,12 +136,12 @@ void RocketChatCache::downloadAvatarFromServer(const Utils::AvatarInfo &info)
     mAvatarManager->insertInDownloadQueue(info);
 }
 
-void RocketChatCache::downloadFileFromServer(const QString &filename, bool needAuthentication)
+void RocketChatCache::downloadFileFromServer(const QString &filename, bool needAuthentication, ManagerDataPaths::PathType type)
 {
     if (!mFileInDownload.contains(filename)) {
         mFileInDownload.insert(filename);
         const QUrl downloadUrl = mAccount->urlForLink(filename);
-        const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl));
+        const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl, type));
         mAccount->restApi()->downloadFile(mAccount->urlForLink(filename), destFileUrl, "text/plain", needAuthentication);
         // this will call slotDataDownloaded
     }

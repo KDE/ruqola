@@ -371,38 +371,38 @@ void RuqolaServerConfig::setFaviconUrl(const RuqolaServerConfig::ConfigWithDefau
 
 QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t)
 {
-    d << " Value " << t.url;
-    d << " Default Value " << t.defaultUrl;
+    d.space() << " Value " << t.url;
+    d.space() << " Default Value " << t.defaultUrl;
     return d;
 }
 
 QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
 {
-    d << "mUniqueId  " << t.uniqueId();
-    d << "mJitsiMeetUrl " << t.jitsiMeetUrl();
-    d << "mJitsiMeetPrefix " << t.jitsiMeetPrefix();
-    d << "mFileUploadStorageType " << t.fileUploadStorageType();
-    d << "mSiteUrl " << t.siteUrl();
-    d << "mSiteName " << t.siteName();
-    d << "mServerOauthTypes " << t.serverAuthMethodTypes();
-    d << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
-    d << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
-    d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
-    d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch "
-      << t.serverVersionPatch();
-    d << "mLogoUrl " << t.logoUrl();
-    d << "mFaviconUrl " << t.faviconUrl();
-    d << "mLoginExpiration " << t.loginExpiration();
-    d << "mChannelNameValidation " << t.channelNameValidation();
-    d << "mUserNameValidation " << t.userNameValidation();
-    d << "mMessageMaximumAllowedSize " << t.messageMaximumAllowedSize();
-    d << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
-    d << "mUIUseRealName " << t.useRealName();
-    d << "mAccountsAllowInvisibleStatusOption" << t.accountsAllowInvisibleStatusOption();
-    d << "mUserDataDownloadEnabled " << t.userDataDownloadEnabled();
-    d << "mMediaBlackList " << t.mediaBlackList();
-    d << "mMediaWhiteList " << t.mediaWhiteList();
-    d << "previewEmbed " << t.previewEmbed();
+    d.space() << "mUniqueId  " << t.uniqueId();
+    d.space() << "mJitsiMeetUrl " << t.jitsiMeetUrl();
+    d.space() << "mJitsiMeetPrefix " << t.jitsiMeetPrefix();
+    d.space() << "mFileUploadStorageType " << t.fileUploadStorageType();
+    d.space() << "mSiteUrl " << t.siteUrl();
+    d.space() << "mSiteName " << t.siteName();
+    d.space() << "mServerOauthTypes " << t.serverAuthMethodTypes();
+    d.space() << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
+    d.space() << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
+    d.space() << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
+    d.space() << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch "
+              << t.serverVersionPatch();
+    d.space() << "mLogoUrl " << t.logoUrl();
+    d.space() << "mFaviconUrl " << t.faviconUrl();
+    d.space() << "mLoginExpiration " << t.loginExpiration();
+    d.space() << "mChannelNameValidation " << t.channelNameValidation();
+    d.space() << "mUserNameValidation " << t.userNameValidation();
+    d.space() << "mMessageMaximumAllowedSize " << t.messageMaximumAllowedSize();
+    d.space() << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
+    d.space() << "mUIUseRealName " << t.useRealName();
+    d.space() << "mAccountsAllowInvisibleStatusOption" << t.accountsAllowInvisibleStatusOption();
+    d.space() << "mUserDataDownloadEnabled " << t.userDataDownloadEnabled();
+    d.space() << "mMediaBlackList " << t.mediaBlackList();
+    d.space() << "mMediaWhiteList " << t.mediaWhiteList();
+    d.space() << "previewEmbed " << t.previewEmbed();
     return d;
 }
 

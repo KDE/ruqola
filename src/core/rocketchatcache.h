@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+#include "managerdatapaths.h"
 #include "utils.h"
 #include <QHash>
 #include <QObject>
@@ -33,7 +34,7 @@ public:
     [[nodiscard]] QString avatarUrl(const Utils::AvatarInfo &info);
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
-    void downloadFileFromServer(const QString &filename, bool needAuthentication);
+    void downloadFileFromServer(const QString &filename, bool needAuthentication, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
 
     [[nodiscard]] QUrl attachmentUrlFromLocalCache(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile);
@@ -48,9 +49,9 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatCache)
-    [[nodiscard]] QUrl urlFromLocalCache(const QString &url, bool needAuthentication);
+    [[nodiscard]] QUrl urlFromLocalCache(const QString &url, bool needAuthentication, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
     [[nodiscard]] bool fileInCache(const QUrl &url);
-    [[nodiscard]] QString fileCachePath(const QUrl &url);
+    [[nodiscard]] QString fileCachePath(const QUrl &url, ManagerDataPaths::PathType type = ManagerDataPaths::Cache);
     void downloadAvatarFromServer(const Utils::AvatarInfo &info);
     void slotDataDownloaded(const QUrl &url, const QUrl &localFileUrl);
     void removeAvatar(const QString &avatarIdentifier);
