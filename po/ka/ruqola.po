@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 01:37+0000\n"
+"POT-Creation-Date: 2024-01-19 01:40+0000\n"
 "PO-Revision-Date: 2024-01-05 05:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -990,13 +990,13 @@ msgstr "როლები"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
-msgid "Required"
-msgstr "საჭიროა"
+msgid "Ignored"
+msgstr "იგნორირებულია"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
-msgid "Ignored"
-msgstr "იგნორირებულია"
+msgid "Required"
+msgstr "საჭიროა"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:80
 #, kde-format
@@ -1476,7 +1476,7 @@ msgid "GitLab"
 msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -4778,7 +4778,7 @@ msgid "Show Deleted Status"
 msgstr "წაშლილი სტატუსის ჩვენება"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "შეტყობინების მიჭკარტების დაშვება"
@@ -4823,27 +4823,27 @@ msgstr "ავტომატური თარგმანის ჩართ�
 msgid "Embed Link Previews"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "დაბლოკვის გასათიშად შეიყვანეთ 0."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:54
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "შეტყობინებების ჩასწორების დაბლოკვა (n) წუთის შემდეგ"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "შეტყობინებების წაშლის დაბლოკვა (n) წუთის შემდეგ."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "შეტყობინებების წაშლის დაბლოკვა (n) წუთის შემდეგ"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
@@ -4852,7 +4852,7 @@ msgstr ""
 "ეს მოძველებული ფუნქციაა. მან შეიძლება არ იმუშაოს ისე, როგორც თქვენ გნებავთ "
 "და ის განახლებებს არ მიიღებს."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:89
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
@@ -4861,37 +4861,37 @@ msgstr ""
 "მოითხოვს 'ფაილის ატვირთვის' მორგების ფანჯარაში მედიის ტიპებში 'video/webm' "
 "ფაილების დაშვებას."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "შეტყობინებებში დაშვებული სიმბოლოების მაქსიმალური რაოდენობა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
 #, kde-format
 msgid "Safe Ports"
 msgstr "უსაფრთხო პორტები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:101
 #, kde-format
 msgid "Maximum Number of Chained Quotes"
 msgstr "გადაბმული ციტატების მაქს. რაოდენობა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Keep Messages and User Name"
 msgstr "შეტყობინებებისა და მომხმარებლის სახელის შენარჩუნება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid "Delete All Messages"
 msgstr "ყველა შეტყობინების წაშლა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
 #, kde-format
 msgid "Remove Link Between User and Messages"
 msgstr "მომხმარებელსა და მის შეტყობინებებს შორის ბმულის წაშლა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
 #, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
@@ -4903,41 +4903,41 @@ msgid ""
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
 #, kde-format
 msgid "Message Erasure Type"
 msgstr "შეტყობინება წაშლის ტიპი"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:119
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr "დაჯგუფების პეროდი (წამებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "პირადი შეტყობინების მაქსიმალური მომხმარებლები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:125
 #, kde-format
 msgid "Message Attachments"
 msgstr "შეტყობინებაზე მიმაგრებული ფაილები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:131
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -4945,68 +4945,74 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:143
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "მინიატურის მაქსიმალური სიგანე (პიქსელებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "მინიატურის მაქსიმალური სიმაღლე (პიქსელებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:148
 #, kde-format
 msgid "Audio Message"
 msgstr "აუდიო შეტყობინება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "აუდიო შეტყობინება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:159
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "ავტომატური თარგმანი"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
 #, kde-format
 msgid "Deepl"
 msgstr "Deepl"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, kde-format
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
 #, kde-format
 msgid "Service Provider"
 msgstr "სერვისის მომწოდებელი"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
 #, kde-format
 msgid "DeepL API Key"
 msgstr "DeepL API-ის გასაღები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:180
 #, kde-format
 msgid "Google API Key"
 msgstr "Google API-ის გასაღები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:183
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Microsoft API-ის გასაღები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:186
 #, kde-format
 msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
+#, fuzzy, kde-format
+#| msgid "Expiration (Days)"
+msgid "Embed Cache Expiration Days"
+msgstr "ვადა (დღეები)"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -5552,11 +5558,11 @@ msgstr "კონფიდენციალური არხის შეტ�
 msgid "Maximum message age in direct messages"
 msgstr "პირად შეტყობინებების მაქსიმალური ასაკი"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:116
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:145
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:189
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:218
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:257
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:117
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:156
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:210
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:249
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:288
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"

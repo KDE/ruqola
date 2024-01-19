@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 01:37+0000\n"
+"POT-Creation-Date: 2024-01-19 01:40+0000\n"
 "PO-Revision-Date: 2024-01-13 13:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -991,13 +991,13 @@ msgstr "Rollen"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
-msgid "Required"
-msgstr "Vereist"
+msgid "Ignored"
+msgstr "Genegeerd"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
-msgid "Ignored"
-msgstr "Genegeerd"
+msgid "Required"
+msgstr "Vereist"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:80
 #, kde-format
@@ -1479,7 +1479,7 @@ msgid "GitLab"
 msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -4867,7 +4867,7 @@ msgid "Show Deleted Status"
 msgstr "Verwijderstatus tonen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Berichten vastpinnen is toegestaan"
@@ -4912,27 +4912,27 @@ msgstr "Automatisch vertalen inschakelen"
 msgid "Embed Link Previews"
 msgstr "Koppelingsvoorbeeld inbedden"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "Voer 0 in om blokkering uit te schakelen."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:54
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Berichten bewerken blokkeren na (n) minuten"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Bericht verwijderen blokkeren na (n) minuten."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Bericht verwijderen blokkeren na (n) minuten"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
@@ -4941,7 +4941,7 @@ msgstr ""
 "Dit is een afgekeurde functie. Het kan niet zoals verwacht werken en zal "
 "niet meer worden bijgewerkt."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:89
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
@@ -4950,37 +4950,37 @@ msgstr ""
 "Vereist 'video/webm' bestanden om een geaccepteerd type medium binnen "
 "instellingen van 'Bestand uploaden' ."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "Maximum aantal toegestane tekens per bericht"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
 #, kde-format
 msgid "Safe Ports"
 msgstr "Veilige poorten"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:101
 #, kde-format
 msgid "Maximum Number of Chained Quotes"
 msgstr "Max aantal gekoppelde aanhalingen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Keep Messages and User Name"
 msgstr "Bericht en gebruikersnaam behouden"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid "Delete All Messages"
 msgstr "Alle berichten verwijderen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
 #, kde-format
 msgid "Remove Link Between User and Messages"
 msgstr "Koppeling tussen gebruiker en berichten verwijderen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
 #, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
@@ -5001,12 +5001,12 @@ msgstr ""
 "zal alle berichten en bestanden van de gebruiker aan bot van Rocket.Chat "
 "toekennen en directe berichten zullen worden verwijderd."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:114
 #, kde-format
 msgid "Message Erasure Type"
 msgstr "Type van wissen van bericht"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
@@ -5016,22 +5016,22 @@ msgstr ""
 "dezelfde gebruiker komen en de verstreken tijd minder was dan de "
 "geïnformeerde tijd in seconden."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:119
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr "Periode voor groeperen (in seconden)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Maximaal aantal gebruikers van direct bericht"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:125
 #, kde-format
 msgid "Message Attachments"
 msgstr "Bijlagen bij berichten"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:131
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
@@ -5041,7 +5041,7 @@ msgstr ""
 "instelling is niet actief met terugwerkende kracht, dus bestanden geüpload "
 "bij uitgeschakeld zullen EXIF gegevens bevatten"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5052,63 +5052,63 @@ msgstr ""
 "bandbreedtegebruik te beperken. Afbeeldingen met de originele resolutie "
 "kunnen gedownload worden met het pictogram naast de naam van de bijlage."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:143
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Maximale breedte van miniatuur (in pixels)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Maximale hoogte van miniatuur (in pixels)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:148
 #, kde-format
 msgid "Audio Message"
 msgstr "Geluidsbericht"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Bitsnelheid van geluidsbericht"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:159
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Automatisch vertalen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
 #, kde-format
 msgid "Deepl"
 msgstr "Deepl"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, kde-format
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
 #, kde-format
 msgid "Service Provider"
 msgstr "Serviceprovider"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
 #, kde-format
 msgid "DeepL API Key"
 msgstr "DeepL API-sleutel"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:180
 #, kde-format
 msgid "Google API Key"
 msgstr "Google API-sleutel"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:183
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Microsoft API-sleutel"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:186
 #, kde-format
 msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
@@ -5116,6 +5116,12 @@ msgid ""
 msgstr ""
 "Of ingebedde koppelingsvoorbeelden zijn ingeschakeld of niet wanneer een "
 "gebruiker een koppeling stuurt naar een website."
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
+#, fuzzy, kde-format
+#| msgid "Expiration (Days)"
+msgid "Embed Cache Expiration Days"
+msgstr "Verlopen na (dagen)"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -5673,11 +5679,11 @@ msgstr "Maximale leeftijd van een bericht in privé groepen"
 msgid "Maximum message age in direct messages"
 msgstr "Maximale leeftijd van een direct bericht"
 
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:116
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:145
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:189
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:218
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:257
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:117
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:156
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:210
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:249
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:288
 #, kde-format
 msgid "Apply"
 msgstr "Toepassen"
