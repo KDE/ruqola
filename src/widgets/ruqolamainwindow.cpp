@@ -730,9 +730,15 @@ void RuqolaMainWindow::slotConfigure()
     delete dlg;
 }
 
+void RuqolaMainWindow::slotAuthentication(AuthenticationManager::AuthMethodType type)
+{
+    qDebug() << "Not implement plugin " << type;
+}
+
 void RuqolaMainWindow::slotAddServer()
 {
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
+    connect(dlg, &CreateNewServerDialog::authentication, this, &RuqolaMainWindow::slotAuthentication);
     const QStringList lst = mAccountManager->accountsName();
     dlg->setExistingAccountName(lst);
     if (dlg->exec()) {

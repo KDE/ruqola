@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "authenticationmanager.h"
 #include "channelgroupbasejob.h"
 #include "libruqolawidgets_export.h"
 #include <KXmlGuiWindow>
@@ -113,6 +114,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotImportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageStyleChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAuthentication(AuthenticationManager::AuthMethodType type);
 
     bool mReallyClose{false};
 
