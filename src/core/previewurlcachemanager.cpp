@@ -25,3 +25,5 @@ void PreviewUrlCacheManager::setEmbedCacheExpirationDays(int newEmbedCacheExpira
         // TODO Add QTimer
     }
 }
+
+#include "moc_previewurlcachemanager.cpp"

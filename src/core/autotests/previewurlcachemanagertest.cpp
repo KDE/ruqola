@@ -20,3 +20,5 @@ void PreviewUrlCacheManagerTest::shouldHaveDefaultValues()
     QCOMPARE(w.embedCacheExpirationDays(), -1);
     // TODO
 }
+
+#include "moc_previewurlcachemanagertest.cpp"
