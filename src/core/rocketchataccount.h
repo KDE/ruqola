@@ -85,6 +85,7 @@ class VideoConferenceMessageInfoManager;
 class LocalDatabaseManager;
 class ManageLocalDatabase;
 class AccountRoomSettings;
+class PreviewUrlCacheManager;
 
 namespace RocketChatRestApi
 {
@@ -705,6 +706,7 @@ private:
     VideoConferenceMessageInfoManager *const mVideoConferenceMessageInfoManager;
     std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
     ManageLocalDatabase *const mManageLoadHistory;
+    PreviewUrlCacheManager *const mPreviewUrlCacheManager;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

@@ -17,6 +17,7 @@
 #include "emoticons/emojimanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
+#include "previewurlcachemanager.h"
 
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
@@ -120,6 +121,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this, this))
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
     , mManageLoadHistory(new ManageLocalDatabase(this, this))
+    , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
