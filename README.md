@@ -77,7 +77,7 @@ cmake --preset dev && cmake --build --preset dev
 
 Build against qt6
 ````
-cmake --preset dev && cmake --build --preset dev-qt6
+cmake --preset dev-qt6 && cmake --build --preset dev-qt6
 ````
 
 
