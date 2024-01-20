@@ -5,6 +5,9 @@
 */
 
 #include "previewurlcachemanager.h"
+#include <QTimer>
+#include <chrono>
+using namespace std::chrono_literals;
 
 PreviewUrlCacheManager::PreviewUrlCacheManager(QObject *parent)
     : QObject{parent}
@@ -22,8 +25,15 @@ void PreviewUrlCacheManager::setEmbedCacheExpirationDays(int newEmbedCacheExpira
 {
     if (mEmbedCacheExpirationDays != newEmbedCacheExpirationDays) {
         mEmbedCacheExpirationDays = newEmbedCacheExpirationDays;
-        // TODO Add QTimer
+        checkCache();
     }
+}
+
+void PreviewUrlCacheManager::checkCache()
+{
+    // TODO When done reactivate QTimer!
+    // Reactivate check each day
+    QTimer::singleShot(24h, this, &PreviewUrlCacheManager::checkCache);
 }
 
 #include "moc_previewurlcachemanager.cpp"

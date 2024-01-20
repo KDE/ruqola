@@ -19,6 +19,8 @@ public:
     [[nodiscard]] int embedCacheExpirationDays() const;
     void setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays);
 
+    void checkCache();
+
 private:
     int mEmbedCacheExpirationDays = -1;
 };
