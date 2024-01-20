@@ -53,7 +53,11 @@ bool RocketChatCache::fileInCache(const QUrl &url)
 QString RocketChatCache::fileCachePath(const QUrl &url, ManagerDataPaths::PathType type)
 {
     QString cachePath = ManagerDataPaths::self()->path(type, mAccount->accountName());
-    cachePath += QLatin1Char('/') + url.path();
+    QString urlPath = url.path();
+    if (type == ManagerDataPaths::PathType::PreviewUrl) {
+        urlPath = urlPath.replace(QLatin1Char('/'), QLatin1Char('_'));
+    }
+    cachePath += QLatin1Char('/') + urlPath;
     if (url.hasQuery()) {
         const QUrlQuery query(url);
         cachePath += query.queryItemValue(QStringLiteral("etag"));
