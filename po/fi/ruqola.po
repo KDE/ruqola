@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 01:40+0000\n"
+"POT-Creation-Date: 2024-01-20 01:36+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2843,7 +2843,7 @@ msgstr "Muokkaa käyttöoikeutta ”%1”"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:135
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
 msgstr "Roolit:"
@@ -3354,7 +3354,7 @@ msgid "Status Message:"
 msgstr "Tilaviesti:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
-#: widgets/dialogs/directchannelinfowidget.cpp:160
+#: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -6742,32 +6742,32 @@ msgstr "Käyttäjän tiedot"
 msgid "Custom Status:"
 msgstr "Mukautettu tila:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:118
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Timezone:"
 msgstr "Aikavyöhyke:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:148
 #, kde-format
 msgid "Created At:"
 msgstr "Luotu:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Last Login:"
 msgstr "Viimeisin kirjautuminen:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:155
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
 msgstr "Vahvistettu"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:155
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Not verified"
 msgstr "Ei vahvistettu"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:155
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"

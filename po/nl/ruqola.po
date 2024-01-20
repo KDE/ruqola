@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 01:40+0000\n"
-"PO-Revision-Date: 2024-01-13 13:53+0100\n"
+"POT-Creation-Date: 2024-01-20 01:36+0000\n"
+"PO-Revision-Date: 2024-01-19 11:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2832,7 +2832,7 @@ msgstr "'%1'-rechten bewerken"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:63
-#: widgets/dialogs/directchannelinfowidget.cpp:135
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
 msgstr "Rollen:"
@@ -3337,7 +3337,7 @@ msgid "Status Message:"
 msgstr "Statusbericht:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:56
-#: widgets/dialogs/directchannelinfowidget.cpp:160
+#: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -5118,10 +5118,9 @@ msgstr ""
 "gebruiker een koppeling stuurt naar een website."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
-#, fuzzy, kde-format
-#| msgid "Expiration (Days)"
+#, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "Verlopen na (dagen)"
+msgstr "Dagen nadat ingebedde cache is verlopen"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6871,32 +6870,32 @@ msgstr "Gebruikersinformatie"
 msgid "Custom Status:"
 msgstr "Aangepaste status:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:118
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Timezone:"
 msgstr "Tijdzone:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:148
 #, kde-format
 msgid "Created At:"
 msgstr "Aangemaakt op:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:149
+#: widgets/dialogs/directchannelinfowidget.cpp:155
 #, kde-format
 msgid "Last Login:"
 msgstr "Laatste keer aangemeld:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:155
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
 msgstr "Geverifieerd"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:155
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Not verified"
 msgstr "Niet geverifieerd"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:155
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
