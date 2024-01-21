@@ -60,16 +60,6 @@ void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-void TeamSearchRoomForTeamWidget::setPlaceholderText(const QString &str)
-{
-    mSearchRoomLineEdit->setPlaceholderText(str);
-}
-
-QString TeamSearchRoomForTeamWidget::placeHolderText() const
-{
-    return mSearchRoomLineEdit->placeholderText();
-}
-
 QStringList TeamSearchRoomForTeamWidget::roomIds() const
 {
     QStringList addUsers;

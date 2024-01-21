@@ -20,10 +20,6 @@ public:
     explicit TeamSearchRoomForTeamWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamSearchRoomForTeamWidget() override;
 
-    void setPlaceholderText(const QString &str);
-
-    [[nodiscard]] QString placeHolderText() const;
-
     [[nodiscard]] QStringList roomIds() const;
     QStringList names() const;
 Q_SIGNALS:
