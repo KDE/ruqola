@@ -1348,6 +1348,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj, bool update)
 {
     mRuqolaServerConfig->parsePublicSettings(obj, update);
     parsePublicSettings();
+    mPreviewUrlCacheManager->setEmbedCacheExpirationDays(mRuqolaServerConfig->embedCacheExpirationDays());
 }
 
 void RocketChatAccount::parsePublicSettings()
@@ -1491,6 +1492,7 @@ void RocketChatAccount::privateSettingsUpdated(const QJsonArray &replyArray)
     mRuqolaServerConfig->privateSettingsUpdated(replyArray);
     localDatabaseManager()->updateAccount(accountName(), mRuqolaServerConfig->serialize(false), LocalDatabaseUtils::currentTimeStamp());
     Q_EMIT privateSettingsChanged();
+    mPreviewUrlCacheManager->setEmbedCacheExpirationDays(mRuqolaServerConfig->embedCacheExpirationDays());
 }
 
 void RocketChatAccount::permissionUpdated(const QJsonArray &replyArray)

@@ -20,6 +20,8 @@ public:
     void setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays);
 
 private:
+    void saveLastCheckedDateTime();
+    [[nodiscard]] bool needToCheck() const;
     void checkCache();
     int mEmbedCacheExpirationDays = -1;
     RocketChatAccount *const mRocketChatAccount;

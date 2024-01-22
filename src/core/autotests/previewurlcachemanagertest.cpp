@@ -6,12 +6,14 @@
 
 #include "previewurlcachemanagertest.h"
 #include "previewurlcachemanager.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(PreviewUrlCacheManagerTest)
 
 PreviewUrlCacheManagerTest::PreviewUrlCacheManagerTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void PreviewUrlCacheManagerTest::shouldHaveDefaultValues()
