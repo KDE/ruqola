@@ -237,6 +237,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, &RocketChatAccount::customSoundAdded);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, &RocketChatAccount::customSoundUpdated);
     connect(mAwayManager, &AwayManager::awayChanged, this, &RocketChatAccount::slotAwayStatusChanged);
+
+    mPreviewUrlCacheManager->setCachePath(ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, accountName()));
 }
 
 RocketChatAccount::~RocketChatAccount()

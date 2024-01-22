@@ -38,25 +38,33 @@ void PreviewUrlCacheManager::setEmbedCacheExpirationDays(int newEmbedCacheExpira
 
 bool PreviewUrlCacheManager::needToCheck() const
 {
-    return mRocketChatAccount->settings()->lastCheckedPreviewUrlCacheDate() != QDateTime::currentDateTime().date();
+    if (mRocketChatAccount) {
+        return mRocketChatAccount->settings()->lastCheckedPreviewUrlCacheDate() != QDateTime::currentDateTime().date();
+    }
+    return true;
 }
 
 void PreviewUrlCacheManager::saveLastCheckedDateTime()
 {
-    mRocketChatAccount->settings()->setLastCheckedPreviewUrlCacheDate(QDateTime::currentDateTime().date());
+    if (mRocketChatAccount) {
+        mRocketChatAccount->settings()->setLastCheckedPreviewUrlCacheDate(QDateTime::currentDateTime().date());
+    }
 }
 
 void PreviewUrlCacheManager::checkCache()
 {
     if (needToCheck()) {
         const QDateTime currentDateTime = QDateTime::currentDateTime();
-        const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::PreviewUrl, mRocketChatAccount->accountName());
-        QDir dir(cachePath);
+        if (mCachePath.isEmpty()) {
+            qCWarning(RUQOLA_LOG) << "mCachePath is empty it's a bug!!! ";
+            return;
+        }
+        QDir dir(mCachePath);
         const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
-        qDebug() << " cachePath " << cachePath;
-        qDebug() << " infoLists " << infoLists.count();
+        qDebug() << " cachePath " << mCachePath;
+        qDebug() << " infoLists-- " << infoLists.count() << infoLists;
         for (const QFileInfo &info : infoLists) {
-            // qDebug() << " info" << info;
+            qDebug() << " info " << info << "  info.birthTime() " << info.birthTime();
             if (info.birthTime().addDays(mEmbedCacheExpirationDays) < currentDateTime) {
                 if (!QFile::remove(info.path())) {
                     qCWarning(RUQOLA_LOG) << "Impossible to remove " << info.path();
@@ -68,6 +76,16 @@ void PreviewUrlCacheManager::checkCache()
 
     // Reactivate check each day
     QTimer::singleShot(24h, this, &PreviewUrlCacheManager::checkCache);
+}
+
+QString PreviewUrlCacheManager::cachePath() const
+{
+    return mCachePath;
+}
+
+void PreviewUrlCacheManager::setCachePath(const QString &newCachePath)
+{
+    mCachePath = newCachePath;
 }
 
 #include "moc_previewurlcachemanager.cpp"

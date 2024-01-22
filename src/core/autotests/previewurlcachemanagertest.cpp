@@ -7,6 +7,7 @@
 #include "previewurlcachemanagertest.h"
 #include "previewurlcachemanager.h"
 #include <QStandardPaths>
+#include <QTemporaryDir>
 #include <QTest>
 QTEST_GUILESS_MAIN(PreviewUrlCacheManagerTest)
 
@@ -20,7 +21,31 @@ void PreviewUrlCacheManagerTest::shouldHaveDefaultValues()
 {
     PreviewUrlCacheManager w(nullptr);
     QCOMPARE(w.embedCacheExpirationDays(), -1);
-    // TODO
+    QVERIFY(w.cachePath().isEmpty());
+}
+
+void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
+{
+    QTemporaryDir accountFileTmp;
+    const QString cachePath{accountFileTmp.path()};
+    QFile file(cachePath + QStringLiteral("/foo1"));
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << " cccccccccccccccc";
+    }
+    qDebug() << " change date : " << file.setFileTime(QDateTime(QDate(2024, 1, 1), QTime(1, 1, 1)), QFileDevice::FileAccessTime);
+    file.close();
+
+    QDir dir(cachePath);
+    const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+    qDebug() << " infoLists " << infoLists.count() << infoLists;
+
+    PreviewUrlCacheManager w(nullptr);
+    w.setCachePath(cachePath);
+    w.setEmbedCacheExpirationDays(2);
+
+    QDir dir2(cachePath);
+    const QFileInfoList infoLists2 = dir2.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+    qDebug() << " infoLists2 " << infoLists2.count();
 }
 
 #include "moc_previewurlcachemanagertest.cpp"
