@@ -8,19 +8,19 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT PreviewUrlCacheManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit PreviewUrlCacheManager(QObject *parent = nullptr);
+    explicit PreviewUrlCacheManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~PreviewUrlCacheManager() override;
 
     [[nodiscard]] int embedCacheExpirationDays() const;
     void setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays);
 
-    void checkCache();
-
 private:
+    void checkCache();
     int mEmbedCacheExpirationDays = -1;
+    RocketChatAccount *const mRocketChatAccount;
 };

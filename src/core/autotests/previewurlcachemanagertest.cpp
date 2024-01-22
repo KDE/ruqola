@@ -16,7 +16,7 @@ PreviewUrlCacheManagerTest::PreviewUrlCacheManagerTest(QObject *parent)
 
 void PreviewUrlCacheManagerTest::shouldHaveDefaultValues()
 {
-    PreviewUrlCacheManager w;
+    PreviewUrlCacheManager w(nullptr);
     QCOMPARE(w.embedCacheExpirationDays(), -1);
     // TODO
 }

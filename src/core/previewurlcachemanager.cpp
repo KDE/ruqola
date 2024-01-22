@@ -5,12 +5,14 @@
 */
 
 #include "previewurlcachemanager.h"
+#include "rocketchataccount.h"
 #include <QTimer>
 #include <chrono>
 using namespace std::chrono_literals;
 
-PreviewUrlCacheManager::PreviewUrlCacheManager(QObject *parent)
+PreviewUrlCacheManager::PreviewUrlCacheManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
+    , mRocketChatAccount(account)
 {
 }
 
