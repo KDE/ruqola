@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-21 01:36+0000\n"
-"PO-Revision-Date: 2024-01-05 05:09+0100\n"
+"PO-Revision-Date: 2024-01-21 14:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5009,10 +5009,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
-#, fuzzy, kde-format
-#| msgid "Expiration (Days)"
+#, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "ვადა (დღეები)"
+msgstr "კეშის ვადის ამოწურვის დღეების ჩაშენება"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6127,13 +6126,12 @@ msgstr "გაშვებიას ანგარიშების მიე�
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
 #, kde-format
 msgid "Show images by default"
-msgstr "გამოსახულებების ნაგულისხებად ჩვენება"
+msgstr "გამოსახულებების ნაგულისხმევად ჩვენება"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
+#, kde-format
 msgid "Show preview url by default"
-msgstr "გამოსახულებების ნაგულისხებად ჩვენება"
+msgstr "მინიატურის ბმულს ნაგულისხმევად ჩვენება"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -7814,7 +7812,7 @@ msgstr "ავატარის ბმულის შეცვლა..."
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
-msgstr ""
+msgstr "ელფოსტის შეცვლა გათიშულია თქვენი ადმინისტრატორის მიერ."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
@@ -8066,7 +8064,7 @@ msgstr "შეერთება"
 #: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:80
 #, kde-format
 msgid "Link Preview"
-msgstr ""
+msgstr "ბმულის მინიატურა"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:388
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
