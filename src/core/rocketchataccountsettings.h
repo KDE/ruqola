@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QDate>
 #include <QObject>
 #include <QString>
 
@@ -66,6 +67,9 @@ public:
     [[nodiscard]] QString displayName() const;
     void setDisplayName(const QString &displayName);
 
+    [[nodiscard]] QDate lastCheckedPreviewUrlCacheDate() const;
+    void setLastCheckedPreviewUrlCacheDate(const QDate &newLastCheckedPreviewUrlCacheDate);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -90,6 +94,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    QDate mLastCheckedPreviewUrlCacheDate;
     bool mUseLdap = false;
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;

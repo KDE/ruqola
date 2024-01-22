@@ -55,6 +55,8 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
+    mLastCheckedPreviewUrlCacheDate = mSetting->value(QStringLiteral("lastCheckedPreviewUrlDate")).toDate();
+
     if (mAccountEnabled && !mAccountName.isEmpty()) {
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
         auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
@@ -81,6 +83,20 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
 {
     if (baseJob->error()) {
         qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
+    }
+}
+
+QDate RocketChatAccountSettings::lastCheckedPreviewUrlCacheDate() const
+{
+    return mLastCheckedPreviewUrlCacheDate;
+}
+
+void RocketChatAccountSettings::setLastCheckedPreviewUrlCacheDate(const QDate &newLastCheckedPreviewUrlCacheDate)
+{
+    if (mLastCheckedPreviewUrlCacheDate != newLastCheckedPreviewUrlCacheDate) {
+        mLastCheckedPreviewUrlCacheDate = newLastCheckedPreviewUrlCacheDate;
+        mSetting->setValue(QStringLiteral("lastCheckedPreviewUrlDate"), mLastCheckedPreviewUrlCacheDate);
+        mSetting->sync();
     }
 }
 
