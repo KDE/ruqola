@@ -40,7 +40,7 @@ void PreviewUrlCacheManager::checkCache()
     QDir dir(cachePath);
     const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
     for (const QFileInfo &info : infoLists) {
-        if (info.birthTime() > currentDateTime.addDays(mEmbedCacheExpirationDays)) {
+        if (info.birthTime().addDays(mEmbedCacheExpirationDays) < currentDateTime) {
             // TODO remove it => redownload it.
             // TODO store info when we check cache => don't call it each time that we relaunch ruqola in same day.
         }
