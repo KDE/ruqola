@@ -90,6 +90,45 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         QCOMPARE(infoLists2.count(), 10);
         QCOMPARE(firstList, lst);
     }
+    // Test 3: 10 files => 5 we need to delete
+    {
+        QTemporaryDir accountFileTmp;
+        const QString cachePath{accountFileTmp.path()};
+        QStringList firstList;
+        for (int i = 0; i < 10; ++i) {
+            QFile file(cachePath + QStringLiteral("/foo%1").arg(QString::number(i)));
+            if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                qWarning() << " Impossible to create file";
+            }
+            if (!file.setFileTime(QDateTime(QDate(2024, 1, i + 1), QTime(1, 1, 1)), QFileDevice::FileModificationTime)) {
+                qWarning() << " Impossible to change modification date" << i;
+            }
+            firstList.append(QFileInfo(file).fileName());
+            file.close();
+        }
+
+        QDir dir(cachePath);
+        const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+        // qDebug() << "current infoLists " << infoLists.count() << infoLists;
+        QCOMPARE(infoLists.count(), 10);
+
+        PreviewUrlCacheManager w(nullptr);
+        w.setCachePath(cachePath);
+        w.setCurrentDate(QDate(2024, 1, 11));
+        w.setEmbedCacheExpirationDays(5); // 5555 days. It will not have pb :)
+
+        QDir dir2(cachePath);
+        const QFileInfoList infoLists2 = dir2.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
+        QStringList lst;
+        lst.append(QStringLiteral("foo6"));
+        lst.append(QStringLiteral("foo7"));
+        lst.append(QStringLiteral("foo8"));
+        lst.append(QStringLiteral("foo9"));
+        lst.append(QStringLiteral("foo10"));
+        // qDebug() << "after clean infoLists2 " << infoLists2.count();
+        QVERIFY(!infoLists2.isEmpty());
+        QCOMPARE(infoLists2.count(), 5);
+    }
 }
 
 #include "moc_previewurlcachemanagertest.cpp"

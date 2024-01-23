@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QDate>
 #include <QObject>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT PreviewUrlCacheManager : public QObject
@@ -22,10 +23,14 @@ public:
     [[nodiscard]] QString cachePath() const;
     void setCachePath(const QString &newCachePath);
 
+    [[nodiscard]] QDate currentDate() const;
+    void setCurrentDate(const QDate &newCurrentDateTime);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void saveLastCheckedDateTime();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool needToCheck() const;
     LIBRUQOLACORE_NO_EXPORT void checkCache();
+    QDate mCurrentDate = QDate::currentDate();
     QString mCachePath;
     int mEmbedCacheExpirationDays = -1;
     RocketChatAccount *const mRocketChatAccount;

@@ -38,7 +38,7 @@ void PreviewUrlCacheManager::setEmbedCacheExpirationDays(int newEmbedCacheExpira
 bool PreviewUrlCacheManager::needToCheck() const
 {
     if (mRocketChatAccount) {
-        return mRocketChatAccount->settings()->lastCheckedPreviewUrlCacheDate() != QDateTime::currentDateTime().date();
+        return mRocketChatAccount->settings()->lastCheckedPreviewUrlCacheDate() != mCurrentDate;
     }
     return true;
 }
@@ -46,14 +46,13 @@ bool PreviewUrlCacheManager::needToCheck() const
 void PreviewUrlCacheManager::saveLastCheckedDateTime()
 {
     if (mRocketChatAccount) {
-        mRocketChatAccount->settings()->setLastCheckedPreviewUrlCacheDate(QDateTime::currentDateTime().date());
+        mRocketChatAccount->settings()->setLastCheckedPreviewUrlCacheDate(mCurrentDate);
     }
 }
 
 void PreviewUrlCacheManager::checkCache()
 {
     if (needToCheck()) {
-        const QDateTime currentDateTime = QDateTime::currentDateTime();
         if (mCachePath.isEmpty()) {
             qCWarning(RUQOLA_PREVIEWURLCACHE_LOG) << "mCachePath is empty it's a bug!!! ";
             return;
@@ -64,7 +63,7 @@ void PreviewUrlCacheManager::checkCache()
         // qDebug() << " infoLists-- " << infoLists.count() << infoLists;
         for (const QFileInfo &info : infoLists) {
             // qDebug() << " info " << info << "  info.birthTime() " << info.birthTime();
-            if (info.lastModified().addDays(mEmbedCacheExpirationDays) < currentDateTime) {
+            if (info.lastModified().date().addDays(mEmbedCacheExpirationDays) < mCurrentDate) {
                 const QString filePath{info.filePath()};
                 if (!QFile::remove(filePath)) {
                     qCWarning(RUQOLA_PREVIEWURLCACHE_LOG) << "Impossible to remove " << filePath;
@@ -76,6 +75,16 @@ void PreviewUrlCacheManager::checkCache()
 
     // Reactivate check each day
     QTimer::singleShot(24h, this, &PreviewUrlCacheManager::checkCache);
+}
+
+QDate PreviewUrlCacheManager::currentDate() const
+{
+    return mCurrentDate;
+}
+
+void PreviewUrlCacheManager::setCurrentDate(const QDate &newCurrentDateTime)
+{
+    mCurrentDate = newCurrentDateTime;
 }
 
 QString PreviewUrlCacheManager::cachePath() const
