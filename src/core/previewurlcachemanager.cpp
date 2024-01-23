@@ -61,10 +61,10 @@ void PreviewUrlCacheManager::checkCache()
         }
         QDir dir(mCachePath);
         const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
-        qDebug() << " cachePath " << mCachePath;
-        qDebug() << " infoLists-- " << infoLists.count() << infoLists;
+        // qDebug() << " cachePath " << mCachePath;
+        // qDebug() << " infoLists-- " << infoLists.count() << infoLists;
         for (const QFileInfo &info : infoLists) {
-            qDebug() << " info " << info << "  info.birthTime() " << info.birthTime();
+            // qDebug() << " info " << info << "  info.birthTime() " << info.birthTime();
             if (info.birthTime().addDays(mEmbedCacheExpirationDays) < currentDateTime) {
                 if (!QFile::remove(info.path())) {
                     qCWarning(RUQOLA_PREVIEWURLCACHE_LOG) << "Impossible to remove " << info.path();
