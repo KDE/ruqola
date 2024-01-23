@@ -62,7 +62,6 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     if (name.isEmpty()) {
         // nameWidth = fontMetrics.horizontalAdvance(userName);
         painter->drawText(xPos + margin, defaultCharHeight, userName);
-        // xPos += nameWidth;
     } else {
         nameWidth = fontMetrics.horizontalAdvance(name);
         painter->drawText(xPos + margin, defaultCharHeight, name);
@@ -72,7 +71,6 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
             // fontMetrics = QFontMetrics(oldFont);
             // nameWidth = fontMetrics.horizontalAdvance(userName);
             painter->drawText(xPos + margin * 2, defaultCharHeight, userName);
-            // xPos += nameWidth;
         }
     }
     painter->setFont(oldFont);
