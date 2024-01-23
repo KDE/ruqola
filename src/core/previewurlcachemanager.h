@@ -23,9 +23,9 @@ public:
     void setCachePath(const QString &newCachePath);
 
 private:
-    void saveLastCheckedDateTime();
-    [[nodiscard]] bool needToCheck() const;
-    void checkCache();
+    LIBRUQOLACORE_NO_EXPORT void saveLastCheckedDateTime();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool needToCheck() const;
+    LIBRUQOLACORE_NO_EXPORT void checkCache();
     QString mCachePath;
     int mEmbedCacheExpirationDays = -1;
     RocketChatAccount *const mRocketChatAccount;
