@@ -41,7 +41,9 @@ public:
         State sidebarShowUnread = Unknown;
         State sidebarShowFavorites = Unknown;
         State receiveLoginDetectionEmail = Unknown;
+        State enableAutoAway = Unknown;
         QString sidebarSortby;
+        int idleTimeLimit = -1;
         // Add more
     };
 
