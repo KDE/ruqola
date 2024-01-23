@@ -5,7 +5,6 @@
 */
 
 #include "previewurlcachemanager.h"
-#include "managerdatapaths.h"
 #include "rocketchataccount.h"
 #include "ruqola_previewurlcache_debug.h"
 #include <KConfigGroup>
