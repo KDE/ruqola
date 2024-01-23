@@ -36,6 +36,9 @@ private:
     QCheckBox *const mHideRoles;
     QCheckBox *const mDisplayAvatars;
     QCheckBox *const mReceiveLoginDetectionEmails;
+
+    QCheckBox *const mAutomaticAway;
+
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };

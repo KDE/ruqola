@@ -94,6 +94,11 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mReceiveLoginDetectionEmails->isChecked()); // False by default as we didn't load values yet
     QVERIFY(!mReceiveLoginDetectionEmails->text().isEmpty());
     QVERIFY(!mReceiveLoginDetectionEmails->toolTip().isEmpty());
+
+    auto mAutomaticAway = w.findChild<QCheckBox *>(QStringLiteral("mAutomaticAway"));
+    QVERIFY(mAutomaticAway);
+    QVERIFY(!mAutomaticAway->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mAutomaticAway->text().isEmpty());
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"

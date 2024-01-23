@@ -31,6 +31,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mHideRoles(new QCheckBox(i18n("Hide roles"), this))
     , mDisplayAvatars(new QCheckBox(i18n("Display avatars"), this))
     , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
+    , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mRocketChatAccount(account)
 {
     mUseEmojis->setObjectName(QStringLiteral("mUseEmojis"));
@@ -90,6 +91,12 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     connect(mHideRoles, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mDisplayAvatars);
     connect(mDisplayAvatars, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+
+    mainLayout->addWidget(new KSeparator(this));
+
+    mAutomaticAway->setObjectName(QStringLiteral("mAutomaticAways"));
+    connect(mAutomaticAway, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mAutomaticAway);
 
     QWidget *downloadWidget = new QWidget;
     downloadWidget->setObjectName(QStringLiteral("downloadWidget"));
