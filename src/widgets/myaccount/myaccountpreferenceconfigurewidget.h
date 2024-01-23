@@ -13,6 +13,7 @@ class QLineEdit;
 class QComboBox;
 class QCheckBox;
 class RocketChatAccount;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ private:
     QCheckBox *const mHideRoles;
     QCheckBox *const mDisplayAvatars;
     QCheckBox *const mReceiveLoginDetectionEmails;
+    QSpinBox *const mIdleTimeLimit;
 
     QCheckBox *const mAutomaticAway;
 

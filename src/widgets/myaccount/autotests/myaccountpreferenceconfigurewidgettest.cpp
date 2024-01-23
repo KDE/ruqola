@@ -11,6 +11,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
@@ -99,6 +100,15 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAutomaticAway);
     QVERIFY(!mAutomaticAway->isChecked()); // False by default as we didn't load values yet
     QVERIFY(!mAutomaticAway->text().isEmpty());
+
+    auto idleTimeLimitLabel = w.findChild<QLabel *>(QStringLiteral("idleTimeLimitLabel"));
+    QVERIFY(idleTimeLimitLabel);
+    QCOMPARE(idleTimeLimitLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!idleTimeLimitLabel->text().isEmpty());
+
+    auto mIdleTimeLimit = w.findChild<QSpinBox *>(QStringLiteral("mIdleTimeLimit"));
+    QVERIFY(mIdleTimeLimit);
+    QVERIFY(!mIdleTimeLimit->toolTip().isEmpty());
 }
 
 #include "moc_myaccountpreferenceconfigurewidgettest.cpp"

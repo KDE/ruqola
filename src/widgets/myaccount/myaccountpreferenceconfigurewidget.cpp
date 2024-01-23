@@ -18,6 +18,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketChatAccount *account, QWidget *parent)
@@ -31,6 +32,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mHideRoles(new QCheckBox(i18n("Hide roles"), this))
     , mDisplayAvatars(new QCheckBox(i18n("Display avatars"), this))
     , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
+    , mIdleTimeLimit(new QSpinBox(this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
     , mRocketChatAccount(account)
 {
@@ -97,6 +99,16 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mAutomaticAway->setObjectName(QStringLiteral("mAutomaticAways"));
     connect(mAutomaticAway, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mAutomaticAway);
+
+    auto idleTimeLimitLabel = new QLabel(i18n("Idle Time Limit:"), this);
+    idleTimeLimitLabel->setObjectName(QStringLiteral("idleTimeLimitLabel"));
+    idleTimeLimitLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(idleTimeLimitLabel);
+
+    mIdleTimeLimit->setObjectName(QStringLiteral("mIdleTimeLimit"));
+    mIdleTimeLimit->setToolTip(i18n("Period of time until status changes to away. Value needs to be in seconds."));
+    connect(mIdleTimeLimit, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mIdleTimeLimit);
 
     QWidget *downloadWidget = new QWidget;
     downloadWidget->setObjectName(QStringLiteral("downloadWidget"));
