@@ -106,6 +106,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(idleTimeLimitLabel);
 
     mIdleTimeLimit->setObjectName(QStringLiteral("mIdleTimeLimit"));
+    mIdleTimeLimit->setMaximum(9999);
     mIdleTimeLimit->setToolTip(i18n("Period of time until status changes to away. Value needs to be in seconds."));
     connect(mIdleTimeLimit, &QSpinBox::valueChanged, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mIdleTimeLimit);
@@ -220,6 +221,8 @@ void MyAccountPreferenceConfigureWidget::save()
         info.hideRoles = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mHideRoles->isChecked());
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
+        info.idleTimeLimit = mIdleTimeLimit->value();
+        info.enableAutoAway = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mAutomaticAway->isChecked());
         if (mRocketChatAccount) {
             if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
                 if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
@@ -245,6 +248,8 @@ void MyAccountPreferenceConfigureWidget::load()
     mDisplayAvatars->setChecked(ownUserPreferences.displayAvatars());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
     mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
+    mIdleTimeLimit->setValue(ownUserPreferences.idleTimeLimit());
+    mAutomaticAway->setChecked(ownUserPreferences.enableAutoAway());
     mChanged = false;
 }
 
