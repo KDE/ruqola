@@ -32,7 +32,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         qDebug() << " cccccccccccccccc";
     }
-    qDebug() << " change date : " << file.setFileTime(QDateTime(QDate(2024, 1, 1), QTime(1, 1, 1)), QFileDevice::FileAccessTime);
+    qDebug() << " change date : " << file.setFileTime(QDateTime(QDate(2024, 1, 1), QTime(1, 1, 1)), QFileDevice::FileBirthTime);
     file.close();
 
     QDir dir(cachePath);
