@@ -7,7 +7,7 @@
 #include "previewurlcachemanager.h"
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"
-#include "ruqola_debug.h"
+#include "ruqola_previewurlcache_debug.h"
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QDir>
@@ -56,7 +56,7 @@ void PreviewUrlCacheManager::checkCache()
     if (needToCheck()) {
         const QDateTime currentDateTime = QDateTime::currentDateTime();
         if (mCachePath.isEmpty()) {
-            qCWarning(RUQOLA_LOG) << "mCachePath is empty it's a bug!!! ";
+            qCWarning(RUQOLA_PREVIEWURLCACHE_LOG) << "mCachePath is empty it's a bug!!! ";
             return;
         }
         QDir dir(mCachePath);
@@ -67,7 +67,7 @@ void PreviewUrlCacheManager::checkCache()
             qDebug() << " info " << info << "  info.birthTime() " << info.birthTime();
             if (info.birthTime().addDays(mEmbedCacheExpirationDays) < currentDateTime) {
                 if (!QFile::remove(info.path())) {
-                    qCWarning(RUQOLA_LOG) << "Impossible to remove " << info.path();
+                    qCWarning(RUQOLA_PREVIEWURLCACHE_LOG) << "Impossible to remove " << info.path();
                 }
             }
         }
