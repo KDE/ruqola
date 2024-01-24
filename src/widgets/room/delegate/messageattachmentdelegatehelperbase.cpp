@@ -171,15 +171,23 @@ MessageDelegateHelperBase::DocumentDescriptionInfo
 MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const
 {
     MessageDelegateHelperBase::DocumentDescriptionInfo info;
-    info.documentId = documendIdPrefix() + msgAttach.attachmentId();
+    info.documentId = documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType::Description) + msgAttach.attachmentId();
     info.description = msgAttach.description();
     info.width = width;
     return info;
 }
 
-QString MessageAttachmentDelegateHelperBase::documendIdPrefix() const
+QString MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type) const
 {
-    return QLatin1String("description_");
+    switch (type) {
+    case MessageAttachmentDelegateHelperBase::DocumentIdType::Unknown:
+        return {};
+    case MessageAttachmentDelegateHelperBase::DocumentIdType::Title:
+        return QLatin1String("title_");
+    case MessageAttachmentDelegateHelperBase::DocumentIdType::Description:
+        return QLatin1String("description_");
+    }
+    return {};
 }
 
 bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,

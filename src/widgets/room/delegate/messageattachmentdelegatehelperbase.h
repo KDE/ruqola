@@ -83,6 +83,12 @@ protected:
                                                                                                                 int width) const;
 
 private:
-    [[nodiscard]] QString documendIdPrefix() const;
+    enum class DocumentIdType : int {
+        Unknown = 0,
+        Title,
+        Description,
+    };
+
+    [[nodiscard]] QString documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
     QPersistentModelIndex mCurrentIndex;
 };
