@@ -34,7 +34,7 @@ Q_SIGNALS:
     void fileLanguagesParseFailed();
 
 private:
-    [[nodiscard]] QString storedFileName() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString storedFileName() const;
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QByteArray &data);
     LIBRUQOLACORE_NO_EXPORT void parseLanguageFile();
     QString mAccountName;

@@ -36,10 +36,10 @@ public:
     [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
-    const QVector<CustomSoundInfo> &customSoundInfos() const;
+    [[nodiscard]] const QVector<CustomSoundInfo> &customSoundInfos() const;
     void setCustomSoundInfos(const QVector<CustomSoundInfo> &newCustomSoundInfos);
 
-    CustomSoundInfo takeAt(int index);
+    [[nodiscard]] CustomSoundInfo takeAt(int index);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListCustomSound(const QJsonObject &obj);

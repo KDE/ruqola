@@ -29,6 +29,6 @@ public:
     [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
 
 protected:
-    [[nodiscard]] QString schemaDataBase() const override;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString schemaDataBase() const override;
 };
 Q_DECLARE_METATYPE(GlobalDatabase::TimeStampType)
