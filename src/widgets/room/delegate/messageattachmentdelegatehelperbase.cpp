@@ -171,10 +171,15 @@ MessageDelegateHelperBase::DocumentDescriptionInfo
 MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const
 {
     MessageDelegateHelperBase::DocumentDescriptionInfo info;
-    info.documentId = msgAttach.attachmentId();
+    info.documentId = documendIdPrefix() + msgAttach.attachmentId();
     info.description = msgAttach.description();
     info.width = width;
     return info;
+}
+
+QString MessageAttachmentDelegateHelperBase::documendIdPrefix() const
+{
+    return QLatin1String("description_");
 }
 
 bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,

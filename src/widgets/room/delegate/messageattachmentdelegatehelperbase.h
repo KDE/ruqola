@@ -83,5 +83,6 @@ protected:
                                                                                                                 int width) const;
 
 private:
+    [[nodiscard]] QString documendIdPrefix() const;
     QPersistentModelIndex mCurrentIndex;
 };
