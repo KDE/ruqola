@@ -147,6 +147,10 @@ int MessageAttachmentDelegateHelperBase::charPosition(const QTextDocument *doc,
     return charPos;
 }
 
+void MessageAttachmentDelegateHelperBase::drawTitle(const MessageAttachment &msgAttach, QPainter *painter)
+{
+}
+
 void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
                                                           QRect descriptionRect,
                                                           QPainter *painter,
@@ -167,11 +171,23 @@ QTextDocument *MessageAttachmentDelegateHelperBase::documentForAttachement(const
     return documentDescriptionForIndex(convertAttachmentToDocumentDescriptionInfo(msgAttach, -1));
 }
 
+MessageDelegateHelperBase::DocumentDescriptionInfo MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach,
+                                                                                                                             int width) const
+{
+    return convertAttachmentToDocumentTypeInfo(MessageAttachmentDelegateHelperBase::DocumentIdType::Title, msgAttach, width);
+}
+
 MessageDelegateHelperBase::DocumentDescriptionInfo
 MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach, int width) const
 {
+    return convertAttachmentToDocumentTypeInfo(MessageAttachmentDelegateHelperBase::DocumentIdType::Description, msgAttach, width);
+}
+
+MessageDelegateHelperBase::DocumentDescriptionInfo
+MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const
+{
     MessageDelegateHelperBase::DocumentDescriptionInfo info;
-    info.documentId = documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType::Description) + msgAttach.attachmentId();
+    info.documentId = documendIdPrefix(type) + msgAttach.attachmentId();
     info.description = msgAttach.description();
     info.width = width;
     return info;

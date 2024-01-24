@@ -35,6 +35,7 @@ void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAtta
                                                 const QStyleOptionViewItem &option) const
 {
     const SoundLayout layout = layoutSound(msgAttach, option, messageRect.width());
+    // drawTitle(msgAttach, painter, );
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     mPlayerVolumeIcon.paint(painter, layout.playerVolumeButtonRect.translated(messageRect.topLeft()));

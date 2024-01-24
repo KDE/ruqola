@@ -39,6 +39,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                                                 const QStyleOptionViewItem &option) const
 {
     const ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
+    // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     if (!layout.pixmap.isNull()) {

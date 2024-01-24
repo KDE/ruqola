@@ -78,9 +78,11 @@ protected:
      */
     [[nodiscard]] QTextDocument *documentForAttachement(const MessageAttachment &msgAttach) const override;
 
-protected:
     [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentDescriptionInfo(const MessageAttachment &msgAttach,
                                                                                                                 int width) const;
+
+    void drawTitle(const MessageAttachment &msgAttach, QPainter *painter);
+    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertAttachmentToDocumentTitleInfo(const MessageAttachment &msgAttach, int width) const;
 
 private:
     enum class DocumentIdType : int {
@@ -91,4 +93,6 @@ private:
 
     [[nodiscard]] QString documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
     QPersistentModelIndex mCurrentIndex;
+    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo
+    convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const;
 };
