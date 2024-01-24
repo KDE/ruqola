@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 01:38+0000\n"
+"POT-Creation-Date: 2024-01-24 01:36+0000\n"
 "PO-Revision-Date: 2024-01-19 12:16+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -739,7 +739,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:161
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:195
 #, kde-format
 msgid "Disabled"
 msgstr "Desactivat"
@@ -935,8 +935,8 @@ msgstr[1] "%1 segons"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:171
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
 #, kde-format
 msgid "Nothing"
 msgstr "Res"
@@ -972,15 +972,15 @@ msgid "Seasons"
 msgstr "Estacions"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:189
 #, kde-format
 msgid "All Messages"
 msgstr "Tots els missatges"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:185
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:190
 #, kde-format
 msgid "Mentions"
 msgstr "Mencions"
@@ -2296,7 +2296,7 @@ msgstr "L'estat invisible està desactivat"
 msgid "%1 is already in use."
 msgstr "%1 ja està en ús."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:143
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:149
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Paràmetres no vàlids"
@@ -7864,79 +7864,97 @@ msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Elimina el testimoni"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Use Emojis"
 msgstr "Usa els emojis"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Converteix els ASCII a Emoji"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, kde-format
 msgid "Hide roles"
 msgstr "Oculta els rols"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
 msgid "Display avatars"
 msgstr "Mostra els avatars"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "Rep els correus electrònics de detecció d'inici de sessió"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Enable Auto-Translate"
+msgid "Enable Auto Away"
+msgstr "Activa la traducció automàtica"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
 msgid "Highlight words:"
 msgstr "Ressalta les paraules:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:53
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Useu «,» per a separar paraules"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:54
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Separa cada paraula per «,»."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Notificació a l'escriptori:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:69
 #, kde-format
 msgid "Offline Email notification:"
 msgstr "Notificació de correu electrònic desconnectat:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
 #, kde-format
 msgid "Push notification:"
 msgstr "Notificació d'inserció:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:84
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Rebre un correu electrònic cada vegada que es detecti un inici de sessió nou "
 "en el vostre compte."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:107
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
+#, fuzzy, kde-format
+#| msgid "Idle Timeout (ms)"
+msgid "Idle Time Limit:"
+msgstr "Temps d'espera sense activitat (ms)"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
+#, kde-format
+msgid ""
+"Period of time until status changes to away. Value needs to be in seconds."
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Baixa les meves dades (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:134
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Exporta les meves dades (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:177
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -7945,12 +7963,12 @@ msgstr ""
 "Es generarà el fitxer amb les vostres dades. S'enviarà a la vostra adreça "
 "electrònica un enllaç per baixar-lo quan estigui llest."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
 #, kde-format
 msgid "Download File Requested"
 msgstr "S'ha sol·licitat la baixada del fitxer"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:194
 #, kde-format
 msgid "Each Mentions"
 msgstr "Cada menció"
