@@ -21,7 +21,7 @@ Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
 private:
-    NotificationHistoryWidget *const mNotificationHistoryWidget;
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    NotificationHistoryWidget *const mNotificationHistoryWidget;
 };
