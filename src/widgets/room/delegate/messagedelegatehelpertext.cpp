@@ -115,7 +115,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     // TODO add url ?
                     Utils::QuotedRichTextInfo info;
                     info.richText = contextString;
-                    text.prepend(Utils::formatQuotedRichText(info));
+                    text.prepend(Utils::formatQuotedRichText(std::move(info)));
                 }
             }
         }

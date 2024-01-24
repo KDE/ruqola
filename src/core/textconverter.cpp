@@ -379,7 +379,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
             info.url = url;
             info.richText = text;
             info.displayTime = (*it).dateTime();
-            quotedMessage = Utils::formatQuotedRichText(info);
+            quotedMessage = Utils::formatQuotedRichText(std::move(info));
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
             if (settings.messageCache) {
@@ -402,7 +402,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                     info.url = url;
                     info.richText = text;
                     info.displayTime = msg->dateTime();
-                    quotedMessage = Utils::formatQuotedRichText(info);
+                    quotedMessage = Utils::formatQuotedRichText(std::move(info));
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
                     qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one

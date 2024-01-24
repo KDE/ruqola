@@ -76,7 +76,7 @@ void ExportDataWizard::loadAccountInfo()
         ImportExportUtils::AccountImportExportInfo info;
         info.path = val;
         info.accountName = QFileInfo(val).dir().dirName();
-        lstAccountInfo.append(info);
+        lstAccountInfo.append(std::move(info));
     }
     mExportDataSelectAccountPage->setAccountList(lstAccountInfo);
 }

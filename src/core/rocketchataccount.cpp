@@ -823,7 +823,7 @@ QList<TextEmoticonsCore::CustomEmoji> RocketChatAccount::customEmojies() const
         TextEmoticonsCore::CustomEmoji custom;
         custom.setIdentifier(emoji.emojiIdentifier());
         custom.setIsAnimatedEmoji(emoji.isAnimatedImage());
-        mCustomEmojies.append(custom);
+        mCustomEmojies.append(std::move(custom));
     }
     return mCustomEmojies;
 }
