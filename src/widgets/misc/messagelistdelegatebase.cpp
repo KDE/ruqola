@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
+#include "textconverter.h"
 
 #include <QAbstractTextDocumentLayout>
 #include <QDrag>
@@ -196,6 +197,44 @@ void MessageListDelegateBase::setSearchText(const QString &newSearchText)
         mSearchText = newSearchText;
         clearCache();
     }
+}
+
+QTextDocument *MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const QString &messageId, const QString &messageStr, int width) const
+{
+    auto it = mDocumentCache.find(messageId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
+            ret->setTextWidth(width);
+        }
+        return ret;
+    }
+    if (messageStr.isEmpty()) {
+        return nullptr;
+    }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    QString needUpdateMessageId; // TODO use it ?
+    int maximumRecursiveQuotedText = -1;
+    if (rcAccount) {
+        maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();
+    }
+    const TextConverter::ConvertMessageTextSettings settings(messageStr,
+                                                             rcAccount ? rcAccount->userName() : QString(),
+                                                             {},
+                                                             rcAccount ? rcAccount->highlightWords() : QStringList(),
+                                                             rcAccount ? rcAccount->emojiManager() : nullptr,
+                                                             rcAccount ? rcAccount->messageCache() : nullptr,
+                                                             {},
+                                                             {},
+                                                             mSearchText,
+                                                             maximumRecursiveQuotedText);
+
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+    auto ret = doc.get();
+    mDocumentCache.insert(messageId, std::move(doc));
+    return ret;
 }
 
 #include "moc_messagelistdelegatebase.cpp"

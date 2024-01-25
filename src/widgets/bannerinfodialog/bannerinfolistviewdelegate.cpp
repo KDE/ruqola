@@ -178,46 +178,9 @@ QString BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) co
 QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString identifier = cacheIdentifier(index);
-
-    auto it = mDocumentCache.find(identifier);
-    if (it != mDocumentCache.end()) {
-        auto ret = it->value.get();
-        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
-            ret->setTextWidth(width);
-        }
-        return ret;
-    }
-
+    const QString messageId = cacheIdentifier(index);
     const QString messageBannerStr = index.data(BannerInfosModel::Text).toString();
-
-    if (messageBannerStr.isEmpty()) {
-        return nullptr;
-    }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
-    int maximumRecursiveQuotedText = -1;
-    if (mRocketChatAccount) {
-        maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
-    }
-    const TextConverter::ConvertMessageTextSettings settings(messageBannerStr,
-                                                             mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
-                                                             {},
-                                                             mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
-                                                             mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr,
-                                                             mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
-                                                             {},
-                                                             {},
-                                                             mSearchText,
-                                                             maximumRecursiveQuotedText);
-
-    int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    mDocumentCache.insert(identifier, std::move(doc));
-    return ret;
+    return documentForDelegate(mRocketChatAccount, messageId, messageBannerStr, width);
 }
 
 bool BannerInfoListViewDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

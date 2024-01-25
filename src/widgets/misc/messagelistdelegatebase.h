@@ -44,6 +44,7 @@ protected:
 
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
     [[nodiscard]] virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
+    [[nodiscard]] QTextDocument *documentForDelegate(RocketChatAccount *rcAccount, const QString &messageId, const QString &messageStr, int width) const;
 
     QString mSearchText;
 };

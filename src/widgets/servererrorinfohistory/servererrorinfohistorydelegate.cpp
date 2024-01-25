@@ -166,30 +166,9 @@ QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QMode
 {
     Q_ASSERT(index.isValid());
     const QString identifier = cacheIdentifier(index);
-    Q_ASSERT(!identifier.isEmpty());
-    auto it = mDocumentCache.find(identifier);
-    if (it != mDocumentCache.end()) {
-        auto ret = it->value.get();
-        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
-            ret->setTextWidth(width);
-        }
-        return ret;
-    }
-
     const QString messageStr = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
 
-    if (messageStr.isEmpty()) {
-        return nullptr;
-    }
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
-    const TextConverter::ConvertMessageTextSettings settings(messageStr, {}, {}, QStringList(), nullptr, nullptr, {}, {}, mSearchText);
-    int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    mDocumentCache.insert(identifier, std::move(doc));
-    return ret;
+    return documentForDelegate(nullptr, identifier, messageStr, width);
 }
 
 bool ServerErrorInfoHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)

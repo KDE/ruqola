@@ -226,45 +226,9 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
 {
     Q_ASSERT(index.isValid());
     const QString messageId = cacheIdentifier(index);
-
-    auto it = mDocumentCache.find(messageId);
-    if (it != mDocumentCache.end()) {
-        auto ret = it->value.get();
-        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
-            ret->setTextWidth(width);
-        }
-        return ret;
-    }
-
     const QString messageStr = index.data(NotificationHistoryModel::MessageStr).toString();
-
-    if (messageStr.isEmpty()) {
-        return nullptr;
-    }
     auto *rcAccount = rocketChatAccount(index);
-    // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
-    int maximumRecursiveQuotedText = -1;
-    if (rcAccount) {
-        maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();
-    }
-    const TextConverter::ConvertMessageTextSettings settings(messageStr,
-                                                             rcAccount ? rcAccount->userName() : QString(),
-                                                             {},
-                                                             rcAccount ? rcAccount->highlightWords() : QStringList(),
-                                                             rcAccount ? rcAccount->emojiManager() : nullptr,
-                                                             rcAccount ? rcAccount->messageCache() : nullptr,
-                                                             {},
-                                                             {},
-                                                             mSearchText,
-                                                             maximumRecursiveQuotedText);
-
-    int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
-    auto ret = doc.get();
-    mDocumentCache.insert(messageId, std::move(doc));
-    return ret;
+    return documentForDelegate(rcAccount, messageId, messageStr, width);
 }
 
 bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
