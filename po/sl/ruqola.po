@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 01:36+0000\n"
-"PO-Revision-Date: 2024-01-23 09:23+0100\n"
+"POT-Creation-Date: 2024-01-25 01:35+0000\n"
+"PO-Revision-Date: 2024-01-24 09:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7125,7 +7125,7 @@ msgid "Display Image"
 msgstr "Pokaži sliko"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:249
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiraj sliko na odložišče"
@@ -7878,10 +7878,9 @@ msgid "Receive login detection emails"
 msgstr "Sprejemaj elektronska sporočila o zaznavi prijav"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
+#, kde-format
 msgid "Enable Auto Away"
-msgstr "Omogoči samodejno prevajanje"
+msgstr "Omogoči samodejno odsotnost"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -7891,12 +7890,12 @@ msgstr "Poudari besede:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:53
 #, kde-format
 msgid "Use ',' for separating words"
-msgstr "Uporabi »,« za ločevanje besed"
+msgstr "Uporabi ',' za ločevanje besed"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:54
 #, kde-format
 msgid "Separate each word with ','."
-msgstr "Ločite vsako besedo z »,«."
+msgstr "Ločite vsako besedo z ','."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
 #, kde-format
@@ -7921,16 +7920,15 @@ msgstr ""
 "računu."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Idle Timeout (ms)"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "Časovni rok nedejavnosti (ms)"
+msgstr "Časovni rok nedejavnosti:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
-msgstr ""
+msgstr "Čas do spremembe stanja v odsotnega. Vrednost mora biti v sekundah."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format

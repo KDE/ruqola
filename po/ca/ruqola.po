@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 01:36+0000\n"
-"PO-Revision-Date: 2024-01-19 12:16+0100\n"
+"POT-Creation-Date: 2024-01-25 01:35+0000\n"
+"PO-Revision-Date: 2024-01-24 10:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7144,7 +7144,7 @@ msgid "Display Image"
 msgstr "Mostra una imatge"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:249
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copia la imatge al porta-retalls"
@@ -7890,10 +7890,9 @@ msgid "Receive login detection emails"
 msgstr "Rep els correus electrònics de detecció d'inici de sessió"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
+#, kde-format
 msgid "Enable Auto Away"
-msgstr "Activa la traducció automàtica"
+msgstr "Activa l'absència automàtica"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -7933,16 +7932,17 @@ msgstr ""
 "en el vostre compte."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Idle Timeout (ms)"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "Temps d'espera sense activitat (ms)"
+msgstr "Límit del temps d'espera sense activitat:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
+"Període de temps fins que l'estat canvia a absent. El valor ha de ser en "
+"segons."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format

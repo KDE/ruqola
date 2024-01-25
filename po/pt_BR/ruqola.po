@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 01:36+0000\n"
+"POT-Creation-Date: 2024-01-25 01:35+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7284,7 +7284,7 @@ msgid "Display Image"
 msgstr "Exibir imagem"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:249
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copiar imagem para a área de transferência"

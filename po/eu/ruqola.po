@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 01:36+0000\n"
+"POT-Creation-Date: 2024-01-25 01:35+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -7039,7 +7039,7 @@ msgid "Display Image"
 msgstr ""
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:249
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiatu irudia arbelera"

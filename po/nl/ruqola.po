@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-24 01:36+0000\n"
-"PO-Revision-Date: 2024-01-19 11:23+0100\n"
+"POT-Creation-Date: 2024-01-25 01:35+0000\n"
+"PO-Revision-Date: 2024-01-24 10:49+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7149,7 +7149,7 @@ msgid "Display Image"
 msgstr "Afbeelding tonen"
 
 #: widgets/dialogs/showimagedialog.cpp:41
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:248
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:249
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Afbeelding naar klembord kopiëren"
@@ -7894,10 +7894,9 @@ msgid "Receive login detection emails"
 msgstr "E-mails over aanmelddetectie ontvangen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
+#, kde-format
 msgid "Enable Auto Away"
-msgstr "Automatisch vertalen inschakelen"
+msgstr "Automatisch weg zijn inschakelen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -7937,16 +7936,16 @@ msgstr ""
 "wordt gedetecteerd."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Idle Timeout (ms)"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "Timeout van inactief (ms)"
+msgstr "Tijdslimiet van inactief:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
+"Tijdsperiode totdat de status wijzigt naar weg zijn. Waarde moet in seconden."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format
