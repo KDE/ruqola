@@ -83,7 +83,11 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     Room *r = mRoomsList.at(index.row());
 
     if (role == Qt::DisplayRole) {
-        return r->displayFName();
+        if (!r->parentRid().isEmpty()) {
+            return r->fName();
+        } else {
+            return r->name();
+        }
     }
 
     switch (role) {
@@ -428,7 +432,11 @@ RoomModel::Section RoomModel::section(Room *r) const
         }
     }
     case Room::RoomType::Channel: {
-        return Section::Rooms;
+        if (r->parentRid().isEmpty()) {
+            return Section::Rooms;
+        } else {
+            return Section::Discussions;
+        }
     }
     case Room::RoomType::Direct: {
         return Section::PrivateMessages;
