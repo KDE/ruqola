@@ -7,7 +7,6 @@
 #include "rocketchatcache.h"
 #include "avatarmanager.h"
 #include "connection.h"
-#include "managerdatapaths.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <QDateTime>
