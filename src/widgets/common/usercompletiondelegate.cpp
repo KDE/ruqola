@@ -40,7 +40,7 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const Utils::AvatarInfo info = index.data(UserCompleterModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, info, option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, info, option.rect.height());
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
             xPos = margin + option.rect.height();

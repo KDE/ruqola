@@ -81,7 +81,7 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
             downScaled.setDevicePixelRatio(dpr);
             cache.insertCachedPixmap(emojiStr, downScaled);
         } else {
-            return makeAvatarUrlPixmap(widget, info, maxHeight);
+            return makeAvatarPixmap(widget, info, maxHeight);
         }
     }
     return downScaled;
@@ -92,7 +92,13 @@ void AvatarCacheManager::clearCache()
     mAvatarCache.cache.clear();
 }
 
-QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
+QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QUrl &url, int maxHeight) const
+{
+    // TODO
+    return {};
+}
+
+QPixmap AvatarCacheManager::makeAvatarPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
 {
     const QString iconUrlStr = mRocketChatAccount->avatarUrl(info);
     if (iconUrlStr.isEmpty()) {

@@ -187,7 +187,7 @@ QPixmap ListDiscussionDelegate::makeAvatarPixmap(const QWidget *widget, const QM
     info.avatarType = Utils::AvatarType::User;
     info.identifier = index.data(DiscussionsModel::UserName).toString();
 
-    return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
+    return mAvatarCacheManager->makeAvatarPixmap(widget, info, maxHeight);
 }
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

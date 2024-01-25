@@ -187,5 +187,5 @@ QPixmap MessageDelegateHelperConferenceVideo::makeAvatarPixmap(const QString &id
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = identifier;
-    return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
+    return mAvatarCacheManager->makeAvatarPixmap(widget, info, maxHeight);
 }
