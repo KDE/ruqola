@@ -61,7 +61,7 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
         painter->setBrush(origBrush);
         painter->setPen(origPen);
         const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - layout.joinButtonTextSize.width()) / 2, 0, 0, 0);
-        painter->drawText(r, layout.joinButtonText);
+        painter->drawText(r, i18n("Join"));
     }
 
     // Draw avatars!
@@ -155,8 +155,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     // Join Button
     layout.canJoin = block.videoConferenceInfo().canJoin();
     if (layout.canJoin) {
-        layout.joinButtonText = i18n("Join");
-        layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
+        layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, i18n("Join"));
         layout.joinButtonRect =
             QRect(0, layout.infoButtonRect.height() + DelegatePaintUtil::margin(), layout.joinButtonTextSize.width() * 2, layout.joinButtonTextSize.height());
     }

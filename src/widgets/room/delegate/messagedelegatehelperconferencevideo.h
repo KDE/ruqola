@@ -48,7 +48,6 @@ private:
         QString title;
         QSize titleSize;
         QRect infoButtonRect;
-        QString joinButtonText;
         QSize joinButtonTextSize;
         QRect joinButtonRect;
         bool canJoin = false;
