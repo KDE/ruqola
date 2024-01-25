@@ -53,7 +53,17 @@ bool MessageListLayoutBase::sameSenderAsPreviousMessage(const QModelIndex &index
 QString MessageListLayoutBase::senderText(const Message *message) const
 {
     if (mRocketChatAccount) {
-        return QLatin1Char('@') + (mRocketChatAccount->useRealName() && !message->name().isEmpty() ? message->name() : message->username());
+        QString displayName;
+        if (mRocketChatAccount->useRealName() && !message->name().isEmpty()) {
+            displayName = message->name();
+        } else {
+            if (!message->alias().isEmpty()) {
+                displayName = message->alias();
+            } else {
+                displayName = message->username();
+            }
+        }
+        return QLatin1Char('@') + displayName;
     } else {
         return QLatin1Char('@') + message->username();
     }
