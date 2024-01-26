@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 01:35+0000\n"
+"POT-Creation-Date: 2024-01-26 01:39+0000\n"
 "PO-Revision-Date: 2024-01-20 19:03+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -813,7 +813,7 @@ msgstr "Tipo de canal"
 msgid "Belongs To"
 msgstr "Pertenece a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:531
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1016,55 +1016,55 @@ msgstr "Autenticación de dos factores"
 msgid "Last token part"
 msgstr "Última parte del símbolo"
 
-#: core/model/roommodel.cpp:453
+#: core/model/roommodel.cpp:461
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala de Equipos"
 
-#: core/model/roommodel.cpp:459
+#: core/model/roommodel.cpp:467
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:469
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de la discusión"
 
-#: core/model/roommodel.cpp:465
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala del canal"
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:533
 #, kde-format
 msgid "Unread"
 msgstr "No leído"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:529
+#: core/model/roommodel.cpp:537
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Equipos"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discusiones"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensajes privados"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"
@@ -8244,6 +8244,7 @@ msgstr "Gu&ardar como..."
 msgid "Save File"
 msgstr "Guardar archivo"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:64
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format
 msgid "Join"
@@ -8254,48 +8255,48 @@ msgstr "Unirse"
 msgid "Link Preview"
 msgstr "Vista previa del enlace"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:388
+#: widgets/room/delegate/messagelistdelegate.cpp:389
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Información del usuario"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:397
+#: widgets/room/delegate/messagelistdelegate.cpp:398
 #: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Iniciar una conversación privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:601
+#: widgets/room/delegate/messagelistdelegate.cpp:602
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 respuesta"
 msgstr[1] "%1 respuestas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:611
+#: widgets/room/delegate/messagelistdelegate.cpp:612
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensaje"
 msgstr[1] "%1 mensajes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:611
+#: widgets/room/delegate/messagelistdelegate.cpp:612
 #, kde-format
 msgid "No message yet"
 msgstr "Ningún mensaje todavía"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:896
+#: widgets/room/delegate/messagelistdelegate.cpp:897
 #, kde-format
 msgid "Following"
 msgstr "Siguiendo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:900
+#: widgets/room/delegate/messagelistdelegate.cpp:901
 #, kde-format
 msgid "Message has been pinned"
 msgstr "El mensaje ha sido fijado"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:904
+#: widgets/room/delegate/messagelistdelegate.cpp:905
 #, kde-format
 msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"

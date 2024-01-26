@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 01:35+0000\n"
+"POT-Creation-Date: 2024-01-26 01:39+0000\n"
 "PO-Revision-Date: 2024-01-24 08:40+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -814,7 +814,7 @@ msgstr "Тип каналу"
 msgid "Belongs To"
 msgstr "Належить"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:531
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1019,55 +1019,55 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:453
+#: core/model/roommodel.cpp:461
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:459
+#: core/model/roommodel.cpp:467
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:469
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:465
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:533
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:527
+#: core/model/roommodel.cpp:535
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:529
+#: core/model/roommodel.cpp:537
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:543
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:545
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -8293,6 +8293,7 @@ msgstr "Зберегти &як…"
 msgid "Save File"
 msgstr "Збереження файла"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:64
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
 #, kde-format
 msgid "Join"
@@ -8303,19 +8304,19 @@ msgstr "Приєднатися"
 msgid "Link Preview"
 msgstr "Перегляд посилань"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:388
+#: widgets/room/delegate/messagelistdelegate.cpp:389
 #: widgets/room/messagelistview.cpp:378 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:397
+#: widgets/room/delegate/messagelistdelegate.cpp:398
 #: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Почати конфіденційне спілкування"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:601
+#: widgets/room/delegate/messagelistdelegate.cpp:602
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8324,7 +8325,7 @@ msgstr[1] "%1 відповіді"
 msgstr[2] "%1 відповідей"
 msgstr[3] "%1 відповідь"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:611
+#: widgets/room/delegate/messagelistdelegate.cpp:612
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8333,22 +8334,22 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:611
+#: widgets/room/delegate/messagelistdelegate.cpp:612
 #, kde-format
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:896
+#: widgets/room/delegate/messagelistdelegate.cpp:897
 #, kde-format
 msgid "Following"
 msgstr "Стеження"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:900
+#: widgets/room/delegate/messagelistdelegate.cpp:901
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Повідомлення пришпилено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:904
+#: widgets/room/delegate/messagelistdelegate.cpp:905
 #, kde-format
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
