@@ -42,7 +42,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
     painter->setPen(lightColor);
     QFont italicFont = oldFont;
     italicFont.setItalic(true);
-    italicFont.setBold(true);
+    // italicFont.setBold(true);
     painter->setFont(italicFont);
     painter->drawText(previewRect.x(), previewRect.y() + option.fontMetrics.ascent(), layout.previewTitle);
     painter->setFont(oldFont);
