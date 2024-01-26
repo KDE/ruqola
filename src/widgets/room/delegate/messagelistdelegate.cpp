@@ -415,11 +415,11 @@ void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &opti
                                                 const MessageListDelegate::MenuInfo &info,
                                                 QMenu *menu)
 {
-    const MessageListLayoutBase::Layout layout = doLayout(option, index);
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (!message) {
         return;
     }
+    const MessageListLayoutBase::Layout layout = doLayout(option, index);
     const auto attachments = message->attachments();
     int i = 0;
     for (const MessageAttachment &msgAttach : attachments) {
@@ -586,7 +586,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
                 // qDebug() << "messageUrl  " << messageUrl;
                 mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
             }
-            messageUrlIndex++;
+            ++messageUrlIndex;
         }
     }
 
@@ -606,8 +606,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Discussion
     if (!message->discussionRoomId().isEmpty()) {
         const QColor oldColor = painter->pen().color();
-        const QString discussionsText =
-            (message->discussionCount() > 0) ? i18np("1 message", "%1 messages", message->discussionCount()) : i18n("No message yet");
+        const int discussionCount{message->discussionCount()};
+        const QString discussionsText = (discussionCount > 0) ? i18np("1 message", "%1 messages", discussionCount) : i18n("No message yet");
         painter->setPen(mOpenDiscussionColorMode);
         painter->drawText(layout.usableRect.x(), layout.repliesY + layout.repliesHeight + option.fontMetrics.ascent(), discussionsText);
         // Note: pen still blue, currently relying on restore()
