@@ -249,7 +249,7 @@ QString RocketChatCache::recordingVideoPath(const QString &accountName) const
 {
     const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Video, accountName);
     if (!QDir().mkpath(path)) {
-        qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
+        qCWarning(RUQOLA_LOG) << "Unable to create video folder: " << path;
         return {};
     }
     const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".mp4");
@@ -260,7 +260,7 @@ QString RocketChatCache::recordingImagePath(const QString &accountName) const
 {
     const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Picture, accountName);
     if (!QDir().mkpath(path)) {
-        qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
+        qCWarning(RUQOLA_LOG) << "Unable to create picture folder: " << path;
         return {};
     }
     const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".jpg");
