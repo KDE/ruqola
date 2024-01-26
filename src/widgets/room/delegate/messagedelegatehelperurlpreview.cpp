@@ -156,12 +156,11 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
-    const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
-
     const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewRect.width()));
     if (!doc) {
         return false;
     }
+    const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
 
     const QPoint pos =
         helpEvent->pos() - previewRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.previewTitleSize.height() + DelegatePaintUtil::margin());
@@ -302,9 +301,9 @@ bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUr
     if (!mTextSelectionImpl->mightStartDrag() || !previewsRect.contains(mouseEvent->pos())) {
         return false;
     }
-    const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
         const auto *doc = documentDescriptionForIndex(convertMessageUrlToDocumentDescriptionInfo(messageUrl, previewsRect.width()));
+        const QPoint pos = mouseEvent->pos() - previewsRect.topLeft();
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
             auto mimeData = new QMimeData;

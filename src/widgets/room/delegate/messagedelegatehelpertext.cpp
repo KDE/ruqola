@@ -257,8 +257,8 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
     if (!mTextSelectionImpl->mightStartDrag()) {
         return false;
     }
-    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
+        const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
         const auto *doc = documentForIndex(index, messageRect.width(), false);
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
