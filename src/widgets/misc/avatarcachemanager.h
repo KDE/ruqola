@@ -24,7 +24,7 @@ public:
 
     [[nodiscard]] QPixmap makeAvatarPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
     [[nodiscard]] QPixmap makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const;
-    [[nodiscard]] QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QUrl &url, int maxHeight) const;
+    [[nodiscard]] QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QString &url, int maxHeight) const;
 
     void clearCache();
 

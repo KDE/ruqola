@@ -1654,6 +1654,11 @@ void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl 
     mCache->downloadFile(downloadFileUrl, localFile);
 }
 
+QUrl RocketChatAccount::avatarUrlFromLocalCache(const QString &url)
+{
+    return mCache->avatarUrlFromLocalCache(url);
+}
+
 QUrl RocketChatAccount::faviconLogoUrlFromLocalCache(const QString &url)
 {
     return mCache->faviconLogoUrlFromLocalCache(url);

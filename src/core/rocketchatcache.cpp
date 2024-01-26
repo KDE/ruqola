@@ -112,6 +112,11 @@ QUrl RocketChatCache::faviconLogoUrlFromLocalCache(const QString &url)
     return urlFromLocalCache(url, false);
 }
 
+QUrl RocketChatCache::avatarUrlFromLocalCache(const QString &url)
+{
+    return urlFromLocalCache(url, false);
+}
+
 QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthentication, ManagerDataPaths::PathType type)
 {
     const QString cachePath = fileCachePath(QUrl(url), type);

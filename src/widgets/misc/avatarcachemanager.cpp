@@ -92,10 +92,31 @@ void AvatarCacheManager::clearCache()
     mAvatarCache.cache.clear();
 }
 
-QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QUrl &url, int maxHeight) const
+QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QString &url, int maxHeight) const
 {
-    // TODO
-    return {};
+    const QUrl iconUrlStr = mRocketChatAccount->previewUrlFromLocalCache(url);
+    if (iconUrlStr.isEmpty()) {
+        return {};
+    }
+
+    const auto dpr = checkIfNeededToClearCache(widget);
+
+    auto &cache = mAvatarCache.cache;
+
+    auto downScaled = cache.findCachedPixmap(iconUrlStr.toLocalFile());
+    if (downScaled.isNull()) {
+        const QUrl iconUrl(iconUrlStr);
+        Q_ASSERT(iconUrl.isLocalFile());
+        QPixmap fullScale;
+        if (!fullScale.load(iconUrl.toLocalFile())) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
+            return {};
+        }
+        downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
+        downScaled.setDevicePixelRatio(dpr);
+        cache.insertCachedPixmap(iconUrlStr.toLocalFile(), downScaled);
+    }
+    return downScaled;
 }
 
 QPixmap AvatarCacheManager::makeAvatarPixmap(const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const

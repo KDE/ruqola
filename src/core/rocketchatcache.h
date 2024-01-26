@@ -44,6 +44,7 @@ public:
     [[nodiscard]] bool attachmentIsInLocalCache(const QString &url);
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
+    [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
