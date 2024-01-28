@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 01:36+0000\n"
-"PO-Revision-Date: 2024-01-24 22:02+0300\n"
+"PO-Revision-Date: 2024-01-27 16:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -9302,7 +9302,5 @@ msgid "Fix list of authentication method."
 msgstr "Kimlik doğrulama yöntemi listesini düzelt."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "Avatar desteğini onar"
+msgstr "Avatar gösterme URL'sini onar"

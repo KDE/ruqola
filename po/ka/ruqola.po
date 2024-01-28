@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 01:36+0000\n"
-"PO-Revision-Date: 2024-01-21 14:11+0100\n"
+"PO-Revision-Date: 2024-01-27 05:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4821,7 +4821,7 @@ msgstr "ავტომატური თარგმანის ჩართ�
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, kde-format
 msgid "Embed Link Previews"
-msgstr ""
+msgstr "ბმულის მინიატურების ჩაშენება"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
@@ -7727,10 +7727,9 @@ msgid "Receive login detection emails"
 msgstr "შესვლის აღმოჩენის ელფოსტების მიღება"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
+#, kde-format
 msgid "Enable Auto Away"
-msgstr "ავტომატური თარგმანის ჩართვა"
+msgstr "ავტოგასულობის ჩართვა"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -7768,16 +7767,17 @@ msgid "Receive an email each time a new login is detected on your account."
 msgstr "მიიღეთ ელფოსტა ყოველ ჯერზე, როცა თქვენს ანგარიშში ვინმე შევა."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Idle Timeout (ms)"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "უქმობის ვადა (მწმ)"
+msgstr "უქმობის დროის ზღვარი:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
+"დროის შუალედი, რომელიც უნდა მოვიცადო, სანამ გასულობა ჩაირთვება. მნიშვნელობა "
+"წამებშია."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format
@@ -9140,7 +9140,7 @@ msgstr "შეტყობინებების სტილის გან�
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
-msgstr ""
+msgstr "ბმულის მინიატურის განხორციელება"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
@@ -9175,10 +9175,8 @@ msgid "Fix list of authentication method."
 msgstr "ავთენტიკაციის მეთოდების სიის გასწორება."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "ავატარის მხარდაჭერის გასწორება"
+msgstr "საჩვენებელი ავატარის ბმულის გასწორება."
 
 #, fuzzy
 #~| msgid "Cozy"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 01:36+0000\n"
-"PO-Revision-Date: 2024-01-24 10:25+0100\n"
+"PO-Revision-Date: 2024-01-27 11:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -9359,7 +9359,5 @@ msgid "Fix list of authentication method."
 msgstr "Corregeix la llista de mètodes d'autenticació."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "Corregeix la implementació dels avatars"
+msgstr "Corregeix la visualització dels URL dels avatars."

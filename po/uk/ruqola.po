@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 01:36+0000\n"
-"PO-Revision-Date: 2024-01-24 08:40+0200\n"
+"PO-Revision-Date: 2024-01-27 09:01+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -9413,10 +9413,8 @@ msgid "Fix list of authentication method."
 msgstr "Виправлено список способів розпізнавання."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "Виправлено підтримку аватарів"
+msgstr "Виправлено показ адреси аватару."
 
 #~| msgid "Cozy"
 #~ msgctxt "Message Style"

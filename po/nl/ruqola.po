@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 01:36+0000\n"
-"PO-Revision-Date: 2024-01-24 10:49+0100\n"
+"PO-Revision-Date: 2024-01-27 11:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -9357,10 +9357,8 @@ msgid "Fix list of authentication method."
 msgstr "Lijst met authenticatiemethode repareren"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "Ondersteuning voor avatar repareren"
+msgstr "Tonen van url van avatar repareren."
 
 #~| msgid "Cozy"
 #~ msgctxt "Message Style"
