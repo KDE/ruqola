@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "user.h"
-#include <QDateTime>
 #include <QDebug>
 #include <QVector>
 
