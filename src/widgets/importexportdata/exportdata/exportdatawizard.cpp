@@ -17,7 +17,6 @@
 #include <QDirIterator>
 #include <QTimer>
 #include <QWindow>
-#include <chrono>
 
 using namespace std::chrono_literals;
 
