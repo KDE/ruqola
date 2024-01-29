@@ -15,5 +15,5 @@ public:
     ~WhatsNewMessageWidget() override;
 
 private:
-    void slotLinkActivated(const QString &contents);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLinkActivated(const QString &contents);
 };

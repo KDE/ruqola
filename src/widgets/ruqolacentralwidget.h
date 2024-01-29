@@ -36,11 +36,11 @@ Q_SIGNALS:
     void loginPageActivated(bool showLoginPage);
 
 private:
-    void slotLoginStatusChanged();
-    void slotJobFailedInfo(const QString &messageError, const QString &accountName);
-    void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
-    void slotNewErrorInfo();
-    void createServerErrorInfoMessageWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginStatusChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotJobFailedInfo(const QString &messageError, const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotNewErrorInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createServerErrorInfoMessageWidget();
 
     QStackedWidget *const mStackedWidget;
     RuqolaMainWidget *const mRuqolaMainWidget;

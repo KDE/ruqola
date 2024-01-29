@@ -17,5 +17,5 @@ public:
     ~ServerErrorInfoMessageWidget() override;
 
 private:
-    void slotLinkActivated(const QString &contents);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLinkActivated(const QString &contents);
 };

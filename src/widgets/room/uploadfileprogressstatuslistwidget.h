@@ -31,7 +31,7 @@ protected:
     QSize minimumSizeHint() const override;
 
 private:
-    void slotLayoutFirstItem();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLayoutFirstItem();
     QWidget *const mBigBox;
     QMap<int, UploadFileProgressStatusWidget *> mUploadItems;
 };

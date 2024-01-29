@@ -27,13 +27,13 @@ public:
     void setRoom(Room *room);
 
 private:
-    void updateLabel();
-    void slotTextChanged(const QString &str);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    [[nodiscard]] QString displayShowMessageInRoom() const;
-    void loadMoreUsers();
-    void slotChangeStatusType(int index);
-    void slotShowUserInfo(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadMoreUsers();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeStatusType(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUserInfo(const QModelIndex &index);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     QPointer<Room> mRoom;

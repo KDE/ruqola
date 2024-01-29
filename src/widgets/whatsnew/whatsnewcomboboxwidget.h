@@ -31,7 +31,7 @@ Q_SIGNALS:
     void versionChanged(WhatsNewComboBoxWidget::VersionType type);
 
 private:
-    void fillCombobox();
-    void slotCurrentIndexChanged(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillCombobox();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIndexChanged(int index);
     QComboBox *const mVersionComboBox;
 };

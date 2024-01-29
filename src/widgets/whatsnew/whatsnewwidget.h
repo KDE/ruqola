@@ -21,12 +21,12 @@ public:
     void updateInformations();
 
 private:
-    [[nodiscard]] QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
-    [[nodiscard]] QString createVersionInformationsV2_0() const;
-    [[nodiscard]] QString createVersionInformationsV2_1() const;
-    [[nodiscard]] WhatsNewComboBoxWidget::VersionType currentVersion() const;
-    [[nodiscard]] QString generateStartEndHtml(const QString &str) const;
-    void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_0() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_1() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT WhatsNewComboBoxWidget::VersionType currentVersion() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateStartEndHtml(const QString &str) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
     QTextEdit *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;
 };

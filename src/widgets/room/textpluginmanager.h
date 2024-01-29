@@ -47,9 +47,9 @@ public:
 
 private:
     Q_DISABLE_COPY(TextPluginManager)
-    void initializePluginList();
-    void loadPlugin(TextPluginManagerInfo *item);
-    PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(TextPluginManagerInfo *item);
+    LIBRUQOLAWIDGETS_NO_EXPORT PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QVector<TextPluginManagerInfo> mPluginList;
     QVector<PluginTextUtilData> mPluginDataList;
 };

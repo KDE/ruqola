@@ -24,11 +24,11 @@ Q_SIGNALS:
     void teamIdChanged(bool isEmpty);
 
 private:
-    void slotSearchTimerFired();
-    void slotSearchTextEdited();
-    void slotTextChanged(const QString &text);
-    void slotComplete(const QModelIndex &index);
-    void slotTeamAutoCompleteDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamAutoCompleteDone(const QJsonObject &obj);
     QString mTeamId;
     TeamCompleterModel *const mTeamCompleterModel;
     QTimer *const mSearchTimer;

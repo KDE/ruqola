@@ -18,7 +18,7 @@ public:
     explicit SearchTeamDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTeamDialog() override;
 
-    const QString &teamId() const;
+    [[nodiscard]] const QString &teamId() const;
 
 private:
     SearchTeamWidget *const mSearchTeamWidget;

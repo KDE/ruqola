@@ -23,9 +23,9 @@ Q_SIGNALS:
     void tryReconnect();
 
 private:
-    void updateText();
-    void slotUpdateTimer();
-    void slotLinkActivated(const QString &contents);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateText();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateTimer();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLinkActivated(const QString &contents);
     QTimer *const mDelayTimer;
     int mCurrentDelay = -1;
     int mReconnectSecondDelay = -1;

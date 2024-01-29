@@ -55,22 +55,22 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event) override;
 
 private:
-    void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
-    void slotCompletionAvailable();
-    void slotComplete(const QModelIndex &index);
-    void slotSetAsBold();
-    void slotSetAsItalic();
-    void slotSetAsStrikeOut();
-    void insertFormat(QChar formatChar);
-    void slotInsertCodeBlock();
-    void loadSpellCheckingSettings();
-    void slotLanguageChanged(const QString &lang);
-    void slotSpellCheckingEnableChanged(bool b);
-    void slotInsertMarkdownUrl();
-    void slotLoginChanged();
-    void switchAutoCorrectionLanguage(const QString &lang);
-    void slotUpdateMessageFailed(const QString &str);
-    void slotSelectFirstTextCompleter();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCompletionAvailable();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsBold();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsItalic();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsStrikeOut();
+    LIBRUQOLAWIDGETS_NO_EXPORT void insertFormat(QChar formatChar);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertCodeBlock();
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadSpellCheckingSettings();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLanguageChanged(const QString &lang);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSpellCheckingEnableChanged(bool b);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertMarkdownUrl();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void switchAutoCorrectionLanguage(const QString &lang);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMessageFailed(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectFirstTextCompleter();
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;

@@ -33,7 +33,7 @@ Q_SIGNALS:
     void backgroundColorChanged();
 
 private:
-    void slotBackgroundColorChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotBackgroundColorChanged();
     QColor m_backgroundColor;
     QPersistentModelIndex mModelIndex;
     MessagesModel *const mModel;

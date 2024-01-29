@@ -26,11 +26,11 @@ Q_SIGNALS:
     void newRoomName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &);
 
 private:
-    void slotSearchTimerFired();
-    void slotSearchTextEdited();
-    void slotTextChanged(const QString &text);
-    void slotComplete(const QModelIndex &index);
-    void slotAutoCompletTeamRoomDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAutoCompletTeamRoomDone(const QJsonObject &obj);
     TeamRoomCompleterModel *const mTeamRoomCompleterModel;
     QTimer *const mSearchTimer;
     RocketChatAccount *const mRocketChatAccount;

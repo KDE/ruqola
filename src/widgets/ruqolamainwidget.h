@@ -36,12 +36,12 @@ Q_SIGNALS:
     void channelSelected();
 
 private:
-    void showEvent(QShowEvent *event) override;
-    void updateBannerInfo();
-    void slotBannerDismissDone();
-    void slotMarkBannerAsRead(const QString &identifier);
-    void slotRoomPressed(const QString &roomId);
-    void createBannerMessageWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void showEvent(QShowEvent *event) override;
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateBannerInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotBannerDismissDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkBannerAsRead(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomPressed(const QString &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void createBannerMessageWidget();
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;

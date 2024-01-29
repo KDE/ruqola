@@ -23,8 +23,8 @@ public:
     void setUserName(const QString &userName);
 
 private:
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotOpenConversation();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenConversation();
     QString mUserId;
     QString mUserName;
     QPointer<Room> mRoom;

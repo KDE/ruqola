@@ -25,7 +25,7 @@ public:
     void setTeamRooms(const QVector<TeamRoom> &rooms);
 
 private:
-    void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamRoomsModel *const mTeamRoomsModel;

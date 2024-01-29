@@ -17,5 +17,5 @@ public:
     ~UsersInRoomComboBox() override;
 
 private:
-    void fillCombobox();
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillCombobox();
 };

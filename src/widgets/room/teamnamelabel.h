@@ -23,6 +23,6 @@ Q_SIGNALS:
     void openTeam(const QString &identifier);
 
 private:
-    void slotGoToRoomTeam(const QString &contents);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotGoToRoomTeam(const QString &contents);
     Room::TeamRoomInfo mTeamNameInfo;
 };

@@ -28,8 +28,8 @@ public:
     void addServerList(const QStringList &serverNames);
 
 private:
-    void slotTextChanged(const QString &str);
-    void slotFilterAccount(const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterAccount(const QString &accountName);
 
     QLineEdit *const mSearchLineEdit;
     ServerErrorInfoMessageHistoryListView *const mListServerInfosListView;

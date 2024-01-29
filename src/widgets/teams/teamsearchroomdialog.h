@@ -21,7 +21,7 @@ public:
     [[nodiscard]] QStringList roomIds() const;
 
 private:
-    void readConfig();
-    void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     TeamSearchRoomWidget *const mTeamSearchRoomWidget;
 };

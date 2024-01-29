@@ -29,10 +29,10 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    void loadMoreUsers();
-    void generateListUsersWidget();
-    void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
-    void loadExternalDialog();
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadMoreUsers();
+    LIBRUQOLAWIDGETS_NO_EXPORT void generateListUsersWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadExternalDialog();
     FlowLayout *const mFlowLayout;
     QPointer<Room> mRoom;
     // userId, UsersInRoomLabel

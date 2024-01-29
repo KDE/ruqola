@@ -25,11 +25,11 @@ public:
     void setParentWidget(QWidget *parentWidget);
 
 private:
-    void slotOpenConversation();
-    void slotBlockUser();
-    void slotIgnoreUser();
-    void slotRemoveFromRoom();
-    void slotUserInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenConversation();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotBlockUser();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotIgnoreUser();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveFromRoom();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfo();
     QString mUserId;
     QString mUserName;
     QPointer<Room> mRoom;

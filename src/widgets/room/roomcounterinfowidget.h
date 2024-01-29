@@ -25,7 +25,7 @@ Q_SIGNALS:
     void jumpToUnreadMessage(qint64 numberOfMessages);
 
 private:
-    void updateInfo();
-    void slotLinkActivated(const QString &contents);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLinkActivated(const QString &contents);
     ChannelCounterInfo mChannelCounterInfo;
 };

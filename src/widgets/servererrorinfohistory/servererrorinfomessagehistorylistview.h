@@ -30,9 +30,9 @@ protected:
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    void slotTextToSpeech(const QModelIndex &index);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotClearList();
-    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClearList();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     ServerErrorInfoHistoryDelegate *const mListServerErrorInfosDelegate;
 };

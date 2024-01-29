@@ -32,7 +32,7 @@ protected:
     [[nodiscard]] RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
 
 private:
-    [[nodiscard]] QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
 
     struct Layout {
         // Text message
@@ -43,8 +43,9 @@ private:
         QPoint timeStampPos;
         bool sameAccountAsPreviousMessage = false;
     };
-    void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
-    [[nodiscard]] ServerErrorInfoHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
-    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ServerErrorInfoHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option,
+                                                                                             const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString cacheIdentifier(const QModelIndex &index) const;
 };

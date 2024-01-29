@@ -49,14 +49,15 @@ Q_SIGNALS:
     void successMessage(const QString &message);
 
 private:
-    void slotClearNotification();
-    void slotShowQuoteMessage(const QString &permalink, const QString &text);
-    void slotCreatePrivateDiscussion(const QString &userName);
-    void keyPressedInLineEdit(QKeyEvent *ev);
-    void slotShowThreadMessage(const QString &threadMessageId, const QString &text);
-    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName);
-    void slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo);
-    void slotCancelUpload(int identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClearNotification();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowQuoteMessage(const QString &permalink, const QString &text);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreatePrivateDiscussion(const QString &userName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void keyPressedInLineEdit(QKeyEvent *ev);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowThreadMessage(const QString &threadMessageId, const QString &text);
+    LIBRUQOLAWIDGETS_NO_EXPORT void
+    slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCancelUpload(int identifier);
     QString mRoomId;
     UploadFileProgressStatusListWidget *const mUploadFileProgressStatusListWidget;
     MessageListView *const mMessageListView;

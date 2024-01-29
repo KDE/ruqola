@@ -17,5 +17,5 @@ public:
     ~TeamChannelsComboBox() override;
 
 private:
-    void init();
+    LIBRUQOLAWIDGETS_NO_EXPORT void init();
 };

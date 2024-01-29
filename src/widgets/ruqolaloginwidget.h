@@ -29,10 +29,10 @@ public:
     void showError(const QString &text);
 
 private:
-    void changeWidgetStatus(bool enabled);
-    void slotLogin();
-    void slotResetPasswordRequested(const QString &email);
-    void slotUpdateLoginButton();
+    LIBRUQOLAWIDGETS_NO_EXPORT void changeWidgetStatus(bool enabled);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLogin();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateLoginButton();
 
     QLineEdit *const mAccountName;
     QLineEdit *const mServerUrl;

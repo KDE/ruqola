@@ -42,10 +42,10 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-    void initialize();
-    void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
-    void updateFollowThreadIcon(bool followThread);
-    void slotFollowThreadChanged(bool clicked);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateFollowThreadIcon(bool followThread);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFollowThreadChanged(bool clicked);
     QString mThreadMessageId;
     QLabel *const mThreadPreview;
     RoomWidgetBase *const mRoomWidgetBase;
