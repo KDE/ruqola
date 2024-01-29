@@ -27,7 +27,7 @@ public:
     void saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo &info, Room *mRoom);
 
 private:
-    void setOverrideGlobalSettings(bool override);
+    LIBRUQOLAWIDGETS_NO_EXPORT void setOverrideGlobalSettings(bool override);
     QCheckBox *const mExcludePinnedMessages;
     QCheckBox *const mPruneFileOnlyKeepMessages;
     QCheckBox *const mAutomaticPruneOldMessages;

@@ -20,8 +20,8 @@ public:
     void initialize();
 
 private:
-    void readConfig();
-    void writeConfig();
-    void slotAccept();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccept();
     MyAccountConfigureWidget *const mMyAccountConfigWidget;
 };

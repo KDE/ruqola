@@ -41,12 +41,12 @@ Q_SIGNALS:
     void channelIsValid(ChannelNameValidLineEdit::ChannelNameStatus status);
 
 private:
-    void updateStyleSheet(bool state);
-    void slotSearchDone(quint64 id, const QJsonDocument &result);
-    void slotSearchChannelRequested(const QString &str);
-    void clearLineEdit();
-    void emitIsValid(bool state);
-    void slotTextIsValid(bool state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateStyleSheet(bool state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchDone(quint64 id, const QJsonDocument &result);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchChannelRequested(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearLineEdit();
+    LIBRUQOLAWIDGETS_NO_EXPORT void emitIsValid(bool state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextIsValid(bool state);
     QString mNegativeBackground;
     quint64 mDdpIdentifier = 0;
     QRegularExpression mRegularExpression;

@@ -27,11 +27,11 @@ Q_SIGNALS:
     void importInfo(const QString &msg);
 
 private:
-    void copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest);
-    void importAccount(QString accountName);
-    void finishImportAccounts();
-    void importAccounts();
-    [[nodiscard]] QString verifyExistingAccount(QString accountName) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void copyToDirectory(const KArchiveDirectory *subfolderDir, const QString &dest);
+    LIBRUQOLAWIDGETS_NO_EXPORT void importAccount(QString accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void finishImportAccounts();
+    LIBRUQOLAWIDGETS_NO_EXPORT void importAccounts();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString verifyExistingAccount(QString accountName) const;
     QStringList mAccountInfos;
     KZip *const mArchive;
     int mAccountIndex = 0;

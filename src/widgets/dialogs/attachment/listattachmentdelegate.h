@@ -49,7 +49,7 @@ private:
         // Delete Attachment Rect
         QRect deleteAttachmentRect;
     };
-    [[nodiscard]] ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     const QIcon mDownloadIcon;
     const QIcon mDeleteIcon;
     RocketChatAccount *const mRocketChatAccount;

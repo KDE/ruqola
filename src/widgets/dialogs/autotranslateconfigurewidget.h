@@ -25,10 +25,10 @@ public:
     void setRoom(Room *room);
 
 private:
-    void slotAutoTranslateChanged();
-    void slotChangeAutoTranslate(bool status);
-    void slotLanguageChanged(int index);
-    void slotAutoTranslateLanguageChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAutoTranslateChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeAutoTranslate(bool status);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLanguageChanged(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAutoTranslateLanguageChanged();
     QCheckBox *const mAutoTranslate;
     QComboBox *const mLanguageComboBox;
     QPointer<Room> mRoom;

@@ -22,7 +22,7 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    void slotDeviceRemoved(const QString &emojiId);
-    void slotDisconnectDevice(const QModelIndex &index);
-    [[nodiscard]] QString displayShowMessage() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeviceRemoved(const QString &emojiId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDisconnectDevice(const QModelIndex &index);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
 };

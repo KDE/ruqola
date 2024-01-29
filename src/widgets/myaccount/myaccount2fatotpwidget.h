@@ -32,10 +32,10 @@ Q_SIGNALS:
     void show2FaEnabledWidget();
 
 private:
-    void slotTotpResult(const QString &secret, const QString &url);
-    void slotVerify();
-    void slotTotpInvalid();
-    void slotTotpValid(const QStringList &listCodes);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpResult(const QString &secret, const QString &url);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVerify();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpInvalid();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpValid(const QStringList &listCodes);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Prison::AbstractBarcode *const mQRCode;
 #else

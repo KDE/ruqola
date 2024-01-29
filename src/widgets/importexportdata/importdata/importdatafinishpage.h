@@ -22,9 +22,9 @@ public:
     [[nodiscard]] bool isComplete() const override;
 
 private:
-    void slotImportDone();
-    void slotImportFailed(const QString &msg);
-    void slotImportInfo(const QString &msg);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotImportDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotImportFailed(const QString &msg);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotImportInfo(const QString &msg);
 
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;

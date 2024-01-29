@@ -24,7 +24,7 @@ public:
     void setOWnRoles(const QStringList &roleStr);
 
 private:
-    void slotFilterTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterTextChanged(const QString &str);
     QTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     PermissionsModel *const mAdminPermissionsModel;

@@ -32,7 +32,7 @@ Q_SIGNALS:
     void roomNameValid(bool valid);
 
 private:
-    void setRoom(Room *room);
+    LIBRUQOLAWIDGETS_NO_EXPORT void setRoom(Room *room);
     QStackedWidget *const mStackedWidget;
     QPointer<Room> mRoom;
     ChannelInfoEditableWidget *const mChannelInfoEditableWidget;

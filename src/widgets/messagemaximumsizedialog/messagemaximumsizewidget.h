@@ -24,7 +24,7 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
-    void slotTextChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged();
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };

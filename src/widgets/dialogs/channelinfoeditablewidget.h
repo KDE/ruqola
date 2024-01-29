@@ -38,12 +38,12 @@ Q_SIGNALS:
     void roomNameValid(bool valid);
 
 private:
-    void joinCodeChanged();
-    void slotTeamDeleteDone();
-    void slotTeamListRoomsDone(const QJsonObject &obj);
-    void selectRoomToDelete(const QString &teamId);
-    void deleteTeam(const QString &teamId, const QStringList &roomdId);
-    [[nodiscard]] bool hasRetentionPermission() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void joinCodeChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamDeleteDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamListRoomsDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectRoomToDelete(const QString &teamId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void deleteTeam(const QString &teamId, const QStringList &roomdId);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasRetentionPermission() const;
     QPointer<Room> mRoom;
 
     QLineEdit *const mName;

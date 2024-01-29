@@ -23,7 +23,7 @@ Q_SIGNALS:
     void channelIsValid(bool valid);
 
 private:
-    void slotChannelIsValid(ChannelNameValidLineEdit::ChannelNameStatus isValid);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChannelIsValid(ChannelNameValidLineEdit::ChannelNameStatus isValid);
     ChannelNameValidLineEdit *const mChannelNameValidLineEdit;
     QLabel *const mChannelNameLabel;
     QString mValidCharacters;

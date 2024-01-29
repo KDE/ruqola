@@ -27,7 +27,7 @@ Q_SIGNALS:
     void updateButtonOk(bool state);
 
 private:
-    void slotSendNewEmailCode();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendNewEmailCode();
     KPasswordLineEdit *const mTwoFactorAuthenticationPasswordLineEdit;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };

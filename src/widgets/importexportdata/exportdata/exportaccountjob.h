@@ -34,14 +34,14 @@ Q_SIGNALS:
     void exportLogsData(const ImportExportUtils::AccountImportExportInfo &info);
 
 private:
-    void storeDirectory(const QString &subDirectory, const QString &subfolderPath);
-    void exportAccount(const ImportExportUtils::AccountImportExportInfo &info);
-    void exportConfig(const ImportExportUtils::AccountImportExportInfo &info);
-    void exportCache(const ImportExportUtils::AccountImportExportInfo &info);
-    void exportLogs(const ImportExportUtils::AccountImportExportInfo &info);
-    void exportDatabase(const ImportExportUtils::AccountImportExportInfo &info);
-    void finishExportAccount();
-    void exportAccount();
+    LIBRUQOLAWIDGETS_NO_EXPORT void storeDirectory(const QString &subDirectory, const QString &subfolderPath);
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportAccount(const ImportExportUtils::AccountImportExportInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportConfig(const ImportExportUtils::AccountImportExportInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportCache(const ImportExportUtils::AccountImportExportInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportLogs(const ImportExportUtils::AccountImportExportInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportDatabase(const ImportExportUtils::AccountImportExportInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void finishExportAccount();
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportAccount();
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     int mAccountIndex = 0;
     QStringList mAccountNames;

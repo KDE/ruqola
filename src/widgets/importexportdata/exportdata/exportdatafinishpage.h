@@ -23,10 +23,10 @@ public:
     [[nodiscard]] bool isComplete() const override;
 
 private:
-    [[nodiscard]] QString generateExportZipFileName() const;
-    void slotExportDone();
-    void slotExportFailed(const QString &msg);
-    void slotExportInfo(const QString &msg);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateExportZipFileName() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotExportDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotExportFailed(const QString &msg);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotExportInfo(const QString &msg);
     QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;

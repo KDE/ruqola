@@ -23,10 +23,10 @@ public:
     void initialize();
 
 private:
-    void slotCreateToken();
-    void slotRemoveToken(const QString &tokenName);
-    void slotRegenerateToken(const QString &tokenName);
-    void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateToken();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveToken(const QString &tokenName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRegenerateToken(const QString &tokenName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
     MyAccountPersonalAccessTokenTreeView *const mPersonalAccessTokenTreeView;

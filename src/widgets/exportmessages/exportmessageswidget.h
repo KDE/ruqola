@@ -25,7 +25,7 @@ public:
     //    void updateOkButton(bool state);
 
 private:
-    void fillFormat();
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillFormat();
     QDateEdit *const mFromDate;
     QDateEdit *const mToDate;
     QComboBox *const mFormat;

@@ -21,5 +21,5 @@ Q_SIGNALS:
     void accountSelected(const QString &accountName);
 
 private:
-    void slotSelectAccount(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAccount(int index);
 };

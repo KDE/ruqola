@@ -35,8 +35,8 @@ Q_SIGNALS:
     void userListChanged(bool isNotEmpty);
 
 private:
-    void slotRemoveUser(const QString &username);
-    void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
     AddUsersCompletionLineEdit *const mSearchUserLineEdit;
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;

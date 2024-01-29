@@ -19,6 +19,6 @@ public:
     void setActionCollection(KActionCollection *ac);
 
 private:
-    void slotUpdateAccountMenu();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateAccountMenu();
     KActionCollection *mActionCollection = nullptr;
 };

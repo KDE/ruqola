@@ -46,7 +46,7 @@ protected:
     [[nodiscard]] QString clickableStr() const;
 
 private:
-    void slotSearchCleared();
-    void slotSearchRequested(const QString &str);
-    void slotLoadMoreElements();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreElements();
 };

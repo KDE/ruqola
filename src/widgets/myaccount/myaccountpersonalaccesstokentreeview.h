@@ -21,6 +21,6 @@ Q_SIGNALS:
     void regenerateToken(const QString &tokenName);
 
 private:
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void removeClicked(const QString &tokenName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void removeClicked(const QString &tokenName);
 };

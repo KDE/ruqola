@@ -26,10 +26,10 @@ Q_SIGNALS:
     void searchRequested(const QString &str);
 
 private:
-    void slotSearchTimerFired();
-    void slotTextChanged(const QString &text);
-    void slotComplete(const QModelIndex &index);
-    void slotSearchTextEdited();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
     RocketChatAccount *const mRocketChatAccount;
     QTimer *const mSearchTimer;
 };

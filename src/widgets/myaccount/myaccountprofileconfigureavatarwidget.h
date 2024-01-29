@@ -23,10 +23,10 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
-    void changeUrl();
-    void changeImage();
-    void resetAvatar();
-    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    LIBRUQOLAWIDGETS_NO_EXPORT void changeUrl();
+    LIBRUQOLAWIDGETS_NO_EXPORT void changeImage();
+    LIBRUQOLAWIDGETS_NO_EXPORT void resetAvatar();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     QString mCurrentIconPath;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -26,8 +26,8 @@ public:
     void initialize();
 
 private:
-    void slotLogoutFromOtherLocation();
-    void slotDeleteMyAccount();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLogoutFromOtherLocation();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteMyAccount();
     QLineEdit *const mEmail;
     QLabel *const mEmailInfo;
     QLineEdit *const mName;

@@ -29,8 +29,8 @@ public:
     void clearCache();
 
 private:
-    void slotAvatarChanged(const Utils::AvatarInfo &info);
-    [[nodiscard]] qreal checkIfNeededToClearCache(const QWidget *widget) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAvatarChanged(const Utils::AvatarInfo &info);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT qreal checkIfNeededToClearCache(const QWidget *widget) const;
 
     // DPR-dependent cache of avatars
     struct AvatarCache {

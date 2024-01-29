@@ -24,10 +24,10 @@ public:
     void load();
 
 private:
-    void slotUserRequestDataDownloadDone();
-    void setWasChanged();
-    void initComboboxValues();
-    void downloadData(bool fullData);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUserRequestDataDownloadDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void setWasChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void initComboboxValues();
+    LIBRUQOLAWIDGETS_NO_EXPORT void downloadData(bool fullData);
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;

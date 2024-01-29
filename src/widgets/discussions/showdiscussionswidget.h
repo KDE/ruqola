@@ -32,9 +32,9 @@ Q_SIGNALS:
     void loadMoreDiscussion();
 
 private:
-    void slotSearchMessageTextChanged(const QString &str);
-    void updateLabel();
-    [[nodiscard]] QString displayShowDiscussionInRoom() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowDiscussionInRoom() const;
     QLineEdit *const mSearchDiscussionLineEdit;
     QLabel *const mDiscussionInfoLabel;
     DiscussionListView *const mListDiscussionsListView;

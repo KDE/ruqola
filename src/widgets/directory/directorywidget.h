@@ -35,12 +35,12 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    void slotOpen(const QModelIndex &index);
-    void slotSearchRequested(const QString &str);
-    void slotSearchCleared();
-    [[nodiscard]] QString displayShowMessageInRoom() const;
-    [[nodiscard]] QString noFoundInfo() const;
-    void finishSearching();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpen(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString noFoundInfo() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
     const DirectoryType mType;
     bool mWasInitialized = false;
 };

@@ -22,11 +22,11 @@ private:
         SelectAccountPage,
         FinishPage,
     };
-    void slotCurrentIdChanged(int id);
-    void readConfig();
-    void writeConfig();
-    void loadAccountInfo();
-    void exportAccounts();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIdChanged(int id);
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadAccountInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void exportAccounts();
     ExportDataSelectAccountPage *const mExportDataSelectAccountPage;
     ExportDataFinishPage *const mExportDataFinishPage;
 };

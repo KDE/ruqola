@@ -21,6 +21,6 @@ public:
     [[nodiscard]] bool isComplete() const override;
 
 private:
-    [[nodiscard]] bool verifySelectedUrl() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool verifySelectedUrl() const;
     KUrlRequester *const mUrlRequester;
 };

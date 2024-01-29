@@ -21,9 +21,9 @@ public:
     void setRoomId(const QString &roomId);
 
 private:
-    void readConfig();
-    void writeConfig();
-    void slotLoadMoreDiscussions();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreDiscussions();
     QString mRoomId;
     ShowDiscussionsWidget *const mShowDiscussionsWidget;
     RocketChatAccount *const mRocketChatAccount;

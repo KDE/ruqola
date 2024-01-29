@@ -23,11 +23,11 @@ public:
     void setRoom(Room *room);
 
 private:
-    void updateReadOnlyChannelInfo();
-    void connectReadOnlyWidget();
-    void createCommentReadOnly();
-    void createAnnouncementReadOnly();
-    void createDescriptionReadOnly();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateReadOnlyChannelInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void connectReadOnlyWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createCommentReadOnly();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createAnnouncementReadOnly();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createDescriptionReadOnly();
     QLabel *const mNameReadOnly;
     QLabel *mCommentReadOnly = nullptr;
     QLabel *mAnnouncementReadOnly = nullptr;

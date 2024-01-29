@@ -50,7 +50,7 @@ protected:
     [[nodiscard]] virtual QString selectedText(const QModelIndex &index);
 
 private:
-    void handleMouseEvent(QMouseEvent *event);
+    LIBRUQOLAWIDGETS_NO_EXPORT void handleMouseEvent(QMouseEvent *event);
     bool mAtBottom = true;
     QPoint mPressedPosition;
     QPersistentModelIndex mCurrentIndex = {};

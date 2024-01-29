@@ -21,9 +21,9 @@ Q_SIGNALS:
     void hide2FaDisableTotpWidget();
 
 private:
-    void slotVerify();
-    void slotRegenerateCode();
-    void slotTotpInvalid(bool check);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVerify();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRegenerateCode();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpInvalid(bool check);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mDisableCodeLineEdit;
 };

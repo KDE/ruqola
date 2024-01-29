@@ -23,10 +23,10 @@ protected:
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    void slotOpenDiscussion(const QString &roomDiscussionId);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotTextToSpeech(const QModelIndex &index);
-    void slotSelectAll(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenDiscussion(const QString &roomDiscussionId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
     ListDiscussionDelegate *const mListDiscussionDelegate;
     RocketChatAccount *const mRocketChatAccount;
 };

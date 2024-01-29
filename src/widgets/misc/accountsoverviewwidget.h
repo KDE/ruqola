@@ -24,8 +24,8 @@ public:
     void showPreviousView();
 
 private:
-    void updateCurrentTab();
-    void goToView(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateCurrentTab();
+    LIBRUQOLAWIDGETS_NO_EXPORT void goToView(int index);
 
     QTabBar *const mTabBar;
     AccountManager *const mAccountManager;

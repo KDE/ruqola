@@ -32,11 +32,11 @@ Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
 private:
-    void slotTextToSpeech(const QString &messageText);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotShowMessage(const QModelIndex &index);
-    void slotTextChanged(const QString &str);
-    void slotFilterAccount(const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QString &messageText);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowMessage(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterAccount(const QString &accountName);
     NotificationHistoryListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;

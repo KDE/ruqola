@@ -24,7 +24,7 @@ Q_SIGNALS:
     void resetPasswordRequested(const QString &email);
 
 private:
-    void slotResetPasswordButton();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordButton();
     KPasswordLineEdit *const mPasswordLineEdit;
     QPushButton *const mResetPasswordButton;
 };

@@ -21,6 +21,6 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    void slotPasswordChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPasswordChanged(const QString &str);
     KPasswordLineEdit *const mPasswordLineEdit;
 };

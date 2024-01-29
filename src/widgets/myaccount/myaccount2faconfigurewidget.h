@@ -30,8 +30,8 @@ public:
     void initialize();
 
 private:
-    void slot2FAViaTOTPActivated(bool checked);
-    void slotTotpResult(const QString &secret, const QString &url);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slot2FAViaTOTPActivated(bool checked);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpResult(const QString &secret, const QString &url);
     QCheckBox *const mActivate2FAViaEmailCheckbox;
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;

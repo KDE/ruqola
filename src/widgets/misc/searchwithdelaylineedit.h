@@ -26,8 +26,8 @@ Q_SIGNALS:
     void searchCleared();
 
 private:
-    void slotSearchTimerFired();
-    void slotSearchTextEdited();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
     QTimer *const mSearchTimer;
     std::chrono::milliseconds mMilliseconds = 1000ms;
 };

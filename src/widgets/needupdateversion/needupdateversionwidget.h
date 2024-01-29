@@ -22,5 +22,5 @@ public:
     void setObsoleteVersion(NeedUpdateVersionUtils::ObsoleteVersion obsolete);
 
 private:
-    void slotDisableVersionCheck();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDisableVersionCheck();
 };
