@@ -7,10 +7,10 @@
 #include "messagesmodeltest.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include "test_model_helpers.h"
 #include <QStandardPaths>
 #include <QTest>
-#include <ruqola.h>
 
 QTEST_GUILESS_MAIN(MessagesModelTest)
 

@@ -5,11 +5,11 @@
 */
 
 #include "rocketchataccountsettings.h"
+#include "config-ruqola.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
 #include "ruqola_password_core_debug.h"
-#include <config-ruqola.h>
 
 #include <QDateTime>
 #include <QDir>

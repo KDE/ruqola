@@ -12,6 +12,7 @@
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
 
+#include "ruqola.h"
 #include <QAbstractItemView>
 #include <QHelpEvent>
 #include <QMouseEvent>
@@ -19,7 +20,6 @@
 #include <QPainter>
 #include <QStyleOptionViewItem>
 #include <QToolTip>
-#include <ruqola.h>
 
 MessageDelegateHelperReactions::MessageDelegateHelperReactions(RocketChatAccount *account)
     : mEmojiFont(Utils::emojiFontName())

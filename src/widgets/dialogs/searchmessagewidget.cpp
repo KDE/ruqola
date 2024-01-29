@@ -15,7 +15,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>

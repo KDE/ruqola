@@ -8,10 +8,10 @@
 
 #include "authenticationmanager.h"
 #include "channelgroupbasejob.h"
+#include "config-ruqola.h"
 #include "libruqolawidgets_export.h"
 #include <KXmlGuiWindow>
 #include <QPointer>
-#include <config-ruqola.h>
 class StatusCombobox;
 class RuqolaCentralWidget;
 class QAction;

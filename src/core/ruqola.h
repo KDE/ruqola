@@ -9,9 +9,9 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include <QObject>
-#include <config-ruqola.h>
 
 class RocketChatAccount;
 class AccountManager;

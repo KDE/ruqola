@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-#include <config-ruqola.h>
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 namespace TextAutoCorrectionWidgets
 {

@@ -25,7 +25,7 @@
 #include <QTextCursor>
 #include <QTextDocument>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 #include "textautocorrectioncore/textautocorrectionsettings.h"

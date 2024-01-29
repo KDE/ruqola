@@ -18,7 +18,7 @@
 #include <QPushButton>
 #include <QWindow>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 #if HAVE_TEXT_TRANSLATOR
 #include <TextTranslator/TranslatorConfigureListsWidget>

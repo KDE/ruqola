@@ -7,11 +7,11 @@
 #include "downloadappslanguagesjob.h"
 #include "ruqola_debug.h"
 
+#include "restapiutil.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QUrl>
-#include <restapiutil.h>
 
 DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
     : QObject(parent)

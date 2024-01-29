@@ -11,8 +11,8 @@
 #include <QTest>
 #include <QVector>
 
+#include "lrucache.h"
 #include <algorithm>
-#include <lrucache.h>
 
 QTEST_GUILESS_MAIN(LRUCacheTest)
 

@@ -69,6 +69,7 @@
 #include "videoconference/videoconferencemanager.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
+#include "channelgroupbasejob.h"
 #include <KLocalizedString>
 #include <KNotification>
 #include <QDesktopServices>
@@ -76,7 +77,6 @@
 #include <QTimer>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
-#include <channelgroupbasejob.h>
 
 #if HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>

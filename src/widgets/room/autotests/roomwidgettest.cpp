@@ -22,7 +22,7 @@
 #include "room/uploadfileprogressstatuslistwidget.h"
 #include "room/usersinroomflowwidget.h"
 
-#include <ruqola.h>
+#include "ruqola.h"
 
 #include <QStackedWidget>
 #include <QStandardPaths>

@@ -36,7 +36,7 @@
 #include <QPainter>
 #include <QScrollBar>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 #if HAVE_TEXT_TRANSLATOR
 #include "translatetext/translatetextjob.h"

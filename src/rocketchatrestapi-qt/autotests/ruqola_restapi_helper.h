@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include <restapiabstractjob.h>
-#include <restapimethod.h>
+#include "restapiabstractjob.h"
+#include "restapimethod.h"
 
 #include <QNetworkRequest>
 #include <QTest>

@@ -15,7 +15,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 ServerErrorInfoMessageHistoryListView::ServerErrorInfoMessageHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)

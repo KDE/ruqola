@@ -14,7 +14,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)

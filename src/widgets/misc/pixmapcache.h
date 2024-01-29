@@ -8,8 +8,8 @@
 
 #include "libruqolawidgets_private_export.h"
 
+#include "lrucache.h"
 #include <QPixmap>
-#include <lrucache.h>
 
 // QPixmapCache is too small for the big images in messages, let's have our own LRU cache
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PixmapCache

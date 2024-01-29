@@ -57,8 +57,8 @@
 #include <QPushButton>
 #include <QScrollBar>
 
+#include "config-ruqola.h"
 #include "video-conference/videoconferencecapabilitiesjob.h"
-#include <config-ruqola.h>
 
 #if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>

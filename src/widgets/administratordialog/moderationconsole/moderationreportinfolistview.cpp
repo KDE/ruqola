@@ -13,7 +13,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 
-#include <config-ruqola.h>
+#include "config-ruqola.h"
 
 ModerationReportInfoListView::ModerationReportInfoListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
