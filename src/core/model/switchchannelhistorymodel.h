@@ -14,6 +14,13 @@ class LIBRUQOLACORE_EXPORT SwitchChannelHistoryModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum SwitchChannelHistoryRoles {
+        Name = Qt::UserRole + 1,
+        Identifier,
+        Icon,
+    };
+    Q_ENUM(SwitchChannelHistoryRoles)
+
     struct SwitchChannelInfo {
         SwitchChannelInfo() = default;
         SwitchChannelInfo(const QString &name, const QString &identifier)
