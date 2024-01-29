@@ -86,8 +86,8 @@
 #include <Solid/Power>
 #endif
 
-#include <plugins/pluginauthentication.h>
-#include <plugins/pluginauthenticationinterface.h>
+#include "plugins/pluginauthentication.h"
+#include "plugins/pluginauthenticationinterface.h"
 
 #include "away/awaymanager.h"
 #include "customsound/customsoundsmanager.h"

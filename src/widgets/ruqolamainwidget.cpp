@@ -21,8 +21,8 @@
 #include <QHBoxLayout>
 #include <QSplitter>
 
-#include <model/roomfilterproxymodel.h>
-#include <model/roommodel.h>
+#include "model/roomfilterproxymodel.h"
+#include "model/roommodel.h"
 
 #include <algorithm>
 

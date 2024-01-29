@@ -9,7 +9,7 @@
 #include <KPluginMetaData>
 #include <QFileInfo>
 
-#include <plugins/pluginauthentication.h>
+#include "plugins/pluginauthentication.h"
 
 AuthenticationManager::AuthenticationManager(QObject *parent)
     : QObject(parent)

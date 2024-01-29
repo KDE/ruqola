@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <plugins/pluginauthentication.h>
+#include "plugins/pluginauthentication.h"
 
 class PasswordPluginAuthentication : public PluginAuthentication
 {

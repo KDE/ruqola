@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorygui.h"
+#include "notificationhistory/notificationhistorydialog.h"
 #include "notificationhistorymanager.h"
 #include <QApplication>
 #include <QDebug>
@@ -13,7 +14,6 @@
 #include <QStandardPaths>
 #include <QTextEdit>
 #include <QVBoxLayout>
-#include <notificationhistory/notificationhistorydialog.h>
 
 NotificationHistoryGui::NotificationHistoryGui(QWidget *parent)
     : QWidget{parent}

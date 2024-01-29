@@ -9,10 +9,10 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
-#include <chat/getmessagejob.h>
-#include <chat/getthreadmessagesjob.h>
+#include "chat/getmessagejob.h"
+#include "chat/getthreadmessagesjob.h"
 
-#include <model/threadmessagemodel.h>
+#include "model/threadmessagemodel.h"
 
 MessageCache::MessageCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)

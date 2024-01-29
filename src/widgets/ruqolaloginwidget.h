@@ -6,10 +6,10 @@
 
 #pragma once
 
+#include "ddpapi/ddpauthenticationmanager.h"
+#include "ddpapi/ddpclient.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-#include <ddpapi/ddpauthenticationmanager.h>
-#include <ddpapi/ddpclient.h>
 class QLineEdit;
 class QPushButton;
 class QLabel;

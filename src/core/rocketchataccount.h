@@ -15,6 +15,7 @@
 #include "custom/customuserstatusupdatejob.h"
 #include "customusers/customuserstatuses.h"
 #include "ddpapi/ddpauthenticationmanager.h"
+#include "ddpapi/ddpclient.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
 #include "licenses/licensesmanager.h"
@@ -40,7 +41,6 @@
 #include <QObject>
 #include <QUrl>
 #include <TextEmoticonsCore/CustomEmoji>
-#include <ddpapi/ddpclient.h>
 class TypingNotification;
 class UsersModel;
 class RoomModel;
