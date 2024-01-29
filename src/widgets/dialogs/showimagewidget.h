@@ -52,6 +52,7 @@ private:
     QSlider *const mSlider;
     RocketChatAccount *const mRocketChatAccount;
 };
+Q_DECLARE_TYPEINFO(ShowImageWidget::ImageInfo, Q_MOVABLE_TYPE);
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImageGraphicsView : public QGraphicsView
 {

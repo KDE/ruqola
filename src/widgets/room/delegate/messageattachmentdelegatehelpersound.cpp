@@ -92,7 +92,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
             info.attachmentPath = layout.audioPath;
             auto job = new MessageAttachmentDownloadAndSaveJob(this);
             job->setRocketChatAccount(mRocketChatAccount);
-            job->setInfo(info);
+            job->setInfo(std::move(info));
             job->start();
             return true;
         } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
