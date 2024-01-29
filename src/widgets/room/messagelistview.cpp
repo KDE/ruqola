@@ -111,20 +111,15 @@ void MessageListView::slotUpdateView()
     viewport()->update();
 }
 
-void MessageListView::slotUpdateLastSeen()
-{
-    viewport()->update();
-}
-
 void MessageListView::setRoom(Room *room)
 {
     if (mRoom) {
-        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
+        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateView);
         mMessageListDelegate->clearSelection();
     }
     mRoom = room;
     if (mRoom) {
-        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
+        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateView);
     }
 }
 

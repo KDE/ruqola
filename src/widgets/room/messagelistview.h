@@ -83,7 +83,6 @@ private:
     void slotVerticalScrollbarChanged(int value);
     void slotReplyInThread(const QModelIndex &index);
     void slotDebugMessage(const QModelIndex &index);
-    void slotUpdateLastSeen();
     void slotMarkMessageAsUnread(const QModelIndex &index);
     void slotSelectAll(const QModelIndex &index);
     void slotShowFullThread(const QModelIndex &index);
