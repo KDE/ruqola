@@ -18,7 +18,7 @@ public:
     NotificationOptions(const NotificationOptions &other) = default;
     struct LIBRUQOLACORE_EXPORT NotificationValue {
         NotificationValue() = default;
-        explicit NotificationValue(const QString &val, const QString pref)
+        explicit NotificationValue(const QString &val, const QString &pref)
             : value(val)
             , preferenceOrigin(pref)
         {
