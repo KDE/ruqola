@@ -6,8 +6,8 @@
 
 #include "customuserstatuslistjobtest.h"
 #include "custom/customuserstatuslistjob.h"
+#include "restapimethod.h"
 #include <QTest>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(CustomUserStatusListJobTest)
 using namespace RocketChatRestApi;
 CustomUserStatusListJobTest::CustomUserStatusListJobTest(QObject *parent)

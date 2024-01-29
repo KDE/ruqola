@@ -5,9 +5,9 @@
 */
 
 #include "userinfojobtest.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/userinfojob.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(UserInfoJobTest)
 using namespace RocketChatRestApi;
 UserInfoJobTest::UserInfoJobTest(QObject *parent)

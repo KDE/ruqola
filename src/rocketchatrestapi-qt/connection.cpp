@@ -1682,7 +1682,7 @@ void Connection::sendMessage(const QString &roomId, const QString &text, const Q
     args.message = text;
     args.messageId = messageId;
     args.threadMessageId = threadMessageId;
-    job->setSendMessageArguments(args);
+    job->setSendMessageArguments(std::move(args));
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

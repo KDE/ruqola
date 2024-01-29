@@ -16,7 +16,6 @@
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
-#include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
 #include <QToolTip>

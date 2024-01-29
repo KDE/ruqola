@@ -6,8 +6,8 @@
 
 #include "getsupportedlanguagesjobtest.h"
 #include "autotranslate/getsupportedlanguagesjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(GetSupportedLanguagesJobTest)
 using namespace RocketChatRestApi;
 GetSupportedLanguagesJobTest::GetSupportedLanguagesJobTest(QObject *parent)

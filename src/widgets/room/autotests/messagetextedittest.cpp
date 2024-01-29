@@ -5,9 +5,9 @@
 */
 
 #include "messagetextedittest.h"
+#include "rocketchataccount.h"
 #include "room/messagetextedit.h"
 #include <QTest>
-#include <rocketchataccount.h>
 
 QTEST_MAIN(MessageTextEditTest)
 

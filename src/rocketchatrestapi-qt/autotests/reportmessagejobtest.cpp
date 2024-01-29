@@ -6,9 +6,9 @@
 
 #include "reportmessagejobtest.h"
 #include "chat/reportmessagejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <restapimethod.h>
 
 QTEST_GUILESS_MAIN(ReportMessageJobTest)
 using namespace RocketChatRestApi;

@@ -9,7 +9,7 @@
 
 #include <QTest>
 
-#include <restapimethod.h>
+#include "restapimethod.h"
 QTEST_GUILESS_MAIN(ChannelListJobTest)
 using namespace RocketChatRestApi;
 ChannelListJobTest::ChannelListJobTest(QObject *parent)

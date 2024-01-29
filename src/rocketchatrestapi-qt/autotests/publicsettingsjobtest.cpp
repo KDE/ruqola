@@ -4,9 +4,9 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "publicsettingsjobtest.h"
+#include "restapimethod.h"
 #include "settings/publicsettingsjob.h"
 #include <QTest>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(PublicSettingsJobTest)
 using namespace RocketChatRestApi;
 PublicSettingsJobTest::PublicSettingsJobTest(QObject *parent)

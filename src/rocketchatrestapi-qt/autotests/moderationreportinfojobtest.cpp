@@ -6,8 +6,8 @@
 
 #include "moderationreportinfojobtest.h"
 #include "moderation/moderationreportsjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(ModerationReportInfoJobTest)
 using namespace RocketChatRestApi;
 ModerationReportInfoJobTest::ModerationReportInfoJobTest(QObject *parent)

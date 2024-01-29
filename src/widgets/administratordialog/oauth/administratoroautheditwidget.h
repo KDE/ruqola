@@ -45,3 +45,4 @@ private:
     QLineEdit *const mAccessTokenUrl;
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &t);
+Q_DECLARE_TYPEINFO(AdministratorOauthEditWidget::OauthEditInfo, Q_MOVABLE_TYPE);

@@ -5,9 +5,9 @@
 */
 
 #include "teamsautocompletejobtest.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "teams/teamsautocompletejob.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(TeamsAutoCompleteJobTest)
 using namespace RocketChatRestApi;
 TeamsAutoCompleteJobTest::TeamsAutoCompleteJobTest(QObject *parent)

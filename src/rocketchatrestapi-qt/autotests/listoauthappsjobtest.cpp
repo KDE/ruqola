@@ -6,8 +6,8 @@
 
 #include "listoauthappsjobtest.h"
 #include "misc/listoauthappsjob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListOauthAppsJobTest)
 using namespace RocketChatRestApi;
 ListOauthAppsJobTest::ListOauthAppsJobTest(QObject *parent)

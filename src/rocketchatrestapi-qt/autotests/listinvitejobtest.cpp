@@ -6,8 +6,8 @@
 
 #include "listinvitejobtest.h"
 #include "invite/listinvitejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListInviteJobTest)
 using namespace RocketChatRestApi;
 ListInviteJobTest::ListInviteJobTest(QObject *parent)

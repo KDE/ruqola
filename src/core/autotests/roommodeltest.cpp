@@ -16,8 +16,8 @@
 #include <QSignalSpy>
 #include <QStandardPaths>
 
+#include "rocketchataccount.h"
 #include <qglobal.h>
-#include <rocketchataccount.h>
 
 QTEST_GUILESS_MAIN(RoomModelTest)
 

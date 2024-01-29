@@ -5,9 +5,9 @@
 */
 
 #include "sessionslistjobtest.h"
+#include "restapimethod.h"
 #include "sessions/sessionslistjob.h"
 #include <QTest>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(SessionsListJobTest)
 using namespace RocketChatRestApi;
 SessionsListJobTest::SessionsListJobTest(QObject *parent)

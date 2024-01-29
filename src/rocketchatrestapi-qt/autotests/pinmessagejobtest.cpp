@@ -6,9 +6,9 @@
 
 #include "pinmessagejobtest.h"
 #include "chat/pinmessagejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(PinMessageJobTest)
 using namespace RocketChatRestApi;
 

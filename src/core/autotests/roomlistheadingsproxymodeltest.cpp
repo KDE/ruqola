@@ -7,9 +7,9 @@
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 
+#include "rocketchataccount.h"
 #include <QStandardPaths>
 #include <QTest>
-#include <rocketchataccount.h>
 
 QTEST_GUILESS_MAIN(RoomListHeadingsProxyModelTest)
 

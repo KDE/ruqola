@@ -6,8 +6,8 @@
 
 #include "getpersonalaccesstokensjobtest.h"
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
+#include "restapimethod.h"
 #include <QTest>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(GetPersonalAccessTokensJobTest)
 using namespace RocketChatRestApi;
 GetPersonalAccessTokensJobTest::GetPersonalAccessTokensJobTest(QObject *parent)

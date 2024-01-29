@@ -5,9 +5,9 @@
 */
 
 #include "userspresencejobtest.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/userspresencejob.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(UsersPresenceJobTest)
 using namespace RocketChatRestApi;
 UsersPresenceJobTest::UsersPresenceJobTest(QObject *parent)

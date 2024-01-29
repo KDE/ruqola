@@ -6,8 +6,8 @@
 
 #include "emojicustomalljobtest.h"
 #include "emoji/emojicustomalljob.h"
+#include "restapimethod.h"
 #include <QTest>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(EmojiCustomAllJobTest)
 using namespace RocketChatRestApi;
 EmojiCustomAllJobTest::EmojiCustomAllJobTest(QObject *parent)

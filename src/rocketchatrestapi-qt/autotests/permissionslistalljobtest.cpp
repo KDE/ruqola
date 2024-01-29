@@ -6,8 +6,8 @@
 
 #include "permissionslistalljobtest.h"
 #include "permissions/permissionslistalljob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(PermissionsListAllJobTest)
 using namespace RocketChatRestApi;
 PermissionsListAllJobTest::PermissionsListAllJobTest(QObject *parent)

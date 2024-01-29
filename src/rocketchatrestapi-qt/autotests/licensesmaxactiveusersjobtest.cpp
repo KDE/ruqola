@@ -6,8 +6,8 @@
 
 #include "licensesmaxactiveusersjobtest.h"
 #include "license/licensesisenterprisejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(LicensesMaxActiveUsersJobTest)
 using namespace RocketChatRestApi;
 LicensesMaxActiveUsersJobTest::LicensesMaxActiveUsersJobTest(QObject *parent)

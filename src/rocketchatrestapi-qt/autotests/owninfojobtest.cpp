@@ -6,8 +6,8 @@
 
 #include "owninfojobtest.h"
 #include "misc/owninfojob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(OwnInfoJobTest)
 using namespace RocketChatRestApi;
 OwnInfoJobTest::OwnInfoJobTest(QObject *parent)

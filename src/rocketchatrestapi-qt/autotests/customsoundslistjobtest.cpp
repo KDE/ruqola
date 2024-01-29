@@ -6,8 +6,8 @@
 
 #include "customsoundslistjobtest.h"
 #include "custom/customsoundslistjob.h"
+#include "restapimethod.h"
 #include <QTest>
-#include <restapimethod.h>
 QTEST_GUILESS_MAIN(CustomSoundsListJobTest)
 using namespace RocketChatRestApi;
 CustomSoundsListJobTest::CustomSoundsListJobTest(QObject *parent)

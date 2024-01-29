@@ -11,7 +11,6 @@
 #include "model/moderationreportinfomodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
 #include <QToolTip>

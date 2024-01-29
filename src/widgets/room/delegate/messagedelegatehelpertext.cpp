@@ -7,13 +7,13 @@
 #include "messagedelegatehelpertext.h"
 #include "colorsandmessageviewstyle.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "messagecache.h"
+#include "model/messagesmodel.h"
+#include "model/threadmessagemodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"
-#include <messagecache.h>
-#include <model/messagesmodel.h>
-#include <model/threadmessagemodel.h>
 
 #include <KStringHandler>
 

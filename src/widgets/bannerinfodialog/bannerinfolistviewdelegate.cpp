@@ -20,7 +20,6 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "rocketchataccount.h"
-#include "textconverter.h"
 
 BannerInfoListViewDelegate::BannerInfoListViewDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
     : MessageListDelegateBase(view, parent)
