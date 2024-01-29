@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 01:36+0000\n"
+"POT-Creation-Date: 2024-01-29 01:36+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -7624,7 +7624,7 @@ msgstr "Paskyra"
 msgid "Select Accounts:"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:32
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"

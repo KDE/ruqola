@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 01:36+0000\n"
+"POT-Creation-Date: 2024-01-29 01:36+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -7276,7 +7276,7 @@ msgstr "Tilin nimi"
 msgid "Select Accounts:"
 msgstr "Valitse tilit:"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"

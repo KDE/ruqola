@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 01:36+0000\n"
+"POT-Creation-Date: 2024-01-29 01:36+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -7470,7 +7470,7 @@ msgstr "As Contas Foram Importadas."
 msgid "Select Accounts:"
 msgstr "Seleccionar as Contas:"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"

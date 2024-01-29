@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 01:36+0000\n"
+"POT-Creation-Date: 2024-01-29 01:36+0000\n"
 "PO-Revision-Date: 2024-01-27 16:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7348,7 +7348,7 @@ msgstr "Hesaplar dışa aktarıldı."
 msgid "Select Accounts:"
 msgstr "Hesapları seç:"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"

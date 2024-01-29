@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 01:36+0000\n"
+"POT-Creation-Date: 2024-01-29 01:36+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -7717,7 +7717,7 @@ msgstr "Konto nimi:"
 msgid "Select Accounts:"
 msgstr "Konto kustutamine"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:33
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:32
 #, fuzzy, kde-format
 #| msgid "Account"
 msgctxt "@title:window"
