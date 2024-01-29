@@ -256,14 +256,4 @@ RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelI
     return mRocketChatAccount;
 }
 
-QString ModerationReportInfoDelegate::selectedText() const
-{
-    return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
-}
-
-bool ModerationReportInfoDelegate::hasSelection() const
-{
-    return mTextSelectionImpl->textSelection()->hasSelection();
-}
-
 #include "moc_moderationreportinfodelegate.cpp"

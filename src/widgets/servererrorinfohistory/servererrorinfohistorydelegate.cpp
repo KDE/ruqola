@@ -238,14 +238,4 @@ RocketChatAccount *ServerErrorInfoHistoryDelegate::rocketChatAccount(const QMode
     return nullptr;
 }
 
-QString ServerErrorInfoHistoryDelegate::selectedText() const
-{
-    return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
-}
-
-bool ServerErrorInfoHistoryDelegate::hasSelection() const
-{
-    return mTextSelectionImpl->textSelection()->hasSelection();
-}
-
 #include "moc_servererrorinfohistorydelegate.cpp"

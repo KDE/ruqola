@@ -38,10 +38,6 @@ public:
 
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    [[nodiscard]] QString selectedText() const;
-
-    [[nodiscard]] bool hasSelection() const;
-
 protected:
     [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
