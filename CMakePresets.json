@@ -210,6 +210,21 @@
             ]
         },
         {
+            "name": "clazy-qt6",
+            "displayName": "clazy-qt6",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+		"BUILD_WITH_QT6": "ON"
+            },
+            "environment": {
+                "CXX": "clazy",
+                "CCACHE_DISABLE": "ON"
+            },  
+            "inherits": [
+                "base-qt6"
+            ]
+        },	
+        {
             "name": "clazy",
             "displayName": "clazy",
             "cacheVariables": {
@@ -296,12 +311,20 @@
         {
             "name": "unity-qt6",
             "configurePreset": "unity-qt6"
+        },
+        {
+            "name": "clazy-qt6",
+            "configurePreset": "clazy-qt6",
+            "environment": {
+                "CLAZY_CHECKS" : "level0,level1,detaching-member,ifndef-define-typo,isempty-vs-count,qrequiredresult-candidates,reserve-candidates,signal-with-return-value,unneeded-cast,function-args-by-ref,function-args-by-value,returning-void-expression,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch,old-style-connect,qstring-allocations,container-inside-loop,heap-allocated-small-trivial-type,inefficient-qlist,qstring-varargs,level2,detaching-member,heap-allocated-small-trivial-type,isempty-vs-count,qstring-varargs,qvariant-template-instantiation,raw-environment-function,reserve-candidates,signal-with-return-value,thread-with-slots,no-ctor-missing-parent-argument,no-missing-typeinfo,qt6-header-fixes,qt6-qlatin1stringchar-to-u,sanitize-inline-keyword,signal-with-return-value",
+                "CCACHE_DISABLE" : "ON"
+            }
         },	
         {
             "name": "clazy",
             "configurePreset": "clazy",
             "environment": {
-                "CLAZY_CHECKS" : "level0,level1,detaching-member,ifndef-define-typo,isempty-vs-count,qrequiredresult-candidates,reserve-candidates,signal-with-return-value,unneeded-cast,function-args-by-ref,function-args-by-value,returning-void-expression,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch,old-style-connect,qstring-allocations,container-inside-loop,heap-allocated-small-trivial-type,inefficient-qlist,qstring-varargs,level2,detaching-member,heap-allocated-small-trivial-type,isempty-vs-count,qstring-varargs,qvariant-template-instantiation,raw-environment-function,reserve-candidates,signal-with-return-value,thread-with-slots,no-ctor-missing-parent-argument,no-missing-typeinfo",
+                "CLAZY_CHECKS" : "level0,level1,detaching-member,ifndef-define-typo,isempty-vs-count,qrequiredresult-candidates,reserve-candidates,signal-with-return-value,unneeded-cast,function-args-by-ref,function-args-by-value,returning-void-expression,no-ctor-missing-parent-argument,isempty-vs-count,qhash-with-char-pointer-key,raw-environment-function,qproperty-type-mismatch,old-style-connect,qstring-allocations,container-inside-loop,heap-allocated-small-trivial-type,inefficient-qlist,qstring-varargs,level2,detaching-member,heap-allocated-small-trivial-type,isempty-vs-count,qstring-varargs,qvariant-template-instantiation,raw-environment-function,reserve-candidates,signal-with-return-value,thread-with-slots,no-ctor-missing-parent-argument,no-missing-typeinfo,qt6-header-fixes,qt6-qlatin1stringchar-to-u,sanitize-inline-keyword,signal-with-return-value",
                 "CCACHE_DISABLE" : "ON"
             }
         }
