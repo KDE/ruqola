@@ -19,6 +19,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QTreeView
 {
     Q_OBJECT
 public:
+    struct ChannelSelectedInfo {
+        QString roomId;
+        QString roomName;
+        Room::RoomType roomType;
+        Utils::AvatarInfo avatarInfo;
+    };
+
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView() override;
 
@@ -41,7 +48,7 @@ public:
     [[nodiscard]] bool selectChannelByRoomIdRequested(const QString &identifier);
 
 Q_SIGNALS:
-    void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
+    void roomSelected(const ChannelListView::ChannelSelectedInfo &roomInfo);
     void roomPressed(const QString &roomId);
     void selectMessageIdRequested(const QString &messageId);
 
@@ -70,3 +77,4 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QMetaObject::Connection mUpdateChannelViewConnect;
 };
+Q_DECLARE_TYPEINFO(ChannelListView::ChannelSelectedInfo, Q_MOVABLE_TYPE);

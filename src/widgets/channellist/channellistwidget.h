@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "channellistview.h"
 #include "libruqolawidgets_private_export.h"
 #include "parsemessageurlutils.h"
 #include "room.h"
@@ -28,7 +29,7 @@ public:
     void setLayoutSpacing(int spacing);
 
 Q_SIGNALS:
-    void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
+    void roomSelected(const ChannelListView::ChannelSelectedInfo &roomInfo);
     void roomPressed(const QString &roomId);
     void selectMessageIdRequested(const QString &messageId);
 

@@ -114,15 +114,16 @@ void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
     }
 }
 
-void RuqolaMainWidget::selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType)
+void RuqolaMainWidget::selectChannelRoom(const ChannelListView::ChannelSelectedInfo &roomInfo)
 {
-    if (mRoomWidget->roomId() == roomId) {
+    if (mRoomWidget->roomId() == roomInfo.roomId) {
         return;
     }
-    mCurrentRocketChatAccount->settings()->setLastSelectedRoom(roomId);
-    mRoomWidget->setChannelSelected(roomId, roomType);
+    mCurrentRocketChatAccount->settings()->setLastSelectedRoom(roomInfo.roomId);
+    mRoomWidget->setChannelSelected(roomInfo.roomId, roomInfo.roomType);
     mStackedRoomWidget->setCurrentWidget(mRoomWidget);
-    const SwitchChannelHistoryModel::SwitchChannelInfo info{roomName, roomId};
+    const SwitchChannelHistoryModel::SwitchChannelInfo info{roomInfo.roomName, roomInfo.roomId};
+    // TODO add icons
     mCurrentRocketChatAccount->switchChannelHistoryModel()->addHistory(info);
     Q_EMIT channelSelected();
 }

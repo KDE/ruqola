@@ -357,7 +357,13 @@ void ChannelListView::channelSelected(const QModelIndex &index)
     const QString roomId = index.data(RoomModel::RoomId).toString();
     const QString roomName = index.data(RoomModel::RoomFName).toString();
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
-    Q_EMIT roomSelected(roomName, roomId, roomType);
+    const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
+    ChannelSelectedInfo info;
+    info.avatarInfo = avatarInfo;
+    info.roomId = roomId;
+    info.roomName = roomName;
+    info.roomType = roomType;
+    Q_EMIT roomSelected(info);
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)

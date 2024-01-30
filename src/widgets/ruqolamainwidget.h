@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "channellist/channellistwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
 #include <QPointer>
@@ -29,13 +30,13 @@ public:
     [[nodiscard]] Room::RoomType roomType() const;
     Room *room() const;
 
-    void selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType);
     void selectNextUnreadChannel();
 
 Q_SIGNALS:
     void channelSelected();
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectChannelRoom(const ChannelListView::ChannelSelectedInfo &roomInfo);
     LIBRUQOLAWIDGETS_NO_EXPORT void showEvent(QShowEvent *event) override;
     LIBRUQOLAWIDGETS_NO_EXPORT void updateBannerInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannerDismissDone();
