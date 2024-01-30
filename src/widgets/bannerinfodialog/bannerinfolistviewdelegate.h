@@ -34,10 +34,10 @@ private:
         QRect textRect;
         qreal baseLine; // used to draw sender/timestamp
     };
-    [[nodiscard]] BannerInfoListViewDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    [[nodiscard]] QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
-    [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
-    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT BannerInfoListViewDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString cacheIdentifier(const QModelIndex &index) const;
 
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -22,11 +22,11 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    [[nodiscard]] QString displayShowMessage() const;
-    void slotModifyCustomSound(const QModelIndex &index);
-    void slotAddCustomSound();
-    void slotRemoveCustomSound(const QModelIndex &index);
-    void slotCustomSoundRemoved(const QString &identifier);
-    void slotCustomSoundAdded();
-    void slotCustomSoundUpdated();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCustomSound(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddCustomSound();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveCustomSound(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundRemoved(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundAdded();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundUpdated();
 };

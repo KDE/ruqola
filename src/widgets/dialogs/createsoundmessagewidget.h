@@ -30,13 +30,13 @@ Q_SIGNALS:
     void recordDone();
 
 private:
-    void stop();
-    void record();
-    void pause();
-    void updateRecorderState(QMediaRecorder::RecorderState state);
-    void updateRecordTime(qint64 duration);
-    void initializeInput();
-    void displayRecorderError();
+    LIBRUQOLAWIDGETS_NO_EXPORT void stop();
+    LIBRUQOLAWIDGETS_NO_EXPORT void record();
+    LIBRUQOLAWIDGETS_NO_EXPORT void pause();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateRecorderState(QMediaRecorder::RecorderState state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateRecordTime(qint64 duration);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeInput();
+    LIBRUQOLAWIDGETS_NO_EXPORT void displayRecorderError();
     QToolButton *const mRecordButton;
     QToolButton *const mPauseButton;
     QToolButton *const mStopButton;

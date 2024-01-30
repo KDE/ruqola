@@ -25,10 +25,10 @@ public:
     void save();
 
 private:
-    void slotModifyServer();
-    void slotAddServer();
-    void slotDeleteServer();
-    void slotItemSelectionChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyServer();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddServer();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteServer();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotItemSelectionChanged();
 
 private:
     Ui::ConfigureAccountServerWidget *const ui;

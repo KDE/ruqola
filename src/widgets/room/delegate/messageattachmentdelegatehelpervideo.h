@@ -36,9 +36,13 @@ private:
         QRect showButtonRect;
         bool hasDescription = false;
     };
-    [[nodiscard]] VideoLayout layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
-    [[nodiscard]] QPoint
-    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT VideoLayout layoutVideo(const MessageAttachment &msgAttach,
+                                                                     const QStyleOptionViewItem &option,
+                                                                     int attachmentsWidth) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
+                                                                       const MessageAttachment &msgAttach,
+                                                                       QRect attachmentsRect,
+                                                                       const QStyleOptionViewItem &option) override;
     const QIcon mDownloadIcon;
     const QIcon mVisibilityIcon;
 };

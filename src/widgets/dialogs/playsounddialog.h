@@ -19,6 +19,6 @@ public:
     void setAudioPath(const QString &url);
 
 private:
-    void slotUpdateTitle(const QUrl &url);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateTitle(const QUrl &url);
     PlaySoundWidget *const mSoundWidget;
 };

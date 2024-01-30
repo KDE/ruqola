@@ -21,10 +21,10 @@ Q_SIGNALS:
     void oauthAdded(const QJsonObject &replyObject);
 
 private:
-    void initialize();
-    void removeClicked(const QString &identifier);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void addClicked();
-    void editClicked(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    LIBRUQOLAWIDGETS_NO_EXPORT void removeClicked(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addClicked();
+    LIBRUQOLAWIDGETS_NO_EXPORT void editClicked(const QModelIndex &index);
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -22,10 +22,10 @@ public:
     void initialize();
 
 private:
-    void slotListInviteDone(const QJsonDocument &obj);
-    void slotRemoveInvite(const QString &identifier);
-    void slotRemoveInviteDone(const QString &identifier);
-    void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotListInviteDone(const QJsonDocument &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveInvite(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveInviteDone(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
     InviteTreeView *const mInviteTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminInviteModel *const mAdminInviteModel;

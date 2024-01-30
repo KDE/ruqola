@@ -60,10 +60,10 @@ protected:
     RocketChatAccount *const mAccount;
 
 private:
-    bool updateSettings(const QString &settingName,
-                        const QVariant &value,
-                        RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
-                        const QString &buttonObjectName = {});
-    void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
-    void disableTooButton(const QString &variableName);
+    LIBRUQOLAWIDGETS_NO_EXPORT bool updateSettings(const QString &settingName,
+                                                   const QVariant &value,
+                                                   RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
+                                                   const QString &buttonObjectName = {});
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void disableTooButton(const QString &variableName);
 };

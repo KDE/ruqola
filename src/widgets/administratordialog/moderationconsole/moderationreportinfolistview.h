@@ -31,8 +31,8 @@ protected:
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
-    void slotTextToSpeech(const QModelIndex &index);
-    void slotCustomContextMenuRequested(const QPoint &pos);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
     ModerationReportInfoDelegate *const mModerationReportInfoDelegate;
 };

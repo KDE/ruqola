@@ -37,10 +37,10 @@ Q_SIGNALS:
     void loadMoreElements();
 
 private:
-    void updateLabel();
-    void slotSearchMessageTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
 
-    [[nodiscard]] QString displayShowMessageInRoom() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
     QLineEdit *const mSearchMessageLineEdit;
     QLabel *const mMessageListInfo;
     MessageListView *const mMessageListView;

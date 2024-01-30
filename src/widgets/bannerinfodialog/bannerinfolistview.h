@@ -21,9 +21,9 @@ protected:
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotSelectAll(const QModelIndex &index);
-    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
-    [[nodiscard]] QString selectedText() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectAll(const QModelIndex &index);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText() const;
     BannerInfoListViewDelegate *const mBannerInfoListViewDelegate;
 };

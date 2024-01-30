@@ -30,9 +30,9 @@ public:
     void setReportInfos(const ModerationReportInfos &infos);
 
 private:
-    void slotTextToSpeech(const QString &messageText);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QString &messageText);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
     ModerationReportInfoListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     ModerationReportInfoFilterProxyModel *const mModerationReportInfoFilterProxyModel;

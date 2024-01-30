@@ -21,7 +21,7 @@ public:
     ~BannerInfoWidget() override;
 
 private:
-    void initializeProxyModel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeProxyModel();
     BannerInfoListSearchLineWidget *const mBannerInfoListSearchLineWidget;
     BannerInfoListView *const mBannerInfoListView;
     BannerInfosFilterProxyModel *const mBannerInfosFilterProxyModel;

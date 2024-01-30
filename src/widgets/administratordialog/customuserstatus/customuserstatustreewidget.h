@@ -38,9 +38,9 @@ public:
     void initialize();
 
 private:
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void addClicked();
-    void editClicked();
-    void removeClicked();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addClicked();
+    LIBRUQOLAWIDGETS_NO_EXPORT void editClicked();
+    LIBRUQOLAWIDGETS_NO_EXPORT void removeClicked();
     RocketChatAccount *const mRocketChatAccount;
 };

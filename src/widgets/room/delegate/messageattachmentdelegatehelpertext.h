@@ -38,9 +38,13 @@ private:
         QFont textFont;
         bool isShown = true;
     };
-    [[nodiscard]] TextLayout
-    layoutText(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
-    [[nodiscard]] QTextDocument *documentAttachmentForIndex(const MessageAttachment &msgAttach, int width) const;
-    [[nodiscard]] QPoint
-    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT TextLayout layoutText(const MessageAttachment &msgAttach,
+                                                                   const QStyleOptionViewItem &option,
+                                                                   int attachmentsWidth,
+                                                                   int attachmentsHeight) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentAttachmentForIndex(const MessageAttachment &msgAttach, int width) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
+                                                                       const MessageAttachment &msgAttach,
+                                                                       QRect attachmentsRect,
+                                                                       const QStyleOptionViewItem &option) override;
 };

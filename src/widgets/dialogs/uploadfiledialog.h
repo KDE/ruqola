@@ -39,8 +39,8 @@ public:
     void setPixmap(const QPixmap &pix);
 
 private:
-    void readConfig();
-    void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     UploadFileWidget *const mUploadFileWidget;
     QPushButton *mOkButton = nullptr;
 };

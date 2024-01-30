@@ -22,7 +22,7 @@ public:
     void setReportInfos(const ModerationReportInfos &info);
 
 private:
-    void readConfig();
-    void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ModerationMessageInfoWidget *const mModerationMessageInfoWidget;
 };

@@ -28,17 +28,17 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    void slotTextChanged(const QString &str);
-    void slotLoadMoreElements();
-    void finishSearching();
-    void slotSearchCleared();
-    void slotSearchRequested(const QString &str);
-    void slotActivateUser(const QModelIndex &index, bool activateUser);
-    void slotAddUser();
-    void slotRemoveUser(const QModelIndex &index);
-    void slotRemoveUsersFromRoleDone(const QJsonObject &replyObject);
-    void slotAddUsersToRoleDone(const QJsonObject &replyObject);
-    [[nodiscard]] QString displayShowMessageInRoom() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreElements();
+    LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotActivateUser(const QModelIndex &index, bool activateUser);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddUser();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUsersFromRoleDone(const QJsonObject &replyObject);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddUsersToRoleDone(const QJsonObject &replyObject);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
     QString mRoleId;
     QString mRoleName;
 };

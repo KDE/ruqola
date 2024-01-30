@@ -35,21 +35,21 @@ Q_SIGNALS:
 
 private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    void mediaStateChanged(QMediaPlayer::State state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void mediaStateChanged(QMediaPlayer::State state);
 #else
-    void mediaStateChanged(QMediaPlayer::PlaybackState state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void mediaStateChanged(QMediaPlayer::PlaybackState state);
 #endif
-    void slotPositionChanged(qint64 position);
-    void slotDurationChanged(qint64 duration);
-    void updateDurationInfo(qint64 currentInfo);
-    void slotMuteChanged(bool state);
-    void slotVolumeChanged(int position);
-    void setPosition(int position);
-    void handleError();
-    void play();
-    void initializeAudioOutput();
-    void audioOutputChanged(int index);
-    void slotAttachmentFileDownloadDone(const QString &url);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPositionChanged(qint64 position);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDurationChanged(qint64 duration);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateDurationInfo(qint64 currentInfo);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotMuteChanged(bool state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVolumeChanged(int position);
+    LIBRUQOLAWIDGETS_NO_EXPORT void setPosition(int position);
+    LIBRUQOLAWIDGETS_NO_EXPORT void handleError();
+    LIBRUQOLAWIDGETS_NO_EXPORT void play();
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeAudioOutput();
+    LIBRUQOLAWIDGETS_NO_EXPORT void audioOutputChanged(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAttachmentFileDownloadDone(const QString &url);
 
     qint64 mDuration;
     QMediaPlayer *const mMediaPlayer;

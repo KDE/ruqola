@@ -20,6 +20,6 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
-    void slotEmailChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotEmailChanged(const QString &str);
     QLineEdit *const mEmail;
 };

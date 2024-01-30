@@ -20,7 +20,7 @@ Q_SIGNALS:
     void removeInvite(const QString &identifier);
 
 private:
-    void initialize();
-    void removeClicked(const QString &identifier);
-    void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
+    LIBRUQOLAWIDGETS_NO_EXPORT void removeClicked(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
 };

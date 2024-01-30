@@ -23,7 +23,7 @@ Q_SIGNALS:
     void filterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
 
 private:
-    void slotFilterChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterChanged();
     QCheckBox *const mDirectRooms;
     QCheckBox *const mPublicRooms;
     QCheckBox *const mPrivateRooms;

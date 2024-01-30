@@ -32,8 +32,8 @@ Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
 
 private:
-    void updateLabel();
-    [[nodiscard]] QString displayShowSearch() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
     QLabel *const mSearchLabel;
     MessageListView *const mResultListWidget;
     CommonMessageFilterProxyModel *mModel = nullptr;

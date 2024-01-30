@@ -48,9 +48,9 @@ public:
     void loadSettings();
 
 private:
-    void initialize(const QJsonObject &obj);
-    void updateState(bool state);
-    void initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initialize(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateState(bool state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings);
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;

@@ -31,7 +31,7 @@ Q_SIGNALS:
     void enableOkButton(bool enabled);
 
 private:
-    void slotTextChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged();
     QCheckBox *const mActiveCheckBox;
     QLineEdit *const mApplicationName;
     QLineEdit *const mRedirectUrl;

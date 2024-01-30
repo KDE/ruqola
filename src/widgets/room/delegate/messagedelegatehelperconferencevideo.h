@@ -52,10 +52,15 @@ private:
         QRect joinButtonRect;
         bool canJoin = false;
     };
-    [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
-    [[nodiscard]] ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
+                                                                       const Block &block,
+                                                                       QRect attachmentsRect,
+                                                                       const QStyleOptionViewItem &option);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ConferenceCallLayout layoutConferenceCall(const Block &block,
+                                                                                       const QStyleOptionViewItem &option,
+                                                                                       int attachmentsWidth) const;
 
-    [[nodiscard]] QPixmap makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPixmap makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const;
 
     const QIcon mInfoIcon;
     AvatarCacheManager *const mAvatarCacheManager;

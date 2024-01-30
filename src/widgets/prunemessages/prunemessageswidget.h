@@ -28,8 +28,8 @@ Q_SIGNALS:
     void updateOkButton(bool b);
 
 private:
-    void updateLabelInfo();
-    void slotCheckDateTime();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabelInfo();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCheckDateTime();
     QString mRoomName;
     QCheckBox *const mInclusive;
     QCheckBox *const mDoNotPrunePinnedMessage;

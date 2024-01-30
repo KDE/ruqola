@@ -26,12 +26,12 @@ public:
     void setAllowRinging(bool newAllowRinging);
 
 private:
-    void cancelCall();
-    void slotRejected();
-    void slotStartVideoConference();
-    void callUser();
-    void slotVideoConferenceAccepted(const VideoConference &videoConference);
-    void slotVideoConferenceCanceled(const VideoConference &videoConference);
+    LIBRUQOLAWIDGETS_NO_EXPORT void cancelCall();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRejected();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotStartVideoConference();
+    LIBRUQOLAWIDGETS_NO_EXPORT void callUser();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVideoConferenceAccepted(const VideoConference &videoConference);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotVideoConferenceCanceled(const VideoConference &videoConference);
     QString mRoomId;
     QString mCallId;
     ConferenceCallWidget *const mConferenceCallWidget;

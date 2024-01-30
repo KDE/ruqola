@@ -30,8 +30,8 @@ Q_SIGNALS:
     void serverUrlFound(const CreateNewServerCheckUrlWidget::ServerInfo &info);
 
 private:
-    void slotTestConnection();
-    void slotErrorConnection();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTestConnection();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotErrorConnection();
     QLineEdit *const mServerUrl;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     KMessageWidget *const mFailedError;

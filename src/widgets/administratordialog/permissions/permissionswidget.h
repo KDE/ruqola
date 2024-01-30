@@ -23,13 +23,13 @@ public:
     void initialize();
 
 private:
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotPermissionListAllDone(const QJsonObject &obj);
-    void slotPermissionUpdateDone(const QJsonObject &obj);
-    void slotEditRoles(const QStringList &roles, const QString &identifier);
-    void slotFilterTextChanged(const QString &str);
-    void slotModifyDoubleClickRoles(const QModelIndex &index);
-    void modifyRoles(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPermissionListAllDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPermissionUpdateDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotEditRoles(const QStringList &roles, const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyDoubleClickRoles(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void modifyRoles(const QModelIndex &index);
     QVector<RoleInfo> mRoleInfo;
     PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;

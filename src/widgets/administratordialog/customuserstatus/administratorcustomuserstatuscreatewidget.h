@@ -35,7 +35,7 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    void slotCheckValues();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCheckValues();
     QLineEdit *const mName;
     StatusCombobox *const mStatusCombobox;
 };

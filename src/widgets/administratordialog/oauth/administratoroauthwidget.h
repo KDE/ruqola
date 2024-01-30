@@ -25,11 +25,11 @@ public:
     void initialize();
 
 private:
-    void slotListOauthDone(const QJsonObject &obj);
-    void slotTextChanged(const QString &str);
-    void slotRemoveOauth(const QString &identifier);
-    void slotOauthAppAdded(const QJsonObject &obj);
-    void slotOauthAppUpdated(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotListOauthDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveOauth(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOauthAppAdded(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOauthAppUpdated(const QJsonObject &obj);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
     OauthTreeView *const mOauthTreeWidget;

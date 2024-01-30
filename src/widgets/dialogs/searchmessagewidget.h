@@ -39,11 +39,11 @@ Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
 
 private:
-    void slotSearchLineMessagesEnterPressed();
-    void slotClearedMessages();
-    void updateLabel();
-    void slotSearchMessages(const QString &str);
-    [[nodiscard]] QString displayShowSearch() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchLineMessagesEnterPressed();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClearedMessages();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessages(const QString &str);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
     QString mRoomId;
     QLabel *const mSearchLabel;
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;

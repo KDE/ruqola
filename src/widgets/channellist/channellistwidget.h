@@ -36,16 +36,16 @@ protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
-    void slotAccountInitialized();
-    void slotSearchRoomTextChanged();
-    void clearFilterChannel();
-    void slotOpenLinkRequested(const QString &link);
-    void slotOpenTeamRequested(const QString &identifier);
-    void applyChannelSelection();
-    void slotSelectMessageRequested(const QString &messageId,
-                                    const QString &roomId,
-                                    ParseMessageUrlUtils::RoomIdType roomType,
-                                    ParseMessageUrlUtils::ChannelType channelType);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccountInitialized();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRoomTextChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearFilterChannel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenLinkRequested(const QString &link);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void applyChannelSelection();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectMessageRequested(const QString &messageId,
+                                                               const QString &roomId,
+                                                               ParseMessageUrlUtils::RoomIdType roomType,
+                                                               ParseMessageUrlUtils::ChannelType channelType);
 
     ChannelListView *const mChannelView;
     QLineEdit *const mSearchRoomLineEdit;

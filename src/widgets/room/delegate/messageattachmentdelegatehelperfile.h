@@ -40,10 +40,14 @@ private:
         int height;
         QString link;
     };
-    [[nodiscard]] FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
-    void handleDownloadClicked(const QString &link, QWidget *widget);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT FileLayout doLayout(const MessageAttachment &msgAttach,
+                                                                 const QStyleOptionViewItem &option,
+                                                                 int attachmentsWidth) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void handleDownloadClicked(const QString &link, QWidget *widget);
     friend class MessageDelegateHelperFileTest;
     const QIcon mDownloadIcon;
-    [[nodiscard]] QPoint
-    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
+                                                                       const MessageAttachment &msgAttach,
+                                                                       QRect attachmentsRect,
+                                                                       const QStyleOptionViewItem &option) override;
 };

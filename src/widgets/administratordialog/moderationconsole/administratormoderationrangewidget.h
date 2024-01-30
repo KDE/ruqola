@@ -27,8 +27,8 @@ Q_SIGNALS:
     void rangeChanged();
 
 private:
-    void initializeMenu();
-    void slotRangeChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void initializeMenu();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRangeChanged();
     QDateEdit *const mFromDate;
     QDateEdit *const mToDate;
     QToolButton *const mFilterDate;

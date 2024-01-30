@@ -30,8 +30,8 @@ Q_SIGNALS:
     void updateRoomName(bool valid);
 
 private:
-    void slotClearRoom();
-    void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClearRoom();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectedRoom(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
     ChannelSearchNameLineEdit::ChannelCompletionInfo mUserInfo;
     QStackedWidget *const mStackedWidget;
     ChannelSearchNameLineEdit *const mChannelSearchNameLineEdit;

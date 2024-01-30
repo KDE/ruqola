@@ -35,16 +35,16 @@ Q_SIGNALS:
     void recordDone();
 
 private:
-    void updateCameras();
-    void setCamera(const QCameraDevice &cameraDevice);
-    void updateRecorderState(QMediaRecorder::RecorderState state);
-    void record();
-    void pause();
-    void stop();
-    void updateRecordTime();
-    void displayRecorderError();
-    void updateCameraActive(bool active);
-    void displayCameraError();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateCameras();
+    LIBRUQOLAWIDGETS_NO_EXPORT void setCamera(const QCameraDevice &cameraDevice);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateRecorderState(QMediaRecorder::RecorderState state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void record();
+    LIBRUQOLAWIDGETS_NO_EXPORT void pause();
+    LIBRUQOLAWIDGETS_NO_EXPORT void stop();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateRecordTime();
+    LIBRUQOLAWIDGETS_NO_EXPORT void displayRecorderError();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateCameraActive(bool active);
+    LIBRUQOLAWIDGETS_NO_EXPORT void displayCameraError();
 
     QTemporaryFile *mTemporaryFile = nullptr;
     QVideoWidget *const mVideoWidget;

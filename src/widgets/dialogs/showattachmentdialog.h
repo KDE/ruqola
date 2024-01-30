@@ -27,10 +27,10 @@ public:
     void setRoomType(Room::RoomType roomType);
 
 private:
-    void readConfig();
-    void writeConfig();
-    void slotLoadMoreAttachment();
-    void slotDeleteAttachment(const QString &fileId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreAttachment();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAttachment(const QString &fileId);
     QString mRoomId;
     Room::RoomType mRoomType = Room::RoomType::Unknown;
     ShowAttachmentWidget *const mShowAttachmentWidget;

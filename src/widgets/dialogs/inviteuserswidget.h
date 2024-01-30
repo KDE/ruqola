@@ -26,10 +26,10 @@ public:
     void generateLink(int maxUses = 25, int numberOfDays = 1);
 
 private:
-    void fillComboBox();
-    void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
-    void slotCopyLink();
-    void slotGenerateNewLink();
+    LIBRUQOLAWIDGETS_NO_EXPORT void fillComboBox();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCopyLink();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotGenerateNewLink();
     QString mRoomId;
     QLineEdit *const mInviteUserLineEdit;
     QLabel *const mExpireDateLabel;

@@ -20,8 +20,8 @@ public:
     void setImageInfo(const ShowImageWidget::ImageInfo &info);
 
 private:
-    void readConfig();
-    void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ShowImageWidget *const mShowImageWidget;
     QMenu *const mClipboardMenu;
     QAction *mClipboardImageAction = nullptr;

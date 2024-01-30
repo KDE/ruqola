@@ -52,8 +52,8 @@ private:
         QString timeStampText;
         QPoint timeStampPos;
     };
-    [[nodiscard]] ModerationReportInfoDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
-    [[nodiscard]] QString cacheIdentifier(const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ModerationReportInfoDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString cacheIdentifier(const QModelIndex &index) const;
     RocketChatAccount *const mRocketChatAccount;
 };

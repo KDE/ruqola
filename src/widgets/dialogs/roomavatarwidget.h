@@ -24,9 +24,9 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
-    void slotCancel();
-    void slotChangeImage();
-    void slotResetAvatar();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCancel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeImage();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotResetAvatar();
     QString mCurrentIconPath;
     QString mRoomAvatarPath;
     bool mWasChanged = false;

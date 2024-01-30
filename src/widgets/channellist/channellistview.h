@@ -49,20 +49,20 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
-    void slotClicked(const QModelIndex &index);
-    void slotHideChannel(const QModelIndex &index, Room::RoomType roomType);
-    void slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType);
-    void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
-    void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
-    void slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType);
-    void slotChannelConvertToTeamDone(const QJsonObject &obj);
-    void slotGroupConvertToTeamDone(const QJsonObject &obj);
-    void slotMoveToTeam(const QModelIndex &index);
-    void slotConvertToChannel(const QModelIndex &index);
-    void slotConfigureNotification(Room *room);
-    [[nodiscard]] bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
-    void slotRoomRemoved(const QString &roomId);
-    void slotPressed(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotClicked(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotHideChannel(const QModelIndex &index, Room::RoomType roomType);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkAsChannel(const QModelIndex &index, bool markAsRead);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChannelConvertToTeamDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotGroupConvertToTeamDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotMoveToTeam(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConvertToChannel(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureNotification(Room *room);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomRemoved(const QString &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPressed(const QModelIndex &index);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

@@ -23,7 +23,7 @@ public:
     ~ExploreDatabaseWidget() override;
 
 private:
-    void slotLoad();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoad();
     RocketChatAccount *const mRocketChatAccount;
     MessageListView *const mMessageListView;
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;

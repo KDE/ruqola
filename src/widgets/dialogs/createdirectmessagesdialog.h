@@ -20,9 +20,9 @@ public:
     [[nodiscard]] QStringList userNames() const;
 
 private:
-    void readConfig();
-    void writeConfig();
-    void slotAccepted();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();
 
     CreateDirectMessagesWidget *const mCreateDirectMessagesWidget;
 };

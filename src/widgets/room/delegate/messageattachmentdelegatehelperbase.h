@@ -91,8 +91,8 @@ private:
         Description,
     };
 
-    [[nodiscard]] QString documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
-    QPersistentModelIndex mCurrentIndex;
-    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString documendIdPrefix(MessageAttachmentDelegateHelperBase::DocumentIdType type) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
     convertAttachmentToDocumentTypeInfo(DocumentIdType type, const MessageAttachment &msgAttach, int width) const;
+    QPersistentModelIndex mCurrentIndex;
 };

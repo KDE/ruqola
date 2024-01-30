@@ -35,9 +35,13 @@ private:
         QRect downloadButtonRect;
         bool hasDescription = false;
     };
-    [[nodiscard]] QPoint
-    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
-    [[nodiscard]] SoundLayout layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
+                                                                       const MessageAttachment &msgAttach,
+                                                                       QRect attachmentsRect,
+                                                                       const QStyleOptionViewItem &option) override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SoundLayout layoutSound(const MessageAttachment &msgAttach,
+                                                                     const QStyleOptionViewItem &option,
+                                                                     int attachmentsWidth) const;
     const QIcon mPlayerVolumeIcon;
     const QIcon mDownloadIcon;
 };

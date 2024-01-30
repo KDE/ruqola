@@ -34,9 +34,9 @@ public:
     void setMessageId(const QString &newMessageId);
 
 private:
-    void readConfig();
-    void writeConfig();
-    void createNewDiscussion();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createNewDiscussion();
     QString mMessageId;
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;

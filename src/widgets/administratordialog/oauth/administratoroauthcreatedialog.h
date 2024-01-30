@@ -21,8 +21,8 @@ public:
     void setOauthInfo(const AdministratorOauthCreateWidget::OauthCreateInfo &info);
 
 private:
-    void readConfig();
-    void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     AdministratorOauthCreateWidget *const mCreateWidget;
     QPushButton *mOkButton = nullptr;
 };

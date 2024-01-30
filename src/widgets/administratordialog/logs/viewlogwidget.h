@@ -21,9 +21,9 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    void slotStdoutQueueDone(const QJsonObject &obj);
-    void slotInsertStdOutInfo(const QString &str);
-    void insertLine(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotStdoutQueueDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertStdOutInfo(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void insertLine(const QString &str);
     QStringList mStdoutBeforeLoadingHistory;
     ViewLogPlainTextEdit *const mPlainTextEdit;
     RocketChatAccount *const mRocketChatAccount;

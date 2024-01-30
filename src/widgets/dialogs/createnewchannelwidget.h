@@ -43,7 +43,7 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
-    void slotChangeOkButtonEnabled(bool state);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeOkButtonEnabled(bool state);
     ChannelNameValidLineWidget *const mChannelName;
     AddUsersWidget *const mUsers;
     QCheckBox *const mReadOnly;

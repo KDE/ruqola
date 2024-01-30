@@ -30,11 +30,11 @@ Q_SIGNALS:
     void refreshList();
 
 private:
-    void slotShowReportedMessages(const QJsonObject &obj);
-    void slotDismissReport(const QModelIndex &index);
-    void slotDeleteAllMessages(const QModelIndex &index);
-    void slotShowMessages(const QModelIndex &newModelIndex);
-    [[nodiscard]] QString displayShowMessage() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReportedMessages(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDismissReport(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAllMessages(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowMessages(const QModelIndex &newModelIndex);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
     AdministratorModerationRangeWidget::DateTimeRange mModerationRanges;
     ModerationMessagesModel *const mCommonMessagesModel;
     CommonMessageFilterProxyModel *mCommonMessageFilterProxyModel = nullptr;

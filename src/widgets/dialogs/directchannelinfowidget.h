@@ -27,9 +27,9 @@ public:
     void setRoles(const QVector<RoleInfo> &newRoles);
 
 private:
-    void slotUserInfoDone(const QJsonObject &obj);
-    void fetchUserInfo(const QString &userName);
-    void setUser(const User &user);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfoDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void fetchUserInfo(const QString &userName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void setUser(const User &user);
     QVector<RoleInfo> mListRoleInfos;
     QLabel *const mAvatar;
     QFormLayout *const mMainLayout;

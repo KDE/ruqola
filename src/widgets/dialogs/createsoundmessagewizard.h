@@ -31,8 +31,8 @@ public:
     [[nodiscard]] CreateSoundMessageInfo soundMessageInfo() const;
 
 private:
-    void slotCurrentIdChanged(int id);
-    void slotAccepted();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIdChanged(int id);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();
 
     enum CreateSoundMessageEnum {
         CreateSound,

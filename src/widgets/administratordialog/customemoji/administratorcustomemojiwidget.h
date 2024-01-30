@@ -22,9 +22,9 @@ protected:
     void slotCustomContextMenuRequested(const QPoint &pos) override;
 
 private:
-    [[nodiscard]] QString displayShowMessage() const;
-    void slotModifyCustomEmoji(const QModelIndex &index);
-    void slotAddCustomEmoji();
-    void slotRemoveCustomEmoji(const QModelIndex &index);
-    void slotEmojiRemoved(const QString &emojiId);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCustomEmoji(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddCustomEmoji();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveCustomEmoji(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotEmojiRemoved(const QString &emojiId);
 };

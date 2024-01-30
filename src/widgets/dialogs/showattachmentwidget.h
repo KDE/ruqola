@@ -27,10 +27,10 @@ Q_SIGNALS:
     void deleteAttachment(const QString &fileId);
 
 private:
-    void slotSearchMessageTextChanged(const QString &str);
-    void slotChangeAttachmentType(int index);
-    void updateLabel();
-    [[nodiscard]] QString displayShowMessageInRoom() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeAttachmentType(int index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
     QLineEdit *const mSearchAttachmentFileLineEdit;
     ShowAttachmentComboBox *const mAttachmentCombobox;
     QLabel *const mInfo;

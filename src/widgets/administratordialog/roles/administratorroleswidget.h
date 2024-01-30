@@ -25,16 +25,16 @@ public:
     void initialize();
 
 private:
-    void slotFilterTextChanged(const QString &str);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void addRole();
-    void addUserInRole(const QModelIndex &modelIndex);
-    void modifyRole(const QModelIndex &modelIndex);
-    void deleteRole(const QModelIndex &modelIndex);
-    void slotModifyDoubleClickRoles(const QModelIndex &index);
-    void slotRoleCreateDone();
-    void slotRoleUpdateDone();
-    void slotRoleDeleteDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addRole();
+    LIBRUQOLAWIDGETS_NO_EXPORT void addUserInRole(const QModelIndex &modelIndex);
+    LIBRUQOLAWIDGETS_NO_EXPORT void modifyRole(const QModelIndex &modelIndex);
+    LIBRUQOLAWIDGETS_NO_EXPORT void deleteRole(const QModelIndex &modelIndex);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyDoubleClickRoles(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleCreateDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleUpdateDone();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleDeleteDone();
     RolesTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminRolesModel *const mAdminRolesModel;

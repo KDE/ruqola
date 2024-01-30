@@ -44,8 +44,8 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    void updateRanges();
-    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     ImageGraphicsView *const mImageGraphicsView;
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;
@@ -86,10 +86,10 @@ Q_SIGNALS:
     void maximumZoomChanged(qreal zoom);
 
 private:
-    void zoomIn(QPointF centerPos = {});
-    void zoomOut(QPointF centerPos = {});
-    void updateRanges();
-    [[nodiscard]] QSize originalImageSize() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void zoomIn(QPointF centerPos = {});
+    LIBRUQOLAWIDGETS_NO_EXPORT void zoomOut(QPointF centerPos = {});
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QSize originalImageSize() const;
 
     QString mImagePath;
 

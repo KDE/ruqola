@@ -26,8 +26,8 @@ Q_SIGNALS:
     void registerNewAccount();
 
 private:
-    void slotRegisterNewUser();
-    void slotUpdateRegisterButton();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterNewUser();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateRegisterButton();
     QPushButton *const mRegisterButton;
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;
