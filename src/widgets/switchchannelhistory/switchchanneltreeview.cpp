@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "switchchanneltreeview.h"
+#include "model/switchchannelhistorymodel.h"
+#include "rocketchataccount.h"
 #include "switchchanneldelegate.h"
 #include <QKeyEvent>
 
@@ -24,6 +26,12 @@ SwitchChannelTreeView::SwitchChannelTreeView(QWidget *parent)
 }
 
 SwitchChannelTreeView::~SwitchChannelTreeView() = default;
+
+void SwitchChannelTreeView::setCurrentRocketChatAccount(RocketChatAccount *newCurrentRocketChatAccount)
+{
+    mSwitchChannelDelegate->setCurrentRocketChatAccount(newCurrentRocketChatAccount);
+    setModel(newCurrentRocketChatAccount->switchChannelHistoryModel());
+}
 
 int SwitchChannelTreeView::sizeHintWidth() const
 {

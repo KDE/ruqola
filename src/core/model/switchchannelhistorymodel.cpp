@@ -34,7 +34,7 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
     case SwitchChannelHistoryRoles::Identifier:
         return info.mIdentifier;
     case SwitchChannelHistoryRoles::AvatarInfo:
-        return {}; // TODO
+        return QVariant::fromValue(info.mAvatarInfo);
     }
     return {};
 }
@@ -56,7 +56,7 @@ void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
 
 bool SwitchChannelHistoryModel::SwitchChannelInfo::operator==(const SwitchChannelInfo &other) const
 {
-    return other.mIdentifier == mIdentifier && other.mName == mName;
+    return other.mIdentifier == mIdentifier && other.mName == mName && other.mAvatarInfo == mAvatarInfo;
 }
 
 #include "moc_switchchannelhistorymodel.cpp"

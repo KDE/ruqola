@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QTreeView>
 class SwitchChannelDelegate;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SwitchChannelTreeView : public QTreeView
 {
     Q_OBJECT
@@ -17,6 +18,8 @@ public:
 
     [[nodiscard]] int sizeHintWidth() const;
     void resizeColumnsToContents();
+
+    void setCurrentRocketChatAccount(RocketChatAccount *newCurrentRocketChatAccount);
 
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);

@@ -9,6 +9,7 @@
 #include <QAbstractItemModel>
 
 #include "libruqolacore_export.h"
+#include "utils.h"
 
 class LIBRUQOLACORE_EXPORT SwitchChannelHistoryModel : public QAbstractListModel
 {
@@ -23,14 +24,16 @@ public:
 
     struct SwitchChannelInfo {
         SwitchChannelInfo() = default;
-        SwitchChannelInfo(const QString &name, const QString &identifier)
+        SwitchChannelInfo(const QString &name, const QString &identifier, const Utils::AvatarInfo &info)
             : mName(name)
             , mIdentifier(identifier)
+            , mAvatarInfo(info)
         {
         }
         [[nodiscard]] bool operator==(const SwitchChannelInfo &other) const;
         QString mName;
         QString mIdentifier;
+        Utils::AvatarInfo mAvatarInfo;
     };
 
     explicit SwitchChannelHistoryModel(QObject *parent = nullptr);

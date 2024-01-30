@@ -28,6 +28,7 @@ SwitchChannelDelegate::~SwitchChannelDelegate() = default;
 void SwitchChannelDelegate::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(currentRocketChatAccount);
+    mAvatarCacheManager->clearCache();
     mRocketChatAccount = currentRocketChatAccount;
 }
 
@@ -37,7 +38,18 @@ void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     drawBackground(painter, option, index);
     const QString text = index.data(SwitchChannelHistoryModel::Name).toString();
     const int margin = DelegatePaintUtil::margin();
-    const int xText = option.rect.x() + margin;
+    int xPos = 0;
+    const Utils::AvatarInfo info = index.data(SwitchChannelHistoryModel::AvatarInfo).value<Utils::AvatarInfo>();
+    if (info.isValid()) {
+        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, info, option.rect.height());
+        if (!pix.isNull()) {
+            drawDecoration(painter, option, displayRect, pix);
+            xPos = margin + option.rect.height();
+        }
+    }
+    const int xText = option.rect.x() + margin + xPos;
+
     const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText, option.rect.height());
     drawDisplay(painter, option, displayRect, text);
 }

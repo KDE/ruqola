@@ -96,7 +96,7 @@ void SwitchChannelTreeViewManager::setCurrentRocketChatAccount(RocketChatAccount
 {
     if (mCurrentRocketChatAccount != newCurrentRocketChatAccount) {
         mCurrentRocketChatAccount = newCurrentRocketChatAccount;
-        mSwitcherChannelTreeView->setModel(mCurrentRocketChatAccount->switchChannelHistoryModel());
+        mSwitcherChannelTreeView->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     }
 }
 
