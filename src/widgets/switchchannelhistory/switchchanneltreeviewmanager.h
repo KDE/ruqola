@@ -26,8 +26,6 @@ public:
     void selectBackward();
     void updateViewGeometry();
 
-    void addSwitchChannel(const QString &name, const QString &identifier);
-
     [[nodiscard]] SwitchChannelTreeView *switchChannelTreeView() const;
 
     [[nodiscard]] SwitchChannelHistoryModel *channelSwitcherModel() const;

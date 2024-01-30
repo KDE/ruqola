@@ -141,9 +141,4 @@ void SwitchChannelTreeViewManager::updateViewGeometry()
     }
 }
 
-void SwitchChannelTreeViewManager::addSwitchChannel(const QString &name, const QString &identifier)
-{
-    mChannelSwitcherModel->addHistory(name, identifier);
-}
-
 #include "moc_switchchanneltreeviewmanager.cpp"

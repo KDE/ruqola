@@ -39,7 +39,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void addHistory(const QString &name, const QString &identifier);
+    void addHistory(const SwitchChannelInfo &info);
 
     [[nodiscard]] const QString identifier(int index);
 

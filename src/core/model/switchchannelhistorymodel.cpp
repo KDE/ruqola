@@ -39,9 +39,8 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
     return {};
 }
 
-void SwitchChannelHistoryModel::addHistory(const QString &name, const QString &identifier)
+void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
 {
-    const SwitchChannelInfo info{name, identifier};
     if (!mSwichChannelsInfo.isEmpty()) {
         if (mSwichChannelsInfo.at(mSwichChannelsInfo.count() - 1) == info) {
             return;
