@@ -33,7 +33,7 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
         return info.mName;
     case SwitchChannelHistoryRoles::Identifier:
         return info.mIdentifier;
-    case SwitchChannelHistoryRoles::Icon:
+    case SwitchChannelHistoryRoles::AvatarInfo:
         return {}; // TODO
     }
     return {};

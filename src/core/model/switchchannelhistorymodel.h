@@ -17,7 +17,7 @@ public:
     enum SwitchChannelHistoryRoles {
         Name = Qt::UserRole + 1,
         Identifier,
-        Icon,
+        AvatarInfo,
     };
     Q_ENUM(SwitchChannelHistoryRoles)
 
