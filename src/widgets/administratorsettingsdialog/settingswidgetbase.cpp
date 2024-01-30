@@ -291,14 +291,17 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
-        updateSettings(variable,
-                       comboBox->currentData().toString(),
-                       RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
-                       toolButton->objectName());
+        if (!updateSettings(variable,
+                            comboBox->currentData().toString(),
+                            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                            toolButton->objectName())) {
+            comboBox->setCurrentIndex(comboBox->findData(comboBox->property(s_property_default_value).toString()));
+        }
     });
-    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton, comboBox](const QString &buttonName) {
         if (toolButton->objectName() == buttonName) {
             toolButton->setEnabled(false);
+            comboBox->setProperty(s_property_default_value, comboBox->currentText());
         }
     });
     connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton, comboBox]() {
