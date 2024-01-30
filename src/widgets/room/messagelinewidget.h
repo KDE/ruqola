@@ -71,17 +71,17 @@ Q_SIGNALS:
     void createUploadJob(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
 
 private:
-    void slotSendMessage(const QString &msg);
-    void slotTextEditing(bool clearNotification);
-    void slotSendFile();
-    void keyPressedInLineEdit(QKeyEvent *ev);
-    void textEditClicked();
-    [[nodiscard]] MessagesModel *messageModel() const;
-    void clearEditingMode();
-    void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
-    void slotSendVideoMessage();
-    void slotSendSoundMessage();
-    void slotPrivateSettingsChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendMessage(const QString &msg);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTextEditing(bool clearNotification);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendFile();
+    LIBRUQOLAWIDGETS_NO_EXPORT void keyPressedInLineEdit(QKeyEvent *ev);
+    LIBRUQOLAWIDGETS_NO_EXPORT void textEditClicked();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessagesModel *messageModel() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearEditingMode();
+    LIBRUQOLAWIDGETS_NO_EXPORT void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendVideoMessage();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendSoundMessage();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
 
     QString mThreadMessageId;
     QString mMessageIdBeingEdited;

@@ -42,15 +42,15 @@ public:
 
 private:
     friend class TextSelection; // for documentForIndex
-    [[nodiscard]] QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
      * @param widget The view to update when fetching thread context on demand. nullptr if this isn't needed (e.g. from SelectionManager)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    [[nodiscard]] QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
 
     bool mShowThreadContext = true;
 };

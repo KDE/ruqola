@@ -47,20 +47,24 @@ private:
         QRect hideShowButtonRect;
         bool isShown = true;
     };
-    void dump(const PreviewLayout &layout);
-    [[nodiscard]] MessageDelegateHelperUrlPreview::PreviewLayout
+    LIBRUQOLAWIDGETS_NO_EXPORT void dump(const PreviewLayout &layout);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperUrlPreview::PreviewLayout
     layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
-    [[nodiscard]] MessageDelegateHelperBase::DocumentDescriptionInfo convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;
-    [[nodiscard]] int
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentDescriptionInfo
+    convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT int
     charPosition(const QTextDocument *doc, const MessageUrl &messageUrl, QRect previewRect, const QPoint &pos, const QStyleOptionViewItem &option);
-    [[nodiscard]] QPoint adaptMousePosition(const QPoint &pos, const MessageUrl &messageUrl, QRect previewRect, const QStyleOptionViewItem &option);
-    void drawDescription(const MessageUrl &messageUrl,
-                         QRect previewRect,
-                         QPainter *painter,
-                         int topPos,
-                         const QModelIndex &index,
-                         const QStyleOptionViewItem &option) const;
-    [[nodiscard]] QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
+                                                                       const MessageUrl &messageUrl,
+                                                                       QRect previewRect,
+                                                                       const QStyleOptionViewItem &option);
+    LIBRUQOLAWIDGETS_NO_EXPORT void drawDescription(const MessageUrl &messageUrl,
+                                                    QRect previewRect,
+                                                    QPainter *painter,
+                                                    int topPos,
+                                                    const QModelIndex &index,
+                                                    const QStyleOptionViewItem &option) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
 
     QPersistentModelIndex mCurrentIndex;
     mutable PixmapCache mPixmapCache;
