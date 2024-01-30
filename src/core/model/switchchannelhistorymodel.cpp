@@ -54,14 +54,6 @@ void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
     Q_EMIT dataChanged(createIndex(0, 0), createIndex(mSwichChannelsInfo.size() - 1, 1), {});
 }
 
-const QString SwitchChannelHistoryModel::identifier(int index)
-{
-    if (index < 0 || index >= mSwichChannelsInfo.count()) {
-        return {};
-    }
-    return mSwichChannelsInfo.at(index).mIdentifier;
-}
-
 bool SwitchChannelHistoryModel::SwitchChannelInfo::operator==(const SwitchChannelInfo &other) const
 {
     return other.mIdentifier == mIdentifier && other.mName == mName;

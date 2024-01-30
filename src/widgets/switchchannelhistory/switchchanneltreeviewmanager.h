@@ -7,9 +7,10 @@
 #include "libruqolawidgets_export.h"
 #include <QList>
 #include <QObject>
+#include <QPointer>
 class SwitchChannelTreeView;
 class QAction;
-class SwitchChannelHistoryModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_EXPORT SwitchChannelTreeViewManager : public QObject
 {
     Q_OBJECT
@@ -28,8 +29,8 @@ public:
 
     [[nodiscard]] SwitchChannelTreeView *switchChannelTreeView() const;
 
-    [[nodiscard]] SwitchChannelHistoryModel *channelSwitcherModel() const;
-    void setChannelSwitcherModel(SwitchChannelHistoryModel *newChannelSwitcherModel);
+    [[nodiscard]] RocketChatAccount *currentRocketChatAccount() const;
+    void setCurrentRocketChatAccount(RocketChatAccount *newCurrentRocketChatAccount);
 
 Q_SIGNALS:
     void switchToChannel(const QString &identifier);
@@ -40,5 +41,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void selectChannel(const int from, const int to);
     QWidget *mParentWidget = nullptr;
     SwitchChannelTreeView *const mSwitcherChannelTreeView;
-    SwitchChannelHistoryModel *mChannelSwitcherModel = nullptr;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

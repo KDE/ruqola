@@ -6,6 +6,7 @@
 
 #include "switchchanneltreeviewmanager.h"
 #include "model/switchchannelhistorymodel.h"
+#include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "switchchanneltreeview.h"
 #include <QScrollBar>
@@ -31,13 +32,10 @@ void SwitchChannelTreeViewManager::addActions(const QList<QAction *> &lst)
 
 void SwitchChannelTreeViewManager::activateChannel(const QModelIndex &index)
 {
-    Q_UNUSED(index)
-    if (mSwitcherChannelTreeView->selectionModel()->selectedRows().isEmpty()) {
+    if (!index.isValid()) {
         return;
     }
-
-    const int row = mSwitcherChannelTreeView->selectionModel()->selectedRows().first().row();
-    const QString identifier = mChannelSwitcherModel->identifier(row);
+    const QString identifier = index.data(SwitchChannelHistoryModel::SwitchChannelHistoryRoles::Identifier).toString();
     Q_EMIT switchToChannel(identifier);
 
     mSwitcherChannelTreeView->hide();
@@ -61,16 +59,19 @@ void SwitchChannelTreeViewManager::setParentWidget(QWidget *newParentWidget)
 
 void SwitchChannelTreeViewManager::selectChannel(const int from, const int to)
 {
-    if (mChannelSwitcherModel->rowCount() == 0) {
+    if (!mCurrentRocketChatAccount) {
+        return;
+    }
+    if (mCurrentRocketChatAccount->switchChannelHistoryModel()->rowCount() == 0) {
         return;
     }
     QModelIndex index;
     const int step = from < to ? 1 : -1;
     if (!mSwitcherChannelTreeView->isVisible()) {
         updateViewGeometry();
-        index = mChannelSwitcherModel->index(from + step, 0);
+        index = mCurrentRocketChatAccount->switchChannelHistoryModel()->index(from + step, 0);
         if (!index.isValid()) {
-            index = mChannelSwitcherModel->index(0, 0);
+            index = mCurrentRocketChatAccount->switchChannelHistoryModel()->index(0, 0);
         }
         mSwitcherChannelTreeView->show();
         mSwitcherChannelTreeView->setFocus();
@@ -79,23 +80,23 @@ void SwitchChannelTreeViewManager::selectChannel(const int from, const int to)
         if (newRow == to + step) {
             newRow = from;
         }
-        index = mChannelSwitcherModel->index(newRow, 0);
+        index = mCurrentRocketChatAccount->switchChannelHistoryModel()->index(newRow, 0);
     }
 
     mSwitcherChannelTreeView->selectionModel()->select(index, QItemSelectionModel::Rows | QItemSelectionModel::ClearAndSelect);
     mSwitcherChannelTreeView->selectionModel()->setCurrentIndex(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
 
-SwitchChannelHistoryModel *SwitchChannelTreeViewManager::channelSwitcherModel() const
+RocketChatAccount *SwitchChannelTreeViewManager::currentRocketChatAccount() const
 {
-    return mChannelSwitcherModel;
+    return mCurrentRocketChatAccount;
 }
 
-void SwitchChannelTreeViewManager::setChannelSwitcherModel(SwitchChannelHistoryModel *newChannelSwitcherModel)
+void SwitchChannelTreeViewManager::setCurrentRocketChatAccount(RocketChatAccount *newCurrentRocketChatAccount)
 {
-    if (mChannelSwitcherModel != newChannelSwitcherModel) {
-        mChannelSwitcherModel = newChannelSwitcherModel;
-        mSwitcherChannelTreeView->setModel(mChannelSwitcherModel);
+    if (mCurrentRocketChatAccount != newCurrentRocketChatAccount) {
+        mCurrentRocketChatAccount = newCurrentRocketChatAccount;
+        mSwitcherChannelTreeView->setModel(mCurrentRocketChatAccount->switchChannelHistoryModel());
     }
 }
 
@@ -106,12 +107,12 @@ SwitchChannelTreeView *SwitchChannelTreeViewManager::switchChannelTreeView() con
 
 void SwitchChannelTreeViewManager::selectForward()
 {
-    selectChannel(0, mChannelSwitcherModel->rowCount() - 1);
+    selectChannel(0, mCurrentRocketChatAccount->switchChannelHistoryModel()->rowCount() - 1);
 }
 
 void SwitchChannelTreeViewManager::selectBackward()
 {
-    selectChannel(mChannelSwitcherModel->rowCount() - 1, 0);
+    selectChannel(mCurrentRocketChatAccount->switchChannelHistoryModel()->rowCount() - 1, 0);
 }
 
 void SwitchChannelTreeViewManager::updateViewGeometry()
@@ -126,7 +127,8 @@ void SwitchChannelTreeViewManager::updateViewGeometry()
         const int frameWidth = mSwitcherChannelTreeView->frameWidth();
         const QSize viewSize(
             std::min(mSwitcherChannelTreeView->sizeHintWidth() + 2 * frameWidth + mSwitcherChannelTreeView->verticalScrollBar()->width(), viewMaxSize.width()),
-            std::min(std::max(rowHeight * mChannelSwitcherModel->rowCount() + 2 * frameWidth, rowHeight * 6), viewMaxSize.height()));
+            std::min(std::max(rowHeight * mCurrentRocketChatAccount->switchChannelHistoryModel()->rowCount() + 2 * frameWidth, rowHeight * 6),
+                     viewMaxSize.height()));
 
         // Position should be central over the editor area, so map to global from
         // parent of central widget since the view is positioned in global coords

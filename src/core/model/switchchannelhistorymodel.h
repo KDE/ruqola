@@ -41,8 +41,6 @@ public:
 
     void addHistory(const SwitchChannelInfo &info);
 
-    [[nodiscard]] const QString identifier(int index);
-
 private:
     QVector<SwitchChannelInfo> mSwichChannelsInfo;
 };
