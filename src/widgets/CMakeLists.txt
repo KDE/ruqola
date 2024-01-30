@@ -682,6 +682,8 @@ target_sources(libruqolawidgets PRIVATE
     switchchannelhistory/switchchanneltreeview.h
     switchchannelhistory/switchchanneltreeviewmanager.cpp
     switchchannelhistory/switchchanneltreeviewmanager.h
+    switchchannelhistory/switchchanneldelegate.cpp
+    switchchannelhistory/switchchanneldelegate.h
     teams/addteamroomcompletionlineedit.cpp
     teams/addteamroomcompletionlineedit.h
     teams/searchteamcompletionlineedit.cpp
