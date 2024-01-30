@@ -5,13 +5,11 @@
 */
 
 #include "switchchanneldelegate.h"
-#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
-#include "model/roommodel.h"
+#include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 
-#include <KColorScheme>
 #include <QPainter>
 
 namespace
@@ -37,6 +35,11 @@ void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 {
     // [M] <icon> [M] <name>
     drawBackground(painter, option, index);
+    const QString text = index.data(SwitchChannelHistoryModel::Name).toString();
+    const int margin = DelegatePaintUtil::margin();
+    const int xText = option.rect.x() + margin;
+    const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText, option.rect.height());
+    drawDisplay(painter, option, displayRect, text);
 }
 
 QSize SwitchChannelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

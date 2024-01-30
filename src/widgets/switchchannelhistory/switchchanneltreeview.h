@@ -7,7 +7,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QTreeView>
-
+class SwitchChannelDelegate;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SwitchChannelTreeView : public QTreeView
 {
     Q_OBJECT
@@ -25,4 +25,7 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
     void showEvent(QShowEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
+
+private:
+    SwitchChannelDelegate *const mSwitchChannelDelegate;
 };

@@ -4,11 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "switchchanneltreeview.h"
-
+#include "switchchanneldelegate.h"
 #include <QKeyEvent>
 
 SwitchChannelTreeView::SwitchChannelTreeView(QWidget *parent)
     : QTreeView(parent)
+    , mSwitchChannelDelegate(new SwitchChannelDelegate(this))
 {
     setWindowFlags(Qt::Popup | Qt::FramelessWindowHint);
     setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -18,6 +19,8 @@ SwitchChannelTreeView::SwitchChannelTreeView(QWidget *parent)
 
     setHeaderHidden(true);
     setRootIsDecorated(false);
+    mSwitchChannelDelegate->setObjectName(QStringLiteral("mSwitchChannelDelegate"));
+    setItemDelegate(mSwitchChannelDelegate);
 }
 
 SwitchChannelTreeView::~SwitchChannelTreeView() = default;
