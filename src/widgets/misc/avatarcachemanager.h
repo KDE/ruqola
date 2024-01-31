@@ -27,6 +27,7 @@ public:
     [[nodiscard]] QPixmap makeAvatarUrlPixmap(const QWidget *widget, const QString &url, int maxHeight) const;
 
     void clearCache();
+    void setMaxEntries(int maxEntries);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAvatarChanged(const Utils::AvatarInfo &info);

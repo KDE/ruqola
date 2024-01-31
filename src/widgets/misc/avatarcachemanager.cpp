@@ -92,6 +92,11 @@ void AvatarCacheManager::clearCache()
     mAvatarCache.cache.clear();
 }
 
+void AvatarCacheManager::setMaxEntries(int maxEntries)
+{
+    mAvatarCache.cache.setMaxEntries(maxEntries);
+}
+
 QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QString &url, int maxHeight) const
 {
     const QUrl iconUrlStr = mRocketChatAccount->previewUrlFromLocalCache(url);
