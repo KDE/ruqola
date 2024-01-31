@@ -6257,8 +6257,7 @@ msgid "Connection"
 msgstr "Yhdistetään"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Server Url:"
 msgstr "Palvelimen osoite:"
 

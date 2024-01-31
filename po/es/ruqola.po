@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-30 01:39+0000\n"
-"PO-Revision-Date: 2024-01-20 19:03+0100\n"
+"PO-Revision-Date: 2024-01-27 18:40+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -7891,10 +7891,9 @@ msgid "Receive login detection emails"
 msgstr "Recibir correos electrónicos de detección de inicio de sesión"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
+#, kde-format
 msgid "Enable Auto Away"
-msgstr "Activar auto-traducción"
+msgstr "Activar auto ausente"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -7934,16 +7933,17 @@ msgstr ""
 "sesión en su cuenta."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Idle Timeout (ms)"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "Expiración en reposo (ms)"
+msgstr "Limite de tiempo en reposo:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid ""
 "Period of time until status changes to away. Value needs to be in seconds."
 msgstr ""
+"Periodo de tiempo hasta que el estado cambia a ausente. El valor se expresa "
+"en segundos."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:127
 #, kde-format
@@ -9360,7 +9360,5 @@ msgid "Fix list of authentication method."
 msgstr "Mejora en el listado de los métodos de autenticación."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "Corrección del soporte de avatares"
+msgstr "Corrección al mostrar la URL del avatar."
