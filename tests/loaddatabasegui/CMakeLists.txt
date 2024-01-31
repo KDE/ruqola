@@ -5,7 +5,7 @@ target_sources(loaddatabasegui PRIVATE loaddatabasegui.h loaddatabasegui.cpp)
 
 target_link_libraries(loaddatabasegui
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::ItemViews
+    KF6::ItemViews
     libruqolawidgets
 )
 set_target_properties(loaddatabasegui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

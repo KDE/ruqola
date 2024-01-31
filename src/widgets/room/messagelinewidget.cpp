@@ -5,10 +5,8 @@
 */
 
 #include "messagelinewidget.h"
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include "dialogs/createsoundmessagewizard.h"
 #include "dialogs/createvideomessagewizard.h"
-#endif
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
@@ -119,10 +117,6 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::handleMimeData, this, &MessageLineWidget::handleMimeData);
 
     setFocusProxy(mMessageTextEdit);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mVideoMessageButton->setVisible(false);
-    mSoundMessageButton->setVisible(false);
-#endif
 }
 
 MessageLineWidget::~MessageLineWidget() = default;
@@ -152,9 +146,6 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                             tempFile.setAutoRemove(false);
                             if (tempFile.open()) {
                                 QTextStream stream(&tempFile);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                                stream.setCodec("UTF-8");
-#endif
                                 stream << msg;
                                 tempFile.close();
 
@@ -286,10 +277,8 @@ void MessageLineWidget::setEditMessage(const QString &messageId, const QString &
 void MessageLineWidget::slotPublicSettingChanged()
 {
     mSendFileButton->setVisible(mCurrentRocketChatAccount->uploadFileEnabled());
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
     mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
-#endif
 }
 
 void MessageLineWidget::slotOwnUserPreferencesChanged()
@@ -299,10 +288,8 @@ void MessageLineWidget::slotOwnUserPreferencesChanged()
 
 void MessageLineWidget::slotPrivateSettingsChanged()
 {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mSoundMessageButton->setVisible(mCurrentRocketChatAccount->audioRecorderEnabled());
     mVideoMessageButton->setVisible(mCurrentRocketChatAccount->videoRecorderEnabled());
-#endif
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, bool threadMessageDialog)
@@ -333,7 +320,6 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 
 void MessageLineWidget::slotSendSoundMessage()
 {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QPointer<CreateSoundMessageWizard> dlg = new CreateSoundMessageWizard(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const CreateSoundMessageWizard::CreateSoundMessageInfo info = dlg->soundMessageInfo();
@@ -345,12 +331,10 @@ void MessageLineWidget::slotSendSoundMessage()
         sendFile(result);
     }
     delete dlg;
-#endif
 }
 
 void MessageLineWidget::slotSendVideoMessage()
 {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QPointer<CreateVideoMessageWizard> dlg = new CreateVideoMessageWizard(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const CreateVideoMessageWizard::CreateVideoMessageInfo info = dlg->videoMessageInfo();
@@ -364,7 +348,6 @@ void MessageLineWidget::slotSendVideoMessage()
         }
     }
     delete dlg;
-#endif
 }
 
 void MessageLineWidget::slotSendFile()

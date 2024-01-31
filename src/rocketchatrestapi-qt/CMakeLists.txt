@@ -473,7 +473,7 @@ target_link_libraries(librocketchatrestapi-qt
     Qt::Core
     Qt::Network
     Qt::NetworkAuth
-    KF${KF_MAJOR_VERSION}::I18n
+    KF6::I18n
 )
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(librocketchatrestapi-qt PROPERTIES UNITY_BUILD ON)

@@ -63,9 +63,6 @@ void ExportAccountJob::finishExportAccount()
     QTemporaryFile tmp;
     tmp.open();
     QTextStream text(&tmp);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    text.setCodec("UTF-8");
-#endif
     text << mAccountNames.join(QLatin1Char('\n'));
     tmp.close();
     mArchive->addLocalFile(tmp.fileName(), QStringLiteral("accounts"));

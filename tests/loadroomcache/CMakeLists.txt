@@ -4,5 +4,5 @@ add_executable(loadroomcachetest)
 target_sources(loadroomcachetest PRIVATE loadroomcache.cpp loadroomcache.h)
 target_link_libraries(loadroomcachetest
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF6::KIOWidgets
 )

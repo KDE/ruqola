@@ -88,8 +88,5 @@ private:
     int mStatus = -1;
     bool mRinging = false;
 };
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-Q_DECLARE_METATYPE(VideoConferenceInfo)
-#endif
 Q_DECLARE_TYPEINFO(VideoConferenceInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConferenceInfo &t);

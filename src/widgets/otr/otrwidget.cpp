@@ -15,9 +15,7 @@ OtrWidget::OtrWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     setPosition(KMessageWidget::Header);
-#endif
     setText(i18n("Otr Activated"));
     auto endOtrAction = new QAction(i18n("End OTR"), this);
     endOtrAction->setObjectName(QStringLiteral("endOtrAction"));

@@ -12,24 +12,18 @@
 #include <KLocalizedString>
 #include <KMessageWidget>
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QAudioDevice>
-#endif
+#include <QAudioOutput>
 #include <QComboBox>
 #include <QFontMetrics>
 #include <QHBoxLayout>
 #include <QLabel>
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QMediaDevices>
-#endif
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>
 #include <QTime>
 #include <QToolButton>
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QAudioOutput>
-#endif
 
 PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -41,24 +35,18 @@ PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
     , mLabelDuration(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
     , mLabelPercentSound(new QLabel(this))
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mAudioOutput(new QAudioOutput(this))
     , mDeviceComboBox(new QComboBox(this))
-#endif
     , mRocketChatAccount(account)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setAudioOutput(mAudioOutput);
     mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));
     initializeAudioOutput();
-#endif
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mainLayout->addWidget(mDeviceComboBox);
-#endif
 
     auto playerLayout = new QHBoxLayout;
     playerLayout->setObjectName(QStringLiteral("playerLayout"));
@@ -95,11 +83,7 @@ PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
 
     // Allow to change volume
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &PlaySoundWidget::mediaStateChanged);
-#else
     connect(mMediaPlayer, &QMediaPlayer::playbackStateChanged, this, &PlaySoundWidget::mediaStateChanged);
-#endif
     mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
@@ -109,27 +93,15 @@ PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
-    connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
-#else
     connect(mSoundButton, &QToolButton::clicked, mAudioOutput, &QAudioOutput::setMuted);
     connect(mAudioOutput, &QAudioOutput::mutedChanged, this, &PlaySoundWidget::muteChanged);
-#endif
     playerLayout->addWidget(mPositionSlider);
 
     playerLayout->addWidget(mSoundButton);
 
     playerLayout->addWidget(mLabelDuration);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
-#endif
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &PlaySoundWidget::handleError);
-#else
     connect(mMediaPlayer, &QMediaPlayer::errorChanged, this, &PlaySoundWidget::handleError);
-#endif
 
     playerLayout->addWidget(mSoundSlider);
     playerLayout->addWidget(mLabelPercentSound);
@@ -147,21 +119,17 @@ PlaySoundWidget::~PlaySoundWidget()
 
 void PlaySoundWidget::initializeAudioOutput()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mDeviceComboBox->addItem(i18n("Default"), QVariant::fromValue(QAudioDevice()));
     for (const auto &deviceInfo : QMediaDevices::audioOutputs()) {
         mDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
     }
     connect(mDeviceComboBox, &QComboBox::activated, this, &PlaySoundWidget::audioOutputChanged);
-#endif
 }
 
 void PlaySoundWidget::audioOutputChanged(int index)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     const auto device = mDeviceComboBox->itemData(index).value<QAudioDevice>();
     mMediaPlayer->audioOutput()->setDevice(device);
-#endif
 }
 
 void PlaySoundWidget::slotPositionChanged(qint64 progress)
@@ -188,11 +156,7 @@ void PlaySoundWidget::updateDurationInfo(qint64 currentInfo)
 
 void PlaySoundWidget::slotVolumeChanged(int position)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mMediaPlayer->setVolume(position);
-#else
     mAudioOutput->setVolume(position / 100.0);
-#endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
 
@@ -214,12 +178,7 @@ void PlaySoundWidget::muteChanged(bool state)
 
 QUrl PlaySoundWidget::audioUrl() const
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    // Code not used in qt5 :)
-    return {};
-#else
     return mMediaPlayer->source();
-#endif
 }
 
 void PlaySoundWidget::slotAttachmentFileDownloadDone(const QString &url)
@@ -227,11 +186,7 @@ void PlaySoundWidget::slotAttachmentFileDownloadDone(const QString &url)
     const QUrl localUrl = QUrl::fromLocalFile(url);
     Q_EMIT updateTitle(localUrl);
     // setWindowFilePath(localUrl);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mMediaPlayer->setMedia(localUrl);
-#else
     mMediaPlayer->setSource(localUrl);
-#endif
     mPlayButton->setEnabled(true);
 }
 
@@ -256,16 +211,6 @@ void PlaySoundWidget::setAudioPath(const QString &url)
 
 void PlaySoundWidget::play()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    switch (mMediaPlayer->state()) {
-    case QMediaPlayer::PlayingState:
-        mMediaPlayer->pause();
-        break;
-    default:
-        mMediaPlayer->play();
-        break;
-    }
-#else
     switch (mMediaPlayer->playbackState()) {
     case QMediaPlayer::PlayingState:
         mMediaPlayer->pause();
@@ -274,13 +219,9 @@ void PlaySoundWidget::play()
         mMediaPlayer->play();
         break;
     }
-#endif
 }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
-#else
+
 void PlaySoundWidget::mediaStateChanged(QMediaPlayer::PlaybackState state)
-#endif
 {
     switch (state) {
     case QMediaPlayer::PlayingState:

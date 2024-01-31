@@ -22,18 +22,6 @@ LRUCacheTest::LRUCacheTest(QObject *parent)
     QStandardPaths::setTestModeEnabled(true);
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-namespace QTest
-{
-// Why does qtest.h have QList but not QVector support? Oh well, Qt6 unifies that.
-template<typename T>
-inline bool qCompare(QVector<T> const &t1, QVector<T> const &t2, const char *actual, const char *expected, const char *file, int line)
-{
-    return qCompare(QList<T>(t1.begin(), t1.end()), QList<T>(t2.begin(), t2.end()), actual, expected, file, line);
-}
-}
-#endif
-
 void LRUCacheTest::shouldCacheLastFiveEntries()
 {
     auto makeString = [](const char *prefix, int i) -> QString {

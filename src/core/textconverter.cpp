@@ -107,22 +107,14 @@ void iterateOverEndLineRegions(const QString &str,
             if (endIndex == -1) {
                 break;
             }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            QStringView codeBlock = str.midRef(startIndex + markerSize, endIndex - startIndex).trimmed();
-#else
             QStringView codeBlock = QStringView(str).mid(startIndex + markerSize, endIndex - startIndex).trimmed();
-#endif
             if (codeBlock.endsWith(regionMarker)) {
                 codeBlock.chop(regionMarker.size());
             }
             if (hasCode) {
                 newLine();
             }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            const QStringView midCode = str.midRef(startFrom, startIndex - startFrom);
-#else
             const QStringView midCode = QStringView(str).mid(startFrom, startIndex - startFrom);
-#endif
             outsideRegion(midCode.toString());
             startFrom = endIndex + markerSize;
 
@@ -131,13 +123,8 @@ void iterateOverEndLineRegions(const QString &str,
                 hasCode = true;
             }
         }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const auto afterstr = str.midRef(startFrom);
-        outsideRegion(afterstr.toString());
-#else
         const QString afterstr = str.mid(startFrom);
         outsideRegion(afterstr);
-#endif
     } else {
         outsideRegion(str);
     }
@@ -194,11 +181,7 @@ QString generateRichText(const QString &str,
         QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
         while (roomIterator.hasNext()) {
             const QRegularExpressionMatch match = roomIterator.next();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            const QStringRef word = match.capturedRef(2);
-#else
             const QStringView word = match.capturedView(2);
-#endif
             bool inAnUrl = false;
             const int matchCapturedStart = match.capturedStart(2);
             for (const HrefPos &hrefPos : lstPos) {
@@ -214,11 +197,7 @@ QString generateRichText(const QString &str,
             if (roomIdentifier.isEmpty()) {
                 roomIdentifier = word.toString();
             }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
-#else
             newStr.replace(QLatin1Char('#') + word.toString(), QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
-#endif
         }
     }
 
@@ -306,11 +285,7 @@ QString generateRichText(const QString &str,
     const auto userMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const QStringRef word = match.capturedRef(2);
-#else
         const QStringView word = match.capturedView(2);
-#endif
         // Highlight only if it's yours
 
         QString userIdentifier = mentions.value(word.toString());
@@ -318,22 +293,12 @@ QString generateRichText(const QString &str,
             userIdentifier = word.toString();
         }
         if (word == username) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            newStr.replace(QLatin1Char('@') + word,
-                           QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
-                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
-#else
             newStr.replace(QLatin1Char('@') + word.toString(),
                            QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
                                .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
 
-#endif
         } else {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
-#else
             newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
-#endif
         }
     }
 

@@ -6,18 +6,12 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QWidget>
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <Prison/Barcode>
-#endif
+#include <QWidget>
 class QLabel;
 namespace Prison
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class AbstractBarcode;
-#else
 class Barcode;
-#endif
 }
 class RocketChatAccount;
 class QLineEdit;
@@ -36,11 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVerify();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpInvalid();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpValid(const QStringList &listCodes);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Prison::AbstractBarcode *const mQRCode;
-#else
     std::optional<Prison::Barcode> mQRCode;
-#endif
     QLabel *const mTotpQrCode;
     QLabel *const mQrCoreLabel;
     QLineEdit *const mVerifyQrCode;

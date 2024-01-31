@@ -32,10 +32,6 @@
 
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
 
@@ -44,11 +40,7 @@ int main(int argc, char *argv[])
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    KLocalizedString::setApplicationDomain("ruqola");
-#else
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("ruqola"));
-#endif
 
     KAboutData aboutData(QStringLiteral("ruqola"),
                          i18n("Ruqola"),

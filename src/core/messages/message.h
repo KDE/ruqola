@@ -342,7 +342,4 @@ private:
 
     EmojiManager *mEmojiManager = nullptr;
 };
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-Q_DECLARE_METATYPE(Message)
-#endif
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);

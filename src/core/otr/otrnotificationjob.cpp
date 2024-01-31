@@ -56,31 +56,11 @@ void OtrNotificationJob::start()
         notification->setIconName(QStringLiteral("network-connect"));
         notification->setText(generateText());
 
-#if QT_VERSION_MAJOR == 6
         auto rejectAction = notification->addAction(i18n("Reject"));
         connect(rejectAction, &KNotificationAction::activated, this, &OtrNotificationJob::slotRejectOtr);
 
         auto okAction = notification->addAction(i18n("Ok"));
         connect(okAction, &KNotificationAction::activated, this, &OtrNotificationJob::slotAcceptOtr);
-#else
-        const QStringList lstActions{i18n("Reject"), i18n("Ok")};
-        notification->setActions(lstActions);
-
-        connect(notification, &KNotification::activated, this, [this](uint val) {
-            // Index == 0 => is the default action. We don't have it.
-            switch (val) {
-            case 0:
-                break;
-            case 1:
-                slotRejectOtr();
-                break;
-            case 2:
-                slotAcceptOtr();
-                break;
-            }
-        });
-#endif
-
         connect(notification, &KNotification::closed, this, &OtrNotificationJob::deleteLater);
         notification->sendEvent();
         break;

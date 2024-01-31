@@ -11,9 +11,6 @@
 ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
     : QObject()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(qApp, &QApplication::paletteChanged, this, &ColorsAndMessageViewStyle::regenerateColorScheme);
-#endif
     regenerateColorScheme();
 }
 
@@ -42,11 +39,9 @@ void ColorsAndMessageViewStyle::regenerateColorScheme()
 
 bool ColorsAndMessageViewStyle::event(QEvent *e)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (e->type() == QEvent::ApplicationPaletteChange) {
         regenerateColorScheme();
     }
-#endif
     return QObject::event(e);
 }
 

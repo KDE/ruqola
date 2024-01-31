@@ -33,13 +33,8 @@ void NotificationWidget::slotSendNotification()
         auto notification = new KNotification(QStringLiteral("new-notification"), KNotification::CloseOnTimeout);
         notification->setTitle(QStringLiteral("test"));
         notification->setText(str);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        notification->setDefaultAction(QStringLiteral("Open Channel"));
-        connect(notification, &KNotification::defaultActivated, this, []() {
-#else
         auto action = notification->addDefaultAction(QStringLiteral("Open Channel"));
         connect(action, &KNotificationAction::activated, this, []() {
-#endif
             qDebug() << " default Activated !!!!!!";
         });
         connect(notification, &KNotification::closed, this, []() {

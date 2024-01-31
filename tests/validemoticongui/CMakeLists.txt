@@ -7,9 +7,9 @@ target_sources(validemoticongui PRIVATE validemoticongui.cpp validemoticongui.h)
 
 target_link_libraries(validemoticongui
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::ItemViews
+    KF6::ItemViews
     libruqolacore
-    KF${KF_MAJOR_VERSION}::TextEmoticonsCore
-    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF6::TextEmoticonsCore
+    KF6::KIOWidgets
 )
 set_target_properties(validemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

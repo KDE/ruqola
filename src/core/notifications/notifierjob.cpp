@@ -34,13 +34,8 @@ void NotifierJob::start()
             Q_EMIT switchToAccountAndRoomName(mInfo.accountName(), mInfo.roomId(), mInfo.channelType());
         };
 
-#if QT_VERSION_MAJOR == 6
         auto defaultAction = notification->addDefaultAction(i18nc("Open channel", "Open Channel"));
         connect(defaultAction, &KNotificationAction::activated, this, openChannel);
-#else
-        notification->setDefaultAction(i18nc("Open channel", "Open Channel"));
-        connect(notification, &KNotification::defaultActivated, this, openChannel);
-#endif
         connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
 
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));

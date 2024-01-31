@@ -52,7 +52,6 @@ void VideoConferenceNotificationJob::inComingCall()
     // notification->setIconName(QStringLiteral("network-connect"));
     notification->setText(generateText());
 
-#if QT_VERSION_MAJOR == 6
     auto acceptAction = notification->addAction(i18n("Accept"));
     connect(acceptAction, &KNotificationAction::activated, this, [this] {
         Q_EMIT acceptVideoConference();
@@ -64,24 +63,6 @@ void VideoConferenceNotificationJob::inComingCall()
         Q_EMIT rejectVideoConference();
         deleteLater();
     });
-#else
-    const QStringList lstActions{i18n("Accept"), i18n("Reject")};
-    notification->setActions(lstActions);
-    connect(notification, &KNotification::activated, this, [this](uint val) {
-        // Index == 0 => is the default action. We don't have it.
-        switch (val) {
-        case 0:
-            break;
-        case 1:
-            Q_EMIT acceptVideoConference();
-            break;
-        case 2:
-            Q_EMIT rejectVideoConference();
-            break;
-        }
-        deleteLater();
-    });
-#endif
 
     connect(notification, &KNotification::closed, this, &VideoConferenceNotificationJob::deleteLater);
     notification->sendEvent();

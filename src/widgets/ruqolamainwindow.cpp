@@ -72,6 +72,7 @@
 #include <QFontDatabase>
 #include <QHBoxLayout>
 #include <QIcon>
+#include <QKeyCombination>
 #include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
@@ -79,9 +80,6 @@
 #include <QTemporaryFile>
 #include <QToolButton>
 #include <QWidgetAction>
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QKeyCombination>
-#endif
 
 #include <KColorSchemeMenu>
 
@@ -557,12 +555,8 @@ void RuqolaMainWindow::setupActions()
 
         act = new QAction(i18n("Next Selected Channel"), this);
         ac->addAction(QStringLiteral("next_channel"), act);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        ac->setDefaultShortcut(act, QKeySequence(Qt::SHIFT | Qt::Key_Tab | Qt::CTRL));
-#else
         QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
         ac->setDefaultShortcut(act, combinationKeys);
-#endif
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
         listActions.append(act);
 
@@ -944,13 +938,8 @@ void RuqolaMainWindow::createSystemTray()
 
         mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
         mContextStatusMenu->menuAction()->setVisible(false);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
-        trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
-#else
         trayMenu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Preferences)));
         trayMenu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::ConfigureNotifications)));
-#endif
         // Create systray to show notifications on Desktop
         connect(mNotification, &Notification::alert, this, [this]() {
             QApplication::alert(this, 0);
@@ -1064,11 +1053,7 @@ void RuqolaMainWindow::updateHamburgerMenu()
     menu->addSeparator();
     menu->addAction(actionCollection()->action(QStringLiteral("logout")));
     menu->addSeparator();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))));
-#else
     menu->addAction(actionCollection()->action(KStandardAction::name(KStandardAction::Quit)));
-#endif
     mHamburgerMenu->setMenu(menu);
 }
 

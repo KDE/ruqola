@@ -824,20 +824,18 @@ if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     )
 endif()
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_sources(libruqolawidgets PRIVATE
-        dialogs/createvideomessagewidget.cpp
-        dialogs/createvideomessagewidget.h
-        dialogs/createsoundmessagewidget.h
-        dialogs/createsoundmessagewidget.cpp
+target_sources(libruqolawidgets PRIVATE
+    dialogs/createvideomessagewidget.cpp
+    dialogs/createvideomessagewidget.h
+    dialogs/createsoundmessagewidget.h
+    dialogs/createsoundmessagewidget.cpp
 
-        dialogs/createvideomessagewizard.h
-        dialogs/createvideomessagewizard.cpp
+    dialogs/createvideomessagewizard.h
+    dialogs/createvideomessagewizard.cpp
 
-        dialogs/createsoundmessagewizard.h
-        dialogs/createsoundmessagewizard.cpp
-    )
-endif()
+    dialogs/createsoundmessagewizard.h
+    dialogs/createsoundmessagewizard.cpp
+)
 
 if (HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
@@ -887,54 +885,54 @@ target_link_libraries(libruqolawidgets
     Qt::Gui
     Qt::Widgets
     Qt::MultimediaWidgets
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::ConfigCore
-    KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::SonnetUi
-    KF${KF_MAJOR_VERSION}::TextWidgets
-    KF${KF_MAJOR_VERSION}::NotifyConfig
-    KF${KF_MAJOR_VERSION}::ItemViews
-    KF${KF_MAJOR_VERSION}::Prison
-    KF${KF_MAJOR_VERSION}::KIOFileWidgets
-    KF${KF_MAJOR_VERSION}::Archive
-    KF${KF_MAJOR_VERSION}::Codecs
+    KF6::I18n
+    KF6::ConfigCore
+    KF6::XmlGui
+    KF6::KIOWidgets
+    KF6::WidgetsAddons
+    KF6::SonnetUi
+    KF6::TextWidgets
+    KF6::NotifyConfig
+    KF6::ItemViews
+    KF6::Prison
+    KF6::KIOFileWidgets
+    KF6::Archive
+    KF6::Codecs
     librocketchatrestapi-qt
     libruqolacore
 )
 
 if (HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolawidgets
-        KF${KF_MAJOR_VERSION}::TextTranslator
+        KF6::TextTranslator
     )
 endif()
 
-if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
+if (TARGET KF6::TextEmoticonsWidgets)
 	target_link_libraries(libruqolawidgets
-		KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
+		KF6::TextEmoticonsWidgets)
 endif()	
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolawidgets
-        KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets
+        KF6::TextAutoCorrectionWidgets
     )
 endif()
 
 if (HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
-        KF${KF_MAJOR_VERSION}::TextEditTextToSpeech
+        KF6::TextEditTextToSpeech
     )
 endif()
 
 if (HAVE_TEXT_CUSTOM_EDITOR)
     target_link_libraries(libruqolawidgets
-        KF${KF_MAJOR_VERSION}::TextCustomEditor
+        KF6::TextCustomEditor
     )
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-    target_link_libraries(libruqolawidgets KF${KF_MAJOR_VERSION}::WindowSystem)
+    target_link_libraries(libruqolawidgets KF6::WindowSystem)
 endif()
 
 set_target_properties(libruqolawidgets

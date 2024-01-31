@@ -15,9 +15,7 @@ class QLabel;
 class QToolButton;
 class KMessageWidget;
 class QComboBox;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 class QAudioOutput;
-#endif
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 {
@@ -34,11 +32,7 @@ Q_SIGNALS:
     void updateTitle(const QUrl &url);
 
 private:
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    LIBRUQOLAWIDGETS_NO_EXPORT void mediaStateChanged(QMediaPlayer::State state);
-#else
     LIBRUQOLAWIDGETS_NO_EXPORT void mediaStateChanged(QMediaPlayer::PlaybackState state);
-#endif
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPositionChanged(qint64 position);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDurationChanged(qint64 duration);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateDurationInfo(qint64 currentInfo);
@@ -60,9 +54,7 @@ private:
     QSlider *const mSoundSlider;
     QLabel *const mLabelDuration;
     QLabel *const mLabelPercentSound;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QAudioOutput *const mAudioOutput;
     QComboBox *const mSoundDeviceComboBox;
-#endif
     RocketChatAccount *const mRocketChatAccount;
 };

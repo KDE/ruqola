@@ -37,8 +37,5 @@ private:
     QStringList mUserNames;
     bool mIsAnimatedImage = false;
 };
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-Q_DECLARE_METATYPE(Reaction)
-#endif
 Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reaction &t);

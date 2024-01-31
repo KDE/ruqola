@@ -555,11 +555,11 @@ endif()
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
 if (HAVE_SOLID)
-    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::Solid)
+    target_link_libraries(libruqolacore KF6::Solid)
 endif()
 
 if (HAVE_NETWORKMANAGER)
-    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::NetworkManagerQt)
+    target_link_libraries(libruqolacore KF6::NetworkManagerQt)
 endif()
 
 target_link_libraries(libruqolacore
@@ -569,48 +569,44 @@ target_link_libraries(libruqolacore
     Qt::WebSockets
     Qt::Network
     Qt::NetworkAuth
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::Notifications
-    KF${KF_MAJOR_VERSION}::SyntaxHighlighting
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::Notifications
+    KF6::SyntaxHighlighting
     librocketchatrestapi-qt
-    KF${KF_MAJOR_VERSION}::ConfigGui
-    KF${KF_MAJOR_VERSION}::ConfigWidgets
-    KF${KF_MAJOR_VERSION}::IdleTime
-    KF${KF_MAJOR_VERSION}::WindowSystem
+    KF6::ConfigGui
+    KF6::ConfigWidgets
+    KF6::IdleTime
+    KF6::WindowSystem
 )
 
 if (HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolacore
-        KF${KF_MAJOR_VERSION}::TextTranslator
+        KF6::TextTranslator
     )
 endif()
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_link_libraries(libruqolacore
-        KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets
+        KF6::TextAutoCorrectionWidgets
     )
 endif()
 
 if (HAVE_TEXT_UTILS)
     target_link_libraries(libruqolacore
-        KF${KF_MAJOR_VERSION}::TextUtils
+        KF6::TextUtils
     )
 endif()
 
 if (WIN32 OR APPLE)
-    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::IconThemes)
+    target_link_libraries(libruqolacore KF6::IconThemes)
 endif()
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(libruqolacore qt6keychain)
-    target_link_libraries(libruqolacore KF6::StatusNotifierItem)
-else()
-    target_link_libraries(libruqolacore qt5keychain)
-endif()
+target_link_libraries(libruqolacore qt6keychain)
+target_link_libraries(libruqolacore KF6::StatusNotifierItem)
 target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
-if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
-    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
+if (TARGET KF6::TextEmoticonsCore)
+    target_link_libraries(libruqolacore KF6::TextEmoticonsCore)
 endif()
 
 set_target_properties(libruqolacore

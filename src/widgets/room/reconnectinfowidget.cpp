@@ -17,9 +17,7 @@ ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     setPosition(KMessageWidget::Header);
-#endif
     mDelayTimer->setSingleShot(true);
     mDelayTimer->setInterval(1s);
     connect(mDelayTimer, &QTimer::timeout, this, &ReconnectInfoWidget::slotUpdateTimer);

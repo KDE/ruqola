@@ -61,7 +61,4 @@ private:
     qint64 mTimeStamp = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-Q_DECLARE_METATYPE(Discussion)
-#endif
 Q_DECLARE_TYPEINFO(Discussion, Q_MOVABLE_TYPE);

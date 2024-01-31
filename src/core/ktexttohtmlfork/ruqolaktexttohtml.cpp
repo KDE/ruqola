@@ -96,11 +96,7 @@ QString KTextToHTMLHelper::getPhoneNumber()
 
     // this isn't 100% accurate, we filter stuff below that is too hard to capture with a regexp
     static const QRegularExpression telPattern(QStringLiteral(R"([+0](( |( ?[/-] ?)?)\(?\d+\)?+){6,30})"));
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const auto match = telPattern.match(mText, mPos, QRegularExpression::NormalMatch, QRegularExpression::AnchoredMatchOption);
-#else
     const auto match = telPattern.match(mText, mPos, QRegularExpression::NormalMatch, QRegularExpression::AnchorAtOffsetMatchOption);
-#endif
     if (match.hasMatch()) {
         auto m = match.captured();
         // check for maximum number of digits (15), see https://en.wikipedia.org/wiki/Telephone_numbering_plan
@@ -130,11 +126,7 @@ QString KTextToHTMLHelper::getPhoneNumber()
             }
         }
         if (openIdx > 0) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            m = m.leftRef(openIdx - 1).trimmed().toString();
-#else
             m = QStringView(m).left(openIdx - 1).trimmed().toString();
-#endif
         }
 
         // check if there's a plausible separator at the end
@@ -354,11 +346,7 @@ QString KTextToHTMLHelper::highlightedText()
 
     QRegularExpression re(QStringLiteral("\\%1([^\\s|^\\%1].*[^\\s|^\\%1])\\%1").arg(ch));
     re.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const auto match = re.match(mText, mPos, QRegularExpression::NormalMatch, QRegularExpression::AnchoredMatchOption);
-#else
     const auto match = re.match(mText, mPos, QRegularExpression::NormalMatch, QRegularExpression::AnchorAtOffsetMatchOption);
-#endif
 
     if (match.hasMatch()) {
         if (match.capturedStart() == mPos) {
@@ -369,15 +357,6 @@ QString KTextToHTMLHelper::highlightedText()
             }
             mPos += length - 1;
             switch (ch.toLatin1()) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            case '*':
-                return QStringLiteral("<b>") + match.capturedRef(1) + QStringLiteral("</b>");
-            case '_':
-                return QStringLiteral("<i>") + match.capturedRef(1) + QStringLiteral("</i>");
-            case '~':
-                return QStringLiteral("<s>") + match.capturedRef(1) + QStringLiteral("</s>");
-            }
-#else
             case '*':
                 return QStringLiteral("<b>") + match.capturedView(1).toString() + QStringLiteral("</b>");
             case '_':
@@ -385,7 +364,6 @@ QString KTextToHTMLHelper::highlightedText()
             case '~':
                 return QStringLiteral("<s>") + match.capturedView(1).toString() + QStringLiteral("</s>");
             }
-#endif
         }
     }
     return {};

@@ -10,25 +10,17 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <Prison/Prison>
 #include <QGuiApplication>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QScreen>
 #include <QVBoxLayout>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <prison/Prison>
-#else
-#include <Prison/Prison>
-#endif
 
 MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    , mQRCode(Prison::createBarcode(Prison::QRCode))
-#else
     , mQRCode(Prison::Barcode::create(Prison::QRCode))
-#endif
     , mTotpQrCode(new QLabel(this))
     , mQrCoreLabel(new QLabel(this))
     , mVerifyQrCode(new QLineEdit(this))
@@ -78,12 +70,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
     mainLayout->addStretch(1);
 }
 
-MyAccount2FaTotpWidget::~MyAccount2FaTotpWidget()
-{
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    delete mQRCode;
-#endif
-}
+MyAccount2FaTotpWidget::~MyAccount2FaTotpWidget() = default;
 
 void MyAccount2FaTotpWidget::slotTotpValid(const QStringList &listCodes)
 {

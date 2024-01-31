@@ -43,9 +43,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mainLayout->setSpacing(0);
-#endif
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));

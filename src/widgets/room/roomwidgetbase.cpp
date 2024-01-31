@@ -34,9 +34,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 {
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mMainLayout->setSpacing(0);
-#endif
 
     mUploadFileProgressStatusListWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusListWidget"));
     mUploadFileProgressStatusListWidget->setVisible(false);
@@ -44,9 +42,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     connect(mUploadFileProgressStatusListWidget, &UploadFileProgressStatusListWidget::cancelUpload, this, &RoomWidgetBase::slotCancelUpload);
 
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mMessageListView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge | Qt::BottomEdge}));
-#endif
     mMainLayout->addWidget(mMessageListView, 1);
 
     mRoomReplyThreadWidget->setObjectName(QStringLiteral("mRoomReplyThreadWidget"));
@@ -70,9 +66,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mMainLayout->addWidget(mStackedWidget);
 
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mMessageLineWidget->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
-#endif
     mStackedWidget->addWidget(mMessageLineWidget);
 
     mReadOnlyLineEditWidget->setObjectName(QStringLiteral("mReadOnlyLineEditWidget"));

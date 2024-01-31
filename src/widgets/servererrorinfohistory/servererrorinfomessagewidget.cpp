@@ -17,9 +17,7 @@ ServerErrorInfoMessageWidget::ServerErrorInfoMessageWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(true);
     setMessageType(Error);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     setPosition(KMessageWidget::Header);
-#endif
 
     setText(i18n("Server errors reported. %1", QStringLiteral("<a href=\"show_errors\">%1</a>").arg(i18n("(Show Errors)"))));
     connect(this, &KMessageWidget::linkActivated, this, &ServerErrorInfoMessageWidget::slotLinkActivated);

@@ -19,12 +19,8 @@ kcoreaddons_add_plugin(ruqola_gitlabauthenticationplugin SOURCES
 
 target_link_libraries(ruqola_gitlabauthenticationplugin
     libruqolacore
+    qt6keychain
 )
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(ruqola_gitlabauthenticationplugin qt6keychain)
-else()
-    target_link_libraries(ruqola_gitlabauthenticationplugin qt5keychain)
-endif()
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)

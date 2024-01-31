@@ -700,11 +700,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
             mEmoticonMenuWidget->forceLineEditFocus();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            positionPopup(mev->globalPos(), mListView, mEmoticonMenuWidget);
-#else
             positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
-#endif
             mEmoticonMenuWidget->show();
             connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [=](const QString &id) {
                 mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);

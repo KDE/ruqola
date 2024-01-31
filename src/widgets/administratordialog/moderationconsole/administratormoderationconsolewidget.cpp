@@ -20,10 +20,8 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
-#endif
 
     mAdministratorModerationRangeWidget->setObjectName(QStringLiteral("mAdministratorModerationRangeWidget"));
     mainLayout->addWidget(mAdministratorModerationRangeWidget);

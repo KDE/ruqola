@@ -21,21 +21,14 @@
 #include <QVBoxLayout>
 #include <QVideoWidget>
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QAudioDevice>
 #include <QAudioOutput>
 #include <QComboBox>
 #include <QMediaDevices>
-#endif
 
 ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mMediaPlayer(new QMediaPlayer(this
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                                    ,
-                                    QMediaPlayer::VideoSurface
-#endif
-                                    ))
+    , mMediaPlayer(new QMediaPlayer(this))
     , mPlayButton(new QPushButton(this))
     , mPositionSlider(new QSlider(Qt::Horizontal, this))
     , mMessageWidget(new KMessageWidget(this))
@@ -43,24 +36,18 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
     , mLabelPercentSound(new QLabel(this))
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     , mAudioOutput(new QAudioOutput(this))
     , mSoundDeviceComboBox(new QComboBox(this))
-#endif
     , mRocketChatAccount(account)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setAudioOutput(mAudioOutput);
-#endif
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mSoundDeviceComboBox->setObjectName(QStringLiteral("mSoundDeviceComboBox"));
     mainLayout->addWidget(mSoundDeviceComboBox);
     // TODO initialize it.
-#endif
 
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
 
@@ -101,28 +88,15 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     mMessageWidget->setWordWrap(true);
 
     mMediaPlayer->setVideoOutput(videoWidget);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
-#else
     connect(mMediaPlayer, &QMediaPlayer::playbackStateChanged, this, &ShowVideoWidget::mediaStateChanged);
-#endif
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::slotPositionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::slotDurationChanged);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
-#else
     connect(mMediaPlayer, &QMediaPlayer::errorChanged, this, &ShowVideoWidget::handleError);
-#endif
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
-    connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::slotMuteChanged);
-#else
     connect(mSoundButton, &QToolButton::clicked, mAudioOutput, &QAudioOutput::setMuted);
     connect(mAudioOutput, &QAudioOutput::mutedChanged, this, &ShowVideoWidget::slotMuteChanged);
-#endif
     controlLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
@@ -134,9 +108,7 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     QFontMetrics f(font());
     mLabelPercentSound->setFixedWidth(f.horizontalAdvance(QStringLiteral("MMM")));
     slotVolumeChanged(mSoundSlider->value());
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     initializeAudioOutput();
-#endif
 }
 
 ShowVideoWidget::~ShowVideoWidget()
@@ -147,21 +119,17 @@ ShowVideoWidget::~ShowVideoWidget()
 
 void ShowVideoWidget::initializeAudioOutput()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     mSoundDeviceComboBox->addItem(i18n("Default"), QVariant::fromValue(QAudioDevice()));
     for (const auto &deviceInfo : QMediaDevices::audioOutputs()) {
         mSoundDeviceComboBox->addItem(deviceInfo.description(), QVariant::fromValue(deviceInfo));
     }
     connect(mSoundDeviceComboBox, &QComboBox::activated, this, &ShowVideoWidget::audioOutputChanged);
-#endif
 }
 
 void ShowVideoWidget::audioOutputChanged(int index)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     const auto device = mSoundDeviceComboBox->itemData(index).value<QAudioDevice>();
     mMediaPlayer->audioOutput()->setDevice(device);
-#endif
 }
 
 void ShowVideoWidget::slotPositionChanged(qint64 progress)
@@ -176,11 +144,7 @@ void ShowVideoWidget::slotPositionChanged(qint64 progress)
 
 void ShowVideoWidget::slotVolumeChanged(int position)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mMediaPlayer->setVolume(position);
-#else
     mAudioOutput->setVolume(position / 100.0);
-#endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
 
@@ -210,11 +174,7 @@ void ShowVideoWidget::slotAttachmentFileDownloadDone(const QString &url)
     mMessageWidget->setText(QString());
     mMessageWidget->hide();
     setWindowFilePath(url);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mMediaPlayer->setMedia(QUrl::fromLocalFile(url));
-#else
     mMediaPlayer->setSource(localUrl);
-#endif
     mPlayButton->setEnabled(true);
 }
 
@@ -239,25 +199,11 @@ void ShowVideoWidget::setVideoPath(const QString &url)
 
 QUrl ShowVideoWidget::videoUrl() const
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return QUrl(); // Unused in qt5
-#else
     return mMediaPlayer->source();
-#endif
 }
 
 void ShowVideoWidget::play()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    switch (mMediaPlayer->state()) {
-    case QMediaPlayer::PlayingState:
-        mMediaPlayer->pause();
-        break;
-    default:
-        mMediaPlayer->play();
-        break;
-    }
-#else
     switch (mMediaPlayer->playbackState()) {
     case QMediaPlayer::PlayingState:
         mMediaPlayer->pause();
@@ -266,13 +212,9 @@ void ShowVideoWidget::play()
         mMediaPlayer->play();
         break;
     }
-#endif
 }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
-#else
+
 void ShowVideoWidget::mediaStateChanged(QMediaPlayer::PlaybackState state)
-#endif
 {
     switch (state) {
     case QMediaPlayer::PlayingState:

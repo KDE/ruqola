@@ -82,21 +82,14 @@ if (UNITY_SUPPORT)
     add_definitions(-DUNITY_SUPPORT)
 endif()
 set(KTEXTADDONS_MIN_VERSION "1.5.3")
-set(REQUIRED_QT_VERSION "5.15.2")
-
 set(KLLMWIDGETS_VERSION "0.1.0")
+set(QT_REQUIRED_VERSION "6.6.0")
+set(KF_MIN_VERSION "5.246.0")
+set(KF_MAJOR_VERSION "6")
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.6.0")
-    set(KF_MIN_VERSION "5.246.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
-
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Crash
@@ -112,84 +105,84 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 
-find_package(KF${KF_MAJOR_VERSION}TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextTranslator PROPERTIES DESCRIPTION
+find_package(KF6TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextTranslator PROPERTIES DESCRIPTION
     "Add support for text translation (ktextaddons)"
     TYPE OPTIONAL
 )
-if (TARGET KF${KF_MAJOR_VERSION}::TextTranslator)
+if (TARGET KF6::TextTranslator)
     set(HAVE_TEXT_TRANSLATOR TRUE)
 endif()
 
-find_package(KF${KF_MAJOR_VERSION}TextAutoCorrectionWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextAutoCorrectionWidgets PROPERTIES DESCRIPTION
+find_package(KF6TextAutoCorrectionWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextAutoCorrectionWidgets PROPERTIES DESCRIPTION
     "Add support for text auto correction (ktextaddons)"
     TYPE OPTIONAL
 )
-if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets)
+if (TARGET KF6::TextAutoCorrectionWidgets)
     set(HAVE_TEXT_AUTOCORRECTION_WIDGETS TRUE)
 endif()
 
-find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
+find_package(KF6TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech (ktextaddons)"
     TYPE OPTIONAL
 )
-if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+if (TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
-find_package(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PROPERTIES DESCRIPTION
+find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextEmoticonsWidgets PROPERTIES DESCRIPTION
     "Add text emoticons support (ktextaddons)"
     TYPE OPTIONAL
 )
 
-if (${KF${KF_MAJOR_VERSION}TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
+if (${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
     set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
 else()
-    if (${KF${KF_MAJOR_VERSION}TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.3)
-        if (${KF${KF_MAJOR_VERSION}TextEmoticonsWidgets_VERSION} VERSION_LESS_EQUAL 1.5.30)
+    if (${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.3)
+        if (${KF6TextEmoticonsWidgets_VERSION} VERSION_LESS_EQUAL 1.5.30)
             set(HAVE_TEXTADDONS_TEXTEMOTICON_EXCLUDEEMOTICON_SUPPORT TRUE)
         endif()
     endif()
 endif()
 
-find_package(KF${KF_MAJOR_VERSION}TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextUtils PROPERTIES DESCRIPTION
+find_package(KF6TextUtils ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextUtils PROPERTIES DESCRIPTION
     "Add utils text functions (ktextaddons)"
     TYPE OPTIONAL
 )
 
-if (TARGET KF${KF_MAJOR_VERSION}::TextUtils)
+if (TARGET KF6::TextUtils)
    set(HAVE_TEXT_UTILS TRUE)
 endif()
 
 
-find_package(KF${KF_MAJOR_VERSION}TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextCustomEditor PROPERTIES DESCRIPTION
+find_package(KF6TextCustomEditor ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF6TextCustomEditor PROPERTIES DESCRIPTION
     "Add text custom editor (ktextaddons)"
     TYPE OPTIONAL
 )
 
-if (TARGET KF${KF_MAJOR_VERSION}::TextCustomEditor)
+if (TARGET KF6::TextCustomEditor)
    set(HAVE_TEXT_CUSTOM_EDITOR TRUE)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-    find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF6DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
 
-find_package(KF${KF_MAJOR_VERSION}XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}Config ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF${KF_MAJOR_VERSION}Purpose ${KF_MIN_VERSION} CONFIG)
+find_package(KF6XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6Config ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF6Purpose ${KF_MIN_VERSION} CONFIG)
 
-find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
-set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -202,20 +195,16 @@ set_package_properties(KLLMWidgets PROPERTIES
     URL https://invent.kde.org/utilities/alpaka 
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
-endif()
+find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
-find_package(Qt${QT_MAJOR_VERSION}Keychain "0.14.2" CONFIG)
-set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
+find_package(Qt6Keychain CONFIG)
+set_package_properties(Qt6Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
 
-if (Qt${QT_MAJOR_VERSION}Keychain_VERSION VERSION_LESS 0.14.2)
-    if (QT_MAJOR_VERSION STREQUAL "6")
-        MESSAGE(STATUS "Qt${QT_MAJOR_VERSION}KeyChain version is less 0.14.2. It will not support KWallet 6... It will not able to load password. Please update it.")
-    endif()
+if (Qt6Keychain_VERSION VERSION_LESS 0.14.2)
+    MESSAGE(STATUS "Qt6KeyChain version is less 0.14.2. It will not support KWallet 6... It will not able to load password. Please update it.")
 endif()
 
 if (OPTION_SELENIUMWEBDRIVER_SUPPORT)
@@ -223,21 +212,15 @@ if (OPTION_SELENIUMWEBDRIVER_SUPPORT)
     set_package_properties(SeleniumWebDriverATSPI PROPERTIES PURPOSE "Needed for GUI tests" URL "https://invent.kde.org/sdk/selenium-webdriver-at-spi" TYPE OPTIONAL)
 endif()
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(KF6UserFeedback ${KF_MIN_VERSION} CONFIG)
-    set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
-    set_package_properties(KF6UserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
-else()
-    find_package(KUserFeedback 1.2.0 CONFIG)
-    set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
-    set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
-endif()
+find_package(KF6UserFeedback ${KF_MIN_VERSION} CONFIG)
+set(HAVE_KUSERFEEDBACK ${KF6UserFeedback_FOUND})
+set_package_properties(KF6UserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
-find_package(KF${KF_MAJOR_VERSION}Solid ${KF_MIN_VERSION} CONFIG)
-if (KF${KF_MAJOR_VERSION}Solid_FOUND)
+find_package(KF6Solid ${KF_MIN_VERSION} CONFIG)
+if (KF6Solid_FOUND)
 # SolidPower is not built by default, and the only way to find is to
 # check for the header and that it builds
-    get_target_property(SOLID_INCLUDE_DIRS KF${KF_MAJOR_VERSION}::Solid INTERFACE_INCLUDE_DIRECTORIES)
+    get_target_property(SOLID_INCLUDE_DIRS KF6::Solid INTERFACE_INCLUDE_DIRECTORIES)
     find_file(SOLID_POWER_FOUND Solid/Power PATHS ${SOLID_INCLUDE_DIRS} NO_DEFAULT_PATH)
     if (SOLID_POWER_FOUND)
         message(STATUS "Found Solid Power header at ${SOLID_POWER_FOUND}")
@@ -246,11 +229,11 @@ if (KF${KF_MAJOR_VERSION}Solid_FOUND)
         message(WARNING "Solid Power header was not found, suspend/resume detection is disabled. Reconfigure Solid build with `cmake -DWITH_NEW_SOLID_JOB=ON -DWITH_NEW_POWER_ASYNC_API=ON -DWITH_NEW_POWER_ASYNC_FREEDESKTOP=ON .`")
     endif()
 endif()
-set_package_properties(KF${KF_MAJOR_VERSION}Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
+set_package_properties(KF6Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
 
-find_package(KF${KF_MAJOR_VERSION}NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
-set(HAVE_NETWORKMANAGER ${KF${KF_MAJOR_VERSION}NetworkManagerQt_FOUND})
-set_package_properties(KF${KF_MAJOR_VERSION}NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
+find_package(KF6NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
+set(HAVE_NETWORKMANAGER ${KF6NetworkManagerQt_FOUND})
+set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
 
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -270,7 +253,7 @@ set(RUQOLA_LIB_SOVERSION "0")
 configure_file(config-ruqola.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
 if(BUILD_TESTING)
-    find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
+    find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
     add_definitions(-DBUILD_TESTING)
 endif(BUILD_TESTING)
 
@@ -293,7 +276,7 @@ ecm_qt_install_logging_categories(
         )
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
-if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()

@@ -24,9 +24,7 @@ ViewLogWidget::ViewLogWidget(RocketChatAccount *account, QWidget *parent)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mainLayout->setContentsMargins({});
-#endif
     mPlainTextEdit->setObjectName(QStringLiteral("mPlainTextEdit"));
     mPlainTextEdit->setReadOnly(true);
     mainLayout->addWidget(mPlainTextEdit);

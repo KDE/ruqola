@@ -109,9 +109,6 @@ bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, con
     }
     Q_ASSERT(file.isOpen());
     QTextStream stream(&file);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    stream.setCodec("utf-8");
-#endif
 
     int rows = model->rowCount();
     for (int row = 0; row < rows; ++row) {

@@ -17,9 +17,7 @@ BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     setCloseButtonVisible(false);
     setMessageType(Information);
     setWordWrap(true);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     setPosition(KMessageWidget::Header);
-#endif
 
     auto readAction = new QAction(i18n("Mark as Read"), this);
     readAction->setObjectName(QStringLiteral("read_action"));

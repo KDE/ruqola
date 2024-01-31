@@ -18,9 +18,7 @@
 MessageListViewBase::MessageListViewBase(QWidget *parent)
     : QListView(parent)
 {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::BottomEdge}));
-#endif
     setSelectionMode(QAbstractItemView::NoSelection);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
@@ -141,13 +139,9 @@ void MessageListViewBase::leaveEvent(QEvent *event)
 
 QStyleOptionViewItem MessageListViewBase::listViewOptions() const
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return QListView::viewOptions();
-#else
     QStyleOptionViewItem option;
     initViewItemOption(&option);
     return option;
-#endif
 }
 
 bool MessageListViewBase::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

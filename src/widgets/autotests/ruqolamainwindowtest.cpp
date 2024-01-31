@@ -41,11 +41,7 @@ void RuqolaMainWindowTest::shouldHaveDefaultValues()
     QVERIFY(mSplitter);
     switchToMainWidget(w);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    auto statusAction = qobject_cast<QWidgetAction *>(w.action("status"));
-#else
     auto statusAction = qobject_cast<QWidgetAction *>(w.action(QStringLiteral("status")));
-#endif
     QVERIFY(statusAction);
     QVERIFY(!statusAction->text().isEmpty());
 

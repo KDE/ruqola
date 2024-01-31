@@ -36,36 +36,7 @@ Dependencies:
     'frameworks/kuserfeedback': '@latest-kf6'
     'libraries/ktextaddons': '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kwidgetsaddons': '@stable'
-    'frameworks/kdbusaddons': '@stable'
-    'frameworks/knotifications': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/kwindowsystem': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/knewstuff': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'frameworks/purpose': '@stable'
-    'frameworks/kguiaddons': '@stable'
-    'frameworks/kitemviews': '@stable'
-    'frameworks/kiconthemes': '@stable'
-    'frameworks/sonnet': '@stable'
-    'frameworks/ktextwidgets': '@stable'
-    'frameworks/syntax-highlighting': '@stable'
-    'frameworks/prison' : '@stable'
-    'frameworks/kidletime': '@stable'
-    'frameworks/knotifyconfig': '@stable'
-    'frameworks/breeze-icons': '@stable'
-    'frameworks/karchive': '@stable'
-    'frameworks/kuserfeedback': '@stable'
-    'libraries/ktextaddons': '@stable'
-
-- 'on': ['Linux/Qt6', 'Linux/Qt5']
+- 'on': ['Linux/Qt6']
   'require':
     'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
