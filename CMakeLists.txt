@@ -206,7 +206,7 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 endif()
 
-find_package(Qt${QT_MAJOR_VERSION}Keychain CONFIG)
+find_package(Qt${QT_MAJOR_VERSION}Keychain "0.14.2" CONFIG)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
