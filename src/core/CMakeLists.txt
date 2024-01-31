@@ -578,6 +578,8 @@ target_link_libraries(libruqolacore
     KF6::ConfigWidgets
     KF6::IdleTime
     KF6::WindowSystem
+    qt6keychain
+    KF6::StatusNotifierItem
 )
 
 if (HAVE_TEXT_TRANSLATOR)
@@ -601,8 +603,6 @@ endif()
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF6::IconThemes)
 endif()
-target_link_libraries(libruqolacore qt6keychain)
-target_link_libraries(libruqolacore KF6::StatusNotifierItem)
 target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
 if (TARGET KF6::TextEmoticonsCore)
