@@ -449,6 +449,17 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/uploadfilewidget.h
     dialogs/channelrolesinfowidget.h
     dialogs/channelrolesinfowidget.cpp
+    dialogs/createvideomessagewidget.cpp
+    dialogs/createvideomessagewidget.h
+    dialogs/createsoundmessagewidget.h
+    dialogs/createsoundmessagewidget.cpp
+
+    dialogs/createvideomessagewizard.h
+    dialogs/createvideomessagewizard.cpp
+
+    dialogs/createsoundmessagewizard.h
+    dialogs/createsoundmessagewizard.cpp
+
 
     discussions/showdiscussionsdialog.cpp
     discussions/showdiscussionsdialog.h
@@ -823,19 +834,6 @@ if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
         configuredialog/configureautocorrectionwidget.cpp
     )
 endif()
-
-target_sources(libruqolawidgets PRIVATE
-    dialogs/createvideomessagewidget.cpp
-    dialogs/createvideomessagewidget.h
-    dialogs/createsoundmessagewidget.h
-    dialogs/createsoundmessagewidget.cpp
-
-    dialogs/createvideomessagewizard.h
-    dialogs/createvideomessagewizard.cpp
-
-    dialogs/createsoundmessagewizard.h
-    dialogs/createsoundmessagewizard.cpp
-)
 
 if (HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
