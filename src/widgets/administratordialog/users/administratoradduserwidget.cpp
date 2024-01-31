@@ -22,11 +22,13 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     , mUserName(new QLineEdit(this))
     , mStatusText(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
+    , mNickName(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mJoinDefaultChannels(new QCheckBox(i18n("Join Default Channels"), this))
     , mSendWelcomeEmails(new QCheckBox(i18n("Send Welcome Email"), this))
     , mRequirePassword(new QCheckBox(i18n("Require Password Change"), this))
     , mSetRandowPassword(new QCheckBox(i18n("Set random password and send by email"), this))
+    , mEmailVerified(new QCheckBox(i18n("Verified"), this))
     , mRolesComboBox(new RolesComboBox(this))
     , mBioPlainTextEdit(new QPlainTextEdit(this))
     , mRocketChatAccount(account)
@@ -38,10 +40,12 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mEmail->setObjectName(QStringLiteral("mEmail"));
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mBioPlainTextEdit->setObjectName(QStringLiteral("mBioPlainTextEdit"));
+    mNickName->setObjectName(QStringLiteral("mNickName"));
     new LineEditCatchReturnKey(mName, this);
     new LineEditCatchReturnKey(mUserName, this);
     new LineEditCatchReturnKey(mEmail, this);
     new LineEditCatchReturnKey(mStatusText, this);
+    new LineEditCatchReturnKey(mNickName, this);
 
     mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
@@ -50,12 +54,15 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
     mRequirePassword->setObjectName(QStringLiteral("mRequirePassword"));
     mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));
+    mEmailVerified->setObjectName(QStringLiteral("mEmailVerified"));
     formLayout->addRow(i18n("Name:"), mName);
     formLayout->addRow(i18n("Username:"), mUserName);
     formLayout->addRow(i18n("Status Message:"), mStatusText);
     formLayout->addRow(i18n("Email:"), mEmail);
+    formLayout->addWidget(mEmailVerified);
     formLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     formLayout->addRow(i18n("Bio:"), mBioPlainTextEdit);
+    formLayout->addRow(i18n("Nickname:"), mNickName);
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addWidget(mRequirePassword);
@@ -104,6 +111,8 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
     info.mBio = mBioPlainTextEdit->toPlainText();
+    info.mVerified = mEmailVerified->isChecked();
+    info.mNickName = mNickName->text().trimmed();
     return info;
 }
 
@@ -128,7 +137,8 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
     info.mBio = mBioPlainTextEdit->toPlainText();
-
+    info.mVerified = mEmailVerified->isChecked();
+    info.mNickName = mNickName->text().trimmed();
     return info;
 }
 
@@ -142,6 +152,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mStatusText->setText(user.statusText());
     mSetRandowPassword->setChecked(user.requirePasswordChange());
     mBioPlainTextEdit->setPlainText(user.bio());
+    mNickName->setText(user.nickName());
 
     mJoinDefaultChannels->setVisible(false);
     mSendWelcomeEmails->setVisible(false);

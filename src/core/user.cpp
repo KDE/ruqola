@@ -53,7 +53,7 @@ bool User::operator==(const User &other) const
     return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
         && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
         && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange())
-        && (mBio == other.bio());
+        && (mBio == other.bio()) && (mNickName == other.nickName());
 }
 
 bool User::operator!=(const User &other) const
@@ -118,6 +118,7 @@ QDebug operator<<(QDebug d, const User &t)
     d << " active " << t.active();
     d << " mRequirePasswordChange " << t.requirePasswordChange();
     d << " mBio " << t.bio();
+    d << " mNickName " << t.nickName();
     return d;
 }
 
@@ -132,6 +133,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
     setActive(object.value(QLatin1String("active")).toBool(true)); // By default it's active
     setBio(object.value(QLatin1String("bio")).toString());
+    setNickName(object.value(QLatin1String("nickname")).toString());
     const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
     QStringList roles;
     const int total = rolesArray.size();
@@ -236,6 +238,7 @@ QJsonObject User::serialize(const User &user)
     o[QLatin1String("username")] = user.userName();
     o[QLatin1String("statusText")] = user.statusText();
     o[QLatin1String("bio")] = user.bio();
+    o[QLatin1String("nickname")] = user.nickName();
 
     // Add status/utcoffset/active
 
@@ -254,8 +257,19 @@ User User::deserialize(const QJsonObject &o)
     user.setUtcOffset(o.value(QLatin1String("utcOffset")).toDouble());
     user.setActive(o.value(QLatin1String("active")).toBool(true)); // By default it's active
     user.setBio(o.value(QLatin1String("bio")).toString());
+    user.setNickName(o.value(QLatin1String("nickname")).toString());
     // TODO
     return {};
+}
+
+QString User::nickName() const
+{
+    return mNickName;
+}
+
+void User::setNickName(const QString &newNickName)
+{
+    mNickName = newNickName;
 }
 
 void User::setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo)
@@ -320,6 +334,7 @@ void User::parseUser(const QJsonObject &object)
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
     setUserId(object.value(QLatin1String("id")).toString());
     setName(fields.value(QLatin1String("name")).toString());
+    setNickName(fields.value(QLatin1String("nickname")).toString());
     setStatus(Utils::presenceStatusFromString(fields.value(QLatin1String("status")).toString()));
     setUserName(fields.value(QLatin1String("username")).toString());
     setStatusText(fields.value(QLatin1String("statusText")).toString());

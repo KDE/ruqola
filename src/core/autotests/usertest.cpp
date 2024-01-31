@@ -32,6 +32,7 @@ void UserTest::shouldHaveDefaultValue()
     QVERIFY(u.i18nRoles().isEmpty());
     QVERIFY(u.active());
     QVERIFY(u.bio().isEmpty());
+    QVERIFY(u.nickName().isEmpty());
 }
 
 void UserTest::shouldBeValid()

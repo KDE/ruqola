@@ -49,12 +49,14 @@ private:
     QLineEdit *const mUserName;
     QLineEdit *const mStatusText;
     QLineEdit *const mEmail;
+    QLineEdit *const mNickName;
     KPasswordLineEdit *const mPasswordLineEdit;
 
     QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
     QCheckBox *const mRequirePassword;
     QCheckBox *const mSetRandowPassword;
+    QCheckBox *const mEmailVerified;
     RolesComboBox *const mRolesComboBox;
     QPlainTextEdit *const mBioPlainTextEdit;
     RocketChatAccount *const mRocketChatAccount;

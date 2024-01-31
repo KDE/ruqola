@@ -39,6 +39,10 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStatusText);
     QVERIFY(mStatusText->text().isEmpty());
 
+    auto mNickName = w.findChild<QLineEdit *>(QStringLiteral("mNickName"));
+    QVERIFY(mNickName);
+    QVERIFY(mNickName->text().isEmpty());
+
     auto mJoinDefaultChannels = w.findChild<QCheckBox *>(QStringLiteral("mJoinDefaultChannels"));
     QVERIFY(mJoinDefaultChannels);
     QVERIFY(!mJoinDefaultChannels->text().isEmpty());
@@ -65,6 +69,11 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
 
     auto mRolesComboBox = w.findChild<RolesComboBox *>(QStringLiteral("mRolesComboBox"));
     QVERIFY(mRolesComboBox);
+
+    auto mEmailVerified = w.findChild<QCheckBox *>(QStringLiteral("mEmailVerified"));
+    QVERIFY(mEmailVerified);
+    QVERIFY(!mEmailVerified->text().isEmpty());
+    QVERIFY(!mEmailVerified->isChecked());
 }
 
 #include "moc_administratoradduserwidgettest.cpp"

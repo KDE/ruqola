@@ -103,6 +103,9 @@ public:
     static QJsonObject serialize(const User &user);
     static User deserialize(const QJsonObject &o);
 
+    [[nodiscard]] QString nickName() const;
+    void setNickName(const QString &newNickName);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -114,6 +117,7 @@ private:
     QString mUserName;
     QString mStatusText;
     QString mBio;
+    QString mNickName;
     QStringList mRoles;
     QStringList mI18nRoles;
     double mUtcOffset = 0.0;
