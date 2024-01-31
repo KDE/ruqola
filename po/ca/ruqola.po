@@ -1,16 +1,16 @@
 # Translation of ruqola.po to Catalan
-# Copyright (C) 2019-2023 This_file_is_part_of_KDE
+# Copyright (C) 2019-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 02:26+0000\n"
-"PO-Revision-Date: 2023-10-28 09:56+0200\n"
+"PO-Revision-Date: 2024-01-30 13:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -422,8 +422,8 @@ msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
-"Aquest missatge està encriptat d'extrem a extrem. Per veure'l, cal introduir "
-"la vostra clau d'encriptatge a la configuració del vostre compte."
+"Aquest missatge està encriptat d'extrem a extrem. Per a veure'l, cal "
+"introduir la vostra clau d'encriptatge a la configuració del vostre compte."
 
 #: core/messages/message.cpp:576
 #, kde-format
@@ -3407,7 +3407,7 @@ msgstr "Intents d'inici de sessió fallits"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:123
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr "El nombre d'intents fallits per usuari fins el bloqueig"
+msgstr "El nombre d'intents fallits per usuari fins al bloqueig"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, kde-format
@@ -3417,7 +3417,7 @@ msgstr "Temps fins a desblocar l'usuari (en minuts)"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:131
 #, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "El nombre d'intents fallits fins el bloqueig per IP"
+msgstr "El nombre d'intents fallits fins al bloqueig per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:135
 #, kde-format
@@ -3428,7 +3428,7 @@ msgstr "Registre"
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
-"Assegureu-vos que el SMTP té la configuració correcta per usar aquesta "
+"Assegureu-vos que el SMTP té la configuració correcta per a usar aquesta "
 "característica"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
@@ -3682,7 +3682,7 @@ msgstr "URL"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr "L'ID del lloc que s'usa per identificar aquest lloc. Exemple: 17"
+msgstr "L'ID del lloc que s'usa per a identificar aquest lloc. Exemple: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -3828,7 +3828,7 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
-"Utilitzeu aquesta entrada JSON per construir atributs interns (clau) a "
+"Utilitzeu aquesta entrada JSON per a construir atributs interns (clau) a "
 "partir d'atributs externs (valor).\n"
 "Els noms d'atributs externs tancats amb «%» s'interpolaran en cadenes de "
 "valors.<br/>Per exemple, {\"email\":\"%email%\", \"name\":\"%firstname%, "
@@ -4015,7 +4015,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 "Activa l'opció de crear grups encriptats i ser capaç de canviar grups i "
-"missatges directes per a que es puguin encriptar."
+"missatges directes perquè es puguin encriptar."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:36
 #, kde-format
@@ -4024,7 +4024,7 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
-"Activa l'opció per usar els missatges «off-the-record» (OTR) en els "
+"Activa l'opció per a usar els missatges «off-the-record» (OTR) en els "
 "missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren en el "
 "servidor i s'intercanvien directa i de manera encriptada entre els 2 usuaris."
 
@@ -4104,7 +4104,7 @@ msgid ""
 "types."
 msgstr ""
 "Una llista de tipus de fitxers multimèdia separats per comes. Deixeu-ho en "
-"blanc per acceptar tots els tipus de fitxers multimèdia."
+"blanc per a acceptar tots els tipus de fitxers multimèdia."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:64
@@ -4343,9 +4343,9 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
-"Nombre màxim de membres en una sala en que es desactiven les notificacions "
+"Nombre màxim de membres en una sala en què es desactiven les notificacions "
 "de tots els missatges. Els usuaris encara poden canviar el paràmetre per "
-"cada sala per rebre totes les notificacions individualment. (0 per a "
+"cada sala per a rebre totes les notificacions individualment. (0 per a "
 "desactivar)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:136
@@ -4478,7 +4478,7 @@ msgstr "Intenta utilitzar el LDAP per a l'autenticació."
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:37
 #, kde-format
 msgid "Port to access LDAP. eg: 389 or 636 for LDAPS"
-msgstr "Port per accedir al LDAP, p. ex. 389 o 636 per al LDAPS"
+msgstr "Port per a accedir al LDAP, p. ex. 389 o 636 per al LDAPS"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:44
 #, kde-format
@@ -4507,7 +4507,7 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
-"L'usuari LDAP que realitza cerques d'usuaris per autenticar altres usuaris "
+"L'usuari LDAP que realitza cerques d'usuaris per a autenticar altres usuaris "
 "quan s'inicia la sessió. Normalment és un compte de servei creat "
 "específicament per a integracions de tercers. Utilitza un nom completament "
 "qualificat, com ara cn=Administrador,cn=Usuaris,dc=Exemple,dc=com."
@@ -4564,7 +4564,7 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
-"Un canal que rebrà totes les excepcions capturades. Deixeu-ho buit per "
+"Un canal que rebrà totes les excepcions capturades. Deixeu-ho buit per a "
 "ignorar les excepcions."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
@@ -4662,7 +4662,7 @@ msgstr "Suprimeix les metadades EXIF dels fitxers permesos"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:31
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
-msgstr "Activa les miniatures d'imatges per estalviar amplada de banda"
+msgstr "Activa les miniatures d'imatges per a estalviar amplada de banda"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
@@ -4808,9 +4808,9 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
-"Se serviran les miniatures en lloc de la imatge original per reduir l'ús de "
-"l'amplada de banda. Les imatges a la resolució original es poden descarregar "
-"utilitzant la icona al costat del nom de l'adjunt."
+"Se serviran les miniatures en lloc de la imatge original per a reduir l'ús "
+"de l'amplada de banda. Les imatges a la resolució original es poden "
+"descarregar utilitzant la icona al costat del nom de l'adjunt."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
 #, kde-format
@@ -4890,7 +4890,7 @@ msgid ""
 "the app."
 msgstr ""
 "Quan estigui activat, obligareu els vostres usuaris a utilitzar un PIN/"
-"BIOMETRIA/CARA per desbloquejar l'aplicació."
+"BIOMETRIA/CARA per a desbloquejar l'aplicació."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -4898,8 +4898,8 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
-"El temps per sol·licitar la contrasenya de nou després del final de l'última "
-"sessió, en segons."
+"El temps per a sol·licitar la contrasenya de nou després del final de "
+"l'última sessió, en segons."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
@@ -5181,8 +5181,8 @@ msgstr ""
 #, kde-format
 msgid "Amount of most recently used passwords to prevent users from reusing."
 msgstr ""
-"Quantitat de contrasenyes usades més recents per evitar que els usuaris les "
-"reutilitzin."
+"Quantitat de contrasenyes usades més recents per a evitar que els usuaris "
+"les reutilitzin."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
 #, kde-format
@@ -5598,7 +5598,7 @@ msgid ""
 "will not receive the link to download their data!"
 msgstr ""
 "Aquest paràmetre atura el processament de totes les sol·licituds "
-"d'exportació dels usuaris, de manera que no rebran l'enllaç per baixar les "
+"d'exportació dels usuaris, de manera que no rebran l'enllaç per a baixar les "
 "seves dades!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
@@ -6379,7 +6379,7 @@ msgstr "Confirmació de contrasenya"
 #, kde-format
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
-"Per a la vostra seguretat, cal introduir la vostra contrasenya actual per "
+"Per a la vostra seguretat, cal introduir la vostra contrasenya actual per a "
 "continuar"
 
 #: widgets/dialogs/createdirectmessagesdialog.cpp:30
@@ -7331,7 +7331,7 @@ msgid ""
 msgstr ""
 "Ara podeu crear grups privats encriptats i missatges directes. També podeu "
 "canviar els grups privats existents o DM a encriptats. Això és un "
-"encriptatge d'extrem a extrem (e2e) de manera que la clau per codificar o "
+"encriptatge d'extrem a extrem (e2e) de manera que la clau per a codificar o "
 "descodificar els missatges no es desarà al servidor. Per aquesta raó cal "
 "emmagatzemar la contrasenya en un lloc segur. Haureu d'introduir-la en "
 "altres dispositius on vulgueu utilitzar l'encriptatge «e2e»."
@@ -7627,7 +7627,7 @@ msgid ""
 "email address when ready."
 msgstr ""
 "Es generarà el fitxer amb les vostres dades. S'enviarà a la vostra adreça "
-"electrònica un enllaç per baixar-lo quan estigui llest."
+"electrònica un enllaç per a baixar-lo quan estigui llest."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
@@ -8910,7 +8910,7 @@ msgstr "Corregeix la implementació dels avatars"
 #: widgets/whatsnew/whatsnewwidget.cpp:41
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
-"Corregeix la implementació dels emoji (usa el ktextaddons/textemoticons nou)"
+"Corregeix la implementació dels emojis (usa el ktextaddons/textemoticons nou)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:42
 msgid "Fix animated gif in reactions"
