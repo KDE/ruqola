@@ -34,4 +34,4 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoomCompleter &t);
 Q_DECLARE_METATYPE(TeamRoomCompleter)
-Q_DECLARE_TYPEINFO(TeamRoomCompleter, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(TeamRoomCompleter, Q_RELOCATABLE_TYPE);

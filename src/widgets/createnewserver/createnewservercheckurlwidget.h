@@ -37,4 +37,4 @@ private:
     KMessageWidget *const mFailedError;
     QPushButton *const mConnectionPushButton;
 };
-Q_DECLARE_TYPEINFO(CreateNewServerCheckUrlWidget::ServerInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(CreateNewServerCheckUrlWidget::ServerInfo, Q_RELOCATABLE_TYPE);

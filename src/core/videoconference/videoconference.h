@@ -50,5 +50,5 @@ private:
     QString mUserId;
     Action mAction = Unknown;
 };
-Q_DECLARE_TYPEINFO(VideoConference, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(VideoConference, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConference &t);

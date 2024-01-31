@@ -35,5 +35,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(CustomSoundInfo)
-Q_DECLARE_TYPEINFO(CustomSoundInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(CustomSoundInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomSoundInfo &t);

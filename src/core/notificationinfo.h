@@ -89,5 +89,5 @@ private:
     QPixmap mPixmap;
     NotificationType mNotificationType = StandardMessage;
 };
-Q_DECLARE_TYPEINFO(NotificationInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(NotificationInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);

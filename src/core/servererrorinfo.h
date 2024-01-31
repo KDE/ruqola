@@ -38,5 +38,5 @@ private:
     QString mIdentifier;
     QString mDateTimeStr;
 };
-Q_DECLARE_TYPEINFO(ServerErrorInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(ServerErrorInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerErrorInfo &t);

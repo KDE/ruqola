@@ -32,5 +32,5 @@ private:
     QString mIconName;
     AuthenticationManager::AuthMethodType mOauthType = AuthenticationManager::AuthMethodType::Unknown;
 };
-Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AuthenticationInfo &t);

@@ -54,5 +54,5 @@ private:
 
 Q_DECLARE_METATYPE(BannerInfos)
 Q_DECLARE_METATYPE(BannerInfos::UnreadInformation)
-Q_DECLARE_TYPEINFO(BannerInfos::UnreadInformation, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(BannerInfos::UnreadInformation, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BannerInfos &t);

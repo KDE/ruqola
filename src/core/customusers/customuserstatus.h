@@ -41,5 +41,5 @@ private:
     User::PresenceStatus mStatusType = User::PresenceStatus::Unknown;
 };
 Q_DECLARE_METATYPE(CustomUserStatus)
-Q_DECLARE_TYPEINFO(CustomUserStatus, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(CustomUserStatus, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatus &t);

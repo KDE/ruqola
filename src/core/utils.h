@@ -77,6 +77,6 @@ struct LIBRUQOLACORE_EXPORT AvatarInfo {
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, const AvatarInfo &avatarInfo);
 }
 Q_DECLARE_METATYPE(Utils::AvatarInfo)
-Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_MOVABLE_TYPE);
-Q_DECLARE_TYPEINFO(Utils::QuotedRichTextInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(Utils::QuotedRichTextInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::AvatarInfo &t);

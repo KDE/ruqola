@@ -34,5 +34,5 @@ private:
     void slotSyncMessages(const QJsonObject &obj, const QString &roomId);
     RocketChatAccount *const mRocketChatAccount;
 };
-Q_DECLARE_TYPEINFO(ManageLocalDatabase::ManageLoadHistoryInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(ManageLocalDatabase::ManageLoadHistoryInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t);

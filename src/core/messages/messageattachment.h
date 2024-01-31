@@ -113,5 +113,5 @@ private:
     bool mCollapsed = false;
     bool mShowAttachment = false;
 };
-Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(MessageAttachment, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachment &t);

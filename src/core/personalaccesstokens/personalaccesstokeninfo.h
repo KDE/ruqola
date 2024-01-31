@@ -40,5 +40,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(PersonalAccessTokenInfo)
-Q_DECLARE_TYPEINFO(PersonalAccessTokenInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(PersonalAccessTokenInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t);

@@ -77,4 +77,4 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QMetaObject::Connection mUpdateChannelViewConnect;
 };
-Q_DECLARE_TYPEINFO(ChannelListView::ChannelSelectedInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(ChannelListView::ChannelSelectedInfo, Q_RELOCATABLE_TYPE);

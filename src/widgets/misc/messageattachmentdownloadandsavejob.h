@@ -64,4 +64,4 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     QProgressDialog *mProgressDialogBox = nullptr;
 };
-Q_DECLARE_TYPEINFO(MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo, Q_RELOCATABLE_TYPE);

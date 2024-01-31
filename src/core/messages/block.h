@@ -60,4 +60,4 @@ private:
     VideoConferenceInfo mVideoConferenceInfo;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
-Q_DECLARE_TYPEINFO(Block, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(Block, Q_RELOCATABLE_TYPE);

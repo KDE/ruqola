@@ -72,5 +72,5 @@ private:
     bool mComplete = false;
     qint64 mUploadedAt = -1;
 };
-Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(File, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);

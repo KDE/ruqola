@@ -88,5 +88,5 @@ private:
     int mStatus = -1;
     bool mRinging = false;
 };
-Q_DECLARE_TYPEINFO(VideoConferenceInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(VideoConferenceInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConferenceInfo &t);

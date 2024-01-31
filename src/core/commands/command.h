@@ -55,5 +55,5 @@ private:
     bool mClientOnly = false;
 };
 Q_DECLARE_METATYPE(Command)
-Q_DECLARE_TYPEINFO(Command, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(Command, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Command &t);

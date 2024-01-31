@@ -109,5 +109,5 @@ private:
     bool mFeatured = false;
 };
 Q_DECLARE_METATYPE(RoomInfo)
-Q_DECLARE_TYPEINFO(RoomInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RoomInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomInfo &t);

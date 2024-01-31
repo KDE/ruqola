@@ -37,5 +37,5 @@ private:
     QStringList mUserNames;
     bool mIsAnimatedImage = false;
 };
-Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(Reaction, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reaction &t);

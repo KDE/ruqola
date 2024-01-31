@@ -44,5 +44,5 @@ private:
     bool mFilesOnly = false;
 };
 Q_DECLARE_METATYPE(RetentionInfo)
-Q_DECLARE_TYPEINFO(RetentionInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RetentionInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, RetentionInfo t);

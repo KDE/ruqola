@@ -59,6 +59,6 @@ private:
 };
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadFileInfo)
-Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadFileInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::UploadFileJob::UploadStatusInfo)
-Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadStatusInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::UploadFileJob::UploadStatusInfo, Q_RELOCATABLE_TYPE);

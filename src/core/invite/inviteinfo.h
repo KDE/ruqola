@@ -50,5 +50,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(InviteInfo)
-Q_DECLARE_TYPEINFO(InviteInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(InviteInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const InviteInfo &t);

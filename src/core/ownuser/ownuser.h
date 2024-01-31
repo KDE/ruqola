@@ -79,5 +79,5 @@ private:
     double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(OwnUser)
-Q_DECLARE_TYPEINFO(OwnUser, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(OwnUser, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUser &t);

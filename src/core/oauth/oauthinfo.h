@@ -54,5 +54,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(OauthInfo)
-Q_DECLARE_TYPEINFO(OauthInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(OauthInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OauthInfo &t);

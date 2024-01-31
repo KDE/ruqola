@@ -89,5 +89,5 @@ private:
     bool mShowFavorite = true;
     bool mReceiveLoginDetectionEmail = false;
 };
-Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);

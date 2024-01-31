@@ -44,5 +44,5 @@ private:
     bool mJoined = false;
 };
 Q_DECLARE_METATYPE(ChannelCounterInfo)
-Q_DECLARE_TYPEINFO(ChannelCounterInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(ChannelCounterInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelCounterInfo &t);

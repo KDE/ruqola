@@ -57,5 +57,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(BannerInfo)
-Q_DECLARE_TYPEINFO(BannerInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(BannerInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BannerInfo &t);

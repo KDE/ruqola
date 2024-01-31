@@ -39,5 +39,5 @@ public:
     [[nodiscard]] QJsonDocument json() const;
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t);

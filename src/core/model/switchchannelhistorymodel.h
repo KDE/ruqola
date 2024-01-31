@@ -49,4 +49,4 @@ private:
 };
 
 Q_DECLARE_METATYPE(SwitchChannelHistoryModel::SwitchChannelInfo)
-Q_DECLARE_TYPEINFO(SwitchChannelHistoryModel::SwitchChannelInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(SwitchChannelHistoryModel::SwitchChannelInfo, Q_RELOCATABLE_TYPE);

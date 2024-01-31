@@ -40,4 +40,4 @@ protected:
     RocketChatAccount *mRocketChatAccount = nullptr;
     QString mSearchText;
 };
-Q_DECLARE_TYPEINFO(MessageDelegateHelperBase::DocumentDescriptionInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(MessageDelegateHelperBase::DocumentDescriptionInfo, Q_RELOCATABLE_TYPE);

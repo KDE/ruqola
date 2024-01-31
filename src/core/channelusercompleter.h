@@ -74,5 +74,5 @@ private:
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
     bool mOutsideRoom = false;
 };
-Q_DECLARE_TYPEINFO(ChannelUserCompleter, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(ChannelUserCompleter, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelUserCompleter &t);

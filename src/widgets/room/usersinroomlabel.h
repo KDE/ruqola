@@ -53,4 +53,4 @@ private:
     UserLabel *const mUserNameLabel;
 };
 Q_DECLARE_METATYPE(UsersInRoomLabel::UserInfo)
-Q_DECLARE_TYPEINFO(UsersInRoomLabel::UserInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(UsersInRoomLabel::UserInfo, Q_RELOCATABLE_TYPE);

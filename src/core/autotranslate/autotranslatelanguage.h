@@ -25,4 +25,4 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguage &t);
 Q_DECLARE_METATYPE(AutotranslateLanguage)
-Q_DECLARE_TYPEINFO(AutotranslateLanguage, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AutotranslateLanguage, Q_RELOCATABLE_TYPE);

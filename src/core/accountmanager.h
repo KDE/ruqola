@@ -77,4 +77,4 @@ private:
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 };
-Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);

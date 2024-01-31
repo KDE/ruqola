@@ -61,4 +61,4 @@ private:
     qint64 mTimeStamp = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
-Q_DECLARE_TYPEINFO(Discussion, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(Discussion, Q_RELOCATABLE_TYPE);

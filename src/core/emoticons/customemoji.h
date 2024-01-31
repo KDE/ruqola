@@ -65,5 +65,5 @@ private:
     QStringList mAliases;
     qint64 mUpdatedAt = 0;
 };
-Q_DECLARE_TYPEINFO(CustomEmoji, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(CustomEmoji, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmoji &t);

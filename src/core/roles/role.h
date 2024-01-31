@@ -45,5 +45,5 @@ private:
     bool mIsOwner = false;
 };
 Q_DECLARE_METATYPE(Role)
-Q_DECLARE_TYPEINFO(Role, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(Role, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Role &t);

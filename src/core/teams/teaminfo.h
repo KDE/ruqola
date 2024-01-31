@@ -46,5 +46,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(TeamInfo)
-Q_DECLARE_TYPEINFO(TeamInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(TeamInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamInfo &t);

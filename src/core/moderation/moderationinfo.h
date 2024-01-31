@@ -63,5 +63,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(ModerationInfo)
-Q_DECLARE_TYPEINFO(ModerationInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(ModerationInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationInfo &t);

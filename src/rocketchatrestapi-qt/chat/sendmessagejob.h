@@ -43,4 +43,4 @@ private:
 };
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::SendMessageJob::SendMessageArguments)
-Q_DECLARE_TYPEINFO(RocketChatRestApi::SendMessageJob::SendMessageArguments, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::SendMessageJob::SendMessageArguments, Q_RELOCATABLE_TYPE);

@@ -40,4 +40,4 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoom &t);
 Q_DECLARE_METATYPE(TeamRoom)
-Q_DECLARE_TYPEINFO(TeamRoom, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(TeamRoom, Q_RELOCATABLE_TYPE);

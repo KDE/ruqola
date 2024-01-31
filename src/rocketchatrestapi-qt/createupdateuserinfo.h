@@ -46,5 +46,5 @@ struct LIBROCKETCHATRESTAPI_QT_EXPORT UpdateUserInfo : public CreateUpdateUserIn
     }
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateUpdateUserInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateUpdateUserInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t);
