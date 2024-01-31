@@ -21,6 +21,7 @@ SwitchChannelDelegate::SwitchChannelDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
 {
+    mAvatarCacheManager->setMaxEntries(15);
 }
 
 SwitchChannelDelegate::~SwitchChannelDelegate() = default;
