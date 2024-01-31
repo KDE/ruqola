@@ -14,7 +14,10 @@ bool CreateUpdateUserInfo::isValid() const
 {
     bool valid = !mEmail.isEmpty() && !mName.isEmpty();
     if (mTypeInfo == Create) {
-        return valid && !mPassword.isEmpty(); // TODO verify it
+        if (mSetRandomPassword) {
+            return valid;
+        }
+        return valid && !mPassword.isEmpty();
     }
     return valid && !mUserId.isEmpty(); // Need password ?
 }
@@ -47,9 +50,6 @@ QJsonDocument CreateUpdateUserInfo::json() const
     if (!mName.isEmpty()) {
         userInfoObj[QLatin1String("name")] = mName;
     }
-    if (!mPassword.isEmpty()) {
-        userInfoObj[QLatin1String("password")] = mPassword;
-    }
     if (!mUserName.isEmpty()) {
         userInfoObj[QLatin1String("username")] = mUserName;
     }
@@ -65,10 +65,14 @@ QJsonDocument CreateUpdateUserInfo::json() const
     if (!mRoles.isEmpty()) {
         userInfoObj[QLatin1String("roles")] = QJsonArray::fromStringList(mRoles);
     }
+
+    userInfoObj[QLatin1String("password")] = mSetRandomPassword ? QString() : mPassword;
+
     userInfoObj[QLatin1String("requirePasswordChange")] = mRequirePasswordChange;
     userInfoObj[QLatin1String("sendWelcomeEmail")] = mSendWelcomeEmail;
     userInfoObj[QLatin1String("setRandomPassword")] = mSetRandomPassword;
     userInfoObj[QLatin1String("verified")] = mVerified;
+    userInfoObj[QLatin1String("joinDefaultChannels")] = mJoinDefaultChannels;
     if (mTypeInfo == Update) {
         QJsonObject dataObj;
         dataObj[QLatin1String("data")] = userInfoObj;
