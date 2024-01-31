@@ -74,13 +74,17 @@ void AdministratorAddUserWidget::slotChangeSetRandomPassword(bool checked)
 {
     mRequirePassword->setChecked(checked);
     mRequirePassword->setEnabled(!checked);
+    mPasswordLineEdit->setEnabled(!checked);
+    slotUpdateOkButton();
 }
 
 void AdministratorAddUserWidget::slotUpdateOkButton()
 {
     bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty();
     if (mUserType == UserType::Create) {
-        enableOkButton &= !mPasswordLineEdit->password().isEmpty();
+        if (mPasswordLineEdit->isEnabled()) {
+            enableOkButton &= !mPasswordLineEdit->password().isEmpty();
+        }
     }
     Q_EMIT updateButtonOk(enableOkButton);
 }
