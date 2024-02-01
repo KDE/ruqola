@@ -845,6 +845,7 @@ void RoomWidget::slotEncryptedChanged(bool b)
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.encrypted = b;
     info.roomId = mRoomWidgetBase->roomId();
+    info.roomType = mRoom ? mRoom->roomFromRoomType(mRoom->channelType()) : QString();
     info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
     auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
     saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
