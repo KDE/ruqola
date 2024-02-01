@@ -2,20 +2,6 @@
     "KPlugin": {
         "Id": "gitlabauthenticationplugin",
         "Name": "GitLab Authentication Plugin",
-        "Name[ca@valencia]": "Connector d'autenticació de GitLab",
-        "Name[ca]": "Connector d'autenticació de GitLab",
-        "Name[eo]": "GitLab Aŭtentiga Kromprogramo",
-        "Name[es]": "Complemento de autenticación de GitLab",
-        "Name[fr]": "Module externe d'authentification pour Github",
-        "Name[gl]": "Complemento de autenticación de GitLab",
-        "Name[it]": "Estensione per l'autenticazione con GitLab",
-        "Name[ka]": "GitLab-ის ავთენტიკაციის დამატება",
-        "Name[nl]": "Plug-in voor authenticatie in Gitlab",
-        "Name[sl]": "Vtičnik overovljanja GitLaba",
-        "Name[sv]": "Insticksprogram för GitLab behörighetskontroll",
-        "Name[tr]": "GitLab Kimlik Doğrulama Eklentisi",
-        "Name[uk]": "Додаток розпізнавання GitLab",
-        "Name[x-test]": "xxGitLab Authentication Pluginxx",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],
