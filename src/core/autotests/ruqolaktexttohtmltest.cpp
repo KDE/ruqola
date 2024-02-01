@@ -261,7 +261,6 @@ void KTextToHTMLTest::testHtmlConvert_data()
     QTest::addColumn<QString>("plainText");
     QTest::addColumn<RuqolaKTextToHTML::Options>("flags");
     QTest::addColumn<QString>("htmlText");
-
     // Linker error when using PreserveSpaces, therefore the hardcoded 0x01 or 0x09
 
     // Test preserving whitespace correctly
@@ -314,15 +313,15 @@ void KTextToHTMLTest::testHtmlConvert_data()
                             << "*** Ouais:&nbsp;&nbsp;foo ***";
 
     QTest::newRow("nohtmlversion") << "* Ouais:     foo *" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                                   << "* Ouais:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo *";
+                                   << "<b>Ouais:     foo</b>";
 
     QTest::newRow("nohtmlversion2") << "*Ouais:     foo *" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                                    << "*Ouais:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo *";
+                                    << "<b>Ouais:     foo</b>";
 
     QTest::newRow("nohtmlversion3") << "* Ouais:     foo*" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
-                                    << "* Ouais:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo*";
+                                    << "<b>Ouais:     foo</b>";
 
-    QTest::newRow("nohtmlversion3") << "* Ouais: *ff sfsdf* foo *"
+    QTest::newRow("nohtmlversion4") << "* Ouais: *ff sfsdf* foo *"
                                     << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
                                     << "* Ouais: <b>ff sfsdf</b> foo *";
 
@@ -475,6 +474,13 @@ void KTextToHTMLTest::testHtmlConvert_data()
     QTest::newRow("ftp") << "ftp: " << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces) << "ftp:&nbsp;";
     QTest::newRow("mailto") << "mailto: " << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces) << "mailto:&nbsp;";
     QTest::newRow("empty") << "" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces) << "";
+
+    QTest::newRow("spaceafter") << "_test1: test2 _" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                << "<i>test1: test2</i>";
+    QTest::newRow("spacebefore") << "_ test1: bla_" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                 << "<i>test1: bla</i>";
+    QTest::newRow("spacebeforeandafter") << "_ test1: blo _" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                         << "<i>test1: blo</i>";
 }
 
 void KTextToHTMLTest::testHtmlConvert()
