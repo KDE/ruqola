@@ -26,7 +26,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mJoinDefaultChannels(new QCheckBox(i18n("Join Default Channels"), this))
     , mSendWelcomeEmails(new QCheckBox(i18n("Send Welcome Email"), this))
-    , mRequirePassword(new QCheckBox(i18n("Require Password Change"), this))
+    , mRequirePasswordChange(new QCheckBox(i18n("Require Password Change"), this))
     , mSetRandowPassword(new QCheckBox(i18n("Set random password and send by email"), this))
     , mEmailVerified(new QCheckBox(i18n("Verified"), this))
     , mRolesComboBox(new RolesComboBox(this))
@@ -52,7 +52,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
-    mRequirePassword->setObjectName(QStringLiteral("mRequirePassword"));
+    mRequirePasswordChange->setObjectName(QStringLiteral("mRequirePassword"));
     mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));
     mEmailVerified->setObjectName(QStringLiteral("mEmailVerified"));
     formLayout->addRow(i18n("Name:"), mName);
@@ -65,7 +65,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     formLayout->addRow(i18n("Nickname:"), mNickName);
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
-    formLayout->addWidget(mRequirePassword);
+    formLayout->addWidget(mRequirePasswordChange);
     formLayout->addWidget(mSetRandowPassword);
     formLayout->addRow(i18n("Roles:"), mRolesComboBox);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
@@ -79,8 +79,8 @@ AdministratorAddUserWidget::~AdministratorAddUserWidget() = default;
 
 void AdministratorAddUserWidget::slotChangeSetRandomPassword(bool checked)
 {
-    mRequirePassword->setChecked(checked);
-    mRequirePassword->setEnabled(!checked);
+    mRequirePasswordChange->setChecked(checked);
+    mRequirePasswordChange->setEnabled(!checked);
     mPasswordLineEdit->setEnabled(!checked);
     slotUpdateOkButton();
 }
@@ -107,7 +107,7 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mPassword = mPasswordLineEdit->password();
     info.mStatusText = mStatusText->text().trimmed();
 
-    info.mRequirePasswordChange = mRequirePassword->isChecked();
+    info.mRequirePasswordChange = mRequirePasswordChange->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
     info.mBio = mBioPlainTextEdit->toPlainText();
@@ -133,7 +133,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     if (mRocketChatAccount && mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password"))) {
         info.mPassword = mPasswordLineEdit->password();
     }
-    info.mRequirePasswordChange = mRequirePassword->isChecked();
+    info.mRequirePasswordChange = mRequirePasswordChange->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
     info.mBio = mBioPlainTextEdit->toPlainText();
@@ -153,11 +153,10 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mSetRandowPassword->setChecked(user.requirePasswordChange());
     mBioPlainTextEdit->setPlainText(user.bio());
     mNickName->setText(user.nickName());
+    mRequirePasswordChange->setChecked(user.requirePasswordChange());
+    mEmailVerified->setChecked(user.userEmailsInfo().verified);
 
-    mJoinDefaultChannels->setVisible(false);
-    mSendWelcomeEmails->setVisible(false);
     // mSetRandowPassword
-    // mRequirePasswordChange
     // TODO add mSendWelcomeEmail and mJoinDefaultChannels
     // mJoinDefaultChannels->setChecked(user.jo)
     if (mRocketChatAccount) {
