@@ -24,7 +24,12 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPasswordLineEdit::RevealPasswordMode::Normal
+                                                                                                                : KPasswordLineEdit::RevealPasswordMode::Never);
+#endif;
     mainLayout->addWidget(mPasswordLineEdit);
 
     mResetPasswordButton->setObjectName(QStringLiteral("mResetPasswordButton"));

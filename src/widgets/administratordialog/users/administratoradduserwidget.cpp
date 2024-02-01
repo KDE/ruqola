@@ -50,7 +50,12 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPasswordLineEdit::RevealPasswordMode::Normal
+                                                                                                                : KPasswordLineEdit::RevealPasswordMode::Never);
+#endif;
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
     mRequirePasswordChange->setObjectName(QStringLiteral("mRequirePassword"));
     mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));

@@ -23,7 +23,13 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
 
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password"))
+                                                                        ? KPasswordLineEdit::RevealPasswordMode::Normal
+                                                                        : KPasswordLineEdit::RevealPasswordMode::Never);
+#endif;
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     auto sendNewEmailCode = new QPushButton(i18n("Send new code"), this);

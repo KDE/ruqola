@@ -100,7 +100,12 @@ void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
                                            KStandardGuiItem::del(),
                                            KStandardGuiItem::cancel())) {
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         dlg->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+        dlg->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPasswordLineEdit::RevealPasswordMode::Normal
+                                                                                                      : KPasswordLineEdit::RevealPasswordMode::Never);
+#endif;
         dlg->setPrompt(i18n("Current Password"));
         if (dlg->exec()) {
             mRocketChatAccount->deleteOwnAccount(dlg->password());

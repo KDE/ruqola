@@ -22,11 +22,23 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
 
     mNewPasswordLineEdit->setObjectName(QStringLiteral("mNewPasswordLineEdit"));
     mainLayout->addRow(i18n("New Password:"), mNewPasswordLineEdit);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mNewPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mNewPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password"))
+                                                    ? KPasswordLineEdit::RevealPasswordMode::Normal
+                                                    : KPasswordLineEdit::RevealPasswordMode::Never);
+#endif;
 
     mConfirmPasswordLineEdit->setObjectName(QStringLiteral("mConfirmPasswordLineEdit"));
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mConfirmPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mConfirmPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password"))
+                                                        ? KPasswordLineEdit::RevealPasswordMode::Normal
+                                                        : KPasswordLineEdit::RevealPasswordMode::Never);
+#endif;
 }
 
 PasswordConfirmWidget::~PasswordConfirmWidget() = default;
