@@ -481,6 +481,18 @@ void KTextToHTMLTest::testHtmlConvert_data()
                                  << "<i>test1: bla</i>";
     QTest::newRow("spacebeforeandafter") << "_ test1: blo _" << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
                                          << "<i>test1: blo</i>";
+    QTest::newRow("spacebeforeandafter2") << "__ test1: blo _"
+                                          << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                          << "<i>test1: blo</i>";
+    QTest::newRow("spacebeforeandafter3") << "__ test1: blo __"
+                                          << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                          << "<i>test1: blo</i>";
+    QTest::newRow("spacebeforeandafter4") << "___ test1: blo _"
+                                          << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                          << "<i>test1: blo</i>";
+    QTest::newRow("spacebeforeandafter5") << "_ test1: blo __"
+                                          << RuqolaKTextToHTML::Options(RuqolaKTextToHTML::PreserveSpaces | RuqolaKTextToHTML::HighlightText)
+                                          << "<i>test1: blo</i>";
 }
 
 void KTextToHTMLTest::testHtmlConvert()
@@ -490,6 +502,8 @@ void KTextToHTMLTest::testHtmlConvert()
     QFETCH(QString, htmlText);
 
     QEXPECT_FAIL("punctation-bug", "Linklocator does not properly detect punctation as boundaries", Continue);
+    QEXPECT_FAIL("spacebeforeandafter3", "multi _/*/~ at end is not supported yet because we use InvertedGreedinessOption", Continue);
+    QEXPECT_FAIL("spacebeforeandafter5", "multi _/*/~ at end is not supported yet because we use InvertedGreedinessOption", Continue);
 
     const QString actualHtml = RuqolaKTextToHTML::convertToHtml(plainText, flags);
     QCOMPARE(actualHtml, htmlText);

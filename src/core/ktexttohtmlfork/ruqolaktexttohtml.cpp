@@ -352,7 +352,7 @@ QString KTextToHTMLHelper::highlightedText()
         return {};
     }
 
-    QRegularExpression re(QStringLiteral("\\%1\\s*([^\\s|^\\%1].*[^\\s|^\\%1])\\s*\\%1").arg(ch));
+    QRegularExpression re(QStringLiteral("\\%1+\\s*([^\\s|^\\%1].*[^\\s|^\\%1])\\s*\\%1+").arg(ch));
     re.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const auto match = re.match(mText, mPos, QRegularExpression::NormalMatch, QRegularExpression::AnchoredMatchOption);
