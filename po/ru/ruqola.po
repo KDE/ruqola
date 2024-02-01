@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-30 01:39+0000\n"
+"POT-Creation-Date: 2024-02-01 03:14+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -849,16 +849,19 @@ msgstr "Другой"
 
 #: core/model/inputcompletermodel.cpp:38
 #, fuzzy, kde-format
+#| msgid "User is not in this room"
 msgid "Notify all in this room"
 msgstr "Пользователя нет в этой комнате"
 
 #: core/model/inputcompletermodel.cpp:46
 #, fuzzy, kde-format
+#| msgid "No room found"
 msgid "No result found."
 msgstr "Комнат не найдено"
 
 #: core/model/inputcompletermodel.cpp:55
 #, fuzzy, kde-format
+#| msgid "User is not in this room"
 msgid "Notify active users in this room"
 msgstr "Пользователя нет в этой комнате"
 
@@ -899,6 +902,7 @@ msgstr "Игнорируемое сообщение"
 
 #: core/model/moderationmodel.cpp:36
 #, fuzzy, kde-format
+#| msgid "Report Message"
 msgid "Reported message"
 msgstr "Пожаловаться на сообщение"
 
@@ -910,16 +914,19 @@ msgstr "Имя пользователя"
 
 #: core/model/moderationmodel.cpp:40
 #, fuzzy, kde-format
+#| msgid "Reporting"
 msgid "Reports"
 msgstr "Отчёты"
 
 #: core/model/moderationmodel.cpp:42
 #, fuzzy, kde-format
+#| msgid "Report Message"
 msgid "Report date"
 msgstr "Пожаловаться на сообщение"
 
 #: core/model/moderationmodel.cpp:44
 #, fuzzy, kde-format
+#| msgid "Rooms"
 msgid "Room"
 msgstr "Комнаты"
 
@@ -2386,6 +2393,7 @@ msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
 #, fuzzy, kde-format
+#| msgid "Mentions only"
 msgid "Moderation Console"
 msgstr "Только упоминания"
 
@@ -2646,6 +2654,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
 #, fuzzy, kde-format
+#| msgid "&Previous Server"
 msgid "Previous week"
 msgstr "&Предыдущий сервер"
 
@@ -2656,21 +2665,26 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
 #, fuzzy, kde-format
+#| msgid "Previous Channel"
 msgid "Previous month"
 msgstr "Предыдущий канал"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
 #, fuzzy, kde-format
+#| msgid "Search messages..."
 msgid "Search moderation message..."
 msgstr "Поиск сообщений..."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, fuzzy, kde-format
+#| msgid "No Message found"
 msgid "No moderation message found"
 msgstr "Сообщений не найдено"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
 #, fuzzy, kde-format
+#| msgid "%1 device (Total: %2)"
+#| msgid_plural "%1 devices (Total: %2)"
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
 msgstr[0] "%1 устройство (всего: %2)"
@@ -2680,6 +2694,7 @@ msgstr[3] "%1 устройство (всего: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
 #, fuzzy, kde-format
+#| msgid "Search messages"
 msgid "See messages"
 msgstr "Поиск сообщений"
 
@@ -2690,6 +2705,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, fuzzy, kde-format
+#| msgid "Delete All Messages"
 msgid "Delete all Messages"
 msgstr "Удалить все сообщения"
 
@@ -2717,20 +2733,21 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, fuzzy, kde-format
+#| msgid "Delete All Messages"
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Удалить все сообщения"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Mentions Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Показ сообщений с упоминаниями — %1"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Mentions Messages - %1"
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Показ сообщений с упоминаниями — %1"
@@ -2847,6 +2864,7 @@ msgstr "Удалить этот Oauth?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
 #, fuzzy, kde-format
+#| msgid "Remove OAuth"
 msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Удалить OAuth"
@@ -2887,6 +2905,7 @@ msgstr "Удалить запись роли «%1»?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:232
 #, fuzzy, kde-format
+#| msgid "Remove Role"
 msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Удалить роль"
@@ -2960,6 +2979,7 @@ msgstr "Удалить запись пользователя «%1»?"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, fuzzy, kde-format
+#| msgid "Remove User"
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Удалить пользователя"
@@ -3461,6 +3481,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
 #, fuzzy, kde-format
+#| msgid "Reset E2E key"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Сбросить ключ сквозного шифрования"
@@ -3487,6 +3508,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
 #, fuzzy, kde-format
+#| msgid "Reset TOTP"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Сбросить TOTP"
@@ -3738,9 +3760,9 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#| msgid "Default timezone for reporting"
 msgid "Default Roles for Users"
-msgstr "Введите код аутентификации"
+msgstr "Стандартный часовой пояс"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6148,6 +6170,7 @@ msgstr "Действительно преобразовать в команду?
 
 #: widgets/channellist/channellistview.cpp:293
 #, fuzzy, kde-format
+#| msgid "Convert to Team"
 msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Преобразовать в команду"
@@ -6221,6 +6244,7 @@ msgstr "Ошибка при сохранении файла"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:94
 #, fuzzy, kde-format
+#| msgid "Join the given channel"
 msgid "Not in channel"
 msgstr "Присоединиться к указанному каналу"
 
@@ -7942,6 +7966,7 @@ msgstr "Удалить маркер «%1»?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
 #, fuzzy, kde-format
+#| msgid "Remove Token"
 msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Удаление маркера"
@@ -8385,26 +8410,32 @@ msgstr "Сообщение отмечено звёздочкой"
 
 #: widgets/room/messagelinewidget.cpp:63
 #, fuzzy, kde-format
+#| msgid "Save File"
 msgid "Attach File"
 msgstr "Сохранить файл"
 
 #: widgets/room/messagelinewidget.cpp:72
 #, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Video Message"
 msgid "Video Message"
 msgstr "Создание видеосообщения"
 
 #: widgets/room/messagelinewidget.cpp:82
 #, fuzzy, kde-format
+#| msgid "Show Message"
 msgid "Sound Message"
 msgstr "Показать сообщение"
 
 #: widgets/room/messagelinewidget.cpp:94
 #, fuzzy, kde-format
+#| msgid "Search Emoticon..."
 msgid "Add Emoticon"
 msgstr "Поиск смайлика..."
 
 #: widgets/room/messagelinewidget.cpp:102
 #, fuzzy, kde-format
+#| msgid "Starred Messages"
 msgid "Send Message"
 msgstr "Сообщения со звёздочкой"
 
@@ -8415,6 +8446,7 @@ msgstr "Преобразовать этот большой текст во вл�
 
 #: widgets/room/messagelinewidget.cpp:146
 #, fuzzy, kde-format
+#| msgid "Message Too Big"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Слишком большое сообщение"
@@ -8523,13 +8555,14 @@ msgstr "Перевести сообщение"
 
 #: widgets/room/messagelistview.cpp:506
 #, fuzzy, kde-format
+#| msgid "View Log"
 msgid "View Reports"
 msgstr "Просмотр журнала"
 
 #: widgets/room/messagelistview.cpp:529
-#, fuzzy, kde-format
+#, kde-format
 msgid "Dismiss Reports"
-msgstr "Жалоба на сообщение"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:598
 #, kde-format
@@ -8684,6 +8717,7 @@ msgstr "Удалить журнал?"
 
 #: widgets/room/roomwidget.cpp:276
 #, fuzzy, kde-format
+#| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Удалить журнал"
@@ -9295,6 +9329,7 @@ msgstr "Версия 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
 #, fuzzy, kde-format
+#| msgid "Version 2.0"
 msgid "Version 2.1"
 msgstr "Версия 2.0"
 
@@ -9392,9 +9427,8 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
-#, fuzzy
 msgid "Implement message style"
-msgstr "Поиск сообщений"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
@@ -9410,6 +9444,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:56
 #, fuzzy
+#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
 msgstr "ваше сообщение (необязательно)"
 
@@ -9440,12 +9475,6 @@ msgstr "Способ аутентификации"
 #| msgid "Fix avatar support"
 msgid "Fix show avatar url."
 msgstr "Исправлена поддержка аватаров"
-
-#, fuzzy
-#~| msgid "Cozy"
-#~ msgctxt "Message Style"
-#~ msgid "Cozy"
-#~ msgstr "Уютный"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Канал с именем «__channel_name__» существует"
@@ -9510,21 +9539,200 @@ msgstr "Исправлена поддержка аватаров"
 #~ msgid "Add Smiley"
 #~ msgstr "Добавить смайлик"
 
+#~ msgid "Snippered Messages"
+#~ msgstr "Фрагментированные сообщения"
+
+#, fuzzy
+#~| msgid "Private:"
+#~ msgid "Rate:"
+#~ msgstr "Закрытый:"
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#, fuzzy
+#~| msgid "Configure Notification..."
+#~ msgid "Configure..."
+#~ msgstr "Настроить уведомление…"
+
+#, fuzzy
+#~| msgid "Enabled E2E encryption"
+#~ msgid "Enable autocorrection"
+#~ msgstr "Сквозное шифрование включено"
+
+#, fuzzy
+#~| msgid "Add Autojoin"
+#~ msgid "Ad&vanced Autocorrection"
+#~ msgstr "Добавить автоприсоединение"
+
+#, fuzzy
+#~| msgid "Enable for Teams"
+#~ msgid "&Enable word replacement"
+#~ msgstr "Включить для команд"
+
+#, fuzzy
+#~| msgid "Reply"
+#~ msgid "Replace"
+#~ msgstr "Ответить"
+
+#, fuzzy
+#~| msgid "Options"
+#~ msgid "E&xceptions"
+#~ msgstr "Параметры"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "R&emove"
+#~ msgstr "Удалить"
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgid "Add"
+#~ msgstr "Добавить..."
+
+#, fuzzy
+#~| msgid "Custom Sounds"
+#~ msgid "Custom &Quotes"
+#~ msgstr "Нестандартные звуки"
+
+#, fuzzy
+#~| msgid "Default"
+#~ msgid "By Default"
+#~ msgstr "По умолчанию"
+
+#, fuzzy
+#~| msgid "Text"
+#~ msgid "TextLabel"
+#~ msgstr "Текст"
+
+#, fuzzy
+#~| msgid "Custom Status:"
+#~ msgid "Custom System Path:"
+#~ msgstr "Нестандартный статус:"
+
+#, fuzzy
+#~| msgid "Custom Status:"
+#~ msgid "Custom Writable Path:"
+#~ msgstr "Нестандартный статус:"
+
+#, fuzzy
+#~| msgid "Add Autojoin"
+#~ msgid "Add Autocorrection Entry"
+#~ msgstr "Добавить автоприсоединение"
+
+#, fuzzy
+#~| msgid "Modify..."
+#~ msgid "&Modify"
+#~ msgstr "Изменить..."
+
+#, fuzzy
+#~| msgid "Save Sound"
+#~ msgid "Save config"
+#~ msgstr "Сохранить звук"
+
+#, fuzzy
+#~| msgid "Allow Special Characters in Room Names"
+#~ msgctxt "@title:window"
+#~ msgid "Select Special Characters"
+#~ msgstr "Разрешить специальные символы в названиях комнат"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select"
+#~ msgstr "Выбрать все"
+
+#, fuzzy
+#~| msgid "Italic"
+#~ msgid "Italian"
+#~ msgstr "Курсив"
+
+#, fuzzy
+#~| msgid "Version"
+#~ msgid "Persian"
+#~ msgstr "Версия"
+
+#, fuzzy
+#~| msgid "Filename:"
+#~ msgid "Vietnamese"
+#~ msgstr "Имя файла:"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Custom Emoji"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Настройка нестандартных смайликов"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Auto-Translate"
+#~ msgid "Libre Translate"
+#~ msgstr "Настройка автоперевода"
+
+#, fuzzy
+#~| msgid "Server not found: %1"
+#~ msgid "Server url is not defined."
+#~ msgstr "Сервер не найден: %1"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Auto-Translate"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Translator"
+#~ msgstr "Настройка автоперевода"
+
+#, fuzzy
+#~| msgid "Translate Message"
+#~ msgctxt "@title:window"
+#~ msgid "Translator Debug"
+#~ msgstr "Перевести сообщение"
+
+#, fuzzy
+#~| msgid "Save &As..."
+#~ msgid "Save As..."
+#~ msgstr "Сохранить &как..."
+
+#, fuzzy
+#~| msgid "Auto-Translate"
+#~ msgid "Translate..."
+#~ msgstr "Автоперевод"
+
+#, fuzzy
+#~| msgid "From:"
+#~ msgctxt "Translate from language"
+#~ msgid "From:"
+#~ msgstr "От:"
+
+#, fuzzy
+#~| msgid "To:"
+#~ msgctxt "Translate to language"
+#~ msgid "To:"
+#~ msgstr "Получатель:"
+
+#, fuzzy
+#~| msgid "Auto-Translate"
+#~ msgid "Translate"
+#~ msgstr "Автоперевод"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgid "Configure"
+#~ msgstr "Настройка Ruqola"
+
+#, fuzzy
+#~| msgid "Translate Message"
+#~ msgid "Translate error"
+#~ msgstr "Перевести сообщение"
+
 #~ msgid "Search"
 #~ msgstr "Поиск"
 
 #~ msgid "Recent"
 #~ msgstr "Недавние"
 
-#~ msgid "Snippered Messages"
-#~ msgstr "Фрагментированные сообщения"
-
 #~ msgid "Show Snippered Messages..."
 #~ msgstr "Показать фрагментированные сообщения..."
-
-#, fuzzy
-#~ msgid "View mode:"
-#~ msgstr "Режим просмотра:"
 
 #~ msgid "Room is Empty."
 #~ msgstr "Комната пуста."
@@ -9533,165 +9741,20 @@ msgstr "Исправлена поддержка аватаров"
 #~ msgstr "Ошибка от учётной записи «%1»"
 
 #, fuzzy
-#~ msgid "Enable autocorrection"
-#~ msgstr "Сквозное шифрование включено"
+#~| msgid "View Mode:"
+#~ msgid "View mode:"
+#~ msgstr "Режим просмотра:"
 
-#, fuzzy
-#~ msgid "Export..."
-#~ msgstr "Экспорт завершён."
+#~ msgid "Cozy"
+#~ msgstr "Уютный"
 
-#, fuzzy
-#~ msgid "Ad&vanced Autocorrection"
-#~ msgstr "Добавить автоприсоединение"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Олеся Герасименко"
 
-#, fuzzy
-#~ msgid "&Enable word replacement"
-#~ msgstr "Включить для команд"
-
-#, fuzzy
-#~ msgid "Replace"
-#~ msgstr "Ответить"
-
-#, fuzzy
-#~ msgid "E&xceptions"
-#~ msgstr "Параметры"
-
-#, fuzzy
-#~ msgid "R&emove"
-#~ msgstr "Удалить"
-
-#, fuzzy
-#~ msgid "Add"
-#~ msgstr "Добавить..."
-
-#, fuzzy
-#~ msgid "Custom &Quotes"
-#~ msgstr "Нестандартные звуки"
-
-#, fuzzy
-#~ msgid "By Default"
-#~ msgstr "По умолчанию"
-
-#, fuzzy
-#~ msgid "TextLabel"
-#~ msgstr "Текст"
-
-#, fuzzy
-#~ msgid "Custom System Path:"
-#~ msgstr "Нестандартный статус:"
-
-#, fuzzy
-#~ msgid "..."
-#~ msgstr "Добавить..."
-
-#, fuzzy
-#~ msgid "Custom Writable Path:"
-#~ msgstr "Нестандартный статус:"
-
-#, fuzzy
-#~ msgid "Select Custom Writable Path"
-#~ msgstr "Нестандартный статус:"
-
-#, fuzzy
-#~ msgid "Select Custom System Path"
-#~ msgstr "Нестандартный статус:"
-
-#, fuzzy
-#~ msgid "Add Autocorrection Entry"
-#~ msgstr "Добавить автоприсоединение"
-
-#, fuzzy
-#~ msgid "&Modify"
-#~ msgstr "Изменить..."
-
-#, fuzzy
-#~ msgid "Save config"
-#~ msgstr "Сохранить звук"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Select Special Characters"
-#~ msgstr "Разрешить специальные символы в названиях комнат"
-
-#, fuzzy
-#~ msgid "Select"
-#~ msgstr "Выбрать все"
-
-#, fuzzy
-#~ msgid "Rate:"
-#~ msgstr "Закрытый:"
-
-#~ msgid "Close"
-#~ msgstr "Закрыть"
-
-#, fuzzy
-#~ msgid "Configure..."
-#~ msgstr "Настроить уведомление…"
-
-#, fuzzy
-#~ msgid "Italian"
-#~ msgstr "Курсив"
-
-#, fuzzy
-#~ msgid "Persian"
-#~ msgstr "Версия"
-
-#, fuzzy
-#~ msgid "Vietnamese"
-#~ msgstr "Имя файла:"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Настройка нестандартных смайликов"
-
-#, fuzzy
-#~ msgid "Libre Translate"
-#~ msgstr "Настройка автоперевода"
-
-#, fuzzy
-#~ msgid "Server url is not defined."
-#~ msgstr "Сервер не найден: %1"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Configure Translator"
-#~ msgstr "Настройка автоперевода"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Translator Debug"
-#~ msgstr "Перевести сообщение"
-
-#, fuzzy
-#~ msgid "Save As..."
-#~ msgstr "Сохранить &как..."
-
-#, fuzzy
-#~ msgid "Translate..."
-#~ msgstr "Автоперевод"
-
-#, fuzzy
-#~ msgctxt "Translate from language"
-#~ msgid "From:"
-#~ msgstr "От:"
-
-#, fuzzy
-#~ msgctxt "Translate to language"
-#~ msgid "To:"
-#~ msgstr "Получатель:"
-
-#, fuzzy
-#~ msgid "Translate"
-#~ msgstr "Автоперевод"
-
-#, fuzzy
-#~ msgid "Configure"
-#~ msgstr "Настройка Ruqola"
-
-#, fuzzy
-#~ msgid "Translate error"
-#~ msgstr "Перевести сообщение"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "translation-team@basealt.ru"
 
 #~ msgid "User added to team: %1 by %2"
 #~ msgstr "Пользователь добавлен в команду: %1 (%2)"
@@ -9702,48 +9765,40 @@ msgstr "Исправлена поддержка аватаров"
 #~ msgid "Read Only"
 #~ msgstr "Только чтение"
 
+#~ msgid "Authentication required"
+#~ msgstr "Требуется аутентификация"
+
 #~ msgid "User Name:"
 #~ msgstr "Имя пользователя:"
 
 #, fuzzy
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "По умолчанию"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Олеся Герасименко"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "translation-team@basealt.ru"
-
-#, fuzzy
-#~ msgid "Read"
-#~ msgstr "Только чтение"
-
-#, fuzzy
+#~| msgid "Remove"
 #~ msgid "Removed %1 from this Team"
 #~ msgstr "Удалить"
 
 #, fuzzy
+#~| msgid "Server Info..."
 #~ msgctxt "@title:window"
 #~ msgid "Add User in Role"
 #~ msgstr "Информация о сервере..."
 
 #, fuzzy
-#~ msgid "Select Room To Delete:"
-#~ msgstr "Пароль:"
-
-#, fuzzy
+#~| msgid "Add Users"
 #~ msgid "Search Users"
 #~ msgstr "Добавить пользователей"
 
 #, fuzzy
+#~| msgid "Archive Room"
 #~ msgid "Search Teams"
 #~ msgstr "Архивировать комнату"
 
 #, fuzzy
+#~| msgid "Password:"
+#~ msgid "Select Room To Delete:"
+#~ msgstr "Пароль:"
+
+#, fuzzy
+#~| msgid "Ruqola"
 #~ msgid "Ruqolaqml"
 #~ msgstr "Ruqola"
 
@@ -9767,6 +9822,3 @@ msgstr "Исправлена поддержка аватаров"
 
 #~ msgid "john.doe"
 #~ msgstr "Иван Иванов"
-
-#~ msgid "Authentication required"
-#~ msgstr "Требуется аутентификация"

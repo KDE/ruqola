@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
 # Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-30 01:39+0000\n"
-"PO-Revision-Date: 2024-01-19 12:16+0100\n"
+"POT-Creation-Date: 2024-02-01 03:14+0000\n"
+"PO-Revision-Date: 2024-01-30 13:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -32,9 +32,10 @@ msgid "Rocket Chat Client"
 msgstr "Client de xat de Rocket"
 
 #: apps/main.cpp:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2023 Ruqola authors"
 msgid "Copyright © 2020-2024 Ruqola authors"
-msgstr "Copyright © 2020-2024, els autors de Ruqola"
+msgstr "Copyright © 2020-2023, els autors de Ruqola"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -839,19 +840,22 @@ msgid "Custom"
 msgstr "Personalitzat"
 
 #: core/model/inputcompletermodel.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
 msgid "Notify all in this room"
-msgstr "Notifica a tothom en esta sala"
+msgstr "L'usuari no es troba en esta sala"
 
 #: core/model/inputcompletermodel.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No room found"
 msgid "No result found."
-msgstr "No s'ha trobat cap resultat."
+msgstr "No s'ha trobat cap sala"
 
 #: core/model/inputcompletermodel.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
 msgid "Notify active users in this room"
-msgstr "Notifica als usuaris actius en esta sala"
+msgstr "L'usuari no es troba en esta sala"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -876,7 +880,7 @@ msgstr "Missatges dels fils"
 #: core/model/listmessagesfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
-msgstr "Missatges dels fils no llegits"
+msgstr "Missatges dels fils sense llegir"
 
 #: core/model/messagesmodel.cpp:221
 #, kde-format
@@ -889,9 +893,10 @@ msgid "Ignored Message"
 msgstr "Missatge ignorat"
 
 #: core/model/moderationmodel.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report Message"
 msgid "Reported message"
-msgstr "Missatge informat"
+msgstr "Informa del missatge"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -900,19 +905,22 @@ msgid "Username"
 msgstr "Nom d'usuari"
 
 #: core/model/moderationmodel.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reporting"
 msgid "Reports"
-msgstr "Informes"
+msgstr "Informació"
 
 #: core/model/moderationmodel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report Message"
 msgid "Report date"
-msgstr "Data de l'informe"
+msgstr "Informa del missatge"
 
 #: core/model/moderationmodel.cpp:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rooms"
 msgid "Room"
-msgstr "Sala"
+msgstr "Sales"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -1276,7 +1284,7 @@ msgstr "(Unió automàtica)"
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
-msgstr "%1 té %2 missatges sense llegir"
+msgstr "%1 té %2 missatge sense llegir"
 
 #: core/notifications/notifierjob.cpp:27
 #, kde-format
@@ -1473,12 +1481,12 @@ msgstr "Accepta"
 #: plugins/authentication/github/githubpluginauthentication.cpp:33
 #, kde-format
 msgid "GitHub"
-msgstr "GitHub"
+msgstr ""
 
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:33
 #, kde-format
 msgid "GitLab"
-msgstr "GitLab"
+msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
@@ -1628,9 +1636,10 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "__action__ is not allowed"
 msgid "'%1' is not allowed"
-msgstr " «%1» no està permés"
+msgstr "__action__ no està permés"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -1638,9 +1647,10 @@ msgid "Application not found"
 msgstr "No s'ha trobat l'aplicació"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:239
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "There's an archived channel with name '__room_name__'"
 msgid "There's an archived channel with name '%1'"
-msgstr "Hi ha un canal arxivat amb el nom «%1»"
+msgstr "Hi ha un canal arxivat amb el nom «__room_name__»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
@@ -1699,14 +1709,16 @@ msgid "The email domain is blacklisted"
 msgstr "El domini del correu electrònic es troba en la llista negra"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error trying to send email %1"
 msgid "Error trying to send email: %1"
-msgstr "S'ha produït un error en intentar enviar el correu electrònic: %1"
+msgstr "S'ha produït un error en intentar enviar el correu electrònic %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 is already in use."
 msgid "'%1' is already in use :("
-msgstr "«%1» ja es troba en ús :("
+msgstr "%1 ja es troba en ús."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
@@ -1734,9 +1746,10 @@ msgid "The file to be imported was not found on the specified path."
 msgstr "El fitxer que s'ha d'importar no s'ha trobat al camí especificat."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "'%1' is not a valid room name"
 msgid "%1 is not a valid %2"
-msgstr "%1 no és un %2 vàlid"
+msgstr "«%1» no és un nom vàlid de sala"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
@@ -1798,9 +1811,10 @@ msgid "Invalid domain"
 msgstr "Domini no vàlid"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invalid Email '%1'."
 msgid "Invalid email '%1'"
-msgstr "Correu no vàlid «%1»"
+msgstr "Correu no vàlid «%1»."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
@@ -1874,9 +1888,10 @@ msgid "Invalid room"
 msgstr "Sala no vàlida"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "'%1' is not a valid room name"
 msgid "'%1' is not a valid room type."
-msgstr "«%1» no és un tipus vàlid de sala."
+msgstr "«%1» no és un nom vàlid de sala"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
@@ -2042,9 +2057,10 @@ msgid "Room is not closed"
 msgstr "La sala no està tancada"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:405
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The field __field__ is required."
 msgid "The field '%1' is required."
-msgstr "Es requerix el camp «%1»."
+msgstr "Es requerix el camp __field__."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
@@ -2067,13 +2083,16 @@ msgid "Token does not exists"
 msgstr "El testimoni no existix"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Error, too many requests. Please slow down. You must wait __seconds__ "
+#| "seconds before trying again."
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
-"Error, hi ha massa sol·licituds. Espereu un moment. Cal esperar %1 segons "
-"abans de tornar-ho a provar."
+"Error, hi ha massa sol·licituds. Espereu un moment. Cal esperar __seconds__ "
+"segons abans de tornar-ho a provar."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
@@ -2186,24 +2205,26 @@ msgstr ""
 "proporcionat no coincidix amb cap canal"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "A token with this name already exists"
 msgid "A role with this name already exists"
-msgstr "Ja existix un rol amb este nom"
+msgstr "Ja existix un testimoni amb este nom"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message has been pinned"
 msgid "Message could not be pinned"
-msgstr "El missatge no s'ha pogut fixar"
+msgstr "El missatge s'ha fixat"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr "La contrasenya introduïda ja s'ha fet servir prèviament"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:464
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
-msgstr "S'ha assolit el nombre màxim de sales per convidat."
+msgstr ""
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2223,12 +2244,13 @@ msgstr "Subscripció no vàlida"
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
-msgstr "Només els grups o els canals directes poden activar l'encriptació"
+msgstr ""
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Override global retention policy"
 msgid "Room does not have retention policy"
-msgstr "La sala no té política de retenció"
+msgstr "Substituïx la política global de retenció"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
@@ -2331,7 +2353,7 @@ msgstr "Sons personalitzats"
 #: widgets/administratordialog/administratorwidget.cpp:62
 #, kde-format
 msgid "Custom Emojis"
-msgstr "Emojis personalitzats"
+msgstr "Emoji personalitzats"
 
 #: widgets/administratordialog/administratorwidget.cpp:65
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
@@ -2362,15 +2384,16 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mentions only"
 msgid "Moderation Console"
-msgstr "Consola de moderació"
+msgstr "Només les mencions"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
-msgstr "Configura els emojis personalitzats"
+msgstr "Configura els emoji personalitzats"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:24
 #, kde-format
@@ -2412,7 +2435,7 @@ msgstr "Fitxer:"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
 #, kde-format
 msgid "Search custom emojis"
-msgstr "Busca emojis personalitzats"
+msgstr "Busca emoji personalitzats"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
 #, kde-format
@@ -2424,7 +2447,7 @@ msgstr "No s'ha trobat cap emoji personalitzat"
 msgid "%1 custom emoji (Total: %2)"
 msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 emoji personalitzat (Total: %2)"
-msgstr[1] "%1 emojis personalitzats (Total: %2)"
+msgstr[1] "%1 emoji personalitzats (Total: %2)"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:151
 #, kde-format
@@ -2604,62 +2627,70 @@ msgstr "A:"
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:75
 #, kde-format
 msgid "Today"
-msgstr "Hui"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:85
 #, kde-format
 msgid "Yesterday"
-msgstr "Ahir"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:95
 #, kde-format
 msgid "This week"
-msgstr "Esta setmana"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Previous Server"
 msgid "Previous week"
-msgstr "Setmana anterior"
+msgstr "Servidor an&terior"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:115
 #, kde-format
 msgid "This month"
-msgstr "Este mes"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Previous Channel"
 msgid "Previous month"
-msgstr "Mes anterior"
+msgstr "Canal anterior"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search messages..."
 msgid "Search moderation message..."
-msgstr "Busca un missatge de moderació..."
+msgstr "Busca missatges..."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No Message found"
 msgid "No moderation message found"
-msgstr "No s'ha trobat cap missatge de moderació"
+msgstr "No s'ha trobat el missatge"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 device (Total: %2)"
+#| msgid_plural "%1 devices (Total: %2)"
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 missatge de moderació (Total: %2)"
-msgstr[1] "%1 missatges de moderació (Total: %2)"
+msgstr[0] "%1 dispositiu (Total: %2)"
+msgstr[1] "%1 dispositius (Total: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search messages"
 msgid "See messages"
-msgstr "Vegeu els missatges"
+msgstr "Busca missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
 msgid "Dismiss reports"
-msgstr "Descarta els informes"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
 msgid "Delete all Messages"
 msgstr "Suprimix tots els missatges"
 
@@ -2669,14 +2700,12 @@ msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
 "messages? This action cannot be undone."
 msgstr ""
-"Segur que voleu descartar i suprimir tots els informes per als missatges "
-"d'este usuari? Esta acció no es podrà desfer."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
-msgstr "Descarta"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
 #, kde-format
@@ -2686,13 +2715,10 @@ msgid ""
 "able to see it.\n"
 "This action cannot be undone."
 msgstr ""
-"Segur que voleu suprimir tots els missatges informats d'este usuari?\n"
-"Els missatges se suprimiran de l'historial de missatges i ningú podrà "
-"veure'ls.\n"
-"Esta acció no es podrà desfer."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Delete All Messages"
 msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Suprimix tots els missatges"
@@ -2701,13 +2727,15 @@ msgstr "Suprimix tots els missatges"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Mostra l'informe de moderació"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Mentions Messages - %1"
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "Mostra els missatges de moderació"
+msgstr "Mostra els missatges que mencionen - %1"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -2818,7 +2846,8 @@ msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Segur que voleu suprimir esta Oauth?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove OAuth"
 msgctxt "@title:window"
 msgid "Remove OAuth"
 msgstr "Elimina l'Oauth"
@@ -2858,7 +2887,8 @@ msgid "Do you want to remove this role '%1'?"
 msgstr "Voleu eliminar este rol «%1»?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:232
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Role"
 msgctxt "@title:window"
 msgid "Remove Role"
 msgstr "Elimina el rol"
@@ -2931,7 +2961,8 @@ msgstr "Voleu eliminar este usuari «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove User"
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Elimina l'usuari"
@@ -3281,7 +3312,7 @@ msgstr "Entorn d'execució"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:337
 #, kde-format
 msgid "Commit"
-msgstr "Comissió"
+msgstr "Commit"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:341
 #, kde-format
@@ -3427,7 +3458,8 @@ msgstr ""
 "l'accés a les sales encriptades que no tinguen cap membre connectat."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset E2E key"
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Reinicia la clau E2E"
@@ -3452,7 +3484,8 @@ msgstr ""
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset TOTP"
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Reinicia TOTP"
@@ -3589,19 +3622,21 @@ msgid "Use DNS Domain Check"
 msgstr "Utilitza la verificació de domini de DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow user creation"
 msgid "Allow Feature Preview"
-msgstr "Permet la vista prèvia de característiques"
+msgstr "Permet la creació d'usuaris"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
 msgid "Registration with Authentication Services"
-msgstr "Registre amb serveis d'autenticació"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Password History"
 msgid "Password Reset"
-msgstr "Reinici de la contrasenya"
+msgstr "Historial de contrasenyes"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
@@ -3616,7 +3651,7 @@ msgstr "Intents d'inici de sessió fallits"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:132
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr "El nombre d'intents fallits per usuari fins el bloqueig"
+msgstr "El nombre d'intents fallits per usuari fins al bloqueig"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:137
 #, kde-format
@@ -3626,7 +3661,7 @@ msgstr "Temps fins a desblocar l'usuari (en minuts)"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:140
 #, kde-format
 msgid "How many failed attempts until block by IP"
-msgstr "El nombre d'intents fallits fins el bloqueig per IP"
+msgstr "El nombre d'intents fallits fins al bloqueig per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
 #, kde-format
@@ -3683,13 +3718,12 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
-"Es donaran rols predeterminats (separats per comes) als usuaris quan es "
-"registren a través de serveis d'autenticació"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter authentication code"
 msgid "Default Roles for Authentication Services"
-msgstr "Rols predeterminats per a serveis d'autenticació"
+msgstr "Introduïu el codi d'autenticació"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
 #, kde-format
@@ -3697,13 +3731,12 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
-"Es donaran rols predeterminats (separats per comes) als usuaris quan es "
-"registren a través d'un registre manual (incloent-hi via una API)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Default timezone for reporting"
 msgid "Default Roles for Users"
-msgstr "Rols predeterminats per als usuaris"
+msgstr "Zona horària predeterminada per a informació"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4248,7 +4281,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 "Selecciona l'opció de crear grups encriptats i ser capaç de canviar grups i "
-"missatges directes per a que es puguen encriptar."
+"missatges directes perquè es puguen encriptar."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:36
 #, kde-format
@@ -4576,8 +4609,8 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
-"Nombre màxim de membres en una sala en que es desactiven les notificacions "
-"de tots els missatges. Els usuaris encara poden canviar el paràmetre per a "
+"Nombre màxim de membres en una sala en què es desactiven les notificacions "
+"de tots els missatges. Els usuaris encara poden canviar el paràmetre per "
 "cada sala per a rebre totes les notificacions individualment. (0 per a "
 "desactivar)"
 
@@ -4798,7 +4831,7 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
-"Un canal que rebrà totes les excepcions capturades. Deixeu-ho buit per "
+"Un canal que rebrà totes les excepcions capturades. Deixeu-ho buit per a "
 "ignorar les excepcions."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
@@ -4911,7 +4944,7 @@ msgstr "Activa la traducció automàtica"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, kde-format
 msgid "Embed Link Previews"
-msgstr "Incrusta la vista prèvia dels enllaços"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
@@ -5113,13 +5146,12 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
-"Si les previsualitzacions d'enllaços incrustats estan habilitades o no quan "
-"un usuari publica un enllaç cap a un lloc web."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Expiration (Days)"
 msgid "Embed Cache Expiration Days"
-msgstr "Dies de venciment de la memòria cau incrustada"
+msgstr "Venciment (dies)"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6106,7 +6138,8 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es podrà desfer."
 
 #: widgets/channellist/channellistview.cpp:293
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Convert to Team"
 msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Convertix a un equip"
@@ -6132,14 +6165,17 @@ msgid "Next Channel"
 msgstr "Canal següent"
 
 #: widgets/common/authenticationbutton.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sign in with Apple"
 msgid "Sign in with %1"
-msgstr "Inicia la sessió amb %1"
+msgstr "Inicia la sessió amb Apple"
 
 #: widgets/common/authenticationloginwidget.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove Account"
 msgid "Register Account"
-msgstr "Registra un compte"
+msgstr "Elimina el compte"
 
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6176,9 +6212,10 @@ msgid "Error saving file"
 msgstr "S'ha produït un error en guardar el fitxer"
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Join the given channel"
 msgid "Not in channel"
-msgstr "No en el canal"
+msgstr "Unix-te al canal indicat"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:18
 #, kde-format
@@ -6272,9 +6309,10 @@ msgid "Show images by default"
 msgstr "Mostra les imatges de manera predeterminada"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show images by default"
 msgid "Show preview url by default"
-msgstr "Mostra l'URL de la vista prèvia de manera predeterminada"
+msgstr "Mostra les imatges de manera predeterminada"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -6377,19 +6415,22 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Voleu eliminar este compte «%1»?"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Connecting"
 msgid "Connection"
-msgstr "Connexió"
+msgstr "S'està connectant"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server URL:"
 msgid "Server Url:"
 msgstr "URL del servidor:"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:121
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Impossible to copy file"
 msgid "Impossible to access to server."
-msgstr "És impossible accedir al servidor."
+msgstr "Impossible copiar el fitxer"
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -7000,10 +7041,11 @@ msgid "Why you signal this message?"
 msgstr "Per què assenyaleu este missatge?"
 
 #: widgets/dialogs/resetpassworddialog.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset Password"
 msgctxt "@title:window"
 msgid "Reset Password"
-msgstr "Reinici de contrasenya"
+msgstr "Reinicia la contrasenya"
 
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
@@ -7536,9 +7578,10 @@ msgid "(Unnamed)"
 msgstr "(Sense nom)"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save File"
 msgid "Save Video"
-msgstr "Guardeu el vídeo"
+msgstr "Guarda el fitxer"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:65
 #, kde-format
@@ -7557,43 +7600,50 @@ msgid "Download Image..."
 msgstr "Baixa la imatge..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
 msgctxt "@title:window"
 msgid "Download Video"
-msgstr "Baixeu el vídeo"
+msgstr "Baixada d'imatge"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Download Image..."
 msgid "Download Video..."
-msgstr "Baixa el vídeo..."
+msgstr "Baixa la imatge..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Sound"
 msgctxt "@title:window"
 msgid "Download Sound"
-msgstr "Baixeu el so"
+msgstr "Reproduïx un so"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Download Image..."
 msgid "Download Sound..."
-msgstr "Baixa el so..."
+msgstr "Baixa la imatge..."
 
 #: widgets/misc/messagestylelayoutmenu.cpp:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Status:"
 msgid "Message Style"
-msgstr "Estil dels missatges"
+msgstr "Missatge d'estat:"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:19
 #, kde-format
 msgctxt "Message Style"
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 #: widgets/misc/messagestylelayoutmenu.cpp:20
 #, kde-format
 msgctxt "Message Style"
 msgid "Compact"
-msgstr "Compacte"
+msgstr ""
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
@@ -7648,7 +7698,7 @@ msgid ""
 msgstr ""
 "Ara podeu crear grups privats encriptats i missatges directes. També podeu "
 "canviar els grups privats existents o DM a encriptats. Açò és un encriptació "
-"d'extrem a extrem (e2e) de manera que la clau per codificar o descodificar "
+"d'extrem a extrem (e2e) de manera que la clau per a codificar o descodificar "
 "els missatges no es guardarà al servidor. Per esta raó cal emmagatzemar la "
 "contrasenya en un lloc segur. Haureu d'introduir-la en altres dispositius on "
 "vulgueu utilitzar l'encriptació «e2e»."
@@ -7860,7 +7910,8 @@ msgid "Are you sure that you want to delete \"%1\" Token?"
 msgstr "Segur que voleu suprimir el testimoni «%1»?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Token"
 msgctxt "@title:window"
 msgid "Remove Token"
 msgstr "Elimina el testimoni"
@@ -7868,7 +7919,7 @@ msgstr "Elimina el testimoni"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Use Emojis"
-msgstr "Utilitza els emojis"
+msgstr "Utilitza els emoji"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
@@ -7997,7 +8048,7 @@ msgstr "Canvia l'URL de l'avatar..."
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
-msgstr "L'administrador ha desactivat el canvi del correu electrònic."
+msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
@@ -8037,23 +8088,21 @@ msgid "Current Password"
 msgstr "Contrasenya actual"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Disable Sessions Monitor"
 msgid "Disable version check"
-msgstr "Desactiva la comprovació de la versió"
+msgstr "Desactiva el monitoratge de les sessions"
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:36
 #, kde-format
 msgid "Your version is older than 6 months, we encourage you to upgrade."
 msgstr ""
-"Esta versió té més de 6 mesos d'antiguitat, us animem que l'actualitzeu."
 
 #: widgets/needupdateversion/needupdateversionwidget.cpp:41
 #, kde-format
 msgid ""
 "Your version is older than 1 year, we strongly encourage you to upgrade."
 msgstr ""
-"Esta versió té més d'un any d'antiguitat, us animem completament que "
-"l'actualitzeu."
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
 #, kde-format
@@ -8253,7 +8302,7 @@ msgstr "Unix-te"
 #: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:80
 #, kde-format
 msgid "Link Preview"
-msgstr "Visualització prèvia de l'enllaç"
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:387
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
@@ -8302,29 +8351,35 @@ msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
 
 #: widgets/room/messagelinewidget.cpp:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save File"
 msgid "Attach File"
-msgstr "Adjunta un fitxer"
+msgstr "Guarda el fitxer"
 
 #: widgets/room/messagelinewidget.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Video Message"
 msgid "Video Message"
-msgstr "Missatge de vídeo"
+msgstr "Crea un missatge de vídeo"
 
 #: widgets/room/messagelinewidget.cpp:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Message"
 msgid "Sound Message"
-msgstr "Missatge de so"
+msgstr "Mostra el missatge"
 
 #: widgets/room/messagelinewidget.cpp:94
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search Emoticon..."
 msgid "Add Emoticon"
-msgstr "Afig una emoticona"
+msgstr "Busca una emoticona..."
 
 #: widgets/room/messagelinewidget.cpp:102
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starred Messages"
 msgid "Send Message"
-msgstr "Envia un missatge"
+msgstr "Missatges destacats"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
@@ -8332,7 +8387,8 @@ msgid "Do you want to convert this big text as attachment?"
 msgstr "Voleu convertir este text llarg en un adjunt?"
 
 #: widgets/room/messagelinewidget.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Too Big"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Missatge massa llarg"
@@ -8440,14 +8496,15 @@ msgid "Translate Message"
 msgstr "Traduïx el missatge"
 
 #: widgets/room/messagelistview.cpp:506
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "View Log"
 msgid "View Reports"
-msgstr "Vista dels informes"
+msgstr "Mostra el registre"
 
 #: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgid "Dismiss Reports"
-msgstr "Descarta els informes"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:598
 #, kde-format
@@ -8530,7 +8587,7 @@ msgstr "(Marca com a llegit)"
 #: widgets/room/roomcounterinfowidget.cpp:43
 #, kde-format
 msgid "(Jump to first Unread)"
-msgstr "(Ves fins al primer no llegit)"
+msgstr "(Ves fins al primer sense llegir)"
 
 #: widgets/room/roomheaderlabel.cpp:67
 #, kde-format
@@ -8599,7 +8656,8 @@ msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
 #: widgets/room/roomwidget.cpp:276
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
@@ -9216,9 +9274,10 @@ msgid "Version 2.0"
 msgstr "Versió 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Version 2.0"
 msgid "Version 2.1"
-msgstr "Versió 2.1"
+msgstr "Versió 2.0"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9312,55 +9371,117 @@ msgstr "Corregix la implementació dels KF6"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:46
 msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr "Afig la consola de moderació (Administració, RC servidor 6.2)"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
 msgid "Implement message style"
-msgstr "Implementa els estils dels missatges"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
-msgstr "Implementa la previsualització dels URL"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:54
 msgid "Fix markdown support (header + check mark)"
-msgstr "Corregix la implementació de Markdown (capçalera + marca de selecció)"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:55
 msgid "Fix mem leak"
-msgstr "Corregix una fuita de memòria"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:56
+#, fuzzy
+#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "Mida de la memòria cau dels missatges (optimització)"
+msgstr "el vostre missatge (opcional)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
 "is in channel)"
 msgstr ""
-"Millora la selecció de la sala o l'usuari en editar la línia del missatge "
-"(mostra la icona, informa si l'usuari està en el canal)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:58
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
 "support it)."
 msgstr ""
-"Corregix la visualització d'ordres en l'edició de la línia de missatges "
-"(oculta l'acció quan la sala no ho admet)."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:59
 msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
-"Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:60
+#, fuzzy
+#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "Corregix la llista de mètodes d'autenticació."
+msgstr "Mètode d'autenticació"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
 #, fuzzy
 #| msgid "Fix avatar support"
 msgid "Fix show avatar url."
 msgstr "Corregix la implementació dels avatars"
+
+#~ msgid "A channel with name '__channel_name__' exists"
+#~ msgstr "Existix un canal amb el nom «__channel_name__»"
+
+#~ msgid "Error trying to send email: __message__"
+#~ msgstr ""
+#~ "S'ha produït un error en intentar enviar el correu electrònic: __message__"
+
+#~ msgid "<strong>__field__</strong> is already in use :("
+#~ msgstr "<strong>__field__</strong> ja es troba en ús :("
+
+#~ msgid "__input__ is not a valid __field__"
+#~ msgstr "__input__ no és un __field__ vàlid"
+
+#~ msgid "Invalid email __email__"
+#~ msgstr "Correu electrònic no vàlid __email__"
+
+#~ msgid "<strong>__room_name__</strong> is not a valid room name"
+#~ msgstr "<strong>__room_name__</strong> no és un nom vàlid de sala"
+
+#~ msgid "<strong>__type__</strong> is not a valid room type."
+#~ msgstr "<strong>__type__</strong> no és un tipus vàlid de sala."
+
+#~ msgid "Symbols"
+#~ msgstr "Símbols"
+
+#~ msgid "Activity"
+#~ msgstr "Activitat"
+
+#~ msgid "Objects"
+#~ msgstr "Objectes"
+
+#~ msgid "Nature"
+#~ msgstr "Natura"
+
+#~ msgid "Food"
+#~ msgstr "Menjar"
+
+#~ msgid "People"
+#~ msgstr "Gent"
+
+#~ msgid "Travel"
+#~ msgstr "Viatges"
+
+#~ msgid "Regional"
+#~ msgstr "Regional"
+
+#~ msgid "Flags"
+#~ msgstr "Banderes"
+
+#~ msgctxt "Previously used emojis"
+#~ msgid "History"
+#~ msgstr "Historial"
+
+#~ msgctxt "'Custom' is a category of emoji"
+#~ msgid "Custom"
+#~ msgstr "Personalitzats"
+
+#~ msgid "Clear Recents"
+#~ msgstr "Neteja els recents"
+
+#~ msgid "Add Smiley"
+#~ msgstr "Afig una emoticona"

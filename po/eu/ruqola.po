@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-30 01:39+0000\n"
+"POT-Creation-Date: 2024-02-01 03:14+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,9 +32,9 @@ msgstr "Rocket berriketa bezeroa"
 
 #: apps/main.cpp:58
 #, fuzzy, kde-format
-#| msgid "Copyright © 2020-2023 Ruqola authors"
+#| msgid "Copyright © 2020-2022 Ruqola authors"
 msgid "Copyright © 2020-2024 Ruqola authors"
-msgstr "Copyright © 2020-2023 «Ruqola»ren egileak"
+msgstr "Copyright © 2020-2022 Ruqola-ren egileak"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -2588,19 +2588,17 @@ msgstr "Gorde fitxategia"
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:57
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:117
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
-"Ezin izan du %1 fitxategia idatzi:\n"
-"Errorearen deskribapen zehatza «%2» da."
 
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:61
 #: widgets/administratordialog/logs/viewlogplaintextedit.cpp:121
 #, fuzzy, kde-format
 msgid "Save File Error"
-msgstr "Fitxategia gordetzeko errorea"
+msgstr "Gorde fitxategia"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -2680,9 +2678,10 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
 #, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#| msgctxt "@title"
+#| msgid "Delete Message"
 msgid "Delete all Messages"
-msgstr "Ezabatu mezu guztiak"
+msgstr "Ezabatu mezua"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
 #, kde-format
@@ -2708,17 +2707,17 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
 #, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#| msgctxt "@title"
+#| msgid "Delete Message"
 msgctxt "@title:window"
 msgid "Delete All Messages"
-msgstr "Ezabatu mezu guztiak"
+msgstr "Ezabatu mezua"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "Mentions Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Aipamen mezuak"
+msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
 #, fuzzy, kde-format
@@ -3581,9 +3580,10 @@ msgid "Require Name For Signup"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Require Password Change"
 msgid "Require Password Confirmation"
-msgstr "Eskatu pasahitz berrespena"
+msgstr "Eskatu pasahitza aldatzea"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
@@ -3653,9 +3653,10 @@ msgid "How many failed attempts until block by IP"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:144
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Register"
 msgid "Registration"
-msgstr "Izen-ematea"
+msgstr "Izen-eman"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
@@ -3720,9 +3721,9 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#| msgid "Default Room"
 msgid "Default Roles for Users"
-msgstr "Sartu autentifikazio kodea"
+msgstr "Gela lehenetsia"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3790,7 +3791,7 @@ msgstr "IRC federazioa"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr "IRC"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -4852,9 +4853,9 @@ msgid "Audio Recorder Enabled"
 msgstr "Audio grabatzailea gaituta"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, kde-format
+#, fuzzy, kde-format
 msgid "Enable Auto-Translate"
-msgstr "Gaitu automatikoki itzultzea"
+msgstr "Itzuli"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, kde-format
@@ -4916,14 +4917,16 @@ msgid "Keep Messages and User Name"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
 msgid "Delete All Messages"
-msgstr "Ezabatu mezu guztiak"
+msgstr "Ezabatu mezua"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
 #, kde-format
 msgid "Remove Link Between User and Messages"
-msgstr "Kendu erabiltzaile eta mezuen arteko esteka"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
 #, kde-format
@@ -5007,20 +5010,21 @@ msgid "Auto-Translate"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
-#, fuzzy, kde-format
-#| msgid "DeepL"
-msgid "Deepl"
-msgstr "DeepL"
-
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, kde-format
-msgid "Microsoft"
+msgid "Deepl"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
+#, fuzzy, kde-format
+#| msgid "Micro Off"
+msgid "Microsoft"
+msgstr "Mikrofonoa itzalita"
+
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Provider:"
 msgid "Service Provider"
-msgstr "Zerbitzu hornitzailea"
+msgstr "Hornitzailea:"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
 #, kde-format
@@ -5029,9 +5033,9 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:180
 #, fuzzy, kde-format
-#| msgid "Google"
+#| msgid "Google Id"
 msgid "Google API Key"
-msgstr "Google"
+msgstr "Google ID"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:183
 #, kde-format
@@ -6113,7 +6117,6 @@ msgstr "Hasi zuzeneko dei bat"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
 #, fuzzy, kde-format
-#| msgid "Conference Call"
 msgctxt "@title:window"
 msgid "Conference Call Information"
 msgstr "Biltzar deia"
@@ -6181,10 +6184,9 @@ msgid "Show hover highlights"
 msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Save Image"
+#, kde-format
 msgid "Animate Gif Image"
-msgstr "Gorde irudia"
+msgstr ""
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:23
 #, kde-format
@@ -6268,8 +6270,7 @@ msgid "Connection"
 msgstr "Konektatzen"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Server Url:"
 msgstr "Zerbitzariaren URLa:"
 
@@ -7263,27 +7264,23 @@ msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:73
 #, fuzzy, kde-format
-#| msgid "Accounts"
 msgid "Export Done."
-msgstr "Kontuak"
+msgstr "Esportatu..."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:94
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Account %1: export config done."
-msgstr "Kontuak"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:106
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Account %1: export cache done."
-msgstr "Kontuak"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:116
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "Account %1: export logs done."
-msgstr "Kontuak"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:143
 #, kde-format
@@ -7292,9 +7289,9 @@ msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:37
 #, fuzzy, kde-format
-#| msgid "Account name"
+#| msgid "Accounts"
 msgid "Accounts Exported."
-msgstr "Kontuaren izena"
+msgstr "Kontuak"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:20
 #, fuzzy, kde-format
@@ -7326,9 +7323,8 @@ msgstr ""
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:85
 #, fuzzy, kde-format
-#| msgid "Accounts"
 msgid "Import Done."
-msgstr "Kontuak"
+msgstr "Inportatu..."
 
 #: widgets/importexportdata/importdata/importdatafinishpage.cpp:33
 #, fuzzy, kde-format
@@ -7534,9 +7530,10 @@ msgid "Server"
 msgstr "Zerbitzaria"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "My Account..."
 msgid "Filter Account..."
-msgstr "Iragazi kontua..."
+msgstr "Nire kontua..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7783,9 +7780,8 @@ msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
 #, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
 msgid "Enable Auto Away"
-msgstr "Gaitu automatikoki itzultzea"
+msgstr "Itzuli"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -8333,15 +8329,14 @@ msgstr ""
 
 #: widgets/room/messagelistview.cpp:506
 #, fuzzy, kde-format
-#| msgid "Report Message"
+#| msgid "View Log"
 msgid "View Reports"
-msgstr "Mezuaren berri ematea"
+msgstr "Ikusi egunkaria"
 
 #: widgets/room/messagelistview.cpp:529
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Dismiss Reports"
-msgstr "Mezuaren berri ematea"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:598
 #, kde-format
@@ -8797,7 +8792,7 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgid "Show Server Errors"
-msgstr "Erakutsi zerbitzariaren erroreak"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:469
 #, kde-format
@@ -8964,21 +8959,21 @@ msgstr "Tresna-barra nagusia"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#| msgid "Errors and Information"
 msgctxt "@title:window"
 msgid "Server Error Information"
-msgstr "Zerbitzariaren erroreen informazioa"
+msgstr "Erroreak eta informazioa"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
 #, kde-format
 msgid "(Show Errors)"
-msgstr "(Erakutsi erroreak)"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
 msgid "Server errors reported. %1"
-msgstr "Zerbitzaria erroreen berri eman da: %1"
+msgstr "Zerbitzaria ez da aurkitu: %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -9186,10 +9181,8 @@ msgid "Video/Sound Message support (kf6 only)."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:30
-#, fuzzy
-#| msgid "Accounts"
 msgid "Import/Export Accounts."
-msgstr "Kontuak"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
@@ -9212,10 +9205,8 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
-#, fuzzy
-#| msgid "Search messages"
 msgid "Implement message style"
-msgstr "Bilatu mezuak"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
@@ -9276,9 +9267,6 @@ msgstr ""
 #~ msgid "Invalid email __email__"
 #~ msgstr "E-posta __email__ baliogabea"
 
-#~ msgid "Share"
-#~ msgstr "Partekatu"
-
 #~ msgid "Symbols"
 #~ msgstr "Ikurrak"
 
@@ -9327,142 +9315,39 @@ msgstr ""
 #~ msgid "Add Smiley"
 #~ msgstr "Gehitu eginkizuna"
 
-#~ msgid "Search"
-#~ msgstr "Bilatu"
-
-#~ msgid "Recent"
-#~ msgstr "Azken aldikoa"
+#~ msgid "Share"
+#~ msgstr "Partekatu"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Zatitutako mezuak"
 
-#~ msgid "Show Snippered Messages..."
-#~ msgstr "Erakutsi zatitutako mezuak..."
-
-#~ msgid "View mode:"
-#~ msgstr "Ikuspegi-modua:"
-
-#~ msgid "Archive cannot be opened in read mode."
-#~ msgstr "Artxiboa ezin da ireki irakurtzeko moduan."
-
-#~ msgid "Enable autocorrection"
-#~ msgstr "Gaitu zuzenketa automatikoa"
-
-#~ msgid "Export..."
-#~ msgstr "Esportatu..."
-
-#~ msgid "Import..."
-#~ msgstr "Inportatu..."
-
-#~ msgid "Ad&vanced Autocorrection"
-#~ msgstr "Zuzenketa automatiko a&urreratua"
-
-#~ msgid "&Add"
-#~ msgstr "&Gehitu"
-
-#~ msgid "&Enable word replacement"
-#~ msgstr "&Gaitu hitz ordezkapena"
-
-#~ msgid "&Find"
-#~ msgstr "Aur&kitu"
-
-#~ msgid "Re&place"
-#~ msgstr "Or&deztu"
-
-#~ msgid "Find"
-#~ msgstr "Aurkitu"
-
-#~ msgid "Replace"
-#~ msgstr "Ordeztu"
-
-#~ msgid "E&xceptions"
-#~ msgstr "Sal&buespenak"
-
-#~ msgid "Do not treat as the end of a sentence:"
-#~ msgstr "Ez tratatu esaldiaren amaiera gisa:"
-
-#~ msgid "R&emove"
-#~ msgstr "K&endu"
-
-#~ msgid "Add"
-#~ msgstr "Gehitu"
-
-#~ msgid "Si&mple Autocorrection"
-#~ msgstr "Zuzenketa automatiko erra&za"
-
-#~ msgid "Replace double quotes by french quotes"
-#~ msgstr "Ordeztu aipu-kakotx bikoitzak aipu-kakotx frantsesekin"
+#, fuzzy
+#~ msgid "Stop"
+#~ msgstr "Gelditu"
 
 #, fuzzy
-#~ msgid "TextLabel"
-#~ msgstr "Testua"
+#~ msgid "Pause"
+#~ msgstr "Eten"
 
 #, fuzzy
-#~| msgid "Add..."
-#~ msgid "..."
-#~ msgstr "Gehitu..."
+#~ msgid "Play"
+#~ msgstr "Jo"
 
-#~ msgid "LibreOffice Autocorrection"
-#~ msgstr "LibreOfficen zuzenketa automatikoa"
+#, fuzzy
+#~ msgid "Test"
+#~ msgstr "Probatu"
 
-#~ msgid "KMail/Calligra Autocorrection"
-#~ msgstr "KMail/Calligra zuzenketa automatikoa"
-
-#~ msgid "\"Replace\" string is the same as \"Find\" string."
-#~ msgstr "\"Ordezkatzeko\" katea \"Aurkitzeko\" kate bera da."
-
-#~ msgid "Add Autocorrection Entry"
-#~ msgstr "Gehitu zuzenketa automatiko sarrera"
-
-#~ msgid "&Modify"
-#~ msgstr "&Aldatu"
-
-#~ msgid "Import LibreOffice Autocorrection"
-#~ msgstr "Inportatu LibreOfficen zuzenketa automatikoa"
-
-#~ msgid "LibreOffice Autocorrection File (*.dat)"
-#~ msgstr "LibreOfficeko zuzenketa automatikorako fitxategia (*.dat)"
-
-#~ msgid "Import KMail Autocorrection"
-#~ msgstr "Inportatu KMail-en zuzenketa automatikoa"
-
-#~ msgid "KMail Autocorrection File (*.xml)"
-#~ msgstr "KMaileko zuzenketa automatikorako fitxategia (*.xml)"
-
-#~ msgid "Import Autocorrection File"
-#~ msgstr "Inportatu zuzenketa automatikorako fitxategia"
-
-#~ msgid ""
-#~ "Language was changed, do you want to save config for previous language?"
-#~ msgstr ""
-#~ "Hizkuntza aldatu da, aurreko hizkuntzaren konfigurazioa aldatu nahi duzu?"
-
-#~ msgid "Save config"
-#~ msgstr "Gorde konfigurazioa"
-
-#~ msgid "Please save changes before exporting settings."
-#~ msgstr "Mesedez, gorde aldaketak ezarpenak esportatu aurretik."
-
-#~ msgid "Export Autocorrection File"
-#~ msgstr "Esportatu zuzenketa automatikorako fitxategia"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select Special Characters"
-#~ msgstr "Hautatu karaktere bereziak"
-
-#~ msgid "Insert"
-#~ msgstr "Txertatu"
-
-#~ msgid "Select"
-#~ msgstr "Hautatu"
+#, fuzzy
+#~ msgid "Volume:"
+#~ msgstr "Bolumena"
 
 #, fuzzy
 #~ msgid "Rate:"
-#~ msgstr "Pribatua"
+#~ msgstr "Emaria:"
 
 #, fuzzy
 #~ msgid "Engine:"
-#~ msgstr "Motorra:"
+#~ msgstr "motorra"
 
 #, fuzzy
 #~ msgid "Close"
@@ -9470,253 +9355,343 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Configure..."
-#~ msgstr "Konfiguratu"
-
-#~ msgid "Detect language"
-#~ msgstr "Hizkuntza antzeman"
+#~ msgstr "Konfiguratu..."
 
 #, fuzzy
-#~| msgid "Estonian"
-#~ msgid "Bosnian"
-#~ msgstr "Estoniera"
+#~| msgid "Enabled E2E encryption"
+#~ msgid "Enable autocorrection"
+#~ msgstr "E2E zifratzea gaitu da"
 
+#, fuzzy
+#~ msgid "&Add"
+#~ msgstr "&Gehitu"
+
+#, fuzzy
+#~ msgid "&Find"
+#~ msgstr "&Bilatu"
+
+#, fuzzy
+#~ msgid "Re&place"
+#~ msgstr "Ordeztu"
+
+#, fuzzy
+#~ msgid "Find"
+#~ msgstr "Bilatu"
+
+#, fuzzy
+#~| msgid "Reply"
+#~ msgid "Replace"
+#~ msgstr "Ordeztu"
+
+#, fuzzy
+#~ msgid "E&xceptions"
+#~ msgstr "Salbuespenak"
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgid "R&emove"
+#~ msgstr "&Kendu"
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgid "Add"
+#~ msgstr "Gehitu"
+
+#, fuzzy
+#~ msgid "Custom &Quotes"
+#~ msgstr "Norberak finkatutako Emojiak"
+
+#, fuzzy
+#~| msgid "Default"
+#~ msgid "By Default"
+#~ msgstr "Lehenetsia"
+
+#, fuzzy
+#~ msgid "Path"
+#~ msgstr "Bide-izena"
+
+#, fuzzy
+#~ msgid "TextLabel"
+#~ msgstr "Testu-etiketa"
+
+#, fuzzy
+#~| msgid "Modify..."
+#~ msgid "&Modify"
+#~ msgstr "&Aldatu"
+
+#, fuzzy
+#~ msgid "Save config"
+#~ msgstr "Gorde fitxategia"
+
+#, fuzzy
+#~| msgid "Allow Special Characters in Room Names"
+#~ msgctxt "@title:window"
+#~ msgid "Select Special Characters"
+#~ msgstr "Baimendu karaktere-bereziak geletako izenetan"
+
+#, fuzzy
+#~ msgid "Insert"
+#~ msgstr "Txertatu"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select"
+#~ msgstr "Hautatu"
+
+#, fuzzy
+#~ msgid "Detect language"
+#~ msgstr "Detektatu hizkuntza"
+
+#, fuzzy
 #~ msgid "English"
 #~ msgstr "Ingelesa"
 
+#, fuzzy
 #~ msgid "Chinese (Simplified)"
-#~ msgstr "Txinera (sinplifilatua)"
+#~ msgstr "Txinera (erraztua)"
 
+#, fuzzy
 #~ msgid "Chinese (Traditional)"
 #~ msgstr "Txinera (tradizionala)"
 
+#, fuzzy
 #~ msgid "Dutch"
 #~ msgstr "Nederlandera"
 
+#, fuzzy
 #~ msgid "French"
 #~ msgstr "Frantsesa"
 
+#, fuzzy
 #~ msgid "German"
 #~ msgstr "Alemana"
 
+#, fuzzy
 #~ msgid "Greek"
 #~ msgstr "Grekoa"
 
+#, fuzzy
 #~ msgid "Italian"
 #~ msgstr "Italiera"
 
+#, fuzzy
 #~ msgid "Japanese"
 #~ msgstr "Japoniera"
 
+#, fuzzy
 #~ msgid "Korean"
 #~ msgstr "Koreera"
 
+#, fuzzy
 #~ msgid "Portuguese"
 #~ msgstr "Portugesa"
 
+#, fuzzy
 #~ msgid "Russian"
 #~ msgstr "Errusiera"
 
+#, fuzzy
 #~ msgid "Spanish"
 #~ msgstr "Gaztelania"
 
+#, fuzzy
 #~ msgid "Afrikaans"
-#~ msgstr "Afrikaans"
+#~ msgstr "Afrikaansa"
 
+#, fuzzy
 #~ msgid "Albanian"
 #~ msgstr "Albaniera"
 
+#, fuzzy
 #~ msgid "Arabic"
-#~ msgstr "Arabiera"
+#~ msgstr "Arabiarra"
 
+#, fuzzy
 #~ msgid "Armenian"
-#~ msgstr "Armeniera"
+#~ msgstr "Armeniarra"
 
+#, fuzzy
 #~ msgid "Azerbaijani"
 #~ msgstr "Azerbaijanera"
 
+#, fuzzy
 #~ msgid "Basque"
 #~ msgstr "Euskara"
 
+#, fuzzy
 #~ msgid "Belarusian"
 #~ msgstr "Bielorrusiera"
 
+#, fuzzy
 #~ msgid "Bulgarian"
 #~ msgstr "Bulgariera"
 
+#, fuzzy
 #~ msgid "Catalan"
 #~ msgstr "Katalana"
 
+#, fuzzy
 #~ msgid "Croatian"
 #~ msgstr "Kroaziera"
 
+#, fuzzy
 #~ msgid "Czech"
 #~ msgstr "Txekiera"
 
+#, fuzzy
 #~ msgid "Danish"
 #~ msgstr "Daniera"
 
+#, fuzzy
 #~ msgid "Estonian"
 #~ msgstr "Estoniera"
 
+#, fuzzy
 #~ msgid "Filipino"
-#~ msgstr "Filipinera"
+#~ msgstr "Filipinarra"
 
+#, fuzzy
 #~ msgid "Finnish"
 #~ msgstr "Finlandiera"
 
+#, fuzzy
 #~ msgid "Galician"
 #~ msgstr "Galiziera"
 
+#, fuzzy
 #~ msgid "Georgian"
-#~ msgstr "Georgiera"
+#~ msgstr "Georgiarra"
 
+#, fuzzy
 #~ msgid "Haitian Creole"
 #~ msgstr "Kreolera (Haiti)"
 
+#, fuzzy
 #~ msgid "Hebrew"
-#~ msgstr "Hebreera"
+#~ msgstr "Hebrearra"
 
+#, fuzzy
 #~ msgid "Hindi"
-#~ msgstr "Hindi"
+#~ msgstr "Hindiera"
 
+#, fuzzy
 #~ msgid "Hungarian"
 #~ msgstr "Hungariera"
 
+#, fuzzy
 #~ msgid "Icelandic"
 #~ msgstr "Islandiera"
 
+#, fuzzy
 #~ msgid "Indonesian"
 #~ msgstr "Indonesiera"
 
+#, fuzzy
 #~ msgid "Irish"
 #~ msgstr "Irlandera"
 
+#, fuzzy
 #~ msgid "Latvian"
 #~ msgstr "Letoniera"
 
+#, fuzzy
 #~ msgid "Lithuanian"
 #~ msgstr "Lituaniera"
 
+#, fuzzy
 #~ msgid "Macedonian"
 #~ msgstr "Mazedoniera"
 
+#, fuzzy
 #~ msgid "Malay"
 #~ msgstr "Malaysiera"
 
+#, fuzzy
 #~ msgid "Maltese"
 #~ msgstr "Maltera"
 
+#, fuzzy
 #~ msgid "Norwegian"
 #~ msgstr "Norvegiera"
 
+#, fuzzy
+#~| msgid "Version"
 #~ msgid "Persian"
 #~ msgstr "Persiera"
 
+#, fuzzy
 #~ msgid "Polish"
 #~ msgstr "Poloniera"
 
+#, fuzzy
 #~ msgid "Romanian"
 #~ msgstr "Errumaniera"
 
+#, fuzzy
 #~ msgid "Serbian"
 #~ msgstr "Serbiera"
 
+#, fuzzy
 #~ msgid "Slovak"
 #~ msgstr "Eslovakiera"
 
+#, fuzzy
 #~ msgid "Slovenian"
 #~ msgstr "Esloveniera"
 
+#, fuzzy
 #~ msgid "Swahili"
 #~ msgstr "Swahilia"
 
+#, fuzzy
 #~ msgid "Swedish"
 #~ msgstr "Suediera"
 
+#, fuzzy
 #~ msgid "Thai"
-#~ msgstr "Thailandiera"
+#~ msgstr "Thaia"
 
+#, fuzzy
 #~ msgid "Turkish"
 #~ msgstr "Turkiera"
 
+#, fuzzy
 #~ msgid "Ukrainian"
 #~ msgstr "Ukrainera"
 
+#, fuzzy
 #~ msgid "Urdu"
 #~ msgstr "Urduera"
 
+#, fuzzy
 #~ msgid "Vietnamese"
 #~ msgstr "Vietnamera"
 
+#, fuzzy
 #~ msgid "Welsh"
 #~ msgstr "Galesa"
 
+#, fuzzy
 #~ msgid "Yiddish"
-#~ msgstr "Yiddish"
-
-#~ msgid "Bing"
-#~ msgstr "Bing"
-
-#~ msgid "Error: Unable to find Bing credentials in web version."
-#~ msgstr "Errorea: Ez da Bing-en egiaztagiriak web bertsioan aurkitzeko gai."
-
-#~ msgid "Error: Unable to extract Bing key from web version."
-#~ msgstr "Errorea: Ez da Bing-en gakoa web bertsiotik ateratzeko gai."
-
-#~ msgid "Error: Unable to extract Bing token from web version."
-#~ msgstr "Errorea: Ez da Bing-en tokena web bertsiotik ateratzeko gai."
-
-#~ msgid ""
-#~ "Error: Unable to extract additional Bing information from web version."
-#~ msgstr ""
-#~ "Errorea: Ez da Bing-en informazio osagarria web bertsiotik ateratzeko gai."
-
-#~ msgid "DeepL"
-#~ msgstr "DeepL"
+#~ msgstr "Jidisha"
 
 #, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Konfiguratu"
-
-#~ msgid "Libre Translate"
-#~ msgstr "Libre Translate"
+#~ msgid "Bing"
+#~ msgstr "Bing"
 
 #, fuzzy
 #~| msgid "Server not found: %1"
 #~ msgid "Server url is not defined."
 #~ msgstr "Zerbitzaria ez da aurkitu: %1"
 
-#~ msgid "Lingva"
-#~ msgstr "Lingva"
-
+#, fuzzy
 #~ msgid "Yandex"
 #~ msgstr "Yandex"
 
-#~ msgid ""
-#~ "Error: Engine systems have detected suspicious traffic from your computer "
-#~ "network. Please try your request again later."
-#~ msgstr ""
-#~ "Errorea: Motor sistemek zure ordenagailu saretik trafiko susmagarria "
-#~ "antzeman dute. Mesedez saiatu zure eskaerak beranduago berriz egiten."
-
-#~ msgid "Error: Unable to find Yandex SID in web version."
-#~ msgstr "Errorea: Ez da «Yandex SID» web bertsioan aurkitzeko gai."
-
-#~ msgid "Error: Unable to extract Yandex SID from web version."
-#~ msgstr "Errorea: Ez da «Yandex SID» web bertsiotik ateratzeko gai."
-
-#~ msgid "You used same language for 'from' and 'to' language."
-#~ msgstr "Hizkuntza bera erabili duzu 'jatorri' eta 'helburu' gisa."
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Translator"
-#~ msgstr "Konfiguratu itzultzailea"
-
 #, fuzzy
 #~ msgctxt "@title:window"
-#~ msgid "Translator Debug"
-#~ msgstr "Itzuli"
+#~ msgid "Configure Translator"
+#~ msgstr "Baieztatu Sarhitza:"
 
 #, fuzzy
 #~ msgid "Save As..."
@@ -9728,7 +9703,7 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Translate..."
-#~ msgstr "Itzuli..."
+#~ msgstr "Itzuli"
 
 #, fuzzy
 #~ msgctxt "Translate from language"
@@ -9738,17 +9713,13 @@ msgstr ""
 #, fuzzy
 #~ msgctxt "Translate to language"
 #~ msgid "To:"
-#~ msgstr "Nori:"
+#~ msgstr "Nora"
 
 #, fuzzy
 #~ msgctxt ""
 #~ "Invert language choices so that from becomes to and to becomes from"
 #~ msgid "Invert"
 #~ msgstr "Alderantzikatu"
-
-#, fuzzy
-#~ msgid "Translate"
-#~ msgstr "Itzuli"
 
 #, fuzzy
 #~ msgid "Debug"
@@ -9758,14 +9729,21 @@ msgstr ""
 #~ msgid "Configure"
 #~ msgstr "Konfiguratu"
 
-#, fuzzy
-#~ msgid "Translate error"
-#~ msgstr "Itzuli"
+#~ msgid "Search"
+#~ msgstr "Bilatu"
 
-#~ msgid "Error: Unable to parse autodetected language"
-#~ msgstr ""
-#~ "Errorea: Ez da automatikoki antzemandako hizkuntzaren azterketa "
-#~ "sintaktikoa egiteko gai"
+#~ msgid "Recent"
+#~ msgstr "Azken aldikoa"
+
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Erakutsi zatitutako mezuak..."
+
+#~ msgid "View mode:"
+#~ msgstr "Ikuspegi-modua:"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Iñigo Salvador Azurmendi"
 
 #~ msgid "User added to team: %1 by %2"
 #~ msgstr "Erabiltzailea taldera gehitu du: %1, %2(e)k"
@@ -9778,15 +9756,3 @@ msgstr ""
 
 #~ msgid "User Name:"
 #~ msgstr "Erabiltzaile-izena:"
-
-#, fuzzy
-#~| msgid "Default"
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "Lehenetsia"
-
-#~ msgid "Modern Javanese (Indonesia)"
-#~ msgstr "javera modernoa (Indonesia)"
-
-#~ msgid "Chinese"
-#~ msgstr "Txinera"

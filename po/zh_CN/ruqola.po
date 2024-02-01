@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-30 01:39+0000\n"
-"PO-Revision-Date: 2024-01-21 14:14\n"
+"POT-Creation-Date: 2024-02-01 03:14+0000\n"
+"PO-Revision-Date: 2024-01-21 14:17\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 12032\n"
+"X-Crowdin-File: /kf5-stable/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 26475\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -1618,9 +1618,10 @@ msgid "%1:%2"
 msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "'%1' is not a valid room name"
 msgid "'%1' is not allowed"
-msgstr ""
+msgstr "'%1' 不是一个有效的房间名"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -1723,9 +1724,10 @@ msgid "The file to be imported was not found on the specified path."
 msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "'%1' is not a valid room name"
 msgid "%1 is not a valid %2"
-msgstr ""
+msgstr "'%1' 不是一个有效的房间名"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
@@ -1861,9 +1863,10 @@ msgid "Invalid room"
 msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "'%1' is not a valid room name"
 msgid "'%1' is not a valid room type."
-msgstr ""
+msgstr "'%1' 不是一个有效的房间名"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
