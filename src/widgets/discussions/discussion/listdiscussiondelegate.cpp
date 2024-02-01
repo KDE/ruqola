@@ -21,6 +21,7 @@
 #include "misc/avatarcachemanager.h"
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
+#define USE_ROUNDED_RECT_PIXMAP
 
 ListDiscussionDelegate::ListDiscussionDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
     : MessageListDelegateBase(view, parent)
@@ -44,7 +45,11 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     // Draw the pixmap
     if (!layout.avatarPixmap.isNull()) {
+#ifdef USE_ROUNDED_RECT_PIXMAP
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
+#else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+#endif
     }
 
     // Draw the sender
