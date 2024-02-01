@@ -6,6 +6,7 @@
 
 #include "delegatepaintutil.h"
 #include <QPainter>
+#include <QPainterPath>
 
 void DelegatePaintUtil::drawLighterText(QPainter *painter, const QString &text, QPoint pos)
 {
@@ -20,4 +21,15 @@ void DelegatePaintUtil::drawLighterText(QPainter *painter, const QString &text, 
 int DelegatePaintUtil::margin()
 {
     return 8;
+}
+
+void DelegatePaintUtil::createClipRoundedRectangle(QPainter *painter, const QRectF &rect, QPointF pos, const QPixmap &pix)
+{
+    QPainterPath path;
+    painter->save();
+    painter->setRenderHint(QPainter::Antialiasing);
+    path.addRoundedRect(rect, 5, 5);
+    painter->setClipPath(path);
+    painter->drawPixmap(pos, pix);
+    painter->restore();
 }
