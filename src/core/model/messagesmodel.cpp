@@ -10,6 +10,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QModelIndex>
+#include <QTimeZone>
 
 #include "emoticons/emojimanager.h"
 #include "loadrecenthistorymanager.h"
@@ -243,9 +244,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
-            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), Qt::UTC);
+            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::utc());
             const Message &previousMessage = mAllMessages.at(idx - 1);
-            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), Qt::UTC);
+            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::utc());
             return currentDate.date() != previousDate.date();
         }
         return true; // show date at the top
@@ -313,12 +314,12 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::DisplayLastSeenMessage:
         if (idx > 0) {
             if (mRoom) {
-                const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), Qt::UTC);
-                const QDateTime lastSeenDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt(), Qt::UTC);
+                const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::utc());
+                const QDateTime lastSeenDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt(), QTimeZone::utc());
                 // qDebug() << " lastSeeDate" << lastSeeDate;
                 if (currentDate > lastSeenDate) {
                     const Message &previousMessage = mAllMessages.at(idx - 1);
-                    const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), Qt::UTC);
+                    const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::utc());
                     const bool result = (previewMessageDate <= lastSeenDate);
                     return result;
                 }
