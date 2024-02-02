@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-01 03:14+0000\n"
+"POT-Creation-Date: 2024-02-02 03:07+0000\n"
 "PO-Revision-Date: 2023-09-29 10:04+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -7155,14 +7155,14 @@ msgstr[1] "%1 equipas (Total: %2)"
 msgid "Search rooms..."
 msgstr "Cerca Salas..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:74
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 message"
 msgstr[1] "%1 messages"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:77
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
 #, kde-format
 msgid "Open Discussion"
 msgstr "Aperi Discussion"
@@ -8121,48 +8121,48 @@ msgstr "Uni te"
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:387
+#: widgets/room/delegate/messagelistdelegate.cpp:389
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Information de usator"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:396
+#: widgets/room/delegate/messagelistdelegate.cpp:398
 #: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Initia un Conversation Private"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:600
+#: widgets/room/delegate/messagelistdelegate.cpp:606
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 responsa"
 msgstr[1] "%1 responsas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:610
+#: widgets/room/delegate/messagelistdelegate.cpp:616
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 message"
 msgstr[1] "%1 messages"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:610
+#: widgets/room/delegate/messagelistdelegate.cpp:616
 #, kde-format
 msgid "No message yet"
 msgstr "Ancora nulle message"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:895
+#: widgets/room/delegate/messagelistdelegate.cpp:901
 #, kde-format
 msgid "Following"
 msgstr "Sequente"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:899
+#: widgets/room/delegate/messagelistdelegate.cpp:905
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Message ha essite appunctate"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:903
+#: widgets/room/delegate/messagelistdelegate.cpp:909
 #, kde-format
 msgid "Message has been starred"
 msgstr "Message ha essite ponite con stellas"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-01 03:14+0000\n"
+"POT-Creation-Date: 2024-02-02 03:07+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -7159,14 +7159,14 @@ msgstr[1] "%1 ryhmää (kaikkiaan: %2)"
 msgid "Search rooms..."
 msgstr "Etsi huoneita…"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:74
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:77
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
 #, kde-format
 msgid "Open Discussion"
 msgstr "Avaa keskustelu"
@@ -8110,48 +8110,48 @@ msgstr "Liity"
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:387
+#: widgets/room/delegate/messagelistdelegate.cpp:389
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:396
+#: widgets/room/delegate/messagelistdelegate.cpp:398
 #: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:600
+#: widgets/room/delegate/messagelistdelegate.cpp:606
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:610
+#: widgets/room/delegate/messagelistdelegate.cpp:616
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:610
+#: widgets/room/delegate/messagelistdelegate.cpp:616
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:895
+#: widgets/room/delegate/messagelistdelegate.cpp:901
 #, kde-format
 msgid "Following"
 msgstr "Seuraa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:899
+#: widgets/room/delegate/messagelistdelegate.cpp:905
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Viesti on kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:903
+#: widgets/room/delegate/messagelistdelegate.cpp:909
 #, kde-format
 msgid "Message has been starred"
 msgstr "Viesti on merkitty tähdellä"
