@@ -2,6 +2,7 @@
     "KPlugin": {
         "Id": "githubauthenticationplugin",
         "Name": "Github Authentication Plugin",
+        "Name[x-test]": "xxGithub Authentication Pluginxx",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],

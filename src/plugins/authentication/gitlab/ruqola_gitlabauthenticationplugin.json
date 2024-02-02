@@ -2,6 +2,7 @@
     "KPlugin": {
         "Id": "gitlabauthenticationplugin",
         "Name": "GitLab Authentication Plugin",
+        "Name[x-test]": "xxGitLab Authentication Pluginxx",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],
