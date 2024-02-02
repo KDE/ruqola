@@ -826,6 +826,8 @@ target_sources(libruqolawidgets PRIVATE
     needupdateversion/needupdateversionutils.h
     needupdateversion/needupdateversionutils.cpp
 
+    encryption/e2eaddpasswordwidget.h
+    encryption/e2eaddpasswordwidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
