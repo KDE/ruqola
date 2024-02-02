@@ -48,8 +48,6 @@
 #include <KLocalizedString>
 #include <QMenu>
 
-#define USE_ROUNDED_RECT_PIXMAP
-
 MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
@@ -503,7 +501,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Draw the pixmap
     if (mRocketChatAccount->displayAvatars() && !layout.sameSenderAsPreviousMessage) {
-#ifdef USE_ROUNDED_RECT_PIXMAP
+#if USE_ROUNDED_RECT_PIXMAP
         DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
 #else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);

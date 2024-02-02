@@ -19,7 +19,6 @@
 #include <QAbstractItemView>
 #include <QPainter>
 #include <QToolTip>
-#define USE_ROUNDED_RECT_PIXMAP
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
@@ -74,7 +73,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     // Draw the pixmap
     if (!layout.avatarPixmap.isNull()) {
-#ifdef USE_ROUNDED_RECT_PIXMAP
+#if USE_ROUNDED_RECT_PIXMAP
         DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
 #else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
