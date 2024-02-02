@@ -7,6 +7,7 @@
 #include "messagedelegatehelperconferencevideo.h"
 #include "common/delegatepaintutil.h"
 #include "conferencecalldialog/conferenceinfodialog.h"
+#include "config-ruqola.h"
 #include "misc/avatarcachemanager.h"
 #include "rocketchataccount.h"
 
@@ -67,7 +68,14 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     // Draw avatars!
     for (const UserLayout &userLayout : layout.usersLayout) {
         const QRectF avatarRect = userLayout.userAvatarRect.translated(blockRect.topLeft());
+#if USE_ROUNDED_RECT_PIXMAP
+        DelegatePaintUtil::createClipRoundedRectangle(painter,
+                                                      QRectF(avatarRect.topLeft(), avatarRect.toRect().size()),
+                                                      avatarRect.topLeft(),
+                                                      userLayout.avatarPixmap);
+#else
         painter->drawPixmap(avatarRect.toRect(), userLayout.avatarPixmap);
+#endif
     }
 }
 
@@ -165,7 +173,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     for (const auto &user : users) {
         UserLayout userLayout;
         userLayout.userName = user.userName();
-        userLayout.avatarPixmap = makeAvatarPixmap(userLayout.userName, option.widget, layout.titleSize.height() * 2);
+        userLayout.avatarPixmap = makeAvatarPixmap(userLayout.userName, option.widget, layout.titleSize.height());
         userLayout.userAvatarRect = QRectF((layout.canJoin ? layout.joinButtonTextSize.width() * 2 + DelegatePaintUtil::margin() : 0) + x,
                                            layout.infoButtonRect.height() + DelegatePaintUtil::margin(),
                                            iconSize,
