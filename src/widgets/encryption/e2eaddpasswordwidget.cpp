@@ -18,3 +18,5 @@ E2eAddPasswordWidget::E2eAddPasswordWidget(QWidget *parent)
 }
 
 E2eAddPasswordWidget::~E2eAddPasswordWidget() = default;
+
+#include "moc_e2eaddpasswordwidget.cpp"
