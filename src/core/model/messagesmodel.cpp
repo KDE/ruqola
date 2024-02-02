@@ -352,7 +352,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {
-        return message.systemMessageText() + QLatin1Char(' ') + message.displayTime();
+        return message.systemMessageText();
         //    } else if (message.messageType() == Message::VideoConference) {
         //        return QStringLiteral("");
     } else {
