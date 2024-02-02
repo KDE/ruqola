@@ -37,25 +37,26 @@ void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *current
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
+    constexpr int extraMargins = 2 * padding;
     const auto isHeader = !index.parent().isValid();
     const int iconSize = isHeader ? 0 : option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
     int offsetAvatarRoom = 0;
     const bool showRoomAvatar = mRocketChatAccount ? mRocketChatAccount->ownUserPreferences().showRoomAvatar() : false;
     if (!isHeader && showRoomAvatar) {
-        offsetAvatarRoom = margin + option.rect.height() - 2 * padding; // Icon will be draw with option.rect.height() - 2 * padding as size.
+        offsetAvatarRoom = margin + option.rect.height() - extraMargins; // Icon will be draw with option.rect.height() - 2 * padding as size.
     }
-    const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y() + padding, iconSize, option.rect.height() - 2 * padding);
+    const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y() + padding, iconSize, option.rect.height() - extraMargins);
     const QString text = index.data(Qt::DisplayRole).toString();
     // const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
     const QString unreadText = isHeader ? QString() : makeUnreadText(index);
     const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
     const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
-    const QRect displayRect(xText, option.rect.y() + padding, option.rect.width() - xText - unreadSize.width() - margin, option.rect.height() - 2 * padding);
+    const QRect displayRect(xText, option.rect.y() + padding, option.rect.width() - xText - unreadSize.width() - margin, option.rect.height() - extraMargins);
     const QRect unreadRect(option.rect.width() - unreadSize.width() - margin,
                            option.rect.y() + padding,
                            unreadSize.width(),
-                           option.rect.height() - 2 * padding);
+                           option.rect.height() - extraMargins);
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
@@ -67,7 +68,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         if (showRoomAvatar) {
             const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
             if (avatarInfo.isValid()) {
-                const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, avatarInfo, option.rect.height() - 2 * padding);
+                const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, avatarInfo, option.rect.height() - extraMargins);
 #if USE_ROUNDED_RECT_PIXMAP
                 const QPointF pos(margin, option.rect.top() + padding);
                 DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(pos, pix.size()), pos, pix);
@@ -114,7 +115,8 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
 
 QSize ChannelListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    return QItemDelegate::sizeHint(option, index) + QSize(0, 2 * padding);
+    constexpr int extraMargins = 2 * padding;
+    return QItemDelegate::sizeHint(option, index) + QSize(0, extraMargins);
 }
 
 #include "moc_channellistdelegate.cpp"
