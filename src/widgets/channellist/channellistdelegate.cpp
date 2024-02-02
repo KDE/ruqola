@@ -7,6 +7,7 @@
 #include "channellistdelegate.h"
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
+#include "config-ruqola.h"
 #include "misc/avatarcachemanager.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
@@ -67,7 +68,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
             if (avatarInfo.isValid()) {
                 const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, avatarInfo, option.rect.height() - 2 * padding);
+#if USE_ROUNDED_RECT_PIXMAP
+                const QPointF pos(margin, option.rect.top() + padding);
+                DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(pos, pix.size()), pos, pix);
+#else
                 painter->drawPixmap(margin, option.rect.top() + padding, pix);
+#endif
             }
         }
     }
