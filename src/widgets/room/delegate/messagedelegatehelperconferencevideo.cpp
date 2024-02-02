@@ -165,7 +165,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     for (const auto &user : users) {
         UserLayout userLayout;
         userLayout.userName = user.userName();
-        userLayout.avatarPixmap = makeAvatarPixmap(userLayout.userName, option.widget, layout.titleSize.height() * 2);
+        userLayout.avatarPixmap = makeAvatarPixmap(userLayout.userName, option.widget, layout.titleSize.height());
         userLayout.userAvatarRect = QRectF((layout.canJoin ? layout.joinButtonTextSize.width() * 2 + DelegatePaintUtil::margin() : 0) + x,
                                            layout.infoButtonRect.height() + DelegatePaintUtil::margin(),
                                            iconSize,
