@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-02 03:07+0000\n"
+"POT-Creation-Date: 2024-02-03 03:15+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7381,7 +7381,7 @@ msgstr[3] "%1 команда (всего: %2)"
 msgid "Search rooms..."
 msgstr "Поиск комнат..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
@@ -7390,7 +7390,7 @@ msgstr[1] "%1 сообщения"
 msgstr[2] "%1 сообщений"
 msgstr[3] "%1 сообщение"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
 #, kde-format
 msgid "Open Discussion"
 msgstr "Открыть обсуждение"
@@ -8347,8 +8347,8 @@ msgstr "Сохранить &как..."
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:64
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:65
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr "Присоединиться"
@@ -8358,19 +8358,19 @@ msgstr "Присоединиться"
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:389
+#: widgets/room/delegate/messagelistdelegate.cpp:387
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Сведения о пользователе"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:398
+#: widgets/room/delegate/messagelistdelegate.cpp:396
 #: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Начать конфиденциальный разговор"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:606
+#: widgets/room/delegate/messagelistdelegate.cpp:604
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8379,7 +8379,7 @@ msgstr[1] "%1 ответа"
 msgstr[2] "%1 ответов"
 msgstr[3] "1 ответ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8388,22 +8388,22 @@ msgstr[1] "%1 сообщения"
 msgstr[2] "%1 сообщений"
 msgstr[3] "1 сообщение"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "No message yet"
 msgstr "Сообщений ещё нет"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:901
+#: widgets/room/delegate/messagelistdelegate.cpp:899
 #, kde-format
 msgid "Following"
 msgstr "Отслеживается"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:905
+#: widgets/room/delegate/messagelistdelegate.cpp:903
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Сообщение закреплено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:909
+#: widgets/room/delegate/messagelistdelegate.cpp:907
 #, kde-format
 msgid "Message has been starred"
 msgstr "Сообщение отмечено звёздочкой"
