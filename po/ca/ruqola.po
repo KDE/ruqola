@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-02 00:37+0000\n"
-"PO-Revision-Date: 2024-01-30 13:14+0100\n"
+"POT-Creation-Date: 2024-02-03 00:38+0000\n"
+"PO-Revision-Date: 2024-02-02 09:27+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6268,7 +6268,7 @@ msgstr "Avall"
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
 msgid "&Use custom fonts"
-msgstr "&Empra tipus de lletra personalitzats"
+msgstr "&Empra lletres personalitzades"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
 #, kde-format
@@ -6337,7 +6337,7 @@ msgstr "Compte"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
-msgstr "Tipus de lletra"
+msgstr "Lletra"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
@@ -7295,14 +7295,14 @@ msgstr[1] "%1 equips (Total: %2)"
 msgid "Search rooms..."
 msgstr "Cerca de sales..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 missatge"
 msgstr[1] "%1 missatges"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
 #, kde-format
 msgid "Open Discussion"
 msgstr "Obre un debat"
@@ -7329,6 +7329,12 @@ msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "%1 debat a la sala (Total: %2)"
 msgstr[1] "%1 debats a la sala (Total: %2)"
+
+#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#, kde-format
+msgid ""
+"Save your encryption password. Click here to view and copy your password."
+msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -8243,8 +8249,8 @@ msgstr "Des&a com a..."
 msgid "Save File"
 msgstr "Desa el fitxer"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:64
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:65
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr "Uneix-te"
@@ -8254,48 +8260,48 @@ msgstr "Uneix-te"
 msgid "Link Preview"
 msgstr "Visualització prèvia de l'enllaç"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:389
+#: widgets/room/delegate/messagelistdelegate.cpp:387
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:398
+#: widgets/room/delegate/messagelistdelegate.cpp:396
 #: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Inicia una conversa privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:606
+#: widgets/room/delegate/messagelistdelegate.cpp:604
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 missatge"
 msgstr[1] "%1 missatges"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "No message yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:897
+#: widgets/room/delegate/messagelistdelegate.cpp:895
 #, kde-format
 msgid "Following"
 msgstr "Següent"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:901
+#: widgets/room/delegate/messagelistdelegate.cpp:899
 #, kde-format
 msgid "Message has been pinned"
 msgstr "El missatge s'ha fixat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:905
+#: widgets/room/delegate/messagelistdelegate.cpp:903
 #, kde-format
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"

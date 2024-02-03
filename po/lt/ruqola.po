@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-02 00:37+0000\n"
-"PO-Revision-Date: 2020-03-31 01:37+0300\n"
+"POT-Creation-Date: 2024-02-03 00:38+0000\n"
+"PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -2006,7 +2006,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 #, kde-format
 msgid "Message deleting is blocked"
-msgstr "Žinučių ištrynimas yra užblokuotas."
+msgstr "Žinučių ištrynimas yra užblokuotas"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 #, kde-format
@@ -7503,7 +7503,7 @@ msgstr[3] ""
 msgid "Search rooms..."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
@@ -7514,7 +7514,7 @@ msgstr[1] "%1 žinutės"
 msgstr[2] "%1 žinučių"
 msgstr[3] "%1 žinutė"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
 #, kde-format
 msgid "Open Discussion"
 msgstr "Atverti diskusiją"
@@ -7545,6 +7545,12 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#, kde-format
+msgid ""
+"Save your encryption password. Click here to view and copy your password."
+msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, fuzzy, kde-format
@@ -7725,7 +7731,7 @@ msgstr "Atsijungta"
 #: widgets/misc/accountsoverviewwidget.cpp:47
 #, kde-format
 msgid "Failed to login due to plugin problem"
-msgstr "Nepavyko prisijungti dėl problemų su papildiniu"
+msgstr "Nepavyko prisijungti dėl problemų su įskiepiu"
 
 #: widgets/misc/accountsoverviewwidget.cpp:49
 #, fuzzy, kde-format
@@ -8501,8 +8507,8 @@ msgstr ""
 msgid "Save File"
 msgstr "Įrašyti failą"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:64
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:65
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr ""
@@ -8512,20 +8518,20 @@ msgstr ""
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:389
+#: widgets/room/delegate/messagelistdelegate.cpp:387
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:398
+#: widgets/room/delegate/messagelistdelegate.cpp:396
 #: widgets/room/messagelistview.cpp:381
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:606
+#: widgets/room/delegate/messagelistdelegate.cpp:604
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8534,7 +8540,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8543,23 +8549,23 @@ msgstr[1] "%1 žinutės"
 msgstr[2] "%1 žinučių"
 msgstr[3] "%1 žinutė"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:897
+#: widgets/room/delegate/messagelistdelegate.cpp:895
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:901
+#: widgets/room/delegate/messagelistdelegate.cpp:899
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Žinutė prisegta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:905
+#: widgets/room/delegate/messagelistdelegate.cpp:903
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"

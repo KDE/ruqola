@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-02 00:37+0000\n"
-"PO-Revision-Date: 2024-01-17 10:05+0100\n"
+"POT-Creation-Date: 2024-02-03 00:38+0000\n"
+"PO-Revision-Date: 2024-02-02 12:01+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -28,10 +28,9 @@ msgid "Rocket Chat Client"
 msgstr "Cliente de Rocket Chat (Conversation in directo de Rocchetta)"
 
 #: apps/main.cpp:50
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2023 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2024 Ruqola authors"
-msgstr "Copyright © 2020-2023 Autores de Ruqola"
+msgstr "Copyright © 2020-2024 Autores de Ruqola"
 
 #: apps/main.cpp:52
 #, kde-format
@@ -833,22 +832,19 @@ msgid "Custom"
 msgstr "Personalisate"
 
 #: core/model/inputcompletermodel.cpp:38
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify all in this room"
-msgstr "Usator non es in iste sala"
+msgstr "Notifica omnes in iste sala"
 
 #: core/model/inputcompletermodel.cpp:46
-#, fuzzy, kde-format
-#| msgid "No result found"
+#, kde-format
 msgid "No result found."
-msgstr "Necun exito trovate"
+msgstr "Necun exito trovate."
 
 #: core/model/inputcompletermodel.cpp:55
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "Notify active users in this room"
-msgstr "Usator non es in iste sala"
+msgstr "Notifica usatores active in iste sala"
 
 #: core/model/listmessagesfilterproxymodel.cpp:43
 #, kde-format
@@ -886,10 +882,9 @@ msgid "Ignored Message"
 msgstr "Message ignorate"
 
 #: core/model/moderationmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reported message"
-msgstr "Reporta Message"
+msgstr "Message Reportate"
 
 #: core/model/moderationmodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
@@ -903,16 +898,14 @@ msgid "Reports"
 msgstr "Reportos"
 
 #: core/model/moderationmodel.cpp:42
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Report date"
-msgstr "Reporta Message"
+msgstr "Data de Reporto"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Camera (Sala):"
+msgstr "Camera (Sala)"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:48
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:48
@@ -1627,10 +1620,9 @@ msgid "%1:%2"
 msgstr "%1:%2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:234
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
+#, kde-format
 msgid "'%1' is not allowed"
-msgstr "__action__ is non permittite"
+msgstr "'%1' non permittite"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:236
 #, kde-format
@@ -1638,10 +1630,9 @@ msgid "Application not found"
 msgstr "Application non trovate"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:239
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
+#, kde-format
 msgid "There's an archived channel with name '%1'"
-msgstr "Il ha un canala archivate con le nomine '__room_name__'"
+msgstr "Il ha un canala archivate con le nomine '%1'"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
@@ -1700,16 +1691,14 @@ msgid "The email domain is blacklisted"
 msgstr "Le dominio de e-posta es ponite in lista nigre"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:267
-#, fuzzy, kde-format
-#| msgid "Error trying to send email %1"
+#, kde-format
 msgid "Error trying to send email: %1"
-msgstr "Error quando on tentava inviar eposta %1"
+msgstr "Error quando on tentava inviar eposta: %1"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, fuzzy, kde-format
-#| msgid "%1 is already in use."
+#, kde-format
 msgid "'%1' is already in use :("
-msgstr "%1 ja es in uso."
+msgstr "''%1' ja es in uso :("
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
@@ -1741,10 +1730,9 @@ msgstr ""
 "specificate."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "%1 is not a valid %2"
-msgstr "'%1' non es un valide nomine de sala"
+msgstr "%1 non es un valide %2"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
@@ -1806,10 +1794,9 @@ msgid "Invalid domain"
 msgstr "Dominio invalide"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, fuzzy, kde-format
-#| msgid "Invalid Email '%1'."
+#, kde-format
 msgid "Invalid email '%1'"
-msgstr "E-posta invalide '%1'."
+msgstr "E-Posta invalide '%1'"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
@@ -1883,10 +1870,9 @@ msgid "Invalid room"
 msgstr "Sala invalide"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
-#, fuzzy, kde-format
-#| msgid "'%1' is not a valid room name"
+#, kde-format
 msgid "'%1' is not a valid room type."
-msgstr "'%1' non es un valide nomine de sala"
+msgstr "'%1' non es un valide typo de sala"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
@@ -2047,10 +2033,9 @@ msgid "Room is not closed"
 msgstr "Sala non es claudite"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:405
-#, fuzzy, kde-format
-#| msgid "The field __field__ is required."
+#, kde-format
 msgid "The field '%1' is required."
-msgstr "Le campo __field__ es requirite."
+msgstr "Le campo '%1' es requirite."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:407
 #, kde-format
@@ -2075,16 +2060,13 @@ msgid "Token does not exists"
 msgstr "Indicio (token) nonn existe"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, fuzzy, kde-format
-#| msgid ""
-#| "Error, too many requests. Please slow down. You must wait __seconds__ "
-#| "seconds before trying again."
+#, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 msgstr ""
-"Error, troppe requestas. Pro favor relenta. Tu debe attender __seconds__ "
-"secundas ante essayar de novo."
+"Error, troppe requestas. Pro favor relenta. Tu debe attender %1 secundas "
+"ante essayar de novo."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:418
 #, kde-format
@@ -2197,16 +2179,14 @@ msgstr ""
 "correspondentia con alcun canal"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:458
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "A role with this name already exists"
-msgstr "Un indicio (token) con iste nomine ja existe"
+msgstr "Un rolo con iste nomine ja existe"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:460
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message could not be pinned"
-msgstr "Message ha essite appunctate"
+msgstr "Message non poteva esser appunctate"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:462
 #, kde-format
@@ -2239,10 +2219,9 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr ""
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Override global retention policy"
+#, kde-format
 msgid "Room does not have retention policy"
-msgstr "Ultrapassa politica de retention global"
+msgstr "Sala non ha politica de retention "
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
@@ -2374,10 +2353,9 @@ msgid "Oauth"
 msgstr "Oauth"
 
 #: widgets/administratordialog/administratorwidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "Mentions only"
+#, kde-format
 msgid "Moderation Console"
-msgstr "Solmente Mentiones"
+msgstr "Console de Moderation"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
@@ -2645,31 +2623,26 @@ msgid "Previous month"
 msgstr "Mense Precedente"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Search messages..."
+#, kde-format
 msgid "Search moderation message..."
-msgstr "Cerca Messages..."
+msgstr "Cerca message de moderation..."
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No moderation message found"
-msgstr "Necun message trovate."
+msgstr "Necun message de moderation trovate"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "%1 device (Total: %2)"
-#| msgid_plural "%1 devices (Total: %2)"
+#, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 dispositivo (Total: %2)"
-msgstr[1] "%1 usatores (Total: %2)"
+msgstr[0] "%1 message de moderation (Total: %2)"
+msgstr[1] "%1 messages de moderation  (Total: %2)"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-#| msgid "Search messages"
+#, kde-format
 msgid "See messages"
-msgstr "Cerca Messages"
+msgstr "Vide messages"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
 #, kde-format
@@ -2677,8 +2650,7 @@ msgid "Dismiss reports"
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "Delete All Messages"
+#, kde-format
 msgid "Delete all Messages"
 msgstr "Dele omne Messages"
 
@@ -2711,20 +2683,16 @@ msgid "Delete All Messages"
 msgstr "Dele omne Messages"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Mentions Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
-msgstr "Monstra Messages de Mentiones - %1"
+msgstr "Monstra reporto de moderation"
 
 #: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Mentions Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
-msgstr "Monstra Messages de Mentiones - %1"
+msgstr "Monstra Messages de Moderation"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
 #: widgets/dialogs/searchmessagewidget.cpp:101
@@ -2948,8 +2916,7 @@ msgstr "Tu vole remover iste usator \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:81
 #: widgets/administratordialog/users/administratoruserswidget.cpp:180
-#, fuzzy, kde-format
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Remove Usator"
@@ -3619,10 +3586,9 @@ msgid "Use DNS Domain Check"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Allow user creation"
+#, kde-format
 msgid "Allow Feature Preview"
-msgstr "Permitte creation de usator"
+msgstr "Permitte vista preliminar de characterictica"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:51
 #, kde-format
@@ -3630,15 +3596,14 @@ msgid "Registration with Authentication Services"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Password History"
+#, kde-format
 msgid "Password Reset"
-msgstr "Chronologia de Contrasigno"
+msgstr "Reinitialisa Contrasigno"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Login Expiration in Days"
-msgstr "Epiration  de accesso (Login) in Dies"
+msgstr "Expiration  de accesso (Login) in Dies"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
 #, kde-format
@@ -3713,10 +3678,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgid "Default Roles for Authentication Services"
-msgstr "Inserta Codice de authentication"
+msgstr "Rolos predefinite per servicios de authentication"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:213
 #, kde-format
@@ -3726,10 +3690,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
-#, fuzzy, kde-format
-#| msgid "Enter authentication code"
+#, kde-format
 msgid "Default Roles for Users"
-msgstr "Inserta Codice de authentication"
+msgstr "Rolos predefinite per usatores"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -5028,10 +4991,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
-#, fuzzy, kde-format
-#| msgid "Expiration (Days)"
+#, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "Epiration (Dies)"
+msgstr "Inserta dies de Expiration  de cache"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -5997,11 +5959,9 @@ msgid "Sign in with %1"
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Account"
+#, kde-format
 msgid "Register Account"
-msgstr "Remove conto"
+msgstr "Registra  conto"
 
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
@@ -6039,10 +5999,9 @@ msgid "Error saving file"
 msgstr "Error durante que il salveguardava "
 
 #: widgets/common/userandchannelcompletiondelegate.cpp:94
-#, fuzzy, kde-format
-#| msgid "Join the given channel"
+#, kde-format
 msgid "Not in channel"
-msgstr "Uni le date canal"
+msgstr "Non in canal"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:18
 #, kde-format
@@ -6136,10 +6095,9 @@ msgid "Show images by default"
 msgstr "Monstra images per definition"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Show images by default"
+#, kde-format
 msgid "Show preview url by default"
-msgstr "Monstra images per definition"
+msgstr "Monstra url de vista preliminar per definition"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
@@ -6252,10 +6210,9 @@ msgid "Server Url:"
 msgstr "URL de servitor:"
 
 #: widgets/createnewserver/createnewservercheckurlwidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Impossible to copy file"
+#, kde-format
 msgid "Impossible to access to server."
-msgstr "Impossibile copiar file"
+msgstr "Impossibile acceder a servitor."
 
 #: widgets/createnewserver/createnewserverdialog.cpp:27
 #, kde-format
@@ -6780,7 +6737,7 @@ msgstr "Optiones"
 #: widgets/dialogs/inviteuserswidget.cpp:72
 #, kde-format
 msgid "Expiration (Days)"
-msgstr "Epiration (Dies)"
+msgstr "Expiration (Dies)"
 
 #: widgets/dialogs/inviteuserswidget.cpp:75
 #, kde-format
@@ -7151,14 +7108,14 @@ msgstr[1] "%1 equipas (Total: %2)"
 msgid "Search rooms..."
 msgstr "Cerca Salas..."
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:79
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 message"
 msgstr[1] "%1 messages"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
 #, kde-format
 msgid "Open Discussion"
 msgstr "Aperi Discussion"
@@ -7185,6 +7142,12 @@ msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "%1 Discussion in sala (Total: %2)"
 msgstr[1] "%1 Discussiones in sala (Total: %2)"
+
+#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#, kde-format
+msgid ""
+"Save your encryption password. Click here to view and copy your password."
+msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -7394,8 +7357,7 @@ msgid "(Unnamed)"
 msgstr "(Sin nomine)"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save Video"
 msgstr "Salveguarda video"
 
@@ -7416,42 +7378,34 @@ msgid "Download Image..."
 msgstr "Discarga imagine..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Video"
-msgstr "Discarga imagine"
+msgstr "Discarga video"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Video..."
-msgstr "Discarga imagine..."
+msgstr "Discarga video..."
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Sound"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Sound"
-msgstr "Reproduce sono"
+msgstr "Discarga Sono"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download Image..."
+#, kde-format
 msgid "Download Sound..."
-msgstr "Discarga imagine..."
+msgstr "Discarga Sono..."
 
 #: widgets/misc/messagestylelayoutmenu.cpp:16
-#, fuzzy, kde-format
-#| msgid "Message Status:"
+#, kde-format
 msgid "Message Style"
 msgstr "Stilo de message"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:19
-#, fuzzy, kde-format
-#| msgid "Normal"
+#, kde-format
 msgctxt "Message Style"
 msgid "Normal"
 msgstr "Normal"
@@ -7758,10 +7712,9 @@ msgid "Receive login detection emails"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Enable Auto-Translate"
+#, kde-format
 msgid "Enable Auto Away"
-msgstr "Habilita Auto-Traduction"
+msgstr "Habilita Auto- de omne modo"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
 #, kde-format
@@ -7799,10 +7752,9 @@ msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Log View Limit"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "Registra limite de vista"
+msgstr "Limite de tempo de otiar"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
@@ -8101,8 +8053,8 @@ msgstr "S&alveguarda como ..."
 msgid "Save File"
 msgstr "Salveguarda file"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:64
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:158
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:65
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr "Uni te"
@@ -8112,48 +8064,48 @@ msgstr "Uni te"
 msgid "Link Preview"
 msgstr "Vista preliminar de ligamine"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:389
+#: widgets/room/delegate/messagelistdelegate.cpp:387
 #: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Information de usator"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:398
+#: widgets/room/delegate/messagelistdelegate.cpp:396
 #: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Initia un Conversation Private"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:606
+#: widgets/room/delegate/messagelistdelegate.cpp:604
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 responsa"
 msgstr[1] "%1 responsas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 message"
 msgstr[1] "%1 messages"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:616
+#: widgets/room/delegate/messagelistdelegate.cpp:614
 #, kde-format
 msgid "No message yet"
 msgstr "Ancora nulle message"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:897
+#: widgets/room/delegate/messagelistdelegate.cpp:895
 #, kde-format
 msgid "Following"
 msgstr "Sequente"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:901
+#: widgets/room/delegate/messagelistdelegate.cpp:899
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Message ha essite appunctate"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:905
+#: widgets/room/delegate/messagelistdelegate.cpp:903
 #, kde-format
 msgid "Message has been starred"
 msgstr "Message ha essite ponite con stellas"
@@ -8164,21 +8116,17 @@ msgid "Attach File"
 msgstr "Attacha File"
 
 #: widgets/room/messagelinewidget.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create Video Message"
+#, kde-format
 msgid "Video Message"
-msgstr "Crea message video"
+msgstr "Message video"
 
 #: widgets/room/messagelinewidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Show Message"
+#, kde-format
 msgid "Sound Message"
-msgstr "Monstra message"
+msgstr "Message  de sono"
 
 #: widgets/room/messagelinewidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Search Emoticon..."
+#, kde-format
 msgid "Add Emoticon"
 msgstr "Adde emoticon"
 
@@ -8301,16 +8249,14 @@ msgid "Translate Message"
 msgstr "Traduce Message"
 
 #: widgets/room/messagelistview.cpp:506
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "View Reports"
-msgstr "Reportar"
+msgstr "Vide Reportos"
 
 #: widgets/room/messagelistview.cpp:529
-#, fuzzy, kde-format
-#| msgid "Reporting"
+#, kde-format
 msgid "Dismiss Reports"
-msgstr "Reportar"
+msgstr "Abbandona Reportos"
 
 #: widgets/room/messagelistview.cpp:598
 #, kde-format
@@ -9054,8 +9000,7 @@ msgid "Return the number of account."
 msgstr "Rtorna le numero de conto."
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version:"
 msgstr "Version:"
 
@@ -9065,16 +9010,14 @@ msgid "All Version"
 msgstr "Tote Version"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.0"
-msgstr "Version"
+msgstr "Version 2.0"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version 2.1"
-msgstr "Version"
+msgstr "Version 2.1"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9166,10 +9109,8 @@ msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:47
-#, fuzzy
-#| msgid "Search messages"
 msgid "Implement message style"
-msgstr "Cerca Messages"
+msgstr "Actua stilo de messages"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:48
 msgid "Implement Url Preview"
@@ -9184,10 +9125,8 @@ msgid "Fix mem leak"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:56
-#, fuzzy
-#| msgid "your message (optional)"
 msgid "Cache message size (optimization)"
-msgstr "tu message (optional)"
+msgstr "Grandor de message de cache (optimisation)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:57
 msgid ""
@@ -9206,16 +9145,12 @@ msgid "Fix download sound/video file when it's not in cache."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:60
-#, fuzzy
-#| msgid "Authentication Method"
 msgid "Fix list of authentication method."
-msgstr "Methodo de authentication"
+msgstr "Corroge lista de Methodo de authentication"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
-#, fuzzy
-#| msgid "Fix avatar support"
 msgid "Fix show avatar url."
-msgstr "Corrige supporto de avatar"
+msgstr "Corrige url de avatar a monstrar"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Un canal con nomine '__channel_name__' existe"
