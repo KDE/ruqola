@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-03 00:38+0000\n"
-"PO-Revision-Date: 2024-01-27 05:27+0100\n"
+"PO-Revision-Date: 2024-02-03 10:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3421,6 +3421,11 @@ msgid ""
 "E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
+"მიმდინარე E2E გასაღების ჩამოყრა მომხმარებელს სესიიდან გააგდებს. როცა "
+"მომხმარებელი თავიდან შევა, Rocket.Chat ახალ გასაღებს დააგენერირებს და "
+"აღადგენს მომხმარებლის წვდომას ყველა დაშიფრულ ოთახთან, რომელსაც ერთი ან მეტი "
+"წევრი ჰყავს ხაზზე. E2E დაშიფვრის ბუნების გამო, Rocket.Chat-ს არ შეუძლია "
+"აღადგინოს წვდომა დაშიფრულ არხებთან, რომლებსაც ხაზზე მყოფი წევრები არ გააჩნია."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:349
 #, kde-format
@@ -3444,6 +3449,8 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
+"მიმდინარე ორფაქტორიანი TOTP-ის ჩამოყრა მომხმარებელს სისტემიდან გააგდებს. ამ "
+"მომხმარებელს მოგვიანებით შეეძლება, 2 ფაქტორი ისევ ჩართოს."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:395
 #, kde-format
@@ -3674,6 +3681,8 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "authentication services"
 msgstr ""
+"ნაგულისხმევი როლები (მძიმით გამოყოფილი), რომლებიც მომხმარებლებს მიენიჭებათ "
+"ავთენტიკაციის სერვერით რეგისტრაციისას"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:207
 #, kde-format
@@ -3686,6 +3695,8 @@ msgid ""
 "Default roles (comma-separated) users will be given when registering through "
 "manual registration (including via API)"
 msgstr ""
+"ნაგულისხმევი როლები (მძიმით გამოყოფილი), რომლებიც მომხმარებლებს ხელით "
+"რეგისტრაციისას (API-ის ჩათვლით) მიენიჭებათ"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:214
 #, kde-format
@@ -3853,6 +3864,8 @@ msgstr "ჩართული თვისებები"
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"თვალყურს ადევნებს მომხმარებლის მოვლენებს, რომლებიც ეხება ქმედებებს, "
+"რომლებსაც მომხმარებელი შეტყობინებებზე ახორციელებს."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
@@ -3860,6 +3873,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"თვალყურს ადევნებს მომხმარებლის მოვლენებს, რომლებიც არხს ან ჯგუფს ეხება "
+"(შექმნა, გასვლა, წაშლა)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
@@ -3867,6 +3882,8 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"თვალყურს ადევნებს მომხმარებლის მოვლენებს, რომლებიც მომხმარებლებს ეხება "
+"(პაროლის ჩამოყრის დრო, პროფილის სურათის ცვლილება და ა.შ.)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
@@ -3993,6 +4010,11 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"როცა ჩართულია, Rocket.Chat ენდობა ყველა მომხმარებლის სახელს CAS-დან, რომელიც "
+"Rocket.Chat-ის იგივე მომხმარებელს ეკუთვნის.\n"
+"ეს შეიძლება დაგჭირდეთ, თუ მომხმარებლის სახელი შეიცვალა CAS-ზე, მაგრამ, "
+"შეიძლება, ხალხს უფლებას აძლევდეს, Rocket.Chat-ის ანგარიშები აკონტროლოს, მათი "
+"საკუთარი CAS მომხმარებლების სახელის შეცვლით."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
@@ -4012,6 +4034,10 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"შესვლისას გარე CAS მომხმარებლის მონაცემების ყოველთვის სინქრონიზაცია "
+"ხელმისაწვდომ ატრიბუტებთან.\n"
+"შენიშვნა: ანგარიშის შექმნისას ატრიბუტების სინქრონიზაცია მაინც ყოველთვის "
+"ხდება."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
@@ -5017,6 +5043,8 @@ msgid ""
 "Whether embedded link previews are enabled or not when a user posts a link "
 "to a website."
 msgstr ""
+"ხელმისაწვდომია თუ არა ჩაშენებული ბმულის მინიატურები თუ არა, როცა "
+"მომხმარებელი საიტის ბმულს ჩასვამს."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
 #, kde-format
@@ -5619,6 +5647,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"შემოიტანეთ შეტყობინებები Slack-დან ფსევდონიმით. %s ჩანაცვლდება მომხმარებლის "
+"სახელით. თუ ცარიელია, ფსევდონიმი გამოყენებული არ იქნება."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, kde-format
@@ -7189,6 +7219,8 @@ msgstr[1] "ოთახში %1 განხილვაა (სულ %2)"
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"შეინახეთ თქვენი დაშიფვრის პაროლი. დააწკაპუნეთ აქ, რომ ნახოთ და დააკოპიროთ "
+"თქვენი პაროლი."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-03 00:38+0000\n"
-"PO-Revision-Date: 2024-01-27 11:37+0100\n"
+"PO-Revision-Date: 2024-02-03 11:00+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7340,6 +7340,8 @@ msgstr[1] "%1 discussies in room (totaal: %2)"
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"Uw wachtwoord voor versleuteling opslaan. Klik hier om uw wachtwoord te "
+"bekijken en te kopiëren"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

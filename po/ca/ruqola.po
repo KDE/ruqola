@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-03 00:38+0000\n"
-"PO-Revision-Date: 2024-02-02 09:27+0100\n"
+"PO-Revision-Date: 2024-02-03 09:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7335,6 +7335,8 @@ msgstr[1] "%1 debats a la sala (Total: %2)"
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"Deseu la contrasenya d'encriptatge. Feu clic aquí per a veure i copiar la "
+"contrasenya."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
