@@ -5,10 +5,12 @@
         "Name[ca@valencia]": "Connector d'autenticació de GitLab",
         "Name[ca]": "Connector d'autenticació de GitLab",
         "Name[es]": "Complemento de autenticación de GitLab",
+        "Name[eu]": "Github Autentifikazio Plugina",
         "Name[fr]": "Module externe d'authentification pour Github",
         "Name[it]": "Estensione per l'autenticazione con GitLab",
         "Name[nl]": "Plug-in voor authenticatie in Gitlab",
         "Name[sl]": "Vtičnik overovljenja GitLab",
+        "Name[uk]": "Додаток розпізнавання GitLab",
         "Name[x-test]": "xxGitLab Authentication Pluginxx",
         "ServiceTypes": [
             "Ruqola/Authentication"
