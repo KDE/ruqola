@@ -90,6 +90,7 @@
     <p xml:lang="tr">Roka, Rocket.Chat için bir istemcidir.</p>
     <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
     <p xml:lang="x-test">xxRuqola is a client for Rocket.Chat.xx</p>
+    <p xml:lang="zh-TW">Ruqola 是一個 Rocket.Chat 的用戶端。</p>
     <p>
       It supports RC features:
     </p>
@@ -690,6 +691,7 @@
       <li xml:lang="tr">Yönetici desteği (Sunucu Bilgisi, Odalar, Özel Kullanıcı Durumu, Özel Sesler, Özel Emoji, Kullanıcılar, Davetler, Günlük Görüntüleme, İzinler, Roller, Oauth), Yönetici ayarları (İleti, Hesap, Tutma Politikası, Dosya Karşıya Yükleme, Şifreleme)</li>
       <li xml:lang="uk">Підтримка адміністрування (відомості щодо сервера, кімнат, нетипові стани користувачів, нетипові звуки, нетипові емодзі, користувачі, запрошення, перегляд журналу, права доступу, ролі, Oauth), параметри адміністрування (повідомлення, обліковий запис, правила збереження, вивантаження файлів, шифрування)</li>
       <li xml:lang="x-test">xxAdministrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)xx</li>
+      <li xml:lang="zh-TW">管理員功能支援（伺服器資訊、聊天室、自訂使用者狀態、自訂音效、自訂表情符號、使用者、邀請、檢視紀錄、權限、角色、OAuth）；管理員設定（訊息、帳戶、保留原則、檔案上傳、加密）</li>
       <li>Export Messages</li>
       <li xml:lang="ca">Exportació de missatges</li>
       <li xml:lang="ca-valencia">Exportació de missatges</li>
@@ -713,6 +715,7 @@
       <li xml:lang="tr">İletileri Dışa Aktar</li>
       <li xml:lang="uk">Експорт повідомлень</li>
       <li xml:lang="x-test">xxExport Messagesxx</li>
+      <li xml:lang="zh-TW">匯出訊息</li>
       <li>Video Conference</li>
       <li xml:lang="ca">Conferència de vídeo</li>
       <li xml:lang="ca-valencia">Conferència de vídeo</li>
@@ -735,6 +738,7 @@
       <li xml:lang="tr">Video Konferans</li>
       <li xml:lang="uk">Відеоконференція</li>
       <li xml:lang="x-test">xxVideo Conferencexx</li>
+      <li xml:lang="zh-TW">視訊會議</li>
     </ul>
     <p>
       Extra features:
@@ -760,6 +764,7 @@
     <p xml:lang="tr">Ek özellikler:</p>
     <p xml:lang="uk">Додаткові можливості:</p>
     <p xml:lang="x-test">xxExtra features:xx</p>
+    <p xml:lang="zh-TW">其他功能：</p>
     <ul>
       <li>Allow to reply directly to message from notification (kde features)</li>
       <li xml:lang="ca">Permet respondre directament al missatge des d'una notificació (característiques del KDE)</li>
@@ -782,6 +787,7 @@
       <li xml:lang="tr">İletiyi doğrudan bildirimden yanıtlama (KDE özelliği)</li>
       <li xml:lang="uk">Можливість відповідати на повідомлення безпосередньо з панелі сповіщення (можливість KDE)</li>
       <li xml:lang="x-test">xxAllow to reply directly to message from notification (kde features)xx</li>
+      <li xml:lang="zh-TW">可以直接從通知回覆訊息（KDE 功能）</li>
       <li>Dnd image from ruqola to website or local folder</li>
       <li xml:lang="ca">Imatges Dnd des del Ruqola a lloc web o carpeta local</li>
       <li xml:lang="ca-valencia">Imatges Dnd des de Ruqola a lloc web o carpeta local</li>
@@ -803,6 +809,7 @@
       <li xml:lang="tr">Roka'dan web sitesine veya yerel klasöre rahatsız etmeyin görseli</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="x-test">xxDnd image from ruqola to website or local folderxx</li>
+      <li xml:lang="zh-TW">從 Ruqola 拖放影像到網站或本地資料夾中</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
@@ -824,6 +831,7 @@
       <li xml:lang="tr">İletileri yerel bir veritabanında depola, böylece çevrimdışıyken aranabilir</li>
       <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
       <li xml:lang="x-test">xxStore message in local database so we can search in offlinexx</li>
+      <li xml:lang="zh-TW">將訊息儲存在本地資料庫以利離線搜尋</li>
       <li>Mark All Channels are read</li>
       <li xml:lang="ca">Marcar tots els canals com a llegits</li>
       <li xml:lang="ca-valencia">Marca tots els canals com a llegits</li>
@@ -846,6 +854,7 @@
       <li xml:lang="tr">Tüm kanalları okundu olarak imle</li>
       <li xml:lang="uk">Позначення усіх каналів, як прочитаних</li>
       <li xml:lang="x-test">xxMark All Channels are readxx</li>
+      <li xml:lang="zh-TW">將所有頻道標為已讀</li>
       <li>Add notification history</li>
       <li xml:lang="ca">Afegeix un historial de notificacions</li>
       <li xml:lang="ca-valencia">Afig un historial de notificacions</li>
@@ -868,6 +877,7 @@
       <li xml:lang="tr">Bildirim geçmişi ekle</li>
       <li xml:lang="uk">Журнал сповіщень</li>
       <li xml:lang="x-test">xxAdd notification historyxx</li>
+      <li xml:lang="zh-TW">新增通知歷史</li>
       <li>New RocketChat Server Information Support</li>
       <li xml:lang="ca">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="ca-valencia">Implementació nova d'informació del servidor RocketChat</li>
@@ -889,6 +899,7 @@
       <li xml:lang="tr">Yeni Rocket.Chat Sunucusu Bilgi Desteği</li>
       <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
       <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
+      <li xml:lang="zh-TW">新增對 RocketChat 伺服器資訊的支援</li>
       <li>Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="ca">Gestiona el dispositiu (RC &gt;= 5.0)</li>
       <li xml:lang="ca-valencia">Gestiona el dispositiu (RC &gt;= 5.0)</li>
@@ -912,6 +923,7 @@
       <li xml:lang="tr">Aygıt Yönet (RC &gt;= 5.0)</li>
       <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
       <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
+      <li xml:lang="zh-TW">管理裝置 (RC &gt;= 5.0)</li>
       <li>Manage Personal Access Token</li>
       <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
       <li xml:lang="ca-valencia">Gestioneu el testimoni d'accés personal</li>
@@ -933,6 +945,7 @@
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
       <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
+      <li xml:lang="zh-TW">管理個人存取權杖 (Personal Access Token)</li>
       <li>Add support for local translation</li>
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la traducció local</li>
@@ -956,6 +969,7 @@
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
+      <li xml:lang="zh-TW">新增本地翻譯的支援</li>
       <li>Add support for text auto-correction</li>
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la correcció automàtica</li>
@@ -979,6 +993,7 @@
       <li xml:lang="tr">Metin otomatik düzeltme için destek ekle</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
       <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
+      <li xml:lang="zh-TW">新增文字自動修正的支援</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
@@ -1012,6 +1027,7 @@
       <caption xml:lang="tr">Roka'da sohbet odası</caption>
       <caption xml:lang="uk">Кімната спілкування у Ruqola</caption>
       <caption xml:lang="x-test">xxChat room in Ruqolaxx</caption>
+      <caption xml:lang="zh-TW">Ruqola 中的聊天室</caption>
       <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
     </screenshot>
   </screenshots>
