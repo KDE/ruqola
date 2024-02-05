@@ -12,6 +12,11 @@
 E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 E2ePasswordDecodeKeyWidget::~E2ePasswordDecodeKeyWidget() = default;
+
+#include "moc_e2epassworddecodekeywidget.cpp"
