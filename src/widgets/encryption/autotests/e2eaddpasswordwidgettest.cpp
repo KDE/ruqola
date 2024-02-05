@@ -16,10 +16,11 @@ E2eAddPasswordWidgetTest::E2eAddPasswordWidgetTest(QObject *parent)
 void E2eAddPasswordWidgetTest::shouldHaveDefaultValues()
 {
     E2eAddPasswordWidget w;
-
+    w.show();
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QCOMPARE(w.position(), KMessageWidget::Header);
     QVERIFY(!w.text().isEmpty());
+    QVERIFY(!w.isCloseButtonVisible());
 }
 
 #include "moc_e2eaddpasswordwidgettest.cpp"
