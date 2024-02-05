@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class E2eAddPasswordWidgetTest : public QObject
+class E2eDecodeEncryptionKeyWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit E2eAddPasswordWidgetTest(QObject *parent = nullptr);
-    ~E2eAddPasswordWidgetTest() override = default;
+    explicit E2eDecodeEncryptionKeyWidgetTest(QObject *parent = nullptr);
+    ~E2eDecodeEncryptionKeyWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldEmitSaveSignal();

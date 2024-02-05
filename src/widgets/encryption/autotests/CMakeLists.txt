@@ -10,7 +10,7 @@ macro(add_ruqola_encryption_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqola_encryption_test(e2eaddpasswordwidgettest.cpp)
+add_ruqola_encryption_test(e2edecodeencryptionkeywidgettest.cpp)
 add_ruqola_encryption_test(e2ecopypasswordwidgettest.cpp)
 add_ruqola_encryption_test(e2ecopypassworddialogtest.cpp)
 add_ruqola_encryption_test(e2edecodeencryptionkeyfailedwidgettest.cpp)
