@@ -24,16 +24,16 @@ void E2eAddPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.text().isEmpty());
     QVERIFY(!w.isCloseButtonVisible());
 
-    auto savePasswordAction = w.findChild<QAction *>(QStringLiteral("refreshKeysAction"));
-    QVERIFY(savePasswordAction);
+    auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
+    QVERIFY(decodeEncryptionKeyAction);
 }
 
 void E2eAddPasswordWidgetTest::shouldEmitSaveSignal()
 {
     E2eAddPasswordWidget w;
     QSignalSpy saveSignal(&w, &E2eAddPasswordWidget::decodeEncrytionKey);
-    auto savePasswordAction = w.findChild<QAction *>(QStringLiteral("refreshKeysAction"));
-    savePasswordAction->trigger();
+    auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
+    decodeEncryptionKeyAction->trigger();
     QCOMPARE(saveSignal.count(), 1);
 }
 
