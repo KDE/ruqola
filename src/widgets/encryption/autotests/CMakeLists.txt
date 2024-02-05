@@ -11,3 +11,4 @@ macro(add_ruqola_encryption_test _source)
 endmacro()
 
 add_ruqola_encryption_test(e2eaddpasswordwidgettest.cpp)
+add_ruqola_encryption_test(e2ecopypassworddialogtest.cpp)
