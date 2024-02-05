@@ -11,6 +11,11 @@
 E2eCopyPasswordWidget::E2eCopyPasswordWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 }
 
 E2eCopyPasswordWidget::~E2eCopyPasswordWidget() = default;
+
+#include "moc_e2ecopypasswordwidget.cpp"
