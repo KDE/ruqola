@@ -4,10 +4,10 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "e2eaddpasswordwidget.h"
+#include "e2edecodeencryptionkeywidget.h"
 #include <KLocalizedString>
 
-E2eAddPasswordWidget::E2eAddPasswordWidget(QWidget *parent)
+E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
     setVisible(false);
@@ -18,10 +18,10 @@ E2eAddPasswordWidget::E2eAddPasswordWidget(QWidget *parent)
 
     auto decodeEncryptionKeyAction = new QAction(i18n("Decrypte Encryption Key"), this);
     decodeEncryptionKeyAction->setObjectName(QStringLiteral("decodeEncryptionKeyAction"));
-    connect(decodeEncryptionKeyAction, &QAction::triggered, this, &E2eAddPasswordWidget::decodeEncrytionKey);
+    connect(decodeEncryptionKeyAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
     addAction(decodeEncryptionKeyAction);
 }
 
-E2eAddPasswordWidget::~E2eAddPasswordWidget() = default;
+E2eDecodeEncryptionKeyWidget::~E2eDecodeEncryptionKeyWidget() = default;
 
-#include "moc_e2eaddpasswordwidget.cpp"
+#include "moc_e2edecodeencryptionkeywidget.cpp"

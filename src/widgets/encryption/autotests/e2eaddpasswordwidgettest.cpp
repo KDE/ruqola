@@ -5,7 +5,7 @@
 */
 
 #include "e2eaddpasswordwidgettest.h"
-#include "encryption/e2eaddpasswordwidget.h"
+#include "encryption/e2edecodeencryptionkeywidget.h"
 #include <QAction>
 #include <QSignalSpy>
 #include <QTest>
@@ -17,7 +17,7 @@ E2eAddPasswordWidgetTest::E2eAddPasswordWidgetTest(QObject *parent)
 
 void E2eAddPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    E2eAddPasswordWidget w;
+    E2eDecodeEncryptionKeyWidget w;
     w.show();
     QCOMPARE(w.messageType(), KMessageWidget::Information);
     QCOMPARE(w.position(), KMessageWidget::Header);
@@ -30,8 +30,8 @@ void E2eAddPasswordWidgetTest::shouldHaveDefaultValues()
 
 void E2eAddPasswordWidgetTest::shouldEmitSaveSignal()
 {
-    E2eAddPasswordWidget w;
-    QSignalSpy saveSignal(&w, &E2eAddPasswordWidget::decodeEncrytionKey);
+    E2eDecodeEncryptionKeyWidget w;
+    QSignalSpy saveSignal(&w, &E2eDecodeEncryptionKeyWidget::decodeEncrytionKey);
     auto decodeEncryptionKeyAction = w.findChild<QAction *>(QStringLiteral("decodeEncryptionKeyAction"));
     decodeEncryptionKeyAction->trigger();
     QCOMPARE(saveSignal.count(), 1);

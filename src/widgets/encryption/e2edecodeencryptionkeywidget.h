@@ -8,12 +8,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <KMessageWidget>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eAddPasswordWidget : public KMessageWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eDecodeEncryptionKeyWidget : public KMessageWidget
 {
     Q_OBJECT
 public:
-    explicit E2eAddPasswordWidget(QWidget *parent = nullptr);
-    ~E2eAddPasswordWidget() override;
+    explicit E2eDecodeEncryptionKeyWidget(QWidget *parent = nullptr);
+    ~E2eDecodeEncryptionKeyWidget() override;
 
 Q_SIGNALS:
     void decodeEncrytionKey();
