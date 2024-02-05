@@ -16,5 +16,11 @@ E2eDecodeEncryptionKeyFailedWidgetTest::E2eDecodeEncryptionKeyFailedWidgetTest(Q
 void E2eDecodeEncryptionKeyFailedWidgetTest::shouldHaveDefaultValues()
 {
     E2eDecodeEncryptionKeyFailedWidget w;
-    // TODO
+    w.show();
+    QCOMPARE(w.messageType(), KMessageWidget::Error);
+    QCOMPARE(w.position(), KMessageWidget::Header);
+    QVERIFY(!w.text().isEmpty());
+    QVERIFY(w.isCloseButtonVisible());
 }
+
+#include "moc_e2edecodeencryptionkeyfailedwidgettest.cpp"

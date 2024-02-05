@@ -14,4 +14,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eDecodeEncryptionKeyFailedWidget : public 
 public:
     explicit E2eDecodeEncryptionKeyFailedWidget(QWidget *parent = nullptr);
     ~E2eDecodeEncryptionKeyFailedWidget() override;
+Q_SIGNALS:
+    void savePassword();
 };
