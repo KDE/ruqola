@@ -15,5 +15,5 @@ public:
     explicit E2eDecodeEncryptionKeyFailedWidget(QWidget *parent = nullptr);
     ~E2eDecodeEncryptionKeyFailedWidget() override;
 Q_SIGNALS:
-    void savePassword();
+    void decodeEncrytionKey();
 };

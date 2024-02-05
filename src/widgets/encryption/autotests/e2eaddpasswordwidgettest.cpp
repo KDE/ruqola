@@ -31,7 +31,7 @@ void E2eAddPasswordWidgetTest::shouldHaveDefaultValues()
 void E2eAddPasswordWidgetTest::shouldEmitSaveSignal()
 {
     E2eAddPasswordWidget w;
-    QSignalSpy saveSignal(&w, &E2eAddPasswordWidget::savePassword);
+    QSignalSpy saveSignal(&w, &E2eAddPasswordWidget::decodeEncrytionKey);
     auto savePasswordAction = w.findChild<QAction *>(QStringLiteral("refreshKeysAction"));
     savePasswordAction->trigger();
     QCOMPARE(saveSignal.count(), 1);

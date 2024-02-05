@@ -18,7 +18,7 @@ E2eDecodeEncryptionKeyFailedWidget::E2eDecodeEncryptionKeyFailedWidget(QWidget *
 
     auto savePasswordAction = new QAction(i18n("Save Password"), this);
     savePasswordAction->setObjectName(QStringLiteral("refreshKeysAction"));
-    connect(savePasswordAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyFailedWidget::savePassword);
+    connect(savePasswordAction, &QAction::triggered, this, &E2eDecodeEncryptionKeyFailedWidget::decodeEncrytionKey);
     addAction(savePasswordAction);
 }
 

@@ -18,7 +18,7 @@ E2eAddPasswordWidget::E2eAddPasswordWidget(QWidget *parent)
 
     auto savePasswordAction = new QAction(i18n("Save Password"), this);
     savePasswordAction->setObjectName(QStringLiteral("refreshKeysAction"));
-    connect(savePasswordAction, &QAction::triggered, this, &E2eAddPasswordWidget::savePassword);
+    connect(savePasswordAction, &QAction::triggered, this, &E2eAddPasswordWidget::decodeEncrytionKey);
     addAction(savePasswordAction);
 }
 

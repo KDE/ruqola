@@ -16,5 +16,5 @@ public:
     ~E2eAddPasswordWidget() override;
 
 Q_SIGNALS:
-    void savePassword();
+    void decodeEncrytionKey();
 };
