@@ -96,10 +96,10 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mReceiveLoginDetectionEmails->text().isEmpty());
     QVERIFY(!mReceiveLoginDetectionEmails->toolTip().isEmpty());
 
-    auto mAutomaticAway = w.findChild<QCheckBox *>(QStringLiteral("mAutomaticAway"));
-    QVERIFY(mAutomaticAway);
-    QVERIFY(!mAutomaticAway->isChecked()); // False by default as we didn't load values yet
-    QVERIFY(!mAutomaticAway->text().isEmpty());
+    auto mAutomaticAways = w.findChild<QCheckBox *>(QStringLiteral("mAutomaticAways"));
+    QVERIFY(mAutomaticAways);
+    QVERIFY(!mAutomaticAways->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mAutomaticAways->text().isEmpty());
 
     auto idleTimeLimitLabel = w.findChild<QLabel *>(QStringLiteral("idleTimeLimitLabel"));
     QVERIFY(idleTimeLimitLabel);
