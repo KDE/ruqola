@@ -16,4 +16,5 @@ public:
     ~E2eAddPasswordWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitSaveSignal();
 };
