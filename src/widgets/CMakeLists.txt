@@ -837,6 +837,9 @@ target_sources(libruqolawidgets PRIVATE
 
     encryption/e2edecodeencryptionkeyfailedwidget.h
     encryption/e2edecodeencryptionkeyfailedwidget.cpp
+
+    encryption/e2epassworddecodekeydialog.h
+    encryption/e2epassworddecodekeydialog.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
