@@ -15,6 +15,11 @@ E2eAddPasswordWidget::E2eAddPasswordWidget(QWidget *parent)
     setMessageType(Information);
     setPosition(KMessageWidget::Header);
     setText(i18n("Save your encryption password. Click here to view and copy your password."));
+
+    auto savePasswordAction = new QAction(i18n("Save Password"), this);
+    savePasswordAction->setObjectName(QStringLiteral("refreshKeysAction"));
+    connect(savePasswordAction, &QAction::triggered, this, &E2eAddPasswordWidget::savePassword);
+    addAction(savePasswordAction);
 }
 
 E2eAddPasswordWidget::~E2eAddPasswordWidget() = default;

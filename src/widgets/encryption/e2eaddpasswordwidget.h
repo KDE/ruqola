@@ -14,4 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eAddPasswordWidget : public KMessageWidget
 public:
     explicit E2eAddPasswordWidget(QWidget *parent = nullptr);
     ~E2eAddPasswordWidget() override;
+
+Q_SIGNALS:
+    void savePassword();
 };
