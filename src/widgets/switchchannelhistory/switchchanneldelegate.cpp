@@ -14,7 +14,7 @@
 
 namespace
 {
-constexpr uint padding = 2;
+constexpr uint padding = 4;
 }
 
 SwitchChannelDelegate::SwitchChannelDelegate(QObject *parent)
@@ -57,7 +57,7 @@ void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 
 QSize SwitchChannelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    return QItemDelegate::sizeHint(option, index) + QSize(0, 2 * padding);
+    return QItemDelegate::sizeHint(option, index) + QSize(0, padding);
 }
 
 #include "moc_switchchanneldelegate.cpp"
