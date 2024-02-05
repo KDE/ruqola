@@ -5,9 +5,10 @@
 */
 
 #pragma once
+#include "libruqolawidgets_private_export.h"
 #include <QDialog>
 
-class E2ePasswordDecodeKeyDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT E2ePasswordDecodeKeyDialog : public QDialog
 {
     Q_OBJECT
 public:
