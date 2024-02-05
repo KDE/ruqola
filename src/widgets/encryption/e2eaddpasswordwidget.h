@@ -5,10 +5,10 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <KMessageWidget>
 
-class E2eAddPasswordWidget : public KMessageWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eAddPasswordWidget : public KMessageWidget
 {
     Q_OBJECT
 public:
