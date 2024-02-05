@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-03 00:38+0000\n"
-"PO-Revision-Date: 2024-02-03 09:19+0100\n"
+"PO-Revision-Date: 2024-02-04 08:21+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -7297,6 +7297,8 @@ msgstr[1] "%1 Diskutoj en ĉambro (Totalo: %2"
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"Konservu vian ĉifradan pasvorton. Klaku ĉi tie por vidi kaj kopii vian "
+"pasvorton."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
