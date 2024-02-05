@@ -5,19 +5,21 @@
 */
 
 #include "e2epassworddecodekeydialog.h"
+#include "e2epassworddecodekeywidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
 E2ePasswordDecodeKeyDialog::E2ePasswordDecodeKeyDialog(QWidget *parent)
     : QDialog(parent)
+    , mE2ePasswordDecodeKeyWidget(new E2ePasswordDecodeKeyWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Decode Key"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // mE2eCopyPasswordWidget->setObjectName(QStringLiteral("mE2eCopyPasswordWidget"));
-    // mainLayout->addWidget(mE2eCopyPasswordWidget);
+    mE2ePasswordDecodeKeyWidget->setObjectName(QStringLiteral("mE2ePasswordDecodeKeyWidget"));
+    mainLayout->addWidget(mE2ePasswordDecodeKeyWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));
