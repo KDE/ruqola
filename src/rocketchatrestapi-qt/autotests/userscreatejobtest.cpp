@@ -42,7 +42,8 @@ void UsersCreateJobTest::shouldGenerateJson()
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"email":"%1","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+        QStringLiteral(
+            R"({"email":"%1","joinDefaultChannels":false,"password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
             .arg(email, password)
             .toLatin1());
 
@@ -52,7 +53,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+            R"({"email":"%1","joinDefaultChannels":false,"nickname":"%3","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -62,7 +63,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+            R"({"email":"%1","joinDefaultChannels":false,"nickname":"%3","password":"%2","requirePasswordChange":false,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
             .arg(email, password, nickame)
             .toLatin1());
     info.mRequirePasswordChange = true;
@@ -70,7 +71,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+            R"({"email":"%1","joinDefaultChannels":false,"nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -79,7 +80,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":false})")
+            R"({"email":"%1","joinDefaultChannels":false,"nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":false})")
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -88,16 +89,17 @@ void UsersCreateJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
+            R"({"email":"%1","joinDefaultChannels":false,"nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
             .arg(email, password, nickame)
             .toLatin1());
 
-    info.mSetRandomPassword = true;
+    info.mSetRandomPassword = false;
+    info.mPassword = QStringLiteral("ccc");
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":true,"verified":true})")
+            R"({"email":"%1","joinDefaultChannels":false,"nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
             .arg(email, password, nickame)
             .toLatin1());
 }
