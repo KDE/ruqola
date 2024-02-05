@@ -6,6 +6,7 @@
 
 #include "e2ecopypasswordwidget.h"
 #include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 
 E2eCopyPasswordWidget::E2eCopyPasswordWidget(QWidget *parent)
