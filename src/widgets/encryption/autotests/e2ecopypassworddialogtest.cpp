@@ -18,3 +18,5 @@ void E2eCopyPasswordDialogTest::shouldHaveDefaultValues()
     E2eCopyPasswordDialog d;
     // TODO
 }
+
+#include "moc_e2ecopypassworddialogtest.cpp"

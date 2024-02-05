@@ -18,3 +18,5 @@ void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
     E2eCopyPasswordWidget w;
     // TODO
 }
+
+#include "moc_e2ecopypasswordwidgettest.cpp"
