@@ -212,6 +212,7 @@ void UserTest::shouldParseRestApiJson_data()
         info.email = QStringLiteral("bla@kde.com");
         info.verified = true;
         expected.setUserEmailsInfo(info);
+        expected.setNickName(QStringLiteral("TheReal"));
         QTest::newRow("userrestapi2") << QStringLiteral("userrestapi2") << expected;
     }
 }
