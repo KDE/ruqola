@@ -828,6 +828,9 @@ target_sources(libruqolawidgets PRIVATE
 
     encryption/e2eaddpasswordwidget.h
     encryption/e2eaddpasswordwidget.cpp
+
+    encryption/e2ecopypassworddialog.h
+    encryption/e2ecopypassworddialog.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
