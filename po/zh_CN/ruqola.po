@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 00:38+0000\n"
-"PO-Revision-Date: 2024-01-21 14:14\n"
+"POT-Creation-Date: 2024-02-06 00:38+0000\n"
+"PO-Revision-Date: 2024-02-05 11:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 12032\n"
+"X-Crowdin-File: /kf6-trunk/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 49360\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -7076,10 +7076,35 @@ msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] ""
 
-#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Copy Password"
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#, kde-format
+msgid ""
+"It was not possible to decode your encryption key to be imported. Your "
+"encryption password seems wrong."
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, kde-format
+msgid "Decrypte Encryption Key"
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
+msgstr ""
+
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Decode Key"
 msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24

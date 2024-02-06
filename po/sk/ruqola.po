@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 00:38+0000\n"
+"POT-Creation-Date: 2024-02-06 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -7551,10 +7551,37 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@title:window"
+msgid "Copy Password"
+msgstr "Heslo:"
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#, kde-format
+msgid ""
+"It was not possible to decode your encryption key to be imported. Your "
+"encryption password seems wrong."
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encrypted:"
+msgid "Decrypte Encryption Key"
+msgstr "Šifrovaný:"
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
+msgstr ""
+
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Decode Key"
 msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24

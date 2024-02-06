@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 00:38+0000\n"
+"POT-Creation-Date: 2024-02-06 00:38+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -7401,11 +7401,39 @@ msgstr[1] "%1 обсуждения в комнате (всего: %2)"
 msgstr[2] "%1 обсуждений в комнате (всего: %2)"
 msgstr[3] "%1 обсуждение в комнате (всего: %2)"
 
-#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:window"
+msgid "Copy Password"
+msgstr "Пароль"
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#, kde-format
+msgid ""
+"It was not possible to decode your encryption key to be imported. Your "
+"encryption password seems wrong."
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgid "Decrypte Encryption Key"
+msgstr "Шифрование"
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "DeepL API Key"
+msgctxt "@title:window"
+msgid "Decode Key"
+msgstr "Ключ API DeepL"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

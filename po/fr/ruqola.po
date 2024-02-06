@@ -5,10 +5,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 00:38+0000\n"
-"PO-Revision-Date: 2024-01-31 21:13+0100\n"
+"POT-Creation-Date: 2024-02-06 00:38+0000\n"
+"PO-Revision-Date: 2024-02-04 10:58+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7372,11 +7372,41 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "%1 discussion dans le salon (Total : %2)"
 msgstr[1] "%1 discussions dans le salon (Total : %2)"
 
-#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:window"
+msgid "Copy Password"
+msgstr "Mot de passe"
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#, kde-format
+msgid ""
+"It was not possible to decode your encryption key to be imported. Your "
+"encryption password seems wrong."
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgid "Decrypte Encryption Key"
+msgstr "Chiffrement"
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"Veuillez enregistrer votre mot de passe de chiffrement et cliquer ici pour "
+"l'afficher et le copier."
+
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "DeepL API Key"
+msgctxt "@title:window"
+msgid "Decode Key"
+msgstr "Clé « API » pour DeepL"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

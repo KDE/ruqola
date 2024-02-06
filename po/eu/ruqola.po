@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 00:38+0000\n"
+"POT-Creation-Date: 2024-02-06 00:38+0000\n"
 "PO-Revision-Date: 2024-02-03 17:59+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -7187,13 +7187,41 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "Gelan elkarrizketa %1 (Guztira: %2)"
 msgstr[1] "%1 elkarrizketa gelan (Guztira: %2)"
 
-#: widgets/encryption/e2eaddpasswordwidget.cpp:17
+#: widgets/encryption/e2ecopypassworddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:window"
+msgid "Copy Password"
+msgstr "Pasahitza"
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
+#, kde-format
+msgid ""
+"It was not possible to decode your encryption key to be imported. Your "
+"encryption password seems wrong."
+msgstr ""
+
+#: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Encryption"
+msgid "Decrypte Encryption Key"
+msgstr "Zifratzea"
+
+#: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
 "Gorde zifratzeko zure pasahitza. Egin klik hemen zure pasahitza ikusteko eta "
 "kopiatzeko."
+
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "DeepL API Key"
+msgctxt "@title:window"
+msgid "Decode Key"
+msgstr "DeepL API gakoa"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
