@@ -6,11 +6,14 @@
 
 #pragma once
 #include <QWidget>
-
+class KPasswordLineEdit;
 class E2ePasswordDecodeKeyWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit E2ePasswordDecodeKeyWidget(QWidget *parent = nullptr);
     ~E2ePasswordDecodeKeyWidget() override;
+
+private:
+    KPasswordLineEdit *const mPassword;
 };
