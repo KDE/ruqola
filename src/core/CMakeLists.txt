@@ -472,6 +472,9 @@ target_sources(libruqolacore PRIVATE
 
     previewurlcachemanager.h
     previewurlcachemanager.cpp
+
+    encryption/encryptionutils.h
+    encryption/encryptionutils.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
