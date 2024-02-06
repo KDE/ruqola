@@ -20,6 +20,7 @@
         "Name[tr]": "GitLab Kimlik Doğrulama Eklentisi",
         "Name[uk]": "Додаток розпізнавання GitLab",
         "Name[x-test]": "xxGitLab Authentication Pluginxx",
+        "Name[zh_TW]": "GitLab 身份驗證外掛程式",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],

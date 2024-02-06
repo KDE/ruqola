@@ -60,6 +60,7 @@ Comment[sv]=Underrättelse
 Comment[tr]=Bildirim
 Comment[uk]=Сповіщення
 Comment[x-test]=xxNotificationxx
+Comment[zh_TW]=通知
 
 [Event/Otr-end]
 Name=Off the record ended
@@ -173,6 +174,7 @@ Name[sv]=Meddelanden exporterade
 Name[tr]=İletiler Dışa Aktarıldı
 Name[uk]=Експортовано повідомлення
 Name[x-test]=xxMessages Exportedxx
+Name[zh_TW]=訊息已匯出
 Action=Popup
 Urgency=Normal
 
@@ -205,6 +207,7 @@ Name[sv]=En underrättelse anlände
 Name[tr]=Bildirim Geldi
 Name[uk]=З'явилося сповіщення
 Name[x-test]=xxA Notification Arrivedxx
+Name[zh_TW]=有新的通知
 Action=Popup
 Urgency=Normal
 
