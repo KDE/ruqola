@@ -115,6 +115,7 @@
     <p xml:lang="tr">Şu RC özelliklerini destekler:</p>
     <p xml:lang="uk">Передбачено підтримку таких можливостей RC:</p>
     <p xml:lang="x-test">xxIt supports RC features:xx</p>
+    <p xml:lang="zh-TW">它支援 Rocket Chat 的功能：</p>
     <ul>
       <li>Direct Message</li>
       <li xml:lang="ca">Missatge directe</li>
@@ -140,6 +141,7 @@
       <li xml:lang="tr">Doğrudan İleti</li>
       <li xml:lang="uk">Безпосереднє повідомлення</li>
       <li xml:lang="x-test">xxDirect Messagexx</li>
+      <li xml:lang="zh-TW">私訊</li>
       <li>group channel</li>
       <li xml:lang="ca">Canal de grup</li>
       <li xml:lang="ca-valencia">Canal de grup</li>
@@ -162,6 +164,7 @@
       <li xml:lang="tr">grup kanalı</li>
       <li xml:lang="uk">Групування каналів</li>
       <li xml:lang="x-test">xxgroup channelxx</li>
+      <li xml:lang="zh-TW">群組頻道</li>
       <li>channel</li>
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
@@ -186,6 +189,7 @@
       <li xml:lang="tr">kanal</li>
       <li xml:lang="uk">Канали</li>
       <li xml:lang="x-test">xxchannelxx</li>
+      <li xml:lang="zh-TW">頻道</li>
       <li>Support autotranslate (when RC has it)</li>
       <li xml:lang="ca">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="ca-valencia">Permet la traducció automàtica (quan ho té el RC)</li>
@@ -208,6 +212,7 @@
       <li xml:lang="tr">Otomatik çeviri desteği (RC'de varken)</li>
       <li xml:lang="uk">Підтримка автоматичного перекладу (якщо її передбачено у RC)</li>
       <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
+      <li xml:lang="zh-TW">支援自動翻譯（伺服器端 Rocket Chat 有提供的時候）</li>
       <li>Configuring room notification</li>
       <li xml:lang="ca">Configuració de les notificacions de sales</li>
       <li xml:lang="ca-valencia">Configureu les notificacions de sala</li>
@@ -230,6 +235,7 @@
       <li xml:lang="tr">Oda bildirimini yapılandırma</li>
       <li xml:lang="uk">Налаштовування сповіщень у кімнатах</li>
       <li xml:lang="x-test">xxConfiguring room notificationxx</li>
+      <li xml:lang="zh-TW">設定聊天室通知</li>
       <li>Configuring room</li>
       <li xml:lang="ca">Configuració de sales</li>
       <li xml:lang="ca-valencia">Configuració de sales</li>
@@ -252,6 +258,7 @@
       <li xml:lang="tr">Odayı yapılandırma</li>
       <li xml:lang="uk">Налаштовування кімнат</li>
       <li xml:lang="x-test">xxConfiguring roomxx</li>
+      <li xml:lang="zh-TW">設定聊天室</li>
       <li>Thread message support</li>
       <li xml:lang="ca">Permet fils de missatges</li>
       <li xml:lang="ca-valencia">Permet fils de missatges</li>
@@ -274,6 +281,7 @@
       <li xml:lang="tr">İlmekli ileti desteği</li>
       <li xml:lang="uk">Підтримка гілок повідомлень</li>
       <li xml:lang="x-test">xxThread message supportxx</li>
+      <li xml:lang="zh-TW">訊息對話串支援</li>
       <li>Discussion room</li>
       <li xml:lang="ca">Sales de debats</li>
       <li xml:lang="ca-valencia">Sales de debats</li>
@@ -296,6 +304,7 @@
       <li xml:lang="tr">Tartışma odası</li>
       <li xml:lang="uk">Кімнати обговорення</li>
       <li xml:lang="x-test">xxDiscussion roomxx</li>
+      <li xml:lang="zh-TW">討論室</li>
       <li>Teams room support</li>
       <li xml:lang="ca">Permet sales d'equips</li>
       <li xml:lang="ca-valencia">Permet sales d'equips</li>
@@ -318,6 +327,7 @@
       <li xml:lang="tr">Takım odası desteği</li>
       <li xml:lang="uk">Підтримка кімнат команд</li>
       <li xml:lang="x-test">xxTeams room supportxx</li>
+      <li xml:lang="zh-TW">團隊聊天室支援</li>
       <li>Configuring own account</li>
       <li xml:lang="ca">Configuració del compte propi</li>
       <li xml:lang="ca-valencia">Configureu el compte propi</li>
@@ -340,6 +350,7 @@
       <li xml:lang="tr">Hesabınızı yapılandırma</li>
       <li xml:lang="uk">Налаштовування власного облікового запису</li>
       <li xml:lang="x-test">xxConfiguring own accountxx</li>
+      <li xml:lang="zh-TW">設定自己的帳戶</li>
       <li>Registering new account</li>
       <li xml:lang="ca">Registre d'un compte nou</li>
       <li xml:lang="ca-valencia">Registre d'un compte nou</li>
@@ -362,6 +373,7 @@
       <li xml:lang="tr">Yeni hesap kaydı</li>
       <li xml:lang="uk">Реєстрація нових облікових записів</li>
       <li xml:lang="x-test">xxRegistering new accountxx</li>
+      <li xml:lang="zh-TW">註冊新的帳戶</li>
       <li>Support multi account</li>
       <li xml:lang="ca">Permet diversos comptes</li>
       <li xml:lang="ca-valencia">Permet diversos comptes</li>
@@ -384,6 +396,7 @@
       <li xml:lang="tr">Çoklu hesap desteği</li>
       <li xml:lang="uk">Підтримка роботи із декількома обліковими записами</li>
       <li xml:lang="x-test">xxSupport multi accountxx</li>
+      <li xml:lang="zh-TW">支援多帳號</li>
       <li>Search message in room</li>
       <li xml:lang="ca">Cerca missatges a una sala</li>
       <li xml:lang="ca-valencia">Busca missatges a una sala</li>
@@ -406,6 +419,7 @@
       <li xml:lang="tr">Odada ileti ara</li>
       <li xml:lang="uk">Пошук повідомлень у кімнаті</li>
       <li xml:lang="x-test">xxSearch message in roomxx</li>
+      <li xml:lang="zh-TW">搜尋聊天室中的訊息</li>
       <li>Show mention/attachment/Pinned message/start message</li>
       <li xml:lang="ca">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="ca-valencia">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
@@ -427,6 +441,7 @@
       <li xml:lang="tr">Söz etme/ek/iğneli ileti/başlangıç iletisi gösterme</li>
       <li xml:lang="uk">Показ згадок/долучень/пришпилених повідомлень/початкового повідомлення</li>
       <li xml:lang="x-test">xxShow mention/attachment/Pinned message/start messagexx</li>
+      <li xml:lang="zh-TW">顯示提及/附件/置頂訊息/起始訊息</li>
       <li>Support emoji</li>
       <li xml:lang="ca">Permet emojis</li>
       <li xml:lang="ca-valencia">Permet emojis</li>
@@ -449,6 +464,7 @@
       <li xml:lang="tr">Emoji desteği</li>
       <li xml:lang="uk">Підтримка емодзі</li>
       <li xml:lang="x-test">xxSupport emojixx</li>
+      <li xml:lang="zh-TW">支援表情符號</li>
       <li>Video support</li>
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
@@ -472,6 +488,7 @@
       <li xml:lang="tr">Video desteği</li>
       <li xml:lang="uk">Підтримка відео</li>
       <li xml:lang="x-test">xxVideo supportxx</li>
+      <li xml:lang="zh-TW">影片支援</li>
       <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
       <li xml:lang="ca">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="ca-valencia">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
@@ -493,6 +510,7 @@
       <li xml:lang="tr">Yönetici olarak yapılandırma desteği (rol ekle/kaldır, kullanıcı ekle/kaldır, izin ekle/kaldır, odaları yapılandır vb.)</li>
       <li xml:lang="uk">Налаштовування параметрів адміністрування (додавання/вилучення ролей, додавання/вилучення користувачів, додавання/вилучення прав доступу, налаштовування кімнат тощо)</li>
       <li xml:lang="x-test">xxConfigure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)xx</li>
+      <li xml:lang="zh-TW">支援管理員設定（新增/移除角色、新增/移除使用者、新增/移除權限、配置聊天室等等）</li>
       <li>Support OTR (in progress)</li>
       <li xml:lang="ca">Permet OTR (en curs)</li>
       <li xml:lang="ca-valencia">Permet OTR (en curs)</li>
@@ -515,6 +533,7 @@
       <li xml:lang="tr">Kayıt Dışı (OTR) desteği (yapım aşamasında)</li>
       <li xml:lang="uk">Підтримка OTR (в опрацюванні)</li>
       <li xml:lang="x-test">xxSupport OTR (in progress)xx</li>
+      <li xml:lang="zh-TW">支援 OTR（仍在開發中）</li>
       <li>support gif image</li>
       <li xml:lang="ca">Permet imatges GIF</li>
       <li xml:lang="ca-valencia">Permet imatges GIF</li>
@@ -537,6 +556,7 @@
       <li xml:lang="tr">gif görseli desteği</li>
       <li xml:lang="uk">Підтримка зображень gif</li>
       <li xml:lang="x-test">xxsupport gif imagexx</li>
+      <li xml:lang="zh-TW">支援 GIF 影像</li>
       <li>Add support for uploading attachment files</li>
       <li xml:lang="ca">Permet pujar fitxers adjunts</li>
       <li xml:lang="ca-valencia">Permet pujar fitxers adjunts</li>
@@ -559,6 +579,7 @@
       <li xml:lang="tr">İlişik dosyaları karşıya yükleme desteği</li>
       <li xml:lang="uk">Підтримка вивантаження файлів долучень</li>
       <li xml:lang="x-test">xxAdd support for uploading attachment filesxx</li>
+      <li xml:lang="zh-TW">新增上傳附件檔案的支援</li>
       <li>Show unread message information</li>
       <li xml:lang="ca">Mostra la informació dels missatges no llegits</li>
       <li xml:lang="ca-valencia">Mostra la informació dels missatges no llegits</li>
@@ -581,6 +602,7 @@
       <li xml:lang="tr">Okunmayan ileti bilgisi gösterme</li>
       <li xml:lang="uk">Показ відомостей щодо непрочитаних повідомлень</li>
       <li xml:lang="x-test">xxShow unread message informationxx</li>
+      <li xml:lang="zh-TW">顯示關於未讀訊息的資訊</li>
       <li>Allow to block/unblock users</li>
       <li xml:lang="ca">Permet blocar/desbloquejar usuaris</li>
       <li xml:lang="ca-valencia">Permet blocar/desbloquejar usuaris</li>
@@ -603,6 +625,7 @@
       <li xml:lang="tr">Kullanıcıları engelle/engelini kaldır</li>
       <li xml:lang="uk">Можливість блокування/розблокування користувачів</li>
       <li xml:lang="x-test">xxAllow to block/unblock usersxx</li>
+      <li xml:lang="zh-TW">允許封鎖/解除封鎖使用者</li>
       <li>Auto-away</li>
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
@@ -626,6 +649,7 @@
       <li xml:lang="tr">Otomatik uzakta</li>
       <li xml:lang="uk">Автовстановлення відсутності</li>
       <li xml:lang="x-test">xxAuto-awayxx</li>
+      <li xml:lang="zh-TW">自動標記不在場</li>
       <li>Two-factor authentication via TOTP</li>
       <li xml:lang="ca">Autenticació de dos factors via TOTP</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via TOTP</li>
@@ -648,6 +672,7 @@
       <li xml:lang="tr">TOTP ile iki adımlı kimlik doğrulama</li>
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою TOTP</li>
       <li xml:lang="x-test">xxTwo-factor authentication via TOTPxx</li>
+      <li xml:lang="zh-TW">利用基於時間的一次性密碼 (TOTP) 的兩步驟驗證</li>
       <li>Two-factor authentication via email</li>
       <li xml:lang="ca">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via correu electrònic</li>
@@ -670,6 +695,7 @@
       <li xml:lang="tr">E-posta ile iki adımlı kimlik doğrulama</li>
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою електронної пошти</li>
       <li xml:lang="x-test">xxTwo-factor authentication via emailxx</li>
+      <li xml:lang="zh-TW">透過電子郵件的兩步驟驗證</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
