@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-03 09:24+0200\n"
+"PO-Revision-Date: 2024-02-06 08:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -7383,11 +7383,10 @@ msgstr[2] "%1 обговорень у кімнаті (загалом: %2)"
 msgstr[3] "%1 обговорення у кімнаті (загалом: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Пароль"
+msgstr "Копіювати пароль"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7395,13 +7394,14 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"Не вдалося декодувати ваш ключ шифрування, який має бути імпортовано. "
+"Здається, вказаний вами пароль шифрування є помилковим."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Шифрування"
+msgstr "Розшифрувати ключ шифрування"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7412,11 +7412,10 @@ msgstr ""
 "ваш пароль."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Ключ API DeepL"
+msgstr "Розшифрувати ключ"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

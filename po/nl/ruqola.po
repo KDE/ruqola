@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-03 11:00+0100\n"
+"PO-Revision-Date: 2024-02-06 11:16+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7336,11 +7336,10 @@ msgstr[0] "%1 discussie in room (totaal: %2)"
 msgstr[1] "%1 discussies in room (totaal: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Wachtwoord"
+msgstr "Wachtwoord kopiëren"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7348,13 +7347,14 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"Het was niet mogelijk uw versleuteld sleutel voor importeren te decoderen. "
+"Uw versleutelde wachtwoord lijkt verkeerd."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Versleuteling"
+msgstr "Sleutel voor versleutelen ontcijferen"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7365,11 +7365,10 @@ msgstr ""
 "bekijken en te kopiëren"
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "DeepL API-sleutel"
+msgstr "Sleutel decoderen"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

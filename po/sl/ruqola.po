@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-03 05:14+0100\n"
+"PO-Revision-Date: 2024-02-06 07:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #: apps/main.cpp:46
@@ -7320,11 +7320,10 @@ msgstr[2] "%1 razprave v sobi (skupaj: %2)"
 msgstr[3] "%1 razprav v sobi (skupaj: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Geslo"
+msgstr "Kopiraj geslo"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7332,13 +7331,14 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"Ni bilo mogoče dekodirati vašega ključa za šifriranje, da bi ga uvozili. "
+"Vaše geslo šifriranja se zdi napačno."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Šifriranje"
+msgstr "Dešifriraj ključ šifriranja"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7349,11 +7349,10 @@ msgstr ""
 "gesla."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Ključ api DeepL"
+msgstr "Dekodiraj ključ"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

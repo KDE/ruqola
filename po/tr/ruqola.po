@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-03 16:01+0300\n"
+"PO-Revision-Date: 2024-02-06 16:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7282,11 +7282,10 @@ msgstr[0] "Odada %1 tartışma (Toplam: %2)"
 msgstr[1] "Odada %1 tartışma (Toplam: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Parola"
+msgstr "Parolayı Kopyala"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7294,13 +7293,14 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"İçe aktarılacak şifreleme anahtarınızın kodu çözülemedi. Şifreleme parolanız "
+"yanlış gibi görünüyor."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Şifreleme"
+msgstr "Şifreleme Anahtarının Kodunu Çöz"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7311,11 +7311,10 @@ msgstr ""
 "buraya tıklayın."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "DeepL API Anahtarı"
+msgstr "Anahtarın Kodunu Çöz"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

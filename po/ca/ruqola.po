@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-03 09:31+0100\n"
+"PO-Revision-Date: 2024-02-06 15:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7331,11 +7331,10 @@ msgstr[0] "%1 debat a la sala (Total: %2)"
 msgstr[1] "%1 debats a la sala (Total: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Contrasenya"
+msgstr "Còpia de contrasenya"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7343,13 +7342,14 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"No s'ha pogut descodificar la clau d'encriptatge a importar. La contrasenya "
+"d'encriptatge sembla incorrecta."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Encriptatge"
+msgstr "Desencripta la clau d'encriptatge"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7360,11 +7360,10 @@ msgstr ""
 "contrasenya."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Clau de l'API de DeepL"
+msgstr "Descodificació de clau"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
