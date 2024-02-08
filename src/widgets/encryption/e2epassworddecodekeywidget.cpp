@@ -6,9 +6,9 @@
 
 #include "e2epassworddecodekeywidget.h"
 #include <KLocalizedString>
+#include <KPasswordLineEdit>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <kpasswordlineedit.h>
 
 E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     : QWidget{parent}

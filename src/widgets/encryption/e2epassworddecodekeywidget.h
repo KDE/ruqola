@@ -5,9 +5,11 @@
 */
 
 #pragma once
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
+
 class KPasswordLineEdit;
-class E2ePasswordDecodeKeyWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT E2ePasswordDecodeKeyWidget : public QWidget
 {
     Q_OBJECT
 public:
