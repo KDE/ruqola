@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets
-    encryption/e2ekeymanager.h encryption/e2ekeymanager.cpp)
+add_library(libruqolawidgets)
 
 if (TARGET KF6::UserFeedbackWidgets OR TARGET KUserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
@@ -844,6 +843,9 @@ target_sources(libruqolawidgets PRIVATE
 
     encryption/e2epassworddecodekeywidget.h
     encryption/e2epassworddecodekeywidget.cpp
+
+    encryption/e2ekeymanager.h
+    encryption/e2ekeymanager.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
