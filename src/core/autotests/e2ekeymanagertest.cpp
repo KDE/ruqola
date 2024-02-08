@@ -18,3 +18,5 @@ void E2eKeyManagerTest::shouldHaveDefaultValues()
     E2eKeyManager m;
     // TODO
 }
+
+#include "moc_e2ekeymanagertest.cpp"
