@@ -19,3 +19,5 @@ void E2ePasswordDecodeKeyWidgetTest::shouldHaveDefaultValues()
     E2ePasswordDecodeKeyWidget w;
     // TODO
 }
+
+#include "moc_e2epassworddecodekeywidgettest.cpp"

@@ -12,3 +12,5 @@ EncryptionUtils::EncryptionUtils(QObject *parent)
 }
 
 EncryptionUtils::~EncryptionUtils() = default;
+
+#include "moc_encryptionutils.cpp"

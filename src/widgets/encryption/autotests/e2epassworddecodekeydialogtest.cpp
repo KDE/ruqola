@@ -18,3 +18,5 @@ void E2ePasswordDecodeKeyDialogTest::shouldHaveDefaultValues()
     E2ePasswordDecodeKeyDialog w;
     // TODO
 }
+
+#include "moc_e2epassworddecodekeydialogtest.cpp"
