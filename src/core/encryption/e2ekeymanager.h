@@ -5,11 +5,11 @@
 */
 
 #pragma once
-#include "libruqolawidgets_private_export.h"
+#include "libruqolacore_export.h"
 
 #include <QObject>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eKeyManager : public QObject
+class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
     Q_OBJECT
 public:

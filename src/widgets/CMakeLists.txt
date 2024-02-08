@@ -843,9 +843,6 @@ target_sources(libruqolawidgets PRIVATE
 
     encryption/e2epassworddecodekeywidget.h
     encryption/e2epassworddecodekeywidget.cpp
-
-    encryption/e2ekeymanager.h
-    encryption/e2ekeymanager.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
