@@ -86,7 +86,11 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         if (!r->parentRid().isEmpty()) {
             return r->fName();
         } else {
-            return r->name();
+            if (mRocketChatAccount) {
+                return mRocketChatAccount->useRealName() ? r->displayFName() : r->name();
+            } else {
+                return r->name();
+            }
         }
     }
 
