@@ -27,6 +27,8 @@ public:
         Command,
         None,
     };
+    Q_ENUM(CompletionForType)
+
     explicit InputTextManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputTextManager() override;
 
