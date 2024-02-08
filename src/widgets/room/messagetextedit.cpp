@@ -310,12 +310,14 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
         e->accept();
         return;
     } else if (key == Qt::Key_Up || key == Qt::Key_Down) {
-        // document()->lineCount() is > 1 if the user used Shift+Enter
-        // firstBlockLayout->lineCount() is > 1 if a single long line wrapped around
-        const QTextLayout *firstBlockLayout = document()->firstBlock().layout();
-        if (document()->lineCount() > 1 || firstBlockLayout->lineCount() > 1) {
-            KTextEdit::keyPressEvent(e);
-            return;
+        if (!(e->modifiers() & Qt::AltModifier)) {
+            // document()->lineCount() is > 1 if the user used Shift+Enter
+            // firstBlockLayout->lineCount() is > 1 if a single long line wrapped around
+            const QTextLayout *firstBlockLayout = document()->firstBlock().layout();
+            if (document()->lineCount() > 1 || firstBlockLayout->lineCount() > 1) {
+                KTextEdit::keyPressEvent(e);
+                return;
+            }
         }
     }
     e->ignore();
