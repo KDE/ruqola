@@ -5,9 +5,11 @@
 */
 
 #include "e2ekeymanager.h"
+#include "rocketchataccount.h"
 
-E2eKeyManager::E2eKeyManager(QObject *parent)
+E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
+    , mAccount(account)
 {
 }
 

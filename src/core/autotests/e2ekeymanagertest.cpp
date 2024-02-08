@@ -15,7 +15,7 @@ E2eKeyManagerTest::E2eKeyManagerTest(QObject *parent)
 
 void E2eKeyManagerTest::shouldHaveDefaultValues()
 {
-    E2eKeyManager m;
+    E2eKeyManager m(nullptr);
     // TODO
 }
 

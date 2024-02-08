@@ -8,11 +8,14 @@
 #include "libruqolacore_export.h"
 
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit E2eKeyManager(QObject *parent = nullptr);
+    explicit E2eKeyManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~E2eKeyManager() override;
+
+private:
+    RocketChatAccount *const mAccount;
 };
