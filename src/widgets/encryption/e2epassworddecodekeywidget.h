@@ -14,6 +14,8 @@ public:
     explicit E2ePasswordDecodeKeyWidget(QWidget *parent = nullptr);
     ~E2ePasswordDecodeKeyWidget() override;
 
+    [[nodiscard]] QString password() const;
+
 private:
     KPasswordLineEdit *const mPassword;
 };
