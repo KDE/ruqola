@@ -8182,10 +8182,9 @@ msgid "Add Emoticon"
 msgstr "Lisää tili"
 
 #: widgets/room/messagelinewidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Send Message"
-msgstr "Tähdellä merkityt viestit"
+msgstr "Lähetä viesti"
 
 #: widgets/room/messagelinewidget.cpp:145
 #, kde-format
