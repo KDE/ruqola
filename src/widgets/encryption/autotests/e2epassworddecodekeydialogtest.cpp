@@ -29,6 +29,8 @@ void E2ePasswordDecodeKeyDialogTest::shouldHaveDefaultValues()
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    QVERIFY(d.password().isEmpty());
 }
 
 #include "moc_e2epassworddecodekeydialogtest.cpp"

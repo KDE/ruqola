@@ -30,4 +30,9 @@ E2ePasswordDecodeKeyDialog::E2ePasswordDecodeKeyDialog(QWidget *parent)
 
 E2ePasswordDecodeKeyDialog::~E2ePasswordDecodeKeyDialog() = default;
 
+QString E2ePasswordDecodeKeyDialog::password() const
+{
+    return mE2ePasswordDecodeKeyWidget->password();
+}
+
 #include "moc_e2epassworddecodekeydialog.cpp"
