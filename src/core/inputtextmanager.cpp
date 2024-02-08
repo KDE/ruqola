@@ -202,12 +202,15 @@ QAbstractItemModel *InputTextManager::emojiCompleterModel() const
 // Called by DDPClient to fill in the completer model based on the typed input
 void InputTextManager::inputTextCompleter(const QJsonObject &obj)
 {
+    if (mCurrentCompletionType == None) {
+        return;
+    }
     mInputCompleterModel->parseChannels(obj);
     // Don't show a popup with exactly the same as the pattern
     // (e.g. type or navigate within @dfaure -> the offer is "dfaure", useless)
     if (mInputCompleterModel->rowCount() == 1) {
         const QString completerName = mInputCompleterModel->index(0, 0).data(InputCompleterModel::CompleterName).toString();
-        if (mCurrentCompletionPattern == completerName) {
+        if (mCurrentCompletionPattern == completerName || mCurrentCompletionPattern.isEmpty()) {
             clearCompleter();
             return;
         }
