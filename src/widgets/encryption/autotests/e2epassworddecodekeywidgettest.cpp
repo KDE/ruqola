@@ -20,7 +20,6 @@ E2ePasswordDecodeKeyWidgetTest::E2ePasswordDecodeKeyWidgetTest(QObject *parent)
 void E2ePasswordDecodeKeyWidgetTest::shouldHaveDefaultValues()
 {
     E2ePasswordDecodeKeyWidget w;
-    // TODO
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
