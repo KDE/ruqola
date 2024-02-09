@@ -15,6 +15,7 @@
 #include "customemojiiconmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
+#include "encryption/e2ekeymanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
 #include "previewurlcachemanager.h"
@@ -122,6 +123,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
     , mManageLoadHistory(new ManageLocalDatabase(this, this))
     , mPreviewUrlCacheManager(new PreviewUrlCacheManager(this, this))
+    , mE2eKeyManager(new E2eKeyManager(this, this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account

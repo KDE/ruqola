@@ -86,6 +86,7 @@ class LocalDatabaseManager;
 class ManageLocalDatabase;
 class AccountRoomSettings;
 class PreviewUrlCacheManager;
+class E2eKeyManager;
 
 namespace RocketChatRestApi
 {
@@ -708,6 +709,7 @@ private:
     std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
     ManageLocalDatabase *const mManageLoadHistory;
     PreviewUrlCacheManager *const mPreviewUrlCacheManager;
+    E2eKeyManager *const mE2eKeyManager;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;
