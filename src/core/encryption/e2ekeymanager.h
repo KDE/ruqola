@@ -18,11 +18,14 @@ public:
 
     void decodeEncryptionKey();
 
+    void fetchMyKeys();
+
     [[nodiscard]] bool needToDecodeEncryptionKey() const;
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();
     void failedDecodeEncryptionKey();
+    void fetchMyKeysDone(const QJsonObject &replyObject);
 
 private:
     RocketChatAccount *const mAccount;
