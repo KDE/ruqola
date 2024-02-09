@@ -26,7 +26,7 @@ public:
     [[nodiscard]] bool canStart() const override;
 
 Q_SIGNALS:
-    void fetchMyKeysDone();
+    void fetchMyKeysDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(FetchMyKeysJob)
