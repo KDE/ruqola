@@ -22,6 +22,7 @@ public:
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();
+    void failedDecodeEncryptionKey();
 
 private:
     RocketChatAccount *const mAccount;
