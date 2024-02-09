@@ -6,10 +6,21 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QJsonObject>
+#include <QString>
 
 class LIBRUQOLACORE_EXPORT E2eKey
 {
 public:
     E2eKey();
     ~E2eKey();
+
+    void parseKeyInfo(const QJsonObject &replyObject);
+
+    [[nodiscard]] QString binaryPrivateKey() const;
+    void setBinaryPrivateKey(const QString &newBinaryPrivateKey);
+
+private:
+    QString mBinaryPrivateKey;
+    QString mPublicKey;
 };
