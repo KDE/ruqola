@@ -113,8 +113,6 @@
 
 #include "commands/getcommandsjob.h"
 
-#include "e2e/fetchmykeysjob.h"
-
 #include "autotranslate/translatesavesettingsjob.h"
 
 #include "custom/customuserstatusdeletejob.h"
@@ -1184,16 +1182,6 @@ void Connection::runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo)
     connect(job, &RunCommandJob::runCommandDone, this, &Connection::runCommandDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RunCommandJob job";
-    }
-}
-
-void Connection::fetchMyKeys()
-{
-    auto job = new FetchMyKeysJob(this);
-    initializeRestApiJob(job);
-    connect(job, &FetchMyKeysJob::fetchMyKeysDone, this, &Connection::fetchMyKeysDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetchmykeys job";
     }
 }
 
