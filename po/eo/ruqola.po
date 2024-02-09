@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-06 00:38+0000\n"
+"POT-Creation-Date: 2024-02-09 00:38+0000\n"
 "PO-Revision-Date: 2024-02-05 22:05+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -810,7 +810,7 @@ msgstr "Kanala Tipo"
 msgid "Belongs To"
 msgstr "Apartenas Al"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1013,55 +1013,55 @@ msgstr "Dufaktora Aŭtentigo"
 msgid "Last token part"
 msgstr "Lasta simbola parto"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:465
 #, kde-format
 msgid "Teams Room"
 msgstr "Teamoj Ĉambro"
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:471
 #, kde-format
 msgid "Private Room"
 msgstr "Privata Ĉambro"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskutejo"
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:477
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanala Ĉambro"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:537
 #, kde-format
 msgid "Unread"
 msgstr "Nelegita"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "Favorites"
 msgstr "Plej ŝatataj"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Teamoj"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:545
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Diskutoj"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Private Messages"
 msgstr "Privataj Mesaĝoj"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
@@ -7327,6 +7327,15 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "DeepL API-Ŝlosilo"
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:22
+#, kde-format
+msgid ""
+"To access your encrypted private groups and direct messages, enter your "
+"encryption password.\n"
+"You need to enter this password to encode/decode your messages on every "
+"client you use, since the key is not stored on the server."
+msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

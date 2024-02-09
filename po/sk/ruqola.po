@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-06 00:38+0000\n"
+"POT-Creation-Date: 2024-02-09 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -849,7 +849,7 @@ msgstr "Názov kanála"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1069,60 +1069,60 @@ msgstr "Autentifikačná metóda"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:465
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Teams Room"
 msgstr "Predvolené"
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:471
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Private Room"
 msgstr "Súkromné:"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:473
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Discussion Room"
 msgstr "Hľadať súbor..."
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:477
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Channel Room"
 msgstr "Názov kanála"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:537
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Vlákna"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:545
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Private Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -7582,6 +7582,15 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
+msgstr ""
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:22
+#, kde-format
+msgid ""
+"To access your encrypted private groups and direct messages, enter your "
+"encryption password.\n"
+"You need to enter this password to encode/decode your messages on every "
+"client you use, since the key is not stored on the server."
 msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24

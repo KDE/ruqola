@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-06 00:38+0000\n"
+"POT-Creation-Date: 2024-02-09 00:38+0000\n"
 "PO-Revision-Date: 2023-11-14 13:24+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -808,7 +808,7 @@ msgstr "Typ kanálu"
 msgid "Belongs To"
 msgstr "Patří"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1012,55 +1012,55 @@ msgstr "Dvoufaktorové ověření"
 msgid "Last token part"
 msgstr "Poslední část tokenu"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:465
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:471
 #, kde-format
 msgid "Private Room"
 msgstr "Soukromá místnost"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:477
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:537
 #, kde-format
 msgid "Unread"
 msgstr "Nepřečteno"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Týmy"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:545
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Diskuze"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Private Messages"
 msgstr "Soukromé zprávy"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámý"
@@ -4792,10 +4792,9 @@ msgid "Enable Auto-Translate"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Link Preview"
+#, kde-format
 msgid "Embed Link Previews"
-msgstr "Náhled odkazu"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:53
 #, kde-format
@@ -4979,10 +4978,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:191
-#, fuzzy, kde-format
-#| msgid "Expiration (Days)"
+#, kde-format
 msgid "Embed Cache Expiration Days"
-msgstr "Konec platnosti (dny)"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -7133,11 +7131,10 @@ msgstr[1] "%1 diskuze v místnosti (celkem: %2)"
 msgstr[2] "%1 diskuzí v místnosti (celkem: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Heslo"
+msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7148,10 +7145,9 @@ msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Šifrování"
+msgstr ""
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7163,6 +7159,15 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
+msgstr ""
+
+#: widgets/encryption/e2epassworddecodekeywidget.cpp:22
+#, kde-format
+msgid ""
+"To access your encrypted private groups and direct messages, enter your "
+"encryption password.\n"
+"You need to enter this password to encode/decode your messages on every "
+"client you use, since the key is not stored on the server."
 msgstr ""
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
@@ -7745,10 +7750,9 @@ msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Idle Timeout (ms)"
+#, kde-format
 msgid "Idle Time Limit:"
-msgstr "Limit pro nečinnost (ms):"
+msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
