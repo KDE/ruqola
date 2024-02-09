@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 03:15+0000\n"
+"POT-Creation-Date: 2024-02-09 03:22+0000\n"
 "PO-Revision-Date: 2024-02-03 15:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -842,7 +842,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1052,60 +1052,60 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:465
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Teams Room"
 msgstr "聊天室"
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:471
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Private Room"
 msgstr "刪除聊天室"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:473
 #, fuzzy, kde-format
 #| msgid "Discussions"
 msgid "Discussion Room"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:477
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:537
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread"
 msgstr "討論串"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:545
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Unknown"
 msgstr ""

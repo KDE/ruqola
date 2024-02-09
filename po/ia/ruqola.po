@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-03 03:15+0000\n"
+"POT-Creation-Date: 2024-02-09 03:22+0000\n"
 "PO-Revision-Date: 2023-09-29 10:04+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -808,7 +808,7 @@ msgstr "Typo de Canale"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:539
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1018,55 +1018,55 @@ msgstr "Authentication a duo factores"
 msgid "Last token part"
 msgstr "Ultime parte de indicio"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:465
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala de Equipas"
 
-#: core/model/roommodel.cpp:467
+#: core/model/roommodel.cpp:471
 #, kde-format
 msgid "Private Room"
 msgstr "Sala Private"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de discussion"
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:477
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala de Canal"
 
-#: core/model/roommodel.cpp:533
+#: core/model/roommodel.cpp:537
 #, kde-format
 msgid "Unread"
 msgstr "Non Legite"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:539
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:541
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Equipas"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:545
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussiones"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:547
 #, kde-format
 msgid "Private Messages"
 msgstr "Messages private"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:549
 #, kde-format
 msgid "Unknown"
 msgstr "Incognite"
