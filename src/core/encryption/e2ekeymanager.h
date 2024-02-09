@@ -16,6 +16,13 @@ public:
     explicit E2eKeyManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~E2eKeyManager() override;
 
+    void decodeEncryptionKey();
+
+    [[nodiscard]] bool needToDecodeEncryptionKey() const;
+
+Q_SIGNALS:
+    void needDecodeEncryptionKey();
+
 private:
     RocketChatAccount *const mAccount;
 };

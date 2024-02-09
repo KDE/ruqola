@@ -15,4 +15,15 @@ E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent)
 
 E2eKeyManager::~E2eKeyManager() = default;
 
+void E2eKeyManager::decodeEncryptionKey()
+{
+    // TODO
+}
+
+bool E2eKeyManager::needToDecodeEncryptionKey() const
+{
+    // TODO
+    return false;
+}
+
 #include "moc_e2ekeymanager.cpp"
