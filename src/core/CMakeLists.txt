@@ -550,6 +550,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_authentic
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_previewurlcache_debug.h IDENTIFIER RUQOLA_PREVIEWURLCACHE_LOG
     CATEGORY_NAME org.kde.ruqola.previewurlcache DESCRIPTION "ruqola preview url cache" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_encryption_debug.h IDENTIFIER RUQOLA_ENCRYPTION_LOG
+    CATEGORY_NAME org.kde.ruqola.encryption DESCRIPTION "ruqola encryption" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
