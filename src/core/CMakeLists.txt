@@ -477,6 +477,8 @@ target_sources(libruqolacore PRIVATE
     encryption/encryptionutils.cpp
     encryption/e2ekeymanager.cpp
     encryption/e2ekeymanager.h
+    encryption/e2ekey.h
+    encryption/e2ekey.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
