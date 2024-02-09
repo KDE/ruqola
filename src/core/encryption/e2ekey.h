@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QDebug>
 #include <QJsonObject>
 #include <QString>
 
@@ -24,3 +25,6 @@ private:
     QString mBinaryPrivateKey;
     QString mPublicKey;
 };
+Q_DECLARE_METATYPE(E2eKey)
+Q_DECLARE_TYPEINFO(E2eKey, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const E2eKey &t);
