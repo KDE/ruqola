@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT FetchMyKeysJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT FetchMyKeysJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(FetchMyKeysJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }
