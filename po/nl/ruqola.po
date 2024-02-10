@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-09 00:38+0000\n"
-"PO-Revision-Date: 2024-02-06 11:16+0100\n"
+"POT-Creation-Date: 2024-02-10 00:39+0000\n"
+"PO-Revision-Date: 2024-02-09 10:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2790
+#: core/rocketchataccount.cpp:2792
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2791
+#: core/rocketchataccount.cpp:2793
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -7378,6 +7378,10 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"Om toegang te krijgen tot uw versleutelde privé groepen en directe "
+"berichten, voer uw wachtwoord voor versleuteling in.\n"
+"U moet dit wachtwoord invoeren om uw berichten te coderen/decoderen op elke "
+"client die u gebruikt, omdat de sleutel niet op de server wordt opgeslagen."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
