@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-10 00:39+0000\n"
-"PO-Revision-Date: 2024-02-09 06:05+0100\n"
+"PO-Revision-Date: 2024-02-10 04:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4972,6 +4972,9 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"გამოსახულების ფაილებიდან (jpeg, tiff და ა.შ.) EXIF მეტამონაცემების მოცილება. "
+"ეს პარამეტრი რეტროაქტიური არაა, ასე რომ ფაილებს, რომლებიც მაშინ აიტვირთა, "
+"როცა ეს გათიშული იყო, EXIF მონაცემები მაინც ექნებათ"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
 #, kde-format

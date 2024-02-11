@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-10 00:39+0000\n"
-"PO-Revision-Date: 2024-01-29 14:43+0100\n"
+"PO-Revision-Date: 2024-02-10 11:52+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -7334,11 +7334,10 @@ msgstr[0] "Una discussione nella stanza (totale: %2)"
 msgstr[1] "%1 discussioni nella stanza (totale: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Password"
+msgstr "Copia password"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7346,26 +7345,28 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"Non è stato possibile decodificare la chiave di cifratura da importare. La "
+"tua password di cifratura sembra errata."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Cifratura"
+msgstr "Decifra la chiave di cifratura"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"Salva la tua password di cifratura. Fai qui per visualizzare e copiare la "
+"tua password."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Chiave API di DeepL"
+msgstr "Decodifica chiave"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:22
 #, kde-format
@@ -7375,6 +7376,10 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"Per accedere ai tuoi gruppi privati e ai messaggi diretti cifrati, inserisci "
+"la password di cifratura.\n"
+"Devi inserire questa password per codificare/decodificare i tuoi messaggi su "
+"ogni client che utilizzi, poiché la chiave non è memorizzata sul server."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format

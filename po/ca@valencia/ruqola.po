@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-10 00:39+0000\n"
-"PO-Revision-Date: 2024-02-06 15:20+0100\n"
+"PO-Revision-Date: 2024-02-09 09:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -7335,7 +7335,7 @@ msgstr[1] "%1 debats a la sala (Total: %2)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Copia la contrasenya"
+msgstr "Copieu la contrasenya"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7374,6 +7374,11 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"Per a accedir als vostres grups privats encriptats i als missatges directes, "
+"introduïu la contrasenya d'encriptació.\n"
+"Heu d'introduir esta contrasenya per a codificar/descodificar els vostres "
+"missatges en cada client que utilitzeu, ja que la clau no s'emmagatzema al "
+"servidor."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
