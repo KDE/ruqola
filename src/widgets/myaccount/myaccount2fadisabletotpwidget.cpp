@@ -6,8 +6,8 @@
 
 #include "myaccount2fadisabletotpwidget.h"
 #include "ddpapi/ddpclient.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
@@ -35,7 +35,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
 
     mDisableCodeLineEdit->setObjectName(QStringLiteral("mDisableCodeLineEdit"));
     mDisableCodeLineEdit->setPlaceholderText(i18n("Enter authentication code"));
-    new LineEditCatchReturnKey(mDisableCodeLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mDisableCodeLineEdit);
     hboxLayout->addWidget(mDisableCodeLineEdit);
 
     auto verifyButton = new QPushButton(i18n("Verify"), this);

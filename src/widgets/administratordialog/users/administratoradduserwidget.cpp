@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoradduserwidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/rolescombobox.h"
 #include "rocketchataccount.h"
 #include "user.h"
 #include <KAuthorized>
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
@@ -41,11 +41,11 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mBioPlainTextEdit->setObjectName(QStringLiteral("mBioPlainTextEdit"));
     mNickName->setObjectName(QStringLiteral("mNickName"));
-    new LineEditCatchReturnKey(mName, this);
-    new LineEditCatchReturnKey(mUserName, this);
-    new LineEditCatchReturnKey(mEmail, this);
-    new LineEditCatchReturnKey(mStatusText, this);
-    new LineEditCatchReturnKey(mNickName, this);
+    KLineEditEventHandler::catchReturnKey(mName);
+    KLineEditEventHandler::catchReturnKey(mUserName);
+    KLineEditEventHandler::catchReturnKey(mEmail);
+    KLineEditEventHandler::catchReturnKey(mStatusText);
+    KLineEditEventHandler::catchReturnKey(mNickName);
 
     mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));

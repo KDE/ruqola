@@ -6,8 +6,8 @@
 
 #include "inviteuserswidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
+#include <KLineEditEventHandler>
 
 #include <KCollapsibleGroupBox>
 #include <KLocalizedString>
@@ -45,7 +45,7 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
 
     mInviteUserLineEdit->setObjectName(QStringLiteral("mInviteUserLineEdit"));
     mInviteUserLineEdit->setReadOnly(true);
-    new LineEditCatchReturnKey(mInviteUserLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mInviteUserLineEdit);
     hlayout->addWidget(mInviteUserLineEdit);
 
     auto copyLinkButton = new QToolButton(this);

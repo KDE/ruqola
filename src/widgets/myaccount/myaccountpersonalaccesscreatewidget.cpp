@@ -5,7 +5,7 @@
 */
 
 #include "myaccountpersonalaccesscreatewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -23,7 +23,7 @@ MyAccountPersonalAccessCreateWidget::MyAccountPersonalAccessCreateWidget(QWidget
     mTokenName->setObjectName(QStringLiteral("mTokenName"));
     mTokenName->setClearButtonEnabled(true);
 
-    new LineEditCatchReturnKey(mTokenName, this);
+    KLineEditEventHandler::catchReturnKey(mTokenName);
 
     formLayout->addRow(i18n("Name:"), mTokenName);
     formLayout->addWidget(mBypassTwoFactor);

@@ -6,11 +6,11 @@
 
 #include "myaccountprofileconfigurewidget.h"
 #include "dialogs/asktwoauthenticationpassworddialog.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/passwordconfirmwidget.h"
 #include "myaccountprofileconfigureavatarwidget.h"
 #include "rocketchataccount.h"
 #include <KAuthorized>
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordDialog>
@@ -46,27 +46,27 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     topLayout->addLayout(mainLayout);
 
     mName->setObjectName(QStringLiteral("mName"));
-    new LineEditCatchReturnKey(mName, this);
+    KLineEditEventHandler::catchReturnKey(mName);
     mainLayout->addRow(i18n("Name:"), mName);
     mName->setClearButtonEnabled(true);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
-    new LineEditCatchReturnKey(mUserName, this);
+    KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username:"), mUserName);
 
     mEmail->setObjectName(QStringLiteral("mEmail"));
-    new LineEditCatchReturnKey(mEmail, this);
+    KLineEditEventHandler::catchReturnKey(mEmail);
     mainLayout->addRow(i18n("Email:"), mEmail);
 
     mEmailInfo->setObjectName(QStringLiteral("mEmailInfo"));
     mainLayout->addWidget(mEmailInfo);
 
     mNickName->setObjectName(QStringLiteral("mNickName"));
-    new LineEditCatchReturnKey(mNickName, this);
+    KLineEditEventHandler::catchReturnKey(mNickName);
     mainLayout->addRow(i18n("Nickname:"), mNickName);
     mNickName->setClearButtonEnabled(true);
 
-    new LineEditCatchReturnKey(mStatusText, this);
+    KLineEditEventHandler::catchReturnKey(mStatusText);
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
     mainLayout->addRow(i18n("Status text:"), mStatusText);
     mStatusText->setClearButtonEnabled(true);

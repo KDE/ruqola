@@ -9,7 +9,6 @@
 #include "connection.h"
 #include "dialogs/createnewchanneldialog.h"
 #include "groups/creategroupsjob.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
 #include "rocketchataccount.h"
@@ -21,6 +20,7 @@
 #include "teams/teamsearchroomdialog.h"
 #include "teams/teamslistroomsjob.h"
 #include "teams/teamupdateroomjob.h"
+#include <KLineEditEventHandler>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -58,7 +58,7 @@ TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *pare
 
     mSearchLineEdit->setPlaceholderText(i18n("Search room..."));
     mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);

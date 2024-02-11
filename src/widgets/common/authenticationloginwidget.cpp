@@ -6,9 +6,9 @@
 
 #include "authenticationloginwidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/passwordlineeditwidget.h"
 #include "registeruser/registeruserdialog.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordLineEdit>
@@ -35,12 +35,12 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
 
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mAccountName, this);
+    KLineEditEventHandler::catchReturnKey(mAccountName);
     mainLayout->addRow(i18n("Account name:"), mAccountName);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mUserName, this);
+    KLineEditEventHandler::catchReturnKey(mUserName);
     mainLayout->addRow(i18n("Username:"), mUserName);
 
     mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEdit"));

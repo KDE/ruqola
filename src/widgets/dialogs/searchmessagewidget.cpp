@@ -5,11 +5,11 @@
 */
 
 #include "searchmessagewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/commonmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "searchmessagewithdelaylineedit.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -37,7 +37,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search messages"));
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchMessageWidget::slotSearchMessages);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchMessageWidget::slotClearedMessages);

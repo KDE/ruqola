@@ -6,13 +6,13 @@
 
 #include "administratorroleswidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/adminrolesmodel.h"
 #include "rocketchataccount.h"
 #include "roleeditdialog.h"
 #include "rolestreeview.h"
 #include "ruqolawidgets_debug.h"
 #include "userinroleeditdialog.h"
+#include <KLineEditEventHandler>
 
 #include "role/rolecreatejob.h"
 #include "role/roledeletejob.h"
@@ -45,7 +45,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mSearchLineWidget->setPlaceholderText(i18n("Search roles..."));
     mSearchLineWidget->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineWidget, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
 
     mainLayout->addWidget(mSearchLineWidget);
     mainLayout->addWidget(mTreeView);

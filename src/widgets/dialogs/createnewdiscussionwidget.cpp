@@ -7,7 +7,7 @@
 #include "createnewdiscussionwidget.h"
 #include "channelsearchwidget.h"
 #include "misc/adduserswidget.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KTextEdit>
 #include <QLabel>
@@ -39,7 +39,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mainLayout->addWidget(discussionName);
 
     mDiscussionNameLineEdit->setObjectName(QStringLiteral("mDiscussionNameLineEdit"));
-    new LineEditCatchReturnKey(mDiscussionNameLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mDiscussionNameLineEdit);
     mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 

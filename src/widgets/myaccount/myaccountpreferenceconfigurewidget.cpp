@@ -6,10 +6,10 @@
 
 #include "myaccountpreferenceconfigurewidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "users/userrequestdatadownloadjob.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSeparator>
@@ -49,7 +49,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(highlightWordsLabel);
 
     mHighlightWords->setObjectName(QStringLiteral("mHighlightWords"));
-    new LineEditCatchReturnKey(mHighlightWords, this);
+    KLineEditEventHandler::catchReturnKey(mHighlightWords);
     mHighlightWords->setPlaceholderText(i18n("Use \',\' for separating words"));
     mHighlightWords->setToolTip(i18n("Separate each word with \',\'."));
     connect(mHighlightWords, &QLineEdit::textEdited, this, &MyAccountPreferenceConfigureWidget::setWasChanged);

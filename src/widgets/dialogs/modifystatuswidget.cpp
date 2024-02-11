@@ -5,8 +5,8 @@
 */
 
 #include "modifystatuswidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/statuscombobox.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -26,7 +26,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 
     mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
     mStatusLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mStatusLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mStatusLineEdit);
 
     mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);

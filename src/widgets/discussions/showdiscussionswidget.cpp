@@ -6,9 +6,9 @@
 
 #include "showdiscussionswidget.h"
 #include "discussionlistview.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "rocketchataccount.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -35,7 +35,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 
     mSearchDiscussionLineEdit->setObjectName(QStringLiteral("mSearchDiscussionLineEdit"));
     mSearchDiscussionLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchDiscussionLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchDiscussionLineEdit);
     mSearchDiscussionLineEdit->setPlaceholderText(i18n("Search discussion..."));
     connect(mSearchDiscussionLineEdit, &QLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);

@@ -5,9 +5,9 @@
 */
 
 #include "showlistmessagebasewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/listmessagesfilterproxymodel.h"
 #include "room/messagelistview.h"
+#include <KLineEditEventHandler>
 
 #include <KLocalizedString>
 #include <QLabel>
@@ -35,7 +35,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
 
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchMessageLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchMessageLineEdit);
     mSearchMessageLineEdit->setPlaceholderText(i18n("Search messages..."));
     connect(mSearchMessageLineEdit, &QLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);

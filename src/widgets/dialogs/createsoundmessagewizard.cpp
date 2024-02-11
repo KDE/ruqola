@@ -6,8 +6,8 @@
 
 #include "createsoundmessagewizard.h"
 #include "createsoundmessagewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "playsoundwidget.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -114,8 +114,8 @@ GenerateSoundMessagePage::GenerateSoundMessagePage(RocketChatAccount *account, Q
 
     mainLayout->addWidget(mFileName);
 
-    new LineEditCatchReturnKey(mFileName, this);
-    new LineEditCatchReturnKey(mDescription, this);
+    KLineEditEventHandler::catchReturnKey(mFileName);
+    KLineEditEventHandler::catchReturnKey(mDescription);
 
     label = new QLabel(i18n("Description:"), this);
     label->setTextFormat(Qt::PlainText);

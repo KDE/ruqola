@@ -14,13 +14,6 @@ if (TARGET KF6::UserFeedbackWidgets OR TARGET KUserFeedbackWidgets)
 endif()
 
 
-# Laurent port to KLineEditEventHandler in qt6
-target_sources(libruqolawidgets PRIVATE
-    misc/lineeditcatchreturnkey.cpp
-    misc/lineeditcatchreturnkey.h
-)
-
-
 target_sources(libruqolawidgets PRIVATE
     administratordialog/administratordialog.cpp
     administratordialog/administratordialog.h

@@ -7,13 +7,13 @@
 #include "administratoroauthfilterproxymodel.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/listoauthappsjob.h"
 #include "model/adminoauthmodel.h"
 #include "oauth/oauthinfo.h"
 #include "oauthtreeview.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QVBoxLayout>
@@ -33,7 +33,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18n("Search Oauth apps..."));
-    new LineEditCatchReturnKey(mSearchLineWidget, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mOauthTreeWidget->setObjectName(QStringLiteral("mOauthTreeWidget"));
     mainLayout->addWidget(mOauthTreeWidget);
     mAdminInviteFilterProxyModel = new AdministratorOauthFilterProxyModel(mAdminOauthModel, this);

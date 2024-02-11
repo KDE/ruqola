@@ -6,14 +6,14 @@
 
 #include "completionlineedit.h"
 #include "completionlistview.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)
     : QLineEdit(parent)
     , mCompletionListView(new CompletionListView)
 {
     setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(this, this);
+    KLineEditEventHandler::catchReturnKey(this);
 
     mCompletionListView->setTextWidget(this);
 

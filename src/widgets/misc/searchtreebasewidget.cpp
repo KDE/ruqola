@@ -5,9 +5,9 @@
 */
 
 #include "searchtreebasewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/custombasemodel.h"
+#include <KLineEditEventHandler>
 
 #include <KLocalizedString>
 #include <QHeaderView>
@@ -31,7 +31,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setDelayMs(500ms);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
     mSearchLayout->addWidget(mLabelResultSearch);

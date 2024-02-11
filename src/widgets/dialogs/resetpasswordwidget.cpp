@@ -5,8 +5,8 @@
 */
 
 #include "resetpasswordwidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include <KEmailAddress>
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -26,7 +26,7 @@ ResetPasswordWidget::ResetPasswordWidget(QWidget *parent)
 
     mEmail->setObjectName(QStringLiteral("mEmail"));
     mainLayout->addWidget(mEmail);
-    new LineEditCatchReturnKey(mEmail, this);
+    KLineEditEventHandler::catchReturnKey(mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &ResetPasswordWidget::slotEmailChanged);
 }
 

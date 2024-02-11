@@ -5,10 +5,10 @@
 */
 
 #include "moderationreportinfowidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/moderationreportinfofilterproxymodel.h"
 #include "model/moderationreportinfomodel.h"
 #include "moderationreportinfolistview.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -38,7 +38,7 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *accoun
     mSearchLineEdit->setPlaceholderText(i18n("Search..."));
     mainLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));

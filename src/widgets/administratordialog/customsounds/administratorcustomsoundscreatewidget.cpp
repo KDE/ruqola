@@ -5,7 +5,7 @@
 */
 
 #include "administratorcustomsoundscreatewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KUrlRequester>
 #include <QFormLayout>
@@ -21,7 +21,7 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
     mainLayout->setContentsMargins({});
 
     mName->setObjectName(QStringLiteral("mName"));
-    new LineEditCatchReturnKey(mName, this);
+    KLineEditEventHandler::catchReturnKey(mName);
 
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
 

@@ -5,9 +5,9 @@
 */
 
 #include "teamselectdeletedroomwidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -31,7 +31,7 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
 
     mSearchLineEdit->setPlaceholderText(i18n("Search room..."));
     mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
     mListView->setObjectName(QStringLiteral("mListView"));
     mainLayout->addWidget(mListView);

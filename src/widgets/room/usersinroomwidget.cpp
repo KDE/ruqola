@@ -6,12 +6,12 @@
 
 #include "usersinroomwidget.h"
 #include "dialogs/directchannelinfodialog.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "usersinroomcombobox.h"
 #include "usersinroommenu.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -39,7 +39,7 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
     mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);
     hMainLayout->addWidget(mSearchLineEdit);
     mUsersInRoomComboBox->setObjectName(QStringLiteral("mUsersInRoomComboBox"));

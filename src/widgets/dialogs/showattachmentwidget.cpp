@@ -6,9 +6,9 @@
 
 #include "showattachmentwidget.h"
 #include "attachment/listattachmentdelegate.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "showattachmentcombobox.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -33,7 +33,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *
 
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchAttachmentFileLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchAttachmentFileLineEdit);
     mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search attachments..."));
     connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowAttachmentWidget::slotSearchMessageTextChanged);
     searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);

@@ -6,7 +6,6 @@
 
 #include "permissionswidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/permissionsmodel.h"
 #include "permissions/permissions.h"
 #include "permissions/permissionslistalljob.h"
@@ -15,6 +14,7 @@
 #include "permissionstreeview.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QMenu>
@@ -39,7 +39,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mSearchLineWidget->setPlaceholderText(i18n("Search permissions..."));
-    new LineEditCatchReturnKey(mSearchLineWidget, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));

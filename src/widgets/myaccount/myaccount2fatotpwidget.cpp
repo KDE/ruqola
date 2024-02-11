@@ -6,8 +6,8 @@
 
 #include "myaccount2fatotpwidget.h"
 #include "ddpapi/ddpclient.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <Prison/Prison>
@@ -50,7 +50,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
 
     mVerifyQrCode->setObjectName(QStringLiteral("mVerifyQrCode"));
     mVerifyQrCode->setPlaceholderText(i18n("Enter authentication code"));
-    new LineEditCatchReturnKey(mVerifyQrCode, this);
+    KLineEditEventHandler::catchReturnKey(mVerifyQrCode);
     hboxLayout->addWidget(mVerifyQrCode);
 
     auto verifyButton = new QPushButton(i18n("Verify"), this);

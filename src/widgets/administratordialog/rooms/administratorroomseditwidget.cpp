@@ -7,7 +7,7 @@
 #include "administratorroomseditwidget.h"
 #include "dialogs/messagetexteditor.h"
 #include "dialogs/roomavatarwidget.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -41,7 +41,7 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
 
     mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
     mainLayout->addRow(i18n("Name:"), mLineEdit);
-    new LineEditCatchReturnKey(mLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mLineEdit);
 
     mTopic->setObjectName(QStringLiteral("mComment"));
     mainLayout->addRow(i18n("Comment:"), mTopic);

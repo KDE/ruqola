@@ -5,10 +5,10 @@
 */
 
 #include "exploredatabasewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
+#include <KLineEditEventHandler>
 #include <KMessageBox>
 #include <QCheckBox>
 #include <QDateTimeEdit>
@@ -54,7 +54,7 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
 
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
     mRoomName->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mRoomName, this);
+    KLineEditEventHandler::catchReturnKey(mRoomName);
     auto label = new QLabel(QStringLiteral("Room name:"), this);
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);

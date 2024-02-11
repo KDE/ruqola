@@ -5,7 +5,7 @@
 */
 
 #include "administratorcustomemojicreateorupdatewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -44,8 +44,8 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     mAlias->setObjectName(QStringLiteral("mAlias"));
     mAlias->setClearButtonEnabled(true);
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
-    new LineEditCatchReturnKey(mName, this);
-    new LineEditCatchReturnKey(mAlias, this);
+    KLineEditEventHandler::catchReturnKey(mName);
+    KLineEditEventHandler::catchReturnKey(mAlias);
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Alias:"), mAlias);
     mainLayout->addRow(i18n("File:"), mSelectFile);

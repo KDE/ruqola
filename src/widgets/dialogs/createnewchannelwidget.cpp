@@ -8,8 +8,8 @@
 #include "channelnamevalidlineedit.h"
 #include "channelnamevalidlinewidget.h"
 #include "misc/adduserswidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include <KAuthorized>
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -34,7 +34,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
 
     mTopicLineEdit->setObjectName(QStringLiteral("mTopicLineEdit"));
     mMainLayout->addRow(i18n("Topic:"), mTopicLineEdit);
-    new LineEditCatchReturnKey(mTopicLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mTopicLineEdit);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Invite users..."));

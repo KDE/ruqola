@@ -5,7 +5,7 @@
 */
 
 #include "messagemaximumsizewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -21,11 +21,11 @@ MessageMaximumSizeWidget::MessageMaximumSizeWidget(QWidget *parent)
 
     mFileName->setObjectName(QStringLiteral("mFileName"));
     mainLayout->addRow(i18n("Filename:"), mFileName);
-    new LineEditCatchReturnKey(mFileName, this);
+    KLineEditEventHandler::catchReturnKey(mFileName);
 
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mainLayout->addRow(i18n("Description:"), mDescription);
-    new LineEditCatchReturnKey(mDescription, this);
+    KLineEditEventHandler::catchReturnKey(mDescription);
 
     connect(mFileName, &QLineEdit::textChanged, this, &MessageMaximumSizeWidget::slotTextChanged);
     connect(mDescription, &QLineEdit::textChanged, this, &MessageMaximumSizeWidget::slotTextChanged);

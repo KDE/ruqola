@@ -5,8 +5,8 @@
 */
 
 #include "roleeditwidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "rolescopecombobox.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -24,9 +24,9 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mName->setObjectName(QStringLiteral("mName"));
-    new LineEditCatchReturnKey(mName, this);
+    KLineEditEventHandler::catchReturnKey(mName);
     mDescription->setObjectName(QStringLiteral("mDescription"));
-    new LineEditCatchReturnKey(mDescription, this);
+    KLineEditEventHandler::catchReturnKey(mDescription);
     mTwoFactor->setObjectName(QStringLiteral("mTwoFactor"));
 
     mRoleScopeComboBox->setObjectName(QStringLiteral("mRoleScopeComboBox"));

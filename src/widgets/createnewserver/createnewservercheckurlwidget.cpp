@@ -6,10 +6,10 @@
 
 #include "createnewservercheckurlwidget.h"
 #include "ddpapi/ddpclient.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include <KBusyIndicatorWidget>
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageWidget>
 #include <QHBoxLayout>
@@ -40,7 +40,7 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     serverUrlLayout->addWidget(mServerUrl);
     mServerUrl->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mServerUrl, this);
+    KLineEditEventHandler::catchReturnKey(mServerUrl);
 
     mConnectionPushButton->setObjectName(QStringLiteral("connectionPushButton"));
     mConnectionPushButton->setEnabled(false);

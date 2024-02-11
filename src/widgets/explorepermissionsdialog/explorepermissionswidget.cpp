@@ -6,8 +6,8 @@
 
 #include "explorepermissionswidget.h"
 #include "explorepermissionswidgetfilterproxymodel.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/permissionsmodel.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QHeaderView>
 #include <QLabel>
@@ -37,7 +37,7 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     mOwnRoles->setObjectName(QStringLiteral("mOwnRoles"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mSearchLineWidget->setPlaceholderText(i18n("Search permissions..."));
-    new LineEditCatchReturnKey(mSearchLineWidget, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);
     mTreeView->setObjectName(QStringLiteral("mTreeView"));

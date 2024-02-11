@@ -6,9 +6,9 @@
 
 #include "createvideomessagewizard.h"
 #include "createvideomessagewidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "showvideowidget.h"
 #include <KConfigGroup>
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
@@ -138,8 +138,8 @@ GenerateVideoMessagePage::GenerateVideoMessagePage(RocketChatAccount *account, Q
     mFileName->setObjectName(QStringLiteral("mFileName"));
     mDescription->setObjectName(QStringLiteral("mDescription"));
 
-    new LineEditCatchReturnKey(mFileName, this);
-    new LineEditCatchReturnKey(mDescription, this);
+    KLineEditEventHandler::catchReturnKey(mFileName);
+    KLineEditEventHandler::catchReturnKey(mDescription);
 
     mainLayout->addWidget(mFileName);
 

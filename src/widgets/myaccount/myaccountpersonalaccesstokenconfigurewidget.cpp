@@ -6,7 +6,6 @@
 
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
 #include "connection.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "model/personalaccesstokeninfosfilterproxymodel.h"
 #include "model/personalaccesstokeninfosmodel.h"
 #include "myaccountpersonalaccesscreatedialog.h"
@@ -15,6 +14,7 @@
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
 #include "personalaccesstoken/regeneratepersonalaccesstokenjob.h"
 #include "personalaccesstoken/removepersonalaccesstokenjob.h"
+#include <KLineEditEventHandler>
 
 #include "dialogs/confirmpassworddialog.h"
 #include "personalaccesstokens/personalaccesstokeninfos.h"
@@ -47,7 +47,7 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     mPersonalAccessTokenTreeView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
     mainLayout->addWidget(mPersonalAccessTokenTreeView);
 
-    new LineEditCatchReturnKey(mSearchLineWidget, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineWidget);
 
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 

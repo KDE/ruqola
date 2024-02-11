@@ -5,12 +5,12 @@
 */
 
 #include "servererrorinfomessagehistorywidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/serverscombobox.h"
 #include "model/servererrorinfohistoryfilterproxymodel.h"
 #include "model/servererrorinfohistorymodel.h"
 #include "servererrorinfohistorymanager.h"
 #include "servererrorinfomessagehistorylistview.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -44,7 +44,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     mSearchLineEdit->setPlaceholderText(i18n("Search..."));
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
 
     mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
     searchLayout->addWidget(mServersComboBox);

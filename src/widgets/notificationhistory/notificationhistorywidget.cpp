@@ -5,13 +5,13 @@
 */
 
 #include "notificationhistorywidget.h"
-#include "misc/lineeditcatchreturnkey.h"
 #include "misc/serverscombobox.h"
 #include "model/notificationhistorymodel.h"
 #include "model/notificationhistorymodelfilterproxymodel.h"
 #include "notificationhistorylistview.h"
 #include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
+#include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -45,7 +45,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mSearchLineEdit->setPlaceholderText(i18n("Search..."));
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mSearchLineEdit, this);
+    KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
     searchLayout->addWidget(mServersComboBox);
 
