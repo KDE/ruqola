@@ -11,7 +11,6 @@
 #include "messages/message.h"
 #include "ruqola_texttohtml_debug.h"
 #include "utils.h"
-#include <QGuiApplication>
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
 #include "syntaxhighlightingmanager.h"
@@ -380,7 +379,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 
     QString richText;
     QTextStream richTextStream(&richText);
-    const QColor codeBackgroundColor = QGuiApplication::palette().color(QPalette::Base);
+    const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color();
     const auto codeBorderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
 
     QString highlighted;
@@ -390,9 +389,8 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 
     if (useHighlighter) {
         auto &repo = SyntaxHighlightingManager::self()->repo();
-        const auto theme = (QGuiApplication::palette().color(QPalette::Base).lightness() < 128)
-            ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-            : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
+        const auto theme = (codeBackgroundColor.lightness() < 128) ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                   : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
         // qDebug() << " theme .n am" << theme.name();
         highlighter.setTheme(theme);
     }
