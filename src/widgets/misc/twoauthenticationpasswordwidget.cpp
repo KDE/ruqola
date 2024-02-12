@@ -9,6 +9,7 @@
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
+#include <kwidgetsaddons_version.h>
 
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -23,7 +24,12 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
 
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mTwoFactorAuthenticationPasswordLineEdit->lineEdit()->setPlaceholderText(i18n("Enter code"));
+#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 249, 0)
     mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mTwoFactorAuthenticationPasswordLineEdit->setRevealPasswordMode(
+        KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew : KPassword::RevealMode::Never);
+#endif
     twoFactorLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
 
     auto sendNewEmailCode = new QPushButton(i18n("Send new code"), this);

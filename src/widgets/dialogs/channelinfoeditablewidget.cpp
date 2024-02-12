@@ -25,6 +25,7 @@
 #include <QFormLayout>
 #include <QPointer>
 #include <QPushButton>
+#include <kwidgetsaddons_version.h>
 
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -72,7 +73,12 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
 
     // Show it if room is not private
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 249, 0)
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
+                                                                                                                : KPassword::RevealMode::Never);
+#endif
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));

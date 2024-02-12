@@ -11,6 +11,7 @@
 #include <KPasswordLineEdit>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <kwidgetsaddons_version.h>
 
 ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
     : QWidget{parent}
@@ -26,7 +27,12 @@ ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addWidget(mPasswordLineEdit);
+#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 249, 0)
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
+                                                                                                                : KPassword::RevealMode::Never);
+#endif
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [this](const QString &password) {
         Q_EMIT enabledOkButton(!password.isEmpty());
     });

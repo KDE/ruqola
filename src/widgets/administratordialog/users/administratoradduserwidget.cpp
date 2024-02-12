@@ -15,6 +15,7 @@
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPlainTextEdit>
+#include <kwidgetsaddons_version.h>
 
 AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -50,7 +51,12 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 249, 0)
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+#else
+    mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
+                                                                                                                : KPassword::RevealMode::Never);
+#endif
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
     mRequirePasswordChange->setObjectName(QStringLiteral("mRequirePassword"));
     mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));
