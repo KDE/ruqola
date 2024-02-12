@@ -739,8 +739,6 @@ target_sources(libruqolawidgets PRIVATE
     conferencecalldialog/conferencecalldialog.cpp
     conferencecalldialog/conferencecallwidget.h
     conferencecalldialog/conferencecallwidget.cpp
-    conferencecalldialog/conferencedirectcalldialog.h
-    conferencecalldialog/conferencedirectcalldialog.cpp
 
     conferencecalldialog/conferenceinfodialog.h
     conferencecalldialog/conferenceinfodialog.cpp
