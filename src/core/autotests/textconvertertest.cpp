@@ -15,15 +15,14 @@
 
 #include <KColorScheme>
 
-QTEST_MAIN(TextConverterTest)
+QTEST_GUILESS_MAIN(TextConverterTest)
 
 namespace
 {
 QString prepareExpectedOutput(QString output)
 {
     KColorScheme scheme;
-    const auto codeBackgroundColor =
-        QGuiApplication::palette().color(QPalette::Base).name(); // scheme.background(KColorScheme::AlternateBackground).color().name();
+    const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
     const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
 
     const auto userHighlightForegroundColor = scheme.foreground(KColorScheme::PositiveText).color().name();
