@@ -27,6 +27,9 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_2() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT WhatsNewComboBoxWidget::VersionType currentVersion() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateStartEndHtml(const QString &str) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString importantChangeStr() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString featuresChangeStr() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString bugFixingChangeStr() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
     QTextEdit *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;

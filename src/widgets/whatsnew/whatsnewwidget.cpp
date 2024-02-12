@@ -86,11 +86,26 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
     }
 }
 
+QString WhatsNewWidget::importantChangeStr() const
+{
+    return QStringLiteral("<b>") + i18n("Important changes since last version:") + QStringLiteral("</b>");
+}
+
+QString WhatsNewWidget::featuresChangeStr() const
+{
+    return QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
+}
+
+QString WhatsNewWidget::bugFixingChangeStr() const
+{
+    return QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+}
+
 QString WhatsNewWidget::createVersionInformationsV2_0() const
 {
     QString message;
     if (numRuqolaChanges2_0 > 0) {
-        message += QStringLiteral("<b>") + i18n("Important changes since last version:") + QStringLiteral("</b>");
+        message += importantChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaChanges2_0; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaChangesV2_0[i].toString());
@@ -98,7 +113,7 @@ QString WhatsNewWidget::createVersionInformationsV2_0() const
         message += QStringLiteral("</ul>");
     }
     if (numRuqolaNewFeatures2_0 > 0) {
-        message += QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
+        message += featuresChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaNewFeatures2_0; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_0[i].toString());
@@ -106,7 +121,7 @@ QString WhatsNewWidget::createVersionInformationsV2_0() const
         message += QStringLiteral("</ul>");
     }
     if (numRuqolaBugfixing2_0 > 0) {
-        message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+        message += bugFixingChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaBugfixing2_0; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_0[i].toString());
@@ -120,7 +135,7 @@ QString WhatsNewWidget::createVersionInformationsV2_1() const
 {
     QString message;
     if (numRuqolaNewFeatures2_1 > 0) {
-        message += QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
+        message += featuresChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaNewFeatures2_1; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_1[i].toString());
@@ -128,7 +143,7 @@ QString WhatsNewWidget::createVersionInformationsV2_1() const
         message += QStringLiteral("</ul>");
     }
     if (numRuqolaBugfixing2_1 > 0) {
-        message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+        message += bugFixingChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaBugfixing2_1; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_1[i].toString());
@@ -143,7 +158,7 @@ QString WhatsNewWidget::createVersionInformationsV2_2() const
     QString message;
 #if 0
     if (numRuqolaNewFeatures2_2 > 0) {
-        message += QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
+        message += featuresChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaNewFeatures2_2; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(numRuqolaNewFeatures2_2[i].toString());
@@ -152,7 +167,7 @@ QString WhatsNewWidget::createVersionInformationsV2_2() const
     }
 #endif
     if (numRuqolaBugfixing2_2 > 0) {
-        message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+        message += bugFixingChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaBugfixing2_2; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_2[i].toString());
