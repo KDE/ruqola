@@ -153,7 +153,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     Q_ASSERT(index.model() == mStartIndex.model());
     Q_ASSERT(index.model() == mEndIndex.model());
 
-    if (att.isValid() && mAttachmentSelection.isEmpty() && mMessageUrlSelection.isEmpty() && msgUrl.hasHtmlDescription()) {
+    if (att.isValid() && mAttachmentSelection.isEmpty() && mMessageUrlSelection.isEmpty() && !msgUrl.hasHtmlDescription()) {
         return {};
     }
     const OrderedPositions ordered = orderedPositions();
