@@ -136,7 +136,7 @@ endif()
 find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF6TextEmoticonsWidgets PROPERTIES DESCRIPTION
     "Add text emoticons support (ktextaddons)"
-    TYPE OPTIONAL
+    TYPE REQUIRED
 )
 
 if (${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
