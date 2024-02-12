@@ -35,12 +35,13 @@ WhatsNewWidget::~WhatsNewWidget() = default;
 
 WhatsNewComboBoxWidget::VersionType WhatsNewWidget::currentVersion() const
 {
-    return WhatsNewComboBoxWidget::Version2_1;
+    return WhatsNewComboBoxWidget::LastVersion;
 }
 
 // static
 QString WhatsNewWidget::newFeaturesMD5()
 {
+    // TODO fix when we will have new feature in 2.2
     QByteArray str;
     for (int i = 0; i < numRuqolaNewFeatures2_1; ++i) {
         str += ruqolaNewFeatures2_1[i].untranslatedText();
@@ -71,8 +72,13 @@ void WhatsNewWidget::slotVersionChanged(WhatsNewComboBoxWidget::VersionType type
     } else if (type == WhatsNewComboBoxWidget::Version2_1) {
         const QString message = generateStartEndHtml(createVersionInformationsV2_1());
         mLabelInfo->setHtml(message);
+    } else if (type == WhatsNewComboBoxWidget::Version2_2) {
+        const QString message = generateStartEndHtml(createVersionInformationsV2_2());
+        mLabelInfo->setHtml(message);
     } else if (type == WhatsNewComboBoxWidget::AllVersion) {
-        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
+        QString message = generateVersionHeader(WhatsNewComboBoxWidget::Version2_2);
+        message += createVersionInformationsV2_2();
+        message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_1);
         message += createVersionInformationsV2_1();
         message += generateVersionHeader(WhatsNewComboBoxWidget::Version2_0);
         message += createVersionInformationsV2_0();
@@ -132,6 +138,30 @@ QString WhatsNewWidget::createVersionInformationsV2_1() const
     return message;
 }
 
+QString WhatsNewWidget::createVersionInformationsV2_2() const
+{
+    QString message;
+#if 0
+    if (numRuqolaNewFeatures2_2 > 0) {
+        message += QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaNewFeatures2_2; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(numRuqolaNewFeatures2_2[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+#endif
+    if (numRuqolaBugfixing2_2 > 0) {
+        message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaBugfixing2_2; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing2_2[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+    return message;
+}
+
 QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const
 {
     switch (type) {
@@ -139,6 +169,7 @@ QString WhatsNewWidget::generateVersionHeader(WhatsNewComboBoxWidget::VersionTyp
         return {};
     case WhatsNewComboBoxWidget::VersionType::Version2_0:
     case WhatsNewComboBoxWidget::VersionType::Version2_1:
+    case WhatsNewComboBoxWidget::VersionType::Version2_2:
         return QStringLiteral("<h1><i> %1 </i></h1><hr/><br>").arg(WhatsNewComboBoxWidget::convertVersionEnumToString(type));
     }
     return {};

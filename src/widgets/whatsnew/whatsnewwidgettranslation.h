@@ -61,3 +61,15 @@ static const KLazyLocalizedString ruqolaBugfixing2_1[] = {
     kli18n("Fix show avatar url."),
 };
 static const int numRuqolaBugfixing2_1 = sizeof ruqolaBugfixing2_1 / sizeof *ruqolaBugfixing2_1;
+
+// Version 2.2
+#if 0
+static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
+};
+static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
+#endif
+// enter items for the "Important changes" list here:
+static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
+    kli18n("Fix dark mode support."),
+};
+static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;

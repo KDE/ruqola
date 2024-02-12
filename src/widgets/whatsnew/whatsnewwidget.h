@@ -24,6 +24,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateVersionHeader(WhatsNewComboBoxWidget::VersionType type) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_0() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_1() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString createVersionInformationsV2_2() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT WhatsNewComboBoxWidget::VersionType currentVersion() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateStartEndHtml(const QString &str) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
