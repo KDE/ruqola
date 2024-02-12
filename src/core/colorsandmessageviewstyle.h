@@ -29,8 +29,9 @@ Q_SIGNALS:
     void needUpdateMessageStyle();
 
 protected:
-    bool event(QEvent *e) override;
-
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    bool eventFilter(QObject *obj, QEvent *event) override;
+#endif
 private:
     LIBRUQOLACORE_NO_EXPORT void regenerateColorScheme();
     KColorScheme mSchemeView;
