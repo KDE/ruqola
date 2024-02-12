@@ -484,9 +484,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-    if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
-        mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
-    }
 
     // Message
     if (layout.textRect.isValid()) {
@@ -621,6 +618,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+    if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
+        mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
+    }
 
     painter->restore();
 }
