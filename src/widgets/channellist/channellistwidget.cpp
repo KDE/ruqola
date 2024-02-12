@@ -8,6 +8,7 @@
 #include "channellistview.h"
 #include "model/roomfilterproxymodel.h"
 #include "room/roomutil.h"
+#include "ruqola_jitsi_debug.h"
 #include "ruqolawidgets_debug.h"
 
 #include "accountmanager.h"
@@ -305,6 +306,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             const QModelIndex jitsiSelectedIndex = mChannelView->selectionModel()->currentIndex();
             if (jitsiSelectedIndex.isValid()) {
                 const QString roomId = jitsiSelectedIndex.data(RoomModel::RoomId).toString();
+                qCDebug(RUQOLA_JITSI_LOG) << " roomId " << roomId;
                 mCurrentRocketChatAccount->joinJitsiConfCall(roomId);
             }
         }
