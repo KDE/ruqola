@@ -414,6 +414,19 @@ void TextSelection::selectMessage(const QModelIndex &index)
                 }
             }
         }
+        const auto urls = message->urls();
+        for (const auto &url : urls) {
+            if (url.hasHtmlDescription()) {
+                QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
+                if (doc) {
+                    MessageUrlSelection selection;
+                    selection.fromCharPos = 0;
+                    selection.toCharPos = doc->characterCount() - 1;
+                    selection.messageUrl = url;
+                    mMessageUrlSelection.append(std::move(selection));
+                }
+            }
+        }
     }
 }
 
