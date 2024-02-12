@@ -875,6 +875,9 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_sizehi
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_translatemessage_debug.h IDENTIFIER RUQOLA_TRANSLATEMESSAGE_LOG CATEGORY_NAME org.kde.ruqola.widgets.translatemessage
     DESCRIPTION "ruqola translate message" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_jitsi_debug.h IDENTIFIER RUQOLA_JITSI_LOG CATEGORY_NAME org.kde.ruqola.widgets.jitsi
+    DESCRIPTION "ruqola jitsi support" EXPORT RUQOLA)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolawidgets PUBLIC ../../ruqola_pch.h)
