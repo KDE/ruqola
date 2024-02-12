@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-10 00:39+0000\n"
-"PO-Revision-Date: 2024-02-04 09:14+0100\n"
+"PO-Revision-Date: 2024-02-11 11:22+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -7332,11 +7332,10 @@ msgstr[1] "%1 rozmowy w pokoju (Razem: %2)"
 msgstr[2] "%1 rozmów w pokoju (Razem: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Hasło"
+msgstr "Skopiuj hasło"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7344,13 +7343,14 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"Nie można było odkodować twojego klucza szyfrującego, którego chciałeś "
+"zaimportować. Twoje hasło szyfrujące wydaje się być błędne."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Szyfrowanie"
+msgstr "Odszyfrowywanie klucza szyfrującego"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
@@ -7361,11 +7361,10 @@ msgstr ""
 "swoje hasło."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Klucz API DeepL"
+msgstr "Klucz odszyfrowujący"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:22
 #, kde-format
@@ -7375,6 +7374,11 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"Aby uzyskać dostęp do twoich zaszyfrowanych, prywatnych grup oraz "
+"bezpośrednich wiadomości, wpisz swoje hasło szyfrowania.\n"
+"Musisz wpisać to hasło, aby móc zakodowywać/odkodowywać swoje wiadomości na "
+"każdej aplikacji klienckiej, z której korzystasz, bo klucz nie jest "
+"przechowywany na żadnym serwerze."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
