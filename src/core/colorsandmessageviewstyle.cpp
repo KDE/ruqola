@@ -42,9 +42,12 @@ KColorScheme ColorsAndMessageViewStyle::schemeWindow() const
 
 void ColorsAndMessageViewStyle::regenerateColorScheme()
 {
-    mSchemeView = KColorScheme();
-    mSchemeWindow = KColorScheme(QPalette::Active, KColorScheme::Window);
-    Q_EMIT needToUpdateColors();
+    const KColorScheme colorScheme(QPalette::Active, KColorScheme::Window);
+    if (!(mSchemeWindow == colorScheme)) {
+        mSchemeView = KColorScheme();
+        mSchemeWindow = std::move(colorScheme);
+        Q_EMIT needToUpdateColors();
+    }
 }
 
 #include "moc_colorsandmessageviewstyle.cpp"
