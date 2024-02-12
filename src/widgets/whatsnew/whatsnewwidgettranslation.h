@@ -71,5 +71,6 @@ static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof 
 // enter items for the "Important changes" list here:
 static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
     kli18n("Fix dark mode support."),
+    kli18n("Fix jitsi support."),
 };
 static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;
