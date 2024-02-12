@@ -220,7 +220,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
-            mTextSelectionImpl->textSelection()->setStart(index, charPos);
+            mTextSelectionImpl->textSelection()->setPreviewUrlTextSelectionStart(index, charPos, messageUrl);
             return true;
         } else {
             mTextSelectionImpl->textSelection()->clear();
@@ -232,7 +232,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
                 const int charPos = charPosition(doc, messageUrl, previewRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                    mTextSelectionImpl->textSelection()->setEnd(index, charPos);
+                    mTextSelectionImpl->textSelection()->setPreviewUrlTextSelectionEnd(index, charPos, messageUrl);
                     return true;
                 }
             }

@@ -82,27 +82,27 @@ void TextSelectionTest::testChangingSelection()
 
     // WHEN/THEN
 
-    selection.setStart(index1, 3);
+    selection.setTextSelectionStart(index1, 3);
     QCOMPARE(selection.selectedText(TextSelection::Text), QString());
     QVERIFY(!selection.hasSelection());
-    selection.setEnd(index1, 4);
+    selection.setTextSelectionEnd(index1, 4);
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e"));
     QCOMPARE(spy.count(), 0);
     QVERIFY(selection.hasSelection());
 
-    selection.setEnd(index1, 9);
+    selection.setTextSelectionEnd(index1, 9);
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e 1 bo"));
     QCOMPARE(spy.count(), 0);
 
     spy.clear();
-    selection.setEnd(index3, 2);
+    selection.setTextSelectionEnd(index3, 2);
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e 1 bold\nLine 2 bold\nLi"));
     QCOMPARE(spy.count(), 2);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 1); // line 1 is now fully selected, needs repaint
     QCOMPARE(spy.at(1).at(0).value<QModelIndex>().row(), 2); // line 2 was selected too, needs repaint
 
     spy.clear();
-    selection.setEnd(index2, 2);
+    selection.setTextSelectionEnd(index2, 2);
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e 1 bold\nLi"));
     QCOMPARE(spy.count(), 1);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 3); // line 3 is no longer selected
@@ -127,7 +127,7 @@ void TextSelectionTest::testChangingSelection()
 
     // Now move up and reverse selection
     spy.clear();
-    selection.setEnd(index0, 1);
+    selection.setTextSelectionEnd(index0, 1);
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("ine 0\nLin"));
     QCOMPARE(spy.count(), 2);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 1); // line 1's selection is different
@@ -155,8 +155,8 @@ void TextSelectionTest::testSingleLineReverseSelection()
     selection.setTextHelperFactory(&factory);
 
     // WHEN
-    selection.setStart(index1, 4);
-    selection.setEnd(index1, 1);
+    selection.setTextSelectionStart(index1, 4);
+    selection.setTextSelectionEnd(index1, 1);
 
     // THEN
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("ine"));
@@ -184,8 +184,8 @@ void TextSelectionTest::testSelectWordUnderCursor()
     // and again on another row
 
     // WHEN
-    selection.setStart(index2, 8);
-    selection.setEnd(index2, 8); // tiny mouse move while double-clicking
+    selection.setTextSelectionStart(index2, 8);
+    selection.setTextSelectionEnd(index2, 8); // tiny mouse move while double-clicking
     QVERIFY(!selection.hasSelection());
     selection.selectWordUnderCursor(index2, 8, &factory);
 
