@@ -781,6 +781,12 @@ void RocketChatBackend::slotUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
+        // Subscribe force_logout
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("force_logout"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
         // Subscribe users in room ? //TODO verify it.
         QJsonArray params;
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("webrtc"))));
@@ -824,6 +830,10 @@ void RocketChatBackend::slotUserIDChanged()
         const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
+    { // Verify it
+        const QJsonArray params{QJsonValue(QStringLiteral("public-info"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
     // stream-notify-logged
     {
         const QJsonArray params{QJsonValue(QStringLiteral("updateEmojiCustom"))};
@@ -852,6 +862,11 @@ void RocketChatBackend::slotUserIDChanged()
     // stream-notify-logged
     {
         const QJsonArray params{QJsonValue(QStringLiteral("Users:Deleted"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    // stream-notify-logged
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("banner-changed"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
