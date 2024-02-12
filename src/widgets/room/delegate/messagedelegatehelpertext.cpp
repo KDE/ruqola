@@ -177,7 +177,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
-            mTextSelectionImpl->textSelection()->setStart(index, charPos);
+            mTextSelectionImpl->textSelection()->setTextSelectionStart(index, charPos);
             return true;
         } else {
             mTextSelectionImpl->textSelection()->clear();
@@ -189,7 +189,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                    mTextSelectionImpl->textSelection()->setEnd(index, charPos);
+                    mTextSelectionImpl->textSelection()->setTextSelectionEnd(index, charPos);
                     return true;
                 }
             }
