@@ -7,7 +7,9 @@
 
 #pragma once
 
+#include "ownuser/ownuserpreferences.h"
 #include <QItemDelegate>
+
 class RocketChatAccount;
 class AvatarCacheManager;
 class ChannelListDelegate : public QItemDelegate
@@ -22,10 +24,13 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
+    void setListDisplay(OwnUserPreferences::RoomListDisplay display);
+
 private:
     [[nodiscard]] QString makeUnreadText(const QModelIndex &index) const;
     void clearAvatarCache();
 
+    OwnUserPreferences::RoomListDisplay mRoomListDisplay = OwnUserPreferences::RoomListDisplay::Unknown;
     RocketChatAccount *mRocketChatAccount = nullptr;
     AvatarCacheManager *const mAvatarCacheManager;
 };

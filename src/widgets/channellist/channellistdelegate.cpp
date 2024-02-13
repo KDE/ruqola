@@ -41,6 +41,14 @@ void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *current
     mRocketChatAccount = currentRocketChatAccount;
 }
 
+void ChannelListDelegate::setListDisplay(OwnUserPreferences::RoomListDisplay display)
+{
+    if (mRoomListDisplay != display) {
+        mRoomListDisplay = display;
+        clearAvatarCache();
+    }
+}
+
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
@@ -123,8 +131,23 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
 QSize ChannelListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     constexpr int extraMargins = 2 * padding;
-    const auto isHeader = /*!index.parent().isValid()*/ true;
-    return QItemDelegate::sizeHint(option, index) + QSize(0, (isHeader ? 0 : 30) + extraMargins);
+    const auto isHeader = !index.parent().isValid();
+    int height = 0;
+    const QSize size = QItemDelegate::sizeHint(option, index);
+    switch (mRoomListDisplay) {
+    case OwnUserPreferences::RoomListDisplay::Unknown:
+        break;
+    case OwnUserPreferences::RoomListDisplay::Condensed:
+        height = 0;
+        break;
+    case OwnUserPreferences::RoomListDisplay::Medium:
+        height = size.height();
+        break;
+    case OwnUserPreferences::RoomListDisplay::Extended:
+        height = size.height() * 1.5;
+        break;
+    }
+    return size + QSize(0, (isHeader ? 0 : height) + extraMargins);
 }
 
 #include "moc_channellistdelegate.cpp"

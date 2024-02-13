@@ -1899,6 +1899,11 @@ OwnUserPreferences::RoomListSortOrder RocketChatAccount::roomListSortOrder() con
     return ownUser().ownUserPreferences().roomListSortOrder();
 }
 
+OwnUserPreferences::RoomListDisplay RocketChatAccount::roomListDisplay() const
+{
+    return ownUser().ownUserPreferences().roomListDisplay();
+}
+
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
 {
     switch (channelType) {
@@ -2665,7 +2670,18 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QLatin1String("settings.preferences.sidebarViewMode")) { // Channel List view mode
-                // TODO
+                const QString value = updateJson.value(key).toString();
+                if (value == QLatin1String("medium")) {
+                    ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
+                } else if (value == QLatin1String("condensed")) {
+                    ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
+                } else if (value == QLatin1String("extended")) {
+                    ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
+                } else {
+                    qCWarning(RUQOLA_LOG) << "RoomListDisplay is not defined ?  " << value;
+                }
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);

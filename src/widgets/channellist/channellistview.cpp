@@ -44,7 +44,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     setModel(mRoomFilterProxyModel);
     setHeaderHidden(true);
     setRootIsDecorated(false);
-    setUniformRowHeights(true);
+    // setUniformRowHeights(true);
     setItemsExpandable(false);
     setIndentation(0);
 
@@ -68,9 +68,11 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
     mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, [this]() {
         filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
+        mChannelListDelegate->setListDisplay(mCurrentRocketChatAccount->roomListDisplay());
     });
     filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
+    mChannelListDelegate->setListDisplay(mCurrentRocketChatAccount->roomListDisplay());
     mRoomListHeadingsProxyModel->setSourceModel(currentRocketChatAccount->roomModel());
 }
 
