@@ -158,6 +158,16 @@ void OwnUserPreferences::setReceiveLoginDetectionEmail(bool newReceiveLoginDetec
     mReceiveLoginDetectionEmail = newReceiveLoginDetectionEmail;
 }
 
+OwnUserPreferences::RoomListDisplay OwnUserPreferences::roomListDisplay() const
+{
+    return mRoomListDisplay;
+}
+
+void OwnUserPreferences::setRoomListDisplay(RoomListDisplay newRoomListDisplay)
+{
+    mRoomListDisplay = newRoomListDisplay;
+}
+
 bool OwnUserPreferences::convertAsciiEmoji() const
 {
     return mConvertAsciiEmoji;

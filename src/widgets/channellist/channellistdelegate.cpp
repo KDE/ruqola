@@ -123,7 +123,8 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
 QSize ChannelListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     constexpr int extraMargins = 2 * padding;
-    return QItemDelegate::sizeHint(option, index) + QSize(0, extraMargins);
+    const auto isHeader = /*!index.parent().isValid()*/ true;
+    return QItemDelegate::sizeHint(option, index) + QSize(0, (isHeader ? 0 : 30) + extraMargins);
 }
 
 #include "moc_channellistdelegate.cpp"

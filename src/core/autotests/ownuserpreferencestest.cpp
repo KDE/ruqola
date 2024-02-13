@@ -30,6 +30,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(!p.showRoomAvatar());
     QVERIFY(p.showFavorite());
     QCOMPARE(p.roomListSortOrder(), OwnUserPreferences::RoomListSortOrder::Unknown);
+    QCOMPARE(p.roomListDisplay(), OwnUserPreferences::RoomListDisplay::Unknown);
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
