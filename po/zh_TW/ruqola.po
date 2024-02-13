@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-09 03:22+0000\n"
+"POT-Creation-Date: 2024-02-13 03:20+0000\n"
 "PO-Revision-Date: 2024-02-03 15:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3879,7 +3879,7 @@ msgid "Password"
 msgstr "密碼"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr "視訊會議"
@@ -6133,22 +6133,22 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "轉換為團隊"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "過濾頻道 (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:68
+#: widgets/channellist/channellistwidget.cpp:69
 #, kde-format
 msgid "Search Channels"
 msgstr "搜尋頻道"
 
-#: widgets/channellist/channellistwidget.cpp:75
+#: widgets/channellist/channellistwidget.cpp:76
 #, kde-format
 msgid "Previous Channel"
 msgstr "上一個頻道"
 
-#: widgets/channellist/channellistwidget.cpp:83
+#: widgets/channellist/channellistwidget.cpp:84
 #, kde-format
 msgid "Next Channel"
 msgstr "下一個頻道"
@@ -6207,7 +6207,6 @@ msgid "Start a Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:27
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr "開始"
@@ -6241,12 +6240,6 @@ msgstr "麥克風"
 #, kde-format
 msgid "Camera"
 msgstr "相機"
-
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Start a Direct Call"
-msgstr ""
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
 #, kde-format
@@ -8308,19 +8301,19 @@ msgstr ""
 msgid "Start a Private Conversation"
 msgstr "加密對話"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:604
+#: widgets/room/delegate/messagelistdelegate.cpp:601
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 則回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 則訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, fuzzy, kde-format
 #| msgid "Any message yet"
 msgid "No message yet"
@@ -8654,20 +8647,20 @@ msgstr "回覆討論串"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "回覆討論串"
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:274
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this room?"
 msgid "Do you want really remove history?"
 msgstr "您確定要刪除此聊天室嗎？"
 
-#: widgets/room/roomwidget.cpp:276
+#: widgets/room/roomwidget.cpp:275
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "載入最近記錄"
 
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

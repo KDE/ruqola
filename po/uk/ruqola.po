@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-09 03:22+0000\n"
+"POT-Creation-Date: 2024-02-13 03:20+0000\n"
 "PO-Revision-Date: 2024-02-02 09:26+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -3777,7 +3777,7 @@ msgid "Password"
 msgstr "Пароль"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr "Відеоконференція"
@@ -6133,22 +6133,22 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Перетворення на команду"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Фільтрувати канали (Ctrl + K)"
 
-#: widgets/channellist/channellistwidget.cpp:68
+#: widgets/channellist/channellistwidget.cpp:69
 #, kde-format
 msgid "Search Channels"
 msgstr "Пошук каналів"
 
-#: widgets/channellist/channellistwidget.cpp:75
+#: widgets/channellist/channellistwidget.cpp:76
 #, kde-format
 msgid "Previous Channel"
 msgstr "Попередній канал"
 
-#: widgets/channellist/channellistwidget.cpp:83
+#: widgets/channellist/channellistwidget.cpp:84
 #, kde-format
 msgid "Next Channel"
 msgstr "Наступний канал"
@@ -6211,7 +6211,6 @@ msgid "Start a Call"
 msgstr "Почати виклик"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:27
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr "Почати"
@@ -6245,12 +6244,6 @@ msgstr "Мікрофон"
 #, kde-format
 msgid "Camera"
 msgstr "Камера"
-
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Start a Direct Call"
-msgstr "Почати безпосередній виклик"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
 #, kde-format
@@ -8316,7 +8309,7 @@ msgstr "Інформація про користувача"
 msgid "Start a Private Conversation"
 msgstr "Почати конфіденційне спілкування"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:604
+#: widgets/room/delegate/messagelistdelegate.cpp:601
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8325,7 +8318,7 @@ msgstr[1] "%1 відповіді"
 msgstr[2] "%1 відповідей"
 msgstr[3] "%1 відповідь"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8334,7 +8327,7 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
@@ -8648,18 +8641,18 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:276
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Вилучення журналу"
 
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9415,6 +9408,10 @@ msgstr "Виправлено список способів розпізнава�
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
 msgid "Fix show avatar url."
 msgstr "Виправлено показ адреси аватару."
+
+#~ msgctxt "@title:window"
+#~ msgid "Start a Direct Call"
+#~ msgstr "Почати безпосередній виклик"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "Канал із назвою «__channel_name__» вже існує"

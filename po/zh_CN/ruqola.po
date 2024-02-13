@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-09 03:22+0000\n"
+"POT-Creation-Date: 2024-02-13 03:20+0000\n"
 "PO-Revision-Date: 2024-02-05 11:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3689,7 +3689,7 @@ msgid "Password"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5875,22 +5875,22 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:68
+#: widgets/channellist/channellistwidget.cpp:69
 #, kde-format
 msgid "Search Channels"
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:75
+#: widgets/channellist/channellistwidget.cpp:76
 #, kde-format
 msgid "Previous Channel"
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:83
+#: widgets/channellist/channellistwidget.cpp:84
 #, kde-format
 msgid "Next Channel"
 msgstr ""
@@ -5949,7 +5949,6 @@ msgid "Start a Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:27
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr ""
@@ -5982,12 +5981,6 @@ msgstr ""
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:41
 #, kde-format
 msgid "Camera"
-msgstr ""
-
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Start a Direct Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
@@ -7974,19 +7967,19 @@ msgstr ""
 msgid "Start a Private Conversation"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:604
+#: widgets/room/delegate/messagelistdelegate.cpp:601
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "No message yet"
 msgstr ""
@@ -8297,18 +8290,18 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:276
+#: widgets/room/roomwidget.cpp:275
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

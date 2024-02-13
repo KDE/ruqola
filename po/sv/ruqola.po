@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-09 03:22+0000\n"
+"POT-Creation-Date: 2024-02-13 03:20+0000\n"
 "PO-Revision-Date: 2023-09-29 20:07+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -3771,7 +3771,7 @@ msgid "Password"
 msgstr "Lösenord"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Video Conference"
 msgstr "Videokonferens"
@@ -6106,22 +6106,22 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Konvertera till lag"
 
-#: widgets/channellist/channellistwidget.cpp:57
+#: widgets/channellist/channellistwidget.cpp:58
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtrera kanaler (Ctrl+K)"
 
-#: widgets/channellist/channellistwidget.cpp:68
+#: widgets/channellist/channellistwidget.cpp:69
 #, kde-format
 msgid "Search Channels"
 msgstr "Sök kanaler"
 
-#: widgets/channellist/channellistwidget.cpp:75
+#: widgets/channellist/channellistwidget.cpp:76
 #, kde-format
 msgid "Previous Channel"
 msgstr "Föregående kanal"
 
-#: widgets/channellist/channellistwidget.cpp:83
+#: widgets/channellist/channellistwidget.cpp:84
 #, kde-format
 msgid "Next Channel"
 msgstr "Nästa kanal"
@@ -6186,7 +6186,6 @@ msgid "Start a Call"
 msgstr "Starta ett samtal"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:27
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr "Starta"
@@ -6220,12 +6219,6 @@ msgstr "Mikrofon"
 #, kde-format
 msgid "Camera"
 msgstr "Kamera"
-
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Start a Direct Call"
-msgstr "Starta ett direktsamtal"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
 #, kde-format
@@ -8269,21 +8262,21 @@ msgstr "Användarinformation"
 msgid "Start a Private Conversation"
 msgstr "Starta ett privat samtal"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:604
+#: widgets/room/delegate/messagelistdelegate.cpp:601
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 svar"
 msgstr[1] "%1 svar"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 meddelande"
 msgstr[1] "%1 meddelanden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:611
 #, kde-format
 msgid "No message yet"
 msgstr "Inget meddelande ännu"
@@ -8603,19 +8596,19 @@ msgstr "Svarar i en tråd"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Svara i tråd för meddelande: '%1'"
 
-#: widgets/room/roomwidget.cpp:275
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vill du verkligen ta bort historiken?"
 
-#: widgets/room/roomwidget.cpp:276
+#: widgets/room/roomwidget.cpp:275
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Ta bort historik"
 
-#: widgets/room/roomwidget.cpp:468
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9366,6 +9359,10 @@ msgstr "Metod för behörighetskontroll"
 #| msgid "Fix avatar support"
 msgid "Fix show avatar url."
 msgstr "Rätta avatarstöd"
+
+#~ msgctxt "@title:window"
+#~ msgid "Start a Direct Call"
+#~ msgstr "Starta ett direktsamtal"
 
 #~ msgid "A channel with name '__channel_name__' exists"
 #~ msgstr "En kanal som heter '__channel_name__' finns"
