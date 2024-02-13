@@ -530,6 +530,9 @@ target_sources(libruqolawidgets PRIVATE
     misc/messagestylelayoutmenu.h
     misc/messagestylelayoutmenu.cpp
 
+    misc/changefontsizemenu.h
+    misc/changefontsizemenu.cpp
+
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
