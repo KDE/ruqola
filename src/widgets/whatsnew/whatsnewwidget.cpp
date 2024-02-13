@@ -156,16 +156,14 @@ QString WhatsNewWidget::createVersionInformationsV2_1() const
 QString WhatsNewWidget::createVersionInformationsV2_2() const
 {
     QString message;
-#if 0
     if (numRuqolaNewFeatures2_2 > 0) {
         message += featuresChangeStr();
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaNewFeatures2_2; ++i) {
-            message += QStringLiteral("<li>%1</li>").arg(numRuqolaNewFeatures2_2[i].toString());
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures2_2[i].toString());
         }
         message += QStringLiteral("</ul>");
     }
-#endif
     if (numRuqolaBugfixing2_2 > 0) {
         message += bugFixingChangeStr();
         message += QStringLiteral("<ul>");
