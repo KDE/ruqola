@@ -82,6 +82,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     mEditColorMode = QColor(255, 170, 127);
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateMessageStyle, this, &MessageListDelegate::switchMessageLayout);
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateFontSize, this, &MessageListDelegate::clearAvatarSizeHintCache);
     slotUpdateColors();
     mSizeHintCache.setMaxEntries(32); // Enough ?
 }
@@ -960,10 +961,15 @@ void MessageListDelegate::slotPrivateSettingsChanged()
     mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->previewEmbed() : true;
 }
 
-void MessageListDelegate::switchMessageLayout()
+void MessageListDelegate::clearAvatarSizeHintCache()
 {
     clearSizeHintCache();
     mAvatarCacheManager->clearCache();
+}
+
+void MessageListDelegate::switchMessageLayout()
+{
+    clearAvatarSizeHintCache();
     delete mMessageListLayoutBase;
     switch (RuqolaGlobalConfig::self()->messageStyle()) {
     case RuqolaGlobalConfig::EnumMessageStyle::Normal:

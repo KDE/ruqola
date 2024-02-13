@@ -620,6 +620,9 @@ void RuqolaMainWindow::setupActions()
 
     auto changeFontSizeAction = new ChangeFontSizeMenu(this);
     ac->addAction(QStringLiteral("change_font_size"), changeFontSizeAction);
+    connect(changeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [this] {
+        Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
+    });
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
@@ -724,6 +727,7 @@ void RuqolaMainWindow::slotConfigure()
         mAccountOverviewWidget->updateButtons();
         createSystemTray();
         Q_EMIT Ruqola::self()->translatorMenuChanged();
+        Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }
     delete dlg;
 }
