@@ -19,6 +19,6 @@ Q_SIGNALS:
     void styleChanged();
 
 private:
-    QActionGroup *const mActionGroup;
     void addMessageStyleAction(const QString &name, RuqolaGlobalConfig::EnumMessageStyle::type status);
+    QActionGroup *const mActionGroup;
 };
