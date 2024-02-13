@@ -14,4 +14,7 @@ class ChangeFontSizeMenu : public KActionMenu
 public:
     explicit ChangeFontSizeMenu(QObject *parent = nullptr);
     ~ChangeFontSizeMenu() override;
+
+private:
+    void changeFontSize(int offset);
 };
