@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="46">
+<gui name="ruqola" version="47">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -75,7 +75,6 @@
   </Menu>
  </MenuBar>
  <ToolBar noMerge="1" name="mainToolBar" fullWidth="true" ><text>Main Toolbar</text>
-  <Action name="create_new_channel" />
   <Spacer/>
   <Action name="status" />
   <Action name="hamburger_menu"/>
