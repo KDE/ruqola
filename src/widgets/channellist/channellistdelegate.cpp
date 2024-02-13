@@ -24,9 +24,15 @@ ChannelListDelegate::ChannelListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))
 {
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateFontSize, this, &ChannelListDelegate::clearAvatarCache);
 }
 
 ChannelListDelegate::~ChannelListDelegate() = default;
+
+void ChannelListDelegate::clearAvatarCache()
+{
+    mAvatarCacheManager->clearCache();
+}
 
 void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
