@@ -45,11 +45,11 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeOkButtonEnabled(bool state);
     ChannelNameValidLineWidget *const mChannelName;
+    QLineEdit *const mTopicLineEdit;
     AddUsersWidget *const mUsers;
     QCheckBox *const mReadOnly;
     QCheckBox *const mBroadcast;
     QCheckBox *const mPrivate;
     QCheckBox *const mEncryptedRoom;
-    QLineEdit *const mTopicLineEdit;
     QFormLayout *const mMainLayout;
 };

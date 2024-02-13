@@ -18,12 +18,12 @@
 CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mChannelName(new ChannelNameValidLineWidget(account, this))
+    , mTopicLineEdit(new QLineEdit(this))
     , mUsers(new AddUsersWidget(account, this))
     , mReadOnly(new QCheckBox(this))
     , mBroadcast(new QCheckBox(this))
     , mPrivate(new QCheckBox(this))
     , mEncryptedRoom(new QCheckBox(this))
-    , mTopicLineEdit(new QLineEdit(this))
     , mMainLayout(new QFormLayout(this))
 {
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
