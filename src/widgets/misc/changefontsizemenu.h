@@ -15,6 +15,9 @@ public:
     explicit ChangeFontSizeMenu(QObject *parent = nullptr);
     ~ChangeFontSizeMenu() override;
 
+Q_SIGNALS:
+    void fontChanged();
+
 private:
     void changeFontSize(int offset);
 };

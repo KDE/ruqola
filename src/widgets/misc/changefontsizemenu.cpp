@@ -50,6 +50,7 @@ void ChangeFontSizeMenu::changeFontSize(int offset)
     RuqolaGlobalConfig::self()->setGeneralFont(f);
     RuqolaGlobalConfig::self()->save();
     qApp->setFont(f);
+    Q_EMIT fontChanged();
 }
 
 #include "moc_changefontsizemenu.cpp"

@@ -7,6 +7,7 @@
 #include "ruqolamainwindow.h"
 #include "databasedialog/exploredatabasedialog.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
+#include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -616,6 +617,9 @@ void RuqolaMainWindow::setupActions()
     auto messageStyleAction = new MessageStyleLayoutMenu(this);
     ac->addAction(QStringLiteral("message_style"), messageStyleAction);
     connect(messageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
+
+    auto changeFontSizeAction = new ChangeFontSizeMenu(this);
+    ac->addAction(QStringLiteral("change_font_size"), changeFontSizeAction);
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
