@@ -6,6 +6,7 @@
 
 #include "changefontsizemenu.h"
 #include "ruqolaglobalconfig.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QGuiApplication>
 #include <QMenu>
@@ -44,6 +45,7 @@ void ChangeFontSizeMenu::changeFontSize(int offset)
     }
     const int newSize = f.pointSize() + offset;
     if (newSize < 5 || newSize > 30) {
+        qCDebug(RUQOLAWIDGETS_LOG) << " We can't use font size < 5 or > 30";
         return;
     }
     f.setPointSize(newSize);
