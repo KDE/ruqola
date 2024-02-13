@@ -140,7 +140,7 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     , mRocketChatAccount(account)
 {
     connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::slotUserIDChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::subscribeRegistration);
     connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::slotChanged);
     connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
     connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
@@ -728,8 +728,9 @@ void RocketChatBackend::clearUsersList()
     mUsers.clear();
 }
 
-void RocketChatBackend::slotUserIDChanged()
+void RocketChatBackend::subscribeRegistration()
 {
+    qCDebug(RUQOLA_LOG) << "subscribe registration";
     // TODO verify if we don"t send two subscription.
     const QString userId{mRocketChatAccount->settings()->userId()};
     {
