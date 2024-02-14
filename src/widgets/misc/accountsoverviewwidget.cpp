@@ -8,6 +8,7 @@
 #include "accountsoverviewwidget.h"
 
 #include "accountmanager.h"
+#include "misc/accountsutils.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -150,14 +151,7 @@ void AccountsOverviewWidget::updateButtons()
             if (currentUnreadAlert(account).alert) {
                 icon = QIcon::fromTheme(QStringLiteral("message-new"));
             } else {
-                // qDebug() << " FAVICON URL " << account->urlForLink(account->ruqolaServerConfig()->faviconUrl()) << " ACCOUNTNAME " << account->accountName();
-                const QString iconFaviconUrl{account->attachmentUrlFromLocalCache(account->ruqolaServerConfig()->faviconUrl().url).toLocalFile()};
-                if (!iconFaviconUrl.isEmpty()) {
-                    const QIcon iconFavicon{iconFaviconUrl};
-                    if (!iconFavicon.isNull()) {
-                        icon = std::move(iconFavicon);
-                    }
-                }
+                icon = AccountsUtils::iconFromAccount(account);
             }
             mTabBar->setTabIcon(i, icon);
         };
