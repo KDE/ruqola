@@ -6,6 +6,7 @@
 
 #include "forwardmessagewidget.h"
 #include <KLocalizedString>
+#include <QLabel>
 #include <QVBoxLayout>
 
 ForwardMessageWidget::ForwardMessageWidget(QWidget *parent)
@@ -14,7 +15,7 @@ ForwardMessageWidget::ForwardMessageWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // TODO
+    // TODO add search line + qlabel
 }
 
 ForwardMessageWidget::~ForwardMessageWidget() = default;
