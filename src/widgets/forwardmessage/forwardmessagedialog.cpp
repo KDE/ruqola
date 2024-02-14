@@ -27,3 +27,5 @@ ForwardMessageDialog::ForwardMessageDialog(QWidget *parent)
 }
 
 ForwardMessageDialog::~ForwardMessageDialog() = default;
+
+#include "moc_forwardmessagedialog.cpp"

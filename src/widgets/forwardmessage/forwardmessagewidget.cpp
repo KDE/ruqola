@@ -12,3 +12,5 @@ ForwardMessageWidget::ForwardMessageWidget(QWidget *parent)
 }
 
 ForwardMessageWidget::~ForwardMessageWidget() = default;
+
+#include "moc_forwardmessagewidget.cpp"
