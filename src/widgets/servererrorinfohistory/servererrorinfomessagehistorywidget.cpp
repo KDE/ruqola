@@ -93,9 +93,9 @@ void ServerErrorInfoMessageHistoryWidget::slotTextChanged(const QString &str)
     mListServerInfosListView->setSearchText(str);
 }
 
-void ServerErrorInfoMessageHistoryWidget::addServerList(const QStringList &serverNames)
+void ServerErrorInfoMessageHistoryWidget::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
-    mServersComboBox->addServerList(serverNames);
+    mServersComboBox->addServerList(infos);
 }
 
 #include "moc_servererrorinfomessagehistorywidget.cpp"

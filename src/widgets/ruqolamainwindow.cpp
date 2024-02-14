@@ -833,7 +833,7 @@ void RuqolaMainWindow::slotShowPermissions()
 void RuqolaMainWindow::slotShowServerInfo()
 {
     ServerErrorInfoMessageHistoryDialog dlg(this);
-    dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
+    dlg.addServerList(Ruqola::self()->accountManager()->accountDisplayInfoSorted());
     dlg.exec();
 }
 
@@ -1134,7 +1134,7 @@ void RuqolaMainWindow::slotOpenNotificationHistory()
 {
     mNotificationToolButton->hide();
     NotificationHistoryDialog dlg(this);
-    dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
+    dlg.addServerList(Ruqola::self()->accountManager()->accountDisplayInfoSorted());
     connect(&dlg, &NotificationHistoryDialog::showNotifyMessage, this, &RuqolaMainWindow::slotShowNotifyMessage);
     dlg.exec();
 }

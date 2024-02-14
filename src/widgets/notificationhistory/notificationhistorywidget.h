@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -26,7 +27,7 @@ public:
     explicit NotificationHistoryWidget(QWidget *parent = nullptr);
     ~NotificationHistoryWidget() override;
 
-    void addServerList(const QStringList &serverNames);
+    void addServerList(const QList<AccountManager::AccountDisplayInfo> &info);
 
 Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);

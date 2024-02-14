@@ -15,11 +15,11 @@ ServersComboBox::ServersComboBox(QWidget *parent)
 
 ServersComboBox::~ServersComboBox() = default;
 
-void ServersComboBox::addServerList(const QStringList &serverNames)
+void ServersComboBox::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
     addItem(i18n("Filter Account..."), QString());
-    for (const auto &account : serverNames) {
-        addItem(account, account);
+    for (const auto &info : infos) {
+        addItem(info.icon, info.name, info.name);
     }
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
