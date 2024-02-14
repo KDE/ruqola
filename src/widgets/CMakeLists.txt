@@ -994,6 +994,7 @@ if (BUILD_TESTING)
     add_subdirectory(needupdateversion/autotests)
     add_subdirectory(createnewserver/autotests)
     add_subdirectory(encryption/autotests)
+    add_subdirectory(forwardmessage/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
