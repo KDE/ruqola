@@ -1095,6 +1095,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
 
 void RuqolaMainWindow::updateHamburgerMenu()
 {
+    delete mHamburgerMenu->menu();
     auto menu = new QMenu(this);
     menu->addAction(actionCollection()->action(QStringLiteral("add_server")));
     menu->addSeparator();
