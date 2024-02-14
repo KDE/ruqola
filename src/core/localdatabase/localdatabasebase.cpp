@@ -93,7 +93,6 @@ bool LocalDatabaseBase::checkDataBase(const QString &accountName, QSqlDatabase &
                                        << dbName;
         return false;
     }
-    Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
     return true;
 }
