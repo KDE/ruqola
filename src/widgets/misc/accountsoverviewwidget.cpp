@@ -8,7 +8,6 @@
 #include "accountsoverviewwidget.h"
 
 #include "accountmanager.h"
-#include "misc/accountsutils.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -151,7 +150,7 @@ void AccountsOverviewWidget::updateButtons()
             if (currentUnreadAlert(account).alert) {
                 icon = QIcon::fromTheme(QStringLiteral("message-new"));
             } else {
-                icon = AccountsUtils::iconFromAccount(account);
+                icon = Utils::iconFromAccount(account);
             }
             mTabBar->setTabIcon(i, icon);
         };

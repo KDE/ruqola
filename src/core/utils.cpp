@@ -6,6 +6,7 @@
 
 #include "utils.h"
 #include "colorsandmessageviewstyle.h"
+#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 
@@ -365,4 +366,17 @@ QString Utils::AvatarInfo::generateAvatarIdentifier() const
     } else {
         return identifier + QLatin1Char('-') + etag;
     }
+}
+
+QIcon Utils::iconFromAccount(RocketChatAccount *account)
+{
+    QIcon icon;
+    const QString iconFaviconUrl{account->attachmentUrlFromLocalCache(account->ruqolaServerConfig()->faviconUrl().url).toLocalFile()};
+    if (!iconFaviconUrl.isEmpty()) {
+        const QIcon iconFavicon{iconFaviconUrl};
+        if (!iconFavicon.isNull()) {
+            icon = std::move(iconFavicon);
+        }
+    }
+    return icon;
 }

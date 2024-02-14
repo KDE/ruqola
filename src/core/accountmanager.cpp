@@ -13,6 +13,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
+#include "utils.h"
 #include <KLocalizedString>
 #include <QDir>
 #include <QDirIterator>
@@ -937,14 +938,17 @@ RocketChatAccountModel *AccountManager::rocketChatAccountModel() const
     return mRocketChatAccountModel;
 }
 
-QStringList AccountManager::accountNamesSorted() const
+QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSorted() const
 {
-    QStringList lst;
+    QList<AccountManager::AccountDisplayInfo> lst;
     auto model = rocketChatAccountProxyModel();
     for (int i = 0; i < model->rowCount(); ++i) {
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        lst << account->displayName();
+        AccountManager::AccountDisplayInfo info;
+        info.name = account->displayName();
+        info.icon = Utils::iconFromAccount(account);
+        lst.append(std::move(info));
     }
     return lst;
 }

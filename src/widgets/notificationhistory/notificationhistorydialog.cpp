@@ -60,9 +60,9 @@ void NotificationHistoryDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-void NotificationHistoryDialog::addServerList(const QStringList &serverNames)
+void NotificationHistoryDialog::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
-    mNotificationHistoryWidget->addServerList(serverNames);
+    mNotificationHistoryWidget->addServerList(infos);
 }
 
 #include "moc_notificationhistorydialog.cpp"

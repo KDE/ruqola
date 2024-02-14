@@ -108,9 +108,9 @@ void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
     }
 }
 
-void NotificationHistoryWidget::addServerList(const QStringList &serverNames)
+void NotificationHistoryWidget::addServerList(const QList<AccountManager::AccountDisplayInfo> &info)
 {
-    mServersComboBox->addServerList(serverNames);
+    mServersComboBox->addServerList(info);
 }
 
 #include "moc_notificationhistorywidget.cpp"

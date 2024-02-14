@@ -12,6 +12,7 @@
 #include "model/rocketchataccountmodel.h"
 #include "parsemessageurlutils.h"
 
+#include <QIcon>
 #include <QObject>
 class RocketChatAccount;
 
@@ -29,6 +30,11 @@ public:
         bool canResetPassword = false;
         bool enabled = true;
         bool canRegisterAccount = false;
+    };
+
+    struct LIBRUQOLACORE_EXPORT AccountDisplayInfo {
+        QString name;
+        QIcon icon;
     };
 
     explicit AccountManager(QObject *parent = nullptr);
@@ -56,7 +62,7 @@ public:
     [[nodiscard]] bool showMessage(const ParseMessageUrlUtils &parseUrl);
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
-    [[nodiscard]] QStringList accountNamesSorted() const;
+    [[nodiscard]] QList<AccountDisplayInfo> accountDisplayInfoSorted() const;
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
@@ -78,3 +84,4 @@ private:
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AccountManager::AccountDisplayInfo, Q_MOVABLE_TYPE);

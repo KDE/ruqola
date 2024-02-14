@@ -13,6 +13,8 @@
 #include <QPixmap>
 #include <QUrl>
 
+class RocketChatAccount;
+
 namespace Utils
 {
 struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
@@ -75,6 +77,7 @@ struct LIBRUQOLACORE_EXPORT AvatarInfo {
 };
 
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QUrl avatarUrl(const QString &url, const AvatarInfo &avatarInfo);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QIcon iconFromAccount(RocketChatAccount *account);
 }
 Q_DECLARE_METATYPE(Utils::AvatarInfo)
 Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_MOVABLE_TYPE);

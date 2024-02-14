@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
@@ -25,7 +26,7 @@ public:
     explicit ServerErrorInfoMessageHistoryWidget(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryWidget() override;
 
-    void addServerList(const QStringList &serverNames);
+    void addServerList(const QList<AccountManager::AccountDisplayInfo> &infos);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
