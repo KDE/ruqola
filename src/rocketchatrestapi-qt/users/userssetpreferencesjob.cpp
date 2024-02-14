@@ -129,6 +129,9 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.sidebarSortby.isEmpty()) {
         dataObj[QLatin1String("sidebarSortby")] = mUsersSetPreferencesInfo.sidebarSortby;
     }
+    if (!mUsersSetPreferencesInfo.sidebarViewMode.isEmpty()) {
+        dataObj[QLatin1String("sidebarViewMode")] = mUsersSetPreferencesInfo.sidebarViewMode;
+    }
     if (mUsersSetPreferencesInfo.receiveLoginDetectionEmail != UsersSetPreferencesInfo::Unknown) {
         dataObj[QLatin1String("receiveLoginDetectionEmail")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
     }
@@ -153,23 +156,24 @@ QString UsersSetPreferencesJob::errorMessage(const QString &str, const QJsonObje
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t)
 {
-    d << "userId : " << t.userId;
-    d << "newRoomNotification : " << t.newRoomNotification;
-    d << "newMessageNotification : " << t.newMessageNotification;
-    d << "desktopNotifications : " << t.desktopNotifications;
-    d << "pushNotifications : " << t.pushNotifications;
-    d << "emailNotificationMode: " << t.emailNotificationMode;
-    d << "userId : " << t.userId;
-    d << " highlights : " << t.highlights;
-    d << "useEmoji: " << t.useEmoji;
-    d << "convertAsciiToEmoji: " << t.convertAsciiToEmoji;
-    d << "hideRoles: " << t.hideRoles;
-    d << "displayAvatars: " << t.displayAvatars;
-    d << "sidebarShowUnread: " << t.sidebarShowUnread;
-    d << "sidebarDisplayAvatar " << t.sidebarDisplayAvatar;
-    d << "sidebarShowFavorites " << t.sidebarShowFavorites;
-    d << "sidebarSortby: " << t.sidebarSortby;
-    d << "receiveLoginDetectionEmail: " << t.receiveLoginDetectionEmail;
+    d.space() << "userId:" << t.userId;
+    d.space() << "newRoomNotification:" << t.newRoomNotification;
+    d.space() << "newMessageNotification:" << t.newMessageNotification;
+    d.space() << "desktopNotifications:" << t.desktopNotifications;
+    d.space() << "pushNotifications:" << t.pushNotifications;
+    d.space() << "emailNotificationMode:" << t.emailNotificationMode;
+    d.space() << "userId:" << t.userId;
+    d.space() << " highlights:" << t.highlights;
+    d.space() << "useEmoji:" << t.useEmoji;
+    d.space() << "convertAsciiToEmoji:" << t.convertAsciiToEmoji;
+    d.space() << "hideRoles:" << t.hideRoles;
+    d.space() << "displayAvatars:" << t.displayAvatars;
+    d.space() << "sidebarShowUnread:" << t.sidebarShowUnread;
+    d.space() << "sidebarDisplayAvatar:" << t.sidebarDisplayAvatar;
+    d.space() << "sidebarShowFavorites:" << t.sidebarShowFavorites;
+    d.space() << "sidebarSortby:" << t.sidebarSortby;
+    d.space() << "sidebarViewMode:" << t.sidebarViewMode;
+    d.space() << "receiveLoginDetectionEmail:" << t.receiveLoginDetectionEmail;
     return d;
 }
 

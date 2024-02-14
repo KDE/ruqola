@@ -317,6 +317,12 @@ void RuqolaMainWindow::updateActions()
     const auto roomListSortOrder = mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder();
     mRoomListSortByLastMessage->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     mRoomListSortAlphabetically->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::Alphabetically);
+
+    const auto roomListDisplay = mCurrentRocketChatAccount->ownUserPreferences().roomListDisplay();
+    mRoomListDisplayMedium->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Medium);
+    mRoomListDisplayCondensed->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Condensed);
+    mRoomListDisplayExtended->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Extended);
+
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFormEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn));
@@ -427,7 +433,7 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
-    QActionGroup *roomListSortOrder = new QActionGroup(this);
+    auto roomListSortOrder = new QActionGroup(this);
     roomListSortOrder->setExclusive(true);
 
     mRoomListSortByLastMessage = new QAction(i18n("By Last Message"), this);
@@ -620,9 +626,37 @@ void RuqolaMainWindow::setupActions()
 
     auto changeFontSizeAction = new ChangeFontSizeMenu(this);
     ac->addAction(QStringLiteral("change_font_size"), changeFontSizeAction);
-    connect(changeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [this] {
+    connect(changeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     });
+
+    auto roomListDisplay = new QActionGroup(this);
+    roomListDisplay->setExclusive(true);
+
+    mRoomListDisplayMedium = new QAction(i18n("Medium"), this);
+    mRoomListDisplayMedium->setCheckable(true);
+    connect(mRoomListDisplayMedium, &QAction::triggered, this, [this]() {
+        mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
+    });
+    roomListDisplay->addAction(mRoomListDisplayMedium);
+    ac->addAction(QStringLiteral("room_list_display_medium"), mRoomListDisplayMedium);
+
+    mRoomListDisplayCondensed = new QAction(i18n("Condensed"), this);
+    mRoomListDisplayCondensed->setCheckable(true);
+    connect(mRoomListDisplayCondensed, &QAction::triggered, this, [this]() {
+        mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
+    });
+
+    roomListDisplay->addAction(mRoomListDisplayCondensed);
+    ac->addAction(QStringLiteral("room_list_display_condensed"), mRoomListDisplayCondensed);
+
+    mRoomListDisplayExtended = new QAction(i18n("Extended"), this);
+    mRoomListDisplayExtended->setCheckable(true);
+    connect(mRoomListDisplayExtended, &QAction::triggered, this, [this]() {
+        mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
+    });
+    roomListDisplay->addAction(mRoomListDisplayExtended);
+    ac->addAction(QStringLiteral("room_list_display_extended"), mRoomListDisplayExtended);
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
@@ -854,6 +888,11 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mUnreadOnTop->setEnabled(!loginPageActivated);
     mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
     mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
+
+    mRoomListDisplayMedium->setEnabled(!loginPageActivated);
+    mRoomListDisplayCondensed->setEnabled(!loginPageActivated);
+    mRoomListDisplayExtended->setEnabled(!loginPageActivated);
+
     mRoomFavorite->setEnabled(!loginPageActivated);
     if (mContextStatusMenu) {
         mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);

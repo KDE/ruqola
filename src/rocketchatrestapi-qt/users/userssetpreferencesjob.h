@@ -43,6 +43,7 @@ public:
         State receiveLoginDetectionEmail = Unknown;
         State enableAutoAway = Unknown;
         QString sidebarSortby;
+        QString sidebarViewMode;
         int idleTimeLimit = -1;
         // Add more
     };

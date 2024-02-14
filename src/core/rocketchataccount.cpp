@@ -1876,6 +1876,27 @@ bool RocketChatAccount::sortFavoriteChannels() const
     return ownUser().ownUserPreferences().showFavorite();
 }
 
+void RocketChatAccount::setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay)
+{
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.userId = userId();
+    switch (roomListDisplay) {
+    case OwnUserPreferences::RoomListDisplay::Medium:
+        info.sidebarViewMode = QStringLiteral("medium");
+        break;
+    case OwnUserPreferences::RoomListDisplay::Condensed:
+        info.sidebarViewMode = QStringLiteral("condensed");
+        break;
+    case OwnUserPreferences::RoomListDisplay::Extended:
+        info.sidebarViewMode = QStringLiteral("extended");
+        break;
+    case OwnUserPreferences::RoomListDisplay::Unknown:
+        qCWarning(RUQOLA_LOG) << " OwnUserPreferences::setRoomListDisplay::Unknown is a bug";
+        return;
+    }
+    setUserPreferences(std::move(info));
+}
+
 void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder)
 {
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;

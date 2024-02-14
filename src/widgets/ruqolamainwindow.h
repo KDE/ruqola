@@ -165,4 +165,8 @@ private:
 
     QAction *mImportAccountsAction = nullptr;
     QAction *mExportAccountsAction = nullptr;
+
+    QAction *mRoomListDisplayMedium = nullptr;
+    QAction *mRoomListDisplayCondensed = nullptr;
+    QAction *mRoomListDisplayExtended = nullptr;
 };
