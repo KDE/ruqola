@@ -89,9 +89,9 @@ bool Permission::operator==(const Permission &other) const
 
 QDebug operator<<(QDebug d, const Permission &t)
 {
-    d << "roles : " << t.roles();
-    d << "rolesStr : " << t.rolesStr();
-    d << "mUpdatedAt " << t.updatedAt();
-    d << "mIdentifier " << t.identifier();
+    d.space() << "roles:" << t.roles();
+    d.space() << "rolesStr:" << t.rolesStr();
+    d.space() << "mUpdatedAt:" << t.updatedAt();
+    d.space() << "mIdentifier:" << t.identifier();
     return d;
 }
