@@ -69,6 +69,7 @@ public:
         Medium,
         Extended,
     };
+    Q_ENUM(RoomListDisplay)
 
     [[nodiscard]] RoomListDisplay roomListDisplay() const;
     void setRoomListDisplay(RoomListDisplay newRoomListDisplay);

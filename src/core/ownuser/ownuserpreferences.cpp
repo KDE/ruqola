@@ -16,7 +16,7 @@ OwnUserPreferences::~OwnUserPreferences() = default;
 
 void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 {
-    qDebug() << " replyObject " << replyObject;
+    // qDebug() << " replyObject " << replyObject;
     const QJsonArray highlightsArray = replyObject.value(QLatin1String("highlights")).toArray();
     QStringList lstHighlightsWord;
     const int highlightsWordArrayCount = highlightsArray.count();
@@ -63,7 +63,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mShowUnread == other.showUnread()
         && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite() && mRoomListSortOrder == other.roomListSortOrder()
-        && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail();
+        && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -239,21 +239,22 @@ void OwnUserPreferences::setEnableAutoAway(bool newEnableAutoAway)
 
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
-    d << "mHighlightWords " << t.highlightWords();
-    d << "mEmailNotificationMode " << t.emailNotificationMode();
-    d << "mDesktopNotifications " << t.desktopNotifications();
-    d << "mUseEmojis " << t.useEmojis();
-    d << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
-    d << "mHideRoles " << t.hideRoles();
-    d << "mDisplayAvatars " << t.displayAvatars();
-    d << "mIdleTimeLimit " << t.idleTimeLimit();
-    d << "mEnableAutoAway " << t.enableAutoAway();
-    d << "mPushNotifications " << t.pushNotifications();
-    d << "mShowUnread " << t.showUnread();
-    d << "mRoomListSortOrder " << t.roomListSortOrder();
-    d << "mShowRoomAvatar " << t.showRoomAvatar();
-    d << "mShowFavorite " << t.showFavorite();
-    d << "mReceiveLoginDetectionEmail " << t.receiveLoginDetectionEmail();
+    d.space() << "mHighlightWords " << t.highlightWords();
+    d.space() << "mEmailNotificationMode " << t.emailNotificationMode();
+    d.space() << "mDesktopNotifications " << t.desktopNotifications();
+    d.space() << "mUseEmojis " << t.useEmojis();
+    d.space() << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
+    d.space() << "mHideRoles " << t.hideRoles();
+    d.space() << "mDisplayAvatars " << t.displayAvatars();
+    d.space() << "mIdleTimeLimit " << t.idleTimeLimit();
+    d.space() << "mEnableAutoAway " << t.enableAutoAway();
+    d.space() << "mPushNotifications " << t.pushNotifications();
+    d.space() << "mShowUnread " << t.showUnread();
+    d.space() << "mRoomListSortOrder " << t.roomListSortOrder();
+    d.space() << "mShowRoomAvatar " << t.showRoomAvatar();
+    d.space() << "mShowFavorite " << t.showFavorite();
+    d.space() << "mReceiveLoginDetectionEmail " << t.receiveLoginDetectionEmail();
+    d.space() << "mRoomListDisplay " << t.roomListDisplay();
     return d;
 }
 
