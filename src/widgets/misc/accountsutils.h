@@ -15,4 +15,4 @@ struct AccountInfo {
 };
 [[nodiscard]] QIcon iconFromAccount(RocketChatAccount *account);
 };
-Q_DECLARE_TYPEINFO(AccountsUtils::AccountInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(AccountsUtils::AccountInfo, Q_RELOCATABLE_TYPE);
