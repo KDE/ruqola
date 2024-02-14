@@ -5,6 +5,7 @@
 */
 
 #include "ownuserpreferences.h"
+#include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -15,7 +16,7 @@ OwnUserPreferences::~OwnUserPreferences() = default;
 
 void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 {
-    // qDebug() << " replyObject " << replyObject;
+    qDebug() << " replyObject " << replyObject;
     const QJsonArray highlightsArray = replyObject.value(QLatin1String("highlights")).toArray();
     QStringList lstHighlightsWord;
     const int highlightsWordArrayCount = highlightsArray.count();
@@ -40,11 +41,19 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     } else if (sidebarSortBy == QLatin1String("alphabetical")) {
         setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
     }
+    const QString sidebarViewMode = replyObject.value(QLatin1String("sidebarViewMode")).toString();
+    if (sidebarViewMode == QLatin1String("medium")) {
+        setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
+    } else if (sidebarViewMode == QLatin1String("condensed")) {
+        setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
+    } else if (sidebarViewMode == QLatin1String("extended")) {
+        setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
+    } else {
+        qCWarning(RUQOLA_LOG) << "RoomListDisplay is not defined ?  " << sidebarViewMode;
+    }
     setShowRoomAvatar(replyObject.value(QLatin1String("sidebarDisplayAvatar")).toBool(false));
     setShowFavorite(replyObject.value(QLatin1String("sidebarShowFavorites")).toBool(false));
     setReceiveLoginDetectionEmail(replyObject.value(QLatin1String("receiveLoginDetectionEmail")).toBool(true));
-
-    qDebug() << " replyObject " << replyObject;
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
