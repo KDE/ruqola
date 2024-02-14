@@ -573,6 +573,7 @@ void RuqolaMainWindow::setupActions()
         mHamburgerMenu = KStandardAction::hamburgerMenu(nullptr, nullptr, actionCollection());
         mHamburgerMenu->setShowMenuBarAction(mShowMenuBarAction);
         mHamburgerMenu->setMenuBar(menuBar());
+        mHamburgerMenu->hideActionsOf(toolBar());
         connect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, [this]() {
             updateHamburgerMenu();
             // Immediately disconnect. We only need to run this once, but on demand.
