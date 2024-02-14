@@ -5,19 +5,21 @@
 */
 
 #include "forwardmessagedialog.h"
+#include "forwardmessagewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
 ForwardMessageDialog::ForwardMessageDialog(QWidget *parent)
     : QDialog(parent)
+    , mForwardMessageWidget(new ForwardMessageWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Forward Message"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // mE2eCopyPasswordWidget->setObjectName(QStringLiteral("mE2eCopyPasswordWidget"));
-    // mainLayout->addWidget(mE2eCopyPasswordWidget);
+    mForwardMessageWidget->setObjectName(QStringLiteral("mForwardMessageWidget"));
+    mainLayout->addWidget(mForwardMessageWidget);
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));

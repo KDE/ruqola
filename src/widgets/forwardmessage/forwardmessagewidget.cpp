@@ -5,10 +5,16 @@
 */
 
 #include "forwardmessagewidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
 ForwardMessageWidget::ForwardMessageWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    // TODO
 }
 
 ForwardMessageWidget::~ForwardMessageWidget() = default;

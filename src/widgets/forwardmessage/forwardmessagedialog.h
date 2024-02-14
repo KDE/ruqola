@@ -6,11 +6,14 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class ForwardMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ForwardMessageDialog(QWidget *parent = nullptr);
     ~ForwardMessageDialog() override;
+
+private:
+    ForwardMessageWidget *const mForwardMessageWidget;
 };
