@@ -98,6 +98,7 @@
 namespace
 {
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
+const int ruqolaVersion = 1;
 }
 
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
@@ -969,6 +970,8 @@ bool RuqolaMainWindow::queryClose()
 void RuqolaMainWindow::slotClose()
 {
     mReallyClose = true;
+    RuqolaGlobalConfig::self()->setInternalVersion(ruqolaVersion);
+    RuqolaGlobalConfig::self()->save();
     close();
 }
 
