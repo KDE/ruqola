@@ -14,6 +14,7 @@ class QComboBox;
 class QCheckBox;
 class RocketChatAccount;
 class QSpinBox;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -41,6 +42,7 @@ private:
     QSpinBox *const mIdleTimeLimit;
 
     QCheckBox *const mAutomaticAway;
+    QLabel *const mEmailNotificationLabel;
 
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;

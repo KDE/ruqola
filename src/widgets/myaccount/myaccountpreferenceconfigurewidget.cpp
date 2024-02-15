@@ -34,6 +34,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
     , mIdleTimeLimit(new QSpinBox(this))
     , mAutomaticAway(new QCheckBox(i18n("Enable Auto Away"), this))
+    , mEmailNotificationLabel(new QLabel(i18n("Offline Email notification:"), this))
     , mRocketChatAccount(account)
 {
     mUseEmojis->setObjectName(QStringLiteral("mUseEmojis"));
@@ -66,10 +67,9 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mainLayout->addWidget(mDesktopNotification);
 
-    auto emailNotificationLabel = new QLabel(i18n("Offline Email notification:"), this);
-    emailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
-    emailNotificationLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(emailNotificationLabel);
+    mEmailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
+    mEmailNotificationLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(mEmailNotificationLabel);
 
     mainLayout->addWidget(mEmailNotification);
 
@@ -214,7 +214,10 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mEmailNotification->addItem(i18n("Default"), QStringLiteral("default"));
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
-    mEmailNotification->setEnabled(mRocketChatAccount->ruqolaServerConfig()->allowEmailNotifications());
+    if (!mRocketChatAccount->ruqolaServerConfig()->allowEmailNotifications()) {
+        mEmailNotification->setEnabled(false);
+        mEmailNotificationLabel->setText(i18n("Your Rocket.Chat administrator has disabled email notifications"));
+    }
 
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
