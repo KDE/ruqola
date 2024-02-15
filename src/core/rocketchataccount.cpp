@@ -2702,7 +2702,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     qCWarning(RUQOLA_LOG) << "RoomListDisplay is not defined ?  " << value;
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
