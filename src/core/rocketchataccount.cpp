@@ -2687,6 +2687,15 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
+            } else if (key == QLatin1String("settings.preferences.desktopNotifications")) {
+                ownUserPreferences.setDesktopNotifications(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+            } else if (key == QLatin1String("settings.preferences.pushNotifications")) {
+                ownUserPreferences.setPushNotifications(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+            } else if (key == QLatin1String("settings.preferences.emailNotificationMode")) {
+                ownUserPreferences.setEmailNotificationMode(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;
