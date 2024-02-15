@@ -35,6 +35,7 @@ Q_SIGNALS:
 
 protected:
     [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(PostMessageJob)

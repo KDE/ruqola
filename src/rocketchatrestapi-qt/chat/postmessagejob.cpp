@@ -108,6 +108,7 @@ QJsonDocument PostMessageJob::json() const
     jsonObj[QLatin1String("text")] = mText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    // qDebug() << " postData " << postData;
     return postData;
 }
 
@@ -117,8 +118,18 @@ QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
         return i18n("This room is blocked");
     } else if (errorStr == QLatin1String("You_have_been_muted")) {
         return i18n("You have been muted and cannot speak in this room");
+    } else if (errorStr == QLatin1String("invalid-channel")) {
+        return i18n("Invalid channel");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
+}
+
+QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("invalid-channel")) {
+        return i18n("Invalid channel");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 #include "moc_postmessagejob.cpp"
