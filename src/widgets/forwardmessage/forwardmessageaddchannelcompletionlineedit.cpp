@@ -71,13 +71,10 @@ void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex 
 {
     const QString completerName = index.data(ForwardMessageChannelModel::Name).toString();
     const QString roomId = index.data(ForwardMessageChannelModel::ChannelId).toString();
-#if 0
-    RoomCompletionInfo info;
-    info.roomName = completerName;
-    info.roomId = roomId;
-    mCompletionListView->hide();
-    Q_EMIT newRoomName(info);
-#endif
+    ForwardMessageChannelCompletionInfo info;
+    info.name = completerName;
+    info.channelId = roomId;
+    Q_EMIT fowardToChannel(std::move(info));
     clear();
 }
 
