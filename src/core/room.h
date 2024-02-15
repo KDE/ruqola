@@ -267,6 +267,9 @@ public:
     [[nodiscard]] int groupMentions() const;
     void setGroupMentions(int newGroupMentions);
 
+    [[nodiscard]] QStringList threadUnread() const;
+    void setThreadUnread(const QStringList &newThreadUnread);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -323,6 +326,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseDisplaySystemMessage(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseRetentionInfo(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseTeamInfo(const QJsonObject &obj);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList extractStringList(const QJsonObject &o, const QString &key);
 
     // Room Object Fields
 
@@ -339,6 +343,7 @@ private:
 
     QStringList mUids;
     QStringList mUserNames;
+    QStringList mThreadUnread;
 
     QString mInputMessage;
 
