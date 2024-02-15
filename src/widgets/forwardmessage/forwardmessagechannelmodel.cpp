@@ -21,7 +21,21 @@ int ForwardMessageChannelModel::rowCount(const QModelIndex &parent) const
 
 QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) const
 {
-    // TODO
+    if (index.row() < 0 || index.row() >= mRooms.count()) {
+        return {};
+    }
+    const ChannelUserCompleter &channel = mRooms.at(index.row());
+    switch (role) {
+    case Qt::DisplayRole:
+    case Name:
+        return channel.name();
+    case ChannelId:
+        return channel.identifier();
+    case Qt::DecorationRole:
+    case Icon:
+        return QVariant::fromValue(channel.avatarInfo());
+    }
+
     return {};
 }
 
@@ -43,3 +57,5 @@ void ForwardMessageChannelModel::clear()
         endResetModel();
     }
 }
+
+#include "moc_forwardmessagechannelmodel.cpp"

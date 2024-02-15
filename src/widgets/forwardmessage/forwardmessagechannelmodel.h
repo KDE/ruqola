@@ -13,6 +13,13 @@ class ForwardMessageChannelModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum ForwardMessageChannelRoles {
+        Name = Qt::UserRole + 1,
+        ChannelId,
+        Icon,
+    };
+    Q_ENUM(ForwardMessageChannelRoles)
+
     explicit ForwardMessageChannelModel(QObject *parent = nullptr);
     ~ForwardMessageChannelModel() override;
 
