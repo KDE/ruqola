@@ -16,7 +16,7 @@ public:
     enum ForwardMessageChannelRoles {
         Name = Qt::UserRole + 1,
         ChannelId,
-        Icon,
+        AvatarInfo,
     };
     Q_ENUM(ForwardMessageChannelRoles)
 

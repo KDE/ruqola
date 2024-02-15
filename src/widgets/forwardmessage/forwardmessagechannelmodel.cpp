@@ -31,7 +31,7 @@ QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) co
         return channel.name();
     case ChannelId:
         return channel.identifier();
-    case Icon:
+    case AvatarInfo:
         return QVariant::fromValue(channel.avatarInfo());
     }
 
