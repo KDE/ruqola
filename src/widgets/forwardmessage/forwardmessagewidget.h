@@ -9,6 +9,7 @@
 #include <QWidget>
 class ForwardMessageAddChannelCompletionLineEdit;
 class RocketChatAccount;
+class FlowLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -18,4 +19,5 @@ public:
 
 private:
     ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
+    FlowLayout *const mFlowLayout;
 };

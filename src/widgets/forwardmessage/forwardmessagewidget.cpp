@@ -5,6 +5,7 @@
 */
 
 #include "forwardmessagewidget.h"
+#include "common/flowlayout.h"
 #include "forwardmessage/forwardmessageaddchannelcompletionlineedit.h"
 #include <KLocalizedString>
 #include <QLabel>
@@ -13,6 +14,7 @@
 ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(account, this))
+    , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -23,8 +25,14 @@ ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *
 
     mForwardMessageAddChannelCompletionLineEdit->setObjectName(QStringLiteral("mForwardMessageAddChannelCompletionLineEdit"));
     mainLayout->addWidget(mForwardMessageAddChannelCompletionLineEdit);
+    mFlowLayout->setObjectName(QStringLiteral("mFlowLayout"));
+    mainLayout->addLayout(mFlowLayout);
+    mainLayout->addStretch();
 }
 
-ForwardMessageWidget::~ForwardMessageWidget() = default;
+ForwardMessageWidget::~ForwardMessageWidget()
+{
+    delete mFlowLayout;
+}
 
 #include "moc_forwardmessagewidget.cpp"
