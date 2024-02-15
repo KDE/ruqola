@@ -34,6 +34,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!input.readOnly());
     // Add more
     QCOMPARE(input.userMentions(), 0);
+    QCOMPARE(input.groupMentions(), 0);
     QCOMPARE(input.unread(), 0);
     QCOMPARE(input.blocked(), false);
     QCOMPARE(input.blocker(), false);

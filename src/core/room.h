@@ -264,6 +264,9 @@ public:
     [[nodiscard]] qint64 numberMessages() const;
     void setNumberMessages(qint64 newNumberMessages);
 
+    [[nodiscard]] int groupMentions() const;
+    void setGroupMentions(int newGroupMentions);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -387,6 +390,7 @@ private:
     // quint64 ?
     int mUnread = 0;
     int mUserMentions = 0;
+    int mGroupMentions = 0;
 
     qint64 mNumberMessages = 0;
 

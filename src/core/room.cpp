@@ -79,7 +79,7 @@ bool Room::isEqual(const Room &other) const
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
         && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
-        && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt());
+        && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions());
 }
 
 QString Room::displayRoomName() const
@@ -117,6 +117,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "archived: " << t.archived();
     d << "description: " << t.description();
     d << "userMentions: " << t.userMentions();
+    d << "groupMentions: " << t.groupMentions();
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
     d << "LastSeenAt: " << t.lastSeenAt();
@@ -214,6 +215,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     if (json.contains(QLatin1String("userMentions"))) {
         setUserMentions(json[QLatin1String("userMentions")].toInt());
+    }
+    if (json.contains(QLatin1String("groupMentions"))) {
+        setGroupMentions(json[QLatin1String("groupMentions")].toInt());
     }
     if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QLatin1String("announcement")].toString());
@@ -358,6 +362,16 @@ void Room::parseTeamInfo(const QJsonObject &json)
     TeamInfo info;
     info.parseTeamInfo(json);
     setTeamInfo(std::move(info));
+}
+
+int Room::groupMentions() const
+{
+    return mGroupMentions;
+}
+
+void Room::setGroupMentions(int newGroupMentions)
+{
+    mGroupMentions = newGroupMentions;
 }
 
 qint64 Room::numberMessages() const
@@ -629,6 +643,9 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("userMentions"))) {
         setUserMentions(json[QLatin1String("userMentions")].toInt());
     }
+    if (json.contains(QLatin1String("groupMentions"))) {
+        setGroupMentions(json[QLatin1String("groupMentions")].toInt());
+    }
     if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QLatin1String("announcement")].toString());
     }
@@ -775,6 +792,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
     setUnread(json[QLatin1String("unread")].toInt());
     setUserMentions(json[QLatin1String("userMentions")].toInt());
+    setGroupMentions(json[QLatin1String("groupMentions")].toInt());
     setOpen(json[QLatin1String("open")].toBool());
     setAlert(json[QLatin1String("alert")].toBool());
     const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
@@ -1236,6 +1254,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setReadOnly(o[QLatin1String("ro")].toBool());
     r->setUnread(o[QLatin1String("unread")].toInt(0));
     r->setUserMentions(o[QLatin1String("userMentions")].toInt(0));
+    r->setGroupMentions(o[QLatin1String("groupMentions")].toInt(0));
     r->setAnnouncement(o[QLatin1String("announcement")].toString());
     r->setSelected(o[QLatin1String("selected")].toBool());
     r->setFavorite(o[QLatin1String("favorite")].toBool());
@@ -1396,6 +1415,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QLatin1String("description")] = r->description();
     }
     o[QLatin1String("userMentions")] = r->userMentions();
+    if (r->groupMentions() > 0) {
+        o[QLatin1String("groupMentions")] = r->groupMentions();
+    }
 
     if (!r->mutedUsers().isEmpty()) {
         QJsonArray array;
