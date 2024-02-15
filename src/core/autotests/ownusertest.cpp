@@ -65,6 +65,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setDisplayAvatars(false);
     ownUser.setShowFavorite(true);
     ownUser.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+    ownUser.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
     ownUser.setReceiveLoginDetectionEmail(true);
     result.setOwnUserPreferences(ownUser);
 
