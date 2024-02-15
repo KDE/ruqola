@@ -7,11 +7,14 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class ForwardMessageAddChannelCompletionLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ForwardMessageWidget(QWidget *parent = nullptr);
     ~ForwardMessageWidget() override;
+
+private:
+    ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
 };

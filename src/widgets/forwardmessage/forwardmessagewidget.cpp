@@ -5,17 +5,24 @@
 */
 
 #include "forwardmessagewidget.h"
+#include "forwardmessage/forwardmessageaddchannelcompletionlineedit.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
 
 ForwardMessageWidget::ForwardMessageWidget(QWidget *parent)
     : QWidget{parent}
+    , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // TODO add search line + qlabel
+    auto label = new QLabel(i18n("Select at least one channel to forward the message to."), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
+
+    mForwardMessageAddChannelCompletionLineEdit->setObjectName(QStringLiteral("mForwardMessageAddChannelCompletionLineEdit"));
+    mainLayout->addWidget(mForwardMessageAddChannelCompletionLineEdit);
 }
 
 ForwardMessageWidget::~ForwardMessageWidget() = default;
