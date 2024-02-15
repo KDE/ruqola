@@ -8,6 +8,7 @@
 #include "forwardmessagewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *parent)
@@ -21,13 +22,24 @@ ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *
     mForwardMessageWidget->setObjectName(QStringLiteral("mForwardMessageWidget"));
     mainLayout->addWidget(mForwardMessageWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ForwardMessageDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ForwardMessageDialog::reject);
     mainLayout->addWidget(buttonBox);
+
+    auto buttonOk = buttonBox->button(QDialogButtonBox::Ok);
+    buttonOk->setEnabled(false);
+    connect(mForwardMessageWidget, &ForwardMessageWidget::updateOkButton, this, [buttonOk](bool enabled) {
+        buttonOk->setEnabled(enabled);
+    });
 }
 
 ForwardMessageDialog::~ForwardMessageDialog() = default;
+
+QStringList ForwardMessageDialog::channelIdentifiers() const
+{
+    return mForwardMessageWidget->channelIdentifiers();
+}
 
 #include "moc_forwardmessagedialog.cpp"

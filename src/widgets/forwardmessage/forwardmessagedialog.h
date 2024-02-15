@@ -15,6 +15,8 @@ public:
     explicit ForwardMessageDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ForwardMessageDialog() override;
 
+    [[nodiscard]] QStringList channelIdentifiers() const;
+
 private:
     ForwardMessageWidget *const mForwardMessageWidget;
 };

@@ -5,9 +5,9 @@
 */
 
 #pragma once
+#include "forwardmessage/forwardmessageaddchannelcompletionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class ForwardMessageAddChannelCompletionLineEdit;
 class RocketChatAccount;
 class FlowLayout;
 class ClickableWidget;
@@ -18,9 +18,14 @@ public:
     explicit ForwardMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ForwardMessageWidget() override;
 
+    [[nodiscard]] QStringList channelIdentifiers() const;
+
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardToChannel(const ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo &channelInfo);
     ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;

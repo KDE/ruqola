@@ -15,11 +15,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageAddChannelCompletionLineEdit :
 {
     Q_OBJECT
 public:
+    struct ForwardMessageChannelCompletionInfo {
+        QString name;
+        QString channelId;
+    };
     explicit ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ForwardMessageAddChannelCompletionLineEdit() override;
 
 Q_SIGNALS:
-    void newChannel(); // TODO add argument!
+    void fowardToChannel(const ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo &channelInfo);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
@@ -30,3 +34,4 @@ private:
     QTimer *const mSearchTimer;
     RocketChatAccount *const mRocketChatAccount;
 };
+Q_DECLARE_TYPEINFO(ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo, Q_RELOCATABLE_TYPE);

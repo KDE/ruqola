@@ -8,6 +8,7 @@
 #include "forwardmessage/forwardmessagedialog.h"
 #include "forwardmessage/forwardmessagewidget.h"
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ForwardMessageDialogTest)
@@ -29,6 +30,12 @@ void ForwardMessageDialogTest::shouldHaveDefaultValues()
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    QPushButton *buttonOk = button->button(QDialogButtonBox::Ok);
+    QVERIFY(buttonOk);
+    QVERIFY(!buttonOk->isEnabled());
+
+    QVERIFY(d.channelIdentifiers().isEmpty());
 }
 
 #include "moc_forwardmessagedialogtest.cpp"
