@@ -204,6 +204,9 @@ public:
     [[nodiscard]] QString accountsDefaultUserPreferencesPushNotifications() const;
     void setAccountsDefaultUserPreferencesPushNotifications(const QString &newAccountsDefaultUserPreferencesPushNotifications);
 
+    [[nodiscard]] bool allowEmailNotifications() const;
+    void setAllowEmailNotifications(bool newAllowEmailNotifications);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
@@ -263,6 +266,7 @@ private:
     bool mDeviceManagementAllowLoginEmailpreference = false;
     bool mAllowCustomStatusMessage = false;
     bool mPreviewEmbed = false;
+    bool mAllowEmailNotifications = true; // Default true
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);
