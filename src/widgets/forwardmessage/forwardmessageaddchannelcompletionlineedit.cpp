@@ -43,7 +43,7 @@ void ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited()
     }
 
     mSearchTimer->setSingleShot(true);
-    mSearchTimer->start(500ms);
+    mSearchTimer->start(300ms);
 }
 
 void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &text)
@@ -53,15 +53,22 @@ void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &
         if (!text.isEmpty()) {
             const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(text);
             for (const Room *room : rooms) {
-                if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
-                    ChannelUserCompleter channel;
+                ChannelUserCompleter channel;
+                switch (room->channelType()) {
+                case Room::RoomType::Channel:
                     channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
-                    channel.setName(room->displayFName());
-                    channel.setIdentifier(room->roomId());
-                    channel.setChannelIcon();
-                    channel.setAvatarInfo(room->avatarInfo());
-                    channels.append(std::move(channel));
+                    break;
+                case Room::RoomType::Direct:
+                    channel.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+                    break;
+                default:
+                    break;
                 }
+                channel.setName(room->displayFName());
+                channel.setIdentifier(room->roomId());
+                channel.setChannelIcon();
+                channel.setAvatarInfo(room->avatarInfo());
+                channels.append(std::move(channel));
             }
         }
     }
