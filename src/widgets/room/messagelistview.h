@@ -98,6 +98,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addSelectedMessageBackgroundAnimation(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void createTranslorMenu();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReportInfo(const ModerationReportInfos &info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardMessage(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;

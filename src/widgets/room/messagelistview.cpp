@@ -9,6 +9,7 @@
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
+#include "forwardmessage/forwardmessagedialog.h"
 #include "moderation/moderationdismissreportsjob.h"
 
 #include "connection.h"
@@ -326,6 +327,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotCopyLinkToMessage(index);
     });
 
+    auto forwardMessageAction = new QAction(i18n("Forward Message"), &menu); // TODO add icon
+    connect(forwardMessageAction, &QAction::triggered, this, [this, index]() {
+        slotForwardMessage(index);
+    });
+
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
@@ -434,6 +440,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
+        menu.addAction(forwardMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
 
@@ -485,6 +492,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
+        menu.addAction(forwardMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
         if (isNotOwnerOfMessage) {
@@ -559,6 +567,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
+        menu.addAction(forwardMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
 #if 0
@@ -706,6 +715,15 @@ void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
     const QString permalink = generatePermalink(messageId);
     QClipboard *clip = QApplication::clipboard();
     clip->setText(permalink, QClipboard::Clipboard);
+}
+
+void MessageListView::slotForwardMessage(const QModelIndex &index)
+{
+    QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 QString MessageListView::generatePermalink(const QString &messageId) const
