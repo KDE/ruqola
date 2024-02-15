@@ -52,23 +52,27 @@ void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &
     if (mRocketChatAccount) {
         if (!text.isEmpty()) {
             const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(text);
-            for (const Room *room : rooms) {
-                ChannelUserCompleter channel;
-                switch (room->channelType()) {
-                case Room::RoomType::Channel:
-                    channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
-                    break;
-                case Room::RoomType::Direct:
-                    channel.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-                    break;
-                default:
-                    break;
+            if (rooms.isEmpty()) {
+                mCompletionListView->hide();
+            } else {
+                for (const Room *room : rooms) {
+                    ChannelUserCompleter channel;
+                    switch (room->channelType()) {
+                    case Room::RoomType::Channel:
+                        channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
+                        break;
+                    case Room::RoomType::Direct:
+                        channel.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
+                        break;
+                    default:
+                        break;
+                    }
+                    channel.setName(room->displayFName());
+                    channel.setIdentifier(room->roomId());
+                    channel.setChannelIcon();
+                    channel.setAvatarInfo(room->avatarInfo());
+                    channels.append(std::move(channel));
                 }
-                channel.setName(room->displayFName());
-                channel.setIdentifier(room->roomId());
-                channel.setChannelIcon();
-                channel.setAvatarInfo(room->avatarInfo());
-                channels.append(std::move(channel));
             }
         } else {
             mCompletionListView->hide();
@@ -81,6 +85,9 @@ void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex 
 {
     const QString completerName = index.data(ForwardMessageChannelModel::Name).toString();
     const QString roomId = index.data(ForwardMessageChannelModel::ChannelId).toString();
+    if (completerName.isEmpty() || roomId.isEmpty()) {
+        return;
+    }
     ForwardMessageChannelCompletionInfo info;
     info.name = completerName;
     info.channelId = roomId;
