@@ -50,6 +50,7 @@ public:
         RoomLastMessageAt,
         UserOffline,
         HideBadgeForMention,
+        RoomGroupMentions,
     };
     Q_ENUM(RoomRoles)
 
