@@ -100,7 +100,7 @@ void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
     info.roomId = roomId;
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
-    Q_EMIT newRoomName(info);
+    Q_EMIT newRoomName(std::move(info));
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }
