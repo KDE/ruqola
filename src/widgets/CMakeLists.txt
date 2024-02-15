@@ -843,6 +843,12 @@ target_sources(libruqolawidgets PRIVATE
 
     forwardmessage/forwardmessagewidget.h
     forwardmessage/forwardmessagewidget.cpp
+
+    forwardmessage/forwardmessageaddchannelcompletionlineedit.h
+    forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp
+
+    forwardmessage/forwardmessagechannelmodel.h
+    forwardmessage/forwardmessagechannelmodel.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
