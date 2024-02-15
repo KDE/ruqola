@@ -57,6 +57,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
     if (text.trimmed().isEmpty()) {
         mTeamRoomCompleterModel->clear();
+        mCompletionListView->hide();
     } else {
         auto job = new RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob(this);
 

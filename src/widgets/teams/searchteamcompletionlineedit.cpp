@@ -58,6 +58,7 @@ void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
 {
     if (text.trimmed().isEmpty()) {
         mTeamCompleterModel->clear();
+        mCompletionListView->hide();
         mTeamId.clear();
         Q_EMIT teamIdChanged(true);
     } else {
