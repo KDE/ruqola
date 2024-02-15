@@ -67,6 +67,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.embedCacheExpirationDays(), 30);
     QVERIFY(config.accountsDefaultUserPreferencesPushNotifications().isEmpty());
     QVERIFY(config.accountsDefaultUserPreferencesDesktopNotifications().isEmpty());
+    QVERIFY(config.allowEmailNotifications());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

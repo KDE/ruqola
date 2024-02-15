@@ -426,6 +426,16 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     return value;
 }
 
+bool RuqolaServerConfig::allowEmailNotifications() const
+{
+    return mAllowEmailNotifications;
+}
+
+void RuqolaServerConfig::setAllowEmailNotifications(bool newAllowEmailNotifications)
+{
+    mAllowEmailNotifications = newAllowEmailNotifications;
+}
+
 QString RuqolaServerConfig::accountsDefaultUserPreferencesPushNotifications() const
 {
     return mAccountsDefaultUserPreferencesPushNotifications;
@@ -606,6 +616,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAccountsDefaultUserPreferencesDesktopNotifications(value.toString());
     } else if (id == QLatin1String("Accounts_Default_User_Preferences_pushNotifications")) {
         setAccountsDefaultUserPreferencesPushNotifications(value.toString());
+    } else if (id == QLatin1String("Accounts_AllowEmailNotifications")) {
+        setAllowEmailNotifications(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -754,6 +766,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(
         createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_desktopNotifications"), accountsDefaultUserPreferencesDesktopNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_pushNotifications"), accountsDefaultUserPreferencesPushNotifications()));
+    array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailNotifications"), allowEmailNotifications()));
 
     o[QLatin1String("result")] = array;
 #if 0
@@ -933,7 +946,8 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage && mPreviewEmbed == other.mPreviewEmbed
         && mEmbedCacheExpirationDays == other.mEmbedCacheExpirationDays
         && mAccountsDefaultUserPreferencesDesktopNotifications == other.mAccountsDefaultUserPreferencesDesktopNotifications
-        && mAccountsDefaultUserPreferencesPushNotifications == other.mAccountsDefaultUserPreferencesPushNotifications;
+        && mAccountsDefaultUserPreferencesPushNotifications == other.mAccountsDefaultUserPreferencesPushNotifications
+        && mAllowEmailNotifications == other.mAllowEmailNotifications;
 }
 
 void RuqolaServerConfig::loadAccountSettingsFromLocalDataBase(const QByteArray &ba)
