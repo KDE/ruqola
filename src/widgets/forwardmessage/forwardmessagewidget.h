@@ -10,6 +10,7 @@
 class ForwardMessageAddChannelCompletionLineEdit;
 class RocketChatAccount;
 class FlowLayout;
+class ClickableWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -18,6 +19,9 @@ public:
     ~ForwardMessageWidget() override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName();
     ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
     FlowLayout *const mFlowLayout;
+    QMap<QString, ClickableWidget *> mMap;
 };

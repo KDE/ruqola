@@ -18,6 +18,9 @@ public:
     explicit ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ForwardMessageAddChannelCompletionLineEdit() override;
 
+Q_SIGNALS:
+    void newChannel(); // TODO add argument!
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
