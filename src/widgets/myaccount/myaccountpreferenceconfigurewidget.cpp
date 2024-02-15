@@ -179,18 +179,38 @@ void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
                              i18n("Download File Requested"));
 }
 
+QString MyAccountPreferenceConfigureWidget::desktopPushNotificationI18n(const QString &value) const
+{
+    if (value == QLatin1String("all")) {
+        return i18n("All Messages");
+    } else if (value == QLatin1String("mentions")) {
+        return i18n("Mentions");
+    } else if (value == QLatin1String("nothing")) {
+        return i18n("Nothing");
+    }
+    qCWarning(RUQOLAWIDGETS_LOG) << "String not found: " << value << " It's a bug";
+    return value;
+}
+
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
 {
-    mDesktopNotification->addItem(i18n("Default"), QStringLiteral("default"));
-    mDesktopNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
-    mDesktopNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
-    mDesktopNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
+    const QString desktopNotificationDefaultValue = mRocketChatAccount
+        ? i18n("Default (%1)", desktopPushNotificationI18n(mRocketChatAccount->ruqolaServerConfig()->accountsDefaultUserPreferencesDesktopNotifications()))
+        : i18n("Default");
+    mDesktopNotification->addItem(desktopNotificationDefaultValue, QStringLiteral("default"));
+    mDesktopNotification->addItem(desktopPushNotificationI18n(QStringLiteral("all")), QStringLiteral("all"));
+    mDesktopNotification->addItem(desktopPushNotificationI18n(QStringLiteral("mentions")), QStringLiteral("mentions"));
+    mDesktopNotification->addItem(desktopPushNotificationI18n(QStringLiteral("nothing")), QStringLiteral("nothing"));
 
-    mPushNotification->addItem(i18n("Default"), QStringLiteral("default"));
-    mPushNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
-    mPushNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
-    mPushNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
+    const QString pushNotificationDefaultValue = mRocketChatAccount
+        ? i18n("Default (%1)", desktopPushNotificationI18n(mRocketChatAccount->ruqolaServerConfig()->accountsDefaultUserPreferencesPushNotifications()))
+        : i18n("Default");
+    mPushNotification->addItem(pushNotificationDefaultValue, QStringLiteral("default"));
+    mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("all")), QStringLiteral("all"));
+    mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("mentions")), QStringLiteral("mentions"));
+    mPushNotification->addItem(desktopPushNotificationI18n(QStringLiteral("nothing")), QStringLiteral("nothing"));
 
+    // TODO default value from server
     mEmailNotification->addItem(i18n("Default"), QStringLiteral("default"));
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));

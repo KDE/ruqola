@@ -28,6 +28,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setWasChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void initComboboxValues();
     LIBRUQOLAWIDGETS_NO_EXPORT void downloadData(bool fullData);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString desktopPushNotificationI18n(const QString &value) const;
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;
