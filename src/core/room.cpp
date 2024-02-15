@@ -650,6 +650,9 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("description"))) {
         setDescription(json[QLatin1String("description")].toString());
     }
+    if (json.contains(QLatin1String("tunread"))) {
+        setThreadUnread(extractStringList(json, QLatin1String("tunread")));
+    }
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
     setLastMessageAt(Utils::parseDate(QStringLiteral("lm"), json));
@@ -1248,6 +1251,8 @@ void Room::deserialize(Room *r, const QJsonObject &o)
 
     r->setRoles(extractStringList(o, QLatin1String("roles")));
 
+    r->setThreadUnread(extractStringList(o, QLatin1String("tunread")));
+
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::deserialize(notificationsObj);
     r->setNotificationOptions(notifications);
@@ -1365,6 +1370,14 @@ QByteArray Room::serialize(Room *r, bool toBinary)
             array.append(r->ignoredUsers().at(i));
         }
         o[QLatin1String("ignored")] = array;
+    }
+    if (!r->threadUnread().isEmpty()) {
+        QJsonArray array;
+        const int nbThreadUnreads = r->threadUnread().count();
+        for (int i = 0; i < nbThreadUnreads; ++i) {
+            array.append(r->threadUnread().at(i));
+        }
+        o[QLatin1String("tunread")] = array;
     }
 
     if (!r->roles().isEmpty()) {

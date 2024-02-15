@@ -51,6 +51,7 @@ public:
         UserOffline,
         HideBadgeForMention,
         RoomGroupMentions,
+        RoomThreadUnread,
     };
     Q_ENUM(RoomRoles)
 

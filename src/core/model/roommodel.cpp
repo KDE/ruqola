@@ -157,6 +157,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->hideBadgeForMention();
     case RoomModel::RoomGroupMentions:
         return r->groupMentions();
+    case RoomModel::RoomThreadUnread:
+        return r->threadUnread();
     case Qt::ToolTipRole:
         return generateToolTip(r);
     }
