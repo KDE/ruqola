@@ -70,6 +70,8 @@ void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &
                 channel.setAvatarInfo(room->avatarInfo());
                 channels.append(std::move(channel));
             }
+        } else {
+            mCompletionListView->hide();
         }
     }
     mForwardMessageChannelModel->setRooms(channels);
