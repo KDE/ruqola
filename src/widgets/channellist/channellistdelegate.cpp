@@ -122,7 +122,7 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
     if (hideBadgeForMention) {
         return QString();
     }
-    const int unreadCount = index.data(RoomModel::RoomUnread).toInt();
+    const int unreadCount = index.data(RoomModel::RoomUnread).toInt() + index.data(RoomModel::RoomThreadUnread).toInt();
     const QString unreadText = unreadCount > 0 ? QStringLiteral("(%1)").arg(unreadCount) : QString();
     const int userMentionsCount = index.data(RoomModel::RoomUserMentions).toInt();
     return (userMentionsCount > 0) ? QLatin1Char('@') + unreadText : unreadText;
