@@ -66,6 +66,7 @@ static const int numRuqolaBugfixing2_1 = sizeof ruqolaBugfixing2_1 / sizeof *ruq
 static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
     kli18n("Allow to increase/decrease font (CTRL++/CTRL+-)"),
     kli18n("Add channel list style (Condensed/Medium/Expended)"),
+    kli18n("Add forward message"),
 };
 static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
 // enter items for the "Important changes" list here:
