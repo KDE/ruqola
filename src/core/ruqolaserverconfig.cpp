@@ -603,7 +603,9 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     } else if (id == QLatin1String("API_EmbedCacheExpirationDays")) {
         setEmbedCacheExpirationDays(value.toInt());
     } else if (id == QLatin1String("Accounts_Default_User_Preferences_desktopNotifications")) {
+        setAccountsDefaultUserPreferencesDesktopNotifications(value.toString());
     } else if (id == QLatin1String("Accounts_Default_User_Preferences_pushNotifications")) {
+        setAccountsDefaultUserPreferencesPushNotifications(value.toString());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }

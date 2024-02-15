@@ -66,7 +66,7 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     }
     mCurrentRocketChatAccount = currentRocketChatAccount;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
-    mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, [this]() {
+    mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this]() {
         filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
     });
     filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());

@@ -110,11 +110,11 @@ MessageListLayoutBase::Layout MessageListDelegate::doLayout(const QStyleOptionVi
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
     if (mRocketChatAccount) {
-        disconnect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
+        disconnect(mRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
         disconnect(mRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageListDelegate::slotPrivateSettingsChanged);
     }
     mRocketChatAccount = rcAccount;
-    connect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
+    connect(mRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
     connect(mRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageListDelegate::slotPrivateSettingsChanged);
 
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);

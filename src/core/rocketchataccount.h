@@ -561,6 +561,7 @@ Q_SIGNALS:
     void roomNeedAttention();
     void ownInfoChanged();
     void customUserStatusChanged();
+    void ownUserUiPreferencesChanged();
     void ownUserPreferencesChanged();
     void customStatusChanged();
     void permissionChanged();
