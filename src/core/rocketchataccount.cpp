@@ -2592,7 +2592,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     downloadAppsLanguages();
     Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
-    Q_EMIT ownUserPreferencesChanged();
+    Q_EMIT ownUserUiPreferencesChanged();
 }
 
 bool RocketChatAccount::isAdministrator() const
@@ -2706,15 +2706,15 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarShowFavorites")) {
                 ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarSortby")) {
                 const QString value = updateJson.value(key).toString();
                 if (value == QLatin1String("activity")) {
@@ -2725,16 +2725,19 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     qCWarning(RUQOLA_LOG) << "Sortby is not defined ?  " << value;
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.desktopNotifications")) {
                 ownUserPreferences.setDesktopNotifications(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.pushNotifications")) {
                 ownUserPreferences.setPushNotifications(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.emailNotificationMode")) {
                 ownUserPreferences.setEmailNotificationMode(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;
@@ -2891,7 +2894,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
-        Q_EMIT ownUserPreferencesChanged();
+        Q_EMIT ownUserUiPreferencesChanged();
     }
 }
 

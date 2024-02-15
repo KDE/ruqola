@@ -21,7 +21,7 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
 {
-    connect(account, &RocketChatAccount::ownUserPreferencesChanged, this, [this] {
+    connect(account, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this] {
         Q_EMIT dataChanged(index(0), index(rowCount() - 1), {RoomRoles::RoomSection});
     });
 }
