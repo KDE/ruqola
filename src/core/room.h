@@ -327,6 +327,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseRetentionInfo(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseTeamInfo(const QJsonObject &obj);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList extractStringList(const QJsonObject &o, const QString &key);
+    LIBRUQOLACORE_NO_EXPORT static void serializeStringList(QJsonObject &o, const QString &key, const QStringList &list);
 
     // Room Object Fields
 
