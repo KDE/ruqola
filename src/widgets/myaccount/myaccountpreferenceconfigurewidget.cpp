@@ -180,17 +180,17 @@ void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
 
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
 {
-    // Default ?
+    mDesktopNotification->addItem(i18n("Default"), QStringLiteral("default"));
     mDesktopNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
     mDesktopNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
     mDesktopNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
 
-    // Default ?
+    mPushNotification->addItem(i18n("Default"), QStringLiteral("default"));
     mPushNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
     mPushNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
     mPushNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
 
-    // Default ?
+    mEmailNotification->addItem(i18n("Default"), QStringLiteral("default"));
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
 
