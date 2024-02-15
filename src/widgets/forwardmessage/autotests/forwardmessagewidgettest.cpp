@@ -16,7 +16,7 @@ ForwardMessageWidgetTest::ForwardMessageWidgetTest(QObject *parent)
 
 void ForwardMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ForwardMessageWidget w;
+    ForwardMessageWidget w(nullptr);
     // TODO
 }
 

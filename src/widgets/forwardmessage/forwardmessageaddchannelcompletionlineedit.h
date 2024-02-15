@@ -10,11 +10,12 @@
 #include "libruqolawidgets_private_export.h"
 class ForwardMessageChannelModel;
 class QTimer;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageAddChannelCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
 public:
-    explicit ForwardMessageAddChannelCompletionLineEdit(QWidget *parent = nullptr);
+    explicit ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ForwardMessageAddChannelCompletionLineEdit() override;
 
 private:
@@ -24,4 +25,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
     ForwardMessageChannelModel *const mForwardMessageChannelModel;
     QTimer *const mSearchTimer;
+    RocketChatAccount *const mRocketChatAccount;
 };

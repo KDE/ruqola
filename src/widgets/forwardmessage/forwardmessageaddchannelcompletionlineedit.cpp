@@ -6,16 +6,19 @@
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
 #include "forwardmessagechannelmodel.h"
+#include "rocketchataccount.h"
+#include "room.h"
 #include <KLocalizedString>
 #include <QTimer>
 #include <chrono>
 
 using namespace std::chrono_literals;
 
-ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(QWidget *parent)
+ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mForwardMessageChannelModel(new ForwardMessageChannelModel(this))
     , mSearchTimer(new QTimer(this))
+    , mRocketChatAccount(account)
 {
     setPlaceholderText(i18n("Search rooms..."));
     setCompletionModel(mForwardMessageChannelModel);
@@ -44,14 +47,31 @@ void ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited()
 
 void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    // TODO
+    QVector<ChannelUserCompleter> channels;
+    if (mRocketChatAccount) {
+        if (!text.isEmpty()) {
+            const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(text);
+            for (const Room *room : rooms) {
+                if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
+                    ChannelUserCompleter channel;
+                    channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
+                    channel.setName(room->displayFName());
+                    channel.setIdentifier(room->roomId());
+                    channel.setChannelIcon();
+                    channel.setAvatarInfo(room->avatarInfo());
+                    channels.append(std::move(channel));
+                }
+            }
+        }
+    }
+    mForwardMessageChannelModel->setRooms(channels);
 }
 
 void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
+    const QString completerName = index.data(ForwardMessageChannelModel::Name).toString();
+    const QString roomId = index.data(ForwardMessageChannelModel::ChannelId).toString();
 #if 0
-    const QString completerName = index.data(ForwardMessageChannelModel::TeamName).toString();
-    const QString roomId = index.data(ForwardMessageChannelModel::TeamId).toString();
     RoomCompletionInfo info;
     info.roomName = completerName;
     info.roomId = roomId;

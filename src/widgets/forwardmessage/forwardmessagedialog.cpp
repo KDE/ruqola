@@ -10,9 +10,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ForwardMessageDialog::ForwardMessageDialog(QWidget *parent)
+ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mForwardMessageWidget(new ForwardMessageWidget(this))
+    , mForwardMessageWidget(new ForwardMessageWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Forward Message"));
     auto mainLayout = new QVBoxLayout(this);

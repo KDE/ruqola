@@ -10,9 +10,9 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-ForwardMessageWidget::ForwardMessageWidget(QWidget *parent)
+ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
-    , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(this))
+    , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

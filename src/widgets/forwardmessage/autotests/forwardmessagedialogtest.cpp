@@ -18,7 +18,7 @@ ForwardMessageDialogTest::ForwardMessageDialogTest(QObject *parent)
 
 void ForwardMessageDialogTest::shouldHaveDefaultValues()
 {
-    ForwardMessageDialog d;
+    ForwardMessageDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
