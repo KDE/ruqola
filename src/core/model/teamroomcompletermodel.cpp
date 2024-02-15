@@ -46,14 +46,10 @@ QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
     }
     const TeamRoomCompleter &room = mRooms.at(index.row());
     switch (role) {
-    case Qt::DisplayRole:
     case TeamName:
         return room.name();
     case TeamId:
         return room.identifier();
-    case Qt::DecorationRole:
-    case TeamIcon:
-        return {};
     }
 
     return {};

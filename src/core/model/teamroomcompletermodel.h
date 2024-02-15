@@ -18,7 +18,6 @@ public:
     enum TeamRoomCompleterRoles {
         TeamName = Qt::UserRole + 1,
         TeamId,
-        TeamIcon,
     };
     Q_ENUM(TeamRoomCompleterRoles)
 
