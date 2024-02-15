@@ -214,7 +214,7 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mEmailNotification->addItem(i18n("Default"), QStringLiteral("default"));
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
-    if (!mRocketChatAccount->ruqolaServerConfig()->allowEmailNotifications()) {
+    if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->allowEmailNotifications()) {
         mEmailNotification->setEnabled(false);
         mEmailNotificationLabel->setText(i18n("Your Rocket.Chat administrator has disabled email notifications"));
     }
