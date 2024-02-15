@@ -849,6 +849,9 @@ target_sources(libruqolawidgets PRIVATE
 
     forwardmessage/forwardmessagechannelmodel.h
     forwardmessage/forwardmessagechannelmodel.cpp
+
+    forwardmessage/forwardmessageuserandchannelcompletiondelegate.h
+    forwardmessage/forwardmessageuserandchannelcompletiondelegate.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)

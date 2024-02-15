@@ -69,7 +69,6 @@ void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &
                     }
                     channel.setName(room->displayFName());
                     channel.setIdentifier(room->roomId());
-                    channel.setChannelIcon();
                     channel.setAvatarInfo(room->avatarInfo());
                     channels.append(std::move(channel));
                 }
