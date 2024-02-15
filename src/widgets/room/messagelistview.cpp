@@ -7,6 +7,7 @@
 #include "messagelistview.h"
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/followmessagejob.h"
+#include "chat/postmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
 #include "forwardmessage/forwardmessagedialog.h"
@@ -721,7 +722,15 @@ void MessageListView::slotForwardMessage(const QModelIndex &index)
 {
     QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
-        // TODO
+        const QStringList identifiers = dlg->channelIdentifiers();
+        const QString messageId = index.data(MessagesModel::MessageId).toString();
+        auto job = new RocketChatRestApi::PostMessageJob(this);
+        job->setText(QStringLiteral("[ ](%1)\n").arg(generatePermalink(messageId)));
+        job->setRoomIds(identifiers);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start PostMessageJob job";
+        }
     }
     delete dlg;
 }

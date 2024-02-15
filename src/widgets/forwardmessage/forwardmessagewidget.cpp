@@ -71,7 +71,14 @@ void ForwardMessageWidget::slotRemoveRoom(const QString &name)
 
 QStringList ForwardMessageWidget::channelIdentifiers() const
 {
-    // TODO
-    return {};
+    QStringList identifiers;
+    QMapIterator<QString, ClickableWidget *> i(mMap);
+    identifiers.reserve(mMap.count());
+    while (i.hasNext()) {
+        i.next();
+        identifiers << i.value()->identifier();
+    }
+    return identifiers;
 }
+
 #include "moc_forwardmessagewidget.cpp"
