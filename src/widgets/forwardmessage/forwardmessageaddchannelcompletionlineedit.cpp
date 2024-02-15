@@ -5,6 +5,7 @@
 */
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
+#include "common/completionlistview.h"
 #include "forwardmessagechannelmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -74,8 +75,11 @@ void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex 
     ForwardMessageChannelCompletionInfo info;
     info.name = completerName;
     info.channelId = roomId;
+    mCompletionListView->hide();
+    disconnect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT fowardToChannel(std::move(info));
     clear();
+    connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
 }
 
 #include "moc_forwardmessageaddchannelcompletionlineedit.cpp"
