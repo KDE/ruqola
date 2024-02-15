@@ -6,6 +6,7 @@
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
 #include "common/completionlistview.h"
+#include "forwardmessage/forwardmessageuserandchannelcompletiondelegate.h"
 #include "forwardmessagechannelmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -26,6 +27,9 @@ ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLi
     connect(this, &ForwardMessageAddChannelCompletionLineEdit::complete, this, &ForwardMessageAddChannelCompletionLineEdit::slotComplete);
     connect(mSearchTimer, &QTimer::timeout, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTimerFired);
     connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
+    auto userAndChannelCompletionDelegate = new ForwardMessageUserAndChannelCompletionDelegate(mCompletionListView);
+    userAndChannelCompletionDelegate->setRocketChatAccount(account);
+    mCompletionListView->setItemDelegate(userAndChannelCompletionDelegate);
 }
 
 ForwardMessageAddChannelCompletionLineEdit::~ForwardMessageAddChannelCompletionLineEdit() = default;
