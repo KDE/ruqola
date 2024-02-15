@@ -198,6 +198,12 @@ public:
     [[nodiscard]] int embedCacheExpirationDays() const;
     void setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays);
 
+    [[nodiscard]] QString accountsDefaultUserPreferencesDesktopNotifications() const;
+    void setAccountsDefaultUserPreferencesDesktopNotifications(const QString &newAccountsDefaultUserPreferencesDesktopNotifications);
+
+    [[nodiscard]] QString accountsDefaultUserPreferencesPushNotifications() const;
+    void setAccountsDefaultUserPreferencesPushNotifications(const QString &newAccountsDefaultUserPreferencesPushNotifications);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
@@ -221,6 +227,8 @@ private:
     QString mAutoTranslateGoogleKey;
     QString mChannelNameValidation;
     QString mUserNameValidation;
+    QString mAccountsDefaultUserPreferencesDesktopNotifications;
+    QString mAccountsDefaultUserPreferencesPushNotifications;
     AuthenticationManager::AuthMethodTypes mServerAuthTypes = AuthenticationManager::AuthMethodType::Unknown;
     AuthenticationManager::AuthMethodTypes mRuqolaAuthMethodTypes = AuthenticationManager::AuthMethodType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
