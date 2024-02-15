@@ -26,7 +26,6 @@ QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) co
     }
     const ChannelUserCompleter &channel = mRooms.at(index.row());
     switch (role) {
-    case Qt::DisplayRole:
     case Name:
         return channel.name();
     case ChannelId:
@@ -34,7 +33,6 @@ QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) co
     case AvatarInfo:
         return QVariant::fromValue(channel.avatarInfo());
     }
-
     return {};
 }
 
