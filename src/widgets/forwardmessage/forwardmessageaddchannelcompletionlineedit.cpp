@@ -5,15 +5,15 @@
 */
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
+#include "forwardmessagechannelmodel.h"
 #include <KLocalizedString>
 
 ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(QWidget *parent)
     : CompletionLineEdit(parent)
+    , mForwardMessageChannelModel(new ForwardMessageChannelModel(this))
 {
     setPlaceholderText(i18n("Search rooms..."));
-#if 0
-    setCompletionModel(mTeamRoomCompleterModel);
-#endif
+    setCompletionModel(mForwardMessageChannelModel);
     connect(this, &ForwardMessageAddChannelCompletionLineEdit::complete, this, &ForwardMessageAddChannelCompletionLineEdit::slotComplete);
 }
 
@@ -29,8 +29,8 @@ void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex 
     info.roomId = roomId;
     mCompletionListView->hide();
     Q_EMIT newRoomName(info);
-    clear();
 #endif
+    clear();
 }
 
 #include "moc_forwardmessageaddchannelcompletionlineedit.cpp"

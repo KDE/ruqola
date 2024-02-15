@@ -8,7 +8,7 @@
 
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-
+class ForwardMessageChannelModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageAddChannelCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -18,4 +18,5 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
+    ForwardMessageChannelModel *const mForwardMessageChannelModel;
 };

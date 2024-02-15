@@ -14,4 +14,12 @@ class ForwardMessageChannelModel : public QAbstractListModel
 public:
     explicit ForwardMessageChannelModel(QObject *parent = nullptr);
     ~ForwardMessageChannelModel() override;
+
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    // void setRooms(const QVector<TeamRoomCompleter> &rooms);
+
+private:
+    // QVector<TeamRoomCompleter> mRooms;
 };
