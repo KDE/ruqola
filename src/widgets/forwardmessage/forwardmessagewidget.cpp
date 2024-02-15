@@ -18,6 +18,7 @@ ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18n("Select at least one channel to forward the message to."), this);
     label->setObjectName(QStringLiteral("label"));
