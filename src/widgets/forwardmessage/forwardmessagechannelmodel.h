@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "channelusercompleter.h"
 #include <QAbstractListModel>
 
 class ForwardMessageChannelModel : public QAbstractListModel
@@ -18,8 +19,10 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    // void setRooms(const QVector<TeamRoomCompleter> &rooms);
+    void setRooms(const QVector<ChannelUserCompleter> &rooms);
+
+    void clear();
 
 private:
-    // QVector<TeamRoomCompleter> mRooms;
+    QVector<ChannelUserCompleter> mRooms;
 };
