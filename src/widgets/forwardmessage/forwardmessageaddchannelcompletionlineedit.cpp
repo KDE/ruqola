@@ -28,6 +28,7 @@ ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLi
     connect(mSearchTimer, &QTimer::timeout, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTimerFired);
     connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
     auto userAndChannelCompletionDelegate = new ForwardMessageUserAndChannelCompletionDelegate(mCompletionListView);
+    userAndChannelCompletionDelegate->setObjectName(QStringLiteral("userAndChannelCompletionDelegate"));
     userAndChannelCompletionDelegate->setRocketChatAccount(account);
     mCompletionListView->setItemDelegate(userAndChannelCompletionDelegate);
     mCompletionListView->setTextWidget(this);

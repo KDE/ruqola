@@ -14,6 +14,11 @@
 #include <QFontMetricsF>
 #include <QPainter>
 
+namespace
+{
+constexpr uint padding = 4;
+}
+
 ForwardMessageUserAndChannelCompletionDelegate::ForwardMessageUserAndChannelCompletionDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::UserAndRoom, this))
@@ -42,7 +47,8 @@ void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, co
     const Utils::AvatarInfo info = index.data(ForwardMessageChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, info, option.rect.height());
+        constexpr int marginTop = padding / 2;
+        const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, info, option.rect.height() - marginTop);
         if (!pix.isNull()) {
             drawDecoration(painter, option, displayRect, pix);
             xPos = margin + option.rect.height();
@@ -59,4 +65,9 @@ void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, co
 void ForwardMessageUserAndChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);
+}
+
+QSize ForwardMessageUserAndChannelCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    return QItemDelegate::sizeHint(option, index) + QSize(0, padding);
 }
