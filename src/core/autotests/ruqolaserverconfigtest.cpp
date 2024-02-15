@@ -56,15 +56,17 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(defaultValue.url.isEmpty());
     QVERIFY(defaultValue.defaultUrl.isEmpty());
     QVERIFY(defaultValue.isEmpty());
-    QVERIFY(!config.previewEmbed());
-
-    QCOMPARE(config.embedCacheExpirationDays(), 30);
 
     defaultValue.url = QStringLiteral("dd");
     QVERIFY(defaultValue.isEmpty());
 
     defaultValue.defaultUrl = QStringLiteral("dd1");
     QVERIFY(!defaultValue.isEmpty());
+
+    QVERIFY(!config.previewEmbed());
+    QCOMPARE(config.embedCacheExpirationDays(), 30);
+    QVERIFY(config.accountsDefaultUserPreferencesPushNotifications().isEmpty());
+    QVERIFY(config.accountsDefaultUserPreferencesDesktopNotifications().isEmpty());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

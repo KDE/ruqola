@@ -404,6 +404,8 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d.space() << "mMediaWhiteList " << t.mediaWhiteList();
     d.space() << "previewEmbed " << t.previewEmbed();
     d.space() << "embedCacheExpirationDays " << t.embedCacheExpirationDays();
+    d.space() << "accountsDefaultUserPreferencesPushNotifications " << t.accountsDefaultUserPreferencesPushNotifications();
+    d.space() << "accountsDefaultUserPreferencesDesktopNotifications " << t.accountsDefaultUserPreferencesDesktopNotifications();
     return d;
 }
 
@@ -422,6 +424,26 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     value.defaultUrl = o[QLatin1String("defaultUrl")].toString();
     value.url = o[QLatin1String("url")].toString();
     return value;
+}
+
+QString RuqolaServerConfig::accountsDefaultUserPreferencesPushNotifications() const
+{
+    return mAccountsDefaultUserPreferencesPushNotifications;
+}
+
+void RuqolaServerConfig::setAccountsDefaultUserPreferencesPushNotifications(const QString &newAccountsDefaultUserPreferencesPushNotifications)
+{
+    mAccountsDefaultUserPreferencesPushNotifications = newAccountsDefaultUserPreferencesPushNotifications;
+}
+
+QString RuqolaServerConfig::accountsDefaultUserPreferencesDesktopNotifications() const
+{
+    return mAccountsDefaultUserPreferencesDesktopNotifications;
+}
+
+void RuqolaServerConfig::setAccountsDefaultUserPreferencesDesktopNotifications(const QString &newAccountsDefaultUserPreferencesDesktopNotifications)
+{
+    mAccountsDefaultUserPreferencesDesktopNotifications = newAccountsDefaultUserPreferencesDesktopNotifications;
 }
 
 int RuqolaServerConfig::embedCacheExpirationDays() const
@@ -580,6 +602,8 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setPreviewEmbed(value.toBool());
     } else if (id == QLatin1String("API_EmbedCacheExpirationDays")) {
         setEmbedCacheExpirationDays(value.toInt());
+    } else if (id == QLatin1String("Accounts_Default_User_Preferences_desktopNotifications")) {
+    } else if (id == QLatin1String("Accounts_Default_User_Preferences_pushNotifications")) {
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
@@ -725,6 +749,9 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("AuthenticationServerMethod"), static_cast<int>(mServerAuthTypes)));
     array.append(createJsonObject(QStringLiteral("API_Embed"), previewEmbed()));
     array.append(createJsonObject(QStringLiteral("API_EmbedCacheExpirationDays"), embedCacheExpirationDays()));
+    array.append(
+        createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_desktopNotifications"), accountsDefaultUserPreferencesDesktopNotifications()));
+    array.append(createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_pushNotifications"), accountsDefaultUserPreferencesPushNotifications()));
 
     o[QLatin1String("result")] = array;
 #if 0
@@ -902,7 +929,9 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mUserDataDownloadEnabled == other.mUserDataDownloadEnabled && mDeviceManagementEnableLoginEmails == other.mDeviceManagementEnableLoginEmails
         && mDeviceManagementAllowLoginEmailpreference == other.mDeviceManagementAllowLoginEmailpreference
         && mAllowCustomStatusMessage == other.mAllowCustomStatusMessage && mPreviewEmbed == other.mPreviewEmbed
-        && mEmbedCacheExpirationDays == other.mEmbedCacheExpirationDays;
+        && mEmbedCacheExpirationDays == other.mEmbedCacheExpirationDays
+        && mAccountsDefaultUserPreferencesDesktopNotifications == other.mAccountsDefaultUserPreferencesDesktopNotifications
+        && mAccountsDefaultUserPreferencesPushNotifications == other.mAccountsDefaultUserPreferencesPushNotifications;
 }
 
 void RuqolaServerConfig::loadAccountSettingsFromLocalDataBase(const QByteArray &ba)
