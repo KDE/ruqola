@@ -48,14 +48,7 @@ void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, co
             xPos = margin + option.rect.height();
         }
     }
-#if 0
-    const QIcon iconStatus = index.data(ForwardMessageChannelModel::IconStatus).value<QIcon>();
-    if (!iconStatus.isNull()) {
-        const QRect displayRect(margin + xPos, option.rect.y(), option.rect.height(), option.rect.height());
-        drawDecoration(painter, option, displayRect, iconStatus.pixmap(option.rect.height(), option.rect.height()));
-        xPos += margin + option.rect.height();
-    }
-#endif
+
     QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(ForwardMessageChannelModel::Name).toString();
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();

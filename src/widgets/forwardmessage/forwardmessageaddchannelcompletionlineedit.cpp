@@ -30,6 +30,7 @@ ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLi
     auto userAndChannelCompletionDelegate = new ForwardMessageUserAndChannelCompletionDelegate(mCompletionListView);
     userAndChannelCompletionDelegate->setRocketChatAccount(account);
     mCompletionListView->setItemDelegate(userAndChannelCompletionDelegate);
+    mCompletionListView->setTextWidget(this);
 }
 
 ForwardMessageAddChannelCompletionLineEdit::~ForwardMessageAddChannelCompletionLineEdit() = default;
