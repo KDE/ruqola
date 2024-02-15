@@ -497,7 +497,7 @@ void Connection::postMessage(const QString &roomId, const QString &text)
     auto job = new PostMessageJob(this);
     connect(job, &PostMessageJob::postMessageDone, this, &Connection::postMessageDone);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomIds({roomId});
     job->setText(text);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PostMessageJob job";

@@ -20,7 +20,7 @@ void PostMessageJobTest::shouldHaveDefaultValue()
     PostMessageJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(job.roomIds().isEmpty());
     QVERIFY(job.text().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -39,7 +39,7 @@ void PostMessageJobTest::shouldGenerateJson()
     PostMessageJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString text = QStringLiteral("topic1");
-    job.setRoomId(roomId);
+    job.setRoomIds({roomId});
     job.setText(text);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","text":"%2"})").arg(roomId, text).toLatin1());
 }
@@ -62,7 +62,7 @@ void PostMessageJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    job.setRoomIds({roomId});
     QVERIFY(!job.canStart());
     const QString text = QStringLiteral("topic1");
     job.setText(text);

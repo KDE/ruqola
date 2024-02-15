@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT PostMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT PostMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -25,8 +25,8 @@ public:
     [[nodiscard]] QString text() const;
     void setText(const QString &text);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QStringList roomIds() const;
+    void setRoomIds(const QStringList &roomId);
 
     [[nodiscard]] QJsonDocument json() const;
 
@@ -39,7 +39,7 @@ protected:
 private:
     Q_DISABLE_COPY(PostMessageJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    QStringList mRoomIds;
     QString mText;
-    QString mRoomId;
 };
 }
