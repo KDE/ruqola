@@ -283,7 +283,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 mCurrentRocketChatAccount->openChannel(roomOrUserId, RocketChatAccount::ChannelTypeInfo::RoomId);
             }
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
-            if (!RoomUtil::validUser(roomOrUserId)) {
+            if (!Utils::validUser(roomOrUserId)) {
                 return;
             }
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {

@@ -300,7 +300,7 @@ QString generateRichText(const QString &str,
                                .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
 
         } else {
-            if (userIdentifier == QLatin1String("here") || userIdentifier == QLatin1String("all")) { // here ? all ?
+            if (!Utils::validUser(userIdentifier)) { // here ? all ?
                 newStr.replace(QLatin1Char('@') + word.toString(),
                                QStringLiteral("<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>")
                                    .arg(word.toString(), hereAllMentionForegroundColor, hereAllMentionBackgroundColor));

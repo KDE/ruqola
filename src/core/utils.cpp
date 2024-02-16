@@ -380,3 +380,8 @@ QIcon Utils::iconFromAccount(RocketChatAccount *account)
     }
     return icon;
 }
+
+bool Utils::validUser(const QString &userName)
+{
+    return (userName != QLatin1String("here") && userName != QLatin1String("all"));
+}

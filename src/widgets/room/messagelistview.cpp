@@ -371,7 +371,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             return {};
         if (url.startsWith(QLatin1String("ruqola:/user/"))) {
             url.remove(QStringLiteral("ruqola:/user/"));
-            if (!RoomUtil::validUser(url)) {
+            if (!Utils::validUser(url)) {
                 return {};
             }
         } else {
