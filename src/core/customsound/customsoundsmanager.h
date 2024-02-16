@@ -17,8 +17,8 @@ public:
     explicit CustomSoundsManager(QObject *parent = nullptr);
     ~CustomSoundsManager() override;
 
-    [[nodiscard]] const QVector<CustomSoundInfo> &customSoundsInfo() const;
-    void setCustomSoundsInfo(const QVector<CustomSoundInfo> &newCustomSoundsInfo);
+    [[nodiscard]] const QList<CustomSoundInfo> &customSoundsInfo() const;
+    void setCustomSoundsInfo(const QList<CustomSoundInfo> &newCustomSoundsInfo);
 
     void parseCustomSounds(const QJsonArray &obj);
 
@@ -33,5 +33,5 @@ Q_SIGNALS:
     void customSoundUpdated(const QString &identifier);
 
 private:
-    QVector<CustomSoundInfo> mCustomSoundsInfo;
+    QList<CustomSoundInfo> mCustomSoundsInfo;
 };

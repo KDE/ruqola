@@ -28,10 +28,10 @@ MessageDelegateHelperReactions::MessageDelegateHelperReactions(RocketChatAccount
     // For emoji not necessary to limit cache. (mPixmapCache)
 }
 
-QVector<MessageDelegateHelperReactions::ReactionLayout>
-MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const
+QList<MessageDelegateHelperReactions::ReactionLayout>
+MessageDelegateHelperReactions::layoutReactions(const QList<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const
 {
-    QVector<ReactionLayout> layouts;
+    QList<ReactionLayout> layouts;
     layouts.reserve(reactions.count());
     auto *emojiManager = mRocketChatAccount->emojiManager();
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
@@ -93,7 +93,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    const QVector<Reaction> reactions = message->reactions().reactions();
+    const QList<Reaction> reactions = message->reactions().reactions();
     if (reactions.isEmpty()) {
         return;
     }
@@ -103,7 +103,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
     painter->drawRect(reactionsRect);
     painter->restore();
 #endif
-    const QVector<ReactionLayout> layouts = layoutReactions(reactions, reactionsRect, option);
+    const QList<ReactionLayout> layouts = layoutReactions(reactions, reactionsRect, option);
 
     const QPen origPen = painter->pen();
     const QBrush origBrush = painter->brush();
@@ -197,7 +197,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     int reactionsHeight = 0;
     if (!message->reactions().isEmpty()) {
         const QFontMetrics emojiFontMetrics(mEmojiFont);
-        // const QVector<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()), option);
+        // const QList<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()), option);
         // for (auto t : layouts) {
         //     qDebug() << " t " << t.reactionRect << " maxWidth " << maxWidth;
         // }
@@ -211,7 +211,7 @@ bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, Q
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
-        const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
+        const QList<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
         for (const ReactionLayout &reactionLayout : reactions) {
             if (reactionLayout.reactionRect.contains(pos)) {
                 const Reaction &reaction = reactionLayout.reaction;
@@ -230,7 +230,7 @@ bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent,
                                                      const QStyleOptionViewItem &option,
                                                      const Message *message)
 {
-    const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
+    const QList<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
     for (const ReactionLayout &reactionLayout : reactions) {
         if (reactionLayout.reactionRect.contains(helpEvent->pos())) {
             const Reaction &reaction = reactionLayout.reaction;

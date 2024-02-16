@@ -19,7 +19,7 @@ public:
     explicit ExplorePermissionsWidget(QWidget *parent = nullptr);
     ~ExplorePermissionsWidget() override;
 
-    void setPermissions(const QVector<Permission> &permissions);
+    void setPermissions(const QList<Permission> &permissions);
 
     void setOWnRoles(const QStringList &roleStr);
 

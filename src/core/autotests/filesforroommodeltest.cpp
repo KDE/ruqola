@@ -30,7 +30,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
 void FilesForRoomModelTest::shouldAddFiles()
 {
     FilesForRoomModel w;
-    QVector<File> mFiles;
+    QList<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
@@ -60,7 +60,7 @@ void FilesForRoomModelTest::shouldAddFiles()
 void FilesForRoomModelTest::shouldVerifyData()
 {
     FilesForRoomModel w;
-    QVector<File> mFiles;
+    QList<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));

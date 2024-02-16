@@ -123,7 +123,7 @@ QDebug operator<<(QDebug d, const User &t)
 }
 
 // FIXME Add autotest for it!
-void User::parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &roleInfo)
+void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
     setUserId(object.value(QLatin1String("_id")).toString());
     setName(object.value(QLatin1String("name")).toString());
@@ -197,7 +197,7 @@ QStringList User::roles() const
     return mRoles;
 }
 
-QString User::roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo)
+QString User::roleI18n(const QString &roleStr, const QList<RoleInfo> &roleInfo)
 {
     QString ri18n;
     if (roleStr == QLatin1String("user")) {
@@ -272,7 +272,7 @@ void User::setNickName(const QString &newNickName)
     mNickName = newNickName;
 }
 
-void User::setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo)
+void User::setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo)
 {
     QStringList rolesI18n;
     rolesI18n.reserve(roles.count());
@@ -362,10 +362,10 @@ QString User::iconFromStatus() const
     return Utils::iconFromPresenceStatus(mStatus);
 }
 
-QVector<User> User::parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo)
+QList<User> User::parseUsersList(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
     const QJsonArray fieldsArray = object.value(QLatin1String("items")).toArray();
-    QVector<User> users;
+    QList<User> users;
     for (const QJsonValue &current : fieldsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();

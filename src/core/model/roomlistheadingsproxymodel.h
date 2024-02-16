@@ -38,7 +38,7 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void onRowsInserted(const QModelIndex &parent, int first, int last);
     LIBRUQOLACORE_NO_EXPORT void onRowsAboutToBeRemoved(const QModelIndex &parent, int first, int last);
-    LIBRUQOLACORE_NO_EXPORT void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+    LIBRUQOLACORE_NO_EXPORT void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QList<int> &roles);
     LIBRUQOLACORE_NO_EXPORT void rebuildSections();
 
     // each section vector is kept sorted for performance reasons

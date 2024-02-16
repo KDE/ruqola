@@ -31,10 +31,10 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("customStatusesCount");
-    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatus");
+    QTest::addColumn<QList<CustomUserStatus>>("customUserStatus");
 
     {
-        QVector<CustomUserStatus> result;
+        QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
@@ -59,7 +59,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses()
 {
     QFETCH(QString, name);
     QFETCH(int, customStatusesCount);
-    QFETCH(QVector<CustomUserStatus>, customUserStatus);
+    QFETCH(QList<CustomUserStatus>, customUserStatus);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
@@ -78,11 +78,11 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
 {
     QTest::addColumn<QString>("filename");
     QTest::addColumn<QString>("updatefilename");
-    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusInit");
-    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusAfterUpdating");
+    QTest::addColumn<QList<CustomUserStatus>>("customUserStatusInit");
+    QTest::addColumn<QList<CustomUserStatus>>("customUserStatusAfterUpdating");
 
     {
-        QVector<CustomUserStatus> result;
+        QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
@@ -100,7 +100,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             result << f;
         }
 
-        QVector<CustomUserStatus> updating;
+        QList<CustomUserStatus> updating;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
@@ -122,7 +122,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
     }
 
     {
-        QVector<CustomUserStatus> result;
+        QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
@@ -140,7 +140,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses_data()
             result << f;
         }
 
-        QVector<CustomUserStatus> adding;
+        QList<CustomUserStatus> adding;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
@@ -173,8 +173,8 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
 {
     QFETCH(QString, filename);
     QFETCH(QString, updatefilename);
-    QFETCH(QVector<CustomUserStatus>, customUserStatusInit);
-    QFETCH(QVector<CustomUserStatus>, customUserStatusAfterUpdating);
+    QFETCH(QList<CustomUserStatus>, customUserStatusInit);
+    QFETCH(QList<CustomUserStatus>, customUserStatusAfterUpdating);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + filename + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
@@ -205,11 +205,11 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
 {
     QTest::addColumn<QString>("filename");
     QTest::addColumn<QString>("updatefilename");
-    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusInit");
-    QTest::addColumn<QVector<CustomUserStatus>>("customUserStatusAfterDeleting");
+    QTest::addColumn<QList<CustomUserStatus>>("customUserStatusInit");
+    QTest::addColumn<QList<CustomUserStatus>>("customUserStatusAfterDeleting");
 
     {
-        QVector<CustomUserStatus> result;
+        QList<CustomUserStatus> result;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("GZHpA5fENrWHRfaoN"));
@@ -227,7 +227,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses_data()
             result << f;
         }
 
-        QVector<CustomUserStatus> updating;
+        QList<CustomUserStatus> updating;
         {
             CustomUserStatus f;
             f.setIdentifier(QStringLiteral("tygCbhbgCojk8G28G"));
@@ -244,8 +244,8 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
 {
     QFETCH(QString, filename);
     QFETCH(QString, updatefilename);
-    QFETCH(QVector<CustomUserStatus>, customUserStatusInit);
-    QFETCH(QVector<CustomUserStatus>, customUserStatusAfterDeleting);
+    QFETCH(QList<CustomUserStatus>, customUserStatusInit);
+    QFETCH(QList<CustomUserStatus>, customUserStatusAfterDeleting);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + filename + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 

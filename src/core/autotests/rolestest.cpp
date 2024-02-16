@@ -26,7 +26,7 @@ void RolesTest::shouldFindRoles()
 {
     Roles r;
 
-    QVector<Role> v;
+    QList<Role> v;
 
     Role r1;
     r1.setIsOwner(true);

@@ -178,7 +178,7 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::modelChanged);
     connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::modelChanged);
     // Clear document cache when message is updated otherwise image description is not up to date
-    connect(newModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &, const QVector<int> &roles) {
+    connect(newModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &, const QList<int> &roles) {
         if (roles.contains(MessagesModel::OriginalMessageOrAttachmentDescription) || roles.contains(MessagesModel::LocalTranslation)
             || roles.contains(MessagesModel::ShowTranslatedMessage)) {
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();

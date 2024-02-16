@@ -12,7 +12,7 @@
 
 PersonalAccessTokenInfos::PersonalAccessTokenInfos() = default;
 
-QVector<PersonalAccessTokenInfo> PersonalAccessTokenInfos::personalAccessTokenInfos() const
+QList<PersonalAccessTokenInfo> PersonalAccessTokenInfos::personalAccessTokenInfos() const
 {
     return mPersonalAccessTokenInfos;
 }
@@ -46,7 +46,7 @@ bool PersonalAccessTokenInfos::isEmpty() const
     return mPersonalAccessTokenInfos.isEmpty();
 }
 
-void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(const QVector<PersonalAccessTokenInfo> &tokenInfos)
+void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(const QList<PersonalAccessTokenInfo> &tokenInfos)
 {
     mPersonalAccessTokenInfos = tokenInfos;
 }

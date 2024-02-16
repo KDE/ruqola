@@ -69,7 +69,7 @@ void ExportDataWizard::loadAccountInfo()
                     QStringList() << QStringLiteral("ruqola.conf"),
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
-    QVector<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;
+    QList<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;
     while (it.hasNext()) {
         const QString val = it.next();
         ImportExportUtils::AccountImportExportInfo info;

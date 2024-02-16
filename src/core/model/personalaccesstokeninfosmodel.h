@@ -10,7 +10,7 @@
 
 #include "libruqolacore_export.h"
 #include "personalaccesstokens/personalaccesstokeninfos.h"
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfosModel : public QAbstractListModel
 {

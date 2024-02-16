@@ -30,7 +30,7 @@ void UserCompleterModelTest::shouldHaveDefaultValue()
 void UserCompleterModelTest::shouldAddValues()
 {
     UserCompleterModel w;
-    QVector<User> users;
+    QList<User> users;
     QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
@@ -68,7 +68,7 @@ void UserCompleterModelTest::shouldAddValues()
 void UserCompleterModelTest::shouldVerifyData()
 {
     UserCompleterModel w;
-    QVector<User> users;
+    QList<User> users;
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));

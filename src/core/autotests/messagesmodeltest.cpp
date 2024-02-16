@@ -210,7 +210,7 @@ void MessagesModelTest::shouldAddMessages()
     MessagesModel model;
     Message input;
     fillTestMessage(input);
-    QVector<Message> messages;
+    QList<Message> messages;
     auto makeMessage = [&](const char *id, qint64 timestamp) {
         input.setMessageId(QString::fromLatin1(id));
         input.setTimeStamp(timestamp);
@@ -306,7 +306,7 @@ void MessagesModelTest::shouldFindPrevNextMessage()
     // GIVEN a non-empty model
     Message input;
     fillTestMessage(input);
-    QVector<Message> messages;
+    QList<Message> messages;
     auto makeMessage = [&](const char *id, const char *userId) {
         input.setMessageId(QString::fromLatin1(id));
         input.setUserId(QString::fromLatin1(userId));

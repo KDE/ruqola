@@ -38,12 +38,12 @@ public:
 
     [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
 
-    void setRoles(const QVector<RoleInfo> &newRoles);
+    void setRoles(const QList<RoleInfo> &newRoles);
 
 protected:
     [[nodiscard]] QList<int> hideColumns() const override;
     [[nodiscard]] virtual Users::ParseType parseType() const;
     Users mUsers;
-    QVector<RoleInfo> mRoleInfo;
+    QList<RoleInfo> mRoleInfo;
     void checkFullList() override;
 };

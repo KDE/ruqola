@@ -36,7 +36,7 @@ QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) co
     return {};
 }
 
-void ForwardMessageChannelModel::setRooms(const QVector<ChannelUserCompleter> &rooms)
+void ForwardMessageChannelModel::setRooms(const QList<ChannelUserCompleter> &rooms)
 {
     clear();
     if (!rooms.isEmpty()) {

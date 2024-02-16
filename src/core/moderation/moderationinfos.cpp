@@ -53,12 +53,12 @@ void ModerationInfos::setModerationInfosCount(int newModerationInfosCount)
     mModerationInfosCount = newModerationInfosCount;
 }
 
-const QVector<ModerationInfo> &ModerationInfos::moderationInfosList() const
+const QList<ModerationInfo> &ModerationInfos::moderationInfosList() const
 {
     return mModerationInfosList;
 }
 
-void ModerationInfos::setModerationInfosList(const QVector<ModerationInfo> &newModerationInfosList)
+void ModerationInfos::setModerationInfosList(const QList<ModerationInfo> &newModerationInfosList)
 {
     mModerationInfosList = newModerationInfosList;
 }

@@ -36,8 +36,8 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    const QVector<OauthInfo> &adminOauth() const;
-    void setAdminOauth(const QVector<OauthInfo> &newAdminInvites);
+    const QList<OauthInfo> &adminOauth() const;
+    void setAdminOauth(const QList<OauthInfo> &newAdminInvites);
 
     void removeOauth(const QString &identifier);
 
@@ -45,5 +45,5 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void clear();
-    QVector<OauthInfo> mAdminOauth;
+    QList<OauthInfo> mAdminOauth;
 };

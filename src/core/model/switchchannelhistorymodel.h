@@ -45,7 +45,7 @@ public:
     void addHistory(const SwitchChannelInfo &info);
 
 private:
-    QVector<SwitchChannelInfo> mSwichChannelsInfo;
+    QList<SwitchChannelInfo> mSwichChannelsInfo;
 };
 
 Q_DECLARE_METATYPE(SwitchChannelHistoryModel::SwitchChannelInfo)

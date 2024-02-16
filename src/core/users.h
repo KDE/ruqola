@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 class LIBRUQOLACORE_EXPORT Users
 {
 public:
@@ -35,11 +35,11 @@ public:
 
     User takeAt(int index);
 
-    void parseUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
-    void parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
+    void parseUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo);
+    void parseMoreUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo);
 
-    [[nodiscard]] QVector<User> users() const;
-    void setUsers(const QVector<User> &rooms);
+    [[nodiscard]] QList<User> users() const;
+    void setUsers(const QList<User> &rooms);
 
     [[nodiscard]] int usersCount() const;
     void setUsersCount(int adminroomsCount);
@@ -48,8 +48,8 @@ public:
     void appendUser(const User &user);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
-    QVector<User> mUsers;
+    LIBRUQOLACORE_NO_EXPORT void parseListUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo);
+    QList<User> mUsers;
     int mUsersCount = 0;
     int mOffset = 0;
     int mTotal = 0;

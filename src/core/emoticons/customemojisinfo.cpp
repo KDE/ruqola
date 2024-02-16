@@ -61,12 +61,12 @@ void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
     }
 }
 
-const QVector<CustomEmoji> &CustomEmojisInfo::customSoundInfos() const
+const QList<CustomEmoji> &CustomEmojisInfo::customSoundInfos() const
 {
     return mCustomEmojiInfos;
 }
 
-void CustomEmojisInfo::setCustomSoundInfos(const QVector<CustomEmoji> &newCustomSoundInfos)
+void CustomEmojisInfo::setCustomSoundInfos(const QList<CustomEmoji> &newCustomSoundInfos)
 {
     mCustomEmojiInfos = newCustomSoundInfos;
 }

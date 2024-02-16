@@ -8,8 +8,8 @@
 
 #include "roleinfo.h"
 #include <QJsonObject>
+#include <QList>
 #include <QObject>
-#include <QVector>
 
 #include "libruqola_private_export.h"
 class LIBRUQOLACORE_TESTS_EXPORT RolesManager : public QObject
@@ -20,11 +20,11 @@ public:
     ~RolesManager() override;
     void parseRoles(const QJsonObject &obj);
     void updateRoles(const QJsonArray &contents);
-    [[nodiscard]] const QVector<RoleInfo> &roleInfo() const;
+    [[nodiscard]] const QList<RoleInfo> &roleInfo() const;
 
 Q_SIGNALS:
     void rolesChanged();
 
 private:
-    QVector<RoleInfo> mRoleInfo;
+    QList<RoleInfo> mRoleInfo;
 };

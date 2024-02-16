@@ -98,7 +98,7 @@ void ExploreDatabaseWidget::slotLoad()
         if (mUseEndDateTime->isChecked()) {
             endId = mEndDateTime->dateTime().toMSecsSinceEpoch();
         }
-        const QVector<Message> listMessages = mLocalMessageDatabase->loadMessages(mRocketChatAccount, roomName, startId, endId, mNumberOfMessages->value());
+        const QList<Message> listMessages = mLocalMessageDatabase->loadMessages(mRocketChatAccount, roomName, startId, endId, mNumberOfMessages->value());
         mMessageModel->clear();
         mMessageModel->addMessages(listMessages);
     } else {

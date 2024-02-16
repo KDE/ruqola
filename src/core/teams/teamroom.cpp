@@ -63,9 +63,9 @@ void TeamRoom::setIdentifier(const QString &identifier)
     mIdentifier = identifier;
 }
 
-QVector<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
+QList<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
 {
-    QVector<TeamRoom> teamRooms;
+    QList<TeamRoom> teamRooms;
     const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
     teamRooms.reserve(rooms.count());
     for (int i = 0, total = rooms.count(); i < total; ++i) {

@@ -95,13 +95,13 @@ public:
      *
      * @param messages The messages to be added
      */
-    void addMessages(const QVector<Message> &messages, bool insertListMessages = false);
+    void addMessages(const QList<Message> &messages, bool insertListMessages = false);
 
     /**
      * @brief returns number of messages in the model
      *
      * @param parent, it is void
-     * @return int, The number of messages in QVector mAllMessages
+     * @return int, The number of messages in QList mAllMessages
      */
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
@@ -109,7 +109,7 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
     /**
-     * @brief Returns last timestamp of last message in QVector mAllMessages
+     * @brief Returns last timestamp of last message in QList mAllMessages
      *
      * @return qint64 The last timestamp
      */
@@ -160,13 +160,13 @@ private:
                                                                      const QStringList &highlightWords,
                                                                      const QString &searchedText) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QString &threadMessageId) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QVector<Message>::iterator findMessage(const QString &messageId);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::iterator findMessage(const QString &messageId);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::const_iterator findMessage(const QString &messageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
 
     QString mSearchText;
     QString mRoomId;
-    QVector<Message> mAllMessages;
+    QList<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QPointer<Room> mRoom;
     std::unique_ptr<LoadRecentHistoryManager> mLoadRecentHistoryManager;

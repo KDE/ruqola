@@ -26,10 +26,10 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    void setRooms(const QVector<ChannelUserCompleter> &rooms);
+    void setRooms(const QList<ChannelUserCompleter> &rooms);
 
     void clear();
 
 private:
-    QVector<ChannelUserCompleter> mRooms;
+    QList<ChannelUserCompleter> mRooms;
 };

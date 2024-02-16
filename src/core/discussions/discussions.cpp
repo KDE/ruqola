@@ -11,7 +11,7 @@
 
 Discussions::Discussions() = default;
 
-QVector<Discussion> Discussions::discussions() const
+QList<Discussion> Discussions::discussions() const
 {
     return mDiscussion;
 }
@@ -21,7 +21,7 @@ void Discussions::append(const Discussion &discussion)
     mDiscussion.append(discussion);
 }
 
-void Discussions::setDiscussions(const QVector<Discussion> &discussion)
+void Discussions::setDiscussions(const QList<Discussion> &discussion)
 {
     mDiscussion = discussion;
 }

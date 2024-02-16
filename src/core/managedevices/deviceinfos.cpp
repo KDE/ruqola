@@ -53,12 +53,12 @@ void DeviceInfos::setDeviceInfosCount(int newDeviceInfosCount)
     mDeviceInfosCount = newDeviceInfosCount;
 }
 
-const QVector<DeviceInfo> &DeviceInfos::deviceInfosList() const
+const QList<DeviceInfo> &DeviceInfos::deviceInfosList() const
 {
     return mDeviceInfosList;
 }
 
-void DeviceInfos::setDeviceInfosList(const QVector<DeviceInfo> &newDeviceInfosList)
+void DeviceInfos::setDeviceInfosList(const QList<DeviceInfo> &newDeviceInfosList)
 {
     mDeviceInfosList = newDeviceInfosList;
 }

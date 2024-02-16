@@ -188,7 +188,7 @@ public:
 
     [[nodiscard]] InputTextManager *inputThreadMessageTextManager() const;
 
-    [[nodiscard]] QVector<Permission> permissions() const;
+    [[nodiscard]] QList<Permission> permissions() const;
 
     void blockUser(const QString &userId, bool block);
     void deleteFileMessage(const QString &roomId, const QString &fileId, Room::RoomType channelType);
@@ -464,7 +464,7 @@ public:
     // Permissions
     void permissionUpdated(const QJsonArray &replyArray);
 
-    [[nodiscard]] const QVector<RoleInfo> &roleInfo() const;
+    [[nodiscard]] const QList<RoleInfo> &roleInfo() const;
 
     [[nodiscard]] CustomSoundsManager *customSoundManager() const;
 
@@ -517,7 +517,7 @@ public:
     void loadAccountSettings();
     void parseCustomSounds(const QJsonArray &obj);
 
-    [[nodiscard]] QVector<AuthenticationInfo> authenticationMethodInfos() const;
+    [[nodiscard]] QList<AuthenticationInfo> authenticationMethodInfos() const;
 
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] bool previewEmbed() const;
@@ -654,8 +654,8 @@ private:
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
     QHash<AuthenticationManager::AuthMethodType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
-    QVector<AuthenticationInfo> mAccountAvailableAuthenticationMethodInfos;
-    QVector<AuthenticationInfo> mAuthenticationMethodInfos;
+    QList<AuthenticationInfo> mAccountAvailableAuthenticationMethodInfos;
+    QList<AuthenticationInfo> mAuthenticationMethodInfos;
     RocketChatAccountSettings *mSettings = nullptr;
 
     EmojiManager *mEmojiManager = nullptr;

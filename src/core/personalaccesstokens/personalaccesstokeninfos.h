@@ -7,15 +7,15 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "personalaccesstokeninfo.h"
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfos
 {
 public:
     PersonalAccessTokenInfos();
 
-    [[nodiscard]] QVector<PersonalAccessTokenInfo> personalAccessTokenInfos() const;
-    void setPersonalAccessTokenInfos(const QVector<PersonalAccessTokenInfo> &tokenInfos);
+    [[nodiscard]] QList<PersonalAccessTokenInfo> personalAccessTokenInfos() const;
+    void setPersonalAccessTokenInfos(const QList<PersonalAccessTokenInfo> &tokenInfos);
 
     void parsePersonalAccessTokenInfos(const QJsonObject &obj);
     [[nodiscard]] bool isEmpty() const;
@@ -28,6 +28,6 @@ public:
     void removeAt(int index);
 
 private:
-    QVector<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
+    QList<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t);

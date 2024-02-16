@@ -31,6 +31,6 @@ private:
     void initialize();
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDefaultDef;
-    QVector<QString> mDefinitions;
+    QList<QString> mDefinitions;
     bool mSyntaxHighlightingInitialized = false;
 };

@@ -32,5 +32,5 @@ private:
         QAbstractItemModel *model = nullptr;
         std::function<QModelIndex()> root;
     };
-    QVector<ProxyIndex> mProxied;
+    QList<ProxyIndex> mProxied;
 };

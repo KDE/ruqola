@@ -336,7 +336,7 @@ void MessageTest::shouldSerializeData()
         // It will break as it's not supported yet
         input.setIsStarred(true);
 
-        QVector<MessageAttachment> lstAttachement;
+        QList<MessageAttachment> lstAttachement;
         MessageAttachment attachment;
         attachment.setDescription(QStringLiteral("foo1"));
         attachment.setTitle(QStringLiteral("foo2"));
@@ -349,7 +349,7 @@ void MessageTest::shouldSerializeData()
         lstAttachement.append(std::move(attachment2));
         input.setAttachments(lstAttachement);
 
-        QVector<MessageUrl> lstUrls;
+        QList<MessageUrl> lstUrls;
         MessageUrl url1;
         url1.setUrl(QStringLiteral("foo1"));
         url1.setPageTitle(QStringLiteral("foo2"));
@@ -392,7 +392,7 @@ void MessageTest::shouldSerializeData()
         input.setIsStarred(true);
 
         // Attachments
-        QVector<MessageAttachment> lstAttachement;
+        QList<MessageAttachment> lstAttachement;
         {
             MessageAttachment attachment;
             attachment.setDescription(QStringLiteral("foo1"));
@@ -410,7 +410,7 @@ void MessageTest::shouldSerializeData()
         }
 
         // Urls
-        QVector<MessageUrl> lstUrls;
+        QList<MessageUrl> lstUrls;
         {
             MessageUrl url1;
             url1.setUrl(QStringLiteral("foo1"));
@@ -426,7 +426,7 @@ void MessageTest::shouldSerializeData()
         input.setUrls(lstUrls);
 
         // Reactions
-        QVector<Reaction> reacts;
+        QList<Reaction> reacts;
         {
             Reaction a;
             a.setUserNames({QStringLiteral("bla"), QStringLiteral("foo")});
@@ -480,7 +480,7 @@ void MessageTest::shouldSerializeData()
         input.setMessagePinned(pinned);
 
         // Blocks
-        QVector<Block> blocks;
+        QList<Block> blocks;
         {
             Block b;
             b.setBlockId(QStringLiteral("block-id1"));

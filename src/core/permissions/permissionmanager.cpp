@@ -29,7 +29,7 @@ const Permission PermissionManager::permission(const QString &permissionId) cons
     return mMapPermissions.value(permissionId);
 }
 
-QVector<Permission> PermissionManager::permissions() const
+QList<Permission> PermissionManager::permissions() const
 {
     return mMapPermissions.values().toVector();
 }

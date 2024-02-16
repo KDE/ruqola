@@ -52,8 +52,8 @@ private:
 
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void removeRunningAnimatedImage(const QModelIndex &index) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QVector<ReactionLayout>
-    layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QList<ReactionLayout>
+    layoutReactions(const QList<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;
     const QFont mEmojiFont;
     mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
     mutable PixmapCache mPixmapCache;

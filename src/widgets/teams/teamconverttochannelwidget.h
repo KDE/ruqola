@@ -17,7 +17,7 @@ public:
     explicit TeamConvertToChannelWidget(QWidget *parent = nullptr);
     ~TeamConvertToChannelWidget() override;
     [[nodiscard]] QStringList roomIdsToDelete() const;
-    void setTeamRooms(const QVector<TeamRoom> &rooms);
+    void setTeamRooms(const QList<TeamRoom> &rooms);
     void setTeamName(const QString &name);
 
 private:

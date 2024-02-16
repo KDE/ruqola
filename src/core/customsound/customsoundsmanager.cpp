@@ -18,7 +18,7 @@ CustomSoundsManager::~CustomSoundsManager() = default;
 
 void CustomSoundsManager::initializeDefaultSounds()
 {
-    QVector<CustomSoundInfo> listSounds;
+    QList<CustomSoundInfo> listSounds;
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
@@ -79,12 +79,12 @@ void CustomSoundsManager::initializeDefaultSounds()
     // TODO download it in customsound repo I think.
 }
 
-const QVector<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const
+const QList<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const
 {
     return mCustomSoundsInfo;
 }
 
-void CustomSoundsManager::setCustomSoundsInfo(const QVector<CustomSoundInfo> &newCustomSoundsInfo)
+void CustomSoundsManager::setCustomSoundsInfo(const QList<CustomSoundInfo> &newCustomSoundsInfo)
 {
     mCustomSoundsInfo = newCustomSoundsInfo;
     qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Assign Custom Sounds count: " << mCustomSoundsInfo.count();

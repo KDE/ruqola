@@ -28,9 +28,9 @@ TextPluginManager *TextPluginManager::self()
 
 void TextPluginManager::initializePluginList()
 {
-    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
+    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/textplugins"));
 
-    QVectorIterator<KPluginMetaData> i(plugins);
+    QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
     QSet<QString> unique;
     while (i.hasPrevious()) {
@@ -51,8 +51,8 @@ void TextPluginManager::initializePluginList()
         mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
     }
-    QVector<TextPluginManagerInfo>::iterator end(mPluginList.end());
-    for (QVector<TextPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
+    QList<TextPluginManagerInfo>::iterator end(mPluginList.end());
+    for (QList<TextPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
         loadPlugin(&(*it));
     }
 }
@@ -65,11 +65,11 @@ void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
     }
 }
 
-QVector<PluginText *> TextPluginManager::pluginsList() const
+QList<PluginText *> TextPluginManager::pluginsList() const
 {
-    QVector<PluginText *> lst;
-    QVector<TextPluginManagerInfo>::ConstIterator end(mPluginList.constEnd());
-    for (QVector<TextPluginManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
+    QList<PluginText *> lst;
+    QList<TextPluginManagerInfo>::ConstIterator end(mPluginList.constEnd());
+    for (QList<TextPluginManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
         if (auto plugin = (*it).plugin) {
             lst << plugin;
         }

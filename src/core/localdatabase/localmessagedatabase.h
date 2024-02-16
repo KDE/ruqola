@@ -25,19 +25,18 @@ public:
 
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
 
-    [[nodiscard]] QVector<Message> loadMessages(const QString &accountName,
-                                                const QString &_roomName,
-                                                qint64 startId = -1,
-                                                qint64 endId = -1,
-                                                qint64 numberElements = -1,
-                                                EmojiManager *emojiManager = nullptr) const;
+    [[nodiscard]] QList<Message> loadMessages(const QString &accountName,
+                                              const QString &_roomName,
+                                              qint64 startId = -1,
+                                              qint64 endId = -1,
+                                              qint64 numberElements = -1,
+                                              EmojiManager *emojiManager = nullptr) const;
 
     [[nodiscard]] static Message convertJsonToMessage(const QString &json, EmojiManager *emojiManager);
 
     [[nodiscard]] static QString generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements);
 
-    [[nodiscard]] QVector<Message>
-    loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const;
+    [[nodiscard]] QList<Message> loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const;
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;

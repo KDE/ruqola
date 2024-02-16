@@ -27,7 +27,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 protected:
-    [[nodiscard]] virtual QVector<Message> extractMessages(const QJsonObject &obj);
+    [[nodiscard]] virtual QList<Message> extractMessages(const QJsonObject &obj);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void setStringNotFound(bool stringNotFound);

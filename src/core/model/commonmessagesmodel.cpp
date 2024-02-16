@@ -23,7 +23,7 @@ void CommonMessagesModel::clearModel()
     clear();
 }
 
-QVector<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
+QList<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
 {
     ListMessages messages;
     messages.parseMessages(obj, QStringLiteral("messages"));
@@ -33,7 +33,7 @@ QVector<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
 void CommonMessagesModel::parse(const QJsonObject &obj)
 {
     clear();
-    const QVector<Message> messages = extractMessages(obj);
+    const QList<Message> messages = extractMessages(obj);
     addMessages(messages);
     setStringNotFound(rowCount() == 0);
 }

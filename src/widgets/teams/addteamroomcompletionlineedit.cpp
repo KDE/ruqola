@@ -79,7 +79,7 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
 {
     // qDebug() << " obj " << obj;
     const QJsonArray items = obj[QLatin1String("items")].toArray();
-    QVector<TeamRoomCompleter> teams;
+    QList<TeamRoomCompleter> teams;
     for (int i = 0, total = items.count(); i < total; ++i) {
         TeamRoomCompleter teamCompleter;
         teamCompleter.parse(items.at(i).toObject());

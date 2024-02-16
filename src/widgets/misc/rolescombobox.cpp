@@ -16,7 +16,7 @@ RolesComboBox::RolesComboBox(QWidget *parent)
 
 RolesComboBox::~RolesComboBox() = default;
 
-void RolesComboBox::setRolesInfo(const QVector<RoleInfo> &roleInfo)
+void RolesComboBox::setRolesInfo(const QList<RoleInfo> &roleInfo)
 {
     mRolesModel->setRoles(roleInfo);
 }

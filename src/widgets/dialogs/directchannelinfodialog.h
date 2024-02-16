@@ -6,7 +6,7 @@
 
 #pragma once
 #include <QDialog>
-#include <QVector>
+#include <QList>
 
 #include "libruqolawidgets_private_export.h"
 class DirectChannelInfoWidget;
@@ -20,7 +20,7 @@ public:
     explicit DirectChannelInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
     void setUserName(const QString &userName);
-    void setRoles(const QVector<RoleInfo> &newRoles);
+    void setRoles(const QList<RoleInfo> &newRoles);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

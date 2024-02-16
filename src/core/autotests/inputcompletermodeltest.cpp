@@ -32,7 +32,7 @@ void InputCompleterModelTest::shouldAssignValues()
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
     QSignalSpy modelAboutToResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
-    QVector<ChannelUserCompleter> channelList;
+    QList<ChannelUserCompleter> channelList;
     for (int i = 0; i < 10; ++i) {
         ChannelUserCompleter c;
         c.setName(QStringLiteral("roomname%1").arg(i));

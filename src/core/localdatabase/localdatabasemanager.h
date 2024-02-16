@@ -9,8 +9,8 @@
 #include "globaldatabase.h"
 #include "libruqolacore_export.h"
 #include "messages/message.h"
+#include <QList>
 #include <QString>
-#include <QVector>
 #include <memory>
 class LocalMessageLogger;
 class LocalMessageDatabase;
@@ -34,7 +34,7 @@ public:
     void removeTimeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
     [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
 
-    [[nodiscard]] QVector<Message>
+    [[nodiscard]] QList<Message>
     loadMessages(const QString &accountName, const QString &roomName, qint64 startId, qint64 endId, qint64 numberElements, EmojiManager *emojiManager) const;
 
     void updateAccount(const QString &accountName, const QByteArray &ba, qint64 timeStamp);

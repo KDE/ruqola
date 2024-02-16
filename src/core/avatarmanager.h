@@ -29,7 +29,7 @@ private:
     void slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url);
     void slotLoadNextAvatar();
     void slotRescheduleDownload();
-    QVector<Utils::AvatarInfo> mAvatarDownloadIdentifer;
+    QList<Utils::AvatarInfo> mAvatarDownloadIdentifer;
     RocketChatAccount *const mAccount;
     QTimer *const mTimer;
 };

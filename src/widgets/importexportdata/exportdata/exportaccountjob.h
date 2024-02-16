@@ -17,8 +17,8 @@ public:
     explicit ExportAccountJob(const QString &fileName, QObject *parent = nullptr);
     ~ExportAccountJob() override;
 
-    [[nodiscard]] QVector<ImportExportUtils::AccountImportExportInfo> listAccounts() const;
-    void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
+    [[nodiscard]] QList<ImportExportUtils::AccountImportExportInfo> listAccounts() const;
+    void setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
 
     [[nodiscard]] bool canStart() const;
 
@@ -42,7 +42,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void exportDatabase(const ImportExportUtils::AccountImportExportInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void finishExportAccount();
     LIBRUQOLAWIDGETS_NO_EXPORT void exportAccount();
-    QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
+    QList<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     int mAccountIndex = 0;
     QStringList mAccountNames;
     KZip *const mArchive;

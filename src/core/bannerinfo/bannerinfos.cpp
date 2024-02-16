@@ -42,9 +42,9 @@ BannerInfo BannerInfos::at(int index) const
     return mBanners.at(index);
 }
 
-QVector<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() const
+QList<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() const
 {
-    QVector<BannerInfos::UnreadInformation> infos;
+    QList<BannerInfos::UnreadInformation> infos;
     for (int i = 0; i < mBanners.size(); ++i) {
         const auto banner = mBanners.at(i);
         if (!banner.read()) {
@@ -92,12 +92,12 @@ QDebug operator<<(QDebug d, const BannerInfos &t)
     }
     return d;
 }
-const QVector<BannerInfo> &BannerInfos::banners() const
+const QList<BannerInfo> &BannerInfos::banners() const
 {
     return mBanners;
 }
 
-void BannerInfos::setBanners(const QVector<BannerInfo> &newBanners)
+void BannerInfos::setBanners(const QList<BannerInfo> &newBanners)
 {
     mBanners = newBanners;
 }

@@ -24,7 +24,7 @@ void RocketChatAccountModel::clear()
     setAccounts({});
 }
 
-void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &accounts)
+void RocketChatAccountModel::setAccounts(const QList<RocketChatAccount *> &accounts)
 {
     if (accounts == mRocketChatAccount) {
         return;

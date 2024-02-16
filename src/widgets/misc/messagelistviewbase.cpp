@@ -28,7 +28,7 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     scrollToBottom();
     setMouseTracking(true);
 
-    const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
+    const QList<PluginText *> plugins = TextPluginManager::self()->pluginsList();
     for (PluginText *plugin : plugins) {
         connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
         connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);

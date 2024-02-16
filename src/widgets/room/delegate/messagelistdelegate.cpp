@@ -581,7 +581,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     if (mPreviewEmbed) {
         // Preview Url
-        const QVector<MessageUrl> messageUrls = message->urls();
+        const QList<MessageUrl> messageUrls = message->urls();
         int messageUrlIndex = 0;
         for (const MessageUrl &messageUrl : messageUrls) {
             if (messageUrl.hasPreviewUrl()) {

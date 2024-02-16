@@ -72,7 +72,7 @@ void NotificationHistoryModel::clear()
     }
 }
 
-void NotificationHistoryModel::insertNotifications(const QVector<NotificationInfo> &infos)
+void NotificationHistoryModel::insertNotifications(const QList<NotificationInfo> &infos)
 {
     clear();
     if (!infos.isEmpty()) {

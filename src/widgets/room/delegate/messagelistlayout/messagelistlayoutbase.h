@@ -6,12 +6,12 @@
 
 #pragma once
 #include <QFont>
+#include <QList>
 #include <QPixmap>
 #include <QPoint>
 #include <QRect>
 #include <QString>
 #include <QStyleOptionViewItem>
-#include <QVector>
 
 class RocketChatAccount;
 class MessageListDelegate;
@@ -67,15 +67,15 @@ public:
 
         // Attachments
         QRect attachmentsRect;
-        QVector<QRect> attachmentsRectList;
+        QList<QRect> attachmentsRectList;
 
         // Blocks
         QRect blocksRect;
-        QVector<QRect> blocksRectList;
+        QList<QRect> blocksRectList;
 
         // MessageUrl preview
         QRect messageUrlsRect;
-        QVector<QRect> messageUrlsRectList;
+        QList<QRect> messageUrlsRectList;
 
         // Reactions
         qreal reactionsY = 0;

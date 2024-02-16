@@ -10,7 +10,7 @@
 
 #include "libruqolacore_export.h"
 #include "notificationinfo.h"
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractListModel
 {
@@ -38,11 +38,11 @@ public:
 
     void clear();
 
-    void insertNotifications(const QVector<NotificationInfo> &infos);
+    void insertNotifications(const QList<NotificationInfo> &infos);
 
     void addNotification(const NotificationInfo &info);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateMessage(const NotificationInfo &info) const;
-    QVector<NotificationInfo> mNotificationInfo;
+    QList<NotificationInfo> mNotificationInfo;
 };

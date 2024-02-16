@@ -68,13 +68,13 @@ public:
     [[nodiscard]] QString statusText() const;
     void setStatusText(const QString &statusText);
 
-    void parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
+    void parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &roleInfo);
 
-    [[nodiscard]] static QVector<User> parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
+    [[nodiscard]] static QList<User> parseUsersList(const QJsonObject &object, const QList<RoleInfo> &roleInfo);
     void parseUser(const QVariantList &list);
 
     [[nodiscard]] QStringList roles() const;
-    void setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo);
+    void setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo);
 
     [[nodiscard]] QDateTime createdAt() const;
     void setCreatedAt(const QDateTime &createdAt);
@@ -95,7 +95,7 @@ public:
     [[nodiscard]] bool requirePasswordChange() const;
     void setRequirePasswordChange(bool newRequirePasswordChange);
 
-    [[nodiscard]] static QString roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo);
+    [[nodiscard]] static QString roleI18n(const QString &roleStr, const QList<RoleInfo> &roleInfo);
 
     [[nodiscard]] QString bio() const;
     void setBio(const QString &newBio);

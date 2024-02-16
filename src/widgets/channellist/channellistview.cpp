@@ -26,9 +26,9 @@
 
 #include <QAction>
 #include <QContextMenuEvent>
+#include <QList>
 #include <QMenu>
 #include <QPointer>
-#include <QVector>
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QTreeView(parent)
@@ -255,7 +255,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
     job->setTeamId(teamId);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, index](const QJsonObject &obj) {
-        const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+        const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
         QStringList listRoomIdToDelete;
         if (!teamRooms.isEmpty()) {
             QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);

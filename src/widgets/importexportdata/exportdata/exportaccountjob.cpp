@@ -72,7 +72,7 @@ void ExportAccountJob::finishExportAccount()
     deleteLater();
 }
 
-QVector<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccounts() const
+QList<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccounts() const
 {
     return mListAccounts;
 }
@@ -120,7 +120,7 @@ void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExpo
     // TODO
 }
 
-void ExportAccountJob::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
+void ExportAccountJob::setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
 {
     mListAccounts = newListAccounts;
 }

@@ -239,7 +239,7 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messag
     }
 }
 
-void RocketChatBackend::addMessagesFromLocalDataBase(const QVector<Message> &messages)
+void RocketChatBackend::addMessagesFromLocalDataBase(const QList<Message> &messages)
 {
     if (messages.isEmpty()) {
         return;
@@ -267,7 +267,7 @@ void RocketChatBackend::addMessagesFromLocalDataBase(const QVector<Message> &mes
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
 {
-    QHash<MessagesModel *, QVector<Message>> dispatcher;
+    QHash<MessagesModel *, QList<Message>> dispatcher;
     QString lastRoomId;
     MessagesModel *messageModel = nullptr;
     Room *room = nullptr;
@@ -358,12 +358,12 @@ void RocketChatBackend::tryAutoLogin()
     mRocketChatAccount->ddp()->login();
 }
 
-QVector<File> RocketChatBackend::files() const
+QList<File> RocketChatBackend::files() const
 {
     return mFiles;
 }
 
-QVector<User> RocketChatBackend::users() const
+QList<User> RocketChatBackend::users() const
 {
     return mUsers;
 }

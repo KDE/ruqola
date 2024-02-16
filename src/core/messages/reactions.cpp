@@ -10,12 +10,12 @@
 
 Reactions::Reactions() = default;
 
-void Reactions::setReactions(const QVector<Reaction> &reactions)
+void Reactions::setReactions(const QList<Reaction> &reactions)
 {
     mReactions = reactions;
 }
 
-QVector<Reaction> Reactions::reactions() const
+QList<Reaction> Reactions::reactions() const
 {
     return mReactions;
 }
@@ -70,7 +70,7 @@ QJsonObject Reactions::serialize(const Reactions &reactions)
 
 Reactions Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
-    QVector<Reaction> reacts;
+    QList<Reaction> reacts;
     const QStringList lst = o.keys();
     QStringList users;
     for (const QString &str : lst) {

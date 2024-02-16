@@ -169,7 +169,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     }
     // Users
     qreal x = 0;
-    const QVector<User> users = block.videoConferenceInfo().users();
+    const QList<User> users = block.videoConferenceInfo().users();
     for (const auto &user : users) {
         UserLayout userLayout;
         userLayout.userName = user.userName();

@@ -764,7 +764,7 @@ void AccountManager::loadAccount()
                     QStringList() << QStringLiteral("ruqola.conf"),
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
-    QVector<RocketChatAccount *> lstAccounts;
+    QList<RocketChatAccount *> lstAccounts;
     while (it.hasNext()) {
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;

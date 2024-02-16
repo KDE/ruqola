@@ -31,10 +31,10 @@ void PermissionManagerTest::shouldLoadPermissions_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("permissionsCount");
     QTest::addColumn<int>("permissionsAdded");
-    QTest::addColumn<QVector<Permission>>("permissions");
+    QTest::addColumn<QList<Permission>>("permissions");
 
     {
-        QVector<Permission> permissions;
+        QList<Permission> permissions;
 
         {
             Permission p;
@@ -72,7 +72,7 @@ void PermissionManagerTest::shouldLoadPermissions()
     QFETCH(QString, name);
     QFETCH(int, permissionsCount);
     QFETCH(int, permissionsAdded);
-    QFETCH(QVector<Permission>, permissions);
+    QFETCH(QList<Permission>, permissions);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
     const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     QCOMPARE(obj.count(), permissionsCount);
@@ -97,12 +97,12 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<QString>("updateName");
-    QTest::addColumn<QVector<Permission>>("permissions");
-    QTest::addColumn<QVector<Permission>>("updatedPermissions");
+    QTest::addColumn<QList<Permission>>("permissions");
+    QTest::addColumn<QList<Permission>>("updatedPermissions");
     QTest::addColumn<bool>("permissionUpdated");
     {
         // No updated permission as this permission can't be store in manager
-        QVector<Permission> permissions;
+        QList<Permission> permissions;
         {
             Permission p;
             p.setIdentifier(QStringLiteral("access-permissions"));
@@ -134,8 +134,8 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
     }
     {
         // No updated permission as this permission can't be store in manager
-        QVector<Permission> permissions;
-        QVector<Permission> updatedPermissions;
+        QList<Permission> permissions;
+        QList<Permission> updatedPermissions;
         {
             Permission p;
             p.setIdentifier(QStringLiteral("access-permissions"));
@@ -179,8 +179,8 @@ void PermissionManagerTest::shouldUpdatePermissions()
 {
     QFETCH(QString, name);
     QFETCH(QString, updateName);
-    QFETCH(QVector<Permission>, permissions);
-    QFETCH(QVector<Permission>, updatedPermissions);
+    QFETCH(QList<Permission>, permissions);
+    QFETCH(QList<Permission>, updatedPermissions);
     QFETCH(bool, permissionUpdated);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
     const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);

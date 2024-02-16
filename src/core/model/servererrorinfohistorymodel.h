@@ -10,7 +10,7 @@
 
 #include "libruqolacore_export.h"
 #include "servererrorinfo.h"
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT ServerErrorInfoHistoryModel : public QAbstractListModel
 {
@@ -32,10 +32,10 @@ public:
 
     void clear();
 
-    void insertServerErrorInfos(const QVector<ServerErrorInfo> &infos);
+    void insertServerErrorInfos(const QList<ServerErrorInfo> &infos);
 
     void addServerErrorInfo(const ServerErrorInfo &info);
 
 private:
-    QVector<ServerErrorInfo> mServerErrorInfo;
+    QList<ServerErrorInfo> mServerErrorInfo;
 };

@@ -21,7 +21,7 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
     Q_OBJECT
 public:
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
-        QVector<AuthenticationInfo> authenticationInfos;
+        QList<AuthenticationInfo> authenticationInfos;
         QString displayName;
         QString accountName;
         QString userName;

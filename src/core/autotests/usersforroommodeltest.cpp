@@ -31,7 +31,7 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
 void UsersForRoomModelTest::shouldAddValues()
 {
     UsersForRoomModel w;
-    QVector<User> users;
+    QList<User> users;
     QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
@@ -85,7 +85,7 @@ void UsersForRoomModelTest::shouldAddValues()
 void UsersForRoomModelTest::shouldVerifyData()
 {
     UsersForRoomModel w;
-    QVector<User> users;
+    QList<User> users;
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));

@@ -10,7 +10,7 @@
 
 #include "libruqolacore_export.h"
 #include "moderation/moderationreportinfos.h"
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT ModerationReportInfoModel : public QAbstractListModel
 {

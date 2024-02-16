@@ -60,12 +60,12 @@ void CustomSoundsInfo::parseListCustomSound(const QJsonObject &obj)
     }
 }
 
-const QVector<CustomSoundInfo> &CustomSoundsInfo::customSoundInfos() const
+const QList<CustomSoundInfo> &CustomSoundsInfo::customSoundInfos() const
 {
     return mCustomSoundInfos;
 }
 
-void CustomSoundsInfo::setCustomSoundInfos(const QVector<CustomSoundInfo> &newCustomSoundInfos)
+void CustomSoundsInfo::setCustomSoundInfos(const QList<CustomSoundInfo> &newCustomSoundInfos)
 {
     mCustomSoundInfos = newCustomSoundInfos;
 }

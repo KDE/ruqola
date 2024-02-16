@@ -125,7 +125,7 @@ public:
 
     static QString sectionName(RoomModel::Section sectionId);
 
-    [[nodiscard]] QVector<Room *> findRoomNameConstains(const QString &str) const;
+    [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
@@ -141,7 +141,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RoomModel::MentionsInfoType mentionsInfoType(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
-    QVector<Room *> mRoomsList;
+    QList<Room *> mRoomsList;
 };
 
 Q_DECLARE_METATYPE(RoomModel::Section)

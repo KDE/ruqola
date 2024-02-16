@@ -40,12 +40,12 @@ void BannerMessageWidget::slotReadInfo()
     }
 }
 
-const QVector<BannerInfos::UnreadInformation> &BannerMessageWidget::bannerInfos() const
+const QList<BannerInfos::UnreadInformation> &BannerMessageWidget::bannerInfos() const
 {
     return mBannerInfos;
 }
 
-void BannerMessageWidget::setBannerInfos(const QVector<BannerInfos::UnreadInformation> &newBannerInfo)
+void BannerMessageWidget::setBannerInfos(const QList<BannerInfos::UnreadInformation> &newBannerInfo)
 {
     if (mBannerInfos != newBannerInfo) {
         mBannerInfos = newBannerInfo;

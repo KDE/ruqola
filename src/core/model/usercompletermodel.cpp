@@ -24,7 +24,7 @@ void UserCompleterModel::clear()
     }
 }
 
-void UserCompleterModel::addUsers(const QVector<User> &users)
+void UserCompleterModel::addUsers(const QList<User> &users)
 {
     // qDebug() << " users " << users;
     clear();

@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 #include <QAbstractListModel>
-#include <QVector>
+#include <QList>
 class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
@@ -28,7 +28,7 @@ public:
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel() override;
 
-    void setUsers(const QVector<User> &users);
+    void setUsers(const QList<User> &users);
 
     void clear();
     int rowCount(const QModelIndex &parent = {}) const override;
@@ -57,7 +57,7 @@ Q_SIGNALS:
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
-    QVector<User> mUsers;
+    QList<User> mUsers;
     int mTotal = 0;
     int mOffset = 0;
     bool mHasFullList = false;

@@ -1021,7 +1021,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
 
 void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
-    const QVector<User> users = User::parseUsersList(obj, roleInfo());
+    const QList<User> users = User::parseUsersList(obj, roleInfo());
     mUserCompleterModel->addUsers(users);
 }
 
@@ -1371,7 +1371,7 @@ void RocketChatAccount::parsePublicSettings()
 
 void RocketChatAccount::fillAuthenticationModel()
 {
-    QVector<AuthenticationInfo> fillModel;
+    QList<AuthenticationInfo> fillModel;
     // qDebug() << " before " << mLstInfos;
     for (int i = 0, total = mAuthenticationMethodInfos.count(); i < total; ++i) {
         if (mRuqolaServerConfig->canShowAuthMethod(mAuthenticationMethodInfos.at(i).oauthType())) {
@@ -1387,7 +1387,7 @@ void RocketChatAccount::changeDefaultAuthentication(int index)
     setDefaultAuthentication(mAccountAvailableAuthenticationMethodInfos.at(index).oauthType());
 }
 
-QVector<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
+QList<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
 {
     return mAccountAvailableAuthenticationMethodInfos;
 }
@@ -1416,7 +1416,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 {
     // TODO change it when we change server
     // Clean up at the end.
-    const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
+    const QList<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
@@ -1445,7 +1445,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         }
         qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->type();
     }
-    // TODO fill ??? or store QVector<AuthenticationInfo>
+    // TODO fill ??? or store QList<AuthenticationInfo>
 }
 
 PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
@@ -1508,7 +1508,7 @@ void RocketChatAccount::permissionUpdated(const QJsonArray &replyArray)
     // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"})
 }
 
-const QVector<RoleInfo> &RocketChatAccount::roleInfo() const
+const QList<RoleInfo> &RocketChatAccount::roleInfo() const
 {
     return mRolesManager.roleInfo();
 }
@@ -3010,7 +3010,7 @@ void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const
 }
 
 // Only for debugging permissions. (debug mode)
-QVector<Permission> RocketChatAccount::permissions() const
+QList<Permission> RocketChatAccount::permissions() const
 {
     return mPermissionManager.permissions();
 }

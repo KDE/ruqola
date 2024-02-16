@@ -28,7 +28,7 @@ void RocketChatAccountModelTest::shouldHaveDefaultValue()
 void RocketChatAccountModelTest::shouldAddAccountValue()
 {
     RocketChatAccountModel w;
-    QVector<RocketChatAccount *> accounts;
+    QList<RocketChatAccount *> accounts;
     accounts.reserve(10);
     for (int i = 0; i < 10; ++i) {
         auto f = new RocketChatAccount();
@@ -79,7 +79,7 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
 void RocketChatAccountModelTest::shouldClearAccounts()
 {
     RocketChatAccountModel w;
-    QVector<RocketChatAccount *> accounts;
+    QList<RocketChatAccount *> accounts;
     accounts.reserve(10);
     for (int i = 0; i < 10; ++i) {
         auto f = new RocketChatAccount();
@@ -113,7 +113,7 @@ void RocketChatAccountModelTest::shouldClearAccounts()
 void RocketChatAccountModelTest::shouldRemoveAccount()
 {
     RocketChatAccountModel w;
-    QVector<RocketChatAccount *> accounts;
+    QList<RocketChatAccount *> accounts;
     for (int i = 0; i < 10; ++i) {
         auto f = new RocketChatAccount();
         f->setAccountName(QStringLiteral("foo%1").arg(i));

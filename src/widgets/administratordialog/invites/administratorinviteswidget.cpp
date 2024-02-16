@@ -69,7 +69,7 @@ void AdministratorInvitesWidget::initialize()
 
 void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 {
-    QVector<InviteInfo> lstInvite;
+    QList<InviteInfo> lstInvite;
     const QJsonArray array = obj.array();
     const auto arrayCount{array.count()};
     lstInvite.reserve(arrayCount);

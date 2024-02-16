@@ -10,7 +10,7 @@
 
 Permission::Permission() = default;
 
-bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo, bool restApi)
+bool Permission::parsePermission(const QJsonObject &replyObject, const QList<RoleInfo> &roleInfo, bool restApi)
 {
     // Don't store settings value.
     if (!replyObject.value(QLatin1String("settingId")).toString().isEmpty()) {

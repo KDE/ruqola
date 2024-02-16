@@ -66,12 +66,12 @@ DocumentFactoryInterface *TextSelection::textHelperFactory() const
     return mTextHelperFactory;
 }
 
-const QVector<DocumentFactoryInterface *> &TextSelection::attachmentFactories() const
+const QList<DocumentFactoryInterface *> &TextSelection::attachmentFactories() const
 {
     return mAttachmentFactories;
 }
 
-void TextSelection::setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories)
+void TextSelection::setAttachmentFactories(const QList<DocumentFactoryInterface *> &newAttachmentFactories)
 {
     mAttachmentFactories = newAttachmentFactories;
 }

@@ -45,7 +45,7 @@ void MessageDelegateHelperFileTest::shouldLayoutMultipleFiles()
     message.setAttachements({msgAttach1, msgAttach2});
 
     // WHEN
-    const QVector<MessageAttachmentDelegateHelperFile::FileLayout> layouts = helper.doLayout(&message, option);
+    const QList<MessageAttachmentDelegateHelperFile::FileLayout> layouts = helper.doLayout(&message, option);
 
     // THEN
     QCOMPARE(layouts.count(), 2);

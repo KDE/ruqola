@@ -9,15 +9,15 @@
 #include "autotranslatelanguage.h"
 #include "libruqola_private_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguages
 {
 public:
     AutotranslateLanguages();
 
-    [[nodiscard]] QVector<AutotranslateLanguage> autotranslateLanguage() const;
-    void setAutotranslateLanguages(const QVector<AutotranslateLanguage> &autotranslateLanguage);
+    [[nodiscard]] QList<AutotranslateLanguage> autotranslateLanguage() const;
+    void setAutotranslateLanguages(const QList<AutotranslateLanguage> &autotranslateLanguage);
 
     [[nodiscard]] bool isEmpty() const;
     [[nodiscard]] int count() const;
@@ -27,7 +27,7 @@ public:
     void parseLanguages(const QJsonObject &obj);
 
 private:
-    QVector<AutotranslateLanguage> mAutotranslateLanguages;
+    QList<AutotranslateLanguage> mAutotranslateLanguages;
 };
 
 Q_DECLARE_METATYPE(AutotranslateLanguages)

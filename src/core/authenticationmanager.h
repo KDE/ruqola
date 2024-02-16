@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include <KPluginMetaData>
+#include <QList>
 #include <QObject>
-#include <QVector>
 class PluginAuthentication;
 class PluginUtilData
 {
@@ -58,14 +58,14 @@ public:
 
     static AuthenticationManager *self();
 
-    [[nodiscard]] QVector<PluginAuthentication *> pluginsList() const;
+    [[nodiscard]] QList<PluginAuthentication *> pluginsList() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializePluginList();
     LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
     LIBRUQOLACORE_NO_EXPORT PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
-    QVector<AuthenticationManagerInfo> mPluginList;
-    QVector<PluginUtilData> mPluginDataList;
+    QList<AuthenticationManagerInfo> mPluginList;
+    QList<PluginUtilData> mPluginDataList;
 };
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodTypes)
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodType)

@@ -9,7 +9,7 @@
 #include "command.h"
 #include "libruqola_private_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT Commands
 {
@@ -30,8 +30,8 @@ public:
     void parseCommands(const QJsonObject &commandsObj);
     void parseMoreCommands(const QJsonObject &commandsObj);
 
-    [[nodiscard]] QVector<Command> commands() const;
-    void setCommands(const QVector<Command> &commands);
+    [[nodiscard]] QList<Command> commands() const;
+    void setCommands(const QList<Command> &commands);
 
     [[nodiscard]] int commandsCount() const;
     void setCommandsCount(int commandsCount);
@@ -41,7 +41,7 @@ public:
 
 private:
     void parseListCommands(const QJsonObject &commandsObj);
-    QVector<Command> mCommands;
+    QList<Command> mCommands;
     int mCommandsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

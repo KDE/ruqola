@@ -9,7 +9,7 @@
 #include "customsoundinfo.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 class LIBRUQOLACORE_EXPORT CustomSoundsInfo
 {
 public:
@@ -36,14 +36,14 @@ public:
     [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
-    [[nodiscard]] const QVector<CustomSoundInfo> &customSoundInfos() const;
-    void setCustomSoundInfos(const QVector<CustomSoundInfo> &newCustomSoundInfos);
+    [[nodiscard]] const QList<CustomSoundInfo> &customSoundInfos() const;
+    void setCustomSoundInfos(const QList<CustomSoundInfo> &newCustomSoundInfos);
 
     [[nodiscard]] CustomSoundInfo takeAt(int index);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListCustomSound(const QJsonObject &obj);
-    QVector<CustomSoundInfo> mCustomSoundInfos;
+    QList<CustomSoundInfo> mCustomSoundInfos;
     int mRoomsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

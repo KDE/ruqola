@@ -16,7 +16,7 @@ ExportDataSelectAccountListWidget::ExportDataSelectAccountListWidget(QWidget *pa
 
 ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = default;
 
-void ExportDataSelectAccountListWidget::setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst)
+void ExportDataSelectAccountListWidget::setAccountList(const QList<ImportExportUtils::AccountImportExportInfo> &lst)
 {
     for (const auto &accountName : lst) {
         auto item = new QListWidgetItem(this);
@@ -26,9 +26,9 @@ void ExportDataSelectAccountListWidget::setAccountList(const QVector<ImportExpor
     }
 }
 
-QVector<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountListWidget::selectedAccounts() const
+QList<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountListWidget::selectedAccounts() const
 {
-    QVector<ImportExportUtils::AccountImportExportInfo> selectAccountsList;
+    QList<ImportExportUtils::AccountImportExportInfo> selectAccountsList;
     const int numberOfItems(count());
     for (int i = 0; i < numberOfItems; ++i) {
         QListWidgetItem *it = item(i);

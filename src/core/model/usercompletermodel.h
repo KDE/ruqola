@@ -31,11 +31,11 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void addUsers(const QVector<User> &users);
+    void addUsers(const QList<User> &users);
 
 private:
     [[nodiscard]] QString displayUserName(const User &user) const;
     [[nodiscard]] Utils::AvatarInfo avatarInfo(const User &user) const;
     Q_DISABLE_COPY(UserCompleterModel)
-    QVector<User> mUsers;
+    QList<User> mUsers;
 };

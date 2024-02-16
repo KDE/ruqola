@@ -42,12 +42,12 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QStri
     }
 }
 
-QVector<Message> LocalDatabaseManager::loadMessages(const QString &accountName,
-                                                    const QString &roomName,
-                                                    qint64 startId,
-                                                    qint64 endId,
-                                                    qint64 numberElements,
-                                                    EmojiManager *emojiManager) const
+QList<Message> LocalDatabaseManager::loadMessages(const QString &accountName,
+                                                  const QString &roomName,
+                                                  qint64 startId,
+                                                  qint64 endId,
+                                                  qint64 numberElements,
+                                                  EmojiManager *emojiManager) const
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         return mMessagesDatabase->loadMessages(accountName, roomName, startId, endId, numberElements, emojiManager);

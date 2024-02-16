@@ -8,15 +8,15 @@
 
 #include "libruqolacore_export.h"
 #include "reaction.h"
-#include <QVector>
+#include <QList>
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reactions
 {
 public:
     Reactions();
 
-    void setReactions(const QVector<Reaction> &reactions);
-    [[nodiscard]] QVector<Reaction> reactions() const;
+    void setReactions(const QList<Reaction> &reactions);
+    [[nodiscard]] QList<Reaction> reactions() const;
 
     void parseReactions(const QJsonObject &array, EmojiManager *emojiManager = nullptr);
 
@@ -28,7 +28,7 @@ public:
     [[nodiscard]] bool isEmpty() const;
 
 private:
-    QVector<Reaction> mReactions;
+    QList<Reaction> mReactions;
 };
 Q_DECLARE_METATYPE(Reactions)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reactions &t);

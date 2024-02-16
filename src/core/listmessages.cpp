@@ -96,7 +96,7 @@ Message ListMessages::at(int index) const
     return mListMessages.at(index);
 }
 
-QVector<Message> ListMessages::listMessages() const
+QList<Message> ListMessages::listMessages() const
 {
     return mListMessages;
 }

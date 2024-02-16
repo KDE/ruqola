@@ -84,7 +84,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         }
     }
     const QJsonArray fieldsArray = attachment.value(QLatin1String("fields")).toArray();
-    QVector<MessageAttachmentField> messageFields;
+    QList<MessageAttachmentField> messageFields;
     messageFields.reserve(fieldsArray.size());
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
         messageFields.append(MessageAttachmentField::deserialize(fieldsArray.at(i).toObject()));
@@ -177,7 +177,7 @@ MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
     }
     att.setColor(o.value(QLatin1String("color")).toString());
     const QJsonArray fieldsArray = o.value(QLatin1String("fields")).toArray();
-    QVector<MessageAttachmentField> messageFields;
+    QList<MessageAttachmentField> messageFields;
     messageFields.reserve(fieldsArray.size());
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
         messageFields.append(MessageAttachmentField::deserialize(fieldsArray.at(i).toObject()));
@@ -290,12 +290,12 @@ void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
     }
 }
 
-QVector<MessageAttachmentField> MessageAttachment::attachmentFields() const
+QList<MessageAttachmentField> MessageAttachment::attachmentFields() const
 {
     return mAttachmentFields;
 }
 
-void MessageAttachment::setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields)
+void MessageAttachment::setAttachmentFields(const QList<MessageAttachmentField> &attachmentFields)
 {
     mAttachmentFields = attachmentFields;
     generateAttachmentFieldsText();

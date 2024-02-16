@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 public:
     explicit ExportDataFinishPage(QWidget *parent = nullptr);
     ~ExportDataFinishPage() override;
-    void setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
+    void setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts);
     void exportAccounts();
 
     [[nodiscard]] bool isComplete() const override;
@@ -27,7 +27,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportFailed(const QString &msg);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportInfo(const QString &msg);
-    QVector<ImportExportUtils::AccountImportExportInfo> mListAccounts;
+    QList<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
     QPlainTextEdit *const mDetails;

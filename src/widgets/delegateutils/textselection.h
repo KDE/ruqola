@@ -81,9 +81,9 @@ public:
     void setTextHelperFactory(DocumentFactoryInterface *newTextHelperFactory);
     [[nodiscard]] DocumentFactoryInterface *textHelperFactory() const;
 
-    void setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories);
+    void setAttachmentFactories(const QList<DocumentFactoryInterface *> &newAttachmentFactories);
 
-    [[nodiscard]] const QVector<DocumentFactoryInterface *> &attachmentFactories() const;
+    [[nodiscard]] const QList<DocumentFactoryInterface *> &attachmentFactories() const;
 
     [[nodiscard]] DocumentFactoryInterface *messageUrlHelperFactory() const;
     void setMessageUrlHelperFactory(DocumentFactoryInterface *newMessageUrlHelperFactory);
@@ -129,12 +129,12 @@ private:
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
-    QVector<AttachmentSelection> mAttachmentSelection;
-    QVector<MessageUrlSelection> mMessageUrlSelection;
+    QList<AttachmentSelection> mAttachmentSelection;
+    QList<MessageUrlSelection> mMessageUrlSelection;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
 
     DocumentFactoryInterface *mTextHelperFactory = nullptr;
     DocumentFactoryInterface *mMessageUrlHelperFactory = nullptr;
-    QVector<DocumentFactoryInterface *> mAttachmentFactories;
+    QList<DocumentFactoryInterface *> mAttachmentFactories;
 };

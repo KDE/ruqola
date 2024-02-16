@@ -54,10 +54,10 @@ void ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited()
 
 void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    QVector<ChannelUserCompleter> channels;
+    QList<ChannelUserCompleter> channels;
     if (mRocketChatAccount) {
         if (!text.isEmpty()) {
-            const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(text);
+            const QList<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(text);
             if (rooms.isEmpty()) {
                 mCompletionListView->hide();
             } else {

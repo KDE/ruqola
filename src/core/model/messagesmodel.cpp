@@ -57,7 +57,7 @@ void MessagesModel::deactivate()
 Message MessagesModel::findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId); // if it == end, we'll start from there
-    auto rit = QVector<Message>::const_reverse_iterator(it); // this points to *it-1 already
+    auto rit = QList<Message>::const_reverse_iterator(it); // this points to *it-1 already
     rit = std::find_if(rit, mAllMessages.rend(), predicate);
     return rit == mAllMessages.rend() ? Message() : *rit;
 }
@@ -129,7 +129,7 @@ void MessagesModel::addMessage(const Message &message)
 {
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
-    auto emitChanged = [this](int rowNumber, const QVector<int> &roles = QVector<int>()) {
+    auto emitChanged = [this](int rowNumber, const QList<int> &roles = QList<int>()) {
         const QModelIndex index = createIndex(rowNumber, 0);
         Q_EMIT dataChanged(index, index, roles);
     };
@@ -156,7 +156,7 @@ void MessagesModel::addMessage(const Message &message)
     }
 }
 
-void MessagesModel::addMessages(const QVector<Message> &messages, bool insertListMessages)
+void MessagesModel::addMessages(const QList<Message> &messages, bool insertListMessages)
 {
     if (messages.isEmpty()) {
         return;
@@ -522,7 +522,7 @@ void MessagesModel::changeShowOriginalMessage(const QString &messageId, bool sho
 
 void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
-    auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
+    auto matchesFilePath = [&](const QList<MessageAttachment> &msgAttachments) {
         return std::find_if(msgAttachments.begin(),
                             msgAttachments.end(),
                             [&](const MessageAttachment &attach) {
@@ -623,14 +623,14 @@ bool MessagesModel::threadMessageFollowed(const QString &threadMessageId) const
     return false;
 }
 
-QVector<Message>::iterator MessagesModel::findMessage(const QString &messageId)
+QList<Message>::iterator MessagesModel::findMessage(const QString &messageId)
 {
     return std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         return msg.messageId() == messageId;
     });
 }
 
-QVector<Message>::const_iterator MessagesModel::findMessage(const QString &messageId) const
+QList<Message>::const_iterator MessagesModel::findMessage(const QString &messageId) const
 {
     return std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [&](const Message &msg) {
         return msg.messageId() == messageId;

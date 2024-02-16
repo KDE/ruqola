@@ -35,13 +35,13 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    [[nodiscard]] const QVector<InviteInfo> &adminInvites() const;
-    void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
+    [[nodiscard]] const QList<InviteInfo> &adminInvites() const;
+    void setAdminInvites(const QList<InviteInfo> &newAdminInvites);
 
     void removeInvite(const QString &identifier);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
     LIBRUQOLACORE_NO_EXPORT void clear();
-    QVector<InviteInfo> mAdminInvites;
+    QList<InviteInfo> mAdminInvites;
 };

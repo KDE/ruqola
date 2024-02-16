@@ -27,9 +27,9 @@ AuthenticationManager *AuthenticationManager::self()
 
 void AuthenticationManager::initializePluginList()
 {
-    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
+    const QList<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
 
-    QVectorIterator<KPluginMetaData> i(plugins);
+    QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
     QSet<QString> unique;
     while (i.hasPrevious()) {
@@ -50,8 +50,8 @@ void AuthenticationManager::initializePluginList()
         mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
     }
-    QVector<AuthenticationManagerInfo>::iterator end(mPluginList.end());
-    for (QVector<AuthenticationManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
+    QList<AuthenticationManagerInfo>::iterator end(mPluginList.end());
+    for (QList<AuthenticationManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
         loadPlugin(&(*it));
     }
 }
@@ -64,11 +64,11 @@ void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
     }
 }
 
-QVector<PluginAuthentication *> AuthenticationManager::pluginsList() const
+QList<PluginAuthentication *> AuthenticationManager::pluginsList() const
 {
-    QVector<PluginAuthentication *> lst;
-    QVector<AuthenticationManagerInfo>::ConstIterator end(mPluginList.constEnd());
-    for (QVector<AuthenticationManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
+    QList<PluginAuthentication *> lst;
+    QList<AuthenticationManagerInfo>::ConstIterator end(mPluginList.constEnd());
+    for (QList<AuthenticationManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
         if (auto plugin = (*it).plugin) {
             lst << plugin;
         }

@@ -9,7 +9,7 @@
 #include "customuserstatus.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT CustomUserStatuses
 {
@@ -28,8 +28,8 @@ public:
     [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    [[nodiscard]] QVector<CustomUserStatus> customUserses() const;
-    void setCustomUserses(const QVector<CustomUserStatus> &customUserses);
+    [[nodiscard]] QList<CustomUserStatus> customUserses() const;
+    void setCustomUserses(const QList<CustomUserStatus> &customUserses);
 
     void parseCustomUserStatuses(const QJsonObject &customStatusObj);
     void deleteCustomUserStatuses(const QJsonArray &replyArray);
@@ -37,7 +37,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListCustomUserStatuses(const QJsonObject &commandsObj);
-    QVector<CustomUserStatus> mCustomUserses;
+    QList<CustomUserStatus> mCustomUserses;
     int mCustomUserCount = 0;
     int mOffset = 0;
     int mTotal = 0;

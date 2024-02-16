@@ -16,8 +16,8 @@
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
 #include "utils.h"
+#include <QList>
 #include <QString>
-#include <QVector>
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Message
 {
@@ -111,11 +111,11 @@ public:
     [[nodiscard]] MessageType messageType() const;
     void setMessageType(Message::MessageType messageType);
 
-    [[nodiscard]] QVector<MessageAttachment> attachments() const;
-    void setAttachments(const QVector<MessageAttachment> &attachments);
+    [[nodiscard]] QList<MessageAttachment> attachments() const;
+    void setAttachments(const QList<MessageAttachment> &attachments);
 
-    [[nodiscard]] QVector<MessageUrl> urls() const;
-    void setUrls(const QVector<MessageUrl> &urls);
+    [[nodiscard]] QList<MessageUrl> urls() const;
+    void setUrls(const QList<MessageUrl> &urls);
 
     [[nodiscard]] QMap<QString, QString> mentions() const;
     void setMentions(const QMap<QString, QString> &mentions);
@@ -200,8 +200,8 @@ public:
 
     [[nodiscard]] QString originalMessageOrAttachmentDescription() const;
 
-    [[nodiscard]] QVector<Block> blocks() const;
-    void setBlocks(const QVector<Block> &newBlocks);
+    [[nodiscard]] QList<Block> blocks() const;
+    void setBlocks(const QList<Block> &newBlocks);
 
     [[nodiscard]] QString dateTime() const;
 
@@ -242,13 +242,13 @@ private:
     MessageTranslation mMessageTranslation;
 
     // Message Object Fields
-    QVector<MessageAttachment> mAttachments;
+    QList<MessageAttachment> mAttachments;
 
     // Message urls object
-    QVector<MessageUrl> mUrls;
+    QList<MessageUrl> mUrls;
 
     // Block
-    QVector<Block> mBlocks;
+    QList<Block> mBlocks;
 
     // Reactions
     Reactions mReactions;

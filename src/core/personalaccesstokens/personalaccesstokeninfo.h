@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqola_private_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_TESTS_EXPORT PersonalAccessTokenInfo
 {

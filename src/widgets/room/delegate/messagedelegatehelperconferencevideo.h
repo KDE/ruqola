@@ -43,7 +43,7 @@ private:
         QPixmap avatarPixmap;
     };
     struct ConferenceCallLayout {
-        QVector<UserLayout> usersLayout;
+        QList<UserLayout> usersLayout;
         QString title;
         QSize titleSize;
         QRect infoButtonRect;

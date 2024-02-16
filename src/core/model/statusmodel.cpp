@@ -134,7 +134,7 @@ void StatusModel::setCustomText(const QString &customText)
     mCustomText = customText;
 }
 
-void StatusModel::updateCustomStatus(const QVector<CustomUserStatus> &customUserStatuses)
+void StatusModel::updateCustomStatus(const QList<CustomUserStatus> &customUserStatuses)
 {
     beginResetModel();
     fillModel();

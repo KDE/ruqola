@@ -25,7 +25,7 @@ PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
 
 PermissionsEditWidget::~PermissionsEditWidget() = default;
 
-void PermissionsEditWidget::setRolesInfo(const QVector<RoleInfo> &rolesinfo)
+void PermissionsEditWidget::setRolesInfo(const QList<RoleInfo> &rolesinfo)
 {
     mRolesCombobox->setRolesInfo(rolesinfo);
 }

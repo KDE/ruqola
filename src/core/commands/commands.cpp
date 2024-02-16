@@ -92,12 +92,12 @@ void Commands::setCommandsCount(int commandsCount)
     mCommandsCount = commandsCount;
 }
 
-QVector<Command> Commands::commands() const
+QList<Command> Commands::commands() const
 {
     return mCommands;
 }
 
-void Commands::setCommands(const QVector<Command> &commands)
+void Commands::setCommands(const QList<Command> &commands)
 {
     mCommands = commands;
 }

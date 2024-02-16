@@ -40,7 +40,7 @@ User &Users::operator[](int i)
     return mUsers[i];
 }
 
-void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
+void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
     const int usersCount = obj[QLatin1String("count")].toInt();
     mOffset = obj[QLatin1String("offset")].toInt();
@@ -49,7 +49,7 @@ void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector
     mUsersCount += usersCount;
 }
 
-void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
+void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
     QString parseTypeStr;
     switch (type) {
@@ -96,17 +96,17 @@ void Users::appendUser(const User &user)
     mUsers.append(user);
 }
 
-QVector<User> Users::users() const
+QList<User> Users::users() const
 {
     return mUsers;
 }
 
-void Users::setUsers(const QVector<User> &rooms)
+void Users::setUsers(const QList<User> &rooms)
 {
     mUsers = rooms;
 }
 
-void Users::parseUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
+void Users::parseUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
     mUsersCount = obj[QLatin1String("count")].toInt();
     mOffset = obj[QLatin1String("offset")].toInt();

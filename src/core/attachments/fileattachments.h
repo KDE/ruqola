@@ -9,7 +9,7 @@
 #include "file.h"
 #include "libruqola_private_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_TESTS_EXPORT FileAttachments
 {
@@ -30,15 +30,15 @@ public:
     [[nodiscard]] int total() const;
     void setTotal(int total);
 
-    [[nodiscard]] QVector<File> fileAttachments() const;
-    void setFileAttachments(const QVector<File> &fileAttachments);
+    [[nodiscard]] QList<File> fileAttachments() const;
+    void setFileAttachments(const QList<File> &fileAttachments);
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
     void parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
 
 private:
     void parseFiles(const QJsonObject &fileAttachmentsObj);
-    QVector<File> mFileAttachments;
+    QList<File> mFileAttachments;
     int mFilesCount = 0;
     int mOffset = 0;
     int mTotal = 0;

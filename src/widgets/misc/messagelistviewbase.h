@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QList>
 #include <QListView>
-#include <QVector>
 class PluginTextInterface;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListViewBase : public QListView
 {
@@ -45,7 +45,7 @@ protected:
 
     void addTextPlugins(QMenu *menu, const QString &selectedText);
 
-    QVector<PluginTextInterface *> mPluginTextInterface;
+    QList<PluginTextInterface *> mPluginTextInterface;
 
     [[nodiscard]] virtual QString selectedText(const QModelIndex &index);
 
