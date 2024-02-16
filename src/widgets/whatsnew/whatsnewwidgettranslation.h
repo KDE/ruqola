@@ -67,11 +67,14 @@ static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
     kli18n("Allow to increase/decrease font (CTRL++/CTRL+-)"),
     kli18n("Add channel list style (Condensed/Medium/Expended)"),
     kli18n("Add forward message"),
+    kli18n("Improve mentions support."),
 };
 static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
 // enter items for the "Important changes" list here:
 static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
     kli18n("Fix dark mode support."),
     kli18n("Fix jitsi support."),
+    kli18n("Fix translate message in direct channel."),
+    kli18n("Don't show @here/@all as user."),
 };
 static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;
