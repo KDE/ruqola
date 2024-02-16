@@ -27,7 +27,7 @@ public:
     void setPreviewMessage(const Message &message);
 
 private:
-    void parse(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void parse(const QJsonObject &obj);
     Message mPreviewMessage;
     QString mThreadMessageId;
     int mTotal = 0;
