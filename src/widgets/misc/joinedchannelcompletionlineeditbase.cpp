@@ -4,9 +4,9 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "forwardmessageaddchannelcompletionlineedit.h"
+#include "joinedchannelcompletionlineeditbase.h"
 #include "common/completionlistview.h"
-#include "misc/joinedchannelcompletiondelegate.h"
+#include "joinedchannelcompletiondelegate.h"
 #include "model/joinedchannelmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -16,7 +16,7 @@
 
 using namespace std::chrono_literals;
 
-ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
+JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mJoinedChannelModel(new JoinedChannelModel(this))
     , mSearchTimer(new QTimer(this))
@@ -24,9 +24,9 @@ ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLi
 {
     setPlaceholderText(i18n("Search rooms..."));
     setCompletionModel(mJoinedChannelModel);
-    connect(this, &ForwardMessageAddChannelCompletionLineEdit::complete, this, &ForwardMessageAddChannelCompletionLineEdit::slotComplete);
-    connect(mSearchTimer, &QTimer::timeout, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTimerFired);
-    connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
+    connect(this, &JoinedChannelCompletionLineEditBase::complete, this, &JoinedChannelCompletionLineEditBase::slotComplete);
+    connect(mSearchTimer, &QTimer::timeout, this, &JoinedChannelCompletionLineEditBase::slotSearchTimerFired);
+    connect(this, &QLineEdit::textChanged, this, &JoinedChannelCompletionLineEditBase::slotSearchTextEdited);
 
     auto joinedChannelCompletionDelegate = new JoinedChannelCompletionDelegate(mCompletionListView);
     joinedChannelCompletionDelegate->setObjectName(QStringLiteral("joinedChannelCompletionDelegate"));
@@ -35,15 +35,15 @@ ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLi
     mCompletionListView->setTextWidget(this);
 }
 
-ForwardMessageAddChannelCompletionLineEdit::~ForwardMessageAddChannelCompletionLineEdit() = default;
+JoinedChannelCompletionLineEditBase::~JoinedChannelCompletionLineEditBase() = default;
 
-void ForwardMessageAddChannelCompletionLineEdit::slotSearchTimerFired()
+void JoinedChannelCompletionLineEditBase::slotSearchTimerFired()
 {
     mSearchTimer->stop();
     slotTextChanged(text());
 }
 
-void ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited()
+void JoinedChannelCompletionLineEditBase::slotSearchTextEdited()
 {
     if (mSearchTimer->isActive()) {
         mSearchTimer->stop(); // eventually
@@ -53,7 +53,7 @@ void ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited()
     mSearchTimer->start(300ms);
 }
 
-void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &text)
+void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
 {
     QList<ChannelUserCompleter> channels;
     if (mRocketChatAccount) {
@@ -87,7 +87,7 @@ void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &
     mJoinedChannelModel->setRooms(channels);
 }
 
-void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex &index)
+void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(JoinedChannelModel::Name).toString();
     const QString roomId = index.data(JoinedChannelModel::ChannelId).toString();
@@ -98,10 +98,10 @@ void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex 
     info.name = completerName;
     info.channelId = roomId;
     mCompletionListView->hide();
-    disconnect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
+    disconnect(this, &QLineEdit::textChanged, this, &JoinedChannelCompletionLineEditBase::slotSearchTextEdited);
     Q_EMIT fowardToChannel(std::move(info));
     clear();
-    connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
+    connect(this, &QLineEdit::textChanged, this, &JoinedChannelCompletionLineEditBase::slotSearchTextEdited);
 }
 
-#include "moc_forwardmessageaddchannelcompletionlineedit.cpp"
+#include "moc_joinedchannelcompletionlineeditbase.cpp"

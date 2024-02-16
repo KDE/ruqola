@@ -535,6 +535,9 @@ target_sources(libruqolawidgets PRIVATE
 
     misc/joinedchannelcompletiondelegate.h
     misc/joinedchannelcompletiondelegate.cpp
+
+    misc/joinedchannelcompletionlineeditbase.cpp
+    misc/joinedchannelcompletionlineeditbase.h
     
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h

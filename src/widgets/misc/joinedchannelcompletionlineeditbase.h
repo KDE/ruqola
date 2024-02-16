@@ -11,7 +11,7 @@
 class JoinedChannelModel;
 class QTimer;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageAddChannelCompletionLineEdit : public CompletionLineEdit
+class LIBRUQOLAWIDGETS_TESTS_EXPORT JoinedChannelCompletionLineEditBase : public CompletionLineEdit
 {
     Q_OBJECT
 public:
@@ -19,11 +19,11 @@ public:
         QString name;
         QString channelId;
     };
-    explicit ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ForwardMessageAddChannelCompletionLineEdit() override;
+    explicit JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~JoinedChannelCompletionLineEditBase() override;
 
 Q_SIGNALS:
-    void fowardToChannel(const ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo &channelInfo);
+    void fowardToChannel(const JoinedChannelCompletionLineEditBase::ForwardMessageChannelCompletionInfo &channelInfo);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
@@ -34,4 +34,4 @@ private:
     QTimer *const mSearchTimer;
     RocketChatAccount *const mRocketChatAccount;
 };
-Q_DECLARE_TYPEINFO(ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(JoinedChannelCompletionLineEditBase::ForwardMessageChannelCompletionInfo, Q_RELOCATABLE_TYPE);
