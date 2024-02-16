@@ -26,7 +26,13 @@ public:
 
     void setListDisplay(OwnUserPreferences::RoomListDisplay display);
 
+    bool helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
 private:
+    struct Layout {
+    };
+
+    [[nodiscard]] ChannelListDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     [[nodiscard]] QString makeUnreadText(const QModelIndex &index) const;
     void clearAvatarCache();
 

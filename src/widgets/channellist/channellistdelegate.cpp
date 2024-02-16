@@ -14,7 +14,10 @@
 #include "rocketchataccount.h"
 
 #include <KColorScheme>
+#include <QAbstractItemView>
+#include <QHelpEvent>
 #include <QPainter>
+#include <QToolTip>
 
 namespace
 {
@@ -47,6 +50,29 @@ void ChannelListDelegate::setListDisplay(OwnUserPreferences::RoomListDisplay dis
         mRoomListDisplay = display;
         clearAvatarCache();
     }
+}
+
+ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    ChannelListDelegate::Layout layout;
+    return layout;
+}
+
+bool ChannelListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (!helpEvent || !view || !index.isValid() || !index.parent().isValid() /* header*/) {
+        return QItemDelegate::helpEvent(helpEvent, view, option, index);
+    }
+
+    if (helpEvent->type() != QEvent::ToolTip) {
+        return false;
+    }
+    const QString toolTip = index.data(Qt::ToolTipRole).toString();
+    if (!toolTip.isEmpty()) {
+        QToolTip::showText(helpEvent->globalPos(), toolTip, view);
+        return true;
+    }
+    return true;
 }
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
