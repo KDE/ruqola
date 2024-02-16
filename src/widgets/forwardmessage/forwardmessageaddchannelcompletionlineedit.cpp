@@ -6,7 +6,7 @@
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
 #include "common/completionlistview.h"
-#include "forwardmessage/joinedchannelcompletiondelegate.h"
+#include "misc/joinedchannelcompletiondelegate.h"
 #include "model/joinedchannelmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"

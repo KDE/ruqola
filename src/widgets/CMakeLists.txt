@@ -532,6 +532,9 @@ target_sources(libruqolawidgets PRIVATE
 
     misc/changefontsizemenu.h
     misc/changefontsizemenu.cpp
+
+    misc/joinedchannelcompletiondelegate.h
+    misc/joinedchannelcompletiondelegate.cpp
     
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
@@ -846,9 +849,6 @@ target_sources(libruqolawidgets PRIVATE
 
     forwardmessage/forwardmessageaddchannelcompletionlineedit.h
     forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp
-
-    forwardmessage/joinedchannelcompletiondelegate.h
-    forwardmessage/joinedchannelcompletiondelegate.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
