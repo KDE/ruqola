@@ -850,8 +850,8 @@ target_sources(libruqolawidgets PRIVATE
     forwardmessage/joinedchannelmodel.h
     forwardmessage/joinedchannelmodel.cpp
 
-    forwardmessage/forwardmessageuserandchannelcompletiondelegate.h
-    forwardmessage/forwardmessageuserandchannelcompletiondelegate.cpp
+    forwardmessage/joinedchannelcompletiondelegate.h
+    forwardmessage/joinedchannelcompletiondelegate.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)

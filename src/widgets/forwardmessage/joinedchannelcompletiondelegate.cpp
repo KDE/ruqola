@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "forwardmessageuserandchannelcompletiondelegate.h"
+#include "joinedchannelcompletiondelegate.h"
 #include "common/delegatepaintutil.h"
 #include "joinedchannelmodel.h"
 #include "misc/avatarcachemanager.h"
@@ -19,15 +19,15 @@ namespace
 constexpr uint padding = 4;
 }
 
-ForwardMessageUserAndChannelCompletionDelegate::ForwardMessageUserAndChannelCompletionDelegate(QObject *parent)
+JoinedChannelCompletionDelegate::JoinedChannelCompletionDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::UserAndRoom, this))
 {
 }
 
-ForwardMessageUserAndChannelCompletionDelegate::~ForwardMessageUserAndChannelCompletionDelegate() = default;
+JoinedChannelCompletionDelegate::~JoinedChannelCompletionDelegate() = default;
 
-void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] icon ? name
     drawBackground(painter, option, index);
@@ -62,12 +62,12 @@ void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, co
     painter->setFont(oldFont);
 }
 
-void ForwardMessageUserAndChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+void JoinedChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);
 }
 
-QSize ForwardMessageUserAndChannelCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize JoinedChannelCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     return QItemDelegate::sizeHint(option, index) + QSize(0, padding);
 }

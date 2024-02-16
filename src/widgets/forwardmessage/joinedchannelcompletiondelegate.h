@@ -9,11 +9,11 @@
 #include <QItemDelegate>
 class AvatarCacheManager;
 class RocketChatAccount;
-class ForwardMessageUserAndChannelCompletionDelegate : public QItemDelegate
+class JoinedChannelCompletionDelegate : public QItemDelegate
 {
 public:
-    explicit ForwardMessageUserAndChannelCompletionDelegate(QObject *parent = nullptr);
-    ~ForwardMessageUserAndChannelCompletionDelegate() override;
+    explicit JoinedChannelCompletionDelegate(QObject *parent = nullptr);
+    ~JoinedChannelCompletionDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
