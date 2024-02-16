@@ -163,6 +163,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return generateToolTip(r);
     case RoomModel::RoomUnreadToolTip:
         return generateUnreadToolTip(r);
+    case RoomModel::RoomMentionsInfoType:
+        return QVariant::fromValue(mentionsInfoType(r));
     }
     return {};
 }
@@ -486,6 +488,23 @@ QString RoomModel::generateUnreadToolTip(Room *r) const
     }
 
     return toolTipStr.join(QLatin1String(", "));
+}
+
+RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r) const
+{
+    const int userMentions = r->userMentions();
+    if (userMentions > 0 /* TODO || tunreadUser > 0*/) {
+        return MentionsInfoType::Important;
+    }
+    const int threadUnread = r->threadUnread().count();
+    if (threadUnread > 0) {
+        return MentionsInfoType::Information;
+    }
+    const int groupMentions = r->groupMentions();
+    if (groupMentions > 0) {
+        return MentionsInfoType::Warning;
+    }
+    return MentionsInfoType::Normal;
 }
 
 QString RoomModel::generateToolTip(Room *r) const

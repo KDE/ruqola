@@ -53,6 +53,7 @@ public:
         RoomGroupMentions,
         RoomThreadUnread,
         RoomUnreadToolTip,
+        RoomMentionsInfoType,
     };
     Q_ENUM(RoomRoles)
 
@@ -65,6 +66,13 @@ public:
         Discussions,
         Unknown,
         NSections,
+    };
+
+    enum class MentionsInfoType {
+        Important,
+        Warning,
+        Information,
+        Normal,
     };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
@@ -130,6 +138,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateUnreadToolTip(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RoomModel::MentionsInfoType mentionsInfoType(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;

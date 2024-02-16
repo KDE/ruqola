@@ -156,7 +156,20 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
     if (!isHeader && !layout.unreadText.isEmpty()) {
-        painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
+        const RoomModel::MentionsInfoType mentionInfoType = index.data(RoomModel::RoomMentionsInfoType).value<RoomModel::MentionsInfoType>();
+        switch (mentionInfoType) {
+        case RoomModel::MentionsInfoType::Important:
+            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
+            break;
+        case RoomModel::MentionsInfoType::Warning:
+            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color());
+            break;
+        case RoomModel::MentionsInfoType::Information:
+            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
+            break;
+        case RoomModel::MentionsInfoType::Normal:
+            break;
+        }
         painter->drawText(layout.unreadRect, layout.unreadText);
     }
 }
