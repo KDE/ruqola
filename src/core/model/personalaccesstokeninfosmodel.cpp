@@ -39,7 +39,7 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
         return info.createdAt();
     }
     case PersonalAccessTokenInfosModel::LastTokenPart: {
-        return info.lastTokenPart();
+        return QString(QStringLiteral("...") + info.lastTokenPart());
     }
     case PersonalAccessTokenInfosModel::ByPassTwoFactor: {
         return info.bypassTwoFactor() ? i18n("Ignored") : i18n("Required");
