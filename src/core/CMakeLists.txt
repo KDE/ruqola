@@ -281,6 +281,10 @@ target_sources(libruqolacore PRIVATE
     model/moderationreportinfofilterproxymodel.cpp
     model/moderationreportinfofilterproxymodel.h
 
+    model/joinedchannelmodel.h
+    model/joinedchannelmodel.cpp
+
+
     notificationinfo.cpp
     notificationinfo.h
     notifications/notification.cpp

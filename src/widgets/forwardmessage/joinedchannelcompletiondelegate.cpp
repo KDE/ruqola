@@ -6,8 +6,8 @@
 
 #include "joinedchannelcompletiondelegate.h"
 #include "common/delegatepaintutil.h"
-#include "joinedchannelmodel.h"
 #include "misc/avatarcachemanager.h"
+#include "model/joinedchannelmodel.h"
 
 #include <KLocalizedString>
 

@@ -847,9 +847,6 @@ target_sources(libruqolawidgets PRIVATE
     forwardmessage/forwardmessageaddchannelcompletionlineedit.h
     forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp
 
-    forwardmessage/joinedchannelmodel.h
-    forwardmessage/joinedchannelmodel.cpp
-
     forwardmessage/joinedchannelcompletiondelegate.h
     forwardmessage/joinedchannelcompletiondelegate.cpp
 )

@@ -7,9 +7,10 @@
 #pragma once
 
 #include "channelusercompleter.h"
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
-class JoinedChannelModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT JoinedChannelModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
