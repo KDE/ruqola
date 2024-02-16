@@ -7,7 +7,7 @@
 #include "forwardmessageaddchannelcompletionlineedit.h"
 #include "common/completionlistview.h"
 #include "forwardmessage/forwardmessageuserandchannelcompletiondelegate.h"
-#include "forwardmessagechannelmodel.h"
+#include "joinedchannelmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include <KLocalizedString>
@@ -18,7 +18,7 @@ using namespace std::chrono_literals;
 
 ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
-    , mForwardMessageChannelModel(new ForwardMessageChannelModel(this))
+    , mForwardMessageChannelModel(new JoinedChannelModel(this))
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)
 {
@@ -88,8 +88,8 @@ void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &
 
 void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
-    const QString completerName = index.data(ForwardMessageChannelModel::Name).toString();
-    const QString roomId = index.data(ForwardMessageChannelModel::ChannelId).toString();
+    const QString completerName = index.data(JoinedChannelModel::Name).toString();
+    const QString roomId = index.data(JoinedChannelModel::ChannelId).toString();
     if (completerName.isEmpty() || roomId.isEmpty()) {
         return;
     }

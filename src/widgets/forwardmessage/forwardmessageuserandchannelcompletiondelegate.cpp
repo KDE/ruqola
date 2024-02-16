@@ -6,7 +6,7 @@
 
 #include "forwardmessageuserandchannelcompletiondelegate.h"
 #include "common/delegatepaintutil.h"
-#include "forwardmessagechannelmodel.h"
+#include "joinedchannelmodel.h"
 #include "misc/avatarcachemanager.h"
 
 #include <KLocalizedString>
@@ -44,7 +44,7 @@ void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, co
     painter->setFont(boldFont);
 
     int xPos = -1;
-    const Utils::AvatarInfo info = index.data(ForwardMessageChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
+    const Utils::AvatarInfo info = index.data(JoinedChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         constexpr int marginTop = padding / 2;
@@ -56,7 +56,7 @@ void ForwardMessageUserAndChannelCompletionDelegate::paint(QPainter *painter, co
     }
 
     QFontMetrics fontMetrics(boldFont);
-    const QString name = index.data(ForwardMessageChannelModel::Name).toString();
+    const QString name = index.data(JoinedChannelModel::Name).toString();
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     painter->drawText(xPos + margin, defaultCharHeight, name);
     painter->setFont(oldFont);

@@ -4,22 +4,22 @@
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "forwardmessagechannelmodel.h"
+#include "joinedchannelmodel.h"
 
-ForwardMessageChannelModel::ForwardMessageChannelModel(QObject *parent)
+JoinedChannelModel::JoinedChannelModel(QObject *parent)
     : QAbstractListModel{parent}
 {
 }
 
-ForwardMessageChannelModel::~ForwardMessageChannelModel() = default;
+JoinedChannelModel::~JoinedChannelModel() = default;
 
-int ForwardMessageChannelModel::rowCount(const QModelIndex &parent) const
+int JoinedChannelModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return mRooms.count();
 }
 
-QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) const
+QVariant JoinedChannelModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mRooms.count()) {
         return {};
@@ -36,7 +36,7 @@ QVariant ForwardMessageChannelModel::data(const QModelIndex &index, int role) co
     return {};
 }
 
-void ForwardMessageChannelModel::setRooms(const QList<ChannelUserCompleter> &rooms)
+void JoinedChannelModel::setRooms(const QList<ChannelUserCompleter> &rooms)
 {
     clear();
     if (!rooms.isEmpty()) {
@@ -46,7 +46,7 @@ void ForwardMessageChannelModel::setRooms(const QList<ChannelUserCompleter> &roo
     }
 }
 
-void ForwardMessageChannelModel::clear()
+void JoinedChannelModel::clear()
 {
     if (!mRooms.isEmpty()) {
         beginResetModel();
@@ -55,4 +55,4 @@ void ForwardMessageChannelModel::clear()
     }
 }
 
-#include "moc_forwardmessagechannelmodel.cpp"
+#include "moc_joinedchannelmodel.cpp"

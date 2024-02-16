@@ -8,7 +8,7 @@
 
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-class ForwardMessageChannelModel;
+class JoinedChannelModel;
 class QTimer;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageAddChannelCompletionLineEdit : public CompletionLineEdit
@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
-    ForwardMessageChannelModel *const mForwardMessageChannelModel;
+    JoinedChannelModel *const mForwardMessageChannelModel;
     QTimer *const mSearchTimer;
     RocketChatAccount *const mRocketChatAccount;
 };

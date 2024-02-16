@@ -9,7 +9,7 @@
 #include "channelusercompleter.h"
 #include <QAbstractListModel>
 
-class ForwardMessageChannelModel : public QAbstractListModel
+class JoinedChannelModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -20,8 +20,8 @@ public:
     };
     Q_ENUM(ForwardMessageChannelRoles)
 
-    explicit ForwardMessageChannelModel(QObject *parent = nullptr);
-    ~ForwardMessageChannelModel() override;
+    explicit JoinedChannelModel(QObject *parent = nullptr);
+    ~JoinedChannelModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
