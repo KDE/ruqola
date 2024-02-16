@@ -111,7 +111,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         }
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
-    if (!isHeader) {
+    if (!isHeader && !unreadText.isEmpty()) {
         painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
         painter->drawText(unreadRect, unreadText);
     }
