@@ -52,6 +52,7 @@ public:
         HideBadgeForMention,
         RoomGroupMentions,
         RoomThreadUnread,
+        RoomUnreadToolTip,
     };
     Q_ENUM(RoomRoles)
 
@@ -128,6 +129,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateUnreadToolTip(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;

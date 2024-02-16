@@ -161,6 +161,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->threadUnread();
     case Qt::ToolTipRole:
         return generateToolTip(r);
+    case RoomModel::RoomUnreadToolTip:
+        return generateUnreadToolTip(r);
     }
     return {};
 }
@@ -461,6 +463,29 @@ bool RoomModel::userOffline(Room *r) const
         return mRocketChatAccount ? mRocketChatAccount->userIsOffline(r->name()) : false;
     }
     return false;
+}
+
+QString RoomModel::generateUnreadToolTip(Room *r) const
+{
+    QStringList toolTipStr;
+    const int userMentions = r->userMentions();
+    if (userMentions > 0) {
+        toolTipStr.append(i18np("%1 Mention", "%1 Mentions", userMentions));
+    }
+    const int groupMentions = r->groupMentions();
+    if (groupMentions > 0) {
+        toolTipStr.append(i18np("%1 Group Mention", "%1 Group Mentions", groupMentions));
+    }
+    const int threadUnread = r->threadUnread().count();
+    if (threadUnread > 0) {
+        toolTipStr.append(i18np("%1 Unread Threaded Message", "%1 Unread Threaded Messages", threadUnread));
+    }
+    const int count = r->unread() - userMentions - groupMentions;
+    if (count > 0) {
+        toolTipStr.append(i18np("%1 Unread Message", "%1 Unread Messages", count));
+    }
+
+    return toolTipStr.join(QLatin1String(", "));
 }
 
 QString RoomModel::generateToolTip(Room *r) const

@@ -77,6 +77,16 @@ bool ChannelListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
+    const ChannelListDelegate::Layout layout = doLayout(option, index);
+    const QPoint helpEventPos{helpEvent->pos()};
+    if (layout.unreadRect.contains(helpEventPos)) {
+        const QString unreadToolTip = index.data(RoomModel::RoomUnreadToolTip).toString();
+        if (!unreadToolTip.isEmpty()) {
+            QToolTip::showText(helpEvent->globalPos(), unreadToolTip, view);
+            return true;
+        }
+    }
+
     const QString toolTip = index.data(Qt::ToolTipRole).toString();
     if (!toolTip.isEmpty()) {
         QToolTip::showText(helpEvent->globalPos(), toolTip, view);
