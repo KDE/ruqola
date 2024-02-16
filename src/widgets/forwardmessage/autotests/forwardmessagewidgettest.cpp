@@ -5,8 +5,11 @@
 */
 
 #include "forwardmessagewidgettest.h"
+#include "common/flowlayout.h"
 #include "forwardmessage/forwardmessagewidget.h"
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(ForwardMessageWidgetTest)
 ForwardMessageWidgetTest::ForwardMessageWidgetTest(QObject *parent)
@@ -17,7 +20,21 @@ ForwardMessageWidgetTest::ForwardMessageWidgetTest(QObject *parent)
 void ForwardMessageWidgetTest::shouldHaveDefaultValues()
 {
     ForwardMessageWidget w(nullptr);
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    auto mFlowLayout = w.findChild<FlowLayout *>(QStringLiteral("mFlowLayout"));
+    QVERIFY(mFlowLayout);
+
+    auto mForwardMessageAddChannelCompletionLineEdit =
+        w.findChild<ForwardMessageAddChannelCompletionLineEdit *>(QStringLiteral("mForwardMessageAddChannelCompletionLineEdit"));
+    QVERIFY(mForwardMessageAddChannelCompletionLineEdit);
 }
 
 #include "moc_forwardmessagewidgettest.cpp"
