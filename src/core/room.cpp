@@ -1002,6 +1002,7 @@ void Room::parseCommonData(const QJsonObject &json)
 
     setIgnoredUsers(extractStringList(json, QLatin1String("ignored")));
     setRoles(extractStringList(json, QLatin1String("roles")));
+    setThreadUnread(extractStringList(json, QLatin1String("tunread")));
 
     // FIXME.
     setHighlightsWord(extractStringList(json, QLatin1String("userHighlights")));

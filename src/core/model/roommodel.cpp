@@ -158,7 +158,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomGroupMentions:
         return r->groupMentions();
     case RoomModel::RoomThreadUnread:
-        return r->threadUnread();
+        return r->threadUnread().count();
     case Qt::ToolTipRole:
         return generateToolTip(r);
     case RoomModel::RoomUnreadToolTip:
