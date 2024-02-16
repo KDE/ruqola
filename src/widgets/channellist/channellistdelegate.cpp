@@ -60,9 +60,9 @@ ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionView
     layout.unreadText = layout.isHeader ? QString() : makeUnreadText(index);
     const int margin = DelegatePaintUtil::margin();
     layout.unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
-    layout.unreadRect = QRect(option.rect.width() - layout.unreadSize.width() - margin,
+    layout.unreadRect = QRect(option.rect.width() - layout.unreadSize.width() - 2 * margin,
                               option.rect.y() + padding,
-                              layout.unreadSize.width(),
+                              layout.unreadSize.width() + margin,
                               option.rect.height() - extraMargins);
 
     return layout;
@@ -159,18 +159,25 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         const RoomModel::MentionsInfoType mentionInfoType = index.data(RoomModel::RoomMentionsInfoType).value<RoomModel::MentionsInfoType>();
         switch (mentionInfoType) {
         case RoomModel::MentionsInfoType::Important:
-            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
+            painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
             break;
         case RoomModel::MentionsInfoType::Warning:
-            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color());
+            painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color());
             break;
         case RoomModel::MentionsInfoType::Information:
-            painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
+            painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color());
             break;
         case RoomModel::MentionsInfoType::Normal:
             break;
         }
-        painter->drawText(layout.unreadRect, layout.unreadText);
+        QRect mentionRect =
+            QRect(layout.unreadRect.x(), layout.unreadRect.y(), qMax(layout.unreadRect.width(), layout.unreadRect.height()), layout.unreadRect.height());
+        mentionRect.moveRight(layout.unreadRect.right());
+        painter->setPen(Qt::NoPen);
+        painter->setRenderHint(QPainter::Antialiasing);
+        painter->drawEllipse(mentionRect);
+        painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NormalText).color());
+        painter->drawText(layout.unreadRect, Qt::AlignCenter, layout.unreadText);
     }
 }
 
@@ -181,9 +188,8 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
         return QString();
     }
     const int unreadCount = index.data(RoomModel::RoomUnread).toInt() + index.data(RoomModel::RoomThreadUnread).toInt();
-    const QString unreadText = unreadCount > 0 ? QStringLiteral("(%1)").arg(unreadCount) : QString();
-    const int userMentionsCount = index.data(RoomModel::RoomUserMentions).toInt();
-    return (userMentionsCount > 0) ? QLatin1Char('@') + unreadText : unreadText;
+    const QString unreadText = unreadCount > 0 ? QString::number(unreadCount) : QString();
+    return unreadText;
 }
 
 QSize ChannelListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
