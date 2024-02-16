@@ -61,9 +61,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (!isHeader && showRoomAvatar) {
         offsetAvatarRoom = margin + option.rect.height() - extraMargins; // Icon will be draw with option.rect.height() - 2 * padding as size.
     }
+
     const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y() + padding, iconSize, option.rect.height() - extraMargins);
     const QString text = index.data(Qt::DisplayRole).toString();
-    // const QSize textSize = option.fontMetrics.size(Qt::TextSingleLine, text);
+
     const QString unreadText = isHeader ? QString() : makeUnreadText(index);
     const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
     const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
