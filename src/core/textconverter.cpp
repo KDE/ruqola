@@ -283,6 +283,8 @@ QString generateRichText(const QString &str,
 
     const auto userMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
     const auto userMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
+    const auto hereAllMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
+    const auto hereAllMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
         const QStringView word = match.capturedView(2);
@@ -298,7 +300,13 @@ QString generateRichText(const QString &str,
                                .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
 
         } else {
-            newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
+            if (userIdentifier == QLatin1String("here") || userIdentifier == QLatin1String("all")) { // here ? all ?
+                newStr.replace(QLatin1Char('@') + word.toString(),
+                               QStringLiteral("<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>")
+                                   .arg(word.toString(), hereAllMentionForegroundColor, hereAllMentionBackgroundColor));
+            } else {
+                newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
+            }
         }
     }
 
