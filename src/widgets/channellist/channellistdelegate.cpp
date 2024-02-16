@@ -22,6 +22,7 @@
 namespace
 {
 constexpr uint padding = 2;
+constexpr int extraMargins = 2 * padding;
 }
 
 ChannelListDelegate::ChannelListDelegate(QObject *parent)
@@ -55,6 +56,15 @@ void ChannelListDelegate::setListDisplay(OwnUserPreferences::RoomListDisplay dis
 ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ChannelListDelegate::Layout layout;
+    layout.isHeader = !index.parent().isValid();
+    layout.unreadText = layout.isHeader ? QString() : makeUnreadText(index);
+    const int margin = DelegatePaintUtil::margin();
+    layout.unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
+    layout.unreadRect = QRect(option.rect.width() - layout.unreadSize.width() - margin,
+                              option.rect.y() + padding,
+                              layout.unreadSize.width(),
+                              option.rect.height() - extraMargins);
+
     return layout;
 }
 
@@ -78,7 +88,6 @@ bool ChannelListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
-    constexpr int extraMargins = 2 * padding;
     const auto isHeader = !index.parent().isValid();
     const int iconSize = isHeader ? 0 : option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
@@ -91,14 +100,13 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y() + padding, iconSize, option.rect.height() - extraMargins);
     const QString text = index.data(Qt::DisplayRole).toString();
 
-    const QString unreadText = isHeader ? QString() : makeUnreadText(index);
-    const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
+    const ChannelListDelegate::Layout layout = doLayout(option, index);
+
     const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
-    const QRect displayRect(xText, option.rect.y() + padding, option.rect.width() - xText - unreadSize.width() - margin, option.rect.height() - extraMargins);
-    const QRect unreadRect(option.rect.width() - unreadSize.width() - margin,
-                           option.rect.y() + padding,
-                           unreadSize.width(),
-                           option.rect.height() - extraMargins);
+    const QRect displayRect(xText,
+                            option.rect.y() + padding,
+                            option.rect.width() - xText - layout.unreadSize.width() - margin,
+                            option.rect.height() - extraMargins);
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
@@ -121,7 +129,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         }
     }
 
-    if (!(unreadText.isEmpty() && !index.data(RoomModel::RoomAlert).toBool())) {
+    if (!(layout.unreadText.isEmpty() && !index.data(RoomModel::RoomAlert).toBool())) {
         if (!index.data(RoomModel::HideBadgeForMention).toBool()) {
             optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::Link));
             if (option.state & QStyle::State_Selected) {
@@ -137,9 +145,9 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         }
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
-    if (!isHeader && !unreadText.isEmpty()) {
+    if (!isHeader && !layout.unreadText.isEmpty()) {
         painter->setPen(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color());
-        painter->drawText(unreadRect, unreadText);
+        painter->drawText(layout.unreadRect, layout.unreadText);
     }
 }
 
@@ -157,7 +165,6 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
 
 QSize ChannelListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    constexpr int extraMargins = 2 * padding;
     const auto isHeader = !index.parent().isValid();
     int height = 0;
     const QSize size = QItemDelegate::sizeHint(option, index);

@@ -30,6 +30,10 @@ public:
 
 private:
     struct Layout {
+        QString unreadText;
+        QSize unreadSize;
+        QRect unreadRect;
+        bool isHeader = false;
     };
 
     [[nodiscard]] ChannelListDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
