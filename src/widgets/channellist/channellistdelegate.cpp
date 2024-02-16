@@ -63,7 +63,7 @@ ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionView
     layout.unreadRect = QRect(option.rect.width() - layout.unreadSize.width() - 2 * margin,
                               option.rect.y() + padding,
                               layout.unreadSize.width() + margin,
-                              option.rect.height() - extraMargins);
+                              /*option.rect.height()*/ layout.unreadSize.height() + padding);
 
     return layout;
 }
