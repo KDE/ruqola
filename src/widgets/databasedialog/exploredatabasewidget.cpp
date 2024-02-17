@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasewidget.h"
+#include "exploredatabaselineedit.h"
 #include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
@@ -13,7 +14,6 @@
 #include <QCheckBox>
 #include <QDateTimeEdit>
 #include <QLabel>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QSpinBox>
 #include <QVBoxLayout>
@@ -24,7 +24,7 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mRocketChatAccount(account)
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessageDatabase())
-    , mRoomName(new QLineEdit(this))
+    , mRoomName(new ExploreDatabaseLineEdit(account, this))
     , mNumberOfMessages(new QSpinBox(this))
     , mUseStartDateTime(new QCheckBox(QStringLiteral("Start"), this))
     , mStartDateTime(new QDateTimeEdit(this))
