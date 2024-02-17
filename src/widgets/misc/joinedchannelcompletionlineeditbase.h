@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT JoinedChannelCompletionLineEditBase : public
 {
     Q_OBJECT
 public:
-    struct ForwardMessageChannelCompletionInfo {
+    struct JoinedChannelCompletionInfo {
         QString name;
         QString channelId;
     };
@@ -23,7 +23,7 @@ public:
     ~JoinedChannelCompletionLineEditBase() override;
 
 Q_SIGNALS:
-    void fowardToChannel(const JoinedChannelCompletionLineEditBase::ForwardMessageChannelCompletionInfo &channelInfo);
+    void joinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
@@ -34,4 +34,4 @@ private:
     QTimer *const mSearchTimer;
     RocketChatAccount *const mRocketChatAccount;
 };
-Q_DECLARE_TYPEINFO(JoinedChannelCompletionLineEditBase::ForwardMessageChannelCompletionInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo, Q_RELOCATABLE_TYPE);

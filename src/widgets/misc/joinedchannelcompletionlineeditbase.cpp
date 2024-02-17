@@ -94,14 +94,11 @@ void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
     if (completerName.isEmpty() || roomId.isEmpty()) {
         return;
     }
-    ForwardMessageChannelCompletionInfo info;
+    JoinedChannelCompletionInfo info;
     info.name = completerName;
     info.channelId = roomId;
     mCompletionListView->hide();
-    disconnect(this, &QLineEdit::textChanged, this, &JoinedChannelCompletionLineEditBase::slotSearchTextEdited);
-    Q_EMIT fowardToChannel(std::move(info));
-    clear();
-    connect(this, &QLineEdit::textChanged, this, &JoinedChannelCompletionLineEditBase::slotSearchTextEdited);
+    Q_EMIT joinedChannelFound(std::move(info));
 }
 
 #include "moc_joinedchannelcompletionlineeditbase.cpp"
