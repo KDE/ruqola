@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-16 00:38+0000\n"
+"POT-Creation-Date: 2024-02-17 00:38+0000\n"
 "PO-Revision-Date: 2024-02-10 11:52+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -811,7 +811,7 @@ msgstr "Tipo di canale"
 msgid "Belongs To"
 msgstr "Appartiene a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:547
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:591
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1014,55 +1014,87 @@ msgstr "Autenticazione a due fattori"
 msgid "Last token part"
 msgstr "Ultima parte del token"
 
-#: core/model/roommodel.cpp:469
+#: core/model/roommodel.cpp:475
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgid "%1 Mention"
+msgid_plural "%1 Mentions"
+msgstr[0] "Menzioni"
+msgstr[1] "Menzioni"
+
+#: core/model/roommodel.cpp:479
+#, fuzzy, kde-format
+#| msgid "Mute Group Mentions"
+msgid "%1 Group Mention"
+msgid_plural "%1 Group Mentions"
+msgstr[0] "Silenzia menzioni dei gruppi"
+msgstr[1] "Silenzia menzioni dei gruppi"
+
+#: core/model/roommodel.cpp:483
+#, fuzzy, kde-format
+#| msgid "Unread Threads Messages"
+msgid "%1 Unread Threaded Message"
+msgid_plural "%1 Unread Threaded Messages"
+msgstr[0] "Messaggi delle discussioni non letti"
+msgstr[1] "Messaggi delle discussioni non letti"
+
+#: core/model/roommodel.cpp:487
+#, fuzzy, kde-format
+#| msgid "%1 has %2 Unread Message"
+msgid "%1 Unread Message"
+msgid_plural "%1 Unread Messages"
+msgstr[0] "%1 ha %2 messaggi non letti"
+msgstr[1] "%1 ha %2 messaggi non letti"
+
+#: core/model/roommodel.cpp:513
 #, kde-format
 msgid "Teams Room"
 msgstr "Stanza delle squadre"
 
-#: core/model/roommodel.cpp:475
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "Private Room"
 msgstr "Stanza privata"
 
-#: core/model/roommodel.cpp:477
+#: core/model/roommodel.cpp:521
 #, kde-format
 msgid "Discussion Room"
 msgstr "Stanza di discussione"
 
-#: core/model/roommodel.cpp:481
+#: core/model/roommodel.cpp:525
 #, kde-format
 msgid "Channel Room"
 msgstr "Stanza del canale"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Unread"
 msgstr "Non letto"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:589
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Squadre"
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:593
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussioni"
 
-#: core/model/roommodel.cpp:551
+#: core/model/roommodel.cpp:595
 #, kde-format
 msgid "Private Messages"
 msgstr "Messaggi privati"
 
-#: core/model/roommodel.cpp:553
+#: core/model/roommodel.cpp:597
 #, kde-format
 msgid "Unknown"
 msgstr "Sconosciuto"
@@ -1349,32 +1381,32 @@ msgstr "Esporta messaggi"
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
 
-#: core/room.cpp:1136
+#: core/room.cpp:1137
 #, kde-format
 msgid "Owner"
 msgstr "Proprietario"
 
-#: core/room.cpp:1139
+#: core/room.cpp:1140
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1142
+#: core/room.cpp:1143
 #, kde-format
 msgid "Moderator"
 msgstr "Moderatore"
 
-#: core/room.cpp:1479
+#: core/room.cpp:1480
 #, kde-format
 msgid "Channel is read only."
 msgstr "Il canale è in sola lettura."
 
-#: core/room.cpp:1482
+#: core/room.cpp:1483
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Hai bloccato questo canale."
 
-#: core/room.cpp:1485
+#: core/room.cpp:1486
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Il canale è stato bloccato."
@@ -2739,7 +2771,7 @@ msgstr[1] "%1 messaggi nella stanza"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:271
+#: widgets/room/messagelistview.cpp:272
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
 #, kde-format
 msgid "Copy Message"
@@ -2748,7 +2780,7 @@ msgstr "Copia messaggio"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:600
+#: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
 #, kde-format
 msgid "Speak Text"
@@ -2758,7 +2790,7 @@ msgstr "Pronuncia il testo"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:301
+#: widgets/room/messagelistview.cpp:302
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgid "Select All"
@@ -6068,7 +6100,7 @@ msgid "Mark As Unread"
 msgstr "Segna come non letto"
 
 #: widgets/channellist/channellistview.cpp:129
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Imposta come preferito"
@@ -6475,7 +6507,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informazioni sul canale «%1»"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:42
-#: widgets/room/messagelistview.cpp:295
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Delete"
 msgstr "Elimina"
@@ -7294,6 +7326,7 @@ msgstr[1] "%1 squadre (totali: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp:25
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, kde-format
 msgid "Search rooms..."
@@ -7399,6 +7432,12 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Permessi"
+
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "Roles:"
+msgid "Own Roles:"
+msgstr "Ruoli:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -8171,7 +8210,7 @@ msgid "Notification"
 msgstr "Notifica"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:583
+#: widgets/room/messagelistview.cpp:584
 #, kde-format
 msgid "Go to Message"
 msgstr "Vai al messaggio"
@@ -8365,13 +8404,13 @@ msgid "Link Preview"
 msgstr "Anteprima collegamenti"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:388
-#: widgets/room/messagelistview.cpp:380 widgets/room/usersinroommenu.cpp:86
+#: widgets/room/messagelistview.cpp:381 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informazioni sull'utente"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:397
-#: widgets/room/messagelistview.cpp:388
+#: widgets/room/messagelistview.cpp:389
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Inizia una conversazione privata"
@@ -8471,116 +8510,116 @@ msgstr "Ti sei unito a un nuovo messaggio diretto"
 msgid "Start of conversation"
 msgstr "Inizio della conversazione"
 
-#: widgets/room/messagelistview.cpp:279
+#: widgets/room/messagelistview.cpp:280
 #, kde-format
 msgid "Unpin Message"
 msgstr "Sblocca messaggio"
 
-#: widgets/room/messagelistview.cpp:279
+#: widgets/room/messagelistview.cpp:280
 #, kde-format
 msgid "Pin Message"
 msgstr "Appunta messaggio"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Rimuovi da preferito"
 
-#: widgets/room/messagelistview.cpp:306
+#: widgets/room/messagelistview.cpp:307
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Segna il messaggio come non letto"
 
-#: widgets/room/messagelistview.cpp:311
+#: widgets/room/messagelistview.cpp:312
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Mostra discussione intera"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:317
 #, kde-format
 msgid "Edit"
 msgstr "Modifica"
 
-#: widgets/room/messagelistview.cpp:321
+#: widgets/room/messagelistview.cpp:322
 #, kde-format
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:326
+#: widgets/room/messagelistview.cpp:327
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Copia collegamento nel messaggio"
 
-#: widgets/room/messagelistview.cpp:331
+#: widgets/room/messagelistview.cpp:332
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgid "Forward Message"
 msgstr "Segui il messaggio"
 
-#: widgets/room/messagelistview.cpp:344
+#: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Non seguire il messaggio"
 
-#: widgets/room/messagelistview.cpp:344
+#: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
 #, kde-format
 msgid "Follow Message"
 msgstr "Segui il messaggio"
 
-#: widgets/room/messagelistview.cpp:357
+#: widgets/room/messagelistview.cpp:358
 #, kde-format
 msgid "Copy URL"
 msgstr "Copia URL"
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:405
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Inizia una discussione"
 
-#: widgets/room/messagelistview.cpp:411
+#: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Rispondi nella discussione"
 
-#: widgets/room/messagelistview.cpp:472
+#: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgid "Show Original Message"
 msgstr "Mostra il messaggio originale"
 
-#: widgets/room/messagelistview.cpp:472
+#: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgid "Translate Message"
 msgstr "Traduci messaggio"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:516
 #, kde-format
 msgid "View Reports"
 msgstr "Visualizza i report"
 
-#: widgets/room/messagelistview.cpp:538
+#: widgets/room/messagelistview.cpp:539
 #, kde-format
 msgid "Dismiss Reports"
 msgstr "Ignora le segnalazioni"
 
-#: widgets/room/messagelistview.cpp:608
+#: widgets/room/messagelistview.cpp:609
 #, kde-format
 msgid "Report Message"
 msgstr "Segnala messaggio"
 
-#: widgets/room/messagelistview.cpp:805
+#: widgets/room/messagelistview.cpp:806
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Vuoi eliminare questo messaggio?"
 
-#: widgets/room/messagelistview.cpp:806
+#: widgets/room/messagelistview.cpp:807
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Elimina messaggio"
 
-#: widgets/room/messagelistview.cpp:946
+#: widgets/room/messagelistview.cpp:947
 #, kde-format
 msgid "Translator Error"
 msgstr "Errore del traduttore"
@@ -9508,17 +9547,31 @@ msgstr ""
 msgid "Add forward message"
 msgstr "Segui il messaggio"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:74
+#: widgets/whatsnew/whatsnewwidgettranslation.h:70
+msgid "Improve mentions support."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:75
 #, fuzzy
 #| msgid "Fix kf6 support"
 msgid "Fix dark mode support."
 msgstr "Risolve il supporto kf6"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:75
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
 #, fuzzy
 #| msgid "Fix kf6 support"
 msgid "Fix jitsi support."
 msgstr "Risolve il supporto kf6"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Total Messages in Channels"
+msgid "Fix translate message in direct channel."
+msgstr "Messaggi totali nei canali"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+msgid "Don't show @here/@all as user."
+msgstr ""
 
 #~ msgctxt "@title:window"
 #~ msgid "Start a Direct Call"
@@ -10266,9 +10319,6 @@ msgstr "Risolve il supporto kf6"
 
 #~ msgid "Chinese"
 #~ msgstr "Cinese"
-
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Silenzia menzioni dei gruppi"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
