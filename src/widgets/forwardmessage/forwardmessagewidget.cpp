@@ -41,7 +41,7 @@ ForwardMessageWidget::~ForwardMessageWidget()
     delete mFlowLayout;
 }
 
-void ForwardMessageWidget::slotForwardToChannel(const ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo &channelInfo)
+void ForwardMessageWidget::slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo)
 {
     const QString &roomName = channelInfo.name;
     if (mMap.contains(roomName)) {

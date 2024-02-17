@@ -7,97 +7,21 @@
 #include "forwardmessageaddchannelcompletionlineedit.h"
 #include "common/completionlistview.h"
 #include "misc/joinedchannelcompletiondelegate.h"
-#include "model/joinedchannelmodel.h"
 #include "rocketchataccount.h"
-#include "room.h"
-#include <KLocalizedString>
-#include <QTimer>
-#include <chrono>
 
 using namespace std::chrono_literals;
 
 ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
-    : CompletionLineEdit(parent)
-    , mJoinedChannelModel(new JoinedChannelModel(this))
-    , mSearchTimer(new QTimer(this))
-    , mRocketChatAccount(account)
+    : JoinedChannelCompletionLineEditBase(account, parent)
 {
-    setPlaceholderText(i18n("Search rooms..."));
-    setCompletionModel(mJoinedChannelModel);
-    connect(this, &ForwardMessageAddChannelCompletionLineEdit::complete, this, &ForwardMessageAddChannelCompletionLineEdit::slotComplete);
-    connect(mSearchTimer, &QTimer::timeout, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTimerFired);
-    connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
-
-    auto joinedChannelCompletionDelegate = new JoinedChannelCompletionDelegate(mCompletionListView);
-    joinedChannelCompletionDelegate->setObjectName(QStringLiteral("joinedChannelCompletionDelegate"));
-    joinedChannelCompletionDelegate->setRocketChatAccount(account);
-    mCompletionListView->setItemDelegate(joinedChannelCompletionDelegate);
-    mCompletionListView->setTextWidget(this);
+    connect(this, &ForwardMessageAddChannelCompletionLineEdit::joinedChannelFound, this, &ForwardMessageAddChannelCompletionLineEdit::slotJoinedChannelFound);
 }
 
 ForwardMessageAddChannelCompletionLineEdit::~ForwardMessageAddChannelCompletionLineEdit() = default;
 
-void ForwardMessageAddChannelCompletionLineEdit::slotSearchTimerFired()
+void ForwardMessageAddChannelCompletionLineEdit::slotJoinedChannelFound(
+    const ForwardMessageAddChannelCompletionLineEdit::JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info)
 {
-    mSearchTimer->stop();
-    slotTextChanged(text());
-}
-
-void ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited()
-{
-    if (mSearchTimer->isActive()) {
-        mSearchTimer->stop(); // eventually
-    }
-
-    mSearchTimer->setSingleShot(true);
-    mSearchTimer->start(300ms);
-}
-
-void ForwardMessageAddChannelCompletionLineEdit::slotTextChanged(const QString &text)
-{
-    QList<ChannelUserCompleter> channels;
-    if (mRocketChatAccount) {
-        if (!text.isEmpty()) {
-            const QList<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(text);
-            if (rooms.isEmpty()) {
-                mCompletionListView->hide();
-            } else {
-                for (const Room *room : rooms) {
-                    ChannelUserCompleter channel;
-                    switch (room->channelType()) {
-                    case Room::RoomType::Channel:
-                        channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
-                        break;
-                    case Room::RoomType::Direct:
-                        channel.setType(ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
-                        break;
-                    default:
-                        break;
-                    }
-                    channel.setName(room->displayFName());
-                    channel.setIdentifier(room->roomId());
-                    channel.setAvatarInfo(room->avatarInfo());
-                    channels.append(std::move(channel));
-                }
-            }
-        } else {
-            mCompletionListView->hide();
-        }
-    }
-    mJoinedChannelModel->setRooms(channels);
-}
-
-void ForwardMessageAddChannelCompletionLineEdit::slotComplete(const QModelIndex &index)
-{
-    const QString completerName = index.data(JoinedChannelModel::Name).toString();
-    const QString roomId = index.data(JoinedChannelModel::ChannelId).toString();
-    if (completerName.isEmpty() || roomId.isEmpty()) {
-        return;
-    }
-    ForwardMessageChannelCompletionInfo info;
-    info.name = completerName;
-    info.channelId = roomId;
-    mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT fowardToChannel(std::move(info));
     clear();

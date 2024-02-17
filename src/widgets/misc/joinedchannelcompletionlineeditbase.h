@@ -25,10 +25,12 @@ public:
 Q_SIGNALS:
     void joinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
 
+protected:
+    void slotSearchTextEdited();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTimerFired();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchTextEdited();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &text);
     JoinedChannelModel *const mJoinedChannelModel;
     QTimer *const mSearchTimer;

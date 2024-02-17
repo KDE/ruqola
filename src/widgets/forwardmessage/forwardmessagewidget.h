@@ -25,7 +25,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardToChannel(const ForwardMessageAddChannelCompletionLineEdit::ForwardMessageChannelCompletionInfo &channelInfo);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
     ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
