@@ -7,7 +7,6 @@
 #include "ruqolamainwidget.h"
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
-#include "channellist/channellistwidget.h"
 #include "config-ruqola.h"
 #include "model/switchchannelhistorymodel.h"
 #include "needupdateversion/needupdateversionwidget.h"

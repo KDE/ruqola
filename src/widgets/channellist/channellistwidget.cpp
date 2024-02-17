@@ -5,7 +5,6 @@
 */
 
 #include "channellistwidget.h"
-#include "channellistview.h"
 #include "model/roomfilterproxymodel.h"
 #include "room/roomutil.h"
 #include "ruqola_jitsi_debug.h"

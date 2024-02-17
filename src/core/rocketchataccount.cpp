@@ -52,7 +52,6 @@
 
 #include "channelcounterinfo.h"
 #include "connection.h"
-#include "ddpapi/ddpclient.h"
 #include "directmessage/opendmjob.h"
 #include "discussions/discussions.h"
 #include "emoji/loademojicustomjob.h"
@@ -70,7 +69,6 @@
 #include "videoconference/videoconferencemanager.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
-#include "channelgroupbasejob.h"
 #include <KLocalizedString>
 #include <KNotification>
 #include <QDesktopServices>

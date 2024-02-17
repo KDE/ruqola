@@ -18,7 +18,6 @@
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 
 #include "bannerinfodialog/bannerinfodialog.h"
-#include "config-ruqola.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "connection.h"
 #include "createnewserver/createnewserverdialog.h"

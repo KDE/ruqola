@@ -12,8 +12,6 @@
 #include "chat/getmessagejob.h"
 #include "chat/getthreadmessagesjob.h"
 
-#include "model/threadmessagemodel.h"
-
 MessageCache::MessageCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)
