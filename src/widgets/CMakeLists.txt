@@ -479,6 +479,7 @@ target_sources(libruqolawidgets PRIVATE
     exportmessages/exportmessagesdialog.h
     exportmessages/exportmessageswidget.cpp
     exportmessages/exportmessageswidget.h
+
     libruqolawidgets_private_export.h
     messagemaximumsizedialog/messagemaximumsizedialog.cpp
     messagemaximumsizedialog/messagemaximumsizedialog.h
@@ -771,7 +772,8 @@ target_sources(libruqolawidgets PRIVATE
     databasedialog/exploredatabasedialog.cpp
     databasedialog/exploredatabasewidget.h
     databasedialog/exploredatabasewidget.cpp
-
+    databasedialog/exploredatabaselineedit.h
+    databasedialog/exploredatabaselineedit.cpp
 
     whatsnew/whatsnewdialog.h
     whatsnew/whatsnewdialog.cpp
