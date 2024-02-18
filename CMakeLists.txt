@@ -87,6 +87,7 @@ if (UNITY_SUPPORT)
 endif()
 set(KTEXTADDONS_MIN_VERSION "1.5.3")
 set(KLLMWIDGETS_VERSION "0.1.0")
+set(QT6KEYCHAIN_LIB_VERSION "0.14.1")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
@@ -198,7 +199,7 @@ set_package_properties(KLLMWidgets PROPERTIES
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
-find_package(Qt6Keychain CONFIG)
+find_package(Qt6Keychain ${QT6KEYCHAIN_LIB_VERSION} CONFIG)
 set_package_properties(Qt6Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
