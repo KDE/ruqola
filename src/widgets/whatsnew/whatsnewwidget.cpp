@@ -41,10 +41,9 @@ WhatsNewComboBoxWidget::VersionType WhatsNewWidget::currentVersion() const
 // static
 QString WhatsNewWidget::newFeaturesMD5()
 {
-    // TODO fix when we will have new feature in 2.2
     QByteArray str;
-    for (int i = 0; i < numRuqolaNewFeatures2_1; ++i) {
-        str += ruqolaNewFeatures2_1[i].untranslatedText();
+    for (int i = 0; i < numRuqolaNewFeatures2_2; ++i) {
+        str += ruqolaNewFeatures2_2[i].untranslatedText();
     }
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
