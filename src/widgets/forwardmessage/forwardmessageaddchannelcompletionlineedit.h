@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/joinedchannelcompletionlineeditbase.h"
-class JoinedChannelModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageAddChannelCompletionLineEdit : public JoinedChannelCompletionLineEditBase
 {
