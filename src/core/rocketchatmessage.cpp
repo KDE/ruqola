@@ -164,12 +164,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const 
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
-{
-    const QJsonArray params{{roomId}, {key}, {value}};
-    return generateMethod(QStringLiteral("saveRoomSettings"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QString &roomId, const QString &accessCode, quint64 id)
 {
     const QJsonArray params{{roomId}, {accessCode}};
