@@ -81,10 +81,10 @@ struct UnreadAlert {
         text = i18n("(Unnamed)");
     }
 
-    if (account->loginStatus() != DDPAuthenticationManager::LoggedIn) {
-        text += QStringLiteral(": %1").arg(currentLoginStatusText(account));
-    } else if (int unread = currentUnreadAlert(account).unread) {
-        text += QStringLiteral(" (%1)").arg(unread);
+    if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+        if (int unread = currentUnreadAlert(account).unread) {
+            text += QStringLiteral(" (%1)").arg(unread);
+        }
     }
 
     return text;
@@ -147,10 +147,14 @@ void AccountsOverviewWidget::updateButtons()
         };
         auto updateTabIcon = [this, i, account]() {
             QIcon icon;
-            if (currentUnreadAlert(account).alert) {
-                icon = QIcon::fromTheme(QStringLiteral("message-new"));
+            if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+                if (currentUnreadAlert(account).alert) {
+                    icon = QIcon::fromTheme(QStringLiteral("message-new"));
+                } else {
+                    icon = Utils::iconFromAccount(account);
+                }
             } else {
-                icon = Utils::iconFromAccount(account);
+                icon = QIcon::fromTheme(QStringLiteral("data-error"));
             }
             mTabBar->setTabIcon(i, icon);
         };
