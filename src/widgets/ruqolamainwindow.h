@@ -139,7 +139,6 @@ private:
     QAction *mDirectory = nullptr;
     QAction *mNextTab = nullptr;
     QAction *mPreviewTab = nullptr;
-    QWidgetAction *mStatus = nullptr;
     ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
@@ -165,4 +164,6 @@ private:
 
     QAction *mImportAccountsAction = nullptr;
     QAction *mExportAccountsAction = nullptr;
+
+    QWidget *mContainerStatusInfo = nullptr;
 };
