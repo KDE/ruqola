@@ -15,7 +15,7 @@
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 
-#define USE_LOCALDATABASE 1
+#define USE_LOCALDATABASE
 ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
