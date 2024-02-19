@@ -35,4 +35,5 @@ enum class DatabasePath {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteMessageFromLogs();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceMessageFromLogs();
 [[nodiscard]] LIBRUQOLACORE_EXPORT qint64 currentTimeStamp();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString jsonAccount();
 };

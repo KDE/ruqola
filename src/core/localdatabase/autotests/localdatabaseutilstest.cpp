@@ -42,6 +42,7 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
     QCOMPARE(LocalDatabaseUtils::insertReplaceGlobal(), QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"));
     QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), QStringLiteral("DELETE FROM LOGS WHERE messageId = ?"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"));
+    QCOMPARE(LocalDatabaseUtils::jsonAccount(), QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\""));
 }
 
 #include "moc_localdatabaseutilstest.cpp"

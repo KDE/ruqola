@@ -111,3 +111,8 @@ qint64 LocalDatabaseUtils::currentTimeStamp()
 {
     return QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
 }
+
+QString LocalDatabaseUtils::jsonAccount()
+{
+    return QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\"");
+}
