@@ -43,8 +43,8 @@ void LocalAccountDatabaseTest::shouldVerifyDbFileName()
 
 void LocalAccountDatabaseTest::shouldStoreAccountSettings()
 {
+    LocalAccountDatabase accountDataBase;
     {
-        LocalAccountDatabase accountDataBase;
         const QByteArray ba = "{}";
         accountDataBase.updateAccount(accountName(), ba);
 
@@ -55,8 +55,17 @@ void LocalAccountDatabaseTest::shouldStoreAccountSettings()
         QCOMPARE(getInfo, ba);
     }
     {
-        LocalAccountDatabase accountDataBase;
         const QByteArray ba = "{bla:\"bli\"}";
+        accountDataBase.updateAccount(accountName(), ba);
+
+        // WHEN
+        const QByteArray getInfo = accountDataBase.jsonAccount(accountName());
+
+        // THEN
+        QCOMPARE(getInfo, ba);
+    }
+    {
+        const QByteArray ba = "{}";
         accountDataBase.updateAccount(accountName(), ba);
 
         // WHEN
@@ -73,6 +82,10 @@ void LocalAccountDatabaseTest::shouldRemoveAccountSettings()
         LocalAccountDatabase accountDataBase;
         const QByteArray ba = "{}";
         accountDataBase.updateAccount(accountName(), ba);
+
+        // Verify that we have account info stored
+        QVERIFY(!accountDataBase.jsonAccount(accountName()).isEmpty());
+
         // WHEN
         const QByteArray getInfo = accountDataBase.jsonAccount(accountName());
 
