@@ -19,7 +19,6 @@ private Q_SLOTS:
     void shouldSetDefaultStatus();
     void shouldInformTypingStatus();
 
-    void shouldUserAutoComplete();
     void shouldSendFileMessage();
 
 #if 0
@@ -59,7 +58,6 @@ private Q_SLOTS:
 
     void setAdminStatus();
     void openRoom();
-    void getroombyid();
 
     void bannerDismiss();
 
