@@ -30,8 +30,6 @@ public:
     void addRoom(const QString &accountName, Room *room);
     void deleteRoom(const QString &accountName, const QString &roomId);
 
-    void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, GlobalDatabase::TimeStampType type);
-    void removeTimeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
     [[nodiscard]] qint64 timeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type);
 
     [[nodiscard]] QList<Message>

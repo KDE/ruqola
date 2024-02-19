@@ -176,9 +176,8 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
         params[QLatin1String("$date")] = timeStamp;
-        qDebug() << " params " << params;
+        qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_updatePublicsettings);
-
     } else {
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
     }

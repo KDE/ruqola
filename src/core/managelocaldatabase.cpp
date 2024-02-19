@@ -15,7 +15,7 @@
 #include "ruqola_loadhistory_debug.h"
 #include "ruqolaglobalconfig.h"
 
-#define USE_LOCALDATABASE 1
+#define USE_LOCALDATABASE
 ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
@@ -32,7 +32,7 @@ void ManageLocalDatabase::loadAccountSettings()
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
     if (!ba.isEmpty()) {
-        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Account info load from database";
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Account info loads from database";
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
         timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
         qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp: " << timeStamp;
@@ -156,6 +156,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
     mRocketChatAccount->ddp()->loadHistory(params);
+    // TODO MISSING load rooms from database too
 }
 
 QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t)
