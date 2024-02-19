@@ -49,14 +49,12 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     layout->addRow(i18n("Server version:"), mServerVersion);
 
     if (mRocketChatAccount) {
-        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 0, 0)) {
-            mEnterpriseLicense = new QLabel(this);
-            mEnterpriseLicense->setObjectName(QStringLiteral("mEnterpriseLicense"));
-            mEnterpriseLicense->setTextInteractionFlags(Qt::TextSelectableByMouse);
-            mEnterpriseLicense->setTextFormat(Qt::PlainText);
-            layout->addRow(i18n("License:"), mEnterpriseLicense);
-            mEnterpriseLicense->setText(mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18n("None"));
-        }
+        mEnterpriseLicense = new QLabel(this);
+        mEnterpriseLicense->setObjectName(QStringLiteral("mEnterpriseLicense"));
+        mEnterpriseLicense->setTextInteractionFlags(Qt::TextSelectableByMouse);
+        mEnterpriseLicense->setTextFormat(Qt::PlainText);
+        layout->addRow(i18n("License:"), mEnterpriseLicense);
+        mEnterpriseLicense->setText(mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18n("None"));
         setServerConfigInfo(mRocketChatAccount->serverConfigInfo());
     }
 }

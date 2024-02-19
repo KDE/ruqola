@@ -33,7 +33,6 @@ private:
     createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void
     createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void
     createItemDisplayFormat(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLicensesListDone(const QJsonObject &obj);

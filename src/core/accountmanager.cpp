@@ -945,10 +945,12 @@ QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSort
     for (int i = 0; i < model->rowCount(); ++i) {
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        AccountManager::AccountDisplayInfo info;
-        info.name = account->displayName();
-        info.icon = Utils::iconFromAccount(account);
-        lst.append(std::move(info));
+        if (account->accountEnabled()) {
+            AccountManager::AccountDisplayInfo info;
+            info.name = account->displayName();
+            info.icon = Utils::iconFromAccount(account);
+            lst.append(std::move(info));
+        }
     }
     return lst;
 }

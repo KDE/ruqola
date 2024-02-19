@@ -1718,11 +1718,6 @@ QString RocketChatAccount::serverVersion() const
     return mRuqolaServerConfig->serverVersion();
 }
 
-bool RocketChatAccount::needAdaptNewSubscriptionRC60() const
-{
-    return mRuqolaServerConfig->needAdaptNewSubscriptionRC60();
-}
-
 bool RocketChatAccount::otrEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
@@ -2306,10 +2301,7 @@ void RocketChatAccount::followMessage(const QString &messageId, bool follow)
 void RocketChatAccount::getSupportedLanguages()
 {
     if (autoTranslateEnabled()) {
-        bool needTargetLanguage = false;
-        if (ruqolaServerConfig()->hasAtLeastVersion(5, 1, 0)) {
-            needTargetLanguage = true;
-        }
+        const bool needTargetLanguage = true;
         auto job = new RocketChatRestApi::GetSupportedLanguagesJob(this);
         job->setNeedTargetLanguage(needTargetLanguage);
         restApi()->initializeRestApiJob(job);
@@ -2394,9 +2386,7 @@ void RocketChatAccount::initializeAccount()
     ddp()->listCustomSounds();
     customUsersStatus();
     slotLoadRoles();
-    if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
-        checkLicenses();
-    }
+    checkLicenses();
 
     Q_EMIT accountInitialized();
 }

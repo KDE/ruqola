@@ -57,6 +57,14 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
                                     << QStringLiteral("www.kde.org") << QStringLiteral("direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98")
                                     << ParseMessageUrlUtils::ChannelType::Direct << ParseMessageUrlUtils::RoomIdType::RoomId;
 
+    QTest::addRow("rocketchatscheme-1") << QStringLiteral(
+        "rocketchat://"
+        "room?rid=XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH&mid=Bo8pcAH86LxiYzu98&host=www.kde.org&path=direct%2FXQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH%3Fmsg%"
+        "3DBo8pcAH86LxiYzu98") << true << QStringLiteral("Bo8pcAH86LxiYzu98")
+                                        << QStringLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH") << QStringLiteral("www.kde.org")
+                                        << QStringLiteral("direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98")
+                                        << ParseMessageUrlUtils::ChannelType::Direct << ParseMessageUrlUtils::RoomIdType::RoomId;
+
     QTest::addRow("url-1") << QStringLiteral("https://www.kde.org/channel/python?msg=sn3gEQom7NcLxTg5h") << true << QStringLiteral("sn3gEQom7NcLxTg5h")
                            << QStringLiteral("python") << QStringLiteral("www.kde.org") << QStringLiteral("/channel/python")
                            << ParseMessageUrlUtils::ChannelType::Channel << ParseMessageUrlUtils::RoomIdType::RoomName;

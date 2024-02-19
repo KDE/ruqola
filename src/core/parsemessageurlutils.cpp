@@ -21,7 +21,8 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     QUrl url(messageUrl);
     const QUrlQuery query(url);
     // const QList<QPair<QString, QString>> queryItems = query.queryItems();
-    if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
+    // https://developer.rocket.chat/getting-started/deep-linking
+    if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/")) || (url.scheme() == QLatin1String("rocketchat"))) {
         // qDebug() << "queryItems " << queryItems;
 
         mServerHost = query.queryItemValue(QStringLiteral("host"));
@@ -134,12 +135,12 @@ void ParseMessageUrlUtils::setChannelType(ChannelType newChannelType)
 
 QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
 {
-    d << "mServerPath " << t.serverHost();
-    d << "mRoomId " << t.roomId();
-    d << "mMessageId " << t.messageId();
-    d << "mPath " << t.path();
-    d << "roomIdType " << t.roomIdType();
-    d << "channelType " << t.channelType();
+    d.space() << "mServerPath" << t.serverHost();
+    d.space() << "mRoomId" << t.roomId();
+    d.space() << "mMessageId" << t.messageId();
+    d.space() << "mPath" << t.path();
+    d.space() << "roomIdType" << t.roomIdType();
+    d.space() << "channelType" << t.channelType();
     return d;
 }
 

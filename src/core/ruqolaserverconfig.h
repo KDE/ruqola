@@ -80,8 +80,6 @@ public:
     void setBlockDeletingMessageInMinutes(int minutes);
     [[nodiscard]] int blockDeletingMessageInMinutes() const;
 
-    [[nodiscard]] bool needAdaptNewSubscriptionRC60() const;
-
     void setServerVersion(const QString &version);
     [[nodiscard]] QString serverVersion() const;
 
@@ -209,7 +207,6 @@ public:
 
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
-    LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QJsonObject &currentConfObject);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QString &value);
@@ -241,7 +238,6 @@ private:
     int mServerVersionPatch = -1;
     qint64 mFileMaxFileSize = -1;
 
-    bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mMessageAllowConvertLongMessagesToAttachment = false;
     bool mUIUseRealName = false;
 
