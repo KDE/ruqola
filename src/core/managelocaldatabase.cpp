@@ -156,6 +156,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
     mRocketChatAccount->ddp()->loadHistory(params);
+    // TODO MISSING load rooms from database too
 }
 
 QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t)
