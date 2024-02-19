@@ -5,7 +5,6 @@
 */
 
 #include "localaccountdatabase.h"
-#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QSqlDatabase>
@@ -16,7 +15,6 @@
 static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
 enum class AccountFields {
     AccountName,
-    TimeStamp,
     Json,
 }; // in the same order as the table
 

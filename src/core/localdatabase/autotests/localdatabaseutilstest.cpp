@@ -35,11 +35,13 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
 {
     QCOMPARE(LocalDatabaseUtils::deleteMessage(), QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessages(), QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"));
-    QCOMPARE(LocalDatabaseUtils::deleteRooms(), QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?"));
+    QCOMPARE(LocalDatabaseUtils::deleteRoom(), QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceRoom(), QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)"));
     QCOMPARE(LocalDatabaseUtils::deleteAccount(), QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?"));
     QCOMPARE(LocalDatabaseUtils::updateAccount(), QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?)"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceGlobal(), QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"));
+    QCOMPARE(LocalDatabaseUtils::removeGlobal(), QStringLiteral("DELETE FROM GLOBAL WHERE identifier = ?"));
+    QCOMPARE(LocalDatabaseUtils::timestampGlobal(), QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\""));
     QCOMPARE(LocalDatabaseUtils::deleteMessageFromLogs(), QStringLiteral("DELETE FROM LOGS WHERE messageId = ?"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessageFromLogs(), QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"));
     QCOMPARE(LocalDatabaseUtils::jsonAccount(), QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\""));

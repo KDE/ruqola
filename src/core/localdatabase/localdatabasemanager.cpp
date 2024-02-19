@@ -84,7 +84,7 @@ QByteArray LocalDatabaseManager::jsonAccount(const QString &accountName)
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mRoomsDatabase->addRoom(accountName, room);
+        mRoomsDatabase->updateRoom(accountName, room);
         // TODO verify it.
         mGlobalDatabase->insertOrReplaceTimeStamp(accountName, room->roomId(), room->lastMessageAt(), GlobalDatabase::TimeStampType::RoomTimeStamp);
     }

@@ -51,7 +51,7 @@ void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
         Room r;
         r.parseSubscriptionRoom(fields);
         const QByteArray ba = Room::serialize(&r, false);
-        roomDataBase.addRoom(accountName(), &r);
+        roomDataBase.updateRoom(accountName(), &r);
 
         // WHEN
         const QByteArray getInfo = roomDataBase.jsonRoom(accountName(), r.roomId());
