@@ -262,13 +262,6 @@ void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
-void get_room_by_id(const QJsonObject &obj, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Room By ID :") + QJsonDocument(obj).toJson());
-    }
-}
-
 void open_room(const QJsonObject &obj, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
