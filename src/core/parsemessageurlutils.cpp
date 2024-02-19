@@ -135,12 +135,12 @@ void ParseMessageUrlUtils::setChannelType(ChannelType newChannelType)
 
 QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
 {
-    d << "mServerPath " << t.serverHost();
-    d << "mRoomId " << t.roomId();
-    d << "mMessageId " << t.messageId();
-    d << "mPath " << t.path();
-    d << "roomIdType " << t.roomIdType();
-    d << "channelType " << t.channelType();
+    d.space() << "mServerPath" << t.serverHost();
+    d.space() << "mRoomId" << t.roomId();
+    d.space() << "mMessageId" << t.messageId();
+    d.space() << "mPath" << t.path();
+    d.space() << "roomIdType" << t.roomIdType();
+    d.space() << "channelType" << t.channelType();
     return d;
 }
 
