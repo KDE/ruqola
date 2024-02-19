@@ -72,9 +72,14 @@ QString LocalDatabaseUtils::insertReplaceMessages()
     return QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)");
 }
 
-QString LocalDatabaseUtils::deleteRooms()
+QString LocalDatabaseUtils::deleteRoom()
 {
     return QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?");
+}
+
+QString LocalDatabaseUtils::jsonRoom()
+{
+    return QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\"");
 }
 
 QString LocalDatabaseUtils::insertReplaceRoom()

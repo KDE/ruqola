@@ -33,7 +33,7 @@ QString LocalRoomsDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaRoomDataBase);
 }
 
-void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
+void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
