@@ -5,7 +5,6 @@
 */
 
 #include "localaccountdatabase.h"
-#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QSqlDatabase>
