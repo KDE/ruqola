@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-02-17 04:15+0100\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 12:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4266,6 +4266,9 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, რომ გამოიყენოთ ჩანაწერისგარეშე (OTR) პირდაპირი "
+"შეტყობინებები 2 მომხმარებელს შორის. OTR შეტყობინებების ჩაწერა, სერვერზე არ "
+"ხდება და ის მიმოიცვლება და იშიფრება 2 მომხმარებელს შორის."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:20
 #, kde-format
@@ -4574,6 +4577,9 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"ოთახში წევრების მაქსიმალური რაოდენობა, როცა გაფრთხილება ყველა შეტყობინებაზე "
+"გამოირთვება. მომხმარებლებს შეუძლიათ, ეს პარამეტრი ყველა ოთახისთვის სათითაოდ "
+"დააყენონ. (გასათიშად დააყენეთ 0)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:136
 #, kde-format
@@ -4732,6 +4738,10 @@ msgid ""
 "third-party integrations. Use a fully qualified name, such as "
 "cn=Administrator,cn=Users,dc=Example,dc=com."
 msgstr ""
+"LDAP მომხმარებელი, რომელიც ახდენს მომხმარებლების ძებნას, როცა ისინი "
+"სისტემაში შედიან. ეს, ჩვეულებრივ, სერვისული ანგარიშია, რომელიც მესამე "
+"პირებთან ინტეგრაციისთვის სპეციალურად იქმნება. გამოიყენეთ სრულად აწყობილი "
+"სახელი. მაგ: cn=Administrator,cn=Users,dc=Example,dc=com."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:67
 #, kde-format
@@ -5709,6 +5719,9 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"არ გაავრცელო შეტყობინებები ბოტებისგან, რომლის სახელიც ზემო რეგულარულ "
+"გამოსახულებას ემთხვევა. თუ დატოვებთ ცარიელს, ბოტებისგან მოსული ყველა "
+"შეტყობინება გავრცელდება."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
@@ -5771,6 +5784,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"ეს პარამეტრი ხელს უშლის ყველა გაშვებულ ასლს, გააგზავნოს მომხმარებლის "
+"სტატუსის ცვლილებები მათ კლიენტებთან, რითიც ხელს უშლიან მომხმარებლებს, "
+"დაინახონ მათი სტატუსის შეტყობინება პირველი ჩატვირთვისას!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -5779,6 +5795,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"ეს პარამეტრი ხელს უშლის Rocket.Chat-ის გაშვებულ ასლებს, გაუგზავნონ მოვლენები "
+"სხვა გაშვებულ ასლებს. ამას შეუძლია, სინქრონიზაციის პრობლემები და არასწორი "
+"ქცევა გამოიწვიოს!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -5786,6 +5805,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"ეს პარამეტრი გააჩერებს ცოცხალი ჩატის სტუმრის სესიების დამუშავებას, რაც "
+"სტატისტიკის არასწორად მუშაობას გამოიწვევს!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -7311,6 +7332,10 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"თქვენი დაშიფრული კონფიდენციალური ჯგუფებისა და პირდაპირი შეტყობინებების "
+"გასაშიფრად შეიყვანეთ დაშიფვრის პაროლი.\n"
+"ეს პაროლი აუცილებელია შეიყვანოთ, რათა მოხდეს შეტყობინების დაშიფვრა/გაშიფვრა "
+"ყველა კლიენტისთვის, რომელსაც იყენებთ, რადგან გასაღები სერვერზე შენახული არაა."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -9257,17 +9282,17 @@ msgstr "(სიახლეების Ruqola-ში ჩვენება)"
 msgid "What's new in Ruqola. %1"
 msgstr "Ruqola-ის სიახლეები. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "მნიშვნელოვანი ცვლილებები ბოლო ვერსიის შემდეგ:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola-ის ახალ ფუნქციებში შედის:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"
@@ -9384,8 +9409,6 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "ფონტის გადიდება/დაპატარავების (CTRL++/CTRL+-) დაშვება"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "არხების სიის სტილის დამატება (შესქელებული/საშაუალო/გაფართოებული)"
 

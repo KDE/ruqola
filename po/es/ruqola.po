@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the ruqola package.
 #
 # Automatically generated, 2019.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Manuel Alcaraz <manuelalcarazzam@gmail.com>, 2019.
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024, %Y.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-01-27 18:40+0100\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 19:35+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -1017,36 +1017,32 @@ msgid "Last token part"
 msgstr "Última parte del símbolo"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Menciones"
-msgstr[1] "Menciones"
+msgstr[0] "%1 mención"
+msgstr[1] "%1 menciones"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Group mentions only"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Solo menciones de grupo"
-msgstr[1] "Solo menciones de grupo"
+msgstr[0] "%1 mención de grupo"
+msgstr[1] "%1 menciones de grupo"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Marcar como no leídos los mensajes de los hilos"
-msgstr[1] "Marcar como no leídos los mensajes de los hilos"
+msgstr[0] "%1 hilo de mensajes sin leer"
+msgstr[1] "%1 hilos de mensajes sin leer"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 tiene %2 mensaje sin leer"
-msgstr[1] "%1 tiene %2 mensaje sin leer"
+msgstr[0] "%1 mensaje sin leer"
+msgstr[1] "%1 mensajes sin leer"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -1618,10 +1614,9 @@ msgstr "Has sido silenciado y no puedes hablar en esta sala"
 
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#, fuzzy, kde-format
-#| msgid "Invalid channel."
+#, kde-format
 msgid "Invalid channel"
-msgstr "Canal no válido."
+msgstr "Canal no válido"
 
 #: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:123
 #, kde-format
@@ -6303,7 +6298,7 @@ msgstr "Abajo"
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
 msgid "&Use custom fonts"
-msgstr "&Usar fuentes personalizadas"
+msgstr "&Usar tipos de letra personalizados"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
 #, kde-format
@@ -6372,7 +6367,7 @@ msgstr "Cuenta"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
-msgstr "Fuente"
+msgstr "Tipo de letra"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
@@ -7365,11 +7360,10 @@ msgstr[0] "%1 discusión en la sala (total: %2)"
 msgstr[1] "%1 discusiones en la sala (total: %2)"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Copy Password"
-msgstr "Contraseña"
+msgstr "Copiar contraseña"
 
 #: widgets/encryption/e2ecopypasswordwidget.cpp:23
 #, kde-format
@@ -7382,6 +7376,14 @@ msgid ""
 "dismissing this message.<br/><br/>Your password is: <span style=\"font-"
 "weight: bold;\">%1</span>"
 msgstr ""
+"Crear salas privadas seguras y mensajes directos con cifrado punto a punto "
+"(e2e). <br/><br/>Guarde su contraseña de manera segura, ya que la clave para "
+"codificar/descodificar sus mensajes no se guardará en el servidor. "
+"Necesitará introducirla en otros dispositivos para usar el cifrado e2e.<br/"
+"><br/>Cambie su contraseña en cualquier momento en los navegadores en los "
+"que la haya introducido. Recuerde almacenar su contraseña antes de descartar "
+"este mensaje.<br/><br/>Su contraseña es: <span style=\"font-weight: bold;\">"
+"%1</span>"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7389,26 +7391,27 @@ msgid ""
 "It was not possible to decode your encryption key to be imported. Your "
 "encryption password seems wrong."
 msgstr ""
+"No se pudo descodificar su clave de cifrado a importar. Su contraseña de "
+"cifrado parece errónea."
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:19
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgid "Decrypte Encryption Key"
-msgstr "Cifrado"
+msgstr "Descifrar clave de cifrado"
 
 #: widgets/encryption/e2edecodeencryptionkeywidget.cpp:17
 #, kde-format
 msgid ""
 "Save your encryption password. Click here to view and copy your password."
 msgstr ""
+"Guarde su contraseña de cifrado. Pulse aquí para ver y copiar su contraseña."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "DeepL API Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Decode Key"
-msgstr "Clave de la API DeepL"
+msgstr "Descodificar clave"
 
 #: widgets/encryption/e2epassworddecodekeywidget.cpp:22
 #, kde-format
@@ -7418,6 +7421,10 @@ msgid ""
 "You need to enter this password to encode/decode your messages on every "
 "client you use, since the key is not stored on the server."
 msgstr ""
+"Para acceder a sus grupos privados cifrados y sus mensajes directos, "
+"introduzca su contraseña de cifrado.\n"
+"Necesita introducir esta contraseña para codificar/descodificar sus mensajes "
+"en cada cliente que use, ya que la clave no se almacena en el servidor."
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
@@ -7426,10 +7433,9 @@ msgid "Permissions"
 msgstr "Permisos"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Roles:"
+msgstr "Roles propios:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -7453,16 +7459,15 @@ msgid "Html"
 msgstr "Html"
 
 #: widgets/forwardmessage/forwardmessagedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Forward Message"
-msgstr "Seguir mensaje"
+msgstr "Redireccionar mensaje"
 
 #: widgets/forwardmessage/forwardmessagewidget.cpp:23
 #, kde-format
 msgid "Select at least one channel to forward the message to."
-msgstr ""
+msgstr "Seleccione al menos un canal en el que redireccionar el mensaje."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
@@ -7646,21 +7651,19 @@ msgid "(Unnamed)"
 msgstr "(Anónimo)"
 
 #: widgets/misc/changefontsizemenu.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Font"
+#, kde-format
 msgid "Font Size"
-msgstr "Fuente"
+msgstr "Tamaño de tipo de letra"
 
 #: widgets/misc/changefontsizemenu.cpp:19
 #, kde-format
 msgid "Increase Font"
-msgstr ""
+msgstr "Aumentar tipo de letra"
 
 #: widgets/misc/changefontsizemenu.cpp:26
 #, kde-format
 msgid "Decrease Font"
-msgstr ""
+msgstr "Disminuir tipo de letra"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
@@ -8099,10 +8102,9 @@ msgstr "Descarga de archivo solicitada"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:198
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "Default (%1)"
-msgstr "Por omisión"
+msgstr "Por omisión (%1)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:215
 #, kde-format
@@ -8110,10 +8112,11 @@ msgid "Each Mentions"
 msgstr "Cada mención"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:219
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "Su administrador ha desactivado el cambio de correo electrónico."
+msgstr ""
+"Su administrador de Rocket.Chat ha desactivado las notificaciones de correo "
+"electrónico"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
@@ -8539,10 +8542,9 @@ msgid "Copy Link To Message"
 msgstr "Copiar enlace al mensaje"
 
 #: widgets/room/messagelistview.cpp:332
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Forward Message"
-msgstr "Seguir mensaje"
+msgstr "Redireccionar mensaje"
 
 #: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
@@ -9143,17 +9145,17 @@ msgstr "Exportar cuentas"
 #: widgets/ruqolamainwindow.cpp:637
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Medio"
 
 #: widgets/ruqolamainwindow.cpp:645
 #, kde-format
 msgid "Condensed"
-msgstr ""
+msgstr "Condensado"
 
 #: widgets/ruqolamainwindow.cpp:654
 #, kde-format
 msgid "Extended"
-msgstr ""
+msgstr "Extendido"
 
 #: widgets/ruqolamainwindow.cpp:695
 #, kde-format
@@ -9379,10 +9381,9 @@ msgid "Version 2.1"
 msgstr "Versión 2.1"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.2"
-msgstr "Versión 2.0"
+msgstr "Versión 2.2"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9400,18 +9401,18 @@ msgstr "(Mostrar noticias en Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "¿Que hay de nuevo en Ruqola?. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Cambios importantes desde la última versión:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algunas correcciones de errores:"
@@ -9526,44 +9527,32 @@ msgstr "Corrección al mostrar la URL del avatar."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:67
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-msgstr ""
+msgstr "Permitir aumentar/disminuir tipo de letra (Ctrl++/Ctrl+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr ""
+msgstr "Añade estilo en la lista de canales (Condensado/Medio/Extendido)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
-#, fuzzy
-#| msgid "Follow Message"
 msgid "Add forward message"
-msgstr "Seguir mensaje"
+msgstr "Añade redirección de mensajes"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Mejora en el soporte de menciones."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
-#, fuzzy
-#| msgid "Fix kf6 support"
 msgid "Fix dark mode support."
-msgstr "Corrección del soporte de kf6"
+msgstr "Mejora en el soporte del modo oscuro."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Fix kf6 support"
 msgid "Fix jitsi support."
-msgstr "Corrección del soporte de kf6"
+msgstr "Mejora en el soporte de jitsi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Total de mensajes en canales"
+msgstr "Mejora en la traducción de mensajes en los canales directos."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
-msgstr ""
-
-#~ msgctxt "@title:window"
-#~ msgid "Start a Direct Call"
-#~ msgstr "Iniciar una llamada directa"
+msgstr "No muestra @here/@all como usuario."

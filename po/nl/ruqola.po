@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-02-16 11:22+0100\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 14:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1015,36 +1015,32 @@ msgid "Last token part"
 msgstr "Laatste gedeelte token"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Vermeldingen"
-msgstr[1] "Vermeldingen"
+msgstr[0] "%1 vermelding"
+msgstr[1] "%1 vermeldingen"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Mute Group Mentions"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Groepsmeldingen dempen"
-msgstr[1] "Groepsmeldingen dempen"
+msgstr[0] "%1 groepsmelding"
+msgstr[1] "%1 groepsmeldingen"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Ongelezen berichten uit discussiebundeling"
-msgstr[1] "Ongelezen berichten uit discussiebundeling"
+msgstr[0] "%1 ongelezen bericht uit discussiebundeling"
+msgstr[1] "%1 ongelezen berichten uit discussiebundeling"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 heeft %2 ongelezen berichten"
-msgstr[1] "%1 heeft %2 ongelezen berichten"
+msgstr[0] "%1 ongelezen bericht"
+msgstr[1] "%1 ongelezen berichten"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -7441,10 +7437,9 @@ msgid "Permissions"
 msgstr "Toegangsrechten"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Rollen:"
+msgstr "Eigen rollen:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -9400,17 +9395,17 @@ msgstr "(Nieuws in Ruqola tonen)"
 msgid "What's new in Ruqola. %1"
 msgstr "Wat is er nieuw in Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Belangrijke wijzigingen sinds de laatste versie:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
@@ -9530,8 +9525,6 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Bied het vergroten/verkleinen van het lettertype (CTRL++/CTRL+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Stijl van kanaallijst toevoegen (Slank/Medium/Uitgebreid)"
 
@@ -9541,7 +9534,7 @@ msgstr "Door te sturen bericht toevoegen"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Ondersteuning van vermeldingen verbeteren."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
 msgid "Fix dark mode support."
@@ -9552,14 +9545,12 @@ msgid "Fix jitsi support."
 msgstr "Jitsi-ondersteuning repareren."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Totaal aantal berichten in kanalen"
+msgstr "Bericht vertalen in direct kanaal repareren."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
-msgstr ""
+msgstr "@here/@all als gebruiker niet tonen."
 
 #~ msgctxt "@title:window"
 #~ msgid "Start a Direct Call"

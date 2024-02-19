@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -9484,17 +9484,17 @@ msgstr "(Показать новое в Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Новое в Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важные изменения по сравнению с прошлой версией:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Некоторые из новых возможностей в этой версии Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Исправление некоторых ошибок:"

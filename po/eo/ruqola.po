@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-02-16 21:15+0100\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 08:21+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -9345,17 +9345,17 @@ msgstr "(Montri Novaĵojn en Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Kio estas nova en Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Gravaj ŝanĝoj ekde la lasta versio:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
@@ -9470,10 +9470,8 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Permesi pligrandigi/malpligrandigi tiparon (KTRL++/KTRL+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Aldoni kanalan listostilon (Densigita/Meza/Ekspansiita)"
+msgstr "Aldoni kanalan listostilon (Densigita/Meza/Etendita)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
 msgid "Add forward message"
@@ -9481,7 +9479,7 @@ msgstr "Aldoni plusend-mesaĝon"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Plibonigi subtenon de mencioj."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
 msgid "Fix dark mode support."
@@ -9492,11 +9490,9 @@ msgid "Fix jitsi support."
 msgstr "Ripari subtenon de jitsi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Tutaj Mesaĝoj en Kanaloj"
+msgstr "Ripari traduki mesaĝon en rekta kanalo."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
-msgstr ""
+msgstr "Ne montri @here/@all kiel uzanto."

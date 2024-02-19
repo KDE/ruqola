@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-02-17 09:25+0200\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 08:41+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -9461,17 +9461,17 @@ msgstr "(Показати новини щодо Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Що нового у Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Важливі зміни з часу випуску попередньої версії:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Серед нових можливостей у цьому випуску Ruqola:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Виправлення деяких вад:"
@@ -9592,8 +9592,6 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Дозволити збільшення або зменшення розміру шрифту (CTRL++/CTRL+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Додати стиль списку каналу (стиснений/середній/розгорнутий)"
 

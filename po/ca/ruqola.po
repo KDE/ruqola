@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:38+0000\n"
-"PO-Revision-Date: 2024-02-17 11:57+0100\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 10:40+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -9400,18 +9400,18 @@ msgstr "(Mostra les novetats del Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Què hi ha de nou al Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de la darrera versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'aquesta versió del Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
@@ -9531,10 +9531,8 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Permet augmentar/disminuir la lletra (CTRL++/CTRL+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Afegeix l'estil de llista de canals (condensada/mitjana/ampliada)"
+msgstr "Afegeix un estil de llista de canals (condensada/mitjana/ampliada)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
 msgid "Add forward message"
