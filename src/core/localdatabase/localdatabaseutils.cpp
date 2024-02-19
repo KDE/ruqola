@@ -102,6 +102,16 @@ QString LocalDatabaseUtils::insertReplaceGlobal()
     return QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)");
 }
 
+QString LocalDatabaseUtils::removeGlobal()
+{
+    return QStringLiteral("DELETE FROM GLOBAL WHERE identifier = ?");
+}
+
+QString LocalDatabaseUtils::timestampGlobal()
+{
+    return QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\"");
+}
+
 QString LocalDatabaseUtils::deleteMessageFromLogs()
 {
     return QStringLiteral("DELETE FROM LOGS WHERE messageId = ?");

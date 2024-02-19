@@ -27,11 +27,14 @@ enum class DatabasePath {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteMessage();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceMessages();
-[[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteRooms();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteRoom();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString jsonRoom();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceRoom();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteAccount();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString updateAccount();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceGlobal();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString removeGlobal();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString timestampGlobal();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteMessageFromLogs();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertReplaceMessageFromLogs();
 [[nodiscard]] LIBRUQOLACORE_EXPORT qint64 currentTimeStamp();
