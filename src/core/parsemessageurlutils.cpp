@@ -21,7 +21,8 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     QUrl url(messageUrl);
     const QUrlQuery query(url);
     // const QList<QPair<QString, QString>> queryItems = query.queryItems();
-    if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
+    // https://developer.rocket.chat/getting-started/deep-linking
+    if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/")) || (url.scheme() == QLatin1String("rocketchat"))) {
         // qDebug() << "queryItems " << queryItems;
 
         mServerHost = query.queryItemValue(QStringLiteral("host"));
