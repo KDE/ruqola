@@ -70,11 +70,6 @@ int RuqolaServerConfig::blockEditingMessageInMinutes() const
     return mBlockEditingMessageInMinutes;
 }
 
-bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
-{
-    return mNeedAdaptNewSubscriptionRC60;
-}
-
 bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) const
 {
     //    qDebug() << " major " << major << " mServerVersionMajor " << mServerVersionMajor << " (major <= mServerVersionMajor) " << (major <=
@@ -121,7 +116,6 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
         }
         mServerVersionPatch = 0;
     }
-    adaptToServerVersion();
 }
 
 QString RuqolaServerConfig::serverVersion() const
@@ -180,11 +174,6 @@ void RuqolaServerConfig::addOauthService(const QString &service)
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
     qCDebug(RUQOLA_AUTHENTICATION_LOG) << " authentication service " << mServerAuthTypes;
-}
-
-void RuqolaServerConfig::adaptToServerVersion()
-{
-    mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
 bool RuqolaServerConfig::messageAllowConvertLongMessagesToAttachment() const
@@ -387,7 +376,6 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d.space() << "mServerOauthTypes " << t.serverAuthMethodTypes();
     d.space() << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
     d.space() << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
-    d.space() << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
     d.space() << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch "
               << t.serverVersionPatch();
     d.space() << "mLogoUrl " << t.logoUrl();
@@ -934,7 +922,6 @@ bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
         && mBlockEditingMessageInMinutes == other.mBlockEditingMessageInMinutes && mBlockDeletingMessageInMinutes == other.mBlockDeletingMessageInMinutes
         && mServerVersionMajor == other.mServerVersionMajor && mServerVersionMinor == other.mServerVersionMinor
         && mServerVersionPatch == other.mServerVersionPatch && mFileMaxFileSize == other.mFileMaxFileSize
-        && mNeedAdaptNewSubscriptionRC60 == other.mNeedAdaptNewSubscriptionRC60
         && mMessageAllowConvertLongMessagesToAttachment == other.mMessageAllowConvertLongMessagesToAttachment && mUIUseRealName == other.mUIUseRealName
         && mServerConfigFeatureTypes == other.mServerConfigFeatureTypes && mMediaWhiteList == other.mMediaWhiteList && mMediaBlackList == other.mMediaBlackList
         && mLogoUrl == other.mLogoUrl && mFaviconUrl == other.mFaviconUrl && mLoginExpiration == other.mLoginExpiration

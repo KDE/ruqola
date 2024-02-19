@@ -11,7 +11,6 @@
 #include "misc/statisticsjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
-#include "serverinfojob.h"
 
 #include <KIO/Global>
 #include <KLocalizedString>
@@ -82,28 +81,8 @@ void AdministratorServerInfoWidget::slotRefreshInfo()
 
 void AdministratorServerInfoWidget::initialize()
 {
-    if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(4, 0, 0)) {
-        auto serverInfoJob = new RocketChatRestApi::ServerInfoJob(this);
-        serverInfoJob->setForceRequiresAuthentication(true);
-        mRocketChatAccount->restApi()->initializeRestApiJob(serverInfoJob);
-        connect(serverInfoJob, &RocketChatRestApi::ServerInfoJob::serverInfoDone, this, &AdministratorServerInfoWidget::slotServerInfoDone);
-        if (!serverInfoJob->start()) {
-            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ServerInfoJob";
-        }
-    } else {
-        loadLicensesInfo();
-        loadStatisticInfo(false);
-    }
-}
-
-void AdministratorServerInfoWidget::slotServerInfoDone(const QString &versionInfo, const QJsonObject &obj)
-{
-    Q_UNUSED(versionInfo)
-    // qDebug() << " obj " << obj;
-    mServerInfo.parseServerInfo(obj);
-    // qDebug() << " info " << mServerInfo;
+    loadLicensesInfo();
     loadStatisticInfo(false);
-    loadServerInfo();
 }
 
 void AdministratorServerInfoWidget::loadLicensesInfo()

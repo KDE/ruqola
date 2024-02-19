@@ -710,13 +710,11 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 
     QJsonArray newParams = params;
 
-    if (mRocketChatAccount->needAdaptNewSubscriptionRC60()) {
-        QJsonArray args;
-        QJsonObject obj;
-        obj[QLatin1String("useCollection")] = false;
-        obj[QLatin1String("args")] = args;
-        newParams.append(std::move(obj));
-    }
+    QJsonArray args;
+    QJsonObject obj;
+    obj[QLatin1String("useCollection")] = false;
+    obj[QLatin1String("args")] = args;
+    newParams.append(std::move(obj));
 
     json[QLatin1String("params")] = newParams;
     qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << m_uid;

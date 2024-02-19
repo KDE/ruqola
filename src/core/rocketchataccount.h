@@ -303,7 +303,6 @@ public:
     void setServerVersion(const QString &version);
     [[nodiscard]] QString serverVersion() const;
 
-    [[nodiscard]] bool needAdaptNewSubscriptionRC60() const;
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
