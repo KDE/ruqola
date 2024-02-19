@@ -75,7 +75,7 @@ void AdministratorUsersWidget::slotInviteUsers()
                 }
             }
         } else {
-            qWarning() << " Still not implemented !";
+            qWarning() << " Your RC server is too old for supporting it. Need RC 6.0.0 !";
         }
     }
     delete dlg;
