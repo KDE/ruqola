@@ -56,17 +56,6 @@ void RocketChatMessageTest::shouldInformTypingStatus()
     compareFile(r.result, QStringLiteral("informtypingstatustrue"));
 }
 
-void RocketChatMessageTest::shouldUserAutoComplete()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.userAutocomplete(QStringLiteral("foo"), QStringLiteral("exception"), 43);
-    compareFile(r.result, QStringLiteral("userAutocomplete"));
-
-    r = m.userAutocomplete(QStringLiteral("foo"), QStringLiteral("foo,bla,bli"), 43);
-    compareFile(r.result, QStringLiteral("userAutocomplete-exceptions"));
-}
-
 // TODO fix me
 void RocketChatMessageTest::shouldSendFileMessage()
 {
@@ -273,14 +262,6 @@ void RocketChatMessageTest::openRoom()
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.openRoom(QStringLiteral("bla"), 43);
     compareFile(r.result, QStringLiteral("openroom"));
-}
-
-void RocketChatMessageTest::getroombyid()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.getRoomById(QStringLiteral("bla"), 43);
-    compareFile(r.result, QStringLiteral("getroombyid"));
 }
 
 void RocketChatMessageTest::bannerDismiss()

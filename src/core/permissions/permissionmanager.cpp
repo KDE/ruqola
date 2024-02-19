@@ -83,7 +83,8 @@ bool PermissionManager::storePermission(const QString &id)
         || id == QLatin1String("create-user") || id == QLatin1String("bulk-register-user")
         || id == QLatin1String("view-broadcast-member-list") /* TODO implement view-broadcast-member-list */
         || id == QLatin1String("videoconf-ring-users") || id == QLatin1String("edit-other-user-password") || id == QLatin1String("view-moderation-console")
-        || id == QLatin1String("manage-moderation-actions");
+        || id == QLatin1String("manage-moderation-actions") || id == QLatin1String("manage-emoji") || id == QLatin1String("view-room-administration")
+        || id == QLatin1String("view-user-administration");
 }
 
 void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)

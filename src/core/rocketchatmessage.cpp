@@ -26,11 +26,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(
     return generateMethod(QStringLiteral("createDirectMessage"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("encrypted"), roomId, encrypted, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
 {
     QJsonObject obj{
@@ -181,12 +176,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QSt
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomById(const QString &roomId, quint64 id)
-{
-    const QJsonArray params{{roomId}};
-    return generateMethod(QStringLiteral("getRoomById"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QString &roomId, quint64 id)
 {
     const QJsonArray params{{roomId}};
@@ -233,23 +222,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCal
 {
     const QJsonArray params{{QJsonValue(roomId)}};
     return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, const QString &exception, quint64 id)
-{
-    QJsonArray params;
-
-    QJsonObject firstParam;
-
-    const QStringList users = exception.split(QLatin1Char(','));
-    QJsonArray exceptionEntries;
-    for (const QString &entry : users) {
-        exceptionEntries.append(entry);
-    }
-    firstParam[QLatin1String("exceptions")] = exceptionEntries;
-    firstParam[QLatin1String("term")] = searchText;
-    params.append(std::move(firstParam));
-    return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult

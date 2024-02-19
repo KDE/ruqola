@@ -403,12 +403,6 @@ QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const
     return m_messageQueue;
 }
 
-quint64 DDPClient::setRoomEncrypted(const QString &roomId, bool encrypted)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomEncrypted(roomId, encrypted, m_uid);
-    return method(result, change_room_settings, DDPClient::Persistent);
-}
-
 void DDPClient::subscribeRoomMessage(const QString &roomId)
 {
     QJsonArray params;
@@ -451,12 +445,6 @@ quint64 DDPClient::openRoom(const QString &roomId)
     return method(result, open_room, DDPClient::Persistent);
 }
 
-quint64 DDPClient::getRoomById(const QString &roomId)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getRoomById(roomId, m_uid);
-    return method(result, get_room_by_id, DDPClient::Persistent);
-}
-
 quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, m_uid);
@@ -467,33 +455,6 @@ quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, m_uid);
     return method(result, change_default_status, DDPClient::Persistent);
-}
-
-quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &exception)
-{
-    const quint64 subscribeId = m_uid;
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, subscribeId);
-    std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
-        if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
-        } else {
-            qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
-        }
-        account->insertCompleterUsers();
-
-        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
-        std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [=](const QJsonObject &root, RocketChatAccount *account) {
-            if (account->ruqolaLogger()) {
-                account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
-            } else {
-                qDebug() << " Unsubscribe AutoComplete" << root;
-                qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe AutoComplete" << root;
-            }
-        };
-        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
-    };
-
-    return method(result, callback, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
