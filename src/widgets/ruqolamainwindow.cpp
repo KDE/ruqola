@@ -198,10 +198,11 @@ void RuqolaMainWindow::updateNotification(bool hasAlert, int nbUnread, const QSt
 
 void RuqolaMainWindow::setupStatusBar()
 {
+    statusBar()->insertPermanentWidget(0, mContainerStatusInfo);
     mStatusBarTypingMessage = new QLabel(this);
     mStatusBarTypingMessage->setTextFormat(Qt::RichText);
     mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
-    statusBar()->addPermanentWidget(mStatusBarTypingMessage);
+    statusBar()->addPermanentWidget(mStatusBarTypingMessage, 1);
     mAccountOverviewWidget = new AccountsOverviewWidget(this);
     mAccountOverviewWidget->setObjectName(QStringLiteral("mAccountOverviewWidget"));
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
@@ -528,27 +529,18 @@ void RuqolaMainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("previous_tab"), mPreviewTab);
 
     {
-        auto action = new QWidgetAction(this);
-        action->setText(i18n("Status"));
-        auto container = new QWidget(this);
-        // use the same font as other toolbar buttons
-        container->setFont(qApp->font("QToolButton"));
-        action->setDefaultWidget(container);
-        auto layout = new QHBoxLayout(container);
+        mContainerStatusInfo = new QWidget(this);
+        auto layout = new QHBoxLayout(mContainerStatusInfo);
         layout->setContentsMargins({});
-        auto label = new QLabel(i18n("Status:"), container);
+        auto label = new QLabel(i18n("Status:"), mContainerStatusInfo);
         label->setObjectName(QStringLiteral("label"));
         layout->addWidget(label);
 
-        mStatusComboBox = new StatusCombobox(container);
+        mStatusComboBox = new StatusCombobox(mContainerStatusInfo);
         mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
         layout->addWidget(mStatusComboBox);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotStatusChanged);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotUpdateStatusMenu);
-
-        mStatus = action;
-        connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);
-        ac->addAction(QStringLiteral("status"), mStatus);
     }
 
     {
@@ -878,7 +870,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
-    mStatus->setEnabled(!loginPageActivated);
+    mContainerStatusInfo->setEnabled(!loginPageActivated);
     mCreateDiscussion->setEnabled(!loginPageActivated);
     mCreateTeam->setEnabled(!loginPageActivated && canCreateTeams());
     mDirectory->setEnabled(!loginPageActivated);
