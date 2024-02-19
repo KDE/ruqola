@@ -38,7 +38,7 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QStri
     mMessageLogger->deleteMessage(accountName, roomName, messageId);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mMessagesDatabase->deleteMessage(accountName, roomName, messageId);
-        // TODO update timestamp ?
+        mGlobalDatabase->removeTimeStamp(accountName, roomName, GlobalDatabase::TimeStampType::MessageTimeStamp);
     }
 }
 
