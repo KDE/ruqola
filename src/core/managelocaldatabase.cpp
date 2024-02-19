@@ -32,7 +32,7 @@ void ManageLocalDatabase::loadAccountSettings()
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
     if (!ba.isEmpty()) {
-        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Account info load from database";
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Account info loads from database";
         mRocketChatAccount->ruqolaServerConfig()->loadAccountSettingsFromLocalDataBase(ba);
         timeStamp = mRocketChatAccount->localDatabaseManager()->timeStamp(accountName, QString(), GlobalDatabase::TimeStampType::AccountTimeStamp);
         qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " timeStamp: " << timeStamp;
