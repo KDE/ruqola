@@ -206,12 +206,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(U
     return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomNameExists(const QString &roomName, quint64 id)
-{
-    const QJsonArray params{{QJsonValue(roomName)}};
-    return generateMethod(QStringLiteral("roomNameExists"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QString &roomId, quint64 id)
 {
     const QJsonArray params{{QJsonValue(roomId)}};

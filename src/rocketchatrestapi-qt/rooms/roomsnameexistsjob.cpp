@@ -54,7 +54,7 @@ void RoomsNameExistsJob::onGetRequestResponse(const QString &replyErrorString, c
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsNameExistsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomNameExistsDone(replyObject);
+        Q_EMIT roomNameExistsDone(replyObject[QLatin1String("exists")].toBool());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsNameExistsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -179,7 +179,6 @@ public:
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType);
-    quint64 roomNameExists(const QString &roomId);
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey);
