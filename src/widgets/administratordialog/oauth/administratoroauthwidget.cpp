@@ -90,7 +90,7 @@ void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
         useRestApi = true;
     }
     info.parseOauthInfo(std::move(obj), useRestApi);
-    mAdminOauthModel->removeOauth(info.name());
+    mAdminOauthModel->removeOauth(info.identifier());
     mAdminOauthModel->addMoreOauth(info);
 }
 
@@ -121,8 +121,6 @@ void AdministratorOauthWidget::slotTextChanged(const QString &str)
 
 void AdministratorOauthWidget::slotRemoveOauth(const QString &identifier)
 {
-    mRocketChatAccount->ddp()->deleteOAuthApp(identifier);
-    // TODO make sure that identifier removed
     mAdminOauthModel->removeOauth(identifier);
 }
 
