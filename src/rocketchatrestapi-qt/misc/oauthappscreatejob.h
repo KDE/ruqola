@@ -45,4 +45,4 @@ private:
     OauthAppsCreateInfo mOauthAppsCreateInfo;
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::OauthAppsCreateJob::OauthAppsCreateInfo, Q_MOVABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::OauthAppsCreateJob::OauthAppsCreateInfo, Q_RELOCATABLE_TYPE);
