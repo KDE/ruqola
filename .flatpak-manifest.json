@@ -50,7 +50,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/frankosterfeld/qtkeychain/archive/0.14.2.tar.gz",
-                    "sha256": "411aaa288bec2f900871f58307e186acefe491b525b3d24455df372f83f25472",
+                    "sha256": "cf2e972b783ba66334a79a30f6b3a1ea794a1dc574d6c3bebae5ffd2f0399571",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4138,
