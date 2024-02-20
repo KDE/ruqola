@@ -45,4 +45,4 @@ private:
     OauthAppsUpdateInfo mOauthAppsUpdateInfo;
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::OauthAppsUpdateJob::OauthAppsUpdateInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::OauthAppsUpdateJob::OauthAppsUpdateInfo, Q_MOVABLE_TYPE);
