@@ -360,6 +360,7 @@ void RestApiMethodTest::shouldGenerateUrl()
              QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.deleteReportedMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationReports), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reports")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationReportInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reportInfo")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsNameExists), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.nameExists")));
 }
 
 #include "moc_restapimethodtest.cpp"

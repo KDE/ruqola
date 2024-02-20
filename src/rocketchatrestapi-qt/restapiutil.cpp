@@ -570,6 +570,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("moderation.reports");
     case RestApiUtil::RestApiUrlType::ModerationReportInfo:
         return QStringLiteral("moderation.reportInfo");
+    case RestApiUtil::RestApiUrlType::RoomsNameExists:
+        return QStringLiteral("rooms.nameExists");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
