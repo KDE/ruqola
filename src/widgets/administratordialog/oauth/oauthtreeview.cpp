@@ -81,7 +81,7 @@ void OauthTreeView::addClicked()
             oauthInfo.redirectUri = info.redirectUrl;
             oauthInfo.name = info.applicationName;
             auto job = new RocketChatRestApi::OauthAppsCreateJob(this);
-            job->setOauthAppsCreateInfo(oauthInfo);
+            job->setOauthAppsCreateInfo(std::move(oauthInfo));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::OauthAppsCreateJob::oauthAppsCreateDone, this, &OauthTreeView::oauthAdded);
             if (!job->start()) {
