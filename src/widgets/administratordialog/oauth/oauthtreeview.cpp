@@ -9,6 +9,7 @@
 #include "administratoroautheditdialog.h"
 #include "connection.h"
 #include "misc/oauthappscreatejob.h"
+#include "misc/oauthappsupdatejob.h"
 #include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -110,7 +111,22 @@ void OauthTreeView::editClicked(const QModelIndex &index)
         if (dlg->exec()) {
             info = dlg->oauthInfo();
             if (info.isValid()) {
-                mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+                if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+                    RocketChatRestApi::OauthAppsUpdateJob::OauthAppsUpdateInfo oauthInfo;
+                    oauthInfo.active = info.active;
+                    oauthInfo.redirectUri = info.redirectUrl;
+                    oauthInfo.name = info.applicationName;
+                    auto job = new RocketChatRestApi::OauthAppsUpdateJob(this);
+                    job->setOauthAppsUpdateInfo(std::move(oauthInfo));
+                    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                    connect(job, &RocketChatRestApi::OauthAppsUpdateJob::oauthAppsUpdateDone, this, &OauthTreeView::oauthUpdated);
+                    if (!job->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsUpdateJob job";
+                    }
+
+                } else {
+                    mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+                }
             }
         }
         delete dlg;
