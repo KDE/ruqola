@@ -536,12 +536,16 @@ quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const Q
     return method(result, otr_end, DDPClient::Persistent);
 }
 
+// not used when RC > 5.4.0
+// Remove it when we not support it.
 quint64 DDPClient::addOAuthApp(const QString &name, bool active, const QString &redirectUrl)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addOAuthApp(name, active, redirectUrl, m_uid);
     return method(result, add_oauth_app, DDPClient::Persistent);
 }
 
+// not used when RC > 5.4.0
+// Remove it when we not support it.
 quint64 DDPClient::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->updateOAuthApp(name, active, redirectUrl, m_uid);

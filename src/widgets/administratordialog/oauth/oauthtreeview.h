@@ -19,6 +19,7 @@ public:
 Q_SIGNALS:
     void removeOauth(const QString &identifier);
     void oauthAdded(const QJsonObject &replyObject);
+    void oauthUpdated(const QJsonObject &replyObject);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
