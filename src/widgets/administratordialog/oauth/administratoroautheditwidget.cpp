@@ -49,13 +49,14 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
     mainLayout->addRow(i18n("Access Token URL:"), mAccessTokenUrl);
     mAccessTokenUrl->setReadOnly(true);
 
-    connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
-    connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
+    connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotChanged);
+    connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotChanged);
+    connect(mActiveCheckBox, &QCheckBox::stateChanged, this, &AdministratorOauthEditWidget::slotChanged);
 }
 
 AdministratorOauthEditWidget::~AdministratorOauthEditWidget() = default;
 
-void AdministratorOauthEditWidget::slotTextChanged()
+void AdministratorOauthEditWidget::slotChanged()
 {
     Q_EMIT enableOkButton(!mRedirectUrl->text().trimmed().isEmpty() && !mApplicationName->text().trimmed().isEmpty() && !mClientId->text().trimmed().isEmpty()
                           && !mClientSecret->text().trimmed().isEmpty() && !mAuthorizationUrl->text().trimmed().isEmpty()
