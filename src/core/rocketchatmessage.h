@@ -46,8 +46,6 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult roomNameExists(const QString &roomName, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult

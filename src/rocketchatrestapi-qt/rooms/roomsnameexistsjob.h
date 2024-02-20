@@ -29,7 +29,7 @@ public:
     [[nodiscard]] bool canStart() const override;
 
 Q_SIGNALS:
-    void roomNameExistsDone(const QJsonObject &obj);
+    void roomNameExistsDone(bool exist);
 
 private:
     Q_DISABLE_COPY(RoomsNameExistsJob)

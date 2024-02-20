@@ -7,6 +7,10 @@
 #include "channelnamevalidlineedit.h"
 #include "rocketchataccount.h"
 
+#include "connection.h"
+#include "rooms/roomsnameexistsjob.h"
+#include "ruqolawidgets_debug.h"
+
 #include <KColorScheme>
 #include <KStatefulBrush>
 #include <chrono>
@@ -21,9 +25,8 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, Q
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
     connect(this, &ChannelNameValidLineEdit::searchCleared, this, &ChannelNameValidLineEdit::clearLineEdit);
     if (mRocketChatAccount) {
-        connect(mRocketChatAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
         auto mChannelNameValidLineEditValidator =
-            new ChannelNameValidLineEditValidator(QRegularExpression(account->ruqolaServerConfig()->channelNameValidation()), this);
+            new ChannelNameValidLineEditValidator(QRegularExpression(mRocketChatAccount->ruqolaServerConfig()->channelNameValidation()), this);
         connect(mChannelNameValidLineEditValidator, &ChannelNameValidLineEditValidator::textIsValid, this, &ChannelNameValidLineEdit::slotTextIsValid);
         setValidator(mChannelNameValidLineEditValidator);
     }
@@ -48,21 +51,15 @@ void ChannelNameValidLineEdit::clearLineEdit()
 
 void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
 {
-    if (!text.trimmed().isEmpty()) {
-        mDdpIdentifier = mRocketChatAccount->ddp()->roomNameExists(text);
-    } else {
-        clearLineEdit();
-    }
-}
+    auto job = new RocketChatRestApi::RoomsNameExistsJob(this);
+    job->setRoomName(text);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsNameExistsJob::roomNameExistsDone, this, [this](bool exists) {
+        emitIsValid(!exists);
+    });
 
-void ChannelNameValidLineEdit::slotSearchDone(quint64 id, const QJsonDocument &result)
-{
-    if (id == mDdpIdentifier) {
-        const QJsonObject objresult = result.object();
-        const auto resultValue = objresult.value(QLatin1String("result"));
-        if (!resultValue.isUndefined()) {
-            emitIsValid(!resultValue.toBool());
-        }
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsNameExistsJob job";
     }
 }
 
