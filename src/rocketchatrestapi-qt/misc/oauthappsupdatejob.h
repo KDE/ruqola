@@ -19,6 +19,7 @@ public:
     struct OauthAppsUpdateInfo {
         QString name;
         QString redirectUri;
+        QString appId;
         bool active = false;
         [[nodiscard]] bool isValid() const;
     };

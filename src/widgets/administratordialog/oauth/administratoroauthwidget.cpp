@@ -72,14 +72,22 @@ void AdministratorOauthWidget::initialize()
 void AdministratorOauthWidget::slotOauthAppAdded(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), false); // We got it from ddpclient
+    bool useRestApi = false;
+    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+        useRestApi = true;
+    }
+    info.parseOauthInfo(std::move(obj), useRestApi);
     mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), false); // We got it from ddpclient
+    bool useRestApi = false;
+    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+        useRestApi = true;
+    }
+    info.parseOauthInfo(std::move(obj), useRestApi);
     mAdminOauthModel->removeOauth(info.name());
     mAdminOauthModel->addMoreOauth(info);
 }

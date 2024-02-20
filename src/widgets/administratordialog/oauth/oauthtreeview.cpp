@@ -100,7 +100,8 @@ void OauthTreeView::editClicked(const QModelIndex &index)
     if (index.isValid()) {
         QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
         AdministratorOauthEditWidget::OauthEditInfo info;
-        info.applicationName = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
+        info.applicationName = model()->index(index.row(), AdminOauthModel::Name).data().toString();
+        const QString applicationId = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
         info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
         info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
         info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
@@ -116,6 +117,7 @@ void OauthTreeView::editClicked(const QModelIndex &index)
                     oauthInfo.active = info.active;
                     oauthInfo.redirectUri = info.redirectUrl;
                     oauthInfo.name = info.applicationName;
+                    oauthInfo.appId = applicationId;
                     auto job = new RocketChatRestApi::OauthAppsUpdateJob(this);
                     job->setOauthAppsUpdateInfo(std::move(oauthInfo));
                     mRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -123,7 +125,6 @@ void OauthTreeView::editClicked(const QModelIndex &index)
                     if (!job->start()) {
                         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsUpdateJob job";
                     }
-
                 } else {
                     mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
                 }
