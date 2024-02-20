@@ -80,9 +80,5 @@
    <Separator/>
   </Menu>
  </MenuBar>
- <ToolBar noMerge="1" name="mainToolBar" fullWidth="true" ><text>Main Toolbar</text>
-  <Spacer/>
-  <Action name="hamburger_menu"/>
- </ToolBar>
 </gui>
 
