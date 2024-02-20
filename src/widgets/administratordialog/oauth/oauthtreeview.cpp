@@ -9,6 +9,7 @@
 #include "administratoroautheditdialog.h"
 #include "connection.h"
 #include "misc/oauthappscreatejob.h"
+#include "misc/oauthappsdeletejob.h"
 #include "misc/oauthappsupdatejob.h"
 #include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
@@ -67,7 +68,20 @@ void OauthTreeView::removeClicked(const QString &identifier)
                                            i18nc("@title:window", "Remove OAuth"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
-        Q_EMIT removeOauth(identifier);
+        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+            auto job = new RocketChatRestApi::OauthAppsDeleteJob(this);
+            job->setIdentifier(identifier);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::OauthAppsDeleteJob::oauthAppsDeleteDone, this, [this, identifier]() {
+                Q_EMIT removeOauth(identifier);
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsDeleteJob job";
+            }
+        } else {
+            mRocketChatAccount->ddp()->deleteOAuthApp(identifier);
+            Q_EMIT removeOauth(identifier);
+        }
     }
 }
 

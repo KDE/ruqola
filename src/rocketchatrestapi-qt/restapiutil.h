@@ -295,6 +295,7 @@ enum class RestApiUrlType {
     // 5.4.0
     OauthAppsCreate,
     OauthAppsUpdate,
+    OauthAppsDelete,
 
     // License
     LicensesGet,

@@ -564,6 +564,8 @@ quint64 DDPClient::setAdminStatus(const QString &userId, bool admin)
     return method(result, admin_status, DDPClient::Persistent);
 }
 
+// not used when RC > 5.4.0
+// Remove it when we not support it.
 quint64 DDPClient::deleteOAuthApp(const QString &appId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteOAuthApp(appId, m_uid);
