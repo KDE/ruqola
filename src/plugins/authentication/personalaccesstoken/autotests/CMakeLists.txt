@@ -14,3 +14,5 @@ macro(add_ruqola_personalaccesstoken_unittest _source _additional)
     target_link_libraries( ${_name} Qt::Test KF6::I18n libruqolacore)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro ()
+
+add_ruqola_personalaccesstoken_unittest(personalaccesstokenpluginutiltest.cpp "../personalaccesstokenpluginutil.cpp")
