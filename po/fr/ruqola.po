@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 00:37+0000\n"
-"PO-Revision-Date: 2024-02-17 10:25+0100\n"
+"POT-Creation-Date: 2024-02-21 00:37+0000\n"
+"PO-Revision-Date: 2024-02-19 13:57+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -654,7 +654,7 @@ msgstr "Rediriger une URL"
 msgid "Active"
 msgstr "Actif"
 
-#: core/model/adminoauthmodel.cpp:43
+#: core/model/adminoauthmodel.cpp:44
 #, kde-format
 msgid "Created At"
 msgstr "Créer à"
@@ -1012,36 +1012,32 @@ msgid "Last token part"
 msgstr "Dernière partie du jeton"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Mentions"
-msgstr[1] "Mentions"
+msgstr[0] "Citation %1"
+msgstr[1] "%1 citations"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Mute Group Mentions"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Mettre en pause les citations de groupe"
-msgstr[1] "Mettre en pause les citations de groupe"
+msgstr[0] "Citation de groupe %1"
+msgstr[1] "%1 citations de groupe"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Messages du fil de discussions non lus"
-msgstr[1] "Messages du fil de discussions non lus"
+msgstr[0] "message %1 non lu dans le fil de discussions"
+msgstr[1] "%1 messages non lus dans le fil de discussions"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 a %2 messages non lus"
-msgstr[1] "%1 a %2 messages non lus"
+msgstr[0] "message non lu %1"
+msgstr[1] "%1 messages non lus"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -2488,7 +2484,7 @@ msgstr "Supprimer une émoticône"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:47
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
@@ -2502,7 +2498,7 @@ msgstr "Ajouter..."
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
@@ -2517,7 +2513,7 @@ msgstr "Modifier..."
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
@@ -2860,12 +2856,12 @@ msgstr "URL de jeton d'accès :"
 msgid "Search Oauth apps..."
 msgstr "Rechercher des applications « Oauth »..."
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:65
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:67
 #, kde-format
 msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Voulez-vous vraiment supprimer cet « Oauth » ?"
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:66
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove OAuth"
@@ -7480,10 +7476,9 @@ msgid "Permissions"
 msgstr "Droits d'accès"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Rôles :"
+msgstr "Rôles personnels :"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -9590,8 +9585,6 @@ msgstr ""
 "« + » / « CTRL » + « - »)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "Ajouter un style de liste de canaux (Condensé / Moyen / Détaillé)"
 
@@ -9601,7 +9594,7 @@ msgstr "Ajouter un message de transfert"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Améliorer la prise en charge des citations."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
 msgid "Fix dark mode support."
@@ -9612,14 +9605,12 @@ msgid "Fix jitsi support."
 msgstr "Correction de la prise en charge de Jitsi"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Total des messages dans les canaux"
+msgstr "Corriger la traduction de messages dans un canal direct."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
-msgstr ""
+msgstr "Ne pas afficher « @here/@all » comme utilisateur."
 
 #~ msgctxt "@title:window"
 #~ msgid "Start a Direct Call"
