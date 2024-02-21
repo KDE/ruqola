@@ -16,7 +16,13 @@ class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT SetStatusJob : public RestApiAbstract
 public:
     explicit SetStatusJob(QObject *parent = nullptr);
     ~SetStatusJob() override;
-    enum StatusType { OnLine, Away, Offline, Busy, Unknown };
+    enum StatusType {
+        OnLine,
+        Away,
+        Offline,
+        Busy,
+        Unknown,
+    };
 
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;
