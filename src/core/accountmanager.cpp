@@ -703,7 +703,7 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils &parseUrl)
 void AccountManager::openMessageUrl(const QString &messageUrl)
 {
     ParseRocketChatUrlUtils parseUrl;
-    if (parseUrl.parseUrl(messageUrl)) {
+    if (parseUrl.parseUrl(messageUrl) == ParseRocketChatUrlUtils::UrlType::Message) {
         if (showMessage(parseUrl)) {
             return;
         }

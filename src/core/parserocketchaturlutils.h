@@ -14,6 +14,12 @@ class LIBRUQOLACORE_EXPORT ParseRocketChatUrlUtils
 {
     Q_GADGET
 public:
+    enum class UrlType {
+        Unknown = 0,
+        Message = 1,
+    };
+    Q_ENUM(UrlType)
+
     enum class ChannelType {
         Unknown = 0,
         Direct = 1,
@@ -31,7 +37,7 @@ public:
     ParseRocketChatUrlUtils();
     ~ParseRocketChatUrlUtils();
 
-    [[nodiscard]] bool parseUrl(const QString &messageUrl);
+    [[nodiscard]] UrlType parseUrl(const QString &messageUrl);
 
     [[nodiscard]] const QString &messageId() const;
     void setMessageId(const QString &newMessageId);

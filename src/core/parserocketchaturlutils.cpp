@@ -13,10 +13,10 @@ ParseRocketChatUrlUtils::ParseRocketChatUrlUtils() = default;
 
 ParseRocketChatUrlUtils::~ParseRocketChatUrlUtils() = default;
 
-bool ParseRocketChatUrlUtils::parseUrl(const QString &messageUrl)
+ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString &messageUrl)
 {
     if (messageUrl.isEmpty()) {
-        return false;
+        return ParseRocketChatUrlUtils::UrlType::Unknown;
     }
     QUrl url(messageUrl);
     const QUrlQuery query(url);
@@ -39,12 +39,12 @@ bool ParseRocketChatUrlUtils::parseUrl(const QString &messageUrl)
                 mChannelType = ChannelType::Group;
             } else {
                 qCWarning(RUQOLA_LOG) << "Unknown channel type " << mPath;
-                return false;
+                return ParseRocketChatUrlUtils::UrlType::Unknown;
             }
         } else {
-            return false;
+            return ParseRocketChatUrlUtils::UrlType::Unknown;
         }
-        return true;
+        return ParseRocketChatUrlUtils::UrlType::Message;
     } else {
         // Example https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         mMessageId = query.queryItemValue(QStringLiteral("msg"));
@@ -66,11 +66,11 @@ bool ParseRocketChatUrlUtils::parseUrl(const QString &messageUrl)
             mServerHost.clear();
             mPath.clear();
             mRoomIdType = RoomIdType::Unknown;
-            return false;
+            return ParseRocketChatUrlUtils::UrlType::Unknown;
         }
-        return true;
+        return ParseRocketChatUrlUtils::UrlType::Message;
     }
-    return false;
+    return ParseRocketChatUrlUtils::UrlType::Unknown;
 }
 
 const QString &ParseRocketChatUrlUtils::messageId() const
