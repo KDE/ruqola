@@ -525,6 +525,8 @@ public:
     [[nodiscard]] OwnUserPreferences::RoomListDisplay roomListDisplay() const;
 
     void setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay);
+
+    void changeUserPresences(const QJsonArray &contents);
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
