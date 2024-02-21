@@ -22,10 +22,11 @@ void PersonalAccessTokenAuthenticationInterface::login()
     // TODO add widget ?
     QPointer<PersonalAccessTokenAuthenticationConfigDialog> dlg = new PersonalAccessTokenAuthenticationConfigDialog(nullptr);
     if (dlg->exec()) {
+        const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info = dlg->info();
+
         // TODO
     }
     delete dlg;
-    // TODO
 }
 
 #include "moc_personalaccesstokenauthenticationinterface.cpp"
