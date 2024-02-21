@@ -18,7 +18,7 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mUserLineEdit->setObjectName(QStringLiteral("mUserLineEdit"));
-    mPersonalAccessTokenLineEdit->setObjectName(QStringLiteral("mUserLineEdit"));
+    mPersonalAccessTokenLineEdit->setObjectName(QStringLiteral("mPersonalAccessTokenLineEdit"));
 
     KLineEditEventHandler::catchReturnKey(mUserLineEdit);
     KLineEditEventHandler::catchReturnKey(mPersonalAccessTokenLineEdit);
@@ -26,6 +26,7 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
     mainLayout->addRow(i18n("User Id:"), mUserLineEdit);
     mainLayout->addRow(i18n("Token:"), mPersonalAccessTokenLineEdit);
     connect(mUserLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton);
+    connect(mPersonalAccessTokenLineEdit, &QLineEdit::textChanged, this, &PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton);
 }
 
 PersonalAccessTokenAuthenticationConfigWidget::~PersonalAccessTokenAuthenticationConfigWidget() = default;
@@ -40,7 +41,7 @@ PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessToken
 
 void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
 {
-    Q_EMIT enableOkButton(!mPersonalAccessTokenLineEdit->text().isEmpty() || !mUserLineEdit->text().isEmpty());
+    Q_EMIT enableOkButton(!mPersonalAccessTokenLineEdit->text().isEmpty() && !mUserLineEdit->text().isEmpty());
 }
 
 #include "moc_personalaccesstokenauthenticationconfigwidget.cpp"

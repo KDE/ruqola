@@ -18,4 +18,6 @@ void PersonalAccessTokenPluginUtilTest::shouldHaveDefaultValues()
     PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info;
     QVERIFY(info.token.isEmpty());
     QVERIFY(info.userId.isEmpty());
+    QVERIFY(info.isEmpty());
+    QVERIFY(!info.isValid());
 }

@@ -5,3 +5,13 @@
 */
 
 #include "personalaccesstokenpluginutil.h"
+
+bool PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo::isEmpty() const
+{
+    return userId.isEmpty() && token.isEmpty();
+}
+
+bool PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo::isValid() const
+{
+    return !isEmpty();
+}

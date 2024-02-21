@@ -13,5 +13,7 @@ namespace PersonalAccessTokenPluginUtil
 struct PersonalAccessTokenPluginInfo {
     QString userId;
     QString token;
+    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] bool isValid() const;
 };
 };
