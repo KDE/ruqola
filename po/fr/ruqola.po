@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 03:09+0000\n"
+"POT-Creation-Date: 2024-02-21 03:07+0000\n"
 "PO-Revision-Date: 2024-01-31 21:13+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -654,7 +654,7 @@ msgstr "Rediriger une URL"
 msgid "Active"
 msgstr "Actif"
 
-#: core/model/adminoauthmodel.cpp:43
+#: core/model/adminoauthmodel.cpp:44
 #, kde-format
 msgid "Created At"
 msgstr "Créer à"
@@ -2455,7 +2455,7 @@ msgstr "Supprimer une émoticône"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:47
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:103
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
@@ -2469,7 +2469,7 @@ msgstr "Ajouter..."
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:107
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
@@ -2484,7 +2484,7 @@ msgstr "Modifier..."
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:122
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
@@ -2827,12 +2827,12 @@ msgstr "URL de jeton d'accès :"
 msgid "Search Oauth apps..."
 msgstr "Rechercher des applications « Oauth »..."
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:65
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:67
 #, kde-format
 msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Voulez-vous vraiment supprimer cet « Oauth » ?"
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:66
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove OAuth"
