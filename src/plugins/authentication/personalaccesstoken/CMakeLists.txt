@@ -8,6 +8,10 @@ set(ruqola_personalaccesstokenauthenticationplugin_SRCS
     personalaccesstokenpluginauthentication.h
     personalaccesstokenauthenticationconfigdialog.h
     personalaccesstokenauthenticationconfigdialog.cpp
+    personalaccesstokenauthenticationconfigwidget.h
+    personalaccesstokenauthenticationconfigwidget.cpp
+    personalaccesstokenpluginutil.h
+    personalaccesstokenpluginutil.cpp
 )
 
 ecm_qt_declare_logging_category(ruqola_personalaccesstokenauthenticationplugin_SRCS HEADER personalaccesstokenauthenticationplugin_debug.h
@@ -16,11 +20,6 @@ ecm_qt_declare_logging_category(ruqola_personalaccesstokenauthenticationplugin_S
 
 kcoreaddons_add_plugin(ruqola_personalaccesstokenauthenticationplugin SOURCES
     ${ruqola_personalaccesstokenauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication)
-
-target_sources(ruqola_personalaccesstokenauthenticationplugin
-  PRIVATE
-    personalaccesstokenauthenticationconfigwidget.h personalaccesstokenauthenticationconfigwidget.cpp
-)
 
 target_link_libraries(ruqola_personalaccesstokenauthenticationplugin
     libruqolacore
