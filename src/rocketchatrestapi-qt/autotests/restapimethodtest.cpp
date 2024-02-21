@@ -326,6 +326,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.maxActiveUsers")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesAdd), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.add")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesIsEntreprise), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.isEnterprise")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.info")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::BannersDismiss), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners.dismiss")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Banners), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners")));
