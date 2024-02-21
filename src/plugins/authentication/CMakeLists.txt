@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_subdirectory(password)
+add_subdirectory(personalaccesstoken)
+
 
 if (PLUGINS_AUTHENTICATION_BASED_ON_O2)
     add_subdirectory(google)
