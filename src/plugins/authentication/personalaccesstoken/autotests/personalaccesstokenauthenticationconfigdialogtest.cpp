@@ -58,3 +58,5 @@ void PersonalAccessTokenAuthenticationConfigDialogTest::shouldEnableOkButton()
     mUserLineEdit->setText(QStringLiteral("foo"));
     QVERIFY(okButton->isEnabled());
 }
+
+#include "moc_personalaccesstokenauthenticationconfigdialogtest.cpp"
