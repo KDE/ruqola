@@ -51,16 +51,19 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
             }
             return ParseRocketChatUrlUtils::UrlType::Message;
         } else if (urlPath == QLatin1String("/auth")) {
+            mServerHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::Server;
         } else if (urlPath == QLatin1String("/invite")) {
+            mServerHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::Invite;
         } else if (urlPath == QLatin1String("/conference")) {
+            mServerHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::ConferenceCall;
         } else {
-            qDebug() << "Unknown path type " << urlPath;
+            qCWarning(RUQOLA_LOG) << "Unknown path type " << urlPath;
             return ParseRocketChatUrlUtils::UrlType::Unknown;
         }
     } else {
