@@ -9,6 +9,8 @@
 #include <QUrl>
 #include <QUrlQuery>
 
+// https://developer.rocket.chat/getting-started/deep-linking
+
 ParseRocketChatUrlUtils::ParseRocketChatUrlUtils() = default;
 
 ParseRocketChatUrlUtils::~ParseRocketChatUrlUtils() = default;
@@ -20,8 +22,6 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
     }
     QUrl url(messageUrl);
     const QUrlQuery query(url);
-    // const QList<QPair<QString, QString>> queryItems = query.queryItems();
-    // https://developer.rocket.chat/getting-started/deep-linking
     if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/")) || (url.scheme() == QLatin1String("rocketchat"))) {
         // qDebug() << "queryItems " << queryItems;
 

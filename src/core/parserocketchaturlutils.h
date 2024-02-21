@@ -17,6 +17,10 @@ public:
     enum class UrlType {
         Unknown = 0,
         Message = 1,
+        Server = 2,
+        Invite = 3,
+        ConferenceCall = 4,
+        Room = 5,
     };
     Q_ENUM(UrlType)
 
