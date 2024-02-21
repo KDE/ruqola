@@ -51,7 +51,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::CreatedAt, true);
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::Identifier, true);
 
-    if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+    if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
         connect(mRocketChatAccount, &RocketChatAccount::oauthAppAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
         connect(mRocketChatAccount, &RocketChatAccount::oauthAppUpdated, this, &AdministratorOauthWidget::slotOauthAppUpdated);
     }

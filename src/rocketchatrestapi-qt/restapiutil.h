@@ -302,6 +302,7 @@ enum class RestApiUrlType {
     LicensesMaxActiveUsers,
     LicensesAdd,
     LicensesIsEntreprise,
+    // 6.5.0
     LicensesInfo,
 
     // Banner
