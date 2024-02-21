@@ -39,10 +39,10 @@ void AccountServerListWidget::load()
         info.password = account->password();
         info.canResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
         info.authenticationInfos = account->authenticationMethodInfos();
-        item->setAccountInfo(info);
-        item->setNewAccount(false);
         item->setToolTip(info.serverUrl);
+        item->setNewAccount(false);
         item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
+        item->setAccountInfo(std::move(info));
     }
 }
 
@@ -124,7 +124,7 @@ void AccountServerListWidget::addAccountConfig()
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);
         accountServeritem->setCheckState(Qt::Checked);
-        accountServeritem->setAccountInfo(info);
+        accountServeritem->setAccountInfo(std::move(info));
         accountServeritem->setNewAccount(true);
     }
     delete dlg;
