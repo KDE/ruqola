@@ -41,6 +41,7 @@ void AccountServerListWidget::load()
         info.authenticationInfos = account->authenticationMethodInfos();
         item->setAccountInfo(info);
         item->setNewAccount(false);
+        item->setToolTip(info.serverUrl);
         item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
     }
 }
