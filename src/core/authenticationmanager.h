@@ -49,6 +49,7 @@ public:
         Password = 128,
         Apple = 256,
         NextCloud = 512,
+        PersonalAccessToken = 1024,
     };
     Q_ENUM(AuthMethodType)
     Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)
