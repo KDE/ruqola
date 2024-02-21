@@ -154,6 +154,26 @@ void ParseRocketChatUrlUtils::setChannelType(ChannelType newChannelType)
     mChannelType = newChannelType;
 }
 
+QString ParseRocketChatUrlUtils::token() const
+{
+    return mToken;
+}
+
+void ParseRocketChatUrlUtils::setToken(const QString &newToken)
+{
+    mToken = newToken;
+}
+
+QString ParseRocketChatUrlUtils::userId() const
+{
+    return mUserId;
+}
+
+void ParseRocketChatUrlUtils::setUserId(const QString &newUserId)
+{
+    mUserId = newUserId;
+}
+
 QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t)
 {
     d.space() << "mServerPath" << t.serverHost();
@@ -162,6 +182,8 @@ QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t)
     d.space() << "mPath" << t.path();
     d.space() << "roomIdType" << t.roomIdType();
     d.space() << "channelType" << t.channelType();
+    d.space() << "token" << t.token();
+    d.space() << "userId" << t.userId();
     return d;
 }
 

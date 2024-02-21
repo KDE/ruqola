@@ -20,6 +20,10 @@ void ParseRocketChatUrlUtilsTest::shouldHaveDefaultValues()
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.serverHost().isEmpty());
     QVERIFY(w.path().isEmpty());
+    QVERIFY(w.token().isEmpty());
+    QVERIFY(w.userId().isEmpty());
+    QCOMPARE(w.roomIdType(), ParseRocketChatUrlUtils::RoomIdType::Unknown);
+    QCOMPARE(w.channelType(), ParseRocketChatUrlUtils::ChannelType::Unknown);
 }
 
 void ParseRocketChatUrlUtilsTest::shouldParseUrl_data()

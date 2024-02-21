@@ -61,7 +61,15 @@ public:
     [[nodiscard]] ChannelType channelType() const;
     void setChannelType(ChannelType newChannelType);
 
+    [[nodiscard]] QString token() const;
+    void setToken(const QString &newToken);
+
+    [[nodiscard]] QString userId() const;
+    void setUserId(const QString &newUserId);
+
 private:
+    QString mUserId;
+    QString mToken;
     QString mMessageId;
     QString mRoomId;
     QString mServerHost;
