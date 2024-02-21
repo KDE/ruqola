@@ -21,3 +21,5 @@ void PersonalAccessTokenPluginUtilTest::shouldHaveDefaultValues()
     QVERIFY(info.isEmpty());
     QVERIFY(!info.isValid());
 }
+
+#include "moc_personalaccesstokenpluginutiltest.cpp"

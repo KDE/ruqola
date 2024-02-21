@@ -59,3 +59,5 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldEmitSignalEnableOk
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(spyEnableOkButton.at(0).at(0).toBool());
 }
+
+#include "moc_personalaccesstokenauthenticationconfigwidgettest.cpp"
