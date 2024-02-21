@@ -4,16 +4,16 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "parsemessageurlutils.h"
+#include "parserocketchaturlutils.h"
 #include "ruqola_debug.h"
 #include <QUrl>
 #include <QUrlQuery>
 
-ParseMessageUrlUtils::ParseMessageUrlUtils() = default;
+ParseRocketChatUrlUtils::ParseRocketChatUrlUtils() = default;
 
-ParseMessageUrlUtils::~ParseMessageUrlUtils() = default;
+ParseRocketChatUrlUtils::~ParseRocketChatUrlUtils() = default;
 
-bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
+bool ParseRocketChatUrlUtils::parseUrl(const QString &messageUrl)
 {
     if (messageUrl.isEmpty()) {
         return false;
@@ -73,67 +73,67 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     return false;
 }
 
-const QString &ParseMessageUrlUtils::messageId() const
+const QString &ParseRocketChatUrlUtils::messageId() const
 {
     return mMessageId;
 }
 
-void ParseMessageUrlUtils::setMessageId(const QString &newMessageId)
+void ParseRocketChatUrlUtils::setMessageId(const QString &newMessageId)
 {
     mMessageId = newMessageId;
 }
 
-const QString &ParseMessageUrlUtils::roomId() const
+const QString &ParseRocketChatUrlUtils::roomId() const
 {
     return mRoomId;
 }
 
-void ParseMessageUrlUtils::setRoomId(const QString &newRoomId)
+void ParseRocketChatUrlUtils::setRoomId(const QString &newRoomId)
 {
     mRoomId = newRoomId;
 }
 
-const QString &ParseMessageUrlUtils::serverHost() const
+const QString &ParseRocketChatUrlUtils::serverHost() const
 {
     return mServerHost;
 }
 
-void ParseMessageUrlUtils::setServerHost(const QString &newServerPath)
+void ParseRocketChatUrlUtils::setServerHost(const QString &newServerPath)
 {
     mServerHost = newServerPath;
 }
 
-const QString &ParseMessageUrlUtils::path() const
+const QString &ParseRocketChatUrlUtils::path() const
 {
     return mPath;
 }
 
-void ParseMessageUrlUtils::setPath(const QString &newPath)
+void ParseRocketChatUrlUtils::setPath(const QString &newPath)
 {
     mPath = newPath;
 }
 
-ParseMessageUrlUtils::RoomIdType ParseMessageUrlUtils::roomIdType() const
+ParseRocketChatUrlUtils::RoomIdType ParseRocketChatUrlUtils::roomIdType() const
 {
     return mRoomIdType;
 }
 
-void ParseMessageUrlUtils::setRoomIdType(ParseMessageUrlUtils::RoomIdType newRoomIdType)
+void ParseRocketChatUrlUtils::setRoomIdType(ParseRocketChatUrlUtils::RoomIdType newRoomIdType)
 {
     mRoomIdType = newRoomIdType;
 }
 
-ParseMessageUrlUtils::ChannelType ParseMessageUrlUtils::channelType() const
+ParseRocketChatUrlUtils::ChannelType ParseRocketChatUrlUtils::channelType() const
 {
     return mChannelType;
 }
 
-void ParseMessageUrlUtils::setChannelType(ChannelType newChannelType)
+void ParseRocketChatUrlUtils::setChannelType(ChannelType newChannelType)
 {
     mChannelType = newChannelType;
 }
 
-QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
+QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t)
 {
     d.space() << "mServerPath" << t.serverHost();
     d.space() << "mRoomId" << t.roomId();
@@ -144,4 +144,4 @@ QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
     return d;
 }
 
-#include "moc_parsemessageurlutils.cpp"
+#include "moc_parserocketchaturlutils.cpp"

@@ -10,7 +10,7 @@
 #include "libruqolacore_export.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
-#include "parsemessageurlutils.h"
+#include "parserocketchaturlutils.h"
 
 #include <QIcon>
 #include <QObject>
@@ -59,7 +59,7 @@ public:
 
     [[nodiscard]] int accountNumber() const;
     void openMessageUrl(const QString &messageUrl);
-    [[nodiscard]] bool showMessage(const ParseMessageUrlUtils &parseUrl);
+    [[nodiscard]] bool showMessage(const ParseRocketChatUrlUtils &parseUrl);
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
     [[nodiscard]] QList<AccountDisplayInfo> accountDisplayInfoSorted() const;

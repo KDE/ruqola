@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class ParseMessageUrlUtilsTest : public QObject
+class ParseRocketChatUrlUtilsTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ParseMessageUrlUtilsTest(QObject *parent = nullptr);
-    ~ParseMessageUrlUtilsTest() override = default;
+    explicit ParseRocketChatUrlUtilsTest(QObject *parent = nullptr);
+    ~ParseRocketChatUrlUtilsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldParseUrl();

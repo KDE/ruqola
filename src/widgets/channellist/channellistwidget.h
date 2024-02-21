@@ -8,7 +8,7 @@
 
 #include "channellistview.h"
 #include "libruqolawidgets_private_export.h"
-#include "parsemessageurlutils.h"
+#include "parserocketchaturlutils.h"
 #include "room.h"
 #include <QPointer>
 #include <QWidget>
@@ -45,8 +45,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void applyChannelSelection();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectMessageRequested(const QString &messageId,
                                                                const QString &roomId,
-                                                               ParseMessageUrlUtils::RoomIdType roomType,
-                                                               ParseMessageUrlUtils::ChannelType channelType);
+                                                               ParseRocketChatUrlUtils::RoomIdType roomType,
+                                                               ParseRocketChatUrlUtils::ChannelType channelType);
 
     ChannelListView *const mChannelView;
     QLineEdit *const mSearchRoomLineEdit;

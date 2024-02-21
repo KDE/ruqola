@@ -163,14 +163,14 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
 
 void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                                                    const QString &roomId,
-                                                   ParseMessageUrlUtils::RoomIdType roomType,
-                                                   ParseMessageUrlUtils::ChannelType channelType)
+                                                   ParseRocketChatUrlUtils::RoomIdType roomType,
+                                                   ParseRocketChatUrlUtils::ChannelType channelType)
 {
     switch (roomType) {
-    case ParseMessageUrlUtils::RoomIdType::Unknown:
+    case ParseRocketChatUrlUtils::RoomIdType::Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Room type undefined!";
         break;
-    case ParseMessageUrlUtils::RoomIdType::RoomId: {
+    case ParseRocketChatUrlUtils::RoomIdType::RoomId: {
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
             const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
@@ -179,7 +179,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 return;
             }
             switch (channelType) {
-            case ParseMessageUrlUtils::ChannelType::Channel: {
+            case ParseRocketChatUrlUtils::ChannelType::Channel: {
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
                     // TODO implement scroll to message
@@ -188,7 +188,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 }
                 break;
             }
-            case ParseMessageUrlUtils::ChannelType::Group: {
+            case ParseRocketChatUrlUtils::ChannelType::Group: {
                 // TODO ?
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
@@ -198,7 +198,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 }
                 break;
             }
-            case ParseMessageUrlUtils::ChannelType::Direct: {
+            case ParseRocketChatUrlUtils::ChannelType::Direct: {
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     // TODO add support for roomId or roomName
                     // mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
@@ -210,7 +210,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 }
                 break;
             }
-            case ParseMessageUrlUtils::ChannelType::Unknown: {
+            case ParseRocketChatUrlUtils::ChannelType::Unknown: {
                 qCWarning(RUQOLAWIDGETS_LOG) << "ChannelType undefined!";
                 break;
             }
@@ -218,7 +218,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         }
         break;
     }
-    case ParseMessageUrlUtils::RoomIdType::RoomName: {
+    case ParseRocketChatUrlUtils::RoomIdType::RoomName: {
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
             const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
@@ -227,7 +227,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 return;
             }
             switch (channelType) {
-            case ParseMessageUrlUtils::ChannelType::Channel: {
+            case ParseRocketChatUrlUtils::ChannelType::Channel: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
                     // TODO implement scroll to message
@@ -236,7 +236,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 }
                 break;
             }
-            case ParseMessageUrlUtils::ChannelType::Direct: {
+            case ParseRocketChatUrlUtils::ChannelType::Direct: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
@@ -245,7 +245,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 }
                 break;
             }
-            case ParseMessageUrlUtils::ChannelType::Group: {
+            case ParseRocketChatUrlUtils::ChannelType::Group: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
@@ -254,7 +254,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 }
                 break;
             }
-            case ParseMessageUrlUtils::ChannelType::Unknown: {
+            case ParseRocketChatUrlUtils::ChannelType::Unknown: {
                 qCWarning(RUQOLAWIDGETS_LOG) << "ChannelType undefined!";
                 break;
             }
@@ -304,7 +304,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
         }
     } else {
-        ParseMessageUrlUtils parseUrl;
+        ParseRocketChatUrlUtils parseUrl;
         if (parseUrl.parseUrl(link)) {
             if (Ruqola::self()->accountManager()->showMessage(parseUrl)) {
                 return;

@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QString>
 
-class LIBRUQOLACORE_EXPORT ParseMessageUrlUtils
+class LIBRUQOLACORE_EXPORT ParseRocketChatUrlUtils
 {
     Q_GADGET
 public:
@@ -28,8 +28,8 @@ public:
     };
     Q_ENUM(RoomIdType)
 
-    ParseMessageUrlUtils();
-    ~ParseMessageUrlUtils();
+    ParseRocketChatUrlUtils();
+    ~ParseRocketChatUrlUtils();
 
     [[nodiscard]] bool parseUrl(const QString &messageUrl);
 
@@ -60,4 +60,4 @@ private:
     ChannelType mChannelType = ChannelType::Unknown;
 };
 
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t);

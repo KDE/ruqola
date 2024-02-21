@@ -311,8 +311,8 @@ target_sources(libruqolacore PRIVATE
     ownuser/ownuser.h
     ownuser/ownuserpreferences.cpp
     ownuser/ownuserpreferences.h
-    parsemessageurlutils.cpp
-    parsemessageurlutils.h
+    parserocketchaturlutils.cpp
+    parserocketchaturlutils.h
     permissions/permission.cpp
     permissions/permission.h
     permissions/permissionmanager.cpp

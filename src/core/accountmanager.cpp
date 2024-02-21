@@ -683,7 +683,7 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
-bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
+bool AccountManager::showMessage(const ParseRocketChatUrlUtils &parseUrl)
 {
     auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
     if (account) {
@@ -702,7 +702,7 @@ bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
 
 void AccountManager::openMessageUrl(const QString &messageUrl)
 {
-    ParseMessageUrlUtils parseUrl;
+    ParseRocketChatUrlUtils parseUrl;
     if (parseUrl.parseUrl(messageUrl)) {
         if (showMessage(parseUrl)) {
             return;

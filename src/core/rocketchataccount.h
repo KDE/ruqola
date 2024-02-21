@@ -25,7 +25,7 @@
 #include "notificationinfo.h"
 #include "ownuser/ownuser.h"
 #include "ownuser/ownuserpreferences.h"
-#include "parsemessageurlutils.h"
+#include "parserocketchaturlutils.h"
 #include "permissions/permissionmanager.h"
 #include "rocketchataccountsettings.h"
 #include "roles/rolesmanager.h"
@@ -581,8 +581,8 @@ Q_SIGNALS:
 
     void selectChannelAndMessage(const QString &messageId,
                                  const QString &roomId,
-                                 ParseMessageUrlUtils::RoomIdType roomType,
-                                 ParseMessageUrlUtils::ChannelType channelType);
+                                 ParseRocketChatUrlUtils::RoomIdType roomType,
+                                 ParseRocketChatUrlUtils::ChannelType channelType);
 
     void oauthAppAdded(const QJsonObject &obj);
     void oauthAppUpdated(const QJsonObject &obj);
