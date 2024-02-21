@@ -25,7 +25,7 @@ PluginAuthenticationInterface *PersonalAccessTokenPluginAuthentication::createIn
 
 AuthenticationManager::AuthMethodType PersonalAccessTokenPluginAuthentication::type() const
 {
-    return AuthenticationManager::AuthMethodType::GitHub;
+    return AuthenticationManager::AuthMethodType::PersonalAccessToken;
 }
 
 QString PersonalAccessTokenPluginAuthentication::name() const
