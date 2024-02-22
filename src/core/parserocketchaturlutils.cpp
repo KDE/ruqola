@@ -52,7 +52,8 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
             return ParseRocketChatUrlUtils::UrlType::Message;
         } else if (urlPath == QLatin1String("/auth")) {
             mServerHost = query.queryItemValue(QStringLiteral("host"));
-            // TODO
+            mToken = query.queryItemValue(QStringLiteral("token"));
+            mUserId = query.queryItemValue(QStringLiteral("userId"));
             return ParseRocketChatUrlUtils::UrlType::Server;
         } else if (urlPath == QLatin1String("/invite")) {
             mServerHost = query.queryItemValue(QStringLiteral("host"));
@@ -184,6 +185,19 @@ QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t)
     d.space() << "channelType" << t.channelType();
     d.space() << "token" << t.token();
     d.space() << "userId" << t.userId();
+    return d;
+}
+
+QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils::ParsingInfo &t)
+{
+    d.space() << "mServerPath" << t.mServerHost;
+    d.space() << "mRoomId" << t.mRoomId;
+    d.space() << "mMessageId" << t.mMessageId;
+    d.space() << "mPath" << t.mPath;
+    d.space() << "mRoomIdType" << t.mRoomIdType;
+    d.space() << "mChannelType" << t.mChannelType;
+    d.space() << "mToken" << t.mToken;
+    d.space() << "mUserId" << t.mUserId;
     return d;
 }
 
