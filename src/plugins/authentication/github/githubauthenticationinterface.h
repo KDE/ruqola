@@ -16,4 +16,5 @@ public:
     ~GitHubAuthenticationInterface() override;
 
     void login() override;
+    [[nodiscard]] bool showConfigureDialog(QWidget *parent) override;
 };

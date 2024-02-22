@@ -29,4 +29,10 @@ void PersonalAccessTokenAuthenticationInterface::login()
     delete dlg;
 }
 
+bool PersonalAccessTokenAuthenticationInterface::showConfigureDialog(QWidget *parent)
+{
+    // TODO
+    return false;
+}
+
 #include "moc_personalaccesstokenauthenticationinterface.cpp"

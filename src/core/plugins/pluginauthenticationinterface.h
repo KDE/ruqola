@@ -17,6 +17,7 @@ public:
     ~PluginAuthenticationInterface() override;
 
     virtual void login() = 0;
+    [[nodiscard]] virtual bool showConfigureDialog(QWidget *parent) = 0;
 
     [[nodiscard]] RocketChatAccount *account() const;
     void setAccount(RocketChatAccount *account);

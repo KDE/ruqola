@@ -40,4 +40,11 @@ void PasswordAuthenticationInterface::login()
     }
 }
 
+bool PasswordAuthenticationInterface::showConfigureDialog(QWidget *parent)
+{
+    Q_UNUSED(parent);
+    // Nothing
+    return false;
+}
+
 #include "moc_passwordauthenticationinterface.cpp"

@@ -25,4 +25,10 @@ void GitLabAuthenticationInterface::login()
     // });
 }
 
+bool GitLabAuthenticationInterface::showConfigureDialog(QWidget *parent)
+{
+    Q_UNUSED(parent);
+    return false;
+}
+
 #include "moc_gitlabauthenticationinterface.cpp"
