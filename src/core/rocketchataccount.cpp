@@ -1431,20 +1431,20 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         AuthenticationInfo info;
         info.setIconName(abstractPlugin->iconName());
         info.setName(abstractPlugin->name());
-        info.setOauthType(abstractPlugin->type());
+        info.setOauthType(abstractPlugin->authenticationType());
         if (info.isValid()) {
             mAuthenticationMethodInfos.append(std::move(info));
         }
 
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
         interface->setAccount(this);
-        mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
-        mLstPluginAuthenticationInterface.insert(abstractPlugin->type(), interface);
+        mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->authenticationType());
+        mLstPluginAuthenticationInterface.insert(abstractPlugin->authenticationType(), interface);
         // For the moment initialize default interface
-        if (abstractPlugin->type() == AuthenticationManager::AuthMethodType::Password) {
+        if (abstractPlugin->authenticationType() == AuthenticationManager::AuthMethodType::Password) {
             mDefaultAuthenticationInterface = interface;
         }
-        qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->type();
+        qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->authenticationType();
     }
     // TODO fill ??? or store QList<AuthenticationInfo>
 }

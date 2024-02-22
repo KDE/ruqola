@@ -23,7 +23,7 @@ PluginAuthenticationInterface *PasswordPluginAuthentication::createInterface(QOb
     return new PasswordAuthenticationInterface(parent);
 }
 
-AuthenticationManager::AuthMethodType PasswordPluginAuthentication::type() const
+AuthenticationManager::AuthMethodType PasswordPluginAuthentication::authenticationType() const
 {
     return AuthenticationManager::AuthMethodType::Password;
 }

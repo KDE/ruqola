@@ -17,7 +17,6 @@ class LIBRUQOLACORE_EXPORT TranslatorEngineManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit TranslatorEngineManager(QObject *parent = nullptr);
     ~TranslatorEngineManager() override;
     static TranslatorEngineManager *self();
 
@@ -31,6 +30,7 @@ Q_SIGNALS:
     void translateFailed(const QString &errorMessage = QString());
 
 private:
+    explicit TranslatorEngineManager(QObject *parent = nullptr);
     LIBRUQOLACORE_NO_EXPORT void initializeTranslateEngine();
     LIBRUQOLACORE_NO_EXPORT void slotTranslateDone();
     TextTranslator::TranslatorEnginePlugin *mTranslatorEnginePlugin = nullptr;

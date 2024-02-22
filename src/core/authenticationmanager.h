@@ -54,14 +54,16 @@ public:
     Q_ENUM(AuthMethodType)
     Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)
 
-    explicit AuthenticationManager(QObject *parent = nullptr);
     ~AuthenticationManager() override;
 
     static AuthenticationManager *self();
 
     [[nodiscard]] QList<PluginAuthentication *> pluginsList() const;
 
+    [[nodiscard]] PluginAuthentication *findPluginAuthentication(AuthenticationManager::AuthMethodType type);
+
 private:
+    explicit AuthenticationManager(QObject *parent = nullptr);
     LIBRUQOLACORE_NO_EXPORT void initializePluginList();
     LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
     LIBRUQOLACORE_NO_EXPORT PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);

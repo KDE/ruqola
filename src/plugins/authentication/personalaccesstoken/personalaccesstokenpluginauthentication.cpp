@@ -23,7 +23,7 @@ PluginAuthenticationInterface *PersonalAccessTokenPluginAuthentication::createIn
     return new PersonalAccessTokenAuthenticationInterface(parent);
 }
 
-AuthenticationManager::AuthMethodType PersonalAccessTokenPluginAuthentication::type() const
+AuthenticationManager::AuthMethodType PersonalAccessTokenPluginAuthentication::authenticationType() const
 {
     return AuthenticationManager::AuthMethodType::PersonalAccessToken;
 }

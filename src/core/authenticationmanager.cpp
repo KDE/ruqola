@@ -64,6 +64,19 @@ void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
     }
 }
 
+PluginAuthentication *AuthenticationManager::findPluginAuthentication(AuthenticationManager::AuthMethodType type)
+{
+    QList<AuthenticationManagerInfo>::ConstIterator end(mPluginList.constEnd());
+    for (QList<AuthenticationManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
+        if (auto plugin = (*it).plugin) {
+            if (plugin->authenticationType() == type) {
+                return plugin;
+            }
+        }
+    }
+    return nullptr;
+}
+
 QList<PluginAuthentication *> AuthenticationManager::pluginsList() const
 {
     QList<PluginAuthentication *> lst;

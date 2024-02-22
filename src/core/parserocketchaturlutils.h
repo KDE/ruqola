@@ -38,6 +38,17 @@ public:
     };
     Q_ENUM(RoomIdType)
 
+    struct ParsingInfo {
+        QString mUserId;
+        QString mToken;
+        QString mMessageId;
+        QString mRoomId;
+        QString mServerHost;
+        QString mPath;
+        RoomIdType mRoomIdType = RoomIdType::Unknown;
+        ChannelType mChannelType = ChannelType::Unknown;
+    };
+
     ParseRocketChatUrlUtils();
     ~ParseRocketChatUrlUtils();
 
@@ -79,3 +90,5 @@ private:
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils::ParsingInfo &t);
+Q_DECLARE_TYPEINFO(ParseRocketChatUrlUtils::ParsingInfo, Q_RELOCATABLE_TYPE);
