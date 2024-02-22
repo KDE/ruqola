@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1452,13 +1452,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2829
+#: core/rocketchataccount.cpp:2846
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2830
+#: core/rocketchataccount.cpp:2847
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1604,6 +1604,31 @@ msgstr "Google"
 #, kde-format
 msgid "Login/Password"
 msgstr ""
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigdialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Configure Account"
+msgctxt "@title:window"
+msgid "Configure"
+msgstr "Nastaviť účet"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Users:"
+msgid "User Id:"
+msgstr "Užívatelia:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
+#, kde-format
+msgid "Token:"
+msgstr ""
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
+#: widgets/myaccount/myaccountconfigurewidget.cpp:62
+#, fuzzy, kde-format
+#| msgid "Search File..."
+msgid "Personal Access Token"
+msgstr "Hľadať súbor..."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, fuzzy, kde-format
@@ -8138,12 +8163,6 @@ msgstr ""
 msgid "Manage Device"
 msgstr "Hľadať súbor..."
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Search File..."
-msgid "Personal Access Token"
-msgstr "Hľadať súbor..."
-
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Search File..."
@@ -10083,11 +10102,6 @@ msgstr ""
 #~| msgid "Translation"
 #~ msgid "Translate"
 #~ msgstr "Preklad"
-
-#, fuzzy
-#~| msgid "Configure Account"
-#~ msgid "Configure"
-#~ msgstr "Nastaviť účet"
 
 #, fuzzy
 #~| msgid "Translation"

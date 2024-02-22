@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
 "PO-Revision-Date: 2024-02-18 05:53+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1377,12 +1377,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2829
+#: core/rocketchataccount.cpp:2846
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2830
+#: core/rocketchataccount.cpp:2847
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -1523,6 +1523,31 @@ msgstr "Google"
 #, kde-format
 msgid "Login/Password"
 msgstr "Prijava/geslo"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigdialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgctxt "@title:window"
+msgid "Configure"
+msgstr "Konfiguriraj"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Users:"
+msgid "User Id:"
+msgstr "Uporabniki:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
+#, fuzzy, kde-format
+#| msgid "Token"
+msgid "Token:"
+msgstr "Žeton"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
+#: widgets/myaccount/myaccountconfigurewidget.cpp:62
+#, kde-format
+msgid "Personal Access Token"
+msgstr "Žeton osebnega dostopa"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, kde-format
@@ -7899,11 +7924,6 @@ msgstr "Šifriranje E2E"
 msgid "Manage Device"
 msgstr "Upravljaj napravo"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, kde-format
-msgid "Personal Access Token"
-msgstr "Žeton osebnega dostopa"
-
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, kde-format
 msgid "Search device..."
@@ -10222,9 +10242,6 @@ msgstr "Ne prikazuj @here/@all kot uporabnika."
 
 #~ msgid "Debug"
 #~ msgstr "Razhrošči"
-
-#~ msgid "Configure"
-#~ msgstr "Konfiguriraj"
 
 #~ msgid ""
 #~ "Drag text that you want to translate. (Be careful text will be send to "

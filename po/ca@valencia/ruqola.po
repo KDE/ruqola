@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-15 12:44+0100\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 10:40+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1017,36 +1017,32 @@ msgid "Last token part"
 msgstr "Última part del testimoni"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Mencions"
-msgstr[1] "Mencions"
+msgstr[0] "%1 menció"
+msgstr[1] "%1 mencions"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Group mentions only"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Només les mencions de grup"
-msgstr[1] "Només les mencions de grup"
+msgstr[0] "%1 menció de grup"
+msgstr[1] "%1 mencions de grup"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Missatges dels fils no llegits"
-msgstr[1] "Missatges dels fils no llegits"
+msgstr[0] "%1 missatge del fil no llegit"
+msgstr[1] "%1 missatges dels fils no llegits"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 té %2 missatges sense llegir"
-msgstr[1] "%1 té %2 missatges sense llegir"
+msgstr[0] "%1 missatge sense llegir"
+msgstr[1] "%1 missatges sense llegir"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -1374,12 +1370,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2829
+#: core/rocketchataccount.cpp:2846
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2830
+#: core/rocketchataccount.cpp:2847
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -1521,6 +1517,32 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Usuari/Contrasenya"
 
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigdialog.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Ruqola"
+msgctxt "@title:window"
+msgid "Configure"
+msgstr "Configura Ruqola"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Users:"
+msgid "User Id:"
+msgstr "Usuaris:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
+#, fuzzy, kde-format
+#| msgid "Token"
+msgid "Token:"
+msgstr "Testimoni"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
+#: widgets/myaccount/myaccountconfigurewidget.cpp:62
+#, kde-format
+msgid "Personal Access Token"
+msgstr "Testimoni d'accés personal"
+
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, kde-format
 msgid "Share Text..."
@@ -1617,10 +1639,9 @@ msgstr "Heu estat silenciat i no podeu parlar en esta sala"
 
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#, fuzzy, kde-format
-#| msgid "Invalid channel."
+#, kde-format
 msgid "Invalid channel"
-msgstr "Canal no vàlid."
+msgstr "Canal no vàlid"
 
 #: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:123
 #, kde-format
@@ -7439,10 +7460,9 @@ msgid "Permissions"
 msgstr "Permisos"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Rols:"
+msgstr "Rols propis:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -7474,7 +7494,7 @@ msgstr "Missatge reenviat"
 #: widgets/forwardmessage/forwardmessagewidget.cpp:23
 #, kde-format
 msgid "Select at least one channel to forward the message to."
-msgstr ""
+msgstr "Seleccioneu almenys un canal per a reenviar el missatge."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
@@ -7914,11 +7934,6 @@ msgstr "Encriptació E2E"
 msgid "Manage Device"
 msgstr "Gestioneu el dispositiu"
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, kde-format
-msgid "Personal Access Token"
-msgstr "Testimoni d'accés personal"
-
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, kde-format
 msgid "Search device..."
@@ -8109,10 +8124,9 @@ msgstr "S'ha sol·licitat la baixada del fitxer"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:198
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "Default (%1)"
-msgstr "Predeterminat"
+msgstr "Predeterminat (%1)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:215
 #, kde-format
@@ -8120,10 +8134,11 @@ msgid "Each Mentions"
 msgstr "Cada menció"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:219
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "L'administrador ha desactivat el canvi del correu electrònic."
+msgstr ""
+"L'administrador de Rocket.Chat ha desactivat les notificacions de correu "
+"electrònic"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
@@ -8549,9 +8564,7 @@ msgid "Copy Link To Message"
 msgstr "Copia l'enllaç cap al missatge"
 
 #: widgets/room/messagelistview.cpp:332
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Forward Message"
+#, kde-format
 msgid "Forward Message"
 msgstr "Missatge reenviat"
 
@@ -9539,21 +9552,16 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Permet augmentar o disminuir la lletra («Ctrl++» o «Ctrl+-»)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Afig l'estil de llista de canals (condensada, mitjana o ampliada)"
+msgstr "Afig un estil de llista de canals (condensada, mitjana o ampliada)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Forward Message"
 msgid "Add forward message"
-msgstr "Missatge reenviat"
+msgstr "Afig els missatges reenviats"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Millora la implementació de les mencions."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
 msgid "Fix dark mode support."
@@ -9564,11 +9572,9 @@ msgid "Fix jitsi support."
 msgstr "Corregix la implementació de Jitsi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Missatges en total als canals"
+msgstr "Corregix el missatge de traducció en el canal directe."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
-msgstr ""
+msgstr "No mostra @here/@all com a usuari."
