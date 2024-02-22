@@ -81,6 +81,20 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
     }
 }
 
+AuthenticationManager::AuthMethodType RocketChatAccountSettings::authMethodType() const
+{
+    return mAuthMethodType;
+}
+
+void RocketChatAccountSettings::setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType)
+{
+    if (mAuthMethodType != newAuthMethodType) {
+        mAuthMethodType = newAuthMethodType;
+        mSetting->setValue(QStringLiteral("authenticationMethodType"), mAuthMethodType);
+        mSetting->sync();
+    }
+}
+
 QDate RocketChatAccountSettings::lastCheckedPreviewUrlCacheDate() const
 {
     return mLastCheckedPreviewUrlCacheDate;

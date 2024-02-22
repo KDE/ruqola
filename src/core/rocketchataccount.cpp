@@ -1533,6 +1533,11 @@ void RocketChatAccount::changeUserPresences(const QJsonArray &contents)
     }
 }
 
+AuthenticationManager::AuthMethodType RocketChatAccount::authMethodType() const
+{
+    return settings()->authMethodType();
+}
+
 void RocketChatAccount::updateRoles(const QJsonArray &contents)
 {
     mRolesManager.updateRoles(contents);

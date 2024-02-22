@@ -527,6 +527,7 @@ public:
     void setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay);
 
     void changeUserPresences(const QJsonArray &contents);
+    [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
