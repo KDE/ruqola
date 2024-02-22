@@ -823,6 +823,7 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
     account->setPassword(info.password);
+    account->setAuthMethodType(info.authMethodType);
     if (info.enabled) {
         connectToAccount(account);
     }
@@ -837,6 +838,7 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         account->setUserName(info.userName);
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
+        account->setAuthMethodType(info.authMethodType);
         if (!info.enabled) {
             // TODO fixme
             // disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);

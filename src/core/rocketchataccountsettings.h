@@ -90,7 +90,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *job);
     LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
 
-    AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Password; // By default
+    AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown; // By default
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;

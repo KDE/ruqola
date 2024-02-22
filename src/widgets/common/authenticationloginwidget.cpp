@@ -83,6 +83,7 @@ AccountManager::AccountManagerInfo AuthenticationLoginWidget::accountInfo()
     }
     mAccountInfo.userName = mUserName->text().trimmed();
     mAccountInfo.password = mPasswordLineEditWidget->passwordLineEdit()->password();
+    mAccountInfo.authMethodType = AuthenticationManager::AuthMethodType::Password;
     return mAccountInfo;
 }
 

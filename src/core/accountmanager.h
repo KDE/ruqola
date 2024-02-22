@@ -27,6 +27,7 @@ public:
         QString userName;
         QString serverUrl;
         QString password;
+        AuthenticationManager::AuthMethodType authMethodType = AuthenticationManager::AuthMethodType::Unknown;
         bool canResetPassword = false;
         bool enabled = true;
         bool canRegisterAccount = false;
