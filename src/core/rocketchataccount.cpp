@@ -1538,6 +1538,11 @@ AuthenticationManager::AuthMethodType RocketChatAccount::authMethodType() const
     return settings()->authMethodType();
 }
 
+void RocketChatAccount::setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType)
+{
+    settings()->setAuthMethodType(newAuthMethodType);
+}
+
 void RocketChatAccount::updateRoles(const QJsonArray &contents)
 {
     mRolesManager.updateRoles(contents);

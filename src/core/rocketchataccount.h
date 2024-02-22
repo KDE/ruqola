@@ -528,6 +528,7 @@ public:
 
     void changeUserPresences(const QJsonArray &contents);
     [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
+    void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
