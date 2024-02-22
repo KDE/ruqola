@@ -231,6 +231,68 @@ void UserTest::shouldParseRestApiJson()
     QVERIFY(equal);
 }
 
+void UserTest::shouldParseUserStatus()
+{
+    QFETCH(QStringList, jsonstr);
+    QFETCH(QString, userName);
+    QFETCH(QString, customText);
+    QFETCH(User::PresenceStatus, status);
+    User user;
+    const QJsonArray array = QJsonArray::fromStringList(jsonstr);
+    user.parseUserPresence(array);
+    QCOMPARE(user.status(), status);
+}
+
+void UserTest::shouldParseUserStatus_data()
+{
+    QTest::addColumn<QStringList>("jsonstr");
+    QTest::addColumn<QString>("userName");
+    QTest::addColumn<QString>("customText");
+    QTest::addColumn<User::PresenceStatus>("status");
+    {
+        QStringList lst;
+        lst << QString();
+        lst << QStringLiteral("online");
+        lst << QString();
+        QTest::newRow("online") << lst << QString() << QString() << User::PresenceStatus::PresenceOnline;
+    }
+    {
+        QStringList lst;
+        lst << QString();
+        lst << QStringLiteral("offline");
+        lst << QString();
+        QTest::newRow("offline") << lst << QString() << QString() << User::PresenceStatus::PresenceOffline;
+    }
+    {
+        QStringList lst;
+        lst << QString();
+        lst << QStringLiteral("away");
+        lst << QString();
+        QTest::newRow("away") << lst << QString() << QString() << User::PresenceStatus::PresenceAway;
+    }
+    {
+        QStringList lst;
+        lst << QString();
+        lst << QStringLiteral("busy");
+        lst << QString();
+        QTest::newRow("busy") << lst << QString() << QString() << User::PresenceStatus::PresenceBusy;
+    }
+    {
+        QStringList lst;
+        lst << QString();
+        lst << QStringLiteral("busy");
+        lst << QStringLiteral("bla");
+        QTest::newRow("busy-customText") << lst << QString() << QStringLiteral("bla") << User::PresenceStatus::PresenceBusy;
+    }
+    {
+        QStringList lst;
+        lst << QStringLiteral("ddd");
+        lst << QStringLiteral("away");
+        lst << QStringLiteral("bla");
+        QTest::newRow("away-customText-username") << lst << QStringLiteral("ddd") << QStringLiteral("bla") << User::PresenceStatus::PresenceAway;
+    }
+}
+
 void UserTest::shouldGetStatusIcon_data()
 {
     QTest::addColumn<User::PresenceStatus>("status");
