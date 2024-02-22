@@ -328,4 +328,20 @@ void RocketChatAccountSettings::removeSettings()
     }
 }
 
+QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
+{
+    d.space() << "mAuthMethodType" << t.authMethodType();
+    d.space() << "mUserId" << t.userId();
+    d.space() << "mAuthToken" << t.authToken();
+    d.space() << "mServerUrl" << t.serverUrl();
+    d.space() << "mAccountName" << t.accountName();
+    d.space() << "mDisplayName" << t.displayName();
+    d.space() << "mUserName" << t.userName();
+    d.space() << "mAuthMethodType" << t.authMethodType();
+    d.space() << "mTwoFactorAuthenticationCode" << t.twoFactorAuthenticationCode();
+    d.space() << "mExpireToken" << t.expireToken();
+    d.space() << "mAccountEnabled" << t.accountEnabled();
+    return d;
+}
+
 #include "moc_rocketchataccountsettings.cpp"

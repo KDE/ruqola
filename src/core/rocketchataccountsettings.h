@@ -106,3 +106,4 @@ private:
     QSettings *mSetting = nullptr;
     bool mAccountEnabled = true;
 };
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatAccountSettings &t);
