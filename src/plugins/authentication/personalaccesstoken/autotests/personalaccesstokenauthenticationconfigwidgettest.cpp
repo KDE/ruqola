@@ -47,6 +47,9 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldEmitSignalEnableOk
     PersonalAccessTokenAuthenticationConfigWidget w;
     auto mUserLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mUserLineEdit"));
     auto mPersonalAccessTokenLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mPersonalAccessTokenLineEdit"));
+    auto mServerNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mServerNameLineEdit"));
+    auto mAccountNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mAccountNameLineEdit"));
+
     QSignalSpy spyEnableOkButton(&w, &PersonalAccessTokenAuthenticationConfigWidget::enableOkButton);
     mUserLineEdit->setText(QStringLiteral("foo"));
     QCOMPARE(spyEnableOkButton.count(), 1);
@@ -64,6 +67,16 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldEmitSignalEnableOk
 
     spyEnableOkButton.clear();
     mUserLineEdit->setText(QStringLiteral("foo"));
+    QCOMPARE(spyEnableOkButton.count(), 1);
+    QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
+
+    spyEnableOkButton.clear();
+    mServerNameLineEdit->setText(QStringLiteral("acc"));
+    QCOMPARE(spyEnableOkButton.count(), 1);
+    QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());
+
+    spyEnableOkButton.clear();
+    mAccountNameLineEdit->setText(QStringLiteral("bb"));
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(spyEnableOkButton.at(0).at(0).toBool());
 }

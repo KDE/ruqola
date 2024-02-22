@@ -46,6 +46,9 @@ void PersonalAccessTokenAuthenticationConfigDialogTest::shouldEnableOkButton()
     auto mUserLineEdit = mPersonalAccessTokenAuthenticationConfigWidget->findChild<QLineEdit *>(QStringLiteral("mUserLineEdit"));
     auto mPersonalAccessTokenLineEdit = mPersonalAccessTokenAuthenticationConfigWidget->findChild<QLineEdit *>(QStringLiteral("mPersonalAccessTokenLineEdit"));
 
+    auto mServerNameLineEdit = mPersonalAccessTokenAuthenticationConfigWidget->findChild<QLineEdit *>(QStringLiteral("mServerNameLineEdit"));
+    auto mAccountNameLineEdit = mPersonalAccessTokenAuthenticationConfigWidget->findChild<QLineEdit *>(QStringLiteral("mAccountNameLineEdit"));
+
     mUserLineEdit->setText(QStringLiteral("foo"));
     QVERIFY(!okButton->isEnabled());
 
@@ -56,6 +59,12 @@ void PersonalAccessTokenAuthenticationConfigDialogTest::shouldEnableOkButton()
     QVERIFY(!okButton->isEnabled());
 
     mUserLineEdit->setText(QStringLiteral("foo"));
+    QVERIFY(!okButton->isEnabled());
+
+    mServerNameLineEdit->setText(QStringLiteral("foo5"));
+    QVERIFY(!okButton->isEnabled());
+
+    mAccountNameLineEdit->setText(QStringLiteral("foo1"));
     QVERIFY(okButton->isEnabled());
 }
 
