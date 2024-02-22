@@ -54,6 +54,8 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAuthMethodType = mSetting->value(QStringLiteral("authenticationMethodType"), AuthenticationManager::AuthMethodType::Password)
                           .value<AuthenticationManager::AuthMethodType>();
 
+    // Password is ok when we use Password authentication method.
+    // Not sure for other.
     if (mAccountEnabled && !mAccountName.isEmpty()) {
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
         auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
@@ -337,7 +339,6 @@ QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
     d.space() << "mAccountName" << t.accountName();
     d.space() << "mDisplayName" << t.displayName();
     d.space() << "mUserName" << t.userName();
-    d.space() << "mAuthMethodType" << t.authMethodType();
     d.space() << "mTwoFactorAuthenticationCode" << t.twoFactorAuthenticationCode();
     d.space() << "mExpireToken" << t.expireToken();
     d.space() << "mAccountEnabled" << t.accountEnabled();
