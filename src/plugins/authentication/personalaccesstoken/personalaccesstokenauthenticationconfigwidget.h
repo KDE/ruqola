@@ -22,6 +22,8 @@ Q_SIGNALS:
 
 private:
     void slotEnableOkButton();
+    QLineEdit *const mServerNameLineEdit;
+    QLineEdit *const mAccountNameLineEdit;
     QLineEdit *const mUserLineEdit;
     QLineEdit *const mPersonalAccessTokenLineEdit;
 };

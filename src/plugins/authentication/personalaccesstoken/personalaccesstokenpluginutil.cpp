@@ -8,10 +8,10 @@
 
 bool PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo::isEmpty() const
 {
-    return userId.isEmpty() && token.isEmpty();
+    return userId.isEmpty() && token.isEmpty() && serverUrl.isEmpty() && accountName.isEmpty();
 }
 
 bool PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo::isValid() const
 {
-    return !isEmpty();
+    return !userId.isEmpty() && !token.isEmpty() && !serverUrl.isEmpty() && !accountName.isEmpty();
 }

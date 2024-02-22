@@ -27,9 +27,17 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldHaveDefaultValues(
     QVERIFY(mPersonalAccessTokenLineEdit);
     QVERIFY(mPersonalAccessTokenLineEdit->text().isEmpty());
 
+    auto mServerNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mServerNameLineEdit"));
+    QVERIFY(mServerNameLineEdit);
+    QVERIFY(mServerNameLineEdit->text().isEmpty());
+
+    auto mAccountNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mAccountNameLineEdit"));
+    QVERIFY(mAccountNameLineEdit);
+    QVERIFY(mAccountNameLineEdit->text().isEmpty());
+
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->rowCount(), 2);
+    QCOMPARE(mainLayout->rowCount(), 4);
 
     QVERIFY(w.info().isEmpty());
 }
