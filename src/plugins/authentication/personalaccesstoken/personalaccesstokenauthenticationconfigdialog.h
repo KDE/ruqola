@@ -18,6 +18,7 @@ public:
     ~PersonalAccessTokenAuthenticationConfigDialog() override;
 
     [[nodiscard]] PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info() const;
+    void setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info);
 
 private:
     PersonalAccessTokenAuthenticationConfigWidget *const mPersonalAccessTokenAuthenticationConfigWidget;

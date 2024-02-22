@@ -40,4 +40,9 @@ PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessToken
     return mPersonalAccessTokenAuthenticationConfigWidget->info();
 }
 
+void PersonalAccessTokenAuthenticationConfigDialog::setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info)
+{
+    mPersonalAccessTokenAuthenticationConfigWidget->setInfo(info);
+}
+
 #include "moc_personalaccesstokenauthenticationconfigdialog.cpp"

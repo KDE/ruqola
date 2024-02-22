@@ -52,6 +52,14 @@ PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessToken
     return info;
 }
 
+void PersonalAccessTokenAuthenticationConfigWidget::setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info)
+{
+    mPersonalAccessTokenLineEdit->setText(info.token);
+    mUserLineEdit->setText(info.userId);
+    mAccountNameLineEdit->setText(info.accountName);
+    mServerNameLineEdit->setText(info.serverUrl);
+}
+
 void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
 {
     Q_EMIT enableOkButton(info().isValid());

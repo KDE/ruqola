@@ -16,6 +16,7 @@ public:
     ~PersonalAccessTokenAuthenticationConfigWidget() override;
 
     [[nodiscard]] PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info() const;
+    void setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info);
 
 Q_SIGNALS:
     void enableOkButton(bool enabled);
