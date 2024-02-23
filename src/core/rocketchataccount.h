@@ -697,7 +697,7 @@ private:
     ListMessagesFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
 
     AutotranslateLanguagesModel *const mAutoTranslateLanguagesModel;
-    User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
+    User::PresenceStatus mPresenceStatus = User::PresenceStatus::Unknown;
     DownloadAppsLanguagesManager *const mDownloadAppsLanguagesManager;
     MessageCache *const mMessageCache;
     ManageChannels *const mManageChannels;
