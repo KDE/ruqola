@@ -25,9 +25,9 @@ public:
 
 Q_SIGNALS:
     void updateOkButton(bool state);
-    void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;
     CreateNewServerWidget *const mCreateNewServerWidget;
 };

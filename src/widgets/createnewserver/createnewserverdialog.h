@@ -21,9 +21,6 @@ public:
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     void setExistingAccountName(const QStringList &lst);
 
-Q_SIGNALS:
-    void authentication(AuthenticationManager::AuthMethodType type);
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

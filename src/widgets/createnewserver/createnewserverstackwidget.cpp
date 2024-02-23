@@ -31,10 +31,15 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
                 setAccountInfo(std::move(info));
             });
     connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
-    connect(mCreateNewServerWidget, &CreateNewServerWidget::authentication, this, &CreateNewServerStackWidget::authentication);
+    connect(mCreateNewServerWidget, &CreateNewServerWidget::authentication, this, &CreateNewServerStackWidget::addAuthenticationConfigureWidget);
 }
 
 CreateNewServerStackWidget::~CreateNewServerStackWidget() = default;
+
+void CreateNewServerStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
+{
+    // TODO
+}
 
 void CreateNewServerStackWidget::setExistingAccountName(const QStringList &lst)
 {

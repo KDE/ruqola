@@ -42,7 +42,6 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::updateOkButton, this, [this](bool state) {
         mOkButton->setEnabled(state);
     });
-    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::authentication, this, &CreateNewServerDialog::authentication);
 }
 
 CreateNewServerDialog::~CreateNewServerDialog()
