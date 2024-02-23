@@ -150,7 +150,7 @@ void MessageUrlTest::shouldGenerateHtmlDescription()
     QFETCH(MessageUrl, messageUrl);
     QFETCH(QString, htmlDescription);
     messageUrl.generateHtmlDescription();
-    qDebug() << " messageUrl.htmlDescription()" << messageUrl.htmlDescription();
+    // qDebug() << " messageUrl.htmlDescription()" << messageUrl.htmlDescription();
     QCOMPARE(messageUrl.htmlDescription(), htmlDescription);
 }
 
@@ -228,6 +228,41 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
                    "[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
                    "3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
                    "cutting-edge spatial intelligence applications");
+    }
+}
+
+void MessageUrlTest::shouldGenerateBuildImageUrl()
+{
+    QFETCH(MessageUrl, messageUrl);
+    QFETCH(QString, buildImageUrl);
+    QCOMPARE(messageUrl.buildImageUrl(), buildImageUrl);
+}
+
+void MessageUrlTest::shouldGenerateBuildImageUrl_data()
+{
+    QTest::addColumn<MessageUrl>("messageUrl");
+    QTest::addColumn<QString>("buildImageUrl");
+    {
+        MessageUrl url;
+        url.setUrl(QStringLiteral("http://bla"));
+        url.setImageUrl(QStringLiteral("/foo/bla.png"));
+        url.genrateImageUrl();
+
+        QTest::newRow("test1") << url << QStringLiteral("http://bla/foo/bla.png");
+    }
+    {
+        MessageUrl url;
+        url.setUrl(QStringLiteral("http://bla"));
+        url.setImageUrl(QStringLiteral("http://www.kde.org/foo/bla.png"));
+        url.genrateImageUrl();
+
+        QTest::newRow("test2") << url << QStringLiteral("http://www.kde.org/foo/bla.png");
+    }
+    {
+        MessageUrl url;
+        url.genrateImageUrl();
+
+        QTest::newRow("test3") << url << QString();
     }
 }
 

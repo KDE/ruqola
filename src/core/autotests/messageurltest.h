@@ -21,4 +21,7 @@ private Q_SLOTS:
 
     void shouldGenerateHtmlDescription();
     void shouldGenerateHtmlDescription_data();
+
+    void shouldGenerateBuildImageUrl();
+    void shouldGenerateBuildImageUrl_data();
 };
