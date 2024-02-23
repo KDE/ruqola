@@ -1375,7 +1375,9 @@ void RocketChatAccount::fillAuthenticationModel()
     QList<AuthenticationInfo> fillModel;
     // qDebug() << " before " << mLstInfos;
     for (int i = 0, total = mAuthenticationMethodInfos.count(); i < total; ++i) {
-        if (mRuqolaServerConfig->canShowAuthMethod(mAuthenticationMethodInfos.at(i).oauthType())) {
+        if (mRuqolaServerConfig->canShowAuthMethod(mAuthenticationMethodInfos.at(i).oauthType())
+            // Reactivate it we will want to show PersonalAccessToken
+            /*|| (mAuthenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)*/) {
             fillModel.append(mAuthenticationMethodInfos.at(i));
         }
     }
