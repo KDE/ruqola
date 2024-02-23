@@ -17,6 +17,3 @@ endmacro ()
 
 add_ruqola_personalaccesstoken_unittest(personalaccesstokenauthenticationconfigwidgettest.cpp
     "../personalaccesstokenauthenticationconfigwidget.cpp")
-
-add_ruqola_personalaccesstoken_unittest(personalaccesstokenauthenticationconfigdialogtest.cpp
-    "../personalaccesstokenauthenticationconfigwidget.cpp;../personalaccesstokenauthenticationconfigdialog.cpp")

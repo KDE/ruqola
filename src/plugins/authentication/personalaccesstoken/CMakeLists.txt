@@ -6,8 +6,6 @@ set(ruqola_personalaccesstokenauthenticationplugin_SRCS
     personalaccesstokenpluginauthentication.cpp
     personalaccesstokenauthenticationinterface.h
     personalaccesstokenpluginauthentication.h
-    personalaccesstokenauthenticationconfigdialog.h
-    personalaccesstokenauthenticationconfigdialog.cpp
     personalaccesstokenauthenticationconfigwidget.h
     personalaccesstokenauthenticationconfigwidget.cpp
 )

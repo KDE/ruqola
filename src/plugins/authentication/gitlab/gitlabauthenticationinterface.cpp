@@ -25,12 +25,6 @@ void GitLabAuthenticationInterface::login()
     // });
 }
 
-bool GitLabAuthenticationInterface::showConfigureDialog(QWidget *parent)
-{
-    Q_UNUSED(parent);
-    return false;
-}
-
 PluginAuthenticationConfigureWidget *GitLabAuthenticationInterface::configureWidget(QWidget *parent)
 {
     Q_UNUSED(parent);

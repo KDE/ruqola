@@ -16,6 +16,5 @@ public:
     ~PersonalAccessTokenAuthenticationInterface() override;
 
     void login() override;
-    [[nodiscard]] bool showConfigureDialog(QWidget *parent) override;
     [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) override;
 };

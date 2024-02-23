@@ -40,6 +40,7 @@ void AccountServerListWidget::load()
         info.canResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
         info.authenticationInfos = account->authenticationMethodInfos();
         info.authMethodType = account->authMethodType();
+        // TODO add info.token/info.userId
         item->setToolTip(info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);

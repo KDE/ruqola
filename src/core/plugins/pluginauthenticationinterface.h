@@ -18,7 +18,6 @@ public:
     ~PluginAuthenticationInterface() override;
 
     virtual void login() = 0;
-    [[nodiscard]] virtual bool showConfigureDialog(QWidget *parent) = 0;
 
     [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) = 0;
 

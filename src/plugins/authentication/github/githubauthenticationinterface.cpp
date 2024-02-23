@@ -15,13 +15,6 @@ GitHubAuthenticationInterface::GitHubAuthenticationInterface(QObject *parent)
 
 GitHubAuthenticationInterface::~GitHubAuthenticationInterface() = default;
 
-bool GitHubAuthenticationInterface::showConfigureDialog(QWidget *parent)
-{
-    Q_UNUSED(parent);
-    // TODO
-    return false;
-}
-
 PluginAuthenticationConfigureWidget *GitHubAuthenticationInterface::configureWidget(QWidget *parent)
 {
     Q_UNUSED(parent);
