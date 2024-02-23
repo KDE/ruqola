@@ -31,4 +31,10 @@ bool GitLabAuthenticationInterface::showConfigureDialog(QWidget *parent)
     return false;
 }
 
+PluginAuthenticationConfigureWidget *GitLabAuthenticationInterface::configureWidget(QWidget *parent)
+{
+    Q_UNUSED(parent);
+    return nullptr;
+}
+
 #include "moc_gitlabauthenticationinterface.cpp"
