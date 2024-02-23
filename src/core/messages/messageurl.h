@@ -77,7 +77,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageWidthElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString cleanText(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void generateHtmlDescription();
-    LIBRUQOLACORE_NO_EXPORT void genrateImageUrl();
+    LIBRUQOLACORE_NO_EXPORT void generateImageUrl();
 
     QString mUrl;
     QString mPageTitle;
