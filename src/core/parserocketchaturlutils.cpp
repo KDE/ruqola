@@ -24,7 +24,7 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
     newMessageUrl.replace(QLatin1String("rocketchat://"), QLatin1String("https://go.rocket.chat/"));
     QUrl url(newMessageUrl);
     const QUrlQuery query(url);
-    if (newMessageUrl.startsWith(QStringLiteral("https://go.rocket.chat/")) || (url.scheme() == QLatin1String("rocketchat"))) {
+    if (newMessageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
         const QString urlPath{url.path()};
         qDebug() << url;
         if (urlPath == QLatin1String("/room")) {
