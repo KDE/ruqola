@@ -64,6 +64,9 @@ void CreateNewServerStackWidget::setExistingAccountName(const QStringList &lst)
 
 AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() const
 {
+    if (mPluginAuthenticationConfigureWidget) {
+        return mPluginAuthenticationConfigureWidget->accountInfo();
+    }
     const AccountManager::AccountManagerInfo info = mCreateNewServerWidget->accountInfo();
     return info;
 }
