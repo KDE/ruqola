@@ -170,6 +170,24 @@ void MessageUrl::setAuthorName(const QString &newAuthorName)
     mAuthorName = newAuthorName;
 }
 
+void MessageUrl::genrateImageUrl()
+{
+    if (!mImageBuildUrl.isEmpty()) {
+        return;
+    }
+    const QUrl newUrl = QUrl(mImageUrl);
+    if (!newUrl.isRelative()) {
+        mImageBuildUrl = mImageUrl;
+    } else {
+        mImageBuildUrl = url() + mImageUrl;
+    }
+}
+
+QString MessageUrl::buildImageUrl() const
+{
+    return mImageBuildUrl;
+}
+
 QString MessageUrl::imageUrl() const
 {
     return mImageUrl;
@@ -248,6 +266,7 @@ void MessageUrl::parseUrl(const QJsonObject &url)
     }
 
     generateHtmlDescription();
+    genrateImageUrl();
     // qDebug() << " *this " << *this << " is empty " << isEmpty() << " url" << url;
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
 }
