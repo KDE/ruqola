@@ -11,6 +11,7 @@
 #include <QStackedWidget>
 class CreateNewServerCheckUrlWidget;
 class CreateNewServerWidget;
+class PluginAuthenticationConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerStackWidget : public QStackedWidget
 {
     Q_OBJECT
@@ -30,4 +31,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;
     CreateNewServerWidget *const mCreateNewServerWidget;
+    PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
 };

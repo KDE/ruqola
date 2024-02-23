@@ -7,6 +7,10 @@
 #include "createnewserverstackwidget.h"
 #include "createnewservercheckurlwidget.h"
 #include "createnewserverwidget.h"
+#include "plugins/pluginauthentication.h"
+#include "plugins/pluginauthenticationconfigurewidget.h"
+#include "plugins/pluginauthenticationinterface.h"
+#include "ruqolawidgets_debug.h"
 
 CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     : QStackedWidget(parent)
@@ -38,7 +42,19 @@ CreateNewServerStackWidget::~CreateNewServerStackWidget() = default;
 
 void CreateNewServerStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
 {
-    // TODO
+    if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(type)) {
+        auto interface = plugin->createInterface(this);
+        auto configureWidget = interface->configureWidget(this);
+        if (mPluginAuthenticationConfigureWidget) {
+            removeWidget(mPluginAuthenticationConfigureWidget);
+            delete mPluginAuthenticationConfigureWidget;
+        }
+        mPluginAuthenticationConfigureWidget = configureWidget;
+        addWidget(mPluginAuthenticationConfigureWidget);
+        setCurrentWidget(mPluginAuthenticationConfigureWidget);
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find authentication for " << type;
+    }
 }
 
 void CreateNewServerStackWidget::setExistingAccountName(const QStringList &lst)
