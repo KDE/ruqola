@@ -17,9 +17,6 @@ public:
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const override;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info) override;
 
-Q_SIGNALS:
-    void enableOkButton(bool enabled);
-
 private:
     void slotEnableOkButton();
     QLineEdit *const mServerNameLineEdit;

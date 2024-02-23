@@ -19,6 +19,11 @@ public:
     [[nodiscard]] virtual AccountManager::AccountManagerInfo accountInfo() const = 0;
     virtual void setAccountInfo(const AccountManager::AccountManagerInfo &info) = 0;
 
+    void setExistingAccountNames(const QStringList &list);
+
 Q_SIGNALS:
     void enableOkButton(bool enabled);
+
+protected:
+    QStringList mExistingAccountNames;
 };

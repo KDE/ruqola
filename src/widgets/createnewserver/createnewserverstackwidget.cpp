@@ -50,6 +50,8 @@ void CreateNewServerStackWidget::addAuthenticationConfigureWidget(Authentication
             delete mPluginAuthenticationConfigureWidget;
         }
         mPluginAuthenticationConfigureWidget = configureWidget;
+        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
+        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::enableOkButton, this, &CreateNewServerStackWidget::updateOkButton);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
@@ -58,9 +60,14 @@ void CreateNewServerStackWidget::addAuthenticationConfigureWidget(Authentication
     }
 }
 
-void CreateNewServerStackWidget::setExistingAccountName(const QStringList &lst)
+void CreateNewServerStackWidget::setExistingAccountNames(const QStringList &lst)
 {
-    mCreateNewServerWidget->setExistingAccountName(lst);
+    mExistingAccountNames = lst;
+    if (mPluginAuthenticationConfigureWidget) {
+        mPluginAuthenticationConfigureWidget->setExistingAccountNames(lst);
+    } else {
+        mCreateNewServerWidget->setExistingAccountNames(lst);
+    }
 }
 
 AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() const
@@ -68,13 +75,18 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
     if (mPluginAuthenticationConfigureWidget) {
         return mPluginAuthenticationConfigureWidget->accountInfo();
     }
-    const AccountManager::AccountManagerInfo info = mCreateNewServerWidget->accountInfo();
-    return info;
+    return mCreateNewServerWidget->accountInfo();
 }
 
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
-    mCreateNewServerWidget->setAccountInfo(info);
-    setCurrentWidget(mCreateNewServerWidget);
+    mAccountManagerInfo = info;
+    if (mPluginAuthenticationConfigureWidget) {
+        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
+        setCurrentWidget(mPluginAuthenticationConfigureWidget);
+    } else {
+        mCreateNewServerWidget->setAccountInfo(mAccountManagerInfo);
+        setCurrentWidget(mCreateNewServerWidget);
+    }
 }
 #include "moc_createnewserverstackwidget.cpp"

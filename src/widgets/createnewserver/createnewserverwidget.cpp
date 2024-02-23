@@ -54,7 +54,7 @@ void CreateNewServerWidget::setAccountInfo(const AccountManager::AccountManagerI
     }
 }
 
-void CreateNewServerWidget::setExistingAccountName(const QStringList &lst)
+void CreateNewServerWidget::setExistingAccountNames(const QStringList &lst)
 {
     mAuthenticationLoginWidget->setExistingAccountName(lst);
 }

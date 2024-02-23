@@ -19,7 +19,7 @@ public:
     explicit CreateNewServerStackWidget(QWidget *parent = nullptr);
     ~CreateNewServerStackWidget() override;
 
-    void setExistingAccountName(const QStringList &lst);
+    void setExistingAccountNames(const QStringList &lst);
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
 
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
@@ -29,6 +29,8 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
+    QStringList mExistingAccountNames;
+    AccountManager::AccountManagerInfo mAccountManagerInfo;
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;
     CreateNewServerWidget *const mCreateNewServerWidget;
     PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;

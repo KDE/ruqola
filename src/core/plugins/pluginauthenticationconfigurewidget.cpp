@@ -12,3 +12,8 @@ PluginAuthenticationConfigureWidget::PluginAuthenticationConfigureWidget(QWidget
 }
 
 PluginAuthenticationConfigureWidget::~PluginAuthenticationConfigureWidget() = default;
+
+void PluginAuthenticationConfigureWidget::setExistingAccountNames(const QStringList &list)
+{
+    mExistingAccountNames = list;
+}

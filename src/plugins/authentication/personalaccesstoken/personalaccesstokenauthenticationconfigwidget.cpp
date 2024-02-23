@@ -42,41 +42,35 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
 
 PersonalAccessTokenAuthenticationConfigWidget::~PersonalAccessTokenAuthenticationConfigWidget() = default;
 
-#if 0
-PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessTokenAuthenticationConfigWidget::info() const
-{
-    PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info;
-    info.token = mPersonalAccessTokenLineEdit->text();
-    info.userId = mUserLineEdit->text();
-    info.accountName = mAccountNameLineEdit->text();
-    info.serverUrl = mServerNameLineEdit->text();
-    return info;
-}
-
-void PersonalAccessTokenAuthenticationConfigWidget::setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info)
-{
-    // We can't change server name
-    mServerNameLineEdit->setReadOnly(true);
-    mPersonalAccessTokenLineEdit->setText(info.token);
-    mUserLineEdit->setText(info.userId);
-    mAccountNameLineEdit->setText(info.accountName);
-    mServerNameLineEdit->setText(info.serverUrl);
-}
-#endif
-
 AccountManager::AccountManagerInfo PersonalAccessTokenAuthenticationConfigWidget::accountInfo() const
 {
+    AccountManager::AccountManagerInfo info;
+    info.accountName = mAccountNameLineEdit->text();
+    info.serverUrl = mServerNameLineEdit->text();
+    info.authMethodType = AuthenticationManager::AuthMethodType::PersonalAccessToken;
     // TODO
-    return {};
+    // info.token = mPersonalAccessTokenLineEdit->text();
+    // info.userId = mUserLineEdit->text();
+
+    return info;
 }
 
 void PersonalAccessTokenAuthenticationConfigWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
+    mServerNameLineEdit->setReadOnly(true);
     // TODO
+    // mPersonalAccessTokenLineEdit->setText(info.token);
+    // mUserLineEdit->setText(info.userId);
+    mAccountNameLineEdit->setText(info.accountName);
+    mServerNameLineEdit->setText(info.serverUrl);
 }
 
 void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
 {
+    const QString accountName = mAccountNameLineEdit->text().trimmed();
+    Q_EMIT enableOkButton(!accountName.isEmpty() && !mExistingAccountNames.contains(accountName) && !mServerNameLineEdit->text().trimmed().isEmpty()
+                          && !mUserLineEdit->text().trimmed().isEmpty() && !mPersonalAccessTokenLineEdit->text().trimmed().isEmpty());
+
     // Q_EMIT enableOkButton(info().isValid());
 }
 
