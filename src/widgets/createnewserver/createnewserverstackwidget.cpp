@@ -50,6 +50,7 @@ void CreateNewServerStackWidget::addAuthenticationConfigureWidget(Authentication
             delete mPluginAuthenticationConfigureWidget;
         }
         mPluginAuthenticationConfigureWidget = configureWidget;
+        connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::enableOkButton, this, &CreateNewServerStackWidget::updateOkButton);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
     } else {

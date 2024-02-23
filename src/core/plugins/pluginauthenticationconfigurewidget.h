@@ -18,4 +18,7 @@ public:
 
     [[nodiscard]] virtual AccountManager::AccountManagerInfo accountInfo() const = 0;
     virtual void setAccountInfo(const AccountManager::AccountManagerInfo &info) = 0;
+
+Q_SIGNALS:
+    void enableOkButton(bool enabled);
 };
