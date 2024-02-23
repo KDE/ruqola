@@ -36,7 +36,12 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         // TODO add auth/token!
         return true;
     }
-    case ParseRocketChatUrlUtils::UrlType::Invite:
+    case ParseRocketChatUrlUtils::UrlType::Invite: {
+        AccountManager::AccountManagerInfo info;
+        info.serverUrl = parseUrl.parsingInfo().serverHost;
+        // TODO
+        break;
+    }
     case ParseRocketChatUrlUtils::UrlType::ConferenceCall:
     case ParseRocketChatUrlUtils::UrlType::Room:
         qDebug() << " ParseRocketChatUrlUtils::UrlType Not implement yet ";
