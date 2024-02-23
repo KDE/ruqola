@@ -45,7 +45,6 @@ public:
 
     void setCurrentAccount(const QString &accountName);
 
-    void openMessageUrl(const QString &url);
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     TextAutoCorrectionCore::AutoCorrection *autoCorrection() const;
 #endif

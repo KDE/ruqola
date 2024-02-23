@@ -61,11 +61,6 @@ void Ruqola::destroy()
     s_self = nullptr;
 }
 
-void Ruqola::openMessageUrl(const QString &url)
-{
-    mAccountManager->openMessageUrl(url);
-}
-
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 TextAutoCorrectionCore::AutoCorrection *Ruqola::autoCorrection() const
 {
