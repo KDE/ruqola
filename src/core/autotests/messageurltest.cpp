@@ -41,7 +41,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -50,7 +50,7 @@ void MessageUrlTest::shouldSerializeData()
         MessageUrl input;
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -59,7 +59,7 @@ void MessageUrlTest::shouldSerializeData()
         MessageUrl input;
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -69,7 +69,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -80,7 +80,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("foo5"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -92,7 +92,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setImageUrl(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -105,7 +105,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -119,7 +119,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
         input.setImageHeight(8);
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -134,7 +134,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setSiteUrl(QStringLiteral("foo7"));
         input.setImageHeight(8);
         input.setImageWidth(32);
-        input.generateHtmlDescription();
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -158,7 +158,7 @@ void MessageUrlTest::shouldGenerateHtmlDescription()
 {
     QFETCH(MessageUrl, messageUrl);
     QFETCH(QString, htmlDescription);
-    messageUrl.generateHtmlDescription();
+    messageUrl.generateMessageUrlInfo();
     // qDebug() << " messageUrl.htmlDescription()" << messageUrl.htmlDescription();
     QCOMPARE(messageUrl.htmlDescription(), htmlDescription);
 }
@@ -255,7 +255,7 @@ void MessageUrlTest::shouldGenerateBuildImageUrl_data()
         MessageUrl url;
         url.setUrl(QStringLiteral("http://bla"));
         url.setImageUrl(QStringLiteral("/foo/bla.png"));
-        url.genrateImageUrl();
+        url.generateMessageUrlInfo();
 
         QTest::newRow("test1") << url << QStringLiteral("http://bla/foo/bla.png");
     }
@@ -263,13 +263,13 @@ void MessageUrlTest::shouldGenerateBuildImageUrl_data()
         MessageUrl url;
         url.setUrl(QStringLiteral("http://bla"));
         url.setImageUrl(QStringLiteral("http://www.kde.org/foo/bla.png"));
-        url.genrateImageUrl();
+        url.generateMessageUrlInfo();
 
         QTest::newRow("test2") << url << QStringLiteral("http://www.kde.org/foo/bla.png");
     }
     {
         MessageUrl url;
-        url.genrateImageUrl();
+        url.generateMessageUrlInfo();
 
         QTest::newRow("test3") << url << QString();
     }
