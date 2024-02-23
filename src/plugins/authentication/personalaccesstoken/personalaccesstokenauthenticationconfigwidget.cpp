@@ -48,19 +48,16 @@ AccountManager::AccountManagerInfo PersonalAccessTokenAuthenticationConfigWidget
     info.accountName = mAccountNameLineEdit->text();
     info.serverUrl = mServerNameLineEdit->text();
     info.authMethodType = AuthenticationManager::AuthMethodType::PersonalAccessToken;
-    // TODO
-    // info.token = mPersonalAccessTokenLineEdit->text();
-    // info.userId = mUserLineEdit->text();
-
+    info.token = mPersonalAccessTokenLineEdit->text();
+    info.userId = mUserLineEdit->text();
     return info;
 }
 
 void PersonalAccessTokenAuthenticationConfigWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mServerNameLineEdit->setReadOnly(true);
-    // TODO
-    // mPersonalAccessTokenLineEdit->setText(info.token);
-    // mUserLineEdit->setText(info.userId);
+    mPersonalAccessTokenLineEdit->setText(info.token);
+    mUserLineEdit->setText(info.userId);
     mAccountNameLineEdit->setText(info.accountName);
     mServerNameLineEdit->setText(info.serverUrl);
 }
