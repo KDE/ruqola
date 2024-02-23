@@ -271,11 +271,15 @@ void MessageUrl::parseUrl(const QJsonObject &url)
             }
         }
     }
-
-    generateHtmlDescription();
-    genrateImageUrl();
+    generateMessageUrlInfo();
     // qDebug() << " *this " << *this << " is empty " << isEmpty() << " url" << url;
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
+}
+
+void MessageUrl::generateMessageUrlInfo()
+{
+    generateHtmlDescription();
+    genrateImageUrl();
 }
 
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
@@ -321,8 +325,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setSiteName(o.value(QLatin1String("siteName")).toString());
     url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
     url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
-    url.generateHtmlDescription();
-    url.genrateImageUrl();
+    url.generateMessageUrlInfo();
     return url;
 }
 
