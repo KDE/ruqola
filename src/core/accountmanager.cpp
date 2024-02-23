@@ -683,18 +683,18 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
-bool AccountManager::showMessage(const ParseRocketChatUrlUtils &parseUrl)
+bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo)
 {
-    auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
+    auto account = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
     if (account) {
         // const QString path{parseUrl.path()};
-        const QString messageId = parseUrl.messageId();
-        qCDebug(RUQOLA_LOG) << " parseUrl " << parseUrl;
+        const QString messageId = parseInfo.messageId;
+        qCDebug(RUQOLA_LOG) << " parseUrl " << parseInfo;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(account->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         Q_EMIT mCurrentAccount->raiseWindow();
-        Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseUrl.roomId(), parseUrl.roomIdType(), parseUrl.channelType());
+        Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
         return true;
     }
     return false;
@@ -704,7 +704,7 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
 {
     ParseRocketChatUrlUtils parseUrl;
     if (parseUrl.parseUrl(messageUrl) == ParseRocketChatUrlUtils::UrlType::Message) {
-        if (showMessage(parseUrl)) {
+        if (showMessage(std::move(parseUrl.parsingInfo()))) {
             return;
         }
     }

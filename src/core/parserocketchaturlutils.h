@@ -39,14 +39,14 @@ public:
     Q_ENUM(RoomIdType)
 
     struct ParsingInfo {
-        QString mUserId;
-        QString mToken;
-        QString mMessageId;
-        QString mRoomId;
-        QString mServerHost;
-        QString mPath;
-        RoomIdType mRoomIdType = RoomIdType::Unknown;
-        ChannelType mChannelType = ChannelType::Unknown;
+        QString userId;
+        QString token;
+        QString messageId;
+        QString roomId;
+        QString serverHost;
+        QString path;
+        RoomIdType roomIdType = RoomIdType::Unknown;
+        ChannelType channelType = ChannelType::Unknown;
     };
 
     ParseRocketChatUrlUtils();
@@ -54,41 +54,12 @@ public:
 
     [[nodiscard]] UrlType parseUrl(const QString &messageUrl);
 
-    [[nodiscard]] const QString &messageId() const;
-    void setMessageId(const QString &newMessageId);
-
-    [[nodiscard]] const QString &roomId() const;
-    void setRoomId(const QString &newRoomId);
-
-    [[nodiscard]] const QString &serverHost() const;
-    void setServerHost(const QString &newServerPath);
-
-    [[nodiscard]] const QString &path() const;
-    void setPath(const QString &newPath);
-
-    [[nodiscard]] RoomIdType roomIdType() const;
-    void setRoomIdType(RoomIdType newRoomIdType);
-
-    [[nodiscard]] ChannelType channelType() const;
-    void setChannelType(ChannelType newChannelType);
-
-    [[nodiscard]] QString token() const;
-    void setToken(const QString &newToken);
-
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &newUserId);
+    [[nodiscard]] ParsingInfo parsingInfo() const;
+    void setParsingInfo(const ParsingInfo &newParsingInfo);
 
 private:
-    QString mUserId;
-    QString mToken;
-    QString mMessageId;
-    QString mRoomId;
-    QString mServerHost;
-    QString mPath;
-    RoomIdType mRoomIdType = RoomIdType::Unknown;
-    ChannelType mChannelType = ChannelType::Unknown;
+    ParsingInfo mParsingInfo;
 };
 
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils::ParsingInfo &t);
 Q_DECLARE_TYPEINFO(ParseRocketChatUrlUtils::ParsingInfo, Q_RELOCATABLE_TYPE);

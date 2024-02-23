@@ -60,7 +60,7 @@ public:
 
     [[nodiscard]] int accountNumber() const;
     void openMessageUrl(const QString &messageUrl);
-    [[nodiscard]] bool showMessage(const ParseRocketChatUrlUtils &parseUrl);
+    [[nodiscard]] bool showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo);
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
     [[nodiscard]] QList<AccountDisplayInfo> accountDisplayInfoSorted() const;

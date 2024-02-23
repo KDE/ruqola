@@ -15,15 +15,15 @@ ParseRocketChatUrlUtilsTest::ParseRocketChatUrlUtilsTest(QObject *parent)
 
 void ParseRocketChatUrlUtilsTest::shouldHaveDefaultValues()
 {
-    ParseRocketChatUrlUtils w;
-    QVERIFY(w.messageId().isEmpty());
-    QVERIFY(w.roomId().isEmpty());
-    QVERIFY(w.serverHost().isEmpty());
-    QVERIFY(w.path().isEmpty());
-    QVERIFY(w.token().isEmpty());
-    QVERIFY(w.userId().isEmpty());
-    QCOMPARE(w.roomIdType(), ParseRocketChatUrlUtils::RoomIdType::Unknown);
-    QCOMPARE(w.channelType(), ParseRocketChatUrlUtils::ChannelType::Unknown);
+    ParseRocketChatUrlUtils::ParsingInfo parseInfo;
+    QVERIFY(parseInfo.messageId.isEmpty());
+    QVERIFY(parseInfo.roomId.isEmpty());
+    QVERIFY(parseInfo.serverHost.isEmpty());
+    QVERIFY(parseInfo.path.isEmpty());
+    QVERIFY(parseInfo.token.isEmpty());
+    QVERIFY(parseInfo.userId.isEmpty());
+    QCOMPARE(parseInfo.roomIdType, ParseRocketChatUrlUtils::RoomIdType::Unknown);
+    QCOMPARE(parseInfo.channelType, ParseRocketChatUrlUtils::ChannelType::Unknown);
 }
 
 void ParseRocketChatUrlUtilsTest::shouldParseUrl_data()
@@ -92,12 +92,12 @@ void ParseRocketChatUrlUtilsTest::shouldParseUrl()
 
     ParseRocketChatUrlUtils w;
     QCOMPARE(w.parseUrl(messageUrl), rocketChatUrlType);
-    QCOMPARE(w.messageId(), messageId);
-    QCOMPARE(w.roomId(), roomId);
-    QCOMPARE(w.serverHost(), serverHost);
-    QCOMPARE(w.path(), path);
-    QCOMPARE(w.channelType(), channelType);
-    QCOMPARE(w.roomIdType(), roomIdType);
+    QCOMPARE(w.parsingInfo().messageId, messageId);
+    QCOMPARE(w.parsingInfo().roomId, roomId);
+    QCOMPARE(w.parsingInfo().serverHost, serverHost);
+    QCOMPARE(w.parsingInfo().path, path);
+    QCOMPARE(w.parsingInfo().channelType, channelType);
+    QCOMPARE(w.parsingInfo().roomIdType, roomIdType);
 }
 
 #include "moc_parserocketchaturlutilstest.cpp"

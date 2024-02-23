@@ -306,7 +306,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
     } else {
         ParseRocketChatUrlUtils parseUrl;
         if (parseUrl.parseUrl(link) == ParseRocketChatUrlUtils::UrlType::Message) {
-            if (Ruqola::self()->accountManager()->showMessage(parseUrl)) {
+            if (Ruqola::self()->accountManager()->showMessage(std::move(parseUrl.parsingInfo()))) {
                 return;
             }
         }
