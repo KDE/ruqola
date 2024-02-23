@@ -41,6 +41,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -49,6 +50,7 @@ void MessageUrlTest::shouldSerializeData()
         MessageUrl input;
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -57,6 +59,7 @@ void MessageUrlTest::shouldSerializeData()
         MessageUrl input;
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -66,6 +69,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -76,6 +80,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("foo5"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -87,6 +92,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setImageUrl(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -99,6 +105,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -112,6 +119,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
         input.setImageHeight(8);
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -126,6 +134,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setSiteUrl(QStringLiteral("foo7"));
         input.setImageHeight(8);
         input.setImageWidth(32);
+        input.generateHtmlDescription();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);

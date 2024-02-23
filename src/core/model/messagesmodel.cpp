@@ -240,7 +240,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::Date: {
         const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
-        return currentDate.date().toString();
+        return QLocale().toString(currentDate.date());
     }
     case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
