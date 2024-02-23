@@ -17,3 +17,5 @@ void PluginAuthenticationConfigureWidget::setExistingAccountNames(const QStringL
 {
     mExistingAccountNames = list;
 }
+
+#include "moc_pluginauthenticationconfigurewidget.cpp"
