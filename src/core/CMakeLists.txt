@@ -329,6 +329,9 @@ target_sources(libruqolacore PRIVATE
     plugins/pluginauthentication.h
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthenticationinterface.h
+    plugins/pluginauthenticationconfigurewidget.h
+    plugins/pluginauthenticationconfigurewidget.cpp
+
     python/ruqolacore/ruqolacore_global.h
     receivetypingnotificationmanager.cpp
     receivetypingnotificationmanager.h
