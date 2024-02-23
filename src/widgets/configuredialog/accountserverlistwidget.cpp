@@ -7,12 +7,9 @@
 #include "accountserverlistwidget.h"
 #include "createnewserver/createnewserverdialog.h"
 #include "model/rocketchataccountmodel.h"
-#include "plugins/pluginauthentication.h"
-#include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
-#include "ruqolawidgets_debug.h"
 
 #include <QListWidgetItem>
 #include <QPointer>
@@ -89,27 +86,14 @@ void AccountServerListWidget::modifyAccountConfig()
     }
 
     auto serverListItem = static_cast<AccountServerListWidgetItem *>(item);
-    // TODO use correct dialog.
-    // This one is for password authentication.
     const auto accountInfo = serverListItem->accountInfo();
-    if (accountInfo.authMethodType == AuthenticationManager::AuthMethodType::Password) {
-        QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
-        dlg->setAccountInfo(accountInfo);
-        if (dlg->exec()) {
-            const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-            serverListItem->setAccountInfo(std::move(info));
-        }
-        delete dlg;
-    } else {
-        if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(accountInfo.authMethodType)) {
-            auto interface = plugin->createInterface(this);
-            if (interface->showConfigureDialog(this)) {
-                // TODO
-            }
-        } else {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find authentication for " << accountInfo.authMethodType;
-        }
+    QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
+    dlg->setAccountInfo(accountInfo);
+    if (dlg->exec()) {
+        const AccountManager::AccountManagerInfo info = dlg->accountInfo();
+        serverListItem->setAccountInfo(std::move(info));
     }
+    delete dlg;
 }
 
 void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item, bool removeLogs)
