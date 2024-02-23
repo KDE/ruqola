@@ -107,7 +107,7 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
             info.url = mServerUrl->text().trimmed();
             info.canResetPassword = allowResetPassword;
             info.canRegisterAccount = account->registrationFormEnabled();
-            Q_EMIT serverUrlFound(info);
+            Q_EMIT serverUrlFound(std::move(info));
         });
 
         ddpClient->setServerUrl(mServerUrl->text());
