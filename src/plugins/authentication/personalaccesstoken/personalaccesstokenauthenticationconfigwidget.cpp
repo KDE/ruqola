@@ -11,7 +11,7 @@
 #include <QLineEdit>
 
 PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthenticationConfigWidget(QWidget *parent)
-    : QWidget{parent}
+    : PluginAuthenticationConfigureWidget{parent}
     , mServerNameLineEdit(new QLineEdit(this))
     , mAccountNameLineEdit(new QLineEdit(this))
     , mUserLineEdit(new QLineEdit(this))

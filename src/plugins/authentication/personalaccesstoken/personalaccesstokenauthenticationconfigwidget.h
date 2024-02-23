@@ -6,9 +6,9 @@
 #pragma once
 
 #include "personalaccesstokenpluginutil.h"
-#include <QWidget>
+#include "plugins/pluginauthenticationconfigurewidget.h"
 class QLineEdit;
-class PersonalAccessTokenAuthenticationConfigWidget : public QWidget
+class PersonalAccessTokenAuthenticationConfigWidget : public PluginAuthenticationConfigureWidget
 {
     Q_OBJECT
 public:
