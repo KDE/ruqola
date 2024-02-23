@@ -44,6 +44,11 @@ option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
+option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Acess Token Support" OFF)
+
+if (OPTION_USE_PERSONAL_ACCESS_TOKEN)
+    set(USE_PERSONAL_ACCESS_TOKEN true)
+endif()
 
 if (OPTION_USE_ROUNDED_RECT_PIXMAP)
     set(USE_ROUNDED_RECT_PIXMAP true)
