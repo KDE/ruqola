@@ -16,6 +16,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
 {
     ParseRocketChatUrlUtils parseUrl;
     switch (parseUrl.parseUrl(link)) {
+    case ParseRocketChatUrlUtils::UrlType::Room:
     case ParseRocketChatUrlUtils::UrlType::Message: {
         if (Ruqola::self()->accountManager()->showMessage(std::move(parseUrl.parsingInfo()))) {
             return true;
@@ -43,7 +44,6 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         break;
     }
     case ParseRocketChatUrlUtils::UrlType::ConferenceCall:
-    case ParseRocketChatUrlUtils::UrlType::Room:
         qDebug() << " ParseRocketChatUrlUtils::UrlType Not implement yet ";
         return true;
     case ParseRocketChatUrlUtils::UrlType::Unknown:

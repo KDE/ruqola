@@ -37,6 +37,7 @@ protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectMessageId(const QString &messageId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAccountInitialized();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRoomTextChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void clearFilterChannel();

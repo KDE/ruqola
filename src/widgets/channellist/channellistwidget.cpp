@@ -162,6 +162,13 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
     }
 }
 
+void ChannelListWidget::selectMessageId(const QString &messageId)
+{
+    if (!messageId.isEmpty()) {
+        Q_EMIT selectMessageIdRequested(messageId);
+    }
+}
+
 void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                                                    const QString &roomId,
                                                    ParseRocketChatUrlUtils::RoomIdType roomType,
@@ -176,7 +183,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         if (selectedIndex.isValid()) {
             const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
             if (roomId == currentRoomId) {
-                Q_EMIT selectMessageIdRequested(messageId);
+                selectMessageId(messageId);
                 return;
             }
             switch (channelType) {
@@ -185,7 +192,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
                     // TODO implement scroll to message
                 } else {
-                    Q_EMIT selectMessageIdRequested(messageId);
+                    selectMessageId(messageId);
                 }
                 break;
             }
@@ -195,7 +202,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
                     // TODO implement scroll to message
                 } else {
-                    Q_EMIT selectMessageIdRequested(messageId);
+                    selectMessageId(messageId);
                 }
                 break;
             }
@@ -207,7 +214,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     mCurrentRocketChatAccount->ddp()->openDirectChannel(roomId);
                     // TODO implement scroll to message
                 } else {
-                    Q_EMIT selectMessageIdRequested(messageId);
+                    selectMessageId(messageId);
                 }
                 break;
             }
@@ -224,7 +231,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         if (selectedIndex.isValid()) {
             const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
             if (roomId == currentRoomName) {
-                Q_EMIT selectMessageIdRequested(messageId);
+                selectMessageId(messageId);
                 return;
             }
             switch (channelType) {
@@ -233,7 +240,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
                     // TODO implement scroll to message
                 } else {
-                    Q_EMIT selectMessageIdRequested(messageId);
+                    selectMessageId(messageId);
                 }
                 break;
             }
@@ -242,7 +249,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
                 } else {
-                    Q_EMIT selectMessageIdRequested(messageId);
+                    selectMessageId(messageId);
                 }
                 break;
             }
@@ -251,7 +258,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
                 } else {
-                    Q_EMIT selectMessageIdRequested(messageId);
+                    selectMessageId(messageId);
                 }
                 break;
             }
