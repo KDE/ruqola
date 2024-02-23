@@ -42,6 +42,9 @@ CreateNewServerStackWidget::~CreateNewServerStackWidget() = default;
 
 void CreateNewServerStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
 {
+    if (type == AuthenticationManager::AuthMethodType::Password) {
+        return;
+    }
     if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(type)) {
         auto interface = plugin->createInterface(this);
         auto configureWidget = interface->configureWidget(this);
@@ -81,6 +84,7 @@ AccountManager::AccountManagerInfo CreateNewServerStackWidget::accountInfo() con
 void CreateNewServerStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
 {
     mAccountManagerInfo = info;
+    addAuthenticationConfigureWidget(mAccountManagerInfo.authMethodType);
     if (mPluginAuthenticationConfigureWidget) {
         mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
