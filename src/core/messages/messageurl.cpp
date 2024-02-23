@@ -170,7 +170,7 @@ void MessageUrl::setAuthorName(const QString &newAuthorName)
     mAuthorName = newAuthorName;
 }
 
-void MessageUrl::genrateImageUrl()
+void MessageUrl::generateImageUrl()
 {
     if (!mImageBuildUrl.isEmpty()) {
         return;
@@ -279,7 +279,7 @@ void MessageUrl::parseUrl(const QJsonObject &url)
 void MessageUrl::generateMessageUrlInfo()
 {
     generateHtmlDescription();
-    genrateImageUrl();
+    generateImageUrl();
 }
 
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
@@ -369,7 +369,7 @@ bool MessageUrl::operator==(const MessageUrl &other) const
     return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
         && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
         && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth())
-        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()));
+        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()) && (mImageBuildUrl == other.buildImageUrl()));
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -386,6 +386,7 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "ImageWidth:" << t.imageWidth();
     d.space() << "UrlId:" << t.urlId();
     d.space() << "htmlDescription:" << t.htmlDescription();
+    d.space() << "buildImageUrl:" << t.buildImageUrl();
     return d;
 }
 
