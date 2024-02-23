@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "personalaccesstokenpluginutil.h"
-
 #include <QDialog>
 class PersonalAccessTokenAuthenticationConfigWidget;
 class PersonalAccessTokenAuthenticationConfigDialog : public QDialog
@@ -16,9 +14,6 @@ class PersonalAccessTokenAuthenticationConfigDialog : public QDialog
 public:
     explicit PersonalAccessTokenAuthenticationConfigDialog(QWidget *parent = nullptr);
     ~PersonalAccessTokenAuthenticationConfigDialog() override;
-
-    [[nodiscard]] PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info() const;
-    void setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info);
 
 private:
     PersonalAccessTokenAuthenticationConfigWidget *const mPersonalAccessTokenAuthenticationConfigWidget;

@@ -5,7 +5,6 @@
 */
 #pragma once
 
-#include "personalaccesstokenpluginutil.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
 class QLineEdit;
 class PersonalAccessTokenAuthenticationConfigWidget : public PluginAuthenticationConfigureWidget
@@ -15,8 +14,8 @@ public:
     explicit PersonalAccessTokenAuthenticationConfigWidget(QWidget *parent = nullptr);
     ~PersonalAccessTokenAuthenticationConfigWidget() override;
 
-    [[nodiscard]] PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info() const;
-    void setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info);
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const override;
+    void setAccountInfo(const AccountManager::AccountManagerInfo &info) override;
 
 Q_SIGNALS:
     void enableOkButton(bool enabled);

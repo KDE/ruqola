@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "accountmanager.h"
 #include "libruqolacore_export.h"
 #include <QWidget>
 
@@ -14,4 +15,7 @@ class LIBRUQOLACORE_EXPORT PluginAuthenticationConfigureWidget : public QWidget
 public:
     explicit PluginAuthenticationConfigureWidget(QWidget *parent = nullptr);
     ~PluginAuthenticationConfigureWidget() override;
+
+    [[nodiscard]] virtual AccountManager::AccountManagerInfo accountInfo() const = 0;
+    virtual void setAccountInfo(const AccountManager::AccountManagerInfo &info) = 0;
 };

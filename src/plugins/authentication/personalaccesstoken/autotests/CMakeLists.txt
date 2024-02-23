@@ -15,10 +15,8 @@ macro(add_ruqola_personalaccesstoken_unittest _source _additional)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro ()
 
-add_ruqola_personalaccesstoken_unittest(personalaccesstokenpluginutiltest.cpp
-    "../personalaccesstokenpluginutil.cpp")
 add_ruqola_personalaccesstoken_unittest(personalaccesstokenauthenticationconfigwidgettest.cpp
-    "../personalaccesstokenauthenticationconfigwidget.cpp;../personalaccesstokenpluginutil.cpp")
+    "../personalaccesstokenauthenticationconfigwidget.cpp")
 
 add_ruqola_personalaccesstoken_unittest(personalaccesstokenauthenticationconfigdialogtest.cpp
-    "../personalaccesstokenauthenticationconfigwidget.cpp;../personalaccesstokenpluginutil.cpp;../personalaccesstokenauthenticationconfigdialog.cpp")
+    "../personalaccesstokenauthenticationconfigwidget.cpp;../personalaccesstokenauthenticationconfigdialog.cpp")

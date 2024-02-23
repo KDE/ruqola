@@ -42,6 +42,7 @@ PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthentication
 
 PersonalAccessTokenAuthenticationConfigWidget::~PersonalAccessTokenAuthenticationConfigWidget() = default;
 
+#if 0
 PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessTokenAuthenticationConfigWidget::info() const
 {
     PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info;
@@ -61,10 +62,22 @@ void PersonalAccessTokenAuthenticationConfigWidget::setInfo(const PersonalAccess
     mAccountNameLineEdit->setText(info.accountName);
     mServerNameLineEdit->setText(info.serverUrl);
 }
+#endif
+
+AccountManager::AccountManagerInfo PersonalAccessTokenAuthenticationConfigWidget::accountInfo() const
+{
+    // TODO
+    return {};
+}
+
+void PersonalAccessTokenAuthenticationConfigWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
+{
+    // TODO
+}
 
 void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
 {
-    Q_EMIT enableOkButton(info().isValid());
+    // Q_EMIT enableOkButton(info().isValid());
 }
 
 #include "moc_personalaccesstokenauthenticationconfigwidget.cpp"

@@ -6,7 +6,6 @@
 
 #include "personalaccesstokenauthenticationinterface.h"
 #include "personalaccesstokenauthenticationconfigdialog.h"
-#include "personalaccesstokenpluginutil.h"
 #include "rocketchataccount.h"
 #include <QPointer>
 
@@ -27,8 +26,6 @@ bool PersonalAccessTokenAuthenticationInterface::showConfigureDialog(QWidget *pa
     bool result = false;
     QPointer<PersonalAccessTokenAuthenticationConfigDialog> dlg = new PersonalAccessTokenAuthenticationConfigDialog(nullptr);
     if (dlg->exec()) {
-        const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo info = dlg->info();
-
         result = true;
         // TODO
     }

@@ -10,8 +10,6 @@ set(ruqola_personalaccesstokenauthenticationplugin_SRCS
     personalaccesstokenauthenticationconfigdialog.cpp
     personalaccesstokenauthenticationconfigwidget.h
     personalaccesstokenauthenticationconfigwidget.cpp
-    personalaccesstokenpluginutil.h
-    personalaccesstokenpluginutil.cpp
 )
 
 ecm_qt_declare_logging_category(ruqola_personalaccesstokenauthenticationplugin_SRCS HEADER personalaccesstokenauthenticationplugin_debug.h

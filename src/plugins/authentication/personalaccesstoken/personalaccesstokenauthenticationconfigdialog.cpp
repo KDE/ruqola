@@ -35,14 +35,4 @@ PersonalAccessTokenAuthenticationConfigDialog::PersonalAccessTokenAuthentication
 
 PersonalAccessTokenAuthenticationConfigDialog::~PersonalAccessTokenAuthenticationConfigDialog() = default;
 
-PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessTokenAuthenticationConfigDialog::info() const
-{
-    return mPersonalAccessTokenAuthenticationConfigWidget->info();
-}
-
-void PersonalAccessTokenAuthenticationConfigDialog::setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info)
-{
-    mPersonalAccessTokenAuthenticationConfigWidget->setInfo(info);
-}
-
 #include "moc_personalaccesstokenauthenticationconfigdialog.cpp"
