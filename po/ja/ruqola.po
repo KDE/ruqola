@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"POT-Creation-Date: 2024-02-23 00:37+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1354,12 +1354,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2846
+#: core/rocketchataccount.cpp:2856
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2847
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1507,12 +1507,27 @@ msgctxt "@title:window"
 msgid "Configure"
 msgstr ""
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
+#, kde-format
+msgid "Server URL:"
+msgstr ""
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: widgets/common/authenticationloginwidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr ""
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
 #, kde-format
 msgid "User Id:"
 msgstr ""
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
 #, kde-format
 msgid "Token:"
 msgstr ""
@@ -5963,20 +5978,7 @@ msgstr ""
 msgid "Register Account"
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
-#, kde-format
-msgid "Server URL:"
-msgstr ""
-
-#: widgets/common/authenticationloginwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr ""
-
-#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/common/authenticationloginwidget.cpp:118
 #: widgets/ruqolamainwindow.cpp:920
 #, kde-format
 msgid ""
@@ -5984,7 +5986,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/common/authenticationloginwidget.cpp:119
 #: widgets/ruqolamainwindow.cpp:921
 #, kde-format
 msgid "Register New User"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-22 00:37+0000\n"
-"PO-Revision-Date: 2024-02-18 10:40+0100\n"
+"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"PO-Revision-Date: 2024-02-22 09:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1370,12 +1370,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2846
+#: core/rocketchataccount.cpp:2856
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2847
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -1518,24 +1518,35 @@ msgid "Login/Password"
 msgstr "Usuari/Contrasenya"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigdialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure"
-msgstr "Configura el Ruqola"
+msgstr "Configuració"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Users:"
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
+#, kde-format
+msgid "Server URL:"
+msgstr "URL del servidor:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: widgets/common/authenticationloginwidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "Nom del compte:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
+#, kde-format
 msgid "User Id:"
-msgstr "Usuaris:"
+msgstr "ID d'usuari:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Token"
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
+#, kde-format
 msgid "Token:"
-msgstr "Testimoni"
+msgstr "Testimoni:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
@@ -6209,20 +6220,7 @@ msgstr "Inicia la sessió amb %1"
 msgid "Register Account"
 msgstr "Registra un compte"
 
-#: widgets/common/authenticationloginwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
-#, kde-format
-msgid "Server URL:"
-msgstr "URL del servidor:"
-
-#: widgets/common/authenticationloginwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "Nom del compte:"
-
-#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/common/authenticationloginwidget.cpp:118
 #: widgets/ruqolamainwindow.cpp:920
 #, kde-format
 msgid ""
@@ -6232,7 +6230,7 @@ msgstr ""
 "Us hem enviat un correu per a confirmar el registre.\n"
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
-#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/common/authenticationloginwidget.cpp:119
 #: widgets/ruqolamainwindow.cpp:921
 #, kde-format
 msgid "Register New User"

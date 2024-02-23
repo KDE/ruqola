@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"POT-Creation-Date: 2024-02-23 00:37+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1452,13 +1452,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2846
+#: core/rocketchataccount.cpp:2856
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2847
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1612,13 +1612,30 @@ msgctxt "@title:window"
 msgid "Configure"
 msgstr "Nastaviť účet"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
+msgstr "URL serveru:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: widgets/common/authenticationloginwidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name:"
+msgstr "Meno účtu"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "User Id:"
 msgstr "Užívatelia:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
 #, kde-format
 msgid "Token:"
 msgstr ""
@@ -6335,22 +6352,7 @@ msgstr ""
 msgid "Register Account"
 msgstr "Odstrániť účet"
 
-#: widgets/common/authenticationloginwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Server Url:"
-msgid "Server URL:"
-msgstr "URL serveru:"
-
-#: widgets/common/authenticationloginwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account Name"
-msgid "Account name:"
-msgstr "Meno účtu"
-
-#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/common/authenticationloginwidget.cpp:118
 #: widgets/ruqolamainwindow.cpp:920
 #, kde-format
 msgid ""
@@ -6358,7 +6360,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/common/authenticationloginwidget.cpp:119
 #: widgets/ruqolamainwindow.cpp:921
 #, fuzzy, kde-format
 #| msgid "Enter Username"

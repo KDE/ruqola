@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"POT-Creation-Date: 2024-02-23 00:37+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1368,12 +1368,12 @@ msgstr "<strong>%1</strong> skriver..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:2846
+#: core/rocketchataccount.cpp:2856
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: core/rocketchataccount.cpp:2847
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
@@ -1522,13 +1522,28 @@ msgctxt "@title:window"
 msgid "Configure"
 msgstr "Anpassa"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:26
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
+#, kde-format
+msgid "Server URL:"
+msgstr "Serverwebbadress:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: widgets/common/authenticationloginwidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, kde-format
+msgid "Account name:"
+msgstr "Kontonamn:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgid "User Id:"
 msgstr "Användare:"
 
-#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:27
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Token"
 msgid "Token:"
@@ -6176,20 +6191,7 @@ msgstr "Logga in med %1"
 msgid "Register Account"
 msgstr "Registrera konto"
 
-#: widgets/common/authenticationloginwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
-#, kde-format
-msgid "Server URL:"
-msgstr "Serverwebbadress:"
-
-#: widgets/common/authenticationloginwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, kde-format
-msgid "Account name:"
-msgstr "Kontonamn:"
-
-#: widgets/common/authenticationloginwidget.cpp:117
+#: widgets/common/authenticationloginwidget.cpp:118
 #: widgets/ruqolamainwindow.cpp:920
 #, kde-format
 msgid ""
@@ -6199,7 +6201,7 @@ msgstr ""
 "Vi har skickat ett brev via e-post för att bekräfta registreringen.\n"
 "Om du inte tar emot det inom kort, kom tillbaka och försök igen."
 
-#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/common/authenticationloginwidget.cpp:119
 #: widgets/ruqolamainwindow.cpp:921
 #, kde-format
 msgid "Register New User"
