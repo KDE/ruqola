@@ -311,8 +311,13 @@ target_sources(libruqolacore PRIVATE
     ownuser/ownuser.h
     ownuser/ownuserpreferences.cpp
     ownuser/ownuserpreferences.h
+
     parserocketchaturlutils.cpp
     parserocketchaturlutils.h
+
+    rocketchaturlutils.h
+    rocketchaturlutils.cpp
+
     permissions/permission.cpp
     permissions/permission.h
     permissions/permissionmanager.cpp

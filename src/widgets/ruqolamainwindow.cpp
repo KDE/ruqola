@@ -9,6 +9,7 @@
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
 #include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
+#include "rocketchaturlutils.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
 
@@ -148,7 +149,9 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
     if (parser->isSet(QStringLiteral("messageurl"))) {
         const QString messageUrl = parser->value(QStringLiteral("messageurl"));
         if (!messageUrl.isEmpty()) {
-            Ruqola::self()->openMessageUrl(messageUrl);
+            if (RocketChatUrlUtils::parseUrl(messageUrl)) {
+                return;
+            }
         }
     }
     if (parser->isSet(QStringLiteral("account"))) {
