@@ -54,6 +54,8 @@ PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo PersonalAccessToken
 
 void PersonalAccessTokenAuthenticationConfigWidget::setInfo(const PersonalAccessTokenPluginUtil::PersonalAccessTokenPluginInfo &info)
 {
+    // We can't change server name
+    mServerNameLineEdit->setReadOnly(true);
     mPersonalAccessTokenLineEdit->setText(info.token);
     mUserLineEdit->setText(info.userId);
     mAccountNameLineEdit->setText(info.accountName);
