@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfo
 {
@@ -52,8 +52,8 @@ public:
 
     [[nodiscard]] bool operator==(const VideoConferenceInfo &other) const;
 
-    [[nodiscard]] QVector<User> users() const;
-    void setUsers(const QVector<User> &newUsers);
+    [[nodiscard]] QList<User> users() const;
+    void setUsers(const QList<User> &newUsers);
 
     [[nodiscard]] QString statusInformation() const;
 
@@ -76,7 +76,7 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
-    QVector<User> mUsers;
+    QList<User> mUsers;
     QString mBlockId;
     QString mUrl;
     QString mRoomId;

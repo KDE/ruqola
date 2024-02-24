@@ -46,12 +46,12 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QVector<TeamRoom> TeamRoomsModel::teamRooms() const
+QList<TeamRoom> TeamRoomsModel::teamRooms() const
 {
     return mTeamRooms;
 }
 
-void TeamRoomsModel::setTeamRooms(const QVector<TeamRoom> &teamRooms)
+void TeamRoomsModel::setTeamRooms(const QList<TeamRoom> &teamRooms)
 {
     if (!mTeamRooms.isEmpty()) {
         beginResetModel();
@@ -79,7 +79,7 @@ void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
     }
 }
 
-void TeamRoomsModel::insertRooms(const QVector<TeamRoom> &teamRooms)
+void TeamRoomsModel::insertRooms(const QList<TeamRoom> &teamRooms)
 {
     const int count = mTeamRooms.count();
     beginInsertRows(QModelIndex(), count, count + teamRooms.count() - 1);

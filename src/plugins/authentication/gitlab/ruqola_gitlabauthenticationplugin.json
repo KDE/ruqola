@@ -1,6 +1,5 @@
 {
     "KPlugin": {
-        "Id": "gitlabauthenticationplugin",
         "Name": "GitLab Authentication Plugin",
         "Name[ca@valencia]": "Connector d'autenticació de GitLab",
         "Name[ca]": "Connector d'autenticació de GitLab",

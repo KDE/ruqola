@@ -80,8 +80,6 @@ public:
     void setBlockDeletingMessageInMinutes(int minutes);
     [[nodiscard]] int blockDeletingMessageInMinutes() const;
 
-    [[nodiscard]] bool needAdaptNewSubscriptionRC60() const;
-
     void setServerVersion(const QString &version);
     [[nodiscard]] QString serverVersion() const;
 
@@ -198,9 +196,17 @@ public:
     [[nodiscard]] int embedCacheExpirationDays() const;
     void setEmbedCacheExpirationDays(int newEmbedCacheExpirationDays);
 
+    [[nodiscard]] QString accountsDefaultUserPreferencesDesktopNotifications() const;
+    void setAccountsDefaultUserPreferencesDesktopNotifications(const QString &newAccountsDefaultUserPreferencesDesktopNotifications);
+
+    [[nodiscard]] QString accountsDefaultUserPreferencesPushNotifications() const;
+    void setAccountsDefaultUserPreferencesPushNotifications(const QString &newAccountsDefaultUserPreferencesPushNotifications);
+
+    [[nodiscard]] bool allowEmailNotifications() const;
+    void setAllowEmailNotifications(bool newAllowEmailNotifications);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
-    LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
     LIBRUQOLACORE_NO_EXPORT void loadSettings(const QJsonObject &currentConfObject);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QJsonObject createJsonObject(const QString &identifier, const QString &value);
@@ -221,6 +227,8 @@ private:
     QString mAutoTranslateGoogleKey;
     QString mChannelNameValidation;
     QString mUserNameValidation;
+    QString mAccountsDefaultUserPreferencesDesktopNotifications;
+    QString mAccountsDefaultUserPreferencesPushNotifications;
     AuthenticationManager::AuthMethodTypes mServerAuthTypes = AuthenticationManager::AuthMethodType::Unknown;
     AuthenticationManager::AuthMethodTypes mRuqolaAuthMethodTypes = AuthenticationManager::AuthMethodType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
@@ -230,7 +238,6 @@ private:
     int mServerVersionPatch = -1;
     qint64 mFileMaxFileSize = -1;
 
-    bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mMessageAllowConvertLongMessagesToAttachment = false;
     bool mUIUseRealName = false;
 
@@ -255,6 +262,7 @@ private:
     bool mDeviceManagementAllowLoginEmailpreference = false;
     bool mAllowCustomStatusMessage = false;
     bool mPreviewEmbed = false;
+    bool mAllowEmailNotifications = true; // Default true
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);

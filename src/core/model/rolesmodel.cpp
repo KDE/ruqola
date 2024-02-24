@@ -26,7 +26,7 @@ void RolesModel::createItem(const QString &displayStr, const QString &identifier
     appendRow(item);
 }
 
-void RolesModel::setRoles(const QVector<RoleInfo> &newRoles)
+void RolesModel::setRoles(const QList<RoleInfo> &newRoles)
 {
     auto item = new QStandardItem(i18n("Roles"));
     item->setSelectable(false);

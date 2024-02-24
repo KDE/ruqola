@@ -9,6 +9,8 @@
 #include "administratoroautheditdialog.h"
 #include "connection.h"
 #include "misc/oauthappscreatejob.h"
+#include "misc/oauthappsdeletejob.h"
+#include "misc/oauthappsupdatejob.h"
 #include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -66,7 +68,20 @@ void OauthTreeView::removeClicked(const QString &identifier)
                                            i18nc("@title:window", "Remove OAuth"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
-        Q_EMIT removeOauth(identifier);
+        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+            auto job = new RocketChatRestApi::OauthAppsDeleteJob(this);
+            job->setIdentifier(identifier);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::OauthAppsDeleteJob::oauthAppsDeleteDone, this, [this, identifier]() {
+                Q_EMIT removeOauth(identifier);
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsDeleteJob job";
+            }
+        } else {
+            mRocketChatAccount->ddp()->deleteOAuthApp(identifier);
+            Q_EMIT removeOauth(identifier);
+        }
     }
 }
 
@@ -81,7 +96,7 @@ void OauthTreeView::addClicked()
             oauthInfo.redirectUri = info.redirectUrl;
             oauthInfo.name = info.applicationName;
             auto job = new RocketChatRestApi::OauthAppsCreateJob(this);
-            job->setOauthAppsCreateInfo(oauthInfo);
+            job->setOauthAppsCreateInfo(std::move(oauthInfo));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::OauthAppsCreateJob::oauthAppsCreateDone, this, &OauthTreeView::oauthAdded);
             if (!job->start()) {
@@ -99,7 +114,8 @@ void OauthTreeView::editClicked(const QModelIndex &index)
     if (index.isValid()) {
         QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
         AdministratorOauthEditWidget::OauthEditInfo info;
-        info.applicationName = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
+        info.applicationName = model()->index(index.row(), AdminOauthModel::Name).data().toString();
+        const QString applicationId = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
         info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
         info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
         info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
@@ -110,7 +126,22 @@ void OauthTreeView::editClicked(const QModelIndex &index)
         if (dlg->exec()) {
             info = dlg->oauthInfo();
             if (info.isValid()) {
-                mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+                if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+                    RocketChatRestApi::OauthAppsUpdateJob::OauthAppsUpdateInfo oauthInfo;
+                    oauthInfo.active = info.active;
+                    oauthInfo.redirectUri = info.redirectUrl;
+                    oauthInfo.name = info.applicationName;
+                    oauthInfo.appId = applicationId;
+                    auto job = new RocketChatRestApi::OauthAppsUpdateJob(this);
+                    job->setOauthAppsUpdateInfo(std::move(oauthInfo));
+                    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                    connect(job, &RocketChatRestApi::OauthAppsUpdateJob::oauthAppsUpdateDone, this, &OauthTreeView::oauthUpdated);
+                    if (!job->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsUpdateJob job";
+                    }
+                } else {
+                    mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+                }
             }
         }
         delete dlg;

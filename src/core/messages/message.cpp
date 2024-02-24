@@ -305,12 +305,12 @@ void Message::parseChannels(const QJsonArray &channels)
     }
 }
 
-QVector<Block> Message::blocks() const
+QList<Block> Message::blocks() const
 {
     return mBlocks;
 }
 
-void Message::setBlocks(const QVector<Block> &newBlocks)
+void Message::setBlocks(const QList<Block> &newBlocks)
 {
     mBlocks = newBlocks;
 }
@@ -635,22 +635,22 @@ void Message::setMessageType(MessageType messageType)
     mMessageType = messageType;
 }
 
-QVector<MessageAttachment> Message::attachments() const
+QList<MessageAttachment> Message::attachments() const
 {
     return mAttachments;
 }
 
-void Message::setAttachments(const QVector<MessageAttachment> &attachments)
+void Message::setAttachments(const QList<MessageAttachment> &attachments)
 {
     mAttachments = attachments;
 }
 
-QVector<MessageUrl> Message::urls() const
+QList<MessageUrl> Message::urls() const
 {
     return mUrls;
 }
 
-void Message::setUrls(const QVector<MessageUrl> &urls)
+void Message::setUrls(const QList<MessageUrl> &urls)
 {
     mUrls = urls;
 }

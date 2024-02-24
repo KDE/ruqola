@@ -41,6 +41,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -49,6 +50,7 @@ void MessageUrlTest::shouldSerializeData()
         MessageUrl input;
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -57,6 +59,7 @@ void MessageUrlTest::shouldSerializeData()
         MessageUrl input;
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -66,6 +69,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -76,6 +80,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setDescription(QStringLiteral("foo3"));
         input.setImageUrl(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("foo5"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -87,6 +92,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setImageUrl(QStringLiteral("foo4"));
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -99,6 +105,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorName(QStringLiteral("foo5"));
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -112,6 +119,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setAuthorUrl(QStringLiteral("foo6"));
         input.setSiteUrl(QStringLiteral("foo7"));
         input.setImageHeight(8);
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -126,6 +134,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setSiteUrl(QStringLiteral("foo7"));
         input.setImageHeight(8);
         input.setImageWidth(32);
+        input.generateMessageUrlInfo();
         const QJsonObject ba = MessageUrl::serialize(input);
         const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
@@ -149,8 +158,8 @@ void MessageUrlTest::shouldGenerateHtmlDescription()
 {
     QFETCH(MessageUrl, messageUrl);
     QFETCH(QString, htmlDescription);
-    messageUrl.generateHtmlDescription();
-    qDebug() << " messageUrl.htmlDescription()" << messageUrl.htmlDescription();
+    messageUrl.generateMessageUrlInfo();
+    // qDebug() << " messageUrl.htmlDescription()" << messageUrl.htmlDescription();
     QCOMPARE(messageUrl.htmlDescription(), htmlDescription);
 }
 
@@ -228,6 +237,41 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
                    "[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
                    "3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
                    "cutting-edge spatial intelligence applications");
+    }
+}
+
+void MessageUrlTest::shouldGenerateBuildImageUrl()
+{
+    QFETCH(MessageUrl, messageUrl);
+    QFETCH(QString, buildImageUrl);
+    QCOMPARE(messageUrl.buildImageUrl(), buildImageUrl);
+}
+
+void MessageUrlTest::shouldGenerateBuildImageUrl_data()
+{
+    QTest::addColumn<MessageUrl>("messageUrl");
+    QTest::addColumn<QString>("buildImageUrl");
+    {
+        MessageUrl url;
+        url.setUrl(QStringLiteral("http://bla"));
+        url.setImageUrl(QStringLiteral("/foo/bla.png"));
+        url.generateMessageUrlInfo();
+
+        QTest::newRow("test1") << url << QStringLiteral("http://bla/foo/bla.png");
+    }
+    {
+        MessageUrl url;
+        url.setUrl(QStringLiteral("http://bla"));
+        url.setImageUrl(QStringLiteral("http://www.kde.org/foo/bla.png"));
+        url.generateMessageUrlInfo();
+
+        QTest::newRow("test2") << url << QStringLiteral("http://www.kde.org/foo/bla.png");
+    }
+    {
+        MessageUrl url;
+        url.generateMessageUrlInfo();
+
+        QTest::newRow("test3") << url << QString();
     }
 }
 

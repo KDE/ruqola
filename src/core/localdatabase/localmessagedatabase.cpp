@@ -87,19 +87,19 @@ QString LocalMessageDatabase::generateQueryStr(qint64 startId, qint64 endId, qin
     return query;
 }
 
-QVector<Message>
+QList<Message>
 LocalMessageDatabase::loadMessages(RocketChatAccount *account, const QString &_roomName, qint64 startId, qint64 endId, qint64 numberElements) const
 {
     Q_ASSERT(account);
     return loadMessages(account->accountName(), _roomName, startId, endId, numberElements, account->emojiManager());
 }
 
-QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
-                                                    const QString &_roomName,
-                                                    qint64 startId,
-                                                    qint64 endId,
-                                                    qint64 numberElements,
-                                                    EmojiManager *emojiManager) const
+QList<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
+                                                  const QString &_roomName,
+                                                  qint64 startId,
+                                                  qint64 endId,
+                                                  qint64 numberElements,
+                                                  EmojiManager *emojiManager) const
 {
 #if 0
     SELECT id, nom, email
@@ -150,7 +150,7 @@ QVector<Message> LocalMessageDatabase::loadMessages(const QString &accountName,
         return {};
     }
 
-    QVector<Message> listMessages;
+    QList<Message> listMessages;
     while (resultQuery.next()) {
         const QString json = resultQuery.value(QStringLiteral("json")).toString();
         listMessages.append(convertJsonToMessage(json, emojiManager));

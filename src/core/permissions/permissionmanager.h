@@ -29,7 +29,7 @@ public:
     [[nodiscard]] const Permission permission(const QString &permissionId) const;
 
     // Only for debugging permissions. (debug mode)
-    [[nodiscard]] QVector<Permission> permissions() const;
+    [[nodiscard]] QList<Permission> permissions() const;
 
 private:
     [[nodiscard]] bool storePermission(const QString &id);

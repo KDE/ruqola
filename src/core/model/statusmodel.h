@@ -48,7 +48,7 @@ public:
     [[nodiscard]] QString customText() const;
     void setCustomText(const QString &customText);
 
-    void updateCustomStatus(const QVector<CustomUserStatus> &customUserStatuses);
+    void updateCustomStatus(const QList<CustomUserStatus> &customUserStatuses);
 
 Q_SIGNALS:
     void currentStatusChanged();
@@ -66,7 +66,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
     Q_DISABLE_COPY(StatusModel)
     LIBRUQOLACORE_NO_EXPORT void fillModel();
-    QVector<DisplayStatusInfo> mStatusList;
+    QList<DisplayStatusInfo> mStatusList;
     QString mCustomText;
     int mCurrentStatus = 0;
 };

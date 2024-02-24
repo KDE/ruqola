@@ -7,10 +7,10 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QList>
 #include <QMap>
 #include <QString>
 #include <QStringList>
-#include <QVector>
 
 class EmojiManager;
 class Message;
@@ -21,7 +21,7 @@ namespace TextConverter
 struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     ConvertMessageTextSettings(const QString &_str,
                                const QString &_userName,
-                               const QVector<Message> &_allMessages,
+                               const QList<Message> &_allMessages,
                                const QStringList &_highlightWords,
                                EmojiManager *_emojiManager,
                                MessageCache *_messageCache,
@@ -43,7 +43,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     }
     const QString str;
     const QString userName;
-    const QVector<Message> allMessages;
+    const QList<Message> allMessages;
     const QStringList highlightWords;
     EmojiManager *const emojiManager;
     MessageCache *const messageCache;

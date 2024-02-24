@@ -26,9 +26,9 @@
 
 #include <QAction>
 #include <QContextMenuEvent>
+#include <QList>
 #include <QMenu>
 #include <QPointer>
-#include <QVector>
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QTreeView(parent)
@@ -44,7 +44,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     setModel(mRoomFilterProxyModel);
     setHeaderHidden(true);
     setRootIsDecorated(false);
-    setUniformRowHeights(true);
+    // setUniformRowHeights(true);
     setItemsExpandable(false);
     setIndentation(0);
 
@@ -66,11 +66,13 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     }
     mCurrentRocketChatAccount = currentRocketChatAccount;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
-    mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, [this]() {
+    mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this]() {
         filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
+        mChannelListDelegate->setListDisplay(mCurrentRocketChatAccount->roomListDisplay());
     });
     filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
+    mChannelListDelegate->setListDisplay(mCurrentRocketChatAccount->roomListDisplay());
     mRoomListHeadingsProxyModel->setSourceModel(currentRocketChatAccount->roomModel());
 }
 
@@ -253,7 +255,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
     job->setTeamId(teamId);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, index](const QJsonObject &obj) {
-        const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+        const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
         QStringList listRoomIdToDelete;
         if (!teamRooms.isEmpty()) {
             QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);

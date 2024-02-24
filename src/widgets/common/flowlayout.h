@@ -6,7 +6,7 @@
 #pragma once
 #include "libruqolawidgets_export.h"
 #include <QLayout>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLAWIDGETS_EXPORT FlowLayout : public QLayout
 {
@@ -41,7 +41,7 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT int doFlow(QRect rect, bool effective) const;
-    QVector<QLayoutItem *> mItems;
+    QList<QLayoutItem *> mItems;
     int mHorizontalSpacing = -1;
     int mVerticalSpacing = -1;
 };

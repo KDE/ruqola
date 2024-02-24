@@ -52,7 +52,6 @@
 
 #include "channelcounterinfo.h"
 #include "connection.h"
-#include "ddpapi/ddpclient.h"
 #include "directmessage/opendmjob.h"
 #include "discussions/discussions.h"
 #include "emoji/loademojicustomjob.h"
@@ -70,7 +69,6 @@
 #include "videoconference/videoconferencemanager.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
-#include "channelgroupbasejob.h"
 #include <KLocalizedString>
 #include <KNotification>
 #include <QDesktopServices>
@@ -1021,7 +1019,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
 
 void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
-    const QVector<User> users = User::parseUsersList(obj, roleInfo());
+    const QList<User> users = User::parseUsersList(obj, roleInfo());
     mUserCompleterModel->addUsers(users);
 }
 
@@ -1173,8 +1171,11 @@ void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
         User user;
         user.parseUser(userListArguments);
         if (user.isValid()) {
-            userStatusChanged(user);
-            // qDebug() << " user status changed " << user;
+            // userStatusChanged(user);
+            if (user.userId() != userId()) {
+                mUserModel->addUser(user);
+                mRoomModel->userStatusChanged(user);
+            }
         }
     }
 }
@@ -1371,10 +1372,15 @@ void RocketChatAccount::parsePublicSettings()
 
 void RocketChatAccount::fillAuthenticationModel()
 {
-    QVector<AuthenticationInfo> fillModel;
+    QList<AuthenticationInfo> fillModel;
     // qDebug() << " before " << mLstInfos;
     for (int i = 0, total = mAuthenticationMethodInfos.count(); i < total; ++i) {
-        if (mRuqolaServerConfig->canShowAuthMethod(mAuthenticationMethodInfos.at(i).oauthType())) {
+        if (mRuqolaServerConfig->canShowAuthMethod(mAuthenticationMethodInfos.at(i).oauthType())
+        // Reactivate it we will want to show PersonalAccessToken
+#if USE_PERSONAL_ACCESS_TOKEN
+            || (mAuthenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)
+#endif
+        ) {
             fillModel.append(mAuthenticationMethodInfos.at(i));
         }
     }
@@ -1387,7 +1393,7 @@ void RocketChatAccount::changeDefaultAuthentication(int index)
     setDefaultAuthentication(mAccountAvailableAuthenticationMethodInfos.at(index).oauthType());
 }
 
-QVector<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
+QList<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
 {
     return mAccountAvailableAuthenticationMethodInfos;
 }
@@ -1416,7 +1422,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 {
     // TODO change it when we change server
     // Clean up at the end.
-    const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
+    const QList<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
@@ -1430,22 +1436,22 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         AuthenticationInfo info;
         info.setIconName(abstractPlugin->iconName());
         info.setName(abstractPlugin->name());
-        info.setOauthType(abstractPlugin->type());
+        info.setOauthType(abstractPlugin->authenticationType());
         if (info.isValid()) {
             mAuthenticationMethodInfos.append(std::move(info));
         }
 
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
         interface->setAccount(this);
-        mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
-        mLstPluginAuthenticationInterface.insert(abstractPlugin->type(), interface);
+        mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->authenticationType());
+        mLstPluginAuthenticationInterface.insert(abstractPlugin->authenticationType(), interface);
         // For the moment initialize default interface
-        if (abstractPlugin->type() == AuthenticationManager::AuthMethodType::Password) {
+        if (abstractPlugin->authenticationType() == AuthenticationManager::AuthMethodType::Password) {
             mDefaultAuthenticationInterface = interface;
         }
-        qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->type();
+        qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->authenticationType();
     }
-    // TODO fill ??? or store QVector<AuthenticationInfo>
+    // TODO fill ??? or store QList<AuthenticationInfo>
 }
 
 PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
@@ -1508,7 +1514,7 @@ void RocketChatAccount::permissionUpdated(const QJsonArray &replyArray)
     // QJsonObject({"args":["updated",{"_id":"access-mailer","_updatedAt":{"$date":1634569746270},"roles":["admin","vFXCWG9trXLti6xQm"]}],"eventName":"permissions-changed"})
 }
 
-const QVector<RoleInfo> &RocketChatAccount::roleInfo() const
+const QList<RoleInfo> &RocketChatAccount::roleInfo() const
 {
     return mRolesManager.roleInfo();
 }
@@ -1516,6 +1522,30 @@ const QVector<RoleInfo> &RocketChatAccount::roleInfo() const
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
     mCustomSoundManager->deleteCustomSounds(replyArray);
+}
+
+void RocketChatAccount::changeUserPresences(const QJsonArray &contents)
+{
+    const auto count{contents.count()};
+    for (auto i = 0; i < count; ++i) {
+        const QJsonArray array = contents.at(i).toArray();
+        User user;
+        user.parseUserPresence(array);
+        user.setUserId(userId());
+        if (user.isValid()) {
+            userStatusChanged(user);
+        }
+    }
+}
+
+AuthenticationManager::AuthMethodType RocketChatAccount::authMethodType() const
+{
+    return settings()->authMethodType();
+}
+
+void RocketChatAccount::setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType)
+{
+    settings()->setAuthMethodType(newAuthMethodType);
 }
 
 void RocketChatAccount::updateRoles(const QJsonArray &contents)
@@ -1720,11 +1750,6 @@ QString RocketChatAccount::serverVersion() const
     return mRuqolaServerConfig->serverVersion();
 }
 
-bool RocketChatAccount::needAdaptNewSubscriptionRC60() const
-{
-    return mRuqolaServerConfig->needAdaptNewSubscriptionRC60();
-}
-
 bool RocketChatAccount::otrEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
@@ -1876,6 +1901,27 @@ bool RocketChatAccount::sortFavoriteChannels() const
     return ownUser().ownUserPreferences().showFavorite();
 }
 
+void RocketChatAccount::setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay)
+{
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.userId = userId();
+    switch (roomListDisplay) {
+    case OwnUserPreferences::RoomListDisplay::Medium:
+        info.sidebarViewMode = QStringLiteral("medium");
+        break;
+    case OwnUserPreferences::RoomListDisplay::Condensed:
+        info.sidebarViewMode = QStringLiteral("condensed");
+        break;
+    case OwnUserPreferences::RoomListDisplay::Extended:
+        info.sidebarViewMode = QStringLiteral("extended");
+        break;
+    case OwnUserPreferences::RoomListDisplay::Unknown:
+        qCWarning(RUQOLA_LOG) << " OwnUserPreferences::setRoomListDisplay::Unknown is a bug";
+        return;
+    }
+    setUserPreferences(std::move(info));
+}
+
 void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder)
 {
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
@@ -1897,6 +1943,11 @@ void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrd
 OwnUserPreferences::RoomListSortOrder RocketChatAccount::roomListSortOrder() const
 {
     return ownUser().ownUserPreferences().roomListSortOrder();
+}
+
+OwnUserPreferences::RoomListDisplay RocketChatAccount::roomListDisplay() const
+{
+    return ownUser().ownUserPreferences().roomListDisplay();
 }
 
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
@@ -2072,7 +2123,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 
     NotificationInfo info;
     info.setAccountName(accountName());
-    info.setDateTime(QDateTime::currentDateTime().toString());
+    info.setDateTime(QLocale().toString(QDateTime::currentDateTime()));
     info.parseNotification(contents);
     if (!info.isValid()) {
         qCWarning(RUQOLA_LOG) << " Info is invalid ! " << contents;
@@ -2282,10 +2333,7 @@ void RocketChatAccount::followMessage(const QString &messageId, bool follow)
 void RocketChatAccount::getSupportedLanguages()
 {
     if (autoTranslateEnabled()) {
-        bool needTargetLanguage = false;
-        if (ruqolaServerConfig()->hasAtLeastVersion(5, 1, 0)) {
-            needTargetLanguage = true;
-        }
+        const bool needTargetLanguage = true;
         auto job = new RocketChatRestApi::GetSupportedLanguagesJob(this);
         job->setNeedTargetLanguage(needTargetLanguage);
         restApi()->initializeRestApiJob(job);
@@ -2370,9 +2418,7 @@ void RocketChatAccount::initializeAccount()
     ddp()->listCustomSounds();
     customUsersStatus();
     slotLoadRoles();
-    if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
-        checkLicenses();
-    }
+    checkLicenses();
 
     Q_EMIT accountInitialized();
 }
@@ -2566,7 +2612,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     downloadAppsLanguages();
     Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
-    Q_EMIT ownUserPreferencesChanged();
+    Q_EMIT ownUserUiPreferencesChanged();
 }
 
 bool RocketChatAccount::isAdministrator() const
@@ -2665,19 +2711,30 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QLatin1String("settings.preferences.sidebarViewMode")) { // Channel List view mode
-                // TODO
+                const QString value = updateJson.value(key).toString();
+                if (value == QLatin1String("medium")) {
+                    ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
+                } else if (value == QLatin1String("condensed")) {
+                    ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
+                } else if (value == QLatin1String("extended")) {
+                    ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
+                } else {
+                    qCWarning(RUQOLA_LOG) << "RoomListDisplay is not defined ?  " << value;
+                }
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarShowFavorites")) {
                 ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT ownUserPreferencesChanged();
+                Q_EMIT ownUserUiPreferencesChanged();
             } else if (key == QLatin1String("settings.preferences.sidebarSortby")) {
                 const QString value = updateJson.value(key).toString();
                 if (value == QLatin1String("activity")) {
@@ -2687,6 +2744,18 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 } else {
                     qCWarning(RUQOLA_LOG) << "Sortby is not defined ?  " << value;
                 }
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserUiPreferencesChanged();
+            } else if (key == QLatin1String("settings.preferences.desktopNotifications")) {
+                ownUserPreferences.setDesktopNotifications(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
+            } else if (key == QLatin1String("settings.preferences.pushNotifications")) {
+                ownUserPreferences.setPushNotifications(updateJson.value(key).toString());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT ownUserPreferencesChanged();
+            } else if (key == QLatin1String("settings.preferences.emailNotificationMode")) {
+                ownUserPreferences.setEmailNotificationMode(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else {
@@ -2845,7 +2914,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
-        Q_EMIT ownUserPreferencesChanged();
+        Q_EMIT ownUserUiPreferencesChanged();
     }
 }
 
@@ -2961,7 +3030,7 @@ void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const
 }
 
 // Only for debugging permissions. (debug mode)
-QVector<Permission> RocketChatAccount::permissions() const
+QList<Permission> RocketChatAccount::permissions() const
 {
     return mPermissionManager.permissions();
 }

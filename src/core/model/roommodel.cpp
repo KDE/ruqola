@@ -21,7 +21,7 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
 {
-    connect(account, &RocketChatAccount::ownUserPreferencesChanged, this, [this] {
+    connect(account, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this] {
         Q_EMIT dataChanged(index(0), index(rowCount() - 1), {RoomRoles::RoomSection});
     });
 }
@@ -41,11 +41,11 @@ void RoomModel::clear()
     }
 }
 
-QVector<Room *> RoomModel::findRoomNameConstains(const QString &str) const
+QList<Room *> RoomModel::findRoomNameConstains(const QString &str) const
 {
-    QVector<Room *> rooms;
+    QList<Room *> rooms;
     for (Room *r : std::as_const(mRoomsList)) {
-        if (r->displayRoomName().contains(str)) {
+        if (r->displayRoomName().contains(str, Qt::CaseInsensitive)) {
             rooms.append(r);
         }
     }
@@ -155,8 +155,16 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return userOffline(r);
     case RoomModel::HideBadgeForMention:
         return r->hideBadgeForMention();
+    case RoomModel::RoomGroupMentions:
+        return r->groupMentions();
+    case RoomModel::RoomThreadUnread:
+        return r->threadUnread().count();
     case Qt::ToolTipRole:
         return generateToolTip(r);
+    case RoomModel::RoomUnreadToolTip:
+        return generateUnreadToolTip(r);
+    case RoomModel::RoomMentionsInfoType:
+        return QVariant::fromValue(mentionsInfoType(r));
     }
     return {};
 }
@@ -457,6 +465,46 @@ bool RoomModel::userOffline(Room *r) const
         return mRocketChatAccount ? mRocketChatAccount->userIsOffline(r->name()) : false;
     }
     return false;
+}
+
+QString RoomModel::generateUnreadToolTip(Room *r) const
+{
+    QStringList toolTipStr;
+    const int userMentions = r->userMentions();
+    if (userMentions > 0) {
+        toolTipStr.append(i18np("%1 Mention", "%1 Mentions", userMentions));
+    }
+    const int groupMentions = r->groupMentions();
+    if (groupMentions > 0) {
+        toolTipStr.append(i18np("%1 Group Mention", "%1 Group Mentions", groupMentions));
+    }
+    const int threadUnread = r->threadUnread().count();
+    if (threadUnread > 0) {
+        toolTipStr.append(i18np("%1 Unread Threaded Message", "%1 Unread Threaded Messages", threadUnread));
+    }
+    const int count = r->unread() - userMentions - groupMentions;
+    if (count > 0) {
+        toolTipStr.append(i18np("%1 Unread Message", "%1 Unread Messages", count));
+    }
+
+    return toolTipStr.join(QLatin1String(", "));
+}
+
+RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r) const
+{
+    const int userMentions = r->userMentions();
+    if (userMentions > 0 /* TODO || tunreadUser > 0*/) {
+        return MentionsInfoType::Important;
+    }
+    const int threadUnread = r->threadUnread().count();
+    if (threadUnread > 0) {
+        return MentionsInfoType::Information;
+    }
+    const int groupMentions = r->groupMentions();
+    if (groupMentions > 0) {
+        return MentionsInfoType::Warning;
+    }
+    return MentionsInfoType::Normal;
 }
 
 QString RoomModel::generateToolTip(Room *r) const

@@ -15,6 +15,12 @@ GitHubAuthenticationInterface::GitHubAuthenticationInterface(QObject *parent)
 
 GitHubAuthenticationInterface::~GitHubAuthenticationInterface() = default;
 
+PluginAuthenticationConfigureWidget *GitHubAuthenticationInterface::configureWidget(QWidget *parent)
+{
+    Q_UNUSED(parent);
+    return nullptr;
+}
+
 void GitHubAuthenticationInterface::login()
 {
     auto job = new GitHubAuthenticationJob(this);

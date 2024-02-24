@@ -18,7 +18,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerCheckUrlWidget : public QWidg
 public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfo {
         QString url;
-        QVector<AuthenticationInfo> authenticationInfos;
+        QList<AuthenticationInfo> authenticationInfos;
         bool canResetPassword = false;
         bool canRegisterAccount = false;
     };

@@ -28,11 +28,11 @@ public:
     void clear();
     [[nodiscard]] int count() const;
     [[nodiscard]] Message at(int index) const;
-    [[nodiscard]] QVector<Message> listMessages() const;
+    [[nodiscard]] QList<Message> listMessages() const;
 
 protected:
     virtual void parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName);
-    QVector<Message> mListMessages;
+    QList<Message> mListMessages;
 
 private:
     void parseListInfo(const QJsonObject &messagesObj);

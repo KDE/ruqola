@@ -9,8 +9,8 @@
 #include "deviceinfo.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
+#include <QList>
 #include <QString>
-#include <QVector>
 
 class LIBRUQOLACORE_EXPORT DeviceInfos
 {
@@ -26,8 +26,8 @@ public:
     [[nodiscard]] int deviceInfosCount() const;
     void setDeviceInfosCount(int newDeviceInfosCount);
 
-    [[nodiscard]] const QVector<DeviceInfo> &deviceInfosList() const;
-    void setDeviceInfosList(const QVector<DeviceInfo> &newDeviceInfosList);
+    [[nodiscard]] const QList<DeviceInfo> &deviceInfosList() const;
+    void setDeviceInfosList(const QList<DeviceInfo> &newDeviceInfosList);
 
     [[nodiscard]] bool isEmpty() const;
     void clear();
@@ -41,7 +41,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseDeviceInfosObj(const QJsonObject &discussionsObj);
-    QVector<DeviceInfo> mDeviceInfosList;
+    QList<DeviceInfo> mDeviceInfosList;
     int mDeviceInfosCount = 0;
     int mOffset = 0;
     int mTotal = 0;

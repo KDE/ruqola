@@ -53,7 +53,7 @@ int AdminInviteModel::columnCount(const QModelIndex &parent) const
     return val;
 }
 
-const QVector<InviteInfo> &AdminInviteModel::adminInvites() const
+const QList<InviteInfo> &AdminInviteModel::adminInvites() const
 {
     return mAdminInvites;
 }
@@ -67,7 +67,7 @@ void AdminInviteModel::clear()
     }
 }
 
-void AdminInviteModel::setAdminInvites(const QVector<InviteInfo> &newAdminInvites)
+void AdminInviteModel::setAdminInvites(const QList<InviteInfo> &newAdminInvites)
 {
     clear();
     if (!newAdminInvites.isEmpty()) {

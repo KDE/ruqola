@@ -58,7 +58,7 @@ void ExplorePermissionsWidget::slotFilterTextChanged(const QString &str)
     mPermissionFilterProxyModel->setFilterString(str);
 }
 
-void ExplorePermissionsWidget::setPermissions(const QVector<Permission> &permissions)
+void ExplorePermissionsWidget::setPermissions(const QList<Permission> &permissions)
 {
     Permissions perms;
     perms.setPermissions(permissions);
@@ -68,7 +68,7 @@ void ExplorePermissionsWidget::setPermissions(const QVector<Permission> &permiss
 
 void ExplorePermissionsWidget::setOWnRoles(const QStringList &roleStr)
 {
-    mOwnRoles->setText(QStringLiteral("<qt><b>Own Roles:</b> %1</qt>").arg(roleStr.join(QLatin1Char(','))));
+    mOwnRoles->setText(QStringLiteral("<qt><b>%1</b> %2</qt>").arg(i18n("Own Roles:"), roleStr.join(QLatin1Char(','))));
 }
 
 #include "moc_explorepermissionswidget.cpp"

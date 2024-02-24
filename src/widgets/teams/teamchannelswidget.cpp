@@ -96,7 +96,7 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     mTeamRoomsModel->setTeamRooms(std::move(teamRooms));
 }
 
@@ -204,7 +204,7 @@ void TeamChannelsWidget::slotAddExistingRoom()
 void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     if (!teamRooms.isEmpty()) {
         mTeamRoomsModel->insertRooms(teamRooms);
     }

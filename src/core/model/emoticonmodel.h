@@ -36,16 +36,16 @@ public:
 
     void setUnicodeEmoticons(const QList<TextEmoticonsCore::UnicodeEmoticon> &emoticons);
 
-    [[nodiscard]] const QVector<CustomEmoji> &customEmojiList() const;
-    void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
+    [[nodiscard]] const QList<CustomEmoji> &customEmojiList() const;
+    void setCustomEmojiList(const QList<CustomEmoji> &newCustomEmojiList);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon createCustomIcon(const QString &name) const;
     QList<TextEmoticonsCore::UnicodeEmoticon> mEmoticons;
-    QVector<CustomEmoji> mCustomEmojiList;
+    QList<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list
-    QVector<QPair<int, int>> mUnicodeRows;
-    QVector<QPair<int, int>> mCustomRows;
+    QList<QPair<int, int>> mUnicodeRows;
+    QList<QPair<int, int>> mCustomRows;
     RocketChatAccount *const mRocketChatAccount;
 };

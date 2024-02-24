@@ -9,8 +9,8 @@
 #include "libruqolacore_export.h"
 #include "moderationinfo.h"
 #include <QDebug>
+#include <QList>
 #include <QString>
-#include <QVector>
 
 class LIBRUQOLACORE_EXPORT ModerationInfos
 {
@@ -28,8 +28,8 @@ public:
     [[nodiscard]] int moderationInfosCount() const;
     void setModerationInfosCount(int newModerationInfosCount);
 
-    [[nodiscard]] const QVector<ModerationInfo> &moderationInfosList() const;
-    void setModerationInfosList(const QVector<ModerationInfo> &newModerationInfosList);
+    [[nodiscard]] const QList<ModerationInfo> &moderationInfosList() const;
+    void setModerationInfosList(const QList<ModerationInfo> &newModerationInfosList);
 
     [[nodiscard]] bool isEmpty() const;
     [[nodiscard]] int count() const;
@@ -42,7 +42,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseModerationInfosObj(const QJsonObject &moderationInfosObj);
-    QVector<ModerationInfo> mModerationInfosList;
+    QList<ModerationInfo> mModerationInfosList;
     int mModerationInfosCount = 0;
     int mOffset = 0;
     int mTotal = 0;

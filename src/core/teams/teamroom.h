@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT TeamRoom
 {
@@ -30,7 +30,7 @@ public:
 
     [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &identifier);
-    [[nodiscard]] static QVector<TeamRoom> parseTeamRooms(const QJsonObject &obj);
+    [[nodiscard]] static QList<TeamRoom> parseTeamRooms(const QJsonObject &obj);
 
 private:
     QString mName;

@@ -38,7 +38,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void setFiles(const QVector<File> &files);
+    void setFiles(const QList<File> &files);
 
     FileAttachments *fileAttachments() const;
 

@@ -20,7 +20,6 @@ public:
         Video = 3,
         PreviewUrl = 4,
     };
-    ManagerDataPaths();
     static ManagerDataPaths *self();
 
     [[nodiscard]] QString path(PathType type, const QString &accountName, const QString &subdirectory = QString()) const;
@@ -29,6 +28,7 @@ public:
     [[nodiscard]] QString accountAvatarConfigPath(const QString &accountName) const;
 
 private:
+    ManagerDataPaths();
     LIBRUQOLACORE_NO_EXPORT void initializePaths();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString accountConfigPath(const QString &accountName) const;
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;

@@ -316,6 +316,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsGet), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.get")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.create")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.update")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.delete")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsOauth), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsAddCustomOauth), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.addCustomOAuth")));
@@ -324,6 +326,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.maxActiveUsers")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesAdd), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.add")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesIsEntreprise), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.isEnterprise")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/licenses.info")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::BannersDismiss), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners.dismiss")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Banners), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners")));
@@ -360,6 +363,7 @@ void RestApiMethodTest::shouldGenerateUrl()
              QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.deleteReportedMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationReports), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reports")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ModerationReportInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reportInfo")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsNameExists), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.nameExists")));
 }
 
 #include "moc_restapimethodtest.cpp"

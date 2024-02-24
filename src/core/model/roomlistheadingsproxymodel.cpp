@@ -208,7 +208,7 @@ void RoomListHeadingsProxyModel::onRowsAboutToBeRemoved(const QModelIndex &paren
     }
 }
 
-void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QList<int> &roles)
 {
     for (auto row = topLeft.row(), last = bottomRight.row(); row <= last; ++row) {
         const auto sourceIndex = topLeft.siblingAtRow(row);

@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServersComboBox : public QComboBox
@@ -15,7 +16,7 @@ public:
     explicit ServersComboBox(QWidget *parent = nullptr);
     ~ServersComboBox() override;
 
-    void addServerList(const QStringList &serverNames);
+    void addServerList(const QList<AccountManager::AccountDisplayInfo> &infos);
 
 Q_SIGNALS:
     void accountSelected(const QString &accountName);

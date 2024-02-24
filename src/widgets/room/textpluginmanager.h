@@ -8,8 +8,8 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <KPluginMetaData>
+#include <QList>
 #include <QObject>
-#include <QVector>
 
 class PluginText;
 
@@ -43,13 +43,13 @@ public:
     ~TextPluginManager() override;
     static TextPluginManager *self();
 
-    [[nodiscard]] QVector<PluginText *> pluginsList() const;
+    [[nodiscard]] QList<PluginText *> pluginsList() const;
 
 private:
     Q_DISABLE_COPY(TextPluginManager)
     LIBRUQOLAWIDGETS_NO_EXPORT void initializePluginList();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadPlugin(TextPluginManagerInfo *item);
     LIBRUQOLAWIDGETS_NO_EXPORT PluginTextUtilData createPluginMetaData(const KPluginMetaData &metaData);
-    QVector<TextPluginManagerInfo> mPluginList;
-    QVector<PluginTextUtilData> mPluginDataList;
+    QList<TextPluginManagerInfo> mPluginList;
+    QList<PluginTextUtilData> mPluginDataList;
 };

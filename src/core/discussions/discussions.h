@@ -9,15 +9,15 @@
 #include "discussion.h"
 #include "libruqola_private_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussions
 {
 public:
     Discussions();
 
-    [[nodiscard]] QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
+    [[nodiscard]] QList<Discussion> discussions() const;
+    void setDiscussions(const QList<Discussion> &discussions);
 
     void parseDiscussions(const QJsonObject &array);
 
@@ -40,7 +40,7 @@ public:
 
 private:
     void parseDiscussionsObj(const QJsonObject &discussionsObj);
-    QVector<Discussion> mDiscussion;
+    QList<Discussion> mDiscussion;
     int mDiscussionsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

@@ -70,7 +70,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
     // QJsonObject({"args":[{"_id":"hiafuM2enNapgD2mg","_updatedAt":{"$date":1634588706596},"description":"","mandatory2fa":false,"name":"test4","protected":false,"scope":"Users","type":"changed"}],"eventName":"roles"})
 }
 
-const QVector<RoleInfo> &RolesManager::roleInfo() const
+const QList<RoleInfo> &RolesManager::roleInfo() const
 {
     return mRoleInfo;
 }

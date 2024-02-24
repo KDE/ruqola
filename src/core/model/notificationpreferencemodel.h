@@ -40,6 +40,6 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void fillModel();
-    QVector<NotificationPreferenceInfo> mNotificationPreferenceList;
+    QList<NotificationPreferenceInfo> mNotificationPreferenceList;
     int mCurrentPreference = 0;
 };

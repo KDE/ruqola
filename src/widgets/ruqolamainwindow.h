@@ -114,7 +114,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotImportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageStyleChanged();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAuthentication(AuthenticationManager::AuthMethodType type);
 
     bool mReallyClose{false};
 
@@ -139,7 +138,6 @@ private:
     QAction *mDirectory = nullptr;
     QAction *mNextTab = nullptr;
     QAction *mPreviewTab = nullptr;
-    QWidgetAction *mStatus = nullptr;
     ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
@@ -165,4 +163,9 @@ private:
 
     QAction *mImportAccountsAction = nullptr;
     QAction *mExportAccountsAction = nullptr;
+
+    QAction *mRoomListDisplayMedium = nullptr;
+    QAction *mRoomListDisplayCondensed = nullptr;
+    QAction *mRoomListDisplayExtended = nullptr;
+    QWidget *mContainerStatusInfo = nullptr;
 };

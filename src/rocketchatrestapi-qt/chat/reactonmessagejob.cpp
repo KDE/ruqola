@@ -117,7 +117,7 @@ QNetworkRequest ReactOnMessageJob::request() const
     return request;
 }
 
-QString RocketChatRestApi::ReactOnMessageJob::errorMessage(const QString &str, const QJsonObject &details)
+QString ReactOnMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("error-not-allowed")) {
         return i18n("Invalid emoji provided.");

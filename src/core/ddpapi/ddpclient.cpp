@@ -208,14 +208,6 @@ void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount 
     account->inputTextManager()->inputTextCompleter(obj);
 }
 
-void room_name_exist(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Check if Room Name Exist:") + QJsonDocument(root).toJson());
-    }
-    Q_EMIT account->ddp()->result(root.value(QLatin1String("id")).toString().toULongLong(), QJsonDocument(root));
-}
-
 void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -259,13 +251,6 @@ void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
     }
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(root).toJson());
-    }
-}
-
-void get_room_by_id(const QJsonObject &obj, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Room By ID :") + QJsonDocument(obj).toJson());
     }
 }
 
@@ -403,12 +388,6 @@ QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const
     return m_messageQueue;
 }
 
-quint64 DDPClient::setRoomEncrypted(const QString &roomId, bool encrypted)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomEncrypted(roomId, encrypted, m_uid);
-    return method(result, change_room_settings, DDPClient::Persistent);
-}
-
 void DDPClient::subscribeRoomMessage(const QString &roomId)
 {
     QJsonArray params;
@@ -451,12 +430,6 @@ quint64 DDPClient::openRoom(const QString &roomId)
     return method(result, open_room, DDPClient::Persistent);
 }
 
-quint64 DDPClient::getRoomById(const QString &roomId)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getRoomById(roomId, m_uid);
-    return method(result, get_room_by_id, DDPClient::Persistent);
-}
-
 quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, m_uid);
@@ -469,43 +442,10 @@ quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
     return method(result, change_default_status, DDPClient::Persistent);
 }
 
-quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &exception)
-{
-    const quint64 subscribeId = m_uid;
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, subscribeId);
-    std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
-        if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
-        } else {
-            qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
-        }
-        account->insertCompleterUsers();
-
-        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
-        std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [=](const QJsonObject &root, RocketChatAccount *account) {
-            if (account->ruqolaLogger()) {
-                account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
-            } else {
-                qDebug() << " Unsubscribe AutoComplete" << root;
-                qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe AutoComplete" << root;
-            }
-        };
-        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
-    };
-
-    return method(result, callback, DDPClient::Persistent);
-}
-
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, m_uid);
     return method(result, create_jitsi_conf_call, DDPClient::Persistent);
-}
-
-quint64 DDPClient::roomNameExists(const QString &roomName)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomNameExists(roomName, m_uid);
-    return method(result, room_name_exist, DDPClient::Persistent);
 }
 
 quint64 DDPClient::inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
@@ -596,12 +536,16 @@ quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const Q
     return method(result, otr_end, DDPClient::Persistent);
 }
 
+// not used when RC > 5.4.0
+// Remove it when we not support it.
 quint64 DDPClient::addOAuthApp(const QString &name, bool active, const QString &redirectUrl)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addOAuthApp(name, active, redirectUrl, m_uid);
     return method(result, add_oauth_app, DDPClient::Persistent);
 }
 
+// not used when RC > 5.4.0
+// Remove it when we not support it.
 quint64 DDPClient::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->updateOAuthApp(name, active, redirectUrl, m_uid);
@@ -620,6 +564,8 @@ quint64 DDPClient::setAdminStatus(const QString &userId, bool admin)
     return method(result, admin_status, DDPClient::Persistent);
 }
 
+// not used when RC > 5.4.0
+// Remove it when we not support it.
 quint64 DDPClient::deleteOAuthApp(const QString &appId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteOAuthApp(appId, m_uid);
@@ -746,6 +692,33 @@ void DDPClient::unsubscribe(quint64 registerId)
     method(resultUnsubscribe, callbackUnsubscribeMethod, DDPClient::Persistent);
 }
 
+quint64 DDPClient::subscribeUserPresence(const QString &collection, const QJsonArray &params, const QString &added)
+{
+    quint64 registerId = m_uid;
+    QJsonObject json;
+    json[QLatin1String("msg")] = QStringLiteral("sub");
+    json[QLatin1String("id")] = QString::number(m_uid);
+    json[QLatin1String("name")] = collection;
+
+    QJsonArray newParams = params;
+    QJsonArray args = QJsonArray::fromStringList({added});
+    QJsonObject obj;
+    obj[QLatin1String("added")] = args;
+    // qDebug() << " args " << args;
+    newParams.append(std::move(obj));
+    json[QLatin1String("params")] = newParams;
+    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << m_uid;
+    qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
+    if (bytes < json.length()) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCWarning(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
+    }
+    m_uid++;
+    return registerId;
+}
+
 quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 {
     quint64 registerId = m_uid;
@@ -756,16 +729,14 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 
     QJsonArray newParams = params;
 
-    if (mRocketChatAccount->needAdaptNewSubscriptionRC60()) {
-        QJsonArray args;
-        QJsonObject obj;
-        obj[QLatin1String("useCollection")] = false;
-        obj[QLatin1String("args")] = args;
-        newParams.append(std::move(obj));
-    }
+    QJsonArray args;
+    QJsonObject obj;
+    obj[QLatin1String("useCollection")] = false;
+    obj[QLatin1String("args")] = args;
+    newParams.append(std::move(obj));
 
     json[QLatin1String("params")] = newParams;
-    // qDebug() << "subscribe: json " << json;
+    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << m_uid;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";

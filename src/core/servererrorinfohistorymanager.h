@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT ServerErrorInfoHistoryManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit ServerErrorInfoHistoryManager(QObject *parent = nullptr);
     ~ServerErrorInfoHistoryManager() override;
 
     static ServerErrorInfoHistoryManager *self();
@@ -28,5 +27,6 @@ Q_SIGNALS:
     void newServerErrorInfo();
 
 private:
+    explicit ServerErrorInfoHistoryManager(QObject *parent = nullptr);
     ServerErrorInfoHistoryModel *const mServerErrorInfoHistoryModel;
 };

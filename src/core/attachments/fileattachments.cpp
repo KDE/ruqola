@@ -99,12 +99,12 @@ void FileAttachments::setTotal(int total)
     mTotal = total;
 }
 
-QVector<File> FileAttachments::fileAttachments() const
+QList<File> FileAttachments::fileAttachments() const
 {
     return mFileAttachments;
 }
 
-void FileAttachments::setFileAttachments(const QVector<File> &fileAttachments)
+void FileAttachments::setFileAttachments(const QList<File> &fileAttachments)
 {
     mFileAttachments = fileAttachments;
 }

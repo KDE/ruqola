@@ -79,7 +79,8 @@ bool Room::isEqual(const Room &other) const
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
         && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
-        && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt());
+        && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
+        && (mThreadUnread == other.threadUnread());
 }
 
 QString Room::displayRoomName() const
@@ -117,6 +118,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "archived: " << t.archived();
     d << "description: " << t.description();
     d << "userMentions: " << t.userMentions();
+    d << "groupMentions: " << t.groupMentions();
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
     d << "LastSeenAt: " << t.lastSeenAt();
@@ -142,6 +144,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "RetentionInfo " << t.retentionInfo();
     d << "TeamInfo " << t.teamInfo();
     d << "Number Of messages in room " << t.numberMessages();
+    d << "threadUnread " << t.threadUnread();
     return d;
 }
 
@@ -215,6 +218,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("userMentions"))) {
         setUserMentions(json[QLatin1String("userMentions")].toInt());
     }
+    if (json.contains(QLatin1String("groupMentions"))) {
+        setGroupMentions(json[QLatin1String("groupMentions")].toInt());
+    }
     if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QLatin1String("announcement")].toString());
     }
@@ -286,24 +292,10 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         mNumberMessages = json[QLatin1String("msgs")].toInt();
     }
 
-    const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
-    QStringList lstHighlightsWord;
-    const int highlightsWordArrayCount = highlightsWordArray.count();
-    lstHighlightsWord.reserve(highlightsWordArrayCount);
-    for (int i = 0; i < highlightsWordArrayCount; ++i) {
-        lstHighlightsWord << highlightsWordArray.at(i).toString();
-    }
-    setHighlightsWord(lstHighlightsWord);
+    setHighlightsWord(extractStringList(json, QLatin1String("userHighlights")));
 
     if (json.contains(QLatin1String("ignored"))) {
-        const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
-        QStringList lstIgnored;
-        const int ignoredArrayCount = ignoredArray.count();
-        lstIgnored.reserve(ignoredArrayCount);
-        for (int i = 0; i < ignoredArrayCount; ++i) {
-            lstIgnored << ignoredArray.at(i).toString();
-        }
-        setIgnoredUsers(lstIgnored);
+        setIgnoredUsers(extractStringList(json, QLatin1String("ignored")));
     }
 
     // TODO muted ????
@@ -358,6 +350,26 @@ void Room::parseTeamInfo(const QJsonObject &json)
     TeamInfo info;
     info.parseTeamInfo(json);
     setTeamInfo(std::move(info));
+}
+
+QStringList Room::threadUnread() const
+{
+    return mThreadUnread;
+}
+
+void Room::setThreadUnread(const QStringList &newThreadUnread)
+{
+    mThreadUnread = newThreadUnread;
+}
+
+int Room::groupMentions() const
+{
+    return mGroupMentions;
+}
+
+void Room::setGroupMentions(int newGroupMentions)
+{
+    mGroupMentions = newGroupMentions;
 }
 
 qint64 Room::numberMessages() const
@@ -629,11 +641,17 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("userMentions"))) {
         setUserMentions(json[QLatin1String("userMentions")].toInt());
     }
+    if (json.contains(QLatin1String("groupMentions"))) {
+        setGroupMentions(json[QLatin1String("groupMentions")].toInt());
+    }
     if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QLatin1String("announcement")].toString());
     }
     if (json.contains(QLatin1String("description"))) {
         setDescription(json[QLatin1String("description")].toString());
+    }
+    if (json.contains(QLatin1String("tunread"))) {
+        setThreadUnread(extractStringList(json, QLatin1String("tunread")));
     }
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
@@ -775,6 +793,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
     setUnread(json[QLatin1String("unread")].toInt());
     setUserMentions(json[QLatin1String("userMentions")].toInt());
+    setGroupMentions(json[QLatin1String("groupMentions")].toInt());
     setOpen(json[QLatin1String("open")].toBool());
     setAlert(json[QLatin1String("alert")].toBool());
     const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
@@ -846,14 +865,7 @@ void Room::setTeamInfo(const TeamInfo &teamInfo)
 
 void Room::parseDisplaySystemMessage(const QJsonObject &json)
 {
-    const QJsonArray sysMessArray = json.value(QLatin1String("sysMes")).toArray();
-    QStringList lst;
-    const auto sysMessArrayCount{sysMessArray.count()};
-    lst.reserve(sysMessArrayCount);
-    for (auto i = 0; i < sysMessArrayCount; ++i) {
-        lst << sysMessArray.at(i).toString();
-    }
-    setDisplaySystemMessageTypes(lst);
+    setDisplaySystemMessageTypes(extractStringList(json, QLatin1String("sysMes")));
 }
 
 RetentionInfo Room::retentionInfo() const
@@ -986,39 +998,14 @@ void Room::newMessageAdded()
 
 void Room::parseCommonData(const QJsonObject &json)
 {
-    const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
-    QStringList lst;
-    lst.reserve(mutedArray.count());
-    for (int i = 0; i < mutedArray.count(); ++i) {
-        lst << mutedArray.at(i).toString();
-    }
-    setMutedUsers(lst);
+    setMutedUsers(extractStringList(json, QLatin1String("muted")));
 
-    const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
-    QStringList lstIgnored;
-    lstIgnored.reserve(ignoredArray.count());
-    for (int i = 0; i < ignoredArray.count(); ++i) {
-        lstIgnored << ignoredArray.at(i).toString();
-    }
-    setIgnoredUsers(lstIgnored);
-
-    const QJsonArray rolesArray = json.value(QLatin1String("roles")).toArray();
-    QStringList lstRoles;
-    lstRoles.reserve(rolesArray.count());
-    for (int i = 0; i < rolesArray.count(); ++i) {
-        lstRoles << rolesArray.at(i).toString();
-    }
-    setRoles(lstRoles);
+    setIgnoredUsers(extractStringList(json, QLatin1String("ignored")));
+    setRoles(extractStringList(json, QLatin1String("roles")));
+    setThreadUnread(extractStringList(json, QLatin1String("tunread")));
 
     // FIXME.
-    const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
-    QStringList lstHighlightsWord;
-    const int highlightsWordArrayCount = highlightsWordArray.count();
-    lstHighlightsWord.reserve(highlightsWordArrayCount);
-    for (int i = 0; i < highlightsWordArrayCount; ++i) {
-        lstHighlightsWord << highlightsWordArray.at(i).toString();
-    }
-    setHighlightsWord(lstHighlightsWord);
+    setHighlightsWord(extractStringList(json, QLatin1String("userHighlights")));
 }
 
 QStringList Room::displaySystemMessageTypes() const
@@ -1236,6 +1223,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setReadOnly(o[QLatin1String("ro")].toBool());
     r->setUnread(o[QLatin1String("unread")].toInt(0));
     r->setUserMentions(o[QLatin1String("userMentions")].toInt(0));
+    r->setGroupMentions(o[QLatin1String("groupMentions")].toInt(0));
     r->setAnnouncement(o[QLatin1String("announcement")].toString());
     r->setSelected(o[QLatin1String("selected")].toBool());
     r->setFavorite(o[QLatin1String("favorite")].toBool());
@@ -1253,50 +1241,18 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setUpdatedAt(static_cast<qint64>(o[QLatin1String("updatedAt")].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o[QLatin1String("lastSeenAt")].toDouble()));
     r->setNumberMessages(static_cast<qint64>(o[QLatin1String("msgs")].toInt()));
-    const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
-    QStringList lst;
-    const auto nbMutedElement{mutedArray.count()};
-    lst.reserve(nbMutedElement);
-    for (int i = 0; i < nbMutedElement; ++i) {
-        lst << mutedArray.at(i).toString();
-    }
-    r->setMutedUsers(lst);
 
-    const QJsonArray systemMessagesArray = o.value(QLatin1String("systemMessages")).toArray();
-    lst.clear();
-    const auto nbSystemMessagesCount{systemMessagesArray.count()};
-    lst.reserve(nbSystemMessagesCount);
-    for (int i = 0; i < nbSystemMessagesCount; ++i) {
-        lst << systemMessagesArray.at(i).toString();
-    }
-    r->setDisplaySystemMessageTypes(lst);
+    r->setMutedUsers(extractStringList(o, QLatin1String("mutedUsers")));
 
-    const QJsonArray ignoredArray = o.value(QLatin1String("ignored")).toArray();
-    QStringList lstIgnored;
-    const auto ignoredArrayCount{ignoredArray.count()};
-    lstIgnored.reserve(ignoredArrayCount);
-    for (int i = 0; i < ignoredArrayCount; ++i) {
-        lstIgnored << ignoredArray.at(i).toString();
-    }
-    r->setIgnoredUsers(lstIgnored);
+    r->setDisplaySystemMessageTypes(extractStringList(o, QLatin1String("systemMessages")));
 
-    const QJsonArray highlightsWordArray = o.value(QLatin1String("userHighlights")).toArray();
-    QStringList lstHighlightsWord;
-    const auto highlightsWordArrayCount{highlightsWordArray.count()};
-    lstHighlightsWord.reserve(highlightsWordArrayCount);
-    for (int i = 0; i < highlightsWordArrayCount; ++i) {
-        lstHighlightsWord << highlightsWordArray.at(i).toString();
-    }
-    r->setHighlightsWord(lstHighlightsWord);
-    const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
-    QStringList lstRoles;
-    const auto rolesCount{rolesArray.count()};
+    r->setIgnoredUsers(extractStringList(o, QLatin1String("ignored")));
 
-    lstRoles.reserve(rolesCount);
-    for (int i = 0; i < rolesCount; ++i) {
-        lstRoles << rolesArray.at(i).toString();
-    }
-    r->setRoles(lstRoles);
+    r->setHighlightsWord(extractStringList(o, QLatin1String("userHighlights")));
+
+    r->setRoles(extractStringList(o, QLatin1String("roles")));
+
+    r->setThreadUnread(extractStringList(o, QLatin1String("tunread")));
 
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::deserialize(notificationsObj);
@@ -1306,14 +1262,8 @@ void Room::deserialize(Room *r, const QJsonObject &o)
 
     r->setAvatarETag(o[QLatin1String("avatarETag")].toString());
 
-    const QJsonArray uidsArray = o.value(QLatin1String("uids")).toArray();
-    QStringList lstUids;
-    const auto uidsArrayCount{uidsArray.count()};
-    lstUids.reserve(uidsArrayCount);
-    for (int i = 0; i < uidsArrayCount; ++i) {
-        lstUids << uidsArray.at(i).toString();
-    }
-    r->setUids(lstUids);
+    r->setUids(extractStringList(o, QLatin1String("uids")));
+
     const QJsonObject retentionObj = o.value(QLatin1String("retention")).toObject();
     const RetentionInfo retention = RetentionInfo::deserialize(retentionObj);
     r->setRetentionInfo(retention);
@@ -1322,14 +1272,19 @@ void Room::deserialize(Room *r, const QJsonObject &o)
 
     r->setParentRid(o[QLatin1String("prid")].toString());
 
-    const QJsonArray userNamesArray = o.value(QLatin1String("usernames")).toArray();
-    QStringList lstUserNames;
-    const int nbUserNamesArray = userNamesArray.count();
-    lstUserNames.reserve(nbUserNamesArray);
-    for (int i = 0; i < nbUserNamesArray; ++i) {
-        lstUserNames << userNamesArray.at(i).toString();
+    r->setUserNames(extractStringList(o, QLatin1String("usernames")));
+}
+
+QStringList Room::extractStringList(const QJsonObject &o, const QString &key)
+{
+    const QJsonArray array = o.value(key).toArray();
+    QStringList lstElements;
+    const auto nbArrayElement = array.count();
+    lstElements.reserve(nbArrayElement);
+    for (auto i = 0; i < nbArrayElement; ++i) {
+        lstElements << array.at(i).toString();
     }
-    r->setUserNames(lstUserNames);
+    return lstElements;
 }
 
 // For autotest only
@@ -1396,33 +1351,16 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QLatin1String("description")] = r->description();
     }
     o[QLatin1String("userMentions")] = r->userMentions();
-
-    if (!r->mutedUsers().isEmpty()) {
-        QJsonArray array;
-        const int nbMuted = r->mutedUsers().count();
-        for (int i = 0; i < nbMuted; ++i) {
-            array.append(r->mutedUsers().at(i));
-        }
-        o[QLatin1String("mutedUsers")] = array;
+    if (r->groupMentions() > 0) {
+        o[QLatin1String("groupMentions")] = r->groupMentions();
     }
 
-    if (!r->ignoredUsers().isEmpty()) {
-        QJsonArray array;
-        const int nbIgnoredUsers = r->ignoredUsers().count();
-        for (int i = 0; i < nbIgnoredUsers; ++i) {
-            array.append(r->ignoredUsers().at(i));
-        }
-        o[QLatin1String("ignored")] = array;
-    }
+    serializeStringList(o, QLatin1String("mutedUsers"), r->mutedUsers());
 
-    if (!r->roles().isEmpty()) {
-        QJsonArray array;
-        const int nbRoles = r->roles().count();
-        for (int i = 0; i < nbRoles; ++i) {
-            array.append(r->roles().at(i));
-        }
-        o[QLatin1String("roles")] = array;
-    }
+    serializeStringList(o, QLatin1String("ignored"), r->ignoredUsers());
+    serializeStringList(o, QLatin1String("tunread"), r->threadUnread());
+
+    serializeStringList(o, QLatin1String("roles"), r->roles());
 
     o[QLatin1String("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
@@ -1430,23 +1368,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QLatin1String("directChannelUserId")] = r->directChannelUserId();
     }
 
-    if (!r->displaySystemMessageTypes().isEmpty()) {
-        QJsonArray array;
-        const int nbDisplaySystemMessageType = r->displaySystemMessageTypes().count();
-        for (int i = 0; i < nbDisplaySystemMessageType; ++i) {
-            array.append(r->displaySystemMessageTypes().at(i));
-        }
-        o[QLatin1String("systemMessages")] = array;
-    }
+    serializeStringList(o, QLatin1String("systemMessages"), r->displaySystemMessageTypes());
 
-    if (!r->highlightsWord().isEmpty()) {
-        QJsonArray array;
-        const int nbHighlightsWord = r->highlightsWord().count();
-        for (int i = 0; i < nbHighlightsWord; ++i) {
-            array.append(r->highlightsWord().at(i));
-        }
-        o[QLatin1String("userHighlights")] = array;
-    }
+    serializeStringList(o, QLatin1String("userHighlights"), r->highlightsWord());
 
     if (!r->avatarETag().isEmpty()) {
         o[QLatin1String("avatarETag")] = r->avatarETag();
@@ -1465,20 +1389,25 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QLatin1String("prid")] = r->parentRid();
     }
 
-    if (!r->userNames().isEmpty()) {
-        QJsonArray array;
-        const int nbUserNames = r->userNames().count();
-        for (int i = 0; i < nbUserNames; ++i) {
-            array.append(r->userNames().at(i));
-        }
-        o[QLatin1String("usernames")] = array;
-    }
+    serializeStringList(o, QLatin1String("usernames"), r->userNames());
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
     d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
+}
+
+void Room::serializeStringList(QJsonObject &o, const QString &key, const QStringList &list)
+{
+    if (!list.isEmpty()) {
+        QJsonArray array;
+        const int nbListElement = list.count();
+        for (int i = 0; i < nbListElement; ++i) {
+            array.append(list.at(i));
+        }
+        o[key] = array;
+    }
 }
 
 UsersForRoomModel *Room::usersModelForRoom() const

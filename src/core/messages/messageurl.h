@@ -63,7 +63,9 @@ public:
 
     [[nodiscard]] bool hasHtmlDescription() const;
 
-    void generateHtmlDescription();
+    [[nodiscard]] QString buildImageUrl() const;
+
+    void generateMessageUrlInfo();
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList pageTitleElements();
@@ -74,6 +76,8 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageHeightElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList imageWidthElements();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString cleanText(const QString &str);
+    LIBRUQOLACORE_NO_EXPORT void generateHtmlDescription();
+    LIBRUQOLACORE_NO_EXPORT void generateImageUrl();
 
     QString mUrl;
     QString mPageTitle;
@@ -85,6 +89,7 @@ private:
     QString mSiteName;
     QString mUrlId;
     QString mHtmlDescription;
+    QString mImageBuildUrl;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mShowPreview = true;

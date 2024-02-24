@@ -479,6 +479,7 @@ target_sources(libruqolawidgets PRIVATE
     exportmessages/exportmessagesdialog.h
     exportmessages/exportmessageswidget.cpp
     exportmessages/exportmessageswidget.h
+
     libruqolawidgets_private_export.h
     messagemaximumsizedialog/messagemaximumsizedialog.cpp
     messagemaximumsizedialog/messagemaximumsizedialog.h
@@ -530,6 +531,15 @@ target_sources(libruqolawidgets PRIVATE
     misc/messagestylelayoutmenu.h
     misc/messagestylelayoutmenu.cpp
 
+    misc/changefontsizemenu.h
+    misc/changefontsizemenu.cpp
+
+    misc/joinedchannelcompletiondelegate.h
+    misc/joinedchannelcompletiondelegate.cpp
+
+    misc/joinedchannelcompletionlineeditbase.cpp
+    misc/joinedchannelcompletionlineeditbase.h
+    
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
@@ -739,8 +749,6 @@ target_sources(libruqolawidgets PRIVATE
     conferencecalldialog/conferencecalldialog.cpp
     conferencecalldialog/conferencecallwidget.h
     conferencecalldialog/conferencecallwidget.cpp
-    conferencecalldialog/conferencedirectcalldialog.h
-    conferencecalldialog/conferencedirectcalldialog.cpp
 
     conferencecalldialog/conferenceinfodialog.h
     conferencecalldialog/conferenceinfodialog.cpp
@@ -764,7 +772,8 @@ target_sources(libruqolawidgets PRIVATE
     databasedialog/exploredatabasedialog.cpp
     databasedialog/exploredatabasewidget.h
     databasedialog/exploredatabasewidget.cpp
-
+    databasedialog/exploredatabaselineedit.h
+    databasedialog/exploredatabaselineedit.cpp
 
     whatsnew/whatsnewdialog.h
     whatsnew/whatsnewdialog.cpp
@@ -836,6 +845,15 @@ target_sources(libruqolawidgets PRIVATE
 
     encryption/e2epassworddecodekeywidget.h
     encryption/e2epassworddecodekeywidget.cpp
+
+    forwardmessage/forwardmessagedialog.h
+    forwardmessage/forwardmessagedialog.cpp
+
+    forwardmessage/forwardmessagewidget.h
+    forwardmessage/forwardmessagewidget.cpp
+
+    forwardmessage/forwardmessageaddchannelcompletionlineedit.h
+    forwardmessage/forwardmessageaddchannelcompletionlineedit.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
@@ -874,6 +892,9 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_sizehi
 
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_translatemessage_debug.h IDENTIFIER RUQOLA_TRANSLATEMESSAGE_LOG CATEGORY_NAME org.kde.ruqola.widgets.translatemessage
     DESCRIPTION "ruqola translate message" EXPORT RUQOLA)
+
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_jitsi_debug.h IDENTIFIER RUQOLA_JITSI_LOG CATEGORY_NAME org.kde.ruqola.widgets.jitsi
+    DESCRIPTION "ruqola jitsi support" EXPORT RUQOLA)
 
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
@@ -984,6 +1005,7 @@ if (BUILD_TESTING)
     add_subdirectory(needupdateversion/autotests)
     add_subdirectory(createnewserver/autotests)
     add_subdirectory(encryption/autotests)
+    add_subdirectory(forwardmessage/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

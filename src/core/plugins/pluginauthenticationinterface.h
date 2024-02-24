@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 class RocketChatAccount;
+class PluginAuthenticationConfigureWidget;
 class LIBRUQOLACORE_EXPORT PluginAuthenticationInterface : public QObject
 {
     Q_OBJECT
@@ -17,6 +18,8 @@ public:
     ~PluginAuthenticationInterface() override;
 
     virtual void login() = 0;
+
+    [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) = 0;
 
     [[nodiscard]] RocketChatAccount *account() const;
     void setAccount(RocketChatAccount *account);

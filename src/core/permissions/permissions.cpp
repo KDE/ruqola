@@ -12,7 +12,7 @@
 
 Permissions::Permissions() = default;
 
-QVector<Permission> Permissions::permissions() const
+QList<Permission> Permissions::permissions() const
 {
     return mPermissions;
 }
@@ -41,12 +41,12 @@ bool Permissions::isEmpty() const
     return mPermissions.isEmpty();
 }
 
-void Permissions::setPermissions(const QVector<Permission> &roles)
+void Permissions::setPermissions(const QList<Permission> &roles)
 {
     mPermissions = roles;
 }
 
-void Permissions::parsePermissions(const QJsonObject &obj, const QString &str, const QVector<RoleInfo> &roleInfo)
+void Permissions::parsePermissions(const QJsonObject &obj, const QString &str, const QList<RoleInfo> &roleInfo)
 {
     mPermissions.clear();
 

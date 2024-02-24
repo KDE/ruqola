@@ -7,9 +7,9 @@
 
 #include "lrucachetest.h"
 
+#include <QList>
 #include <QStandardPaths>
 #include <QTest>
-#include <QVector>
 
 #include "lrucache.h"
 #include <algorithm>
@@ -31,8 +31,8 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
     using Cache = LRUCache<QString, QString>;
     Cache cache;
     cache.setMaxEntries(5);
-    auto contents = [&cache]() -> QVector<QString> {
-        QVector<QString> ret(cache.size());
+    auto contents = [&cache]() -> QList<QString> {
+        QList<QString> ret(cache.size());
         std::transform(cache.begin(), cache.end(), ret.begin(), [](const Cache::Entry &entry) {
             return entry.value;
         });
@@ -43,7 +43,7 @@ void LRUCacheTest::shouldCacheLastFiveEntries()
     QCOMPARE(cache.begin(), cache.end());
     QCOMPARE(cache.find(QString()), cache.end());
 
-    QVector<QString> expected;
+    QList<QString> expected;
     for (int i = 1; i < 7; ++i) {
         const auto expectedSizeBefore = std::min(i - 1, 5);
         const auto expectedSizeAfter = std::min(i, 5);

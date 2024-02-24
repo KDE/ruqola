@@ -28,9 +28,9 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertTeams(const QVector<TeamCompleter> &rooms);
+    void insertTeams(const QList<TeamCompleter> &rooms);
 
 private:
     Q_DISABLE_COPY(TeamCompleterModel)
-    QVector<TeamCompleter> mTeams;
+    QList<TeamCompleter> mTeams;
 };

@@ -13,7 +13,7 @@ class LIBRUQOLACORE_EXPORT LocalRoomsDatabase : public LocalDatabaseBase
 public:
     LocalRoomsDatabase();
     ~LocalRoomsDatabase() override;
-    void addRoom(const QString &accountName, Room *room);
+    void updateRoom(const QString &accountName, Room *room);
     void deleteRoom(const QString &accountName, const QString &roomId);
 
     [[nodiscard]] QByteArray jsonRoom(const QString &accountName, const QString &roomId);

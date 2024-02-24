@@ -70,8 +70,9 @@ public:
     selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att = {}, const MessageUrl &msgUrl = {}) const;
 
     void clear();
-    void setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
-    void setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
+    void setTextSelectionStart(const QModelIndex &index, int charPos);
+    void setTextSelectionEnd(const QModelIndex &index, int charPos);
+    void setAttachmentTextSelectionEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach);
     void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory);
     void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory, const MessageAttachment &msgAttach);
     void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory, const MessageUrl &msgUrl);
@@ -80,13 +81,18 @@ public:
     void setTextHelperFactory(DocumentFactoryInterface *newTextHelperFactory);
     [[nodiscard]] DocumentFactoryInterface *textHelperFactory() const;
 
-    void setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories);
+    void setAttachmentFactories(const QList<DocumentFactoryInterface *> &newAttachmentFactories);
 
-    [[nodiscard]] const QVector<DocumentFactoryInterface *> &attachmentFactories() const;
+    [[nodiscard]] const QList<DocumentFactoryInterface *> &attachmentFactories() const;
 
     [[nodiscard]] DocumentFactoryInterface *messageUrlHelperFactory() const;
     void setMessageUrlHelperFactory(DocumentFactoryInterface *newMessageUrlHelperFactory);
 
+    void setPreviewUrlTextSelectionEnd(const QModelIndex &index, int charPos, const MessageUrl &msgUrl);
+
+    void setAttachmentTextSelectionStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach);
+
+    void setPreviewUrlTextSelectionStart(const QModelIndex &index, int charPos, const MessageUrl &msgUrl);
 Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
 
@@ -123,12 +129,12 @@ private:
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
-    QVector<AttachmentSelection> mAttachmentSelection;
-    QVector<MessageUrlSelection> mMessageUrlSelection;
+    QList<AttachmentSelection> mAttachmentSelection;
+    QList<MessageUrlSelection> mMessageUrlSelection;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
 
     DocumentFactoryInterface *mTextHelperFactory = nullptr;
     DocumentFactoryInterface *mMessageUrlHelperFactory = nullptr;
-    QVector<DocumentFactoryInterface *> mAttachmentFactories;
+    QList<DocumentFactoryInterface *> mAttachmentFactories;
 };

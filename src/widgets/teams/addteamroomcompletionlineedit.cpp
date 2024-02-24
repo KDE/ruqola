@@ -57,6 +57,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
     if (text.trimmed().isEmpty()) {
         mTeamRoomCompleterModel->clear();
+        mCompletionListView->hide();
     } else {
         auto job = new RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob(this);
 
@@ -78,7 +79,7 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
 {
     // qDebug() << " obj " << obj;
     const QJsonArray items = obj[QLatin1String("items")].toArray();
-    QVector<TeamRoomCompleter> teams;
+    QList<TeamRoomCompleter> teams;
     for (int i = 0, total = items.count(); i < total; ++i) {
         TeamRoomCompleter teamCompleter;
         teamCompleter.parse(items.at(i).toObject());
@@ -99,7 +100,7 @@ void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
     info.roomId = roomId;
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
-    Q_EMIT newRoomName(info);
+    Q_EMIT newRoomName(std::move(info));
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }

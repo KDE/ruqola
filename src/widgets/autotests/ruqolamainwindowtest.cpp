@@ -41,20 +41,8 @@ void RuqolaMainWindowTest::shouldHaveDefaultValues()
     QVERIFY(mSplitter);
     switchToMainWidget(w);
 
-    auto statusAction = qobject_cast<QWidgetAction *>(w.action(QStringLiteral("status")));
-    QVERIFY(statusAction);
-    QVERIFY(!statusAction->text().isEmpty());
-
-    auto status = statusAction->defaultWidget();
-    QVERIFY(status);
-    QVERIFY(status->layout());
-
-    auto mStatusComboBox = status->findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
+    auto mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
     QVERIFY(mStatusComboBox);
-
-    auto label = status->findChild<QLabel *>(QStringLiteral("label"));
-    QVERIFY(label);
-    QVERIFY(!label->text().isEmpty());
 
     auto mStatusBarTypingMessage = w.findChild<QLabel *>(QStringLiteral("mStatusBarTypingMessage"));
     QVERIFY(mStatusBarTypingMessage);

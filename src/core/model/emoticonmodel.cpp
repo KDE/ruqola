@@ -120,12 +120,12 @@ void EmoticonModel::setUnicodeEmoticons(const QList<TextEmoticonsCore::UnicodeEm
     endResetModel();
 }
 
-const QVector<CustomEmoji> &EmoticonModel::customEmojiList() const
+const QList<CustomEmoji> &EmoticonModel::customEmojiList() const
 {
     return mCustomEmojiList;
 }
 
-void EmoticonModel::setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList)
+void EmoticonModel::setCustomEmojiList(const QList<CustomEmoji> &newCustomEmojiList)
 {
     beginResetModel();
     mCustomEmojiList = newCustomEmojiList;

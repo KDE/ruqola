@@ -11,6 +11,7 @@
 #include <QStackedWidget>
 class CreateNewServerCheckUrlWidget;
 class CreateNewServerWidget;
+class PluginAuthenticationConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerStackWidget : public QStackedWidget
 {
     Q_OBJECT
@@ -18,16 +19,19 @@ public:
     explicit CreateNewServerStackWidget(QWidget *parent = nullptr);
     ~CreateNewServerStackWidget() override;
 
-    void setExistingAccountName(const QStringList &lst);
+    void setExistingAccountNames(const QStringList &lst);
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
 
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
 Q_SIGNALS:
     void updateOkButton(bool state);
-    void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
+    QStringList mExistingAccountNames;
+    AccountManager::AccountManagerInfo mAccountManagerInfo;
     CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;
     CreateNewServerWidget *const mCreateNewServerWidget;
+    PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
 };

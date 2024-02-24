@@ -24,12 +24,12 @@ void ManageLoadHistoryParseSyncMessagesUtils::setDeletedMessages(const QStringLi
     mDeletedMessages = newDeletedMessages;
 }
 
-QVector<Message> ManageLoadHistoryParseSyncMessagesUtils::updatesMessages() const
+QList<Message> ManageLoadHistoryParseSyncMessagesUtils::updatesMessages() const
 {
     return mUpdatesMessages;
 }
 
-void ManageLoadHistoryParseSyncMessagesUtils::setUpdatesMessages(const QVector<Message> &newUpdatesMessages)
+void ManageLoadHistoryParseSyncMessagesUtils::setUpdatesMessages(const QList<Message> &newUpdatesMessages)
 {
     mUpdatesMessages = newUpdatesMessages;
 }
@@ -45,7 +45,7 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
         mDeletedMessages.append(o[QLatin1String("_id")].toString());
     }
 
-    QVector<Message> updatedMessages;
+    QList<Message> updatedMessages;
     const QJsonArray updatedArray = result[QLatin1String("updated")].toArray();
     for (int i = 0, total = updatedArray.size(); i < total; ++i) {
         const QJsonObject o = updatedArray.at(i).toObject();

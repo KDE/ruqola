@@ -66,12 +66,12 @@ DocumentFactoryInterface *TextSelection::textHelperFactory() const
     return mTextHelperFactory;
 }
 
-const QVector<DocumentFactoryInterface *> &TextSelection::attachmentFactories() const
+const QList<DocumentFactoryInterface *> &TextSelection::attachmentFactories() const
 {
     return mAttachmentFactories;
 }
 
-void TextSelection::setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories)
+void TextSelection::setAttachmentFactories(const QList<DocumentFactoryInterface *> &newAttachmentFactories)
 {
     mAttachmentFactories = newAttachmentFactories;
 }
@@ -153,7 +153,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     Q_ASSERT(index.model() == mStartIndex.model());
     Q_ASSERT(index.model() == mEndIndex.model());
 
-    if (att.isValid() && mAttachmentSelection.isEmpty() && mMessageUrlSelection.isEmpty() && msgUrl.hasHtmlDescription()) {
+    if (att.isValid() && mAttachmentSelection.isEmpty() && mMessageUrlSelection.isEmpty() && !msgUrl.hasHtmlDescription()) {
         return {};
     }
     const OrderedPositions ordered = orderedPositions();
@@ -226,23 +226,40 @@ void TextSelection::clear()
     }
 }
 
-void TextSelection::setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
+void TextSelection::setTextSelectionStart(const QModelIndex &index, int charPos)
 {
     clear();
     Q_ASSERT(index.isValid());
     mStartIndex = index;
+    mStartPos = charPos;
+}
+
+void TextSelection::setAttachmentTextSelectionStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
+{
+    setTextSelectionStart(index, charPos);
     if (msgAttach.isValid()) {
         AttachmentSelection selection;
         selection.fromCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
         // qDebug() << " start selection is in attachment ";
-    } else {
-        mStartPos = charPos;
+        mStartPos = -1;
     }
 }
 
-void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
+void TextSelection::setPreviewUrlTextSelectionStart(const QModelIndex &index, int charPos, const MessageUrl &msgUrl)
+{
+    setTextSelectionStart(index, charPos);
+    if (msgUrl.hasHtmlDescription()) {
+        MessageUrlSelection selection;
+        selection.fromCharPos = charPos;
+        selection.messageUrl = msgUrl;
+        mMessageUrlSelection.append(std::move(selection));
+        mStartPos = -1;
+    }
+}
+
+void TextSelection::setTextSelectionEnd(const QModelIndex &index, int charPos)
 {
     int from = mEndIndex.row();
     int to = index.row();
@@ -262,9 +279,14 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
             Q_EMIT repaintNeeded(index.siblingAtRow(row));
         }
     }
-
     Q_ASSERT(index.isValid());
     mEndIndex = index;
+    mEndPos = charPos;
+}
+
+void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
+{
+    setTextSelectionEnd(index, charPos);
     if (msgAttach.isValid()) {
         const auto countAtt{mAttachmentSelection.count()};
         for (int i = 0; i < countAtt; ++i) {
@@ -272,6 +294,7 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
                 AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
                 attachmentSelectFound.toCharPos = charPos;
                 mAttachmentSelection.append(std::move(attachmentSelectFound));
+                mEndPos = -1;
                 return;
             }
         }
@@ -280,8 +303,30 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
         selection.toCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
-    } else {
-        mEndPos = charPos;
+        mEndPos = -1;
+    }
+}
+
+void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int charPos, const MessageUrl &msgUrl)
+{
+    setTextSelectionEnd(index, charPos);
+    if (msgUrl.hasHtmlDescription()) {
+        const auto countMessageUrl{mMessageUrlSelection.count()};
+        for (int i = 0; i < countMessageUrl; ++i) {
+            if (mMessageUrlSelection.at(i).messageUrl == msgUrl) {
+                MessageUrlSelection messageUrlSelectFound = mMessageUrlSelection.takeAt(i);
+                messageUrlSelectFound.toCharPos = charPos;
+                mMessageUrlSelection.append(std::move(messageUrlSelectFound));
+                mEndPos = -1;
+                return;
+            }
+        }
+
+        MessageUrlSelection selection;
+        selection.toCharPos = charPos;
+        selection.messageUrl = msgUrl;
+        mMessageUrlSelection.append(std::move(selection));
+        mEndPos = -1;
     }
 }
 
@@ -366,6 +411,19 @@ void TextSelection::selectMessage(const QModelIndex &index)
                     selection.fromCharPos = 0;
                     selection.toCharPos = doc->characterCount() - 1;
                     mAttachmentSelection.append(std::move(selection));
+                }
+            }
+        }
+        const auto urls = message->urls();
+        for (const auto &url : urls) {
+            if (url.hasHtmlDescription()) {
+                QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
+                if (doc) {
+                    MessageUrlSelection selection;
+                    selection.fromCharPos = 0;
+                    selection.toCharPos = doc->characterCount() - 1;
+                    selection.messageUrl = url;
+                    mMessageUrlSelection.append(std::move(selection));
                 }
             }
         }

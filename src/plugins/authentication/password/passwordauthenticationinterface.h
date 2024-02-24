@@ -16,4 +16,5 @@ public:
     ~PasswordAuthenticationInterface() override;
 
     void login() override;
+    [[nodiscard]] virtual PluginAuthenticationConfigureWidget *configureWidget(QWidget *parent) override;
 };

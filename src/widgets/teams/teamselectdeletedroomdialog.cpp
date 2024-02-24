@@ -41,7 +41,7 @@ TeamSelectDeletedRoomDialog::~TeamSelectDeletedRoomDialog()
     writeConfig();
 }
 
-void TeamSelectDeletedRoomDialog::setTeamRooms(const QVector<TeamRoom> &rooms)
+void TeamSelectDeletedRoomDialog::setTeamRooms(const QList<TeamRoom> &rooms)
 {
     mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
 }

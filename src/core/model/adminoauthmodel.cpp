@@ -39,9 +39,9 @@ QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Redirect Url");
         case AdminOauthModel::Active:
             return i18n("Active");
+        case AdminOauthModel::CreatedAtStr:
         case AdminOauthModel::CreatedAt:
             return i18n("Created At");
-        case AdminOauthModel::CreatedAtStr:
         case AdminOauthModel::CreatedBy:
             return i18n("Created By");
         }
@@ -56,7 +56,7 @@ int AdminOauthModel::columnCount(const QModelIndex &parent) const
     return val;
 }
 
-const QVector<OauthInfo> &AdminOauthModel::adminOauth() const
+const QList<OauthInfo> &AdminOauthModel::adminOauth() const
 {
     return mAdminOauth;
 }
@@ -70,7 +70,7 @@ void AdminOauthModel::clear()
     }
 }
 
-void AdminOauthModel::setAdminOauth(const QVector<OauthInfo> &newAdminInvites)
+void AdminOauthModel::setAdminOauth(const QList<OauthInfo> &newAdminInvites)
 {
     clear();
     if (!newAdminInvites.isEmpty()) {

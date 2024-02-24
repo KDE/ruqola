@@ -9,10 +9,10 @@
 #include "messages/messageurl.h"
 
 #include <QAbstractTextDocumentLayout>
+#include <QList>
 #include <QModelIndex>
 #include <QString>
 #include <QStyleOptionViewItem>
-#include <QVector>
 #include <memory>
 
 class TextSelection;
@@ -29,13 +29,13 @@ void generateToolTip(const QString &toolTip, const QString &href, QString &forma
 [[nodiscard]] bool useItalicsForMessage(const QModelIndex &index);
 
 [[nodiscard]] bool pendingMessage(const QModelIndex &index);
-[[nodiscard]] QVector<QAbstractTextDocumentLayout::Selection> selection(TextSelection *selection,
-                                                                        QTextDocument *doc,
-                                                                        const QModelIndex &index,
-                                                                        const QStyleOptionViewItem &option,
-                                                                        const MessageAttachment &msgAttach = {},
-                                                                        const MessageUrl &msgUrl = {},
-                                                                        bool isAMessage = true);
+[[nodiscard]] QList<QAbstractTextDocumentLayout::Selection> selection(TextSelection *selection,
+                                                                      QTextDocument *doc,
+                                                                      const QModelIndex &index,
+                                                                      const QStyleOptionViewItem &option,
+                                                                      const MessageAttachment &msgAttach = {},
+                                                                      const MessageUrl &msgUrl = {},
+                                                                      bool isAMessage = true);
 
 void drawSelection(QTextDocument *doc,
                    QRect rect,

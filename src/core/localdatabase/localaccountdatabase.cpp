@@ -5,7 +5,6 @@
 */
 
 #include "localaccountdatabase.h"
-#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 #include <QSqlDatabase>
@@ -16,7 +15,6 @@
 static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
 enum class AccountFields {
     AccountName,
-    TimeStamp,
     Json,
 }; // in the same order as the table
 
@@ -64,7 +62,7 @@ QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)
     if (!initializeDataBase(accountName, db)) {
         return {};
     }
-    QSqlQuery query(QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\"").arg(accountName), db);
+    QSqlQuery query(LocalDatabaseUtils::jsonAccount().arg(accountName), db);
     QByteArray value;
     // We have one element
     if (query.first()) {

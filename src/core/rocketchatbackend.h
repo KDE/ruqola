@@ -32,14 +32,14 @@ public:
 
     void clearUsersList();
 
-    [[nodiscard]] QVector<User> users() const;
+    [[nodiscard]] QList<User> users() const;
 
     void clearFilesList();
-    [[nodiscard]] QVector<File> files() const;
+    [[nodiscard]] QList<File> files() const;
 
     void loadPublicSettingsAdministrator(qint64 timeStamp = -1);
 
-    void addMessagesFromLocalDataBase(const QVector<Message> &messages);
+    void addMessagesFromLocalDataBase(const QList<Message> &messages);
 
     void removeMessageFromLocalDatabase(const QStringList &messageIds, const QString &roomId);
 
@@ -52,14 +52,14 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotConnectedChanged();
-    LIBRUQOLACORE_NO_EXPORT void slotUserIDChanged();
     LIBRUQOLACORE_NO_EXPORT void slotGetServerInfoFailed(bool useDeprecatedVersion);
     LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
     LIBRUQOLACORE_NO_EXPORT void tryAutoLogin();
+    LIBRUQOLACORE_NO_EXPORT void subscribeRegistration();
     LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
     LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
 
-    QVector<User> mUsers;
-    QVector<File> mFiles;
+    QList<User> mUsers;
+    QList<File> mFiles;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };

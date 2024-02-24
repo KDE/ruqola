@@ -170,6 +170,31 @@ void MessageUrl::setAuthorName(const QString &newAuthorName)
     mAuthorName = newAuthorName;
 }
 
+void MessageUrl::generateImageUrl()
+{
+    if (!mImageBuildUrl.isEmpty()) {
+        return;
+    }
+    if (mImageUrl.isEmpty()) {
+        return;
+    }
+    const QUrl newUrl = QUrl(mImageUrl);
+    if (!newUrl.isRelative()) {
+        mImageBuildUrl = mImageUrl;
+    } else {
+        mImageBuildUrl = url();
+        if (!url().endsWith(QLatin1Char('/')) && !mImageUrl.startsWith(QLatin1Char('/'))) {
+            mImageBuildUrl += QLatin1Char('/');
+        }
+        mImageBuildUrl += mImageUrl;
+    }
+}
+
+QString MessageUrl::buildImageUrl() const
+{
+    return mImageBuildUrl;
+}
+
 QString MessageUrl::imageUrl() const
 {
     return mImageUrl;
@@ -246,10 +271,15 @@ void MessageUrl::parseUrl(const QJsonObject &url)
             }
         }
     }
-
-    generateHtmlDescription();
+    generateMessageUrlInfo();
     // qDebug() << " *this " << *this << " is empty " << isEmpty() << " url" << url;
     // Use apps/meteor/client/components/message/content/UrlPreviews.tsx
+}
+
+void MessageUrl::generateMessageUrlInfo()
+{
+    generateHtmlDescription();
+    generateImageUrl();
 }
 
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
@@ -295,7 +325,7 @@ MessageUrl MessageUrl::deserialize(const QJsonObject &o)
     url.setSiteName(o.value(QLatin1String("siteName")).toString());
     url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
     url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
-    url.generateHtmlDescription();
+    url.generateMessageUrlInfo();
     return url;
 }
 
@@ -338,7 +368,8 @@ bool MessageUrl::operator==(const MessageUrl &other) const
 {
     return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
         && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
-        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mUrlId == urlId());
+        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth())
+        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()) && (mImageBuildUrl == other.buildImageUrl()));
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
@@ -355,6 +386,7 @@ QDebug operator<<(QDebug d, const MessageUrl &t)
     d.space() << "ImageWidth:" << t.imageWidth();
     d.space() << "UrlId:" << t.urlId();
     d.space() << "htmlDescription:" << t.htmlDescription();
+    d.space() << "buildImageUrl:" << t.buildImageUrl();
     return d;
 }
 

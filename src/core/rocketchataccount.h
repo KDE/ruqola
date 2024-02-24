@@ -25,7 +25,7 @@
 #include "notificationinfo.h"
 #include "ownuser/ownuser.h"
 #include "ownuser/ownuserpreferences.h"
-#include "parsemessageurlutils.h"
+#include "parserocketchaturlutils.h"
 #include "permissions/permissionmanager.h"
 #include "rocketchataccountsettings.h"
 #include "roles/rolesmanager.h"
@@ -188,7 +188,7 @@ public:
 
     [[nodiscard]] InputTextManager *inputThreadMessageTextManager() const;
 
-    [[nodiscard]] QVector<Permission> permissions() const;
+    [[nodiscard]] QList<Permission> permissions() const;
 
     void blockUser(const QString &userId, bool block);
     void deleteFileMessage(const QString &roomId, const QString &fileId, Room::RoomType channelType);
@@ -304,7 +304,6 @@ public:
     void setServerVersion(const QString &version);
     [[nodiscard]] QString serverVersion() const;
 
-    [[nodiscard]] bool needAdaptNewSubscriptionRC60() const;
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
@@ -464,7 +463,7 @@ public:
     // Permissions
     void permissionUpdated(const QJsonArray &replyArray);
 
-    [[nodiscard]] const QVector<RoleInfo> &roleInfo() const;
+    [[nodiscard]] const QList<RoleInfo> &roleInfo() const;
 
     [[nodiscard]] CustomSoundsManager *customSoundManager() const;
 
@@ -517,11 +516,19 @@ public:
     void loadAccountSettings();
     void parseCustomSounds(const QJsonArray &obj);
 
-    [[nodiscard]] QVector<AuthenticationInfo> authenticationMethodInfos() const;
+    [[nodiscard]] QList<AuthenticationInfo> authenticationMethodInfos() const;
 
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] bool previewEmbed() const;
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
+
+    [[nodiscard]] OwnUserPreferences::RoomListDisplay roomListDisplay() const;
+
+    void setRoomListDisplay(OwnUserPreferences::RoomListDisplay roomListDisplay);
+
+    void changeUserPresences(const QJsonArray &contents);
+    [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
+    void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
@@ -562,6 +569,7 @@ Q_SIGNALS:
     void roomNeedAttention();
     void ownInfoChanged();
     void customUserStatusChanged();
+    void ownUserUiPreferencesChanged();
     void ownUserPreferencesChanged();
     void customStatusChanged();
     void permissionChanged();
@@ -577,8 +585,8 @@ Q_SIGNALS:
 
     void selectChannelAndMessage(const QString &messageId,
                                  const QString &roomId,
-                                 ParseMessageUrlUtils::RoomIdType roomType,
-                                 ParseMessageUrlUtils::ChannelType channelType);
+                                 ParseRocketChatUrlUtils::RoomIdType roomType,
+                                 ParseRocketChatUrlUtils::ChannelType channelType);
 
     void oauthAppAdded(const QJsonObject &obj);
     void oauthAppUpdated(const QJsonObject &obj);
@@ -649,8 +657,8 @@ private:
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
     QHash<AuthenticationManager::AuthMethodType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
-    QVector<AuthenticationInfo> mAccountAvailableAuthenticationMethodInfos;
-    QVector<AuthenticationInfo> mAuthenticationMethodInfos;
+    QList<AuthenticationInfo> mAccountAvailableAuthenticationMethodInfos;
+    QList<AuthenticationInfo> mAuthenticationMethodInfos;
     RocketChatAccountSettings *mSettings = nullptr;
 
     EmojiManager *mEmojiManager = nullptr;
@@ -689,7 +697,7 @@ private:
     ListMessagesFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
 
     AutotranslateLanguagesModel *const mAutoTranslateLanguagesModel;
-    User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
+    User::PresenceStatus mPresenceStatus = User::PresenceStatus::Unknown;
     DownloadAppsLanguagesManager *const mDownloadAppsLanguagesManager;
     MessageCache *const mMessageCache;
     ManageChannels *const mManageChannels;

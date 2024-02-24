@@ -42,13 +42,11 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateStyleSheet(bool state);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchDone(quint64 id, const QJsonDocument &result);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchChannelRequested(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void clearLineEdit();
     LIBRUQOLAWIDGETS_NO_EXPORT void emitIsValid(bool state);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextIsValid(bool state);
     QString mNegativeBackground;
-    quint64 mDdpIdentifier = 0;
     QRegularExpression mRegularExpression;
     RocketChatAccount *const mRocketChatAccount;
 };

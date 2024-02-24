@@ -31,8 +31,3 @@ QString RoomUtil::generatePermalink(const QString &messageId, const QString &roo
     const QString result = QStringLiteral("%1%2?msg=%3").arg(prefix, roomId, messageId);
     return result;
 }
-
-bool RoomUtil::validUser(const QString &userName)
-{
-    return (userName != QLatin1String("here") && userName != QLatin1String("all"));
-}

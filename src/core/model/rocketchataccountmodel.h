@@ -33,7 +33,7 @@ public:
 
     void clear();
 
-    void setAccounts(const QVector<RocketChatAccount *> &accounts);
+    void setAccounts(const QList<RocketChatAccount *> &accounts);
 
     [[nodiscard]] RocketChatAccount *account(int index) const;
 
@@ -47,5 +47,5 @@ Q_SIGNALS:
     void accountNumberChanged();
 
 private:
-    QVector<RocketChatAccount *> mRocketChatAccount;
+    QList<RocketChatAccount *> mRocketChatAccount;
 };

@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFilterTextChanged(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyDoubleClickRoles(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void modifyRoles(const QModelIndex &index);
-    QVector<RoleInfo> mRoleInfo;
+    QList<RoleInfo> mRoleInfo;
     PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     PermissionsModel *const mAdminPermissionsModel;

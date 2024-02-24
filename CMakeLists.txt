@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-set(RUQOLA_VERSION "2.1.40")
+set(RUQOLA_VERSION "2.1.42")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "24.01.30")
+set(RUQOLA_RELEASE_VERSION "24.02.21")
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.6.0")
@@ -44,6 +44,11 @@ option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
+option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Acess Token Support" OFF)
+
+if (OPTION_USE_PERSONAL_ACCESS_TOKEN)
+    set(USE_PERSONAL_ACCESS_TOKEN true)
+endif()
 
 if (OPTION_USE_ROUNDED_RECT_PIXMAP)
     set(USE_ROUNDED_RECT_PIXMAP true)
@@ -87,6 +92,7 @@ if (UNITY_SUPPORT)
 endif()
 set(KTEXTADDONS_MIN_VERSION "1.5.3")
 set(KLLMWIDGETS_VERSION "0.1.0")
+set(QT6KEYCHAIN_LIB_VERSION "0.14.1")
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
@@ -136,7 +142,7 @@ endif()
 find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF6TextEmoticonsWidgets PROPERTIES DESCRIPTION
     "Add text emoticons support (ktextaddons)"
-    TYPE OPTIONAL
+    TYPE REQUIRED
 )
 
 if (${KF6TextEmoticonsWidgets_VERSION} VERSION_GREATER_EQUAL 1.5.44)
@@ -198,7 +204,7 @@ set_package_properties(KLLMWidgets PROPERTIES
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
-find_package(Qt6Keychain CONFIG)
+find_package(Qt6Keychain ${QT6KEYCHAIN_LIB_VERSION} CONFIG)
 set_package_properties(Qt6Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
@@ -239,7 +245,7 @@ set_package_properties(KF6NetworkManagerQt PROPERTIES DESCRIPTION "Network manag
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.5
-    KF 5.248.0
+    KF 6.0.0
     )
 if (OPTION_BUILD_PYTHON_BINDINGS)
    remove_definitions(-DQT_STRICT_ITERATORS)

@@ -310,7 +310,7 @@ void EmojiManager::clearCustomEmojiCachedHtml()
     }
 }
 
-const QVector<CustomEmoji> &EmojiManager::customEmojiList() const
+const QList<CustomEmoji> &EmojiManager::customEmojiList() const
 {
     return mCustomEmojiList;
 }

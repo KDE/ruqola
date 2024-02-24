@@ -8,15 +8,15 @@
 #include "libruqolacore_export.h"
 #include "role.h"
 #include <QJsonObject>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT Roles
 {
 public:
     Roles();
 
-    [[nodiscard]] QVector<Role> roles() const;
-    void setRoles(const QVector<Role> &roles);
+    [[nodiscard]] QList<Role> roles() const;
+    void setRoles(const QList<Role> &roles);
 
     void parseRole(const QJsonObject &obj);
     [[nodiscard]] Role findRoleByUserId(const QString &userId) const;
@@ -26,6 +26,6 @@ public:
     [[nodiscard]] Role at(int index) const;
 
 private:
-    QVector<Role> mRoles;
+    QList<Role> mRoles;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Roles &t);

@@ -27,11 +27,15 @@ QString prepareExpectedOutput(QString output)
 
     const auto userHighlightForegroundColor = scheme.foreground(KColorScheme::PositiveText).color().name();
     const auto userHighlightBackgroundColor = scheme.background(KColorScheme::PositiveBackground).color().name();
+    const auto hereAllMentionBackgroundColor = scheme.background(KColorScheme::NeutralBackground).color().name();
+    const auto hereAllMentionForegroundColor = scheme.foreground(KColorScheme::NeutralText).color().name();
 
     output.replace(QLatin1String("$BGCOLOR$"), codeBackgroundColor);
     output.replace(QLatin1String("$BORDERCOLOR$"), codeBorderColor);
     output.replace(QLatin1String("$USERCOLOR$"), userHighlightForegroundColor);
     output.replace(QLatin1String("$USERBGCOLOR$"), userHighlightBackgroundColor);
+    output.replace(QLatin1String("$HEREBGCOLOR$"), hereAllMentionBackgroundColor);
+    output.replace(QLatin1String("$HERECOLOR$"), hereAllMentionForegroundColor);
 
     output.prepend(QLatin1String("<qt>"));
     output.append(QLatin1String("</qt>"));
@@ -170,6 +174,11 @@ void TextConverterTest::shouldHighlightWords_data()
                "<div><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
                "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
                "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</div>");
+
+    QTest::newRow("here1") << QStringLiteral("ruqola @here") << QStringLiteral("foo") << highlightWords
+                           << QStringLiteral(
+                                  "<div><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a> <a "
+                                  "style=\"color:$HERECOLOR$;background-color:$HEREBGCOLOR$;font-weight:bold\">here</a></div>");
 }
 
 void TextConverterTest::shouldHighlightWords()

@@ -47,7 +47,7 @@ void TeamSelectDeletedRoomWidget::slotTextChanged(const QString &str)
     mTeamSelectProxyModel->setFilterString(str);
 }
 
-void TeamSelectDeletedRoomWidget::setTeamRooms(const QVector<TeamRoom> &rooms)
+void TeamSelectDeletedRoomWidget::setTeamRooms(const QList<TeamRoom> &rooms)
 {
     mTeamRoomsModel->setTeamRooms(rooms);
 }

@@ -17,6 +17,8 @@ public:
         AllVersion,
         Version2_0,
         Version2_1,
+        Version2_2,
+        LastVersion = Version2_2,
     };
     Q_ENUM(VersionType)
 

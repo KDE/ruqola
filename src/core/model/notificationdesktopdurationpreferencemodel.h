@@ -39,6 +39,6 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void fillModel();
-    QVector<NotificationDesktopDurationPreferenceInfo> mNotificationDestktopDurationPreferenceList;
+    QList<NotificationDesktopDurationPreferenceInfo> mNotificationDestktopDurationPreferenceList;
     int mCurrentPreference = 0;
 };

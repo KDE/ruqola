@@ -85,7 +85,7 @@ void FilesForRoomModel::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void FilesForRoomModel::setFiles(const QVector<File> &files)
+void FilesForRoomModel::setFiles(const QList<File> &files)
 {
     clear();
     if (!files.isEmpty()) {

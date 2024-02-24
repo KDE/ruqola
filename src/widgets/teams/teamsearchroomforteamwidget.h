@@ -21,7 +21,7 @@ public:
     ~TeamSearchRoomForTeamWidget() override;
 
     [[nodiscard]] QStringList roomIds() const;
-    QStringList names() const;
+
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);

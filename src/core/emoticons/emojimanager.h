@@ -41,7 +41,7 @@ public:
     [[nodiscard]] QString customEmojiFileName(const QString &emojiIdentifier) const;
     [[nodiscard]] QString normalizedReactionEmoji(const QString &emojiIdentifier) const;
 
-    [[nodiscard]] const QVector<CustomEmoji> &customEmojiList() const;
+    [[nodiscard]] const QList<CustomEmoji> &customEmojiList() const;
 
     void addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomArray);
     void deleteEmojiCustom(const QJsonArray &obj);
@@ -53,7 +53,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void clearCustomEmojiCachedHtml();
     // Use identifier in a QMap ???
-    QVector<CustomEmoji> mCustomEmojiList;
+    QList<CustomEmoji> mCustomEmojiList;
     QString mServerUrl;
     QRegularExpression mReplacePattern;
     RocketChatAccount *const mRocketChatAccount;

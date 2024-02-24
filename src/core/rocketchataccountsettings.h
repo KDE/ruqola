@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "authenticationmanager.h"
 #include "libruqolacore_export.h"
 #include <QDate>
 #include <QObject>
@@ -70,6 +71,9 @@ public:
     [[nodiscard]] QDate lastCheckedPreviewUrlCacheDate() const;
     void setLastCheckedPreviewUrlCacheDate(const QDate &newLastCheckedPreviewUrlCacheDate);
 
+    [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
+    void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -86,6 +90,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *job);
     LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
 
+    AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown; // By default
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;
@@ -101,3 +106,4 @@ private:
     QSettings *mSetting = nullptr;
     bool mAccountEnabled = true;
 };
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatAccountSettings &t);

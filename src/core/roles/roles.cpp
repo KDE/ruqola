@@ -11,7 +11,7 @@
 
 Roles::Roles() = default;
 
-QVector<Role> Roles::roles() const
+QList<Role> Roles::roles() const
 {
     return mRoles;
 }
@@ -21,7 +21,7 @@ bool Roles::isEmpty() const
     return mRoles.isEmpty();
 }
 
-void Roles::setRoles(const QVector<Role> &roles)
+void Roles::setRoles(const QList<Role> &roles)
 {
     mRoles = roles;
 }

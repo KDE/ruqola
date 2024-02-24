@@ -8,7 +8,7 @@
 #include "libruqola_private_export.h"
 #include "messages/message.h"
 #include <QJsonObject>
-#include <QVector>
+#include <QList>
 class RocketChatAccount;
 
 class LIBRUQOLACORE_TESTS_EXPORT ManageLoadHistoryParseSyncMessagesUtils
@@ -20,13 +20,13 @@ public:
     [[nodiscard]] QStringList deletedMessages() const;
     void setDeletedMessages(const QStringList &newDeletedMessages);
 
-    [[nodiscard]] QVector<Message> updatesMessages() const;
-    void setUpdatesMessages(const QVector<Message> &newUpdatesMessages);
+    [[nodiscard]] QList<Message> updatesMessages() const;
+    void setUpdatesMessages(const QList<Message> &newUpdatesMessages);
 
     void parse(const QJsonObject &obj);
 
 private:
     QStringList mDeletedMessages;
-    QVector<Message> mUpdatesMessages;
+    QList<Message> mUpdatesMessages;
     RocketChatAccount *const mRocketChatAccount;
 };

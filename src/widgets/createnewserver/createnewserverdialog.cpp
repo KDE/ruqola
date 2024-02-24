@@ -42,7 +42,6 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::updateOkButton, this, [this](bool state) {
         mOkButton->setEnabled(state);
     });
-    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::authentication, this, &CreateNewServerDialog::authentication);
 }
 
 CreateNewServerDialog::~CreateNewServerDialog()
@@ -64,7 +63,7 @@ void CreateNewServerDialog::setAccountInfo(const AccountManager::AccountManagerI
 
 void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 {
-    mCreateNewServerStackWidget->setExistingAccountName(lst);
+    mCreateNewServerStackWidget->setExistingAccountNames(lst);
 }
 
 void CreateNewServerDialog::readConfig()

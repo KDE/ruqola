@@ -30,6 +30,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(!p.showRoomAvatar());
     QVERIFY(p.showFavorite());
     QCOMPARE(p.roomListSortOrder(), OwnUserPreferences::RoomListSortOrder::Unknown);
+    QCOMPARE(p.roomListDisplay(), OwnUserPreferences::RoomListDisplay::Unknown);
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
@@ -52,6 +53,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setDisplayAvatars(true);
         preferences.setShowFavorite(true);
         preferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+        preferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
         preferences.setReceiveLoginDetectionEmail(true);
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }

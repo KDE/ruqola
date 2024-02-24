@@ -10,8 +10,9 @@
 #include "libruqolacore_export.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
-#include "parsemessageurlutils.h"
+#include "parserocketchaturlutils.h"
 
+#include <QIcon>
 #include <QObject>
 class RocketChatAccount;
 
@@ -20,15 +21,23 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
     Q_OBJECT
 public:
     struct LIBRUQOLACORE_EXPORT AccountManagerInfo {
-        QVector<AuthenticationInfo> authenticationInfos;
+        QList<AuthenticationInfo> authenticationInfos;
         QString displayName;
         QString accountName;
         QString userName;
         QString serverUrl;
         QString password;
+        QString token;
+        QString userId;
+        AuthenticationManager::AuthMethodType authMethodType = AuthenticationManager::AuthMethodType::Unknown;
         bool canResetPassword = false;
         bool enabled = true;
         bool canRegisterAccount = false;
+    };
+
+    struct LIBRUQOLACORE_EXPORT AccountDisplayInfo {
+        QString name;
+        QIcon icon;
     };
 
     explicit AccountManager(QObject *parent = nullptr);
@@ -53,10 +62,10 @@ public:
 
     [[nodiscard]] int accountNumber() const;
     void openMessageUrl(const QString &messageUrl);
-    [[nodiscard]] bool showMessage(const ParseMessageUrlUtils &parseUrl);
+    [[nodiscard]] bool showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo);
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
-    [[nodiscard]] QStringList accountNamesSorted() const;
+    [[nodiscard]] QList<AccountDisplayInfo> accountDisplayInfoSorted() const;
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
@@ -78,3 +87,4 @@ private:
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(AccountManager::AccountDisplayInfo, Q_RELOCATABLE_TYPE);

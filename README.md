@@ -36,6 +36,8 @@ It supports RC feature:
 - Export Messages
 - Console Moderation
 - Implement Message Url Preview
+- Channel List style
+- Add Forward Message support
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
@@ -45,7 +47,7 @@ Extra features:
 - Add notification history.
 - Add import export Accounts.
 - Implement message layout (normal/compact)
-
+- Increase/Decrease global font by using CTRL++/CTRL+- shortcut
 
 
 ## Source Code

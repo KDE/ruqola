@@ -50,7 +50,7 @@ int AdminRolesModel::columnCount(const QModelIndex &parent) const
     return val;
 }
 
-QVector<RoleInfo> AdminRolesModel::roles() const
+QList<RoleInfo> AdminRolesModel::roles() const
 {
     return mListRoleInfos;
 }
@@ -64,7 +64,7 @@ void AdminRolesModel::clear()
     }
 }
 
-void AdminRolesModel::setRoles(const QVector<RoleInfo> &newRoles)
+void AdminRolesModel::setRoles(const QList<RoleInfo> &newRoles)
 {
     clear();
     if (!newRoles.isEmpty()) {

@@ -7,8 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QList>
 #include <QStandardItemModel>
-#include <QVector>
 class RoleInfo;
 class LIBRUQOLACORE_EXPORT RolesModel : public QStandardItemModel
 {
@@ -23,7 +23,7 @@ public:
     explicit RolesModel(QObject *parent = nullptr);
     ~RolesModel() override;
 
-    void setRoles(const QVector<RoleInfo> &newRoles);
+    void setRoles(const QList<RoleInfo> &newRoles);
 
     [[nodiscard]] QStringList rolesSelected() const;
     void setRolesSelected(const QStringList &newRolesSelected);

@@ -71,15 +71,15 @@ bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
     return index.data(MessagesModel::PendingMessage).toBool();
 }
 
-QVector<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(TextSelection *selection,
-                                                                                QTextDocument *doc,
-                                                                                const QModelIndex &index,
-                                                                                const QStyleOptionViewItem &option,
-                                                                                const MessageAttachment &msgAttach,
-                                                                                const MessageUrl &msgUrl,
-                                                                                bool isAMessage)
+QList<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(TextSelection *selection,
+                                                                              QTextDocument *doc,
+                                                                              const QModelIndex &index,
+                                                                              const QStyleOptionViewItem &option,
+                                                                              const MessageAttachment &msgAttach,
+                                                                              const MessageUrl &msgUrl,
+                                                                              bool isAMessage)
 {
-    QVector<QAbstractTextDocumentLayout::Selection> selections;
+    QList<QAbstractTextDocumentLayout::Selection> selections;
     const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc, msgAttach, msgUrl);
     if (!selectionTextCursor.isNull()) {
         QTextCharFormat selectionFormat;
@@ -114,7 +114,7 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
 
     QAbstractTextDocumentLayout::PaintContext ctx;
     if (selection) {
-        const QVector<QAbstractTextDocumentLayout::Selection> selections =
+        const QList<QAbstractTextDocumentLayout::Selection> selections =
             MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, msgUrl, isAMessage);
         // Same as pDoc->drawContents(painter, clip) but we also set selections
         ctx.selections = selections;

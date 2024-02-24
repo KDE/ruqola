@@ -35,7 +35,7 @@ Users::ParseType DirectoryUsersModel::parseType() const
     return Users::ParseType::Directory;
 }
 
-void DirectoryUsersModel::setRoles(const QVector<RoleInfo> &newRoles)
+void DirectoryUsersModel::setRoles(const QList<RoleInfo> &newRoles)
 {
     mRoleInfo = newRoles;
 }

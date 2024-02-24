@@ -44,7 +44,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    void setChannels(const QVector<ChannelUserCompleter> &channels);
+    void setChannels(const QList<ChannelUserCompleter> &channels);
 
     void parseChannels(const QJsonObject &obj);
     void parseSearchChannels(const QJsonObject &obj);
@@ -61,8 +61,8 @@ private:
     [[nodiscard]] static ChannelUserCompleter noFoundChannelUser();
     [[nodiscard]] static QString here();
     [[nodiscard]] static QString all();
-    [[nodiscard]] QVector<ChannelUserCompleter> searchOpenedRooms();
+    [[nodiscard]] QList<ChannelUserCompleter> searchOpenedRooms();
     SearchInfo mSearchInfo;
-    QVector<ChannelUserCompleter> mChannelUserCompleters;
+    QList<ChannelUserCompleter> mChannelUserCompleters;
     RocketChatAccount *const mRocketChatAccount;
 };

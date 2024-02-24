@@ -17,8 +17,8 @@ public:
     explicit BannerMessageWidget(QWidget *parent = nullptr);
     ~BannerMessageWidget() override;
 
-    [[nodiscard]] const QVector<BannerInfos::UnreadInformation> &bannerInfos() const;
-    void setBannerInfos(const QVector<BannerInfos::UnreadInformation> &newBannerInfo);
+    [[nodiscard]] const QList<BannerInfos::UnreadInformation> &bannerInfos() const;
+    void setBannerInfos(const QList<BannerInfos::UnreadInformation> &newBannerInfo);
 
 Q_SIGNALS:
     void infoWasRead(const QString &identifier);
@@ -27,5 +27,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReadInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenUrl(const QString &url);
-    QVector<BannerInfos::UnreadInformation> mBannerInfos;
+    QList<BannerInfos::UnreadInformation> mBannerInfos;
 };

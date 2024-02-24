@@ -69,8 +69,8 @@ public:
     [[nodiscard]] AttachmentType attachmentType() const;
     void setAttachmentType(AttachmentType attachmentType);
 
-    [[nodiscard]] QVector<MessageAttachmentField> attachmentFields() const;
-    void setAttachmentFields(const QVector<MessageAttachmentField> &attachmentFields);
+    [[nodiscard]] QList<MessageAttachmentField> attachmentFields() const;
+    void setAttachmentFields(const QList<MessageAttachmentField> &attachmentFields);
 
     [[nodiscard]] bool collapsed() const;
     void setCollapsed(bool collapsed);
@@ -94,7 +94,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
-    QVector<MessageAttachmentField> mAttachmentFields;
+    QList<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
     QString mColor;
     QString mDescription;

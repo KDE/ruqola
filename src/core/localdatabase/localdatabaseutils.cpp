@@ -72,9 +72,14 @@ QString LocalDatabaseUtils::insertReplaceMessages()
     return QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)");
 }
 
-QString LocalDatabaseUtils::deleteRooms()
+QString LocalDatabaseUtils::deleteRoom()
 {
     return QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?");
+}
+
+QString LocalDatabaseUtils::jsonRoom()
+{
+    return QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\"");
 }
 
 QString LocalDatabaseUtils::insertReplaceRoom()
@@ -97,6 +102,16 @@ QString LocalDatabaseUtils::insertReplaceGlobal()
     return QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)");
 }
 
+QString LocalDatabaseUtils::removeGlobal()
+{
+    return QStringLiteral("DELETE FROM GLOBAL WHERE identifier = ?");
+}
+
+QString LocalDatabaseUtils::timestampGlobal()
+{
+    return QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\"");
+}
+
 QString LocalDatabaseUtils::deleteMessageFromLogs()
 {
     return QStringLiteral("DELETE FROM LOGS WHERE messageId = ?");
@@ -110,4 +125,9 @@ QString LocalDatabaseUtils::insertReplaceMessageFromLogs()
 qint64 LocalDatabaseUtils::currentTimeStamp()
 {
     return QDateTime::currentDateTimeUtc().toMSecsSinceEpoch();
+}
+
+QString LocalDatabaseUtils::jsonAccount()
+{
+    return QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\"");
 }

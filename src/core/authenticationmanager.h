@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include <KPluginMetaData>
+#include <QList>
 #include <QObject>
-#include <QVector>
 class PluginAuthentication;
 class PluginUtilData
 {
@@ -49,23 +49,26 @@ public:
         Password = 128,
         Apple = 256,
         NextCloud = 512,
+        PersonalAccessToken = 1024,
     };
     Q_ENUM(AuthMethodType)
     Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)
 
-    explicit AuthenticationManager(QObject *parent = nullptr);
     ~AuthenticationManager() override;
 
     static AuthenticationManager *self();
 
-    [[nodiscard]] QVector<PluginAuthentication *> pluginsList() const;
+    [[nodiscard]] QList<PluginAuthentication *> pluginsList() const;
+
+    [[nodiscard]] PluginAuthentication *findPluginAuthentication(AuthenticationManager::AuthMethodType type);
 
 private:
+    explicit AuthenticationManager(QObject *parent = nullptr);
     LIBRUQOLACORE_NO_EXPORT void initializePluginList();
     LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
     LIBRUQOLACORE_NO_EXPORT PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
-    QVector<AuthenticationManagerInfo> mPluginList;
-    QVector<PluginUtilData> mPluginDataList;
+    QList<AuthenticationManagerInfo> mPluginList;
+    QList<PluginUtilData> mPluginDataList;
 };
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodTypes)
 Q_DECLARE_METATYPE(AuthenticationManager::AuthMethodType)

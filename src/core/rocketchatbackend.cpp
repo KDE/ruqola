@@ -140,7 +140,7 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     , mRocketChatAccount(account)
 {
     connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::slotUserIDChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::subscribeRegistration);
     connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::slotChanged);
     connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
     connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
@@ -176,9 +176,8 @@ void RocketChatBackend::loadPublicSettings(qint64 timeStamp)
     if (timeStamp != -1) {
         // "params": [ { "$date": 1480377601 } ]
         params[QLatin1String("$date")] = timeStamp;
-        qDebug() << " params " << params;
+        qDebug() << "RocketChatBackend::loadPublicSettings load from: " << params;
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_updatePublicsettings);
-
     } else {
         ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings);
     }
@@ -239,7 +238,7 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messag
     }
 }
 
-void RocketChatBackend::addMessagesFromLocalDataBase(const QVector<Message> &messages)
+void RocketChatBackend::addMessagesFromLocalDataBase(const QList<Message> &messages)
 {
     if (messages.isEmpty()) {
         return;
@@ -267,7 +266,7 @@ void RocketChatBackend::addMessagesFromLocalDataBase(const QVector<Message> &mes
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
 {
-    QHash<MessagesModel *, QVector<Message>> dispatcher;
+    QHash<MessagesModel *, QList<Message>> dispatcher;
     QString lastRoomId;
     MessagesModel *messageModel = nullptr;
     Room *room = nullptr;
@@ -358,12 +357,12 @@ void RocketChatBackend::tryAutoLogin()
     mRocketChatAccount->ddp()->login();
 }
 
-QVector<File> RocketChatBackend::files() const
+QList<File> RocketChatBackend::files() const
 {
     return mFiles;
 }
 
-QVector<User> RocketChatBackend::users() const
+QList<User> RocketChatBackend::users() const
 {
     return mUsers;
 }
@@ -713,6 +712,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (eventname == QLatin1String("roles")) {
             mRocketChatAccount->updateRoles(contents);
         }
+    } else if (collection == QLatin1String("stream-user-presence")) {
+        const QString uid = fields.value(QLatin1String("uid")).toString();
+        if (mRocketChatAccount->userId() == uid) {
+            mRocketChatAccount->changeUserPresences(contents);
+        }
+        // qDebug() << "contents  " << contents << " fields " << fields;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }
@@ -728,8 +733,9 @@ void RocketChatBackend::clearUsersList()
     mUsers.clear();
 }
 
-void RocketChatBackend::slotUserIDChanged()
+void RocketChatBackend::subscribeRegistration()
 {
+    qCDebug(RUQOLA_LOG) << "subscribe registration";
     // TODO verify if we don"t send two subscription.
     const QString userId{mRocketChatAccount->settings()->userId()};
     {
@@ -781,19 +787,23 @@ void RocketChatBackend::slotUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
-        // Subscribe users in room ? //TODO verify it.
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("webrtc"))));
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-room-users"), params);
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("banners"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
-    // stream-notify-all
+    {
+        // Subscribe force_logout
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("force_logout"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
     {
         const QJsonArray params{QJsonValue(QStringLiteral("updateAvatar"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     { // Verify as in RC we don't have it
         const QJsonArray params{QJsonValue(QStringLiteral("roles-change"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     //    { // Verify as in RC we don't have it
     //        const QJsonArray params{QJsonValue(QStringLiteral("video-conference"))};
@@ -809,10 +819,6 @@ void RocketChatBackend::slotUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
-        const QJsonArray params{QJsonValue(QStringLiteral("updateEmojiCustom"))};
-        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
-    }
-    {
         const QJsonArray params{QJsonValue(QStringLiteral("deleteEmojiCustom"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -822,6 +828,14 @@ void RocketChatBackend::slotUserIDChanged()
     }
     { // Verify it
         const QJsonArray params{QJsonValue(QStringLiteral("permissions-changed"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    { // Verify it
+        const QJsonArray params{QJsonValue(QStringLiteral("license"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    { // Verify it
+        const QJsonArray params{QJsonValue(QStringLiteral("public-info"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     // stream-notify-logged
@@ -854,12 +868,21 @@ void RocketChatBackend::slotUserIDChanged()
         const QJsonArray params{QJsonValue(QStringLiteral("Users:Deleted"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
+    // stream-notify-logged
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("banner-changed"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
     {
         const QJsonArray params{QJsonValue(QStringLiteral("deleteCustomUserStatus"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
         const QJsonArray params{QJsonValue(QStringLiteral("updateCustomUserStatus"))};
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral("voip.statuschanged"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
     {
@@ -877,6 +900,10 @@ void RocketChatBackend::slotUserIDChanged()
     {
         const QJsonArray params{QJsonValue(QStringLiteral("roles"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-roles"), params);
+    }
+    {
+        const QJsonArray params{QJsonValue(QStringLiteral(""))};
+        mRocketChatAccount->ddp()->subscribeUserPresence(QStringLiteral("stream-user-presence"), params, userId);
     }
 }
 

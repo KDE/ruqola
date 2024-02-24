@@ -197,6 +197,7 @@ enum class RestApiUrlType {
     RoomsGetDiscussions,
     RoomsExport,
     RoomsChangeArchivactionState,
+    RoomsNameExists,
 
     ForgotPassword,
     CommandsList,
@@ -293,12 +294,16 @@ enum class RestApiUrlType {
     OauthAppsGet,
     // 5.4.0
     OauthAppsCreate,
+    OauthAppsUpdate,
+    OauthAppsDelete,
 
     // License
     LicensesGet,
     LicensesMaxActiveUsers,
     LicensesAdd,
     LicensesIsEntreprise,
+    // 6.5.0
+    LicensesInfo,
 
     // Banner
     BannersDismiss,

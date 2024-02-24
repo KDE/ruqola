@@ -39,9 +39,12 @@ void AccountServerListWidget::load()
         info.password = account->password();
         info.canResetPassword = account->allowPasswordReset() && account->allowPasswordChange();
         info.authenticationInfos = account->authenticationMethodInfos();
-        item->setAccountInfo(info);
+        info.authMethodType = account->authMethodType();
+        // TODO add info.token/info.userId
+        item->setToolTip(info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
+        item->setAccountInfo(std::move(info));
     }
 }
 
@@ -84,8 +87,9 @@ void AccountServerListWidget::modifyAccountConfig()
     }
 
     auto serverListItem = static_cast<AccountServerListWidgetItem *>(item);
+    const auto accountInfo = serverListItem->accountInfo();
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
-    dlg->setAccountInfo(serverListItem->accountInfo());
+    dlg->setAccountInfo(accountInfo);
     if (dlg->exec()) {
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
         serverListItem->setAccountInfo(std::move(info));
@@ -100,6 +104,7 @@ void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item, bool re
 
 void AccountServerListWidget::addAccountConfig()
 {
+    // TODO
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     QStringList listAccounts;
     for (int i = 0; i < count(); ++i) {
@@ -123,7 +128,7 @@ void AccountServerListWidget::addAccountConfig()
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);
         accountServeritem->setCheckState(Qt::Checked);
-        accountServeritem->setAccountInfo(info);
+        accountServeritem->setAccountInfo(std::move(info));
         accountServeritem->setNewAccount(true);
     }
     delete dlg;

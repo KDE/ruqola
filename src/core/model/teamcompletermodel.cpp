@@ -23,7 +23,7 @@ void TeamCompleterModel::clear()
     }
 }
 
-void TeamCompleterModel::insertTeams(const QVector<TeamCompleter> &teams)
+void TeamCompleterModel::insertTeams(const QList<TeamCompleter> &teams)
 {
     clear();
     if (!teams.isEmpty()) {

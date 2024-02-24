@@ -7,7 +7,7 @@
 #pragma once
 
 #include "roles/roleinfo.h"
-#include <QVector>
+#include <QList>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -24,13 +24,13 @@ public:
 
     void setUserName(const QString &userName);
 
-    void setRoles(const QVector<RoleInfo> &newRoles);
+    void setRoles(const QList<RoleInfo> &newRoles);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfoDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void fetchUserInfo(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void setUser(const User &user);
-    QVector<RoleInfo> mListRoleInfos;
+    QList<RoleInfo> mListRoleInfos;
     QLabel *const mAvatar;
     QFormLayout *const mMainLayout;
     RocketChatAccount *const mRocketChatAccount;

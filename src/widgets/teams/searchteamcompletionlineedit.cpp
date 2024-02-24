@@ -58,6 +58,7 @@ void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
 {
     if (text.trimmed().isEmpty()) {
         mTeamCompleterModel->clear();
+        mCompletionListView->hide();
         mTeamId.clear();
         Q_EMIT teamIdChanged(true);
     } else {
@@ -76,7 +77,7 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
 {
     // qDebug() << " obj " << obj;
     const QJsonArray items = obj[QLatin1String("teams")].toArray();
-    QVector<TeamCompleter> teams;
+    QList<TeamCompleter> teams;
     const auto total = items.count();
     teams.reserve(total);
     for (auto i = 0; i < total; ++i) {

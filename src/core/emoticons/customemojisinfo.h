@@ -9,7 +9,7 @@
 #include "customemoji.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 class LIBRUQOLACORE_EXPORT CustomEmojisInfo
 {
 public:
@@ -32,14 +32,14 @@ public:
     [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
 
-    const QVector<CustomEmoji> &customSoundInfos() const;
-    void setCustomSoundInfos(const QVector<CustomEmoji> &newCustomSoundInfos);
+    const QList<CustomEmoji> &customSoundInfos() const;
+    void setCustomSoundInfos(const QList<CustomEmoji> &newCustomSoundInfos);
 
     CustomEmoji takeAt(int index);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListCustomEmoji(const QJsonObject &obj);
-    QVector<CustomEmoji> mCustomEmojiInfos;
+    QList<CustomEmoji> mCustomEmojiInfos;
     int mRoomsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

@@ -281,6 +281,10 @@ target_sources(libruqolacore PRIVATE
     model/moderationreportinfofilterproxymodel.cpp
     model/moderationreportinfofilterproxymodel.h
 
+    model/joinedchannelmodel.h
+    model/joinedchannelmodel.cpp
+
+
     notificationinfo.cpp
     notificationinfo.h
     notifications/notification.cpp
@@ -307,8 +311,13 @@ target_sources(libruqolacore PRIVATE
     ownuser/ownuser.h
     ownuser/ownuserpreferences.cpp
     ownuser/ownuserpreferences.h
-    parsemessageurlutils.cpp
-    parsemessageurlutils.h
+
+    parserocketchaturlutils.cpp
+    parserocketchaturlutils.h
+
+    rocketchaturlutils.h
+    rocketchaturlutils.cpp
+
     permissions/permission.cpp
     permissions/permission.h
     permissions/permissionmanager.cpp
@@ -325,6 +334,9 @@ target_sources(libruqolacore PRIVATE
     plugins/pluginauthentication.h
     plugins/pluginauthenticationinterface.cpp
     plugins/pluginauthenticationinterface.h
+    plugins/pluginauthenticationconfigurewidget.h
+    plugins/pluginauthenticationconfigurewidget.cpp
+
     python/ruqolacore/ruqolacore_global.h
     receivetypingnotificationmanager.cpp
     receivetypingnotificationmanager.h

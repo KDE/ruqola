@@ -8,12 +8,14 @@
 
 #include <QObject>
 
-class ConferenceDirectCallDialogTest : public QObject
+class ParseRocketChatUrlUtilsTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ConferenceDirectCallDialogTest(QObject *parent = nullptr);
-    ~ConferenceDirectCallDialogTest() override = default;
+    explicit ParseRocketChatUrlUtilsTest(QObject *parent = nullptr);
+    ~ParseRocketChatUrlUtilsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldParseUrl();
+    void shouldParseUrl_data();
 };

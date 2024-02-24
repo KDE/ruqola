@@ -34,7 +34,7 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
     FilesForRoomFilterProxyModel proxy;
     FilesForRoomModel model;
     proxy.setSourceModel(&model);
-    QVector<File> mFiles;
+    QList<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));

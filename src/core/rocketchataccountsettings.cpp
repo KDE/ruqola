@@ -6,7 +6,6 @@
 
 #include "rocketchataccountsettings.h"
 #include "config-ruqola.h"
-#include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
 #include "ruqola_password_core_debug.h"
@@ -52,7 +51,11 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
     mLastCheckedPreviewUrlCacheDate = mSetting->value(QStringLiteral("lastCheckedPreviewUrlDate")).toDate();
+    mAuthMethodType = mSetting->value(QStringLiteral("authenticationMethodType"), AuthenticationManager::AuthMethodType::Password)
+                          .value<AuthenticationManager::AuthMethodType>();
 
+    // Password is ok when we use Password authentication method.
+    // Not sure for other.
     if (mAccountEnabled && !mAccountName.isEmpty()) {
         qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
         auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
@@ -79,6 +82,20 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
 {
     if (baseJob->error()) {
         qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
+    }
+}
+
+AuthenticationManager::AuthMethodType RocketChatAccountSettings::authMethodType() const
+{
+    return mAuthMethodType;
+}
+
+void RocketChatAccountSettings::setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType)
+{
+    if (mAuthMethodType != newAuthMethodType) {
+        mAuthMethodType = newAuthMethodType;
+        mSetting->setValue(QStringLiteral("authenticationMethodType"), mAuthMethodType);
+        mSetting->sync();
     }
 }
 
@@ -311,6 +328,21 @@ void RocketChatAccountSettings::removeSettings()
     if (!dir.removeRecursively()) {
         qCWarning(RUQOLA_LOG) << "Impossible to delete cache dir: " << storeCachePath;
     }
+}
+
+QDebug operator<<(QDebug d, const RocketChatAccountSettings &t)
+{
+    d.space() << "mAuthMethodType" << t.authMethodType();
+    d.space() << "mUserId" << t.userId();
+    d.space() << "mAuthToken" << t.authToken();
+    d.space() << "mServerUrl" << t.serverUrl();
+    d.space() << "mAccountName" << t.accountName();
+    d.space() << "mDisplayName" << t.displayName();
+    d.space() << "mUserName" << t.userName();
+    d.space() << "mTwoFactorAuthenticationCode" << t.twoFactorAuthenticationCode();
+    d.space() << "mExpireToken" << t.expireToken();
+    d.space() << "mAccountEnabled" << t.accountEnabled();
+    return d;
 }
 
 #include "moc_rocketchataccountsettings.cpp"

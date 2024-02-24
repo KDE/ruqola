@@ -39,12 +39,12 @@ private:
     struct PreviewLayout {
         QPixmap pixmap;
         QString imageUrl;
-        bool hasDescription = false;
-        QSize previewTitleSize;
         QString previewTitle;
+        QRect hideShowButtonRect;
+        QSize previewTitleSize;
         QSize descriptionSize;
         QSize imageSize;
-        QRect hideShowButtonRect;
+        bool hasDescription = false;
         bool isShown = true;
     };
     LIBRUQOLAWIDGETS_NO_EXPORT void dump(const PreviewLayout &layout);

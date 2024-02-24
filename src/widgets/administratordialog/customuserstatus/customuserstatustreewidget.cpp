@@ -54,7 +54,7 @@ void CustomUserStatusTreeWidget::initialize()
 {
     clear();
     const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
-    const QVector<CustomUserStatus> customUserses = statuses.customUserses();
+    const QList<CustomUserStatus> customUserses = statuses.customUserses();
     for (const CustomUserStatus &status : customUserses) {
         auto item = new CustomUserStatusTreeWidgetItem(this);
         item->setUserStatus(status);

@@ -8,6 +8,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -68,14 +69,14 @@ void PostMessageJob::setText(const QString &text)
     mText = text;
 }
 
-QString PostMessageJob::roomId() const
+QStringList PostMessageJob::roomIds() const
 {
-    return mRoomId;
+    return mRoomIds;
 }
 
-void PostMessageJob::setRoomId(const QString &roomId)
+void PostMessageJob::setRoomIds(const QStringList &roomIds)
 {
-    mRoomId = roomId;
+    mRoomIds = roomIds;
 }
 
 bool PostMessageJob::canStart() const
@@ -88,7 +89,7 @@ bool PostMessageJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Text is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (mRoomIds.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "roomId is not defined";
         return false;
     }
@@ -98,10 +99,16 @@ bool PostMessageJob::canStart() const
 QJsonDocument PostMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mRoomId;
+    if (mRoomIds.count() == 1) {
+        // Make sure to not break old RC server
+        jsonObj[QLatin1String("roomId")] = mRoomIds.at(0);
+    } else {
+        jsonObj[QLatin1String("roomId")] = QJsonArray::fromStringList(mRoomIds);
+    }
     jsonObj[QLatin1String("text")] = mText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
+    // qDebug() << " postData " << postData;
     return postData;
 }
 
@@ -111,8 +118,18 @@ QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
         return i18n("This room is blocked");
     } else if (errorStr == QLatin1String("You_have_been_muted")) {
         return i18n("You have been muted and cannot speak in this room");
+    } else if (errorStr == QLatin1String("invalid-channel")) {
+        return i18n("Invalid channel");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
+}
+
+QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("invalid-channel")) {
+        return i18n("Invalid channel");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 #include "moc_postmessagejob.cpp"

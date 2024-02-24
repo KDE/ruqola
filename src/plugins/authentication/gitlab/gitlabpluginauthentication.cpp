@@ -23,7 +23,7 @@ PluginAuthenticationInterface *GitLabPluginAuthentication::createInterface(QObje
     return new GitLabAuthenticationInterface(parent);
 }
 
-AuthenticationManager::AuthMethodType GitLabPluginAuthentication::type() const
+AuthenticationManager::AuthMethodType GitLabPluginAuthentication::authenticationType() const
 {
     return AuthenticationManager::AuthMethodType::GitLab;
 }

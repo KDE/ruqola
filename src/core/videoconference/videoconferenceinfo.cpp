@@ -164,12 +164,12 @@ void VideoConferenceInfo::setMessageId(const QString &newMessageId)
     mMessageId = newMessageId;
 }
 
-QVector<User> VideoConferenceInfo::users() const
+QList<User> VideoConferenceInfo::users() const
 {
     return mUsers;
 }
 
-void VideoConferenceInfo::setUsers(const QVector<User> &newUsers)
+void VideoConferenceInfo::setUsers(const QList<User> &newUsers)
 {
     mUsers = newUsers;
 }

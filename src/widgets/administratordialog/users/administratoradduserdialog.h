@@ -25,7 +25,7 @@ public:
     [[nodiscard]] RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
     [[nodiscard]] RocketChatRestApi::UpdateUserInfo updateInfo() const;
     void setUser(const User &user);
-    void setRoleInfo(const QVector<RoleInfo> &info);
+    void setRoleInfo(const QList<RoleInfo> &info);
 
 private:
     AdministratorAddUserWidget *const mAdministratorWidget;

@@ -39,7 +39,7 @@ QStringList PermissionsEditDialog::roles() const
     return mPermissionsWidget->roles();
 }
 
-void PermissionsEditDialog::setRolesInfo(const QVector<RoleInfo> &rolesinfo)
+void PermissionsEditDialog::setRolesInfo(const QList<RoleInfo> &rolesinfo)
 {
     mPermissionsWidget->setRolesInfo(rolesinfo);
 }

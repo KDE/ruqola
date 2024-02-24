@@ -12,6 +12,16 @@ ColorsAndMessageViewStyle::ColorsAndMessageViewStyle()
     : QObject()
 {
     regenerateColorScheme();
+    qGuiApp->installEventFilter(this);
+}
+
+bool ColorsAndMessageViewStyle::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED(obj);
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        regenerateColorScheme();
+    }
+    return false;
 }
 
 ColorsAndMessageViewStyle &ColorsAndMessageViewStyle::self()
@@ -32,17 +42,12 @@ KColorScheme ColorsAndMessageViewStyle::schemeWindow() const
 
 void ColorsAndMessageViewStyle::regenerateColorScheme()
 {
-    mSchemeView = KColorScheme();
-    mSchemeWindow = KColorScheme(QPalette::Active, KColorScheme::Window);
-    Q_EMIT needToUpdateColors();
-}
-
-bool ColorsAndMessageViewStyle::event(QEvent *e)
-{
-    if (e->type() == QEvent::ApplicationPaletteChange) {
-        regenerateColorScheme();
+    const KColorScheme colorScheme(QPalette::Active, KColorScheme::Window);
+    if (!(mSchemeWindow == colorScheme)) {
+        mSchemeView = KColorScheme();
+        mSchemeWindow = std::move(colorScheme);
+        Q_EMIT needToUpdateColors();
     }
-    return QObject::event(e);
 }
 
 #include "moc_colorsandmessageviewstyle.cpp"

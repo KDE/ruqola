@@ -17,9 +17,9 @@ public:
     explicit ExportDataSelectAccountListWidget(QWidget *parent = nullptr);
     ~ExportDataSelectAccountListWidget() override;
 
-    void setAccountList(const QVector<ImportExportUtils::AccountImportExportInfo> &lst);
+    void setAccountList(const QList<ImportExportUtils::AccountImportExportInfo> &lst);
 
-    [[nodiscard]] QVector<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
+    [[nodiscard]] QList<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
 
 Q_SIGNALS:
     void selectedItemChanged();

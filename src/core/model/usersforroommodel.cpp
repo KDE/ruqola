@@ -20,7 +20,7 @@ UsersForRoomModel::UsersForRoomModel(QObject *parent)
 
 UsersForRoomModel::~UsersForRoomModel() = default;
 
-void UsersForRoomModel::setUsers(const QVector<User> &users)
+void UsersForRoomModel::setUsers(const QList<User> &users)
 {
     if (mUsers.isEmpty()) {
         if (!users.isEmpty()) {
@@ -135,7 +135,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         mTotal = root[QLatin1String("total")].toInt();
         mOffset = root[QLatin1String("offset")].toInt();
         const QJsonArray members = root[QLatin1String("members")].toArray();
-        QVector<User> users;
+        QList<User> users;
         users.reserve(members.count());
         for (const QJsonValue &current : members) {
             if (current.type() == QJsonValue::Object) {
@@ -169,7 +169,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
             mTotal = result[QLatin1String("total")].toInt();
             mOffset = root[QLatin1String("offset")].toInt(); // TODO verify if a day we use no rest api
 
-            QVector<User> users;
+            QList<User> users;
             users.reserve(records.count());
             for (const QJsonValue &current : records) {
                 if (current.type() == QJsonValue::Object) {

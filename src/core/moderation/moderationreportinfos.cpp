@@ -52,12 +52,12 @@ void ModerationReportInfos::setModerationReportInfosCount(int newModerationRepor
     mModerationReportInfosCount = newModerationReportInfosCount;
 }
 
-const QVector<ModerationReportInfo> &ModerationReportInfos::moderationReportInfosList() const
+const QList<ModerationReportInfo> &ModerationReportInfos::moderationReportInfosList() const
 {
     return mModerationReportInfosList;
 }
 
-void ModerationReportInfos::setModerationReportInfosList(const QVector<ModerationReportInfo> &newModerationReportInfosList)
+void ModerationReportInfos::setModerationReportInfosList(const QList<ModerationReportInfo> &newModerationReportInfosList)
 {
     mModerationReportInfosList = newModerationReportInfosList;
 }

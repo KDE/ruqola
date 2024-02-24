@@ -42,6 +42,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorOauthWidget::slotTextChanged);
     connect(mOauthTreeWidget, &OauthTreeView::removeOauth, this, &AdministratorOauthWidget::slotRemoveOauth);
     connect(mOauthTreeWidget, &OauthTreeView::oauthAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
+    connect(mOauthTreeWidget, &OauthTreeView::oauthUpdated, this, &AdministratorOauthWidget::slotOauthAppUpdated);
 
     // Hide not useful columns
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::ClientId, true);
@@ -50,8 +51,10 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::CreatedAt, true);
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::Identifier, true);
 
-    connect(mRocketChatAccount, &RocketChatAccount::oauthAppAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
-    connect(mRocketChatAccount, &RocketChatAccount::oauthAppUpdated, this, &AdministratorOauthWidget::slotOauthAppUpdated);
+    if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+        connect(mRocketChatAccount, &RocketChatAccount::oauthAppAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
+        connect(mRocketChatAccount, &RocketChatAccount::oauthAppUpdated, this, &AdministratorOauthWidget::slotOauthAppUpdated);
+    }
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;
@@ -69,20 +72,29 @@ void AdministratorOauthWidget::initialize()
 void AdministratorOauthWidget::slotOauthAppAdded(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), false); // We got it from ddpclient
+    bool useRestApi = false;
+    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+        useRestApi = true;
+    }
+    info.parseOauthInfo(std::move(obj), useRestApi);
     mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), false); // We got it from ddpclient
-    // TODO mAdminOauthModel->addMoreOauth(info);
+    bool useRestApi = false;
+    if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+        useRestApi = true;
+    }
+    info.parseOauthInfo(std::move(obj), useRestApi);
+    mAdminOauthModel->removeOauth(info.identifier());
+    mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
 {
-    QVector<OauthInfo> lstOauth;
+    QList<OauthInfo> lstOauth;
     const QJsonArray array = obj[QLatin1String("oauthApps")].toArray();
     const auto arrayCount{array.count()};
     lstOauth.reserve(arrayCount);
@@ -107,8 +119,6 @@ void AdministratorOauthWidget::slotTextChanged(const QString &str)
 
 void AdministratorOauthWidget::slotRemoveOauth(const QString &identifier)
 {
-    mRocketChatAccount->ddp()->deleteOAuthApp(identifier);
-    // TODO make sure that identifier removed
     mAdminOauthModel->removeOauth(identifier);
 }
 

@@ -7,17 +7,17 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "permission.h"
-#include <QVector>
+#include <QList>
 class RoleInfo;
 class LIBRUQOLACORE_EXPORT Permissions
 {
 public:
     Permissions();
 
-    [[nodiscard]] QVector<Permission> permissions() const;
-    void setPermissions(const QVector<Permission> &permissions);
+    [[nodiscard]] QList<Permission> permissions() const;
+    void setPermissions(const QList<Permission> &permissions);
 
-    void parsePermissions(const QJsonObject &obj, const QString &str = {}, const QVector<RoleInfo> &roleInfo = {});
+    void parsePermissions(const QJsonObject &obj, const QString &str = {}, const QList<RoleInfo> &roleInfo = {});
     [[nodiscard]] bool isEmpty() const;
 
     [[nodiscard]] int count() const;
@@ -26,5 +26,5 @@ public:
     [[nodiscard]] Permission at(int index) const;
 
 private:
-    QVector<Permission> mPermissions;
+    QList<Permission> mPermissions;
 };

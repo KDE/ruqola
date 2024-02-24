@@ -51,15 +51,17 @@ QString WhatsNewComboBoxWidget::convertVersionEnumToString(WhatsNewComboBoxWidge
         return i18n("Version 2.0");
     case Version2_1:
         return i18n("Version 2.1");
+    case Version2_2:
+        return i18n("Version 2.2");
     }
     return {};
 }
 
 void WhatsNewComboBoxWidget::fillCombobox()
 {
-    mVersionComboBox->addItem(convertVersionEnumToString(AllVersion), AllVersion);
-    mVersionComboBox->addItem(convertVersionEnumToString(Version2_0), Version2_0);
-    mVersionComboBox->addItem(convertVersionEnumToString(Version2_1), Version2_1);
+    for (int i = AllVersion; i <= LastVersion; ++i) {
+        mVersionComboBox->addItem(convertVersionEnumToString(static_cast<VersionType>(i)), i);
+    }
 }
 
 void WhatsNewComboBoxWidget::initializeVersion(WhatsNewComboBoxWidget::VersionType type)

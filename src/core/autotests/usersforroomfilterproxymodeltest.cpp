@@ -33,7 +33,7 @@ void UsersForRoomFilterProxyModelTest::shouldAssignValue()
     proxy.setSourceModel(&model);
     QCOMPARE(proxy.rowCount(), 0);
 
-    QVector<User> users;
+    QList<User> users;
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));

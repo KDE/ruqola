@@ -173,15 +173,12 @@ public:
     void subscribeRoomMessage(const QString &roomId);
     quint64 setDefaultStatus(User::PresenceStatus status);
     quint64 createJitsiConfCall(const QString &roomId);
-    quint64 userAutocomplete(const QString &pattern, const QString &exception);
     quint64 loadHistory(const QJsonArray &params);
     quint64 inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType);
-    quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
-    quint64 roomNameExists(const QString &roomId);
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey);
@@ -198,13 +195,13 @@ public:
     quint64 updateOAuthApp(const QString &name, bool active, const QString &redirectUrl);
     quint64 setAdminStatus(const QString &userId, bool admin);
     quint64 openRoom(const QString &roomId);
-    quint64 getRoomById(const QString &roomId);
     quint64 bannerDismiss(const QString &bannerId);
     quint64 licenseGetModules();
     quint64 videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId);
+    quint64 subscribeUserPresence(const QString &collection, const QJsonArray &params, const QString &added);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

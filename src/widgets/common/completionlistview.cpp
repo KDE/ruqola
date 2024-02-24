@@ -60,6 +60,11 @@ void CompletionListView::keyPressEvent(QKeyEvent *event)
         Q_EMIT complete(currentIndex());
         event->accept();
         return;
+    } else if ((event->modifiers() & Qt::AltModifier) && (key == Qt::Key_Down || key == Qt::Key_Up)) {
+        hide();
+        // send keypresses to the linedit
+        qApp->sendEvent(mTextWidget, event);
+        return;
     } else if (key != Qt::Key_Down && key != Qt::Key_Up && key != Qt::Key_PageDown && key != Qt::Key_PageUp && key != Qt::Key_Home && key != Qt::Key_End
                && key != Qt::Key_Left && key != Qt::Key_Right) {
         // send keypresses to the linedit

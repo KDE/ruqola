@@ -17,5 +17,5 @@ public:
     ~ModerationMessagesModel() override;
 
 protected:
-    [[nodiscard]] QVector<Message> extractMessages(const QJsonObject &obj) override;
+    [[nodiscard]] QList<Message> extractMessages(const QJsonObject &obj) override;
 };

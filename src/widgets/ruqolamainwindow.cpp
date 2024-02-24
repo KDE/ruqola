@@ -7,7 +7,9 @@
 #include "ruqolamainwindow.h"
 #include "databasedialog/exploredatabasedialog.h"
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
+#include "misc/changefontsizemenu.h"
 #include "notificationhistorymanager.h"
+#include "rocketchaturlutils.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
 
@@ -17,7 +19,6 @@
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 
 #include "bannerinfodialog/bannerinfodialog.h"
-#include "config-ruqola.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "connection.h"
 #include "createnewserver/createnewserverdialog.h"
@@ -97,6 +98,7 @@
 namespace
 {
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
+const int ruqolaVersion = 1;
 }
 
 RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
@@ -147,7 +149,9 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
     if (parser->isSet(QStringLiteral("messageurl"))) {
         const QString messageUrl = parser->value(QStringLiteral("messageurl"));
         if (!messageUrl.isEmpty()) {
-            Ruqola::self()->openMessageUrl(messageUrl);
+            if (RocketChatUrlUtils::parseUrl(messageUrl)) {
+                return;
+            }
         }
     }
     if (parser->isSet(QStringLiteral("account"))) {
@@ -197,10 +201,11 @@ void RuqolaMainWindow::updateNotification(bool hasAlert, int nbUnread, const QSt
 
 void RuqolaMainWindow::setupStatusBar()
 {
+    statusBar()->insertPermanentWidget(0, mContainerStatusInfo);
     mStatusBarTypingMessage = new QLabel(this);
     mStatusBarTypingMessage->setTextFormat(Qt::RichText);
     mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
-    statusBar()->addPermanentWidget(mStatusBarTypingMessage);
+    statusBar()->addPermanentWidget(mStatusBarTypingMessage, 1);
     mAccountOverviewWidget = new AccountsOverviewWidget(this);
     mAccountOverviewWidget->setObjectName(QStringLiteral("mAccountOverviewWidget"));
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
@@ -249,7 +254,7 @@ void RuqolaMainWindow::slotAccountChanged()
         updateActions();
         slotPermissionChanged();
     });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, [this]() {
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this]() {
         updateActions();
     });
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
@@ -316,6 +321,12 @@ void RuqolaMainWindow::updateActions()
     const auto roomListSortOrder = mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder();
     mRoomListSortByLastMessage->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     mRoomListSortAlphabetically->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::Alphabetically);
+
+    const auto roomListDisplay = mCurrentRocketChatAccount->ownUserPreferences().roomListDisplay();
+    mRoomListDisplayMedium->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Medium);
+    mRoomListDisplayCondensed->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Condensed);
+    mRoomListDisplayExtended->setChecked(roomListDisplay == OwnUserPreferences::RoomListDisplay::Extended);
+
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFormEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
                                   && (mCurrentRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn));
@@ -426,7 +437,7 @@ void RuqolaMainWindow::setupActions()
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 
-    QActionGroup *roomListSortOrder = new QActionGroup(this);
+    auto roomListSortOrder = new QActionGroup(this);
     roomListSortOrder->setExclusive(true);
 
     mRoomListSortByLastMessage = new QAction(i18n("By Last Message"), this);
@@ -521,27 +532,18 @@ void RuqolaMainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("previous_tab"), mPreviewTab);
 
     {
-        auto action = new QWidgetAction(this);
-        action->setText(i18n("Status"));
-        auto container = new QWidget(this);
-        // use the same font as other toolbar buttons
-        container->setFont(qApp->font("QToolButton"));
-        action->setDefaultWidget(container);
-        auto layout = new QHBoxLayout(container);
+        mContainerStatusInfo = new QWidget(this);
+        auto layout = new QHBoxLayout(mContainerStatusInfo);
         layout->setContentsMargins({});
-        auto label = new QLabel(i18n("Status:"), container);
+        auto label = new QLabel(i18n("Status:"), mContainerStatusInfo);
         label->setObjectName(QStringLiteral("label"));
         layout->addWidget(label);
 
-        mStatusComboBox = new StatusCombobox(container);
+        mStatusComboBox = new StatusCombobox(mContainerStatusInfo);
         mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
         layout->addWidget(mStatusComboBox);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotStatusChanged);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotUpdateStatusMenu);
-
-        mStatus = action;
-        connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);
-        ac->addAction(QStringLiteral("status"), mStatus);
     }
 
     {
@@ -567,6 +569,7 @@ void RuqolaMainWindow::setupActions()
         mHamburgerMenu = KStandardAction::hamburgerMenu(nullptr, nullptr, actionCollection());
         mHamburgerMenu->setShowMenuBarAction(mShowMenuBarAction);
         mHamburgerMenu->setMenuBar(menuBar());
+        mHamburgerMenu->hideActionsOf(toolBar());
         connect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, [this]() {
             updateHamburgerMenu();
             // Immediately disconnect. We only need to run this once, but on demand.
@@ -616,6 +619,40 @@ void RuqolaMainWindow::setupActions()
     auto messageStyleAction = new MessageStyleLayoutMenu(this);
     ac->addAction(QStringLiteral("message_style"), messageStyleAction);
     connect(messageStyleAction, &MessageStyleLayoutMenu::styleChanged, this, &RuqolaMainWindow::slotMessageStyleChanged);
+
+    auto changeFontSizeAction = new ChangeFontSizeMenu(this);
+    ac->addAction(QStringLiteral("change_font_size"), changeFontSizeAction);
+    connect(changeFontSizeAction, &ChangeFontSizeMenu::fontChanged, this, [] {
+        Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
+    });
+
+    auto roomListDisplay = new QActionGroup(this);
+    roomListDisplay->setExclusive(true);
+
+    mRoomListDisplayMedium = new QAction(i18n("Medium"), this);
+    mRoomListDisplayMedium->setCheckable(true);
+    connect(mRoomListDisplayMedium, &QAction::triggered, this, [this]() {
+        mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
+    });
+    roomListDisplay->addAction(mRoomListDisplayMedium);
+    ac->addAction(QStringLiteral("room_list_display_medium"), mRoomListDisplayMedium);
+
+    mRoomListDisplayCondensed = new QAction(i18n("Condensed"), this);
+    mRoomListDisplayCondensed->setCheckable(true);
+    connect(mRoomListDisplayCondensed, &QAction::triggered, this, [this]() {
+        mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
+    });
+
+    roomListDisplay->addAction(mRoomListDisplayCondensed);
+    ac->addAction(QStringLiteral("room_list_display_condensed"), mRoomListDisplayCondensed);
+
+    mRoomListDisplayExtended = new QAction(i18n("Extended"), this);
+    mRoomListDisplayExtended->setCheckable(true);
+    connect(mRoomListDisplayExtended, &QAction::triggered, this, [this]() {
+        mCurrentRocketChatAccount->setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
+    });
+    roomListDisplay->addAction(mRoomListDisplayExtended);
+    ac->addAction(QStringLiteral("room_list_display_extended"), mRoomListDisplayExtended);
 }
 
 void RuqolaMainWindow::slotMessageStyleChanged()
@@ -720,19 +757,14 @@ void RuqolaMainWindow::slotConfigure()
         mAccountOverviewWidget->updateButtons();
         createSystemTray();
         Q_EMIT Ruqola::self()->translatorMenuChanged();
+        Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }
     delete dlg;
-}
-
-void RuqolaMainWindow::slotAuthentication(AuthenticationManager::AuthMethodType type)
-{
-    qDebug() << "Not implement plugin " << type;
 }
 
 void RuqolaMainWindow::slotAddServer()
 {
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
-    connect(dlg, &CreateNewServerDialog::authentication, this, &RuqolaMainWindow::slotAuthentication);
     const QStringList lst = mAccountManager->accountsName();
     dlg->setExistingAccountName(lst);
     if (dlg->exec()) {
@@ -791,7 +823,7 @@ void RuqolaMainWindow::slotShowPermissions()
 void RuqolaMainWindow::slotShowServerInfo()
 {
     ServerErrorInfoMessageHistoryDialog dlg(this);
-    dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
+    dlg.addServerList(Ruqola::self()->accountManager()->accountDisplayInfoSorted());
     dlg.exec();
 }
 
@@ -835,7 +867,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
-    mStatus->setEnabled(!loginPageActivated);
+    mContainerStatusInfo->setEnabled(!loginPageActivated);
     mCreateDiscussion->setEnabled(!loginPageActivated);
     mCreateTeam->setEnabled(!loginPageActivated && canCreateTeams());
     mDirectory->setEnabled(!loginPageActivated);
@@ -846,6 +878,11 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mUnreadOnTop->setEnabled(!loginPageActivated);
     mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
     mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
+
+    mRoomListDisplayMedium->setEnabled(!loginPageActivated);
+    mRoomListDisplayCondensed->setEnabled(!loginPageActivated);
+    mRoomListDisplayExtended->setEnabled(!loginPageActivated);
+
     mRoomFavorite->setEnabled(!loginPageActivated);
     if (mContextStatusMenu) {
         mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
@@ -921,6 +958,8 @@ bool RuqolaMainWindow::queryClose()
 void RuqolaMainWindow::slotClose()
 {
     mReallyClose = true;
+    RuqolaGlobalConfig::self()->setInternalVersion(ruqolaVersion);
+    RuqolaGlobalConfig::self()->save();
     close();
 }
 
@@ -1044,6 +1083,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
 
 void RuqolaMainWindow::updateHamburgerMenu()
 {
+    delete mHamburgerMenu->menu();
     auto menu = new QMenu(this);
     menu->addAction(actionCollection()->action(QStringLiteral("add_server")));
     menu->addSeparator();
@@ -1087,7 +1127,7 @@ void RuqolaMainWindow::slotOpenNotificationHistory()
 {
     mNotificationToolButton->hide();
     NotificationHistoryDialog dlg(this);
-    dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
+    dlg.addServerList(Ruqola::self()->accountManager()->accountDisplayInfoSorted());
     connect(&dlg, &NotificationHistoryDialog::showNotifyMessage, this, &RuqolaMainWindow::slotShowNotifyMessage);
     dlg.exec();
 }

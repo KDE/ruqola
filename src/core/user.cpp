@@ -123,7 +123,7 @@ QDebug operator<<(QDebug d, const User &t)
 }
 
 // FIXME Add autotest for it!
-void User::parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &roleInfo)
+void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
     setUserId(object.value(QLatin1String("_id")).toString());
     setName(object.value(QLatin1String("name")).toString());
@@ -197,7 +197,7 @@ QStringList User::roles() const
     return mRoles;
 }
 
-QString User::roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo)
+QString User::roleI18n(const QString &roleStr, const QList<RoleInfo> &roleInfo)
 {
     QString ri18n;
     if (roleStr == QLatin1String("user")) {
@@ -272,7 +272,7 @@ void User::setNickName(const QString &newNickName)
     mNickName = newNickName;
 }
 
-void User::setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo)
+void User::setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo)
 {
     QStringList rolesI18n;
     rolesI18n.reserve(roles.count());
@@ -362,10 +362,10 @@ QString User::iconFromStatus() const
     return Utils::iconFromPresenceStatus(mStatus);
 }
 
-QVector<User> User::parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo)
+QList<User> User::parseUsersList(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
     const QJsonArray fieldsArray = object.value(QLatin1String("items")).toArray();
-    QVector<User> users;
+    QList<User> users;
     for (const QJsonValue &current : fieldsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
@@ -377,6 +377,31 @@ QVector<User> User::parseUsersList(const QJsonObject &object, const QVector<Role
         }
     }
     return users;
+}
+
+void User::parseUserPresence(const QJsonArray &userArray)
+{
+    if (userArray.count() != 3) {
+        qCDebug(RUQOLA_SPECIALWARNING_LOG) << " List argument different of 3! It's a bug: " << userArray;
+    }
+    setUserName(userArray.at(0).toString());
+    const QString status = userArray.at(1).toString();
+    if (status == QLatin1String("busy")) {
+        setStatus(PresenceStatus::PresenceBusy);
+    } else if (status == QLatin1String("online")) {
+        setStatus(PresenceStatus::PresenceOnline);
+    } else if (status == QLatin1String("away")) {
+        setStatus(PresenceStatus::PresenceAway);
+    } else if (status == QLatin1String("offline")) {
+        setStatus(PresenceStatus::PresenceOffline);
+    } else {
+        qCWarning(RUQOLA_LOG) << " Invalid status value" << status;
+        return;
+    }
+    const QVariant customText = userArray.at(2);
+    if (customText.isValid()) {
+        setStatusText(customText.toString());
+    }
 }
 
 #include "moc_user.cpp"

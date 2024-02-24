@@ -11,12 +11,12 @@
 
 AutotranslateLanguages::AutotranslateLanguages() = default;
 
-QVector<AutotranslateLanguage> AutotranslateLanguages::autotranslateLanguage() const
+QList<AutotranslateLanguage> AutotranslateLanguages::autotranslateLanguage() const
 {
     return mAutotranslateLanguages;
 }
 
-void AutotranslateLanguages::setAutotranslateLanguages(const QVector<AutotranslateLanguage> &autotranslateLanguage)
+void AutotranslateLanguages::setAutotranslateLanguages(const QList<AutotranslateLanguage> &autotranslateLanguage)
 {
     mAutotranslateLanguages = autotranslateLanguage;
 }
@@ -61,7 +61,7 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
 
 QDebug operator<<(QDebug d, const AutotranslateLanguages &t)
 {
-    const QVector<AutotranslateLanguage> autotranslateLanguages = t.autotranslateLanguage();
+    const QList<AutotranslateLanguage> autotranslateLanguages = t.autotranslateLanguage();
     for (const AutotranslateLanguage &lang : autotranslateLanguages) {
         d << "autotranslate :" << lang << "\n";
     }

@@ -13,4 +13,7 @@ class LIBRUQOLACORE_TESTS_EXPORT EncryptionUtils : public QObject
 public:
     explicit EncryptionUtils(QObject *parent = nullptr);
     ~EncryptionUtils() override;
+
+    void generateGlobalKey();
+    void decodeMessage();
 };

@@ -72,16 +72,4 @@ QStringList TeamSearchRoomForTeamWidget::roomIds() const
     return addUsers;
 }
 
-QStringList TeamSearchRoomForTeamWidget::names() const
-{
-    QStringList addUsers;
-    QMapIterator<QString, ClickableWidget *> i(mMap);
-    addUsers.reserve(mMap.count());
-    while (i.hasNext()) {
-        i.next();
-        addUsers << i.value()->name();
-    }
-    return addUsers;
-}
-
 #include "moc_teamsearchroomforteamwidget.cpp"

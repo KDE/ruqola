@@ -50,6 +50,10 @@ public:
         RoomLastMessageAt,
         UserOffline,
         HideBadgeForMention,
+        RoomGroupMentions,
+        RoomThreadUnread,
+        RoomUnreadToolTip,
+        RoomMentionsInfoType,
     };
     Q_ENUM(RoomRoles)
 
@@ -62,6 +66,13 @@ public:
         Discussions,
         Unknown,
         NSections,
+    };
+
+    enum class MentionsInfoType {
+        Important,
+        Warning,
+        Information,
+        Normal,
     };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
@@ -114,7 +125,7 @@ public:
 
     static QString sectionName(RoomModel::Section sectionId);
 
-    [[nodiscard]] QVector<Room *> findRoomNameConstains(const QString &str) const;
+    [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
@@ -126,9 +137,11 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateUnreadToolTip(Room *r) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RoomModel::MentionsInfoType mentionsInfoType(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
-    QVector<Room *> mRoomsList;
+    QList<Room *> mRoomsList;
 };
 
 Q_DECLARE_METATYPE(RoomModel::Section)

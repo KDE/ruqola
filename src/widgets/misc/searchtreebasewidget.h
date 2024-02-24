@@ -30,12 +30,13 @@ protected:
     virtual void slotCustomContextMenuRequested(const QPoint &pos) = 0;
     virtual void updateLabel() = 0;
     virtual void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) = 0;
-    void slotLoadMoreElementDone(const QJsonObject &obj);
-    void slotSearchDone(const QJsonObject &obj);
-    void connectModel();
-    void hideColumns();
-    void finishSearching();
-    void resizeColumToContents();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreElementDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchDone(const QJsonObject &obj);
+    LIBRUQOLAWIDGETS_NO_EXPORT void connectModel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void hideColumns();
+    LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
+    LIBRUQOLAWIDGETS_NO_EXPORT void resizeColumToContents();
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString clickableStr() const;
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
@@ -43,7 +44,6 @@ protected:
     SearchTreeBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
     RocketChatAccount *const mRocketChatAccount;
-    [[nodiscard]] QString clickableStr() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();

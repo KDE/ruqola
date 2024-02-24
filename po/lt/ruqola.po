@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-10 00:39+0000\n"
+"POT-Creation-Date: 2024-02-24 00:37+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -152,7 +152,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
 
-#: core/accountmanager.cpp:711
+#: core/accountmanager.cpp:712
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
@@ -679,7 +679,7 @@ msgstr "Serverio URL:"
 msgid "Active"
 msgstr ""
 
-#: core/model/adminoauthmodel.cpp:43
+#: core/model/adminoauthmodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Created At"
@@ -768,14 +768,13 @@ msgid "Role"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:161
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:195
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:216
 #, kde-format
 msgid "Disabled"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:525
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status"
@@ -849,7 +848,7 @@ msgstr "Kanalo pavadinimas"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:543
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:591
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -968,6 +967,9 @@ msgstr "Slėpti kambarį"
 #: widgets/dialogs/createsoundmessagewidget.cpp:124
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:207
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:214
 #, kde-format
 msgid "Default"
 msgstr ""
@@ -983,8 +985,7 @@ msgstr[3] ""
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:191
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:189
 #, kde-format
 msgid "Nothing"
 msgstr ""
@@ -1020,15 +1021,13 @@ msgid "Seasons"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:189
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:185
 #, kde-format
 msgid "All Messages"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:185
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:190
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
 msgid "Mentions"
 msgstr ""
@@ -1070,86 +1069,124 @@ msgstr "Tapatybės nustatymo metodas"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:465
+#: core/model/roommodel.cpp:475
+#, kde-format
+msgid "%1 Mention"
+msgid_plural "%1 Mentions"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: core/model/roommodel.cpp:479
+#, kde-format
+msgid "%1 Group Mention"
+msgid_plural "%1 Group Mentions"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: core/model/roommodel.cpp:483
+#, fuzzy, kde-format
+#| msgid "Delete Message"
+msgid "%1 Unread Threaded Message"
+msgid_plural "%1 Unread Threaded Messages"
+msgstr[0] "Ištrinti žinutę"
+msgstr[1] "Ištrinti žinutę"
+msgstr[2] "Ištrinti žinutę"
+msgstr[3] "Ištrinti žinutę"
+
+#: core/model/roommodel.cpp:487
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "%1 Unread Message"
+msgid_plural "%1 Unread Messages"
+msgstr[0] "Šifruota žinutė"
+msgstr[1] "Šifruota žinutė"
+msgstr[2] "Šifruota žinutė"
+msgstr[3] "Šifruota žinutė"
+
+#: core/model/roommodel.cpp:513
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Teams Room"
 msgstr "Ištrinti kambarį"
 
-#: core/model/roommodel.cpp:471
+#: core/model/roommodel.cpp:519
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privatus kambarys:"
 
-#: core/model/roommodel.cpp:473
+#: core/model/roommodel.cpp:521
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Discussion Room"
 msgstr "Atverti diskusiją"
 
-#: core/model/roommodel.cpp:477
+#: core/model/roommodel.cpp:525
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Informacija apie kanalą"
 
-#: core/model/roommodel.cpp:537
+#: core/model/roommodel.cpp:585
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Gijos"
 
-#: core/model/roommodel.cpp:539
+#: core/model/roommodel.cpp:587
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:589
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:545
+#: core/model/roommodel.cpp:593
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:595
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:549
+#: core/model/roommodel.cpp:597
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
 msgstr "Nežinoma būsena"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:348
+#: core/model/statusmodel.cpp:61 core/utils.cpp:349
 #, kde-format
 msgid "Online"
 msgstr ""
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:350
+#: core/model/statusmodel.cpp:63 core/utils.cpp:351
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr ""
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:352
+#: core/model/statusmodel.cpp:65 core/utils.cpp:353
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr ""
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:354
+#: core/utils.cpp:355
 #, kde-format
 msgid "Offline"
 msgstr ""
@@ -1416,43 +1453,54 @@ msgstr "<strong>%1</strong> rašo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2792
+#: core/rocketchataccount.cpp:2861
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2793
+#: core/rocketchataccount.cpp:2862
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: core/room.cpp:1150
+#: core/rocketchaturlutils.cpp:34
+#, fuzzy, kde-format
+#| msgid "Account"
+msgid "Account Added"
+msgstr "Paskyra"
+
+#: core/rocketchaturlutils.cpp:35
+#, kde-format
+msgid "A new account was added."
+msgstr ""
+
+#: core/room.cpp:1137
 #, kde-format
 msgid "Owner"
 msgstr "Savininkas"
 
-#: core/room.cpp:1153
+#: core/room.cpp:1140
 #, kde-format
 msgid "Leader"
 msgstr ""
 
-#: core/room.cpp:1156
+#: core/room.cpp:1143
 #, kde-format
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1551
+#: core/room.cpp:1480
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalas yra tik skaitymui."
 
-#: core/room.cpp:1554
+#: core/room.cpp:1483
 #, kde-format
 msgid "You have blocked this channel."
 msgstr ""
 
-#: core/room.cpp:1557
+#: core/room.cpp:1486
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalas buvo užblokuotas."
@@ -1488,7 +1536,7 @@ msgstr ""
 
 #: core/roominfo/roominfo.cpp:122
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:133
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
 #, fuzzy, kde-format
 #| msgid "Hide Channel"
 msgid "Omnichannel"
@@ -1505,7 +1553,7 @@ msgstr ""
 msgid "User"
 msgstr "Naudotojai:"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:480
+#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Administrator"
 msgstr ""
@@ -1568,6 +1616,41 @@ msgstr "Google"
 #, kde-format
 msgid "Login/Password"
 msgstr ""
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
+#: widgets/common/authenticationloginwidget.cpp:34
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
+msgstr "Serverio URL:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
+#: widgets/common/authenticationloginwidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Account"
+msgid "Account name:"
+msgstr "Paskyra"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
+#, fuzzy, kde-format
+#| msgid "Users:"
+msgid "User Id:"
+msgstr "Naudotojai:"
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
+#, kde-format
+msgid "Token:"
+msgstr ""
+
+#: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
+#: widgets/myaccount/myaccountconfigurewidget.cpp:62
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Personal Access Token"
+msgstr "Ieškoti žinučių..."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, fuzzy, kde-format
@@ -1662,15 +1745,22 @@ msgstr "Žinučių ištrynimas yra neleidžiamas."
 msgid "Invalid message: '%1'"
 msgstr "Šifruota žinutė: %1"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:111
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:118
 #, kde-format
 msgid "This room is blocked"
 msgstr ""
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:113
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:120
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr ""
+
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
+#, fuzzy, kde-format
+#| msgid "Hide Channel"
+msgid "Invalid channel"
+msgstr "Slėpti kanalą"
 
 #: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:123
 #, kde-format
@@ -2367,7 +2457,7 @@ msgstr "Naudotojų registracija yra išjungta"
 msgid "%1 is already in use."
 msgstr "Naudotojas jau yra savininkas"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:149
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:152
 #, fuzzy, kde-format
 #| msgid "Encrypted message: %1"
 msgid "Invalid parameters"
@@ -2385,7 +2475,7 @@ msgid "Administrator"
 msgstr ""
 
 #: widgets/administratordialog/administratorwidget.cpp:50
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:315
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:294
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
@@ -2464,13 +2554,13 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:58
-#: widgets/dialogs/channelinfoeditablewidget.cpp:53
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/dialogs/channelinfoeditablewidget.cpp:54
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:51
 #, kde-format
 msgid "Name:"
 msgstr "Pavadinimas:"
@@ -2525,7 +2615,7 @@ msgstr "Šalinti iš kambario"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:47
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:101
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
@@ -2539,7 +2629,7 @@ msgstr ""
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:49
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/permissions/permissionswidget.cpp:92
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:63
@@ -2554,7 +2644,7 @@ msgstr ""
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:55
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:120
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:67
@@ -2624,7 +2714,7 @@ msgstr "Tinkinta naudotojo būsena"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:532
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:538
 #, kde-format
 msgid "Status:"
 msgstr ""
@@ -2842,7 +2932,7 @@ msgstr[3] ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
-#: widgets/room/messagelistview.cpp:269
+#: widgets/room/messagelistview.cpp:272
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
 #, fuzzy, kde-format
 #| msgid "Copy link"
@@ -2852,7 +2942,7 @@ msgstr "Kopijuoti nuorodą"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:87
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
-#: widgets/room/messagelistview.cpp:590
+#: widgets/room/messagelistview.cpp:601
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
 #, fuzzy, kde-format
 #| msgid "Status Text:"
@@ -2863,7 +2953,7 @@ msgstr "Būsenos tekstas:"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:51
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
-#: widgets/room/messagelistview.cpp:299
+#: widgets/room/messagelistview.cpp:302
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
 #, kde-format
 msgid "Select All"
@@ -2925,13 +3015,13 @@ msgstr ""
 msgid "Search Oauth apps..."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:65
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:67
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this room?"
 msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Ar norite ištrinti šį kambarį?"
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:66
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
@@ -2947,7 +3037,7 @@ msgid "Edit '%1' Permission"
 msgstr "Serverio versija:"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:70
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:76
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -3007,7 +3097,7 @@ msgstr "Tapatybės nustatymo metodas"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:69
+#: widgets/dialogs/channelinfoeditablewidget.cpp:70
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
@@ -3137,14 +3227,14 @@ msgid "Room's Creator:"
 msgstr "Slaptažodis"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:61
+#: widgets/dialogs/channelinfoeditablewidget.cpp:62
 #: widgets/dialogs/channelinforeadonlywidget.cpp:59
 #, kde-format
 msgid "Comment:"
 msgstr "Komentaras:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:65
+#: widgets/dialogs/channelinfoeditablewidget.cpp:66
 #: widgets/dialogs/channelinforeadonlywidget.cpp:71
 #, kde-format
 msgid "Announcement:"
@@ -3184,234 +3274,234 @@ msgctxt "@title"
 msgid "Remove Room"
 msgstr "Šalinti iš kambario"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:48
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:47
 #, kde-format
 msgid "Refresh"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:67
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:66
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:132
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:111
 #, kde-format
 msgid "Licenses"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:134
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
 #, kde-format
 msgid "Auditing"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:135
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
 #, kde-format
 msgid "Canned Responses"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:136
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:115
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:137
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:116
 #, kde-format
 msgid "Read Receipts"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:161
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Version"
 msgstr "Serverio versija:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, kde-format
 msgid "Deployment ID"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:161
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Server"
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chat serveris"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Total Uploads Size"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Total Uploads"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Online Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Away Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Offline Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Busy Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Activated Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
 #, kde-format
 msgid "Activated Guests"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Deactivated Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Total Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Total Rooms"
 msgstr "Ištrinti kambarį"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Total Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Total Direct Message Rooms"
 msgstr "Ištrinti žinutę"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Total Threads"
 msgstr "Gijos"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Total Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Total Discussions"
 msgstr "Atverti diskusiją"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Total Omnichannel Rooms"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:204
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Total Messages"
 msgstr "Šifruota žinutė"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:205
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Total Messages in Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:206
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:207
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Total Messages in Direct Messages"
 msgstr "Ištrinti žinutę"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:208
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Total Connected Users"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:287
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:221
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:266
 #, kde-format
 msgid "OS Release"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:243
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:222
 #, kde-format
 msgid "OS Type"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:305
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:284
 #, kde-format
 msgid "OS Platform"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:245
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "OS Total Memory"
 msgstr "Pridėti naudotojus"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
 #, kde-format
 msgid "OS Free Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:253
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:232
 #, kde-format
 msgid "Hash"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:259
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:238
 #, kde-format
 msgid "Branch"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:265
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Tag"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:271
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
 #, kde-format
 msgid "Author"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:277
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:256
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
@@ -3422,34 +3512,34 @@ msgstr ""
 msgid "Subject"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:293
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:272
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Node Version"
 msgstr "Serverio versija:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:299
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:278
 #, kde-format
 msgid "Arch"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:320
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:299
 #, kde-format
 msgid "Usage"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:325
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:304
 #, kde-format
 msgid "Runtime Environment"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:335
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:314
 #, fuzzy, kde-format
 #| msgid "Comment:"
 msgid "Commit"
 msgstr "Komentaras:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:339
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:318
 #, kde-format
 msgid "Build Environment"
 msgstr ""
@@ -3468,77 +3558,77 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Join Default Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgid "Send Welcome Email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Require Password Change"
 msgstr "Slaptažodis"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #, kde-format
 msgid "Set random password and send by email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:32
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
-#: widgets/registeruser/registeruserwidget.cpp:29
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:56
+#: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
 msgid "Username:"
 msgstr "Naudotojo vardas:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Status Message:"
 msgstr "1 žinutė"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
-#: widgets/registeruser/registeruserwidget.cpp:33
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
+#: widgets/registeruser/registeruserwidget.cpp:34
 #, kde-format
 msgid "Email:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:63
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:69
 #: widgets/common/authenticationloginwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:76
-#: widgets/registeruser/registeruserwidget.cpp:38
+#: widgets/dialogs/channelinfoeditablewidget.cpp:82
+#: widgets/registeruser/registeruserwidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Slaptažodis:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:70
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Nickname:"
@@ -3921,7 +4011,7 @@ msgstr "Aprašas:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1005
+#: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -3957,7 +4047,7 @@ msgid "Password"
 msgstr "Slaptažodis"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:443
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -3988,7 +4078,7 @@ msgid "Layout"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "Enterprise"
 msgstr ""
@@ -6166,106 +6256,106 @@ msgstr "Būsenos tekstas:"
 msgid "Mark as Read"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/channellist/channellistview.cpp:117
+#: widgets/channellist/channellistview.cpp:119
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark As Read"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/channellist/channellistview.cpp:117
+#: widgets/channellist/channellistview.cpp:119
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark As Unread"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/channellist/channellistview.cpp:127
-#: widgets/room/messagelistview.cpp:286
+#: widgets/channellist/channellistview.cpp:129
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:127
+#: widgets/channellist/channellistview.cpp:129
 #, kde-format
 msgid "Unset as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:138
 #, kde-format
 msgid "Hide Channel"
 msgstr "Slėpti kanalą"
 
-#: widgets/channellist/channellistview.cpp:153
+#: widgets/channellist/channellistview.cpp:155
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Convert to Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistview.cpp:164
+#: widgets/channellist/channellistview.cpp:166
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
 msgid "Convert to Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/channellist/channellistview.cpp:176
+#: widgets/channellist/channellistview.cpp:178
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Move to Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistview.cpp:193
+#: widgets/channellist/channellistview.cpp:195
 #: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:200
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgid "Quit Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:243
+#: widgets/channellist/channellistview.cpp:245
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:243
+#: widgets/channellist/channellistview.cpp:245
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Move To Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistview.cpp:292
+#: widgets/channellist/channellistview.cpp:294
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:293
+#: widgets/channellist/channellistview.cpp:295
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistwidget.cpp:53
+#: widgets/channellist/channellistwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Filter channels (CTRL + K)"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:62
+#: widgets/channellist/channellistwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search Channels"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:69
+#: widgets/channellist/channellistwidget.cpp:70
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Previous Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/channellist/channellistwidget.cpp:77
+#: widgets/channellist/channellistwidget.cpp:78
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Channel"
@@ -6283,31 +6373,16 @@ msgstr ""
 msgid "Register Account"
 msgstr "Šalinti paskyrą"
 
-#: widgets/common/authenticationloginwidget.cpp:34
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Server Url:"
-msgid "Server URL:"
-msgstr "Serverio URL:"
-
-#: widgets/common/authenticationloginwidget.cpp:39
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account"
-msgid "Account name:"
-msgstr "Paskyra"
-
-#: widgets/common/authenticationloginwidget.cpp:117
-#: widgets/ruqolamainwindow.cpp:880
+#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:118
-#: widgets/ruqolamainwindow.cpp:881
+#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/ruqolamainwindow.cpp:918
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgid "Register New User"
@@ -6331,7 +6406,6 @@ msgid "Start a Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:27
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr ""
@@ -6364,12 +6438,6 @@ msgstr ""
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:41
 #, kde-format
 msgid "Camera"
-msgstr ""
-
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Start a Direct Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
@@ -6551,7 +6619,7 @@ msgctxt "@title:window"
 msgid "Add Server"
 msgstr ""
 
-#: widgets/createnewserver/createnewserverdialog.cpp:61
+#: widgets/createnewserver/createnewserverdialog.cpp:60
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
@@ -6620,90 +6688,90 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Informacija apie kanalą \"%1\""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:293
+#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:79
+#: widgets/dialogs/channelinfoeditablewidget.cpp:85
 #, kde-format
 msgid "ReadOnly:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:82
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Archive:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:87
+#: widgets/dialogs/channelinfoeditablewidget.cpp:93
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Ar norite archyvuoti šį kambarį?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:87
+#: widgets/dialogs/channelinfoeditablewidget.cpp:93
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Ar norite išarchyvuoti šį kambarį?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:94
 #, kde-format
 msgid "Archive Channel"
 msgstr "Archyvuoti kanalą"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:94
 #, kde-format
 msgid "Unarchive Channel"
 msgstr "Išarchyvuoti kanalą"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:95
+#: widgets/dialogs/channelinfoeditablewidget.cpp:101
 #, kde-format
 msgid "Private:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:98
+#: widgets/dialogs/channelinfoeditablewidget.cpp:104
 #, kde-format
 msgid "Encrypted:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:102
+#: widgets/dialogs/channelinfoeditablewidget.cpp:108
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Hide System Messages:"
 msgstr "Ištrinti žinutę"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:116
+#: widgets/dialogs/channelinfoeditablewidget.cpp:122
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this room?"
 msgid "Do you want to delete this Team?"
 msgstr "Ar norite ištrinti šį kambarį?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:117
+#: widgets/dialogs/channelinfoeditablewidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "Delete File"
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Ištrinti failą"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:125
+#: widgets/dialogs/channelinfoeditablewidget.cpp:131
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Ar norite ištrinti šį kambarį?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Ištrinti kambarį"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:263
+#: widgets/dialogs/channelinfoeditablewidget.cpp:269
 #, fuzzy, kde-format
 #| msgid "Channel '%1' needs a password"
 msgid "This room has a password"
 msgstr "Kanalui \"%1\" reikia slaptažodžio"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:263
+#: widgets/dialogs/channelinfoeditablewidget.cpp:269
 #, kde-format
 msgid "Add password"
 msgstr "Pridėti slaptažodį"
@@ -6763,7 +6831,7 @@ msgctxt "@title:window"
 msgid "Add Password"
 msgstr "Pridėti slaptažodį"
 
-#: widgets/dialogs/channelpasswordwidget.cpp:22
+#: widgets/dialogs/channelpasswordwidget.cpp:23
 #, kde-format
 msgid "Channel Password:"
 msgstr "Kanalo slaptažodis:"
@@ -6871,7 +6939,7 @@ msgctxt "@title:window"
 msgid "Confirm Password"
 msgstr "Kanalo slaptažodis:"
 
-#: widgets/dialogs/confirmpasswordwidget.cpp:23
+#: widgets/dialogs/confirmpasswordwidget.cpp:24
 #, kde-format
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
@@ -7251,12 +7319,12 @@ msgstr "Informacija apie serverį"
 msgid "Server version:"
 msgstr "Serverio versija:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:56
 #, kde-format
 msgid "License:"
 msgstr ""
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "None"
 msgstr ""
@@ -7497,6 +7565,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/directory/directorywidget.cpp:201
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:25
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
@@ -7553,6 +7622,18 @@ msgctxt "@title:window"
 msgid "Copy Password"
 msgstr "Slaptažodis"
 
+#: widgets/encryption/e2ecopypasswordwidget.cpp:23
+#, kde-format
+msgid ""
+"Create secure private rooms and direct messages with end-to-end encryption."
+"<br/><br/>Save your password securely, as the key to encode/decode your "
+"messages won't be saved on the server. You'll need to enter it on other "
+"devices to use e2e encryption.<br/><br/>Change your password anytime from "
+"any browser you've entered it on. Remember to store your password before "
+"dismissing this message.<br/><br/>Your password is: <span style=\"font-"
+"weight: bold;\">%1</span>"
+msgstr ""
+
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
 msgid ""
@@ -7595,6 +7676,12 @@ msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Serverio versija:"
 
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "Hide Room"
+msgid "Own Roles:"
+msgstr "Slėpti kambarį"
+
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
@@ -7615,6 +7702,18 @@ msgstr ""
 #: widgets/exportmessages/exportmessageswidget.cpp:39
 #, kde-format
 msgid "Html"
+msgstr ""
+
+#: widgets/forwardmessage/forwardmessagedialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@title:window"
+msgid "Forward Message"
+msgstr "Šifruota žinutė"
+
+#: widgets/forwardmessage/forwardmessagewidget.cpp:23
+#, kde-format
+msgid "Select at least one channel to forward the message to."
 msgstr ""
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
@@ -7817,6 +7916,21 @@ msgstr "Nežinoma būsena"
 msgid "(Unnamed)"
 msgstr ""
 
+#: widgets/misc/changefontsizemenu.cpp:17
+#, kde-format
+msgid "Font Size"
+msgstr ""
+
+#: widgets/misc/changefontsizemenu.cpp:19
+#, kde-format
+msgid "Increase Font"
+msgstr ""
+
+#: widgets/misc/changefontsizemenu.cpp:26
+#, kde-format
+msgid "Decrease Font"
+msgstr ""
+
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, fuzzy, kde-format
 #| msgid "Save File"
@@ -7881,20 +7995,20 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr ""
 
-#: widgets/misc/passwordconfirmwidget.cpp:24
+#: widgets/misc/passwordconfirmwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgid "New Password:"
 msgstr "Slaptažodis:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:28
-#: widgets/registeruser/registeruserwidget.cpp:43
+#: widgets/misc/passwordconfirmwidget.cpp:34
+#: widgets/registeruser/registeruserwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Channel Password:"
 msgid "Confirm Password:"
 msgstr "Kanalo slaptažodis:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:20
+#: widgets/misc/passwordlineeditwidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Reset Password"
@@ -7918,12 +8032,12 @@ msgstr "Informacija apie serverį"
 msgid "Filter Account..."
 msgstr "Pridėti paskyrą..."
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
 #, kde-format
 msgid "Enter code"
 msgstr ""
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:29
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:35
 #, kde-format
 msgid "Send new code"
 msgstr ""
@@ -8055,12 +8169,6 @@ msgstr ""
 msgid "Manage Device"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Search Messages..."
-msgid "Personal Access Token"
-msgstr "Ieškoti žinučių..."
-
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Search User..."
@@ -8190,31 +8298,31 @@ msgstr ""
 msgid "Enable Auto Away"
 msgstr "Automatiškai versti"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#, fuzzy, kde-format
+#| msgid "Authentication Method"
+msgid "Offline Email notification:"
+msgstr "Tapatybės nustatymo metodas"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:47
 #, kde-format
 msgid "Highlight words:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:53
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:54
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:54
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:55
 #, kde-format
 msgid "Separate each word with ','."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:62
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Desktop notification:"
-msgstr "Tapatybės nustatymo metodas"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
-msgid "Offline Email notification:"
 msgstr "Tapatybės nustatymo metodas"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:76
@@ -8249,21 +8357,33 @@ msgstr ""
 msgid "Export my Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:177
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:194
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:198
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
+#, fuzzy, kde-format
+#| msgid "Delete Room"
+msgid "Default (%1)"
+msgstr "Ištrinti kambarį"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:215
 #, kde-format
 msgid "Each Mentions"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:219
+#, kde-format
+msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
@@ -8289,43 +8409,43 @@ msgstr "Slaptažodis"
 msgid "Change URL for avatar..."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:27
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status text:"
 msgstr "Būsenos tekstas:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "Do you want to delete '%1' account?"
 msgid "Do you really delete your account ?"
 msgstr "Ar norite ištrinti paskyrą \"%1\"?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:100
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Ištrinti paskyrą"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:104
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:168
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:110
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:174
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Current Password"
@@ -8354,7 +8474,7 @@ msgid "Notification"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:79
-#: widgets/room/messagelistview.cpp:573
+#: widgets/room/messagelistview.cpp:584
 #, kde-format
 msgid "Go to Message"
 msgstr ""
@@ -8440,7 +8560,7 @@ msgctxt "@title:window"
 msgid "Register User"
 msgstr "Naudotojų sąrašas"
 
-#: widgets/registeruser/registeruserwidget.cpp:18
+#: widgets/registeruser/registeruserwidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgid "Register"
@@ -8554,20 +8674,20 @@ msgstr ""
 msgid "Link Preview"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:387
-#: widgets/room/messagelistview.cpp:373 widgets/room/usersinroommenu.cpp:86
+#: widgets/room/delegate/messagelistdelegate.cpp:388
+#: widgets/room/messagelistview.cpp:381 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:396
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/delegate/messagelistdelegate.cpp:397
+#: widgets/room/messagelistview.cpp:389
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:604
+#: widgets/room/delegate/messagelistdelegate.cpp:602
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8576,7 +8696,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:612
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8585,23 +8705,23 @@ msgstr[1] "%1 žinutės"
 msgstr[2] "%1 žinučių"
 msgstr[3] "%1 žinutė"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:614
+#: widgets/room/delegate/messagelistdelegate.cpp:612
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:895
+#: widgets/room/delegate/messagelistdelegate.cpp:896
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:899
+#: widgets/room/delegate/messagelistdelegate.cpp:900
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Žinutė prisegta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:903
+#: widgets/room/delegate/messagelistdelegate.cpp:904
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
@@ -8666,130 +8786,136 @@ msgstr ""
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:100
+#: widgets/room/messagelistview.cpp:102
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "You have joined a new direct message"
 msgstr "Ištrinti žinutę"
 
-#: widgets/room/messagelistview.cpp:102
+#: widgets/room/messagelistview.cpp:104
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start of conversation"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:280
 #, kde-format
 msgid "Unpin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:280
 #, kde-format
 msgid "Pin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:286
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
 msgid "Remove as Favorite"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:304
+#: widgets/room/messagelistview.cpp:307
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark Message As Unread"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/room/messagelistview.cpp:309
+#: widgets/room/messagelistview.cpp:312
 #, fuzzy, kde-format
 #| msgid "Show Threads..."
 msgid "Show Full Thread"
 msgstr "Rodyti gijas..."
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:317
 #, kde-format
 msgid "Edit"
 msgstr "Taisyti"
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:322
 #, kde-format
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:324
+#: widgets/room/messagelistview.cpp:327
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgid "Copy Link To Message"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/messagelistview.cpp:337
+#: widgets/room/messagelistview.cpp:332
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Forward Message"
+msgstr "Šifruota žinutė"
+
+#: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Unfollow Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/messagelistview.cpp:337
+#: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Follow Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/messagelistview.cpp:350
+#: widgets/room/messagelistview.cpp:358
 #, kde-format
 msgid "Copy URL"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:397
+#: widgets/room/messagelistview.cpp:405
 #, kde-format
 msgid "Start a Discussion"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:464
+#: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgid "Show Original Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:464
+#: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgid "Translate Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:506
+#: widgets/room/messagelistview.cpp:516
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "View Reports"
 msgstr "Pranešti apie klaidą"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:539
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Dismiss Reports"
 msgstr "Pranešti apie klaidą"
 
-#: widgets/room/messagelistview.cpp:598
+#: widgets/room/messagelistview.cpp:609
 #, kde-format
 msgid "Report Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:778
+#: widgets/room/messagelistview.cpp:806
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ar norite ištrinti šią žinutę?"
 
-#: widgets/room/messagelistview.cpp:779
+#: widgets/room/messagelistview.cpp:807
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ištrinti žinutę"
 
-#: widgets/room/messagelistview.cpp:919
+#: widgets/room/messagelistview.cpp:947
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"
@@ -8929,20 +9055,20 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:272
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:274
+#: widgets/room/roomwidget.cpp:273
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Šalinti"
 
-#: widgets/room/roomwidget.cpp:466
+#: widgets/room/roomwidget.cpp:443
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -9182,219 +9308,234 @@ msgstr "Naudotojas nėra aktyvuotas"
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:210 widgets/ruqolamainwindow.cpp:212
+#: widgets/ruqolamainwindow.cpp:215 widgets/ruqolamainwindow.cpp:217
 #, kde-format
 msgid "Show New Notifications"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:386
+#: widgets/ruqolamainwindow.cpp:397
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Add Server..."
 msgstr "Informacija apie serverį..."
 
-#: widgets/ruqolamainwindow.cpp:391
+#: widgets/ruqolamainwindow.cpp:402
 #, kde-format
 msgid "Server Info..."
 msgstr "Informacija apie serverį..."
 
-#: widgets/ruqolamainwindow.cpp:395
+#: widgets/ruqolamainwindow.cpp:406
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Logout Current Server"
 msgstr "Sukurti paskyrą"
 
-#: widgets/ruqolamainwindow.cpp:399
+#: widgets/ruqolamainwindow.cpp:410
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:415
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:408
+#: widgets/ruqolamainwindow.cpp:419
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Create Direct Messages..."
 msgstr "Ištrinti žinutę"
 
-#: widgets/ruqolamainwindow.cpp:412
+#: widgets/ruqolamainwindow.cpp:423
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Create Discussion..."
 msgstr "Sukurti diskusiją"
 
-#: widgets/ruqolamainwindow.cpp:416
+#: widgets/ruqolamainwindow.cpp:427
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgid "Create Team..."
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:424
+#: widgets/ruqolamainwindow.cpp:435
 #, kde-format
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:443
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgid "By Last Message"
 msgstr "(Paskutinė žinutė: %1)"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:449
 #, kde-format
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:444
+#: widgets/ruqolamainwindow.cpp:455
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Show Channel Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:448
+#: widgets/ruqolamainwindow.cpp:459
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Show Server Errors"
 msgstr "Informacija apie kanalą"
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:478
 #, fuzzy, kde-format
 #| msgid "Mark all channels read"
 msgid "Mark All Channels as Read"
 msgstr "Žymėti visus kanalus kaip skaitytus"
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:483
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgid "Register a New User..."
 msgstr "Naudotojų sąrašas"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:487
 #, fuzzy, kde-format
 #| msgid "Add Account..."
 msgid "My Account..."
 msgstr "Pridėti paskyrą..."
 
-#: widgets/ruqolamainwindow.cpp:481
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:487
+#: widgets/ruqolamainwindow.cpp:498
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Server Settings..."
 msgstr "Informacija apie serverį..."
 
-#: widgets/ruqolamainwindow.cpp:492
+#: widgets/ruqolamainwindow.cpp:503
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:513
+#: widgets/ruqolamainwindow.cpp:524
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
 msgid "&Next Server"
 msgstr "Informacija apie serverį"
 
-#: widgets/ruqolamainwindow.cpp:518
+#: widgets/ruqolamainwindow.cpp:529
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "&Previous Server"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Previous Selected Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:558
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Selected Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:586
+#: widgets/ruqolamainwindow.cpp:589
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:593
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:597
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Show Room Avatar"
 msgstr "Slaptažodis"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:602
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Show Favorite Room"
 msgstr "Ištrinti kambarį"
 
-#: widgets/ruqolamainwindow.cpp:604
+#: widgets/ruqolamainwindow.cpp:607
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:608
+#: widgets/ruqolamainwindow.cpp:611
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Import Accounts"
 msgstr "Paskyra"
 
-#: widgets/ruqolamainwindow.cpp:612
+#: widgets/ruqolamainwindow.cpp:615
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Export Accounts"
 msgstr "Paskyra"
 
-#: widgets/ruqolamainwindow.cpp:653
+#: widgets/ruqolamainwindow.cpp:632
+#, kde-format
+msgid "Medium"
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:640
+#, kde-format
+msgid "Condensed"
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:649
+#, kde-format
+msgid "Extended"
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:690
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:814
+#: widgets/ruqolamainwindow.cpp:846
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:814
+#: widgets/ruqolamainwindow.cpp:846
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Show Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:939
+#: widgets/ruqolamainwindow.cpp:978
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Būsenos tekstas:"
 
-#: widgets/ruqolamainwindow.cpp:1032
+#: widgets/ruqolamainwindow.cpp:1071
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1035
+#: widgets/ruqolamainwindow.cpp:1074
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
@@ -9424,13 +9565,13 @@ msgid "View"
 msgstr ""
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:72
+#: widgets/ruqolaui.rc:78
 #, kde-format
 msgid "&Help"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:77
+#: widgets/ruqolaui.rc:83
 #, kde-format
 msgid "Main Toolbar"
 msgstr ""
@@ -9610,6 +9751,12 @@ msgstr "Serverio versija:"
 msgid "Version 2.1"
 msgstr "Serverio versija:"
 
+#: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
+#, fuzzy, kde-format
+#| msgid "Server Version:"
+msgid "Version 2.2"
+msgstr "Serverio versija:"
+
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -9627,19 +9774,17 @@ msgstr "Informacija apie serverį..."
 msgid "What's new in Ruqola. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:87
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:95
-#: widgets/whatsnew/whatsnewwidget.cpp:117
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:103
-#: widgets/whatsnew/whatsnewwidget.cpp:125
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, fuzzy, kde-format
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
@@ -9753,6 +9898,53 @@ msgstr "Tapatybės nustatymo metodas"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
 msgid "Fix show avatar url."
 msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:67
+msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:68
+msgid "Add channel list style (Condensed/Medium/Extended)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:69
+#, fuzzy
+#| msgid "Encrypted Message"
+msgid "Add forward message"
+msgstr "Šifruota žinutė"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:70
+msgid "Improve mentions support."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:75
+#, fuzzy
+#| msgid "Android support"
+msgid "Fix dark mode support."
+msgstr "Android palaikymas"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
+#, fuzzy
+#| msgid "Android support"
+msgid "Fix jitsi support."
+msgstr "Android palaikymas"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#, fuzzy
+#| msgid "Leave Channel"
+msgid "Fix translate message in direct channel."
+msgstr "Išeiti iš kanalo"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+msgid "Don't show @here/@all as user."
+msgstr ""
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure"
+#~ msgstr "Konfigūruoti Ruqola"
 
 #, fuzzy
 #~| msgid "Remove"
@@ -9908,12 +10100,6 @@ msgstr ""
 #~ msgstr "Automatiškai versti"
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgid "Configure"
-#~ msgstr "Konfigūruoti Ruqola"
-
-#, fuzzy
 #~| msgid "Auto-Translate"
 #~ msgid "Translate error"
 #~ msgstr "Automatiškai versti"
@@ -9922,12 +10108,6 @@ msgstr ""
 #~| msgid "Read-Only:"
 #~ msgid "Read Only"
 #~ msgstr "Tik skaitymui:"
-
-#, fuzzy
-#~| msgid "Delete Room"
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "Ištrinti kambarį"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

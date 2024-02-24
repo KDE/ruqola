@@ -60,7 +60,7 @@ ChannelUserCompleter InputCompleterModel::createAllChannel()
 void InputCompleterModel::setDefaultUserCompletion()
 {
     // Show here/all when we only use "@"
-    QVector<ChannelUserCompleter> customCompletion;
+    QList<ChannelUserCompleter> customCompletion;
 
     customCompletion.append(createHereChannel());
     customCompletion.append(createAllChannel());
@@ -68,7 +68,7 @@ void InputCompleterModel::setDefaultUserCompletion()
     setChannels(customCompletion);
 }
 
-void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &channels)
+void InputCompleterModel::setChannels(const QList<ChannelUserCompleter> &channels)
 {
     clear();
     if (!channels.isEmpty()) {
@@ -78,12 +78,12 @@ void InputCompleterModel::setChannels(const QVector<ChannelUserCompleter> &chann
     }
 }
 
-QVector<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
+QList<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
 {
-    QVector<ChannelUserCompleter> channels;
+    QList<ChannelUserCompleter> channels;
     if (mRocketChatAccount) {
         if (!mSearchInfo.searchString.isEmpty()) {
-            const QVector<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchInfo.searchString);
+            const QList<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchInfo.searchString);
             for (const Room *room : rooms) {
                 if (room->channelType() == Room::RoomType::Channel) { // Only direct channel.
                     ChannelUserCompleter channel;
@@ -107,7 +107,7 @@ void InputCompleterModel::setSearchInfo(const SearchInfo &newSearchInfo)
 
 void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
 {
-    QVector<ChannelUserCompleter> channelList;
+    QList<ChannelUserCompleter> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("items")).toArray();
     const auto roomsSize(rooms.size());
     channelList.reserve(roomsSize);
@@ -126,7 +126,7 @@ void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
 
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
 {
-    QVector<ChannelUserCompleter> channelList;
+    QList<ChannelUserCompleter> channelList;
     if (mSearchInfo.searchType == SearchInfo::Channels || mSearchInfo.searchType == SearchInfo::ChannelsAndUsers) {
         const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
         channelList.reserve(rooms.size());

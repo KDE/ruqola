@@ -24,7 +24,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.fileUploadStorageType().isEmpty());
     QVERIFY(config.siteName().isEmpty());
     QVERIFY(config.siteUrl().isEmpty());
-    QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
     QCOMPARE(config.blockDeletingMessageInMinutes(), 5);
     QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::AuthMethodType::Unknown);
@@ -56,15 +55,18 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(defaultValue.url.isEmpty());
     QVERIFY(defaultValue.defaultUrl.isEmpty());
     QVERIFY(defaultValue.isEmpty());
-    QVERIFY(!config.previewEmbed());
-
-    QCOMPARE(config.embedCacheExpirationDays(), 30);
 
     defaultValue.url = QStringLiteral("dd");
     QVERIFY(defaultValue.isEmpty());
 
     defaultValue.defaultUrl = QStringLiteral("dd1");
     QVERIFY(!defaultValue.isEmpty());
+
+    QVERIFY(!config.previewEmbed());
+    QCOMPARE(config.embedCacheExpirationDays(), 30);
+    QVERIFY(config.accountsDefaultUserPreferencesPushNotifications().isEmpty());
+    QVERIFY(config.accountsDefaultUserPreferencesDesktopNotifications().isEmpty());
+    QVERIFY(config.allowEmailNotifications());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -118,29 +120,6 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.faviconUrl(), faviconUrl);
 
     QCOMPARE(config.serverConfigFeatureTypes(), RuqolaServerConfig::ServerConfigFeatureType::None);
-}
-
-void RuqolaServerConfigTest::shouldEnabledRc60_data()
-{
-    QTest::addColumn<QString>("serverVersion");
-    QTest::addColumn<bool>("needRc60");
-    QTest::newRow("0.1.0") << QStringLiteral("0.1.0") << false;
-    QTest::newRow("0.60.0") << QStringLiteral("0.60.0") << true;
-    QTest::newRow("0.70.0") << QStringLiteral("0.70.0") << true;
-    QTest::newRow("invalid") << QStringLiteral("foo") << false;
-    QTest::newRow("invalid-2") << QStringLiteral("0.6foo") << false;
-    QTest::newRow("1.0.0-develop") << QStringLiteral("1.0.0") << true;
-    QTest::newRow("4.0") << QStringLiteral("4.0") << true;
-}
-
-void RuqolaServerConfigTest::shouldEnabledRc60()
-{
-    QFETCH(QString, serverVersion);
-    QFETCH(bool, needRc60);
-    RuqolaServerConfig config;
-    config.setServerVersion(serverVersion);
-    // qDebug() << " config " << config;
-    QCOMPARE(config.needAdaptNewSubscriptionRC60(), needRc60);
 }
 
 void RuqolaServerConfigTest::shouldVerifyOauthType_data()

@@ -28,13 +28,11 @@ public:
     void setJsonFormat(QJsonDocument::JsonFormat jsonFormat);
 
     [[nodiscard]] RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult openDirectChannel(const QString &username, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult userAutocomplete(const QString &searchText, const QString &exception, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unsubscribe(quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult blockUser(const QString &rid, const QString &userId, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
@@ -47,8 +45,6 @@ public:
     inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult roomNameExists(const QString &roomName, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id);
 
@@ -80,8 +76,6 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult openRoom(const QString &roomId, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult getRoomById(const QString &roomId, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult bannerDismiss(const QString &bannerId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult licenseGetModules(quint64 id);
@@ -102,7 +96,6 @@ private:
     Q_DISABLE_COPY(RocketChatMessage)
     [[nodiscard]] QJsonValue toJsonDateTime(const QDateTime &dateTime);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id);

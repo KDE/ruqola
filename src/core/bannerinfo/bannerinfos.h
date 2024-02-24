@@ -9,7 +9,7 @@
 #include "bannerinfo.h"
 #include "libruqolacore_export.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 
 class LIBRUQOLACORE_EXPORT BannerInfos
 {
@@ -30,8 +30,8 @@ public:
     BannerInfos();
     ~BannerInfos();
 
-    [[nodiscard]] const QVector<BannerInfo> &banners() const;
-    void setBanners(const QVector<BannerInfo> &newBanners);
+    [[nodiscard]] const QList<BannerInfo> &banners() const;
+    void setBanners(const QList<BannerInfo> &newBanners);
 
     void parseBannerInfos(const QJsonObject &object);
 
@@ -45,11 +45,11 @@ public:
 
     [[nodiscard]] BannerInfo at(int index) const;
 
-    [[nodiscard]] QVector<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
+    [[nodiscard]] QList<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateText(const BannerInfo &info) const;
-    QVector<BannerInfo> mBanners;
+    QList<BannerInfo> mBanners;
 };
 
 Q_DECLARE_METATYPE(BannerInfos)

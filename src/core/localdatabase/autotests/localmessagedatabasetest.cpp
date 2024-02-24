@@ -207,7 +207,7 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN
-    const QVector<Message> messages = logger.loadMessages(accountName(), roomName(), startId, endId, numberElement);
+    const QList<Message> messages = logger.loadMessages(accountName(), roomName(), startId, endId, numberElement);
 
     // THEN
     QCOMPARE(messages.count(), result);

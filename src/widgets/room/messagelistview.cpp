@@ -7,8 +7,10 @@
 #include "messagelistview.h"
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "chat/followmessagejob.h"
+#include "chat/postmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
+#include "forwardmessage/forwardmessagedialog.h"
 #include "moderation/moderationdismissreportsjob.h"
 
 #include "connection.h"
@@ -176,8 +178,9 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::modelChanged);
     connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::modelChanged);
     // Clear document cache when message is updated otherwise image description is not up to date
-    connect(newModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &, const QVector<int> &roles) {
-        if (roles.contains(MessagesModel::OriginalMessageOrAttachmentDescription)) {
+    connect(newModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &, const QList<int> &roles) {
+        if (roles.contains(MessagesModel::OriginalMessageOrAttachmentDescription) || roles.contains(MessagesModel::LocalTranslation)
+            || roles.contains(MessagesModel::ShowTranslatedMessage)) {
             const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
             if (message) {
                 mMessageListDelegate->removeMessageCache(message);
@@ -326,6 +329,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotCopyLinkToMessage(index);
     });
 
+    auto forwardMessageAction = new QAction(i18n("Forward Message"), &menu); // TODO add icon
+    connect(forwardMessageAction, &QAction::triggered, this, [this, index]() {
+        slotForwardMessage(index);
+    });
+
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
@@ -364,7 +372,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             return {};
         if (url.startsWith(QLatin1String("ruqola:/user/"))) {
             url.remove(QStringLiteral("ruqola:/user/"));
-            if (!RoomUtil::validUser(url)) {
+            if (!Utils::validUser(url)) {
                 return {};
             }
         } else {
@@ -434,6 +442,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
+        menu.addAction(forwardMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
 
@@ -485,6 +494,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
+        menu.addAction(forwardMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
         if (isNotOwnerOfMessage) {
@@ -559,6 +569,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
+        menu.addAction(forwardMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
 #if 0
@@ -706,6 +717,23 @@ void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
     const QString permalink = generatePermalink(messageId);
     QClipboard *clip = QApplication::clipboard();
     clip->setText(permalink, QClipboard::Clipboard);
+}
+
+void MessageListView::slotForwardMessage(const QModelIndex &index)
+{
+    QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
+    if (dlg->exec()) {
+        const QStringList identifiers = dlg->channelIdentifiers();
+        const QString messageId = index.data(MessagesModel::MessageId).toString();
+        auto job = new RocketChatRestApi::PostMessageJob(this);
+        job->setText(QStringLiteral("[ ](%1)\n").arg(generatePermalink(messageId)));
+        job->setRoomIds(identifiers);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start PostMessageJob job";
+        }
+    }
+    delete dlg;
 }
 
 QString MessageListView::generatePermalink(const QString &messageId) const

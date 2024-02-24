@@ -33,7 +33,7 @@ QString LocalRoomsDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaRoomDataBase);
 }
 
-void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
+void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
@@ -53,7 +53,7 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &r
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteRooms(), db);
+    QSqlQuery query(LocalDatabaseUtils::deleteRoom(), db);
     query.addBindValue(roomId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
@@ -67,7 +67,7 @@ QByteArray LocalRoomsDatabase::jsonRoom(const QString &accountName, const QStrin
         qCWarning(RUQOLA_DATABASE_LOG) << "Could not initialize database from " << accountName << " roomId " << roomId;
         return {};
     }
-    QSqlQuery query(QStringLiteral("SELECT json FROM ROOMS WHERE roomId = \"%1\"").arg(roomId), db);
+    QSqlQuery query(LocalDatabaseUtils::jsonRoom().arg(roomId), db);
     QByteArray value;
     // We have one element
     if (query.first()) {

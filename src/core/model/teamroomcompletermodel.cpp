@@ -23,7 +23,7 @@ void TeamRoomCompleterModel::clear()
     }
 }
 
-void TeamRoomCompleterModel::setRooms(const QVector<TeamRoomCompleter> &teams)
+void TeamRoomCompleterModel::setRooms(const QList<TeamRoomCompleter> &teams)
 {
     clear();
     if (!teams.isEmpty()) {
@@ -51,9 +51,6 @@ QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
         return room.name();
     case TeamId:
         return room.identifier();
-    case Qt::DecorationRole:
-    case TeamIcon:
-        return {};
     }
 
     return {};

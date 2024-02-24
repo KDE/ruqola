@@ -82,6 +82,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     mEditColorMode = QColor(255, 170, 127);
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateMessageStyle, this, &MessageListDelegate::switchMessageLayout);
+    connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateFontSize, this, &MessageListDelegate::clearAvatarSizeHintCache);
     slotUpdateColors();
     mSizeHintCache.setMaxEntries(32); // Enough ?
 }
@@ -110,11 +111,11 @@ MessageListLayoutBase::Layout MessageListDelegate::doLayout(const QStyleOptionVi
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
     if (mRocketChatAccount) {
-        disconnect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
+        disconnect(mRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
         disconnect(mRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageListDelegate::slotPrivateSettingsChanged);
     }
     mRocketChatAccount = rcAccount;
-    connect(mRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
+    connect(mRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, &MessageListDelegate::switchMessageLayout);
     connect(mRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageListDelegate::slotPrivateSettingsChanged);
 
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
@@ -484,9 +485,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-    if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
-        mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
-    }
 
     // Message
     if (layout.textRect.isValid()) {
@@ -583,7 +581,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     if (mPreviewEmbed) {
         // Preview Url
-        const QVector<MessageUrl> messageUrls = message->urls();
+        const QList<MessageUrl> messageUrls = message->urls();
         int messageUrlIndex = 0;
         for (const MessageUrl &messageUrl : messageUrls) {
             if (messageUrl.hasPreviewUrl()) {
@@ -621,6 +619,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+    if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
+        mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
+    }
 
     painter->restore();
 }
@@ -960,10 +961,15 @@ void MessageListDelegate::slotPrivateSettingsChanged()
     mPreviewEmbed = mRocketChatAccount ? mRocketChatAccount->previewEmbed() : true;
 }
 
-void MessageListDelegate::switchMessageLayout()
+void MessageListDelegate::clearAvatarSizeHintCache()
 {
     clearSizeHintCache();
     mAvatarCacheManager->clearCache();
+}
+
+void MessageListDelegate::switchMessageLayout()
+{
+    clearAvatarSizeHintCache();
     delete mMessageListLayoutBase;
     switch (RuqolaGlobalConfig::self()->messageStyle()) {
     case RuqolaGlobalConfig::EnumMessageStyle::Normal:

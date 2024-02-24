@@ -38,16 +38,16 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QStri
     mMessageLogger->deleteMessage(accountName, roomName, messageId);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mMessagesDatabase->deleteMessage(accountName, roomName, messageId);
-        // TODO update timestamp ?
+        mGlobalDatabase->removeTimeStamp(accountName, roomName, GlobalDatabase::TimeStampType::MessageTimeStamp);
     }
 }
 
-QVector<Message> LocalDatabaseManager::loadMessages(const QString &accountName,
-                                                    const QString &roomName,
-                                                    qint64 startId,
-                                                    qint64 endId,
-                                                    qint64 numberElements,
-                                                    EmojiManager *emojiManager) const
+QList<Message> LocalDatabaseManager::loadMessages(const QString &accountName,
+                                                  const QString &roomName,
+                                                  qint64 startId,
+                                                  qint64 endId,
+                                                  qint64 numberElements,
+                                                  EmojiManager *emojiManager) const
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         return mMessagesDatabase->loadMessages(accountName, roomName, startId, endId, numberElements, emojiManager);
@@ -84,7 +84,7 @@ QByteArray LocalDatabaseManager::jsonAccount(const QString &accountName)
 void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mRoomsDatabase->addRoom(accountName, room);
+        mRoomsDatabase->updateRoom(accountName, room);
         // TODO verify it.
         mGlobalDatabase->insertOrReplaceTimeStamp(accountName, room->roomId(), room->lastMessageAt(), GlobalDatabase::TimeStampType::RoomTimeStamp);
     }
@@ -96,20 +96,6 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QString 
         mRoomsDatabase->deleteRoom(accountName, roomId);
         // Remove timestamp.
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
-    }
-}
-
-void LocalDatabaseManager::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, GlobalDatabase::TimeStampType type)
-{
-    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, roomName, timestamp, type);
-    }
-}
-
-void LocalDatabaseManager::removeTimeStamp(const QString &accountName, const QString &roomName, GlobalDatabase::TimeStampType type)
-{
-    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mGlobalDatabase->removeTimeStamp(accountName, roomName, type);
     }
 }
 

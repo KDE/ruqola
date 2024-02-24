@@ -49,8 +49,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/v0.13.2.tar.gz",
-                    "sha256": "20beeb32de7c4eb0af9039b21e18370faf847ac8697ab3045906076afbc4caa5",
+                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/0.14.2.tar.gz",
+                    "sha256": "cf2e972b783ba66334a79a30f6b3a1ea794a1dc574d6c3bebae5ffd2f0399571",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4138,

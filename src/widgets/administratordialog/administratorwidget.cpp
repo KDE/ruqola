@@ -87,19 +87,27 @@ AdministratorWidget::~AdministratorWidget() = default;
 
 void AdministratorWidget::initialize()
 {
-    mAdministratorUsersWidget->initialize();
-    mAdministratorRoomsWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("view-user-administration"))) {
+        mAdministratorUsersWidget->initialize();
+    }
+    if (mRocketChatAccount->hasPermission(QStringLiteral("view-room-administration"))) {
+        mAdministratorRoomsWidget->initialize();
+    }
     if (mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
         mAdministratorCustomSoundsWidget->initialize();
     }
-    mAdministratorCustomEmojiWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("manage-emoji"))) {
+        mAdministratorCustomEmojiWidget->initialize();
+    }
     mPermissionsWidget->initialize();
     mAdministratorCustomUserStatusWidget->initialize();
     mRolesWidget->initialize();
     if (mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
         mAdministratorServerInfoWidget->initialize();
     }
-    mAdministratorInvitesWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("create-invite-links"))) {
+        mAdministratorInvitesWidget->initialize();
+    }
     if (mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
         mOauthWidget->initialize();
     }
@@ -124,6 +132,18 @@ void AdministratorWidget::updateUiFromPermission()
     }
     if (!mRocketChatAccount->hasPermission(QStringLiteral("view-moderation-console"))) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorModerationConsoleWidget), false);
+    }
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-emoji"))) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorCustomEmojiWidget), false);
+    }
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("create-invite-links"))) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorInvitesWidget), false);
+    }
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-room-administration"))) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorRoomsWidget), false);
+    }
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("view-user-administration"))) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorUsersWidget), false);
     }
 }
 

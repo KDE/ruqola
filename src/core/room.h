@@ -264,6 +264,12 @@ public:
     [[nodiscard]] qint64 numberMessages() const;
     void setNumberMessages(qint64 newNumberMessages);
 
+    [[nodiscard]] int groupMentions() const;
+    void setGroupMentions(int newGroupMentions);
+
+    [[nodiscard]] QStringList threadUnread() const;
+    void setThreadUnread(const QStringList &newThreadUnread);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -320,6 +326,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseDisplaySystemMessage(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseRetentionInfo(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT void parseTeamInfo(const QJsonObject &obj);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList extractStringList(const QJsonObject &o, const QString &key);
+    LIBRUQOLACORE_NO_EXPORT static void serializeStringList(QJsonObject &o, const QString &key, const QStringList &list);
 
     // Room Object Fields
 
@@ -336,6 +344,7 @@ private:
 
     QStringList mUids;
     QStringList mUserNames;
+    QStringList mThreadUnread;
 
     QString mInputMessage;
 
@@ -387,6 +396,7 @@ private:
     // quint64 ?
     int mUnread = 0;
     int mUserMentions = 0;
+    int mGroupMentions = 0;
 
     qint64 mNumberMessages = 0;
 

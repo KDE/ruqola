@@ -17,11 +17,18 @@ GitLabAuthenticationInterface::~GitLabAuthenticationInterface() = default;
 
 void GitLabAuthenticationInterface::login()
 {
+    // Login if we don't have valid token.
     auto job = new GitLabAuthenticationJob(this);
     job->start();
     // connect(job, &GitLabAuthenticationJob::authenticated, this, [this]() {
     //     // TODO
     // });
+}
+
+PluginAuthenticationConfigureWidget *GitLabAuthenticationInterface::configureWidget(QWidget *parent)
+{
+    Q_UNUSED(parent);
+    return nullptr;
 }
 
 #include "moc_gitlabauthenticationinterface.cpp"

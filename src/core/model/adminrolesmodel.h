@@ -33,11 +33,11 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    void setRoles(const QVector<RoleInfo> &newRoles);
+    void setRoles(const QList<RoleInfo> &newRoles);
 
-    [[nodiscard]] QVector<RoleInfo> roles() const;
+    [[nodiscard]] QList<RoleInfo> roles() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void clear();
-    QVector<RoleInfo> mListRoleInfos;
+    QList<RoleInfo> mListRoleInfos;
 };

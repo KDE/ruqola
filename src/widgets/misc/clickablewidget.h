@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "libruqolawidgets_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QLabel>
 #include <QWidget>
 
-class LIBRUQOLAWIDGETS_EXPORT ClickableLabel : public QLabel
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ClickableLabel : public QLabel
 {
     Q_OBJECT
 public:
@@ -24,7 +24,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
 };
 
-class LIBRUQOLAWIDGETS_EXPORT ClickableWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ClickableWidget : public QWidget
 {
     Q_OBJECT
 public:

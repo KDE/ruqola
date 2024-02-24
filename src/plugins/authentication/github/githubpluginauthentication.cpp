@@ -23,7 +23,7 @@ PluginAuthenticationInterface *GitHubPluginAuthentication::createInterface(QObje
     return new GitHubAuthenticationInterface(parent);
 }
 
-AuthenticationManager::AuthMethodType GitHubPluginAuthentication::type() const
+AuthenticationManager::AuthMethodType GitHubPluginAuthentication::authenticationType() const
 {
     return AuthenticationManager::AuthMethodType::GitHub;
 }

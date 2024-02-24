@@ -90,12 +90,12 @@ void RoomsInfo::insertRoom(int index, const RoomInfo &room)
     mRooms.insert(index, room);
 }
 
-QVector<RoomInfo> RoomsInfo::rooms() const
+QList<RoomInfo> RoomsInfo::rooms() const
 {
     return mRooms;
 }
 
-void RoomsInfo::setRooms(const QVector<RoomInfo> &rooms)
+void RoomsInfo::setRooms(const QList<RoomInfo> &rooms)
 {
     mRooms = rooms;
 }

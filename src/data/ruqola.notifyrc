@@ -238,3 +238,7 @@ Name[x-test]=xxIncoming Video Conference Callxx
 Action=Popup
 Urgency=Normal
 
+[Event/Account-Added]
+Name=New Account Added
+Action=Popup
+Urgency=Normal

@@ -52,7 +52,7 @@ QString ExportDataFinishPage::generateExportZipFileName() const
     return QDir::homePath() + QLatin1Char('/') + QStringLiteral("ruqola-accountdata-%1.zip").arg(QDateTime::currentDateTime().toString());
 }
 
-void ExportDataFinishPage::setListAccounts(const QVector<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
+void ExportDataFinishPage::setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
 {
     // We will export => it's not done yet
     mExportDone = false;

@@ -63,6 +63,17 @@ public:
     [[nodiscard]] RoomListSortOrder roomListSortOrder() const;
     void setRoomListSortOrder(RoomListSortOrder roomListSortOrder);
 
+    enum class RoomListDisplay {
+        Unknown,
+        Condensed,
+        Medium,
+        Extended,
+    };
+    Q_ENUM(RoomListDisplay)
+
+    [[nodiscard]] RoomListDisplay roomListDisplay() const;
+    void setRoomListDisplay(RoomListDisplay newRoomListDisplay);
+
     [[nodiscard]] bool showRoomAvatar() const;
     void setShowRoomAvatar(bool newShowRoomAvatar);
 
@@ -77,6 +88,8 @@ private:
     QString mEmailNotificationMode;
     QString mDesktopNotifications;
     QString mPushNotifications;
+    RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::Unknown;
+    RoomListDisplay mRoomListDisplay = RoomListDisplay::Unknown;
     int mIdleTimeLimit = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
@@ -84,7 +97,6 @@ private:
     bool mDisplayAvatars = true;
     bool mEnableAutoAway = false;
     bool mShowUnread = false;
-    RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::Unknown;
     bool mShowRoomAvatar = false;
     bool mShowFavorite = true;
     bool mReceiveLoginDetectionEmail = false;

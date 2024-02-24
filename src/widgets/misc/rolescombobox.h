@@ -19,7 +19,7 @@ public:
     void setRoles(const QStringList &lst);
     [[nodiscard]] QStringList roles() const;
 
-    void setRolesInfo(const QVector<RoleInfo> &roleInfo);
+    void setRolesInfo(const QList<RoleInfo> &roleInfo);
 
 private:
     RolesModel *const mRolesModel;

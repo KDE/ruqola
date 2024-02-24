@@ -10,7 +10,7 @@
 #include <QWidget>
 class RocketChatAccount;
 class MessageListView;
-class QLineEdit;
+class ExploreDatabaseLineEdit;
 class MessagesModel;
 class QSpinBox;
 class QDateTimeEdit;
@@ -27,7 +27,7 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     MessageListView *const mMessageListView;
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
-    QLineEdit *const mRoomName;
+    ExploreDatabaseLineEdit *const mRoomName;
     QSpinBox *const mNumberOfMessages;
     QCheckBox *const mUseStartDateTime;
     QDateTimeEdit *const mStartDateTime;

@@ -14,6 +14,7 @@ class QComboBox;
 class QCheckBox;
 class RocketChatAccount;
 class QSpinBox;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPreferenceConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -28,6 +29,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setWasChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void initComboboxValues();
     LIBRUQOLAWIDGETS_NO_EXPORT void downloadData(bool fullData);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString desktopPushNotificationI18n(const QString &value) const;
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;
@@ -40,6 +42,7 @@ private:
     QSpinBox *const mIdleTimeLimit;
 
     QCheckBox *const mAutomaticAway;
+    QLabel *const mEmailNotificationLabel;
 
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;

@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     configServerInfo->resize(600, 300);
     configServerInfo->show();
 
-    QStringList lst;
+    QList<AccountManager::AccountDisplayInfo> infos;
     for (int i = 0; i < 10; ++i) {
         ServerErrorInfo info;
         const QString accountName = QStringLiteral("account %1").arg(QString::number(i));
@@ -32,8 +32,10 @@ int main(int argc, char **argv)
         const QString str = QStringLiteral("Message: %1").arg(QString::number(i));
         info.setMessage(str);
         ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
-        lst << accountName;
+        AccountManager::AccountDisplayInfo serverInfo;
+        serverInfo.name = accountName;
+        infos << serverInfo;
     }
-    w->addServerList(lst);
+    w->addServerList(infos);
     return app.exec();
 }

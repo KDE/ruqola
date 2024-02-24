@@ -248,6 +248,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     license/licensesisenterprisejob.h
     license/licensesmaxactiveusersjob.cpp
     license/licensesmaxactiveusersjob.h
+    license/licensesinfojob.cpp
+    license/licensesinfojob.h
 
     misc/directoryjob.cpp
     misc/directoryjob.h
@@ -267,6 +269,11 @@ target_sources(librocketchatrestapi-qt PRIVATE
     misc/stdoutqueuejob.h
     misc/oauthappscreatejob.h
     misc/oauthappscreatejob.cpp
+    misc/oauthappsupdatejob.cpp
+    misc/oauthappsupdatejob.h
+    misc/oauthappsdeletejob.cpp
+    misc/oauthappsdeletejob.h
+
     permissions/permissionslistalljob.cpp
     permissions/permissionslistalljob.h
     permissions/permissionupdatejob.cpp
@@ -332,6 +339,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     rooms/saveroomsettingsjob.h
     rooms/roomsdeletejob.cpp
     rooms/roomsdeletejob.h
+    rooms/roomsnameexistsjob.cpp
+    rooms/roomsnameexistsjob.h
     serverinfojob.cpp
     serverinfojob.h
     sessions/sessionslistjob.cpp

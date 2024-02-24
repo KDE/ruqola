@@ -51,7 +51,7 @@ void ServerErrorInfoHistoryModel::clear()
     }
 }
 
-void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QVector<ServerErrorInfo> &infos)
+void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QList<ServerErrorInfo> &infos)
 {
     clear();
     if (!infos.isEmpty()) {

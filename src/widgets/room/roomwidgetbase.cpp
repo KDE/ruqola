@@ -195,7 +195,7 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
         disconnect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
         disconnect(mCurrentRocketChatAccount,
-                   &RocketChatAccount::ownUserPreferencesChanged,
+                   &RocketChatAccount::ownUserUiPreferencesChanged,
                    mMessageLineWidget,
                    &MessageLineWidget::slotOwnUserPreferencesChanged);
         // hide it when we switch account.
@@ -205,7 +205,7 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     connect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
     // When we switch we need to update it.

@@ -42,9 +42,9 @@ ServerErrorInfoMessageHistoryDialog::~ServerErrorInfoMessageHistoryDialog()
     writeConfig();
 }
 
-void ServerErrorInfoMessageHistoryDialog::addServerList(const QStringList &serverNames)
+void ServerErrorInfoMessageHistoryDialog::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
-    mServerErrorInfoMessageHistoryWidget->addServerList(serverNames);
+    mServerErrorInfoMessageHistoryWidget->addServerList(infos);
 }
 
 void ServerErrorInfoMessageHistoryDialog::readConfig()

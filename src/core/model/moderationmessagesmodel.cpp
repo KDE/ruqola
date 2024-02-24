@@ -14,7 +14,7 @@ ModerationMessagesModel::ModerationMessagesModel(RocketChatAccount *account, QOb
 
 ModerationMessagesModel::~ModerationMessagesModel() = default;
 
-QVector<Message> ModerationMessagesModel::extractMessages(const QJsonObject &obj)
+QList<Message> ModerationMessagesModel::extractMessages(const QJsonObject &obj)
 {
     ModerationListMessages messages;
     messages.parseMessages(obj, QStringLiteral("messages"));

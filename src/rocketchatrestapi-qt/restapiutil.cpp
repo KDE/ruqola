@@ -507,6 +507,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("oauth-apps.get");
     case RestApiUtil::RestApiUrlType::OauthAppsCreate:
         return QStringLiteral("oauth-apps.create");
+    case RestApiUtil::RestApiUrlType::OauthAppsUpdate:
+        return QStringLiteral("oauth-apps.update");
+    case RestApiUtil::RestApiUrlType::OauthAppsDelete:
+        return QStringLiteral("oauth-apps.delete");
 
     case RestApiUtil::RestApiUrlType::SettingsOauth:
         return QStringLiteral("settings.oauth");
@@ -521,6 +525,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("licenses.add");
     case RestApiUtil::RestApiUrlType::LicensesIsEntreprise:
         return QStringLiteral("licenses.isEnterprise");
+    case RestApiUtil::RestApiUrlType::LicensesInfo:
+        return QStringLiteral("licenses.info");
 
     case RestApiUtil::RestApiUrlType::BannersDismiss:
         return QStringLiteral("banners.dismiss");
@@ -570,6 +576,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("moderation.reports");
     case RestApiUtil::RestApiUrlType::ModerationReportInfo:
         return QStringLiteral("moderation.reportInfo");
+    case RestApiUtil::RestApiUrlType::RoomsNameExists:
+        return QStringLiteral("rooms.nameExists");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

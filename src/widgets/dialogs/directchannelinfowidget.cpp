@@ -37,7 +37,7 @@ void DirectChannelInfoWidget::setUserName(const QString &userName)
     fetchUserInfo(userName);
 }
 
-void DirectChannelInfoWidget::setRoles(const QVector<RoleInfo> &newRoles)
+void DirectChannelInfoWidget::setRoles(const QList<RoleInfo> &newRoles)
 {
     mListRoleInfos = newRoles;
 }

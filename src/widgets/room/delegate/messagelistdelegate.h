@@ -108,6 +108,7 @@ private:
     void slotUpdateColors();
     void switchMessageLayout();
     void slotPrivateSettingsChanged();
+    void clearAvatarSizeHintCache();
 
     [[nodiscard]] MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;

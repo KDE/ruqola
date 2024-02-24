@@ -83,12 +83,12 @@ void CustomUserStatuses::setTotal(int total)
     mTotal = total;
 }
 
-QVector<CustomUserStatus> CustomUserStatuses::customUserses() const
+QList<CustomUserStatus> CustomUserStatuses::customUserses() const
 {
     return mCustomUserses;
 }
 
-void CustomUserStatuses::setCustomUserses(const QVector<CustomUserStatus> &customUserses)
+void CustomUserStatuses::setCustomUserses(const QList<CustomUserStatus> &customUserses)
 {
     mCustomUserses = customUserses;
 }

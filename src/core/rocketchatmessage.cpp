@@ -26,11 +26,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(
     return generateMethod(QStringLiteral("createDirectMessage"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id)
-{
-    return saveRoomSettings(QStringLiteral("encrypted"), roomId, encrypted, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
 {
     QJsonObject obj{
@@ -169,22 +164,10 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const 
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
-{
-    const QJsonArray params{{roomId}, {key}, {value}};
-    return generateMethod(QStringLiteral("saveRoomSettings"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QString &roomId, const QString &accessCode, quint64 id)
 {
     const QJsonArray params{{roomId}, {accessCode}};
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomById(const QString &roomId, quint64 id)
-{
-    const QJsonArray params{{roomId}};
-    return generateMethod(QStringLiteral("getRoomById"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QString &roomId, quint64 id)
@@ -223,33 +206,10 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(U
     return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomNameExists(const QString &roomName, quint64 id)
-{
-    const QJsonArray params{{QJsonValue(roomName)}};
-    return generateMethod(QStringLiteral("roomNameExists"), QJsonDocument(params), id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QString &roomId, quint64 id)
 {
     const QJsonArray params{{QJsonValue(roomId)}};
     return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, const QString &exception, quint64 id)
-{
-    QJsonArray params;
-
-    QJsonObject firstParam;
-
-    const QStringList users = exception.split(QLatin1Char(','));
-    QJsonArray exceptionEntries;
-    for (const QString &entry : users) {
-        exceptionEntries.append(entry);
-    }
-    firstParam[QLatin1String("exceptions")] = exceptionEntries;
-    firstParam[QLatin1String("term")] = searchText;
-    params.append(std::move(firstParam));
-    return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult

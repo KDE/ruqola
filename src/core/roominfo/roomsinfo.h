@@ -9,7 +9,7 @@
 #include "libruqolacore_export.h"
 #include "roominfo.h"
 #include <QDebug>
-#include <QVector>
+#include <QList>
 class LIBRUQOLACORE_EXPORT RoomsInfo
 {
 public:
@@ -33,8 +33,8 @@ public:
     void parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
     void parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
 
-    [[nodiscard]] QVector<RoomInfo> rooms() const;
-    void setRooms(const QVector<RoomInfo> &rooms);
+    [[nodiscard]] QList<RoomInfo> rooms() const;
+    void setRooms(const QList<RoomInfo> &rooms);
 
     [[nodiscard]] int roomsCount() const;
     void setRoomsCount(int adminroomsCount);
@@ -44,7 +44,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListRooms(const QJsonObject &commandsObj, ParseType type);
-    QVector<RoomInfo> mRooms;
+    QList<RoomInfo> mRooms;
     int mRoomsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

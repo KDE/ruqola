@@ -22,7 +22,7 @@ public:
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo();
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
-    void setExistingAccountName(const QStringList &lst);
+    void setExistingAccountNames(const QStringList &lst);
 
 Q_SIGNALS:
     void updateOkButton(bool state);

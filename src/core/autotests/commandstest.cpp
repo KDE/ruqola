@@ -53,7 +53,7 @@ void CommandsTest::shouldLoadPermissions()
     r.parseCommands(obj);
     QCOMPARE(r.commandsCount(), 3);
 
-    QVector<Command> result;
+    QList<Command> result;
     {
         Command d;
         d.setCommandName(QStringLiteral("/slackbridge-import"));

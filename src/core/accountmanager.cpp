@@ -13,6 +13,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
+#include "utils.h"
 #include <KLocalizedString>
 #include <QDir>
 #include <QDirIterator>
@@ -682,18 +683,18 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
-bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
+bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo)
 {
-    auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
+    auto account = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
     if (account) {
         // const QString path{parseUrl.path()};
-        const QString messageId = parseUrl.messageId();
-        qCDebug(RUQOLA_LOG) << " parseUrl " << parseUrl;
+        const QString messageId = parseInfo.messageId;
+        qCDebug(RUQOLA_LOG) << " parseUrl " << parseInfo;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(account->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         Q_EMIT mCurrentAccount->raiseWindow();
-        Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseUrl.roomId(), parseUrl.roomIdType(), parseUrl.channelType());
+        Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
         return true;
     }
     return false;
@@ -701,9 +702,9 @@ bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
 
 void AccountManager::openMessageUrl(const QString &messageUrl)
 {
-    ParseMessageUrlUtils parseUrl;
-    if (parseUrl.parseUrl(messageUrl)) {
-        if (showMessage(parseUrl)) {
+    ParseRocketChatUrlUtils parseUrl;
+    if (parseUrl.parseUrl(messageUrl) == ParseRocketChatUrlUtils::UrlType::Message) {
+        if (showMessage(std::move(parseUrl.parsingInfo()))) {
             return;
         }
     }
@@ -763,7 +764,7 @@ void AccountManager::loadAccount()
                     QStringList() << QStringLiteral("ruqola.conf"),
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
-    QVector<RocketChatAccount *> lstAccounts;
+    QList<RocketChatAccount *> lstAccounts;
     while (it.hasNext()) {
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
@@ -815,13 +816,20 @@ RocketChatAccount *AccountManager::account() const
 
 void AccountManager::addAccount(const AccountManagerInfo &info)
 {
-    // TODO verify if account exist or not ?
+    const QStringList list = accountsName();
+    QString newAccountName = info.accountName;
+    int i = 1;
+    while (list.contains(newAccountName)) {
+        newAccountName = QStringLiteral("%1%2").arg(info.accountName, QString::number(i));
+        ++i;
+    }
     auto account = new RocketChatAccount();
-    account->setAccountName(info.accountName);
+    account->setAccountName(newAccountName);
     account->setUserName(info.userName);
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
     account->setPassword(info.password);
+    account->setAuthMethodType(info.authMethodType);
     if (info.enabled) {
         connectToAccount(account);
     }
@@ -836,6 +844,7 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         account->setUserName(info.userName);
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
+        account->setAuthMethodType(info.authMethodType);
         if (!info.enabled) {
             // TODO fixme
             // disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
@@ -937,14 +946,19 @@ RocketChatAccountModel *AccountManager::rocketChatAccountModel() const
     return mRocketChatAccountModel;
 }
 
-QStringList AccountManager::accountNamesSorted() const
+QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSorted() const
 {
-    QStringList lst;
+    QList<AccountManager::AccountDisplayInfo> lst;
     auto model = rocketChatAccountProxyModel();
     for (int i = 0; i < model->rowCount(); ++i) {
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        lst << account->displayName();
+        if (account->accountEnabled()) {
+            AccountManager::AccountDisplayInfo info;
+            info.name = account->displayName();
+            info.icon = Utils::iconFromAccount(account);
+            lst.append(std::move(info));
+        }
     }
     return lst;
 }

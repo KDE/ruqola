@@ -22,7 +22,7 @@ void ChannelListViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.itemDelegate()->objectName(), QStringLiteral("mChannelListDelegate"));
     QCOMPARE(w.isHeaderHidden(), true);
     QCOMPARE(w.rootIsDecorated(), false);
-    QCOMPARE(w.uniformRowHeights(), true);
+    QCOMPARE(w.uniformRowHeights(), false);
     QCOMPARE(w.itemsExpandable(), false);
     QCOMPARE(w.indentation(), 0);
     QVERIFY(w.filterModel());
