@@ -1,6 +1,5 @@
 {
     "KPlugin": {
-        "Id": "googleauthenticationplugin",
         "Name": "Google Authentication Plugin",
         "Name[ca@valencia]": "Connector d'autenticació de Google",
         "Name[ca]": "Connector d'autenticació de Google",
