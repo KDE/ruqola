@@ -41,9 +41,10 @@ void OauthAppsUpdateJobTest::shouldGenerateJson()
     foo.name = QStringLiteral("bla");
     foo.redirectUri = QStringLiteral("bl");
     foo.active = true;
+    foo.appId = QStringLiteral("bli");
     job.setOauthAppsUpdateInfo(foo);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"name":"bla","redirectUri":"bl"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"appId":"bli","name":"bla","redirectUri":"bl"})").toLatin1());
 }
 
 void OauthAppsUpdateJobTest::shouldNotStarting()
@@ -74,9 +75,13 @@ void OauthAppsUpdateJobTest::shouldNotStarting()
 
     foo.redirectUri = QStringLiteral("bl");
     job.setOauthAppsUpdateInfo(foo);
-    QVERIFY(job.canStart());
+    QVERIFY(!job.canStart());
 
     foo.active = true;
+    job.setOauthAppsUpdateInfo(foo);
+    QVERIFY(!job.canStart());
+
+    foo.appId = QStringLiteral("vvs");
     job.setOauthAppsUpdateInfo(foo);
     QVERIFY(job.canStart());
 }
