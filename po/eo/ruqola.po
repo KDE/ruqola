@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-24 00:37+0000\n"
-"PO-Revision-Date: 2024-02-18 08:21+0100\n"
+"PO-Revision-Date: 2024-02-24 21:13+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -1013,41 +1013,37 @@ msgid "Last token part"
 msgstr "Lasta simbola parto"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Mencioj"
-msgstr[1] "Mencioj"
+msgstr[0] "%1 Mencio"
+msgstr[1] "%1 Mencioj"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Group mentions only"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Grupo mencioj nur"
-msgstr[1] "Grupo mencioj nur"
+msgstr[0] "%1 Grupmencio"
+msgstr[1] "%1 Grupmencioj"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Nelegitaj Fadenoj Mesaĝoj"
-msgstr[1] "Nelegitaj Fadenoj Mesaĝoj"
+msgstr[0] "%1 Nelegita Fadenmesaĝo"
+msgstr[1] "%1 Nelegitaj Fadenmesaĝoj"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 havas %2 Nelegitan Mesaĝon"
-msgstr[1] "%1 havas %2 Nelegitan Mesaĝon"
+msgstr[0] "%1 Nelegita Mesaĝo"
+msgstr[1] "%1 Nelegitaj Mesaĝoj"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
 msgid "Teams Room"
-msgstr "Teamoj Ĉambro"
+msgstr "Ĉambro de Teamoj"
 
 #: core/model/roommodel.cpp:519
 #, kde-format
@@ -1380,15 +1376,14 @@ msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
 
 #: core/rocketchaturlutils.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Account Added"
-msgstr "Kontonomo"
+msgstr "Aldoniĝis Konto"
 
 #: core/rocketchaturlutils.cpp:35
 #, kde-format
 msgid "A new account was added."
-msgstr ""
+msgstr "Nova konto estis aldonita."
 
 #: core/room.cpp:1137
 #, kde-format
@@ -1543,16 +1538,14 @@ msgid "Account name:"
 msgstr "Kontonomo:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Users:"
+#, kde-format
 msgid "User Id:"
 msgstr "Uzantoj:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Token:"
-msgstr "Token"
+msgstr "Ĵetono:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
@@ -7428,10 +7421,9 @@ msgid "Permissions"
 msgstr "Permesoj"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Roloj:"
+msgstr "Propraj Roloj:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -9521,10 +9513,3 @@ msgstr "Ripari traduki mesaĝon en rekta kanalo."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
 msgstr "Ne montri @here/@all kiel uzanto."
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure"
-#~ msgstr "Agordi Ruqola"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-24 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 02:52+0100\n"
+"PO-Revision-Date: 2024-02-24 03:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1376,15 +1376,14 @@ msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
 
 #: core/rocketchaturlutils.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Account Added"
-msgstr "ანგარიშის სახელი"
+msgstr "ანგარიში დამატებულია"
 
 #: core/rocketchaturlutils.cpp:35
 #, kde-format
 msgid "A new account was added."
-msgstr ""
+msgstr "დაემატა ახალი ანგარიში."
 
 #: core/room.cpp:1137
 #, kde-format

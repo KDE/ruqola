@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-24 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 12:06+0100\n"
+"PO-Revision-Date: 2024-02-24 11:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1379,16 +1379,14 @@ msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
 
 #: core/rocketchaturlutils.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Account Added"
-msgstr "Rekening naam"
+msgstr "Account toegevoegd"
 
 #: core/rocketchaturlutils.cpp:35
-#, fuzzy, kde-format
-#| msgid "Enter account name"
+#, kde-format
 msgid "A new account was added."
-msgstr "Accountnaam invoeren"
+msgstr "Een nieuw account is ingevoerd."
 
 #: core/room.cpp:1137
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-24 00:37+0000\n"
-"PO-Revision-Date: 2024-02-11 11:22+0100\n"
+"PO-Revision-Date: 2024-02-24 16:41+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1016,40 +1016,36 @@ msgid "Last token part"
 msgstr "Ostatnia część tokena"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Wspomnienia"
-msgstr[1] "Wspomnienia"
-msgstr[2] "Wspomnienia"
+msgstr[0] "%1 wzmianka"
+msgstr[1] "%1 wzmianki"
+msgstr[2] "%1 wzmianek"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Mute Group Mentions"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Wycisz wspomnienia o grupach"
-msgstr[1] "Wycisz wspomnienia o grupach"
-msgstr[2] "Wycisz wspomnienia o grupach"
+msgstr[0] "%1 wzmianka o grupie"
+msgstr[1] "%1 wzmianki o grupie"
+msgstr[2] "%1 wzmianek o grupie"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Oznacz wiadomości wątku jako nieprzeczytane"
-msgstr[1] "Oznacz wiadomości wątku jako nieprzeczytane"
-msgstr[2] "Oznacz wiadomości wątku jako nieprzeczytane"
+msgstr[0] "%1 nieprzeczytana wiadomość w wątku"
+msgstr[1] "%1 nieprzeczytane wiadomości w wątku"
+msgstr[2] "%1 nieprzeczytanych wiadomości w wątku"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 ma %2 nieprzeczytanych wiadomości"
-msgstr[1] "%1 ma %2 nieprzeczytanych wiadomości"
-msgstr[2] "%1 ma %2 nieprzeczytanych wiadomości"
+msgstr[0] "%1 nieprzeczytana wiadomość"
+msgstr[1] "%1 nieprzeczytane wiadomości"
+msgstr[2] "%1 nieprzeczytanych wiadomości"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -1387,16 +1383,14 @@ msgid "Your email has been queued for sending."
 msgstr "Twój e-mail oczekuje w kolejce na wysłanie"
 
 #: core/rocketchaturlutils.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Account Added"
-msgstr "Nazwa konta"
+msgstr "Dodano konto"
 
 #: core/rocketchaturlutils.cpp:35
-#, fuzzy, kde-format
-#| msgid "Enter Account Name"
+#, kde-format
 msgid "A new account was added."
-msgstr "Wpisz nazwę konta"
+msgstr "Dodano nowe konto."
 
 #: core/room.cpp:1137
 #, kde-format
@@ -1406,7 +1400,7 @@ msgstr "Właściciel"
 #: core/room.cpp:1140
 #, kde-format
 msgid "Leader"
-msgstr "Leader"
+msgstr "Lider"
 
 #: core/room.cpp:1143
 #, kde-format
@@ -1551,16 +1545,14 @@ msgid "Account name:"
 msgstr "Nazwa konta:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Users:"
+#, kde-format
 msgid "User Id:"
-msgstr "Użytkownicy:"
+msgstr "Identyfikator użytkownika:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Token:"
-msgstr "Token"
+msgstr "Token:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
@@ -1664,10 +1656,9 @@ msgstr "Zostałeś wyciszony i nie możesz rozmawiać w tym pokoju"
 
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#, fuzzy, kde-format
-#| msgid "Invalid channel."
+#, kde-format
 msgid "Invalid channel"
-msgstr "Nieprawidłowy kanał."
+msgstr "Nieprawidłowy kanał"
 
 #: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:123
 #, kde-format
@@ -7416,6 +7407,13 @@ msgid ""
 "dismissing this message.<br/><br/>Your password is: <span style=\"font-"
 "weight: bold;\">%1</span>"
 msgstr ""
+"Twórz bezpieczne, prywatne pokoje z wiadomościami bezpośrednimi "
+"zaszyfrowanymi w sposób end-to-end.<br/><br/>Zapisuj swoje hasła "
+"bezpiecznie, jako iż klucz do odszyfrowania/zaszyfrowania twoich wiadomości "
+"nie będzie zapisany na żadnym serwerze. Będzie trzeba je wpisywać na innych "
+"urządzeniach, aby móc używać szyfrowania e2e.<br/><br/>Zmień swoje hasło w "
+"dowolnej chwili i przeglądarce, w której je wpisałaś.<br/><br/>Twoje hasło "
+"to: <span style=\"font-weight: bold;\">%1</span>"
 
 #: widgets/encryption/e2edecodeencryptionkeyfailedwidget.cpp:17
 #, kde-format
@@ -7467,10 +7465,9 @@ msgid "Permissions"
 msgstr "Uprawnienia"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Role:"
+msgstr "Własne role:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -7494,16 +7491,15 @@ msgid "Html"
 msgstr "HTML"
 
 #: widgets/forwardmessage/forwardmessagedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Forward Message"
-msgstr "Podążaj za wiadomością"
+msgstr "Przekaż wiadomość"
 
 #: widgets/forwardmessage/forwardmessagewidget.cpp:23
 #, kde-format
 msgid "Select at least one channel to forward the message to."
-msgstr ""
+msgstr "Zaznacz co najmniej jeden kanał, aby przekazać na niego wiadomość."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
@@ -7684,21 +7680,19 @@ msgid "(Unnamed)"
 msgstr "(Nienazwany)"
 
 #: widgets/misc/changefontsizemenu.cpp:17
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Font"
+#, kde-format
 msgid "Font Size"
-msgstr "Czcionka"
+msgstr "Rozmiar czcionki"
 
 #: widgets/misc/changefontsizemenu.cpp:19
 #, kde-format
 msgid "Increase Font"
-msgstr ""
+msgstr "Zwiększ rozmiar czcionki"
 
 #: widgets/misc/changefontsizemenu.cpp:26
 #, kde-format
 msgid "Decrease Font"
-msgstr ""
+msgstr "Zmniejsz rozmiar czcionki"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:62
 #, kde-format
@@ -8133,10 +8127,9 @@ msgstr "Zażądano pobrania pliku"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:198
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:206
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "Default (%1)"
-msgstr "Domyślne"
+msgstr "Domyślne (%1)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:215
 #, kde-format
@@ -8144,10 +8137,10 @@ msgid "Each Mentions"
 msgstr "Każde wspomnienie"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:219
-#, fuzzy, kde-format
-#| msgid "Your administrator has disabled the changing of email."
+#, kde-format
 msgid "Your Rocket.Chat administrator has disabled email notifications"
-msgstr "Twój administrator wyłączył możliwość zmiany adresu pocztowego."
+msgstr ""
+"Twój administrator Rocket.Chat wyłączył możliwość powiadomień na pocztę"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
@@ -8574,10 +8567,9 @@ msgid "Copy Link To Message"
 msgstr "Skopiuj odnośnik do wiadomości"
 
 #: widgets/room/messagelistview.cpp:332
-#, fuzzy, kde-format
-#| msgid "Follow Message"
+#, kde-format
 msgid "Forward Message"
-msgstr "Podążaj za wiadomością"
+msgstr "Przekaż wiadomość"
 
 #: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
@@ -9171,17 +9163,17 @@ msgstr "Wyeksportuj konta"
 #: widgets/ruqolamainwindow.cpp:632
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Średni"
 
 #: widgets/ruqolamainwindow.cpp:640
 #, kde-format
 msgid "Condensed"
-msgstr ""
+msgstr "Ściśnięty"
 
 #: widgets/ruqolamainwindow.cpp:649
 #, kde-format
 msgid "Extended"
-msgstr ""
+msgstr "Rozszerzony"
 
 #: widgets/ruqolamainwindow.cpp:690
 #, kde-format
@@ -9407,16 +9399,15 @@ msgid "Version 2.1"
 msgstr "Wersja 2.1"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.2"
-msgstr "Wersja 2.0"
+msgstr "Wersja 2.2"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr "Co nowego w Ruqoli "
+msgstr "Co nowego w Ruqoli"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
@@ -9552,43 +9543,35 @@ msgstr "Naprawiono obsługę URL avatarów"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:67
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-msgstr ""
+msgstr "Możliwość zwiększenia/zmniejszenia rozmiaru czcionki (CTRL++/CTRL+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr ""
+msgstr "Dodanie wyglądu spisu kanałów (ściśnięty/średni/rozszerzony)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
-#, fuzzy
-#| msgid "Follow Message"
 msgid "Add forward message"
-msgstr "Podążaj za wiadomością"
+msgstr "Dodano przekazywanie wiadomości"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Ulepszono obsługę wzmianek."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:75
-#, fuzzy
-#| msgid "Fix kf6 support"
 msgid "Fix dark mode support."
-msgstr "Naprawiono obsługę kf6"
+msgstr "Naprawiono tryb ciemny"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-#, fuzzy
-#| msgid "Fix kf6 support"
 msgid "Fix jitsi support."
-msgstr "Naprawiono obsługę kf6"
+msgstr "Naprawiono obsługę jitsi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Całkowita liczba wiadomości w kanałach"
+msgstr "Naprawiono tłumaczenie wiadomości na kanałach bezpośrednich."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
-msgstr ""
+msgstr "Nie pokazuj @here/@all jako użytkownik."
 
 #, fuzzy
 #~| msgid "Configure"

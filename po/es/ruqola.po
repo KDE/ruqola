@@ -2,8 +2,8 @@
 # Copyright (C) 2019 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# Automatically generated, 2019.
 # SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# Automatically generated, 2019.
 # Manuel Alcaraz <manuelalcarazzam@gmail.com>, 2019.
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024, %Y.
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-24 00:37+0000\n"
-"PO-Revision-Date: 2024-02-18 19:35+0100\n"
+"PO-Revision-Date: 2024-02-24 18:12+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -604,7 +604,7 @@ msgstr "Alias"
 #: core/model/admininvitemodel.cpp:35
 #, kde-format
 msgid "Token"
-msgstr "Señal"
+msgstr "Símbolo"
 
 #: core/model/admininvitemodel.cpp:37
 #, kde-format
@@ -1379,15 +1379,14 @@ msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
 
 #: core/rocketchaturlutils.cpp:34
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Account Added"
-msgstr "Nombre de la cuenta"
+msgstr "Cuenta añadida"
 
 #: core/rocketchaturlutils.cpp:35
 #, kde-format
 msgid "A new account was added."
-msgstr ""
+msgstr "Se añadió una nueva cuenta."
 
 #: core/room.cpp:1137
 #, kde-format
@@ -1542,16 +1541,14 @@ msgid "Account name:"
 msgstr "Nombre de la cuenta:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Users:"
+#, kde-format
 msgid "User Id:"
-msgstr "Usuarios:"
+msgstr "Id de usuario:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Token:"
-msgstr "Señal"
+msgstr "Símbolo:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
@@ -9581,10 +9578,3 @@ msgstr "Mejora en la traducción de mensajes en los canales directos."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Don't show @here/@all as user."
 msgstr "No muestra @here/@all como usuario."
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure"
-#~ msgstr "Configurar Ruqola"
