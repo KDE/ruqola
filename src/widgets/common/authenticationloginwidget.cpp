@@ -40,8 +40,9 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
+    mUserName->setPlaceholderText(i18n("Username or email"));
     KLineEditEventHandler::catchReturnKey(mUserName);
-    mainLayout->addRow(i18n("Username:"), mUserName);
+    mainLayout->addRow(i18n("Username or Email:"), mUserName);
 
     mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
