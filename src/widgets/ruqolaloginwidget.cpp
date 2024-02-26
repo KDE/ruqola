@@ -122,6 +122,7 @@ void RuqolaLoginWidget::slotUpdateLoginButton()
 
 void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccount)
 {
+    // TODO check authentication method
     mRocketChatAccount = rocketChatAccount;
     mAccountName->setText(mRocketChatAccount->displayName());
     mAccountName->setReadOnly(!mRocketChatAccount->displayName().isEmpty());
