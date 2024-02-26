@@ -14,6 +14,8 @@ RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     addWidget(mRuqolaLoginWidget);
 }
 
+RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
+
 void RuqolaLoginStackWidget::setRocketChatAccount(RocketChatAccount *account)
 {
     // TODO
@@ -28,7 +30,5 @@ void RuqolaLoginStackWidget::showError(const QString &text)
 {
     // TODO
 }
-
-RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
 
 #include "moc_ruqolaloginstackwidget.cpp"

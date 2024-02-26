@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "createnewservercheckurlwidgettest.h"
-#include "createnewserver/createnewservercheckurlwidget.h"
+#include "checknewserverurlwidgettest.h"
+#include "createnewserver/checknewserverurlwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KMessageWidget>
 #include <QHBoxLayout>
@@ -13,16 +13,16 @@
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
-QTEST_MAIN(CreateNewServerCheckUrlWidgetTest)
+QTEST_MAIN(CheckNewServerUrlWidgetTest)
 
-CreateNewServerCheckUrlWidgetTest::CreateNewServerCheckUrlWidgetTest(QObject *parent)
+CheckNewServerUrlWidgetTest::CheckNewServerUrlWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void CreateNewServerCheckUrlWidgetTest::shouldHaveDefaultValues()
+void CheckNewServerUrlWidgetTest::shouldHaveDefaultValues()
 {
-    CreateNewServerCheckUrlWidget w;
+    CheckNewServerUrlWidget w;
 
     auto topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
     QVERIFY(topLayout);
@@ -46,4 +46,4 @@ void CreateNewServerCheckUrlWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mFailedError->messageType(), KMessageWidget::Error);
 }
 
-#include "moc_createnewservercheckurlwidgettest.cpp"
+#include "moc_checknewserverurlwidgettest.cpp"

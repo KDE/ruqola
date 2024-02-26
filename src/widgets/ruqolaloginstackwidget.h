@@ -7,11 +7,12 @@
 #pragma once
 
 #include "ddpapi/ddpauthenticationmanager.h"
+#include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 
 class RuqolaLoginWidget;
 class RocketChatAccount;
-class RuqolaLoginStackWidget : public QStackedWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginStackWidget : public QStackedWidget
 {
     Q_OBJECT
 public:

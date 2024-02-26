@@ -370,9 +370,8 @@ target_sources(libruqolawidgets PRIVATE
     createnewserver/createnewserverwidget.h
     createnewserver/createnewserverstackwidget.h
     createnewserver/createnewserverstackwidget.cpp
-    createnewserver/createnewservercheckurlwidget.h
-    createnewserver/createnewservercheckurlwidget.cpp
-
+    createnewserver/checknewserverurlwidget.h
+    createnewserver/checknewserverurlwidget.cpp
 
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfodialog.h

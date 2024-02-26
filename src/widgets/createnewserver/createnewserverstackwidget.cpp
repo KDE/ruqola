@@ -5,7 +5,7 @@
 */
 
 #include "createnewserverstackwidget.h"
-#include "createnewservercheckurlwidget.h"
+#include "checknewserverurlwidget.h"
 #include "createnewserverwidget.h"
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
@@ -14,26 +14,23 @@
 
 CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     : QStackedWidget(parent)
-    , mCreateNewServerCheckUrlWidget(new CreateNewServerCheckUrlWidget(this))
+    , mCheckNewServerUrlWidget(new CheckNewServerUrlWidget(this))
     , mCreateNewServerWidget(new CreateNewServerWidget(this))
 {
-    mCreateNewServerCheckUrlWidget->setObjectName(QStringLiteral("mCreateNewServerCheckUrlWidget"));
-    addWidget(mCreateNewServerCheckUrlWidget);
+    mCheckNewServerUrlWidget->setObjectName(QStringLiteral("mCreateNewServerCheckUrlWidget"));
+    addWidget(mCheckNewServerUrlWidget);
 
     mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
     addWidget(mCreateNewServerWidget);
-    setCurrentWidget(mCreateNewServerCheckUrlWidget);
-    connect(mCreateNewServerCheckUrlWidget,
-            &CreateNewServerCheckUrlWidget::serverUrlFound,
-            this,
-            [this](const CreateNewServerCheckUrlWidget::ServerInfo &serverInfo) {
-                AccountManager::AccountManagerInfo info;
-                info.serverUrl = serverInfo.url;
-                info.authenticationInfos = serverInfo.authenticationInfos;
-                info.canResetPassword = serverInfo.canResetPassword;
-                info.canRegisterAccount = serverInfo.canRegisterAccount;
-                setAccountInfo(std::move(info));
-            });
+    setCurrentWidget(mCheckNewServerUrlWidget);
+    connect(mCheckNewServerUrlWidget, &CheckNewServerUrlWidget::serverUrlFound, this, [this](const CheckNewServerUrlWidget::ServerInfo &serverInfo) {
+        AccountManager::AccountManagerInfo info;
+        info.serverUrl = serverInfo.url;
+        info.authenticationInfos = serverInfo.authenticationInfos;
+        info.canResetPassword = serverInfo.canResetPassword;
+        info.canRegisterAccount = serverInfo.canRegisterAccount;
+        setAccountInfo(std::move(info));
+    });
     connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
     connect(mCreateNewServerWidget, &CreateNewServerWidget::authentication, this, &CreateNewServerStackWidget::addAuthenticationConfigureWidget);
 }

@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class CreateNewServerCheckUrlWidgetTest : public QObject
+class CheckNewServerUrlWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit CreateNewServerCheckUrlWidgetTest(QObject *parent = nullptr);
-    ~CreateNewServerCheckUrlWidgetTest() override = default;
+    explicit CheckNewServerUrlWidgetTest(QObject *parent = nullptr);
+    ~CheckNewServerUrlWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

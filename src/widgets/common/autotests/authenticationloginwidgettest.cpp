@@ -38,6 +38,7 @@ void AuthenticationLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QVERIFY(mUserName->isClearButtonEnabled());
+    QVERIFY(!mUserName->placeholderText().isEmpty());
 
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);

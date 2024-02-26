@@ -9,7 +9,7 @@
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
-class CreateNewServerCheckUrlWidget;
+class CheckNewServerUrlWidget;
 class CreateNewServerWidget;
 class PluginAuthenticationConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerStackWidget : public QStackedWidget
@@ -31,7 +31,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
     QStringList mExistingAccountNames;
     AccountManager::AccountManagerInfo mAccountManagerInfo;
-    CreateNewServerCheckUrlWidget *const mCreateNewServerCheckUrlWidget;
+    CheckNewServerUrlWidget *const mCheckNewServerUrlWidget;
     CreateNewServerWidget *const mCreateNewServerWidget;
     PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
 };

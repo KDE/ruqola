@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "createnewservercheckurlwidget.h"
+#include "checknewserverurlwidget.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
@@ -17,7 +17,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
+CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     : QWidget{parent}
     , mServerUrl(new QLineEdit(this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
@@ -69,9 +69,9 @@ CreateNewServerCheckUrlWidget::CreateNewServerCheckUrlWidget(QWidget *parent)
     mFailedError->hide();
 }
 
-CreateNewServerCheckUrlWidget::~CreateNewServerCheckUrlWidget() = default;
+CheckNewServerUrlWidget::~CheckNewServerUrlWidget() = default;
 
-void CreateNewServerCheckUrlWidget::slotTestConnection()
+void CheckNewServerUrlWidget::slotTestConnection()
 {
     const QString serverUrl{mServerUrl->text().trimmed()};
     if (!serverUrl.isEmpty()) {
@@ -116,10 +116,10 @@ void CreateNewServerCheckUrlWidget::slotTestConnection()
     }
 }
 
-void CreateNewServerCheckUrlWidget::slotErrorConnection()
+void CheckNewServerUrlWidget::slotErrorConnection()
 {
     mFailedError->setText(i18n("Impossible to access to server."));
     mFailedError->animatedShow();
 }
 
-#include "moc_createnewservercheckurlwidget.cpp"
+#include "moc_checknewserverurlwidget.cpp"

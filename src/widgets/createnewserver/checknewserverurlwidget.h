@@ -12,7 +12,7 @@ class QLineEdit;
 class KMessageWidget;
 class KBusyIndicatorWidget;
 class QPushButton;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewServerCheckUrlWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CheckNewServerUrlWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -23,11 +23,11 @@ public:
         bool canRegisterAccount = false;
     };
 
-    explicit CreateNewServerCheckUrlWidget(QWidget *parent = nullptr);
-    ~CreateNewServerCheckUrlWidget() override;
+    explicit CheckNewServerUrlWidget(QWidget *parent = nullptr);
+    ~CheckNewServerUrlWidget() override;
 
 Q_SIGNALS:
-    void serverUrlFound(const CreateNewServerCheckUrlWidget::ServerInfo &info);
+    void serverUrlFound(const CheckNewServerUrlWidget::ServerInfo &info);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTestConnection();
@@ -37,4 +37,4 @@ private:
     KMessageWidget *const mFailedError;
     QPushButton *const mConnectionPushButton;
 };
-Q_DECLARE_TYPEINFO(CreateNewServerCheckUrlWidget::ServerInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(CheckNewServerUrlWidget::ServerInfo, Q_RELOCATABLE_TYPE);
