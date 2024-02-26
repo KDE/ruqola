@@ -68,6 +68,7 @@ static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
     kli18n("Add channel list style (Condensed/Medium/Extended)"),
     kli18n("Add forward message"),
     kli18n("Improve mentions support."),
+    kli18n("Add support for deep linking <a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Deep Linking</a>."),
 };
 static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
 // enter items for the "Important changes" list here:
