@@ -51,8 +51,7 @@ CreateNewServerDialog::~CreateNewServerDialog()
 
 AccountManager::AccountManagerInfo CreateNewServerDialog::accountInfo() const
 {
-    const AccountManager::AccountManagerInfo info = mCreateNewServerStackWidget->accountInfo();
-    return info;
+    return mCreateNewServerStackWidget->accountInfo();
 }
 
 void CreateNewServerDialog::setAccountInfo(const AccountManager::AccountManagerInfo &info)
