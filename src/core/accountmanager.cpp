@@ -851,6 +851,7 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
         account->setAuthMethodType(info.authMethodType);
         if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
             account->setUserName(info.userName);
+            // TODO add password ???
         } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
             account->setAuthToken(info.token);
             account->setUserId(info.userId);
