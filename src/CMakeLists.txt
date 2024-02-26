@@ -21,7 +21,7 @@ add_subdirectory(icons)
 add_subdirectory(apps)
 
 if(APPLE)
-    set_target_properties(Ruqola PROPERTIES
+    set_target_properties(ruqola PROPERTIES
         MACOSX_BUNDLE_DISPLAY_NAME "Ruqola"
         MACOSX_BUNDLE_BUNDLE_NAME "Ruqola"
         MACOSX_BUNDLE_LONG_VERSION_STRING "Ruqola ${RELEASE_SERVICE_VERSION}"
