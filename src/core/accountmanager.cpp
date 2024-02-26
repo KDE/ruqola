@@ -846,10 +846,17 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
     RocketChatAccount *account = mRocketChatAccountModel->account(info.accountName);
     if (account) {
         account->setDisplayName(info.displayName);
-        account->setUserName(info.userName);
         account->setServerUrl(info.serverUrl);
         account->setAccountEnabled(info.enabled);
         account->setAuthMethodType(info.authMethodType);
+        if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
+            account->setUserName(info.userName);
+        } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+            account->setAuthToken(info.token);
+            account->setUserId(info.userId);
+        } else {
+            // TODO ????
+        }
         if (!info.enabled) {
             // TODO fixme
             // disconnect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
