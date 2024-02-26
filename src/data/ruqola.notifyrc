@@ -1,6 +1,7 @@
 [Global]
 IconName=ruqola
 Name=Ruqola
+Name[ar]=رقولة
 Name[ca]=Ruqola
 Name[ca@valencia]=Ruqola
 Name[cs]=Ruqola
@@ -240,6 +241,7 @@ Urgency=Normal
 
 [Event/Account-Added]
 Name=New Account Added
+Name[ca]=S'ha afegit un compte nou
 Name[eo]=Aldoniĝis Nova Konto
 Name[es]=Cuenta nueva añadida
 Name[ka]=ახალი ანგარიში დაემატა
