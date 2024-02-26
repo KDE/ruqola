@@ -5,10 +5,28 @@
 */
 
 #include "ruqolaloginstackwidget.h"
+#include "ruqolaloginwidget.h"
 
 RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     : QStackedWidget(parent)
+    , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
 {
+    addWidget(mRuqolaLoginWidget);
+}
+
+void RuqolaLoginStackWidget::setRocketChatAccount(RocketChatAccount *account)
+{
+    // TODO
+}
+
+void RuqolaLoginStackWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
+{
+    // TODO
+}
+
+void RuqolaLoginStackWidget::showError(const QString &text)
+{
+    // TODO
 }
 
 RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
