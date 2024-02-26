@@ -385,3 +385,14 @@ bool Utils::validUser(const QString &userName)
 {
     return (userName != QLatin1String("here") && userName != QLatin1String("all"));
 }
+
+QString Utils::createUniqueAccountName(const QStringList &list, const QString &accountName)
+{
+    QString newAccountName = accountName;
+    int i = 1;
+    while (list.contains(newAccountName)) {
+        newAccountName = QStringLiteral("%1%2").arg(accountName, QString::number(i));
+        ++i;
+    }
+    return newAccountName;
+}

@@ -816,13 +816,7 @@ RocketChatAccount *AccountManager::account() const
 
 void AccountManager::addAccount(const AccountManagerInfo &info)
 {
-    const QStringList list = accountsName();
-    QString newAccountName = info.accountName;
-    int i = 1;
-    while (list.contains(newAccountName)) {
-        newAccountName = QStringLiteral("%1%2").arg(info.accountName, QString::number(i));
-        ++i;
-    }
+    const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
     auto account = new RocketChatAccount();
     account->setAccountName(newAccountName);
     account->setUserName(info.userName);

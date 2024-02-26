@@ -41,6 +41,7 @@ struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertTextWithCheckMark(const QString &str);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString convertTextHeaders(const QString &str);
 [[nodiscard]] LIBRUQOLACORE_EXPORT bool validUser(const QString &userName);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString createUniqueAccountName(const QStringList &list, const QString &accountName);
 
 /**
  * @brief Convert []() style Markdown URLS with proper HTML tags

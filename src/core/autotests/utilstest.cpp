@@ -232,4 +232,57 @@ void UtilsTest::shouldGenerateHeader()
     QCOMPARE(Utils::convertTextHeaders(text), convertedText);
 }
 
+void UtilsTest::shouldGenerateUniqueAccountName()
+{
+    QFETCH(QStringList, list);
+    QFETCH(QString, originalAccountName);
+    QFETCH(QString, newAccountName);
+    QCOMPARE(Utils::createUniqueAccountName(list, originalAccountName), newAccountName);
+}
+
+void UtilsTest::shouldGenerateUniqueAccountName_data()
+{
+    QTest::addColumn<QStringList>("list");
+    QTest::addColumn<QString>("originalAccountName");
+    QTest::addColumn<QString>("newAccountName");
+    QTest::newRow("empty") << QStringList() << QString() << QString();
+    QTest::newRow("empty-accountline") << QStringList() << QStringLiteral("bla") << QStringLiteral("bla");
+    {
+        QStringList lst;
+        lst << QStringLiteral("foo");
+        lst << QStringLiteral("foo2");
+        lst << QStringLiteral("ku");
+        QTest::newRow("accountlist1") << lst << QStringLiteral("bla") << QStringLiteral("bla");
+    }
+    {
+        QStringList lst;
+        lst << QStringLiteral("foo");
+        lst << QStringLiteral("foo2");
+        lst << QStringLiteral("ku");
+        lst << QStringLiteral("bla");
+        QTest::newRow("accountlist2") << lst << QStringLiteral("bla") << QStringLiteral("bla1");
+    }
+    {
+        QStringList lst;
+        lst << QStringLiteral("foo");
+        lst << QStringLiteral("foo2");
+        lst << QStringLiteral("ku");
+        lst << QStringLiteral("bla");
+        lst << QStringLiteral("bla1");
+        lst << QStringLiteral("bla2");
+        lst << QStringLiteral("bla4");
+        QTest::newRow("accountlist3") << lst << QStringLiteral("bla") << QStringLiteral("bla3");
+    }
+    {
+        QStringList lst;
+        lst << QStringLiteral("foo");
+        lst << QStringLiteral("foo2");
+        lst << QStringLiteral("ku");
+        lst << QStringLiteral("bla");
+        lst << QStringLiteral("bla1");
+        lst << QStringLiteral("bla2");
+        lst << QStringLiteral("bla3");
+        QTest::newRow("accountlist4") << lst << QStringLiteral("bla") << QStringLiteral("bla4");
+    }
+}
 #include "moc_utilstest.cpp"
