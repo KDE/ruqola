@@ -688,6 +688,10 @@ target_sources(libruqolawidgets PRIVATE
     ruqolacommandlineoptions.h
     ruqolaloginwidget.cpp
     ruqolaloginwidget.h
+
+    ruqolaloginstackwidget.h
+    ruqolaloginstackwidget.cpp
+
     ruqolamainwidget.cpp
     ruqolamainwidget.h
     ruqolamainwindow.cpp
