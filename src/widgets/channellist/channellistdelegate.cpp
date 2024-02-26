@@ -190,7 +190,14 @@ QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
         return QString();
     }
     const int unreadCount = index.data(RoomModel::RoomUnread).toInt() + index.data(RoomModel::RoomThreadUnread).toInt();
-    const QString unreadText = unreadCount > 0 ? QString::number(unreadCount) : QString();
+    QString unreadText;
+    if (unreadCount > 0) {
+        if (unreadCount > 99) {
+            unreadText = QStringLiteral("99+");
+        } else {
+            unreadText = QString::number(unreadCount);
+        }
+    }
     return unreadText;
 }
 
