@@ -8,12 +8,12 @@
 
 #include <QCryptographicHash>
 #include <QScrollArea>
-#include <QTextEdit>
+#include <QTextBrowser>
 #include <QVBoxLayout>
 
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
-    , mLabelInfo(new QTextEdit(this))
+    , mLabelInfo(new QTextBrowser(this))
     , mWhatsNewComboBoxWidget(new WhatsNewComboBoxWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -25,6 +25,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setReadOnly(true);
+    mLabelInfo->setOpenExternalLinks(true);
     mLabelInfo->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     connect(mWhatsNewComboBoxWidget, &WhatsNewComboBoxWidget::versionChanged, this, &WhatsNewWidget::slotVersionChanged);
     mWhatsNewComboBoxWidget->initializeVersion(currentVersion());

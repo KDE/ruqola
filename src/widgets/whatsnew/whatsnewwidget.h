@@ -9,7 +9,7 @@
 #include "whatsnewcomboboxwidget.h"
 #include <KLazyLocalizedString>
 #include <QWidget>
-class QTextEdit;
+class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
 {
     Q_OBJECT
@@ -31,6 +31,6 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString featuresChangeStr() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString bugFixingChangeStr() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVersionChanged(WhatsNewComboBoxWidget::VersionType type);
-    QTextEdit *const mLabelInfo;
+    QTextBrowser *const mLabelInfo;
     WhatsNewComboBoxWidget *const mWhatsNewComboBoxWidget;
 };

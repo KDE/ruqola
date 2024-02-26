@@ -8,7 +8,7 @@
 #include "whatsnew/whatsnewwidget.h"
 #include <QScrollArea>
 #include <QTest>
-#include <QTextEdit>
+#include <QTextBrowser>
 #include <QVBoxLayout>
 
 QTEST_MAIN(WhatsNewWidgetTest)
@@ -24,9 +24,10 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mLabelInfo = w.findChild<QTextEdit *>(QStringLiteral("mLabelInfo"));
+    auto mLabelInfo = w.findChild<QTextBrowser *>(QStringLiteral("mLabelInfo"));
     QVERIFY(mLabelInfo);
     QVERIFY(!mLabelInfo->toPlainText().isEmpty());
+    QVERIFY(mLabelInfo->openExternalLinks());
 
     auto mWhatsNewComboBoxWidget = w.findChild<WhatsNewComboBoxWidget *>(QStringLiteral("mWhatsNewComboBoxWidget"));
     QVERIFY(mWhatsNewComboBoxWidget);
