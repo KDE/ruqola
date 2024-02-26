@@ -819,10 +819,21 @@ void AccountManager::addAccount(const AccountManagerInfo &info)
     const QString newAccountName = Utils::createUniqueAccountName(accountsName(), info.accountName);
     auto account = new RocketChatAccount();
     account->setAccountName(newAccountName);
-    account->setUserName(info.userName);
     account->setServerUrl(info.serverUrl);
     account->setAccountEnabled(info.enabled);
-    account->setPassword(info.password);
+    if (info.authMethodType == AuthenticationManager::AuthMethodType::Password) {
+        account->setUserName(info.userName);
+        account->setPassword(info.password);
+    } else if (info.authMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        account->setAuthToken(info.token);
+        account->setUserId(info.userId);
+    } else {
+        // TODO for other authMethodType ?
+        // google used ?
+        // Fb ?
+        // Gitlab ?
+        // GitHub ?
+    }
     account->setAuthMethodType(info.authMethodType);
     if (info.enabled) {
         connectToAccount(account);
