@@ -6,6 +6,7 @@
 
 #include "personalaccesstokenauthenticationinterface.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
+#include "personalaccesstokenauthenticationplugin_debug.h"
 #include "rocketchataccount.h"
 #include <QPointer>
 
@@ -18,6 +19,7 @@ PersonalAccessTokenAuthenticationInterface::~PersonalAccessTokenAuthenticationIn
 
 void PersonalAccessTokenAuthenticationInterface::login()
 {
+    qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " login personal access token";
     // TODO
 }
 
