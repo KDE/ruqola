@@ -5,30 +5,74 @@
 */
 
 #include "ruqolaloginstackwidget.h"
-#include "ruqolaloginwidget.h"
+#include "configurenewserver/createnewserverwidget.h"
+#include "plugins/pluginauthentication.h"
+#include "plugins/pluginauthenticationconfigurewidget.h"
+#include "plugins/pluginauthenticationinterface.h"
+#include "ruqolawidgets_debug.h"
 
 RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     : QStackedWidget(parent)
-    , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
+    , mCreateNewServerWidget(new CreateNewServerWidget(this))
 {
-    addWidget(mRuqolaLoginWidget);
+    mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
+    addWidget(mCreateNewServerWidget);
 }
 
 RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
 
-void RuqolaLoginStackWidget::setRocketChatAccount(RocketChatAccount *account)
+void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
 {
-    // TODO
+    if (type == AuthenticationManager::AuthMethodType::Password) {
+        return;
+    }
+    if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(type)) {
+        auto interface = plugin->createInterface(this);
+        auto configureWidget = interface->configureWidget(this);
+        if (mPluginAuthenticationConfigureWidget) {
+            removeWidget(mPluginAuthenticationConfigureWidget);
+            delete mPluginAuthenticationConfigureWidget;
+        }
+        mPluginAuthenticationConfigureWidget = configureWidget;
+        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
+        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
+        // TODO connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::enableOkButton, this,
+        // &CreateNewServerStackWidget::updateOkButton);
+        addWidget(mPluginAuthenticationConfigureWidget);
+        setCurrentWidget(mPluginAuthenticationConfigureWidget);
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find authentication for " << type;
+    }
 }
 
-void RuqolaLoginStackWidget::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
+void RuqolaLoginStackWidget::setExistingAccountNames(const QStringList &lst)
 {
-    // TODO
+    mExistingAccountNames = lst;
+    if (mPluginAuthenticationConfigureWidget) {
+        mPluginAuthenticationConfigureWidget->setExistingAccountNames(lst);
+    } else {
+        mCreateNewServerWidget->setExistingAccountNames(lst);
+    }
 }
 
-void RuqolaLoginStackWidget::showError(const QString &text)
+AccountManager::AccountManagerInfo RuqolaLoginStackWidget::accountInfo() const
 {
-    // TODO
+    if (mPluginAuthenticationConfigureWidget) {
+        return mPluginAuthenticationConfigureWidget->accountInfo();
+    }
+    return mCreateNewServerWidget->accountInfo();
 }
 
+void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
+{
+    mAccountManagerInfo = info;
+    addAuthenticationConfigureWidget(mAccountManagerInfo.authMethodType);
+    if (mPluginAuthenticationConfigureWidget) {
+        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
+        setCurrentWidget(mPluginAuthenticationConfigureWidget);
+    } else {
+        mCreateNewServerWidget->setAccountInfo(mAccountManagerInfo);
+        setCurrentWidget(mCreateNewServerWidget);
+    }
+}
 #include "moc_ruqolaloginstackwidget.cpp"

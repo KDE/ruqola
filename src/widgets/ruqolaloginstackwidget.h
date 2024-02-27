@@ -6,12 +6,13 @@
 
 #pragma once
 
-#include "ddpapi/ddpauthenticationmanager.h"
+#include "accountmanager.h"
+#include "authenticationmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 
-class RuqolaLoginWidget;
-class RocketChatAccount;
+class CreateNewServerWidget;
+class PluginAuthenticationConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginStackWidget : public QStackedWidget
 {
     Q_OBJECT
@@ -19,10 +20,14 @@ public:
     explicit RuqolaLoginStackWidget(QWidget *parent = nullptr);
     ~RuqolaLoginStackWidget() override;
 
-    void setRocketChatAccount(RocketChatAccount *account);
-    void setLoginStatus(DDPAuthenticationManager::LoginStatus status);
-    void showError(const QString &text);
+    void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
+    void setExistingAccountNames(const QStringList &lst);
+    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
+    void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
 private:
-    RuqolaLoginWidget *const mRuqolaLoginWidget;
+    QStringList mExistingAccountNames;
+    AccountManager::AccountManagerInfo mAccountManagerInfo;
+    CreateNewServerWidget *const mCreateNewServerWidget;
+    PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
 };
