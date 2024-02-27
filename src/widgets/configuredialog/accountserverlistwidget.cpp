@@ -109,8 +109,7 @@ void AccountServerListWidget::addAccountConfig()
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     QStringList listAccounts;
     for (int i = 0; i < count(); ++i) {
-        QListWidgetItem *it = item(i);
-        listAccounts << it->text();
+        listAccounts << item(i)->text();
     }
     dlg->setExistingAccountName(listAccounts);
     if (dlg->exec()) {
@@ -118,8 +117,7 @@ void AccountServerListWidget::addAccountConfig()
         QStringList accountList;
         accountList.reserve(count());
         for (int i = 0; i < count(); ++i) {
-            QListWidgetItem *it = item(i);
-            accountList << it->text();
+            accountList << item(i)->text();
         }
         QString newAccountName = info.accountName;
         int i = 1;
