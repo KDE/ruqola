@@ -273,6 +273,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     misc/oauthappsupdatejob.h
     misc/oauthappsdeletejob.cpp
     misc/oauthappsdeletejob.h
+    misc/methodcalljob.cpp
+    misc/methodcalljob.h
 
     permissions/permissionslistalljob.cpp
     permissions/permissionslistalljob.h
