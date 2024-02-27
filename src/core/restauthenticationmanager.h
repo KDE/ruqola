@@ -6,7 +6,9 @@
 
 #pragma once
 
+#include "authenticationmanager.h"
 #include "libruqolacore_export.h"
+#include <QJsonObject>
 #include <QObject>
 namespace RocketChatRestApi
 {
@@ -15,6 +17,18 @@ class Connection;
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
 {
     Q_OBJECT
+    enum class Method {
+        Login,
+        SendOtp,
+        Logout,
+        LogoutCleanUp,
+    };
+
+    static QString METHOD_LOGIN;
+    static QString METHOD_SEND_OTP;
+    static QString METHOD_LOGOUT;
+    static QString METHOD_LOGOUT_CLEAN_UP;
+
 public:
     explicit RESTAuthenticationManager(RocketChatRestApi::Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
@@ -28,7 +42,21 @@ public:
 
     void setAuthToken(const QString &authToken);
 
+    void setLoginStatus(AuthenticationManager::LoginStatus status);
+
+    [[nodiscard]] bool isLoggedIn() const;
+    [[nodiscard]] bool isLoggedOut() const;
+
+Q_SIGNALS:
+    void loginStatusChanged();
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
+    LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(const QJsonObject &replyObject);
+    LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
     QString mAuthToken;
     RocketChatRestApi::Connection *const mRestApiConnection;
+    AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
+    // Used when sending OTP
+    QJsonObject mLastLoginPayload;
 };
