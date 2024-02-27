@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT MethodCallJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    struct MethodCallJobInfo {
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT MethodCallJobInfo {
         QJsonObject messageObj;
         QString methodName;
         bool anonymous = false;
