@@ -1028,6 +1028,7 @@ void Connection::forgotPassword(const QString &email)
     auto job = new ForgotPasswordJob(this);
     initializeRestApiJob(job);
     job->setEmail(email);
+    connect(job, &ForgotPasswordJob::forgotPasswordDone, this, &Connection::forgotPasswordDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start forgotPassword job";
     }

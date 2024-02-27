@@ -271,6 +271,7 @@ Q_SIGNALS:
     void resetAvatarDone();
     void statisticDone(const QJsonObject &replyObject);
     void updateMessageFailed(const QString &str);
+    void forgotPasswordDone();
 
 private:
     Q_DISABLE_COPY(Connection)
