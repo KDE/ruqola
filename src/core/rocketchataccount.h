@@ -182,7 +182,6 @@ public:
 
     void roomFiles(const QString &roomId, Room::RoomType channelType = Room::RoomType::Unknown);
     void addUserToRoom(const QString &username, const QString &roomId, Room::RoomType channelType);
-    void changeDefaultAuthentication(int index);
     void messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression = false);
     [[nodiscard]] InputTextManager *inputTextManager() const;
 

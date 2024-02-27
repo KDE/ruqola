@@ -1388,11 +1388,6 @@ void RocketChatAccount::fillAuthenticationModel()
     mAccountAvailableAuthenticationMethodInfos = fillModel;
 }
 
-void RocketChatAccount::changeDefaultAuthentication(int index)
-{
-    setDefaultAuthentication(mAccountAvailableAuthenticationMethodInfos.at(index).oauthType());
-}
-
 QList<AuthenticationInfo> RocketChatAccount::authenticationMethodInfos() const
 {
     return mAccountAvailableAuthenticationMethodInfos;
