@@ -899,8 +899,8 @@ quint64 DDPClient::loadHistory(const QJsonArray &params)
 
 void DDPClient::login()
 {
-    if (mRocketChatAccount->defaultAuthenticationInterface()) {
-        mRocketChatAccount->defaultAuthenticationInterface()->login();
+    if (auto interface = mRocketChatAccount->defaultAuthenticationInterface()) {
+        interface->login();
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "No plugins loaded. Please verify your installation.";
     }
