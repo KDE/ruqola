@@ -59,6 +59,21 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
 
 AuthenticationLoginWidget::~AuthenticationLoginWidget() = default;
 
+void AuthenticationLoginWidget::setAuthenticationLoginType(AuthenticationLoginType type)
+{
+    switch (type) {
+    case AuthenticationLoginType::Unknown:
+        break;
+    case AuthenticationLoginType::Create:
+    case AuthenticationLoginType::Modify:
+        mAccountName->setReadOnly(false);
+        break;
+    case AuthenticationLoginType::Login:
+        mAccountName->setReadOnly(true);
+        break;
+    }
+}
+
 void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)
 {
     mNames = lst;

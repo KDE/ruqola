@@ -16,6 +16,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationLoginWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum class AuthenticationLoginType {
+        Unknown = 0,
+        Create,
+        Modify,
+        Login,
+    };
+
     explicit AuthenticationLoginWidget(QWidget *parent = nullptr);
     ~AuthenticationLoginWidget() override;
 
@@ -23,6 +30,8 @@ public:
 
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo();
+
+    void setAuthenticationLoginType(AuthenticationLoginType type);
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);
