@@ -31,37 +31,37 @@ struct UnreadAlert {
         return i18n("Not connected");
     }
     switch (account->loginStatus()) {
-    case DDPAuthenticationManager::Connecting:
+    case AuthenticationManager::Connecting:
         return i18n("Connecting");
-    case DDPAuthenticationManager::LoginOtpAuthOngoing:
+    case AuthenticationManager::LoginOtpAuthOngoing:
         return i18n("Login OTP code required");
-    case DDPAuthenticationManager::LoginFailedInvalidUserOrPassword:
+    case AuthenticationManager::LoginFailedInvalidUserOrPassword:
         return i18n("Login failed: invalid username or password");
-    case DDPAuthenticationManager::LoginOngoing:
+    case AuthenticationManager::LoginOngoing:
         return i18n("Logging in");
-    case DDPAuthenticationManager::LoggedIn:
+    case AuthenticationManager::LoggedIn:
         return i18n("Logged in");
-    case DDPAuthenticationManager::LoggedOut:
+    case AuthenticationManager::LoggedOut:
         return i18n("Logged out");
-    case DDPAuthenticationManager::FailedToLoginPluginProblem:
+    case AuthenticationManager::FailedToLoginPluginProblem:
         return i18n("Failed to login due to plugin problem");
-    case DDPAuthenticationManager::GenericError:
+    case AuthenticationManager::GenericError:
         return i18n("Login failed: generic error");
-    case DDPAuthenticationManager::LoginOtpRequired:
+    case AuthenticationManager::LoginOtpRequired:
         return i18n("A one-time password is required to complete the login procedure.");
-    case DDPAuthenticationManager::LoginFailedInvalidOtp:
+    case AuthenticationManager::LoginFailedInvalidOtp:
         return i18n("Login failed: Invalid OTP code.");
-    case DDPAuthenticationManager::LoginFailedUserNotActivated:
+    case AuthenticationManager::LoginFailedUserNotActivated:
         return i18n("Login failed: User is not activated.");
-    case DDPAuthenticationManager::LoginFailedLoginBlockForIp:
+    case AuthenticationManager::LoginFailedLoginBlockForIp:
         return i18n("Login has been temporarily blocked For IP.");
-    case DDPAuthenticationManager::LoginFailedLoginBlockedForUser:
+    case AuthenticationManager::LoginFailedLoginBlockedForUser:
         return i18n("Login has been temporarily blocked For User.");
-    case DDPAuthenticationManager::LoginFailedLoginAppNotAllowedToLogin:
+    case AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin:
         return i18n("App user is not allowed to login.");
-    case DDPAuthenticationManager::LogoutOngoing:
-    case DDPAuthenticationManager::LogoutCleanUpOngoing:
-    case DDPAuthenticationManager::LoggedOutAndCleanedUp:
+    case AuthenticationManager::LogoutOngoing:
+    case AuthenticationManager::LogoutCleanUpOngoing:
+    case AuthenticationManager::LoggedOutAndCleanedUp:
         break;
     }
     return i18n("Unknown state");
@@ -81,7 +81,7 @@ struct UnreadAlert {
         text = i18n("(Unnamed)");
     }
 
-    if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+    if (account->loginStatus() == AuthenticationManager::LoggedIn) {
         if (int unread = currentUnreadAlert(account).unread) {
             text += QStringLiteral(" (%1)").arg(unread);
         }
@@ -147,7 +147,7 @@ void AccountsOverviewWidget::updateButtons()
         };
         auto updateTabIcon = [this, i, account]() {
             QIcon icon;
-            if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+            if (account->loginStatus() == AuthenticationManager::LoggedIn) {
                 if (currentUnreadAlert(account).alert) {
                     icon = QIcon::fromTheme(QStringLiteral("message-new"));
                 } else {

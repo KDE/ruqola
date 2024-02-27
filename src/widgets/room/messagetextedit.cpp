@@ -134,7 +134,7 @@ void MessageTextEdit::slotUpdateMessageFailed(const QString &str)
 void MessageTextEdit::slotLoginChanged()
 {
     const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
-    if (loginStatus != DDPAuthenticationManager::LoggedIn) {
+    if (loginStatus != AuthenticationManager::LoggedIn) {
         mUserAndChannelCompletionListView->hide();
         mEmojiCompletionListView->hide();
         mCommandCompletionListView->hide();

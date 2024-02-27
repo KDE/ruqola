@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "authenticationmanager.h"
 #include "ddpapi/ddpmanager.h"
 #include "libruqolacore_export.h"
 
@@ -30,47 +31,6 @@ class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager
     static QString METHOD_LOGOUT_CLEAN_UP;
 
 public:
-    // state == LoginOngoing for all the time since the login request until a response
-    //   comes back, then it may result in
-    //   - LoggedIn
-    //   - LoginOtpRequired
-    //   - LoginFailedInvalidUserOrPassword
-    //   - GenericError
-    // state == LoginOtpAuthOngoing since when the otp code is sent to the server until
-    //  a response comes back, then it may become:
-    //   - LoggedIn
-    //   - LoginFailedInvalidOtp
-    //   - GenericError
-    // state == LogoutOngoing since the logout request is sent until a response is received,
-    //   next states could be
-    //   - LoggedOut
-    //   - GenericError
-    // state == LogoutCleanUpOngoing since the clean up request is sent until a response is
-    //   received, resulting in one of these states:
-    //   - LoggedOutAndCleanedUp
-    //   - GenericError
-    // GenericError is used when the class doesn't know what else to do, and is irreversible
-    enum LoginStatus {
-        Connecting,
-        LoginOngoing,
-        LoggedIn,
-        LoginFailedInvalidUserOrPassword,
-        LoginOtpRequired,
-        LoginOtpAuthOngoing,
-        LoginFailedInvalidOtp,
-        LogoutOngoing,
-        LoggedOut,
-        LogoutCleanUpOngoing,
-        LoggedOutAndCleanedUp,
-        FailedToLoginPluginProblem,
-        LoginFailedUserNotActivated,
-        LoginFailedLoginBlockForIp,
-        LoginFailedLoginBlockedForUser,
-        LoginFailedLoginAppNotAllowedToLogin,
-        GenericError,
-    };
-    Q_ENUM(LoginStatus)
-
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
     ~DDPAuthenticationManager() override;
 
@@ -87,8 +47,8 @@ public:
     [[nodiscard]] QString authToken() const;
     [[nodiscard]] bool isLoggedIn() const;
     [[nodiscard]] bool isLoggedOut() const;
-    [[nodiscard]] LoginStatus loginStatus() const;
-    void setLoginStatus(LoginStatus newStatus);
+    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
+    void setLoginStatus(AuthenticationManager::LoginStatus newStatus);
 
     [[nodiscard]] qint64 tokenExpires() const;
 
@@ -99,7 +59,7 @@ private:
     QString mUserId;
     QString mAuthToken;
     qint64 mTokenExpires;
-    LoginStatus mLoginStatus = LoggedOut;
+    AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
     // Used when sending OTP
     QJsonObject mLastLoginPayload;
 

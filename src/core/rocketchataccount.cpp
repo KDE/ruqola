@@ -634,13 +634,13 @@ bool RocketChatAccount::editingMode() const
     return mEditingMode;
 }
 
-DDPAuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
+AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
 {
     // TODO: DDP API should exist as soon as the hostname is known
     if (mDdp) {
         return ddp()->authenticationManager()->loginStatus();
     } else {
-        return DDPAuthenticationManager::LoggedOut;
+        return AuthenticationManager::LoggedOut;
     }
 }
 
@@ -1422,7 +1422,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
-        ddp()->authenticationManager()->setLoginStatus(DDPAuthenticationManager::FailedToLoginPluginProblem);
+        ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
         return;
     }
     mLstPluginAuthenticationInterface.clear();
@@ -2521,13 +2521,13 @@ void RocketChatAccount::markRoomAsUnRead(const QString &roomId)
 
 void RocketChatAccount::slotLoginStatusChanged()
 {
-    if (loginStatus() == DDPAuthenticationManager::LoggedOut) {
+    if (loginStatus() == AuthenticationManager::LoggedOut) {
         Q_EMIT logoutDone(accountName());
         qCDebug(RUQOLA_LOG) << "Successfully logged out!";
-    } else if (loginStatus() == DDPAuthenticationManager::LoggedIn) {
+    } else if (loginStatus() == AuthenticationManager::LoggedIn) {
         // Reset it.
         mDelayReconnect = 100;
-    } else if (loginStatus() == DDPAuthenticationManager::LoginFailedInvalidUserOrPassword) {
+    } else if (loginStatus() == AuthenticationManager::LoginFailedInvalidUserOrPassword) {
         // clear auth token to refresh it with the next login
         setAuthToken({});
     }

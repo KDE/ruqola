@@ -8,6 +8,7 @@
 
 #include "ddpapi/ddpauthenticationmanager.h"
 
+#include "authenticationmanager.h"
 #include "ddpapi/ddpauthenticationmanagerutils.h"
 #include "ddpapi/ddpclient.h"
 
@@ -30,7 +31,7 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
 {
     connect(ddpClient, &DDPClient::connectedChanged, this, &DDPAuthenticationManager::clientConnectedChangedSlot);
     connect(ddpClient, &DDPClient::connecting, this, [this]() {
-        setLoginStatus(LoginStatus::Connecting);
+        setLoginStatus(AuthenticationManager::LoginStatus::Connecting);
     });
 }
 
@@ -72,12 +73,12 @@ void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
         return;
     }
 
-    if (mLoginStatus == LoginOngoing) {
+    if (mLoginStatus == AuthenticationManager::LoginOngoing) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "A login operation is already ongoing, dropping request.";
         return;
     }
 
-    if (mLoginStatus == LoggedIn) {
+    if (mLoginStatus == AuthenticationManager::LoggedIn) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "User is already logged in on this server, ignoring.";
         return;
     }
@@ -86,7 +87,7 @@ void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
 
     mLastLoginPayload = params[0].toObject();
     ddpClient()->invokeMethodAndRegister(METHOD_LOGIN, params, this, static_cast<int>(Method::Login));
-    setLoginStatus(LoginStatus::LoginOngoing);
+    setLoginStatus(AuthenticationManager::LoginStatus::LoginOngoing);
 }
 
 void DDPAuthenticationManager::sendOTP(const QString &otpCode)
@@ -95,7 +96,7 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
         return;
     }
 
-    if (mLoginStatus == LoginStatus::LoginOtpAuthOngoing) {
+    if (mLoginStatus == AuthenticationManager::LoginStatus::LoginOtpAuthOngoing) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another OTP authentication is going on.";
         return;
     }
@@ -108,7 +109,7 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
                                          DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload),
                                          this,
                                          static_cast<int>(Method::SendOtp));
-    setLoginStatus(LoginStatus::LoginOtpAuthOngoing);
+    setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 }
 
 void DDPAuthenticationManager::logout()
@@ -117,7 +118,7 @@ void DDPAuthenticationManager::logout()
         return;
     }
 
-    if (mLoginStatus == LoginStatus::LogoutOngoing) {
+    if (mLoginStatus == AuthenticationManager::LoginStatus::LogoutOngoing) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
         return;
     }
@@ -130,7 +131,7 @@ void DDPAuthenticationManager::logout()
     const QString params = sl("[]");
 
     ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::SendOtp));
-    setLoginStatus(LoginStatus::LogoutOngoing);
+    setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
 QString DDPAuthenticationManager::userId() const
@@ -153,7 +154,7 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             mAuthToken = result[sl("token")].toString();
             mUserId = result[sl("id")].toString();
             mTokenExpires = result[sl("tokenExpires")].toObject()[sl("$date")].toDouble();
-            setLoginStatus(LoggedIn);
+            setLoginStatus(AuthenticationManager::LoggedIn);
         }
 
         if (response.contains(sl("error"))) {
@@ -166,29 +167,29 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             //   - When logging in with an invalid / expired OAuth token (e.g. google, facebook, etc.) -> invalid or expired token
             if (errorCode.isDouble() && errorCode.toInt() == 403) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Invalid username or password.";
-                setLoginStatus(LoginFailedInvalidUserOrPassword);
+                setLoginStatus(AuthenticationManager::LoginFailedInvalidUserOrPassword);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-required")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Two factor authentication is enabled on the server."
                                              << "A one-time password is required to complete the login procedure.";
-                setLoginStatus(LoginOtpRequired);
+                setLoginStatus(AuthenticationManager::LoginOtpRequired);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-invalid")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Invalid OTP code.";
-                setLoginStatus(LoginFailedInvalidOtp);
+                setLoginStatus(AuthenticationManager::LoginFailedInvalidOtp);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-user-is-not-activated")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "User is not activated.";
-                setLoginStatus(LoginFailedUserNotActivated);
+                setLoginStatus(AuthenticationManager::LoginFailedUserNotActivated);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-ip")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Login has been temporarily blocked For IP.";
-                setLoginStatus(LoginFailedLoginBlockForIp);
+                setLoginStatus(AuthenticationManager::LoginFailedLoginBlockForIp);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-user")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Login has been temporarily blocked For User.";
-                setLoginStatus(LoginFailedLoginBlockedForUser);
+                setLoginStatus(AuthenticationManager::LoginFailedLoginBlockedForUser);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-app-user-is-not-allowed-to-login")) {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "App user is not allowed to login.";
-                setLoginStatus(LoginFailedLoginAppNotAllowedToLogin);
+                setLoginStatus(AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin);
             } else {
                 qCWarning(RUQOLA_DDPAPI_LOG) << "Generic error during login. Couldn't process" << response;
-                setLoginStatus(GenericError);
+                setLoginStatus(AuthenticationManager::GenericError);
             }
             return;
         }
@@ -202,11 +203,11 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
         // operations by switching to GenericError state.
         if (response.contains(sl("error"))) {
             qCWarning(RUQOLA_DDPAPI_LOG) << "Error while logging out. Server response:" << response;
-            setLoginStatus(GenericError);
+            setLoginStatus(AuthenticationManager::GenericError);
             return;
         }
 
-        setLoginStatus(LoggedOut);
+        setLoginStatus(AuthenticationManager::LoggedOut);
         break;
 
     case Method::LogoutCleanUp:
@@ -216,32 +217,32 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
             qCWarning(RUQOLA_DDPAPI_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
             // If we get here we're likely getting something wrong from the UI.
             // Need to prevent any further operation from now on.
-            setLoginStatus(GenericError);
+            setLoginStatus(AuthenticationManager::GenericError);
             return;
         }
 
-        setLoginStatus(LoggedOutAndCleanedUp);
+        setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
         break;
     }
 }
 
-DDPAuthenticationManager::LoginStatus DDPAuthenticationManager::loginStatus() const
+AuthenticationManager::LoginStatus DDPAuthenticationManager::loginStatus() const
 {
     return mLoginStatus;
 }
 
 bool DDPAuthenticationManager::isLoggedIn() const
 {
-    return mLoginStatus == DDPAuthenticationManager::LoggedIn;
+    return mLoginStatus == AuthenticationManager::LoggedIn;
 }
 
 bool DDPAuthenticationManager::isLoggedOut() const
 {
-    return mLoginStatus == DDPAuthenticationManager::LoggedOut || mLoginStatus == DDPAuthenticationManager::LogoutCleanUpOngoing
-        || mLoginStatus == DDPAuthenticationManager::LoggedOutAndCleanedUp;
+    return mLoginStatus == AuthenticationManager::LoggedOut || mLoginStatus == AuthenticationManager::LogoutCleanUpOngoing
+        || mLoginStatus == AuthenticationManager::LoggedOutAndCleanedUp;
 }
 
-void DDPAuthenticationManager::setLoginStatus(DDPAuthenticationManager::LoginStatus status)
+void DDPAuthenticationManager::setLoginStatus(AuthenticationManager::LoginStatus status)
 {
     if (mLoginStatus != status) {
         mLoginStatus = status;
@@ -256,7 +257,7 @@ qint64 DDPAuthenticationManager::tokenExpires() const
 
 void DDPAuthenticationManager::clientConnectedChangedSlot()
 {
-    if (mLoginStatus == DDPAuthenticationManager::FailedToLoginPluginProblem) {
+    if (mLoginStatus == AuthenticationManager::FailedToLoginPluginProblem) {
         return;
     }
     if (checkGenericError()) {
@@ -264,16 +265,16 @@ void DDPAuthenticationManager::clientConnectedChangedSlot()
     }
     // Just connected -> not logged in yet -> state = LoggedOut
     // Just disconnected -> whatever state we're in, need to change to LoggedOut
-    setLoginStatus(LoginStatus::LoggedOut);
+    setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
 }
 
 bool DDPAuthenticationManager::checkGenericError() const
 {
-    if (mLoginStatus == LoginStatus::GenericError) {
+    if (mLoginStatus == AuthenticationManager::LoginStatus::GenericError) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
     }
 
-    return mLoginStatus == LoginStatus::GenericError;
+    return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
 
 #undef sl

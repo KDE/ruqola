@@ -329,7 +329,7 @@ void RuqolaMainWindow::updateActions()
 
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFormEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
-                                  && (mCurrentRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn));
+                                  && (mCurrentRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn));
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setEnabled(isAdministrator);
     mAdministratorServerSettings->setEnabled(isAdministrator);

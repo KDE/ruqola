@@ -94,11 +94,12 @@ public:
 
 private:
     Q_DISABLE_COPY(RocketChatMessage)
-    [[nodiscard]] QJsonValue toJsonDateTime(const QDateTime &dateTime);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
-    QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QJsonValue toJsonDateTime(const QDateTime &dateTime);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult
     generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id);
+
+    QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);

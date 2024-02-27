@@ -54,6 +54,47 @@ public:
     Q_ENUM(AuthMethodType)
     Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)
 
+    // state == LoginOngoing for all the time since the login request until a response
+    //   comes back, then it may result in
+    //   - LoggedIn
+    //   - LoginOtpRequired
+    //   - LoginFailedInvalidUserOrPassword
+    //   - GenericError
+    // state == LoginOtpAuthOngoing since when the otp code is sent to the server until
+    //  a response comes back, then it may become:
+    //   - LoggedIn
+    //   - LoginFailedInvalidOtp
+    //   - GenericError
+    // state == LogoutOngoing since the logout request is sent until a response is received,
+    //   next states could be
+    //   - LoggedOut
+    //   - GenericError
+    // state == LogoutCleanUpOngoing since the clean up request is sent until a response is
+    //   received, resulting in one of these states:
+    //   - LoggedOutAndCleanedUp
+    //   - GenericError
+    // GenericError is used when the class doesn't know what else to do, and is irreversible
+    enum LoginStatus {
+        Connecting,
+        LoginOngoing,
+        LoggedIn,
+        LoginFailedInvalidUserOrPassword,
+        LoginOtpRequired,
+        LoginOtpAuthOngoing,
+        LoginFailedInvalidOtp,
+        LogoutOngoing,
+        LoggedOut,
+        LogoutCleanUpOngoing,
+        LoggedOutAndCleanedUp,
+        FailedToLoginPluginProblem,
+        LoginFailedUserNotActivated,
+        LoginFailedLoginBlockForIp,
+        LoginFailedLoginBlockedForUser,
+        LoginFailedLoginAppNotAllowedToLogin,
+        GenericError,
+    };
+    Q_ENUM(LoginStatus)
+
     ~AuthenticationManager() override;
 
     static AuthenticationManager *self();

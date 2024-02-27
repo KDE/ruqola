@@ -30,12 +30,12 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         RocketChatAccount dummyAccount;
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
         QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         authManager.setAuthToken(QStringLiteral("some token"));
         authManager.login();
         QCOMPARE(spyStatusChanged.count(), 1);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
@@ -54,7 +54,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         })")));
 
         QCOMPARE(spyStatusChanged.count(), 2);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoggedIn);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
         QCOMPARE(authManager.userId(), QStringLiteral("some id"));
         QCOMPARE(authManager.authToken(), QStringLiteral("some token"));
     }
@@ -64,11 +64,11 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         RocketChatAccount dummyAccount;
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
         QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
         QCOMPARE(spyStatusChanged.count(), 1);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
@@ -87,7 +87,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         })"))); // TODO: check the type for non-ldap, non-2fa successful login messages
 
         QCOMPARE(spyStatusChanged.count(), 2);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoggedIn);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
         QCOMPARE(authManager.userId(), QStringLiteral("some id"));
         QCOMPARE(authManager.authToken(), QStringLiteral("some token"));
     }
@@ -97,11 +97,11 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         RocketChatAccount dummyAccount;
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
         QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         authManager.loginOAuth(QStringLiteral("someuser"), QStringLiteral("somepassword"));
         QCOMPARE(spyStatusChanged.count(), 1);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
@@ -120,7 +120,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         })"))); // TODO: check the type for non-ldap, non-2fa successful login messages
 
         QCOMPARE(spyStatusChanged.count(), 2);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoggedIn);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
         QCOMPARE(authManager.userId(), QStringLiteral("some id"));
         QCOMPARE(authManager.authToken(), QStringLiteral("some token"));
     }
@@ -130,11 +130,11 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         RocketChatAccount dummyAccount;
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
         QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
         QCOMPARE(spyStatusChanged.count(), 1);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
@@ -153,7 +153,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         })")));
 
         QCOMPARE(spyStatusChanged.count(), 2);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoggedIn);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
         QCOMPARE(authManager.userId(), QStringLiteral("some id"));
         QCOMPARE(authManager.authToken(), QStringLiteral("some token"));
     }
@@ -163,11 +163,11 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         RocketChatAccount dummyAccount;
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
         QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         authManager.loginOAuth(QStringLiteral("sometoken"), QStringLiteral("somesecret"));
         QCOMPARE(spyStatusChanged.count(), 1);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
                                           Utils::strToJsonObject(QStringLiteral(
@@ -186,7 +186,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         })")));
 
         QCOMPARE(spyStatusChanged.count(), 2);
-        QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoggedIn);
+        QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
         QCOMPARE(authManager.userId(), QStringLiteral("some id"));
         QCOMPARE(authManager.authToken(), QStringLiteral("some token"));
     }
@@ -197,11 +197,11 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("wronguser"), QStringLiteral("wrongpassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0,
                                       Utils::strToJsonObject(QStringLiteral(
@@ -219,7 +219,7 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword);
 }
 
 void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
@@ -227,11 +227,11 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("wronguser"), QStringLiteral("wrongpassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0,
                                       Utils::strToJsonObject(QStringLiteral(
@@ -256,11 +256,11 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOtpRequired);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpRequired);
 
     authManager.sendOTP(QStringLiteral("otpcode"));
     QCOMPARE(spyStatusChanged.count(), 3);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
     authManager.processMethodResponse(1,
                                       Utils::strToJsonObject(QStringLiteral(
@@ -279,7 +279,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 4);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedIn);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedIn);
     QCOMPARE(authManager.userId(), QStringLiteral("some id"));
     QCOMPARE(authManager.authToken(), QStringLiteral("some token"));
 }
@@ -289,11 +289,11 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("wronguser"), QStringLiteral("wrongpassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0,
                                       Utils::strToJsonObject(QStringLiteral(
@@ -318,11 +318,11 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOtpRequired);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpRequired);
 
     authManager.sendOTP(QStringLiteral("otpcode"));
     QCOMPARE(spyStatusChanged.count(), 3);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
     authManager.processMethodResponse(1,
                                       Utils::strToJsonObject(QStringLiteral(
@@ -343,7 +343,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 4);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedInvalidOtp);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedInvalidOtp);
 }
 
 void DDPAuthenticationManagerTest::testUnknownError()
@@ -351,11 +351,11 @@ void DDPAuthenticationManagerTest::testUnknownError()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
     {
@@ -367,7 +367,7 @@ void DDPAuthenticationManagerTest::testUnknownError()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::GenericError);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::GenericError);
 }
 
 void DDPAuthenticationManagerTest::testUserNotActivatedError()
@@ -375,11 +375,11 @@ void DDPAuthenticationManagerTest::testUserNotActivatedError()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
     {
@@ -391,7 +391,7 @@ void DDPAuthenticationManagerTest::testUserNotActivatedError()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedUserNotActivated);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedUserNotActivated);
 }
 
 void DDPAuthenticationManagerTest::testLoginBlockForIpError()
@@ -399,11 +399,11 @@ void DDPAuthenticationManagerTest::testLoginBlockForIpError()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
     {
@@ -415,7 +415,7 @@ void DDPAuthenticationManagerTest::testLoginBlockForIpError()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginBlockForIp);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedLoginBlockForIp);
 }
 
 void DDPAuthenticationManagerTest::testLoginBlockedForUser()
@@ -423,11 +423,11 @@ void DDPAuthenticationManagerTest::testLoginBlockedForUser()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
     {
@@ -439,7 +439,7 @@ void DDPAuthenticationManagerTest::testLoginBlockedForUser()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginBlockedForUser);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedLoginBlockedForUser);
 }
 
 void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
@@ -447,11 +447,11 @@ void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
     RocketChatAccount dummyAccount;
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoggedOut);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
     QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     authManager.login(QStringLiteral("someuser"), QStringLiteral("somepassword"));
     QCOMPARE(spyStatusChanged.count(), 1);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginOngoing);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
     authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
     {
@@ -463,7 +463,7 @@ void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
     })")));
 
     QCOMPARE(spyStatusChanged.count(), 2);
-    QCOMPARE(authManager.loginStatus(), DDPAuthenticationManager::LoginStatus::LoginFailedLoginAppNotAllowedToLogin);
+    QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedLoginAppNotAllowedToLogin);
 }
 
 #include "moc_ddpauthenticationmanagertest.cpp"

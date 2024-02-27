@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "ddpapi/ddpauthenticationmanager.h"
+#include "authenticationmanager.h"
 #include "ddpapi/ddpclient.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
@@ -25,7 +25,7 @@ public:
     ~RuqolaLoginWidget() override;
 
     void setRocketChatAccount(RocketChatAccount *account);
-    void setLoginStatus(DDPAuthenticationManager::LoginStatus status);
+    void setLoginStatus(AuthenticationManager::LoginStatus status);
     void showError(const QString &text);
 
 private:

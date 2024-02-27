@@ -81,7 +81,7 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
             || roomType == QLatin1Char('p') /*Private chat*/
             || roomType == QLatin1Char('d') /*Direct chat*/) {
             // let's be extra safe around crashes
-            if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+            if (account->loginStatus() == AuthenticationManager::LoggedIn) {
                 model->updateRoom(roomJson);
             }
         }
@@ -118,7 +118,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             || roomType == QLatin1Char('p') // Private chat
             || roomType == QLatin1Char('d')) { // Direct chat
             // let's be extra safe around crashes
-            if (account->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+            if (account->loginStatus() == AuthenticationManager::LoggedIn) {
                 model->addRoom(room);
             }
         } else if (roomType == QLatin1Char('l')) { // Live chat
@@ -311,7 +311,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
 
 void RocketChatBackend::slotLoginStatusChanged()
 {
-    if (mRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn) {
+    if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
         // Now that we are logged in the ddp authentication manager has all the information we need
         auto restApi = mRocketChatAccount->restApi();
         mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());

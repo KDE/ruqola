@@ -242,7 +242,7 @@ private:
     /**
      * @brief Unique message ID for each message sent over network
      */
-    quint64 m_uid = 0;
+    quint64 mUid = 0;
 
     /**
      * @brief Stores callback function associated with each message

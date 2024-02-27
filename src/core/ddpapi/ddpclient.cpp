@@ -286,7 +286,7 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
 
 DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
-    , m_uid(1)
+    , mUid(1)
     , mRocketChatMessage(new RocketChatMessage)
     , mRocketChatAccount(account)
     , mAuthenticationManager(new DDPAuthenticationManager(this, this))
@@ -404,13 +404,13 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
 
 quint64 DDPClient::openDirectChannel(const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openDirectChannel(userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openDirectChannel(userId, mUid);
     return method(result, open_direct_channel, DDPClient::Persistent);
 }
 
 quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, mUid);
 
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [roomId, channelType](const QJsonObject &root, RocketChatAccount *account) {
         if (account->ruqolaLogger()) {
@@ -426,31 +426,31 @@ quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &filei
 
 quint64 DDPClient::openRoom(const QString &roomId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, mUid);
     return method(result, open_room, DDPClient::Persistent);
 }
 
 quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, mUid);
     return method(result, join_room, DDPClient::Persistent);
 }
 
 quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, mUid);
     return method(result, change_default_status, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, mUid);
     return method(result, create_jitsi_conf_call, DDPClient::Persistent);
 }
 
 quint64 DDPClient::inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(roomId, pattern, exceptions, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(roomId, pattern, exceptions, mUid);
     if (threadDialog) {
         return method(result, input_user_channel_autocomplete_thread, DDPClient::Persistent);
     } else {
@@ -460,7 +460,7 @@ quint64 DDPClient::inputChannelAutocomplete(const QString &roomId, const QString
 
 quint64 DDPClient::inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(roomId, pattern, exceptions, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(roomId, pattern, exceptions, mUid);
     if (threadDialog) {
         return method(result, input_user_channel_autocomplete_thread, DDPClient::Persistent);
     } else {
@@ -470,68 +470,68 @@ quint64 DDPClient::inputUserAutocomplete(const QString &roomId, const QString &p
 
 quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, mUid);
     return method(result, unblock_user, DDPClient::Persistent);
 }
 
 quint64 DDPClient::listCustomSounds()
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listCustomSounds(m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listCustomSounds(mUid);
     return method(result, list_custom_sounds, DDPClient::Persistent);
 }
 
 quint64 DDPClient::deleteCustomSound(const QString &identifier)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteCustomSound(identifier, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteCustomSound(identifier, mUid);
     return method(result, delete_custom_sound, DDPClient::Persistent);
 }
 
 quint64 DDPClient::uploadCustomSound(const QByteArray &sound)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->uploadCustomSound(sound, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->uploadCustomSound(sound, mUid);
     return method(result, update_custom_sound, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(roomId, userId, m_uid);
-    qDebug() << " result " << result;
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(roomId, userId, mUid);
+    // qDebug() << " result " << result;
     return method(result, otr_end, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, mUid);
     return method(result, otr_end, DDPClient::Persistent);
 }
 
 quint64 DDPClient::enable2fa()
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(mUid);
     return method(result, enable_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::disable2fa(const QString &code)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disable2fa(code, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disable2fa(code, mUid);
     return method(result, disable_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::regenerateCodes2fa(const QString &code)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->regenerateCodes2fa(code, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->regenerateCodes2fa(code, mUid);
     return method(result, regenerateCodes_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::validateTempToken2fa(const QString &code)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->validateTempToken2fa(code, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->validateTempToken2fa(code, mUid);
     return method(result, validateTempToken_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, mUid);
     qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
     return method(result, otr_end, DDPClient::Persistent);
 }
@@ -540,7 +540,7 @@ quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const Q
 // Remove it when we not support it.
 quint64 DDPClient::addOAuthApp(const QString &name, bool active, const QString &redirectUrl)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addOAuthApp(name, active, redirectUrl, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addOAuthApp(name, active, redirectUrl, mUid);
     return method(result, add_oauth_app, DDPClient::Persistent);
 }
 
@@ -548,19 +548,19 @@ quint64 DDPClient::addOAuthApp(const QString &name, bool active, const QString &
 // Remove it when we not support it.
 quint64 DDPClient::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->updateOAuthApp(name, active, redirectUrl, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->updateOAuthApp(name, active, redirectUrl, mUid);
     return method(result, update_oauth_app, DDPClient::Persistent);
 }
 
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, mUid);
     return method(result, block_user, DDPClient::Persistent);
 }
 
 quint64 DDPClient::setAdminStatus(const QString &userId, bool admin)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setAdminStatus(userId, admin, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setAdminStatus(userId, admin, mUid);
     return method(result, admin_status, DDPClient::Persistent);
 }
 
@@ -568,49 +568,49 @@ quint64 DDPClient::setAdminStatus(const QString &userId, bool admin)
 // Remove it when we not support it.
 quint64 DDPClient::deleteOAuthApp(const QString &appId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteOAuthApp(appId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteOAuthApp(appId, mUid);
     return method(result, delete_oauth_app, DDPClient::Persistent);
 }
 
 quint64 DDPClient::bannerDismiss(const QString &bannerId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->bannerDismiss(bannerId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->bannerDismiss(bannerId, mUid);
     return method(result, banner_dismiss, DDPClient::Persistent);
 }
 
 quint64 DDPClient::licenseGetModules()
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->licenseGetModules(m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->licenseGetModules(mUid);
     return method(result, license_get_modules, DDPClient::Persistent);
 }
 
 quint64 DDPClient::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceAccepted(roomId, callId, userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceAccepted(roomId, callId, userId, mUid);
     return method(result, video_conference_accepted, DDPClient::Persistent);
 }
 
 quint64 DDPClient::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceRejected(roomId, callId, userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceRejected(roomId, callId, userId, mUid);
     return method(result, video_conference_rejected, DDPClient::Persistent);
 }
 
 quint64 DDPClient::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceConfirmed(roomId, callId, userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceConfirmed(roomId, callId, userId, mUid);
     return method(result, video_conference_confirmed, DDPClient::Persistent);
 }
 
 quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceCall(roomId, callId, userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceCall(roomId, callId, userId, mUid);
     return method(result, video_conference_call, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, mUid);
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -618,8 +618,8 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
-    const quint64 value = m_uid;
-    m_uid++;
+    const quint64 value = mUid;
+    mUid++;
     return value;
 }
 
@@ -640,10 +640,10 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
 
-    m_callbackHash[m_uid] = callback;
+    m_callbackHash[mUid] = callback;
 
-    const quint64 value = m_uid;
-    m_uid++;
+    const quint64 value = mUid;
+    mUid++;
     return value;
 }
 
@@ -657,7 +657,7 @@ quint64 DDPClient::method(const QString &method,
                           const std::function<void(QJsonObject, RocketChatAccount *)> &callback,
                           DDPClient::MessageType messageType)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, mUid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -671,10 +671,10 @@ quint64 DDPClient::method(const QString &method,
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
 
-    m_callbackHash[m_uid] = callback;
+    m_callbackHash[mUid] = callback;
 
-    const quint64 uidCurrent = m_uid;
-    m_uid++;
+    const quint64 uidCurrent = mUid;
+    mUid++;
     return uidCurrent;
 }
 
@@ -694,10 +694,10 @@ void DDPClient::unsubscribe(quint64 registerId)
 
 quint64 DDPClient::subscribeUserPresence(const QString &collection, const QJsonArray &params, const QString &added)
 {
-    quint64 registerId = m_uid;
+    quint64 registerId = mUid;
     QJsonObject json;
     json[QLatin1String("msg")] = QStringLiteral("sub");
-    json[QLatin1String("id")] = QString::number(m_uid);
+    json[QLatin1String("id")] = QString::number(mUid);
     json[QLatin1String("name")] = collection;
 
     QJsonArray newParams = params;
@@ -707,7 +707,7 @@ quint64 DDPClient::subscribeUserPresence(const QString &collection, const QJsonA
     // qDebug() << " args " << args;
     newParams.append(std::move(obj));
     json[QLatin1String("params")] = newParams;
-    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << m_uid;
+    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -715,16 +715,16 @@ quint64 DDPClient::subscribeUserPresence(const QString &collection, const QJsonA
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
     }
-    m_uid++;
+    mUid++;
     return registerId;
 }
 
 quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 {
-    quint64 registerId = m_uid;
+    quint64 registerId = mUid;
     QJsonObject json;
     json[QLatin1String("msg")] = QStringLiteral("sub");
-    json[QLatin1String("id")] = QString::number(m_uid);
+    json[QLatin1String("id")] = QString::number(mUid);
     json[QLatin1String("name")] = collection;
 
     QJsonArray newParams = params;
@@ -736,7 +736,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
     newParams.append(std::move(obj));
 
     json[QLatin1String("params")] = newParams;
-    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << m_uid;
+    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
@@ -744,7 +744,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
     }
-    m_uid++;
+    mUid++;
     return registerId;
 }
 
@@ -796,7 +796,7 @@ void DDPClient::deregisterSubscriber(const QString &collection, const QString &e
 quint64 DDPClient::invokeMethodAndRegister(const QString &methodName, const QJsonArray &params, DDPManager *ddpManager, int operationId)
 {
     qCDebug(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "invoked with" << methodName << params;
-    mMethodResponseHash[m_uid] = QPair<DDPManager *, int>(ddpManager, operationId);
+    mMethodResponseHash[mUid] = QPair<DDPManager *, int>(ddpManager, operationId);
     return method(methodName, QJsonDocument(params));
 }
 
@@ -930,7 +930,7 @@ void DDPClient::onWSConnected()
     protocol[QLatin1String("version")] = QStringLiteral("1");
     protocol[QLatin1String("support")] = supportedVersions;
     const QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
-    qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
+    const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
         qCWarning(RUQOLA_DDPAPI_COMMAND_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCWarning(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
@@ -961,7 +961,7 @@ void DDPClient::onWSclosed()
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
                                      << " close code : " << mWebSocket->closeCode() << " error string " << mWebSocket->errorString();
-        authenticationManager()->setLoginStatus(DDPAuthenticationManager::GenericError);
+        authenticationManager()->setLoginStatus(AuthenticationManager::GenericError);
         Q_EMIT wsClosedSocketError();
     }
 
@@ -989,10 +989,5 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
         qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
     }
 }
-
-// Otr end
-//["{\"msg\":\"method\",\"id\":\"22\",\"method\":\"stream-notify-user\",\"params\":[\"YbwG4T2uB3wZSZSKB/otr\",\"end\",{\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\"}]}"]
-// Otr handshake
-//\"msg\":\"method\",\"id\":\"24\",\"method\":\"stream-notify-user\",\"params\":[\"YbwG4T2uB3wZSZSKB/otr\",\"handshake\",{\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\",\"publicKey\":\"{\\\
 
 #include "moc_ddpclient.cpp"

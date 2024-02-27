@@ -259,7 +259,7 @@ public:
     [[nodiscard]] bool sortUnreadOnTop() const;
     [[nodiscard]] OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
 
-    [[nodiscard]] DDPAuthenticationManager::LoginStatus loginStatus();
+    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::Connection *restApi();
 
     [[nodiscard]] Room *room(const QString &roomId);

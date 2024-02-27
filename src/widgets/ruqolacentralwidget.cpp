@@ -125,7 +125,7 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
     const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
     mRuqolaLoginWidget->setLoginStatus(loginStatus);
     bool loginPage = false;
-    if (loginStatus == DDPAuthenticationManager::LoggedIn) {
+    if (loginStatus == AuthenticationManager::LoggedIn) {
         mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);

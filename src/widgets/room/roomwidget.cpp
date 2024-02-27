@@ -864,7 +864,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void RoomWidget::slotLoginStatusChanged()
 {
     const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
-    if (loginStatus == DDPAuthenticationManager::LoggedIn) {
+    if (loginStatus == AuthenticationManager::LoggedIn) {
         if (mRoomReconnectInfoWidget) {
             mRoomReconnectInfoWidget->hide();
         }
