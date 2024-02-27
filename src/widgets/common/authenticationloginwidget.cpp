@@ -67,6 +67,7 @@ void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)
 void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     auto restApi = new RocketChatRestApi::Connection(this);
+    restApi->setServerUrl(mAccountInfo.serverUrl);
     restApi->forgotPassword(email);
     connect(restApi, &RocketChatRestApi::Connection::forgotPasswordDone, this, [restApi]() {
         restApi->deleteLater();
