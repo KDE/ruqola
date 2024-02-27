@@ -112,13 +112,13 @@ void AuthenticationLoginWidget::slotRegisterAccount()
 {
     QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
     connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
-        auto mRestApi = new RocketChatRestApi::Connection(this);
-        connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, [this, mRestApi]() {
-            mRestApi->deleteLater();
+        auto restApi = new RocketChatRestApi::Connection(this);
+        connect(restApi, &RocketChatRestApi::Connection::registerUserDone, this, [this, restApi]() {
+            restApi->deleteLater();
             slotRegisterUserDone();
         });
-        mRestApi->setServerUrl(mAccountInfo.serverUrl);
-        mRestApi->registerNewUser(dlg->registerUserInfo());
+        restApi->setServerUrl(mAccountInfo.serverUrl);
+        restApi->registerNewUser(dlg->registerUserInfo());
     });
     dlg->exec();
     delete dlg;
