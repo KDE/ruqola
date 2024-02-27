@@ -54,15 +54,21 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
-    // TODO add "forgot password"
+    connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &AuthenticationLoginWidget::slotResetPasswordRequested);
 }
+
+AuthenticationLoginWidget::~AuthenticationLoginWidget() = default;
 
 void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)
 {
     mNames = lst;
 }
 
-AuthenticationLoginWidget::~AuthenticationLoginWidget() = default;
+void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
+{
+    // TODO ????
+    // mRocketChatAccount->requestNewPassword(email);
+}
 
 void AuthenticationLoginWidget::slotChangeOkButtonEnabled()
 {
