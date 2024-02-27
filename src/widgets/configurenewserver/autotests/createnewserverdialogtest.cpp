@@ -5,8 +5,8 @@
 */
 
 #include "createnewserverdialogtest.h"
-#include "createnewserver/createnewserverdialog.h"
-#include "createnewserver/createnewserverstackwidget.h"
+#include "configurenewserver/createnewserverdialog.h"
+#include "configurenewserver/createnewserverstackwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>

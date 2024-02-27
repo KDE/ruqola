@@ -5,7 +5,7 @@
 */
 
 #include "checknewserverurlwidgettest.h"
-#include "createnewserver/checknewserverurlwidget.h"
+#include "configurenewserver/checknewserverurlwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KMessageWidget>
 #include <QHBoxLayout>

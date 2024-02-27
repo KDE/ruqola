@@ -5,7 +5,7 @@
 */
 
 #include "createnewserverdialog.h"
-#include "createnewserver/createnewserverstackwidget.h"
+#include "configurenewserver/createnewserverstackwidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>

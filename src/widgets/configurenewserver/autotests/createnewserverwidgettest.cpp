@@ -7,7 +7,7 @@
 #include "createnewserverwidgettest.h"
 #include "common/authenticationloginwidget.h"
 #include "common/authenticationoauthwidget.h"
-#include "createnewserver/createnewserverwidget.h"
+#include "configurenewserver/createnewserverwidget.h"
 #include <QFormLayout>
 #include <QTest>
 QTEST_MAIN(CreateNewServerWidgetTest)

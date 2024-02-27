@@ -364,14 +364,14 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/resetpasswordwidget.h
     dialogs/resetpasswordwidget.cpp
 
-    createnewserver/createnewserverdialog.cpp
-    createnewserver/createnewserverdialog.h
-    createnewserver/createnewserverwidget.cpp
-    createnewserver/createnewserverwidget.h
-    createnewserver/createnewserverstackwidget.h
-    createnewserver/createnewserverstackwidget.cpp
-    createnewserver/checknewserverurlwidget.h
-    createnewserver/checknewserverurlwidget.cpp
+    configurenewserver/createnewserverdialog.cpp
+    configurenewserver/createnewserverdialog.h
+    configurenewserver/createnewserverwidget.cpp
+    configurenewserver/createnewserverwidget.h
+    configurenewserver/createnewserverstackwidget.h
+    configurenewserver/createnewserverstackwidget.cpp
+    configurenewserver/checknewserverurlwidget.h
+    configurenewserver/checknewserverurlwidget.cpp
 
     dialogs/directchannelinfodialog.cpp
     dialogs/directchannelinfodialog.h
@@ -1006,7 +1006,7 @@ if (BUILD_TESTING)
     add_subdirectory(offlinewidget/autotests)
     add_subdirectory(needupdateversion/tests)
     add_subdirectory(needupdateversion/autotests)
-    add_subdirectory(createnewserver/autotests)
+    add_subdirectory(configurenewserver/autotests)
     add_subdirectory(encryption/autotests)
     add_subdirectory(forwardmessage/autotests)
 endif()

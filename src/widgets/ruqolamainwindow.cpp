@@ -20,8 +20,8 @@
 
 #include "bannerinfodialog/bannerinfodialog.h"
 #include "configuredialog/configuresettingsdialog.h"
+#include "configurenewserver/createnewserverdialog.h"
 #include "connection.h"
-#include "createnewserver/createnewserverdialog.h"
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createnewchanneldialog.h"
