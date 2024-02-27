@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-24 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 11:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1378,12 +1378,12 @@ msgstr "Berichten exporteren"
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
 
-#: core/rocketchaturlutils.cpp:34
+#: core/rocketchaturlutils.cpp:41
 #, kde-format
 msgid "Account Added"
 msgstr "Account toegevoegd"
 
-#: core/rocketchaturlutils.cpp:35
+#: core/rocketchaturlutils.cpp:42
 #, kde-format
 msgid "A new account was added."
 msgstr "Een nieuw account is ingevoerd."
@@ -3400,7 +3400,6 @@ msgid "Verified"
 msgstr "Geverifieerd"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:65
-#: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:56
@@ -3424,7 +3423,7 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/common/authenticationloginwidget.cpp:47
+#: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:73
@@ -6228,7 +6227,19 @@ msgstr "Aanmelden met %1"
 msgid "Register Account"
 msgstr "Account registreren"
 
-#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:52
+#, kde-format
+msgid "Username or email"
+msgstr "Gebruikersnaam of e-mailadres"
+
+#: widgets/common/authenticationloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Username or Email:"
+msgstr "Gebruikersnaam of e-mailadres:"
+
+#: widgets/common/authenticationloginwidget.cpp:119
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6239,7 +6250,7 @@ msgstr ""
 "Als u binnenkort geen e-mail hebt ontvangen, kom dan terug en probeer "
 "opnieuw."
 
-#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/common/authenticationloginwidget.cpp:120
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -6444,17 +6455,17 @@ msgstr "Logs opgeslagen op schijf verwijderen"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Wilt u dit account verwijderen: \"%1\"?"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:25
+#: widgets/createnewserver/checknewserverurlwidget.cpp:25
 #, kde-format
 msgid "Connection"
 msgstr "Verbinding"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
+#: widgets/createnewserver/checknewserverurlwidget.cpp:36
 #, kde-format
 msgid "Server Url:"
 msgstr "URL-adres server:"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:121
+#: widgets/createnewserver/checknewserverurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Toegang tot server is onmogelijk."
@@ -6465,7 +6476,7 @@ msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Server toevoegen"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:60
+#: widgets/createnewserver/createnewserverdialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
@@ -7644,7 +7655,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Een eenmalig wachtwoord is vereist om de aanmeldprocedure te voltooien."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:190
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Aanmelden is mislukt: ongeldige OTP-code"
@@ -8940,16 +8951,6 @@ msgstr "Accountnaam:"
 msgid "Account name"
 msgstr "Rekening naam"
 
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "Username or Email:"
-msgstr "Gebruikersnaam of e-mailadres:"
-
-#: widgets/ruqolaloginwidget.cpp:52
-#, kde-format
-msgid "Username or email"
-msgstr "Gebruikersnaam of e-mailadres"
-
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
@@ -8964,39 +8965,39 @@ msgstr ""
 "U hebt tweefactor authenticatie ingeschakeld.\n"
 "Voer de gegenereerde code of een backupcode in."
 
-#: widgets/ruqolaloginwidget.cpp:186
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Aanmelden is mislukt: ongeldige gebruikersnaam of wachtwoord"
 
-#: widgets/ruqolaloginwidget.cpp:200
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Installatieprobleem gevonden. Hier geen plug-ins gevonden."
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Aanmelden is mislukt: algemene fout"
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:213
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Aanmelden is mislukt: aanmelden is tijdelijk geblokkeerd voor IP-adres."
 
-#: widgets/ruqolaloginwidget.cpp:218
+#: widgets/ruqolaloginwidget.cpp:219
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Aanmelden is mislukt: aanmelden is tijdelijk geblokkeerd voor gebruiker."
 
-#: widgets/ruqolaloginwidget.cpp:224
+#: widgets/ruqolaloginwidget.cpp:225
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Aanmelden is mislukt: gebruiker is niet geactiveerd."
 
-#: widgets/ruqolaloginwidget.cpp:230
+#: widgets/ruqolaloginwidget.cpp:231
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9417,17 +9418,17 @@ msgstr "(Nieuws in Ruqola tonen)"
 msgid "What's new in Ruqola. %1"
 msgstr "Wat is er nieuw in Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:91
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Belangrijke wijzigingen sinds de laatste versie:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
@@ -9558,19 +9559,25 @@ msgstr "Door te sturen bericht toevoegen"
 msgid "Improve mentions support."
 msgstr "Ondersteuning van vermeldingen verbeteren."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:75
+#: widgets/whatsnew/whatsnewwidgettranslation.h:71
+msgid ""
+"Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
+"started/deep-linking\">Deep Linking</a>."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Fix dark mode support."
 msgstr "Ondersteuning voor modus Donker repareren."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:76
+#: widgets/whatsnew/whatsnewwidgettranslation.h:77
 msgid "Fix jitsi support."
 msgstr "Jitsi-ondersteuning repareren."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix translate message in direct channel."
 msgstr "Bericht vertalen in direct kanaal repareren."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr "@here/@all als gebruiker niet tonen."
 

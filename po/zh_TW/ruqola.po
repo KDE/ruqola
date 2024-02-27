@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-24 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 08:17+0900\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-27 06:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -593,7 +593,7 @@ msgstr "名稱"
 #: core/model/directoryroomsmodel.cpp:122 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "識別子"
 
 #: core/model/admincustomemojimodel.cpp:38
 #, kde-format
@@ -656,7 +656,7 @@ msgstr "重新導向 URL"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, kde-format
 msgid "Active"
-msgstr ""
+msgstr "作用中"
 
 #: core/model/adminoauthmodel.cpp:44
 #, kde-format
@@ -802,10 +802,9 @@ msgid "Last Message"
 msgstr "翻譯訊息"
 
 #: core/model/directoryroomsmodel.cpp:130 core/model/directoryteamsmodel.cpp:96
-#, fuzzy, kde-format
-#| msgid "Create"
+#, kde-format
 msgid "Created"
-msgstr "建立"
+msgstr "已建立"
 
 #: core/model/directoryroomsmodel.cpp:133
 #, kde-format
@@ -835,7 +834,7 @@ msgstr "電子信箱"
 #: core/model/directoryusersmodel.cpp:104
 #, kde-format
 msgid "Join At"
-msgstr ""
+msgstr "加入於"
 
 #: core/model/emoticonmodel.cpp:85
 #, fuzzy, kde-format
@@ -919,8 +918,7 @@ msgid "Report date"
 msgstr "檢舉訊息"
 
 #: core/model/moderationmodel.cpp:44
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
 msgstr "聊天室"
 
@@ -1027,32 +1025,28 @@ msgid "Last token part"
 msgstr ""
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "提及"
+msgstr[0] "%1 個提及"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Mute Groups Mention:"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "靜音群組提及："
+msgstr[0] "%1 個群組提及"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "未讀的對話串訊息"
+msgstr[0] "%1 個未讀的對話串訊息"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 有 %2 個未讀訊息"
+msgstr[0] "%1 個未讀訊息"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -1148,7 +1142,7 @@ msgstr "隱藏「已新增使用者」訊息"
 #: core/model/systemmessagesmodel.cpp:35
 #, kde-format
 msgid "Hide \"Welcome\" messages"
-msgstr ""
+msgstr "隱藏「歡迎」訊息"
 
 #: core/model/systemmessagesmodel.cpp:36
 #, kde-format
@@ -1158,18 +1152,17 @@ msgstr ""
 #: core/model/systemmessagesmodel.cpp:37
 #, kde-format
 msgid "Hide \"User Leave\" messages"
-msgstr ""
+msgstr "隱藏「使用者離開」訊息"
 
 #: core/model/systemmessagesmodel.cpp:38
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Hide \"User Left Team\" messages"
-msgstr "收藏的訊息"
+msgstr "隱藏「使用者離開團隊」訊息"
 
 #: core/model/systemmessagesmodel.cpp:39
 #, kde-format
 msgid "Hide \"User Join\" messages"
-msgstr ""
+msgstr "隱藏「使用者加入」訊息"
 
 #: core/model/systemmessagesmodel.cpp:40
 #, kde-format
@@ -1393,13 +1386,13 @@ msgstr "匯出訊息"
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: core/rocketchaturlutils.cpp:34
+#: core/rocketchaturlutils.cpp:41
 #, fuzzy, kde-format
 #| msgid "Account name"
 msgid "Account Added"
 msgstr "帳戶名稱"
 
-#: core/rocketchaturlutils.cpp:35
+#: core/rocketchaturlutils.cpp:42
 #, fuzzy, kde-format
 #| msgid "Enter account name"
 msgid "A new account was added."
@@ -1408,7 +1401,7 @@ msgstr "輸入帳戶名稱"
 #: core/room.cpp:1137
 #, kde-format
 msgid "Owner"
-msgstr ""
+msgstr "擁有者"
 
 #: core/room.cpp:1140
 #, kde-format
@@ -1830,7 +1823,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "Invalid action link"
-msgstr ""
+msgstr "無效的動作連結"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 #, kde-format
@@ -1840,7 +1833,7 @@ msgstr "無效帳戶"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 #, kde-format
 msgid "Invalid arguments"
-msgstr ""
+msgstr "無效的參數"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 #, kde-format
@@ -1850,17 +1843,17 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 #, kde-format
 msgid "Invalid channel."
-msgstr ""
+msgstr "無效的頻道。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
-msgstr ""
+msgstr "無效的頻道。應以 @ 或 # 開頭"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 #, kde-format
 msgid "Invalid custom field"
-msgstr ""
+msgstr "無效的自訂欄位"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 #, kde-format
@@ -1868,16 +1861,17 @@ msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
 msgstr ""
+"無效的自訂欄位名稱。只能使用字母、數字、hyphen (\"-\") 或底線 (\"_\")。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 #, kde-format
 msgid "Invalid date provided."
-msgstr ""
+msgstr "提供了無效日期。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 #, kde-format
 msgid "Invalid description"
-msgstr ""
+msgstr "無效的描述"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 #, kde-format
@@ -1893,57 +1887,57 @@ msgstr "訊息 ID 無效"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid email address"
-msgstr ""
+msgstr "無效的電子郵件地址"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
 msgid "Invalid file height"
-msgstr ""
+msgstr "無效的檔案高度"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 #, kde-format
 msgid "Invalid file type"
-msgstr ""
+msgstr "無效的檔案類型"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 #, kde-format
 msgid "Invalid file width"
-msgstr ""
+msgstr "無效的檔案寬度"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "You informed an invalid FROM address."
-msgstr ""
+msgstr "您提供了無效的 FROM 地址。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "Invalid integration"
-msgstr ""
+msgstr "無效的整合"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid message"
-msgstr ""
+msgstr "無效的訊息"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "Invalid method"
-msgstr ""
+msgstr "無效的方法"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "Invalid name"
-msgstr ""
+msgstr "無效的名稱"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid "Invalid password"
-msgstr ""
+msgstr "不正確的密碼"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid permission"
-msgstr ""
+msgstr "無效的權限"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
@@ -1959,12 +1953,12 @@ msgstr ""
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:154
 #, kde-format
 msgid "Invalid room"
-msgstr ""
+msgstr "無效的聊天室"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 #, kde-format
 msgid "'%1' is not a valid room type."
-msgstr ""
+msgstr "「%1」不是有效的聊天室類型。"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 #, kde-format
@@ -2315,7 +2309,7 @@ msgstr "頻道不能轉換為團隊。"
 #: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:99
 #, kde-format
 msgid "Team already exists."
-msgstr ""
+msgstr "團隊已存在。"
 
 #: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2327,12 +2321,12 @@ msgstr ""
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr ""
+msgstr "所提供的必要 \\\"roomId\\\" 或 \\\"roomName\\\" 參數不符合任何團隊"
 
 #: rocketchatrestapi-qt/users/getavatarjob.cpp:78
 #, kde-format
 msgid "Get Avatar"
-msgstr ""
+msgstr "取得頭貼"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:71
 #, kde-format
@@ -2347,7 +2341,7 @@ msgstr "無效的頭貼網址：%1"
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:114
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
-msgstr ""
+msgstr "為 %2 處理來自 URL \"%1\" 的頭貼設定時發生錯誤"
 
 #: rocketchatrestapi-qt/users/setstatusjob.cpp:137
 #, kde-format
@@ -3015,8 +3009,7 @@ msgstr "自訂使用者狀態"
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Search User..."
+#, kde-format
 msgid "Search users..."
 msgstr "搜尋使用者…"
 
@@ -3061,8 +3054,7 @@ msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
 #: widgets/room/roomheaderwidget.cpp:45 widgets/room/roomheaderwidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Set as Favorite"
+#, kde-format
 msgid "Favorite"
 msgstr "收藏"
 
@@ -3073,18 +3065,16 @@ msgid "Featured"
 msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Direct Room"
-msgstr "自訂使用者狀態"
+msgstr "編輯私訊聊天室"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:31
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Room"
-msgstr "自訂使用者狀態"
+msgstr "編輯聊天室"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
@@ -3453,10 +3443,9 @@ msgid "Edit User"
 msgstr "自訂使用者狀態"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Next Channel"
+#, kde-format
 msgid "Join Default Channels"
-msgstr "下一個頻道"
+msgstr "加入預設頻道"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
@@ -3481,7 +3470,6 @@ msgid "Verified"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:65
-#: widgets/common/authenticationloginwidget.cpp:44
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:56
@@ -3507,7 +3495,7 @@ msgid "Email:"
 msgstr "電子郵件："
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/common/authenticationloginwidget.cpp:47
+#: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:73
@@ -3650,7 +3638,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow User Avatar Change"
-msgstr ""
+msgstr "允許使用者變更頭貼"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
@@ -4795,7 +4783,7 @@ msgstr "使用者名稱："
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
 #, kde-format
 msgid "Use Full Name Initials to Generate Default Avatar"
-msgstr ""
+msgstr "使用全名首字來產生預設頭貼"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
@@ -6203,7 +6191,19 @@ msgstr "用 %1 登入"
 msgid "Register Account"
 msgstr "註冊帳戶"
 
-#: widgets/common/authenticationloginwidget.cpp:118
+#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:52
+#, kde-format
+msgid "Username or email"
+msgstr "使用者名稱或電子郵件"
+
+#: widgets/common/authenticationloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:51
+#, kde-format
+msgid "Username or Email:"
+msgstr "使用者名稱或電子郵件："
+
+#: widgets/common/authenticationloginwidget.cpp:119
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6211,7 +6211,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/common/authenticationloginwidget.cpp:120
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -6418,17 +6418,17 @@ msgstr "移除磁碟上儲存的紀錄"
 msgid "Do you want to remove this account '%1'?"
 msgstr "您確定要移除帳戶「%1」嗎？"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:25
+#: widgets/createnewserver/checknewserverurlwidget.cpp:25
 #, kde-format
 msgid "Connection"
 msgstr "連線"
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:36
+#: widgets/createnewserver/checknewserverurlwidget.cpp:36
 #, kde-format
 msgid "Server Url:"
 msgstr "伺服器網址："
 
-#: widgets/createnewserver/createnewservercheckurlwidget.cpp:121
+#: widgets/createnewserver/checknewserverurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "無法存取伺服器。"
@@ -6439,7 +6439,7 @@ msgctxt "@title:window"
 msgid "Add Server"
 msgstr "新增伺服器"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:60
+#: widgets/createnewserver/createnewserverdialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
@@ -7606,7 +7606,7 @@ msgstr "登入失敗：一般錯誤"
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:190
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "登入失敗：無效的 OTP 一次性密碼。"
@@ -8108,7 +8108,7 @@ msgstr "定義頭貼網址："
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:99
 #, kde-format
 msgid "Change URL for avatar..."
-msgstr ""
+msgstr "變更頭貼的網址..."
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:27
 #, kde-format
@@ -8487,10 +8487,9 @@ msgid "Remove as Favorite"
 msgstr "移出收藏"
 
 #: widgets/room/messagelistview.cpp:307
-#, fuzzy, kde-format
-#| msgid "No Messages found"
+#, kde-format
 msgid "Mark Message As Unread"
-msgstr "找不到訊息"
+msgstr "將訊息標記為未讀"
 
 #: widgets/room/messagelistview.cpp:312
 #, kde-format
@@ -8508,30 +8507,26 @@ msgid "Quote"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:327
-#, fuzzy, kde-format
-#| msgid "Unpin Message"
+#, kde-format
 msgid "Copy Link To Message"
-msgstr "取消訊息置頂"
+msgstr "複製訊息連結"
 
 #: widgets/room/messagelistview.cpp:332
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Forward Message"
-msgstr "檢舉訊息"
+msgstr "轉寄訊息"
 
 #: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Unfollow Message"
-msgstr "檢舉訊息"
+msgstr "取消跟隨訊息"
 
 #: widgets/room/messagelistview.cpp:345
 #: widgets/threadwidget/threadmessagewidget.cpp:116
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Follow Message"
-msgstr "檢舉訊息"
+msgstr "跟隨訊息"
 
 #: widgets/room/messagelistview.cpp:358
 #, kde-format
@@ -8699,10 +8694,9 @@ msgid "Team's Information"
 msgstr "團隊資訊"
 
 #: widgets/room/roomquotemessagewidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Thread Messages: %1"
+#, kde-format
 msgid "Quote Message: '%1'"
-msgstr "討論區訊息：%1"
+msgstr "引用訊息：「%1」"
 
 #: widgets/room/roomreplythreadwidget.cpp:19
 #, kde-format
@@ -8892,16 +8886,6 @@ msgstr "帳戶名稱："
 msgid "Account name"
 msgstr "帳戶名稱"
 
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "Username or Email:"
-msgstr "使用者名稱或電子郵件："
-
-#: widgets/ruqolaloginwidget.cpp:52
-#, kde-format
-msgid "Username or email"
-msgstr "使用者名稱或電子郵件"
-
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
@@ -8916,37 +8900,37 @@ msgstr ""
 "您已啟用兩步驟驗證。\n"
 "請輸入產生的認證碼或是備用碼。"
 
-#: widgets/ruqolaloginwidget.cpp:186
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "登入失敗：無效的使用者名稱或密碼"
 
-#: widgets/ruqolaloginwidget.cpp:200
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "發現安裝問題。此處找不到外掛程式。"
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "登入失敗：一般錯誤"
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:213
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "登入失敗：已暫時封鎖此 IP 位址的登入。"
 
-#: widgets/ruqolaloginwidget.cpp:218
+#: widgets/ruqolaloginwidget.cpp:219
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "登入失敗：已暫時封鎖此使用者的登入。"
 
-#: widgets/ruqolaloginwidget.cpp:224
+#: widgets/ruqolaloginwidget.cpp:225
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "登入失敗：使用者尚未啟用。"
 
-#: widgets/ruqolaloginwidget.cpp:230
+#: widgets/ruqolaloginwidget.cpp:231
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "登入失敗：應用程式使用者不能登入。"
@@ -9343,10 +9327,9 @@ msgid "Version 2.1"
 msgstr "2.1 版"
 
 #: widgets/whatsnew/whatsnewcomboboxwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Version 2.0"
+#, kde-format
 msgid "Version 2.2"
-msgstr "2.0 版"
+msgstr "2.2 版"
 
 #: widgets/whatsnew/whatsnewdialog.cpp:25
 #, kde-format
@@ -9364,17 +9347,17 @@ msgstr ""
 msgid "What's new in Ruqola. %1"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:90
+#: widgets/whatsnew/whatsnewwidget.cpp:91
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:95
+#: widgets/whatsnew/whatsnewwidget.cpp:96
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:100
+#: widgets/whatsnew/whatsnewwidget.cpp:101
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "一些錯誤修正："
@@ -9417,7 +9400,7 @@ msgstr "匯入/匯出帳戶。"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:36
 msgid "Fix avatar support"
-msgstr ""
+msgstr "修正頭貼支援"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
@@ -9477,7 +9460,7 @@ msgstr "修正身份驗證方式列表。"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
 msgid "Fix show avatar url."
-msgstr ""
+msgstr "修正頭貼顯示 URL。"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:67
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
@@ -9488,30 +9471,32 @@ msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
-#, fuzzy
-#| msgid "Report Message"
 msgid "Add forward message"
-msgstr "檢舉訊息"
+msgstr "新增轉寄訊息"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "改善提及支援。"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:75
-msgid "Fix dark mode support."
+#: widgets/whatsnew/whatsnewwidgettranslation.h:71
+msgid ""
+"Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
+"started/deep-linking\">Deep Linking</a>."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
-msgid "Fix jitsi support."
-msgstr ""
+msgid "Fix dark mode support."
+msgstr "修正暗色模式支援。"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:77
-#, fuzzy
-#| msgid "Next Channel"
-msgid "Fix translate message in direct channel."
-msgstr "下一個頻道"
+msgid "Fix jitsi support."
+msgstr "修正 Jitsi 支援。"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
+msgid "Fix translate message in direct channel."
+msgstr "修正私訊頻道中的翻譯訊息。"
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr ""
 
