@@ -56,7 +56,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
-    LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(const QJsonObject &replyObject);
+    LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(const QJsonObject &replyObject, Method method);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
     QString mAuthToken;
@@ -66,4 +66,5 @@ private:
     AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
     // Used when sending OTP
     QJsonObject mLastLoginPayload;
+    int mIndex = 5000;
 };
