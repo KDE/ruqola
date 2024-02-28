@@ -5,6 +5,7 @@
 */
 
 #include "personalaccesstokenauthenticationinterface.h"
+#include "connection.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
 #include "rocketchataccount.h"
@@ -20,6 +21,19 @@ PersonalAccessTokenAuthenticationInterface::~PersonalAccessTokenAuthenticationIn
 void PersonalAccessTokenAuthenticationInterface::login()
 {
     qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " login personal access token";
+    if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
+        // https://developer.rocket.chat/reference/api/rest-api#access-tokens
+        mAccount->restApi()->setAuthToken(mAccount->settings()->authToken());
+        mAccount->restApi()->setUserId(mAccount->settings()->userId());
+        // TODO login restapi
+
+        // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
+        // TODO login ddpclient
+
+        // mAccount->ddp()->authenticationManager()->login();
+        return;
+    }
+
     // TODO
 }
 
