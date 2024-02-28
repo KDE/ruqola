@@ -7,6 +7,7 @@
 #include "messageattachment.h"
 #include "ruqolaglobalconfig.h"
 
+#include <KIO/Global>
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -27,9 +28,11 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     if (attachment.contains(QLatin1String("audio_url"))) {
         setLink(attachment.value(QLatin1String("audio_url")).toString());
         attType = AttachmentType::Audio;
+        setAttachmentSize(attachment.value(QLatin1String("audio_size")).toInteger(-1));
     } else if (attachment.contains(QLatin1String("video_url"))) {
         setLink(attachment.value(QLatin1String("video_url")).toString());
         attType = AttachmentType::Video;
+        setAttachmentSize(attachment.value(QLatin1String("video_size")).toInteger(-1));
     } else if (attachment.contains(QLatin1String("image_url"))) {
         // prefer the title_link as the image_url may just serve us the tiny preview image
         setLink(attachment.value(QLatin1String("title_link")).toString());
@@ -37,6 +40,8 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
         if (link().isEmpty()) // fallback to the image_url otherwise
             setLink(mImageUrlPreview);
         attType = AttachmentType::Image;
+        // Image Size
+        setAttachmentSize(attachment.value(QLatin1String("image_size")).toInteger(-1));
     } else if (attachment.contains(QLatin1String("author_link"))) {
         setLink(attachment.value(QLatin1String("author_link")).toString());
         attType = AttachmentType::NormalText;
@@ -66,6 +71,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 
     setAuthorName(attachment.value(QLatin1String("author_name")).toString());
     setAuthorIcon(attachment.value(QLatin1String("author_icon")).toString());
+
     // Color
     const QJsonValue color = attachment.value(QLatin1String("color"));
     if (!color.isUndefined()) {
@@ -97,6 +103,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     }
     setAttachmentType(attType);
     mCollapsed = attachment.value(QLatin1String("collapsed")).toBool();
+    generateTitle();
 }
 
 QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
@@ -137,6 +144,9 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
     if (!text.isEmpty()) {
         obj[QLatin1String("text")] = text;
     }
+    if (messageAttach.attachmentSize() != -1) {
+        obj[QLatin1String("attachment_size")] = messageAttach.attachmentSize();
+    }
 
     QJsonArray fieldArray;
     for (int i = 0, total = messageAttach.attachmentFields().count(); i < total; ++i) {
@@ -167,6 +177,8 @@ MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
     att.setAuthorName(o.value(QLatin1String("authorname")).toString());
     att.setAuthorIcon(o.value(QLatin1String("authoricon")).toString());
     att.setMimeType(o.value(QLatin1String("mimetype")).toString());
+    att.setAttachmentSize(o.value(QLatin1String("attachment_size")).toInteger(-1));
+
     const QJsonValue valHeight = o.value(QLatin1String("image_height"));
     if (!valHeight.isUndefined()) {
         att.setImageHeight(valHeight.toInt());
@@ -186,6 +198,7 @@ MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
     att.setCollapsed(o.value(QLatin1String("collapsed")).toBool());
     att.setAttachmentType(o[QLatin1String("attachmentType")].toVariant().value<AttachmentType>());
     att.setShowAttachment(o[QLatin1String("show_attachment")].toBool());
+    att.generateTitle();
     return att;
 }
 
@@ -243,11 +256,6 @@ bool MessageAttachment::canDownloadAttachment() const
     return true;
 }
 
-QString MessageAttachment::imageTitle() const
-{
-    return QStringLiteral("%1 <a href=\'%2'>%2</a>").arg(i18n("File Uploaded:"), title());
-}
-
 QString MessageAttachment::mimeType() const
 {
     return mMimeType;
@@ -301,6 +309,24 @@ void MessageAttachment::setAttachmentFields(const QList<MessageAttachmentField> 
     generateAttachmentFieldsText();
 }
 
+void MessageAttachment::generateTitle()
+{
+    if (!mTitle.isEmpty()) {
+        if (mAttachmentGeneratedTitle.isEmpty()) {
+            if (mAttachmentSize == -1) {
+                mAttachmentGeneratedTitle = mTitle;
+            } else {
+                mAttachmentGeneratedTitle = QStringLiteral("%1 (%2)").arg(mTitle, KIO::convertSize(mAttachmentSize));
+            }
+        }
+    }
+}
+
+QString MessageAttachment::attachmentGeneratedTitle() const
+{
+    return mAttachmentGeneratedTitle;
+}
+
 void MessageAttachment::generateAttachmentFieldsText()
 {
     QString result = QStringLiteral(R"(<qt><table width="100%"><tr>)");
@@ -316,6 +342,16 @@ void MessageAttachment::generateAttachmentFieldsText()
     }
     result += QStringLiteral("</tr></table></qt>");
     mAttachmentFieldsText += result;
+}
+
+qint64 MessageAttachment::attachmentSize() const
+{
+    return mAttachmentSize;
+}
+
+void MessageAttachment::setAttachmentSize(qint64 newAttachmentSize)
+{
+    mAttachmentSize = newAttachmentSize;
 }
 
 const QString &MessageAttachment::imageUrlPreview() const
@@ -373,14 +409,6 @@ void MessageAttachment::setAuthorIcon(const QString &authorIcon)
     mAuthorIcon = authorIcon;
 }
 
-QString MessageAttachment::displayTitle() const
-{
-    if (canDownloadAttachment()) {
-        return i18n("File Uploaded: %1", title());
-    }
-    return QStringLiteral("<a href=\'%1'>%2</a>").arg(link(), title());
-}
-
 bool MessageAttachment::hasDescription() const
 {
     return !mDescription.isEmpty();
@@ -431,7 +459,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
     return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link()) && (mColor == other.color())
         && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
         && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
-        && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview());
+        && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview()) && (mAttachmentSize == other.attachmentSize())
+        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle());
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)
@@ -450,6 +479,7 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d << "AttachmentType: " << t.attachmentType();
     d << "mAuthorIcon: " << t.authorIcon();
     d << "imageUrlPreview " << t.imageUrlPreview();
+    d << "attachment size " << t.attachmentSize();
     return d;
 }
 

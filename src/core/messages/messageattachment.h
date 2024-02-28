@@ -55,8 +55,6 @@ public:
     void setAuthorName(const QString &authorName);
 
     [[nodiscard]] bool canDownloadAttachment() const;
-    [[nodiscard]] QString displayTitle() const;
-    [[nodiscard]] QString imageTitle() const;
 
     [[nodiscard]] QString mimeType() const;
     void setMimeType(const QString &type);
@@ -92,7 +90,14 @@ public:
 
     [[nodiscard]] bool hasDescription() const;
 
+    [[nodiscard]] qint64 attachmentSize() const;
+    void setAttachmentSize(qint64 newAttachmentSize);
+
+    [[nodiscard]] QString attachmentGeneratedTitle() const;
+
 private:
+    friend class MessageAttachmentTest;
+    void generateTitle();
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     QList<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
@@ -107,6 +112,8 @@ private:
     QString mAuthorIcon;
     QString mAttachmentFieldsText;
     QString mImageUrlPreview;
+    QString mAttachmentGeneratedTitle;
+    qint64 mAttachmentSize = -1;
     int mImageHeight = -1;
     int mImageWidth = -1;
     bool mIsAnimatedImage = false;
