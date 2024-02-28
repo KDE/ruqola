@@ -29,8 +29,8 @@ void PersonalAccessTokenAuthenticationInterface::login()
 
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
         // TODO login ddpclient
-
-        // mAccount->ddp()->authenticationManager()->login();
+        mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
+        mAccount->ddp()->authenticationManager()->login();
         return;
     }
 
