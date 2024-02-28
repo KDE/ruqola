@@ -114,16 +114,16 @@ void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const
 
 void RESTAuthenticationManager::sendOTP(const QString &otp)
 {
-#if 0
     if (checkGenericError()) {
         return;
     }
 
-    if (mLoginStatus == LoginStatus::LoginOtpAuthOngoing) {
+    if (mLoginStatus == AuthenticationManager::LoginStatus::LoginOtpAuthOngoing) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another OTP authentication is going on.";
         return;
     }
 
+#if 0
     //    if ((mLoginStatus != LoginStatus::LoginOtpRequired) && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
     //        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
     //        return;
@@ -167,12 +167,11 @@ bool RESTAuthenticationManager::checkGenericError() const
 
 void RESTAuthenticationManager::logout()
 {
-#if 0
     if (checkGenericError()) {
         return;
     }
 
-    if (mLoginStatus == LoginStatus::LogoutOngoing) {
+    if (mLoginStatus == AuthenticationManager::LoginStatus::LogoutOngoing) {
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
         return;
     }
@@ -181,6 +180,7 @@ void RESTAuthenticationManager::logout()
         qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "User is already logged out.";
         return;
     }
+#if 0
 
     const QString params = sl("[]");
 
