@@ -1,0 +1,4 @@
+[General]
+Command=ruqola
+Url=https://go.rocket.chat/
+CommandLine=--messageurl %u
