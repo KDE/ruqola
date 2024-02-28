@@ -37,7 +37,7 @@ void MethodCallJob::onPostRequestResponse(const QString &replyErrorString, const
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("MethodCallJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT methodCallDone(replyObject[QLatin1String("application")].toObject());
+        Q_EMIT methodCallDone(replyObject[QLatin1String("message")].toObject());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("MethodCallJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
