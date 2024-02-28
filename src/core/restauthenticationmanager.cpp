@@ -9,6 +9,7 @@
 #include "ddpapi/ddpauthenticationmanagerutils.h"
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_authentication_debug.h"
+#include "utils.h"
 
 // We use method.callAnon here.
 // We use same params as ddpclient login method.
@@ -76,23 +77,29 @@ QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method,
     return json;
 }
 
-void RESTAuthenticationManager::loginImpl(const QJsonArray &params)
+void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName)
 {
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = METHOD_LOGIN;
+    info.methodName = methodName;
     info.anonymous = true;
     // TODO: verify mIndex
     info.messageObj = generateJsonMethod(info.methodName, QJsonDocument(params), mIndex++);
     job->setMethodCallJobInfo(std::move(info));
     mRestApiConnection->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
-        processMethodResponseImpl(replyObject, Method::Login);
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, method](const QJsonObject &replyObject) {
+        processMethodResponseImpl(replyObject, method);
     });
 
     if (!job->start()) {
         qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Impossible to start MethodCallJob::login job";
     }
+    mLastLoginPayload = params[0].toObject();
+}
+
+void RESTAuthenticationManager::loginImpl(const QJsonArray &params)
+{
+    loginImpl(params, Method::Login, METHOD_LOGIN);
 }
 
 void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &response, RESTAuthenticationManager::Method method)
@@ -193,7 +200,7 @@ void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const
     loginImpl(DDPAuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
-void RESTAuthenticationManager::sendOTP(const QString &otp)
+void RESTAuthenticationManager::sendOTP(const QString &otpCode)
 {
     if (checkGenericError()) {
         return;
@@ -204,18 +211,13 @@ void RESTAuthenticationManager::sendOTP(const QString &otp)
         return;
     }
 
-#if 0
     //    if ((mLoginStatus != LoginStatus::LoginOtpRequired) && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
     //        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
     //        return;
     //    }
-    ddpClient()->invokeMethodAndRegister(METHOD_SEND_OTP,
-                                         DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload),
-                                         this,
-                                         static_cast<int>(Method::SendOtp));
-    setLoginStatus(LoginStatus::LoginOtpAuthOngoing);
-#endif
-    Q_UNUSED(otp);
+
+    loginImpl(DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
+    setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 }
 
 bool RESTAuthenticationManager::isLoggedIn() const
@@ -261,14 +263,9 @@ void RESTAuthenticationManager::logout()
         qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "User is already logged out.";
         return;
     }
-#if 0
-
     const QString params = sl("[]");
-
-    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::SendOtp));
-    setLoginStatus(LoginStatus::LogoutOngoing);
-#endif
-    // mRestApiConnection->logout();
+    loginImpl(Utils::strToJsonArray(params), Method::SendOtp, METHOD_LOGOUT);
+    setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 #undef sl
 
