@@ -55,11 +55,13 @@ public:
 Q_SIGNALS:
     void loginStatusChanged();
 
+protected:
+    virtual void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
     LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(const QJsonObject &replyObject, Method method);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
-    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
     QString mAuthToken;
     QString mUserId;
