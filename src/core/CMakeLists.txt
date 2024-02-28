@@ -604,6 +604,7 @@ target_link_libraries(libruqolacore
     KF6::WindowSystem
     qt6keychain
     KF6::StatusNotifierItem
+    KF6::KIOCore
 )
 
 if (HAVE_TEXT_TRANSLATOR)
