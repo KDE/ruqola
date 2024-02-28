@@ -8,7 +8,7 @@
 #include "connection.h"
 #include "ddpapi/ddpauthenticationmanagerutils.h"
 #include "misc/methodcalljob.h"
-#include "ruqola_ddpapi_debug.h" // TODO change it.
+#include "ruqola_restapi_authentication_debug.h"
 
 // We use method.callAnon here.
 // We use same params as ddpclient login method.
@@ -49,7 +49,7 @@ qint64 RESTAuthenticationManager::tokenExpires() const
 void RESTAuthenticationManager::login()
 {
     if (mAuthToken.isNull()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "No auth token available, can't login.";
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "No auth token available, can't login.";
         return;
     }
 
@@ -91,7 +91,7 @@ void RESTAuthenticationManager::loginImpl(const QJsonArray &params)
     });
 
     if (!job->start()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "Impossible to start MethodCallJob::login job";
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Impossible to start MethodCallJob::login job";
     }
 }
 
@@ -110,36 +110,36 @@ void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &res
 
         if (response.contains(sl("error"))) {
             const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
-            qCWarning(RUQOLA_DDPAPI_LOG) << "Login Error: " << response;
+            qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Login Error: " << response;
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
             //   - When logging in with user and password -> invalid username or password
             //   - When resuming an older login with an invalid / expired auth token -> invalid or expired token
             //   - When logging in with an invalid / expired OAuth token (e.g. google, facebook, etc.) -> invalid or expired token
             if (errorCode.isDouble() && errorCode.toInt() == 403) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Invalid username or password.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Invalid username or password.";
                 setLoginStatus(AuthenticationManager::LoginFailedInvalidUserOrPassword);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-required")) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Two factor authentication is enabled on the server."
-                                             << "A one-time password is required to complete the login procedure.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Two factor authentication is enabled on the server."
+                                                   << "A one-time password is required to complete the login procedure.";
                 setLoginStatus(AuthenticationManager::LoginOtpRequired);
             } else if (errorCode.isString() && errorCode.toString() == sl("totp-invalid")) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Invalid OTP code.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Invalid OTP code.";
                 setLoginStatus(AuthenticationManager::LoginFailedInvalidOtp);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-user-is-not-activated")) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "User is not activated.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "User is not activated.";
                 setLoginStatus(AuthenticationManager::LoginFailedUserNotActivated);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-ip")) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Login has been temporarily blocked For IP.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Login has been temporarily blocked For IP.";
                 setLoginStatus(AuthenticationManager::LoginFailedLoginBlockForIp);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-user")) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Login has been temporarily blocked For User.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Login has been temporarily blocked For User.";
                 setLoginStatus(AuthenticationManager::LoginFailedLoginBlockedForUser);
             } else if (errorCode.isString() && errorCode.toString() == sl("error-app-user-is-not-allowed-to-login")) {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "App user is not allowed to login.";
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "App user is not allowed to login.";
                 setLoginStatus(AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin);
             } else {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Generic error during login. Couldn't process" << response;
+                qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Generic error during login. Couldn't process" << response;
                 setLoginStatus(AuthenticationManager::GenericError);
             }
             return;
@@ -153,7 +153,7 @@ void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &res
         // Printing any error message that may come up just in case, and preventing any other
         // operations by switching to GenericError state.
         if (response.contains(sl("error"))) {
-            qCWarning(RUQOLA_DDPAPI_LOG) << "Error while logging out. Server response:" << response;
+            qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Error while logging out. Server response:" << response;
             setLoginStatus(AuthenticationManager::GenericError);
             return;
         }
@@ -165,7 +165,7 @@ void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &res
         // Maybe the clean up request payload is corrupted
         if (response.contains(sl("error"))) {
             const QJsonValue errorCode = response[sl("error")].toObject()[sl("error")];
-            qCWarning(RUQOLA_DDPAPI_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
+            qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
             // If we get here we're likely getting something wrong from the UI.
             // Need to prevent any further operation from now on.
             setLoginStatus(AuthenticationManager::GenericError);
@@ -200,13 +200,13 @@ void RESTAuthenticationManager::sendOTP(const QString &otp)
     }
 
     if (mLoginStatus == AuthenticationManager::LoginStatus::LoginOtpAuthOngoing) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another OTP authentication is going on.";
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "Another OTP authentication is going on.";
         return;
     }
 
 #if 0
     //    if ((mLoginStatus != LoginStatus::LoginOtpRequired) && (mLoginStatus != LoginStatus::LoginFailedInvalidOtp)) {
-    //        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
+    //        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
     //        return;
     //    }
     ddpClient()->invokeMethodAndRegister(METHOD_SEND_OTP,
@@ -240,7 +240,7 @@ void RESTAuthenticationManager::setLoginStatus(AuthenticationManager::LoginStatu
 bool RESTAuthenticationManager::checkGenericError() const
 {
     if (mLoginStatus == AuthenticationManager::LoginStatus::GenericError) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
     }
 
     return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
@@ -253,12 +253,12 @@ void RESTAuthenticationManager::logout()
     }
 
     if (mLoginStatus == AuthenticationManager::LoginStatus::LogoutOngoing) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
         return;
     }
 
     if (isLoggedOut()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "User is already logged out.";
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "User is already logged out.";
         return;
     }
 #if 0
