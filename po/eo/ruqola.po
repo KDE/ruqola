@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:37+0000\n"
-"PO-Revision-Date: 2024-02-25 20:07+0100\n"
+"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"PO-Revision-Date: 2024-02-27 21:53+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -1365,12 +1365,12 @@ msgstr "<strong>%1</strong> tajpas..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: core/rocketchataccount.cpp:2862
+#: core/rocketchataccount.cpp:2858
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
@@ -6200,7 +6200,7 @@ msgstr "Uzantnomo aŭ retpoŝto"
 msgid "Username or Email:"
 msgstr "Uzantnomo aŭ Retpoŝto:"
 
-#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/common/authenticationloginwidget.cpp:147
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6210,7 +6210,7 @@ msgstr ""
 "Ni sendis al vi retmesaĝon por konfirmi vian registradon.\n"
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
-#: widgets/common/authenticationloginwidget.cpp:120
+#: widgets/common/authenticationloginwidget.cpp:148
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -6415,28 +6415,28 @@ msgstr "Forigi protokolojn konservitajn sur disko"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Ĉu vi volas forigi ĉi tiun konton '%1'?"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, kde-format
 msgid "Connection"
 msgstr "Konekto"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, kde-format
 msgid "Server Url:"
 msgstr "Servilo URL:"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Neeble aliri al servilo."
 
-#: widgets/createnewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Aldoni Servilon"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
@@ -9504,6 +9504,8 @@ msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
+"Aldoni subtenon por funda ligado <a href=\"https://developer.rocket.chat/"
+"getting-started/deep-linking\">Deep Linking</a>."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Fix dark mode support."

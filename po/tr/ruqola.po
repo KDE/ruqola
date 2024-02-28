@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:37+0000\n"
-"PO-Revision-Date: 2024-02-24 22:19+0300\n"
+"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"PO-Revision-Date: 2024-02-27 13:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -31,7 +31,7 @@ msgstr "Rocket Chat İstemcisi"
 #: apps/main.cpp:50
 #, kde-format
 msgid "Copyright © 2020-2024 Ruqola authors"
-msgstr "Telif hakkı © 2020-2024 Roka yazarları"
+msgstr "Telif hakkı © 2020–2024 Roka yazarları"
 
 #: apps/main.cpp:52
 #, kde-format
@@ -132,7 +132,7 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:66
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr "Hata düzeltmeleri (derleme, ağ çökmeleri...)"
+msgstr "Hata düzeltmeleri (derleme, ağ çökmeleri…)"
 
 #: apps/main.cpp:67
 #, kde-format
@@ -1119,7 +1119,7 @@ msgstr "Çevrimdışı"
 #: core/model/statusmodel.cpp:69
 #, kde-format
 msgid "Modify Status..."
-msgstr "Durumu Değiştir..."
+msgstr "Durumu Değiştir…"
 
 #: core/model/systemmessagesmodel.cpp:31
 #, kde-format
@@ -1320,7 +1320,7 @@ msgstr "Yanıtla"
 #: core/notifications/notifierjob.cpp:42
 #, kde-format
 msgid "Reply..."
-msgstr "Yanıtla..."
+msgstr "Yanıtla…"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:70
@@ -1358,19 +1358,19 @@ msgstr "%1, Kayıt Dışı oturumunu reddetti."
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
 msgid "<strong>%1</strong> is typing..."
-msgstr "<strong>%1</strong>, yazıyor..."
+msgstr "<strong>%1</strong> yazıyor…"
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, kde-format
 msgid "<strong>%1</strong> are typing..."
-msgstr "<strong>%1</strong>; yazıyor..."
+msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2862
+#: core/rocketchataccount.cpp:2858
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -1556,7 +1556,7 @@ msgstr "Kişisel Erişim Jetonu"
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, kde-format
 msgid "Share Text..."
-msgstr "Metin Paylaş..."
+msgstr "Metin Paylaş…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
@@ -2498,7 +2498,7 @@ msgstr "Emojiyi Kaldır"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:35
 #, kde-format
 msgid "Add..."
-msgstr "Ekle..."
+msgstr "Ekle…"
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
@@ -2512,7 +2512,7 @@ msgstr "Ekle..."
 #: widgets/configuredialog/configureaccountserverwidget.ui:46
 #, kde-format
 msgid "Modify..."
-msgstr "Değiştir..."
+msgstr "Değiştir…"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
@@ -2604,7 +2604,7 @@ msgstr "Özel Kullanıcı Durumunu Kaldır"
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:39
 #, kde-format
 msgid "Search invite..."
-msgstr "Davet ara..."
+msgstr "Davet ara…"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:51
 #, kde-format
@@ -2683,7 +2683,7 @@ msgstr "Önceki ay"
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
 #, kde-format
 msgid "Search moderation message..."
-msgstr "Moderasyon iletisi ara..."
+msgstr "Moderasyon iletisi ara…"
 
 #: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
 #, kde-format
@@ -2765,7 +2765,7 @@ msgstr "Moderasyon İletilerini Göster"
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
-msgstr "Yükleniyor..."
+msgstr "Yükleniyor…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
 #: widgets/dialogs/searchmessagewidget.cpp:105
@@ -2816,7 +2816,7 @@ msgstr "Tümünü Seç"
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
 #, kde-format
 msgid "Search..."
-msgstr "Ara..."
+msgstr "Ara…"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
@@ -2859,7 +2859,7 @@ msgstr "Erişim Jetonu URL'si:"
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:35
 #, kde-format
 msgid "Search Oauth apps..."
-msgstr "Oauth uygulamaları ara..."
+msgstr "Oauth uygulamaları ara…"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:67
 #, kde-format
@@ -2889,17 +2889,17 @@ msgstr "Roller:"
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:39
 #, kde-format
 msgid "Search permissions..."
-msgstr "İzinler ara..."
+msgstr "İzinler ara…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:46
 #, kde-format
 msgid "Search roles..."
-msgstr "Roller ara..."
+msgstr "Roller ara…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:112
 #, kde-format
 msgid "Add Users In Role..."
-msgstr "Role Kullanıcılar Ekle..."
+msgstr "Role Kullanıcılar Ekle…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:229
 #, kde-format
@@ -2965,7 +2965,7 @@ msgstr "Roldeki Kullanıcılar"
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
 msgid "Search users..."
-msgstr "Kullanıcılar ara..."
+msgstr "Kullanıcılar ara…"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:52
 #, kde-format
@@ -3443,7 +3443,7 @@ msgstr "Bu kullanıcıyı kaldırmak istiyor musunuz?"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:231
 #, kde-format
 msgid "Invite..."
-msgstr "Davet et..."
+msgstr "Davet et…"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, kde-format
@@ -3769,7 +3769,7 @@ msgstr "Kullanıcılar için Öntanımlı Roller"
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
-msgstr "Yönetici Sunucu Ayarları - %1"
+msgstr "Yönetici Sunucu Ayarları — %1"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #, kde-format
@@ -6116,7 +6116,7 @@ msgstr "Takıma Taşı"
 #: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
-msgstr "Bildirimleri Yapılandır..."
+msgstr "Bildirimleri Yapılandır…"
 
 #: widgets/channellist/channellistview.cpp:202
 #, kde-format
@@ -6186,7 +6186,7 @@ msgstr "Kullanıcı adı veya e-posta"
 msgid "Username or Email:"
 msgstr "Kullanıcı adı veya e-posta:"
 
-#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/common/authenticationloginwidget.cpp:147
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6196,7 +6196,7 @@ msgstr ""
 "Kaydınızı doğrulamak için bir e-posta gönderdik.\n"
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
-#: widgets/common/authenticationloginwidget.cpp:120
+#: widgets/common/authenticationloginwidget.cpp:148
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -6401,28 +6401,28 @@ msgstr "Diskte depolanan günlükleri kaldır"
 msgid "Do you want to remove this account '%1'?"
 msgstr "'%1' hesabını kaldırmak istediğinize emin misiniz?"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, kde-format
 msgid "Connection"
 msgstr "Bağlan"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, kde-format
 msgid "Server Url:"
 msgstr "Sunucu URL'si:"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
 msgstr "Sunucuya erişim olanaksız."
 
-#: widgets/createnewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Sunucu Ekle"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
@@ -6727,7 +6727,7 @@ msgstr "Güvenliğiniz açısından, sürdürmek için geçerli parolanızı gir
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
-msgstr "Doğrudan İletiler Oluştur - %1"
+msgstr "Doğrudan İletiler Oluştur — %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
 #, kde-format
@@ -6747,7 +6747,7 @@ msgstr ""
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, kde-format
 msgid "Select users..."
-msgstr "Kullanıcılar seç..."
+msgstr "Kullanıcılar seç…"
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
 #, kde-format
@@ -6764,7 +6764,7 @@ msgstr "Konu:"
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
 #, kde-format
 msgid "Invite users..."
-msgstr "Kullanıcıları davet et..."
+msgstr "Kullanıcıları davet et…"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:41
 #, kde-format
@@ -6814,7 +6814,7 @@ msgstr "Şifreli oda:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
-msgstr "Tartışma Oluştur - %1"
+msgstr "Tartışma Oluştur — %1"
 
 #: widgets/dialogs/createnewdiscussiondialog.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:32
@@ -7029,7 +7029,7 @@ msgstr "Parolayı Sıfırla"
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
 #, kde-format
 msgid "Change Picture..."
-msgstr "Resmi Değiştir..."
+msgstr "Resmi Değiştir…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
@@ -7129,12 +7129,12 @@ msgstr "Dosyalar"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
-msgstr "İlişikleri Göster - %1"
+msgstr "İlişikleri Göster — %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, kde-format
 msgid "Search attachments..."
-msgstr "İlişikler ara..."
+msgstr "İlişikler ara…"
 
 #: widgets/dialogs/showattachmentwidget.cpp:93
 #, kde-format
@@ -7156,7 +7156,7 @@ msgstr[1] "Odada %1 ek (Toplam: %2)"
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format
 msgid "(Click here for Loading more...)"
-msgstr "(Daha fazla yüklemek için buraya tıklayın...)"
+msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
 
 #: widgets/dialogs/showimagedialog.cpp:29
 #, kde-format
@@ -7199,7 +7199,7 @@ msgstr "Görseli Kaydet"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, kde-format
 msgid "Search messages..."
-msgstr "İletiler ara..."
+msgstr "İletiler ara…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #, kde-format
@@ -7212,19 +7212,19 @@ msgstr[1] "Odada %1 ileti (Toplam: %2)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Mentions Messages - %1"
-msgstr "Değinilen İletileri Göster - %1"
+msgstr "Değinilen İletileri Göster — %1"
 
 #: widgets/dialogs/showpinnedmessagesdialog.cpp:23
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
-msgstr "Sabitlenen İletileri Göster - %1"
+msgstr "Sabitlenen İletileri Göster — %1"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
-msgstr "Yıldızlanan İletileri Göster - %1"
+msgstr "Yıldızlanan İletileri Göster — %1"
 
 #: widgets/dialogs/showthreadsdialog.cpp:23
 #, kde-format
@@ -7260,7 +7260,7 @@ msgstr "Görseli Karşıya Yükle"
 #, kde-format
 msgctxt "@title:window"
 msgid "Directory - %1"
-msgstr "Dizin - %1"
+msgstr "Dizin — %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
 #, kde-format
@@ -7270,18 +7270,18 @@ msgstr "Bu sayfayı görüntüleme yetkiniz yok."
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
 msgid "Search channels..."
-msgstr "Kanallar ara..."
+msgstr "Kanallar ara…"
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
 #, kde-format
 msgid "Search teams..."
-msgstr "Takımlar ara..."
+msgstr "Takımlar ara…"
 
 #: widgets/directory/directorywidget.cpp:68
 #, kde-format
 msgid "Open..."
-msgstr "Aç..."
+msgstr "Aç…"
 
 #: widgets/directory/directorywidget.cpp:164
 #, kde-format
@@ -7310,7 +7310,7 @@ msgstr[1] "%1 takım (Toplam: %2)"
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, kde-format
 msgid "Search rooms..."
-msgstr "Odalar ara..."
+msgstr "Odalar ara…"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:78
 #, kde-format
@@ -7328,12 +7328,12 @@ msgstr "Tartışma Aç"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Discussions - %1"
-msgstr "Tartışmaları Göster - %1"
+msgstr "Tartışmaları Göster — %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:39
 #, kde-format
 msgid "Search discussion..."
-msgstr "Tartışma ara..."
+msgstr "Tartışma ara…"
 
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
@@ -7671,7 +7671,7 @@ msgstr "Görseli İndir"
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
 #, kde-format
 msgid "Download Image..."
-msgstr "Görseli İndir..."
+msgstr "Görseli İndir…"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:81
 #, kde-format
@@ -7682,7 +7682,7 @@ msgstr "Videoyu İndir"
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
 #, kde-format
 msgid "Download Video..."
-msgstr "Videoyu İndir..."
+msgstr "Videoyu İndir…"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:85
 #, kde-format
@@ -7693,7 +7693,7 @@ msgstr "Sesi İndir"
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
 #, kde-format
 msgid "Download Sound..."
-msgstr "Sesi İndir..."
+msgstr "Sesi İndir…"
 
 #: widgets/misc/messagestylelayoutmenu.cpp:16
 #, kde-format
@@ -7731,7 +7731,7 @@ msgstr "Parolayı Sıfırla"
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
 msgid "Search Word..."
-msgstr "Sözcük Ara..."
+msgstr "Sözcük Ara…"
 
 #: widgets/misc/servermenu.cpp:20
 #, kde-format
@@ -7741,7 +7741,7 @@ msgstr "Sunucu"
 #: widgets/misc/serverscombobox.cpp:20
 #, kde-format
 msgid "Filter Account..."
-msgstr "Hesabı Süz..."
+msgstr "Hesabı Süz…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:26
 #, kde-format
@@ -7898,7 +7898,7 @@ msgstr "Aygıtı Yönet"
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, kde-format
 msgid "Search device..."
-msgstr "Aygıt ara..."
+msgstr "Aygıt ara…"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
 #, kde-format
@@ -7931,7 +7931,7 @@ msgstr "İki Adımlı Kmilik Doğrulamayı Yok Say"
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:45
 #, kde-format
 msgid "Search Personal Access Token..."
-msgstr "Kişisel Erişim Jetonu Ara..."
+msgstr "Kişisel Erişim Jetonu Ara…"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:123
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:197
@@ -7967,7 +7967,7 @@ msgstr "Kişisel Jeton Yeniden Üretildi"
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgid "Regenerate..."
-msgstr "Yeniden Üret..."
+msgstr "Yeniden Üret…"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:54
 #, kde-format
@@ -8116,7 +8116,7 @@ msgstr "Avatar URL'sini tanımla:"
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:99
 #, kde-format
 msgid "Change URL for avatar..."
-msgstr "Avatar URL'sini değiştir..."
+msgstr "Avatar URL'sini değiştir…"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:27
 #, kde-format
@@ -8274,47 +8274,47 @@ msgstr "Kaydet"
 #: widgets/room/channelactionpopupmenu.cpp:29
 #, kde-format
 msgid "Prune Messages..."
-msgstr "İletileri Buda..."
+msgstr "İletileri Buda…"
 
 #: widgets/room/channelactionpopupmenu.cpp:37
 #, kde-format
 msgid "Show Mentions..."
-msgstr "Değinmeleri Göster..."
+msgstr "Değinmeleri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:43
 #, kde-format
 msgid "Show Pinned Messages..."
-msgstr "Sabitlenmiş İletileri Göster..."
+msgstr "Sabitlenmiş İletileri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:49
 #, kde-format
 msgid "Show Starred Messages..."
-msgstr "Yıldızlı İletileri Göster..."
+msgstr "Yıldızlı İletileri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
 msgid "Show File Attachments..."
-msgstr "Dosya İlişiklerini Göster..."
+msgstr "Dosya İlişiklerini Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
-msgstr "Tartışmaları Göster..."
+msgstr "Tartışmaları Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
-msgstr "İlmekleri Göster..."
+msgstr "İlmekleri Göster…"
 
 #: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
-msgstr "Otomatik Çeviriyi Yapılandır..."
+msgstr "Otomatik Çeviriyi Yapılandır…"
 
 #: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
-msgstr "Kanala Kullanıcı Ekle..."
+msgstr "Kanala Kullanıcı Ekle…"
 
 #: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
@@ -8324,7 +8324,7 @@ msgstr "Video Sohbet"
 #: widgets/room/channelactionpopupmenu.cpp:112
 #, kde-format
 msgid "Export Messages..."
-msgstr "İletileri Dışa Aktar..."
+msgstr "İletileri Dışa Aktar…"
 
 #: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
@@ -8351,12 +8351,12 @@ msgstr "'%1' ile &Aç"
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:120
 #, kde-format
 msgid "Open &With..."
-msgstr "&Birlikte Aç..."
+msgstr "&Birlikte Aç…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:121
 #, kde-format
 msgid "Save &As..."
-msgstr "&Farklı Kaydet..."
+msgstr "&Farklı Kaydet…"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:158
 #, kde-format
@@ -8659,12 +8659,12 @@ msgstr "(İlk Okunmayana Atla)"
 #: widgets/room/roomheaderlabel.cpp:67
 #, kde-format
 msgid "(Show More Info...)"
-msgstr "(Daha Fazla Bilgi Göster...)"
+msgstr "(Daha Fazla Bilgi Göster…)"
 
 #: widgets/room/roomheaderlabel.cpp:99
 #, kde-format
 msgid "(Show Less Info...)"
-msgstr "(Daha Az Bilgi Göster...)"
+msgstr "(Daha Az Bilgi Göster…)"
 
 #: widgets/room/roomheaderwidget.cpp:63
 #, kde-format
@@ -8695,7 +8695,7 @@ msgstr "Kullanıcı Listesini Göster"
 #: widgets/room/roomheaderwidget.cpp:154 widgets/room/roomheaderwidget.cpp:156
 #, kde-format
 msgid "Search Messages..."
-msgstr "İletileri Ara..."
+msgstr "İletileri Ara…"
 
 #: widgets/room/roomheaderwidget.cpp:227
 #, kde-format
@@ -8760,7 +8760,7 @@ msgstr "Kullanıcılar"
 #: widgets/room/usersinroomflowwidget.cpp:123
 #, kde-format
 msgid "(Open External Dialog...)"
-msgstr "(Dış Pencere Aç...)"
+msgstr "(Dış Pencere Aç…)"
 
 #: widgets/room/usersinroommenu.cpp:35
 #, kde-format
@@ -8960,12 +8960,12 @@ msgstr "Yeni Bildirimleri Göster"
 #: widgets/ruqolamainwindow.cpp:397
 #, kde-format
 msgid "Add Server..."
-msgstr "Sunucu Ekle..."
+msgstr "Sunucu Ekle…"
 
 #: widgets/ruqolamainwindow.cpp:402
 #, kde-format
 msgid "Server Info..."
-msgstr "Sunucu Bilgisi..."
+msgstr "Sunucu Bilgisi…"
 
 #: widgets/ruqolamainwindow.cpp:406
 #, kde-format
@@ -8980,22 +8980,22 @@ msgstr "Sonraki Okunmayan Kanala Atla"
 #: widgets/ruqolamainwindow.cpp:415
 #, kde-format
 msgid "Create New Channel..."
-msgstr "Yeni Kanal Oluştur..."
+msgstr "Yeni Kanal Oluştur…"
 
 #: widgets/ruqolamainwindow.cpp:419
 #, kde-format
 msgid "Create Direct Messages..."
-msgstr "Doğrudan İleti Oluştur..."
+msgstr "Doğrudan İleti Oluştur…"
 
 #: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgid "Create Discussion..."
-msgstr "Tartışma Oluştur..."
+msgstr "Tartışma Oluştur…"
 
 #: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgid "Create Team..."
-msgstr "Takım Oluştur..."
+msgstr "Takım Oluştur…"
 
 #: widgets/ruqolamainwindow.cpp:435
 #, kde-format
@@ -9030,28 +9030,28 @@ msgstr "Tüm Kanalları Okundu Olarak İmle"
 #: widgets/ruqolamainwindow.cpp:483
 #, kde-format
 msgid "Register a New User..."
-msgstr "Yeni Bir Kullanıcı Olarak Kaydol..."
+msgstr "Yeni Bir Kullanıcı Olarak Kaydol…"
 
 #: widgets/ruqolamainwindow.cpp:487
 #, kde-format
 msgid "My Account..."
-msgstr "Hesabım..."
+msgstr "Hesabım…"
 
 #: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgid "Administrator..."
-msgstr "Yönetici..."
+msgstr "Yönetici…"
 
 #: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgid "Server Settings..."
-msgstr "Sunucu Ayarları..."
+msgstr "Sunucu Ayarları…"
 
 #: widgets/ruqolamainwindow.cpp:503
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
-msgstr "Dizin..."
+msgstr "Dizin…"
 
 #: widgets/ruqolamainwindow.cpp:524
 #, kde-format
@@ -9237,7 +9237,7 @@ msgstr "Takım Kanalları"
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
 #, kde-format
 msgid "Search room..."
-msgstr "Oda ara..."
+msgstr "Oda ara…"
 
 #: widgets/teams/teamchannelswidget.cpp:113
 #, kde-format
@@ -9509,6 +9509,8 @@ msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
+"<a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Derin "
+"Bağlantılama</a> desteği eklendi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Fix dark mode support."

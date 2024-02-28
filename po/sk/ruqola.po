@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"POT-Creation-Date: 2024-02-28 00:37+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1452,13 +1452,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2857
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2862
+#: core/rocketchataccount.cpp:2858
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6370,7 +6370,7 @@ msgstr "Meno používateľa: %1"
 msgid "Username or Email:"
 msgstr "Meno používateľa: %1"
 
-#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/common/authenticationloginwidget.cpp:147
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6378,7 +6378,7 @@ msgid ""
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/common/authenticationloginwidget.cpp:120
+#: widgets/common/authenticationloginwidget.cpp:148
 #: widgets/ruqolamainwindow.cpp:918
 #, fuzzy, kde-format
 #| msgid "Enter Username"
@@ -6596,31 +6596,31 @@ msgstr "Odstrániť účet"
 msgid "Do you want to remove this account '%1'?"
 msgstr ""
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Connection"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server Url:"
 msgstr "URL serveru:"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
 #, kde-format
 msgid "Impossible to access to server."
 msgstr ""
 
-#: widgets/createnewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "URL serveru"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:59
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@title:window"

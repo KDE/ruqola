@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"POT-Creation-Date: 2024-02-28 00:37+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1407,12 +1407,12 @@ msgstr "O <strong>%1</strong> está a escrever..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2857
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: core/rocketchataccount.cpp:2862
+#: core/rocketchataccount.cpp:2858
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
@@ -6307,7 +6307,7 @@ msgstr "Utilizador ou e-mail"
 msgid "Username or Email:"
 msgstr "Utilizador ou E-mail:"
 
-#: widgets/common/authenticationloginwidget.cpp:119
+#: widgets/common/authenticationloginwidget.cpp:147
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6317,7 +6317,7 @@ msgstr ""
 "Enviámos-lhe um e-mail para confirmar o seu registo.\n"
 "Se não receber em breve um e-mail, por favor regresse e tente de novo."
 
-#: widgets/common/authenticationloginwidget.cpp:120
+#: widgets/common/authenticationloginwidget.cpp:148
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -6525,31 +6525,31 @@ msgstr "Remover os registos guardados no disco"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Deseja remover esta conta '%1'?"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:25
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Connecting"
 msgid "Connection"
 msgstr "A ligar"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:36
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Server URL:"
 msgid "Server Url:"
 msgstr "URL do servidor:"
 
-#: widgets/createnewserver/checknewserverurlwidget.cpp:121
+#: widgets/configurenewserver/checknewserverurlwidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Impossible to copy file"
 msgid "Impossible to access to server."
 msgstr "Não é possível copiar o ficheiro"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:27
+#: widgets/configurenewserver/createnewserverdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Adicionar um Servidor"
 
-#: widgets/createnewserver/createnewserverdialog.cpp:59
+#: widgets/configurenewserver/createnewserverdialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
