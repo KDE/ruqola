@@ -161,7 +161,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelAction->setAutoRaise(true);
     mChannelAction->setObjectName(QStringLiteral("mChannelAction"));
     mChannelAction->setPopupMode(QToolButton::InstantPopup);
-    mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
+    mChannelAction->setIcon(QIcon::fromTheme(QStringLiteral("irc-operator")));
     buttonLayout->addWidget(mChannelAction, 0, Qt::AlignTop);
 
     mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelAction);
