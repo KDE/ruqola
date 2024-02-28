@@ -25,7 +25,6 @@ void PersonalAccessTokenAuthenticationInterface::login()
         // https://developer.rocket.chat/reference/api/rest-api#access-tokens
         mAccount->restApi()->setAuthToken(mAccount->settings()->authToken());
         mAccount->restApi()->setUserId(mAccount->settings()->userId());
-        // TODO login restapi
 
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
         // TODO login ddpclient
@@ -33,6 +32,7 @@ void PersonalAccessTokenAuthenticationInterface::login()
         mAccount->ddp()->authenticationManager()->login();
         return;
     }
+    qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " authToken is empty !!!!!. Can't connect";
 }
 
 PluginAuthenticationConfigureWidget *PersonalAccessTokenAuthenticationInterface::configureWidget(QWidget *parent)
