@@ -25,6 +25,9 @@ public:
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
+Q_SIGNALS:
+    void settingsIsValid(bool state);
+
 private:
     QStringList mExistingAccountNames;
     AccountManager::AccountManagerInfo mAccountManagerInfo;

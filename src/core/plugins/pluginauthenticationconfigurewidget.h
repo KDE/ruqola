@@ -22,7 +22,7 @@ public:
     void setExistingAccountNames(const QStringList &list);
 
 Q_SIGNALS:
-    void enableOkButton(bool enabled);
+    void settingsIsValid(bool enabled);
 
 protected:
     QStringList mExistingAccountNames;

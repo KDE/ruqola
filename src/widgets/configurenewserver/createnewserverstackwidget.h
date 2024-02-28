@@ -25,7 +25,7 @@ public:
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
 
 Q_SIGNALS:
-    void updateOkButton(bool state);
+    void settingsIsValid(bool state);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);

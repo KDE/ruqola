@@ -16,12 +16,14 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordLineEditWidget : public QWidget
 public:
     explicit PasswordLineEditWidget(QWidget *parent = nullptr);
     ~PasswordLineEditWidget() override;
-    [[nodiscard]] KPasswordLineEdit *passwordLineEdit() const;
+    void setPassword(const QString &password);
+    [[nodiscard]] QString password() const;
 
     void setAllowPasswordReset(bool allowPassword);
 
 Q_SIGNALS:
     void resetPasswordRequested(const QString &email);
+    void returnPressed();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordButton();

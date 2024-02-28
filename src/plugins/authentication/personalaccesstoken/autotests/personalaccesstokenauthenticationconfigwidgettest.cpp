@@ -50,7 +50,7 @@ void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldEmitSignalEnableOk
     auto mServerNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mServerNameLineEdit"));
     auto mAccountNameLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mAccountNameLineEdit"));
 
-    QSignalSpy spyEnableOkButton(&w, &PersonalAccessTokenAuthenticationConfigWidget::enableOkButton);
+    QSignalSpy spyEnableOkButton(&w, &PersonalAccessTokenAuthenticationConfigWidget::settingsIsValid);
     mUserLineEdit->setText(QStringLiteral("foo"));
     QCOMPARE(spyEnableOkButton.count(), 1);
     QVERIFY(!spyEnableOkButton.at(0).at(0).toBool());

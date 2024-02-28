@@ -31,7 +31,7 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
         info.canRegisterAccount = serverInfo.canRegisterAccount;
         setAccountInfo(std::move(info));
     });
-    connect(mCreateNewServerWidget, &CreateNewServerWidget::updateOkButton, this, &CreateNewServerStackWidget::updateOkButton);
+    connect(mCreateNewServerWidget, &CreateNewServerWidget::settingsIsValid, this, &CreateNewServerStackWidget::settingsIsValid);
     connect(mCreateNewServerWidget, &CreateNewServerWidget::authentication, this, &CreateNewServerStackWidget::addAuthenticationConfigureWidget);
 }
 
@@ -52,7 +52,10 @@ void CreateNewServerStackWidget::addAuthenticationConfigureWidget(Authentication
         mPluginAuthenticationConfigureWidget = configureWidget;
         mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
         mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
-        connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::enableOkButton, this, &CreateNewServerStackWidget::updateOkButton);
+        connect(mPluginAuthenticationConfigureWidget,
+                &PluginAuthenticationConfigureWidget::settingsIsValid,
+                this,
+                &CreateNewServerStackWidget::settingsIsValid);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
     } else {

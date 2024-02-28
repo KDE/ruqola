@@ -38,13 +38,19 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     mainLayout->addWidget(mResetPasswordButton);
     KLineEditEventHandler::catchReturnKey(mPasswordLineEdit->lineEdit());
     connect(mResetPasswordButton, &QPushButton::clicked, this, &PasswordLineEditWidget::slotResetPasswordButton);
+    connect(mPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, &PasswordLineEditWidget::returnPressed);
 }
 
 PasswordLineEditWidget::~PasswordLineEditWidget() = default;
 
-KPasswordLineEdit *PasswordLineEditWidget::passwordLineEdit() const
+void PasswordLineEditWidget::setPassword(const QString &password)
 {
-    return mPasswordLineEdit;
+    mPasswordLineEdit->setPassword(password);
+}
+
+QString PasswordLineEditWidget::password() const
+{
+    return mPasswordLineEdit->password();
 }
 
 void PasswordLineEditWidget::setAllowPasswordReset(bool allowPassword)

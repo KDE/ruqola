@@ -66,8 +66,8 @@ void PersonalAccessTokenAuthenticationConfigWidget::setAccountInfo(const Account
 void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
 {
     const QString accountName = mAccountNameLineEdit->text().trimmed();
-    Q_EMIT enableOkButton(!accountName.isEmpty() && !mExistingAccountNames.contains(accountName) && !mServerNameLineEdit->text().trimmed().isEmpty()
-                          && !mUserLineEdit->text().trimmed().isEmpty() && !mPersonalAccessTokenLineEdit->text().trimmed().isEmpty());
+    Q_EMIT settingsIsValid(!accountName.isEmpty() && !mExistingAccountNames.contains(accountName) && !mServerNameLineEdit->text().trimmed().isEmpty()
+                           && !mUserLineEdit->text().trimmed().isEmpty() && !mPersonalAccessTokenLineEdit->text().trimmed().isEmpty());
 }
 
 #include "moc_personalaccesstokenauthenticationconfigwidget.cpp"

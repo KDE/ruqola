@@ -34,12 +34,12 @@ public:
     void setAuthenticationLoginType(AuthenticationLoginType type);
 
 Q_SIGNALS:
-    void updateOkButton(bool enabled);
+    void settingsIsValid(bool enabled);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterUserDone();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeOkButtonEnabled();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginSettingsChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterAccount();
     QStringList mNames;
     AccountManager::AccountManagerInfo mAccountInfo;

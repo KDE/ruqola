@@ -11,6 +11,7 @@
 #include "plugins/pluginauthenticationinterface.h"
 #include "ruqolawidgets_debug.h"
 
+// TODO look at to remove duplicate code with CreateNewServerStackWidget ?
 RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     : QStackedWidget(parent)
     , mCreateNewServerWidget(new CreateNewServerWidget(this))
@@ -36,8 +37,7 @@ void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationMana
         mPluginAuthenticationConfigureWidget = configureWidget;
         mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
         mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
-        // TODO connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::enableOkButton, this,
-        // &CreateNewServerStackWidget::updateOkButton);
+        connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::settingsIsValid, this, &RuqolaLoginStackWidget::settingsIsValid);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
     } else {

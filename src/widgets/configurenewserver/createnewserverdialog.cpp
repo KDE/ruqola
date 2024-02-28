@@ -39,7 +39,7 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
     readConfig();
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setEnabled(false);
-    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::updateOkButton, this, [this](bool state) {
+    connect(mCreateNewServerStackWidget, &CreateNewServerStackWidget::settingsIsValid, this, [this](bool state) {
         mOkButton->setEnabled(state);
     });
 }

@@ -51,9 +51,9 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     mainLayout->addRow(QString(), mRegisterAccount);
     connect(mRegisterAccount, &QPushButton::clicked, this, &AuthenticationLoginWidget::slotRegisterAccount);
 
-    connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
-    connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
-    connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotChangeOkButtonEnabled);
+    connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
+    connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
+    connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &AuthenticationLoginWidget::slotResetPasswordRequested);
 }
 
@@ -89,11 +89,11 @@ void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
     });
 }
 
-void AuthenticationLoginWidget::slotChangeOkButtonEnabled()
+void AuthenticationLoginWidget::slotLoginSettingsChanged()
 {
     const QString accountName = mAccountName->text().trimmed();
-    Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerUrl->text().trimmed().isEmpty()
-                          && !mUserName->text().trimmed().isEmpty());
+    Q_EMIT settingsIsValid(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerUrl->text().trimmed().isEmpty()
+                           && !mUserName->text().trimmed().isEmpty());
 }
 
 AccountManager::AccountManagerInfo AuthenticationLoginWidget::accountInfo()
@@ -108,7 +108,7 @@ AccountManager::AccountManagerInfo AuthenticationLoginWidget::accountInfo()
         mAccountInfo.serverUrl.chop(1);
     }
     mAccountInfo.userName = mUserName->text().trimmed();
-    mAccountInfo.password = mPasswordLineEditWidget->passwordLineEdit()->password();
+    mAccountInfo.password = mPasswordLineEditWidget->password();
     mAccountInfo.authMethodType = AuthenticationManager::AuthMethodType::Password;
     return mAccountInfo;
 }
@@ -119,7 +119,7 @@ void AuthenticationLoginWidget::setAccountInfo(const AccountManager::AccountMana
     mAccountName->setText(info.displayName.isEmpty() ? info.accountName : info.displayName);
     mUserName->setText(info.userName);
     mServerUrl->setText(info.serverUrl);
-    mPasswordLineEditWidget->passwordLineEdit()->setPassword(info.password);
+    mPasswordLineEditWidget->setPassword(info.password);
     mPasswordLineEditWidget->setAllowPasswordReset(info.canResetPassword);
     mRegisterAccount->setVisible(info.canRegisterAccount);
 }

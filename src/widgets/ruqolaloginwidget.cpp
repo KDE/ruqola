@@ -28,13 +28,12 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
+
     , mLoginButton(new QPushButton(i18n("Login"), this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new QLabel(this))
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
     , mTwoFactorAuthenticationWidget(new QWidget(this))
-    , mAuthenticationAccountWidget(new QWidget(this))
-    , mAuthenticationWidget(new AuthenticationOauthWidget(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -51,25 +50,9 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addRow(i18n("Username or Email:"), mUserName);
     mUserName->setPlaceholderText(i18n("Username or email"));
 
-    // Type of account
-    mAuthenticationAccountWidget->setObjectName(QStringLiteral("mAuthenticationAccountWidget"));
-
-    auto authenticationAccountLayout = new QVBoxLayout(mAuthenticationAccountWidget);
-    authenticationAccountLayout->setObjectName(QStringLiteral("authenticationAccountLayout"));
-
-    auto authenticationAccountLabel = new QLabel(i18n("Authentication Method"), this);
-    authenticationAccountLabel->setTextFormat(Qt::PlainText);
-    authenticationAccountLabel->setObjectName(QStringLiteral("authenticationAccountLabel"));
-    authenticationAccountLayout->addWidget(authenticationAccountLabel);
-
-    mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
-    authenticationAccountLayout->addWidget(mAuthenticationWidget);
-    mainLayout->addWidget(mAuthenticationAccountWidget);
-    mAuthenticationAccountWidget->setVisible(false);
-
     // Password
     mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEditWidget"));
-    connect(mPasswordLineEditWidget->passwordLineEdit()->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
+    connect(mPasswordLineEditWidget, &PasswordLineEditWidget::returnPressed, this, &RuqolaLoginWidget::slotLogin);
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
 
@@ -131,12 +114,12 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
 
     mUserName->setText(mRocketChatAccount->userName());
     disconnect(mUpdatePasswordConnection);
-    mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
+    mPasswordLineEditWidget->setPassword(mRocketChatAccount->password());
     qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " RuqolaLoginWidget::setRocketChatAccount: password is empty ? " << mRocketChatAccount->password().isEmpty();
     mUpdatePasswordConnection = connect(mRocketChatAccount, &RocketChatAccount::passwordChanged, mPasswordLineEditWidget, [this]() {
         qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " RuqolaLoginWidget::setRocketChatAccount: password has changed => password is empty ? "
                                              << mRocketChatAccount->password().isEmpty();
-        mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
+        mPasswordLineEditWidget->setPassword(mRocketChatAccount->password());
     });
 
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
@@ -148,7 +131,7 @@ void RuqolaLoginWidget::slotLogin()
     mRocketChatAccount->setAccountName(mAccountName->isEnabled() ? mAccountName->text() : mRocketChatAccount->accountName());
     mRocketChatAccount->setServerUrl(mServerUrl->text());
     mRocketChatAccount->setUserName(mUserName->text());
-    mRocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
+    mRocketChatAccount->setPassword(mPasswordLineEditWidget->password());
     if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
     } else {

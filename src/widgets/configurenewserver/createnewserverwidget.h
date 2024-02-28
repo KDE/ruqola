@@ -25,7 +25,7 @@ public:
     void setExistingAccountNames(const QStringList &lst);
 
 Q_SIGNALS:
-    void updateOkButton(bool state);
+    void settingsIsValid(bool state);
     void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
