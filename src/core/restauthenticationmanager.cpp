@@ -31,6 +31,21 @@ void RESTAuthenticationManager::setAuthToken(const QString &authToken)
     mAuthToken = authToken;
 }
 
+QString RESTAuthenticationManager::userId() const
+{
+    return mUserId;
+}
+
+QString RESTAuthenticationManager::authToken() const
+{
+    return mAuthToken;
+}
+
+qint64 RESTAuthenticationManager::tokenExpires() const
+{
+    return mTokenExpires;
+}
+
 void RESTAuthenticationManager::login()
 {
     if (mAuthToken.isNull()) {
@@ -139,6 +154,15 @@ void RESTAuthenticationManager::setLoginStatus(AuthenticationManager::LoginStatu
         mLoginStatus = status;
         Q_EMIT loginStatusChanged();
     }
+}
+
+bool RESTAuthenticationManager::checkGenericError() const
+{
+    if (mLoginStatus == AuthenticationManager::LoginStatus::GenericError) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
+    }
+
+    return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
 
 void RESTAuthenticationManager::logout()

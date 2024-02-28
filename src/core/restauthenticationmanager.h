@@ -47,6 +47,10 @@ public:
     [[nodiscard]] bool isLoggedIn() const;
     [[nodiscard]] bool isLoggedOut() const;
 
+    [[nodiscard]] QString userId() const;
+    [[nodiscard]] QString authToken() const;
+    [[nodiscard]] qint64 tokenExpires() const;
+
 Q_SIGNALS:
     void loginStatusChanged();
 
@@ -54,7 +58,10 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
     LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(const QJsonObject &replyObject);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
     QString mAuthToken;
+    QString mUserId;
+    qint64 mTokenExpires;
     RocketChatRestApi::Connection *const mRestApiConnection;
     AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
     // Used when sending OTP
