@@ -17,19 +17,18 @@ class Connection;
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
 {
     Q_OBJECT
-    enum class Method {
-        Login,
-        SendOtp,
-        Logout,
-        LogoutCleanUp,
-    };
-
     static QString METHOD_LOGIN;
     static QString METHOD_SEND_OTP;
     static QString METHOD_LOGOUT;
     static QString METHOD_LOGOUT_CLEAN_UP;
 
 public:
+    enum class Method {
+        Login,
+        SendOtp,
+        Logout,
+        LogoutCleanUp,
+    };
     explicit RESTAuthenticationManager(RocketChatRestApi::Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
 
@@ -51,16 +50,17 @@ public:
     [[nodiscard]] QString userId() const;
     [[nodiscard]] QString authToken() const;
     [[nodiscard]] qint64 tokenExpires() const;
+    void processMethodResponseImpl(const QJsonObject &replyObject, RESTAuthenticationManager::Method method);
 
 Q_SIGNALS:
     void loginStatusChanged();
 
 protected:
-    virtual void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
+    virtual void callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
-    LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(const QJsonObject &replyObject, Method method);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
     QString mAuthToken;

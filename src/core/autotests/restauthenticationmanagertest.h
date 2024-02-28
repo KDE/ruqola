@@ -14,7 +14,7 @@ class RESTAuthenticationManagerTest : public QObject
 public:
     explicit RESTAuthenticationManagerTest(QObject *parent = nullptr);
     ~RESTAuthenticationManagerTest() override = default;
-#if 0
+
 private Q_SLOTS:
     void testLoginSuccess();
     void testLoginInvalidLoginInfo();
@@ -25,5 +25,4 @@ private Q_SLOTS:
     void testLoginBlockForIpError();
     void testLoginBlockedForUser();
     void testLoginAppUserAllowToLogin();
-#endif
 };

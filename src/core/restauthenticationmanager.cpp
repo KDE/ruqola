@@ -17,6 +17,7 @@
 QString RESTAuthenticationManager::METHOD_LOGIN = sl("login");
 QString RESTAuthenticationManager::METHOD_SEND_OTP = sl("login");
 QString RESTAuthenticationManager::METHOD_LOGOUT = sl("logout");
+// FIXME: using METHOD_LOGOUT_CLEAN_UP
 QString RESTAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 
 RESTAuthenticationManager::RESTAuthenticationManager(RocketChatRestApi::Connection *restApiConnection, QObject *parent)
@@ -82,7 +83,7 @@ QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method,
     return json;
 }
 
-void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName)
+void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName)
 {
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
@@ -99,7 +100,29 @@ void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenti
     if (!job->start()) {
         qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Impossible to start MethodCallJob::login job";
     }
+}
+
+void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName)
+{
+    if (checkGenericError()) {
+        return;
+    }
+
+    if (mLoginStatus == AuthenticationManager::LoginOngoing) {
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "A login operation is already ongoing, dropping request.";
+        return;
+    }
+
+    if (mLoginStatus == AuthenticationManager::LoggedIn) {
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "User is already logged in on this server, ignoring.";
+        return;
+    }
+
+    // TODO: sanity checks on params
+
     mLastLoginPayload = params[0].toObject();
+    callLoginImpl(params, method, methodName);
+    setLoginStatus(AuthenticationManager::LoginStatus::LoginOngoing);
 }
 
 void RESTAuthenticationManager::loginImpl(const QJsonArray &params)
@@ -221,7 +244,7 @@ void RESTAuthenticationManager::sendOTP(const QString &otpCode)
     //        return;
     //    }
 
-    loginImpl(DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
+    callLoginImpl(DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 }
 
@@ -269,7 +292,8 @@ void RESTAuthenticationManager::logout()
         return;
     }
     const QString params = sl("[]");
-    loginImpl(Utils::strToJsonArray(params), Method::SendOtp, METHOD_LOGOUT);
+
+    callLoginImpl(Utils::strToJsonArray(params), Method::SendOtp, METHOD_LOGOUT);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 #undef sl
