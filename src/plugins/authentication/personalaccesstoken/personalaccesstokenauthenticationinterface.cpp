@@ -33,8 +33,6 @@ void PersonalAccessTokenAuthenticationInterface::login()
         mAccount->ddp()->authenticationManager()->login();
         return;
     }
-
-    // TODO
 }
 
 PluginAuthenticationConfigureWidget *PersonalAccessTokenAuthenticationInterface::configureWidget(QWidget *parent)
