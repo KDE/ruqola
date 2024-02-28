@@ -86,7 +86,7 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int y = 0;
     FileLayout layout;
-    layout.title = msgAttach.title();
+    layout.title = msgAttach.attachmentGeneratedTitle();
     layout.description = msgAttach.description();
     layout.link = msgAttach.link();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);

@@ -137,7 +137,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
 {
     Q_UNUSED(attachmentsHeight)
     TextLayout layout;
-    layout.title = msgAttach.title();
+    layout.title = msgAttach.attachmentGeneratedTitle();
     if (!layout.title.isEmpty()) {
         layout.textFont = option.font;
         layout.textFont.setBold(true);

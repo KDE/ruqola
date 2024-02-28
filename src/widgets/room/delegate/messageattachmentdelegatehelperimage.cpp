@@ -176,7 +176,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     // Laurent keep Ruqola::self()->rocketChatAccount() for autotest
     const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview())
                                                     : Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
-    layout.title = msgAttach.title();
+    layout.title = msgAttach.attachmentGeneratedTitle();
     layout.hasDescription = msgAttach.hasDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
 

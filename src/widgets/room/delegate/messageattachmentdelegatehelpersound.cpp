@@ -117,7 +117,7 @@ MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAt
 {
     SoundLayout layout;
     // or we could do layout.attachment = msgAttach; if we need many fields from it
-    layout.title = msgAttach.title();
+    layout.title = msgAttach.attachmentGeneratedTitle();
     layout.hasDescription = msgAttach.hasDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.descriptionSize = documentDescriptionForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
