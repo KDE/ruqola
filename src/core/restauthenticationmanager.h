@@ -42,6 +42,7 @@ public:
 
     void setAuthToken(const QString &authToken);
 
+    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
     void setLoginStatus(AuthenticationManager::LoginStatus status);
 
     [[nodiscard]] bool isLoggedIn() const;

@@ -32,6 +32,11 @@ void RESTAuthenticationManager::setAuthToken(const QString &authToken)
     mAuthToken = authToken;
 }
 
+AuthenticationManager::LoginStatus RESTAuthenticationManager::loginStatus() const
+{
+    return mLoginStatus;
+}
+
 QString RESTAuthenticationManager::userId() const
 {
     return mUserId;
