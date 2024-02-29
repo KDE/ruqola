@@ -24,28 +24,28 @@ void VideoConferenceInfosTest::shouldHaveDefaultValues()
     QCOMPARE(w.videoConferenceInfosCount(), 0);
 }
 
-void VideoConferenceInfosTest::shouldLoadDeviceInfos_data()
+void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<int>("deviceInfosCount");
+    QTest::addColumn<int>("videoConferenceInfosCount");
     QTest::addColumn<int>("total");
     QTest::addColumn<int>("offset");
 
-    QTest::addRow("empty") << QStringLiteral("deviceinfos-empty") << 0 << 0 << 0;
-    QTest::addRow("1-element") << QStringLiteral("deviceinfos-1-element") << 50 << 2 << 0;
+    QTest::addRow("empty") << QStringLiteral("videoconferenceinfos-empty") << 0 << 0 << 0;
+    QTest::addRow("1-element") << QStringLiteral("videoconferenceinfos-1-element") << 50 << 2 << 0;
 }
 
-void VideoConferenceInfosTest::shouldLoadDeviceInfos()
+void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos()
 {
     QFETCH(QString, name);
-    QFETCH(int, deviceInfosCount);
+    QFETCH(int, videoConferenceInfosCount);
     QFETCH(int, total);
     QFETCH(int, offset);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/videoconferenceinfos/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     VideoConferenceInfos m;
     m.parseVideoConferenceInfos(obj);
-    QCOMPARE(m.videoConferenceInfosCount(), deviceInfosCount);
+    QCOMPARE(m.videoConferenceInfosCount(), videoConferenceInfosCount);
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }
