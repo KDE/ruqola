@@ -103,8 +103,6 @@ public:
     static QJsonObject serialize(const User &user);
     static User deserialize(const QJsonObject &o);
 
-    void parseUserPresence(const QJsonArray &user);
-
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;

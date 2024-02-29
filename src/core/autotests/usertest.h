@@ -33,7 +33,4 @@ private Q_SLOTS:
 
     void shouldParseRestApiJson_data();
     void shouldParseRestApiJson();
-
-    void shouldParseUserStatus_data();
-    void shouldParseUserStatus();
 };

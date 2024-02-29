@@ -1519,20 +1519,6 @@ void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
     mCustomSoundManager->deleteCustomSounds(replyArray);
 }
 
-void RocketChatAccount::changeUserPresences(const QJsonArray &contents)
-{
-    const auto count{contents.count()};
-    for (auto i = 0; i < count; ++i) {
-        const QJsonArray array = contents.at(i).toArray();
-        User user;
-        user.parseUserPresence(array);
-        user.setUserId(userId());
-        if (user.isValid()) {
-            userStatusChanged(user);
-        }
-    }
-}
-
 void RocketChatAccount::updateRoles(const QJsonArray &contents)
 {
     mRolesManager.updateRoles(contents);
