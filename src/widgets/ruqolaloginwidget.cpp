@@ -81,11 +81,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
 RuqolaLoginWidget::~RuqolaLoginWidget() = default;
 
-void RuqolaLoginWidget::slotUpdateLoginButton()
-{
-    // TODO mLoginButton->setEnabled(!mAccountName->text().isEmpty());
-}
-
 void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccount)
 {
     // TODO check authentication method
@@ -135,8 +130,8 @@ void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
     mServerUrl->setEnabled(enabled);
     mUserName->setEnabled(enabled);
     mPasswordLineEditWidget->setEnabled(enabled);
-    mLoginButton->setEnabled(enabled && !mAccountName->text().isEmpty());
 #endif
+    mLoginButton->setEnabled(enabled);
 }
 
 void RuqolaLoginWidget::setLoginStatus(AuthenticationManager::LoginStatus status)

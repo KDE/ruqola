@@ -30,7 +30,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void changeWidgetStatus(bool enabled);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLogin();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateLoginButton();
 
     RuqolaLoginStackWidget *const mRuqolaLoginStackWidget;
     QMetaObject::Connection mUpdatePasswordConnection;
