@@ -30,14 +30,14 @@ void VideoConferenceListJobTest::shouldGenerateRequest()
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.info?roomId")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.list?roomId")));
     }
     {
         const QString roomId = QStringLiteral("foo");
         job.setRoomId(roomId);
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.info?roomId=%1").arg(roomId)));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.list?roomId=%1").arg(roomId)));
     }
 }
 
