@@ -9,6 +9,7 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 
+#include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
@@ -43,7 +44,7 @@ bool GetAvatarJob::start()
     return true;
 }
 
-void GetAvatarJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &)
+void GetAvatarJob::onGetRequestResponse(const QString &, const QJsonDocument &)
 {
     const QString userId = mUserInfo.userIdentifier;
     if (!mReply->error()) {

@@ -28,16 +28,17 @@ bool MethodCallJob::start()
     }
     addStartRestApiInfo("MethodCallJob::start");
     submitPostRequest(json());
-
     return true;
 }
 
 void MethodCallJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
+    // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QLatin1String("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("MethodCallJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT methodCallDone(replyObject[QLatin1String("message")].toObject());
+        const QJsonObject obj = QJsonDocument::fromJson(replyObject[QLatin1String("message")].toString().toUtf8()).object();
+        Q_EMIT methodCallDone(obj);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("MethodCallJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -85,7 +86,8 @@ QNetworkRequest MethodCallJob::request() const
 QJsonDocument MethodCallJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("message")] = mMethodCallJobInfo.messageObj;
+    // We need to convert to string
+    jsonObj[QLatin1String("message")] = QString::fromUtf8(QJsonDocument(mMethodCallJobInfo.messageObj).toJson());
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
