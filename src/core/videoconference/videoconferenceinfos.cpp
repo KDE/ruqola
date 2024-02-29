@@ -107,18 +107,18 @@ void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &video
             m.parse(discussionObject);
             mVideoConferenceInfosList.append(std::move(m));
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing video conference infos" << current;
         }
     }
 }
 
 void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
-    const int VideoConferenceInfosCount = videoConferenceInfosObj[QLatin1String("count")].toInt();
+    const int videoConferenceInfosCount = videoConferenceInfosObj[QLatin1String("count")].toInt();
     mOffset = videoConferenceInfosObj[QLatin1String("offset")].toInt();
     mTotal = videoConferenceInfosObj[QLatin1String("total")].toInt();
     parseVideoConferenceInfosObj(videoConferenceInfosObj);
-    mVideoConferenceInfosCount += VideoConferenceInfosCount;
+    mVideoConferenceInfosCount += videoConferenceInfosCount;
 }
 
 VideoConferenceInfo VideoConferenceInfos::takeAt(int index)
