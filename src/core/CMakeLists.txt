@@ -423,6 +423,8 @@ target_sources(libruqolacore PRIVATE
     videoconference/videoconference.cpp
     videoconference/videoconferenceinfo.h
     videoconference/videoconferenceinfo.cpp
+    videoconference/videoconferenceinfos.cpp
+    videoconference/videoconferenceinfos.h
     videoconference/updatevideoconferencemessagejob.h
     videoconference/updatevideoconferencemessagejob.cpp
     videoconference/videoconferencemessageinfomanager.h
