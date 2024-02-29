@@ -5,16 +5,15 @@
 */
 
 #include "ruqolaloginwidgettest.h"
-#include "misc/passwordlineeditwidget.h"
+#include "ruqolaloginstackwidget.h"
 #include "ruqolaloginwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
-#include <QFormLayout>
 #include <QLabel>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(RuqolaLoginWidgetTest)
 RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
@@ -26,27 +25,11 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaLoginWidget w;
 
-    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
-    QVERIFY(mAccountName);
-    QVERIFY(mAccountName->text().isEmpty());
-
-    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
-    QVERIFY(mServerUrl);
-    QVERIFY(mServerUrl->text().isEmpty());
-
-    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
-    QVERIFY(mUserName);
-    QVERIFY(mUserName->text().isEmpty());
-
-    auto mPasswordLineEditWidget = w.findChild<PasswordLineEditWidget *>(QStringLiteral("mPasswordLineEditWidget"));
-    QVERIFY(mPasswordLineEditWidget);
-
-    //    auto mLdapCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mLdapCheckBox"));
-    //    QVERIFY(mLdapCheckBox);
-    //    QVERIFY(!mLdapCheckBox->isChecked());
+    auto mRuqolaLoginStackWidget = w.findChild<RuqolaLoginStackWidget *>(QStringLiteral("mRuqolaLoginStackWidget"));
+    QVERIFY(mRuqolaLoginStackWidget);
 
     auto mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);
