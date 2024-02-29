@@ -11,6 +11,7 @@
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola_password_widgets_debug.h"
+#include "ruqolaloginstackwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -24,37 +25,18 @@
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
-    , mAccountName(new QLineEdit(this))
-    , mServerUrl(new QLineEdit(this))
-    , mUserName(new QLineEdit(this))
-    , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
-
+    , mRuqolaLoginStackWidget(new RuqolaLoginStackWidget(this))
     , mLoginButton(new QPushButton(i18n("Login"), this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new QLabel(this))
     , mTwoFactorAuthenticationPasswordLineEdit(new TwoAuthenticationPasswordWidget(this))
     , mTwoFactorAuthenticationWidget(new QWidget(this))
 {
-    auto mainLayout = new QFormLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
-    mainLayout->addRow(i18n("Server URL:"), mServerUrl);
-
-    mAccountName->setObjectName(QStringLiteral("mAccountName"));
-    mainLayout->addRow(i18n("Account Name:"), mAccountName);
-    mAccountName->setPlaceholderText(i18n("Account name"));
-    connect(mAccountName, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotUpdateLoginButton);
-
-    mUserName->setObjectName(QStringLiteral("mUserName"));
-    mainLayout->addRow(i18n("Username or Email:"), mUserName);
-    mUserName->setPlaceholderText(i18n("Username or email"));
-
-    // Password
-    mPasswordLineEditWidget->setObjectName(QStringLiteral("mPasswordLineEditWidget"));
-    connect(mPasswordLineEditWidget, &PasswordLineEditWidget::returnPressed, this, &RuqolaLoginWidget::slotLogin);
-    mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
-    connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
+    mRuqolaLoginStackWidget->setObjectName(QStringLiteral("mRuqolaLoginStackWidget"));
+    mainLayout->addWidget(mRuqolaLoginStackWidget);
 
     // Two Factor authentication
     mTwoFactorAuthenticationWidget->setObjectName(QStringLiteral("mTwoFactorAuthenticationWidget"));
@@ -92,6 +74,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mFailedError->setFont(font);
 
     mainLayout->addWidget(mFailedError);
+    mainLayout->addStretch(2);
     // Hide by default
     mFailedError->hide();
 }
@@ -100,19 +83,27 @@ RuqolaLoginWidget::~RuqolaLoginWidget() = default;
 
 void RuqolaLoginWidget::slotUpdateLoginButton()
 {
-    mLoginButton->setEnabled(!mAccountName->text().isEmpty());
+    // TODO mLoginButton->setEnabled(!mAccountName->text().isEmpty());
 }
 
 void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccount)
 {
     // TODO check authentication method
     mRocketChatAccount = rocketChatAccount;
-    mAccountName->setText(mRocketChatAccount->displayName());
-    mAccountName->setReadOnly(!mRocketChatAccount->displayName().isEmpty());
-    mServerUrl->setText(mRocketChatAccount->serverUrl());
-    mServerUrl->setReadOnly(true);
 
-    mUserName->setText(mRocketChatAccount->userName());
+    AccountManager::AccountManagerInfo info;
+    info.accountName = mRocketChatAccount->displayName();
+    info.serverUrl = mRocketChatAccount->serverUrl();
+    info.userName = mRocketChatAccount->userName();
+    info.password = mRocketChatAccount->password();
+    info.canRegisterAccount = mRocketChatAccount->registrationFormEnabled();
+    info.canResetPassword = (mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
+    info.authMethodType = mRocketChatAccount->authMethodType();
+    info.authenticationInfos = mRocketChatAccount->authenticationMethodInfos();
+    // qDebug() << " info " << info;
+    mRuqolaLoginStackWidget->setAccountInfo(std::move(info));
+
+#if 0
     disconnect(mUpdatePasswordConnection);
     mPasswordLineEditWidget->setPassword(mRocketChatAccount->password());
     qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " RuqolaLoginWidget::setRocketChatAccount: password is empty ? " << mRocketChatAccount->password().isEmpty();
@@ -121,17 +112,15 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
                                              << mRocketChatAccount->password().isEmpty();
         mPasswordLineEditWidget->setPassword(mRocketChatAccount->password());
     });
-
+#endif
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
-    mPasswordLineEditWidget->setAllowPasswordReset(mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
 }
 
 void RuqolaLoginWidget::slotLogin()
 {
-    mRocketChatAccount->setAccountName(mAccountName->isEnabled() ? mAccountName->text() : mRocketChatAccount->accountName());
-    mRocketChatAccount->setServerUrl(mServerUrl->text());
-    mRocketChatAccount->setUserName(mUserName->text());
-    mRocketChatAccount->setPassword(mPasswordLineEditWidget->password());
+    const AccountManager::AccountManagerInfo info = mRuqolaLoginStackWidget->accountInfo();
+    mRocketChatAccount->setUserName(info.userName);
+    mRocketChatAccount->setPassword(info.password);
     if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
     } else {
@@ -142,10 +131,12 @@ void RuqolaLoginWidget::slotLogin()
 
 void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
 {
+#if 0
     mServerUrl->setEnabled(enabled);
     mUserName->setEnabled(enabled);
     mPasswordLineEditWidget->setEnabled(enabled);
     mLoginButton->setEnabled(enabled && !mAccountName->text().isEmpty());
+#endif
 }
 
 void RuqolaLoginWidget::setLoginStatus(AuthenticationManager::LoginStatus status)

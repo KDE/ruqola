@@ -13,6 +13,7 @@
 
 class RocketChatAccount;
 class QVBoxLayout;
+class AuthenticationButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationOauthWidget : public QWidget
 {
     Q_OBJECT
@@ -21,10 +22,12 @@ public:
     ~AuthenticationOauthWidget() override;
 
     void addAuthenticationMethod(const AuthenticationInfo &info);
+    void clear();
 
 Q_SIGNALS:
     void authentication(AuthenticationManager::AuthMethodType type);
 
 private:
     QVBoxLayout *const mMainLayout;
+    QList<AuthenticationButton *> mAuthenticationButtonList;
 };

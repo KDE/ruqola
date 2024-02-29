@@ -8,10 +8,10 @@
 
 #include "accountmanager.h"
 #include "authenticationmanager.h"
+#include "common/authenticationloginwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 
-class CreateNewServerWidget;
 class PluginAuthenticationConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginStackWidget : public QStackedWidget
 {
@@ -21,9 +21,11 @@ public:
     ~RuqolaLoginStackWidget() override;
 
     void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
-    void setExistingAccountNames(const QStringList &lst);
+
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info);
+
+    void setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType type);
 
 Q_SIGNALS:
     void settingsIsValid(bool state);
@@ -31,6 +33,6 @@ Q_SIGNALS:
 private:
     QStringList mExistingAccountNames;
     AccountManager::AccountManagerInfo mAccountManagerInfo;
-    CreateNewServerWidget *const mCreateNewServerWidget;
+    AuthenticationLoginWidget *const mAuthenticationLoginWidget;
     PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
 };

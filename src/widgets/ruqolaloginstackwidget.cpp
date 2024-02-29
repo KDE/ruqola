@@ -5,19 +5,19 @@
 */
 
 #include "ruqolaloginstackwidget.h"
-#include "configurenewserver/createnewserverwidget.h"
+#include "common/authenticationloginwidget.h"
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "ruqolawidgets_debug.h"
 
-// TODO look at to remove duplicate code with CreateNewServerStackWidget ?
 RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     : QStackedWidget(parent)
-    , mCreateNewServerWidget(new CreateNewServerWidget(this))
+    , mAuthenticationLoginWidget(new AuthenticationLoginWidget(this))
 {
-    mCreateNewServerWidget->setObjectName(QStringLiteral("mCreateNewServerWidget"));
-    addWidget(mCreateNewServerWidget);
+    mAuthenticationLoginWidget->setObjectName(QStringLiteral("mAuthenticationLoginWidget"));
+    addWidget(mAuthenticationLoginWidget);
+    mAuthenticationLoginWidget->setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType::Login);
 }
 
 RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
@@ -45,22 +45,12 @@ void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationMana
     }
 }
 
-void RuqolaLoginStackWidget::setExistingAccountNames(const QStringList &lst)
-{
-    mExistingAccountNames = lst;
-    if (mPluginAuthenticationConfigureWidget) {
-        mPluginAuthenticationConfigureWidget->setExistingAccountNames(lst);
-    } else {
-        mCreateNewServerWidget->setExistingAccountNames(lst);
-    }
-}
-
 AccountManager::AccountManagerInfo RuqolaLoginStackWidget::accountInfo() const
 {
     if (mPluginAuthenticationConfigureWidget) {
         return mPluginAuthenticationConfigureWidget->accountInfo();
     }
-    return mCreateNewServerWidget->accountInfo();
+    return mAuthenticationLoginWidget->accountInfo();
 }
 
 void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManagerInfo &info)
@@ -71,8 +61,14 @@ void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManager
         mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
     } else {
-        mCreateNewServerWidget->setAccountInfo(mAccountManagerInfo);
-        setCurrentWidget(mCreateNewServerWidget);
+        mAuthenticationLoginWidget->setAccountInfo(mAccountManagerInfo);
+        setCurrentWidget(mAuthenticationLoginWidget);
     }
 }
+
+void RuqolaLoginStackWidget::setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType type)
+{
+    mAuthenticationLoginWidget->setAuthenticationLoginType(type);
+}
+
 #include "moc_ruqolaloginstackwidget.cpp"

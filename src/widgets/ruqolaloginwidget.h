@@ -10,12 +10,11 @@
 #include "ddpapi/ddpclient.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class QLineEdit;
 class QPushButton;
 class QLabel;
 class KBusyIndicatorWidget;
-class PasswordLineEditWidget;
 class TwoAuthenticationPasswordWidget;
+class RuqolaLoginStackWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
@@ -33,11 +32,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateLoginButton();
 
-    QLineEdit *const mAccountName;
-    QLineEdit *const mServerUrl;
-    QLineEdit *const mUserName;
-    PasswordLineEditWidget *const mPasswordLineEditWidget;
-
+    RuqolaLoginStackWidget *const mRuqolaLoginStackWidget;
     QMetaObject::Connection mUpdatePasswordConnection;
     QPushButton *const mLoginButton;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;

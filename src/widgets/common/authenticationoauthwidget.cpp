@@ -34,6 +34,16 @@ void AuthenticationOauthWidget::addAuthenticationMethod(const AuthenticationInfo
     connect(button, &AuthenticationButton::authentication, this, &AuthenticationOauthWidget::authentication);
     button->setAuthenticationInfo(info);
     mMainLayout->addWidget(button);
+    mAuthenticationButtonList.append(button);
+}
+
+void AuthenticationOauthWidget::clear()
+{
+    while (!mMainLayout->isEmpty()) {
+        mMainLayout->removeWidget(mAuthenticationButtonList.first());
+    }
+    qDeleteAll(mAuthenticationButtonList);
+    mAuthenticationButtonList.clear();
 }
 
 #include "moc_authenticationoauthwidget.cpp"

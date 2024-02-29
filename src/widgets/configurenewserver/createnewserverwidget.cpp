@@ -26,6 +26,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mAuthenticationWidget->setObjectName(QStringLiteral("mAuthenticationWidget"));
     mainLayout->addWidget(mAuthenticationLoginWidget);
     mainLayout->addWidget(mAuthenticationWidget);
+    mainLayout->addStretch(10);
     // TODO add support for two factor ?
 
     connect(mAuthenticationLoginWidget, &AuthenticationLoginWidget::settingsIsValid, this, &CreateNewServerWidget::settingsIsValid);
@@ -43,6 +44,7 @@ void CreateNewServerWidget::setAccountInfo(const AccountManager::AccountManagerI
 {
     mAuthenticationLoginWidget->hide();
     mAuthenticationWidget->hide();
+    mAuthenticationWidget->clear();
     for (const auto &info : accountInfo.authenticationInfos) {
         if (info.oauthType() == AuthenticationManager::AuthMethodType::Password) {
             mAuthenticationLoginWidget->show();
