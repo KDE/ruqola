@@ -58,6 +58,7 @@ void MessageTest::shouldParseMessage_data()
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
         att.setTitle(QStringLiteral("dd.pdf"));
         att.setAttachmentType(MessageAttachment::File);
+        att.generateTitle();
         firstMessageRef.setAttachments({att});
         QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
     }
@@ -84,6 +85,7 @@ void MessageTest::shouldParseMessage_data()
         url.setSiteUrl(QStringLiteral("https://foo.com/event/C8CT"));
         url.setImageWidth(200);
         url.setImageHeight(200);
+        url.generateMessageUrlInfo();
         urlMessageRef.setUrls({url});
 
         QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
@@ -139,6 +141,7 @@ void MessageTest::shouldParseMessage_data()
         attImage.setImageWidth(120);
         attImage.setImageHeight(120);
         attImage.setAttachmentType(MessageAttachment::Image);
+        attImage.generateTitle();
         imageMessageRef.setAttachments({attImage});
 
         QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
@@ -166,6 +169,7 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setLink(QStringLiteral("/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"));
         attVideo.setDescription(QStringLiteral("test"));
         attVideo.setAttachmentType(MessageAttachment::Video);
+        attVideo.generateTitle();
         // Add video size/video type etc.
         videoMessageRef.setAttachments({attVideo});
 
@@ -192,6 +196,7 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setLink(QStringLiteral("/file-upload/9E8YBGgq3H6GbASf3/joint.wav"));
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
         attAudio.setAttachmentType(MessageAttachment::Audio);
+        attAudio.generateTitle();
         // Add video size/video type etc.
         audioMessageRef.setAttachments({attAudio});
 
@@ -283,6 +288,7 @@ void MessageTest::shouldParseMessage_data()
         fileAttachment.setLink(QStringLiteral("/file-upload/tmqfdJTCmJ3oqG/webkit.txt"));
         fileAttachment.setDescription(QStringLiteral("description"));
         fileAttachment.setAttachmentType(MessageAttachment::File);
+        fileAttachment.generateTitle();
         // Add video size/video type etc.
         messageAttachmentFileRef.setAttachments({fileAttachment});
 
@@ -341,11 +347,13 @@ void MessageTest::shouldSerializeData()
         attachment.setDescription(QStringLiteral("foo1"));
         attachment.setTitle(QStringLiteral("foo2"));
         attachment.setLink(QStringLiteral("foo3"));
+        attachment.generateTitle();
         lstAttachement.append(std::move(attachment));
         MessageAttachment attachment2;
         attachment2.setDescription(QStringLiteral("foo5"));
         attachment2.setTitle(QStringLiteral("foo6"));
         attachment2.setLink(QStringLiteral("foo7"));
+        attachment2.generateTitle();
         lstAttachement.append(std::move(attachment2));
         input.setAttachments(lstAttachement);
 
@@ -353,10 +361,12 @@ void MessageTest::shouldSerializeData()
         MessageUrl url1;
         url1.setUrl(QStringLiteral("foo1"));
         url1.setPageTitle(QStringLiteral("foo2"));
+        url1.generateMessageUrlInfo();
         lstUrls.append(std::move(url1));
         MessageUrl url2;
         url2.setUrl(QStringLiteral("foo5"));
         url2.setPageTitle(QStringLiteral("foo6"));
+        url2.generateMessageUrlInfo();
         lstUrls.append(std::move(url2));
         input.setUrls(lstUrls);
 
@@ -398,6 +408,7 @@ void MessageTest::shouldSerializeData()
             attachment.setDescription(QStringLiteral("foo1"));
             attachment.setTitle(QStringLiteral("foo2"));
             attachment.setLink(QStringLiteral("foo3"));
+            attachment.generateTitle();
             lstAttachement.append(std::move(attachment));
         }
         MessageAttachment attachment2;
@@ -405,6 +416,7 @@ void MessageTest::shouldSerializeData()
             attachment2.setDescription(QStringLiteral("foo5"));
             attachment2.setTitle(QStringLiteral("foo6"));
             attachment2.setLink(QStringLiteral("foo7"));
+            attachment2.generateTitle();
             lstAttachement.append(std::move(attachment2));
             input.setAttachments(lstAttachement);
         }
@@ -415,12 +427,14 @@ void MessageTest::shouldSerializeData()
             MessageUrl url1;
             url1.setUrl(QStringLiteral("foo1"));
             url1.setPageTitle(QStringLiteral("foo2"));
+            url1.generateMessageUrlInfo();
             lstUrls.append(std::move(url1));
         }
         {
             MessageUrl url2;
             url2.setUrl(QStringLiteral("foo5"));
             url2.setPageTitle(QStringLiteral("foo6"));
+            url2.generateMessageUrlInfo();
             lstUrls.append(std::move(url2));
         }
         input.setUrls(lstUrls);

@@ -480,6 +480,7 @@ QDebug operator<<(QDebug d, const MessageAttachment &t)
     d << "mAuthorIcon: " << t.authorIcon();
     d << "imageUrlPreview " << t.imageUrlPreview();
     d << "attachment size " << t.attachmentSize();
+    d << "attachmentGeneratedTitle " << t.attachmentGeneratedTitle();
     return d;
 }
 
