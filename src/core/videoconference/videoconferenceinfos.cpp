@@ -99,12 +99,12 @@ void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &videoCon
 
 void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj)
 {
-    const QJsonArray discussionsArray = videoConferenceInfosObj[QLatin1String("sessions")].toArray();
-    for (const QJsonValue &current : discussionsArray) {
+    const QJsonArray videoConferencesArray = videoConferenceInfosObj[QLatin1String("data")].toArray();
+    for (const QJsonValue &current : videoConferencesArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject discussionObject = current.toObject();
+            const QJsonObject videoConferenceObject = current.toObject();
             VideoConferenceInfo m;
-            m.parse(discussionObject);
+            m.parse(videoConferenceObject);
             mVideoConferenceInfosList.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing video conference infos" << current;
