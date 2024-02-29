@@ -38,6 +38,7 @@ void ChangeChannelReadonlyJob::onPostRequestResponse(const QString &replyErrorSt
         addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeReadonlyDone();
     } else {
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerInfo(QByteArrayLiteral("Problem when we tried to change read only status: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
