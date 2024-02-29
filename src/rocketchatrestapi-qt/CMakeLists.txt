@@ -453,6 +453,8 @@ target_sources(librocketchatrestapi-qt PRIVATE
     video-conference/videoconferenceinfojob.h
     video-conference/videoconferencecanceljob.cpp
     video-conference/videoconferencecanceljob.h
+    video-conference/videoconferencelistjob.cpp
+    video-conference/videoconferencelistjob.h
 
     moderation/moderationreportsbyusersjob.cpp
     moderation/moderationreportsbyusersjob.h
