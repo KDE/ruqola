@@ -16,9 +16,9 @@ QDebug operator<<(QDebug d, const VideoConferenceInfos &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "VideoConferenceInfosCount" << t.videoconferenceInfosCount() << "\n";
-    for (int i = 0, total = t.videoconferenceInfosList().count(); i < total; ++i) {
-        d.space() << t.videoconferenceInfosList().at(i) << "\n";
+    d.space() << "VideoConferenceInfosCount" << t.videoConferenceInfosCount() << "\n";
+    for (int i = 0, total = t.videoConferenceInfosList().count(); i < total; ++i) {
+        d.space() << t.videoConferenceInfosList().at(i) << "\n";
     }
     return d;
 }
@@ -43,7 +43,7 @@ void VideoConferenceInfos::setTotal(int newTotal)
     mTotal = newTotal;
 }
 
-int VideoConferenceInfos::videoconferenceInfosCount() const
+int VideoConferenceInfos::videoConferenceInfosCount() const
 {
     return mVideoConferenceInfosCount;
 }
@@ -53,7 +53,7 @@ void VideoConferenceInfos::setVideoConferenceInfosCount(int newVideoConferenceIn
     mVideoConferenceInfosCount = newVideoConferenceInfosCount;
 }
 
-const QList<VideoConferenceInfo> &VideoConferenceInfos::videoconferenceInfosList() const
+const QList<VideoConferenceInfo> &VideoConferenceInfos::videoConferenceInfosList() const
 {
     return mVideoConferenceInfosList;
 }
@@ -87,19 +87,19 @@ VideoConferenceInfo VideoConferenceInfos::at(int index) const
     return mVideoConferenceInfosList.at(index);
 }
 
-void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &VideoConferenceInfosObj)
+void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
     mVideoConferenceInfosList.clear();
-    mVideoConferenceInfosCount = VideoConferenceInfosObj[QLatin1String("count")].toInt();
-    mOffset = VideoConferenceInfosObj[QLatin1String("offset")].toInt();
-    mTotal = VideoConferenceInfosObj[QLatin1String("total")].toInt();
+    mVideoConferenceInfosCount = videoConferenceInfosObj[QLatin1String("count")].toInt();
+    mOffset = videoConferenceInfosObj[QLatin1String("offset")].toInt();
+    mTotal = videoConferenceInfosObj[QLatin1String("total")].toInt();
     mVideoConferenceInfosList.reserve(mVideoConferenceInfosCount);
-    parseVideoConferenceInfosObj(VideoConferenceInfosObj);
+    parseVideoConferenceInfosObj(videoConferenceInfosObj);
 }
 
-void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &VideoConferenceInfosObj)
+void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj)
 {
-    const QJsonArray discussionsArray = VideoConferenceInfosObj[QLatin1String("sessions")].toArray();
+    const QJsonArray discussionsArray = videoConferenceInfosObj[QLatin1String("sessions")].toArray();
     for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
@@ -112,12 +112,12 @@ void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &Video
     }
 }
 
-void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &VideoConferenceInfosObj)
+void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
-    const int VideoConferenceInfosCount = VideoConferenceInfosObj[QLatin1String("count")].toInt();
-    mOffset = VideoConferenceInfosObj[QLatin1String("offset")].toInt();
-    mTotal = VideoConferenceInfosObj[QLatin1String("total")].toInt();
-    parseVideoConferenceInfosObj(VideoConferenceInfosObj);
+    const int VideoConferenceInfosCount = videoConferenceInfosObj[QLatin1String("count")].toInt();
+    mOffset = videoConferenceInfosObj[QLatin1String("offset")].toInt();
+    mTotal = videoConferenceInfosObj[QLatin1String("total")].toInt();
+    parseVideoConferenceInfosObj(videoConferenceInfosObj);
     mVideoConferenceInfosCount += VideoConferenceInfosCount;
 }
 

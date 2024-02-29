@@ -23,10 +23,10 @@ public:
     [[nodiscard]] int total() const;
     void setTotal(int newTotal);
 
-    [[nodiscard]] int videoconferenceInfosCount() const;
+    [[nodiscard]] int videoConferenceInfosCount() const;
     void setVideoConferenceInfosCount(int newVideoConferenceInfosCount);
 
-    [[nodiscard]] const QList<VideoConferenceInfo> &videoconferenceInfosList() const;
+    [[nodiscard]] const QList<VideoConferenceInfo> &videoConferenceInfosList() const;
     void setVideoConferenceInfosList(const QList<VideoConferenceInfo> &newVideoConferenceInfosList);
 
     [[nodiscard]] bool isEmpty() const;
@@ -34,13 +34,13 @@ public:
     [[nodiscard]] int count() const;
     [[nodiscard]] VideoConferenceInfo at(int index) const;
 
-    void parseVideoConferenceInfos(const QJsonObject &discussionsObj);
-    void parseMoreVideoConferenceInfos(const QJsonObject &videoconferenceInfosObj);
+    void parseVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj);
+    void parseMoreVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj);
 
     VideoConferenceInfo takeAt(int index);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void parseVideoConferenceInfosObj(const QJsonObject &discussionsObj);
+    LIBRUQOLACORE_NO_EXPORT void parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj);
     QList<VideoConferenceInfo> mVideoConferenceInfosList;
     int mVideoConferenceInfosCount = 0;
     int mOffset = 0;
