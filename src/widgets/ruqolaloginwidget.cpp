@@ -10,7 +10,6 @@
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
-#include "ruqola_password_widgets_debug.h"
 #include "ruqolaloginstackwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
