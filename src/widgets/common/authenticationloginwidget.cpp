@@ -74,6 +74,13 @@ void AuthenticationLoginWidget::setAuthenticationLoginType(AuthenticationLoginTy
     }
 }
 
+void AuthenticationLoginWidget::changeAuthenticationWidgetStatus(bool enabled)
+{
+    mServerUrl->setEnabled(enabled);
+    mUserName->setEnabled(enabled);
+    mPasswordLineEditWidget->setEnabled(enabled);
+}
+
 void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)
 {
     mNames = lst;

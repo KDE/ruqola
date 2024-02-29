@@ -27,6 +27,8 @@ public:
 
     void setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType type);
 
+    void changeAuthenticationWidgetStatus(bool enabled);
+
 Q_SIGNALS:
     void settingsIsValid(bool state);
 

@@ -125,11 +125,7 @@ void RuqolaLoginWidget::slotLogin()
 
 void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
 {
-#if 0
-    mServerUrl->setEnabled(enabled);
-    mUserName->setEnabled(enabled);
-    mPasswordLineEditWidget->setEnabled(enabled);
-#endif
+    mRuqolaLoginStackWidget->changeAuthenticationWidgetStatus(enabled);
     mLoginButton->setEnabled(enabled);
 }
 

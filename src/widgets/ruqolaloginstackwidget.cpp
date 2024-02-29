@@ -22,6 +22,15 @@ RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
 
 RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
 
+void RuqolaLoginStackWidget::changeAuthenticationWidgetStatus(bool enabled)
+{
+    if (mPluginAuthenticationConfigureWidget) {
+        mPluginAuthenticationConfigureWidget->changeAuthenticationWidgetStatus(enabled);
+    } else {
+        mAuthenticationLoginWidget->changeAuthenticationWidgetStatus(enabled);
+    }
+}
+
 void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
 {
     if (type == AuthenticationManager::AuthMethodType::Password) {

@@ -63,6 +63,11 @@ void PersonalAccessTokenAuthenticationConfigWidget::setAccountInfo(const Account
     mServerNameLineEdit->setText(info.serverUrl);
 }
 
+void PersonalAccessTokenAuthenticationConfigWidget::changeAuthenticationWidgetStatus(bool enabled)
+{
+    // TODO ?
+}
+
 void PersonalAccessTokenAuthenticationConfigWidget::slotEnableOkButton()
 {
     const QString accountName = mAccountNameLineEdit->text().trimmed();

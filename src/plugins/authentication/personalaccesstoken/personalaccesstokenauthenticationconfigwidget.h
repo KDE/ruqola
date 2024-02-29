@@ -16,6 +16,7 @@ public:
 
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const override;
     void setAccountInfo(const AccountManager::AccountManagerInfo &info) override;
+    void changeAuthenticationWidgetStatus(bool enabled) override;
 
 private:
     void slotEnableOkButton();

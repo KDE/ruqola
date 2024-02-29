@@ -18,6 +18,7 @@ public:
 
     [[nodiscard]] virtual AccountManager::AccountManagerInfo accountInfo() const = 0;
     virtual void setAccountInfo(const AccountManager::AccountManagerInfo &info) = 0;
+    virtual void changeAuthenticationWidgetStatus(bool enabled) = 0;
 
     void setExistingAccountNames(const QStringList &list);
 

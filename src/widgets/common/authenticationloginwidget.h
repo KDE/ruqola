@@ -33,6 +33,7 @@ public:
 
     void setAuthenticationLoginType(AuthenticationLoginType type);
 
+    void changeAuthenticationWidgetStatus(bool enabled);
 Q_SIGNALS:
     void settingsIsValid(bool enabled);
 
