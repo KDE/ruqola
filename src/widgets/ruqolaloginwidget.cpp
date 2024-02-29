@@ -56,8 +56,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addWidget(mTwoFactorAuthenticationWidget);
 
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
-    mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
+    auto loginButtonLayout = new QHBoxLayout;
+    loginButtonLayout->setContentsMargins({});
+    loginButtonLayout->addStretch(0);
+    loginButtonLayout->addWidget(mLoginButton);
+    loginButtonLayout->addStretch(0);
+
+    mainLayout->addLayout(loginButtonLayout);
 
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
     mainLayout->addWidget(mBusyIndicatorWidget);
