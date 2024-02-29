@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-22 03:05+0000\n"
-"PO-Revision-Date: 2024-01-29 14:43+0100\n"
+"PO-Revision-Date: 2024-02-27 12:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: apps/main.cpp:54
 #, kde-format
@@ -4483,7 +4483,7 @@ msgstr "Solo menzioni degli utenti"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
 #, kde-format
 msgid "Group mentions only"
-msgstr "Solo menzioni dei gruppi"
+msgstr "Solo menzioni di gruppo"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, kde-format
