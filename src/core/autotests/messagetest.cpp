@@ -141,6 +141,7 @@ void MessageTest::shouldParseMessage_data()
         attImage.setImageWidth(120);
         attImage.setImageHeight(120);
         attImage.setAttachmentType(MessageAttachment::Image);
+        attImage.setAttachmentSize(1829038);
         attImage.generateTitle();
         imageMessageRef.setAttachments({attImage});
 
@@ -168,6 +169,7 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setTitle(QStringLiteral("SampleVideo_1280x720_1mb.mp4"));
         attVideo.setLink(QStringLiteral("/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"));
         attVideo.setDescription(QStringLiteral("test"));
+        attVideo.setAttachmentSize(1055736);
         attVideo.setAttachmentType(MessageAttachment::Video);
         attVideo.generateTitle();
         // Add video size/video type etc.
@@ -196,6 +198,7 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setLink(QStringLiteral("/file-upload/9E8YBGgq3H6GbASf3/joint.wav"));
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
         attAudio.setAttachmentType(MessageAttachment::Audio);
+        attAudio.setAttachmentSize(59217);
         attAudio.generateTitle();
         // Add video size/video type etc.
         audioMessageRef.setAttachments({attAudio});
@@ -362,11 +365,13 @@ void MessageTest::shouldSerializeData()
         url1.setUrl(QStringLiteral("foo1"));
         url1.setPageTitle(QStringLiteral("foo2"));
         url1.generateMessageUrlInfo();
+        url1.setUrlId(QStringLiteral("ff_0"));
         lstUrls.append(std::move(url1));
         MessageUrl url2;
         url2.setUrl(QStringLiteral("foo5"));
         url2.setPageTitle(QStringLiteral("foo6"));
         url2.generateMessageUrlInfo();
+        url2.setUrlId(QStringLiteral("ff_1"));
         lstUrls.append(std::move(url2));
         input.setUrls(lstUrls);
 
