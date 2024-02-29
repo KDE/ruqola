@@ -107,7 +107,7 @@ void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
             m.parseDeviceInfo(discussionObject);
             mDeviceInfosList.append(std::move(m));
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing device infos" << current;
         }
     }
 }
