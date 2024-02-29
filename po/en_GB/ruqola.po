@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"POT-Creation-Date: 2024-02-29 00:37+0000\n"
 "PO-Revision-Date: 2023-06-17 12:10+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -545,16 +545,6 @@ msgstr "%1 has requested key refresh."
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
 msgstr "Room topic changed to: %1 by %2"
-
-#: core/messages/messageattachment.cpp:248
-#, kde-format
-msgid "File Uploaded:"
-msgstr "File Uploaded:"
-
-#: core/messages/messageattachment.cpp:379
-#, kde-format
-msgid "File Uploaded: %1"
-msgstr "File Uploaded: %1"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1538,7 +1528,7 @@ msgstr "Login/Password"
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:42
 #, kde-format
 msgid "Server URL:"
 msgstr "Server URL:"
@@ -3457,7 +3447,7 @@ msgstr "Email:"
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Password:"
 msgstr "Password:"
@@ -6231,13 +6221,13 @@ msgid "Register Account"
 msgstr "Remove Account"
 
 #: widgets/common/authenticationloginwidget.cpp:43
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or email"
 msgstr "Username or email"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Username or Email:"
 msgstr "Username or Email:"
@@ -7667,7 +7657,7 @@ msgstr "Login failed: generic error"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "A one-time password is required to complete the login procedure."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:174
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Login failed: Invalid OTP code."
@@ -8966,27 +8956,22 @@ msgstr "Follow Message..."
 msgid "Lists the available options for user feedback"
 msgstr "Lists the available options for user feedback"
 
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Login"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account Name:"
 msgstr "Account Name:"
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account name"
 msgstr "Account name"
 
-#: widgets/ruqolaloginwidget.cpp:60
-#, kde-format
-msgid "Authentication Method"
-msgstr "Authentication Method"
-
-#: widgets/ruqolaloginwidget.cpp:85
+#: widgets/ruqolaloginwidget.cpp:68
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8995,37 +8980,37 @@ msgstr ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:170
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Login Failed: invalid username or password"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:184
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Installation Problem found. No plugins found here."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:190
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Login Failed: generic error"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Login Failed: Login has been temporarily blocked For IP."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Login Failed: Login has been temporarily blocked For User."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Login Failed: User is not activated."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Login Failed: App user is not allowed to login."
@@ -9627,6 +9612,15 @@ msgstr "Total Messages in Channels"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr ""
+
+#~ msgid "File Uploaded:"
+#~ msgstr "File Uploaded:"
+
+#~ msgid "File Uploaded: %1"
+#~ msgstr "File Uploaded: %1"
+
+#~ msgid "Authentication Method"
+#~ msgstr "Authentication Method"
 
 #, fuzzy
 #~| msgid "Configure"

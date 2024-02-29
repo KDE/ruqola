@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"POT-Creation-Date: 2024-02-29 00:37+0000\n"
 "PO-Revision-Date: 2024-02-03 17:59+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -547,16 +547,6 @@ msgstr "%1(e)k gakoa freskatzea eskatu du."
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
 msgstr "Gelako gaia aldatu ondokora aldatu da: %2(e)n %1"
-
-#: core/messages/messageattachment.cpp:248
-#, kde-format
-msgid "File Uploaded:"
-msgstr "Zama-igotako fitxategia:"
-
-#: core/messages/messageattachment.cpp:379
-#, kde-format
-msgid "File Uploaded: %1"
-msgstr "Zama-igotako fitxategia: %1"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1533,7 +1523,7 @@ msgstr "Saio-hasiera/Pasahitza"
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:42
 #, kde-format
 msgid "Server URL:"
 msgstr "Zerbitzariaren URL:"
@@ -3425,7 +3415,7 @@ msgstr "E-posta:"
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Password:"
 msgstr "Pasahitza:"
@@ -6087,13 +6077,13 @@ msgid "Register Account"
 msgstr "Erregistratu kontua"
 
 #: widgets/common/authenticationloginwidget.cpp:43
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or email"
 msgstr "Erabiltzaile-izena edo e-posta"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Username or Email:"
 msgstr "Erabiltzaile-izena edo e-posta:"
@@ -7507,7 +7497,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Erabilera bakarreko pasahitz bat behar da saio-hasteko prozedura osatzeko."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:174
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Saio-hastea huts egin du: OTP kode baliogabea."
@@ -8781,65 +8771,60 @@ msgstr "Erakutsi mezua"
 msgid "Lists the available options for user feedback"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Saio-hastea"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account Name:"
 msgstr "Kontuaren izena:"
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account name"
 msgstr "Kontuaren izena"
 
-#: widgets/ruqolaloginwidget.cpp:60
-#, kde-format
-msgid "Authentication Method"
-msgstr "Autentifikazio metodoa"
-
-#: widgets/ruqolaloginwidget.cpp:85
+#: widgets/ruqolaloginwidget.cpp:68
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:170
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Saio-hastea huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:184
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Instalazio arazo bat aurkitu da. Hemen ez da pluginik aurkitu."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:190
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:208
 #, fuzzy, kde-format
 #| msgid "User is not activated"
 msgid "Login Failed: User is not activated."
 msgstr "Erabiltzailea ez dago aktibatuta"
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9431,6 +9416,15 @@ msgstr "Kanaletako mezuak guztira"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr ""
+
+#~ msgid "File Uploaded:"
+#~ msgstr "Zama-igotako fitxategia:"
+
+#~ msgid "File Uploaded: %1"
+#~ msgstr "Zama-igotako fitxategia: %1"
+
+#~ msgid "Authentication Method"
+#~ msgstr "Autentifikazio metodoa"
 
 #, fuzzy
 #~ msgctxt "@title:window"

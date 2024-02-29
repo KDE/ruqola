@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:37+0000\n"
-"PO-Revision-Date: 2024-02-16 16:43+0100\n"
+"POT-Creation-Date: 2024-02-29 00:37+0000\n"
+"PO-Revision-Date: 2024-02-27 12:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: apps/main.cpp:46
 #, kde-format
@@ -547,16 +547,6 @@ msgstr "%1 ha richiesto l'aggiornamento della chiave."
 msgid "Room topic changed to: %1 by %2"
 msgstr "Argomento della stanza modificato in: %1 da %2"
 
-#: core/messages/messageattachment.cpp:248
-#, kde-format
-msgid "File Uploaded:"
-msgstr "File caricato:"
-
-#: core/messages/messageattachment.cpp:379
-#, kde-format
-msgid "File Uploaded: %1"
-msgstr "File caricato: %1"
-
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
 msgid "%1 reacted with %2"
@@ -1014,36 +1004,32 @@ msgid "Last token part"
 msgstr "Ultima parte del token"
 
 #: core/model/roommodel.cpp:475
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
-msgstr[0] "Menzioni"
-msgstr[1] "Menzioni"
+msgstr[0] "%1 menzione"
+msgstr[1] "%1 menzioni"
 
 #: core/model/roommodel.cpp:479
-#, fuzzy, kde-format
-#| msgid "Mute Group Mentions"
+#, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
-msgstr[0] "Silenzia menzioni dei gruppi"
-msgstr[1] "Silenzia menzioni dei gruppi"
+msgstr[0] "%1 menzione di gruppo"
+msgstr[1] "%1 menzioni di gruppo"
 
 #: core/model/roommodel.cpp:483
-#, fuzzy, kde-format
-#| msgid "Unread Threads Messages"
+#, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
-msgstr[0] "Messaggi delle discussioni non letti"
-msgstr[1] "Messaggi delle discussioni non letti"
+msgstr[0] "%1 messaggio di una discussione non letto"
+msgstr[1] "%1 messaggi di una discussione non letti"
 
 #: core/model/roommodel.cpp:487
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
-msgstr[0] "%1 ha %2 messaggi non letti"
-msgstr[1] "%1 ha %2 messaggi non letti"
+msgstr[0] "%1 messaggio non letto"
+msgstr[1] "%1 messaggi non letti"
 
 #: core/model/roommodel.cpp:513
 #, kde-format
@@ -1381,16 +1367,14 @@ msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
 
 #: core/rocketchaturlutils.cpp:41
-#, fuzzy, kde-format
-#| msgid "Account name"
+#, kde-format
 msgid "Account Added"
-msgstr "Nome account"
+msgstr "Account aggiunto"
 
 #: core/rocketchaturlutils.cpp:42
-#, fuzzy, kde-format
-#| msgid "Enter account name"
+#, kde-format
 msgid "A new account was added."
-msgstr "Inserisci il nome dell'account"
+msgstr "Un nuovo account è stato aggiunto."
 
 #: core/room.cpp:1137
 #, kde-format
@@ -1532,7 +1516,7 @@ msgstr "Nome utente/password"
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:42
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del server:"
@@ -1545,16 +1529,14 @@ msgid "Account name:"
 msgstr "Nome dell'account:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:35
-#, fuzzy, kde-format
-#| msgid "Users:"
+#, kde-format
 msgid "User Id:"
-msgstr "Utenti:"
+msgstr "ID utente:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Token:"
-msgstr "Token"
+msgstr "Token:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:33
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
@@ -3431,7 +3413,7 @@ msgstr "Posta elettronica:"
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Password:"
 msgstr "Password:"
@@ -4572,7 +4554,7 @@ msgstr "Solo menzioni degli utenti"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
 #, kde-format
 msgid "Group mentions only"
-msgstr "Solo menzioni dei gruppi"
+msgstr "Solo menzioni di gruppo"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, kde-format
@@ -6235,13 +6217,13 @@ msgid "Register Account"
 msgstr "Registra account"
 
 #: widgets/common/authenticationloginwidget.cpp:43
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or email"
 msgstr "Nome utente o indirizzo di posta"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Username or Email:"
 msgstr "Nome utente o indirizzo di posta:"
@@ -7482,10 +7464,9 @@ msgid "Permissions"
 msgstr "Permessi"
 
 #: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Own Roles:"
-msgstr "Ruoli:"
+msgstr "Propri ruoli:"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
@@ -7663,7 +7644,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "È richiesta una one-time password per completare la procedura di accesso."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:174
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Accesso non riuscito: codice OTP non valido."
@@ -8948,27 +8929,22 @@ msgstr "Mostra messaggio"
 msgid "Lists the available options for user feedback"
 msgstr "Elenca le opzioni disponibili per le segnalazioni degli utenti"
 
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Accedi"
 
-#: widgets/ruqolaloginwidget.cpp:46
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account Name:"
 msgstr "Nome dell'account:"
 
-#: widgets/ruqolaloginwidget.cpp:47
+#: widgets/ruqolaloginwidget.cpp:46
 #, kde-format
 msgid "Account name"
 msgstr "Nome account"
 
-#: widgets/ruqolaloginwidget.cpp:60
-#, kde-format
-msgid "Authentication Method"
-msgstr "Metodo di autenticazione"
-
-#: widgets/ruqolaloginwidget.cpp:85
+#: widgets/ruqolaloginwidget.cpp:68
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8977,40 +8953,40 @@ msgstr ""
 "Hai abilitato il secondo fattore di autenticazione.\n"
 "Inserisci il codice generato o un codice secondario di emergenza."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:170
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Accesso non riuscito: nome utente o password non validi"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:184
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Trovato un problema di installazione: nessuna estensione trovata."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:190
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Accesso non riuscito: errore generico"
 
-#: widgets/ruqolaloginwidget.cpp:213
+#: widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Accesso non riuscito: l'accesso è stato temporaneamente bloccato per l'IP."
 
-#: widgets/ruqolaloginwidget.cpp:219
+#: widgets/ruqolaloginwidget.cpp:202
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Accesso non riuscito: l'accesso è stato temporaneamente bloccato per "
 "l'utente."
 
-#: widgets/ruqolaloginwidget.cpp:225
+#: widgets/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Accesso non riuscito: l'utente non è attivato."
 
-#: widgets/ruqolaloginwidget.cpp:231
+#: widgets/ruqolaloginwidget.cpp:214
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9562,10 +9538,8 @@ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "Consenti di aumentare/diminuire il carattere (CTRL++/CTRL+-)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:68
-#, fuzzy
-#| msgid "Add channel list style (Condensed/Medium/Expended)"
 msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Aggiungi stile elenco dei canali (condensato/medio/esteso)"
+msgstr "Aggiungi stile elenco canali (condensato/medio/esteso)"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:69
 msgid "Add forward message"
@@ -9573,13 +9547,15 @@ msgstr "Aggiungi messaggio inoltrato"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:70
 msgid "Improve mentions support."
-msgstr ""
+msgstr "Migliorare il supporto delle menzioni."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:71
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
+"Aggiunto il supporto per i collegamenti diretti <a href=\"https://developer."
+"rocket.chat/getting-started/deep-linking\">Deep Linking</a>."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Fix dark mode support."
@@ -9590,14 +9566,21 @@ msgid "Fix jitsi support."
 msgstr "Corregge il supporto jitsi."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
-#, fuzzy
-#| msgid "Total Messages in Channels"
 msgid "Fix translate message in direct channel."
-msgstr "Messaggi totali nei canali"
+msgstr "Corretta la traduzione del messaggio nel canale diretto."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
-msgstr ""
+msgstr "Non mostrare @qui/@tutti come utente."
+
+#~ msgid "File Uploaded:"
+#~ msgstr "File caricato:"
+
+#~ msgid "File Uploaded: %1"
+#~ msgstr "File caricato: %1"
+
+#~ msgid "Authentication Method"
+#~ msgstr "Metodo di autenticazione"
 
 #, fuzzy
 #~| msgid "Configure"
