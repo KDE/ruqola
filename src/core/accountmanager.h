@@ -88,3 +88,4 @@ private:
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AccountManager::AccountDisplayInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountManager::AccountManagerInfo &t);

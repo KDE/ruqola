@@ -976,4 +976,20 @@ QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSort
     return lst;
 }
 
+QDebug operator<<(QDebug d, const AccountManager::AccountManagerInfo &t)
+{
+    d.space() << " authenticationInfos" << t.authenticationInfos;
+    d.space() << " displayName" << t.displayName;
+    d.space() << " accountName" << t.accountName;
+    d.space() << " userName" << t.userName;
+    d.space() << " serverUrl" << t.serverUrl;
+    d.space() << " token" << t.token;
+    d.space() << " userId" << t.userId;
+    d.space() << " authMethodType" << t.authMethodType;
+    d.space() << " canResetPassword" << t.canResetPassword;
+    d.space() << " enabled" << t.enabled;
+    d.space() << " canRegisterAccount" << t.canRegisterAccount;
+    return d;
+}
+
 #include "moc_accountmanager.cpp"
