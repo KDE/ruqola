@@ -284,6 +284,9 @@ target_sources(libruqolacore PRIVATE
     model/joinedchannelmodel.h
     model/joinedchannelmodel.cpp
 
+    model/videoconferencesmodel.cpp
+    model/videoconferencesmodel.h
+
 
     notificationinfo.cpp
     notificationinfo.h
