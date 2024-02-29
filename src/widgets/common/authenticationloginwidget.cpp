@@ -65,6 +65,9 @@ void AuthenticationLoginWidget::setAuthenticationLoginType(AuthenticationLoginTy
     case AuthenticationLoginType::Unknown:
         break;
     case AuthenticationLoginType::Create:
+        mAccountName->setReadOnly(false);
+        mServerUrl->setReadOnly(false);
+        break;
     case AuthenticationLoginType::Modify:
         mAccountName->setReadOnly(false);
         break;
