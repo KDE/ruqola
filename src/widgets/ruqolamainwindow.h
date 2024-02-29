@@ -15,7 +15,6 @@
 class StatusCombobox;
 class RuqolaCentralWidget;
 class QAction;
-class QWidgetAction;
 class ServerMenu;
 class RocketChatAccount;
 class QLabel;

@@ -11,7 +11,6 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class RocketChatAccount;
 class QVBoxLayout;
 class AuthenticationButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationOauthWidget : public QWidget

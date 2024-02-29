@@ -13,7 +13,6 @@
 #include <QIcon>
 #include <QModelIndex>
 #include <QSize>
-class QTextDocument;
 
 class QListView;
 class QPainter;
