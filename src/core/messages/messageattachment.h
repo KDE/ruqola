@@ -94,10 +94,9 @@ public:
     void setAttachmentSize(qint64 newAttachmentSize);
 
     [[nodiscard]] QString attachmentGeneratedTitle() const;
+    void generateTitle();
 
 private:
-    friend class MessageAttachmentTest;
-    void generateTitle();
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     QList<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;

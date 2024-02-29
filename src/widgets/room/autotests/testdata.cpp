@@ -38,6 +38,7 @@ MessageAttachment testAttachment()
     pix.save(pixFileName, "png");
     msgAttach.setLink(link);
     msgAttach.setImageUrlPreview(link);
+    msgAttach.generateTitle();
     return msgAttach;
 }
 
