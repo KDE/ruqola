@@ -5,19 +5,33 @@
 */
 
 #include "restauthenticationgui.h"
-
+#include "common/authenticationloginwidget.h"
+#include "connection.h"
+#include "restauthenticationmanager.h"
+#include "rocketchataccount.h"
 #include <QApplication>
-#include <QFormLayout>
 #include <QLabel>
-#include <QLineEdit>
+#include <QPushButton>
 #include <QStandardPaths>
+#include <QVBoxLayout>
 
 RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
     : QWidget(parent)
+    , mAuthenticationLoginWidget(new AuthenticationLoginWidget(this))
 {
-    auto mainLayout = new QFormLayout(this);
-    auto lineEdit = new QLineEdit(this);
-    mainLayout->addRow(QStringLiteral("Server Url:"), lineEdit);
+    auto dummyAccount = new RocketChatAccount;
+    auto authManager = new RESTAuthenticationManager(dummyAccount->restApi());
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(mAuthenticationLoginWidget);
+    mAuthenticationLoginWidget->setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType::Create);
+
+    auto login = new QPushButton(QStringLiteral("Login"), this);
+    mainLayout->addWidget(login);
+    connect(login, &QPushButton::clicked, this, [this, dummyAccount, authManager]() {
+        const AccountManager::AccountManagerInfo info = mAuthenticationLoginWidget->accountInfo();
+        dummyAccount->restApi()->setServerUrl(info.serverUrl);
+        authManager->login(info.userName, info.password);
+    });
 }
 
 RestAuthenticationGui::~RestAuthenticationGui() = default;

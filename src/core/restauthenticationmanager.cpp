@@ -93,6 +93,7 @@ void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, RESTAuth
     info.messageObj = generateJsonMethod(info.methodName, QJsonDocument(params), mIndex++);
     job->setMethodCallJobInfo(std::move(info));
     mRestApiConnection->initializeRestApiJob(job);
+    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, method](const QJsonObject &replyObject) {
         processMethodResponseImpl(replyObject, method);
     });

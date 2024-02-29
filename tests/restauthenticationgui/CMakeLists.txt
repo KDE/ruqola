@@ -5,6 +5,6 @@ target_sources(restauthenticationgui PRIVATE restauthenticationgui.cpp restauthe
 
 target_link_libraries(restauthenticationgui
     Qt::Widgets
-    libruqolacore
+    libruqolawidgets
 )
 set_target_properties(restauthenticationgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

@@ -70,5 +70,5 @@ private:
     AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
     // Used when sending OTP
     QJsonObject mLastLoginPayload;
-    int mIndex = 5000;
+    int mIndex = 1;
 };
