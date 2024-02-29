@@ -106,8 +106,6 @@ public:
     [[nodiscard]] QString nickName() const;
     void setNickName(const QString &newNickName);
 
-    void parseUserPresence(const QJsonArray &user);
-
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;

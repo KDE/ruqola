@@ -692,33 +692,6 @@ void DDPClient::unsubscribe(quint64 registerId)
     method(resultUnsubscribe, callbackUnsubscribeMethod, DDPClient::Persistent);
 }
 
-quint64 DDPClient::subscribeUserPresence(const QString &collection, const QJsonArray &params, const QString &added)
-{
-    quint64 registerId = mUid;
-    QJsonObject json;
-    json[QLatin1String("msg")] = QStringLiteral("sub");
-    json[QLatin1String("id")] = QString::number(mUid);
-    json[QLatin1String("name")] = collection;
-
-    QJsonArray newParams = params;
-    QJsonArray args = QJsonArray::fromStringList({added});
-    QJsonObject obj;
-    obj[QLatin1String("added")] = args;
-    // qDebug() << " args " << args;
-    newParams.append(std::move(obj));
-    json[QLatin1String("params")] = newParams;
-    qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
-    qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
-    if (bytes < json.length()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCWarning(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
-    } else {
-        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
-    }
-    mUid++;
-    return registerId;
-}
-
 quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 {
     quint64 registerId = mUid;

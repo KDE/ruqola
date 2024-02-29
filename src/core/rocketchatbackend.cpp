@@ -712,12 +712,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (eventname == QLatin1String("roles")) {
             mRocketChatAccount->updateRoles(contents);
         }
-    } else if (collection == QLatin1String("stream-user-presence")) {
-        const QString uid = fields.value(QLatin1String("uid")).toString();
-        if (mRocketChatAccount->userId() == uid) {
-            mRocketChatAccount->changeUserPresences(contents);
-        }
-        // qDebug() << "contents  " << contents << " fields " << fields;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }
@@ -900,10 +894,6 @@ void RocketChatBackend::subscribeRegistration()
     {
         const QJsonArray params{QJsonValue(QStringLiteral("roles"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-roles"), params);
-    }
-    {
-        const QJsonArray params{QJsonValue(QStringLiteral(""))};
-        mRocketChatAccount->ddp()->subscribeUserPresence(QStringLiteral("stream-user-presence"), params, userId);
     }
 }
 

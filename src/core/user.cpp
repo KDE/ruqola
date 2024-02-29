@@ -379,29 +379,4 @@ QList<User> User::parseUsersList(const QJsonObject &object, const QList<RoleInfo
     return users;
 }
 
-void User::parseUserPresence(const QJsonArray &userArray)
-{
-    if (userArray.count() != 3) {
-        qCDebug(RUQOLA_SPECIALWARNING_LOG) << " List argument different of 3! It's a bug: " << userArray;
-    }
-    setUserName(userArray.at(0).toString());
-    const QString status = userArray.at(1).toString();
-    if (status == QLatin1String("busy")) {
-        setStatus(PresenceStatus::PresenceBusy);
-    } else if (status == QLatin1String("online")) {
-        setStatus(PresenceStatus::PresenceOnline);
-    } else if (status == QLatin1String("away")) {
-        setStatus(PresenceStatus::PresenceAway);
-    } else if (status == QLatin1String("offline")) {
-        setStatus(PresenceStatus::PresenceOffline);
-    } else {
-        qCWarning(RUQOLA_LOG) << " Invalid status value" << status;
-        return;
-    }
-    const QVariant customText = userArray.at(2);
-    if (customText.isValid()) {
-        setStatusText(customText.toString());
-    }
-}
-
 #include "moc_user.cpp"
