@@ -1172,7 +1172,7 @@ void RocketChatAccount::setUserStatusChanged(const QJsonArray &array)
         User user;
         user.parseUser(userListArguments);
         if (user.isValid()) {
-            // userStatusChanged(user);
+            userStatusChanged(user);
             if (user.userId() != userId()) {
                 mUserModel->addUser(user);
                 mRoomModel->userStatusChanged(user);
