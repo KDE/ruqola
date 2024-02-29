@@ -32,7 +32,7 @@ void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos_data()
     QTest::addColumn<int>("offset");
 
     QTest::addRow("empty") << QStringLiteral("videoconferenceinfos-empty") << 0 << 0 << 0;
-    QTest::addRow("1-element") << QStringLiteral("videoconferenceinfos-1-element") << 50 << 2 << 0;
+    QTest::addRow("1-element") << QStringLiteral("videoconferenceinfos-1-element") << 1 << 1 << 0;
 }
 
 void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos()
