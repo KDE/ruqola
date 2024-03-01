@@ -7,158 +7,128 @@
 #include "videoconferencesmodel.h"
 #include <KLocalizedString>
 
-VideoConferencesModel::VideoConferencesModel(QObject *parent)
-    : CustomBaseModel(parent)
+VideoConferencesModel::VideoConferencesModel(RocketChatAccount *account, QObject *parent)
+    : QAbstractListModel(parent)
+    , mRochetChantAccount(account)
 {
 }
 
-VideoConferencesModel::~VideoConferencesModel() = default;
-
-int VideoConferencesModel::rowCount(const QModelIndex &parent) const
+VideoConferencesModel::~VideoConferencesModel()
 {
-    if (parent.isValid()) {
-        return 0; // flat model
-    }
-    return mDeviceInfos.count();
 }
 
-QVariant VideoConferencesModel::headerData(int section, Qt::Orientation orientation, int role) const
+void VideoConferencesModel::checkFullList()
 {
-    if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<DeviceInfoRoles>(section)) {
-        case DeviceInfoRoles::Identifier:
-            return {};
-        case DeviceInfoRoles::Host:
-            return i18n("Host");
-        case DeviceInfoRoles::Os:
-            return i18n("Os");
-        case DeviceInfoRoles::Client:
-            return i18n("Client");
-        case DeviceInfoRoles::SessionId:
-            return i18n("Session Id");
-        case DeviceInfoRoles::Ip:
-            return i18n("Ip");
-        case DeviceInfoRoles::UserId:
-            return {};
-        case DeviceInfoRoles::LoginAt:
-            return i18n("Login At");
-        }
-    }
-    return {};
+    setHasFullList(mVideoConferenceInfos.count() == mVideoConferenceInfos.total());
 }
 
-int VideoConferencesModel::columnCount(const QModelIndex &parent) const
+bool VideoConferencesModel::loadMoreVideoConferencesInProgress() const
 {
-    Q_UNUSED(parent)
-    constexpr int val = static_cast<int>(DeviceInfoRoles::LastColumn) + 1;
-    return val;
+    return mLoadMoreFilesInProgress;
 }
 
-QVariant VideoConferencesModel::data(const QModelIndex &index, int role) const
+void VideoConferencesModel::setLoadMoreVideoConferencesInProgress(bool loadMoreFilesInProgress)
 {
-    if (index.row() < 0 || index.row() >= mDeviceInfos.count()) {
-        return {};
+    if (mLoadMoreFilesInProgress != loadMoreFilesInProgress) {
+        mLoadMoreFilesInProgress = loadMoreFilesInProgress;
+        Q_EMIT loadingInProgressChanged();
     }
-    if (role != Qt::DisplayRole) {
-        return {};
-    }
-
-    const DeviceInfo &deviceInfo = mDeviceInfos.at(index.row());
-    const int col = index.column();
-    switch (static_cast<DeviceInfoRoles>(col)) {
-    case DeviceInfoRoles::Identifier:
-        return deviceInfo.identifier();
-    case DeviceInfoRoles::Host:
-        return deviceInfo.host();
-    case DeviceInfoRoles::SessionId:
-        return deviceInfo.sessionId();
-    case DeviceInfoRoles::Ip:
-        return deviceInfo.ip();
-    case DeviceInfoRoles::UserId:
-        return deviceInfo.userId();
-    case DeviceInfoRoles::LoginAt:
-        return deviceInfo.loginAtDisplay();
-    case DeviceInfoRoles::Os:
-        return deviceInfo.os();
-    case DeviceInfoRoles::Client:
-        return deviceInfo.client();
-    }
-    return {};
-}
-
-int VideoConferencesModel::total() const
-{
-    return mDeviceInfos.count();
 }
 
 void VideoConferencesModel::clear()
 {
-    if (!mDeviceInfos.isEmpty()) {
-        beginResetModel();
-        mDeviceInfos.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mVideoConferenceInfos.clear();
+    endResetModel();
 }
 
-void VideoConferencesModel::parseElements(const QJsonObject &obj)
+void VideoConferencesModel::addMoreVideoConferences(const QJsonObject &fileAttachmentsObj)
 {
-    clear();
-    mDeviceInfos.parseDeviceInfos(obj);
-    if (!mDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
+    const int numberOfElement = mVideoConferenceInfos.count();
+    mVideoConferenceInfos.parseMoreVideoConferenceInfos(fileAttachmentsObj);
+    beginInsertRows(QModelIndex(), numberOfElement, mVideoConferenceInfos.count() - 1);
+    endInsertRows();
+    checkFullList();
+}
+
+void VideoConferencesModel::initialize()
+{
+    mRoomId.clear();
+    mLoadMoreFilesInProgress = false;
+    setHasFullList(false);
+}
+
+void VideoConferencesModel::parseVideoConferences(const QJsonObject &fileAttachmentsObj, const QString &roomId)
+{
+    mRoomId = roomId;
+    if (rowCount() != 0) {
+        clear();
+    }
+    mVideoConferenceInfos.parseVideoConferenceInfos(fileAttachmentsObj);
+    if (!mVideoConferenceInfos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mVideoConferenceInfos.count() - 1);
         endInsertRows();
     }
     checkFullList();
     Q_EMIT totalChanged();
 }
 
-void VideoConferencesModel::checkFullList()
+QString VideoConferencesModel::roomId() const
 {
-    setHasFullList(mDeviceInfos.count() == mDeviceInfos.total());
+    return mRoomId;
 }
 
-const DeviceInfos &VideoConferencesModel::deviceInfos() const
+void VideoConferencesModel::setRoomId(const QString &roomId)
 {
-    return mDeviceInfos;
+    mRoomId = roomId;
 }
 
-void VideoConferencesModel::setDeviceInfos(const DeviceInfos &newDeviceInfos)
+void VideoConferencesModel::setVideoConferenceInfos(const QList<VideoConferenceInfo> &files)
 {
     clear();
-    if (!mDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
-        mDeviceInfos = newDeviceInfos;
+    if (!files.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, files.count() - 1);
+        mVideoConferenceInfos.setVideoConferenceInfosList(files);
         endInsertRows();
     }
-}
-
-void VideoConferencesModel::addMoreElements(const QJsonObject &obj)
-{
-    const int numberOfElement = mDeviceInfos.count();
-    mDeviceInfos.parseDeviceInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mDeviceInfos.count() - 1);
-    endInsertRows();
     checkFullList();
+    Q_EMIT totalChanged();
 }
 
-QList<int> VideoConferencesModel::hideColumns() const
+int VideoConferencesModel::rowCount(const QModelIndex &parent) const
 {
-    return {DeviceInfoRoles::Identifier, DeviceInfoRoles::UserId, DeviceInfoRoles::SessionId};
+    Q_UNUSED(parent)
+    return mVideoConferenceInfos.count();
 }
 
-void VideoConferencesModel::removeElement(const QString &identifier)
+QVariant VideoConferencesModel::data(const QModelIndex &index, int role) const
 {
-    const int userCount = mDeviceInfos.count();
-    for (int i = 0; i < userCount; ++i) {
-        if (mDeviceInfos.at(i).sessionId() == identifier) {
-            beginRemoveRows(QModelIndex(), i, i);
-            mDeviceInfos.takeAt(i);
-            mDeviceInfos.setTotal(mDeviceInfos.count()); // Update total
-            endRemoveRows();
-            Q_EMIT totalChanged();
-            break;
-        }
+    if (index.row() < 0 || index.row() >= mVideoConferenceInfos.count()) {
+        return {};
     }
+
+    const VideoConferenceInfo &file = mVideoConferenceInfos.at(index.row());
+    switch (role) {
+    }
+    return {};
+}
+
+int VideoConferencesModel::total() const
+{
+    return mVideoConferenceInfos.count();
+}
+
+void VideoConferencesModel::setHasFullList(bool state)
+{
+    if (mHasFullList != state) {
+        mHasFullList = state;
+        Q_EMIT hasFullListChanged();
+    }
+}
+
+bool VideoConferencesModel::hasFullList() const
+{
+    return mHasFullList;
 }
 
 #include "moc_videoconferencesmodel.cpp"

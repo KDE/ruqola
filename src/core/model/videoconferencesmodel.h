@@ -6,47 +6,53 @@
 
 #pragma once
 
-#include "custombasemodel.h"
 #include "libruqolacore_export.h"
-#include "managedevices/deviceinfos.h"
+#include "videoconference/videoconferenceinfos.h"
+#include <QAbstractListModel>
 
-class LIBRUQOLACORE_EXPORT VideoConferencesModel : public CustomBaseModel
+class RocketChatAccount;
+class LIBRUQOLACORE_EXPORT VideoConferencesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum DeviceInfoRoles {
-        Os,
-        Client,
-        Host,
-        Identifier,
-        SessionId,
-        Ip,
-        UserId,
-        LoginAt,
-        LastColumn = LoginAt,
+    enum VideoConferencesRoles {
+        StartedVideo = Qt::UserRole + 1,
     };
-    Q_ENUM(DeviceInfoRoles)
+    Q_ENUM(VideoConferencesRoles)
 
-    explicit VideoConferencesModel(QObject *parent = nullptr);
+    explicit VideoConferencesModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~VideoConferencesModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
-    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    [[nodiscard]] int total() const override;
-    void parseElements(const QJsonObject &obj) override;
-    void addMoreElements(const QJsonObject &obj) override;
-    [[nodiscard]] QList<int> hideColumns() const override;
+    [[nodiscard]] QString roomId() const;
+    void setRoomId(const QString &roomId);
 
-    void removeElement(const QString &identifier) override;
+    void parseVideoConferences(const QJsonObject &fileAttachmentsObj, const QString &roomId);
+    void addMoreVideoConferences(const QJsonObject &fileAttachmentsObj);
+    void initialize();
+    [[nodiscard]] int total() const;
 
-    [[nodiscard]] const DeviceInfos &deviceInfos() const;
-    void setDeviceInfos(const DeviceInfos &newDeviceInfos);
+    [[nodiscard]] bool hasFullList() const;
+    void setHasFullList(bool state);
+
+    [[nodiscard]] bool loadMoreVideoConferencesInProgress() const;
+    void setLoadMoreVideoConferencesInProgress(bool loadMoreFilesInProgress);
+
+    void clear();
+
+    void setVideoConferenceInfos(const QList<VideoConferenceInfo> &files);
+Q_SIGNALS:
+    void hasFullListChanged();
+    void totalChanged();
+    void loadingInProgressChanged();
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void clear();
-    LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
-    DeviceInfos mDeviceInfos;
+    LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    QString mRoomId;
+    bool mHasFullList = false;
+    bool mLoadMoreFilesInProgress = false;
+    VideoConferenceInfos mVideoConferenceInfos;
+    RocketChatAccount *const mRochetChantAccount;
 };
