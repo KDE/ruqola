@@ -57,6 +57,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
+    connect(mRuqolaLoginStackWidget, &RuqolaLoginStackWidget::returnPressed, this, &RuqolaLoginWidget::slotLogin);
     auto loginButtonLayout = new QHBoxLayout;
     loginButtonLayout->setContentsMargins({});
     loginButtonLayout->addStretch(0);

@@ -36,6 +36,7 @@ public:
     void changeAuthenticationWidgetStatus(bool enabled);
 Q_SIGNALS:
     void settingsIsValid(bool enabled);
+    void returnPressed();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordRequested(const QString &email);

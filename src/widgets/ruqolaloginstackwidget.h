@@ -31,6 +31,7 @@ public:
 
 Q_SIGNALS:
     void settingsIsValid(bool state);
+    void returnPressed();
 
 private:
     QStringList mExistingAccountNames;

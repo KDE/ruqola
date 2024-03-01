@@ -9,7 +9,9 @@
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QSignalSpy>
 #include <QTest>
+#include <QTestKeyEvent>
 QTEST_MAIN(AuthenticationLoginWidgetTest)
 
 AuthenticationLoginWidgetTest::AuthenticationLoginWidgetTest(QObject *parent)
@@ -42,6 +44,20 @@ void AuthenticationLoginWidgetTest::shouldHaveDefaultValues()
 
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
+}
+
+void AuthenticationLoginWidgetTest::shouldEmitSignalWhenPressEnter()
+{
+    AuthenticationLoginWidget w;
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    mPasswordLineEdit->setPassword(QStringLiteral("ddd"));
+    QSignalSpy spyReturnPressed(&w, &AuthenticationLoginWidget::returnPressed);
+    QVERIFY(mPasswordLineEdit);
+    QTest::keyClick(mPasswordLineEdit->lineEdit(), Qt::Key_Enter);
+    QCOMPARE(spyReturnPressed.count(), 1);
+    spyReturnPressed.clear();
+    QTest::keyClick(mPasswordLineEdit->lineEdit(), Qt::Key_O);
+    QCOMPARE(spyReturnPressed.count(), 0);
 }
 
 #include "moc_authenticationloginwidgettest.cpp"

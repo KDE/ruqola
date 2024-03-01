@@ -16,4 +16,5 @@ public:
     ~AuthenticationLoginWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitSignalWhenPressEnter();
 };
