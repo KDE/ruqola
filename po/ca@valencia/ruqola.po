@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-01 00:38+0000\n"
 "PO-Revision-Date: 2024-02-27 13:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -745,7 +745,7 @@ msgstr "Estat"
 msgid "link"
 msgstr "enllaç"
 
-#: core/model/deviceinfomodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32 core/model/videoconferencesmodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -753,27 +753,27 @@ msgstr "enllaç"
 msgid "Host"
 msgstr "Servidor"
 
-#: core/model/deviceinfomodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34 core/model/videoconferencesmodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr "SO"
 
-#: core/model/deviceinfomodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36 core/model/videoconferencesmodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr "Client"
 
-#: core/model/deviceinfomodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38 core/model/videoconferencesmodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr "ID de la sessió"
 
-#: core/model/deviceinfomodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40 core/model/videoconferencesmodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr "IP"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44 core/model/videoconferencesmodel.cpp:44
 #, kde-format
 msgid "Login At"
 msgstr "Inici de sessió a"
@@ -1360,12 +1360,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2857
+#: core/rocketchataccount.cpp:2843
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2858
+#: core/rocketchataccount.cpp:2844
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -1520,7 +1520,6 @@ msgstr "Usuari/Contrasenya"
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:42
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
@@ -2326,7 +2325,7 @@ msgstr ""
 "El paràmetre requerit \\\"roomId\\\" o \\\"roomName\\\" que s'ha "
 "proporcionat no coincidix amb cap equip"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:78
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:79
 #, kde-format
 msgid "Get Avatar"
 msgstr "Obtín l'avatar"
@@ -3415,7 +3414,6 @@ msgstr "Correu electrònic:"
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -6215,18 +6213,16 @@ msgid "Register Account"
 msgstr "Registra un compte"
 
 #: widgets/common/authenticationloginwidget.cpp:43
-#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or email"
 msgstr "Nom d'usuari o correu"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Username or Email:"
 msgstr "Nom d'usuari o correu:"
 
-#: widgets/common/authenticationloginwidget.cpp:147
+#: widgets/common/authenticationloginwidget.cpp:157
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6236,7 +6232,7 @@ msgstr ""
 "Vos hem enviat un correu per a confirmar el registre.\n"
 "Si no rebeu un correu ben prompte, torneu i intenteu-ho de nou."
 
-#: widgets/common/authenticationloginwidget.cpp:148
+#: widgets/common/authenticationloginwidget.cpp:158
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -7646,7 +7642,7 @@ msgstr ""
 "Es requerix una contrasenya d'un ús per a completar el procediment d'inici "
 "de sessió."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:174
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "No s'ha pogut fer l'inici de la sessió: codi OTP no vàlid."
@@ -8928,22 +8924,12 @@ msgstr "Mostra el missatge"
 msgid "Lists the available options for user feedback"
 msgstr "Llista les opcions disponibles per als comentaris dels usuaris"
 
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:28
 #, kde-format
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: widgets/ruqolaloginwidget.cpp:45
-#, kde-format
-msgid "Account Name:"
-msgstr "Nom del compte:"
-
-#: widgets/ruqolaloginwidget.cpp:46
-#, kde-format
-msgid "Account name"
-msgstr "Nom del compte"
-
-#: widgets/ruqolaloginwidget.cpp:68
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8952,43 +8938,43 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi alternatiu."
 
-#: widgets/ruqolaloginwidget.cpp:170
+#: widgets/ruqolaloginwidget.cpp:157
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/ruqolaloginwidget.cpp:184
+#: widgets/ruqolaloginwidget.cpp:171
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Ací no s'ha trobat cap connector."
 
-#: widgets/ruqolaloginwidget.cpp:190
+#: widgets/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "No s'ha pogut fer l'inici de la sessió: error genèric"
 
-#: widgets/ruqolaloginwidget.cpp:196
+#: widgets/ruqolaloginwidget.cpp:183
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: s'ha bloquejat temporalment l'inici "
 "de sessió per IP."
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: s'ha bloquejat temporalment l'inici "
 "de sessió per usuari."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "No s'ha pogut fer l'inici de la sessió: l'usuari no està activat."
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9574,6 +9560,12 @@ msgstr "Corregix el missatge de traducció en el canal directe."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr "No mostra @here/@all com a usuari."
+
+#~ msgid "Account Name:"
+#~ msgstr "Nom del compte:"
+
+#~ msgid "Account name"
+#~ msgstr "Nom del compte"
 
 #~ msgid "File Uploaded:"
 #~ msgstr "Fitxer pujat:"

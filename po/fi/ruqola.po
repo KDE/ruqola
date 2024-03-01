@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-01 00:38+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -741,7 +741,7 @@ msgstr "Tila"
 msgid "link"
 msgstr "linkki"
 
-#: core/model/deviceinfomodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32 core/model/videoconferencesmodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -749,27 +749,27 @@ msgstr "linkki"
 msgid "Host"
 msgstr "Palvelin"
 
-#: core/model/deviceinfomodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34 core/model/videoconferencesmodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr "Käyttöjärjestelmä"
 
-#: core/model/deviceinfomodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36 core/model/videoconferencesmodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr "Asiakas"
 
-#: core/model/deviceinfomodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38 core/model/videoconferencesmodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr "Istunnon tunniste"
 
-#: core/model/deviceinfomodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40 core/model/videoconferencesmodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr "IP"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44 core/model/videoconferencesmodel.cpp:44
 #, kde-format
 msgid "Login At"
 msgstr "Kirjaudu"
@@ -1366,12 +1366,12 @@ msgstr "<strong>%1</strong> kirjoittaa…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:2857
+#: core/rocketchataccount.cpp:2843
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:2858
+#: core/rocketchataccount.cpp:2844
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -1528,7 +1528,6 @@ msgstr "Tunnus/salasana"
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:42
 #, kde-format
 msgid "Server URL:"
 msgstr "Palvelimen osoite:"
@@ -2340,7 +2339,7 @@ msgid ""
 "match any teams"
 msgstr "Vaadittu parametri ”%1” ei vastaa mitään kanavaa"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:78
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:79
 #, kde-format
 msgid "Get Avatar"
 msgstr "Hanki avatar"
@@ -3442,7 +3441,6 @@ msgstr "Sähköposti:"
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Password:"
 msgstr "Salasana:"
@@ -6095,18 +6093,16 @@ msgid "Register Account"
 msgstr "Poista tili"
 
 #: widgets/common/authenticationloginwidget.cpp:43
-#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or email"
 msgstr "Käyttäjätunnus tai sähköposti"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Username or Email:"
 msgstr "Käyttäjätunnus tai sähköposti:"
 
-#: widgets/common/authenticationloginwidget.cpp:147
+#: widgets/common/authenticationloginwidget.cpp:157
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6116,7 +6112,7 @@ msgstr ""
 "Sinulle on lähetetty sähköpostia rekisteröinnin vahvistamiseksi.\n"
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
-#: widgets/common/authenticationloginwidget.cpp:148
+#: widgets/common/authenticationloginwidget.cpp:158
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -7516,7 +7512,7 @@ msgstr "Kirjautuminen epäonnistui: yleinen virhe"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Kirjautumisen viimeistelyyn vaaditaan kertakäyttöinen salasana."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:174
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Kirjautuminen epäonnistui: virheellinen OTP-koodi."
@@ -8805,22 +8801,12 @@ msgstr "Seuraa viestiä…"
 msgid "Lists the available options for user feedback"
 msgstr "Luettelee eri käyttäjäpalautemahdollisuudet"
 
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:28
 #, kde-format
 msgid "Login"
 msgstr "Kirjaudu"
 
-#: widgets/ruqolaloginwidget.cpp:45
-#, kde-format
-msgid "Account Name:"
-msgstr "Tilin nimi:"
-
-#: widgets/ruqolaloginwidget.cpp:46
-#, kde-format
-msgid "Account name"
-msgstr "Tilin nimi"
-
-#: widgets/ruqolaloginwidget.cpp:68
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8829,37 +8815,37 @@ msgstr ""
 "Käytössä on kahden tekijän todennus.\n"
 "Anna luotu koodi tai varmistuskoodi."
 
-#: widgets/ruqolaloginwidget.cpp:170
+#: widgets/ruqolaloginwidget.cpp:157
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Kirjautuminen epäonnistui: virheellinen käyttäjätunnus tai salasana"
 
-#: widgets/ruqolaloginwidget.cpp:184
+#: widgets/ruqolaloginwidget.cpp:171
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Havaittiin asennusongelma: liitännäisiä ei löytynyt."
 
-#: widgets/ruqolaloginwidget.cpp:190
+#: widgets/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Kirjautuminen epäonnistui: yleinen virhe"
 
-#: widgets/ruqolaloginwidget.cpp:196
+#: widgets/ruqolaloginwidget.cpp:183
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr "Kirjautuminen on tilapäisesti estetty käyttäjätunnuksen perusteella."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Kirjautuminen epäonnistui: Käyttäjää ei ole aktivoitu."
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr "Kirjautuminen epäonnistui: Sovelluskäyttäjän ei sallita kirjautua."
@@ -9455,6 +9441,12 @@ msgstr "Viestejä kanavilla yhteensä"
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr ""
+
+#~ msgid "Account Name:"
+#~ msgstr "Tilin nimi:"
+
+#~ msgid "Account name"
+#~ msgstr "Tilin nimi"
 
 #~ msgid "File Uploaded:"
 #~ msgstr "Tiedosto lähetetty:"

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 00:37+0000\n"
-"PO-Revision-Date: 2024-02-25 12:33+0100\n"
+"POT-Creation-Date: 2024-03-01 00:38+0000\n"
+"PO-Revision-Date: 2024-02-28 09:28+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -739,7 +739,7 @@ msgstr "État"
 msgid "link"
 msgstr "lien"
 
-#: core/model/deviceinfomodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32 core/model/videoconferencesmodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -747,27 +747,27 @@ msgstr "lien"
 msgid "Host"
 msgstr "Hôte"
 
-#: core/model/deviceinfomodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34 core/model/videoconferencesmodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr "OS"
 
-#: core/model/deviceinfomodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36 core/model/videoconferencesmodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr "Client"
 
-#: core/model/deviceinfomodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38 core/model/videoconferencesmodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr "ID de session"
 
-#: core/model/deviceinfomodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40 core/model/videoconferencesmodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr "IP"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44 core/model/videoconferencesmodel.cpp:44
 #, kde-format
 msgid "Login At"
 msgstr "Connexion à"
@@ -1357,12 +1357,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2857
+#: core/rocketchataccount.cpp:2843
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2858
+#: core/rocketchataccount.cpp:2844
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -1519,7 +1519,6 @@ msgstr "Identifiant / mot de passe"
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
 #: widgets/common/authenticationloginwidget.cpp:34
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:42
 #, kde-format
 msgid "Server URL:"
 msgstr "URL du serveur :"
@@ -2338,7 +2337,7 @@ msgstr ""
 "Le paramètre nécessaire fourni \\ « roomId\\ » ou \\ « roomName\\ » ne "
 "correspond à aucune équipe."
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:78
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:79
 #, kde-format
 msgid "Get Avatar"
 msgstr "Obtenir un avatar"
@@ -3429,7 +3428,6 @@ msgstr "Courriel :"
 #: widgets/common/authenticationloginwidget.cpp:48
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:56
 #, kde-format
 msgid "Password:"
 msgstr "Mot de passe :"
@@ -6253,18 +6251,16 @@ msgid "Register Account"
 msgstr "Enregistrer un compte"
 
 #: widgets/common/authenticationloginwidget.cpp:43
-#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or email"
 msgstr "Nom d'utilisateur ou courriel"
 
 #: widgets/common/authenticationloginwidget.cpp:45
-#: widgets/ruqolaloginwidget.cpp:50
 #, kde-format
 msgid "Username or Email:"
 msgstr "Nom d'utilisateur ou courriel :"
 
-#: widgets/common/authenticationloginwidget.cpp:147
+#: widgets/common/authenticationloginwidget.cpp:157
 #: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid ""
@@ -6275,7 +6271,7 @@ msgstr ""
 "Si vous n'avez pas reçu ce message à court terme, veuillez revenir et ré-"
 "essayer."
 
-#: widgets/common/authenticationloginwidget.cpp:148
+#: widgets/common/authenticationloginwidget.cpp:158
 #: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Register New User"
@@ -7686,7 +7682,7 @@ msgstr ""
 "Un mot de passe à usage unique est nécessaire pour terminer la procédure de "
 "connexion."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:174
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:161
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Échec de la connexion : code « OTP » non valable"
@@ -8974,22 +8970,12 @@ msgstr "Afficher un message"
 msgid "Lists the available options for user feedback"
 msgstr "Liste les options disponibles pour le retour utilisateur"
 
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:28
 #, kde-format
 msgid "Login"
 msgstr "Connexion"
 
-#: widgets/ruqolaloginwidget.cpp:45
-#, kde-format
-msgid "Account Name:"
-msgstr "Nom du compte :"
-
-#: widgets/ruqolaloginwidget.cpp:46
-#, kde-format
-msgid "Account name"
-msgstr "Nom du compte"
-
-#: widgets/ruqolaloginwidget.cpp:68
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8998,41 +8984,41 @@ msgstr ""
 "Vous avez activé l'authentification par double facteur. \n"
 "Veuillez saisir le code généré ou un code de secours."
 
-#: widgets/ruqolaloginwidget.cpp:170
+#: widgets/ruqolaloginwidget.cpp:157
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
 
-#: widgets/ruqolaloginwidget.cpp:184
+#: widgets/ruqolaloginwidget.cpp:171
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Problème d'installation découvert. Aucun module externe disponible ici."
 
-#: widgets/ruqolaloginwidget.cpp:190
+#: widgets/ruqolaloginwidget.cpp:177
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Échec de la connexion : erreur générique"
 
-#: widgets/ruqolaloginwidget.cpp:196
+#: widgets/ruqolaloginwidget.cpp:183
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "Connexion impossible : la connexion a été temporairement bloquée par IP."
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "Connexion impossible : la connexion a été temporairement bloquée pour "
 "l'utilisateur."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "Connexion impossible : l'utilisateur n'est pas activé."
 
-#: widgets/ruqolaloginwidget.cpp:214
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -9610,6 +9596,8 @@ msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
+"Ajouter la prise en charge du Deep Linking <a href=\"https://developer."
+"rocket.chat/getting-started/deep-linking\">Deep Linking</a>."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Fix dark mode support."
@@ -9626,6 +9614,12 @@ msgstr "Corriger la traduction de messages dans un canal direct."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr "Ne pas afficher « @here/@all » comme utilisateur."
+
+#~ msgid "Account Name:"
+#~ msgstr "Nom du compte :"
+
+#~ msgid "Account name"
+#~ msgstr "Nom du compte"
 
 #~ msgid "File Uploaded:"
 #~ msgstr "Fichier envoyé :"
