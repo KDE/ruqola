@@ -63,7 +63,6 @@ void RESTAuthenticationManager::login()
     loginImpl(DDPAuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
-// TODO remove duplicate code.
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
