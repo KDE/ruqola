@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-22 03:05+0000\n"
+"POT-Creation-Date: 2024-03-01 03:49+0000\n"
 "PO-Revision-Date: 2024-02-01 16:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1346,12 +1346,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2809
+#: core/rocketchataccount.cpp:2795
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2810
+#: core/rocketchataccount.cpp:2796
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -9356,7 +9356,3 @@ msgstr "Corregeix la llista de mètodes d'autenticació."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:61
 msgid "Fix show avatar url."
 msgstr "Corregeix la visualització dels URL dels avatars."
-
-#~ msgctxt "@title:window"
-#~ msgid "Start a Direct Call"
-#~ msgstr "Inicia una trucada directa"

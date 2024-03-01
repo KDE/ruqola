@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-22 03:05+0000\n"
+"POT-Creation-Date: 2024-03-01 03:49+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1413,13 +1413,13 @@ msgstr "<strong>%1</strong> rašo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2809
+#: core/rocketchataccount.cpp:2795
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2810
+#: core/rocketchataccount.cpp:2796
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
