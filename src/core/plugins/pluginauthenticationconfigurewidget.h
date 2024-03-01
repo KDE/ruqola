@@ -24,6 +24,7 @@ public:
 
 Q_SIGNALS:
     void settingsIsValid(bool enabled);
+    void tryLogin();
 
 protected:
     QStringList mExistingAccountNames;

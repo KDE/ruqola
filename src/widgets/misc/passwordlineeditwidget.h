@@ -23,7 +23,7 @@ public:
 
 Q_SIGNALS:
     void resetPasswordRequested(const QString &email);
-    void returnPressed();
+    void tryLogin();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetPasswordButton();

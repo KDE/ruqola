@@ -51,13 +51,13 @@ void AuthenticationLoginWidgetTest::shouldEmitSignalWhenPressEnter()
     AuthenticationLoginWidget w;
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     mPasswordLineEdit->setPassword(QStringLiteral("ddd"));
-    QSignalSpy spyReturnPressed(&w, &AuthenticationLoginWidget::returnPressed);
+    QSignalSpy spyTryLogin(&w, &AuthenticationLoginWidget::tryLogin);
     QVERIFY(mPasswordLineEdit);
     QTest::keyClick(mPasswordLineEdit->lineEdit(), Qt::Key_Enter);
-    QCOMPARE(spyReturnPressed.count(), 1);
-    spyReturnPressed.clear();
+    QCOMPARE(spyTryLogin.count(), 1);
+    spyTryLogin.clear();
     QTest::keyClick(mPasswordLineEdit->lineEdit(), Qt::Key_O);
-    QCOMPARE(spyReturnPressed.count(), 0);
+    QCOMPARE(spyTryLogin.count(), 0);
 }
 
 #include "moc_authenticationloginwidgettest.cpp"

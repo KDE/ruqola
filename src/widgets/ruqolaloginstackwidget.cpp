@@ -18,7 +18,7 @@ RuqolaLoginStackWidget::RuqolaLoginStackWidget(QWidget *parent)
     mAuthenticationLoginWidget->setObjectName(QStringLiteral("mAuthenticationLoginWidget"));
     addWidget(mAuthenticationLoginWidget);
     mAuthenticationLoginWidget->setAuthenticationLoginType(AuthenticationLoginWidget::AuthenticationLoginType::Login);
-    connect(mAuthenticationLoginWidget, &AuthenticationLoginWidget::returnPressed, this, &RuqolaLoginStackWidget::returnPressed);
+    connect(mAuthenticationLoginWidget, &AuthenticationLoginWidget::tryLogin, this, &RuqolaLoginStackWidget::tryLogin);
 }
 
 RuqolaLoginStackWidget::~RuqolaLoginStackWidget() = default;
