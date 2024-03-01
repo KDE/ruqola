@@ -121,7 +121,6 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     connect(mAccountManager, &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     connect(mAccountManager, &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(mAccountManager, &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
-    connect(mAccountManager, &AccountManager::messageUrlNotFound, this, &RuqolaMainWindow::slotMessageUrlNotFound);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
 
     slotAccountChanged();
@@ -1037,11 +1036,6 @@ void RuqolaMainWindow::slotUpdateCustomUserStatus()
             });
         }
     }
-}
-
-void RuqolaMainWindow::slotMessageUrlNotFound(const QString &str)
-{
-    KMessageBox::information(this, str, i18n("Message"));
 }
 
 void RuqolaMainWindow::slotHistorySwitchChannel(const QString &identifier)

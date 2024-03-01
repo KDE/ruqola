@@ -700,19 +700,6 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
     return false;
 }
 
-void AccountManager::openMessageUrl(const QString &messageUrl)
-{
-    ParseRocketChatUrlUtils parseUrl;
-    if (parseUrl.parseUrl(messageUrl) == ParseRocketChatUrlUtils::UrlType::Message) {
-        if (showMessage(std::move(parseUrl.parsingInfo()))) {
-            return;
-        }
-    }
-
-    Q_EMIT messageUrlNotFound(i18n("Server not found: %1", messageUrl));
-    // TODO report error
-}
-
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const NotificationInfo &info) {

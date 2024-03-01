@@ -61,7 +61,6 @@ public:
     [[nodiscard]] QStringList accountsName() const;
 
     [[nodiscard]] int accountNumber() const;
-    void openMessageUrl(const QString &messageUrl);
     [[nodiscard]] bool showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo);
     [[nodiscard]] RocketChatAccount *accountFromName(const QString &accountName);
 
@@ -72,7 +71,6 @@ Q_SIGNALS:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void currentAccountChanged();
     void roomNeedAttention();
-    void messageUrlNotFound(const QString &str);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void removeDatabaseAccount(const QString &accountName);

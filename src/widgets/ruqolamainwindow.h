@@ -90,7 +90,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDirectory();
     LIBRUQOLAWIDGETS_NO_EXPORT void showNextView();
     LIBRUQOLAWIDGETS_NO_EXPORT void showPreviousView();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageUrlNotFound(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotHistorySwitchChannel(const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void undoSwitchChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void redoSwitchChannel();
