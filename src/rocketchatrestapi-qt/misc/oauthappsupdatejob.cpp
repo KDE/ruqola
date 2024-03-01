@@ -8,10 +8,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 OauthAppsUpdateJob::OauthAppsUpdateJob(QObject *parent)
     : RestApiAbstractJob(parent)

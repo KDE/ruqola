@@ -10,7 +10,6 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 SetTopicDmJob::SetTopicDmJob(QObject *parent)
     : RestApiAbstractJob(parent)

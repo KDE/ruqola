@@ -10,7 +10,6 @@
 
 #include <QJsonArray>
 
-#include <QIcon>
 #include <QModelIndex>
 
 InputCompleterModel::InputCompleterModel(RocketChatAccount *account, QObject *parent)

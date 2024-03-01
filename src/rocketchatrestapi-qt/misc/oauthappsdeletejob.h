@@ -9,7 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
-#include <QMap>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT OauthAppsDeleteJob : public RestApiAbstractJob

@@ -14,7 +14,6 @@
 #include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
-#include <QWidgetAction>
 
 QTEST_MAIN(RuqolaMainWindowTest)
 

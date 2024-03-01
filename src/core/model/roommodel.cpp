@@ -12,8 +12,6 @@
 #include "usersforroommodel.h"
 #include <KLocalizedString>
 
-#include <QDir>
-#include <QFile>
 #include <QIcon>
 #include <QJsonArray>
 

@@ -10,7 +10,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 GroupsConvertToTeamJob::GroupsConvertToTeamJob(QObject *parent)
     : RestApiAbstractJob(parent)

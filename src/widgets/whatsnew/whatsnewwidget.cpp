@@ -7,7 +7,6 @@
 #include "whatsnewwidgettranslation.h"
 
 #include <QCryptographicHash>
-#include <QScrollArea>
 #include <QTextBrowser>
 #include <QVBoxLayout>
 

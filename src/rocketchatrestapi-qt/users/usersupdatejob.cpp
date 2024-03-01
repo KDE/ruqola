@@ -11,7 +11,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 UsersUpdateJob::UsersUpdateJob(QObject *parent)
     : RestApiAbstractJob(parent)

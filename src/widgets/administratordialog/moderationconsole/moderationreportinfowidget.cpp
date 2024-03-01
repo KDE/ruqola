@@ -11,7 +11,6 @@
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLineEdit>
-#include <QListView>
 #include <QVBoxLayout>
 
 #include "config-ruqola.h"

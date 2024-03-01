@@ -10,8 +10,6 @@
 #include "servererrorinfohistorymanager.h"
 
 #include <KLocalizedString>
-#include <QApplication>
-#include <QClipboard>
 #include <QMenu>
 #include <QMouseEvent>
 

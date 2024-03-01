@@ -6,10 +6,9 @@
 
 #pragma once
 
-#include <QAbstractItemModel>
-
 #include "libruqolacore_export.h"
 #include "utils.h"
+#include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT SwitchChannelHistoryModel : public QAbstractListModel
 {

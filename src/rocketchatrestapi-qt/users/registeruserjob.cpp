@@ -10,7 +10,6 @@
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 RegisterUserJob::RegisterUserJob(QObject *parent)
     : RestApiAbstractJob(parent)

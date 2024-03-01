@@ -6,9 +6,6 @@
  *
  */
 
-#include <QDataStream>
-#include <QFile>
-#include <QJsonDocument>
 #include <QModelIndex>
 #include <QTimeZone>
 

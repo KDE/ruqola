@@ -7,7 +7,6 @@
 #include "dialogs/showvideodialog.h"
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QUrl>
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);

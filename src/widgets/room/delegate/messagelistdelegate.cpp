@@ -36,8 +36,6 @@
 #include "ruqolawidgets_debug.h"
 
 #include <QAbstractItemView>
-#include <QApplication>
-#include <QClipboard>
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>

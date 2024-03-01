@@ -10,7 +10,6 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QList>
-#include <QString>
 
 class LIBRUQOLACORE_EXPORT DeviceInfos
 {

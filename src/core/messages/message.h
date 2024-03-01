@@ -16,8 +16,10 @@
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
 #include "utils.h"
+#include <QColor>
 #include <QList>
 #include <QString>
+
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Message
 {

@@ -10,7 +10,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 User2FASendEmailCodeJob::User2FASendEmailCodeJob(QObject *parent)
     : RestApiAbstractJob(parent)

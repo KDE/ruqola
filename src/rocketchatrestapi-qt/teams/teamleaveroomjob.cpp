@@ -10,7 +10,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 TeamLeaveRoomJob::TeamLeaveRoomJob(QObject *parent)
     : RestApiAbstractJob(parent)

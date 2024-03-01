@@ -12,7 +12,6 @@
 #include <QHeaderView>
 #include <QLabel>
 #include <QLineEdit>
-#include <QSortFilterProxyModel>
 #include <QTreeView>
 #include <QVBoxLayout>
 

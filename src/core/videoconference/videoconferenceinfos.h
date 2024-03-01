@@ -10,7 +10,6 @@
 #include "videoconferenceinfo.h"
 #include <QDebug>
 #include <QList>
-#include <QString>
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfos
 {

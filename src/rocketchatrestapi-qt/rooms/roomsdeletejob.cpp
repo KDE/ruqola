@@ -10,7 +10,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 RoomsDeleteJob::RoomsDeleteJob(QObject *parent)
     : RestApiAbstractJob(parent)

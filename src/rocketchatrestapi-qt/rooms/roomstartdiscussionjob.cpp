@@ -12,7 +12,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 
 using namespace RocketChatRestApi;
 RoomStartDiscussionJob::RoomStartDiscussionJob(QObject *parent)

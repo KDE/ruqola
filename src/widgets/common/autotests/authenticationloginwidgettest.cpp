@@ -11,7 +11,6 @@
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTest>
-#include <QTestKeyEvent>
 QTEST_MAIN(AuthenticationLoginWidgetTest)
 
 AuthenticationLoginWidgetTest::AuthenticationLoginWidgetTest(QObject *parent)

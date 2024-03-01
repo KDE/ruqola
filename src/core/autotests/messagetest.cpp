@@ -7,7 +7,6 @@
 #include "messagetest.h"
 #include "messages/message.h"
 #include "ruqola_autotest_helper.h"
-#include <QCborMap>
 #include <QCborValue>
 #include <QJsonDocument>
 

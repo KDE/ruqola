@@ -12,7 +12,6 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QTemporaryDir>
-#include <QTemporaryFile>
 #include <QTimer>
 
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)

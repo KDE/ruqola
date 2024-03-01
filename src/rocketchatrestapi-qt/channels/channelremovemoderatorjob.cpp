@@ -11,7 +11,6 @@
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelRemoveModeratorJob::ChannelRemoveModeratorJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

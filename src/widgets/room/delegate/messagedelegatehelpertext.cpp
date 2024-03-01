@@ -23,7 +23,6 @@
 #include <QListView>
 #include <QMimeData>
 #include <QPainter>
-#include <QPixmap>
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 

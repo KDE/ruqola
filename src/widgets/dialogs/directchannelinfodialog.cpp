@@ -6,7 +6,6 @@
 
 #include "directchannelinfodialog.h"
 #include "directchannelinfowidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>

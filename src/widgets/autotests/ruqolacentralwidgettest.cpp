@@ -11,10 +11,10 @@
 #endif
 #include "whatsnew/whatsnewmessagewidget.h"
 
-#include <QHBoxLayout>
 #include <QStackedWidget>
 #include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(RuqolaCentralWidgetTest)
 RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)

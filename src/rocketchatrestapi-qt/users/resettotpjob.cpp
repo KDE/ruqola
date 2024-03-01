@@ -12,7 +12,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 ResetTOTPJob::ResetTOTPJob(QObject *parent)
     : RestApiAbstractJob(parent)

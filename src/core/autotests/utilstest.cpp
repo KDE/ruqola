@@ -6,9 +6,6 @@
 
 #include "utilstest.h"
 #include "utils.h"
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UtilsTest)

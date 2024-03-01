@@ -6,7 +6,6 @@
 #include "whatsnewwidgettest.h"
 #include "whatsnew/whatsnewcomboboxwidget.h"
 #include "whatsnew/whatsnewwidget.h"
-#include <QScrollArea>
 #include <QTest>
 #include <QTextBrowser>
 #include <QVBoxLayout>

@@ -10,7 +10,6 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 DeleteDmJob::DeleteDmJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

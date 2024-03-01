@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include "whatsnewcomboboxwidget.h"
-#include <KLazyLocalizedString>
 #include <QWidget>
 class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget

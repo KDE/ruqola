@@ -14,11 +14,8 @@
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KLocalizedString>
-#include <KPasswordLineEdit>
 #include <QCheckBox>
-#include <QFormLayout>
 #include <QLabel>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
 

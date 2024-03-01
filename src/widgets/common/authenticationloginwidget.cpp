@@ -11,7 +11,6 @@
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPointer>

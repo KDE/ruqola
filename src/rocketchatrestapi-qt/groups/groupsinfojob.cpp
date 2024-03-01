@@ -10,7 +10,6 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 GroupsInfoJob::GroupsInfoJob(QObject *parent)

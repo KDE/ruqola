@@ -5,7 +5,6 @@
 */
 
 #include "ruqolaloginstackwidget.h"
-#include "common/authenticationloginwidget.h"
 #include "plugins/pluginauthentication.h"
 #include "plugins/pluginauthenticationconfigurewidget.h"
 #include "plugins/pluginauthenticationinterface.h"

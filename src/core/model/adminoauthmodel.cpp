@@ -6,7 +6,6 @@
 
 #include "adminoauthmodel.h"
 #include <KLocalizedString>
-#include <QDateTime>
 
 AdminOauthModel::AdminOauthModel(QObject *parent)
     : QAbstractListModel(parent)

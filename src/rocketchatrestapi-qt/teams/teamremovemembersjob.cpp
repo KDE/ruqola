@@ -12,7 +12,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 TeamRemoveMembersJob::TeamRemoveMembersJob(QObject *parent)
     : RestApiAbstractJob(parent)

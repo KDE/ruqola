@@ -8,7 +8,6 @@
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 FetchMyKeysJob::FetchMyKeysJob(QObject *parent)
     : RestApiAbstractJob(parent)

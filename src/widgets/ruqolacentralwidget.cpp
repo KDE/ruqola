@@ -15,8 +15,8 @@
 #include "whatsnew/whatsnewmessagewidget.h"
 #include "whatsnew/whatsnewwidget.h"
 #include <KLocalizedString>
-#include <QHBoxLayout>
 #include <QStackedWidget>
+#include <QVBoxLayout>
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)

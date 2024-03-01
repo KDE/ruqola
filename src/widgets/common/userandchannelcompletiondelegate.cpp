@@ -11,7 +11,6 @@
 
 #include <KLocalizedString>
 
-#include <QFontMetricsF>
 #include <QPainter>
 
 UserAndChannelCompletionDelegate::UserAndChannelCompletionDelegate(QObject *parent)

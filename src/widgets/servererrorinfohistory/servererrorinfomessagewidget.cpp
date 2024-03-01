@@ -9,7 +9,6 @@
 #include "ruqola.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 #include <KLocalizedString>
-#include <QDebug>
 
 ServerErrorInfoMessageWidget::ServerErrorInfoMessageWidget(QWidget *parent)
     : KMessageWidget(parent)

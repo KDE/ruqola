@@ -8,7 +8,6 @@
 #include "customemojiiconmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include <QVBoxLayout>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)

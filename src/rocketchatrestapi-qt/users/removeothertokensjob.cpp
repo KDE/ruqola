@@ -9,7 +9,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 RemoveOtherTokensJob::RemoveOtherTokensJob(QObject *parent)
     : RestApiAbstractJob(parent)

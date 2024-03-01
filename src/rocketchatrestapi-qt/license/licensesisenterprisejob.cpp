@@ -9,7 +9,6 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 LicensesIsEnterpriseJob::LicensesIsEnterpriseJob(QObject *parent)
     : RestApiAbstractJob(parent)

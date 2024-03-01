@@ -6,7 +6,6 @@
 
 #include "purposemenuwidget.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <Purpose/AlternativesModel>
 #include <Purpose/Menu>
 #include <QJsonArray>

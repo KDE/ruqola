@@ -12,7 +12,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 FindOrCreateInviteJob::FindOrCreateInviteJob(QObject *parent)
     : RestApiAbstractJob(parent)

@@ -10,7 +10,6 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelAddLeaderJob::ChannelAddLeaderJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

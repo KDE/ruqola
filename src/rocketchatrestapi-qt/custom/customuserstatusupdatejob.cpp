@@ -10,7 +10,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 CustomUserStatusUpdateJob::CustomUserStatusUpdateJob(QObject *parent)
     : RestApiAbstractJob(parent)

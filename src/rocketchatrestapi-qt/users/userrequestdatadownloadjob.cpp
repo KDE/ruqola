@@ -8,7 +8,6 @@
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 UserRequestDataDownloadJob::UserRequestDataDownloadJob(QObject *parent)

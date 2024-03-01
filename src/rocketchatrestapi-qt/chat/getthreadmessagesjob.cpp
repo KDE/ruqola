@@ -10,7 +10,6 @@
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 GetThreadMessagesJob::GetThreadMessagesJob(QObject *parent)

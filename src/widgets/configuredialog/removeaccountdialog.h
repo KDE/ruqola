@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-#include <QObject>
 class RemoveAccountWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RemoveAccountDialog : public QDialog
 {

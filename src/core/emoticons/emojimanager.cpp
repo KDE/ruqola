@@ -11,7 +11,6 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QRegularExpressionMatch>
 #include <QTextStream>
 
 EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)

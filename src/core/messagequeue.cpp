@@ -12,8 +12,6 @@
 #include "rocketchataccount.h"
 
 #include <QCborValue>
-#include <QDataStream>
-#include <QDir>
 #include <QJsonArray>
 #include <QPair>
 

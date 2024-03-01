@@ -8,7 +8,6 @@
 
 #include "librestapi_private_export.h"
 #include "userbasejob.h"
-#include <QPointer>
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi

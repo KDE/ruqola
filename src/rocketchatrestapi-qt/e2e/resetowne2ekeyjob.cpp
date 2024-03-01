@@ -9,7 +9,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 ResetOwnE2eKeyJob::ResetOwnE2eKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)

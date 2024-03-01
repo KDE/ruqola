@@ -9,7 +9,6 @@
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_autotest_helper.h"
-#include <QCborMap>
 #include <QCborValue>
 #include <QJsonDocument>
 #include <QSignalSpy>

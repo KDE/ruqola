@@ -9,7 +9,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/usercompletermodel.h"
 
-#include <QFontMetricsF>
 #include <QPainter>
 
 UserCompletionDelegate::UserCompletionDelegate(QObject *parent)

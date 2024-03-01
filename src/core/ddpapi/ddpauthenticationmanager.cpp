@@ -16,7 +16,6 @@
 
 #include "utils.h"
 
-#include <QByteArray>
 #include <QJsonArray>
 
 #define sl(x) QStringLiteral(x)

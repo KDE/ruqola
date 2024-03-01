@@ -10,7 +10,6 @@
 
 #include "bannerinfo/bannerinfos.h"
 #include "libruqolacore_export.h"
-#include <QList>
 
 class LIBRUQOLACORE_EXPORT BannerInfosModel : public QAbstractListModel
 {

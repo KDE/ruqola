@@ -9,7 +9,6 @@
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
 #include "rocketchataccount.h"
-#include <QPointer>
 
 PersonalAccessTokenAuthenticationInterface::PersonalAccessTokenAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)

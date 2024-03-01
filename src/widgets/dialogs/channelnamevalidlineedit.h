@@ -9,7 +9,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchwithdelaylineedit.h"
 
-#include <QJsonDocument>
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
 class RocketChatAccount;

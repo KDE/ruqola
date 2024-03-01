@@ -10,7 +10,6 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QPixmap>
 #include <QUrl>
 
 class RocketChatAccount;

@@ -7,7 +7,6 @@
 #include "previewurlcachemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_previewurlcache_debug.h"
-#include <KConfigGroup>
 #include <KSharedConfig>
 #include <QDir>
 #include <QTimer>

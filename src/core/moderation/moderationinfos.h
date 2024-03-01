@@ -10,7 +10,6 @@
 #include "moderationinfo.h"
 #include <QDebug>
 #include <QList>
-#include <QString>
 
 class LIBRUQOLACORE_EXPORT ModerationInfos
 {

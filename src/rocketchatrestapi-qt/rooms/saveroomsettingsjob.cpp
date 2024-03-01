@@ -13,7 +13,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 SaveRoomSettingsJob::SaveRoomSettingsJob(QObject *parent)
     : RestApiAbstractJob(parent)
