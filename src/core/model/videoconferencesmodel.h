@@ -50,9 +50,9 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
+    VideoConferenceInfos mVideoConferenceInfos;
     QString mRoomId;
     bool mHasFullList = false;
     bool mLoadMoreFilesInProgress = false;
-    VideoConferenceInfos mVideoConferenceInfos;
     RocketChatAccount *const mRochetChantAccount;
 };
