@@ -87,7 +87,7 @@ QJsonDocument MethodCallJob::json() const
 {
     QJsonObject jsonObj;
     // We need to convert to string
-    jsonObj[QLatin1String("message")] = QString::fromUtf8(QJsonDocument(mMethodCallJobInfo.messageObj).toJson());
+    jsonObj[QLatin1String("message")] = QString::fromUtf8(QJsonDocument(mMethodCallJobInfo.messageObj).toJson(QJsonDocument::Compact));
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
