@@ -61,7 +61,8 @@ void MethodCallJobTest::shouldGenerateJson()
     info.methodName = QStringLiteral("login");
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"{\"id\":\"52\",\"method\":\"login\",\"msg\":\"method\"}"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral("{\"message\":\"{\\\"id\\\":\\\"52\\\",\\\"method\\\":\\\"login\\\",\\\"msg\\\":\\\"method\\\"}\"}").toLatin1());
 }
 
 void MethodCallJobTest::shouldNotStarting()
