@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "libruqolawidgets_export.h"
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLabel;
 class RocketChatAccount;
 class ServerConfigInfo;
-class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
