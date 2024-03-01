@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include <KStatusNotifierItem>
 #include <QMap>
@@ -23,7 +24,7 @@ public:
     void roomNeedAttention();
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
     void clearNotification(const QString &account);
-#ifdef UNITY_SUPPORT
+#if HAS_UNITY_SUPPORT
     UnityServiceManager *unityServiceManager();
 #endif
 
@@ -55,7 +56,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void updateUnityService(int unreadMessage);
 
     QMap<QString, TrayInfo> mListTrayIcon;
-#ifdef UNITY_SUPPORT
+#if HAS_UNITY_SUPPORT
     UnityServiceManager *mUnityServiceManager = nullptr;
 #endif
 };

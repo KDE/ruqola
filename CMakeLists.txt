@@ -45,6 +45,11 @@ option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Acess Token Support" OFF)
+option(OPTION_USE_RESTAPI_LOGIN_CMAKE_SUPPORT "Use restapi for login (experimental)" OFF)
+
+if (OPTION_USE_RESTAPI_LOGIN_CMAKE_SUPPORT)
+    set(USE_RESTAPI_LOGIN_CMAKE_SUPPORT true)
+endif()
 
 if (OPTION_USE_PERSONAL_ACCESS_TOKEN)
     set(USE_PERSONAL_ACCESS_TOKEN true)
@@ -88,8 +93,10 @@ else()
 endif()
 
 if (UNITY_SUPPORT)
-    add_definitions(-DUNITY_SUPPORT)
+    set(HAS_UNITY_SUPPORT true)
 endif()
+
+
 set(KTEXTADDONS_MIN_VERSION "1.5.3")
 set(KLLMWIDGETS_VERSION "0.1.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.14.1")

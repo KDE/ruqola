@@ -9,7 +9,7 @@
 
 #include "notification.h"
 #include "ruqola_notification_debug.h"
-#ifdef UNITY_SUPPORT
+#if HAS_UNITY_SUPPORT
 #include "unityservicemanager.h"
 #endif
 
@@ -24,7 +24,7 @@ Notification::Notification(QObject *parent)
 
 Notification::~Notification()
 {
-#ifdef UNITY_SUPPORT
+#if HAS_UNITY_SUPPORT
     delete mUnityServiceManager;
 #endif
 }
@@ -93,14 +93,14 @@ void Notification::createToolTip()
 
 void Notification::updateUnityService(int unreadMessage)
 {
-#ifdef UNITY_SUPPORT
+#if HAS_UNITY_SUPPORT
     unityServiceManager()->setCount(unreadMessage);
 #else
     Q_UNUSED(unreadMessage)
 #endif
 }
 
-#ifdef UNITY_SUPPORT
+#if HAS_UNITY_SUPPORT
 UnityServiceManager *Notification::unityServiceManager()
 {
     if (!mUnityServiceManager) {
