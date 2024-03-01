@@ -49,6 +49,7 @@ void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationMana
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::settingsIsValid, this, &RuqolaLoginStackWidget::settingsIsValid);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
+        delete interface;
     } else {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find authentication for " << type;
     }
