@@ -5,9 +5,9 @@
 */
 
 #include "ruqolacentralwidget.h"
+#include "loginwidget/ruqolaloginwidget.h"
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
-#include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
 #include "servererrorinfo.h"
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"

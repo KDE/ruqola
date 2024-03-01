@@ -681,15 +681,17 @@ target_sources(libruqolawidgets PRIVATE
     room/plugintextmessagewidget.h
     room/plugintextmessagewidget.cpp
 
+    loginwidget/ruqolaloginwidget.cpp
+    loginwidget/ruqolaloginwidget.h
+
+    loginwidget/ruqolaloginstackwidget.h
+    loginwidget/ruqolaloginstackwidget.cpp
+
+
     ruqolacentralwidget.cpp
     ruqolacentralwidget.h
     ruqolacommandlineoptions.cpp
-    ruqolacommandlineoptions.h
-    ruqolaloginwidget.cpp
-    ruqolaloginwidget.h
-
-    ruqolaloginstackwidget.h
-    ruqolaloginstackwidget.cpp
+    ruqolacommandlineoptions.h    
 
     ruqolamainwidget.cpp
     ruqolamainwidget.h

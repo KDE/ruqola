@@ -5,8 +5,8 @@
 */
 
 #include "ruqolaloginwidgettest.h"
-#include "ruqolaloginstackwidget.h"
-#include "ruqolaloginwidget.h"
+#include "loginwidget/ruqolaloginstackwidget.h"
+#include "loginwidget/ruqolaloginwidget.h"
 #include <KBusyIndicatorWidget>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
