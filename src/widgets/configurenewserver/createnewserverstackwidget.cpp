@@ -56,6 +56,7 @@ void CreateNewServerStackWidget::addAuthenticationConfigureWidget(Authentication
                 &PluginAuthenticationConfigureWidget::settingsIsValid,
                 this,
                 &CreateNewServerStackWidget::settingsIsValid);
+        connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::tryLogin, this, &CreateNewServerStackWidget::tryLogin);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
     } else {

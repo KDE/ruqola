@@ -26,6 +26,7 @@ public:
 
 Q_SIGNALS:
     void settingsIsValid(bool state);
+    void tryLogin();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type);
