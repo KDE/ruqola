@@ -39,7 +39,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotStatisticDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRefreshInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadStatisticInfo(bool refresh);
-    LIBRUQOLAWIDGETS_NO_EXPORT void loadServerInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadLicensesInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void fillLicenses(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotContextMenu(const QPoint &pos);

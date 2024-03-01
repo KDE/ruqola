@@ -308,15 +308,4 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
     mTreeWidget->resizeColumnToContents(0);
 }
 
-void AdministratorServerInfoWidget::loadServerInfo()
-{
-    auto commitItem = new QTreeWidgetItem(mTreeWidget);
-    commitItem->setText(0, i18n("Commit"));
-    parseCommitInfo(commitItem);
-
-    auto buildItem = new QTreeWidgetItem(mTreeWidget);
-    buildItem->setText(0, i18n("Build Environment"));
-    parseBuildInfo(buildItem);
-}
-
 #include "moc_administratorserverinfowidget.cpp"
