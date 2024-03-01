@@ -55,6 +55,7 @@
 #include "directmessage/opendmjob.h"
 #include "discussions/discussions.h"
 #include "emoji/loademojicustomjob.h"
+#include "license/licensesinfojob.h"
 #include "license/licensesisenterprisejob.h"
 #include "listmessages.h"
 #include "localdatabase/localdatabasemanager.h"
@@ -2412,11 +2413,29 @@ void RocketChatAccount::checkLicenses()
     connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
         mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
         if (isEnterprise) {
-            ddp()->licenseGetModules();
+            licenseGetModules();
         }
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
+    }
+}
+
+void RocketChatAccount::licenseGetModules()
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(6, 5, 0)) {
+        auto job = new RocketChatRestApi::LicensesInfoJob(this);
+        restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
+            const QJsonObject license = obj[QLatin1String("license")].toObject();
+            const QJsonArray activeModules = license[QLatin1String("activeModules")].toArray();
+            parseLicenses(activeModules);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start LicensesInfoJob job";
+        }
+    } else {
+        ddp()->licenseGetModules();
     }
 }
 
@@ -2998,6 +3017,7 @@ bool RocketChatAccount::hasLicense(const QString &name)
 
 void RocketChatAccount::parseLicenses(const QJsonArray &replyArray)
 {
+    qDebug() << " replyArray " << replyArray;
     mLicensesManager.parseLicenses(replyArray);
 }
 

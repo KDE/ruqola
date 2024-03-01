@@ -10,7 +10,7 @@
 
 #include <QJsonArray>
 
-namespace DDPAuthenticationManagerUtils
+namespace AuthenticationManagerUtils
 {
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonArray loginResume(const QString &token);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonArray loginLdap(const QString &user, const QString &password);

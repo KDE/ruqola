@@ -4,12 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "ddpauthenticationmanagerutils.h"
+#include "authenticationmanagerutils.h"
 #include "utils.h"
 
 #include <QJsonObject>
 
-QJsonArray DDPAuthenticationManagerUtils::loginResume(const QString &token)
+QJsonArray AuthenticationManagerUtils::loginResume(const QString &token)
 {
     QJsonArray array;
     QJsonObject resumeObject;
@@ -18,7 +18,7 @@ QJsonArray DDPAuthenticationManagerUtils::loginResume(const QString &token)
     return array;
 }
 
-QJsonArray DDPAuthenticationManagerUtils::loginLdap(const QString &user, const QString &password)
+QJsonArray AuthenticationManagerUtils::loginLdap(const QString &user, const QString &password)
 {
     QJsonArray array;
     QJsonObject ldapObject;
@@ -32,7 +32,7 @@ QJsonArray DDPAuthenticationManagerUtils::loginLdap(const QString &user, const Q
     return array;
 }
 
-QJsonArray DDPAuthenticationManagerUtils::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
+QJsonArray AuthenticationManagerUtils::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
     QJsonArray array;
     QJsonObject oauthObject;
@@ -45,7 +45,7 @@ QJsonArray DDPAuthenticationManagerUtils::loginOAuth(const QString &credentialTo
     return array;
 }
 
-QJsonObject DDPAuthenticationManagerUtils::hashPassword(const QString &password)
+QJsonObject AuthenticationManagerUtils::hashPassword(const QString &password)
 {
     QJsonObject passwordObject;
     const QByteArray sha256pw = Utils::convertSha256Password(password);
@@ -54,7 +54,7 @@ QJsonObject DDPAuthenticationManagerUtils::hashPassword(const QString &password)
     return passwordObject;
 }
 
-QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QString &password)
+QJsonArray AuthenticationManagerUtils::login(const QString &user, const QString &password)
 {
     QJsonArray array;
     QJsonObject loginObject;
@@ -74,7 +74,7 @@ QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QStri
     return array;
 }
 
-QJsonArray DDPAuthenticationManagerUtils::sendOTP(const QString &otpCode, const QJsonObject &lastLoginPayload)
+QJsonArray AuthenticationManagerUtils::sendOTP(const QString &otpCode, const QJsonObject &lastLoginPayload)
 {
     QJsonArray array;
     QJsonObject otp;

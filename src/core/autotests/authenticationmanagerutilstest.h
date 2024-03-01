@@ -7,12 +7,12 @@
 
 #include <QObject>
 
-class DDPAuthenticationManagerUtilsTest : public QObject
+class AuthenticationManagerUtilsTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit DDPAuthenticationManagerUtilsTest(QObject *parent = nullptr);
-    ~DDPAuthenticationManagerUtilsTest() override = default;
+    explicit AuthenticationManagerUtilsTest(QObject *parent = nullptr);
+    ~AuthenticationManagerUtilsTest() override = default;
 
 private Q_SLOTS:
     void shouldTestLoginResume();

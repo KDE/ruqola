@@ -69,8 +69,8 @@ target_sources(libruqolacore PRIVATE
     ddpapi/ddpmanager.cpp
     ddpapi/ddpmanager.h
 
-    ddpapi/ddpauthenticationmanagerutils.h
-    ddpapi/ddpauthenticationmanagerutils.cpp
+    ddpapi/authenticationmanagerutils.h
+    ddpapi/authenticationmanagerutils.cpp
 
     discussions/discussion.cpp
     discussions/discussion.h

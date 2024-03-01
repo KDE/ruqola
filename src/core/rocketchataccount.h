@@ -650,6 +650,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotJobFailed(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void checkLicenses();
     LIBRUQOLACORE_NO_EXPORT void parsePublicSettings();
+    LIBRUQOLACORE_NO_EXPORT void licenseGetModules();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

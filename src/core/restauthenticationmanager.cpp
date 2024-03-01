@@ -6,7 +6,7 @@
 
 #include "restauthenticationmanager.h"
 #include "connection.h"
-#include "ddpapi/ddpauthenticationmanagerutils.h"
+#include "ddpapi/authenticationmanagerutils.h"
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_authentication_debug.h"
 #include "utils.h"
@@ -60,7 +60,7 @@ void RESTAuthenticationManager::login()
         return;
     }
 
-    loginImpl(DDPAuthenticationManagerUtils::loginResume(mAuthToken));
+    loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
@@ -215,17 +215,17 @@ void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &res
 
 void RESTAuthenticationManager::login(const QString &user, const QString &password)
 {
-    loginImpl(DDPAuthenticationManagerUtils::login(user, password));
+    loginImpl(AuthenticationManagerUtils::login(user, password));
 }
 
 void RESTAuthenticationManager::loginLDAP(const QString &user, const QString &password)
 {
-    loginImpl(DDPAuthenticationManagerUtils::loginLdap(user, password));
+    loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
 }
 
 void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
-    loginImpl(DDPAuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
+    loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
 void RESTAuthenticationManager::sendOTP(const QString &otpCode)
@@ -244,7 +244,7 @@ void RESTAuthenticationManager::sendOTP(const QString &otpCode)
     //        return;
     //    }
 
-    callLoginImpl(DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
+    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 }
 

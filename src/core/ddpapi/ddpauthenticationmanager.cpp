@@ -9,7 +9,7 @@
 #include "ddpapi/ddpauthenticationmanager.h"
 
 #include "authenticationmanager.h"
-#include "ddpapi/ddpauthenticationmanagerutils.h"
+#include "ddpapi/authenticationmanagerutils.h"
 #include "ddpapi/ddpclient.h"
 
 #include "ruqola_ddpapi_debug.h"
@@ -48,22 +48,22 @@ void DDPAuthenticationManager::login()
         return;
     }
 
-    loginImpl(DDPAuthenticationManagerUtils::loginResume(mAuthToken));
+    loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
 void DDPAuthenticationManager::login(const QString &user, const QString &password)
 {
-    loginImpl(DDPAuthenticationManagerUtils::login(user, password));
+    loginImpl(AuthenticationManagerUtils::login(user, password));
 }
 
 void DDPAuthenticationManager::loginLDAP(const QString &user, const QString &password)
 {
-    loginImpl(DDPAuthenticationManagerUtils::loginLdap(user, password));
+    loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
 }
 
 void DDPAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
-    loginImpl(DDPAuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
+    loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
 void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
@@ -105,7 +105,7 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
     //        return;
     //    }
     ddpClient()->invokeMethodAndRegister(METHOD_SEND_OTP,
-                                         DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload),
+                                         AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload),
                                          this,
                                          static_cast<int>(Method::SendOtp));
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);

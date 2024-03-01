@@ -152,7 +152,7 @@ endif()
 
 add_ruqola_test(updatevideoconferencemessagejobtest.cpp)
 add_ruqola_test(videoconferencemessageinfomanagertest.cpp)
-add_ruqola_test(ddpauthenticationmanagerutilstest.cpp)
+add_ruqola_test(authenticationmanagerutilstest.cpp)
 add_ruqola_test(managelocaldatabasetest.cpp)
 add_ruqola_test(manageloadhistoryparsesyncmessagesutilstest.cpp)
 add_ruqola_test(moderationinfotest.cpp)
