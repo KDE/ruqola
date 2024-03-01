@@ -13,9 +13,7 @@ VideoConferencesModel::VideoConferencesModel(RocketChatAccount *account, QObject
 {
 }
 
-VideoConferencesModel::~VideoConferencesModel()
-{
-}
+VideoConferencesModel::~VideoConferencesModel() = default;
 
 void VideoConferencesModel::checkFullList()
 {
