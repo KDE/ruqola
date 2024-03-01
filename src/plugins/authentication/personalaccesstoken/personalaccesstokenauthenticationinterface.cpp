@@ -8,6 +8,7 @@
 #include "connection.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
+// TODO use RESTAuthenticationManager here ?
 #include "rocketchataccount.h"
 
 PersonalAccessTokenAuthenticationInterface::PersonalAccessTokenAuthenticationInterface(QObject *parent)
