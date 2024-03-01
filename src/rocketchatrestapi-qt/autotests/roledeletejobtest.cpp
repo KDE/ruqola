@@ -22,6 +22,7 @@ void RoleDeleteJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
+    QVERIFY(job.roleId().isEmpty());
 }
 
 void RoleDeleteJobTest::shouldGenerateRequest()
