@@ -32,6 +32,18 @@ RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
         dummyAccount->restApi()->setServerUrl(info.serverUrl);
         authManager->login(info.userName, info.password);
     });
+    auto logout = new QPushButton(QStringLiteral("Logout"), this);
+    mainLayout->addWidget(logout);
+    connect(logout, &QPushButton::clicked, this, [this, dummyAccount, authManager]() {
+        const AccountManager::AccountManagerInfo info = mAuthenticationLoginWidget->accountInfo();
+        dummyAccount->restApi()->setServerUrl(info.serverUrl);
+        authManager->logout();
+    });
+    auto label = new QLabel(this);
+    mainLayout->addWidget(label);
+    connect(authManager, &RESTAuthenticationManager::loginStatusChanged, this, [label, authManager]() {
+        label->setText(QStringLiteral("Login Status: %1").arg(authManager->loginStatus()));
+    });
 }
 
 RestAuthenticationGui::~RestAuthenticationGui() = default;
