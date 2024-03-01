@@ -22,6 +22,8 @@ void ModerationDismissReportsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.userIdForMessages().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.messageId().isEmpty());
+    QVERIFY(job.userIdForMessages().isEmpty());
 }
 
 void ModerationDismissReportsJobTest::shouldGenerateRequest()

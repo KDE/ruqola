@@ -22,6 +22,7 @@ void SendInvitationEmailJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
+    QVERIFY(job.emails().isEmpty());
 }
 
 void SendInvitationEmailJobTest::shouldGenerateRequest()

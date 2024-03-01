@@ -22,6 +22,7 @@ void AddUserToRoleJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.username().isEmpty());
 }
 
 void AddUserToRoleJobTest::shouldGenerateRequest()
