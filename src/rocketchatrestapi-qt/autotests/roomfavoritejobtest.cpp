@@ -22,6 +22,7 @@ void RoomFavoriteJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.favorite());
 }
 
 void RoomFavoriteJobTest::shouldGenerateRequest()
