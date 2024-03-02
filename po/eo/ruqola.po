@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-01 00:38+0000\n"
+"POT-Creation-Date: 2024-03-02 00:37+0000\n"
 "PO-Revision-Date: 2024-02-27 21:53+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
@@ -148,11 +148,6 @@ msgstr "Optimumigo, ripari Windows/Mac-subtenon"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "La jenaj kontoj disponeblas:"
-
-#: core/accountmanager.cpp:712
-#, kde-format
-msgid "Server not found: %1"
-msgstr "Servilo ne trovita: %1"
 
 #: core/bannerinfo/bannerinfo.cpp:46
 #, kde-format
@@ -562,7 +557,7 @@ msgid "%1 and %2"
 msgstr "%1 kaj %2"
 
 #: core/model/admincustomemojimodel.cpp:34
-#: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
+#: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
@@ -576,7 +571,7 @@ msgid "Name"
 msgstr "Nomo"
 
 #: core/model/admincustomemojimodel.cpp:36
-#: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
+#: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
 #: core/model/directoryroomsmodel.cpp:122 core/model/directoryteamsmodel.cpp:94
 #, kde-format
@@ -623,22 +618,22 @@ msgstr "Eksvalidiĝo post %1 tagoj"
 msgid "Expired"
 msgstr "Eksvalidiĝis"
 
-#: core/model/adminoauthmodel.cpp:35
+#: core/model/adminoauthmodel.cpp:34
 #, kde-format
 msgid "Client Id"
 msgstr "Kliento Id"
 
-#: core/model/adminoauthmodel.cpp:37
+#: core/model/adminoauthmodel.cpp:36
 #, kde-format
 msgid "Client Secret"
 msgstr "Kliento Sekreto"
 
-#: core/model/adminoauthmodel.cpp:39
+#: core/model/adminoauthmodel.cpp:38
 #, kde-format
 msgid "Redirect Url"
 msgstr "Redirekta URL"
 
-#: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:161
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersmodel.cpp:161
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
 #: widgets/administratordialog/users/administratoruserswidget.cpp:253
@@ -646,12 +641,12 @@ msgstr "Redirekta URL"
 msgid "Active"
 msgstr "Aktiva"
 
-#: core/model/adminoauthmodel.cpp:44
+#: core/model/adminoauthmodel.cpp:43
 #, kde-format
 msgid "Created At"
 msgstr "Kreita Ĉe"
 
-#: core/model/adminoauthmodel.cpp:46
+#: core/model/adminoauthmodel.cpp:45
 #, kde-format
 msgid "Created By"
 msgstr "Kreita De"
@@ -741,7 +736,7 @@ msgstr "Statuso"
 msgid "link"
 msgstr "ligilo"
 
-#: core/model/deviceinfomodel.cpp:32 core/model/videoconferencesmodel.cpp:32
+#: core/model/deviceinfomodel.cpp:32
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
@@ -749,27 +744,27 @@ msgstr "ligilo"
 msgid "Host"
 msgstr "Gastiganto"
 
-#: core/model/deviceinfomodel.cpp:34 core/model/videoconferencesmodel.cpp:34
+#: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
 msgstr "Os"
 
-#: core/model/deviceinfomodel.cpp:36 core/model/videoconferencesmodel.cpp:36
+#: core/model/deviceinfomodel.cpp:36
 #, kde-format
 msgid "Client"
 msgstr "Kliento"
 
-#: core/model/deviceinfomodel.cpp:38 core/model/videoconferencesmodel.cpp:38
+#: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
 msgstr "Seanco Id"
 
-#: core/model/deviceinfomodel.cpp:40 core/model/videoconferencesmodel.cpp:40
+#: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
 msgstr "Ip"
 
-#: core/model/deviceinfomodel.cpp:44 core/model/videoconferencesmodel.cpp:44
+#: core/model/deviceinfomodel.cpp:44
 #, kde-format
 msgid "Login At"
 msgstr "Ensaluti Ĉe"
@@ -799,7 +794,7 @@ msgstr "Kanala Tipo"
 msgid "Belongs To"
 msgstr "Apartenas Al"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:591
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:589
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -823,17 +818,17 @@ msgstr "Aliĝi Ĉe"
 msgid "Custom"
 msgstr "Propra"
 
-#: core/model/inputcompletermodel.cpp:38
+#: core/model/inputcompletermodel.cpp:37
 #, kde-format
 msgid "Notify all in this room"
 msgstr "Sciigu ĉiujn en ĉi tiu ĉambro"
 
-#: core/model/inputcompletermodel.cpp:46
+#: core/model/inputcompletermodel.cpp:45
 #, kde-format
 msgid "No result found."
 msgstr "Neniu rezulto trovita."
 
-#: core/model/inputcompletermodel.cpp:55
+#: core/model/inputcompletermodel.cpp:54
 #, kde-format
 msgid "Notify active users in this room"
 msgstr "Informi aktivajn uzantojn en ĉi tiu ĉambro"
@@ -863,12 +858,12 @@ msgstr "Fadenoj Mesaĝoj"
 msgid "Unread Threads Messages"
 msgstr "Nelegitaj Fadenoj Mesaĝoj"
 
-#: core/model/messagesmodel.cpp:222
+#: core/model/messagesmodel.cpp:219
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Redaktita ĉe %1 de %2"
 
-#: core/model/messagesmodel.cpp:363
+#: core/model/messagesmodel.cpp:360
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorita Mesaĝo"
@@ -1002,83 +997,83 @@ msgstr "Dufaktora Aŭtentigo"
 msgid "Last token part"
 msgstr "Lasta simbola parto"
 
-#: core/model/roommodel.cpp:475
+#: core/model/roommodel.cpp:473
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 Mencio"
 msgstr[1] "%1 Mencioj"
 
-#: core/model/roommodel.cpp:479
+#: core/model/roommodel.cpp:477
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 Grupmencio"
 msgstr[1] "%1 Grupmencioj"
 
-#: core/model/roommodel.cpp:483
+#: core/model/roommodel.cpp:481
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 Nelegita Fadenmesaĝo"
 msgstr[1] "%1 Nelegitaj Fadenmesaĝoj"
 
-#: core/model/roommodel.cpp:487
+#: core/model/roommodel.cpp:485
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Nelegita Mesaĝo"
 msgstr[1] "%1 Nelegitaj Mesaĝoj"
 
-#: core/model/roommodel.cpp:513
+#: core/model/roommodel.cpp:511
 #, kde-format
 msgid "Teams Room"
 msgstr "Ĉambro de Teamoj"
 
-#: core/model/roommodel.cpp:519
+#: core/model/roommodel.cpp:517
 #, kde-format
 msgid "Private Room"
 msgstr "Privata Ĉambro"
 
-#: core/model/roommodel.cpp:521
+#: core/model/roommodel.cpp:519
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskutejo"
 
-#: core/model/roommodel.cpp:525
+#: core/model/roommodel.cpp:523
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanala Ĉambro"
 
-#: core/model/roommodel.cpp:585
+#: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Unread"
 msgstr "Nelegita"
 
-#: core/model/roommodel.cpp:587
+#: core/model/roommodel.cpp:585
 #, kde-format
 msgid "Favorites"
 msgstr "Plej ŝatataj"
 
-#: core/model/roommodel.cpp:589
+#: core/model/roommodel.cpp:587
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Teamoj"
 
-#: core/model/roommodel.cpp:593
+#: core/model/roommodel.cpp:591
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Diskutoj"
 
-#: core/model/roommodel.cpp:595
+#: core/model/roommodel.cpp:593
 #, kde-format
 msgid "Private Messages"
 msgstr "Privataj Mesaĝoj"
 
-#: core/model/roommodel.cpp:597
+#: core/model/roommodel.cpp:595
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
@@ -1355,12 +1350,12 @@ msgstr "<strong>%1</strong> tajpas..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tajpas..."
 
-#: core/rocketchataccount.cpp:2843
+#: core/rocketchataccount.cpp:2862
 #, kde-format
 msgid "Export Messages"
 msgstr "Eksporti Mesaĝojn"
 
-#: core/rocketchataccount.cpp:2844
+#: core/rocketchataccount.cpp:2863
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Via retpoŝto estas vicigita por sendo."
@@ -1449,7 +1444,7 @@ msgstr "Mankas informoj pri tradukisto. Ĝi estas cimo"
 msgid "User"
 msgstr "Uzanto"
 
-#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:491
+#: core/user.cpp:206 widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Administrator"
 msgstr "Administranto"
@@ -1513,14 +1508,14 @@ msgid "Login/Password"
 msgstr "Ensalutu/Pasvorto"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:33
-#: widgets/common/authenticationloginwidget.cpp:34
+#: widgets/common/authenticationloginwidget.cpp:33
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #, kde-format
 msgid "Server URL:"
 msgstr "Servila URL:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:34
-#: widgets/common/authenticationloginwidget.cpp:39
+#: widgets/common/authenticationloginwidget.cpp:38
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
@@ -1542,107 +1537,107 @@ msgstr "Ĵetono:"
 msgid "Personal Access Token"
 msgstr "Persona Alirĵetono"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:19
 #, kde-format
 msgid "Share Text..."
 msgstr "Kunhavigi tekston..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:64
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Estis problemo kun konigo de la dokumento: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:68
 #, kde-format
 msgid "File was shared."
 msgstr "Dosiero estis dividita."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Vi povas trovi la novan peton ĉe:<br /><a href='%1'>%1</a> </qt>"
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:88
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:87
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Nevalidaj Parametroj"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:107
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:106
 #, kde-format
 msgid "The required '%1' param provided does not match any channel"
 msgstr "La bezonata '%1' parametro provizita ne kongruas kun iu ajn kanalo"
 
-#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:109
+#: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
 msgid "The room required a password."
 msgstr "La ĉambro postulis pasvorton."
 
-#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:49
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:48
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "Akiri Membrojn ne rajtigitajn en ĉi tiu ĉambro"
 
-#: rocketchatrestapi-qt/channels/channelopenjob.cpp:78
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:77
 #, kde-format
 msgid "The required channel is not found."
 msgstr "La postulata kanalo ne estas trovita."
 
-#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:100
 #, kde-format
 msgid "User is not a moderator."
 msgstr "Uzanto ne estas moderanto."
 
-#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:101
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:100
 #, kde-format
 msgid "User is not an owner."
 msgstr "Uzanto ne estas posedanto."
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:61
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:60
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:260
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "Kanalo kun nomo '%1' ekzistas"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:63
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:62
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:340
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:63
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:62
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "'%1' ne estas valida ĉambronomo"
 
-#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:79
-#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:66
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:78
+#: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:64
 #, kde-format
 msgid "Extract Roles"
 msgstr "Ekstrakti Rolojn"
 
-#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:115
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:114
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "Forigo de mesaĝoj ne estas permesita."
 
-#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:92
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "Nevalida mesaĝo: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:118
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:117
 #, kde-format
 msgid "This room is blocked"
 msgstr "Ĉi tiu ĉambro estas blokita"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:120
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:119
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Vi estis silentigita kaj ne povas paroli en ĉi tiu ĉambro"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:121
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:129
 #, kde-format
 msgid "Invalid channel"
 msgstr "Nevalida kanalo"
 
-#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:123
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:122
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "Nevalida emoji provizita."
@@ -1660,7 +1655,7 @@ msgstr "Dosiero ne trovita '%1'"
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr "La kutima emoji aŭ unu el ĝiaj kaŝnomoj jam estas uzataj."
 
-#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:46
+#: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:45
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:396
 #, kde-format
 msgid ""
@@ -1669,7 +1664,7 @@ msgstr ""
 "Ĉi tiu estas la lasta posedanto. Bonvolu agordi novan posedanton antaŭ ol "
 "forigi ĉi tiun."
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:137
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:136
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Generi ligilon ne estas rajtigita en ĉi tiu kanalo."
@@ -1925,7 +1920,7 @@ msgid "Invalid role"
 msgstr "Nevalida rolo"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:154
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:153
 #, kde-format
 msgid "Invalid room"
 msgstr "Nevalida ĉambro"
@@ -2262,57 +2257,57 @@ msgstr "Enigita pasvorto estis antaŭe uzata"
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "La maksimuma nombro da ĉambroj por gasto estas atingita."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:51
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:50
 #, kde-format
 msgid "This user is not in this role."
 msgstr "Ĉi tiu uzanto ne estas en ĉi tiu rolo."
 
-#: rocketchatrestapi-qt/role/rolecreatejob.cpp:98
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:97
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr "Ĉi tio estas entreprena trajto"
 
-#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:62
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:61
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Nevalida Abono"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:68
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:67
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr "Nur grupoj aŭ rektaj kanaloj povas ebligi ĉifradon"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:70
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
 #, kde-format
 msgid "Room does not have retention policy"
 msgstr "Ĉambro ne havas retenpolitpiktogram"
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:61
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:60
 #, kde-format
 msgid "Unread message not authorized."
 msgstr "Nelegita mesaĝo ne rajtigita."
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:63
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr "Ne estas mesaĝoj por marki nelegitajn."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:97
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:96
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "Kanalo ne povas konverti al Teamo."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:99
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:98
 #, kde-format
 msgid "Team already exists."
 msgstr "Teamo jam ekzistas."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:112
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:111
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "Vi ne havas permeson aldoni ĉi tiun kanalon al la teamo"
 
-#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:93
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:92
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2321,12 +2316,12 @@ msgstr ""
 "La postulata parametro \\\"roomId\\\" aŭ \\\"roomName\\\" provizita ne "
 "kongruas kun iuj teamoj"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:79
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:77
 #, kde-format
 msgid "Get Avatar"
 msgstr "Akiru avataron"
 
-#: rocketchatrestapi-qt/users/registeruserjob.cpp:71
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:70
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "Nevalida Retpoŝto '%1'."
@@ -2341,22 +2336,22 @@ msgstr "Nevalida URL de avataro: %1"
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Eraro dum pritraktado de avataro de URL \"%1\" por %2"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:137
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:136
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "Nevidebla stato estas malŝaltita"
 
-#: rocketchatrestapi-qt/users/userscreatejob.cpp:93
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:92
 #, kde-format
 msgid "%1 is already in use."
 msgstr "%1 jam estas uzata."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:152
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:151
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Nevalidaj parametroj"
 
-#: rocketchatrestapi-qt/users/usersupdatejob.cpp:64
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:63
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "Eraro provante sendi retmesaĝon %1"
@@ -2584,7 +2579,7 @@ msgstr "Redakti Statuson de Uzanto"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:538
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:537
 #, kde-format
 msgid "Status:"
 msgstr "Statuso:"
@@ -2791,7 +2786,7 @@ msgstr[1] "%1 Mesaĝoj en ĉambro"
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
 #: widgets/room/messagelistview.cpp:272
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:49
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:47
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopii Mesaĝon"
@@ -2800,7 +2795,7 @@ msgstr "Kopii Mesaĝon"
 #: widgets/discussions/discussionlistview.cpp:68
 #: widgets/notificationhistory/notificationhistorylistview.cpp:94
 #: widgets/room/messagelistview.cpp:601
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:61
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:59
 #, kde-format
 msgid "Speak Text"
 msgstr "Paroli Tekston"
@@ -2810,15 +2805,15 @@ msgstr "Paroli Tekston"
 #: widgets/discussions/discussionlistview.cpp:74
 #: widgets/notificationhistory/notificationhistorylistview.cpp:100
 #: widgets/room/messagelistview.cpp:302
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:68
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:66
 #, kde-format
 msgid "Select All"
 msgstr "Elekti Ĉion"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:38
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:37
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:24
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:43
 #, kde-format
 msgid "Search..."
 msgstr "Serĉi..."
@@ -2891,7 +2886,7 @@ msgid "Roles:"
 msgstr "Roloj:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:41
-#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:39
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, kde-format
 msgid "Search permissions..."
 msgstr "Serĉi permesojn..."
@@ -3332,16 +3327,6 @@ msgstr "Uzado"
 msgid "Runtime Environment"
 msgstr "Rultempa Medio"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:314
-#, kde-format
-msgid "Commit"
-msgstr "Enmeti"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:318
-#, kde-format
-msgid "Build Environment"
-msgstr "Konstrua Medio"
-
 #: widgets/administratordialog/users/administratoradduserdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
@@ -3404,7 +3389,7 @@ msgid "Email:"
 msgstr "Retpoŝto:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:69
-#: widgets/common/authenticationloginwidget.cpp:48
+#: widgets/common/authenticationloginwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #: widgets/registeruser/registeruserwidget.cpp:44
 #, kde-format
@@ -3784,7 +3769,6 @@ msgstr "Ĉifrado"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:1044
 #, kde-format
 msgid "Message"
 msgstr "Mesaĝo"
@@ -6171,23 +6155,23 @@ msgstr "Sekva Kanalo"
 msgid "Sign in with %1"
 msgstr "Ensaluti kun %1"
 
-#: widgets/common/authenticationloginwidget.cpp:26
+#: widgets/common/authenticationloginwidget.cpp:25
 #, kde-format
 msgid "Register Account"
 msgstr "Registri Konton"
 
-#: widgets/common/authenticationloginwidget.cpp:43
+#: widgets/common/authenticationloginwidget.cpp:42
 #, kde-format
 msgid "Username or email"
 msgstr "Uzantnomo aŭ retpoŝto"
 
-#: widgets/common/authenticationloginwidget.cpp:45
+#: widgets/common/authenticationloginwidget.cpp:44
 #, kde-format
 msgid "Username or Email:"
 msgstr "Uzantnomo aŭ Retpoŝto:"
 
 #: widgets/common/authenticationloginwidget.cpp:157
-#: widgets/ruqolamainwindow.cpp:917
+#: widgets/ruqolamainwindow.cpp:916
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -6197,7 +6181,7 @@ msgstr ""
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
 #: widgets/common/authenticationloginwidget.cpp:158
-#: widgets/ruqolamainwindow.cpp:918
+#: widgets/ruqolamainwindow.cpp:917
 #, kde-format
 msgid "Register New User"
 msgstr "Registri Novan Uzanton"
@@ -6207,7 +6191,7 @@ msgstr "Registri Novan Uzanton"
 msgid "Error saving file"
 msgstr "Eraro dum konservado de dosiero"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:94
+#: widgets/common/userandchannelcompletiondelegate.cpp:93
 #, kde-format
 msgid "Not in channel"
 msgstr "Ne en kanalo"
@@ -6649,7 +6633,7 @@ msgstr[1] "Estroj:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:75
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
 #, kde-format
 msgid "Clear"
 msgstr "Viŝi"
@@ -6877,7 +6861,7 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Krei Filmetan Mesaĝon"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:19
+#: widgets/dialogs/directchannelinfodialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
@@ -7417,7 +7401,7 @@ msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Permesoj"
 
-#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:71
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:70
 #, kde-format
 msgid "Own Roles:"
 msgstr "Propraj Roloj:"
@@ -7505,22 +7489,22 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Eksporto-Kontoj"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:37
+#: widgets/importexportdata/importdata/importaccountjob.cpp:36
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Neeble malfermi zip-dosieron."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:49
+#: widgets/importexportdata/importdata/importaccountjob.cpp:48
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Neeble kopii dosieron"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:57
+#: widgets/importexportdata/importdata/importaccountjob.cpp:56
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Neeble malfermi dosieron"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:85
+#: widgets/importexportdata/importdata/importaccountjob.cpp:84
 #, kde-format
 msgid "Import Done."
 msgstr "Importo Farita."
@@ -7540,6 +7524,61 @@ msgstr "Elektu Zip-dosieron:"
 msgctxt "@title:window"
 msgid "Import Accounts"
 msgstr "Importi Kontojn"
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:25
+#, kde-format
+msgid "Login"
+msgstr "Ensaluti"
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:46
+#, kde-format
+msgid ""
+"You have enabled second factor authentication.\n"
+"Please enter the generated code or a backup code."
+msgstr ""
+"Vi ebligis duan faktoran aŭtentigon.\n"
+"Bonvolu enigi la generitan kodon aŭ rezervan kodon."
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:155
+#, kde-format
+msgid "Login Failed: invalid username or password"
+msgstr "Ensaluto Malsukcesa: nevalida uzantnomo aŭ pasvorto"
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:159
+#: widgets/misc/accountsoverviewwidget.cpp:53
+#, kde-format
+msgid "Login failed: Invalid OTP code."
+msgstr "Ensaluto malsukcesis: Nevalida OTP-kodo."
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:169
+#, kde-format
+msgid "Installation Problem found. No plugins found here."
+msgstr "Instala problemo trovita. Neniuj kromaĵoj trovitaj ĉi tie."
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:175
+#, kde-format
+msgid "Login Failed: generic error"
+msgstr "Ensaluto Malsukcesa: ĝenerala eraro"
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:181
+#, kde-format
+msgid "Login Failed: Login has been temporarily blocked For IP."
+msgstr "Ensaluto Malsukcesa: Ensaluto estis provizore blokita Por IP."
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
+#, kde-format
+msgid "Login Failed: Login has been temporarily blocked For User."
+msgstr "Ensaluto Malsukcesa: Ensaluto estis provizore blokita Por Uzanto."
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:193
+#, kde-format
+msgid "Login Failed: User is not activated."
+msgstr "Ensaluto Malsukcesa: Uzanto ne estas aktivigita."
+
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
+#, kde-format
+msgid "Login Failed: App user is not allowed to login."
+msgstr "Ensaluto Malsukcesa: App-uzanto ne rajtas ensaluti."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:18
 #, kde-format
@@ -7596,11 +7635,6 @@ msgstr "Ensaluto malsukcesis: ĝenerala eraro"
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Unufoja pasvorto estas postulata por plenumi la ensaluta proceduro."
-
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:161
-#, kde-format
-msgid "Login failed: Invalid OTP code."
-msgstr "Ensaluto malsukcesis: Nevalida OTP-kodo."
 
 #: widgets/misc/accountsoverviewwidget.cpp:55
 #, kde-format
@@ -8361,48 +8395,48 @@ msgstr "Kuniĝo"
 msgid "Link Preview"
 msgstr "Ligo Antaŭrigardo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:388
+#: widgets/room/delegate/messagelistdelegate.cpp:386
 #: widgets/room/messagelistview.cpp:381 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Informoj pri uzantoj"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:397
+#: widgets/room/delegate/messagelistdelegate.cpp:395
 #: widgets/room/messagelistview.cpp:389
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Komenci Privatan Konversacion"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:602
+#: widgets/room/delegate/messagelistdelegate.cpp:600
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 respondo"
 msgstr[1] "%1 respondoj"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:612
+#: widgets/room/delegate/messagelistdelegate.cpp:610
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mesaĝo"
 msgstr[1] "%1 mesaĝoj"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:612
+#: widgets/room/delegate/messagelistdelegate.cpp:610
 #, kde-format
 msgid "No message yet"
 msgstr "Ankoraŭ neniu mesaĝo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:896
+#: widgets/room/delegate/messagelistdelegate.cpp:894
 #, kde-format
 msgid "Following"
 msgstr "Sekvante"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:900
+#: widgets/room/delegate/messagelistdelegate.cpp:898
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Mesaĝo estis alpinglita"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:904
+#: widgets/room/delegate/messagelistdelegate.cpp:902
 #, kde-format
 msgid "Message has been starred"
 msgstr "Mesaĝo estas steligita"
@@ -8870,249 +8904,200 @@ msgstr "Montri Mesaĝon"
 msgid "Lists the available options for user feedback"
 msgstr "Listigas la disponeblajn opciojn por uzant-sugestoj"
 
-#: widgets/ruqolaloginwidget.cpp:28
-#, kde-format
-msgid "Login"
-msgstr "Ensaluti"
-
-#: widgets/ruqolaloginwidget.cpp:49
-#, kde-format
-msgid ""
-"You have enabled second factor authentication.\n"
-"Please enter the generated code or a backup code."
-msgstr ""
-"Vi ebligis duan faktoran aŭtentigon.\n"
-"Bonvolu enigi la generitan kodon aŭ rezervan kodon."
-
-#: widgets/ruqolaloginwidget.cpp:157
-#, kde-format
-msgid "Login Failed: invalid username or password"
-msgstr "Ensaluto Malsukcesa: nevalida uzantnomo aŭ pasvorto"
-
-#: widgets/ruqolaloginwidget.cpp:171
-#, kde-format
-msgid "Installation Problem found. No plugins found here."
-msgstr "Instala problemo trovita. Neniuj kromaĵoj trovitaj ĉi tie."
-
-#: widgets/ruqolaloginwidget.cpp:177
-#, kde-format
-msgid "Login Failed: generic error"
-msgstr "Ensaluto Malsukcesa: ĝenerala eraro"
-
-#: widgets/ruqolaloginwidget.cpp:183
-#, kde-format
-msgid "Login Failed: Login has been temporarily blocked For IP."
-msgstr "Ensaluto Malsukcesa: Ensaluto estis provizore blokita Por IP."
-
-#: widgets/ruqolaloginwidget.cpp:189
-#, kde-format
-msgid "Login Failed: Login has been temporarily blocked For User."
-msgstr "Ensaluto Malsukcesa: Ensaluto estis provizore blokita Por Uzanto."
-
-#: widgets/ruqolaloginwidget.cpp:195
-#, kde-format
-msgid "Login Failed: User is not activated."
-msgstr "Ensaluto Malsukcesa: Uzanto ne estas aktivigita."
-
-#: widgets/ruqolaloginwidget.cpp:201
-#, kde-format
-msgid "Login Failed: App user is not allowed to login."
-msgstr "Ensaluto Malsukcesa: App-uzanto ne rajtas ensaluti."
-
-#: widgets/ruqolamainwindow.cpp:215 widgets/ruqolamainwindow.cpp:217
+#: widgets/ruqolamainwindow.cpp:214 widgets/ruqolamainwindow.cpp:216
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Montri Novajn Sciigojn"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:396
 #, kde-format
 msgid "Add Server..."
 msgstr "Aldoni Servilon..."
 
-#: widgets/ruqolamainwindow.cpp:402
+#: widgets/ruqolamainwindow.cpp:401
 #, kde-format
 msgid "Server Info..."
 msgstr "Servila Informo..."
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:405
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Elsaluti Aktualan Servilon"
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:409
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Salti al Sekva Nelegita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:415
+#: widgets/ruqolamainwindow.cpp:414
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Krei novan kanalon..."
 
-#: widgets/ruqolamainwindow.cpp:419
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Krei Rektajn Mesaĝojn..."
 
-#: widgets/ruqolamainwindow.cpp:423
+#: widgets/ruqolamainwindow.cpp:422
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Krei Diskuton..."
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Create Team..."
 msgstr "Krei Teamon..."
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgid "Unread on Top"
 msgstr "Nelegita supre"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgid "By Last Message"
 msgstr "Per Lasta Mesaĝo"
 
-#: widgets/ruqolamainwindow.cpp:449
+#: widgets/ruqolamainwindow.cpp:448
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabete"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:454
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Montru Kanalan Protokolon"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:458
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Montri Servilaj Eraroj"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Marki Ĉiuj Kanaloj kiel Legita"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:482
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registri Novan Uzanton..."
 
-#: widgets/ruqolamainwindow.cpp:487
+#: widgets/ruqolamainwindow.cpp:486
 #, kde-format
 msgid "My Account..."
 msgstr "Mia konto..."
 
-#: widgets/ruqolamainwindow.cpp:492
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Administrator..."
 msgstr "Administranto..."
 
-#: widgets/ruqolamainwindow.cpp:498
+#: widgets/ruqolamainwindow.cpp:497
 #, kde-format
 msgid "Server Settings..."
 msgstr "Agordoj de la servilo..."
 
-#: widgets/ruqolamainwindow.cpp:503
+#: widgets/ruqolamainwindow.cpp:502
 #, kde-format
 msgctxt "Action which allows to search room/user/team"
 msgid "Directory..."
 msgstr "Dosierujo..."
 
-#: widgets/ruqolamainwindow.cpp:524
+#: widgets/ruqolamainwindow.cpp:523
 #, kde-format
 msgid "&Next Server"
 msgstr "&Sekva Servilo"
 
-#: widgets/ruqolamainwindow.cpp:529
+#: widgets/ruqolamainwindow.cpp:528
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Antaŭa Servilo"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:550
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Antaŭa Elektita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Sekva Elektita Kanalo"
 
-#: widgets/ruqolamainwindow.cpp:589
+#: widgets/ruqolamainwindow.cpp:588
 #, kde-format
 msgid "Show Notify History"
 msgstr "Montri Sciigo-Historion"
 
-#: widgets/ruqolamainwindow.cpp:593
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Montri RocketChat-Informojn"
 
-#: widgets/ruqolamainwindow.cpp:597
+#: widgets/ruqolamainwindow.cpp:596
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Montri Ĉambran Avataron"
 
-#: widgets/ruqolamainwindow.cpp:602
+#: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Montri Ŝatatan Ĉambron"
 
-#: widgets/ruqolamainwindow.cpp:607
+#: widgets/ruqolamainwindow.cpp:606
 #, kde-format
 msgid "What's new"
 msgstr "Kio novas"
 
-#: widgets/ruqolamainwindow.cpp:611
+#: widgets/ruqolamainwindow.cpp:610
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importi Kontojn"
 
-#: widgets/ruqolamainwindow.cpp:615
+#: widgets/ruqolamainwindow.cpp:614
 #, kde-format
 msgid "Export Accounts"
 msgstr "Eksporto-Kontoj"
 
-#: widgets/ruqolamainwindow.cpp:632
+#: widgets/ruqolamainwindow.cpp:631
 #, kde-format
 msgid "Medium"
 msgstr "Meza"
 
-#: widgets/ruqolamainwindow.cpp:640
+#: widgets/ruqolamainwindow.cpp:639
 #, kde-format
 msgid "Condensed"
 msgstr "Densigita"
 
-#: widgets/ruqolamainwindow.cpp:649
+#: widgets/ruqolamainwindow.cpp:648
 #, kde-format
 msgid "Extended"
 msgstr "Etendita"
 
-#: widgets/ruqolamainwindow.cpp:690
+#: widgets/ruqolamainwindow.cpp:689
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Krei Teamon"
 
-#: widgets/ruqolamainwindow.cpp:846
+#: widgets/ruqolamainwindow.cpp:845
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Malfermi protokolon."
 
-#: widgets/ruqolamainwindow.cpp:846
+#: widgets/ruqolamainwindow.cpp:845
 #, kde-format
 msgid "Show Log"
 msgstr "Montri Protokolon"
 
-#: widgets/ruqolamainwindow.cpp:978
+#: widgets/ruqolamainwindow.cpp:977
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Statuso"
 
-#: widgets/ruqolamainwindow.cpp:1071
+#: widgets/ruqolamainwindow.cpp:1065
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9121,7 +9106,7 @@ msgstr ""
 "<qt>Ĉi tio tute kaŝos la menubreton. Vi povas montri ĝin denove tajpante %1."
 "</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1074
+#: widgets/ruqolamainwindow.cpp:1068
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Kaŝi menubreton"
@@ -9168,12 +9153,12 @@ msgctxt "@title:window"
 msgid "Server Error Information"
 msgstr "Servila Eraro Informoj"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:22
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
 msgid "(Show Errors)"
 msgstr "(Montri Erarojn)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:22
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
 msgid "Server errors reported. %1"
 msgstr "Servilaj eraroj raportitaj. %1"
@@ -9334,17 +9319,17 @@ msgstr "(Montri Novaĵojn en Ruqola)"
 msgid "What's new in Ruqola. %1"
 msgstr "Kio estas nova en Ruqola. %1"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:91
+#: widgets/whatsnew/whatsnewwidget.cpp:90
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Gravaj ŝanĝoj ekde la lasta versio:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:96
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Kelkaj el la novaj funkcioj en ĉi tiu eldono de Ruqola inkluzivas:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:101
+#: widgets/whatsnew/whatsnewwidget.cpp:100
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Iu eraro korekto:"
@@ -9493,6 +9478,15 @@ msgstr "Ripari traduki mesaĝon en rekta kanalo."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr "Ne montri @here/@all kiel uzanto."
+
+#~ msgid "Server not found: %1"
+#~ msgstr "Servilo ne trovita: %1"
+
+#~ msgid "Commit"
+#~ msgstr "Enmeti"
+
+#~ msgid "Build Environment"
+#~ msgstr "Konstrua Medio"
 
 #~ msgid "Account Name:"
 #~ msgstr "Kontonomo:"
