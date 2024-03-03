@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-02 00:37+0000\n"
-"PO-Revision-Date: 2024-02-24 18:12+0100\n"
+"PO-Revision-Date: 2024-03-02 18:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -9525,6 +9525,8 @@ msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">Deep Linking</a>."
 msgstr ""
+"Añade implementación para enlace profundo <a href=\"https://developer.rocket."
+"chat/getting-started/deep-linking\">Enlace profundo</a>."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:76
 msgid "Fix dark mode support."
@@ -9541,27 +9543,3 @@ msgstr "Mejora en la traducción de mensajes en los canales directos."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr "No muestra @here/@all como usuario."
-
-#~ msgid "Server not found: %1"
-#~ msgstr "Servidor no encontrado %1"
-
-#~ msgid "Commit"
-#~ msgstr "Commit"
-
-#~ msgid "Build Environment"
-#~ msgstr "Entorno de construcción"
-
-#~ msgid "Account Name:"
-#~ msgstr "Nombre de la cuenta:"
-
-#~ msgid "Account name"
-#~ msgstr "Nombre de la cuenta"
-
-#~ msgid "File Uploaded:"
-#~ msgstr "Archivo subido:"
-
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Archivo enviado: %1"
-
-#~ msgid "Authentication Method"
-#~ msgstr "Método de autenticación"
