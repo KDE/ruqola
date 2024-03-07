@@ -6,7 +6,7 @@ Ruqola is a [Rocket.Chat](https://www.rocket.chat/) client for the KDE desktop.
 
 ## Features
 
-It supports RC feature:
+Ruqola supports the following RC features:
 - Direct Message
 - group channel
 - channel
@@ -91,7 +91,7 @@ example: LSAN_OPTIONS=suppressions=../sanitizers.supp ./bin/ruqolaserverconfigte
 
 ## UNITY
 
-We can build with cmake unity support
+Ruqola can build with cmake unity support
 ````
 cmake --preset unity && cmake --build --preset unity
 ````
