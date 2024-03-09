@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-02 00:37+0000\n"
-"PO-Revision-Date: 2024-03-01 15:47+0300\n"
+"PO-Revision-Date: 2024-03-08 23:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -856,7 +856,7 @@ msgstr "İlmekli İletiler"
 #: core/model/listmessagesfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
-msgstr "Okunmayan İlmekli İletiler"
+msgstr "Okunmamış İlmekli İletiler"
 
 #: core/model/messagesmodel.cpp:219
 #, kde-format
@@ -1048,7 +1048,7 @@ msgstr "Kanal Odası"
 #: core/model/roommodel.cpp:583
 #, kde-format
 msgid "Unread"
-msgstr "Okunmayan"
+msgstr "Okunmamış"
 
 #: core/model/roommodel.cpp:585
 #, kde-format
@@ -1284,7 +1284,7 @@ msgstr "(Otomatik Katılma)"
 #: core/notifications/notification.cpp:81
 #, kde-format
 msgid "%1 has %2 Unread Message"
-msgstr "%1 kişisinin %2 okunmayan iletisi var"
+msgstr "%1 kişisinin %2 okunmamış iletisi var"
 
 #: core/notifications/notifierjob.cpp:27
 #, kde-format
@@ -2269,7 +2269,7 @@ msgstr "Odanın tutma politikası yok"
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:60
 #, kde-format
 msgid "Unread message not authorized."
-msgstr "Okunmayan ileti yetkilendirilmemiş."
+msgstr "Okunmamış ileti yetkilendirilmemiş."
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:62
 #, kde-format
@@ -4183,7 +4183,7 @@ msgid ""
 msgstr ""
 "[Dikkat!] \"Doğrudan Yanıt\" etkinleştirilmişse Rocket.Chat yapılandırılan e-"
 "posta kutusunu\n"
-" denetleyecektir. Tüm okunmayan e-postalar alınır, okundu olarak imlenir ve "
+" denetleyecektir. Tüm okunmamış e-postalar alınır, okundu olarak imlenir ve "
 "işlenir.\n"
 "\"Doğrudan Yanıt\", yalnızca posta kutusu Rocket.Chat tarafından kullanılmak "
 "üzere açılmışsa\n"
@@ -4510,7 +4510,7 @@ msgstr "Yalnızca kullanıcı ve grup değinmeleri"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
 #, kde-format
 msgid "Unread Count"
-msgstr "Okunmayan Sayısı"
+msgstr "Okunmamış Sayısı"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
 #, kde-format
@@ -4520,7 +4520,7 @@ msgstr "Yalnızca değinmeler"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, kde-format
 msgid "Unread Count for Direct Messages"
-msgstr "Doğrudan İletiler için Okunmayan Sayısı"
+msgstr "Doğrudan İletiler için Okunmamış Sayısı"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
 #, kde-format
@@ -6031,7 +6031,7 @@ msgstr "Afiş Bilgisi"
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:17
 #, kde-format
 msgid "Show Unread"
-msgstr "Okunmayanları Göster"
+msgstr "Okunmamışları Göster"
 
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:55
 #, kde-format
@@ -6643,7 +6643,7 @@ msgstr "Bildirimi Devre Dışı Bırak"
 #: widgets/dialogs/configurenotificationwidget.cpp:23
 #, kde-format
 msgid "Hide Unread Room Status"
-msgstr "Okunmayan Oda Durumunu Gizle"
+msgstr "Okunmamış Oda Durumunu Gizle"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
@@ -8679,7 +8679,7 @@ msgstr "(Okundu Olarak İmle)"
 #: widgets/room/roomcounterinfowidget.cpp:41
 #, kde-format
 msgid "(Jump to first Unread)"
-msgstr "(İlk Okunmayana Atla)"
+msgstr "(İlk Okunmamışa Atla)"
 
 #: widgets/room/roomheaderlabel.cpp:67
 #, kde-format
@@ -8931,7 +8931,7 @@ msgstr "Geçerli Sunucu Oturumunu Kapat"
 #: widgets/ruqolamainwindow.cpp:409
 #, kde-format
 msgid "Jump to Next Unread Channel"
-msgstr "Sonraki Okunmayan Kanala Atla"
+msgstr "Sonraki Okunmamış Kanala Atla"
 
 #: widgets/ruqolamainwindow.cpp:414
 #, kde-format
@@ -8956,7 +8956,7 @@ msgstr "Takım Oluştur…"
 #: widgets/ruqolamainwindow.cpp:434
 #, kde-format
 msgid "Unread on Top"
-msgstr "Okunmayanlar En Üstte"
+msgstr "Okunmamışlar En Üstte"
 
 #: widgets/ruqolamainwindow.cpp:442
 #, kde-format

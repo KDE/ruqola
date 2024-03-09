@@ -9273,24 +9273,3 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Don't show @here/@all as user."
 msgstr ""
-
-#~ msgid "Server not found: %1"
-#~ msgstr "Server nenalezen: %1"
-
-#~ msgid "Commit"
-#~ msgstr "Commit"
-
-#~ msgid "Account Name:"
-#~ msgstr "Název účtu:"
-
-#~ msgid "Account name"
-#~ msgstr "Název účtu"
-
-#~ msgid "File Uploaded:"
-#~ msgstr "Soubor odeslán:"
-
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Soubor odeslán: %1"
-
-#~ msgid "Authentication Method"
-#~ msgstr "Metoda ověření"
