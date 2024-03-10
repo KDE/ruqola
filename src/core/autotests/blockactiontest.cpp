@@ -5,6 +5,7 @@
 */
 
 #include "blockactiontest.h"
+#include "messages/blockaction.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(BlockActionTest)
 
@@ -12,3 +13,13 @@ BlockActionTest::BlockActionTest(QObject *parent)
     : QObject{parent}
 {
 }
+
+void BlockActionTest::shouldHaveDefaultValues()
+{
+    BlockAction b;
+    QVERIFY(b.actionId().isEmpty());
+    QVERIFY(b.text().isEmpty());
+    QVERIFY(b.type().isEmpty());
+}
+
+#include "moc_blockactiontest.cpp"
