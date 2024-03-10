@@ -25,8 +25,8 @@ public:
     Block();
     [[nodiscard]] bool operator==(const Block &other) const;
 
-    static QJsonObject serialize(const Block &block);
-    static Block deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const Block &block);
+    [[nodiscard]] static Block deserialize(const QJsonObject &o);
     void parseBlock(const QJsonObject &block);
 
     [[nodiscard]] QString blockId() const;

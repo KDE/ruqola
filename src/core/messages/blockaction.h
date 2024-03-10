@@ -27,8 +27,8 @@ public:
     [[nodiscard]] QString blockId() const;
     void setBlockId(const QString &newBlockId);
 
-    static QJsonObject serialize(const BlockAction &block);
-    static BlockAction deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const BlockAction &block);
+    [[nodiscard]] static BlockAction deserialize(const QJsonObject &o);
 
 private:
     QString mActionId;
