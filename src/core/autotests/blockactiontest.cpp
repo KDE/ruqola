@@ -5,11 +5,7 @@
 */
 
 #include "blockactiontest.h"
-<<<<<<< HEAD
-=======
 #include "messages/blockaction.h"
-    >>>>>>> origin
-        / 2.1
 #include <QTest>
         QTEST_GUILESS_MAIN(BlockActionTest)
 
@@ -17,8 +13,6 @@
     : QObject{parent}
 {
 }
-<<<<<<< HEAD
-=======
 
 void BlockActionTest::shouldHaveDefaultValues()
 {
@@ -29,4 +23,3 @@ void BlockActionTest::shouldHaveDefaultValues()
 }
 
 #include "moc_blockactiontest.cpp"
->>>>>>> origin/2.1
