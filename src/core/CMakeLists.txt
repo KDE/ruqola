@@ -401,6 +401,8 @@ target_sources(libruqolacore PRIVATE
 
     messages/block.h
     messages/block.cpp
+    messages/blockaction.h
+    messages/blockaction.cpp
 
     videoconference/videoconferencemanager.h
     videoconference/videoconferencemanager.cpp
