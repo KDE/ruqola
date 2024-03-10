@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QDebug>
+#include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT BlockAction
 {
@@ -23,10 +24,17 @@ public:
     [[nodiscard]] QString type() const;
     void setType(const QString &newType);
 
+    [[nodiscard]] QString blockId() const;
+    void setBlockId(const QString &newBlockId);
+
+    static QJsonObject serialize(const BlockAction &block);
+    static BlockAction deserialize(const QJsonObject &o);
+
 private:
     QString mActionId;
     QString mText;
     QString mType;
+    QString mBlockId;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAction &t);
 Q_DECLARE_TYPEINFO(BlockAction, Q_RELOCATABLE_TYPE);
