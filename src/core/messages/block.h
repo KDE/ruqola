@@ -17,6 +17,8 @@ public:
     enum BlockType {
         Unknown,
         VideoConf,
+        Actions,
+        Section,
     };
     Q_ENUM(BlockType)
 
