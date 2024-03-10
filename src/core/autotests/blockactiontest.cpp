@@ -5,10 +5,28 @@
 */
 
 #include "blockactiontest.h"
+<<<<<<< HEAD
+=======
+#include "messages/blockaction.h"
+    >>>>>>> origin
+        / 2.1
 #include <QTest>
-QTEST_GUILESS_MAIN(BlockActionTest)
+        QTEST_GUILESS_MAIN(BlockActionTest)
 
-BlockActionTest::BlockActionTest(QObject *parent)
+            BlockActionTest::BlockActionTest(QObject *parent)
     : QObject{parent}
 {
 }
+<<<<<<< HEAD
+=======
+
+void BlockActionTest::shouldHaveDefaultValues()
+{
+    BlockAction b;
+    QVERIFY(b.actionId().isEmpty());
+    QVERIFY(b.text().isEmpty());
+    QVERIFY(b.type().isEmpty());
+}
+
+#include "moc_blockactiontest.cpp"
+>>>>>>> origin/2.1

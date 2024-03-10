@@ -14,4 +14,10 @@ class BlockActionTest : public QObject
 public:
     explicit BlockActionTest(QObject *parent = nullptr);
     ~BlockActionTest() override = default;
+<<<<<<< HEAD
+=======
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+>>>>>>> origin/2.1
 };
