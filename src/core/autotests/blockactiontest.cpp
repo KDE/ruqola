@@ -7,9 +7,9 @@
 #include "blockactiontest.h"
 #include "messages/blockaction.h"
 #include <QTest>
-        QTEST_GUILESS_MAIN(BlockActionTest)
+QTEST_GUILESS_MAIN(BlockActionTest)
 
-            BlockActionTest::BlockActionTest(QObject *parent)
+BlockActionTest::BlockActionTest(QObject *parent)
     : QObject{parent}
 {
 }
