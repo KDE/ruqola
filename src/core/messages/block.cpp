@@ -30,6 +30,10 @@ QString Block::convertEnumToStr(BlockType newBlockType) const
         return {};
     case VideoConf:
         return QStringLiteral("video_conf");
+    case Section:
+        return QStringLiteral("section");
+    case Actions:
+        return QStringLiteral("actions");
     }
     return {};
 }
@@ -38,7 +42,12 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
 {
     if (typeStr == QLatin1String("video_conf")) {
         return VideoConf;
+    } else if (typeStr == QLatin1String("section")) {
+        return Section;
+    } else if (typeStr == QLatin1String("actions")) {
+        return Actions;
     }
+
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
     return Unknown;
 }
@@ -74,9 +83,9 @@ bool Block::isValid() const
 QString Block::title() const
 {
     switch (mBlockType) {
-    case Block::BlockType::Unknown:
+    case BlockType::Unknown:
         break;
-    case Block::BlockType::VideoConf: {
+    case BlockType::VideoConf: {
         if (mVideoConferenceInfo.isValid()) {
             const QString title = mVideoConferenceInfo.title();
             if (!title.isEmpty()) {
