@@ -17,8 +17,10 @@
 #include "messageattachmentdelegatehelpersound.h"
 #include "messageattachmentdelegatehelpertext.h"
 #include "messageattachmentdelegatehelpervideo.h"
+#include "messagedelegatehelperactions.h"
 #include "messagedelegatehelperconferencevideo.h"
 #include "messagedelegatehelperreactions.h"
+#include "messagedelegatehelpersection.h"
 #include "messagedelegatehelpertext.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/emoticonmenuwidget.h"
@@ -67,6 +69,8 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(account, view, mTextSelectionImpl))
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(account, view, mTextSelectionImpl))
     , mHelperConferenceVideo(new MessageDelegateHelperConferenceVideo(account, view, mTextSelectionImpl))
+    , mHelperActions(new MessageDelegateHelperActions(account, view, mTextSelectionImpl))
+    , mHelperSection(new MessageDelegateHelperSection(account, view, mTextSelectionImpl))
     , mHelperUrlPreview(new MessageDelegateHelperUrlPreview(account, view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mMessageListLayoutBase(new MessageListCompactLayout(this))
@@ -157,7 +161,10 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
         return nullptr;
     case Block::BlockType::VideoConf:
         return mHelperConferenceVideo.get();
-        // TODO add other block type.
+    case Block::BlockType::Actions:
+        return mHelperActions.get();
+    case Block::BlockType::Section:
+        return mHelperSection.get();
     }
     return nullptr;
 }
