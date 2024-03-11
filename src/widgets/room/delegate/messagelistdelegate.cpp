@@ -132,6 +132,8 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
     mHelperAttachmentSound->setRocketChatAccount(mRocketChatAccount);
     mHelperAttachmentText->setRocketChatAccount(mRocketChatAccount);
     mHelperConferenceVideo->setRocketChatAccount(mRocketChatAccount);
+    mHelperActions->setRocketChatAccount(mRocketChatAccount);
+    mHelperSection->setRocketChatAccount(mRocketChatAccount);
     mHelperUrlPreview->setRocketChatAccount(mRocketChatAccount);
 }
 
