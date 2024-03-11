@@ -19,12 +19,14 @@ QDebug operator<<(QDebug d, const BlockAction &t)
 
 bool BlockAction::isValid() const
 {
-    // TODO
-    return false;
+    return !mActionId.isEmpty() && !mBlockId.isEmpty() && !mType.isEmpty() && !mText.isEmpty();
 }
 
-void BlockAction::parseActions()
+void BlockAction::parseActions(const QJsonObject &o)
 {
+    mActionId = o[QLatin1String("actionId")].toString();
+    mBlockId = o[QLatin1String("blockId")].toString();
+    mType = o[QLatin1String("type")].toString();
     // TODO
 }
 

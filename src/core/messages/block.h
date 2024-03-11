@@ -30,6 +30,9 @@ public:
     [[nodiscard]] static Block deserialize(const QJsonObject &o);
     void parseBlock(const QJsonObject &block);
 
+    [[nodiscard]] QString sectionText() const;
+    void setSectionText(const QString &newSectionText);
+
     [[nodiscard]] QString blockId() const;
     void setBlockId(const QString &newBlockId);
 
@@ -63,6 +66,7 @@ private:
     QString mCallId;
     QString mAppId;
     QString mBlockStr;
+    QString mSectionText;
     BlockType mBlockType = Unknown;
     VideoConferenceInfo mVideoConferenceInfo;
 };
