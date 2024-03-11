@@ -41,7 +41,7 @@ private:
         QString userName;
         QPixmap avatarPixmap;
     };
-    struct ConferenceCallLayout {
+    struct SectionLayout {
         QList<UserLayout> usersLayout;
         QString title;
         QSize titleSize;
@@ -54,9 +54,7 @@ private:
                                                                        const Block &block,
                                                                        QRect attachmentsRect,
                                                                        const QStyleOptionViewItem &option);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ConferenceCallLayout layoutConferenceCall(const Block &block,
-                                                                                       const QStyleOptionViewItem &option,
-                                                                                       int attachmentsWidth) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPixmap makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const;
 
