@@ -36,23 +36,42 @@ void MessageDelegateHelperActions::draw(const Block &block,
 {
     Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, blockRect.width());
-    // Draw title and buttons
-    const int positionY = blockRect.y() + option.fontMetrics.ascent();
-    painter->drawText(blockRect.x(), positionY, layout.title);
+    for (const auto &button : layout.buttonList) {
+        // Draw join button
+        const QPen origPen = painter->pen();
+        const QBrush origBrush = painter->brush();
+        const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+        QColor backgroundColor = option.palette.color(QPalette::Highlight);
+        backgroundColor.setAlpha(60);
+        const QBrush buttonBrush(backgroundColor);
+        const QRectF joinButtonRect = button.buttonRect.translated(blockRect.topLeft());
+        // Rounded rect
+        painter->setPen(buttonPen);
+        painter->setBrush(buttonBrush);
+        painter->drawRoundedRect(joinButtonRect, 5, 5);
+        painter->setBrush(origBrush);
+        painter->setPen(origPen);
+        const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - button.buttonRect.width()) / 2, 0, 0, 0);
+        painter->drawText(r, button.text);
+    }
 }
 
 QSize MessageDelegateHelperActions::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, maxWidth);
-    const int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-    return {qMax(0, layout.titleSize.width()), height};
+    if (layout.buttonList.isEmpty()) {
+        return {};
+    }
+    qDebug() << " layout.buttonLis " << layout.buttonList.count();
+    const int height = layout.buttonList.at(0).buttonRect.height() + DelegatePaintUtil::margin();
+    return {qMax(0, static_cast<int>(layout.buttonList.at(0).buttonRect.width())), height};
 }
 
 QPoint MessageDelegateHelperActions::adaptMousePosition(const QPoint &pos, const Block &block, QRect blocksRect, const QStyleOptionViewItem &option)
 {
     const ActionsLayout layout = layoutActions(block, option, blocksRect.width());
-    const QPoint relativePos = pos - blocksRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    const QPoint relativePos; // TODO = pos - blocksRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
     return relativePos;
 }
 
@@ -76,8 +95,17 @@ MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOpti
 {
     Q_UNUSED(blockRectWidth)
     ActionsLayout layout;
-    layout.title = block.title();
-    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+
+    qreal x = 0;
+    const QList<BlockAction> actions = block.blockActions();
+    for (const auto &act : actions) {
+        ButtonLayout buttonLayout;
+        buttonLayout.text = act.text();
+        const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
+        buttonLayout.buttonRect = QRectF(x, DelegatePaintUtil::margin(), buttonSize.width(), buttonSize.height());
+        layout.buttonList.append(std::move(buttonLayout));
+        x += buttonSize.width() + DelegatePaintUtil::margin();
+    }
     return layout;
 }
 
