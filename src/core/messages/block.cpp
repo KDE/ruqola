@@ -7,6 +7,7 @@
 #include "block.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QJsonObject>
 
 Block::Block() = default;
@@ -21,6 +22,9 @@ void Block::parseBlock(const QJsonObject &block)
     if (mBlockType == Unknown) {
         qCWarning(RUQOLA_LOG) << " Unknown type " << block;
     }
+    // TODO load elements
+    const QJsonArray elements = block[QLatin1String("elements")].toArray();
+    // TODO
 }
 
 QString Block::convertEnumToStr(BlockType newBlockType) const
@@ -50,6 +54,16 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
 
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
     return Unknown;
+}
+
+QVector<BlockAction> Block::blockActions() const
+{
+    return mBlockActions;
+}
+
+void Block::setBlockActions(const QVector<BlockAction> &newBlockActions)
+{
+    mBlockActions = newBlockActions;
 }
 
 VideoConferenceInfo Block::videoConferenceInfo() const
@@ -94,6 +108,10 @@ QString Block::title() const
         }
         return i18n("Conference Call");
     }
+    case BlockType::Section:
+    case BlockType::Actions:
+        // TODO
+        break;
     }
     return {};
 }
@@ -141,7 +159,8 @@ void Block::setBlockType(BlockType newBlockType)
 
 bool Block::operator==(const Block &other) const
 {
-    return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockStr == other.blockTypeStr();
+    return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockStr == other.blockTypeStr()
+        && mBlockActions == other.blockActions();
 }
 
 QJsonObject Block::serialize(const Block &block)
@@ -183,6 +202,7 @@ QDebug operator<<(QDebug d, const Block &t)
     d.space() << "blockTypeStr" << t.blockTypeStr();
     d.space() << "mBlockType" << t.blockType();
     d.space() << "Video conf info" << t.videoConferenceInfo();
+    d.space() << "Block Actions" << t.blockActions();
     return d;
 }
 
