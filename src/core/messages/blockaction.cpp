@@ -27,7 +27,9 @@ void BlockAction::parseAction(const QJsonObject &o)
     mActionId = o[QLatin1String("actionId")].toString();
     mBlockId = o[QLatin1String("blockId")].toString();
     mType = o[QLatin1String("type")].toString();
-    // TODO
+    // TODO fix me
+    const QJsonObject objText = o[QLatin1String("text")].toObject();
+    mText = objText[QLatin1String("text")].toString();
 }
 
 QString BlockAction::actionId() const

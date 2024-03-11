@@ -35,14 +35,13 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount) override;
 
 private:
-    struct Button {
+    struct ButtonLayout {
         QString text;
+        QRectF buttonRect;
+        // TODO add identifier ?
     };
     struct ActionsLayout {
-        QList<Button> buttonList;
-        QString title;
-        QSize titleSize;
-        QRect infoButtonRect;
+        QList<ButtonLayout> buttonList;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
                                                                        const Block &block,

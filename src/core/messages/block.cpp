@@ -37,7 +37,7 @@ void Block::parseBlock(const QJsonObject &block)
         if (action.isValid()) {
             mBlockActions.append(std::move(action));
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid role" << elements.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
         }
     }
 }
