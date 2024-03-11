@@ -157,6 +157,7 @@ MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &b
         return nullptr;
     case Block::BlockType::VideoConf:
         return mHelperConferenceVideo.get();
+        // TODO add other block type.
     }
     return nullptr;
 }
