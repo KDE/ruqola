@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
-"PO-Revision-Date: 2024-02-27 13:33+0100\n"
+"POT-Creation-Date: 2024-03-11 00:38+0000\n"
+"PO-Revision-Date: 2024-03-10 22:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -298,7 +298,7 @@ msgstr "Desarxiva"
 msgid "(Last Message: %1)"
 msgstr "(Últim missatge: %1)"
 
-#: core/messages/block.cpp:86 core/messages/message.cpp:626
+#: core/messages/block.cpp:95 core/messages/message.cpp:626
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -7476,7 +7476,7 @@ msgstr "Missatge reenviat"
 #: widgets/forwardmessage/forwardmessagewidget.cpp:23
 #, kde-format
 msgid "Select at least one channel to forward the message to."
-msgstr "Seleccioneu almenys un canal per reenviar el missatge."
+msgstr "Seleccioneu almenys un canal al qual reenviar el missatge."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:35
 #, kde-format
@@ -8270,7 +8270,7 @@ msgstr "Ves al missatge"
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
 msgid "Network is offline mode."
-msgstr "La xarxa està en mode desconnectada."
+msgstr "La xarxa està en mode desconnectat."
 
 #: widgets/otr/otrwidget.cpp:19
 #, kde-format
