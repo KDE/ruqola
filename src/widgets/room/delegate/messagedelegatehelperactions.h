@@ -20,7 +20,6 @@ class QRect;
 class QMouseEvent;
 class QStyleOptionViewItem;
 class RocketChatAccount;
-class AvatarCacheManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperActions : public MessageBlockDelegateHelperBase
 {
 public:
@@ -36,28 +35,18 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount) override;
 
 private:
-    struct UserLayout {
-        QRectF userAvatarRect;
-        QString userName;
-        QPixmap avatarPixmap;
+    struct Button {
+        QString text;
     };
     struct ActionsLayout {
-        QList<UserLayout> usersLayout;
+        QList<Button> buttonList;
         QString title;
         QSize titleSize;
         QRect infoButtonRect;
-        QSize joinButtonTextSize;
-        QRect joinButtonRect;
-        bool canJoin = false;
     };
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
                                                                        const Block &block,
                                                                        QRect attachmentsRect,
                                                                        const QStyleOptionViewItem &option);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
-
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPixmap makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const;
-
-    const QIcon mInfoIcon;
-    AvatarCacheManager *const mAvatarCacheManager;
 };
