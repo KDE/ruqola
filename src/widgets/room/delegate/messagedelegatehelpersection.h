@@ -31,6 +31,8 @@ public:
 
     [[nodiscard]] bool handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option) override;
 
+    [[nodiscard]] bool
+    handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect blocksRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount) override;
 
 private:

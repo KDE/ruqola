@@ -112,6 +112,16 @@ bool MessageDelegateHelperSection::handleHelpEvent(QHelpEvent *helpEvent, QRect 
     return false;
 }
 
+bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
+                                                    QMouseEvent *mouseEvent,
+                                                    QRect blocksRect,
+                                                    const QStyleOptionViewItem &option,
+                                                    const QModelIndex &index)
+{
+    // TODO
+    return false;
+}
+
 MessageDelegateHelperSection::ConferenceCallLayout
 MessageDelegateHelperSection::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
 {

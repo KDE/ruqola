@@ -22,6 +22,8 @@ class MessageDelegateHelperText;
 class MessageAttachmentDelegateHelperImage;
 class MessageAttachmentDelegateHelperFile;
 class MessageDelegateHelperReactions;
+class MessageDelegateHelperSection;
+class MessageDelegateHelperActions;
 class MessageAttachmentDelegateHelperVideo;
 class MessageAttachmentDelegateHelperSound;
 class MessageAttachmentDelegateHelperText;
@@ -146,6 +148,8 @@ private:
     QScopedPointer<MessageAttachmentDelegateHelperSound> mHelperAttachmentSound;
     QScopedPointer<MessageAttachmentDelegateHelperText> mHelperAttachmentText;
     QScopedPointer<MessageDelegateHelperConferenceVideo> mHelperConferenceVideo;
+    QScopedPointer<MessageDelegateHelperActions> mHelperActions;
+    QScopedPointer<MessageDelegateHelperSection> mHelperSection;
     QScopedPointer<MessageDelegateHelperUrlPreview> mHelperUrlPreview;
     AvatarCacheManager *const mAvatarCacheManager;
     MessageListLayoutBase *mMessageListLayoutBase = nullptr;
