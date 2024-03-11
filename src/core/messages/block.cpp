@@ -21,6 +21,11 @@ void Block::parseBlock(const QJsonObject &block)
     setBlockTypeStr(block[QLatin1String("type")].toString());
     if (mBlockType == Unknown) {
         qCWarning(RUQOLA_LOG) << " Unknown type " << block;
+    } else if (mBlockType == Section) {
+        if (block.contains(QLatin1String("text"))) {
+            const QJsonObject objText = block[QLatin1String("text")].toObject();
+            mSectionText = objText[QLatin1String("text")].toString();
+        }
     }
     // TODO load elements
     const QJsonArray elements = block[QLatin1String("elements")].toArray();
@@ -160,7 +165,17 @@ void Block::setBlockType(BlockType newBlockType)
 bool Block::operator==(const Block &other) const
 {
     return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockStr == other.blockTypeStr()
-        && mBlockActions == other.blockActions();
+        && mBlockActions == other.blockActions() && mSectionText == other.sectionText();
+}
+
+QString Block::sectionText() const
+{
+    return mSectionText;
+}
+
+void Block::setSectionText(const QString &newSectionText)
+{
+    mSectionText = newSectionText;
 }
 
 QJsonObject Block::serialize(const Block &block)
@@ -170,6 +185,9 @@ QJsonObject Block::serialize(const Block &block)
     o[QLatin1String("callId")] = block.callId();
     o[QLatin1String("appId")] = block.appId();
     o[QLatin1String("type")] = block.blockTypeStr();
+    if (!block.sectionText().isEmpty()) {
+        o[QLatin1String("sectionText")] = block.sectionText();
+    }
     if (block.mVideoConferenceInfo.isValid()) {
         o[QLatin1String("videoconferenceinfo")] = VideoConferenceInfo::serialize(block.mVideoConferenceInfo);
     } else {
@@ -185,6 +203,7 @@ Block Block::deserialize(const QJsonObject &o)
     block.setCallId(o[QLatin1String("callId")].toString());
     block.setAppId(o[QLatin1String("appId")].toString());
     block.setBlockTypeStr(o[QLatin1String("type")].toString());
+    block.setSectionText(o[QLatin1String("sectionText")].toString());
     const VideoConferenceInfo info = VideoConferenceInfo::deserialize(o[QLatin1String("videoconferenceinfo")].toObject());
     if (info.isValid()) {
         block.mVideoConferenceInfo = info;
@@ -202,6 +221,7 @@ QDebug operator<<(QDebug d, const Block &t)
     d.space() << "blockTypeStr" << t.blockTypeStr();
     d.space() << "mBlockType" << t.blockType();
     d.space() << "Video conf info" << t.videoConferenceInfo();
+    d.space() << "Text Section" << t.sectionText();
     d.space() << "Block Actions" << t.blockActions();
     return d;
 }

@@ -40,7 +40,7 @@ void MessageDelegateHelperActions::draw(const Block &block,
                                         const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
+    const ActionsLayout layout = layoutActions(block, option, blockRect.width());
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.title);
@@ -82,7 +82,7 @@ void MessageDelegateHelperActions::draw(const Block &block,
 QSize MessageDelegateHelperActions::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
+    const ActionsLayout layout = layoutActions(block, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     // Button
     if (layout.canJoin) {
@@ -95,7 +95,7 @@ QSize MessageDelegateHelperActions::sizeHint(const Block &block, const QModelInd
 
 QPoint MessageDelegateHelperActions::adaptMousePosition(const QPoint &pos, const Block &block, QRect blocksRect, const QStyleOptionViewItem &option)
 {
-    const ConferenceCallLayout layout = layoutConferenceCall(block, option, blocksRect.width());
+    const ActionsLayout layout = layoutActions(block, option, blocksRect.width());
     const QPoint relativePos = pos - blocksRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
     return relativePos;
 }
@@ -112,7 +112,7 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
 
-        const ConferenceCallLayout layout = layoutConferenceCall(block, option, blocksRect.width());
+        const ActionsLayout layout = layoutActions(block, option, blocksRect.width());
         if (layout.infoButtonRect.translated(blocksRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             ConferenceInfoDialog dlg(mRocketChatAccount, parentWidget);
@@ -141,7 +141,7 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
 
 bool MessageDelegateHelperActions::handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option)
 {
-    const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
+    const ActionsLayout layout = layoutActions(block, option, blockRect.width());
     for (const UserLayout &userLayout : layout.usersLayout) {
         if (userLayout.userAvatarRect.translated(blockRect.topLeft()).contains(helpEvent->pos())) {
             QToolTip::showText(helpEvent->globalPos(), userLayout.userName, mListView);
@@ -151,11 +151,11 @@ bool MessageDelegateHelperActions::handleHelpEvent(QHelpEvent *helpEvent, QRect 
     return false;
 }
 
-MessageDelegateHelperActions::ConferenceCallLayout
-MessageDelegateHelperActions::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
+MessageDelegateHelperActions::ActionsLayout
+MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
 {
     Q_UNUSED(blockRectWidth)
-    ConferenceCallLayout layout;
+    ActionsLayout layout;
     layout.title = block.title();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
