@@ -17,6 +17,17 @@ QDebug operator<<(QDebug d, const BlockAction &t)
     return d;
 }
 
+bool BlockAction::isValid() const
+{
+    // TODO
+    return false;
+}
+
+void BlockAction::parseActions()
+{
+    // TODO
+}
+
 QString BlockAction::actionId() const
 {
     return mActionId;
