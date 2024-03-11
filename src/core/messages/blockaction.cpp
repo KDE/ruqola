@@ -22,7 +22,7 @@ bool BlockAction::isValid() const
     return !mActionId.isEmpty() && !mBlockId.isEmpty() && !mType.isEmpty() && !mText.isEmpty();
 }
 
-void BlockAction::parseActions(const QJsonObject &o)
+void BlockAction::parseAction(const QJsonObject &o)
 {
     mActionId = o[QLatin1String("actionId")].toString();
     mBlockId = o[QLatin1String("blockId")].toString();
