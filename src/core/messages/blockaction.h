@@ -13,6 +13,9 @@ class LIBRUQOLACORE_EXPORT BlockAction
 {
 public:
     BlockAction();
+
+    void parseActions();
+
     [[nodiscard]] QString actionId() const;
     void setActionId(const QString &newActionId);
 
@@ -29,6 +32,8 @@ public:
 
     [[nodiscard]] static QJsonObject serialize(const BlockAction &block);
     [[nodiscard]] static BlockAction deserialize(const QJsonObject &o);
+
+    [[nodiscard]] bool isValid() const;
 
 private:
     QString mActionId;

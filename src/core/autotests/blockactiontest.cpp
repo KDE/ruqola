@@ -21,6 +21,7 @@ void BlockActionTest::shouldHaveDefaultValues()
     QVERIFY(b.text().isEmpty());
     QVERIFY(b.type().isEmpty());
     QVERIFY(b.blockId().isEmpty());
+    QVERIFY(!b.isValid());
 }
 
 #include "moc_blockactiontest.cpp"

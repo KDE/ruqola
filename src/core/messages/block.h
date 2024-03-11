@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "blockaction.h"
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
 #include <QDebug>
@@ -51,9 +52,13 @@ public:
     [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
+    [[nodiscard]] QVector<BlockAction> blockActions() const;
+    void setBlockActions(const QVector<BlockAction> &newBlockActions);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
+    QVector<BlockAction> mBlockActions;
     QString mBlockId;
     QString mCallId;
     QString mAppId;
