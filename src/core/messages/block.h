@@ -52,13 +52,13 @@ public:
     [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
-    [[nodiscard]] QVector<BlockAction> blockActions() const;
-    void setBlockActions(const QVector<BlockAction> &newBlockActions);
+    [[nodiscard]] QList<BlockAction> blockActions() const;
+    void setBlockActions(const QList<BlockAction> &newBlockActions);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertEnumToStr(BlockType newBlockType) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
-    QVector<BlockAction> mBlockActions;
+    QList<BlockAction> mBlockActions;
     QString mBlockId;
     QString mCallId;
     QString mAppId;

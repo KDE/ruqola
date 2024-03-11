@@ -56,12 +56,12 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
     return Unknown;
 }
 
-QVector<BlockAction> Block::blockActions() const
+QList<BlockAction> Block::blockActions() const
 {
     return mBlockActions;
 }
 
-void Block::setBlockActions(const QVector<BlockAction> &newBlockActions)
+void Block::setBlockActions(const QList<BlockAction> &newBlockActions)
 {
     mBlockActions = newBlockActions;
 }
