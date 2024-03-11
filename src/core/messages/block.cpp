@@ -27,9 +27,19 @@ void Block::parseBlock(const QJsonObject &block)
             mSectionText = objText[QLatin1String("text")].toString();
         }
     }
-    // TODO load elements
+
     const QJsonArray elements = block[QLatin1String("elements")].toArray();
-    // TODO
+    const auto elementsCount = elements.count();
+    mBlockActions.reserve(elementsCount);
+    for (auto i = 0; i < elementsCount; ++i) {
+        BlockAction action;
+        action.parseAction(elements.at(i).toObject());
+        if (action.isValid()) {
+            mBlockActions.append(std::move(action));
+        } else {
+            qCWarning(RUQOLA_LOG) << "Invalid role" << elements.at(i).toObject();
+        }
+    }
 }
 
 QString Block::convertEnumToStr(BlockType newBlockType) const

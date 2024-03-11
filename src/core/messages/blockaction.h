@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT BlockAction
 public:
     BlockAction();
 
-    void parseActions(const QJsonObject &o);
+    void parseAction(const QJsonObject &o);
 
     [[nodiscard]] QString actionId() const;
     void setActionId(const QString &newActionId);

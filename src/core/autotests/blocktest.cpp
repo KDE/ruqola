@@ -32,12 +32,21 @@ void BlockTest::shouldLoadBlock_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<Block>("blockInfo");
-    Block info;
-    info.setBlockId(QStringLiteral("63936e304ef3f3baa9658bd7"));
-    info.setAppId(QStringLiteral("videoconf-core"));
-    info.setCallId(QStringLiteral("63936e304ef"));
-    info.setBlockTypeStr(QStringLiteral("video_conf"));
-    QTest::addRow("blocks1") << QStringLiteral("blocks1") << info;
+    {
+        Block info;
+        info.setBlockId(QStringLiteral("63936e304ef3f3baa9658bd7"));
+        info.setAppId(QStringLiteral("videoconf-core"));
+        info.setCallId(QStringLiteral("63936e304ef"));
+        info.setBlockTypeStr(QStringLiteral("video_conf"));
+        QTest::addRow("blocks1") << QStringLiteral("blocks1") << info;
+    }
+    {
+        Block info;
+        info.setAppId(QStringLiteral("mention-core"));
+        info.setBlockTypeStr(QStringLiteral("section"));
+        info.setSectionText(QStringLiteral("You mentioned *foo*, but they're not in this room."));
+        QTest::addRow("section1") << QStringLiteral("section1") << info;
+    }
 }
 
 void BlockTest::shouldLoadBlock()
