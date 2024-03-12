@@ -105,7 +105,7 @@ MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOpti
     ActionsLayout layout;
 
     qreal x = 0;
-    const QList<BlockAction> actions = block.blockActions();
+    const auto actions = block.blockActions();
     for (const auto &act : actions) {
         ButtonLayout buttonLayout;
         buttonLayout.text = act.text();
