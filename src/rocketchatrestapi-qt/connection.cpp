@@ -368,10 +368,9 @@ DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFile
     return job;
 }
 
-void Connection::serverInfo(bool useDeprecatedVersion)
+void Connection::serverInfo()
 {
     auto job = new ServerInfoJob(this);
-    job->setUseDeprecatedVersion(useDeprecatedVersion);
     initializeRestApiJob(job);
     connect(job, &ServerInfoJob::serverInfoDone, this, &Connection::serverInfoDone);
     connect(job, &ServerInfoJob::serverInfoFailed, this, &Connection::serverInfoFailed);

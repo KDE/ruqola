@@ -52,7 +52,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
     LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotConnectedChanged();
-    LIBRUQOLACORE_NO_EXPORT void slotGetServerInfoFailed(bool useDeprecatedVersion);
     LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
     LIBRUQOLACORE_NO_EXPORT void tryAutoLogin();
     LIBRUQOLACORE_NO_EXPORT void subscribeRegistration();

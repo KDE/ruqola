@@ -342,6 +342,9 @@ enum class RestApiUrlType {
     // Proxy
     MethodCall,
     MethodCallAnon,
+
+    // Apps.ui.interaction
+    AppsUiInteraction,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

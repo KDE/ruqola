@@ -24,13 +24,6 @@ public:
 
     [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    [[nodiscard]] bool useDeprecatedVersion() const;
-
-    void setUseDeprecatedVersion(bool useDeprecatedVersion);
-
-    [[nodiscard]] bool forceRequiresAuthentication() const;
-    void setForceRequiresAuthentication(bool forceRequiresAuthentication);
-
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo, const QJsonObject &obj);
     void serverInfoFailed(bool useDeprectedVersion);
@@ -38,7 +31,5 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ServerInfoJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    bool mUseDeprecatedVersion = true;
-    bool mForceRequiresAuthentication = false;
 };
 }

@@ -62,7 +62,7 @@ public:
     void logout();
     void getAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
 
-    void serverInfo(bool useDeprecatedVersion);
+    void serverInfo();
     void getPrivateSettings();
     void getOwnInfo();
     void starMessage(const QString &messageId, bool starred);
