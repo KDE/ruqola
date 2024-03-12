@@ -7,6 +7,7 @@
 #include "messagedelegatehelpersection.h"
 #include "common/delegatepaintutil.h"
 #include "rocketchataccount.h"
+#include "textconverter.h"
 
 #include <KLocalizedString>
 
@@ -64,7 +65,16 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
 {
     Q_UNUSED(blockRectWidth)
     SectionLayout layout;
+#if 0 // We need to use QTextDocument here too
+    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
+    auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
+    QString needUpdateMessageId;
+    const TextConverter::ConvertMessageTextSettings settings(block.sectionText(), {}, {}, {}, emojiManager, messageCache, {}, {});
+    int recursiveIndex = 0;
+    layout.title = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+#else
     layout.title = block.sectionText();
+#endif
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     return layout;
 }
