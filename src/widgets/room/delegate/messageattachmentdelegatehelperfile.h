@@ -45,9 +45,9 @@ private:
                                                                  int attachmentsWidth) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void handleDownloadClicked(const QString &link, QWidget *widget);
     friend class MessageDelegateHelperFileTest;
-    const QIcon mDownloadIcon;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
                                                                        const MessageAttachment &msgAttach,
                                                                        QRect attachmentsRect,
                                                                        const QStyleOptionViewItem &option) override;
+    const QIcon mDownloadIcon;
 };
