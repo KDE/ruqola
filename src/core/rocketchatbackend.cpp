@@ -160,9 +160,8 @@ void RocketChatBackend::slotConnectedChanged()
 
     auto restApi = mRocketChatAccount->restApi();
 
-    restApi->serverInfo(false);
+    restApi->serverInfo();
     connect(restApi, &RocketChatRestApi::Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
-    connect(restApi, &RocketChatRestApi::Connection::serverInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
     connect(restApi, &RocketChatRestApi::Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
 
     mRocketChatAccount->loadAccountSettings();
@@ -197,13 +196,6 @@ void RocketChatBackend::loadPublicSettingsAdministrator(qint64 timeStamp)
     }
     qDebug() << " params " << params;
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(params), process_publicsettings_administrator);
-}
-
-void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
-{
-    if (!useDeprecatedVersion) {
-        mRocketChatAccount->restApi()->serverInfo(true);
-    }
 }
 
 void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
