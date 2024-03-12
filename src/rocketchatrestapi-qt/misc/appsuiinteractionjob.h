@@ -35,7 +35,7 @@ public:
     void setAppsUiInteractionJobInfo(const AppsUiInteractionJobInfo &newAppsUiInteractionJobInfo);
 
 Q_SIGNALS:
-    void methodCallDone(const QJsonObject &replyObject);
+    void AppsUiInteractionDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(AppsUiInteractionJob)
