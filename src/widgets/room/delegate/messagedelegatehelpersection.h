@@ -27,20 +27,13 @@ public:
     void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     [[nodiscard]] QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
 
-    [[nodiscard]] bool handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option) override;
-
     [[nodiscard]] bool
     handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect blocksRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
-    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount) override;
 
 private:
     struct SectionLayout {
         QString title;
         QSize titleSize;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
-                                                                       const Block &block,
-                                                                       QRect attachmentsRect,
-                                                                       const QStyleOptionViewItem &option);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 };
