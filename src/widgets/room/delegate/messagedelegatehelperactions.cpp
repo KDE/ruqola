@@ -37,23 +37,22 @@ void MessageDelegateHelperActions::draw(const Block &block,
     Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, blockRect.width());
     for (const auto &button : layout.buttonList) {
-        // Draw join button
+        // Draw button
         const QPen origPen = painter->pen();
         const QBrush origBrush = painter->brush();
         const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
         QColor backgroundColor = option.palette.color(QPalette::Highlight);
         backgroundColor.setAlpha(60);
         const QBrush buttonBrush(backgroundColor);
-        const QRectF joinButtonRect = button.buttonRect.translated(blockRect.topLeft());
+        const QRectF buttonRect = button.buttonRect.translated(blockRect.topLeft());
         // Rounded rect
         painter->setPen(buttonPen);
         painter->setBrush(buttonBrush);
-        painter->drawRoundedRect(joinButtonRect, 5, 5);
+        painter->drawRoundedRect(buttonRect, 5, 5);
         painter->setBrush(origBrush);
         painter->setPen(origPen);
-        const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - button.buttonRect.width()) / 2, 0, 0, 0);
-        // FIXME: Draw center !
-        painter->drawText(r, button.text);
+        const QRectF r = buttonRect.adjusted((buttonRect.width() - button.buttonRect.width()) / 2, 0, 0, 0);
+        painter->drawText(r, Qt::AlignVCenter | Qt::AlignHCenter, button.text);
     }
 }
 
@@ -65,8 +64,12 @@ QSize MessageDelegateHelperActions::sizeHint(const Block &block, const QModelInd
         return {};
     }
     const int height = layout.buttonList.at(0).buttonRect.height() + DelegatePaintUtil::margin();
-    // TODO fix width
-    return {qMax(0, static_cast<int>(layout.buttonList.at(0).buttonRect.width())), height};
+    const auto buttons = layout.buttonList;
+    int width = 0;
+    for (const auto &b : buttons) {
+        width += b.buttonRect.width();
+    }
+    return {qMax(0, static_cast<int>(width)), height};
 }
 
 QPoint MessageDelegateHelperActions::adaptMousePosition(const QPoint &pos, const Block &block, QRect blocksRect, const QStyleOptionViewItem &option)
@@ -88,6 +91,10 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
 
 bool MessageDelegateHelperActions::handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option)
 {
+    Q_UNUSED(helpEvent);
+    Q_UNUSED(blockRect);
+    Q_UNUSED(block);
+    Q_UNUSED(option);
     return false;
 }
 
@@ -103,7 +110,7 @@ MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOpti
         ButtonLayout buttonLayout;
         buttonLayout.text = act.text();
         const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
-        buttonLayout.buttonRect = QRectF(x, DelegatePaintUtil::margin(), buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
+        buttonLayout.buttonRect = QRectF(x, 0, buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
         layout.buttonList.append(std::move(buttonLayout));
         x += buttonLayout.buttonRect.width() + DelegatePaintUtil::margin();
     }
