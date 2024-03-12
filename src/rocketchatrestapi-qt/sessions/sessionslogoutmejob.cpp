@@ -34,7 +34,7 @@ void SessionsLogoutMeJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SessionsLogoutMeJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT logoutMeDone();
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest SessionsLogoutMeJob::request() const
 QJsonDocument SessionsLogoutMeJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("sessionId")] = mSessionId;
+    jsonObj[QLatin1StringView("sessionId")] = mSessionId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -24,32 +24,32 @@ QJsonDocument CreateChannelTeamInfo::json() const
 {
     QJsonObject jsonObj;
     if (!members.isEmpty()) {
-        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(members);
+        jsonObj[QLatin1StringView("members")] = QJsonArray::fromStringList(members);
     }
-    jsonObj[QLatin1String("name")] = name;
+    jsonObj[QLatin1StringView("name")] = name;
     if (readOnly) {
-        jsonObj[QLatin1String("readOnly")] = true;
+        jsonObj[QLatin1StringView("readOnly")] = true;
     } // Default is false
 
     if (infoType == Team) {
-        jsonObj[QLatin1String("type")] = privateChannel ? 1 : 0;
+        jsonObj[QLatin1StringView("type")] = privateChannel ? 1 : 0;
     }
 
     QJsonObject extraJsonObj;
 
     if (broadcast) {
-        extraJsonObj[QLatin1String("broadcast")] = true;
+        extraJsonObj[QLatin1StringView("broadcast")] = true;
     } // Default is false
     if (encrypted) {
-        extraJsonObj[QLatin1String("encrypted")] = true;
+        extraJsonObj[QLatin1StringView("encrypted")] = true;
     } // Default is false
     if (!description.isEmpty()) {
-        extraJsonObj[QLatin1String("description")] = description;
+        extraJsonObj[QLatin1StringView("description")] = description;
     }
     if (!teamId.isEmpty()) {
-        extraJsonObj[QLatin1String("teamId")] = teamId;
+        extraJsonObj[QLatin1StringView("teamId")] = teamId;
     }
-    jsonObj[QLatin1String("extraData")] = extraJsonObj;
+    jsonObj[QLatin1StringView("extraData")] = extraJsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

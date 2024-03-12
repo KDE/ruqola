@@ -26,7 +26,7 @@ ServerErrorInfoMessageWidget::~ServerErrorInfoMessageWidget() = default;
 
 void ServerErrorInfoMessageWidget::slotLinkActivated(const QString &contents)
 {
-    if (contents == QLatin1String("show_errors")) {
+    if (contents == QLatin1StringView("show_errors")) {
         ServerErrorInfoMessageHistoryDialog dlg(this);
         dlg.addServerList(Ruqola::self()->accountManager()->accountDisplayInfoSorted());
         dlg.exec();

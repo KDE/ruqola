@@ -36,8 +36,8 @@ void ModerationInfo::parseRoomList(const QJsonArray &rooms)
 {
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
-        const QString fname = o[QLatin1String("fname")].toString();
-        const QString name = o[QLatin1String("name")].toString();
+        const QString fname = o[QLatin1StringView("fname")].toString();
+        const QString name = o[QLatin1StringView("name")].toString();
         mRoomList.append(fname.isEmpty() ? name : fname);
     }
 }
@@ -45,15 +45,15 @@ void ModerationInfo::parseRoomList(const QJsonArray &rooms)
 void ModerationInfo::parseModerationInfo(const QJsonObject &o)
 {
     // qDebug() << " ModerationInfo " << o;
-    mUserId = o[QLatin1String("userId")].toString();
-    mName = o[QLatin1String("name")].toString();
-    mUserName = o[QLatin1String("username")].toString();
-    mMsgId = o[QLatin1String("msgId")].toString();
-    mCount = o[QLatin1String("count")].toInt();
-    mIsUserDeleted = o[QLatin1String("isUserDeleted")].toBool();
-    mMessage = o[QLatin1String("message")].toString();
+    mUserId = o[QLatin1StringView("userId")].toString();
+    mName = o[QLatin1StringView("name")].toString();
+    mUserName = o[QLatin1StringView("username")].toString();
+    mMsgId = o[QLatin1StringView("msgId")].toString();
+    mCount = o[QLatin1StringView("count")].toInt();
+    mIsUserDeleted = o[QLatin1StringView("isUserDeleted")].toBool();
+    mMessage = o[QLatin1StringView("message")].toString();
     setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    parseRoomList(o[QLatin1String("rooms")].toArray());
+    parseRoomList(o[QLatin1StringView("rooms")].toArray());
 }
 
 void ModerationInfo::setCreatedAt(qint64 newCreatedAt)

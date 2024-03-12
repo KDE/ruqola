@@ -37,7 +37,7 @@ void ChannelsConvertToTeamJob::onPostRequestResponse(const QString &replyErrorSt
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelsConvertToTeamJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelConvertToTeamDone(replyObject);
     } else {
@@ -85,16 +85,16 @@ QNetworkRequest ChannelsConvertToTeamJob::request() const
 QJsonDocument ChannelsConvertToTeamJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("channelId")] = mChannelId;
+    jsonObj[QLatin1StringView("channelId")] = mChannelId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
 QString ChannelsConvertToTeamJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1String("unauthorized")) {
+    if (errorStr == QLatin1StringView("unauthorized")) {
         return i18n("Channel can not convert to Team.");
-    } else if (errorStr == QLatin1String("team-name-already-exists")) {
+    } else if (errorStr == QLatin1StringView("team-name-already-exists")) {
         return i18n("Team already exists.");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);

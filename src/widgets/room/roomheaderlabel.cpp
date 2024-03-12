@@ -39,7 +39,7 @@ void RoomHeaderLabel::updateSqueezedText()
     }
     setVisible(true);
     const QString text = rPixelSqueeze(mFullText, width() - 10);
-    QLabel::setText(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
+    QLabel::setText(QLatin1StringView("<qt>") + text + QLatin1StringView("</qt>"));
     if (mFullText != text && !mExpandTopic) {
         setToolTip(mFullText);
     }
@@ -47,10 +47,10 @@ void RoomHeaderLabel::updateSqueezedText()
 
 void RoomHeaderLabel::slotMoreInfo(const QString &content)
 {
-    if (content == QLatin1String("showmoretext")) {
+    if (content == QLatin1StringView("showmoretext")) {
         mExpandTopic = true;
         updateSqueezedText();
-    } else if (content == QLatin1String("showlesstext")) {
+    } else if (content == QLatin1StringView("showlesstext")) {
         mExpandTopic = false;
         updateSqueezedText();
     } else {
@@ -106,7 +106,7 @@ QSize RoomHeaderLabel::textSize(const QString &text) const
 {
     QTextDocument document;
     document.setDefaultFont(font());
-    document.setHtml(QLatin1String("<qt>") + text + QLatin1String("</qt>"));
+    document.setHtml(QLatin1StringView("<qt>") + text + QLatin1StringView("</qt>"));
 
     return document.size().toSize();
 }

@@ -49,13 +49,13 @@ void Command::convertParamsI18n()
     if (mParams.isEmpty()) {
         return;
     }
-    if (mParams == QLatin1String("Slash_Status_Params")) {
+    if (mParams == QLatin1StringView("Slash_Status_Params")) {
         mTranslatedParams = i18n("Status message");
-    } else if (mParams == QLatin1String("Slash_Topic_Params")) {
+    } else if (mParams == QLatin1StringView("Slash_Topic_Params")) {
         mTranslatedParams = i18n("Topic message");
-    } else if (mParams == QLatin1String("your_message")) {
+    } else if (mParams == QLatin1StringView("your_message")) {
         mTranslatedParams = i18n("your message");
-    } else if (mParams == QLatin1String("your_message_optional")) {
+    } else if (mParams == QLatin1StringView("your_message_optional")) {
         mTranslatedParams = i18n("your message (optional)");
     } else {
         mTranslatedParams = mParams;
@@ -71,49 +71,49 @@ void Command::convertDescriptionI18n()
 {
     if (mDescription.isEmpty()) {
         return;
-    } else if (mDescription == QLatin1String("Archive")) {
+    } else if (mDescription == QLatin1StringView("Archive")) {
         mTranslatedDescription = i18n("Archive");
-    } else if (mDescription == QLatin1String("Slash_Gimme_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_Gimme_Description")) {
         mTranslatedDescription = i18n("Displays ༼ つ ◕_◕ ༽つ before your message");
-    } else if (mDescription == QLatin1String("Slash_LennyFace_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_LennyFace_Description")) {
         mTranslatedDescription = i18n("Displays ( ͡° ͜ʖ ͡°) after your message");
-    } else if (mDescription == QLatin1String("Slash_Shrug_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_Shrug_Description")) {
         mTranslatedDescription = i18n("Displays ¯\\_(ツ)_/¯ after your message");
-    } else if (mDescription == QLatin1String("Slash_Tableflip_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_Tableflip_Description")) {
         mTranslatedDescription = i18n("Displays (╯°□°）╯︵ ┻━┻");
-    } else if (mDescription == QLatin1String("Slash_TableUnflip_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_TableUnflip_Description")) {
         mTranslatedDescription = i18n("Displays ┬─┬<feff> ノ( ゜-゜ノ)");
-    } else if (mDescription == QLatin1String("Create_A_New_Channel")) {
+    } else if (mDescription == QLatin1StringView("Create_A_New_Channel")) {
         mTranslatedDescription = i18n("Create a New Channel");
-    } else if (mDescription == QLatin1String("Show_the_keyboard_shortcut_list")) {
+    } else if (mDescription == QLatin1StringView("Show_the_keyboard_shortcut_list")) {
         mTranslatedDescription = i18n("Show the keyboard shortcut list");
-    } else if (mDescription == QLatin1String("Hide_room")) {
+    } else if (mDescription == QLatin1StringView("Hide_room")) {
         mTranslatedDescription = i18n("Hide Room");
-    } else if (mDescription == QLatin1String("Invite_user_to_join_channel")) {
+    } else if (mDescription == QLatin1StringView("Invite_user_to_join_channel")) {
         mTranslatedDescription = i18n("Invite one user to join this channel");
-    } else if (mDescription == QLatin1String("Invite_user_to_join_channel_all_to")) {
+    } else if (mDescription == QLatin1StringView("Invite_user_to_join_channel_all_to")) {
         mTranslatedDescription = i18n("Invite all users from this channel to join [#channel]");
-    } else if (mDescription == QLatin1String("Invite_user_to_join_channel_all_from")) {
+    } else if (mDescription == QLatin1StringView("Invite_user_to_join_channel_all_from")) {
         mTranslatedDescription = i18n("Invite all users from [#channel] to join this channel");
-    } else if (mDescription == QLatin1String("Join_the_given_channel")) {
+    } else if (mDescription == QLatin1StringView("Join_the_given_channel")) {
         mTranslatedDescription = i18n("Join the given channel");
-    } else if (mDescription == QLatin1String("Remove_someone_from_room")) {
+    } else if (mDescription == QLatin1StringView("Remove_someone_from_room")) {
         mTranslatedDescription = i18n("Remove someone from the room");
-    } else if (mDescription == QLatin1String("Leave_the_current_channel")) {
+    } else if (mDescription == QLatin1StringView("Leave_the_current_channel")) {
         mTranslatedDescription = i18n("Leave the current channel");
-    } else if (mDescription == QLatin1String("Displays_action_text")) {
+    } else if (mDescription == QLatin1StringView("Displays_action_text")) {
         mTranslatedDescription = i18n("Displays action text");
-    } else if (mDescription == QLatin1String("Direct_message_someone")) {
+    } else if (mDescription == QLatin1StringView("Direct_message_someone")) {
         mTranslatedDescription = i18n("Direct message someone");
-    } else if (mDescription == QLatin1String("Mute_someone_in_room")) {
+    } else if (mDescription == QLatin1StringView("Mute_someone_in_room")) {
         mTranslatedDescription = i18n("Mute someone in the room");
-    } else if (mDescription == QLatin1String("Unmute_someone_in_room")) {
+    } else if (mDescription == QLatin1StringView("Unmute_someone_in_room")) {
         mTranslatedDescription = i18n("Unmute someone in the room");
-    } else if (mDescription == QLatin1String("Slash_Status_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_Status_Description")) {
         mTranslatedDescription = i18n("Set your status message");
-    } else if (mDescription == QLatin1String("Slash_Topic_Description")) {
+    } else if (mDescription == QLatin1StringView("Slash_Topic_Description")) {
         mTranslatedDescription = i18n("Set topic");
-    } else if (mDescription == QLatin1String("Unarchive")) {
+    } else if (mDescription == QLatin1StringView("Unarchive")) {
         mTranslatedDescription = i18n("Unarchive");
     } else {
         mTranslatedDescription = mDescription;

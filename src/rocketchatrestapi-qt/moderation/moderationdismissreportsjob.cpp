@@ -34,7 +34,7 @@ void ModerationDismissReportsJob::onPostRequestResponse(const QString &replyErro
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationDismissReportsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT moderationDismissReportsDone();
     } else {
@@ -93,9 +93,9 @@ QJsonDocument ModerationDismissReportsJob::json() const
 {
     QJsonObject jsonObj;
     if (!mUserIdForMessages.isEmpty()) {
-        jsonObj[QLatin1String("userId")] = mUserIdForMessages;
+        jsonObj[QLatin1StringView("userId")] = mUserIdForMessages;
     } else if (!mMessageId.isEmpty()) {
-        jsonObj[QLatin1String("msgId")] = mMessageId;
+        jsonObj[QLatin1StringView("msgId")] = mMessageId;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

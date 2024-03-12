@@ -41,7 +41,7 @@ void ReconnectInfoWidget::slotUpdateTimer()
 
 void ReconnectInfoWidget::slotLinkActivated(const QString &contents)
 {
-    if (contents == QLatin1String("try_reconnect")) {
+    if (contents == QLatin1StringView("try_reconnect")) {
         if (mDelayTimer->isActive()) {
             mDelayTimer->stop();
         }

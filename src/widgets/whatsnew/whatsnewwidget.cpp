@@ -47,7 +47,7 @@ QString WhatsNewWidget::newFeaturesMD5()
     }
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
-    return QLatin1String(md5.result().toBase64());
+    return QLatin1StringView(md5.result().toBase64());
 }
 
 void WhatsNewWidget::updateInformations()

@@ -52,14 +52,14 @@ void ExportDataWizard::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigExportDataWizardGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigExportDataWizardGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ExportDataWizard::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigExportDataWizardGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigExportDataWizardGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

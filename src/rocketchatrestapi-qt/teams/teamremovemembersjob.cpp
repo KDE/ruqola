@@ -36,7 +36,7 @@ void TeamRemoveMembersJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamRemoveMembersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeTeamMembersDone();
     } else {
@@ -98,8 +98,8 @@ QNetworkRequest TeamRemoveMembersJob::request() const
 QJsonDocument TeamRemoveMembersJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("rooms")] = QJsonArray::fromStringList(mRoomsId);
-    jsonObj[QLatin1String("teamId")] = mTeamId;
+    jsonObj[QLatin1StringView("rooms")] = QJsonArray::fromStringList(mRoomsId);
+    jsonObj[QLatin1StringView("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

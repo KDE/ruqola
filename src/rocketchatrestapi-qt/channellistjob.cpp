@@ -33,7 +33,7 @@ bool ChannelListJob::start()
 void ChannelListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelListDone(replyObject);
     } else {

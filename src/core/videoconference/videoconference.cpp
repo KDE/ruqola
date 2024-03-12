@@ -20,26 +20,26 @@ bool VideoConference::operator==(const VideoConference &other) const
 
 void VideoConference::parseVideoConference(const QJsonObject &content)
 {
-    mAction = convertActionToEnum(content[QLatin1String("action")].toString());
-    const QJsonObject videoConfParams = content[QLatin1String("params")].toObject();
-    mCallId = videoConfParams[QLatin1String("callId")].toString();
-    mRoomId = videoConfParams[QLatin1String("rid")].toString();
-    mUserId = videoConfParams[QLatin1String("uid")].toString();
+    mAction = convertActionToEnum(content[QLatin1StringView("action")].toString());
+    const QJsonObject videoConfParams = content[QLatin1StringView("params")].toObject();
+    mCallId = videoConfParams[QLatin1StringView("callId")].toString();
+    mRoomId = videoConfParams[QLatin1StringView("rid")].toString();
+    mUserId = videoConfParams[QLatin1StringView("uid")].toString();
     // {"action":"call","params":{"callId":"63983180a7f9e1466a4eedc6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}
 }
 
 VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
 {
     Action action = Unknown;
-    if (str == QLatin1String("call")) {
+    if (str == QLatin1StringView("call")) {
         action = IncomingCall;
-    } else if (str == QLatin1String("canceled")) {
+    } else if (str == QLatin1StringView("canceled")) {
         action = Canceled;
-    } else if (str == QLatin1String("confirmed")) {
+    } else if (str == QLatin1StringView("confirmed")) {
         action = Confirmed;
-    } else if (str == QLatin1String("accepted")) {
+    } else if (str == QLatin1StringView("accepted")) {
         action = Accepted;
-    } else if (str == QLatin1String("rejected")) {
+    } else if (str == QLatin1StringView("rejected")) {
         action = Rejected;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;

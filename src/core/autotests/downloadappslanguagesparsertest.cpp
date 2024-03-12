@@ -25,7 +25,7 @@ void DownloadAppsLanguagesParserTest::shouldParseFile()
     QFETCH(QString, filename);
     QFETCH(int, identifier);
     DownloadAppsLanguagesParser parser;
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/downloadappslanguages/") + filename;
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/downloadappslanguages/") + filename;
     parser.setFilename(originalJsonFile);
     QVERIFY(parser.parse());
     QCOMPARE(parser.map().count(), identifier);

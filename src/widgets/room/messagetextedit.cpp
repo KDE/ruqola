@@ -97,7 +97,7 @@ void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
 void MessageTextEdit::loadSpellCheckingSettings()
 {
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    if (config->hasGroup(QLatin1String("Spelling"))) {
+    if (config->hasGroup(QLatin1StringView("Spelling"))) {
         KConfigGroup group(config, QStringLiteral("Spelling"));
         setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
         const QString language = group.readEntry("Language", QString());

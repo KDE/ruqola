@@ -33,7 +33,7 @@ bool SendInvitationEmailJob::start()
 void SendInvitationEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SendInvitationEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendInvitationEmailsDone();
     } else {
@@ -81,7 +81,7 @@ QNetworkRequest SendInvitationEmailJob::request() const
 QJsonDocument SendInvitationEmailJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("emails")] = QJsonArray::fromStringList(mEmails);
+    jsonObj[QLatin1StringView("emails")] = QJsonArray::fromStringList(mEmails);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

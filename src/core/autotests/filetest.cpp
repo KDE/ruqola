@@ -135,9 +135,9 @@ void FileTest::shouldParseFile()
     QFETCH(bool, usingRestApi);
     QString originalJsonFile;
     if (usingRestApi) {
-        originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + fileName + QLatin1String(".json");
+        originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/") + fileName + QLatin1StringView(".json");
     } else {
-        originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+        originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
     }
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 

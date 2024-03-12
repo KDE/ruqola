@@ -60,7 +60,7 @@ void InviteInfoTest::shouldParseInviteInfo()
 {
     QFETCH(QString, fileName);
     QFETCH(InviteInfo, expectedInvite);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     InviteInfo newFile;

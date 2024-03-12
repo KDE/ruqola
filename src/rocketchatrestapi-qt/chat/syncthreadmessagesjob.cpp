@@ -55,7 +55,7 @@ bool SyncThreadMessagesJob::start()
 void SyncThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
     } else {

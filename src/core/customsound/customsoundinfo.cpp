@@ -31,9 +31,9 @@ void CustomSoundInfo::setName(const QString &newName)
 
 void CustomSoundInfo::parseCustomSoundInfo(const QJsonObject &obj)
 {
-    mName = obj[QLatin1String("name")].toString();
-    mIdentifier = obj[QLatin1String("_id")].toString();
-    mExtension = obj[QLatin1String("extension")].toString();
+    mName = obj[QLatin1StringView("name")].toString();
+    mIdentifier = obj[QLatin1StringView("_id")].toString();
+    mExtension = obj[QLatin1StringView("extension")].toString();
 }
 
 const QString &CustomSoundInfo::extension() const

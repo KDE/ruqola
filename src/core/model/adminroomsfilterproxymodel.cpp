@@ -31,22 +31,22 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
     const QModelIndex sourceIndex = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::ChannelType, source_parent);
     const QString channelType = sourceModel()->data(sourceIndex).toString();
     if (mFilters & FilterRoom::DirectRooms) {
-        if (channelType == QLatin1String("d")) {
+        if (channelType == QLatin1StringView("d")) {
             return true;
         }
     }
     if (mFilters & FilterRoom::PublicRooms) {
-        if (channelType == QLatin1String("c")) {
+        if (channelType == QLatin1StringView("c")) {
             return true;
         }
     }
     if (mFilters & FilterRoom::PrivateRooms) {
-        if (channelType == QLatin1String("p")) {
+        if (channelType == QLatin1StringView("p")) {
             return true;
         }
     }
     if (mFilters & FilterRoom::PrivateRooms) {
-        if (channelType == QLatin1String("l")) {
+        if (channelType == QLatin1StringView("l")) {
             return true;
         }
     }

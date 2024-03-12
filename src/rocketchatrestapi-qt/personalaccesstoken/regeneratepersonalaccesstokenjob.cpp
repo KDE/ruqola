@@ -34,7 +34,7 @@ void RegeneratePersonalAccessTokenJob::onPostRequestResponse(const QString &repl
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RegeneratePersonalAccessTokenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT regenerateTokenDone(replyObject);
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest RegeneratePersonalAccessTokenJob::request() const
 QJsonDocument RegeneratePersonalAccessTokenJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("tokenName")] = mTokenName;
+    jsonObj[QLatin1StringView("tokenName")] = mTokenName;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

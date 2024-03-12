@@ -52,7 +52,7 @@ bool GetThreadMessagesJob::start()
 void GetThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getThreadMessagesDone(replyObject, mThreadMessageId);
     } else {
@@ -87,7 +87,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 
 QString GetThreadMessagesJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-invalid-message")) {
+    if (str == QLatin1StringView("error-invalid-message")) {
         return i18n("Invalid message: \'%1\'", mThreadMessageId);
     }
     return RestApiAbstractJob::errorMessage(str, details);

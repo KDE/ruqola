@@ -217,7 +217,7 @@ void AdministratorServerInfoWidget::createItemDisplayFormat(QTreeWidgetItem *par
 
 void AdministratorServerInfoWidget::parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj)
 {
-    const QJsonObject runtimeObj = obj.value(QLatin1String("os")).toObject();
+    const QJsonObject runtimeObj = obj.value(QLatin1StringView("os")).toObject();
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Release"), QStringLiteral("release"));
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Type"), QStringLiteral("type"));
     createItemFromStringValue(runtimeInfoItem, runtimeObj, i18n("OS Platform"), QStringLiteral("platform"));

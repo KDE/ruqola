@@ -294,7 +294,7 @@ void MessagesModelTest::shouldFindPrevNextMessage()
     MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
 
     auto isByMe = [](const Message &msg) {
-        return msg.userId() == QLatin1String("userid1");
+        return msg.userId() == QLatin1StringView("userid1");
     };
 
     // THEN there is no prev/next message

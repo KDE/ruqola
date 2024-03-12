@@ -41,7 +41,7 @@ void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos()
     QFETCH(int, videoConferenceInfosCount);
     QFETCH(int, total);
     QFETCH(int, offset);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/videoconferenceinfos/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/videoconferenceinfos/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     VideoConferenceInfos m;
     m.parseVideoConferenceInfos(obj);

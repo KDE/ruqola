@@ -153,7 +153,7 @@ void RoomModelTest::shouldUpdateRoomFromQJsonObject()
     const QString name = QStringLiteral("newName");
     const QString topic = QStringLiteral("myTopic");
     const QString announcement = QStringLiteral("Happy New Year announcement");
-    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1StringView("RA151100ECE")));
     roomData.insert(QStringLiteral("name"), QJsonValue(name));
     roomData.insert(QStringLiteral("announcement"), announcement);
     roomData.insert(QStringLiteral("topic"), topic);
@@ -179,8 +179,8 @@ void RoomModelTest::shouldUpdateSubcriptionActionRemoved()
     RoomModel sampleModel;
     QJsonArray input;
     QJsonObject roomData;
-    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
-    input.append(QJsonValue(QLatin1String("removed")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1StringView("RA151100ECE")));
+    input.append(QJsonValue(QLatin1StringView("removed")));
     input.append(QJsonValue(roomData));
 
     QCOMPARE(sampleModel.rowCount(), 0);
@@ -189,7 +189,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionRemoved()
     sampleModel.updateSubscription(input);
     QCOMPARE(sampleModel.rowCount(), 0);
 
-    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE_NEW")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1StringView("RA151100ECE_NEW")));
     input.pop_back();
     input.append(QJsonValue(roomData));
     sampleModel.updateSubscription(input);
@@ -201,9 +201,9 @@ void RoomModelTest::shouldUpdateSubcriptionActionInserted()
     RoomModel sampleModel;
     QJsonArray input;
     QJsonObject roomData;
-    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
-    roomData.insert(QStringLiteral("name"), QJsonValue(QLatin1String("myRoom")));
-    input.append(QJsonValue(QLatin1String("inserted")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1StringView("RA151100ECE")));
+    roomData.insert(QStringLiteral("name"), QJsonValue(QLatin1StringView("myRoom")));
+    input.append(QJsonValue(QLatin1StringView("inserted")));
     input.append(QJsonValue(roomData));
 
     QCOMPARE(sampleModel.rowCount(), 0);
@@ -228,11 +228,11 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     const QString name = QStringLiteral("newName");
     const QString topic = QStringLiteral("myTopic");
     const QString announcement = QStringLiteral("Happy New Year announcement");
-    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1StringView("RA151100ECE")));
     roomData.insert(QStringLiteral("name"), QJsonValue(name));
     roomData.insert(QStringLiteral("announcement"), announcement);
     roomData.insert(QStringLiteral("topic"), topic);
-    //    input.append(QJsonValue(QLatin1String("updated")));
+    //    input.append(QJsonValue(QLatin1StringView("updated")));
     //    input.append(roomData);
 
     QCOMPARE(sampleModel.rowCount(), 1);
@@ -433,7 +433,7 @@ void RoomModelTest::shouldInsertRoom()
     QFETCH(QString, insertRoomFileName);
     QFETCH(QString, roomId);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/insert-rooms/") + insertRoomFileName + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/insert-rooms/") + insertRoomFileName + QLatin1StringView(".json");
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RoomModel sampleModel;

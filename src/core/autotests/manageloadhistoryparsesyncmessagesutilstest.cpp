@@ -38,7 +38,7 @@ void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldParseSyncMessages()
     QFETCH(int, deleted);
     QFETCH(int, update);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/syncmessages/%1").arg(name);
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/syncmessages/%1").arg(name);
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ManageLoadHistoryParseSyncMessagesUtils w(nullptr);

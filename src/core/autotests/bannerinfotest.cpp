@@ -29,7 +29,7 @@ void BannerInfoTest::shouldBannerInfo()
 {
     QFETCH(QString, name);
     QFETCH(BannerInfo, bannerInfo);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/bannerinfo/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/bannerinfo/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     BannerInfo result;

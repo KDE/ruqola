@@ -32,7 +32,7 @@ bool RoleUpdateJob::start()
 void RoleUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoleUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateRoleDone();
     } else {
@@ -80,11 +80,11 @@ QNetworkRequest RoleUpdateJob::request() const
 QJsonDocument RoleUpdateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("name")] = mRoleCreateInfo.name;
-    jsonObj[QLatin1String("description")] = mRoleCreateInfo.description;
-    jsonObj[QLatin1String("scope")] = mRoleCreateInfo.scope;
-    jsonObj[QLatin1String("mandatory2fa")] = mRoleCreateInfo.mandatory2fa;
-    jsonObj[QLatin1String("roleId")] = mRoleCreateInfo.identifier;
+    jsonObj[QLatin1StringView("name")] = mRoleCreateInfo.name;
+    jsonObj[QLatin1StringView("description")] = mRoleCreateInfo.description;
+    jsonObj[QLatin1StringView("scope")] = mRoleCreateInfo.scope;
+    jsonObj[QLatin1StringView("mandatory2fa")] = mRoleCreateInfo.mandatory2fa;
+    jsonObj[QLatin1StringView("roleId")] = mRoleCreateInfo.identifier;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

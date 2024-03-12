@@ -60,7 +60,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses()
     QFETCH(QString, name);
     QFETCH(int, customStatusesCount);
     QFETCH(QList<CustomUserStatus>, customUserStatus);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customuserstatus/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     CustomUserStatuses r;
@@ -175,7 +175,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     QFETCH(QString, updatefilename);
     QFETCH(QList<CustomUserStatus>, customUserStatusInit);
     QFETCH(QList<CustomUserStatus>, customUserStatusAfterUpdating);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + filename + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customuserstatus/") + filename + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     // Compare init
@@ -189,7 +189,7 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     QVERIFY(compareCustom);
 
     // Compare after updating
-    const QString updatingJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + updatefilename + QLatin1String(".json");
+    const QString updatingJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customuserstatus/") + updatefilename + QLatin1StringView(".json");
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updatingJsonFile);
 
     r.updateCustomUserStatues(array);
@@ -246,7 +246,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     QFETCH(QString, updatefilename);
     QFETCH(QList<CustomUserStatus>, customUserStatusInit);
     QFETCH(QList<CustomUserStatus>, customUserStatusAfterDeleting);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + filename + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customuserstatus/") + filename + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     // Compare init
@@ -260,7 +260,7 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     QVERIFY(compareCustom);
 
     // Compare after updating
-    const QString updatingJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customuserstatus/") + updatefilename + QLatin1String(".json");
+    const QString updatingJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customuserstatus/") + updatefilename + QLatin1StringView(".json");
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updatingJsonFile);
 
     r.deleteCustomUserStatuses(array);

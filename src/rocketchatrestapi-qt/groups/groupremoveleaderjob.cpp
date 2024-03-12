@@ -34,7 +34,7 @@ void GroupRemoveLeaderJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GroupRemoveLeaderJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeLeaderDone();
     } else {
@@ -78,7 +78,7 @@ QJsonDocument GroupRemoveLeaderJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1String("userId")] = removeUserId();
+    jsonObj[QLatin1StringView("userId")] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

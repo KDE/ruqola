@@ -23,7 +23,7 @@ WhatsNewMessageWidget::~WhatsNewMessageWidget() = default;
 
 void WhatsNewMessageWidget::slotLinkActivated(const QString &contents)
 {
-    if (contents == QLatin1String("show_whats_new")) {
+    if (contents == QLatin1StringView("show_whats_new")) {
         WhatsNewDialog dlg(this);
         dlg.updateInformations();
         dlg.exec();

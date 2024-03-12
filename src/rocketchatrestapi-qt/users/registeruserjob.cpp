@@ -44,7 +44,7 @@ bool RegisterUserJob::start()
 void RegisterUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RegisterUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT registerUserDone();
     } else {
@@ -65,8 +65,8 @@ void RegisterUserJob::setRegisterUserInfo(const RegisterUserInfo &registerUserIn
 
 QString RegisterUserJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-invalid-email")) {
-        const QString email = detail.value(QLatin1String("email")).toString();
+    if (str == QLatin1StringView("error-invalid-email")) {
+        const QString email = detail.value(QLatin1StringView("email")).toString();
         return i18n("Invalid Email \'%1\'.", email);
     }
     return RestApiAbstractJob::errorMessage(str, detail);
@@ -88,10 +88,10 @@ bool RegisterUserJob::requireHttpAuthentication() const
 QJsonDocument RegisterUserJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("username")] = mRegisterUserInfo.username;
-    jsonObj[QLatin1String("email")] = mRegisterUserInfo.email;
-    jsonObj[QLatin1String("name")] = mRegisterUserInfo.name;
-    jsonObj[QLatin1String("pass")] = mRegisterUserInfo.password; // TODO ??
+    jsonObj[QLatin1StringView("username")] = mRegisterUserInfo.username;
+    jsonObj[QLatin1StringView("email")] = mRegisterUserInfo.email;
+    jsonObj[QLatin1StringView("name")] = mRegisterUserInfo.name;
+    jsonObj[QLatin1StringView("pass")] = mRegisterUserInfo.password; // TODO ??
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

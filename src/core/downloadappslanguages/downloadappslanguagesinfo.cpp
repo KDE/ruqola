@@ -12,7 +12,7 @@ DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo() = default;
 
 bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString &id)
 {
-    const QJsonObject languagesObj = language[QLatin1String("languages")].toObject();
+    const QJsonObject languagesObj = language[QLatin1StringView("languages")].toObject();
     if (languagesObj.isEmpty()) {
         return false;
     }

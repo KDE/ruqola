@@ -12,9 +12,9 @@ E2eKey::~E2eKey() = default;
 
 void E2eKey::parseKeyInfo(const QJsonObject &replyObject)
 {
-    const QJsonObject publicKey = replyObject[QLatin1String("public_key")].toObject();
+    const QJsonObject publicKey = replyObject[QLatin1StringView("public_key")].toObject();
 
-    const QJsonObject privateKey = replyObject[QLatin1String("private_key")].toObject();
+    const QJsonObject privateKey = replyObject[QLatin1StringView("private_key")].toObject();
     // TODO
 }
 

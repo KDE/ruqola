@@ -16,7 +16,7 @@ RolesManager::~RolesManager() = default;
 
 void RolesManager::parseRoles(const QJsonObject &obj)
 {
-    const QJsonArray array = obj[QLatin1String("roles")].toArray();
+    const QJsonArray array = obj[QLatin1StringView("roles")].toArray();
 
     mRoleInfo.reserve(array.count());
     for (const QJsonValue &current : array) {
@@ -34,7 +34,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
         const QJsonObject roleObject = current.toObject();
         const QString type = roleObject.value(QStringLiteral("type")).toString();
         const QString identifier = roleObject.value(QStringLiteral("_id")).toString();
-        if (type == QLatin1String("removed")) {
+        if (type == QLatin1StringView("removed")) {
             for (int i = 0; i < mRoleInfo.count(); ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
                     mRoleInfo.removeAt(i);
@@ -42,7 +42,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
                     break;
                 }
             }
-        } else if (type == QLatin1String("changed")) {
+        } else if (type == QLatin1StringView("changed")) {
             bool found = false;
             RoleInfo info;
             info.parseRoleInfo(roleObject);

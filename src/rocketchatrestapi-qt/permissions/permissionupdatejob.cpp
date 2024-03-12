@@ -34,7 +34,7 @@ bool PermissionUpdateJob::start()
 void PermissionUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("PermissionUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT permissionUpdateDone(replyObject);
     } else {
@@ -87,11 +87,11 @@ QJsonDocument PermissionUpdateJob::json() const
     while (i.hasNext()) {
         i.next();
         QJsonObject obj;
-        obj[QLatin1String("_id")] = i.key();
-        obj[QLatin1String("roles")] = QJsonArray::fromStringList(i.value());
+        obj[QLatin1StringView("_id")] = i.key();
+        obj[QLatin1StringView("roles")] = QJsonArray::fromStringList(i.value());
         array.append(std::move(obj));
     }
-    jsonObj[QLatin1String("permissions")] = array;
+    jsonObj[QLatin1StringView("permissions")] = array;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

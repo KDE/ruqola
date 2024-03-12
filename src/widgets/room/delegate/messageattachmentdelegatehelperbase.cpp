@@ -199,9 +199,9 @@ QString MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType typ
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Unknown:
         return {};
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Title:
-        return QLatin1String("title_");
+        return QLatin1StringView("title_");
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Description:
-        return QLatin1String("description_");
+        return QLatin1StringView("description_");
     }
     return {};
 }

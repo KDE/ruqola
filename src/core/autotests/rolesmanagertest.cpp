@@ -35,7 +35,7 @@ void RolesManagerTest::shouldLoadRoles()
 {
     QFETCH(QString, name);
     QFETCH(int, numberOfRoles);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesmanager/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rolesmanager/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RolesManager m;
@@ -76,7 +76,7 @@ void RolesManagerTest::shouldUpdateRoles()
     QFETCH(int, numberOfRoles);
     QFETCH(int, numberOfEmitSignal);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesmanager/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rolesmanager/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RolesManager m;
@@ -84,7 +84,7 @@ void RolesManagerTest::shouldUpdateRoles()
     m.parseRoles(obj);
     QCOMPARE(m.roleInfo().count(), numberOfRolesBefore);
 
-    const QString updateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesmanager/") + updateName + QLatin1String(".json");
+    const QString updateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rolesmanager/") + updateName + QLatin1StringView(".json");
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updateJsonFile);
     m.updateRoles(array);
     QCOMPARE(m.roleInfo().count(), numberOfRoles);

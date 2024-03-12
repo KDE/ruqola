@@ -16,7 +16,7 @@ bool MessageStarred::isStarred() const
 
 void MessageStarred::parse(const QJsonObject &o)
 {
-    if (o.contains(QLatin1String("starred"))) {
+    if (o.contains(QLatin1StringView("starred"))) {
         mIsStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
     } else {
         mIsStarred = false;

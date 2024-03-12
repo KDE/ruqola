@@ -49,14 +49,14 @@ void BannerInfoDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myBannerInfoDialogConfigGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myBannerInfoDialogConfigGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void BannerInfoDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myBannerInfoDialogConfigGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myBannerInfoDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

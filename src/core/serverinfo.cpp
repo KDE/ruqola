@@ -12,21 +12,21 @@ ServerInfo::~ServerInfo() = default;
 
 void ServerInfo::parseServerInfo(const QJsonObject &obj)
 {
-    const QJsonObject infoObj = obj[QLatin1String("info")].toObject();
-    mVersion = infoObj.value(QLatin1String("version")).toString();
-    const QJsonObject commitObj = infoObj[QLatin1String("commit")].toObject();
-    mCommitAuthor = commitObj.value(QLatin1String("author")).toString();
-    mCommitBranch = commitObj.value(QLatin1String("branch")).toString();
-    mCommitTag = commitObj.value(QLatin1String("tag")).toString();
-    mCommitSubject = commitObj.value(QLatin1String("subject")).toString();
-    mCommitHash = commitObj.value(QLatin1String("hash")).toString();
+    const QJsonObject infoObj = obj[QLatin1StringView("info")].toObject();
+    mVersion = infoObj.value(QLatin1StringView("version")).toString();
+    const QJsonObject commitObj = infoObj[QLatin1StringView("commit")].toObject();
+    mCommitAuthor = commitObj.value(QLatin1StringView("author")).toString();
+    mCommitBranch = commitObj.value(QLatin1StringView("branch")).toString();
+    mCommitTag = commitObj.value(QLatin1StringView("tag")).toString();
+    mCommitSubject = commitObj.value(QLatin1StringView("subject")).toString();
+    mCommitHash = commitObj.value(QLatin1StringView("hash")).toString();
 
-    const QJsonObject buildObj = infoObj[QLatin1String("build")].toObject();
-    mArch = buildObj.value(QLatin1String("arch")).toString();
-    mNumberOfCpu = buildObj.value(QLatin1String("cpus")).toInt();
-    mPlatform = buildObj.value(QLatin1String("platform")).toString();
-    mOsRelease = buildObj.value(QLatin1String("osRelease")).toString();
-    mNodeVersion = buildObj.value(QLatin1String("nodeVersion")).toString();
+    const QJsonObject buildObj = infoObj[QLatin1StringView("build")].toObject();
+    mArch = buildObj.value(QLatin1StringView("arch")).toString();
+    mNumberOfCpu = buildObj.value(QLatin1StringView("cpus")).toInt();
+    mPlatform = buildObj.value(QLatin1StringView("platform")).toString();
+    mOsRelease = buildObj.value(QLatin1StringView("osRelease")).toString();
+    mNodeVersion = buildObj.value(QLatin1StringView("nodeVersion")).toString();
 #if 0
     {
         "info" : {"build" : {"arch" : "x64", "cpus" : 2, "date" : "2020-12-29T04:59:35.728Z", "freeMemory" : 461508608, "nodeVersion" : "v12.18.4", "osRelease" : "5.4.0-1032-azure", "platform" : "linux", "totalMemory" : 7292207104},

@@ -222,7 +222,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(NetworkManager::notifier(), &NetworkManager::Notifier::primaryConnectionChanged, this, [=](const QString &uni) {
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
-        if (uni != QLatin1String("/") && mDdp) {
+        if (uni != QLatin1StringView("/") && mDdp) {
             qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect and logout : " << accountName();
             logOut();
             slotReconnectToServer();
@@ -1152,9 +1152,9 @@ void RocketChatAccount::setNameChanged(const QJsonArray &array)
     // QJsonArray([{"_id":"Z5TPBsWrmjAWCKGBC","name":"LifeLine","username":"LifeLine-GM"}])
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject obj = array.at(i).toObject();
-        const QString id = obj[QLatin1String("_id")].toString();
-        const QString name = obj[QLatin1String("name")].toString();
-        const QString username = obj[QLatin1String("username")].toString();
+        const QString id = obj[QLatin1StringView("_id")].toString();
+        const QString name = obj[QLatin1StringView("name")].toString();
+        const QString username = obj[QLatin1StringView("username")].toString();
         // TODO
     }
 }
@@ -1541,7 +1541,7 @@ void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
     const auto count{contents.count()};
     for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = contents.at(i).toObject();
-        const QString infoStr = obj[QLatin1String("string")].toString();
+        const QString infoStr = obj[QLatin1StringView("string")].toString();
         // qDebug() << " infoStr " << infoStr;
         Q_EMIT insertStdOutInfo(infoStr);
     }
@@ -1640,12 +1640,12 @@ void RocketChatAccount::setServerUrl(const QString &serverURL)
 
 QUrl RocketChatAccount::urlForLink(const QString &link) const
 {
-    if (link.startsWith(QLatin1String("https:")) || link.startsWith(QLatin1String("http:"))) {
+    if (link.startsWith(QLatin1StringView("https:")) || link.startsWith(QLatin1StringView("http:"))) {
         return QUrl(link);
     }
     QString tmpUrl = settings()->serverUrl();
-    if (!tmpUrl.startsWith(QLatin1String("https://"))) {
-        tmpUrl = QLatin1String("https://") + tmpUrl;
+    if (!tmpUrl.startsWith(QLatin1StringView("https://"))) {
+        tmpUrl = QLatin1StringView("https://") + tmpUrl;
     }
     if (!link.startsWith(QLatin1Char('/'))) {
         tmpUrl += QLatin1Char('/');
@@ -2241,15 +2241,15 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
     // qDebug() << " void RocketChatAccount::avatarChanged(const QJsonArray &contents)*******************" << contents;
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
-        if (obj.contains(QLatin1String("username"))) {
-            const QString userName = obj[QLatin1String("username")].toString();
+        if (obj.contains(QLatin1StringView("username"))) {
+            const QString userName = obj[QLatin1StringView("username")].toString();
             Utils::AvatarInfo info;
             info.avatarType = Utils::AvatarType::User;
             info.identifier = userName;
             Q_EMIT avatarWasChanged(info);
-        } else if (obj.contains(QLatin1String("rid"))) {
-            const QString roomId = obj[QLatin1String("rid")].toString();
-            const QString etag = obj[QLatin1String("etag")].toString();
+        } else if (obj.contains(QLatin1StringView("rid"))) {
+            const QString roomId = obj[QLatin1StringView("rid")].toString();
+            const QString etag = obj[QLatin1StringView("etag")].toString();
             qDebug() << "need to update room avatar " << accountName() << "room" << roomId << "etag " << etag;
             Utils::AvatarInfo info;
             info.avatarType = Utils::AvatarType::Room;
@@ -2269,7 +2269,7 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
     // TODO verify this code when role change. It seems weird.
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
-        const QString scope = obj[QLatin1String("scope")].toString();
+        const QString scope = obj[QLatin1StringView("scope")].toString();
         Room *room = mRoomModel->findRoom(scope);
         if (room) {
             room->updateRoles(obj);
@@ -2427,8 +2427,8 @@ void RocketChatAccount::licenseGetModules()
         auto job = new RocketChatRestApi::LicensesInfoJob(this);
         restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::LicensesInfoJob::licensesInfoDone, this, [this](const QJsonObject &obj) {
-            const QJsonObject license = obj[QLatin1String("license")].toObject();
-            const QJsonArray activeModules = license[QLatin1String("activeModules")].toArray();
+            const QJsonObject license = obj[QLatin1StringView("license")].toObject();
+            const QJsonArray activeModules = license[QLatin1StringView("activeModules")].toArray();
             parseLicenses(activeModules);
         });
         if (!job->start()) {
@@ -2679,7 +2679,7 @@ void RocketChatAccount::createCustomUserStatus(const RocketChatRestApi::CustomUs
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject " << replyObject;
-    const QJsonObject roomInfo = replyObject[QLatin1String("message")].toObject();
+    const QJsonObject roomInfo = replyObject[QLatin1StringView("message")].toObject();
     addMessage(roomInfo, true, true);
 }
 
@@ -2687,75 +2687,75 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
 {
     qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
     for (const auto &array : contents) {
-        const QJsonObject updateJson = array[QLatin1String("diff")].toObject();
+        const QJsonObject updateJson = array[QLatin1StringView("diff")].toObject();
         const QStringList keys = updateJson.keys();
         OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
         for (const QString &key : keys) {
-            if (key == QLatin1String("settings.preferences.highlights")) {
+            if (key == QLatin1StringView("settings.preferences.highlights")) {
                 const QJsonArray highlightsArray = updateJson.value(key).toArray();
                 ownUserPreferences.updateHighlightWords(highlightsArray);
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QLatin1String("settings.preferences.enableAutoAway")) {
+            } else if (key == QLatin1StringView("settings.preferences.enableAutoAway")) {
                 ownUserPreferences.setEnableAutoAway(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-            } else if (key == QLatin1String("settings.preferences.convertAsciiEmoji")) {
+            } else if (key == QLatin1StringView("settings.preferences.convertAsciiEmoji")) {
                 ownUserPreferences.setConvertAsciiEmoji(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QLatin1String("settings.preferences.hideRoles")) {
+            } else if (key == QLatin1StringView("settings.preferences.hideRoles")) {
                 ownUserPreferences.setHideRoles(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QLatin1String("settings.preferences.displayAvatars")) {
+            } else if (key == QLatin1StringView("settings.preferences.displayAvatars")) {
                 ownUserPreferences.setDisplayAvatars(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
-            } else if (key == QLatin1String("settings.preferences.sidebarViewMode")) { // Channel List view mode
+            } else if (key == QLatin1StringView("settings.preferences.sidebarViewMode")) { // Channel List view mode
                 const QString value = updateJson.value(key).toString();
-                if (value == QLatin1String("medium")) {
+                if (value == QLatin1StringView("medium")) {
                     ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Medium);
-                } else if (value == QLatin1String("condensed")) {
+                } else if (value == QLatin1StringView("condensed")) {
                     ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Condensed);
-                } else if (value == QLatin1String("extended")) {
+                } else if (value == QLatin1StringView("extended")) {
                     ownUserPreferences.setRoomListDisplay(OwnUserPreferences::RoomListDisplay::Extended);
                 } else {
                     qCWarning(RUQOLA_LOG) << "RoomListDisplay is not defined ?  " << value;
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserUiPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.sidebarShowUnread")) {
+            } else if (key == QLatin1StringView("settings.preferences.sidebarShowUnread")) {
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserUiPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
+            } else if (key == QLatin1StringView("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserUiPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.sidebarShowFavorites")) {
+            } else if (key == QLatin1StringView("settings.preferences.sidebarShowFavorites")) {
                 ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserUiPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.sidebarSortby")) {
+            } else if (key == QLatin1StringView("settings.preferences.sidebarSortby")) {
                 const QString value = updateJson.value(key).toString();
-                if (value == QLatin1String("activity")) {
+                if (value == QLatin1StringView("activity")) {
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
-                } else if (value == QLatin1String("alphabetical")) {
+                } else if (value == QLatin1StringView("alphabetical")) {
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
                 } else {
                     qCWarning(RUQOLA_LOG) << "Sortby is not defined ?  " << value;
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserUiPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.desktopNotifications")) {
+            } else if (key == QLatin1StringView("settings.preferences.desktopNotifications")) {
                 ownUserPreferences.setDesktopNotifications(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.pushNotifications")) {
+            } else if (key == QLatin1StringView("settings.preferences.pushNotifications")) {
                 ownUserPreferences.setPushNotifications(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
-            } else if (key == QLatin1String("settings.preferences.emailNotificationMode")) {
+            } else if (key == QLatin1StringView("settings.preferences.emailNotificationMode")) {
                 ownUserPreferences.setEmailNotificationMode(updateJson.value(key).toString());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
@@ -2781,7 +2781,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
 
 void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestApi, bool temporaryMessage)
 {
-    const QString roomId = replyObject.value(QLatin1String("rid")).toString();
+    const QString roomId = replyObject.value(QLatin1StringView("rid")).toString();
     if (!roomId.isEmpty()) {
         MessagesModel *messageModel = messageModelForRoom(roomId);
         if (!messageModel) {
@@ -2910,10 +2910,10 @@ void RocketChatAccount::setUserPreferences(const RocketChatRestApi::UsersSetPref
 void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)
 {
     // qDebug() << " void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)" << replyObject;
-    const QJsonObject user = replyObject.value(QLatin1String("user")).toObject();
-    if (user.value(QLatin1String("_id")).toString() == userId()) {
+    const QJsonObject user = replyObject.value(QLatin1StringView("user")).toObject();
+    if (user.value(QLatin1StringView("_id")).toString() == userId()) {
         OwnUserPreferences ownUserPreferences;
-        ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
+        ownUserPreferences.parsePreferences(user.value(QLatin1StringView("settings")).toObject().value(QLatin1StringView("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
         Q_EMIT ownUserUiPreferencesChanged();
     }

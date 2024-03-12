@@ -75,10 +75,10 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     connect(mChannelList, &ChannelListWidget::roomPressed, this, &RuqolaMainWidget::slotRoomPressed);
     connect(mChannelList, &ChannelListWidget::selectMessageIdRequested, mRoomWidget, &RoomWidget::scrollToMessageId);
 
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myRuqolaMainWidgetGroupName));
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
     if (NeedUpdateVersionUtils::checkVersion()) {
-        const auto status = NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1String(RUQOLA_RELEASE_VERSION), QDate::currentDate());
+        const auto status = NeedUpdateVersionUtils::obsoleteVersionStatus(QLatin1StringView(RUQOLA_RELEASE_VERSION), QDate::currentDate());
         if (status != NeedUpdateVersionUtils::ObsoleteVersion::NotObsoleteYet) {
             auto needUpdateVersionWidget = new NeedUpdateVersionWidget(this);
             needUpdateVersionWidget->setObjectName(QStringLiteral("needUpdateVersionWidget"));
@@ -90,7 +90,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
 RuqolaMainWidget::~RuqolaMainWidget()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myRuqolaMainWidgetGroupName));
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());

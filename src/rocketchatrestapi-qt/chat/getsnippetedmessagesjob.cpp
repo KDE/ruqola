@@ -52,7 +52,7 @@ bool GetSnippetedMessagesJob::start()
 void GetSnippetedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetSnippetedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getSnippetedMessagesDone(replyObject, mRoomId);
     } else {

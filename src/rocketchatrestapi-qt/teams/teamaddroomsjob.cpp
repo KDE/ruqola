@@ -36,7 +36,7 @@ void TeamAddRoomsJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamAddRoomsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamAddRoomsDone(replyObject);
     } else {
@@ -99,15 +99,15 @@ QJsonDocument TeamAddRoomsJob::json() const
 {
     QJsonObject jsonObj;
     // Example {"rooms":["QMkvkiMyxKoEuJjnb","zMHhMfsEPvKjgFuyE"],"teamId":"6072f51066b377a354d793cc"}
-    jsonObj[QLatin1String("rooms")] = QJsonArray::fromStringList(mRoomIds);
-    jsonObj[QLatin1String("teamId")] = mTeamId;
+    jsonObj[QLatin1StringView("rooms")] = QJsonArray::fromStringList(mRoomIds);
+    jsonObj[QLatin1StringView("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
 QString TeamAddRoomsJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1String("error-no-permission-team-channel")) {
+    if (errorStr == QLatin1StringView("error-no-permission-team-channel")) {
         return i18n("You don't have permission to add this channel to the team");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);

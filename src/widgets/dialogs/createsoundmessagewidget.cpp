@@ -88,7 +88,7 @@ CreateSoundMessageWidget::~CreateSoundMessageWidget()
 
 void CreateSoundMessageWidget::loadSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(mySoundGroupName));
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(mySoundGroupName));
     const QByteArray deviceIdentifier = group.readEntry("SoundDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
         for (int i = 0; i < mDeviceComboBox->count(); ++i) {
@@ -103,7 +103,7 @@ void CreateSoundMessageWidget::loadSettings()
 
 void CreateSoundMessageWidget::saveSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(mySoundGroupName));
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(mySoundGroupName));
     const auto device = mDeviceComboBox->itemData(mDeviceComboBox->currentIndex()).value<QAudioDevice>();
     if (!device.isNull()) {
         const QByteArray deviceIdentifier = device.id();
@@ -127,7 +127,7 @@ void CreateSoundMessageWidget::initializeInput()
         mDeviceComboBox->addItem(name, QVariant::fromValue(device));
     }
 
-    mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1String("/ruqola_XXXXXX")); // TODO fix extension
+    mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1StringView("/ruqola_XXXXXX")); // TODO fix extension
     mTemporaryFile->setAutoRemove(false);
     mTemporaryFile->open();
     //        QMediaFormat format;

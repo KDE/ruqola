@@ -34,7 +34,7 @@ bool RoomsExportJob::start()
 void RoomsExportJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsExportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomExportDone();
     } else {
@@ -65,17 +65,17 @@ QJsonDocument RoomsExportJob::json() const
 {
     QJsonObject jsonObj;
 
-    jsonObj[QLatin1String("rid")] = mRoomExportInfo.roomId;
+    jsonObj[QLatin1StringView("rid")] = mRoomExportInfo.roomId;
     switch (mRoomExportInfo.exportAs) {
     case RoomsExportInfo::ExportAs::Unknown:
         // Nothing it's a bug here.
         break;
     case RoomsExportInfo::ExportAs::File:
-        jsonObj[QLatin1String("type")] = QStringLiteral("file");
+        jsonObj[QLatin1StringView("type")] = QStringLiteral("file");
         createJsonForFile(jsonObj);
         break;
     case RoomsExportInfo::ExportAs::Email:
-        jsonObj[QLatin1String("type")] = QStringLiteral("email");
+        jsonObj[QLatin1StringView("type")] = QStringLiteral("email");
         createJsonForEmail(jsonObj);
         break;
     }
@@ -91,22 +91,22 @@ void RoomsExportJob::createJsonForFile(QJsonObject &jsonObj) const
         // It's a bug
         break;
     case RoomsExportInfo::FileFormat::Html:
-        jsonObj[QLatin1String("format")] = QStringLiteral("html");
+        jsonObj[QLatin1StringView("format")] = QStringLiteral("html");
         break;
     case RoomsExportInfo::FileFormat::Json:
-        jsonObj[QLatin1String("format")] = QStringLiteral("json");
+        jsonObj[QLatin1StringView("format")] = QStringLiteral("json");
         break;
     }
-    jsonObj[QLatin1String("dateTo")] = mRoomExportInfo.dateTo.toString(Qt::ISODateWithMs);
-    jsonObj[QLatin1String("dateFrom")] = mRoomExportInfo.dateFrom.toString(Qt::ISODateWithMs);
+    jsonObj[QLatin1StringView("dateTo")] = mRoomExportInfo.dateTo.toString(Qt::ISODateWithMs);
+    jsonObj[QLatin1StringView("dateFrom")] = mRoomExportInfo.dateFrom.toString(Qt::ISODateWithMs);
 }
 
 void RoomsExportJob::createJsonForEmail(QJsonObject &jsonObj) const
 {
-    jsonObj[QLatin1String("toUsers")] = QJsonArray::fromStringList(mRoomExportInfo.toUsers);
-    jsonObj[QLatin1String("toEmails")] = QJsonArray::fromStringList(mRoomExportInfo.toEmails);
-    jsonObj[QLatin1String("subject")] = mRoomExportInfo.subject;
-    jsonObj[QLatin1String("messages")] = mRoomExportInfo.messages;
+    jsonObj[QLatin1StringView("toUsers")] = QJsonArray::fromStringList(mRoomExportInfo.toUsers);
+    jsonObj[QLatin1StringView("toEmails")] = QJsonArray::fromStringList(mRoomExportInfo.toEmails);
+    jsonObj[QLatin1StringView("subject")] = mRoomExportInfo.subject;
+    jsonObj[QLatin1StringView("messages")] = mRoomExportInfo.messages;
 }
 
 RoomsExportJob::RoomsExportInfo RoomsExportJob::roomExportInfo() const

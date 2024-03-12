@@ -29,16 +29,16 @@ void Discussions::setDiscussions(const QList<Discussion> &discussion)
 void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
 {
     mDiscussion.clear();
-    mDiscussionsCount = discussionsObj[QLatin1String("count")].toInt();
-    mOffset = discussionsObj[QLatin1String("offset")].toInt();
-    mTotal = discussionsObj[QLatin1String("total")].toInt();
+    mDiscussionsCount = discussionsObj[QLatin1StringView("count")].toInt();
+    mOffset = discussionsObj[QLatin1StringView("offset")].toInt();
+    mTotal = discussionsObj[QLatin1StringView("total")].toInt();
     mDiscussion.reserve(mDiscussionsCount);
     parseDiscussionsObj(discussionsObj);
 }
 
 void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
 {
-    const QJsonArray discussionsArray = discussionsObj[QLatin1String("discussions")].toArray();
+    const QJsonArray discussionsArray = discussionsObj[QLatin1StringView("discussions")].toArray();
     for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
@@ -53,9 +53,9 @@ void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
 
 void Discussions::parseMoreDiscussions(const QJsonObject &discussionsObj)
 {
-    const int discussionsCount = discussionsObj[QLatin1String("count")].toInt();
-    mOffset = discussionsObj[QLatin1String("offset")].toInt();
-    mTotal = discussionsObj[QLatin1String("total")].toInt();
+    const int discussionsCount = discussionsObj[QLatin1StringView("count")].toInt();
+    mOffset = discussionsObj[QLatin1StringView("offset")].toInt();
+    mTotal = discussionsObj[QLatin1StringView("total")].toInt();
     parseDiscussionsObj(discussionsObj);
     mDiscussionsCount += discussionsCount;
 }

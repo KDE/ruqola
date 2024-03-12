@@ -132,7 +132,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(mRocketChatAccount, this);
     dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     User user;
-    user.parseUserRestApi(obj[QLatin1String("user")].toObject(), mRocketChatAccount->roleInfo());
+    user.parseUserRestApi(obj[QLatin1StringView("user")].toObject(), mRocketChatAccount->roleInfo());
     dlg->setUser(user);
     if (dlg->exec()) {
         QString password;
@@ -219,8 +219,8 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
 
 void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyObject, const QModelIndex &modelIndex)
 {
-    const QJsonObject userObj = replyObject[QLatin1String("user")].toObject();
-    const bool active = userObj[QLatin1String("active")].toBool();
+    const QJsonObject userObj = replyObject[QLatin1StringView("user")].toObject();
+    const bool active = userObj[QLatin1StringView("active")].toBool();
     mModel->setData(modelIndex, active, AdminUsersModel::ActiveUser);
 }
 

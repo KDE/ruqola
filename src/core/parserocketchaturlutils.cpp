@@ -21,13 +21,13 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
         return ParseRocketChatUrlUtils::UrlType::Unknown;
     }
     QString newMessageUrl = messageUrl;
-    newMessageUrl.replace(QLatin1String("rocketchat://"), QLatin1String("https://go.rocket.chat/"));
+    newMessageUrl.replace(QLatin1StringView("rocketchat://"), QLatin1StringView("https://go.rocket.chat/"));
     QUrl url(newMessageUrl);
     const QUrlQuery query(url);
     if (newMessageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
         const QString urlPath{url.path()};
         qDebug() << url;
-        if (urlPath == QLatin1String("/room")) {
+        if (urlPath == QLatin1StringView("/room")) {
             // qDebug() << "queryItems " << queryItems;
 
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
@@ -50,16 +50,16 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
                 return ParseRocketChatUrlUtils::UrlType::Unknown;
             }
             return ParseRocketChatUrlUtils::UrlType::Message;
-        } else if (urlPath == QLatin1String("/auth")) {
+        } else if (urlPath == QLatin1StringView("/auth")) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             mParsingInfo.token = query.queryItemValue(QStringLiteral("token"));
             mParsingInfo.userId = query.queryItemValue(QStringLiteral("userId"));
             return ParseRocketChatUrlUtils::UrlType::Server;
-        } else if (urlPath == QLatin1String("/invite")) {
+        } else if (urlPath == QLatin1StringView("/invite")) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::Invite;
-        } else if (urlPath == QLatin1String("/conference")) {
+        } else if (urlPath == QLatin1StringView("/conference")) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             // TODO
             return ParseRocketChatUrlUtils::UrlType::ConferenceCall;

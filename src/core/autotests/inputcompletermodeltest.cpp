@@ -106,7 +106,7 @@ void InputCompleterModelTest::shouldAssignValues()
 
 QJsonObject loadFile(const QString &file)
 {
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + file;
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + file;
     QFile f(originalJsonFile);
     if (!f.open(QIODevice::ReadOnly)) {
         qWarning() << " Unable to load file " << file;
@@ -116,7 +116,7 @@ QJsonObject loadFile(const QString &file)
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject root = doc.object();
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     return obj;
 }
 

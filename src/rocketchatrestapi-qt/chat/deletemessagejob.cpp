@@ -34,7 +34,7 @@ void DeleteMessageJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("DeleteMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteMessageDone();
     } else {
@@ -67,8 +67,8 @@ bool DeleteMessageJob::canStart() const
 QJsonDocument DeleteMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("msgId")] = messageId();
+    jsonObj[QLatin1StringView("roomId")] = roomId();
+    jsonObj[QLatin1StringView("msgId")] = messageId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -110,7 +110,7 @@ QString DeleteMessageJob::jobName() const
 
 QString DeleteMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-action-not-allowed")) {
+    if (str == QLatin1StringView("error-action-not-allowed")) {
         return i18n("Message deletion is not allowed.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

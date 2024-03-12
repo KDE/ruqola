@@ -33,7 +33,7 @@ bool UsersUpdateJob::start()
 void UsersUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersUpdateDone(replyObject);
     } else {
@@ -59,7 +59,7 @@ bool UsersUpdateJob::requireTwoFactorAuthentication() const
 
 QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-email-send-failed")) {
+    if (str == QLatin1StringView("error-email-send-failed")) {
         return i18n("Error trying to send email %1", mUpdateInfo.mEmail);
     }
     return RestApiAbstractJob::errorMessage(str, details);

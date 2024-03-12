@@ -38,7 +38,7 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QCOMPARE(layout.hasDescription, msgAttach.hasDescription());
     QVERIFY(layout.isShown);
     QVERIFY(!layout.isAnimatedImage);
-    QVERIFY(layout.imagePreviewPath.endsWith(QLatin1String("/testfile.png")));
+    QVERIFY(layout.imagePreviewPath.endsWith(QLatin1StringView("/testfile.png")));
     QVERIFY(qAbs(layout.imageSize.height() - layout.imageSize.width() * 2) <= 1); // aspect ratio is preserved, allow for one pixel rounding diff
     QCOMPARE(layout.pixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
     QVERIFY(layout.imageSize.height() < 500 * fakeWidget.devicePixelRatioF());

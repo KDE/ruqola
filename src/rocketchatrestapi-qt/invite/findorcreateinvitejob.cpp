@@ -36,7 +36,7 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
     } else {
@@ -48,11 +48,11 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorStrin
 FindOrCreateInviteJob::InviteUsersInfo FindOrCreateInviteJob::parseResult(const QJsonObject &replyObject)
 {
     FindOrCreateInviteJob::InviteUsersInfo info;
-    info.url = QUrl(replyObject[QLatin1String("url")].toString());
-    info.userId = replyObject[QLatin1String("userId")].toString();
-    info.roomId = replyObject[QLatin1String("rid")].toString();
-    info.expireDateTime = QDateTime::fromString(replyObject[QLatin1String("expires")].toString(), Qt::ISODate).toString();
-    info.maxUses = replyObject[QLatin1String("maxUses")].toInt();
+    info.url = QUrl(replyObject[QLatin1StringView("url")].toString());
+    info.userId = replyObject[QLatin1StringView("userId")].toString();
+    info.roomId = replyObject[QLatin1StringView("rid")].toString();
+    info.expireDateTime = QDateTime::fromString(replyObject[QLatin1StringView("expires")].toString(), Qt::ISODate).toString();
+    info.maxUses = replyObject[QLatin1StringView("maxUses")].toInt();
     return info;
 }
 
@@ -123,16 +123,16 @@ QNetworkRequest FindOrCreateInviteJob::request() const
 QJsonDocument FindOrCreateInviteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("rid")] = mRoomId;
-    jsonObj[QLatin1String("days")] = mNumberOfDays;
-    jsonObj[QLatin1String("maxUses")] = mMaxUses;
+    jsonObj[QLatin1StringView("rid")] = mRoomId;
+    jsonObj[QLatin1StringView("days")] = mNumberOfDays;
+    jsonObj[QLatin1StringView("maxUses")] = mMaxUses;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
 QString FindOrCreateInviteJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("not_authorized")) {
+    if (str == QLatin1StringView("not_authorized")) {
         return i18n("Generate link is not authorized in this channel.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

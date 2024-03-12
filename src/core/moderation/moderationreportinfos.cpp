@@ -90,16 +90,16 @@ void ModerationReportInfos::parseModerationReportInfos(const QJsonObject &modera
 {
     mModerationReportInfosList.clear();
     qDebug() << " moderationReportInfosObj " << moderationReportInfosObj;
-    mModerationReportInfosCount = moderationReportInfosObj[QLatin1String("count")].toInt();
-    mOffset = moderationReportInfosObj[QLatin1String("offset")].toInt();
-    mTotal = moderationReportInfosObj[QLatin1String("total")].toInt();
+    mModerationReportInfosCount = moderationReportInfosObj[QLatin1StringView("count")].toInt();
+    mOffset = moderationReportInfosObj[QLatin1StringView("offset")].toInt();
+    mTotal = moderationReportInfosObj[QLatin1StringView("total")].toInt();
     mModerationReportInfosList.reserve(mModerationReportInfosCount);
     parseModerationReportInfosObj(moderationReportInfosObj);
 }
 
 void ModerationReportInfos::parseModerationReportInfosObj(const QJsonObject &moderationReportInfosObj)
 {
-    const QJsonArray moderationsArray = moderationReportInfosObj[QLatin1String("reports")].toArray();
+    const QJsonArray moderationsArray = moderationReportInfosObj[QLatin1StringView("reports")].toArray();
     for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
@@ -114,9 +114,9 @@ void ModerationReportInfos::parseModerationReportInfosObj(const QJsonObject &mod
 
 void ModerationReportInfos::parseMoreModerationReportInfos(const QJsonObject &moderationReportInfosObj)
 {
-    const int moderationReportInfosCount = moderationReportInfosObj[QLatin1String("count")].toInt();
-    mOffset = moderationReportInfosObj[QLatin1String("offset")].toInt();
-    mTotal = moderationReportInfosObj[QLatin1String("total")].toInt();
+    const int moderationReportInfosCount = moderationReportInfosObj[QLatin1StringView("count")].toInt();
+    mOffset = moderationReportInfosObj[QLatin1StringView("offset")].toInt();
+    mTotal = moderationReportInfosObj[QLatin1StringView("total")].toInt();
     parseModerationReportInfosObj(moderationReportInfosObj);
     mModerationReportInfosCount += moderationReportInfosCount;
 }

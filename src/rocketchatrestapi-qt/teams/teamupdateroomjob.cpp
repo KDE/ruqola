@@ -33,7 +33,7 @@ bool TeamUpdateRoomJob::start()
 void TeamUpdateRoomJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamUpdateRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamUpdateRoomDone(replyObject);
     } else {
@@ -91,8 +91,8 @@ QNetworkRequest TeamUpdateRoomJob::request() const
 QJsonDocument TeamUpdateRoomJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mRoomId;
-    jsonObj[QLatin1String("isDefault")] = mIsDefault;
+    jsonObj[QLatin1StringView("roomId")] = mRoomId;
+    jsonObj[QLatin1StringView("isDefault")] = mIsDefault;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

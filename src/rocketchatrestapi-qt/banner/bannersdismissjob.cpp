@@ -34,7 +34,7 @@ void BannersDismissJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("BannersDismissJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT dimissBannerDone();
     } else {
@@ -82,7 +82,7 @@ QNetworkRequest BannersDismissJob::request() const
 QJsonDocument BannersDismissJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("bannerId")] = mBannerId;
+    jsonObj[QLatin1StringView("bannerId")] = mBannerId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

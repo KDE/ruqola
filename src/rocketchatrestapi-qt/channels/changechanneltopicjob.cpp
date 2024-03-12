@@ -32,7 +32,7 @@ void ChangeChannelTopicJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change Topic success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeTopicDone();
     } else {
@@ -61,8 +61,8 @@ bool ChangeChannelTopicJob::canStart() const
 QJsonDocument ChangeChannelTopicJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("topic")] = topic();
+    jsonObj[QLatin1StringView("roomId")] = roomId();
+    jsonObj[QLatin1StringView("topic")] = topic();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

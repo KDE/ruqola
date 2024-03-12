@@ -33,7 +33,7 @@ bool VideoConferenceJoinJob::start()
 void VideoConferenceJoinJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceJoinDone(replyObject);
     } else {
@@ -82,11 +82,11 @@ QJsonDocument VideoConferenceJoinJob::json() const
 {
     QJsonObject jsonObj;
     // {"callId":"639496df4ef3f3baa9658f0c","state":{"mic":false,"cam":false}}
-    jsonObj[QLatin1String("callId")] = mInfo.callId;
+    jsonObj[QLatin1StringView("callId")] = mInfo.callId;
     QJsonObject jsonStateObj;
-    jsonStateObj[QLatin1String("mic")] = mInfo.useMicro;
-    jsonStateObj[QLatin1String("cam")] = mInfo.useCamera;
-    jsonObj[QLatin1String("state")] = jsonStateObj;
+    jsonStateObj[QLatin1StringView("mic")] = mInfo.useMicro;
+    jsonStateObj[QLatin1StringView("cam")] = mInfo.useCamera;
+    jsonObj[QLatin1StringView("state")] = jsonStateObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

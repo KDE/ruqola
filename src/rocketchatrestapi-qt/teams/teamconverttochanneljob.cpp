@@ -35,7 +35,7 @@ void TeamConvertToChannelJob::onPostRequestResponse(const QString &replyErrorStr
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamConvertToChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamConvertToChannelDone();
     } else {
@@ -93,9 +93,9 @@ QNetworkRequest TeamConvertToChannelJob::request() const
 QJsonDocument TeamConvertToChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("teamId")] = mTeamId;
+    jsonObj[QLatin1StringView("teamId")] = mTeamId;
     if (!mRoomsToRemove.isEmpty()) {
-        jsonObj[QLatin1String("roomsToRemove")] = QJsonArray::fromStringList(mRoomsToRemove);
+        jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(mRoomsToRemove);
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

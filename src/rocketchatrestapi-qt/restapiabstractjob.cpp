@@ -197,22 +197,22 @@ void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, cons
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
 {
     // JSon-level error
-    const QString errorType = replyObject[QLatin1String("errorType")].toString();
+    const QString errorType = replyObject[QLatin1StringView("errorType")].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
-        const QString trStr = errorMessage(errorType, replyObject[QLatin1String("details")].toObject());
+        const QString trStr = errorMessage(errorType, replyObject[QLatin1StringView("details")].toObject());
         if (!trStr.isEmpty()) {
             return trStr;
         } else {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << " errorType not defined as translated message: " << errorType;
             return i18n("Unauthorized");
         }
-    } else if (replyObject[QLatin1String("status")].toString() == QLatin1String("error")) {
-        const QString message = replyObject[QLatin1String("message")].toString();
+    } else if (replyObject[QLatin1StringView("status")].toString() == QLatin1StringView("error")) {
+        const QString message = replyObject[QLatin1StringView("message")].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "message error " << message;
         return generateErrorMessage(message);
     } else {
-        const QString error = replyObject[QLatin1String("error")].toString();
+        const QString error = replyObject[QLatin1StringView("error")].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
         return generateErrorMessage(error);
     }
@@ -229,238 +229,238 @@ QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const
 QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     qDebug() << " details " << details;
-    if (str == QLatin1String("error-action-not-allowed")) {
-        const QString actionName = details[QLatin1String("action")].toString();
+    if (str == QLatin1StringView("error-action-not-allowed")) {
+        const QString actionName = details[QLatin1StringView("action")].toString();
         return i18n("'%1' is not allowed", actionName);
-    } else if (str == QLatin1String("error-application-not-found")) {
+    } else if (str == QLatin1StringView("error-application-not-found")) {
         return i18n("Application not found");
-    } else if (str == QLatin1String("error-archived-duplicate-name")) {
-        const QString roomName = details[QLatin1String("room_name")].toString();
+    } else if (str == QLatin1StringView("error-archived-duplicate-name")) {
+        const QString roomName = details[QLatin1StringView("room_name")].toString();
         return i18n("There's an archived channel with name '%1'", roomName);
-    } else if (str == QLatin1String("error-cant-invite-for-direct-room")) {
+    } else if (str == QLatin1StringView("error-cant-invite-for-direct-room")) {
         return i18n("Can't invite user to direct rooms");
-    } else if (str == QLatin1String("error-channels-setdefault-is-same")) {
+    } else if (str == QLatin1StringView("error-channels-setdefault-is-same")) {
         return i18n("The channel default setting is the same as what it would be changed to.");
-    } else if (str == QLatin1String("error-channels-setdefault-missing-default-param")) {
+    } else if (str == QLatin1StringView("error-channels-setdefault-missing-default-param")) {
         return i18n("The bodyParam 'default' is required");
-    } else if (str == QLatin1String("error-could-not-change-email")) {
+    } else if (str == QLatin1StringView("error-could-not-change-email")) {
         return i18n("Could not change email");
-    } else if (str == QLatin1String("error-could-not-change-name")) {
+    } else if (str == QLatin1StringView("error-could-not-change-name")) {
         return i18n("Could not change name");
-    } else if (str == QLatin1String("error-could-not-change-username")) {
+    } else if (str == QLatin1StringView("error-could-not-change-username")) {
         return i18n("Could not change username");
-    } else if (str == QLatin1String("error-delete-protected-role")) {
+    } else if (str == QLatin1StringView("error-delete-protected-role")) {
         return i18n("Cannot delete a protected role");
-    } else if (str == QLatin1String("error-department-not-found")) {
+    } else if (str == QLatin1StringView("error-department-not-found")) {
         return i18n("Department not found");
-    } else if (str == QLatin1String("error-direct-message-file-upload-not-allowed")) {
+    } else if (str == QLatin1StringView("error-direct-message-file-upload-not-allowed")) {
         return i18n("File sharing not allowed in direct messages");
-    } else if (str == QLatin1String("error-duplicate-channel-name")) {
-        const QString channelName = details[QLatin1String("channel_name")].toString();
+    } else if (str == QLatin1StringView("error-duplicate-channel-name")) {
+        const QString channelName = details[QLatin1StringView("channel_name")].toString();
         return i18n("A channel with name '%1' exists", channelName);
-    } else if (str == QLatin1String("error-edit-permissions-not-allowed")) {
+    } else if (str == QLatin1StringView("error-edit-permissions-not-allowed")) {
         return i18n("Editing permissions is not allowed");
-    } else if (str == QLatin1String("error-email-domain-blacklisted")) {
+    } else if (str == QLatin1StringView("error-email-domain-blacklisted")) {
         return i18n("The email domain is blacklisted");
-    } else if (str == QLatin1String("error-email-send-failed")) {
-        const QString message = details[QLatin1String("message")].toString();
+    } else if (str == QLatin1StringView("error-email-send-failed")) {
+        const QString message = details[QLatin1StringView("message")].toString();
         return i18n("Error trying to send email: %1", message);
-    } else if (str == QLatin1String("error-field-unavailable")) {
-        const QString field = details[QLatin1String("field")].toString();
+    } else if (str == QLatin1StringView("error-field-unavailable")) {
+        const QString field = details[QLatin1StringView("field")].toString();
         return i18n("'%1' is already in use :(", field);
-    } else if (str == QLatin1String("error-file-too-large")) {
+    } else if (str == QLatin1StringView("error-file-too-large")) {
         return i18n("File is too large");
-    } else if (str == QLatin1String("error-importer-not-defined")) {
+    } else if (str == QLatin1StringView("error-importer-not-defined")) {
         return i18n("The importer was not defined correctly, it is missing the Import class.");
-    } else if (str == QLatin1String("error-import-file-extract-error")) {
+    } else if (str == QLatin1StringView("error-import-file-extract-error")) {
         return i18n("Failed to extract import file.");
-    } else if (str == QLatin1String("error-import-file-is-empty")) {
+    } else if (str == QLatin1StringView("error-import-file-is-empty")) {
         return i18n("Imported file seems to be empty.");
-    } else if (str == QLatin1String("error-import-file-missing")) {
+    } else if (str == QLatin1StringView("error-import-file-missing")) {
         return i18n("The file to be imported was not found on the specified path.");
-    } else if (str == QLatin1String("error-input-is-not-a-valid-field")) {
-        const QString field = details[QLatin1String("field")].toString();
-        const QString input = details[QLatin1String("input")].toString();
+    } else if (str == QLatin1StringView("error-input-is-not-a-valid-field")) {
+        const QString field = details[QLatin1StringView("field")].toString();
+        const QString input = details[QLatin1StringView("input")].toString();
         return i18n("%1 is not a valid %2", input, field);
-    } else if (str == QLatin1String("error-invalid-actionlink")) {
+    } else if (str == QLatin1StringView("error-invalid-actionlink")) {
         return i18n("Invalid action link");
-    } else if (str == QLatin1String("error-invalid-account")) {
+    } else if (str == QLatin1StringView("error-invalid-account")) {
         return i18n("Invalid Account");
-    } else if (str == QLatin1String("error-invalid-arguments")) {
+    } else if (str == QLatin1StringView("error-invalid-arguments")) {
         return i18n("Invalid arguments");
-    } else if (str == QLatin1String("error-invalid-asset")) {
+    } else if (str == QLatin1StringView("error-invalid-asset")) {
         return i18n("Invalid asset");
-    } else if (str == QLatin1String("error-invalid-channel")) {
+    } else if (str == QLatin1StringView("error-invalid-channel")) {
         return i18n("Invalid channel.");
-    } else if (str == QLatin1String("error-invalid-channel-start-with-chars")) {
+    } else if (str == QLatin1StringView("error-invalid-channel-start-with-chars")) {
         return i18n("Invalid channel. Start with @ or #");
-    } else if (str == QLatin1String("error-invalid-custom-field")) {
+    } else if (str == QLatin1StringView("error-invalid-custom-field")) {
         return i18n("Invalid custom field");
-    } else if (str == QLatin1String("error-invalid-custom-field-name")) {
+    } else if (str == QLatin1StringView("error-invalid-custom-field-name")) {
         return i18n("Invalid custom field name. Use only letters, numbers, hyphens and underscores.");
-    } else if (str == QLatin1String("error-invalid-date")) {
+    } else if (str == QLatin1StringView("error-invalid-date")) {
         return i18n("Invalid date provided.");
-    } else if (str == QLatin1String("error-invalid-description")) {
+    } else if (str == QLatin1StringView("error-invalid-description")) {
         return i18n("Invalid description");
-    } else if (str == QLatin1String("error-invalid-domain")) {
+    } else if (str == QLatin1StringView("error-invalid-domain")) {
         return i18n("Invalid domain");
-    } else if (str == QLatin1String("error-invalid-email")) {
-        const QString email = details[QLatin1String("email")].toString();
+    } else if (str == QLatin1StringView("error-invalid-email")) {
+        const QString email = details[QLatin1StringView("email")].toString();
         return i18n("Invalid email '%1'", email);
-    } else if (str == QLatin1String("error-invalid-email-address")) {
+    } else if (str == QLatin1StringView("error-invalid-email-address")) {
         return i18n("Invalid email address");
-    } else if (str == QLatin1String("error-invalid-file-height")) {
+    } else if (str == QLatin1StringView("error-invalid-file-height")) {
         return i18n("Invalid file height");
-    } else if (str == QLatin1String("error-invalid-file-type")) {
+    } else if (str == QLatin1StringView("error-invalid-file-type")) {
         return i18n("Invalid file type");
-    } else if (str == QLatin1String("error-invalid-file-width")) {
+    } else if (str == QLatin1StringView("error-invalid-file-width")) {
         return i18n("Invalid file width");
-    } else if (str == QLatin1String("error-invalid-from-address")) {
+    } else if (str == QLatin1StringView("error-invalid-from-address")) {
         return i18n("You informed an invalid FROM address.");
-    } else if (str == QLatin1String("error-invalid-integration")) {
+    } else if (str == QLatin1StringView("error-invalid-integration")) {
         return i18n("Invalid integration");
-    } else if (str == QLatin1String("error-invalid-message")) {
+    } else if (str == QLatin1StringView("error-invalid-message")) {
         return i18n("Invalid message");
-    } else if (str == QLatin1String("error-invalid-method")) {
+    } else if (str == QLatin1StringView("error-invalid-method")) {
         return i18n("Invalid method");
-    } else if (str == QLatin1String("error-invalid-name")) {
+    } else if (str == QLatin1StringView("error-invalid-name")) {
         return i18n("Invalid name");
-    } else if (str == QLatin1String("error-invalid-password")) {
+    } else if (str == QLatin1StringView("error-invalid-password")) {
         return i18n("Invalid password");
-    } else if (str == QLatin1String("error-invalid-permission")) {
+    } else if (str == QLatin1StringView("error-invalid-permission")) {
         return i18n("Invalid permission");
-    } else if (str == QLatin1String("error-invalid-redirectUri")) {
+    } else if (str == QLatin1StringView("error-invalid-redirectUri")) {
         return i18n("Invalid redirectUri");
-    } else if (str == QLatin1String("error-invalid-role")) {
+    } else if (str == QLatin1StringView("error-invalid-role")) {
         return i18n("Invalid role");
-    } else if (str == QLatin1String("error-invalid-room")) {
+    } else if (str == QLatin1StringView("error-invalid-room")) {
         return i18n("Invalid room");
-    } else if (str == QLatin1String("error-invalid-room-name")) {
-        const QString roomName = details[QLatin1String("room_name")].toString();
+    } else if (str == QLatin1StringView("error-invalid-room-name")) {
+        const QString roomName = details[QLatin1StringView("room_name")].toString();
         return i18n("'%1' is not a valid room name", roomName);
-    } else if (str == QLatin1String("error-invalid-room-type")) {
-        const QString roomType = details[QLatin1String("type")].toString();
+    } else if (str == QLatin1StringView("error-invalid-room-type")) {
+        const QString roomType = details[QLatin1StringView("type")].toString();
         return i18n("'%1' is not a valid room type.", roomType);
-    } else if (str == QLatin1String("error-invalid-settings")) {
+    } else if (str == QLatin1StringView("error-invalid-settings")) {
         return i18n("Invalid settings provided");
-    } else if (str == QLatin1String("error-invalid-subscription")) {
+    } else if (str == QLatin1StringView("error-invalid-subscription")) {
         return i18n("Invalid subscription");
-    } else if (str == QLatin1String("error-invalid-token")) {
+    } else if (str == QLatin1StringView("error-invalid-token")) {
         return i18n("Invalid token");
-    } else if (str == QLatin1String("error-invalid-triggerWords")) {
+    } else if (str == QLatin1StringView("error-invalid-triggerWords")) {
         return i18n("Invalid triggerWords");
-    } else if (str == QLatin1String("error-invalid-urls")) {
+    } else if (str == QLatin1StringView("error-invalid-urls")) {
         return i18n("Invalid URLs");
-    } else if (str == QLatin1String("error-invalid-user")) {
+    } else if (str == QLatin1StringView("error-invalid-user")) {
         return i18n("Invalid user");
-    } else if (str == QLatin1String("error-invalid-username")) {
+    } else if (str == QLatin1StringView("error-invalid-username")) {
         return i18n("Invalid username");
-    } else if (str == QLatin1String("error-invalid-webhook-response")) {
+    } else if (str == QLatin1StringView("error-invalid-webhook-response")) {
         return i18n("The webhook URL responded with a status other than 200");
-    } else if (str == QLatin1String("error-message-deleting-blocked")) {
+    } else if (str == QLatin1StringView("error-message-deleting-blocked")) {
         return i18n("Message deleting is blocked");
-    } else if (str == QLatin1String("error-message-editing-blocked")) {
+    } else if (str == QLatin1StringView("error-message-editing-blocked")) {
         return i18n("Message editing is blocked");
-    } else if (str == QLatin1String("error-message-size-exceeded")) {
+    } else if (str == QLatin1StringView("error-message-size-exceeded")) {
         return i18n("Message size exceeds Message_MaxAllowedSize");
-    } else if (str == QLatin1String("error-missing-unsubscribe-link")) {
+    } else if (str == QLatin1StringView("error-missing-unsubscribe-link")) {
         return i18n("You must provide the [unsubscribe] link.");
-    } else if (str == QLatin1String("error-no-tokens-for-this-user")) {
+    } else if (str == QLatin1StringView("error-no-tokens-for-this-user")) {
         return i18n("There are no tokens for this user");
-    } else if (str == QLatin1String("error-not-allowed")) {
+    } else if (str == QLatin1StringView("error-not-allowed")) {
         return i18n("Not allowed");
-    } else if (str == QLatin1String("error-not-authorized")) {
+    } else if (str == QLatin1StringView("error-not-authorized")) {
         return i18n("Not authorized");
-    } else if (str == QLatin1String("not-authorized")) {
+    } else if (str == QLatin1StringView("not-authorized")) {
         return i18n("Not authorized");
-    } else if (str == QLatin1String("error-password-policy-not-met")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met")) {
         return i18n("Password does not meet the server's policy");
-    } else if (str == QLatin1String("error-password-policy-not-met-maxLength")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-maxLength")) {
         return i18n("Password does not meet the server's policy of maximum length (password too long)");
-    } else if (str == QLatin1String("error-password-policy-not-met-minLength")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-minLength")) {
         return i18n("Password does not meet the server's policy of minimum length (password too short)");
-    } else if (str == QLatin1String("error-password-policy-not-met-oneLowercase")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-oneLowercase")) {
         return i18n("Password does not meet the server's policy of at least one lowercase character");
-    } else if (str == QLatin1String("error-password-policy-not-met-oneNumber")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-oneNumber")) {
         return i18n("Password does not meet the server's policy of at least one numerical character");
-    } else if (str == QLatin1String("error-password-policy-not-met-oneSpecial")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-oneSpecial")) {
         return i18n("Password does not meet the server's policy of at least one special character");
-    } else if (str == QLatin1String("error-password-policy-not-met-oneUppercase")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-oneUppercase")) {
         return i18n("Password does not meet the server's policy of at least one uppercase character");
-    } else if (str == QLatin1String("error-password-policy-not-met-repeatingCharacters")) {
+    } else if (str == QLatin1StringView("error-password-policy-not-met-repeatingCharacters")) {
         return i18n(
             "Password does not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)");
-    } else if (str == QLatin1String("error-push-disabled")) {
+    } else if (str == QLatin1StringView("error-push-disabled")) {
         return i18n("Push is disabled");
-    } else if (str == QLatin1String("error-remove-last-owner")) {
+    } else if (str == QLatin1StringView("error-remove-last-owner")) {
         return i18n("This is the last owner. Please set a new owner before removing this one.");
-    } else if (str == QLatin1String("error-role-in-use")) {
+    } else if (str == QLatin1StringView("error-role-in-use")) {
         return i18n("Cannot delete role because it's in use");
-    } else if (str == QLatin1String("error-role-name-required")) {
+    } else if (str == QLatin1StringView("error-role-name-required")) {
         return i18n("Role name is required");
-    } else if (str == QLatin1String("error-room-is-not-closed")) {
+    } else if (str == QLatin1StringView("error-room-is-not-closed")) {
         return i18n("Room is not closed");
-    } else if (str == QLatin1String("error-the-field-is-required")) {
-        const QString field = details[QLatin1String("field")].toString();
+    } else if (str == QLatin1StringView("error-the-field-is-required")) {
+        const QString field = details[QLatin1StringView("field")].toString();
         return i18n("The field '%1' is required.", field);
-    } else if (str == QLatin1String("error-this-is-not-a-livechat-room")) {
+    } else if (str == QLatin1StringView("error-this-is-not-a-livechat-room")) {
         return i18n("This is not a Livechat room");
-    } else if (str == QLatin1String("error-personal-access-tokens-are-current-disabled")) {
+    } else if (str == QLatin1StringView("error-personal-access-tokens-are-current-disabled")) {
         return i18n("Personal Access Tokens are currently disabled");
-    } else if (str == QLatin1String("error-token-already-exists")) {
+    } else if (str == QLatin1StringView("error-token-already-exists")) {
         return i18n("A token with this name already exists");
-    } else if (str == QLatin1String("error-token-does-not-exists")) {
+    } else if (str == QLatin1StringView("error-token-does-not-exists")) {
         return i18n("Token does not exists");
-    } else if (str == QLatin1String("error-too-many-requests")) {
-        const QString seconds = details[QLatin1String("seconds")].toString();
+    } else if (str == QLatin1StringView("error-too-many-requests")) {
+        const QString seconds = details[QLatin1StringView("seconds")].toString();
         return i18n("Error, too many requests. Please slow down. You must wait %1 seconds before trying again.", seconds);
-    } else if (str == QLatin1String("error-user-has-no-roles")) {
+    } else if (str == QLatin1StringView("error-user-has-no-roles")) {
         return i18n("User has no roles");
-    } else if (str == QLatin1String("error-user-is-not-activated")) {
+    } else if (str == QLatin1StringView("error-user-is-not-activated")) {
         return i18n("User is not activated");
-    } else if (str == QLatin1String("error-user-limit-exceeded")) {
+    } else if (str == QLatin1StringView("error-user-limit-exceeded")) {
         return i18n("The number of users you are trying to invite to #channel_name exceeds the limit set by the administrator");
-    } else if (str == QLatin1String("error-user-not-in-room")) {
+    } else if (str == QLatin1StringView("error-user-not-in-room")) {
         return i18n("User is not in this room");
-    } else if (str == QLatin1String("error-logged-user-not-in-room")) {
+    } else if (str == QLatin1StringView("error-logged-user-not-in-room")) {
         return i18n("You are not in the room `%s`");
-    } else if (str == QLatin1String("error-user-registration-disabled")) {
+    } else if (str == QLatin1StringView("error-user-registration-disabled")) {
         return i18n("User registration is disabled");
-    } else if (str == QLatin1String("error-user-registration-secret")) {
+    } else if (str == QLatin1StringView("error-user-registration-secret")) {
         return i18n("User registration is only allowed via Secret URL");
-    } else if (str == QLatin1String("error-you-are-last-owner")) {
+    } else if (str == QLatin1StringView("error-you-are-last-owner")) {
         return i18n("You are the last owner. Please set new owner before leaving the room.");
-    } else if (str == QLatin1String("error-room-archived")) {
+    } else if (str == QLatin1StringView("error-room-archived")) {
         return i18n("The private group is archived");
-    } else if (str == QLatin1String("error-user-already-owner")) {
+    } else if (str == QLatin1StringView("error-user-already-owner")) {
         return i18n("User is already an owner");
-    } else if (str == QLatin1String("error-user-already-leader")) {
+    } else if (str == QLatin1StringView("error-user-already-leader")) {
         return i18n("User is already a leader");
-    } else if (str == QLatin1String("error-user-already-moderator")) {
+    } else if (str == QLatin1StringView("error-user-already-moderator")) {
         return i18n("User is already a moderator");
-    } else if (str == QLatin1String("error-invalid-message_id")) {
+    } else if (str == QLatin1StringView("error-invalid-message_id")) {
         return i18n("Invalid message id");
-    } else if (str == QLatin1String("error-user-not-leader")) {
+    } else if (str == QLatin1StringView("error-user-not-leader")) {
         return i18n("User is not a leader");
-    } else if (str == QLatin1String("error-app-user-is-not-allowed-to-login")) {
+    } else if (str == QLatin1StringView("error-app-user-is-not-allowed-to-login")) {
         return i18n("App user is not allowed to login");
-    } else if (str == QLatin1String("error-direct-message-room")) {
+    } else if (str == QLatin1StringView("error-direct-message-room")) {
         return i18n("Direct Messages can not be archived");
-    } else if (str == QLatin1String("error-message-not-found")) {
+    } else if (str == QLatin1StringView("error-message-not-found")) {
         return i18n("Message not found.");
-    } else if (str == QLatin1String("totp-required")) {
+    } else if (str == QLatin1StringView("totp-required")) {
         return i18n("Two Authentication Password Required");
-    } else if (str == QLatin1String("totp-invalid")) {
+    } else if (str == QLatin1StringView("totp-invalid")) {
         return i18n("Invalid Password");
-    } else if (str == QLatin1String("error-room-not-found")) {
+    } else if (str == QLatin1StringView("error-room-not-found")) {
         return i18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any channel");
-    } else if (str == QLatin1String("error-role-already-present")) {
+    } else if (str == QLatin1StringView("error-role-already-present")) {
         return i18n("A role with this name already exists");
-    } else if (str == QLatin1String("error-pinning-message")) {
+    } else if (str == QLatin1StringView("error-pinning-message")) {
         return i18n("Message could not be pinned");
-    } else if (str == QLatin1String("error-password-in-history")) {
+    } else if (str == QLatin1StringView("error-password-in-history")) {
         return i18n("Entered password has been previously used");
-    } else if (str == QLatin1String("error-max-rooms-per-guest-reached")) {
+    } else if (str == QLatin1StringView("error-max-rooms-per-guest-reached")) {
         return i18n("The maximum number of rooms per guest has been reached.");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;

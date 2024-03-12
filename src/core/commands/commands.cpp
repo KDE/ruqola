@@ -38,16 +38,16 @@ Command Commands::at(int index) const
 
 void Commands::parseMoreCommands(const QJsonObject &commandsObj)
 {
-    const int commandsCount = commandsObj[QLatin1String("count")].toInt();
-    mOffset = commandsObj[QLatin1String("offset")].toInt();
-    mTotal = commandsObj[QLatin1String("total")].toInt();
+    const int commandsCount = commandsObj[QLatin1StringView("count")].toInt();
+    mOffset = commandsObj[QLatin1StringView("offset")].toInt();
+    mTotal = commandsObj[QLatin1StringView("total")].toInt();
     parseListCommands(commandsObj);
     mCommandsCount += commandsCount;
 }
 
 void Commands::parseListCommands(const QJsonObject &commandsObj)
 {
-    const QJsonArray commandsArray = commandsObj[QLatin1String("commands")].toArray();
+    const QJsonArray commandsArray = commandsObj[QLatin1StringView("commands")].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
     const QString lang = QLocale().name();
     for (const QJsonValue &current : commandsArray) {
@@ -104,9 +104,9 @@ void Commands::setCommands(const QList<Command> &commands)
 
 void Commands::parseCommands(const QJsonObject &commandsObj)
 {
-    mCommandsCount = commandsObj[QLatin1String("count")].toInt();
-    mOffset = commandsObj[QLatin1String("offset")].toInt();
-    mTotal = commandsObj[QLatin1String("total")].toInt();
+    mCommandsCount = commandsObj[QLatin1StringView("count")].toInt();
+    mOffset = commandsObj[QLatin1StringView("offset")].toInt();
+    mTotal = commandsObj[QLatin1StringView("total")].toInt();
     mCommands.clear();
     parseListCommands(commandsObj);
 }

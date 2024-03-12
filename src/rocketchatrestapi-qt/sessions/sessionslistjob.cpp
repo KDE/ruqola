@@ -35,7 +35,7 @@ void SessionsListJob::onGetRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SessionsListJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sessionsListDone(replyObject);
     } else {

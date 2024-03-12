@@ -35,7 +35,7 @@ void CustomUserStatusListJob::onGetRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customUserStatusDone(replyObject);
     } else {

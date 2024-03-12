@@ -34,7 +34,7 @@ void ChannelKickJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelKickJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT kickUserDone(replyObject);
     } else {
@@ -68,7 +68,7 @@ QJsonDocument ChannelKickJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1String("userId")] = kickUserId();
+    jsonObj[QLatin1StringView("userId")] = kickUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

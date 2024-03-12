@@ -22,17 +22,17 @@ void ModerationMessage::setModerationId(const QString &newModerationId)
 
 void ModerationMessage::parse(const QJsonObject &obj)
 {
-    mModerationId = obj[QLatin1String("_id")].toString();
+    mModerationId = obj[QLatin1StringView("_id")].toString();
     // TODO add timestamp
-    const QJsonObject messageObject = obj[QLatin1String("message")].toObject();
-    parseRoom(obj[QLatin1String("room")].toObject());
+    const QJsonObject messageObject = obj[QLatin1StringView("message")].toObject();
+    parseRoom(obj[QLatin1StringView("room")].toObject());
 }
 
 void ModerationMessage::parseRoom(const QJsonObject &roomObj)
 {
-    mRoomId = roomObj[QLatin1String("_id")].toString();
-    mRoomName = roomObj[QLatin1String("name")].toString();
-    mRoomFName = roomObj[QLatin1String("fname")].toString();
+    mRoomId = roomObj[QLatin1StringView("_id")].toString();
+    mRoomName = roomObj[QLatin1StringView("name")].toString();
+    mRoomFName = roomObj[QLatin1StringView("fname")].toString();
     // TODO
 }
 

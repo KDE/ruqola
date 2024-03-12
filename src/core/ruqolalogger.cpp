@@ -16,7 +16,7 @@ RuqolaLogger::RuqolaLogger(const QString &accountName)
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
 
-    const QString filename = QLatin1String(qgetenv("RUQOLA_LOGFILE")) + QLatin1Char('-') + accountName + QLatin1Char('.')
+    const QString filename = QLatin1StringView(qgetenv("RUQOLA_LOGFILE")) + QLatin1Char('-') + accountName + QLatin1Char('.')
         + QString::number(QCoreApplication::applicationPid()) + QLatin1Char('.') + QString::number(mIdentifier);
 
     mLoggerFile.setFileName(filename);

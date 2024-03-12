@@ -32,7 +32,7 @@ bool RoleDeleteJob::start()
 void RoleDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoleDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteRoleDone();
     } else {
@@ -80,7 +80,7 @@ QNetworkRequest RoleDeleteJob::request() const
 QJsonDocument RoleDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roleId")] = mRoleId;
+    jsonObj[QLatin1StringView("roleId")] = mRoleId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

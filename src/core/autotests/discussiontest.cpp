@@ -48,7 +48,7 @@ void DiscussionTest::shouldLoadDiscussion()
 {
     QFETCH(QString, name);
     QFETCH(Discussion, discussion);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/discussion/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/discussion/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Discussion m;
     m.parseDiscussion(obj);

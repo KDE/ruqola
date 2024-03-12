@@ -32,11 +32,11 @@ Room::~Room() = default;
 
 Room::RoomType Room::roomTypeFromString(const QString &type)
 {
-    if (type == QLatin1String("p")) {
+    if (type == QLatin1StringView("p")) {
         return Room::RoomType::Private;
-    } else if (type == QLatin1String("c")) {
+    } else if (type == QLatin1StringView("c")) {
         return Room::RoomType::Channel;
-    } else if (type == QLatin1String("d")) {
+    } else if (type == QLatin1StringView("d")) {
         return Room::RoomType::Direct;
     } else {
         return Room::RoomType::Unknown;
@@ -151,7 +151,7 @@ QDebug operator<<(QDebug d, const Room &t)
 bool Room::canBeModify() const
 {
     if (mRocketChatAccount) {
-        return mRoles.contains(QLatin1String("owner"));
+        return mRoles.contains(QLatin1StringView("owner"));
     }
     return false;
 }
@@ -201,84 +201,84 @@ void Room::setUpdatedAt(qint64 updatedAt)
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
     qCDebug(RUQOLA_LOG) << "void Room::parseUpdateRoom(const QJsonObject &json)" << json;
-    if (json.contains(QLatin1String("rid"))) {
-        setRoomId(json.value(QLatin1String("rid")).toString());
+    if (json.contains(QLatin1StringView("rid"))) {
+        setRoomId(json.value(QLatin1StringView("rid")).toString());
     }
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
-    if (json.contains(QLatin1String("alert"))) {
-        setAlert(json[QLatin1String("alert")].toBool());
+    if (json.contains(QLatin1StringView("alert"))) {
+        setAlert(json[QLatin1StringView("alert")].toBool());
     }
-    if (json.contains(QLatin1String("f"))) {
-        setFavorite(json[QLatin1String("f")].toBool());
+    if (json.contains(QLatin1StringView("f"))) {
+        setFavorite(json[QLatin1StringView("f")].toBool());
     }
 
-    if (json.contains(QLatin1String("unread"))) {
-        setUnread(json[QLatin1String("unread")].toInt());
+    if (json.contains(QLatin1StringView("unread"))) {
+        setUnread(json[QLatin1StringView("unread")].toInt());
     }
-    if (json.contains(QLatin1String("userMentions"))) {
-        setUserMentions(json[QLatin1String("userMentions")].toInt());
+    if (json.contains(QLatin1StringView("userMentions"))) {
+        setUserMentions(json[QLatin1StringView("userMentions")].toInt());
     }
-    if (json.contains(QLatin1String("groupMentions"))) {
-        setGroupMentions(json[QLatin1String("groupMentions")].toInt());
+    if (json.contains(QLatin1StringView("groupMentions"))) {
+        setGroupMentions(json[QLatin1StringView("groupMentions")].toInt());
     }
-    if (json.contains(QLatin1String("announcement"))) {
-        setAnnouncement(json[QLatin1String("announcement")].toString());
+    if (json.contains(QLatin1StringView("announcement"))) {
+        setAnnouncement(json[QLatin1StringView("announcement")].toString());
     }
-    if (json.contains(QLatin1String("description"))) {
-        setDescription(json[QLatin1String("description")].toString());
+    if (json.contains(QLatin1StringView("description"))) {
+        setDescription(json[QLatin1StringView("description")].toString());
     }
-    if (json.contains(QLatin1String("open"))) {
-        setOpen(json[QLatin1String("open")].toBool());
+    if (json.contains(QLatin1StringView("open"))) {
+        setOpen(json[QLatin1StringView("open")].toBool());
     }
-    if (json.contains(QLatin1String("topic"))) {
-        setTopic(json[QLatin1String("topic")].toString());
+    if (json.contains(QLatin1StringView("topic"))) {
+        setTopic(json[QLatin1StringView("topic")].toString());
     }
-    if (json.contains(QLatin1String("name"))) {
-        setName(json[QLatin1String("name")].toString());
+    if (json.contains(QLatin1StringView("name"))) {
+        setName(json[QLatin1StringView("name")].toString());
     }
-    if (json.contains(QLatin1String("joinCodeRequired"))) {
-        setJoinCodeRequired(json[QLatin1String("joinCodeRequired")].toBool());
+    if (json.contains(QLatin1StringView("joinCodeRequired"))) {
+        setJoinCodeRequired(json[QLatin1StringView("joinCodeRequired")].toBool());
     } else {
         setJoinCodeRequired(false);
     }
 
-    if (json.contains(QLatin1String("fname"))) {
-        setFName(json[QLatin1String("fname")].toString());
+    if (json.contains(QLatin1StringView("fname"))) {
+        setFName(json[QLatin1StringView("fname")].toString());
     }
-    if (json.contains(QLatin1String("autoTranslateLanguage"))) {
-        setAutoTranslateLanguage(json[QLatin1String("autoTranslateLanguage")].toString());
+    if (json.contains(QLatin1StringView("autoTranslateLanguage"))) {
+        setAutoTranslateLanguage(json[QLatin1StringView("autoTranslateLanguage")].toString());
     }
-    if (json.contains(QLatin1String("autoTranslate"))) {
-        setAutoTranslate(json[QLatin1String("autoTranslate")].toBool());
+    if (json.contains(QLatin1StringView("autoTranslate"))) {
+        setAutoTranslate(json[QLatin1StringView("autoTranslate")].toBool());
     }
-    if (json.contains(QLatin1String("archived"))) {
-        setArchived(json[QLatin1String("archived")].toBool());
+    if (json.contains(QLatin1StringView("archived"))) {
+        setArchived(json[QLatin1StringView("archived")].toBool());
     } else {
         setArchived(false);
     }
-    if (json.contains(QLatin1String("blocker"))) {
-        setBlocker(json[QLatin1String("blocker")].toBool());
+    if (json.contains(QLatin1StringView("blocker"))) {
+        setBlocker(json[QLatin1StringView("blocker")].toBool());
     } else {
         setBlocker(false);
     }
-    if (json.contains(QLatin1String("blocked"))) {
-        setBlocked(json[QLatin1String("blocked")].toBool());
+    if (json.contains(QLatin1StringView("blocked"))) {
+        setBlocked(json[QLatin1StringView("blocked")].toBool());
     } else {
         setBlocked(false);
     }
 
-    if (json.contains(QLatin1String("encrypted"))) {
-        setEncrypted(json[QLatin1String("encrypted")].toBool());
+    if (json.contains(QLatin1StringView("encrypted"))) {
+        setEncrypted(json[QLatin1StringView("encrypted")].toBool());
     } else {
         setEncrypted(false);
     }
     // TODO verify it. add autotest
-    if (json.contains(QLatin1String("broadcast"))) {
-        setBroadcast(json[QLatin1String("broadcast")].toBool());
+    if (json.contains(QLatin1StringView("broadcast"))) {
+        setBroadcast(json[QLatin1StringView("broadcast")].toBool());
     } else {
         setBroadcast(false);
     }
-    setReadOnly(json[QLatin1String("ro")].toBool());
+    setReadOnly(json[QLatin1StringView("ro")].toBool());
     const qint64 result = Utils::parseDate(QStringLiteral("ls"), json);
     if (result != -1) {
         setLastSeenAt(result);
@@ -288,36 +288,36 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setLastMessageAt(lm);
     }
 
-    if (json.contains(QLatin1String("msgs"))) {
-        mNumberMessages = json[QLatin1String("msgs")].toInt();
+    if (json.contains(QLatin1StringView("msgs"))) {
+        mNumberMessages = json[QLatin1StringView("msgs")].toInt();
     }
 
-    setHighlightsWord(extractStringList(json, QLatin1String("userHighlights")));
+    setHighlightsWord(extractStringList(json, QLatin1StringView("userHighlights")));
 
-    if (json.contains(QLatin1String("ignored"))) {
-        setIgnoredUsers(extractStringList(json, QLatin1String("ignored")));
+    if (json.contains(QLatin1StringView("ignored"))) {
+        setIgnoredUsers(extractStringList(json, QLatin1StringView("ignored")));
     }
 
     // TODO muted ????
     // TODO E2EKey
-    setE2eKeyId(json[QLatin1String("e2eKeyId")].toString());
+    setE2eKeyId(json[QLatin1StringView("e2eKeyId")].toString());
 
-    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    const QJsonValue ownerValue = json.value(QLatin1StringView("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString());
+        setRoomCreatorUserName(objOwner.value(QLatin1StringView("username")).toString());
     } else {
         // When room is initialized we are the owner. When we update room we have the real
         // owner and if it's empty => we need to clear it.
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
-    if (json.contains(QLatin1String("prid"))) {
-        setParentRid(json[QLatin1String("prid")].toString());
+    if (json.contains(QLatin1StringView("prid"))) {
+        setParentRid(json[QLatin1StringView("prid")].toString());
     }
-    if (json.contains(QLatin1String("uids"))) {
-        const QJsonArray &uidsArray = json[QLatin1String("uids")].toArray();
+    if (json.contains(QLatin1StringView("uids"))) {
+        const QJsonArray &uidsArray = json[QLatin1StringView("uids")].toArray();
         const auto &u0 = uidsArray[0].toString();
         const auto &u1 = uidsArray[1].toString();
         setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
@@ -330,7 +330,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setUids(lstUids);
     }
 
-    const QJsonArray userNamesArray = json.value(QLatin1String("usernames")).toArray();
+    const QJsonArray userNamesArray = json.value(QLatin1StringView("usernames")).toArray();
     QStringList lstUserNames;
     const int nbUserNamesArray = userNamesArray.count();
     lstUserNames.reserve(nbUserNamesArray);
@@ -339,7 +339,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     setUserNames(lstUserNames);
 
-    setAvatarETag(json.value(QLatin1String("avatarETag")).toString());
+    setAvatarETag(json.value(QLatin1StringView("avatarETag")).toString());
     parseDisplaySystemMessage(json);
     parseRetentionInfo(json);
     parseTeamInfo(json);
@@ -622,61 +622,61 @@ void Room::setName(const QString &name)
 
 void Room::parseInsertRoom(const QJsonObject &json)
 {
-    const QString roomID = json.value(QLatin1String("_id")).toString();
+    const QString roomID = json.value(QLatin1StringView("_id")).toString();
     // qDebug() << " json " << json;
     setRoomId(roomID);
-    setName(json[QLatin1String("name")].toString());
-    setFName(json[QLatin1String("fname")].toString());
-    setAutoTranslateLanguage(json[QLatin1String("autoTranslateLanguage")].toString());
-    setAutoTranslate(json[QLatin1String("autoTranslate")].toBool());
+    setName(json[QLatin1StringView("name")].toString());
+    setFName(json[QLatin1StringView("fname")].toString());
+    setAutoTranslateLanguage(json[QLatin1StringView("autoTranslateLanguage")].toString());
+    setAutoTranslate(json[QLatin1StringView("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     // topic/announcement/description is not part of update subscription
-    const QString roomType = json.value(QLatin1String("t")).toString();
+    const QString roomType = json.value(QLatin1StringView("t")).toString();
     setChannelType(Room::roomTypeFromString(roomType));
-    const QJsonValue favoriteValue = json.value(QLatin1String("f"));
+    const QJsonValue favoriteValue = json.value(QLatin1StringView("f"));
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
     }
-    setReadOnly(json[QLatin1String("ro")].toBool());
-    if (json.contains(QLatin1String("userMentions"))) {
-        setUserMentions(json[QLatin1String("userMentions")].toInt());
+    setReadOnly(json[QLatin1StringView("ro")].toBool());
+    if (json.contains(QLatin1StringView("userMentions"))) {
+        setUserMentions(json[QLatin1StringView("userMentions")].toInt());
     }
-    if (json.contains(QLatin1String("groupMentions"))) {
-        setGroupMentions(json[QLatin1String("groupMentions")].toInt());
+    if (json.contains(QLatin1StringView("groupMentions"))) {
+        setGroupMentions(json[QLatin1StringView("groupMentions")].toInt());
     }
-    if (json.contains(QLatin1String("announcement"))) {
-        setAnnouncement(json[QLatin1String("announcement")].toString());
+    if (json.contains(QLatin1StringView("announcement"))) {
+        setAnnouncement(json[QLatin1StringView("announcement")].toString());
     }
-    if (json.contains(QLatin1String("description"))) {
-        setDescription(json[QLatin1String("description")].toString());
+    if (json.contains(QLatin1StringView("description"))) {
+        setDescription(json[QLatin1StringView("description")].toString());
     }
-    if (json.contains(QLatin1String("tunread"))) {
-        setThreadUnread(extractStringList(json, QLatin1String("tunread")));
+    if (json.contains(QLatin1StringView("tunread"))) {
+        setThreadUnread(extractStringList(json, QLatin1StringView("tunread")));
     }
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
     setLastMessageAt(Utils::parseDate(QStringLiteral("lm"), json));
-    setUnread(json[QLatin1String("unread")].toInt());
-    setOpen(json[QLatin1String("open")].toBool());
-    setAlert(json[QLatin1String("alert")].toBool());
-    const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
+    setUnread(json[QLatin1StringView("unread")].toInt());
+    setOpen(json[QLatin1StringView("open")].toBool());
+    setAlert(json[QLatin1StringView("alert")].toBool());
+    const QJsonValue blockerValue = json.value(QLatin1StringView("blocker"));
     if (!blockerValue.isUndefined()) {
         setBlocker(blockerValue.toBool());
     } else {
         setBlocker(false);
     }
 
-    // setE2eKeyId(json[QLatin1String("e2eKeyId")].toString());
-    setE2EKey(json[QLatin1String("E2EKey")].toString());
+    // setE2eKeyId(json[QLatin1StringView("e2eKeyId")].toString());
+    setE2EKey(json[QLatin1StringView("E2EKey")].toString());
 
-    if (json.contains(QLatin1String("encrypted"))) {
-        setEncrypted(json[QLatin1String("encrypted")].toBool());
+    if (json.contains(QLatin1StringView("encrypted"))) {
+        setEncrypted(json[QLatin1StringView("encrypted")].toBool());
     } else {
         setEncrypted(false);
     }
 
     // Blocked ???
-    const QJsonValue archivedValue = json.value(QLatin1String("archived"));
+    const QJsonValue archivedValue = json.value(QLatin1StringView("archived"));
     if (!archivedValue.isUndefined()) {
         setArchived(archivedValue.toBool());
     } else {
@@ -686,11 +686,11 @@ void Room::parseInsertRoom(const QJsonObject &json)
     parseCommonData(json);
     parseDisplaySystemMessage(json);
 
-    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    const QJsonValue ownerValue = json.value(QLatin1StringView("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString());
+        setRoomCreatorUserName(objOwner.value(QLatin1StringView("username")).toString());
     } else {
         // When room is initialized we are the owner. When we update room we have the real
         // owner and if it's empty => we need to clear it.
@@ -769,34 +769,34 @@ void Room::setIgnoredUsers(const QStringList &ignoredUsers)
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
-    QString roomID = json.value(QLatin1String("rid")).toString();
+    QString roomID = json.value(QLatin1StringView("rid")).toString();
     if (roomID.isEmpty()) {
-        roomID = json.value(QLatin1String("_id")).toString();
+        roomID = json.value(QLatin1StringView("_id")).toString();
     }
     setRoomId(roomID);
-    setName(json[QLatin1String("name")].toString());
-    setFName(json[QLatin1String("fname")].toString());
-    setAutoTranslateLanguage(json[QLatin1String("autoTranslateLanguage")].toString());
-    setAutoTranslate(json[QLatin1String("autoTranslate")].toBool());
+    setName(json[QLatin1StringView("name")].toString());
+    setFName(json[QLatin1StringView("fname")].toString());
+    setAutoTranslateLanguage(json[QLatin1StringView("autoTranslateLanguage")].toString());
+    setAutoTranslate(json[QLatin1StringView("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     // topic/announcement/description is not part of update subscription
-    const QString roomType = json.value(QLatin1String("t")).toString();
+    const QString roomType = json.value(QLatin1StringView("t")).toString();
     setChannelType(Room::roomTypeFromString(roomType));
-    const QJsonValue favoriteValue = json.value(QLatin1String("f"));
+    const QJsonValue favoriteValue = json.value(QLatin1StringView("f"));
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
     }
-    setE2EKey(json[QLatin1String("E2EKey")].toString());
-    setReadOnly(json[QLatin1String("ro")].toBool());
+    setE2EKey(json[QLatin1StringView("E2EKey")].toString());
+    setReadOnly(json[QLatin1StringView("ro")].toBool());
 
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
-    setUnread(json[QLatin1String("unread")].toInt());
-    setUserMentions(json[QLatin1String("userMentions")].toInt());
-    setGroupMentions(json[QLatin1String("groupMentions")].toInt());
-    setOpen(json[QLatin1String("open")].toBool());
-    setAlert(json[QLatin1String("alert")].toBool());
-    const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
+    setUnread(json[QLatin1StringView("unread")].toInt());
+    setUserMentions(json[QLatin1StringView("userMentions")].toInt());
+    setGroupMentions(json[QLatin1StringView("groupMentions")].toInt());
+    setOpen(json[QLatin1StringView("open")].toBool());
+    setAlert(json[QLatin1StringView("alert")].toBool());
+    const QJsonValue blockerValue = json.value(QLatin1StringView("blocker"));
     if (!blockerValue.isUndefined()) {
         setBlocker(blockerValue.toBool());
     } else {
@@ -804,7 +804,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     // TODO e2ekey
     // TODO blocked ?
-    const QJsonValue archivedValue = json.value(QLatin1String("archived"));
+    const QJsonValue archivedValue = json.value(QLatin1StringView("archived"));
     if (!archivedValue.isUndefined()) {
         setArchived(archivedValue.toBool());
     } else {
@@ -814,11 +814,11 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     parseCommonData(json);
     parseDisplaySystemMessage(json);
 
-    //    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    //    const QJsonValue ownerValue = json.value(QLatin1StringView("u"));
     //    if (!ownerValue.isUndefined()) {
     //        const QJsonObject objOwner = ownerValue.toObject();
-    //        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-    //        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    //        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString());
+    //        setRoomCreatorUserName(objOwner.value(QLatin1StringView("username")).toString());
     //    } else {
     //        //When room is initialized we are the owner. When we update room we have the real
     //        //owner and if it's empty => we need to clear it.
@@ -834,7 +834,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 
 void Room::parseRetentionInfo(const QJsonObject &json)
 {
-    const QJsonValue retentionValue = json.value(QLatin1String("retention"));
+    const QJsonValue retentionValue = json.value(QLatin1StringView("retention"));
     if (!retentionValue.isUndefined()) {
         mRetentionInfo.parseRetentionInfo(retentionValue.toObject());
     }
@@ -865,7 +865,7 @@ void Room::setTeamInfo(const TeamInfo &teamInfo)
 
 void Room::parseDisplaySystemMessage(const QJsonObject &json)
 {
-    setDisplaySystemMessageTypes(extractStringList(json, QLatin1String("sysMes")));
+    setDisplaySystemMessageTypes(extractStringList(json, QLatin1StringView("sysMes")));
 }
 
 RetentionInfo Room::retentionInfo() const
@@ -998,14 +998,14 @@ void Room::newMessageAdded()
 
 void Room::parseCommonData(const QJsonObject &json)
 {
-    setMutedUsers(extractStringList(json, QLatin1String("muted")));
+    setMutedUsers(extractStringList(json, QLatin1StringView("muted")));
 
-    setIgnoredUsers(extractStringList(json, QLatin1String("ignored")));
-    setRoles(extractStringList(json, QLatin1String("roles")));
-    setThreadUnread(extractStringList(json, QLatin1String("tunread")));
+    setIgnoredUsers(extractStringList(json, QLatin1StringView("ignored")));
+    setRoles(extractStringList(json, QLatin1StringView("roles")));
+    setThreadUnread(extractStringList(json, QLatin1StringView("tunread")));
 
     // FIXME.
-    setHighlightsWord(extractStringList(json, QLatin1String("userHighlights")));
+    setHighlightsWord(extractStringList(json, QLatin1StringView("userHighlights")));
 }
 
 QStringList Room::displaySystemMessageTypes() const
@@ -1210,69 +1210,69 @@ void Room::setEncrypted(bool encrypted)
 
 void Room::deserialize(Room *r, const QJsonObject &o)
 {
-    r->setRoomId(o[QLatin1String("rid")].toString());
-    r->setChannelType(Room::roomTypeFromString(o[QLatin1String("t")].toString()));
-    r->setName(o[QLatin1String("name")].toString());
-    r->setFName(o[QLatin1String("fname")].toString());
-    r->setAutoTranslateLanguage(o[QLatin1String("autoTranslateLanguage")].toString());
-    r->setAutoTranslate(o[QLatin1String("autoTranslate")].toBool());
-    r->setRoomCreatorUserName(o[QLatin1String("roomCreatorUserName")].toString());
-    r->setRoomCreatorUserId(o[QLatin1String("roomCreatorUserID")].toString());
-    r->setTopic(o[QLatin1String("topic")].toString());
-    r->setJitsiTimeout(static_cast<qint64>(o[QLatin1String("jitsiTimeout")].toDouble()));
-    r->setReadOnly(o[QLatin1String("ro")].toBool());
-    r->setUnread(o[QLatin1String("unread")].toInt(0));
-    r->setUserMentions(o[QLatin1String("userMentions")].toInt(0));
-    r->setGroupMentions(o[QLatin1String("groupMentions")].toInt(0));
-    r->setAnnouncement(o[QLatin1String("announcement")].toString());
-    r->setSelected(o[QLatin1String("selected")].toBool());
-    r->setFavorite(o[QLatin1String("favorite")].toBool());
-    r->setAlert(o[QLatin1String("alert")].toBool());
-    r->setOpen(o[QLatin1String("open")].toBool());
-    r->setArchived(o[QLatin1String("archived")].toBool());
-    r->setDescription(o[QLatin1String("description")].toString());
-    r->setBlocker(o[QLatin1String("blocker")].toBool());
-    r->setBlocked(o[QLatin1String("blocked")].toBool());
-    r->setEncrypted(o[QLatin1String("encrypted")].toBool());
-    r->setBroadcast(o[QLatin1String("broadcast")].toBool());
-    r->setE2EKey(o[QLatin1String("e2ekey")].toString());
-    r->setE2eKeyId(o[QLatin1String("e2ekeyid")].toString());
-    r->setJoinCodeRequired(o[QLatin1String("joinCodeRequired")].toBool());
-    r->setUpdatedAt(static_cast<qint64>(o[QLatin1String("updatedAt")].toDouble()));
-    r->setLastSeenAt(static_cast<qint64>(o[QLatin1String("lastSeenAt")].toDouble()));
-    r->setNumberMessages(static_cast<qint64>(o[QLatin1String("msgs")].toInt()));
+    r->setRoomId(o[QLatin1StringView("rid")].toString());
+    r->setChannelType(Room::roomTypeFromString(o[QLatin1StringView("t")].toString()));
+    r->setName(o[QLatin1StringView("name")].toString());
+    r->setFName(o[QLatin1StringView("fname")].toString());
+    r->setAutoTranslateLanguage(o[QLatin1StringView("autoTranslateLanguage")].toString());
+    r->setAutoTranslate(o[QLatin1StringView("autoTranslate")].toBool());
+    r->setRoomCreatorUserName(o[QLatin1StringView("roomCreatorUserName")].toString());
+    r->setRoomCreatorUserId(o[QLatin1StringView("roomCreatorUserID")].toString());
+    r->setTopic(o[QLatin1StringView("topic")].toString());
+    r->setJitsiTimeout(static_cast<qint64>(o[QLatin1StringView("jitsiTimeout")].toDouble()));
+    r->setReadOnly(o[QLatin1StringView("ro")].toBool());
+    r->setUnread(o[QLatin1StringView("unread")].toInt(0));
+    r->setUserMentions(o[QLatin1StringView("userMentions")].toInt(0));
+    r->setGroupMentions(o[QLatin1StringView("groupMentions")].toInt(0));
+    r->setAnnouncement(o[QLatin1StringView("announcement")].toString());
+    r->setSelected(o[QLatin1StringView("selected")].toBool());
+    r->setFavorite(o[QLatin1StringView("favorite")].toBool());
+    r->setAlert(o[QLatin1StringView("alert")].toBool());
+    r->setOpen(o[QLatin1StringView("open")].toBool());
+    r->setArchived(o[QLatin1StringView("archived")].toBool());
+    r->setDescription(o[QLatin1StringView("description")].toString());
+    r->setBlocker(o[QLatin1StringView("blocker")].toBool());
+    r->setBlocked(o[QLatin1StringView("blocked")].toBool());
+    r->setEncrypted(o[QLatin1StringView("encrypted")].toBool());
+    r->setBroadcast(o[QLatin1StringView("broadcast")].toBool());
+    r->setE2EKey(o[QLatin1StringView("e2ekey")].toString());
+    r->setE2eKeyId(o[QLatin1StringView("e2ekeyid")].toString());
+    r->setJoinCodeRequired(o[QLatin1StringView("joinCodeRequired")].toBool());
+    r->setUpdatedAt(static_cast<qint64>(o[QLatin1StringView("updatedAt")].toDouble()));
+    r->setLastSeenAt(static_cast<qint64>(o[QLatin1StringView("lastSeenAt")].toDouble()));
+    r->setNumberMessages(static_cast<qint64>(o[QLatin1StringView("msgs")].toInt()));
 
-    r->setMutedUsers(extractStringList(o, QLatin1String("mutedUsers")));
+    r->setMutedUsers(extractStringList(o, QLatin1StringView("mutedUsers")));
 
-    r->setDisplaySystemMessageTypes(extractStringList(o, QLatin1String("systemMessages")));
+    r->setDisplaySystemMessageTypes(extractStringList(o, QLatin1StringView("systemMessages")));
 
-    r->setIgnoredUsers(extractStringList(o, QLatin1String("ignored")));
+    r->setIgnoredUsers(extractStringList(o, QLatin1StringView("ignored")));
 
-    r->setHighlightsWord(extractStringList(o, QLatin1String("userHighlights")));
+    r->setHighlightsWord(extractStringList(o, QLatin1StringView("userHighlights")));
 
-    r->setRoles(extractStringList(o, QLatin1String("roles")));
+    r->setRoles(extractStringList(o, QLatin1StringView("roles")));
 
-    r->setThreadUnread(extractStringList(o, QLatin1String("tunread")));
+    r->setThreadUnread(extractStringList(o, QLatin1StringView("tunread")));
 
-    const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
+    const QJsonObject notificationsObj = o.value(QLatin1StringView("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::deserialize(notificationsObj);
     r->setNotificationOptions(notifications);
 
-    r->setDirectChannelUserId(o[QLatin1String("directChannelUserId")].toString());
+    r->setDirectChannelUserId(o[QLatin1StringView("directChannelUserId")].toString());
 
-    r->setAvatarETag(o[QLatin1String("avatarETag")].toString());
+    r->setAvatarETag(o[QLatin1StringView("avatarETag")].toString());
 
-    r->setUids(extractStringList(o, QLatin1String("uids")));
+    r->setUids(extractStringList(o, QLatin1StringView("uids")));
 
-    const QJsonObject retentionObj = o.value(QLatin1String("retention")).toObject();
+    const QJsonObject retentionObj = o.value(QLatin1StringView("retention")).toObject();
     const RetentionInfo retention = RetentionInfo::deserialize(retentionObj);
     r->setRetentionInfo(retention);
     const TeamInfo teaminfo = TeamInfo::deserialize(o);
     r->setTeamInfo(teaminfo);
 
-    r->setParentRid(o[QLatin1String("prid")].toString());
+    r->setParentRid(o[QLatin1StringView("prid")].toString());
 
-    r->setUserNames(extractStringList(o, QLatin1String("usernames")));
+    r->setUserNames(extractStringList(o, QLatin1StringView("usernames")));
 }
 
 QStringList Room::extractStringList(const QJsonObject &o, const QString &key)
@@ -1302,94 +1302,94 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     // todo add timestamp
 
-    o[QLatin1String("rid")] = r->roomId();
-    o[QLatin1String("t")] = Room::roomFromRoomType(r->channelType());
-    o[QLatin1String("name")] = r->name();
-    o[QLatin1String("fname")] = r->fName();
-    o[QLatin1String("roomCreatorUserName")] = r->roomOwnerUserName();
-    o[QLatin1String("roomCreatorUserID")] = r->roomCreatorUserId();
+    o[QLatin1StringView("rid")] = r->roomId();
+    o[QLatin1StringView("t")] = Room::roomFromRoomType(r->channelType());
+    o[QLatin1StringView("name")] = r->name();
+    o[QLatin1StringView("fname")] = r->fName();
+    o[QLatin1StringView("roomCreatorUserName")] = r->roomOwnerUserName();
+    o[QLatin1StringView("roomCreatorUserID")] = r->roomCreatorUserId();
     if (r->numberMessages() > 0) {
-        o[QLatin1String("msgs")] = r->numberMessages();
+        o[QLatin1StringView("msgs")] = r->numberMessages();
     }
     if (!r->topic().isEmpty()) {
-        o[QLatin1String("topic")] = r->topic();
+        o[QLatin1StringView("topic")] = r->topic();
     }
     if (!r->autoTranslateLanguage().isEmpty()) {
-        o[QLatin1String("autoTranslateLanguage")] = r->autoTranslateLanguage();
+        o[QLatin1StringView("autoTranslateLanguage")] = r->autoTranslateLanguage();
     }
     if (r->autoTranslate()) {
-        o[QLatin1String("autoTranslate")] = r->autoTranslate();
+        o[QLatin1StringView("autoTranslate")] = r->autoTranslate();
     }
-    o[QLatin1String("jitsiTimeout")] = r->jitsiTimeout();
-    o[QLatin1String("updatedAt")] = r->updatedAt();
-    o[QLatin1String("lastSeenAt")] = r->lastSeenAt();
-    o[QLatin1String("ro")] = r->readOnly();
-    o[QLatin1String("unread")] = r->unread();
+    o[QLatin1StringView("jitsiTimeout")] = r->jitsiTimeout();
+    o[QLatin1StringView("updatedAt")] = r->updatedAt();
+    o[QLatin1StringView("lastSeenAt")] = r->lastSeenAt();
+    o[QLatin1StringView("ro")] = r->readOnly();
+    o[QLatin1StringView("unread")] = r->unread();
     if (!r->announcement().isEmpty()) {
-        o[QLatin1String("announcement")] = r->announcement();
+        o[QLatin1StringView("announcement")] = r->announcement();
     }
-    o[QLatin1String("selected")] = r->selected();
-    o[QLatin1String("favorite")] = r->favorite();
-    o[QLatin1String("alert")] = r->alert();
-    o[QLatin1String("open")] = r->open();
-    o[QLatin1String("blocker")] = r->blocker();
-    o[QLatin1String("blocked")] = r->blocked();
-    o[QLatin1String("encrypted")] = r->encrypted();
-    o[QLatin1String("archived")] = r->archived();
-    o[QLatin1String("broadcast")] = r->broadcast();
+    o[QLatin1StringView("selected")] = r->selected();
+    o[QLatin1StringView("favorite")] = r->favorite();
+    o[QLatin1StringView("alert")] = r->alert();
+    o[QLatin1StringView("open")] = r->open();
+    o[QLatin1StringView("blocker")] = r->blocker();
+    o[QLatin1StringView("blocked")] = r->blocked();
+    o[QLatin1StringView("encrypted")] = r->encrypted();
+    o[QLatin1StringView("archived")] = r->archived();
+    o[QLatin1StringView("broadcast")] = r->broadcast();
     if (r->joinCodeRequired()) {
-        o[QLatin1String("joinCodeRequired")] = true;
+        o[QLatin1StringView("joinCodeRequired")] = true;
     }
     if (!r->e2EKey().isEmpty()) {
-        o[QLatin1String("e2ekey")] = r->e2EKey();
+        o[QLatin1StringView("e2ekey")] = r->e2EKey();
     }
     if (!r->e2eKeyId().isEmpty()) {
-        o[QLatin1String("e2ekeyid")] = r->e2eKeyId();
+        o[QLatin1StringView("e2ekeyid")] = r->e2eKeyId();
     }
 
     if (!r->description().isEmpty()) {
-        o[QLatin1String("description")] = r->description();
+        o[QLatin1StringView("description")] = r->description();
     }
-    o[QLatin1String("userMentions")] = r->userMentions();
+    o[QLatin1StringView("userMentions")] = r->userMentions();
     if (r->groupMentions() > 0) {
-        o[QLatin1String("groupMentions")] = r->groupMentions();
+        o[QLatin1StringView("groupMentions")] = r->groupMentions();
     }
 
-    serializeStringList(o, QLatin1String("mutedUsers"), r->mutedUsers());
+    serializeStringList(o, QLatin1StringView("mutedUsers"), r->mutedUsers());
 
-    serializeStringList(o, QLatin1String("ignored"), r->ignoredUsers());
-    serializeStringList(o, QLatin1String("tunread"), r->threadUnread());
+    serializeStringList(o, QLatin1StringView("ignored"), r->ignoredUsers());
+    serializeStringList(o, QLatin1StringView("tunread"), r->threadUnread());
 
-    serializeStringList(o, QLatin1String("roles"), r->roles());
+    serializeStringList(o, QLatin1StringView("roles"), r->roles());
 
-    o[QLatin1String("notifications")] = NotificationOptions::serialize(r->notificationOptions());
+    o[QLatin1StringView("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
     if (!r->directChannelUserId().isEmpty()) {
-        o[QLatin1String("directChannelUserId")] = r->directChannelUserId();
+        o[QLatin1StringView("directChannelUserId")] = r->directChannelUserId();
     }
 
-    serializeStringList(o, QLatin1String("systemMessages"), r->displaySystemMessageTypes());
+    serializeStringList(o, QLatin1StringView("systemMessages"), r->displaySystemMessageTypes());
 
-    serializeStringList(o, QLatin1String("userHighlights"), r->highlightsWord());
+    serializeStringList(o, QLatin1StringView("userHighlights"), r->highlightsWord());
 
     if (!r->avatarETag().isEmpty()) {
-        o[QLatin1String("avatarETag")] = r->avatarETag();
+        o[QLatin1StringView("avatarETag")] = r->avatarETag();
     }
     if (!r->uids().isEmpty()) {
-        o[QLatin1String("uids")] = QJsonArray::fromStringList(r->uids());
+        o[QLatin1StringView("uids")] = QJsonArray::fromStringList(r->uids());
     }
 
     if (r->retentionInfo().isNotDefault()) {
-        o[QLatin1String("retention")] = RetentionInfo::serialize(r->retentionInfo());
+        o[QLatin1StringView("retention")] = RetentionInfo::serialize(r->retentionInfo());
     }
     if (r->teamInfo().isValid()) {
         TeamInfo::serialize(r->teamInfo(), o);
     }
     if (!r->parentRid().isEmpty()) {
-        o[QLatin1String("prid")] = r->parentRid();
+        o[QLatin1StringView("prid")] = r->parentRid();
     }
 
-    serializeStringList(o, QLatin1String("usernames"), r->userNames());
+    serializeStringList(o, QLatin1StringView("usernames"), r->userNames());
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();

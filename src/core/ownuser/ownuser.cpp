@@ -15,25 +15,25 @@ OwnUser::~OwnUser() = default;
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject "<<replyObject;
-    mUserId = replyObject.value(QLatin1String("_id")).toString();
-    mUserName = replyObject.value(QLatin1String("username")).toString();
-    mStatus = replyObject.value(QLatin1String("status")).toString();
-    mEmail = replyObject.value(QLatin1String("email")).toString();
-    mStatusText = replyObject.value(QLatin1String("statusText")).toString();
-    mName = replyObject.value(QLatin1String("name")).toString();
-    mAvatarUrl = replyObject.value(QLatin1String("avatarUrl")).toString();
-    mUtcOffset = replyObject.value(QLatin1String("utcOffset")).toDouble();
-    mStatusDefault = replyObject.value(QLatin1String("statusDefault")).toString();
-    mNickName = replyObject.value(QLatin1String("nickname")).toString();
-    const QJsonArray array = replyObject.value(QLatin1String("roles")).toArray();
+    mUserId = replyObject.value(QLatin1StringView("_id")).toString();
+    mUserName = replyObject.value(QLatin1StringView("username")).toString();
+    mStatus = replyObject.value(QLatin1StringView("status")).toString();
+    mEmail = replyObject.value(QLatin1StringView("email")).toString();
+    mStatusText = replyObject.value(QLatin1StringView("statusText")).toString();
+    mName = replyObject.value(QLatin1StringView("name")).toString();
+    mAvatarUrl = replyObject.value(QLatin1StringView("avatarUrl")).toString();
+    mUtcOffset = replyObject.value(QLatin1StringView("utcOffset")).toDouble();
+    mStatusDefault = replyObject.value(QLatin1StringView("statusDefault")).toString();
+    mNickName = replyObject.value(QLatin1StringView("nickname")).toString();
+    const QJsonArray array = replyObject.value(QLatin1StringView("roles")).toArray();
     const QVariantList rolesLst = array.toVariantList();
     mRoles.clear();
     mRoles.reserve(rolesLst.count());
     for (const auto &role : rolesLst) {
         mRoles.append(role.toString());
     }
-    mServicePassword.parseService(replyObject.value(QLatin1String("services")).toObject());
-    mOwnUserPreferences.parsePreferences(replyObject.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
+    mServicePassword.parseService(replyObject.value(QLatin1StringView("services")).toObject());
+    mOwnUserPreferences.parsePreferences(replyObject.value(QLatin1StringView("settings")).toObject().value(QLatin1StringView("preferences")).toObject());
 }
 
 bool OwnUser::isAdministrator() const

@@ -56,12 +56,12 @@ bool EmojiCustomCreateJob::start()
     }
 
     QHttpPart namePart;
-    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"name\"")));
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"name\"")));
     namePart.setBody(mEmojiInfo.name.toUtf8());
     multiPart->append(std::move(namePart));
 
     QHttpPart aliasesPart;
-    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
+    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"aliases\"")));
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
     multiPart->append(std::move(aliasesPart));
 
@@ -79,7 +79,7 @@ void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QLatin1String("success")].toBool()) {
+        if (replyObject[QLatin1StringView("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("EmojiCustomCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomCreateDone(replyObject);
         } else {
@@ -135,7 +135,7 @@ bool EmojiCustomCreateJob::EmojiInfo::isValid() const
 
 QString EmojiCustomCreateJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("Custom_Emoji_Error_Name_Or_Alias_Already_In_Use")) {
+    if (str == QLatin1StringView("Custom_Emoji_Error_Name_Or_Alias_Already_In_Use")) {
         return i18n("The custom emoji or one of its aliases is already in use.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

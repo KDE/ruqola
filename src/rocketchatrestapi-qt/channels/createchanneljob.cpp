@@ -34,7 +34,7 @@ void CreateChannelJob::onPostRequestResponse(const QString &replyErrorString, co
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CreateChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         qDebug() << " replyObject : " << replyObject;
         Q_EMIT createChannelDone(replyObject);
@@ -56,9 +56,9 @@ void CreateChannelJob::setCreateChannelInfo(const CreateChannelTeamInfo &createC
 
 QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-duplicate-channel-name")) {
+    if (str == QLatin1StringView("error-duplicate-channel-name")) {
         return i18n("A channel with name '%1' exists", detail.value(QStringLiteral("channel_name")).toString());
-    } else if (str == QLatin1String("error-invalid-room-name")) {
+    } else if (str == QLatin1StringView("error-invalid-room-name")) {
         return i18n("'%1' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
     }
 

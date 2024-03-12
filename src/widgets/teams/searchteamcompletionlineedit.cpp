@@ -76,7 +76,7 @@ void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
 void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QJsonArray items = obj[QLatin1String("teams")].toArray();
+    const QJsonArray items = obj[QLatin1StringView("teams")].toArray();
     QList<TeamCompleter> teams;
     const auto total = items.count();
     teams.reserve(total);

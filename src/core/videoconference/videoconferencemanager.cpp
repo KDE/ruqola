@@ -72,7 +72,7 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
         mRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
         connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [videoConference, this](const QJsonObject &obj) {
             // qDebug() << " join info " << obj;
-            QDesktopServices::openUrl(QUrl(obj[QLatin1String("url")].toString()));
+            QDesktopServices::openUrl(QUrl(obj[QLatin1StringView("url")].toString()));
             mVideoConferenceList.removeAll(videoConference);
         });
         if (!conferenceJoinJob->start()) {

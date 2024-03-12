@@ -38,11 +38,11 @@ bool DownloadAppsLanguagesParser::parse()
     file.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    const QJsonArray array = obj.value(QLatin1String("apps")).toArray();
+    const QJsonArray array = obj.value(QLatin1StringView("apps")).toArray();
     for (int i = 0, total = array.size(); i < total; ++i) {
         DownloadAppsLanguagesInfo info;
         const QJsonObject languageJsonObject = array.at(i).toObject();
-        const QString id = languageJsonObject[QLatin1String("id")].toString();
+        const QString id = languageJsonObject[QLatin1StringView("id")].toString();
         if (info.parse(languageJsonObject, id)) {
             mMap.insert(id, info);
         }

@@ -37,7 +37,7 @@ void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorStri
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomStartDiscussionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT startDiscussionDone();
     } else {
@@ -129,17 +129,17 @@ QNetworkRequest RoomStartDiscussionJob::request() const
 QJsonDocument RoomStartDiscussionJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("prid")] = mParentRoomId;
-    jsonObj[QLatin1String("t_name")] = mDiscussionName;
+    jsonObj[QLatin1StringView("prid")] = mParentRoomId;
+    jsonObj[QLatin1StringView("t_name")] = mDiscussionName;
     if (!mParentMessageId.isEmpty()) {
-        jsonObj[QLatin1String("pmid")] = mParentMessageId;
+        jsonObj[QLatin1StringView("pmid")] = mParentMessageId;
     }
     if (!mReplyMessage.isEmpty()) {
-        jsonObj[QLatin1String("reply")] = mReplyMessage;
+        jsonObj[QLatin1StringView("reply")] = mReplyMessage;
     }
     if (!mUsers.isEmpty()) {
         const QJsonArray usersJson = QJsonArray::fromStringList(mUsers);
-        jsonObj[QLatin1String("users")] = usersJson;
+        jsonObj[QLatin1StringView("users")] = usersJson;
     }
     // TODO add encrypted
     const QJsonDocument postData = QJsonDocument(jsonObj);
@@ -149,7 +149,7 @@ QJsonDocument RoomStartDiscussionJob::json() const
 
 QString RoomStartDiscussionJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1String("error-invalid-room")) {
+    if (errorStr == QLatin1StringView("error-invalid-room")) {
         return i18n("Invalid room");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);

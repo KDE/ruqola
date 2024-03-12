@@ -30,7 +30,7 @@ void ModerationInfoTest::shouldModerationInfo()
 {
     QFETCH(QString, name);
     QFETCH(ModerationInfo, moderationInfo);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/moderation/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/moderation/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ModerationInfo result;

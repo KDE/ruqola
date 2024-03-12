@@ -33,7 +33,7 @@ bool UpdateAdminSettingsJob::start()
 void UpdateAdminSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UpdateAdminSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateAdminSettingsDone(replyObject);
     } else {
@@ -84,13 +84,13 @@ QJsonDocument UpdateAdminSettingsJob::json() const
     case UpdateAdminSettingsInfo::ValueType::Unknown:
         break;
     case UpdateAdminSettingsInfo::ValueType::Boolean:
-        jsonObj[QLatin1String("value")] = mInfo.settingsValue.toBool();
+        jsonObj[QLatin1StringView("value")] = mInfo.settingsValue.toBool();
         break;
     case UpdateAdminSettingsInfo::ValueType::Integer:
-        jsonObj[QLatin1String("value")] = mInfo.settingsValue.toInt();
+        jsonObj[QLatin1StringView("value")] = mInfo.settingsValue.toInt();
         break;
     case UpdateAdminSettingsInfo::ValueType::String:
-        jsonObj[QLatin1String("value")] = mInfo.settingsValue.toString();
+        jsonObj[QLatin1StringView("value")] = mInfo.settingsValue.toString();
         break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);

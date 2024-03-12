@@ -144,13 +144,13 @@ void AdministratorSettingsWidget::loadSettings()
 
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
 {
-    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
+    QJsonArray configs = obj.value(QLatin1StringView("result")).toArray();
     // qDebug() << " obj " << obj;
     QMap<QString, QVariant> mapSettings;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
-        const QString id = currentConfObject[QLatin1String("_id")].toString();
-        const QVariant value = currentConfObject[QLatin1String("value")].toVariant();
+        const QString id = currentConfObject[QLatin1StringView("_id")].toString();
+        const QVariant value = currentConfObject[QLatin1StringView("value")].toVariant();
         // qDebug() << "id  " << id << " value " << value;
         mapSettings.insert(id, value);
     }

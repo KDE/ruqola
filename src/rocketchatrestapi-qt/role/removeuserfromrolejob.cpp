@@ -35,7 +35,7 @@ bool RemoveUserFromRoleJob::start()
 void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RemoveUsersFromRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeUsersFromRoleDone(replyObject);
     } else {
@@ -46,7 +46,7 @@ void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorStrin
 
 QString RemoveUserFromRoleJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-user-not-in-role")) {
+    if (str == QLatin1StringView("error-user-not-in-role")) {
         return i18n("This user is not in this role.");
     }
     return RestApiAbstractJob::errorMessage(str, details);
@@ -106,8 +106,8 @@ QJsonDocument RemoveUserFromRoleJob::json() const
 {
     // TODO restapi seems to not working. Need to report bug.
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roleName")] = mRoleName;
-    jsonObj[QLatin1String("username")] = mUsername;
+    jsonObj[QLatin1StringView("roleName")] = mRoleName;
+    jsonObj[QLatin1StringView("username")] = mUsername;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

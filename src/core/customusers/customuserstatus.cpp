@@ -19,10 +19,10 @@ bool CustomUserStatus::isValid() const
 
 void CustomUserStatus::parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi)
 {
-    mIdentifier = customStatusObj[QLatin1String("_id")].toString();
-    mName = customStatusObj[QLatin1String("name")].toString();
-    mStatusType = Utils::presenceStatusFromString(customStatusObj[QLatin1String("statusType")].toString());
-    if (customStatusObj.contains(QLatin1String("_updatedAt"))) {
+    mIdentifier = customStatusObj[QLatin1StringView("_id")].toString();
+    mName = customStatusObj[QLatin1StringView("name")].toString();
+    mStatusType = Utils::presenceStatusFromString(customStatusObj[QLatin1StringView("statusType")].toString());
+    if (customStatusObj.contains(QLatin1StringView("_updatedAt"))) {
         if (useRestApi) {
             mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), customStatusObj);
         } else {

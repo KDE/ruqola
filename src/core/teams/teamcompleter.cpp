@@ -36,9 +36,9 @@ void TeamCompleter::setFname(const QString &fname)
 void TeamCompleter::parse(const QJsonObject &obj)
 {
     // QJsonObject({"items":[{"_id":"zMHhMfsEPvKjgFuyE","fname":"ruqola-broadcast","name":"ruqola-broadcast","t":"p"},{"_id":"QMkvkiMyxKoEuJjnb","avatarETag":"MDRisL8NzZtsCdkYE","fname":"ruqola-test","name":"ruqola-test","t":"p"},
-    mName = obj[QLatin1String("name")].toString();
-    mFname = obj[QLatin1String("fname")].toString();
-    mTeamId = obj[QLatin1String("teamId")].toString();
+    mName = obj[QLatin1StringView("name")].toString();
+    mFname = obj[QLatin1StringView("fname")].toString();
+    mTeamId = obj[QLatin1StringView("teamId")].toString();
     // TODO add room type too
 }
 

@@ -39,7 +39,7 @@ bool GetSupportedLanguagesJob::start()
 void GetSupportedLanguagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetSupportedLanguagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getSupportedLanguagesDone(replyObject);
     } else {
@@ -83,7 +83,7 @@ bool GetSupportedLanguagesJob::canStart() const
 
 QString GetSupportedLanguagesJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("invalid-params")) {
+    if (str == QLatin1StringView("invalid-params")) {
         return i18n("Invalid Parameters");
     }
     return RestApiAbstractJob::errorMessage(str, detail);

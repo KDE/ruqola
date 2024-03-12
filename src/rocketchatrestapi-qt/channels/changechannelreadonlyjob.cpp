@@ -33,7 +33,7 @@ void ChangeChannelReadonlyJob::onPostRequestResponse(const QString &replyErrorSt
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeReadonlyDone();
     } else {
@@ -72,8 +72,8 @@ bool ChangeChannelReadonlyJob::canStart() const
 QJsonDocument ChangeChannelReadonlyJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("readOnly")] = readOnly();
+    jsonObj[QLatin1StringView("roomId")] = roomId();
+    jsonObj[QLatin1StringView("readOnly")] = readOnly();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

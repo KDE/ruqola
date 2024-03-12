@@ -66,17 +66,17 @@ void RESTAuthenticationManager::login()
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
-    json[QLatin1String("msg")] = QStringLiteral("method");
-    json[QLatin1String("method")] = method;
-    json[QLatin1String("id")] = QString::number(id);
+    json[QLatin1StringView("msg")] = QStringLiteral("method");
+    json[QLatin1StringView("method")] = method;
+    json[QLatin1StringView("id")] = QString::number(id);
 
     if (!params.isEmpty()) {
         if (params.isArray()) {
-            json[QLatin1String("params")] = params.array();
+            json[QLatin1StringView("params")] = params.array();
         } else if (params.isObject()) {
             QJsonArray arr;
             arr.append(params.object());
-            json[QLatin1String("params")] = arr;
+            json[QLatin1StringView("params")] = arr;
         }
     }
     return json;

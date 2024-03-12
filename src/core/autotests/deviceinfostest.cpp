@@ -41,7 +41,7 @@ void DeviceInfosTest::shouldLoadDeviceInfos()
     QFETCH(int, deviceInfosCount);
     QFETCH(int, total);
     QFETCH(int, offset);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/deviceinfos/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/deviceinfos/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     DeviceInfos m;
     m.parseDeviceInfos(obj);

@@ -32,7 +32,7 @@ bool ArchiveChannelJob::start()
 void ArchiveChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("archive or unarchive channel success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT archiveChannelDone();
     } else {
@@ -71,7 +71,7 @@ bool ArchiveChannelJob::canStart() const
 QJsonDocument ArchiveChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    jsonObj[QLatin1StringView("roomId")] = roomId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

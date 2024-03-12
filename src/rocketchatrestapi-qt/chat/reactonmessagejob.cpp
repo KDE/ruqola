@@ -36,7 +36,7 @@ void ReactOnMessageJob::onPostRequestResponse(const QString &replyErrorString, c
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT reactOnMessageDone();
     } else {
@@ -89,9 +89,9 @@ bool ReactOnMessageJob::canStart() const
 QJsonDocument ReactOnMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("emoji")] = mEmoji;
-    jsonObj[QLatin1String("messageId")] = mMessageId;
-    jsonObj[QLatin1String("shouldReact")] = mAddReact;
+    jsonObj[QLatin1StringView("emoji")] = mEmoji;
+    jsonObj[QLatin1StringView("messageId")] = mMessageId;
+    jsonObj[QLatin1StringView("shouldReact")] = mAddReact;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -118,7 +118,7 @@ QNetworkRequest ReactOnMessageJob::request() const
 
 QString ReactOnMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-not-allowed")) {
+    if (str == QLatin1StringView("error-not-allowed")) {
         return i18n("Invalid emoji provided.");
     }
     return RestApiAbstractJob::errorMessage(str, details);

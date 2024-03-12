@@ -65,11 +65,11 @@ bool Role::isValid() const
 
 void Role::updateRole(const QString &str, bool b)
 {
-    if (str == QLatin1String("moderator")) {
+    if (str == QLatin1StringView("moderator")) {
         mIsModerator = b;
-    } else if (str == QLatin1String("leader")) {
+    } else if (str == QLatin1StringView("leader")) {
         mIsLeader = b;
-    } else if (str == QLatin1String("owner")) {
+    } else if (str == QLatin1StringView("owner")) {
         mIsOwner = b;
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown role" << str;
@@ -93,10 +93,10 @@ void Role::setUserName(const QString &newUserName)
 
 void Role::parseRole(const QJsonObject &obj)
 {
-    const QJsonObject uObj = obj.value(QLatin1String("u")).toObject();
-    mUserId = uObj.value(QLatin1String("_id")).toString();
-    mUserName = uObj.value(QLatin1String("username")).toString();
-    const QJsonArray roleArray = obj[QLatin1String("roles")].toArray();
+    const QJsonObject uObj = obj.value(QLatin1StringView("u")).toObject();
+    mUserId = uObj.value(QLatin1StringView("_id")).toString();
+    mUserName = uObj.value(QLatin1StringView("username")).toString();
+    const QJsonArray roleArray = obj[QLatin1StringView("roles")].toArray();
     for (int i = 0; i < roleArray.count(); ++i) {
         const QString str = roleArray.at(i).toString();
         updateRole(str, true);

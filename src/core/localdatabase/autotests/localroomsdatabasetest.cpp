@@ -45,7 +45,7 @@ void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
 {
     {
-        const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rooms/direct-room.json");
+        const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rooms/direct-room.json");
         const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
         LocalRoomsDatabase roomDataBase;
         Room r;

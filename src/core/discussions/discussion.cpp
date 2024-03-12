@@ -118,17 +118,17 @@ bool Discussion::operator==(const Discussion &other) const
 
 void Discussion::parseDiscussion(const QJsonObject &o)
 {
-    mParentRoomId = o.value(QLatin1String("prid")).toString();
-    mDescription = o.value(QLatin1String("description")).toString();
-    mFname = o.value(QLatin1String("fname")).toString();
-    mNumberMessages = o.value(QLatin1String("msgs")).toInt();
-    mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
+    mParentRoomId = o.value(QLatin1StringView("prid")).toString();
+    mDescription = o.value(QLatin1StringView("description")).toString();
+    mFname = o.value(QLatin1StringView("fname")).toString();
+    mNumberMessages = o.value(QLatin1StringView("msgs")).toInt();
+    mDiscussionRoomId = o.value(QLatin1StringView("_id")).toString();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    const QJsonValue ownerValue = o.value(QLatin1String("u"));
+    const QJsonValue ownerValue = o.value(QLatin1StringView("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        mUserName = objOwner.value(QLatin1String("username")).toString();
+        mUserName = objOwner.value(QLatin1StringView("username")).toString();
     }
 }
 

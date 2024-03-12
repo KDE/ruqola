@@ -33,7 +33,7 @@ void ChangeChannelAnnouncementJob::onPostRequestResponse(const QString &replyErr
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Change announcement success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeAnnouncementDone();
     } else {
@@ -62,8 +62,8 @@ bool ChangeChannelAnnouncementJob::canStart() const
 QJsonDocument ChangeChannelAnnouncementJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("announcement")] = announcement();
+    jsonObj[QLatin1StringView("roomId")] = roomId();
+    jsonObj[QLatin1StringView("announcement")] = announcement();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

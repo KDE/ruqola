@@ -39,7 +39,7 @@ void User2FASendEmailCodeJob::onPostRequestResponse(const QString &replyErrorStr
 
     // const QJsonObject replyObject = replyJson.object();
     // qDebug() << "replyObject  "<< replyObject;
-    // if (replyObject[QLatin1String("success")].toBool()) {
+    // if (replyObject[QLatin1StringView("success")].toBool()) {
     // } else {
     // emitFailedMessage(replyObject, reply);
     // addLoggerWarning(QByteArrayLiteral("User2FASendEmailCodeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -85,7 +85,7 @@ QNetworkRequest User2FASendEmailCodeJob::request() const
 QJsonDocument User2FASendEmailCodeJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("emailOrUsername")] = mUsernameOrEmail;
+    jsonObj[QLatin1StringView("emailOrUsername")] = mUsernameOrEmail;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

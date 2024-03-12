@@ -38,7 +38,7 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds()
     QFETCH(int, initialNumberOfSounds);
     QFETCH(int, afterDeletingNumberOfSounds);
     QFETCH(int, signalsEmittingCount);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + name + QLatin1StringView(".json");
     const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     CustomSoundsManager w;
     QSignalSpy spyDeleteSignal(&w, &CustomSoundsManager::customSoundRemoved);
@@ -53,7 +53,7 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds()
     //    }
     QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
 
-    QString deleteJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + deleteFileName + QLatin1String(".json");
+    QString deleteJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + deleteFileName + QLatin1StringView(".json");
     const QJsonArray deleteCustomSoundsArray = AutoTestHelper::loadJsonArrayObject(deleteJsonFile);
     w.deleteCustomSounds(deleteCustomSoundsArray);
     QCOMPARE(w.customSoundsInfo().count(), afterDeletingNumberOfSounds);
@@ -79,7 +79,7 @@ void CustomSoundsManagerTest::shouldAddCustomSounds()
     QFETCH(int, initialNumberOfSounds);
     QFETCH(int, afterDeletingNumberOfSounds);
     QFETCH(int, signalsEmittingCount);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + name + QLatin1StringView(".json");
     const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     CustomSoundsManager w;
     QSignalSpy spyAddSignal(&w, &CustomSoundsManager::customSoundAdded);
@@ -94,7 +94,7 @@ void CustomSoundsManagerTest::shouldAddCustomSounds()
     //    }
     QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
 
-    QString addJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + addFileName + QLatin1String(".json");
+    QString addJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + addFileName + QLatin1StringView(".json");
     const QJsonArray addCustomSoundsArray = AutoTestHelper::loadJsonArrayObject(addJsonFile);
     w.updateCustomSounds(addCustomSoundsArray);
     QCOMPARE(w.customSoundsInfo().count(), afterDeletingNumberOfSounds);
@@ -119,7 +119,7 @@ void CustomSoundsManagerTest::shouldUpdateCustomSounds()
     QFETCH(int, initialNumberOfSounds);
     QFETCH(int, afterDeletingNumberOfSounds);
     QFETCH(int, signalsEmittingCount);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + name + QLatin1StringView(".json");
     const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     CustomSoundsManager w;
     QSignalSpy spyUpdateSignal(&w, &CustomSoundsManager::customSoundUpdated);
@@ -134,7 +134,7 @@ void CustomSoundsManagerTest::shouldUpdateCustomSounds()
     //    }
     QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
 
-    QString updateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + updateFileName + QLatin1String(".json");
+    QString updateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + updateFileName + QLatin1StringView(".json");
     const QJsonArray addCustomSoundsArray = AutoTestHelper::loadJsonArrayObject(updateJsonFile);
     w.updateCustomSounds(addCustomSoundsArray);
     QCOMPARE(w.customSoundsInfo().count(), afterDeletingNumberOfSounds);
@@ -156,7 +156,7 @@ void CustomSoundsManagerTest::shouldParseCustomSounds()
 {
     QFETCH(QString, name);
     QFETCH(int, numberOfSounds);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/customsounds/") + name + QLatin1StringView(".json");
     const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     CustomSoundsManager w;
     w.parseCustomSounds(customSoundsArray);

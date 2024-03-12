@@ -73,7 +73,7 @@ void PermissionManagerTest::shouldLoadPermissions()
     QFETCH(int, permissionsCount);
     QFETCH(int, permissionsAdded);
     QFETCH(QList<Permission>, permissions);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/permissions/") + name + QLatin1StringView(".json");
     const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     QCOMPARE(obj.count(), permissionsCount);
     // qDebug() << " OBJ " << obj;
@@ -182,10 +182,10 @@ void PermissionManagerTest::shouldUpdatePermissions()
     QFETCH(QList<Permission>, permissions);
     QFETCH(QList<Permission>, updatedPermissions);
     QFETCH(bool, permissionUpdated);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/permissions/") + name + QLatin1StringView(".json");
     const QJsonArray obj = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
 
-    const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/permissions/") + updateName + QLatin1String(".json");
+    const QString originalUpdateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/permissions/") + updateName + QLatin1StringView(".json");
     const QJsonArray updateArray = AutoTestHelper::loadJsonArrayObject(originalUpdateJsonFile);
 
     PermissionManager r;

@@ -90,16 +90,16 @@ VideoConferenceInfo VideoConferenceInfos::at(int index) const
 void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
     mVideoConferenceInfosList.clear();
-    mVideoConferenceInfosCount = videoConferenceInfosObj[QLatin1String("count")].toInt();
-    mOffset = videoConferenceInfosObj[QLatin1String("offset")].toInt();
-    mTotal = videoConferenceInfosObj[QLatin1String("total")].toInt();
+    mVideoConferenceInfosCount = videoConferenceInfosObj[QLatin1StringView("count")].toInt();
+    mOffset = videoConferenceInfosObj[QLatin1StringView("offset")].toInt();
+    mTotal = videoConferenceInfosObj[QLatin1StringView("total")].toInt();
     mVideoConferenceInfosList.reserve(mVideoConferenceInfosCount);
     parseVideoConferenceInfosObj(videoConferenceInfosObj);
 }
 
 void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj)
 {
-    const QJsonArray videoConferencesArray = videoConferenceInfosObj[QLatin1String("data")].toArray();
+    const QJsonArray videoConferencesArray = videoConferenceInfosObj[QLatin1StringView("data")].toArray();
     for (const QJsonValue &current : videoConferencesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject videoConferenceObject = current.toObject();
@@ -114,9 +114,9 @@ void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &video
 
 void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
 {
-    const int videoConferenceInfosCount = videoConferenceInfosObj[QLatin1String("count")].toInt();
-    mOffset = videoConferenceInfosObj[QLatin1String("offset")].toInt();
-    mTotal = videoConferenceInfosObj[QLatin1String("total")].toInt();
+    const int videoConferenceInfosCount = videoConferenceInfosObj[QLatin1StringView("count")].toInt();
+    mOffset = videoConferenceInfosObj[QLatin1StringView("offset")].toInt();
+    mTotal = videoConferenceInfosObj[QLatin1StringView("total")].toInt();
     parseVideoConferenceInfosObj(videoConferenceInfosObj);
     mVideoConferenceInfosCount += videoConferenceInfosCount;
 }

@@ -14,7 +14,7 @@ QString RestApiUtil::adaptUrl(const QString &url)
         return url;
     }
     // Avoid to add more https:// :)
-    if (url.startsWith(QLatin1String("https://")) || url.startsWith(QLatin1String("http://"))) {
+    if (url.startsWith(QLatin1StringView("https://")) || url.startsWith(QLatin1StringView("http://"))) {
         return url;
     } else {
         // Default to https

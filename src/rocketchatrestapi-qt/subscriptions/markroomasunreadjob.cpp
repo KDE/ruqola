@@ -35,7 +35,7 @@ void MarkRoomAsUnReadJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("MarkRoomAsUnReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT markAsUnReadDone();
     } else {
@@ -56,9 +56,9 @@ void MarkRoomAsUnReadJob::setObjectId(const QString &objectId)
 
 QString MarkRoomAsUnReadJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-action-not-allowed")) {
+    if (str == QLatin1StringView("error-action-not-allowed")) {
         return i18n("Unread message not authorized.");
-    } else if (str == QLatin1String("error-no-message-for-unread")) {
+    } else if (str == QLatin1StringView("error-no-message-for-unread")) {
         return i18n("There are no messages to mark unread.");
     }
     return RestApiAbstractJob::errorMessage(str, detail);
@@ -109,11 +109,11 @@ QJsonDocument MarkRoomAsUnReadJob::json() const
 {
     QJsonObject jsonObj;
     if (mUnReadObject == Room) {
-        jsonObj[QLatin1String("roomId")] = mObjectId;
+        jsonObj[QLatin1StringView("roomId")] = mObjectId;
     } else if (mUnReadObject == FromMessage) {
         QJsonObject fromMessage;
-        fromMessage[QLatin1String("_id")] = mObjectId;
-        jsonObj[QLatin1String("firstUnreadMessage")] = fromMessage;
+        fromMessage[QLatin1StringView("_id")] = mObjectId;
+        jsonObj[QLatin1StringView("firstUnreadMessage")] = fromMessage;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

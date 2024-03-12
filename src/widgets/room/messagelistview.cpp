@@ -370,7 +370,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
         if (url.isEmpty())
             return {};
-        if (url.startsWith(QLatin1String("ruqola:/user/"))) {
+        if (url.startsWith(QLatin1StringView("ruqola:/user/"))) {
             url.remove(QStringLiteral("ruqola:/user/"));
             if (!Utils::validUser(url)) {
                 return {};

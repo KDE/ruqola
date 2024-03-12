@@ -39,7 +39,7 @@ void BannerInfosTest::shouldLoadBannerInfos()
     QFETCH(QString, name);
     QFETCH(int, bannersCount);
     QFETCH(bool, hasUnreadBanner);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/bannerinfos/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/bannerinfos/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     BannerInfos r;

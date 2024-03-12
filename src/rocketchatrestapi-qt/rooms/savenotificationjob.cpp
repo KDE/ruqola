@@ -34,7 +34,7 @@ void SaveNotificationJob::onPostRequestResponse(const QString &replyErrorString,
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeNotificationDone();
     } else {
@@ -196,40 +196,40 @@ QNetworkRequest SaveNotificationJob::request() const
 QJsonDocument SaveNotificationJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mRoomId;
+    jsonObj[QLatin1StringView("roomId")] = mRoomId;
     QJsonObject notificationsJson;
 
     if (mSettingsWillBeChanged & EmailNotifications) {
-        notificationsJson[QLatin1String("emailNotifications")] = emailNotifications();
+        notificationsJson[QLatin1StringView("emailNotifications")] = emailNotifications();
     }
     if (mSettingsWillBeChanged & MobilePushNotifications) {
-        notificationsJson[QLatin1String("mobilePushNotifications")] = mobilePushNotifications();
+        notificationsJson[QLatin1StringView("mobilePushNotifications")] = mobilePushNotifications();
     }
     if (mSettingsWillBeChanged & AudioNotificationValue) {
-        notificationsJson[QLatin1String("audioNotificationValue")] = audioNotificationValue();
+        notificationsJson[QLatin1StringView("audioNotificationValue")] = audioNotificationValue();
     }
     if (mSettingsWillBeChanged & UnreadAlert) {
-        notificationsJson[QLatin1String("unreadAlert")] = unreadAlert();
+        notificationsJson[QLatin1StringView("unreadAlert")] = unreadAlert();
     }
     if (mSettingsWillBeChanged & DesktopNotificationDuration) {
-        notificationsJson[QLatin1String("desktopNotificationDuration")] = desktopNotificationDuration();
+        notificationsJson[QLatin1StringView("desktopNotificationDuration")] = desktopNotificationDuration();
     }
     if (mSettingsWillBeChanged & DisableNotifications) {
-        notificationsJson[QLatin1String("disableNotifications")] = disableNotifications() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson[QLatin1StringView("disableNotifications")] = disableNotifications() ? QStringLiteral("1") : QStringLiteral("0");
     }
     if (mSettingsWillBeChanged & HideUnreadStatus) {
-        notificationsJson[QLatin1String("hideUnreadStatus")] = hideUnreadStatus() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson[QLatin1StringView("hideUnreadStatus")] = hideUnreadStatus() ? QStringLiteral("1") : QStringLiteral("0");
     }
     if (mSettingsWillBeChanged & MuteGroupMentions) {
-        notificationsJson[QLatin1String("muteGroupMentions")] = muteGroupMentions() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson[QLatin1StringView("muteGroupMentions")] = muteGroupMentions() ? QStringLiteral("1") : QStringLiteral("0");
     }
     if (mSettingsWillBeChanged & DesktopNotification) {
-        notificationsJson[QLatin1String("desktopNotifications")] = desktopNotifications();
+        notificationsJson[QLatin1StringView("desktopNotifications")] = desktopNotifications();
     }
     if (mSettingsWillBeChanged & HideMentionStatus) {
-        notificationsJson[QLatin1String("hideMentionStatus")] = hideMentionStatus() ? QStringLiteral("1") : QStringLiteral("0");
+        notificationsJson[QLatin1StringView("hideMentionStatus")] = hideMentionStatus() ? QStringLiteral("1") : QStringLiteral("0");
     }
-    jsonObj[QLatin1String("notifications")] = notificationsJson;
+    jsonObj[QLatin1StringView("notifications")] = notificationsJson;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

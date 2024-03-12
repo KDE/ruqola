@@ -85,11 +85,11 @@ void ViewLogWidget::insertLine(const QString &str)
 void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
 {
     // qDebug() << " obj" << obj;
-    const QJsonArray array = obj[QLatin1String("queue")].toArray();
+    const QJsonArray array = obj[QLatin1StringView("queue")].toArray();
     mPlainTextEdit->blockSignals(true);
     for (int i = 0; i < array.count(); ++i) {
         const QJsonObject objQueue = array.at(i).toObject();
-        insertLine(objQueue[QLatin1String("string")].toString());
+        insertLine(objQueue[QLatin1StringView("string")].toString());
     }
     mHistoryStdoutLoaded = true;
     for (const QString &str : std::as_const(mStdoutBeforeLoadingHistory)) {

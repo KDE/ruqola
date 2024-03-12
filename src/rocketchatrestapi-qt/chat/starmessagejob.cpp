@@ -45,7 +45,7 @@ void StarMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("StarMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT messageStarred();
     } else {
@@ -67,7 +67,7 @@ void StarMessageJob::setStarMessage(bool starMessage)
 QJsonDocument StarMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("messageId")] = mMessageId;
+    jsonObj[QLatin1StringView("messageId")] = mMessageId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

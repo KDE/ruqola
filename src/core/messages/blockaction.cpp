@@ -24,12 +24,12 @@ bool BlockAction::isValid() const
 
 void BlockAction::parseAction(const QJsonObject &o)
 {
-    mActionId = o[QLatin1String("actionId")].toString();
-    mBlockId = o[QLatin1String("blockId")].toString();
-    mType = o[QLatin1String("type")].toString();
+    mActionId = o[QLatin1StringView("actionId")].toString();
+    mBlockId = o[QLatin1StringView("blockId")].toString();
+    mType = o[QLatin1StringView("type")].toString();
     // TODO fix me
-    const QJsonObject objText = o[QLatin1String("text")].toObject();
-    mText = objText[QLatin1String("text")].toString();
+    const QJsonObject objText = o[QLatin1StringView("text")].toObject();
+    mText = objText[QLatin1StringView("text")].toString();
 }
 
 QString BlockAction::actionId() const

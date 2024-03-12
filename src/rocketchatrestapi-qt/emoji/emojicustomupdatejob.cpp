@@ -57,17 +57,17 @@ bool EmojiCustomUpdateJob::start()
     }
 
     QHttpPart identifierPart;
-    identifierPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"_id\"")));
+    identifierPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"_id\"")));
     identifierPart.setBody(mEmojiInfo.emojiId.toUtf8());
     multiPart->append(std::move(identifierPart));
 
     QHttpPart namePart;
-    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"name\"")));
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"name\"")));
     namePart.setBody(mEmojiInfo.name.toUtf8());
     multiPart->append(std::move(namePart));
 
     QHttpPart aliasesPart;
-    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
+    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"aliases\"")));
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
     multiPart->append(std::move(aliasesPart));
 
@@ -81,7 +81,7 @@ void EmojiCustomUpdateJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT emojiCustomUpdateDone(replyObject);
     } else {
@@ -108,7 +108,7 @@ void EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished()
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QLatin1String("success")].toBool()) {
+        if (replyObject[QLatin1StringView("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomUpdateDone(replyObject);
         } else {

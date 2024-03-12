@@ -63,7 +63,7 @@ void PurposeMenuWidget::slotShareActionFinished(const QJsonObject &output, int e
     if (error) {
         Q_EMIT errorMessage(i18n("There was a problem sharing the document: %1", message));
     } else {
-        const QString url = output[QLatin1String("url")].toString();
+        const QString url = output[QLatin1StringView("url")].toString();
         if (url.isEmpty()) {
             Q_EMIT successMessage(i18n("File was shared."));
         } else {

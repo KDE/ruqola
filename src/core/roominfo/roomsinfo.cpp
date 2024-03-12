@@ -37,9 +37,9 @@ RoomInfo RoomsInfo::at(int index) const
 
 void RoomsInfo::parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type)
 {
-    const int adminRoomsCount = obj[QLatin1String("count")].toInt();
-    mOffset = obj[QLatin1String("offset")].toInt();
-    mTotal = obj[QLatin1String("total")].toInt();
+    const int adminRoomsCount = obj[QLatin1StringView("count")].toInt();
+    mOffset = obj[QLatin1StringView("offset")].toInt();
+    mTotal = obj[QLatin1StringView("total")].toInt();
     parseListRooms(obj, type);
     mRoomsCount += adminRoomsCount;
 }
@@ -102,9 +102,9 @@ void RoomsInfo::setRooms(const QList<RoomInfo> &rooms)
 
 void RoomsInfo::parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type)
 {
-    mRoomsCount = obj[QLatin1String("count")].toInt();
-    mOffset = obj[QLatin1String("offset")].toInt();
-    mTotal = obj[QLatin1String("total")].toInt();
+    mRoomsCount = obj[QLatin1StringView("count")].toInt();
+    mOffset = obj[QLatin1StringView("offset")].toInt();
+    mTotal = obj[QLatin1StringView("total")].toInt();
     mRooms.clear();
     parseListRooms(obj, type);
 }

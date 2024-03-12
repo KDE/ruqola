@@ -58,7 +58,7 @@ bool SetAvatarJob::start()
         multiPart->append(filePart);
 
         QHttpPart userPart;
-        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"userId\"")));
+        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"userId\"")));
         userPart.setBody(userId().toUtf8());
         multiPart->append(userPart);
 
@@ -84,7 +84,7 @@ void SetAvatarJob::slotSetAvatar()
 void SetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setAvatarDone();
     } else {
@@ -105,12 +105,12 @@ void SetAvatarJob::setAvatarInfo(const SetAvatarInfo &avatarInfo)
 
 QString SetAvatarJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-avatar-invalid-url")) {
-        const QString url = details[QLatin1String("url")].toString();
+    if (str == QLatin1StringView("error-avatar-invalid-url")) {
+        const QString url = details[QLatin1StringView("url")].toString();
         return i18n("Invalid avatar URL: %1", url);
-    } else if (str == QLatin1String("error-avatar-url-handling")) {
-        const QString url = details[QLatin1String("url")].toString();
-        const QString username = details[QLatin1String("username")].toString();
+    } else if (str == QLatin1StringView("error-avatar-url-handling")) {
+        const QString url = details[QLatin1StringView("url")].toString();
+        const QString username = details[QLatin1StringView("username")].toString();
         return i18n("Error while handling avatar setting from a URL \"%1\" for %2", url, username);
     }
 
@@ -150,7 +150,7 @@ QNetworkRequest SetAvatarJob::request() const
 QJsonDocument SetAvatarJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("avatarUrl")] = mAvatarInfo.mAvatarUrl;
+    jsonObj[QLatin1StringView("avatarUrl")] = mAvatarInfo.mAvatarUrl;
     generateJson(jsonObj);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

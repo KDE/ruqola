@@ -41,10 +41,10 @@ void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomAr
     bool newEmoji = true;
     for (int i = 0; i < arrayEmojiCustomArray.count(); ++i) {
         const QJsonObject obj = arrayEmojiCustomArray.at(i).toObject();
-        const QJsonObject customEmojiObj = obj.value(QLatin1String("emojiData")).toObject();
+        const QJsonObject customEmojiObj = obj.value(QLatin1StringView("emojiData")).toObject();
         if (!customEmojiObj.isEmpty()) {
-            if (customEmojiObj.contains(QLatin1String("_id"))) {
-                const QString identifier = customEmojiObj.value(QLatin1String("_id")).toString();
+            if (customEmojiObj.contains(QLatin1StringView("_id"))) {
+                const QString identifier = customEmojiObj.value(QLatin1StringView("_id")).toString();
                 for (auto emoji : std::as_const(mCustomEmojiList)) {
                     if (emoji.identifier() == identifier) {
                         mCustomEmojiList.removeAll(emoji);
@@ -97,8 +97,8 @@ void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 {
     mCustomEmojiList.clear();
-    const QJsonObject result = obj.value(QLatin1String("emojis")).toObject();
-    const QJsonArray array = result.value(QLatin1String("update")).toArray();
+    const QJsonObject result = obj.value(QLatin1StringView("emojis")).toObject();
+    const QJsonArray array = result.value(QLatin1StringView("update")).toArray();
     // TODO add support for remove when we store it in local
     for (int i = 0, total = array.size(); i < total; ++i) {
         const QJsonObject emojiJson = array.at(i).toObject();
@@ -230,7 +230,7 @@ void EmojiManager::replaceEmojis(QString *str)
         // furthermore, we don't want to replace emojis (esp. non-colon escaped ones) in the
         // middle of another string, such as within a URL or such. at the same time, multiple
         // smileys may come after another...
-        const auto commonPattern = QLatin1String(":[\\w\\-]+:");
+        const auto commonPattern = QLatin1StringView(":[\\w\\-]+:");
         // TODO: use QRegularExpression::anchoredPattern once ruqola depends on Qt 5.15
         static const QRegularExpression common(QLatin1Char('^') + commonPattern + QLatin1Char('$'));
 

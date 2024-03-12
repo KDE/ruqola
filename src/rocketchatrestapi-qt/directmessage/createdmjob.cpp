@@ -34,7 +34,7 @@ void CreateDmJob::onPostRequestResponse(const QString &replyErrorString, const Q
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT createDmDone();
     } else {
@@ -74,9 +74,9 @@ QJsonDocument CreateDmJob::json() const
 {
     QJsonObject jsonObj;
     if (mUserNames.count() == 1) {
-        jsonObj[QLatin1String("username")] = mUserNames.at(0);
+        jsonObj[QLatin1StringView("username")] = mUserNames.at(0);
     } else {
-        jsonObj[QLatin1String("usernames")] = mUserNames.join(QLatin1Char(','));
+        jsonObj[QLatin1StringView("usernames")] = mUserNames.join(QLatin1Char(','));
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

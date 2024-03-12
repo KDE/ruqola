@@ -47,10 +47,10 @@ void TeamRoom::setFname(const QString &fname)
 
 void TeamRoom::parse(const QJsonObject &obj)
 {
-    mName = obj[QLatin1String("name")].toString();
-    mFname = obj[QLatin1String("fname")].toString();
-    mAutoJoin = obj[QLatin1String("teamDefault")].toBool(false);
-    mIdentifier = obj[QLatin1String("_id")].toString();
+    mName = obj[QLatin1StringView("name")].toString();
+    mFname = obj[QLatin1StringView("fname")].toString();
+    mAutoJoin = obj[QLatin1StringView("teamDefault")].toBool(false);
+    mIdentifier = obj[QLatin1StringView("_id")].toString();
 }
 
 QString TeamRoom::identifier() const
@@ -66,7 +66,7 @@ void TeamRoom::setIdentifier(const QString &identifier)
 QList<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
 {
     QList<TeamRoom> teamRooms;
-    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    const QJsonArray rooms = obj.value(QLatin1StringView("rooms")).toArray();
     teamRooms.reserve(rooms.count());
     for (int i = 0, total = rooms.count(); i < total; ++i) {
         const QJsonObject r = rooms.at(i).toObject();

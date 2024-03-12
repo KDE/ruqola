@@ -35,7 +35,7 @@ void ChannelRemoveOwnerJob::onPostRequestResponse(const QString &replyErrorStrin
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelRemoveOwnerDone();
     } else {
@@ -79,7 +79,7 @@ QJsonDocument ChannelRemoveOwnerJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1String("userId")] = removeUserId();
+    jsonObj[QLatin1StringView("userId")] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -96,7 +96,7 @@ QNetworkRequest ChannelRemoveOwnerJob::request() const
 
 QString ChannelRemoveOwnerJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-user-not-owner")) {
+    if (str == QLatin1StringView("error-user-not-owner")) {
         return i18n("User is not an owner.");
     }
 

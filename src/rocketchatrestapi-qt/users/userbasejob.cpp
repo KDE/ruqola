@@ -59,10 +59,10 @@ void UserBaseJob::generateJson(QJsonObject &jsonObj) const
 {
     switch (mUserInfo.userInfoType) {
     case UserBaseJob::UserInfoType::UserName:
-        jsonObj[QLatin1String("username")] = mUserInfo.userIdentifier;
+        jsonObj[QLatin1StringView("username")] = mUserInfo.userIdentifier;
         break;
     case UserBaseJob::UserInfoType::UserId:
-        jsonObj[QLatin1String("userId")] = mUserInfo.userIdentifier;
+        jsonObj[QLatin1StringView("userId")] = mUserInfo.userIdentifier;
         break;
     case UserBaseJob::UserInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserBaseJob::UserInfoType::Unknown is a bug !";

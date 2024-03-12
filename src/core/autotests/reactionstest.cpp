@@ -53,7 +53,7 @@ void ReactionsTest::shouldParseReactions()
 {
     QFETCH(QString, name);
     QFETCH(Reactions, expectedReactions);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Reactions originalReactions;
     originalReactions.parseReactions(obj);

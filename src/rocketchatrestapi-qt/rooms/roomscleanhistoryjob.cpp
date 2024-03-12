@@ -35,7 +35,7 @@ void RoomsCleanHistoryJob::onPostRequestResponse(const QString &replyErrorString
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelCleanHistoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT cleanHistoryDone();
     } else {
@@ -75,27 +75,27 @@ bool RoomsCleanHistoryJob::canStart() const
 QJsonDocument RoomsCleanHistoryJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mCleanHistoryInfo.roomId;
+    jsonObj[QLatin1StringView("roomId")] = mCleanHistoryInfo.roomId;
     if (mCleanHistoryInfo.inclusive) {
-        jsonObj[QLatin1String("inclusive")] = true;
+        jsonObj[QLatin1StringView("inclusive")] = true;
     }
     if (mCleanHistoryInfo.ignoreThreads) {
-        jsonObj[QLatin1String("ignoreThreads")] = true;
+        jsonObj[QLatin1StringView("ignoreThreads")] = true;
     }
     if (mCleanHistoryInfo.filesOnly) {
-        jsonObj[QLatin1String("filesOnly")] = true;
+        jsonObj[QLatin1StringView("filesOnly")] = true;
     }
     if (mCleanHistoryInfo.excludePinned) {
-        jsonObj[QLatin1String("excludePinned")] = true;
+        jsonObj[QLatin1StringView("excludePinned")] = true;
     }
     if (mCleanHistoryInfo.ignoreDiscussion) {
-        jsonObj[QLatin1String("ignoreDiscussion")] = true;
+        jsonObj[QLatin1StringView("ignoreDiscussion")] = true;
     }
 
-    jsonObj[QLatin1String("latest")] = mCleanHistoryInfo.latest.toString(Qt::ISODateWithMs);
-    jsonObj[QLatin1String("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODateWithMs);
+    jsonObj[QLatin1StringView("latest")] = mCleanHistoryInfo.latest.toString(Qt::ISODateWithMs);
+    jsonObj[QLatin1StringView("oldest")] = mCleanHistoryInfo.oldest.toString(Qt::ISODateWithMs);
     if (!mCleanHistoryInfo.users.isEmpty()) {
-        jsonObj[QLatin1String("users")] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
+        jsonObj[QLatin1StringView("users")] = QJsonArray::fromStringList(mCleanHistoryInfo.users);
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

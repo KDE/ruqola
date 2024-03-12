@@ -28,12 +28,12 @@ void Roles::setRoles(const QList<Role> &roles)
 
 void Roles::updateRoles(const QJsonObject &obj)
 {
-    const QString type = obj[QLatin1String("type")].toString();
-    const QString id = obj[QLatin1String("_id")].toString();
-    const QString userId = obj[QLatin1String("u")].toObject().value(QLatin1String("_id")).toString();
+    const QString type = obj[QLatin1StringView("type")].toString();
+    const QString id = obj[QLatin1StringView("_id")].toString();
+    const QString userId = obj[QLatin1StringView("u")].toObject().value(QLatin1StringView("_id")).toString();
     bool foundUser = false;
     // qDebug() << " type " << type << " id " << id << " userId" << userId;
-    if (type == QLatin1String("added")) {
+    if (type == QLatin1StringView("added")) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
                 Role &r = mRoles[i];
@@ -48,7 +48,7 @@ void Roles::updateRoles(const QJsonObject &obj)
             r.updateRole(id, true);
             mRoles.append(std::move(r));
         }
-    } else if (type == QLatin1String("removed")) {
+    } else if (type == QLatin1StringView("removed")) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
                 Role r = mRoles.takeAt(i);
@@ -86,7 +86,7 @@ void Roles::parseRole(const QJsonObject &obj)
 {
     mRoles.clear();
 
-    const QJsonArray roleArray = obj[QLatin1String("roles")].toArray();
+    const QJsonArray roleArray = obj[QLatin1StringView("roles")].toArray();
     const auto roleArrayCount = roleArray.count();
     mRoles.reserve(roleArrayCount);
     for (auto i = 0; i < roleArrayCount; ++i) {

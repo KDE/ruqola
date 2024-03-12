@@ -22,9 +22,9 @@ QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
 
 void PersonalAccessTokenInfo::parsePersonalAccessTokenInfo(const QJsonObject &replyObject)
 {
-    mName = replyObject.value(QLatin1String("name")).toString();
-    mLastTokenPart = replyObject.value(QLatin1String("lastTokenPart")).toString();
-    mBypassTwoFactor = replyObject.value(QLatin1String("bypassTwoFactor")).toBool();
+    mName = replyObject.value(QLatin1StringView("name")).toString();
+    mLastTokenPart = replyObject.value(QLatin1StringView("lastTokenPart")).toString();
+    mBypassTwoFactor = replyObject.value(QLatin1StringView("bypassTwoFactor")).toBool();
     setCreatedAt(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject));
 }
 

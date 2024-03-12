@@ -61,7 +61,7 @@ void ServerInfoTest::shouldLoadServerInfo()
 {
     QFETCH(QString, fileName);
     QFETCH(ServerInfo, serverInfo);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/serverinfo/") + fileName + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/serverinfo/") + fileName + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ServerInfo r;

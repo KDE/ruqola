@@ -115,7 +115,7 @@ void UserTest::shouldParseUser()
     const QString status = QStringLiteral("offline");
     fields.insert(QStringLiteral("name"), QJsonValue(name));
     fields.insert(QStringLiteral("status"), QJsonValue(status));
-    object.insert(QStringLiteral("id"), QJsonValue(QLatin1String("RA151100ECE")));
+    object.insert(QStringLiteral("id"), QJsonValue(QLatin1StringView("RA151100ECE")));
     object.insert(QStringLiteral("fields"), fields);
 
     sampleUser.parseUser(object);
@@ -161,7 +161,7 @@ void UserTest::shouldParseJson()
 {
     QFETCH(QString, fileName);
     QFETCH(User, expectedUser);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
     User user;
     user.parseUser(fields);
@@ -221,7 +221,7 @@ void UserTest::shouldParseRestApiJson()
 {
     QFETCH(QString, fileName);
     QFETCH(User, expectedUser);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
     User user;
     user.parseUserRestApi(fields, {});

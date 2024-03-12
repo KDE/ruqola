@@ -90,16 +90,16 @@ ModerationInfo ModerationInfos::at(int index) const
 void ModerationInfos::parseModerationInfos(const QJsonObject &moderationInfosObj)
 {
     mModerationInfosList.clear();
-    mModerationInfosCount = moderationInfosObj[QLatin1String("count")].toInt();
-    mOffset = moderationInfosObj[QLatin1String("offset")].toInt();
-    mTotal = moderationInfosObj[QLatin1String("total")].toInt();
+    mModerationInfosCount = moderationInfosObj[QLatin1StringView("count")].toInt();
+    mOffset = moderationInfosObj[QLatin1StringView("offset")].toInt();
+    mTotal = moderationInfosObj[QLatin1StringView("total")].toInt();
     mModerationInfosList.reserve(mModerationInfosCount);
     parseModerationInfosObj(moderationInfosObj);
 }
 
 void ModerationInfos::parseModerationInfosObj(const QJsonObject &moderationInfosObj)
 {
-    const QJsonArray moderationsArray = moderationInfosObj[QLatin1String("reports")].toArray();
+    const QJsonArray moderationsArray = moderationInfosObj[QLatin1StringView("reports")].toArray();
     for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
@@ -114,9 +114,9 @@ void ModerationInfos::parseModerationInfosObj(const QJsonObject &moderationInfos
 
 void ModerationInfos::parseMoreModerationInfos(const QJsonObject &moderationInfosObj)
 {
-    const int moderationInfosCount = moderationInfosObj[QLatin1String("count")].toInt();
-    mOffset = moderationInfosObj[QLatin1String("offset")].toInt();
-    mTotal = moderationInfosObj[QLatin1String("total")].toInt();
+    const int moderationInfosCount = moderationInfosObj[QLatin1StringView("count")].toInt();
+    mOffset = moderationInfosObj[QLatin1StringView("offset")].toInt();
+    mTotal = moderationInfosObj[QLatin1StringView("total")].toInt();
     parseModerationInfosObj(moderationInfosObj);
     mModerationInfosCount += moderationInfosCount;
 }

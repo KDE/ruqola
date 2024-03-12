@@ -35,7 +35,7 @@ void GetPersonalAccessTokensJob::onGetRequestResponse(const QString &replyErrorS
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetPersonalAccessTokensJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPersonalAccessTokensDone(replyObject);
     } else {

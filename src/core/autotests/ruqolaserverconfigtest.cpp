@@ -299,7 +299,7 @@ void RuqolaServerConfigTest::shouldSerializeConfig()
     QFETCH(QString, name);
     QFETCH(AuthenticationManager::AuthMethodTypes, authentications);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/serverconfig/%1").arg(name);
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/serverconfig/%1").arg(name);
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RuqolaServerConfig config;

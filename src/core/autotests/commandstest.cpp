@@ -36,7 +36,7 @@ void CommandsTest::shouldLoadCommands()
 {
     QFETCH(QString, name);
     QFETCH(int, commandsCount);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/commands/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/commands/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;
@@ -46,7 +46,7 @@ void CommandsTest::shouldLoadCommands()
 
 void CommandsTest::shouldLoadPermissions()
 {
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/commands/command3.json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/commands/command3.json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Commands r;

@@ -69,7 +69,7 @@ void license_get_modules(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("License GetModule:") + QJsonDocument(root).toJson());
     }
-    const QJsonArray obj = root.value(QLatin1String("result")).toArray();
+    const QJsonArray obj = root.value(QLatin1StringView("result")).toArray();
     account->parseLicenses(obj);
 }
 
@@ -87,7 +87,7 @@ void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
     }
-    const QJsonArray obj = root.value(QLatin1String("result")).toArray();
+    const QJsonArray obj = root.value(QLatin1StringView("result")).toArray();
     account->parseCustomSounds(obj);
 }
 
@@ -96,7 +96,7 @@ void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Oauth app:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     qDebug() << "delete_oauth_app root " << root;
 }
 
@@ -105,7 +105,7 @@ void update_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Oauth App:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     account->setOauthAppUpdated(obj);
     qDebug() << "update_oauth_app root " << root;
 }
@@ -115,7 +115,7 @@ void add_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Add Oauth App:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     account->setOauthAppAdded(obj);
 }
 
@@ -160,7 +160,7 @@ void validateTempToken_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Validate Temp Token 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     account->totpVerify(obj);
 }
 
@@ -177,7 +177,7 @@ void regenerateCodes_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Regenerate Codes 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     // TODO
     qDebug() << " regenerateCodes_2fa " << root;
 }
@@ -187,7 +187,7 @@ void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Enable 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     account->generate2FaTotp(obj);
 }
 
@@ -204,7 +204,7 @@ void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount 
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     account->inputTextManager()->inputTextCompleter(obj);
 }
 
@@ -213,16 +213,16 @@ void input_user_channel_autocomplete_thread(const QJsonObject &root, RocketChatA
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete thread dialog:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
 
     account->inputThreadMessageTextManager()->inputTextCompleter(obj);
 }
 
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1String("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true);
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
+    // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1StringView("messages")).toArray().size();
+    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1StringView("messages")).toArray(), true);
 }
 
 void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
@@ -241,10 +241,10 @@ void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     // qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
     if (!obj.isEmpty()) {
-        const QString rid = obj.value(QLatin1String("rid")).toString();
+        const QString rid = obj.value(QLatin1StringView("rid")).toString();
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
@@ -696,19 +696,19 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 {
     quint64 registerId = mUid;
     QJsonObject json;
-    json[QLatin1String("msg")] = QStringLiteral("sub");
-    json[QLatin1String("id")] = QString::number(mUid);
-    json[QLatin1String("name")] = collection;
+    json[QLatin1StringView("msg")] = QStringLiteral("sub");
+    json[QLatin1StringView("id")] = QString::number(mUid);
+    json[QLatin1StringView("name")] = collection;
 
     QJsonArray newParams = params;
 
     QJsonArray args;
     QJsonObject obj;
-    obj[QLatin1String("useCollection")] = false;
-    obj[QLatin1String("args")] = args;
+    obj[QLatin1StringView("useCollection")] = false;
+    obj[QLatin1StringView("args")] = args;
     newParams.append(std::move(obj));
 
-    json[QLatin1String("params")] = newParams;
+    json[QLatin1StringView("params")] = newParams;
     qCDebug(RUQOLA_DDPAPI_LOG) << "subscribe: json " << json << "m_uid " << mUid;
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
@@ -799,13 +799,13 @@ void DDPClient::onTextMessageReceived(const QString &message)
     if (!response.isNull() && response.isObject()) {
         QJsonObject root = response.object();
 
-        const QString messageType = root.value(QLatin1String("msg")).toString();
+        const QString messageType = root.value(QLatin1StringView("msg")).toString();
 
-        if (messageType == QLatin1String("updated")) {
+        if (messageType == QLatin1StringView("updated")) {
             // nothing to do.
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " message updated ! not implemented yet" << response;
-        } else if (messageType == QLatin1String("result")) {
-            quint64 id = root.value(QLatin1String("id")).toString().toULongLong();
+        } else if (messageType == QLatin1StringView("result")) {
+            quint64 id = root.value(QLatin1StringView("id")).toString().toULongLong();
 
             // Checking first if any of the new DDPManager claimed the result,
             // otherwise defaulting to old behaviour.
@@ -820,37 +820,37 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 callback(root, mRocketChatAccount);
             }
 
-            Q_EMIT result(id, QJsonDocument(root.value(QLatin1String("result")).toObject()));
-        } else if (messageType == QLatin1String("connected")) {
+            Q_EMIT result(id, QJsonDocument(root.value(QLatin1StringView("result")).toObject()));
+        } else if (messageType == QLatin1StringView("connected")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
             m_connected = true;
             Q_EMIT connectedChanged();
-        } else if (messageType == QLatin1String("error")) {
+        } else if (messageType == QLatin1StringView("error")) {
             qWarning() << mRocketChatAccount->accountName() << " ERROR!!" << message;
-        } else if (messageType == QLatin1String("ping")) {
+        } else if (messageType == QLatin1StringView("ping")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Ping - Pong";
             pong();
-        } else if (messageType == QLatin1String("added")) {
+        } else if (messageType == QLatin1StringView("added")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "ADDING element" << response;
             Q_EMIT added(root);
-        } else if (messageType == QLatin1String("changed")) {
+        } else if (messageType == QLatin1StringView("changed")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Changed element" << response;
             Q_EMIT changed(root);
-        } else if (messageType == QLatin1String("ready")) {
+        } else if (messageType == QLatin1StringView("ready")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "READY element" << response;
             executeSubsCallBack(root);
-        } else if (messageType == QLatin1String("removed")) {
+        } else if (messageType == QLatin1StringView("removed")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "REMOVED element" << response;
             Q_EMIT removed(root);
-        } else if (messageType == QLatin1String("nosub")) {
+        } else if (messageType == QLatin1StringView("nosub")) {
             const QString id = root.value(QStringLiteral("id")).toString();
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Unsubscribe element" << message << id;
-            const QJsonObject errorObj = root[QLatin1String("error")].toObject();
+            const QJsonObject errorObj = root[QLatin1StringView("error")].toObject();
             if (!errorObj.isEmpty()) {
                 qWarning() << mRocketChatAccount->accountName() << "Error unsubscribing from" << id;
-                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj[QLatin1String("error")].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj[QLatin1String("message")].toString();
-                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj[QLatin1String("reason")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "ERROR: " << errorObj[QLatin1StringView("error")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Message: " << errorObj[QLatin1StringView("message")].toString();
+                qWarning() << mRocketChatAccount->accountName() << "Reason: " << errorObj[QLatin1StringView("reason")].toString();
                 qWarning() << mRocketChatAccount->accountName() << "-- Error found END --";
             }
         } else {
@@ -897,11 +897,11 @@ void DDPClient::onWSConnected()
     qCDebug(RUQOLA_DDPAPI_LOG) << "Websocket connected at URL" << mUrl;
 
     QJsonArray supportedVersions;
-    supportedVersions.append(QLatin1String("1"));
+    supportedVersions.append(QLatin1StringView("1"));
     QJsonObject protocol;
-    protocol[QLatin1String("msg")] = QStringLiteral("connect");
-    protocol[QLatin1String("version")] = QStringLiteral("1");
-    protocol[QLatin1String("support")] = supportedVersions;
+    protocol[QLatin1StringView("msg")] = QStringLiteral("connect");
+    protocol[QLatin1StringView("version")] = QStringLiteral("1");
+    protocol[QLatin1StringView("support")] = supportedVersions;
     const QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     const qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
@@ -945,13 +945,13 @@ void DDPClient::onWSclosed()
 void DDPClient::pong()
 {
     QJsonObject pong;
-    pong[QLatin1String("msg")] = QStringLiteral("pong");
+    pong[QLatin1StringView("msg")] = QStringLiteral("pong");
     mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
 }
 
 void DDPClient::executeSubsCallBack(const QJsonObject &root)
 {
-    const QJsonArray subs = root[QLatin1String("subs")].toArray();
+    const QJsonArray subs = root[QLatin1StringView("subs")].toArray();
     if (!subs.isEmpty()) {
         const quint64 id = subs.at(0).toString().toULongLong();
         if (m_callbackHash.contains(id)) {

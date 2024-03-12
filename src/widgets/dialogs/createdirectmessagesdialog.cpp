@@ -66,14 +66,14 @@ void CreateDirectMessagesDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 600));
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigCreateDirectMessagesDialogGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateDirectMessagesDialogGroupName));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void CreateDirectMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1String(myConfigCreateDirectMessagesDialogGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateDirectMessagesDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

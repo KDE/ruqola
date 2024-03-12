@@ -40,7 +40,7 @@ void PostMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("PostMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT postMessageDone(replyObject);
     } else {
@@ -100,11 +100,11 @@ QJsonDocument PostMessageJob::json() const
     QJsonObject jsonObj;
     if (mRoomIds.count() == 1) {
         // Make sure to not break old RC server
-        jsonObj[QLatin1String("roomId")] = mRoomIds.at(0);
+        jsonObj[QLatin1StringView("roomId")] = mRoomIds.at(0);
     } else {
-        jsonObj[QLatin1String("roomId")] = QJsonArray::fromStringList(mRoomIds);
+        jsonObj[QLatin1StringView("roomId")] = QJsonArray::fromStringList(mRoomIds);
     }
-    jsonObj[QLatin1String("text")] = mText;
+    jsonObj[QLatin1StringView("text")] = mText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData " << postData;
@@ -113,11 +113,11 @@ QJsonDocument PostMessageJob::json() const
 
 QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1String("room_is_blocked")) {
+    if (errorStr == QLatin1StringView("room_is_blocked")) {
         return i18n("This room is blocked");
-    } else if (errorStr == QLatin1String("You_have_been_muted")) {
+    } else if (errorStr == QLatin1StringView("You_have_been_muted")) {
         return i18n("You have been muted and cannot speak in this room");
-    } else if (errorStr == QLatin1String("invalid-channel")) {
+    } else if (errorStr == QLatin1StringView("invalid-channel")) {
         return i18n("Invalid channel");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
@@ -125,7 +125,7 @@ QString PostMessageJob::generateErrorMessage(const QString &errorStr) const
 
 QString PostMessageJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("invalid-channel")) {
+    if (str == QLatin1StringView("invalid-channel")) {
         return i18n("Invalid channel");
     }
     return RestApiAbstractJob::errorMessage(str, details);

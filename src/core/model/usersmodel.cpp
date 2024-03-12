@@ -158,14 +158,14 @@ void UsersModel::addUser(const User &newuser)
 
 void UsersModel::updateUser(const QJsonObject &array)
 {
-    const QString id = array.value(QLatin1String("id")).toString();
+    const QString id = array.value(QLatin1StringView("id")).toString();
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == id) {
             User &user = mUsers[i];
-            const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
+            const QJsonObject fields = array.value(QLatin1StringView("fields")).toObject();
 
-            const QString newStatus = fields.value(QLatin1String("status")).toString();
+            const QString newStatus = fields.value(QLatin1StringView("status")).toString();
             bool userDataChanged = false;
             if (!newStatus.isEmpty()) {
                 user.setStatus(Utils::presenceStatusFromString(newStatus));
@@ -174,7 +174,7 @@ void UsersModel::updateUser(const QJsonObject &array)
                 Q_EMIT userStatusChanged(user);
                 userDataChanged = true;
             }
-            const QString newName = fields.value(QLatin1String("name")).toString();
+            const QString newName = fields.value(QLatin1StringView("name")).toString();
             if (!newName.isEmpty()) {
                 user.setName(newName);
                 const QModelIndex idx = createIndex(i, 0);
@@ -182,7 +182,7 @@ void UsersModel::updateUser(const QJsonObject &array)
                 Q_EMIT userNameChanged(user);
                 userDataChanged = true;
             }
-            const QString newuserName = fields.value(QLatin1String("username")).toString();
+            const QString newuserName = fields.value(QLatin1StringView("username")).toString();
             if (!newuserName.isEmpty()) {
                 user.setUserName(newuserName);
                 const QModelIndex idx = createIndex(i, 0);
@@ -190,7 +190,7 @@ void UsersModel::updateUser(const QJsonObject &array)
                 Q_EMIT nameChanged(user);
                 userDataChanged = true;
             }
-            const QString statusMessage = fields.value(QLatin1String("statusText")).toString();
+            const QString statusMessage = fields.value(QLatin1StringView("statusText")).toString();
             if (!statusMessage.isEmpty()) {
                 user.setStatusText(statusMessage);
                 const QModelIndex idx = createIndex(i, 0);

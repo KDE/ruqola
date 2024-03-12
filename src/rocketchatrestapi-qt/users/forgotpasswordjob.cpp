@@ -43,7 +43,7 @@ bool ForgotPasswordJob::start()
 void ForgotPasswordJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT forgotPasswordDone();
     } else {
@@ -78,7 +78,7 @@ bool ForgotPasswordJob::requireHttpAuthentication() const
 QJsonDocument ForgotPasswordJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("email")] = mEmail;
+    jsonObj[QLatin1StringView("email")] = mEmail;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

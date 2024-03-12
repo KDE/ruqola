@@ -39,12 +39,12 @@ bool RoleInfo::operator==(const RoleInfo &other) const
 void RoleInfo::parseRoleInfo(const QJsonObject &obj)
 {
     // TODO updateAt!
-    mScope = obj[QLatin1String("scope")].toString();
-    mIdentifier = obj[QLatin1String("_id")].toString();
-    mName = obj[QLatin1String("name")].toString();
-    mDescription = obj[QLatin1String("description")].toString();
-    mRoleProtected = obj[QLatin1String("protected")].toBool();
-    mMandatory2fa = obj[QLatin1String("mandatory2fa")].toBool();
+    mScope = obj[QLatin1StringView("scope")].toString();
+    mIdentifier = obj[QLatin1StringView("_id")].toString();
+    mName = obj[QLatin1StringView("name")].toString();
+    mDescription = obj[QLatin1StringView("description")].toString();
+    mRoleProtected = obj[QLatin1StringView("protected")].toBool();
+    mMandatory2fa = obj[QLatin1StringView("mandatory2fa")].toBool();
 }
 
 const QString &RoleInfo::name() const

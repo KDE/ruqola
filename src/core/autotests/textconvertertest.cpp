@@ -30,15 +30,15 @@ QString prepareExpectedOutput(QString output)
     const auto hereAllMentionBackgroundColor = scheme.background(KColorScheme::NeutralBackground).color().name();
     const auto hereAllMentionForegroundColor = scheme.foreground(KColorScheme::NeutralText).color().name();
 
-    output.replace(QLatin1String("$BGCOLOR$"), codeBackgroundColor);
-    output.replace(QLatin1String("$BORDERCOLOR$"), codeBorderColor);
-    output.replace(QLatin1String("$USERCOLOR$"), userHighlightForegroundColor);
-    output.replace(QLatin1String("$USERBGCOLOR$"), userHighlightBackgroundColor);
-    output.replace(QLatin1String("$HEREBGCOLOR$"), hereAllMentionBackgroundColor);
-    output.replace(QLatin1String("$HERECOLOR$"), hereAllMentionForegroundColor);
+    output.replace(QLatin1StringView("$BGCOLOR$"), codeBackgroundColor);
+    output.replace(QLatin1StringView("$BORDERCOLOR$"), codeBorderColor);
+    output.replace(QLatin1StringView("$USERCOLOR$"), userHighlightForegroundColor);
+    output.replace(QLatin1StringView("$USERBGCOLOR$"), userHighlightBackgroundColor);
+    output.replace(QLatin1StringView("$HEREBGCOLOR$"), hereAllMentionBackgroundColor);
+    output.replace(QLatin1StringView("$HERECOLOR$"), hereAllMentionForegroundColor);
 
-    output.prepend(QLatin1String("<qt>"));
-    output.append(QLatin1String("</qt>"));
+    output.prepend(QLatin1StringView("<qt>"));
+    output.append(QLatin1StringView("</qt>"));
 
     return output;
 }
@@ -359,7 +359,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     output = prepareExpectedOutput(output);
 
     // Load emoji
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/restapi/emojiparent.json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
@@ -369,7 +369,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {});
     auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-    if (QLatin1String(QTest::currentDataTag()) == QLatin1String("quotedcode7")) {
+    if (QLatin1StringView(QTest::currentDataTag()) == QLatin1StringView("quotedcode7")) {
         // remove additional highlighting of the ':)' symbols within the <code> block
         // the text color is syntax highlighting theme dependent, so hard for us to check
         actualOutput.replace(QRegularExpression(QStringLiteral("<code><span style=\".+\">:\\)</span></code>")), QStringLiteral("<code>:)</code>"));

@@ -33,7 +33,7 @@ bool ChannelMembersJob::start()
 void ChannelMembersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("channelMembersDone success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelMembersDone(replyObject, channelGroupInfo());
     } else {
@@ -44,7 +44,7 @@ void ChannelMembersJob::onGetRequestResponse(const QString &replyErrorString, co
 
 QString ChannelMembersJob::generateErrorMessage(const QString &errorStr) const
 {
-    if (errorStr == QLatin1String("unauthorized")) {
+    if (errorStr == QLatin1StringView("unauthorized")) {
         return i18n("Get Members not authorized in this room");
     }
     return ChannelGroupBaseJob::generateErrorMessage(errorStr);

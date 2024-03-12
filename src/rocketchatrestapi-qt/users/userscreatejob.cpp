@@ -34,7 +34,7 @@ bool UsersCreateJob::start()
 void UsersCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersCreateDone(replyObject);
     } else {
@@ -87,8 +87,8 @@ QJsonDocument UsersCreateJob::json() const
 QString UsersCreateJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
     // qDebug() << " str " << str << " details " << detail;
-    if (str == QLatin1String("error-field-unavailable")) {
-        const QString field = detail.value(QLatin1String("field")).toString();
+    if (str == QLatin1StringView("error-field-unavailable")) {
+        const QString field = detail.value(QLatin1StringView("field")).toString();
         return i18n("%1 is already in use.", field);
     }
     return RestApiAbstractJob::errorMessage(str, detail);

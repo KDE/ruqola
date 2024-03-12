@@ -33,7 +33,7 @@ bool SetStatusJob::start()
 void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setStatusDone();
     } else {
@@ -105,7 +105,7 @@ QNetworkRequest SetStatusJob::request() const
 QJsonDocument SetStatusJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("userId")] = mStatusUserId;
+    jsonObj[QLatin1StringView("userId")] = mStatusUserId;
     QString statusType;
     switch (mStatus) {
     case OnLine:
@@ -123,8 +123,8 @@ QJsonDocument SetStatusJob::json() const
     case Unknown:
         break;
     }
-    jsonObj[QLatin1String("status")] = statusType;
-    jsonObj[QLatin1String("message")] = mStatusMessage;
+    jsonObj[QLatin1StringView("status")] = statusType;
+    jsonObj[QLatin1StringView("message")] = mStatusMessage;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -132,7 +132,7 @@ QJsonDocument SetStatusJob::json() const
 
 QString SetStatusJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-status-not-allowed")) {
+    if (str == QLatin1StringView("error-status-not-allowed")) {
         return i18n("Invisible status is disabled");
     }
     return RestApiAbstractJob::errorMessage(str, detail);

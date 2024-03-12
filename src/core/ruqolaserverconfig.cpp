@@ -147,28 +147,28 @@ bool RuqolaServerConfig::serverHasSupportForAuthMethodType(AuthenticationManager
 void RuqolaServerConfig::addOauthService(const QString &service)
 {
     qCDebug(RUQOLA_AUTHENTICATION_LOG) << " serviceLower " << service;
-    if (service.endsWith(QLatin1String("twitter"), Qt::CaseInsensitive)) {
+    if (service.endsWith(QLatin1StringView("twitter"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Twitter;
-    } else if (service.endsWith(QLatin1String("facebook"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("facebook"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::FaceBook;
-    } else if (service.endsWith(QLatin1String("github"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("github"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::GitHub;
-    } else if (service.endsWith(QLatin1String("gitlab"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("gitlab"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::GitLab;
-    } else if (service.endsWith(QLatin1String("google"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("google"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Google;
-    } else if (service.endsWith(QLatin1String("linkedin"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("linkedin"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Linkedin;
-    } else if (service.endsWith(QLatin1String("wordpress"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("wordpress"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Wordpress;
-    } else if (service.endsWith(QLatin1String("apple"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("apple"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::Apple;
-    } else if (service.endsWith(QLatin1String("nextcloud"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("nextcloud"), Qt::CaseInsensitive)) {
         mServerAuthTypes |= AuthenticationManager::AuthMethodType::NextCloud;
-    } else if (service.endsWith(QLatin1String("_oauth_proxy_host"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("_oauth_proxy_host"), Qt::CaseInsensitive)) {
         // Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";
-    } else if (service.endsWith(QLatin1String("_oauth_meteor"), Qt::CaseInsensitive)) {
+    } else if (service.endsWith(QLatin1StringView("_oauth_meteor"), Qt::CaseInsensitive)) {
         qCDebug(RUQOLA_LOG) << "Accounts_OAuth_Meteor found ";
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
@@ -190,7 +190,7 @@ void RuqolaServerConfig::privateSettingsUpdated(const QJsonArray &updateArray)
 {
     if (updateArray.count() == 2) {
         const QString updateArrayInfo{updateArray.at(0).toString()};
-        if (updateArrayInfo == QLatin1String("updated")) {
+        if (updateArrayInfo == QLatin1StringView("updated")) {
             loadSettings(updateArray.at(1).toObject());
             qDebug() << "Update settings " << *this;
         } else {
@@ -253,12 +253,12 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
 
 void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
 {
-    if (registrationFromValue == QLatin1String("Public")) {
+    if (registrationFromValue == QLatin1StringView("Public")) {
         mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFormEnabled;
-    } else if (registrationFromValue == QLatin1String("Disabled")) {
+    } else if (registrationFromValue == QLatin1StringView("Disabled")) {
         // Nothing => disabled
         ;
-    } else if (registrationFromValue == QLatin1String("Secret URL")) {
+    } else if (registrationFromValue == QLatin1StringView("Secret URL")) {
         qCWarning(RUQOLA_LOG) << " Registration Secret Url not implemented";
     }
 }
@@ -409,8 +409,8 @@ void RuqolaServerConfig::assignSettingValue(bool value, ServerConfigFeatureType 
 RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDefaultValue(const QJsonObject &o)
 {
     RuqolaServerConfig::ConfigWithDefaultValue value;
-    value.defaultUrl = o[QLatin1String("defaultUrl")].toString();
-    value.url = o[QLatin1String("url")].toString();
+    value.defaultUrl = o[QLatin1StringView("defaultUrl")].toString();
+    value.url = o[QLatin1StringView("url")].toString();
     return value;
 }
 
@@ -467,144 +467,144 @@ void RuqolaServerConfig::setPreviewEmbed(bool newPreviewEmbed)
 void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
 {
     // qDebug() << " currentConfObject " << currentConfObject;
-    const QString id = currentConfObject[QLatin1String("_id")].toString();
-    const QVariant value = currentConfObject[QLatin1String("value")].toVariant();
+    const QString id = currentConfObject[QLatin1StringView("_id")].toString();
+    const QVariant value = currentConfObject[QLatin1StringView("value")].toVariant();
     static const QRegularExpression regularExpressionOAuth(QStringLiteral("^Accounts_OAuth_\\w+"));
-    if (id == QLatin1String("uniqueID")) {
+    if (id == QLatin1StringView("uniqueID")) {
         setUniqueId(value.toString());
-    } else if (id == QLatin1String("Jitsi_Enabled")) {
+    } else if (id == QLatin1StringView("Jitsi_Enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::JitsiEnabled);
-    } else if (id == QLatin1String("Jitsi_Enable_Teams")) {
+    } else if (id == QLatin1StringView("Jitsi_Enable_Teams")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::JitsiEnabledTeams);
-    } else if (id == QLatin1String("Jitsi_Enable_Channels")) {
+    } else if (id == QLatin1StringView("Jitsi_Enable_Channels")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::JitsiEnabledChannels);
-    } else if (id == QLatin1String("Jitsi_Domain")) {
+    } else if (id == QLatin1StringView("Jitsi_Domain")) {
         setJitsiMeetUrl(value.toString());
-    } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
+    } else if (id == QLatin1StringView("Jitsi_URL_Room_Prefix")) {
         setJitsiMeetPrefix(value.toString());
-    } else if (id == QLatin1String("FileUpload_Storage_Type")) {
+    } else if (id == QLatin1StringView("FileUpload_Storage_Type")) {
         setFileUploadStorageType(value.toString());
-    } else if (id == QLatin1String("Message_AllowEditing")) {
+    } else if (id == QLatin1StringView("Message_AllowEditing")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowEditingMessage);
-    } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
+    } else if (id == QLatin1StringView("Message_AllowEditing_BlockEditInMinutes")) {
         setBlockEditingMessageInMinutes(value.toInt());
-    } else if (id == QLatin1String("Message_AllowDeleting_BlockDeleteInMinutes")) {
+    } else if (id == QLatin1StringView("Message_AllowDeleting_BlockDeleteInMinutes")) {
         setBlockDeletingMessageInMinutes(value.toInt());
-    } else if (id == QLatin1String("OTR_Enable")) {
+    } else if (id == QLatin1StringView("OTR_Enable")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::OtrEnabled);
     } else if (id.contains(regularExpressionOAuth)) {
         if (value.toBool()) {
             addOauthService(id);
         }
-    } else if (id == QLatin1String("Site_Url")) {
+    } else if (id == QLatin1StringView("Site_Url")) {
         setSiteUrl(value.toString());
-    } else if (id == QLatin1String("Site_Name")) {
+    } else if (id == QLatin1StringView("Site_Name")) {
         setSiteName(value.toString());
-    } else if (id == QLatin1String("E2E_Enable")) {
+    } else if (id == QLatin1StringView("E2E_Enable")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::EncryptionEnabled);
-    } else if (id == QLatin1String("Message_AllowPinning")) {
+    } else if (id == QLatin1StringView("Message_AllowPinning")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowMessagePinning);
-    } else if (id == QLatin1String("Message_AllowStarring")) {
+    } else if (id == QLatin1StringView("Message_AllowStarring")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowMessageStarring);
-    } else if (id == QLatin1String("Message_AllowDeleting")) {
+    } else if (id == QLatin1StringView("Message_AllowDeleting")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowMessageDeleting);
-    } else if (id == QLatin1String("Threads_enabled")) {
+    } else if (id == QLatin1StringView("Threads_enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::ThreadsEnabled);
-    } else if (id == QLatin1String("Discussion_enabled")) {
+    } else if (id == QLatin1StringView("Discussion_enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::DiscussionEnabled);
-    } else if (id == QLatin1String("AutoTranslate_Enabled")) {
+    } else if (id == QLatin1StringView("AutoTranslate_Enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AutoTranslateEnabled);
-    } else if (id == QLatin1String("AutoTranslate_GoogleAPIKey")) {
+    } else if (id == QLatin1StringView("AutoTranslate_GoogleAPIKey")) {
         setAutoTranslateGoogleKey(value.toString());
-    } else if (id == QLatin1String("FileUpload_Enabled")) {
+    } else if (id == QLatin1StringView("FileUpload_Enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::UploadFileEnabled);
-    } else if (id == QLatin1String("FileUpload_MaxFileSize")) {
+    } else if (id == QLatin1StringView("FileUpload_MaxFileSize")) {
         setFileMaxFileSize(value.toULongLong());
-    } else if (id == QLatin1String("Broadcasting_enabled")) {
+    } else if (id == QLatin1StringView("Broadcasting_enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::BroadCastEnabled);
-    } else if (id == QLatin1String("Message_VideoRecorderEnabled")) {
+    } else if (id == QLatin1StringView("Message_VideoRecorderEnabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::VideoRecorderEnabled);
-    } else if (id == QLatin1String("Message_AudioRecorderEnabled")) {
+    } else if (id == QLatin1StringView("Message_AudioRecorderEnabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AudioRecorderEnabled);
-    } else if (id == QLatin1String("Assets_logo")) {
+    } else if (id == QLatin1StringView("Assets_logo")) {
         setLogoUrl(parseConfigWithDefaultValue(value.toJsonObject()));
-    } else if (id == QLatin1String("Assets_favicon")) {
+    } else if (id == QLatin1StringView("Assets_favicon")) {
         setFaviconUrl(parseConfigWithDefaultValue(value.toJsonObject()));
-    } else if (id == QLatin1String("Accounts_AllowDeleteOwnAccount")) {
+    } else if (id == QLatin1StringView("Accounts_AllowDeleteOwnAccount")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowDeleteOwnAccount);
-    } else if (id == QLatin1String("Accounts_RegistrationForm")) {
+    } else if (id == QLatin1StringView("Accounts_RegistrationForm")) {
         setAllowRegistrationFrom(value.toString());
-    } else if (id == QLatin1String("Accounts_PasswordReset")) {
+    } else if (id == QLatin1StringView("Accounts_PasswordReset")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowPasswordReset);
-    } else if (id == QLatin1String("Accounts_AllowEmailChange")) {
+    } else if (id == QLatin1StringView("Accounts_AllowEmailChange")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowEmailChange);
-    } else if (id == QLatin1String("Accounts_AllowPasswordChange")) {
+    } else if (id == QLatin1StringView("Accounts_AllowPasswordChange")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowPasswordChange);
-    } else if (id == QLatin1String("Accounts_AllowUsernameChange")) {
+    } else if (id == QLatin1StringView("Accounts_AllowUsernameChange")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowUsernameChange);
-    } else if (id == QLatin1String("Accounts_AllowUserProfileChange")) {
+    } else if (id == QLatin1StringView("Accounts_AllowUserProfileChange")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowUserProfileChange);
-    } else if (id == QLatin1String("Accounts_AllowUserAvatarChange")) {
+    } else if (id == QLatin1StringView("Accounts_AllowUserAvatarChange")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowUserAvatarChange);
-    } else if (id == QLatin1String("LDAP_Enable")) {
+    } else if (id == QLatin1StringView("LDAP_Enable")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::LdapEnabled);
-    } else if (id == QLatin1String("Accounts_LoginExpiration")) {
+    } else if (id == QLatin1StringView("Accounts_LoginExpiration")) {
         setLoginExpiration(value.toInt());
-    } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_Enabled")) {
+    } else if (id == QLatin1StringView("Accounts_TwoFactorAuthentication_Enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::TwoFactorAuthenticationEnabled);
-    } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_By_Email_Enabled")) {
+    } else if (id == QLatin1StringView("Accounts_TwoFactorAuthentication_By_Email_Enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled);
-    } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_By_TOTP_Enabled")) {
+    } else if (id == QLatin1StringView("Accounts_TwoFactorAuthentication_By_TOTP_Enabled")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled);
-    } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback")) {
+    } else if (id == QLatin1StringView("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback);
-    } else if (id == QLatin1String("UTF8_Channel_Names_Validation")) {
+    } else if (id == QLatin1StringView("UTF8_Channel_Names_Validation")) {
         setChannelNameValidation(value.toString());
-    } else if (id == QLatin1String("UTF8_User_Names_Validation")) {
+    } else if (id == QLatin1StringView("UTF8_User_Names_Validation")) {
         setUserNameValidation(value.toString());
-    } else if (id == QLatin1String("Message_MaxAllowedSize")) {
+    } else if (id == QLatin1StringView("Message_MaxAllowedSize")) {
         setMessageMaximumAllowedSize(value.toInt());
-    } else if (id == QLatin1String("Message_AllowConvertLongMessagesToAttachment")) {
+    } else if (id == QLatin1StringView("Message_AllowConvertLongMessagesToAttachment")) {
         setMessageAllowConvertLongMessagesToAttachment(value.toBool());
-    } else if (id == QLatin1String("UI_Use_Real_Name")) {
+    } else if (id == QLatin1StringView("UI_Use_Real_Name")) {
         setUseRealName(value.toBool());
-    } else if (id == QLatin1String("Accounts_AllowInvisibleStatusOption")) {
+    } else if (id == QLatin1StringView("Accounts_AllowInvisibleStatusOption")) {
         setAccountsAllowInvisibleStatusOption(value.toBool());
-    } else if (id == QLatin1String("UserData_EnableDownload")) {
+    } else if (id == QLatin1StringView("UserData_EnableDownload")) {
         setUserDataDownloadEnabled(value.toBool());
-    } else if (id == QLatin1String("Device_Management_Enable_Login_Emails")) {
+    } else if (id == QLatin1StringView("Device_Management_Enable_Login_Emails")) {
         setDeviceManagementEnableLoginEmails(value.toBool());
-    } else if (id == QLatin1String("Device_Management_Allow_Login_Email_preference")) {
+    } else if (id == QLatin1StringView("Device_Management_Allow_Login_Email_preference")) {
         setDeviceManagementAllowLoginEmailpreference(value.toBool());
-    } else if (id == QLatin1String("Message_GroupingPeriod")) {
+    } else if (id == QLatin1StringView("Message_GroupingPeriod")) {
         setMessageGroupingPeriod(value.toInt());
-    } else if (id == QLatin1String("DirectMesssage_maxUsers")) {
+    } else if (id == QLatin1StringView("DirectMesssage_maxUsers")) {
         setDirectMessageMaximumUser(value.toInt());
-    } else if (id == QLatin1String("Message_QuoteChainLimit")) {
+    } else if (id == QLatin1StringView("Message_QuoteChainLimit")) {
         setMessageQuoteChainLimit(value.toInt());
-    } else if (id == QLatin1String("Accounts_AllowUserStatusMessageChange")) {
+    } else if (id == QLatin1StringView("Accounts_AllowUserStatusMessageChange")) {
         setAllowCustomStatusMessage(value.toBool());
-    } else if (id == QLatin1String("FileUpload_MediaTypeWhiteList")) {
+    } else if (id == QLatin1StringView("FileUpload_MediaTypeWhiteList")) {
         setMediaWhiteList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
-    } else if (id == QLatin1String("FileUpload_MediaTypeBlackList")) {
+    } else if (id == QLatin1StringView("FileUpload_MediaTypeBlackList")) {
         setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
-    } else if (id == QLatin1String("Accounts_ShowFormLogin")) {
+    } else if (id == QLatin1StringView("Accounts_ShowFormLogin")) {
         if (value.toBool()) {
             mServerAuthTypes |= AuthenticationManager::AuthMethodType::Password;
         } else {
             mServerAuthTypes &= ~AuthenticationManager::AuthMethodType::Password;
         }
-    } else if (id == QLatin1String("AuthenticationServerMethod")) {
+    } else if (id == QLatin1StringView("AuthenticationServerMethod")) {
         mServerAuthTypes = static_cast<AuthenticationManager::AuthMethodTypes>(value.toInt());
-    } else if (id == QLatin1String("API_Embed")) {
+    } else if (id == QLatin1StringView("API_Embed")) {
         setPreviewEmbed(value.toBool());
-    } else if (id == QLatin1String("API_EmbedCacheExpirationDays")) {
+    } else if (id == QLatin1StringView("API_EmbedCacheExpirationDays")) {
         setEmbedCacheExpirationDays(value.toInt());
-    } else if (id == QLatin1String("Accounts_Default_User_Preferences_desktopNotifications")) {
+    } else if (id == QLatin1StringView("Accounts_Default_User_Preferences_desktopNotifications")) {
         setAccountsDefaultUserPreferencesDesktopNotifications(value.toString());
-    } else if (id == QLatin1String("Accounts_Default_User_Preferences_pushNotifications")) {
+    } else if (id == QLatin1StringView("Accounts_Default_User_Preferences_pushNotifications")) {
         setAccountsDefaultUserPreferencesPushNotifications(value.toString());
-    } else if (id == QLatin1String("Accounts_AllowEmailNotifications")) {
+    } else if (id == QLatin1StringView("Accounts_AllowEmailNotifications")) {
         setAllowEmailNotifications(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
@@ -624,43 +624,43 @@ void RuqolaServerConfig::setMediaBlackList(const QStringList &newMediaBlackList)
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const QString &value)
 {
     QJsonObject v;
-    v[QLatin1String("_id")] = identifier;
-    v[QLatin1String("value")] = value;
+    v[QLatin1StringView("_id")] = identifier;
+    v[QLatin1StringView("value")] = value;
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, const RuqolaServerConfig::ConfigWithDefaultValue &value)
 {
     QJsonObject v;
-    v[QLatin1String("_id")] = identifier;
+    v[QLatin1StringView("_id")] = identifier;
     QJsonObject customUrl;
-    customUrl[QLatin1String("defaultUrl")] = value.defaultUrl;
-    customUrl[QLatin1String("url")] = value.url;
-    v[QLatin1String("value")] = customUrl;
+    customUrl[QLatin1StringView("defaultUrl")] = value.defaultUrl;
+    customUrl[QLatin1StringView("url")] = value.url;
+    v[QLatin1StringView("value")] = customUrl;
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, qint64 value)
 {
     QJsonObject v;
-    v[QLatin1String("_id")] = identifier;
-    v[QLatin1String("value")] = static_cast<qint64>(value);
+    v[QLatin1StringView("_id")] = identifier;
+    v[QLatin1StringView("value")] = static_cast<qint64>(value);
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, bool value)
 {
     QJsonObject v;
-    v[QLatin1String("_id")] = identifier;
-    v[QLatin1String("value")] = value;
+    v[QLatin1StringView("_id")] = identifier;
+    v[QLatin1StringView("value")] = value;
     return v;
 }
 
 QJsonObject RuqolaServerConfig::createJsonObject(const QString &identifier, int value)
 {
     QJsonObject v;
-    v[QLatin1String("_id")] = identifier;
-    v[QLatin1String("value")] = value;
+    v[QLatin1StringView("_id")] = identifier;
+    v[QLatin1StringView("value")] = value;
     return v;
 }
 
@@ -756,13 +756,13 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(QStringLiteral("Accounts_Default_User_Preferences_pushNotifications"), accountsDefaultUserPreferencesPushNotifications()));
     array.append(createJsonObject(QStringLiteral("Accounts_AllowEmailNotifications"), allowEmailNotifications()));
 
-    o[QLatin1String("result")] = array;
+    o[QLatin1StringView("result")] = array;
 #if 0
 } else if (id.contains(regExp)) {
     if (value.toBool()) {
         addOauthService(id);
     }
-} else if (id == QLatin1String("Accounts_RegistrationForm")) {
+} else if (id == QLatin1StringView("Accounts_RegistrationForm")) {
     setAllowRegistrationFrom(value.toString());
 
 #endif
@@ -776,7 +776,7 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
 
 void RuqolaServerConfig::deserialize(const QJsonObject &obj)
 {
-    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
+    QJsonArray configs = obj.value(QLatin1StringView("result")).toArray();
     mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
@@ -897,7 +897,7 @@ void RuqolaServerConfig::setUseRealName(bool newUIUseRealName)
 void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj, bool update)
 {
     // qDebug() << " void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)" << obj;
-    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
+    QJsonArray configs = obj.value(QLatin1StringView("result")).toArray();
     if (!update) {
         mServerConfigFeatureTypes = ServerConfigFeatureType::None;
     }

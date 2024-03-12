@@ -207,11 +207,11 @@ void MessageUrl::setImageUrl(const QString &newImageUrl)
 
 void MessageUrl::parseUrl(const QJsonObject &url)
 {
-    const QJsonValue urlStr = url.value(QLatin1String("url"));
+    const QJsonValue urlStr = url.value(QLatin1StringView("url"));
     if (!urlStr.isUndefined()) {
         setUrl(urlStr.toString());
     }
-    const QJsonObject meta = url.value(QLatin1String("meta")).toObject();
+    const QJsonObject meta = url.value(QLatin1StringView("meta")).toObject();
     if (!meta.isEmpty()) {
         for (const QString &element : pageTitleElements()) {
             const QJsonValue pageTitleStr = meta.value(element);
@@ -234,11 +234,11 @@ void MessageUrl::parseUrl(const QJsonObject &url)
                 break;
             }
         }
-        const QJsonValue authorName = meta.value(QLatin1String("oembedAuthorName"));
+        const QJsonValue authorName = meta.value(QLatin1StringView("oembedAuthorName"));
         if (!authorName.isUndefined()) {
             setAuthorName(authorName.toString());
         }
-        const QJsonValue authorUrl = meta.value(QLatin1String("oembedAuthorUrl"));
+        const QJsonValue authorUrl = meta.value(QLatin1StringView("oembedAuthorUrl"));
         if (!authorUrl.isUndefined()) {
             setAuthorUrl(authorUrl.toString());
         }
@@ -285,29 +285,29 @@ void MessageUrl::generateMessageUrlInfo()
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
 {
     QJsonObject obj;
-    obj[QLatin1String("pageTitle")] = url.pageTitle();
-    obj[QLatin1String("url")] = url.url();
-    obj[QLatin1String("description")] = url.description();
+    obj[QLatin1StringView("pageTitle")] = url.pageTitle();
+    obj[QLatin1StringView("url")] = url.url();
+    obj[QLatin1StringView("description")] = url.description();
     if (!url.imageUrl().isEmpty()) {
-        obj[QLatin1String("imageUrl")] = url.imageUrl();
+        obj[QLatin1StringView("imageUrl")] = url.imageUrl();
     }
     if (!url.authorName().isEmpty()) {
-        obj[QLatin1String("authorName")] = url.authorName();
+        obj[QLatin1StringView("authorName")] = url.authorName();
     }
     if (!url.authorUrl().isEmpty()) {
-        obj[QLatin1String("authorUrl")] = url.authorUrl();
+        obj[QLatin1StringView("authorUrl")] = url.authorUrl();
     }
     if (!url.siteUrl().isEmpty()) {
-        obj[QLatin1String("siteUrl")] = url.siteUrl();
+        obj[QLatin1StringView("siteUrl")] = url.siteUrl();
     }
     if (!url.siteName().isEmpty()) {
-        obj[QLatin1String("siteName")] = url.siteName();
+        obj[QLatin1StringView("siteName")] = url.siteName();
     }
     if (url.imageHeight() > -1) {
-        obj[QLatin1String("imageHeight")] = url.imageHeight();
+        obj[QLatin1StringView("imageHeight")] = url.imageHeight();
     }
     if (url.imageWidth() > -1) {
-        obj[QLatin1String("imageWidth")] = url.imageWidth();
+        obj[QLatin1StringView("imageWidth")] = url.imageWidth();
     }
     return obj;
 }
@@ -315,16 +315,16 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
 MessageUrl MessageUrl::deserialize(const QJsonObject &o)
 {
     MessageUrl url;
-    url.setPageTitle(o.value(QLatin1String("pageTitle")).toString());
-    url.setUrl(o.value(QLatin1String("url")).toString());
-    url.setDescription(o.value(QLatin1String("description")).toString());
-    url.setImageUrl(o.value(QLatin1String("imageUrl")).toString());
-    url.setAuthorName(o.value(QLatin1String("authorName")).toString());
-    url.setAuthorUrl(o.value(QLatin1String("authorUrl")).toString());
-    url.setSiteUrl(o.value(QLatin1String("siteUrl")).toString());
-    url.setSiteName(o.value(QLatin1String("siteName")).toString());
-    url.setImageHeight(o.value(QLatin1String("imageHeight")).toInt(-1));
-    url.setImageWidth(o.value(QLatin1String("imageWidth")).toInt(-1));
+    url.setPageTitle(o.value(QLatin1StringView("pageTitle")).toString());
+    url.setUrl(o.value(QLatin1StringView("url")).toString());
+    url.setDescription(o.value(QLatin1StringView("description")).toString());
+    url.setImageUrl(o.value(QLatin1StringView("imageUrl")).toString());
+    url.setAuthorName(o.value(QLatin1StringView("authorName")).toString());
+    url.setAuthorUrl(o.value(QLatin1StringView("authorUrl")).toString());
+    url.setSiteUrl(o.value(QLatin1StringView("siteUrl")).toString());
+    url.setSiteName(o.value(QLatin1StringView("siteName")).toString());
+    url.setImageHeight(o.value(QLatin1StringView("imageHeight")).toInt(-1));
+    url.setImageWidth(o.value(QLatin1StringView("imageWidth")).toInt(-1));
     url.generateMessageUrlInfo();
     return url;
 }

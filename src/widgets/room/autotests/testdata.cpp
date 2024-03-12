@@ -58,5 +58,5 @@ QUrl avatarLink()
         }
     }
 
-    return QUrl(QLatin1String("https://example.com") + link);
+    return QUrl(QLatin1StringView("https://example.com") + link);
 }

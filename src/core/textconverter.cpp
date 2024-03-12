@@ -324,13 +324,13 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 
     QString str = settings.str;
     // TODO we need to look at room name too as we can have it when we use "direct reply"
-    if (str.contains(QLatin1String("[ ](http"))
+    if (str.contains(QLatin1StringView("[ ](http"))
         && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
         const int endPos = str.indexOf(QLatin1Char(')'));
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
-        const QString messageId = url.mid(url.indexOf(QLatin1String("msg=")) + 4);
+        const QString messageId = url.mid(url.indexOf(QLatin1StringView("msg=")) + 4);
         // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;
@@ -431,14 +431,14 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 
         highlighter.setDefinition(std::move(definition));
         // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-        richTextStream << QLatin1String("<table><tr><td style='background-color:") << codeBackgroundColor.name()
-                       << QLatin1String("; padding: 5px; border: 1px solid ") << codeBorderColor << QLatin1String("'>") << highlight(chunk)
-                       << QLatin1String("</td></tr></table>");
+        richTextStream << QLatin1StringView("<table><tr><td style='background-color:") << codeBackgroundColor.name()
+                       << QLatin1StringView("; padding: 5px; border: 1px solid ") << codeBorderColor << QLatin1StringView("'>") << highlight(chunk)
+                       << QLatin1StringView("</td></tr></table>");
     };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name() << QLatin1String("'>") << chunk.toHtmlEscaped()
-                       << QLatin1String("</code>");
+        richTextStream << QLatin1StringView("<code style='background-color:") << codeBackgroundColor.name() << QLatin1StringView("'>") << chunk.toHtmlEscaped()
+                       << QLatin1StringView("</code>");
     };
 
     auto addTextChunk = [&](const QString &chunk) {
@@ -453,12 +453,12 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         if (settings.emojiManager) {
             settings.emojiManager->replaceEmojis(&htmlChunk);
         }
-        richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name() << QLatin1String("'>") << htmlChunk
-                       << QLatin1String("</code>");
+        richTextStream << QLatin1StringView("<code style='background-color:") << codeBackgroundColor.name() << QLatin1StringView("'>") << htmlChunk
+                       << QLatin1StringView("</code>");
     };
 
     auto addInlineQuoteCodeNewLineChunk = [&]() {
-        richTextStream << QLatin1String("<br />");
+        richTextStream << QLatin1StringView("<br />");
     };
 
     auto addInlineQuoteChunk = [&](const QString &chunk) {
@@ -470,12 +470,12 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
             return;
         }
 
-        richTextStream << QLatin1String("<div>");
+        richTextStream << QLatin1StringView("<div>");
         iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
-        richTextStream << QLatin1String("</div>");
+        richTextStream << QLatin1StringView("</div>");
     };
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
-    return QLatin1String("<qt>") + quotedMessage + richText + QLatin1String("</qt>");
+    return QLatin1StringView("<qt>") + quotedMessage + richText + QLatin1StringView("</qt>");
 }

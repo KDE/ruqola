@@ -21,7 +21,7 @@ void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, c
             Message m;
             ModerationMessage moderationMessage;
             moderationMessage.parse(messageModerationObject);
-            m.parseMessage(messageModerationObject[QLatin1String("message")].toObject(), true);
+            m.parseMessage(messageModerationObject[QLatin1StringView("message")].toObject(), true);
             m.setModerationMessage(moderationMessage);
             mListMessages.append(std::move(m));
         } else {

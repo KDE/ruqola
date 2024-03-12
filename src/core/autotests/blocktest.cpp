@@ -53,7 +53,7 @@ void BlockTest::shouldLoadBlock()
 {
     QFETCH(QString, name);
     QFETCH(Block, blockInfo);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/blocks/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/blocks/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Block r;

@@ -73,7 +73,7 @@ void RoleTest::shouldLoadRoles()
 {
     QFETCH(QString, name);
     QFETCH(Role, role);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesforroom/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/rolesforroom/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     Role r;

@@ -32,7 +32,7 @@ bool ChannelAddLeaderJob::start()
 void ChannelAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelAddLeaderJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addLeaderDone();
     } else {
@@ -76,7 +76,7 @@ QJsonDocument ChannelAddLeaderJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1String("userId")] = addLeaderUserId();
+    jsonObj[QLatin1StringView("userId")] = addLeaderUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

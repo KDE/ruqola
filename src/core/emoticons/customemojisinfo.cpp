@@ -38,16 +38,16 @@ CustomEmoji CustomEmojisInfo::at(int index) const
 
 void CustomEmojisInfo::parseMoreCustomEmojis(const QJsonObject &obj)
 {
-    const int adminRoomsCount = obj[QLatin1String("count")].toInt();
-    mOffset = obj[QLatin1String("offset")].toInt();
-    mTotal = obj[QLatin1String("total")].toInt();
+    const int adminRoomsCount = obj[QLatin1StringView("count")].toInt();
+    mOffset = obj[QLatin1StringView("offset")].toInt();
+    mTotal = obj[QLatin1StringView("total")].toInt();
     parseListCustomEmoji(obj);
     mRoomsCount += adminRoomsCount;
 }
 
 void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
 {
-    const QJsonArray adminRoomsArray = obj[QLatin1String("emojis")].toArray();
+    const QJsonArray adminRoomsArray = obj[QLatin1StringView("emojis")].toArray();
     mCustomEmojiInfos.reserve(mCustomEmojiInfos.count() + adminRoomsArray.count());
     for (const QJsonValue &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
@@ -83,9 +83,9 @@ void CustomEmojisInfo::setRoomsCount(int count)
 
 void CustomEmojisInfo::parseCustomEmojis(const QJsonObject &obj)
 {
-    mRoomsCount = obj[QLatin1String("count")].toInt();
-    mOffset = obj[QLatin1String("offset")].toInt();
-    mTotal = obj[QLatin1String("total")].toInt();
+    mRoomsCount = obj[QLatin1StringView("count")].toInt();
+    mOffset = obj[QLatin1StringView("offset")].toInt();
+    mTotal = obj[QLatin1StringView("total")].toInt();
     mCustomEmojiInfos.clear();
     parseListCustomEmoji(obj);
 }

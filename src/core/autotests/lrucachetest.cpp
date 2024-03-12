@@ -25,7 +25,7 @@ LRUCacheTest::LRUCacheTest(QObject *parent)
 void LRUCacheTest::shouldCacheLastFiveEntries()
 {
     auto makeString = [](const char *prefix, int i) -> QString {
-        return QLatin1String(prefix) + QString::number(i);
+        return QLatin1StringView(prefix) + QString::number(i);
     };
 
     using Cache = LRUCache<QString, QString>;

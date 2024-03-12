@@ -14,8 +14,8 @@ Otr::~Otr() = default;
 
 void Otr::extractRoomUser(const QJsonObject &obj)
 {
-    mRoomId = obj.value(QLatin1String("roomId")).toString();
-    mUserId = obj.value(QLatin1String("userId")).toString();
+    mRoomId = obj.value(QLatin1StringView("roomId")).toString();
+    mUserId = obj.value(QLatin1StringView("userId")).toString();
 }
 
 void Otr::parseOtr(const QJsonArray &contents)
@@ -23,29 +23,29 @@ void Otr::parseOtr(const QJsonArray &contents)
     // QJsonArray(["handshake",{"publicKey":"{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[],\"kty\":\"EC\",\"x\":\"R9TKy7SvVpbJurHngvOICZ5oBHvLt_P19RiBX7-ChBs\",\"y\":\"Ama4y0Sk5DWFRAImF8_4u--qKknOa44EP5hr0VXuEvM\"}","roomId":"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB","userId":"YbwG4T2uB3wZSZSKB"}])
     qCDebug(RUQOLA_LOG) << " contents " << contents;
     const QString type = contents.at(0).toString();
-    if (type == QLatin1String("end")) {
+    if (type == QLatin1StringView("end")) {
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
         qCDebug(RUQOLA_LOG) << " END" << obj << " roomId " << mRoomId << " userId " << mUserId;
         mType = Otr::End;
-    } else if (type == QLatin1String("handshake")) {
+    } else if (type == QLatin1StringView("handshake")) {
         // qDebug() << " HANDSHAKE" << contents.at(1).toObject();
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
-        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
+        const QString publicKey = obj.value(QLatin1StringView("publicKey")).toString();
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << mRoomId << " userId " << mUserId << " publicKey " << publicKey;
         mType = Otr::Handshake;
         parseCryptoSettings(publicKey);
-    } else if (type == QLatin1String("deny")) {
+    } else if (type == QLatin1StringView("deny")) {
         qCDebug(RUQOLA_LOG) << " Deny " << contents;
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
         mType = Otr::Deny;
-    } else if (type == QLatin1String("acknowledge")) {
+    } else if (type == QLatin1StringView("acknowledge")) {
         qCDebug(RUQOLA_LOG) << " acknowledge " << contents;
         const QJsonObject obj = contents.at(1).toObject();
         extractRoomUser(obj);
-        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
+        const QString publicKey = obj.value(QLatin1StringView("publicKey")).toString();
         parseCryptoSettings(publicKey);
         mType = Otr::AcknowLedge;
     } else {

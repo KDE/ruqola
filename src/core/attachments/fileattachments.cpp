@@ -37,16 +37,16 @@ File FileAttachments::at(int index) const
 
 void FileAttachments::parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
-    const int filesCount = fileAttachmentsObj[QLatin1String("count")].toInt();
-    mOffset = fileAttachmentsObj[QLatin1String("offset")].toInt();
-    mTotal = fileAttachmentsObj[QLatin1String("total")].toInt();
+    const int filesCount = fileAttachmentsObj[QLatin1StringView("count")].toInt();
+    mOffset = fileAttachmentsObj[QLatin1StringView("offset")].toInt();
+    mTotal = fileAttachmentsObj[QLatin1StringView("total")].toInt();
     parseFiles(fileAttachmentsObj);
     mFilesCount += filesCount;
 }
 
 void FileAttachments::parseFiles(const QJsonObject &fileAttachmentsObj)
 {
-    const QJsonArray fileAttachmentsArray = fileAttachmentsObj[QLatin1String("files")].toArray();
+    const QJsonArray fileAttachmentsArray = fileAttachmentsObj[QLatin1StringView("files")].toArray();
     mFileAttachments.reserve(mFileAttachments.count() + fileAttachmentsArray.count());
     for (const QJsonValue &current : fileAttachmentsArray) {
         if (current.type() == QJsonValue::Object) {
@@ -62,9 +62,9 @@ void FileAttachments::parseFiles(const QJsonObject &fileAttachmentsObj)
 
 void FileAttachments::parseFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
-    mFilesCount = fileAttachmentsObj[QLatin1String("count")].toInt();
-    mOffset = fileAttachmentsObj[QLatin1String("offset")].toInt();
-    mTotal = fileAttachmentsObj[QLatin1String("total")].toInt();
+    mFilesCount = fileAttachmentsObj[QLatin1StringView("count")].toInt();
+    mOffset = fileAttachmentsObj[QLatin1StringView("offset")].toInt();
+    mTotal = fileAttachmentsObj[QLatin1StringView("total")].toInt();
     mFileAttachments.clear();
     parseFiles(fileAttachmentsObj);
 }

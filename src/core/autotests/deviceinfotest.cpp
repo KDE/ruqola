@@ -31,7 +31,7 @@ void DeviceInfoTest::shouldDeviceInfo()
 {
     QFETCH(QString, name);
     QFETCH(DeviceInfo, deviceInfo);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/deviceinfo/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/deviceinfo/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     DeviceInfo result;

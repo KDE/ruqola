@@ -126,7 +126,7 @@ static UserChoice askUser(const QUrl &url, const KService::Ptr &offer, QWidget *
 
 static void runApplication(const KService::Ptr &offer, const QString &link, QWidget *widget, RocketChatAccount *account)
 {
-    std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + QLatin1String("/ruqola_attachment_XXXXXX")));
+    std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + QLatin1StringView("/ruqola_attachment_XXXXXX")));
     if (!tempDir->isValid()) {
         return;
     }

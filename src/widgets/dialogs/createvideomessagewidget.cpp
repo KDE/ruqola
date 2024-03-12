@@ -97,7 +97,7 @@ CreateVideoMessageWidget::~CreateVideoMessageWidget()
 
 void CreateVideoMessageWidget::loadSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myVideoGroupName));
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myVideoGroupName));
     const QByteArray deviceIdentifier = group.readEntry("VideoDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
         for (int i = 0; i < mListCamera->count(); ++i) {
@@ -112,7 +112,7 @@ void CreateVideoMessageWidget::loadSettings()
 
 void CreateVideoMessageWidget::saveSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1String(myVideoGroupName));
+    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myVideoGroupName));
     const auto device = mListCamera->itemData(mListCamera->currentIndex()).value<QCameraDevice>();
     if (!device.isNull()) {
         const QByteArray deviceIdentifier = device.id();
@@ -147,7 +147,7 @@ void CreateVideoMessageWidget::setCamera(const QCameraDevice &cameraDevice)
 
     if (!mMediaRecorder) {
         mMediaRecorder.reset(new QMediaRecorder);
-        mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1String("/ruqola_XXXXXX")); // TODO fix extension
+        mTemporaryFile = new QTemporaryFile(QDir::tempPath() + QLatin1StringView("/ruqola_XXXXXX")); // TODO fix extension
         mTemporaryFile->setAutoRemove(false);
         mTemporaryFile->open();
         //        QMediaFormat format;

@@ -34,7 +34,7 @@ void ChannelAddOwnerJob::onPostRequestResponse(const QString &replyErrorString, 
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("Add owner success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addOwnerDone();
     } else {
@@ -78,7 +78,7 @@ QJsonDocument ChannelAddOwnerJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1String("userId")] = addownerUserId();
+    jsonObj[QLatin1StringView("userId")] = addownerUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -24,7 +24,7 @@ Users::ParseType AdminUsersModel::parseType() const
 void AdminUsersModel::insertElement(const QJsonObject &obj)
 {
     User user;
-    const QJsonObject userObj = obj[QLatin1String("user")].toObject();
+    const QJsonObject userObj = obj[QLatin1StringView("user")].toObject();
     user.parseUserRestApi(userObj, {});
     if (user.isValid()) {
         const int numberOfElement = mUsers.count();
@@ -53,7 +53,7 @@ void AdminUsersModel::removeElement(const QString &identifier)
 void AdminUsersModel::updateElement(const QJsonObject &userObj)
 {
     const int roomCount = mUsers.count();
-    const QJsonObject obj = userObj[QLatin1String("user")].toObject();
+    const QJsonObject obj = userObj[QLatin1StringView("user")].toObject();
     const QString identifier{obj.value(QStringLiteral("_id")).toString()};
     for (int i = 0; i < roomCount; ++i) {
         if (mUsers.at(i).userId() == identifier) {

@@ -78,7 +78,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QJsonArray items = obj[QLatin1String("items")].toArray();
+    const QJsonArray items = obj[QLatin1StringView("items")].toArray();
     QList<TeamRoomCompleter> teams;
     for (int i = 0, total = items.count(); i < total; ++i) {
         TeamRoomCompleter teamCompleter;

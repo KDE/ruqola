@@ -78,14 +78,14 @@ void NotificationInfoTest::shouldParseNotification()
     QFETCH(QString, roomId);
     QFETCH(QString, tmId);
     QFETCH(QString, messageId);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
-    const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+    const QJsonObject fields = doc.object().value(QLatin1StringView("fields")).toObject();
+    const QJsonArray contents = fields.value(QLatin1StringView("args")).toArray();
 
     NotificationInfo info;
     info.parseNotification(contents);

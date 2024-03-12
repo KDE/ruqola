@@ -34,7 +34,7 @@ void ChangeGroupsDescriptionJob::onPostRequestResponse(const QString &replyError
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChangeGroupsDescriptionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeDescriptionDone();
     } else {
@@ -73,7 +73,7 @@ bool ChangeGroupsDescriptionJob::canStart() const
 QJsonDocument ChangeGroupsDescriptionJob::json() const
 {
     QJsonObject jsonObj;
-    generateJson(jsonObj), jsonObj[QLatin1String("description")] = description();
+    generateJson(jsonObj), jsonObj[QLatin1StringView("description")] = description();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

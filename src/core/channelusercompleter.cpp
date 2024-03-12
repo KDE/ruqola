@@ -58,21 +58,21 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
 {
     // qDebug() << " object " << object;
     mType = type;
-    mName = object.value(QLatin1String("name")).toString();
-    mIdentifier = object.value(QLatin1String("_id")).toString();
+    mName = object.value(QLatin1StringView("name")).toString();
+    mIdentifier = object.value(QLatin1StringView("_id")).toString();
     if (mType == ChannelUserCompleterType::DirectChannel) {
-        mAvatarTag = object.value(QLatin1String("avatarETag")).toString();
-        mUserName = object.value(QLatin1String("username")).toString();
-        mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value(QLatin1String("status")).toString()));
+        mAvatarTag = object.value(QLatin1StringView("avatarETag")).toString();
+        mUserName = object.value(QLatin1StringView("username")).toString();
+        mStatusIcon = QIcon::fromTheme(Utils::iconFromStatus(object.value(QLatin1StringView("status")).toString()));
     } else {
-        const QString roomType = object.value(QLatin1String("t")).toString();
+        const QString roomType = object.value(QLatin1StringView("t")).toString();
         if (roomType == QLatin1Char('c')) {
             setChannelIcon();
         } else if (roomType == QLatin1Char('p')) {
             mStatusIcon = QIcon::fromTheme(QStringLiteral("lock"));
         }
     }
-    mOutsideRoom = object.value(QLatin1String("outside")).toBool();
+    mOutsideRoom = object.value(QLatin1StringView("outside")).toBool();
     createAvatarInfo();
 }
 

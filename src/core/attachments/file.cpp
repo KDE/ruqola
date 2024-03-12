@@ -13,26 +13,26 @@ File::File() = default;
 
 void File::parseFile(const QJsonObject &object, bool restApi)
 {
-    const QJsonObject fields = restApi ? object : object.value(QLatin1String("fields")).toObject();
-    setUserId(fields.value(QLatin1String("userId")).toString());
+    const QJsonObject fields = restApi ? object : object.value(QLatin1StringView("fields")).toObject();
+    setUserId(fields.value(QLatin1StringView("userId")).toString());
 
-    setDescription(fields.value(QLatin1String("description")).toString());
-    setFileName(fields.value(QLatin1String("name")).toString());
-    setMimeType(fields.value(QLatin1String("type")).toString());
-    setUrl(fields.value(QLatin1String("url")).toString());
-    setRid(fields.value(QLatin1String("rid")).toString());
-    setComplete(fields.value(QLatin1String("complete")).toBool());
-    setTypeGroup(fields.value(QLatin1String("typeGroup")).toString());
+    setDescription(fields.value(QLatin1StringView("description")).toString());
+    setFileName(fields.value(QLatin1StringView("name")).toString());
+    setMimeType(fields.value(QLatin1StringView("type")).toString());
+    setUrl(fields.value(QLatin1StringView("url")).toString());
+    setRid(fields.value(QLatin1StringView("rid")).toString());
+    setComplete(fields.value(QLatin1StringView("complete")).toBool());
+    setTypeGroup(fields.value(QLatin1StringView("typeGroup")).toString());
     if (restApi) {
         setUploadedAt(Utils::parseIsoDate(QStringLiteral("uploadedAt"), fields));
     } else {
         setUploadedAt(Utils::parseDate(QStringLiteral("uploadedAt"), fields));
     }
 
-    const QJsonObject user = object.value(QLatin1String("user")).toObject();
-    setUserName(user.value(QLatin1String("username")).toString());
+    const QJsonObject user = object.value(QLatin1StringView("user")).toObject();
+    setUserName(user.value(QLatin1StringView("username")).toString());
 
-    setFileId(restApi ? object.value(QLatin1String("_id")).toString() : object.value(QLatin1String("id")).toString());
+    setFileId(restApi ? object.value(QLatin1StringView("_id")).toString() : object.value(QLatin1StringView("id")).toString());
 }
 
 QString File::fileName() const

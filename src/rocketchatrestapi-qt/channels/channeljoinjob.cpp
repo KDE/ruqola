@@ -36,17 +36,17 @@ void ChannelJoinJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setChannelJoinDone(channelGroupInfo());
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         // Invalid password
-        const QString errorType = replyObject[QLatin1String("errorType")].toString();
-        if (errorType == QLatin1String("error-code-invalid")) {
+        const QString errorType = replyObject[QLatin1StringView("errorType")].toString();
+        if (errorType == QLatin1StringView("error-code-invalid")) {
             Q_EMIT missingChannelPassword(channelGroupInfo());
-        } else if (errorType == QLatin1String("error-room-archived")) {
+        } else if (errorType == QLatin1StringView("error-room-archived")) {
             Q_EMIT openArchivedRoom(channelGroupInfo());
         }
     }
@@ -84,7 +84,7 @@ QJsonDocument ChannelJoinJob::json() const
     QJsonObject jsonObj;
     generateJson(jsonObj);
     if (!mJoinCode.isEmpty()) {
-        jsonObj[QLatin1String("joinCode")] = mJoinCode;
+        jsonObj[QLatin1StringView("joinCode")] = mJoinCode;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
@@ -102,9 +102,9 @@ QNetworkRequest ChannelJoinJob::request() const
 
 QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-room-not-found")) {
+    if (str == QLatin1StringView("error-room-not-found")) {
         return i18n("The required \'%1\' param provided does not match any channel", channelGroupInfo().identifier);
-    } else if (str == QLatin1String("error-code-invalid")) {
+    } else if (str == QLatin1StringView("error-code-invalid")) {
         return i18n("The room required a password.");
     }
     return ChannelGroupBaseJob::errorMessage(str, detail);

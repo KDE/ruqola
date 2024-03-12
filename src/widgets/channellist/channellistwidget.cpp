@@ -276,7 +276,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
     // qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
-    if (link.startsWith(QLatin1String("ruqola:"))) {
+    if (link.startsWith(QLatin1StringView("ruqola:"))) {
         const QString roomOrUserId = RuqolaUtils::self()->extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
@@ -285,11 +285,11 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 return;
             }
         }
-        if (link.startsWith(QLatin1String("ruqola:/room/"))) {
+        if (link.startsWith(QLatin1StringView("ruqola:/room/"))) {
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
                 mCurrentRocketChatAccount->openChannel(roomOrUserId, RocketChatAccount::ChannelTypeInfo::RoomId);
             }
-        } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
+        } else if (link.startsWith(QLatin1StringView("ruqola:/user/"))) {
             if (!Utils::validUser(roomOrUserId)) {
                 return;
             }
@@ -303,7 +303,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                     // mCurrentRocketChatAccount->openDirectChannel(roomOrUserId);
                 }
             }
-        } else if (link == QLatin1String("ruqola:/jitsicall/")) {
+        } else if (link == QLatin1StringView("ruqola:/jitsicall/")) {
             const QModelIndex jitsiSelectedIndex = mChannelView->selectionModel()->currentIndex();
             if (jitsiSelectedIndex.isValid()) {
                 const QString roomId = jitsiSelectedIndex.data(RoomModel::RoomId).toString();

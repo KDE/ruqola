@@ -36,7 +36,7 @@ void ChannelOpenJob::onPostRequestResponse(const QString &replyErrorString, cons
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelOpenDone(replyObject, channelGroupInfo());
     } else {
@@ -73,7 +73,7 @@ QJsonDocument ChannelOpenJob::json() const
 
 QString ChannelOpenJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-room-not-found")) {
+    if (str == QLatin1StringView("error-room-not-found")) {
         return i18n("The required channel is not found.");
     }
     return ChannelGroupBaseJob::errorMessage(str, detail);

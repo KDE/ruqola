@@ -39,12 +39,12 @@ void VideoConferenceCapabilitiesJob::onGetRequestResponse(const QString &replyEr
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceCapabilitiesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceCapabilitiesDone(replyObject);
     } else {
-        const QString errorType = replyObject[QLatin1String("error")].toString();
-        if (errorType == QLatin1String("no-videoconf-provider-app")) {
+        const QString errorType = replyObject[QLatin1StringView("error")].toString();
+        if (errorType == QLatin1StringView("no-videoconf-provider-app")) {
             Q_EMIT noVideoConferenceProviderApps();
             addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {

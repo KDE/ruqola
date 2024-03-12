@@ -235,12 +235,12 @@ RocketChatMessage::searchRoomUsers(const QString &roomId, const QString &pattern
 
     QJsonObject secondParams;
     if (searchRoom) {
-        secondParams[QLatin1String("rooms")] = searchRoom;
+        secondParams[QLatin1StringView("rooms")] = searchRoom;
     }
     if (searchUser) {
-        secondParams[QLatin1String("users")] = searchUser;
+        secondParams[QLatin1StringView("users")] = searchUser;
     }
-    secondParams[QLatin1String("mentions")] = true;
+    secondParams[QLatin1StringView("mentions")] = true;
     params.append(std::move(secondParams));
     if (!roomId.isEmpty()) {
         params.append(roomId);
@@ -252,8 +252,8 @@ RocketChatMessage::searchRoomUsers(const QString &roomId, const QString &pattern
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint64 id)
 {
     QJsonObject json;
-    json[QLatin1String("msg")] = QStringLiteral("unsub");
-    json[QLatin1String("id")] = QString::number(id);
+    json[QLatin1StringView("msg")] = QStringLiteral("unsub");
+    json[QLatin1StringView("id")] = QString::number(id);
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
     RocketChatMessageResult result;
     result.result = generatedJsonDoc;
@@ -264,15 +264,15 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QS
 {
     // TODO fixme.
     QJsonObject json;
-    json[QLatin1String("msg")] = QStringLiteral("sub");
-    json[QLatin1String("id")] = QString::number(id);
-    json[QLatin1String("name")] = name;
+    json[QLatin1StringView("msg")] = QStringLiteral("sub");
+    json[QLatin1StringView("id")] = QString::number(id);
+    json[QLatin1StringView("name")] = name;
     if (params.isArray()) {
-        json[QLatin1String("params")] = params.array();
+        json[QLatin1StringView("params")] = params.array();
     } else if (params.isObject()) {
         QJsonArray arr;
         arr.append(params.object());
-        json[QLatin1String("params")] = arr;
+        json[QLatin1StringView("params")] = arr;
     }
 
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
@@ -286,17 +286,17 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QS
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
-    json[QLatin1String("msg")] = QStringLiteral("method");
-    json[QLatin1String("method")] = method;
-    json[QLatin1String("id")] = QString::number(id);
+    json[QLatin1StringView("msg")] = QStringLiteral("method");
+    json[QLatin1StringView("method")] = method;
+    json[QLatin1StringView("id")] = QString::number(id);
 
     if (!params.isEmpty()) {
         if (params.isArray()) {
-            json[QLatin1String("params")] = params.array();
+            json[QLatin1StringView("params")] = params.array();
         } else if (params.isObject()) {
             QJsonArray arr;
             arr.append(params.object());
-            json[QLatin1String("params")] = arr;
+            json[QLatin1StringView("params")] = arr;
         }
     }
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));

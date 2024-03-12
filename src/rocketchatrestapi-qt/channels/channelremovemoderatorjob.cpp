@@ -35,7 +35,7 @@ void ChannelRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorS
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeModeratorDone();
     } else {
@@ -79,7 +79,7 @@ QJsonDocument ChannelRemoveModeratorJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1String("userId")] = removeUserId();
+    jsonObj[QLatin1StringView("userId")] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -96,7 +96,7 @@ QNetworkRequest ChannelRemoveModeratorJob::request() const
 
 QString ChannelRemoveModeratorJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("error-user-not-moderator")) {
+    if (str == QLatin1StringView("error-user-not-moderator")) {
         return i18n("User is not a moderator.");
     }
 

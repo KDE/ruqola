@@ -125,15 +125,15 @@ QDebug operator<<(QDebug d, const User &t)
 // FIXME Add autotest for it!
 void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
-    setUserId(object.value(QLatin1String("_id")).toString());
-    setName(object.value(QLatin1String("name")).toString());
-    setStatus(Utils::presenceStatusFromString(object.value(QLatin1String("status")).toString()));
-    setUserName(object.value(QLatin1String("username")).toString());
-    setStatusText(object.value(QLatin1String("statusText")).toString());
-    setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
-    setActive(object.value(QLatin1String("active")).toBool(true)); // By default it's active
-    setBio(object.value(QLatin1String("bio")).toString());
-    setNickName(object.value(QLatin1String("nickname")).toString());
+    setUserId(object.value(QLatin1StringView("_id")).toString());
+    setName(object.value(QLatin1StringView("name")).toString());
+    setStatus(Utils::presenceStatusFromString(object.value(QLatin1StringView("status")).toString()));
+    setUserName(object.value(QLatin1StringView("username")).toString());
+    setStatusText(object.value(QLatin1StringView("statusText")).toString());
+    setUtcOffset(object.value(QLatin1StringView("utcOffset")).toDouble());
+    setActive(object.value(QLatin1StringView("active")).toBool(true)); // By default it's active
+    setBio(object.value(QLatin1StringView("bio")).toString());
+    setNickName(object.value(QLatin1StringView("nickname")).toString());
     const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
     QStringList roles;
     const int total = rolesArray.size();
@@ -142,25 +142,25 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
         roles.append(rolesArray.at(i).toString());
     }
     setRoles(roles, roleInfo);
-    if (object.contains(QLatin1String("createdAt"))) {
+    if (object.contains(QLatin1StringView("createdAt"))) {
         setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), object)));
     }
-    if (object.contains(QLatin1String("lastLogin"))) {
+    if (object.contains(QLatin1StringView("lastLogin"))) {
         setLastLogin(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("lastLogin"), object)));
     }
-    if (object.contains(QLatin1String("emails"))) {
+    if (object.contains(QLatin1StringView("emails"))) {
         const QJsonArray emails = object.value(QStringLiteral("emails")).toArray();
         if (emails.count() > 1) {
             qCWarning(RUQOLA_LOG) << " Users info has more that 1 emails. Bug or missing feature" << emails;
         } else {
             const QJsonObject emailObj = emails.at(0).toObject();
             UserEmailsInfo info;
-            info.email = emailObj.value(QLatin1String("address")).toString();
-            info.verified = emailObj.value(QLatin1String("verified")).toBool();
+            info.email = emailObj.value(QLatin1StringView("address")).toString();
+            info.verified = emailObj.value(QLatin1StringView("verified")).toBool();
             setUserEmailsInfo(info);
         }
     }
-    setRequirePasswordChange(object.value(QLatin1String("requirePasswordChange")).toBool(false));
+    setRequirePasswordChange(object.value(QLatin1StringView("requirePasswordChange")).toBool(false));
 
     // TODO emails
     // qDebug() << " object "  << object;
@@ -200,11 +200,11 @@ QStringList User::roles() const
 QString User::roleI18n(const QString &roleStr, const QList<RoleInfo> &roleInfo)
 {
     QString ri18n;
-    if (roleStr == QLatin1String("user")) {
+    if (roleStr == QLatin1StringView("user")) {
         ri18n = i18n("User");
-    } else if (roleStr == QLatin1String("admin")) {
+    } else if (roleStr == QLatin1StringView("admin")) {
         ri18n = i18n("Administrator");
-    } else if (roleStr == QLatin1String("bot")) {
+    } else if (roleStr == QLatin1StringView("bot")) {
         ri18n = i18n("Bot");
     } else {
         for (const RoleInfo &info : roleInfo) {
@@ -233,12 +233,12 @@ void User::setBio(const QString &newBio)
 QJsonObject User::serialize(const User &user)
 {
     QJsonObject o;
-    o[QLatin1String("identifier")] = user.userId();
-    o[QLatin1String("name")] = user.name();
-    o[QLatin1String("username")] = user.userName();
-    o[QLatin1String("statusText")] = user.statusText();
-    o[QLatin1String("bio")] = user.bio();
-    o[QLatin1String("nickname")] = user.nickName();
+    o[QLatin1StringView("identifier")] = user.userId();
+    o[QLatin1StringView("name")] = user.name();
+    o[QLatin1StringView("username")] = user.userName();
+    o[QLatin1StringView("statusText")] = user.statusText();
+    o[QLatin1StringView("bio")] = user.bio();
+    o[QLatin1StringView("nickname")] = user.nickName();
 
     // Add status/utcoffset/active
 
@@ -249,15 +249,15 @@ QJsonObject User::serialize(const User &user)
 User User::deserialize(const QJsonObject &o)
 {
     User user;
-    user.setUserId(o.value(QLatin1String("identifier")).toString());
-    user.setName(o.value(QLatin1String("name")).toString());
-    user.setStatus(Utils::presenceStatusFromString(o.value(QLatin1String("status")).toString()));
-    user.setUserName(o.value(QLatin1String("username")).toString());
-    user.setStatusText(o.value(QLatin1String("statusText")).toString());
-    user.setUtcOffset(o.value(QLatin1String("utcOffset")).toDouble());
-    user.setActive(o.value(QLatin1String("active")).toBool(true)); // By default it's active
-    user.setBio(o.value(QLatin1String("bio")).toString());
-    user.setNickName(o.value(QLatin1String("nickname")).toString());
+    user.setUserId(o.value(QLatin1StringView("identifier")).toString());
+    user.setName(o.value(QLatin1StringView("name")).toString());
+    user.setStatus(Utils::presenceStatusFromString(o.value(QLatin1StringView("status")).toString()));
+    user.setUserName(o.value(QLatin1StringView("username")).toString());
+    user.setStatusText(o.value(QLatin1StringView("statusText")).toString());
+    user.setUtcOffset(o.value(QLatin1StringView("utcOffset")).toDouble());
+    user.setActive(o.value(QLatin1StringView("active")).toBool(true)); // By default it's active
+    user.setBio(o.value(QLatin1StringView("bio")).toString());
+    user.setNickName(o.value(QLatin1StringView("nickname")).toString());
     // TODO
     return {};
 }
@@ -331,14 +331,14 @@ void User::setActive(bool newActive)
 
 void User::parseUser(const QJsonObject &object)
 {
-    const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
-    setUserId(object.value(QLatin1String("id")).toString());
-    setName(fields.value(QLatin1String("name")).toString());
-    setNickName(fields.value(QLatin1String("nickname")).toString());
-    setStatus(Utils::presenceStatusFromString(fields.value(QLatin1String("status")).toString()));
-    setUserName(fields.value(QLatin1String("username")).toString());
-    setStatusText(fields.value(QLatin1String("statusText")).toString());
-    setUtcOffset(fields.value(QLatin1String("utcOffset")).toDouble());
+    const QJsonObject fields = object.value(QLatin1StringView("fields")).toObject();
+    setUserId(object.value(QLatin1StringView("id")).toString());
+    setName(fields.value(QLatin1StringView("name")).toString());
+    setNickName(fields.value(QLatin1StringView("nickname")).toString());
+    setStatus(Utils::presenceStatusFromString(fields.value(QLatin1StringView("status")).toString()));
+    setUserName(fields.value(QLatin1StringView("username")).toString());
+    setStatusText(fields.value(QLatin1StringView("statusText")).toString());
+    setUtcOffset(fields.value(QLatin1StringView("utcOffset")).toDouble());
     // TODO active ?
 }
 
@@ -364,7 +364,7 @@ QString User::iconFromStatus() const
 
 QList<User> User::parseUsersList(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
-    const QJsonArray fieldsArray = object.value(QLatin1String("items")).toArray();
+    const QJsonArray fieldsArray = object.value(QLatin1StringView("items")).toArray();
     QList<User> users;
     for (const QJsonValue &current : fieldsArray) {
         if (current.type() == QJsonValue::Object) {

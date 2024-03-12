@@ -22,7 +22,7 @@ TeamNameLabel::~TeamNameLabel() = default;
 
 void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
 {
-    if (contents == QLatin1String("gotoroomteam")) {
+    if (contents == QLatin1StringView("gotoroomteam")) {
         Q_EMIT openTeam(mTeamNameInfo.teamIdentifier);
     }
 }

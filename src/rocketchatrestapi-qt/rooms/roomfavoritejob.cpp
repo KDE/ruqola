@@ -36,7 +36,7 @@ void RoomFavoriteJob::onPostRequestResponse(const QString &replyErrorString, con
 {
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QLatin1String("success")].toBool()) {
+    if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeFavoriteDone();
     } else {
@@ -57,7 +57,7 @@ void RoomFavoriteJob::setFavorite(bool favorite)
 
 QString RoomFavoriteJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    if (str == QLatin1String("error-invalid-subscription")) {
+    if (str == QLatin1StringView("error-invalid-subscription")) {
         return i18n("Invalid Subscription");
     }
     return RestApiAbstractJob::errorMessage(str, details);
@@ -102,8 +102,8 @@ QNetworkRequest RoomFavoriteJob::request() const
 QJsonDocument RoomFavoriteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mRoomId;
-    jsonObj[QLatin1String("favorite")] = mFavorite;
+    jsonObj[QLatin1StringView("roomId")] = mRoomId;
+    jsonObj[QLatin1StringView("favorite")] = mFavorite;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

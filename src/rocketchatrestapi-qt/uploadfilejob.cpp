@@ -72,19 +72,19 @@ bool UploadFileJob::start()
     multiPart->append(filePart);
 
     QHttpPart msgPart;
-    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
+    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"msg\"")));
     msgPart.setBody(mUploadFileInfo.messageText.toUtf8());
     multiPart->append(msgPart);
 
     if (!mUploadFileInfo.threadMessageId.isEmpty()) {
         QHttpPart msgPart;
-        msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"tmid\"")));
+        msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"tmid\"")));
         msgPart.setBody(mUploadFileInfo.threadMessageId.toUtf8());
         multiPart->append(msgPart);
     }
 
     QHttpPart descriptionPart;
-    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
+    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"description\"")));
     descriptionPart.setBody(mUploadFileInfo.description.toUtf8());
     multiPart->append(descriptionPart);
     mReply = networkAccessManager()->post(request(), multiPart);
@@ -129,7 +129,7 @@ void UploadFileJob::slotUploadFinished()
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
-        if (replyObject.value(QLatin1String("success")).toBool()) {
+        if (replyObject.value(QLatin1StringView("success")).toBool()) {
             addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {
             if (reply->error() != QNetworkReply::NoError) {

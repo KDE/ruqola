@@ -87,7 +87,7 @@ void NotificationOptionsTest::shouldParseNotification()
     QFETCH(QString, mobilePushNotification);
     QFETCH(QString, emailNotifications);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/notificationoption/") + fileNameinit + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/notificationoption/") + fileNameinit + QLatin1StringView(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

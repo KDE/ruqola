@@ -445,9 +445,9 @@ void RoomWidget::slotCallRequested()
     connect(job, &RocketChatRestApi::VideoConferenceCapabilitiesJob::videoConferenceCapabilitiesDone, this, [this](const QJsonObject &obj) {
         // qDebug() << "obj  " << obj;
         // {"capabilities":{"cam":true,"mic":true,"title":true},"providerName":"jitsi","success":true}
-        const QJsonObject capabilitiesObj = obj[QLatin1String("capabilities")].toObject();
-        const bool useCam = capabilitiesObj[QLatin1String("cam")].toBool();
-        const bool useMic = capabilitiesObj[QLatin1String("mic")].toBool();
+        const QJsonObject capabilitiesObj = obj[QLatin1StringView("capabilities")].toObject();
+        const bool useCam = capabilitiesObj[QLatin1StringView("cam")].toBool();
+        const bool useMic = capabilitiesObj[QLatin1StringView("mic")].toBool();
         ConferenceCallWidget::ConferenceCallStart callInfo;
         callInfo.useCamera = useCam;
         callInfo.useMic = useMic;
@@ -466,7 +466,7 @@ void RoomWidget::slotCallRequested()
             connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, conferenceCallInfo](const QJsonObject &obj) {
                 // qDebug() << "obj  " << obj;
                 // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
-                const QString callId{obj[QLatin1String("callId")].toString()};
+                const QString callId{obj[QLatin1StringView("callId")].toString()};
                 mCurrentRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(callId);
                 auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
                 RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
@@ -477,7 +477,7 @@ void RoomWidget::slotCallRequested()
                 mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
                 connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
                     // qDebug() << " join info " << obj;
-                    QDesktopServices::openUrl(QUrl(joinObject[QLatin1String("url")].toString()));
+                    QDesktopServices::openUrl(QUrl(joinObject[QLatin1StringView("url")].toString()));
                 });
                 if (!conferenceJoinJob->start()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
@@ -619,7 +619,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
         mRoomHeaderWidget->setIsDirectGroup((mRoom->channelType() == Room::RoomType::Direct) && mRoom->userNames().count() > 2);
-        if (mRoom->roomId() == QLatin1String("%1%1").arg(mCurrentRocketChatAccount->userId())) {
+        if (mRoom->roomId() == QLatin1StringView("%1%1").arg(mCurrentRocketChatAccount->userId())) {
             mRoomHeaderWidget->setCallEnabled(false);
         } else {
             mRoomHeaderWidget->setCallEnabled(true);
@@ -739,7 +739,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         job->setChannelHistoryInfo(info);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, [this, numberOfMessage, roomMessageModel](const QJsonObject &obj) {
-            mCurrentRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
+            mCurrentRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1StringView("messages")).toArray(), true, true);
             // qDebug() << " obj " << obj;
             //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
             //                qDebug() << " numberOfMessage " << numberOfMessage;
@@ -797,7 +797,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         job->setChannelHistoryInfo(info);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, [messageId, messageModel, messageListView, this](const QJsonObject &obj) {
-            mCurrentRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
+            mCurrentRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1StringView("messages")).toArray(), true, true);
             const QModelIndex index = messageModel->indexForMessage(messageId);
             if (index.isValid()) {
                 messageListView->scrollTo(index);
