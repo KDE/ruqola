@@ -55,7 +55,7 @@ void AppsUiInteractionJob::setAppsUiInteractionJobInfo(const AppsUiInteractionJo
 
 bool AppsUiInteractionJob::requireHttpAuthentication() const
 {
-    return !mAppsUiInteractionJobInfo.anonymous;
+    return true;
 }
 
 bool AppsUiInteractionJob::canStart() const
@@ -72,9 +72,7 @@ bool AppsUiInteractionJob::canStart() const
 
 QNetworkRequest AppsUiInteractionJob::request() const
 {
-    const QUrl url =
-        mRestApiMethod->generateUrl(mAppsUiInteractionJobInfo.anonymous ? RestApiUtil::RestApiUrlType::MethodCallAnon : RestApiUtil::RestApiUrlType::MethodCall,
-                                    mAppsUiInteractionJobInfo.methodName);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::AppsUiInteraction);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
