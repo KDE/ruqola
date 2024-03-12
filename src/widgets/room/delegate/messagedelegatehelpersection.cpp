@@ -6,20 +6,15 @@
 
 #include "messagedelegatehelpersection.h"
 #include "common/delegatepaintutil.h"
-#include "conferencecalldialog/conferenceinfodialog.h"
-#include "config-ruqola.h"
-#include "misc/avatarcachemanager.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
-#include <QToolTip>
 
 MessageDelegateHelperSection::MessageDelegateHelperSection(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
@@ -50,23 +45,6 @@ QSize MessageDelegateHelperSection::sizeHint(const Block &block, const QModelInd
     return {qMax(0, layout.titleSize.width()), height};
 }
 
-QPoint MessageDelegateHelperSection::adaptMousePosition(const QPoint &pos, const Block &block, QRect blocksRect, const QStyleOptionViewItem &option)
-{
-    const SectionLayout layout = layoutSection(block, option, blocksRect.width());
-    const QPoint relativePos = pos - blocksRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
-    return relativePos;
-}
-
-bool MessageDelegateHelperSection::handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option)
-{
-    Q_UNUSED(block);
-    Q_UNUSED(option);
-    Q_UNUSED(helpEvent);
-    Q_UNUSED(blockRect);
-    // TODO ?
-    return false;
-}
-
 bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                                                     QMouseEvent *mouseEvent,
                                                     QRect blocksRect,
@@ -89,9 +67,4 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     layout.title = block.sectionText();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     return layout;
-}
-
-void MessageDelegateHelperSection::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
-{
-    MessageBlockDelegateHelperBase::setRocketChatAccount(newRocketChatAccount);
 }
