@@ -19,7 +19,6 @@ public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT AppsUiInteractionJobInfo {
         QJsonObject messageObj;
         QString methodName;
-        bool anonymous = false;
         [[nodiscard]] bool isValid() const;
     };
     explicit AppsUiInteractionJob(QObject *parent = nullptr);
