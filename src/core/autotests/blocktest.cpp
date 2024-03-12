@@ -47,6 +47,39 @@ void BlockTest::shouldLoadBlock_data()
         info.setSectionText(QStringLiteral("You mentioned *foo*, but they're not in this room."));
         QTest::addRow("section1") << QStringLiteral("section1") << info;
     }
+    {
+        Block info;
+        info.setAppId(QStringLiteral("mention-core"));
+        info.setBlockTypeStr(QStringLiteral("actions"));
+
+        QList<BlockAction> lstAct;
+        {
+            BlockAction act;
+            act.setActionId(QStringLiteral("add-users"));
+            act.setText(QStringLiteral("Add them"));
+            act.setType(QStringLiteral("button"));
+            act.setBlockId(QStringLiteral("n6bZuzbjfGstE"));
+            lstAct.append(act);
+        }
+        {
+            BlockAction act;
+            act.setActionId(QStringLiteral("dismiss"));
+            act.setText(QStringLiteral("Do nothing"));
+            act.setType(QStringLiteral("button"));
+            act.setBlockId(QStringLiteral("n6bZuzbjfGstE"));
+            lstAct.append(act);
+        }
+        {
+            BlockAction act;
+            act.setActionId(QStringLiteral("share-message"));
+            act.setText(QStringLiteral("Let them know"));
+            act.setType(QStringLiteral("button"));
+            act.setBlockId(QStringLiteral("7bZuzbjfGstE"));
+            lstAct.append(act);
+        }
+        info.setBlockActions(lstAct);
+        QTest::addRow("actions1") << QStringLiteral("actions1") << info;
+    }
 }
 
 void BlockTest::shouldLoadBlock()
