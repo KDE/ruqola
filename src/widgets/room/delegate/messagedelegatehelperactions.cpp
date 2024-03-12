@@ -52,6 +52,7 @@ void MessageDelegateHelperActions::draw(const Block &block,
         painter->setBrush(origBrush);
         painter->setPen(origPen);
         const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - button.buttonRect.width()) / 2, 0, 0, 0);
+        // FIXME: Draw center !
         painter->drawText(r, button.text);
     }
 }
@@ -63,8 +64,8 @@ QSize MessageDelegateHelperActions::sizeHint(const Block &block, const QModelInd
     if (layout.buttonList.isEmpty()) {
         return {};
     }
-    qDebug() << " layout.buttonLis " << layout.buttonList.count();
     const int height = layout.buttonList.at(0).buttonRect.height() + DelegatePaintUtil::margin();
+    // TODO fix width
     return {qMax(0, static_cast<int>(layout.buttonList.at(0).buttonRect.width())), height};
 }
 
@@ -102,9 +103,9 @@ MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOpti
         ButtonLayout buttonLayout;
         buttonLayout.text = act.text();
         const QSize buttonSize = option.fontMetrics.size(Qt::TextSingleLine, buttonLayout.text);
-        buttonLayout.buttonRect = QRectF(x, DelegatePaintUtil::margin(), buttonSize.width(), buttonSize.height());
+        buttonLayout.buttonRect = QRectF(x, DelegatePaintUtil::margin(), buttonSize.width() + 2 * DelegatePaintUtil::margin(), buttonSize.height());
         layout.buttonList.append(std::move(buttonLayout));
-        x += buttonSize.width() + DelegatePaintUtil::margin();
+        x += buttonLayout.buttonRect.width() + DelegatePaintUtil::margin();
     }
     return layout;
 }
