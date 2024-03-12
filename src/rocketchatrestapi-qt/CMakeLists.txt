@@ -276,6 +276,9 @@ target_sources(librocketchatrestapi-qt PRIVATE
     misc/methodcalljob.cpp
     misc/methodcalljob.h
 
+    misc/appsuiinteractionjob.cpp
+    misc/appsuiinteractionjob.h
+
     permissions/permissionslistalljob.cpp
     permissions/permissionslistalljob.h
     permissions/permissionupdatejob.cpp
