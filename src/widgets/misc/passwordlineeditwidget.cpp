@@ -13,7 +13,6 @@
 #include <QHBoxLayout>
 #include <QPointer>
 #include <QPushButton>
-#include <kwidgetsaddons_version.h>
 
 PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     : QWidget(parent)
@@ -25,12 +24,8 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-#if KWIDGETSADDONS_VERSION <= QT_VERSION_CHECK(5, 249, 0)
-    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
-#else
     mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                                 : KPassword::RevealMode::Never);
-#endif
     mainLayout->addWidget(mPasswordLineEdit);
 
     mResetPasswordButton->setObjectName(QStringLiteral("mResetPasswordButton"));

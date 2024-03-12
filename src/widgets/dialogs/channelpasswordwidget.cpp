@@ -10,7 +10,6 @@
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <kwidgetsaddons_version.h>
 
 ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     : QWidget(parent)
@@ -26,12 +25,8 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     mainLayout->addWidget(label);
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-#if KWIDGETSADDONS_VERSION <= QT_VERSION_CHECK(5, 249, 0)
-    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
-#else
     mPasswordLineEdit->setRevealPasswordMode(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")) ? KPassword::RevealMode::OnlyNew
                                                                                                                 : KPassword::RevealMode::Never);
-#endif
     mainLayout->addWidget(mPasswordLineEdit);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &ChannelPasswordWidget::slotPasswordChanged);
 }
