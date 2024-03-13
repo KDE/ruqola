@@ -87,15 +87,3 @@ void BlockAction::setBlockId(const QString &newBlockId)
 {
     mBlockId = newBlockId;
 }
-
-QJsonObject BlockAction::serialize(const BlockAction &blockAction)
-{
-    // TODO necessary ?
-    return {};
-}
-
-BlockAction BlockAction::deserialize(const QJsonObject &o)
-{
-    // TODO necessary ?
-    return {};
-}

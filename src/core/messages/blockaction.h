@@ -30,9 +30,6 @@ public:
     [[nodiscard]] QString blockId() const;
     void setBlockId(const QString &newBlockId);
 
-    [[nodiscard]] static QJsonObject serialize(const BlockAction &block);
-    [[nodiscard]] static BlockAction deserialize(const QJsonObject &o);
-
     [[nodiscard]] bool isValid() const;
 
     [[nodiscard]] QString value() const;
