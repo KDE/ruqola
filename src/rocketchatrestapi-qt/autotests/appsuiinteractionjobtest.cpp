@@ -20,10 +20,9 @@ void AppsUiInteractionJobTest::shouldHaveDefaultValue()
     AppsUiInteractionJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasQueryParameterSupport());
     AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     job.setAppsUiInteractionJobInfo(info);
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.requireHttpAuthentication());
 }
 
 void AppsUiInteractionJobTest::shouldGenerateRequest()
@@ -31,14 +30,14 @@ void AppsUiInteractionJobTest::shouldGenerateRequest()
     AppsUiInteractionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.call")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/ui.interaction")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
     AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     info.methodName = QStringLiteral("login");
     job.setAppsUiInteractionJobInfo(info);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.callAnon/login")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/apps/ui.interaction/login")));
 }
 
 void AppsUiInteractionJobTest::shouldGenerateJson()
