@@ -47,7 +47,7 @@ void AppsUiInteractionJobTest::shouldGenerateJson()
     info.methodName = QStringLiteral("login");
     job.setAppsUiInteractionJobInfo(info);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"{}"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
 
     QVariantMap map;
     map.insert(QStringLiteral("msg"), QStringLiteral("method"));
@@ -56,8 +56,7 @@ void AppsUiInteractionJobTest::shouldGenerateJson()
     info.messageObj = QJsonObject::fromVariantMap(map);
     info.methodName = QStringLiteral("login");
     job.setAppsUiInteractionJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"message\":\"{\\\"id\\\":\\\"52\\\",\\\"method\\\":\\\"login\\\",\\\"msg\\\":\\\"method\\\"}\"}").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"id\":\"52\",\"method\":\"login\",\"msg\":\"method\"}").toLatin1());
 }
 
 void AppsUiInteractionJobTest::shouldNotStarting()
@@ -78,6 +77,48 @@ void AppsUiInteractionJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     // TODO
+}
+
+void AppsUiInteractionJobTest::shouldTestGenerateMessageObj()
+{
+    QFETCH(QString, actionId);
+    QFETCH(QString, value);
+    QFETCH(QString, blockId);
+    QFETCH(QString, roomId);
+    QFETCH(QString, messageId);
+    QFETCH(QString, result);
+
+    AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+    info.generateMessageObj(actionId, value, blockId, roomId, messageId);
+    QCOMPARE(QString::fromUtf8(QJsonDocument(info.messageObj).toJson(QJsonDocument::Compact)), result);
+}
+
+void AppsUiInteractionJobTest::shouldTestGenerateMessageObj_data()
+{
+    QTest::addColumn<QString>("actionId");
+    QTest::addColumn<QString>("value");
+    QTest::addColumn<QString>("blockId");
+    QTest::addColumn<QString>("roomId");
+    QTest::addColumn<QString>("messageId");
+    QTest::addColumn<QString>("result");
+
+    QTest::addRow("empty") << QString() << QString() << QString() << QString() << QString()
+                           << QStringLiteral(
+                                  "{\"actionId\":\"\",\"container\":{\"id\":\"\",\"type\":\"message\"},\"mid\":\"\",\"payload\":{\"blockId\":\"\",\"value\":"
+                                  "\"\"},\"rid\":\"\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
+
+    QTest::addRow("test1") << QStringLiteral("act1") << QString() << QStringLiteral("blo1") << QStringLiteral("room1") << QStringLiteral("message1")
+                           << QStringLiteral(
+                                  "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
+                                  "\"blockId\":\"blo1\",\"value\":\"\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
+
+    QTest::addRow("test2") << QStringLiteral("act1")
+                           << QStringLiteral("[{\"_id\":\"HJ4EFjvEjYT73X\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]")
+                           << QStringLiteral("blo1") << QStringLiteral("room1") << QStringLiteral("message1")
+                           << QStringLiteral(
+                                  "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
+                                  "\"blockId\":\"blo1\",\"value\":\"[{\\\"_id\\\":\\\"HJ4EFjvEjYT73X\\\",\\\"username\\\":\\\"service\\\",\\\"name\\\":"
+                                  "\\\"Service\\\",\\\"type\\\":\\\"user\\\"}]\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 }
 
 #include "moc_appsuiinteractionjobtest.cpp"

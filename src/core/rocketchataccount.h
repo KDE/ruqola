@@ -520,6 +520,14 @@ public:
     [[nodiscard]] QUrl previewUrlFromLocalCache(const QString &url);
     [[nodiscard]] bool previewEmbed() const;
     [[nodiscard]] QUrl avatarUrlFromLocalCache(const QString &url);
+
+    void executeBlockAction(const QString &appId,
+                            const QString &aactionId,
+                            const QString &avalue,
+                            const QString &ablockId,
+                            const QString &roomId,
+                            const QString &messageId);
+
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);

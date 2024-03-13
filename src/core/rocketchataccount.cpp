@@ -62,6 +62,7 @@
 #include "managechannels.h"
 #include "managelocaldatabase.h"
 #include "messagecache.h"
+#include "misc/appsuiinteractionjob.h"
 #include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
 #include "ruqola_thread_message_debug.h"
@@ -2967,6 +2968,25 @@ void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const
 QVector<Permission> RocketChatAccount::permissions() const
 {
     return mPermissionManager.permissions();
+}
+
+void RocketChatAccount::executeBlockAction(const QString &appId,
+                                           const QString &actionId,
+                                           const QString &value,
+                                           const QString &blockId,
+                                           const QString &roomId,
+                                           const QString &messageId)
+{
+    auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
+    RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+    info.methodName = appId;
+    info.generateMessageObj(actionId, value, blockId, roomId, messageId);
+    job->setAppsUiInteractionJobInfo(info);
+
+    restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start AppsUiInteractionJob job";
+    }
 }
 
 #include "moc_rocketchataccount.cpp"

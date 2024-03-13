@@ -19,4 +19,6 @@ private Q_SLOTS:
     void shouldGenerateRequest();
     void shouldGenerateJson();
     void shouldNotStarting();
+    void shouldTestGenerateMessageObj();
+    void shouldTestGenerateMessageObj_data();
 };
