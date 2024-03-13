@@ -215,6 +215,9 @@ public:
     [[nodiscard]] ModerationMessage moderationMessage() const;
     void setModerationMessage(const ModerationMessage &newModerationMessage);
 
+    [[nodiscard]] bool privateMessage() const;
+    void setPrivateMessage(bool newPrivateMessage);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString generateUniqueId(const QString &messageId, int index);
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
@@ -341,6 +344,8 @@ private:
     bool mIsEditingMode = false;
 
     bool mHoverHighlight = false;
+
+    bool mPrivateMessage = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };

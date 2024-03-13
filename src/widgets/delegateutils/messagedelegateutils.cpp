@@ -63,7 +63,7 @@ bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage =
         messageType == Message::System && index.data(MessagesModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
-    return isSystemMessage;
+    return isSystemMessage || index.data(MessagesModel::PrivateMessage).toBool();
 }
 
 bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)

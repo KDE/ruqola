@@ -73,6 +73,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
     mMessageTranslation.parse(o);
+    mPrivateMessage = o.value(QLatin1StringView("private")).toBool(false);
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
@@ -366,6 +367,16 @@ void Message::parseBlocks(const QJsonArray &blocks)
     }
 }
 
+bool Message::privateMessage() const
+{
+    return mPrivateMessage;
+}
+
+void Message::setPrivateMessage(bool newPrivateMessage)
+{
+    mPrivateMessage = newPrivateMessage;
+}
+
 ModerationMessage Message::moderationMessage() const
 {
     return mModerationMessage;
@@ -491,7 +502,7 @@ bool Message::operator==(const Message &other) const
         && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage())
         && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation()) && (mBlocks == other.blocks())
-        && (mDisplayTime == other.mDisplayTime);
+        && (mDisplayTime == other.mDisplayTime) && (mPrivateMessage == other.privateMessage());
 }
 
 bool Message::operator<(const Message &other) const
@@ -828,6 +839,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString();
     message.mThreadMessageId = o[QLatin1StringView("tmid")].toString();
 
+    message.mPrivateMessage = o[QLatin1StringView("private")].toBool(false);
     if (o.contains(QLatin1StringView("tlm"))) {
         message.mThreadLastMessage = static_cast<qint64>(o[QLatin1StringView("tlm")].toDouble());
     }
@@ -1040,6 +1052,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mMessageTranslation.isEmpty()) {
         o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
     }
+    if (message.mPrivateMessage) {
+        o[QLatin1StringView("private")] = true;
+    }
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
@@ -1101,6 +1116,7 @@ QDebug operator<<(QDebug d, const Message &t)
         d.space() << "block:" << t.blocks().at(i);
     }
 
+    d.space() << "mPrivateMessage" << t.privateMessage();
     return d;
 }
 

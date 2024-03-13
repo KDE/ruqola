@@ -339,6 +339,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.localTranslation();
     case MessagesModel::OriginalMessageOrAttachmentDescription:
         return message.originalMessageOrAttachmentDescription();
+    case MessagesModel::PrivateMessage:
+        return message.privateMessage();
     case MessagesModel::GoToMessageBackgroundColor:
         return message.goToMessageBackgroundColor();
     }
@@ -348,7 +350,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
 
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
-    if (message.messageType() == Message::System) {
+    if (message.privateMessage()) {
+        return i18n("Only you can see this message");
+    } else if (message.messageType() == Message::System) {
         return message.systemMessageText();
         //    } else if (message.messageType() == Message::VideoConference) {
         //        return QStringLiteral("");

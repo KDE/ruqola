@@ -30,6 +30,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(m.attachments().isEmpty());
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
+    QVERIFY(!m.privateMessage());
 }
 
 // TODO add check for default value ???

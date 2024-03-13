@@ -79,6 +79,7 @@ public:
         HoverHighLight,
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
+        PrivateMessage,
         GoToMessageBackgroundColor,
         LastMessageRoles = GoToMessageBackgroundColor,
     };
