@@ -28,6 +28,7 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
 
     mProgressBar->setObjectName(QStringLiteral("mProgressBar"));
     mProgressBar->setRange(0, 100);
+    mProgressBar->setFormat(i18nc("Percent value; %p is the value, % is the percent sign", "%p%"));
 
     mCancelToolButton->setObjectName(QStringLiteral("mCancelToolButton"));
     mCancelToolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
