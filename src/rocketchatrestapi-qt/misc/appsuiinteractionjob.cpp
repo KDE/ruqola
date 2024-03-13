@@ -32,6 +32,10 @@ bool AppsUiInteractionJob::start()
 void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
+    // It doesn't return sucess or not!
+    Q_EMIT appsUiInteractionDone();
+#if 0
+    // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AppsUiInteractionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -41,6 +45,7 @@ void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AppsUiInteractionJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+#endif
 }
 
 AppsUiInteractionJob::AppsUiInteractionJobInfo AppsUiInteractionJob::methodCallJobInfo() const
@@ -81,9 +86,7 @@ QNetworkRequest AppsUiInteractionJob::request() const
 
 QJsonDocument AppsUiInteractionJob::json() const
 {
-    QJsonObject jsonObj;
-    // We need to convert to string
-    jsonObj[QLatin1StringView("message")] = QString::fromUtf8(QJsonDocument(mAppsUiInteractionJobInfo.messageObj).toJson(QJsonDocument::Compact));
+    const QJsonObject jsonObj = mAppsUiInteractionJobInfo.messageObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
@@ -92,6 +95,34 @@ bool AppsUiInteractionJob::AppsUiInteractionJobInfo::isValid() const
 {
     // TODO verify if messageObj is empty
     return !methodName.isEmpty() && !messageObj.isEmpty();
+}
+
+void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QString &actionId,
+                                                                        const QString &value,
+                                                                        const QString &blockId,
+                                                                        const QString &roomId,
+                                                                        const QString &messageId)
+{
+    QJsonObject o;
+    o.insert(QStringLiteral("type"), QStringLiteral("blockAction"));
+    o.insert(QStringLiteral("actionId"), actionId);
+
+    QJsonObject payload;
+    payload.insert(QStringLiteral("blockId"), blockId);
+    payload.insert(QStringLiteral("value"), value);
+
+    o.insert(QStringLiteral("payload"), payload);
+    o.insert(QStringLiteral("rid"), roomId);
+    o.insert(QStringLiteral("mid"), messageId);
+
+    QJsonObject container;
+    container.insert(QStringLiteral("type"), QStringLiteral("message"));
+    container.insert(QStringLiteral("id"), messageId);
+    o.insert(QStringLiteral("container"), container);
+
+    // TODO fix me.
+    o.insert(QStringLiteral("triggerId"), QStringLiteral("foo"));
+    messageObj = o;
 }
 
 #include "moc_appsuiinteractionjob.cpp"

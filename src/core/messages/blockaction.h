@@ -35,11 +35,15 @@ public:
 
     [[nodiscard]] bool isValid() const;
 
+    [[nodiscard]] QString value() const;
+    void setValue(const QString &newValue);
+
 private:
     QString mActionId;
     QString mText;
     QString mType;
     QString mBlockId;
+    QString mValue;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAction &t);
 Q_DECLARE_TYPEINFO(BlockAction, Q_RELOCATABLE_TYPE);

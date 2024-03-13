@@ -527,6 +527,12 @@ public:
 
     [[nodiscard]] AuthenticationManager::AuthMethodType authMethodType() const;
     void setAuthMethodType(const AuthenticationManager::AuthMethodType &newAuthMethodType);
+    void executeBlockAction(const QString &appId,
+                            const QString &aactionId,
+                            const QString &avalue,
+                            const QString &ablockId,
+                            const QString &roomId,
+                            const QString &messageId);
 
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);

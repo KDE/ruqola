@@ -19,6 +19,7 @@ public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT AppsUiInteractionJobInfo {
         QJsonObject messageObj;
         QString methodName;
+        void generateMessageObj(const QString &actionId, const QString &value, const QString &blockId, const QString &roomId, const QString &messageId);
         [[nodiscard]] bool isValid() const;
     };
     explicit AppsUiInteractionJob(QObject *parent = nullptr);
@@ -35,7 +36,7 @@ public:
     void setAppsUiInteractionJobInfo(const AppsUiInteractionJobInfo &newAppsUiInteractionJobInfo);
 
 Q_SIGNALS:
-    void AppsUiInteractionDone(const QJsonObject &replyObject);
+    void appsUiInteractionDone();
 
 private:
     Q_DISABLE_COPY(AppsUiInteractionJob)

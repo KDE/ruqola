@@ -59,6 +59,7 @@ void BlockTest::shouldLoadBlock_data()
             act.setText(QStringLiteral("Add them"));
             act.setType(QStringLiteral("button"));
             act.setBlockId(QStringLiteral("n6bZuzbjfGstE"));
+            act.setValue(QStringLiteral("[{\"_id\":\"FjvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"));
             lstAct.append(act);
         }
         {
@@ -67,6 +68,7 @@ void BlockTest::shouldLoadBlock_data()
             act.setText(QStringLiteral("Do nothing"));
             act.setType(QStringLiteral("button"));
             act.setBlockId(QStringLiteral("n6bZuzbjfGstE"));
+            act.setValue(QStringLiteral("[{\"_id\":\"HvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"));
             lstAct.append(act);
         }
         {
@@ -75,6 +77,7 @@ void BlockTest::shouldLoadBlock_data()
             act.setText(QStringLiteral("Let them know"));
             act.setType(QStringLiteral("button"));
             act.setBlockId(QStringLiteral("7bZuzbjfGstE"));
+            act.setValue(QStringLiteral("[{\"_id\":\"jvEjYT73XYYo\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"));
             lstAct.append(act);
         }
         info.setBlockActions(lstAct);

@@ -35,6 +35,8 @@ private:
         QString text;
         QString actionId;
         QString appId;
+        QString blockId;
+        QString value;
         QRectF buttonRect;
     };
     struct ActionsLayout {
