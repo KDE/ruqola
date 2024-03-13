@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-12 00:37+0000\n"
+"POT-Creation-Date: 2024-03-13 00:38+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2395,13 +2395,13 @@ msgstr ""
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/channelinfoeditablewidget.cpp:54
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr ""
@@ -2827,7 +2827,7 @@ msgid "Edit '%1' Permission"
 msgstr ""
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:76
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -2879,7 +2879,7 @@ msgstr ""
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:70
+#: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
@@ -2994,14 +2994,14 @@ msgid "Room's Creator:"
 msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:62
+#: widgets/dialogs/channelinfoeditablewidget.cpp:61
 #: widgets/dialogs/channelinforeadonlywidget.cpp:59
 #, kde-format
 msgid "Comment:"
 msgstr ""
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:66
+#: widgets/dialogs/channelinfoeditablewidget.cpp:65
 #: widgets/dialogs/channelinforeadonlywidget.cpp:71
 #, kde-format
 msgid "Announcement:"
@@ -3285,71 +3285,71 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgid "Join Default Channels"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgid "Send Welcome Email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgid "Require Password Change"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, kde-format
 msgid "Set random password and send by email"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:32
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:56
-#: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #, kde-format
 msgid "Status Message:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
-#: widgets/registeruser/registeruserwidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
+#: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:69
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/common/authenticationloginwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:82
-#: widgets/registeruser/registeruserwidget.cpp:44
+#: widgets/dialogs/channelinfoeditablewidget.cpp:77
+#: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Password:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:70
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr ""
@@ -6261,85 +6261,85 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Delete"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:85
+#: widgets/dialogs/channelinfoeditablewidget.cpp:80
 #, kde-format
 msgid "ReadOnly:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:83
 #, kde-format
 msgid "Archive:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:93
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:93
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:94
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Archive Channel"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:94
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Unarchive Channel"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:101
+#: widgets/dialogs/channelinfoeditablewidget.cpp:96
 #, kde-format
 msgid "Private:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:104
+#: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Encrypted:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:108
+#: widgets/dialogs/channelinfoeditablewidget.cpp:103
 #, kde-format
 msgid "Hide System Messages:"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:122
+#: widgets/dialogs/channelinfoeditablewidget.cpp:117
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:123
+#: widgets/dialogs/channelinfoeditablewidget.cpp:118
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:131
+#: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:132
+#: widgets/dialogs/channelinfoeditablewidget.cpp:127
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:269
+#: widgets/dialogs/channelinfoeditablewidget.cpp:264
 #, kde-format
 msgid "This room has a password"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:269
+#: widgets/dialogs/channelinfoeditablewidget.cpp:264
 #, kde-format
 msgid "Add password"
 msgstr ""
@@ -6396,7 +6396,7 @@ msgctxt "@title:window"
 msgid "Add Password"
 msgstr ""
 
-#: widgets/dialogs/channelpasswordwidget.cpp:23
+#: widgets/dialogs/channelpasswordwidget.cpp:22
 #, kde-format
 msgid "Channel Password:"
 msgstr ""
@@ -6490,7 +6490,7 @@ msgctxt "@title:window"
 msgid "Confirm Password"
 msgstr ""
 
-#: widgets/dialogs/confirmpasswordwidget.cpp:24
+#: widgets/dialogs/confirmpasswordwidget.cpp:23
 #, kde-format
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
@@ -7501,18 +7501,18 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr ""
 
-#: widgets/misc/passwordconfirmwidget.cpp:25
+#: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
 msgstr ""
 
-#: widgets/misc/passwordconfirmwidget.cpp:34
-#: widgets/registeruser/registeruserwidget.cpp:54
+#: widgets/misc/passwordconfirmwidget.cpp:29
+#: widgets/registeruser/registeruserwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr ""
 
-#: widgets/misc/passwordlineeditwidget.cpp:21
+#: widgets/misc/passwordlineeditwidget.cpp:20
 #, kde-format
 msgid "Reset Password"
 msgstr ""
@@ -7532,12 +7532,12 @@ msgstr ""
 msgid "Filter Account..."
 msgstr ""
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
 msgstr ""
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:35
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
 #, kde-format
 msgid "Send new code"
 msgstr ""
@@ -7877,39 +7877,39 @@ msgstr ""
 msgid "Change URL for avatar..."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:27
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:72
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr ""
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:110
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:174
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:105
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:169
 #, kde-format
 msgid "Current Password"
 msgstr ""
@@ -8020,7 +8020,7 @@ msgctxt "@title:window"
 msgid "Register User"
 msgstr ""
 
-#: widgets/registeruser/registeruserwidget.cpp:19
+#: widgets/registeruser/registeruserwidget.cpp:18
 #, kde-format
 msgid "Register"
 msgstr ""

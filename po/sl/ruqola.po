@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-12 00:37+0000\n"
+"POT-Creation-Date: 2024-03-13 00:38+0000\n"
 "PO-Revision-Date: 2024-02-27 07:54+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2438,13 +2438,13 @@ msgstr "Ime emodžija po meri in njegovi vzdevki morajo biti različni."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/channelinfoeditablewidget.cpp:54
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:59
+#: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:33
 #: widgets/dialogs/createnewchannelwidget.cpp:33
 #: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:50
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
@@ -2891,7 +2891,7 @@ msgid "Edit '%1' Permission"
 msgstr "Urejanje dovoljenja '%1'"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:76
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
 #: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Roles:"
@@ -2943,7 +2943,7 @@ msgstr "Uporabi dvostopenjsko preverjanje pristnosti"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:70
+#: widgets/dialogs/channelinfoeditablewidget.cpp:69
 #: widgets/dialogs/channelinforeadonlywidget.cpp:47
 #: widgets/dialogs/createsoundmessagewizard.cpp:120
 #: widgets/dialogs/createvideomessagewizard.cpp:146
@@ -3061,14 +3061,14 @@ msgid "Room's Creator:"
 msgstr "Kreator sobe:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:62
+#: widgets/dialogs/channelinfoeditablewidget.cpp:61
 #: widgets/dialogs/channelinforeadonlywidget.cpp:59
 #, kde-format
 msgid "Comment:"
 msgstr "Komentar:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:66
+#: widgets/dialogs/channelinfoeditablewidget.cpp:65
 #: widgets/dialogs/channelinforeadonlywidget.cpp:71
 #, kde-format
 msgid "Announcement:"
@@ -3355,71 +3355,71 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "Uredi uporabnika"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgid "Join Default Channels"
 msgstr "Pridruži se privzetim kanalom"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgid "Send Welcome Email"
 msgstr "Pošlji pozdravno e-sporočilo"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:29
 #, kde-format
 msgid "Require Password Change"
 msgstr "Zahtevaj spremembo gesla"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:30
 #, kde-format
 msgid "Set random password and send by email"
 msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:32
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:31
 #: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Verified"
 msgstr "Preverjeno"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:60
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:56
-#: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:55
+#: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Username:"
 msgstr "Uporabniško ime:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #, kde-format
 msgid "Status Message:"
 msgstr "Sporočilo o stanju:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:166
 #: widgets/dialogs/resetpasswordwidget.cpp:23
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:60
-#: widgets/registeruser/registeruserwidget.cpp:34
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:59
+#: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Email:"
 msgstr "E-naslov:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:69
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/common/authenticationloginwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:82
-#: widgets/registeruser/registeruserwidget.cpp:44
+#: widgets/dialogs/channelinfoeditablewidget.cpp:77
+#: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:70
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:65
 #: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:71
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:66
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:66
 #, kde-format
 msgid "Nickname:"
 msgstr "Vzdevek:"
@@ -6488,85 +6488,85 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Podatki o kanalu »%1«"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Delete"
 msgstr "Izbriši"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:85
+#: widgets/dialogs/channelinfoeditablewidget.cpp:80
 #, kde-format
 msgid "ReadOnly:"
 msgstr "Samo-za-branje:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:83
 #, kde-format
 msgid "Archive:"
 msgstr "Arhiv:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:93
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Ali želite arhivirati to sobo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:93
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Bi radi to sobo povrnili iz arhiva?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:94
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Archive Channel"
 msgstr "Arhiviraj kanal"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:94
+#: widgets/dialogs/channelinfoeditablewidget.cpp:89
 #, kde-format
 msgid "Unarchive Channel"
 msgstr "Odarhiviraj kanal"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:101
+#: widgets/dialogs/channelinfoeditablewidget.cpp:96
 #, kde-format
 msgid "Private:"
 msgstr "Zasebno:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:104
+#: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Encrypted:"
 msgstr "Šifrirano:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:108
+#: widgets/dialogs/channelinfoeditablewidget.cpp:103
 #, kde-format
 msgid "Hide System Messages:"
 msgstr "Skrij sistemska sporočila:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:122
+#: widgets/dialogs/channelinfoeditablewidget.cpp:117
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr "Ali želite izbrisati to ekipo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:123
+#: widgets/dialogs/channelinfoeditablewidget.cpp:118
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Izbriši ekipo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:131
+#: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Ali želite izbrisati to sobo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:132
+#: widgets/dialogs/channelinfoeditablewidget.cpp:127
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Izbriši sobo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:269
+#: widgets/dialogs/channelinfoeditablewidget.cpp:264
 #, kde-format
 msgid "This room has a password"
 msgstr "Ta soba ima geslo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:269
+#: widgets/dialogs/channelinfoeditablewidget.cpp:264
 #, kde-format
 msgid "Add password"
 msgstr "Dodaj geslo"
@@ -6623,7 +6623,7 @@ msgctxt "@title:window"
 msgid "Add Password"
 msgstr "Dodaj geslo"
 
-#: widgets/dialogs/channelpasswordwidget.cpp:23
+#: widgets/dialogs/channelpasswordwidget.cpp:22
 #, kde-format
 msgid "Channel Password:"
 msgstr "Geslo kanala:"
@@ -6726,7 +6726,7 @@ msgctxt "@title:window"
 msgid "Confirm Password"
 msgstr "Potrdite geslo"
 
-#: widgets/dialogs/confirmpasswordwidget.cpp:24
+#: widgets/dialogs/confirmpasswordwidget.cpp:23
 #, kde-format
 msgid "For your security, you must enter your current password to continue"
 msgstr "Za vašo varnost morate vnesti trenutno geslo, da bi nadaljevali"
@@ -7776,18 +7776,18 @@ msgctxt "Message Style"
 msgid "Compact"
 msgstr "Kompaktni"
 
-#: widgets/misc/passwordconfirmwidget.cpp:25
+#: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
 msgstr "Novo geslo:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:34
-#: widgets/registeruser/registeruserwidget.cpp:54
+#: widgets/misc/passwordconfirmwidget.cpp:29
+#: widgets/registeruser/registeruserwidget.cpp:45
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Potrdite geslo:"
 
-#: widgets/misc/passwordlineeditwidget.cpp:21
+#: widgets/misc/passwordlineeditwidget.cpp:20
 #, kde-format
 msgid "Reset Password"
 msgstr "Ponastavi geslo"
@@ -7807,12 +7807,12 @@ msgstr "Strežnik"
 msgid "Filter Account..."
 msgstr "Filtriraj račun..."
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
 msgstr "Vnesite kodo"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:35
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
 #, kde-format
 msgid "Send new code"
 msgstr "Pošlji novo kodo"
@@ -8182,39 +8182,39 @@ msgstr "Določi Url avatarja:"
 msgid "Change URL for avatar..."
 msgstr "Spremeni URL za avatar ..."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:27
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:26
 #, kde-format
 msgid "Your administrator has disabled the changing of email."
 msgstr "Vaš skrbnik je onemogočil spreminjanje naslova e-pošte."
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
 msgid "Delete my Account"
 msgstr "Izbriši moj račun"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:32
 #, kde-format
 msgid "Logout From Other Logged In Locations"
 msgstr "Odjava iz drugih prijavljenih mest"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:72
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:71
 #, kde-format
 msgid "Status text:"
 msgstr "Besedilo stanja:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:98
 #, kde-format
 msgid "Do you really delete your account ?"
 msgstr "Ali res želite izbrisati svoj račun?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:100
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Izbriši moj račun"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:110
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:174
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:105
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:169
 #, kde-format
 msgid "Current Password"
 msgstr "Trenutno geslo"
@@ -8329,7 +8329,7 @@ msgctxt "@title:window"
 msgid "Register User"
 msgstr "Registriraj uporabnika"
 
-#: widgets/registeruser/registeruserwidget.cpp:19
+#: widgets/registeruser/registeruserwidget.cpp:18
 #, kde-format
 msgid "Register"
 msgstr "Registriraj"
