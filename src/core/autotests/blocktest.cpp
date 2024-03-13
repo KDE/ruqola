@@ -52,7 +52,7 @@ void BlockTest::shouldLoadBlock_data()
         info.setAppId(QStringLiteral("mention-core"));
         info.setBlockTypeStr(QStringLiteral("actions"));
 
-        QVector<BlockAction> lstAct;
+        QList<BlockAction> lstAct;
         {
             BlockAction act;
             act.setActionId(QStringLiteral("add-users"));
