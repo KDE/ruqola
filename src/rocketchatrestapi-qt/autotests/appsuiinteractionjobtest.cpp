@@ -5,7 +5,7 @@
 */
 
 #include "appsuiinteractionjobtest.h"
-#include "misc/methodcalljob.h"
+#include "misc/appsuiinteractionjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(AppsUiInteractionJobTest)
@@ -17,39 +17,36 @@ AppsUiInteractionJobTest::AppsUiInteractionJobTest(QObject *parent)
 
 void AppsUiInteractionJobTest::shouldHaveDefaultValue()
 {
-    MethodCallJob job;
+    AppsUiInteractionJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
-    MethodCallJob::MethodCallJobInfo info;
-    info.anonymous = true;
-    job.setMethodCallJobInfo(info);
+    AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+    job.setAppsUiInteractionJobInfo(info);
     QVERIFY(!job.requireHttpAuthentication());
 }
 
 void AppsUiInteractionJobTest::shouldGenerateRequest()
 {
-    MethodCallJob job;
+    AppsUiInteractionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.call")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 
-    MethodCallJob::MethodCallJobInfo info;
+    AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     info.methodName = QStringLiteral("login");
-    info.anonymous = true;
-    job.setMethodCallJobInfo(info);
+    job.setAppsUiInteractionJobInfo(info);
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/method.callAnon/login")));
 }
 
 void AppsUiInteractionJobTest::shouldGenerateJson()
 {
-    MethodCallJob job;
-    MethodCallJob::MethodCallJobInfo info;
+    AppsUiInteractionJob job;
+    AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     info.methodName = QStringLiteral("login");
-    info.anonymous = true;
-    job.setMethodCallJobInfo(info);
+    job.setAppsUiInteractionJobInfo(info);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"{}"})").toLatin1());
 
@@ -59,15 +56,14 @@ void AppsUiInteractionJobTest::shouldGenerateJson()
     map.insert(QStringLiteral("method"), QStringLiteral("login"));
     info.messageObj = QJsonObject::fromVariantMap(map);
     info.methodName = QStringLiteral("login");
-    info.anonymous = true;
-    job.setMethodCallJobInfo(info);
+    job.setAppsUiInteractionJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"message\":\"{\\\"id\\\":\\\"52\\\",\\\"method\\\":\\\"login\\\",\\\"msg\\\":\\\"method\\\"}\"}").toLatin1());
 }
 
 void AppsUiInteractionJobTest::shouldNotStarting()
 {
-    MethodCallJob job;
+    AppsUiInteractionJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
