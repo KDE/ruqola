@@ -9,7 +9,6 @@
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
-#include <QJsonObject>
 using namespace RocketChatRestApi;
 AppsUiInteractionJob::AppsUiInteractionJob(QObject *parent)
     : RestApiAbstractJob(parent)

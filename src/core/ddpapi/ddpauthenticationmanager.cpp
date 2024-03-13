@@ -8,7 +8,6 @@
 
 #include "ddpapi/ddpauthenticationmanager.h"
 
-#include "authenticationmanager.h"
 #include "ddpapi/authenticationmanagerutils.h"
 #include "ddpapi/ddpclient.h"
 
