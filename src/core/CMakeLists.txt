@@ -5,6 +5,10 @@ add_library(libruqolacore)
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
     abstractwebsocket.h
+
+    connection.cpp
+    connection.h
+
     accountmanager.cpp
     accountmanager.h
     accountroomsettings.cpp

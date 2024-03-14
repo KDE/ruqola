@@ -145,8 +145,6 @@ target_sources(librocketchatrestapi-qt PRIVATE
     commands/listcommandsjob.h
     commands/runcommandjob.cpp
     commands/runcommandjob.h
-    connection.cpp
-    connection.h
     createchannelteaminfo.cpp
     createchannelteaminfo.h
     createupdateuserinfo.cpp

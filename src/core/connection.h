@@ -13,7 +13,7 @@
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "invite/findorcreateinvitejob.h"
-#include "librocketchatrestapi-qt_export.h"
+#include "libruqolacore_export.h"
 #include "rooms/adminroomsjob.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "users/registeruserjob.h"
@@ -35,7 +35,7 @@ namespace RocketChatRestApi
 class RestApiAbstractJob;
 class DownloadFileJob;
 class AbstractLogger;
-class LIBROCKETCHATRESTAPI_QT_EXPORT Connection : public QObject
+class LIBRUQOLACORE_EXPORT Connection : public QObject
 {
     Q_OBJECT
 public:
@@ -275,12 +275,12 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(Connection)
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void initializeCookies();
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotResult(QNetworkReply *reply);
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotLogout();
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
+    LIBRUQOLACORE_NO_EXPORT void initializeCookies();
+    LIBRUQOLACORE_NO_EXPORT void slotResult(QNetworkReply *reply);
+    LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    LIBRUQOLACORE_NO_EXPORT void slotLogout();
+    LIBRUQOLACORE_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
+    LIBRUQOLACORE_NO_EXPORT void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
 
     QNetworkAccessManager *const mNetworkAccessManager;
     QNetworkCookieJar *const mCookieJar;

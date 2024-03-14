@@ -6,7 +6,7 @@
 
 #include "connection.h"
 #include "restapimethod.h"
-#include "rocketchatqtrestapi_debug.h"
+#include "ruqola_debug.h"
 
 #include "downloadfilejob.h"
 #include "serverinfojob.h"
@@ -183,7 +183,7 @@ void Connection::initializeCookies()
             mCookieJar->insertCookie(tokenCookie);
         }
     } else {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "We can not initialize cookies as server url is empty.";
+        qCWarning(RUQOLA_LOG) << "We can not initialize cookies as server url is empty.";
     }
 }
 
@@ -214,7 +214,7 @@ void Connection::slotResult(QNetworkReply *reply)
     const auto error = reply->error();
     if (error != QNetworkReply::NoError) {
         const auto jobClassName = reply->property("jobClassName").value<QByteArray>();
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << jobClassName << "error reply: " << reply->errorString();
+        qCWarning(RUQOLA_LOG) << jobClassName << "error reply: " << reply->errorString();
 
         if (error == QNetworkReply::NetworkSessionFailedError && !mSessionFailed) {
             mSessionFailed = true;
@@ -227,7 +227,7 @@ void Connection::slotResult(QNetworkReply *reply)
 
 void Connection::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
 {
-    qCDebug(ROCKETCHATQTRESTAPI_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();
+    qCDebug(RUQOLA_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();
     reply->ignoreSslErrors(error);
 }
 
@@ -269,7 +269,7 @@ void Connection::login()
     job->setPassword(mPassword);
     job->setUserName(mUserName);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start job";
     }
 }
 
@@ -304,7 +304,7 @@ void Connection::logout()
     connect(job, &LogoutJob::logoutDone, this, &Connection::slotLogout);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LogoutJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start LogoutJob job";
     }
 }
 
@@ -316,7 +316,7 @@ void Connection::getAvatar(const UserBaseJob::UserInfo &info)
     initializeRestApiJob(job);
     job->setUserInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getAvatar job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start getAvatar job";
     }
 }
 
@@ -326,7 +326,7 @@ void Connection::getPrivateSettings()
     connect(job, &PrivateInfoJob::privateInfoDone, this, &Connection::privateInfoDone);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPrivateSettings job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start getPrivateSettings job";
     }
 }
 
@@ -336,7 +336,7 @@ void Connection::getOwnInfo()
     connect(job, &OwnInfoJob::ownInfoDone, this, &Connection::getOwnInfoDone);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getOwnInfo job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start getOwnInfo job";
     }
 }
 
@@ -347,7 +347,7 @@ void Connection::starMessage(const QString &messageId, bool starred)
     job->setMessageId(messageId);
     job->setStarMessage(starred);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start starMessage job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start starMessage job";
     }
 }
 
@@ -361,7 +361,7 @@ DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFile
     job->setRequiredAuthentication(requiredAuthentication);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
     }
     return job;
 }
@@ -373,7 +373,7 @@ void Connection::serverInfo()
     connect(job, &ServerInfoJob::serverInfoDone, this, &Connection::serverInfoDone);
     connect(job, &ServerInfoJob::serverInfoFailed, this, &Connection::serverInfoFailed);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ServerInfoJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ServerInfoJob job";
     }
 }
 
@@ -384,7 +384,7 @@ void Connection::changeChannelTopic(const QString &roomId, const QString &topic)
     job->setRoomId(roomId);
     job->setTopic(topic);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeChannelTopicJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeChannelTopicJob job";
     }
 }
 
@@ -398,7 +398,7 @@ void Connection::changeGroupsTopic(const QString &roomId, const QString &topic)
     job->setChannelGroupInfo(info);
     job->setTopic(topic);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsTopicJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsTopicJob job";
     }
 }
 
@@ -409,7 +409,7 @@ void Connection::changeChannelReadOnly(const QString &roomId, bool b)
     job->setRoomId(roomId);
     job->setReadOnly(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeChannelReadonlyJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeChannelReadonlyJob job";
     }
 }
 
@@ -423,7 +423,7 @@ void Connection::changeGroupsReadOnly(const QString &roomId, bool b)
     job->setChannelGroupInfo(info);
     job->setReadOnly(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsReadOnly job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupsReadOnly job";
     }
 }
 
@@ -437,7 +437,7 @@ void Connection::changeGroupsEncrypted(const QString &roomId, bool b)
     job->setChannelGroupInfo(info);
     job->setEncrypted(b);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsEncryptedJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsEncryptedJob job";
     }
 }
 
@@ -448,7 +448,7 @@ void Connection::changeChannelAnnouncement(const QString &roomId, const QString 
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelAnnouncement job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelAnnouncement job";
     }
 }
 
@@ -462,7 +462,7 @@ void Connection::changeGroupsAnnouncement(const QString &roomId, const QString &
     job->setChannelGroupInfo(info);
     job->setAnnouncement(announcement);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
     }
 }
 
@@ -473,7 +473,7 @@ void Connection::changeChannelDescription(const QString &roomId, const QString &
     job->setRoomId(roomId);
     job->setDescription(description);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelDescription job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelDescription job";
     }
 }
 
@@ -487,7 +487,7 @@ void Connection::changeGroupsDescription(const QString &roomId, const QString &d
     job->setChannelGroupInfo(info);
     job->setDescription(description);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupsDescription job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupsDescription job";
     }
 }
 
@@ -499,7 +499,7 @@ void Connection::postMessage(const QString &roomId, const QString &text)
     job->setRoomIds({roomId});
     job->setText(text);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PostMessageJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start PostMessageJob job";
     }
 }
 
@@ -510,7 +510,7 @@ void Connection::deleteMessage(const QString &roomId, const QString &messageId)
     job->setRoomId(roomId);
     job->setMessageId(messageId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start deleteMessage job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start deleteMessage job";
     }
 }
 
@@ -526,7 +526,7 @@ void Connection::createChannels(const RocketChatRestApi::CreateChannelTeamInfo &
     initializeRestApiJob(job);
     job->setCreateChannelInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateChannelJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start CreateChannelJob job";
     }
 }
 
@@ -536,7 +536,7 @@ void Connection::createGroups(const RocketChatRestApi::CreateChannelTeamInfo &in
     initializeRestApiJob(job);
     job->setCreateGroupsInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start CreateGroupsJob job";
     }
 }
 
@@ -549,7 +549,7 @@ void Connection::leaveChannel(const QString &roomId)
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start leaveChannel job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start leaveChannel job";
     }
 }
 
@@ -562,7 +562,7 @@ void Connection::leaveGroups(const QString &roomId)
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start leaveGroups job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start leaveGroups job";
     }
 }
 
@@ -573,7 +573,7 @@ void Connection::archiveChannel(const QString &roomId, bool archive)
     job->setRoomId(roomId);
     job->setArchive(archive);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ArchiveChannelJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ArchiveChannelJob job";
     }
 }
 
@@ -587,7 +587,7 @@ void Connection::archiveGroups(const QString &roomId, bool archive)
     job->setChannelGroupInfo(info);
     job->setArchive(archive);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start archiveGroups job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start archiveGroups job";
     }
 }
 
@@ -600,7 +600,7 @@ void Connection::updateMessage(const QString &roomId, const QString &messageId, 
     job->setUpdatedText(text);
     connect(job, &UpdateMessageJob::updateMessageFailed, this, &Connection::updateMessageFailed);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start updateMessage job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start updateMessage job";
     }
 }
 
@@ -620,7 +620,7 @@ void Connection::reactOnMessage(const QString &messageId, const QString &emoji, 
     job->setEmoji(fixedEmoji);
     job->setShouldReact(shouldReact);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start reactOnMessage job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start reactOnMessage job";
     }
 }
 
@@ -640,7 +640,7 @@ void Connection::closeChannel(const QString &roomId, const QString &type)
         job->setChannelType(ChannelCloseJob::Channel);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelCloseJob job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ChannelCloseJob job";
     }
 }
 
@@ -651,7 +651,7 @@ void Connection::historyChannel(const RocketChatRestApi::ChannelHistoryJob::Chan
     initializeRestApiJob(job);
     job->setChannelHistoryInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start historyChannel job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start historyChannel job";
     }
 }
 
@@ -677,7 +677,7 @@ void Connection::historyChannel(const QString &roomId, const QString &type)
         job->setChannelHistoryInfo(historyInfo);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start historyChannel job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start historyChannel job";
     }
 }
 
@@ -687,7 +687,7 @@ void Connection::createDirectMessage(const QStringList &userNames)
     initializeRestApiJob(job);
     job->setUserNames(userNames);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start createDirectMessage job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start createDirectMessage job";
     }
 }
 
@@ -697,7 +697,7 @@ void Connection::openDirectMessage(const QString &userId)
     initializeRestApiJob(job);
     job->setDirectUserId(userId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start job";
     }
 }
 
@@ -726,7 +726,7 @@ void Connection::filesInRoom(const QString &roomId, const QString &type, int off
         job->setChannelType(ChannelFilesJob::Channel);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start filesInRoom job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start filesInRoom job";
     }
 }
 
@@ -752,7 +752,7 @@ void Connection::membersInRoom(const QString &roomId, const QString &type, int o
         job->setChannelType(ChannelMembersJob::Channel);
     }
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start membersInRoom job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start membersInRoom job";
     }
 }
 
@@ -766,7 +766,7 @@ void Connection::addUserInChannel(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     job->setInviteUserId(userId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInChannel job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
     }
 }
 
@@ -781,7 +781,7 @@ void Connection::addUserInGroup(const QString &roomId, const QString &userId)
 
     job->setInviteUserId(userId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInGroup job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start addUserInGroup job";
     }
 }
 
@@ -794,7 +794,7 @@ void Connection::searchMessages(const QString &roomId, const QString &pattern, b
     initializeRestApiJob(job);
     connect(job, &SearchMessageJob::searchMessageDone, this, &Connection::searchMessageDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start searchMessages job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start searchMessages job";
     }
 }
 
@@ -805,7 +805,7 @@ void Connection::markRoomAsRead(const QString &roomId)
     initializeRestApiJob(job);
     connect(job, &MarkRoomAsReadJob::markAsReadDone, this, &Connection::markAsReadDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markAsRead job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start markAsRead job";
     }
 }
 
@@ -816,7 +816,7 @@ void Connection::markRoomAsUnRead(const QString &roomId)
     job->setUnReadObject(MarkRoomAsUnReadJob::Room);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markRoomAsUnRead job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start markRoomAsUnRead job";
     }
 }
 
@@ -827,7 +827,7 @@ void Connection::markMessageAsUnReadFrom(const QString &messageId)
     job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     initializeRestApiJob(job);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markMessageAsUnReadFrom job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start markMessageAsUnReadFrom job";
     }
 }
 
@@ -837,7 +837,7 @@ void Connection::getRooms()
     initializeRestApiJob(job);
     connect(job, &GetRoomsJob::getRoomsDone, this, &Connection::getRoomsDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getRooms job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start getRooms job";
     }
 }
 
@@ -848,7 +848,7 @@ void Connection::markAsFavorite(const QString &roomId, bool favorite)
     job->setFavorite(favorite);
     job->setRoomId(roomId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start markAsFavorite job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start markAsFavorite job";
     }
 }
 
@@ -859,7 +859,7 @@ void Connection::disableNotifications(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setDisableNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start disableNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start disableNotifications job";
     }
 }
 
@@ -870,7 +870,7 @@ void Connection::muteGroupMentions(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setMuteGroupMentions(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start muteGroupMentions job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start muteGroupMentions job";
     }
 }
 
@@ -881,7 +881,7 @@ void Connection::desktopDurationNotifications(const QString &roomId, int value)
     job->setRoomId(roomId);
     job->setDesktopNotificationDuration(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopDurationNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start desktopDurationNotifications job";
     }
 }
 
@@ -892,7 +892,7 @@ void Connection::hideMentionStatus(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setHideMentionStatus(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopSoundNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start desktopSoundNotifications job";
     }
 }
 
@@ -903,7 +903,7 @@ void Connection::desktopSoundNotifications(const QString &roomId, const QString 
     job->setRoomId(roomId);
     job->setAudioNotificationValue(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopSoundNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start desktopSoundNotifications job";
     }
 }
 
@@ -917,7 +917,7 @@ void Connection::changeGroupName(const QString &roomId, const QString &newName)
     job->setChannelGroupInfo(info);
     job->setName(newName);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeGroupName job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start changeGroupName job";
     }
 }
 
@@ -928,7 +928,7 @@ void Connection::changeChannelName(const QString &roomId, const QString &newName
     job->setRoomId(roomId);
     job->setName(newName);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start changeChannelName job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start changeChannelName job";
     }
 }
 
@@ -941,7 +941,7 @@ void Connection::channelInfo(const QString &roomId)
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelInfo job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start channelInfo job";
     }
 }
 
@@ -951,7 +951,7 @@ void Connection::groupInfo(const QString &roomId)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupInfo job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start groupInfo job";
     }
 }
 
@@ -962,7 +962,7 @@ void Connection::hideUnreadStatus(const QString &roomId, bool value)
     job->setRoomId(roomId);
     job->setHideUnreadStatus(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start hideUnreadStatus job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start hideUnreadStatus job";
     }
 }
 
@@ -973,7 +973,7 @@ void Connection::desktopNotifications(const QString &roomId, const QString &valu
     job->setRoomId(roomId);
     job->setDesktopNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start desktopNotifications job";
     }
 }
 
@@ -984,7 +984,7 @@ void Connection::emailNotifications(const QString &roomId, const QString &value)
     job->setRoomId(roomId);
     job->setEmailNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start emailNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start emailNotifications job";
     }
 }
 
@@ -995,7 +995,7 @@ void Connection::mobilePushNotifications(const QString &roomId, const QString &v
     job->setRoomId(roomId);
     job->setMobilePushNotifications(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start mobilePushNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start mobilePushNotifications job";
     }
 }
 
@@ -1006,7 +1006,7 @@ void Connection::unreadAlert(const QString &roomId, const QString &value)
     job->setRoomId(roomId);
     job->setUnreadAlert(value);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start unreadAlert job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start unreadAlert job";
     }
 }
 
@@ -1018,7 +1018,7 @@ void Connection::setAvatar(const UserInfoJob::UserInfo &info, const SetAvatarJob
     job->setAvatarInfo(avatarInfo);
     job->setUserInfo(info);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setAvatar job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start setAvatar job";
     }
 }
 
@@ -1029,7 +1029,7 @@ void Connection::forgotPassword(const QString &email)
     job->setEmail(email);
     connect(job, &ForgotPasswordJob::forgotPasswordDone, this, &Connection::forgotPasswordDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start forgotPassword job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start forgotPassword job";
     }
 }
 
@@ -1043,7 +1043,7 @@ void Connection::userInfo(const QString &identifier, bool userName)
     job->setUserInfo(info);
     connect(job, &UserInfoJob::userInfoDone, this, &Connection::userInfoDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userInfo job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start userInfo job";
     }
 }
 
@@ -1056,7 +1056,7 @@ void Connection::ignoreUser(const QString &roomId, const QString &userId, bool i
     job->setIgnore(ignore);
     connect(job, &IgnoreUserJob::ignoreUserDone, this, &Connection::ignoreUserDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ignoreUser job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start ignoreUser job";
     }
 }
 
@@ -1071,7 +1071,7 @@ void Connection::userPresence(const QString &userId)
     job->setUserInfo(info);
     connect(job, &GetPresenceJob::getPresenceDone, this, &Connection::getPresenceDone);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userPresence job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start userPresence job";
     }
 }
 
@@ -1082,7 +1082,7 @@ void Connection::reportMessage(const QString &messageId, const QString &message)
     job->setMessageId(messageId);
     job->setReportMessage(message);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start reportMessage job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start reportMessage job";
     }
 }
 
@@ -1097,7 +1097,7 @@ void Connection::setGroupType(const QString &roomId, bool isPrivate)
 
     job->setType(isPrivate ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setGroupType job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start setGroupType job";
     }
 }
 
@@ -1111,7 +1111,7 @@ void Connection::setChannelType(const QString &roomId, bool isPrivate)
     job->setChannelGroupInfo(info);
     job->setType(isPrivate ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelType job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start setChannelType job";
     }
 }
 
@@ -1125,7 +1125,7 @@ void Connection::getGroupRoles(const QString &roomId)
     job->setChannelGroupInfo(info);
     connect(job, &GetGroupRolesJob::groupRolesDone, this, &Connection::groupRolesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getGroupRoles job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getGroupRoles job";
     }
 }
 
@@ -1139,7 +1139,7 @@ void Connection::getChannelRoles(const QString &roomId)
     job->setChannelGroupInfo(info);
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &Connection::channelRolesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetChannelRolesJob job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start GetChannelRolesJob job";
     }
 }
 
@@ -1149,7 +1149,7 @@ void Connection::getUsernameSuggestion()
     initializeRestApiJob(job);
     connect(job, &GetUsernameSuggestionJob::getUsernameSuggestionDone, this, &Connection::getUsernameSuggestionDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getUsernameSuggestion job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getUsernameSuggestion job";
     }
 }
 
@@ -1159,7 +1159,7 @@ void Connection::listAllPermissions()
     initializeRestApiJob(job);
     connect(job, &PermissionsListAllJob::permissionListAllDone, this, &Connection::permissionListAllDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ListPermissionsJob job";
     }
 }
 
@@ -1170,7 +1170,7 @@ void Connection::getCommand(const QString &commandName)
     job->setCommandName(commandName);
     connect(job, &GetCommandsJob::getCommandsDone, this, &Connection::getCommandsDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetCommandsJob job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start GetCommandsJob job";
     }
 }
 
@@ -1181,7 +1181,7 @@ void Connection::runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo)
     job->setRunCommandInfo(runCommandInfo);
     connect(job, &RunCommandJob::runCommandDone, this, &Connection::runCommandDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RunCommandJob job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start RunCommandJob job";
     }
 }
 
@@ -1197,7 +1197,7 @@ void Connection::setJoinCodeChannel(const QString &roomId, const QString &joinCo
 
     connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &Connection::setJoinCodeDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setjoincode";
+        qCDebug(RUQOLA_LOG) << "Impossible to start setjoincode";
     }
 }
 
@@ -1216,7 +1216,7 @@ void Connection::channelGetAllUserMentions(const QString &roomId, int offset, in
 
     connect(job, &ChannelGetAllUserMentionsJob::channelGetAllUserMentionsDone, this, &Connection::channelGetAllUserMentionsDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
+        qCDebug(RUQOLA_LOG) << "Impossible to start setChannelJoin";
     }
 }
 
@@ -1231,7 +1231,7 @@ void Connection::channelKick(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &ChannelKickJob::kickUserDone, this, &Connection::channelKickUserDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelKick";
+        qCDebug(RUQOLA_LOG) << "Impossible to start channelKick";
     }
 }
 
@@ -1247,7 +1247,7 @@ void Connection::groupKick(const QString &roomId, const QString &userId)
 
     connect(job, &GroupsKickJob::kickUserDone, this, &Connection::groupKickUserDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelKick";
+        qCDebug(RUQOLA_LOG) << "Impossible to start channelKick";
     }
 }
 
@@ -1262,7 +1262,7 @@ void Connection::groupAddModerator(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &GroupAddModeratorJob::addModeratorDone, this, &Connection::addModeratorDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddModerator";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupAddModerator";
     }
 }
 
@@ -1277,7 +1277,7 @@ void Connection::groupRemoveModerator(const QString &roomId, const QString &user
     job->setChannelGroupInfo(info);
     connect(job, &GroupRemoveModeratorJob::removeModeratorDone, this, &Connection::removeModeratorDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveModerator";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveModerator";
     }
 }
 
@@ -1292,7 +1292,7 @@ void Connection::groupAddLeader(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &GroupAddLeaderJob::addLeaderDone, this, &Connection::addLeaderDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddLeader";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupAddLeader";
     }
 }
 
@@ -1307,7 +1307,7 @@ void Connection::groupRemoveLeader(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &GroupRemoveLeaderJob::removeLeaderDone, this, &Connection::removeLeaderDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveLeader";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveLeader";
     }
 }
 
@@ -1322,7 +1322,7 @@ void Connection::groupAddOwner(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &GroupAddOwnerJob::addOwnerDone, this, &Connection::addOwnerDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddOwner";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupAddOwner";
     }
 }
 
@@ -1338,7 +1338,7 @@ void Connection::groupRemoveOwner(const QString &roomId, const QString &userId)
 
     connect(job, &GroupRemoveOwnerJob::groupRemoveOwnerDone, this, &Connection::channelRemoveOwnerDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveOwner";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveOwner";
     }
 }
 
@@ -1353,7 +1353,7 @@ void Connection::channelAddModerator(const QString &roomId, const QString &userI
     job->setChannelGroupInfo(info);
     connect(job, &ChannelAddModeratorJob::addModeratorDone, this, &Connection::addModeratorDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelAddModerator";
+        qCDebug(RUQOLA_LOG) << "Impossible to start channelAddModerator";
     }
 }
 
@@ -1368,7 +1368,7 @@ void Connection::channelRemoveModerator(const QString &roomId, const QString &us
     job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveModeratorJob::removeModeratorDone, this, &Connection::removeModeratorDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveModeratorJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelRemoveModeratorJob";
     }
 }
 
@@ -1383,7 +1383,7 @@ void Connection::channelAddLeader(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &ChannelAddLeaderJob::addLeaderDone, this, &Connection::addLeaderDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelAddLeader";
+        qCDebug(RUQOLA_LOG) << "Impossible to start channelAddLeader";
     }
 }
 
@@ -1398,7 +1398,7 @@ void Connection::channelRemoveLeader(const QString &roomId, const QString &userI
     job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveLeaderJob::removeLeaderDone, this, &Connection::removeLeaderDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelRemoveLeader";
+        qCDebug(RUQOLA_LOG) << "Impossible to start channelRemoveLeader";
     }
 }
 
@@ -1413,7 +1413,7 @@ void Connection::channelAddOwner(const QString &roomId, const QString &userId)
     job->setChannelGroupInfo(info);
     connect(job, &ChannelAddOwnerJob::addOwnerDone, this, &Connection::addOwnerDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelAddOwnerJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelAddOwnerJob";
     }
 }
 
@@ -1428,7 +1428,7 @@ void Connection::channelRemoveOwner(const QString &roomId, const QString &userId
     job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, &Connection::channelRemoveOwnerDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelRemoveOwnerJob";
     }
 }
 
@@ -1442,7 +1442,7 @@ void Connection::channelDelete(const QString &roomId)
     job->setChannelGroupInfo(info);
     connect(job, &ChannelDeleteJob::deletechannelDone, this, &Connection::deletechannelDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelDeleteJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelDeleteJob";
     }
 }
 
@@ -1456,7 +1456,7 @@ void Connection::groupDelete(const QString &roomId)
     job->setChannelGroupInfo(info);
     connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &Connection::deleteGroupsDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupsDeleteJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start GroupsDeleteJob";
     }
 }
 
@@ -1468,7 +1468,7 @@ void Connection::pinMessage(const QString &messageId, bool pinned)
     job->setPinMessage(pinned);
     connect(job, &PinMessageJob::pinMessageDone, this, &Connection::pinMessageDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PinMessageJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start PinMessageJob";
     }
 }
 
@@ -1479,7 +1479,7 @@ void Connection::followMessage(const QString &messageId)
     job->setMessageId(messageId);
     connect(job, &FollowMessageJob::followMessageDone, this, &Connection::followMessageDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start FollowMessageJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start FollowMessageJob";
     }
 }
 
@@ -1490,7 +1490,7 @@ void Connection::unFollowMessage(const QString &messageId)
     job->setMessageId(messageId);
     connect(job, &UnFollowMessageJob::unFollowMessageDone, this, &Connection::unFollowMessageDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start unFollowMessageDone";
+        qCDebug(RUQOLA_LOG) << "Impossible to start unFollowMessageDone";
     }
 }
 
@@ -1510,7 +1510,7 @@ void Connection::createDiscussion(const QString &parentRoomId,
     job->setUsers(users);
     connect(job, &RoomStartDiscussionJob::startDiscussionDone, this, &Connection::startDiscussionDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomStartDiscussion";
+        qCDebug(RUQOLA_LOG) << "Impossible to start roomStartDiscussion";
     }
 }
 
@@ -1525,7 +1525,7 @@ void Connection::getDiscussions(const QString &roomId, int offset, int count)
     job->setRoomId(roomId);
     connect(job, &GetDiscussionsJob::getDiscussionsDone, this, &Connection::getDiscussionsDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getDiscussions";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getDiscussions";
     }
 }
 
@@ -1548,7 +1548,7 @@ void Connection::getThreadsList(const QString &roomId, bool onlyUnread, int offs
         Q_EMIT getThreadsDone(obj, roomId, onlyUnread);
     });
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadsList";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getThreadsList";
     }
 }
 
@@ -1560,7 +1560,7 @@ void Connection::getMessage(const QString &messageId, const QString &roomId)
     job->setRoomId(roomId);
     connect(job, &GetMessageJob::getMessageDone, this, &Connection::getMessageDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getMessage";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getMessage";
     }
 }
 
@@ -1578,7 +1578,7 @@ void Connection::getPinnedMessages(const QString &roomId, int offset, int count)
     job->setQueryParameters(parameters);
     connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &Connection::getPinnedMessagesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPinnedMessagesList";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getPinnedMessagesList";
     }
 }
 
@@ -1597,7 +1597,7 @@ void Connection::getMentionedMessages(const QString &roomId, int offset, int cou
 
     connect(job, &GetMentionedMessagesJob::getMentionedMessagesDone, this, &Connection::getMentionedMessagesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getMentionedMessages";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getMentionedMessages";
     }
 }
 
@@ -1616,7 +1616,7 @@ void Connection::getStarredMessages(const QString &roomId, int offset, int count
 
     connect(job, &GetStarredMessagesJob::getStarredMessagesDone, this, &Connection::getStarredMessagesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getStarredMessagesList";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getStarredMessagesList";
     }
 }
 
@@ -1634,7 +1634,7 @@ void Connection::getSnippetedMessages(const QString &roomId, int offset, int cou
     job->setQueryParameters(parameters);
     connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &Connection::getSnippetedMessagesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getSnippetedMessagesList";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getSnippetedMessagesList";
     }
 }
 
@@ -1645,7 +1645,7 @@ void Connection::getThreadMessages(const QString &threadMessageId)
     job->setThreadMessageId(threadMessageId);
     connect(job, &GetThreadMessagesJob::getThreadMessagesDone, this, &Connection::getThreadMessagesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadMessages";
+        qCDebug(RUQOLA_LOG) << "Impossible to start getThreadMessages";
     }
 }
 
@@ -1657,7 +1657,7 @@ void Connection::syncThreadMessages(const QString &threadMessageId, const QStrin
     job->setTimeStamp(timestamp);
     connect(job, &SyncThreadMessagesJob::syncThreadMessagesDone, this, &Connection::syncThreadMessagesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start syncThreadMessages";
+        qCDebug(RUQOLA_LOG) << "Impossible to start syncThreadMessages";
     }
 }
 
@@ -1672,7 +1672,7 @@ void Connection::sendMessage(const QString &roomId, const QString &text, const Q
     args.threadMessageId = threadMessageId;
     job->setSendMessageArguments(std::move(args));
     if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start job";
     }
 }
 
@@ -1685,7 +1685,7 @@ void Connection::autoTranslateSaveLanguageSettings(const QString &roomId, const 
     job->setLanguage(language);
     connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &Connection::translateSavesettingsDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
+        qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
     }
 }
 
@@ -1698,7 +1698,7 @@ void Connection::autoTranslateSaveAutoTranslateSettings(const QString &roomId, b
     job->setAutoTranslate(autoTranslate);
     connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &Connection::translateSavesettingsDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
+        qCDebug(RUQOLA_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
     }
 }
 
@@ -1711,7 +1711,7 @@ void Connection::setUserStatus(const QString &userId, SetStatusJob::StatusType s
     job->setStatusMessage(message);
     connect(job, &SetStatusJob::setStatusDone, this, &Connection::setStatusDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetStatusJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start SetStatusJob";
     }
 }
 
@@ -1721,7 +1721,7 @@ void Connection::usersPresence()
     initializeRestApiJob(job);
     connect(job, &UsersPresenceJob::usersPresenceDone, this, &Connection::usersPresenceDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start usersPresenceJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start usersPresenceJob";
     }
 }
 
@@ -1731,7 +1731,7 @@ void Connection::customUserStatus()
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusListJob::customUserStatusDone, this, &Connection::customUserStatusDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusJob";
     }
 }
 
@@ -1742,7 +1742,7 @@ void Connection::usersAutocomplete(const UsersAutocompleteJob::UsersAutocomplete
     initializeRestApiJob(job);
     connect(job, &UsersAutocompleteJob::usersAutocompleteDone, this, &Connection::usersAutocompleteDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start UsersAutocompleteJob";
     }
 }
 
@@ -1755,7 +1755,7 @@ void Connection::findOrCreateInvite(const QString &roomId, int maxUses, int numb
     initializeRestApiJob(job);
     connect(job, &FindOrCreateInviteJob::findOrCreateInviteDone, this, &Connection::findOrCreateInviteDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start findOrCreateInviteJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start findOrCreateInviteJob";
     }
 }
 
@@ -1766,7 +1766,7 @@ void Connection::sendUserEmailCode(const QString &identifier)
     initializeRestApiJob(job);
     connect(job, &User2FASendEmailCodeJob::sendEmailCodeDone, this, &Connection::sendEmailCodeDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FASendEmailCodeJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start User2FASendEmailCodeJob";
     }
 }
 
@@ -1777,7 +1777,7 @@ void Connection::deleteOwnAccount(const QString &password)
     initializeRestApiJob(job);
     connect(job, &DeleteOwnAccountJob::deleteOwnAccountDone, this, &Connection::deleteOwnAccountDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DeleteOwnAccountJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start DeleteOwnAccountJob";
     }
 }
 
@@ -1788,7 +1788,7 @@ void Connection::registerNewUser(const RocketChatRestApi::RegisterUserJob::Regis
     initializeRestApiJob(job);
     connect(job, &RegisterUserJob::registerUserDone, this, &Connection::registerUserDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RegisterUserJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start RegisterUserJob";
     }
 }
 
@@ -1799,14 +1799,14 @@ void Connection::enable2FaEmailJob(bool enable)
         initializeRestApiJob(job);
         connect(job, &User2FAEnableEmailJob::enableEmailDone, this, &Connection::enableEmailDone);
         if (!job->start()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FAEnableEmailJob";
+            qCDebug(RUQOLA_LOG) << "Impossible to start User2FAEnableEmailJob";
         }
     } else {
         auto job = new User2FADisableEmailJob(this);
         initializeRestApiJob(job);
         connect(job, &User2FADisableEmailJob::disableEmailDone, this, &Connection::disableEmailDone);
         if (!job->start()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start User2FADisableEmailJob";
+            qCDebug(RUQOLA_LOG) << "Impossible to start User2FADisableEmailJob";
         }
     }
 }
@@ -1821,7 +1821,7 @@ void Connection::updateOwnBasicInfo(const RocketChatRestApi::UsersUpdateOwnBasic
     connect(job, &UsersUpdateOwnBasicInfoJob::passwordChanged, this, &Connection::removeOtherTokens);
 
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start UsersUpdateOwnBasicInfoJob";
     }
 }
 
@@ -1831,7 +1831,7 @@ void Connection::removeOtherTokens()
     initializeRestApiJob(job);
     connect(job, &RemoveOtherTokensJob::removeOtherTokensDone, this, &Connection::removeOtherTokensDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RemoveOtherTokensJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start RemoveOtherTokensJob";
     }
 }
 
@@ -1842,7 +1842,7 @@ void Connection::cleanChannelHistory(const RocketChatRestApi::RoomsCleanHistoryJ
     initializeRestApiJob(job);
     connect(job, &RoomsCleanHistoryJob::cleanHistoryDone, this, &Connection::cleanHistoryDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelCleanHistoryJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelCleanHistoryJob";
     }
 }
 
@@ -1853,7 +1853,7 @@ void Connection::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoom
     initializeRestApiJob(job);
     connect(job, &AdminRoomsJob::adminRoomsDone, this, &Connection::roomsAdminDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsAdminJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start RoomsAdminJob";
     }
 }
 
@@ -1867,7 +1867,7 @@ void Connection::getChannelsCounter(const QString &roomId)
     job->setChannelGroupInfo(info);
     connect(job, &ChannelGetCountersJob::channelGetCountersDone, this, &Connection::channelGetCountersDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetCountersJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ChannelGetCountersJob";
     }
 }
 
@@ -1878,7 +1878,7 @@ void Connection::setUserPreferences(const RocketChatRestApi::UsersSetPreferences
     initializeRestApiJob(job);
     connect(job, &UsersSetPreferencesJob::usersSetPreferencesDone, this, &Connection::usersSetPreferencesDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersSetPreferencesJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start UsersSetPreferencesJob";
     }
 }
 
@@ -1889,7 +1889,7 @@ void Connection::createCustomUserStatus(const CustomUserStatusCreateJob::StatusC
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusCreateJob::createUserStatusDone, this, &Connection::createUserStatusDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusCreateJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusCreateJob";
     }
 }
 
@@ -1900,7 +1900,7 @@ void Connection::deleteCustomUserStatus(const QString &customUserStatusId)
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusDeleteJob::userStatusDeletedDone, this, &Connection::userStatusDeletedDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusDeleteJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusDeleteJob";
     }
 }
 
@@ -1911,7 +1911,7 @@ void Connection::updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusU
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusUpdateJob::customUserUpdateDone, this, &Connection::customUserUpdateDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusUpdateJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start CustomUserStatusUpdateJob";
     }
 }
 
@@ -1922,7 +1922,7 @@ void Connection::resetAvatar(const UserBaseJob::UserInfo &info)
     initializeRestApiJob(job);
     connect(job, &ResetAvatarJob::resetAvatarDone, this, &Connection::resetAvatarDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ResetAvatarJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start ResetAvatarJob";
     }
 }
 
@@ -1933,7 +1933,7 @@ void Connection::statistics(bool refresh)
     initializeRestApiJob(job);
     connect(job, &StatisticsJob::statisticDone, this, &Connection::statisticDone);
     if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start StatisticsJob";
+        qCDebug(RUQOLA_LOG) << "Impossible to start StatisticsJob";
     }
 }
 
