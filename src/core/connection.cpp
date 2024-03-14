@@ -156,6 +156,13 @@ Connection::~Connection()
     delete mRestApiMethod;
 }
 
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+RESTAuthenticationManager *Connection::authenticationManager() const
+{
+    return mRESTAuthenticationManager;
+}
+#endif
+
 void Connection::setRestApiLogger(RocketChatRestApi::AbstractLogger *logger)
 {
     mRuqolaLogger = logger;

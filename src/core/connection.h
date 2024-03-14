@@ -49,6 +49,9 @@ public:
     ~Connection() override;
 
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *logger);
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    [[nodiscard]] RESTAuthenticationManager *authenticationManager() const;
+#endif
 
     [[nodiscard]] QString userId() const;
     [[nodiscard]] QString authToken() const;
