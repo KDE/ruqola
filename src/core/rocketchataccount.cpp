@@ -492,6 +492,9 @@ Connection *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new Connection(this);
+
+        connect(mRestApi, &Connection::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+
         connect(mRestApi, &Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
