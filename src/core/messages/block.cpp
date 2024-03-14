@@ -196,7 +196,6 @@ QJsonObject Block::serialize(const Block &block)
     if (!block.sectionText().isEmpty()) {
         o[QLatin1StringView("sectionText")] = block.sectionText();
     }
-    // TODO serialize actions
     if (block.mVideoConferenceInfo.isValid()) {
         o[QLatin1StringView("videoconferenceinfo")] = VideoConferenceInfo::serialize(block.mVideoConferenceInfo);
     } else {
@@ -213,7 +212,6 @@ Block Block::deserialize(const QJsonObject &o)
     block.setAppId(o[QLatin1StringView("appId")].toString());
     block.setBlockTypeStr(o[QLatin1StringView("type")].toString());
     block.setSectionText(o[QLatin1StringView("sectionText")].toString());
-    // TODO deserialize actions
     const VideoConferenceInfo info = VideoConferenceInfo::deserialize(o[QLatin1StringView("videoconferenceinfo")].toObject());
     if (info.isValid()) {
         block.mVideoConferenceInfo = info;
