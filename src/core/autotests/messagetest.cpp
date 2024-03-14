@@ -31,6 +31,8 @@ void MessageTest::shouldHaveDefaultValues()
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
+    // 14/03/2024 => size 816
+    QCOMPARE(sizeof(m), 816);
 }
 
 // TODO add check for default value ???
