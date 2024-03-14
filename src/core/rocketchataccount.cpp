@@ -39,6 +39,7 @@
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
 #include "otr/otrmanager.h"
+#include "restauthenticationmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
 #include "ruqola.h"
@@ -642,12 +643,24 @@ bool RocketChatAccount::editingMode() const
 
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
 {
+    // TODO activate it
+#if 0
+    if (mRestApi) {
+        if (mRestApi->authenticationManager()) {
+            return mRestApi->authenticationManager()->loginStatus();
+        }
+    } else {
+        return AuthenticationManager::LoggedOut;
+    }
+#else
     // TODO: DDP API should exist as soon as the hostname is known
     if (mDdp) {
         return ddp()->authenticationManager()->loginStatus();
     } else {
         return AuthenticationManager::LoggedOut;
     }
+#endif
+    return AuthenticationManager::LoggedOut;
 }
 
 void RocketChatAccount::tryLogin()
