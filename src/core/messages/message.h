@@ -38,6 +38,21 @@ public:
 
     Q_ENUM(MessageType)
 
+    enum MessageState {
+        None = 0,
+        Groupable = 1,
+        Unread = 2,
+        Pending = 4,
+        Private = 8,
+        Ignored = 16,
+        HoverHighlight = 32,
+        Edited = 64,
+        Translated = 128,
+        ParsedUrl = 256,
+    };
+    Q_FLAGS(MessageState MessageStates)
+    Q_DECLARE_FLAGS(MessageStates, MessageState)
+
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
@@ -326,6 +341,7 @@ private:
     int mDiscussionCount = 0;
 
     MessageType mMessageType = MessageType::NormalText;
+
     // groupable
     bool mGroupable = true;
 
