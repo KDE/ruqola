@@ -149,6 +149,9 @@ Connection::Connection(QObject *parent)
     mNetworkAccessManager->setCookieJar(mCookieJar);
     connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &Connection::slotResult);
     connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &Connection::slotSslErrors);
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    connect(mRESTAuthenticationManager, &RESTAuthenticationManager::loginStatusChanged, this, &Connection::loginStatusChanged);
+#endif
 }
 
 Connection::~Connection()

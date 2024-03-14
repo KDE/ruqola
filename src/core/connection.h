@@ -282,6 +282,8 @@ Q_SIGNALS:
     void updateMessageFailed(const QString &str);
     void forgotPasswordDone();
 
+    void loginStatusChanged();
+
 private:
     Q_DISABLE_COPY(Connection)
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
