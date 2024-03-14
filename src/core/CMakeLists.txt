@@ -344,7 +344,6 @@ target_sources(libruqolacore PRIVATE
     plugins/pluginauthenticationconfigurewidget.h
     plugins/pluginauthenticationconfigurewidget.cpp
 
-    python/ruqolacore/ruqolacore_global.h
     receivetypingnotificationmanager.cpp
     receivetypingnotificationmanager.h
     restauthenticationmanager.cpp
@@ -656,7 +655,4 @@ endif()
 
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
-if(OPTION_BUILD_PYTHON_BINDINGS)
-    add_subdirectory(python)
-endif()
 

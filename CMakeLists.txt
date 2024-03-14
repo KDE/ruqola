@@ -40,7 +40,6 @@ include(KDEClangFormat)
 include(ECMGenerateHeaders)
 include(ECMSetupVersion)
 
-option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
@@ -62,10 +61,6 @@ endif()
 if (OPTION_USE_SIZEHINT_CACHE_SUPPORT)
     set(USE_SIZEHINT_CACHE_SUPPORT true)
 endif()
-
-if (OPTION_BUILD_PYTHON_BINDINGS)
-   set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
-endif()   
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
@@ -254,11 +249,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.5
     KF 6.0.0
     )
-if (OPTION_BUILD_PYTHON_BINDINGS)
-   remove_definitions(-DQT_STRICT_ITERATORS)
-endif()       	
-add_definitions(-DQT_NO_FOREACH)
-add_definitions(-DQT_NO_KEYWORDS)
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
