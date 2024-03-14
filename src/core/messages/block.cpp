@@ -112,6 +112,8 @@ bool Block::isValid() const
 QString Block::title() const
 {
     switch (mBlockType) {
+    case BlockType::Section:
+    case BlockType::Actions:
     case BlockType::Unknown:
         break;
     case BlockType::VideoConf: {
@@ -123,10 +125,6 @@ QString Block::title() const
         }
         return i18n("Conference Call");
     }
-    case BlockType::Section:
-    case BlockType::Actions:
-        // TODO
-        break;
     }
     return {};
 }
