@@ -10,11 +10,12 @@
 #include "bannerinfo/bannerinfos.h"
 #include "channelgroupbasejob.h"
 #include "commands/runcommandjob.h"
+#include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "customusers/customuserstatuses.h"
-#include "ddpapi/ddpauthenticationmanager.h"
+
 #include "ddpapi/ddpclient.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
@@ -92,6 +93,8 @@ namespace RocketChatRestApi
 {
 class Connection;
 }
+
+class RESTAuthenticationManager;
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
@@ -724,6 +727,9 @@ private:
     ManageLocalDatabase *const mManageLoadHistory;
     PreviewUrlCacheManager *const mPreviewUrlCacheManager;
     E2eKeyManager *const mE2eKeyManager;
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    RESTAuthenticationManager *mRESTAuthenticationManager = nullptr;
+#endif
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

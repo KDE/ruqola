@@ -11,8 +11,8 @@
 #include "authenticationmanager.h"
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "commands/listcommandsjob.h"
-#include "config-ruqola.h"
 #include "customemojiiconmanager.h"
+#include "ddpapi/ddpauthenticationmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
 #include "encryption/e2ekeymanager.h"
@@ -95,6 +95,10 @@
 #include "model/switchchannelhistorymodel.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
+
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#endif
+#include "restauthenticationmanager.h"
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -491,6 +495,9 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RocketChatRestApi::Connection(this);
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+        mRESTAuthenticationManager = new RESTAuthenticationManager(mRestApi, this);
+#endif
         connect(mRestApi, &RocketChatRestApi::Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &RocketChatRestApi::Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
