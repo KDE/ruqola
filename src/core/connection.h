@@ -9,6 +9,7 @@
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
 #include "commands/runcommandjob.h"
+#include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
@@ -30,6 +31,9 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+class RESTAuthenticationManager;
+#endif
 namespace RocketChatRestApi
 {
 class RestApiAbstractJob;
@@ -285,6 +289,9 @@ private:
     QNetworkAccessManager *const mNetworkAccessManager;
     QNetworkCookieJar *const mCookieJar;
     RestApiMethod *const mRestApiMethod;
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    RESTAuthenticationManager *const mRESTAuthenticationManager;
+#endif
     RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
     QString mUserId;
     QString mAuthToken;

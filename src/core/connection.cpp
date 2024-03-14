@@ -7,6 +7,9 @@
 #include "connection.h"
 #include "restapimethod.h"
 #include "ruqola_debug.h"
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#include "restauthenticationmanager.h"
+#endif
 
 #include "downloadfilejob.h"
 #include "serverinfojob.h"
@@ -138,6 +141,9 @@ Connection::Connection(QObject *parent)
     , mNetworkAccessManager(new QNetworkAccessManager(this))
     , mCookieJar(new QNetworkCookieJar(this))
     , mRestApiMethod(new RestApiMethod)
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    , mRESTAuthenticationManager(new RESTAuthenticationManager(this, this))
+#endif
 {
     mNetworkAccessManager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     mNetworkAccessManager->setCookieJar(mCookieJar);

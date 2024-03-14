@@ -6,6 +6,7 @@
 
 #include "rocketchataccount.h"
 #include "accountroomsettings.h"
+#include "config-ruqola.h"
 
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
@@ -95,10 +96,6 @@
 #include "model/switchchannelhistorymodel.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
-
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#endif
-#include "restauthenticationmanager.h"
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -495,9 +492,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RocketChatRestApi::Connection(this);
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-        mRESTAuthenticationManager = new RESTAuthenticationManager(mRestApi, this);
-#endif
         connect(mRestApi, &RocketChatRestApi::Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &RocketChatRestApi::Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
