@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 class QNetworkRequest;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT StarMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT StarMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

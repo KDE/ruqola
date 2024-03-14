@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 #include "restapiutil.h"
 #include <QString>
 #include <QUrl>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT RestApiMethod
+class LIBROCKETCHATRESTAPI_QT_EXPORT RestApiMethod
 {
 public:
     RestApiMethod();

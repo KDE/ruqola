@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 #include <QString>
 
 namespace RestApiUtil
@@ -347,7 +347,7 @@ enum class RestApiUrlType {
     AppsUiInteraction,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
-LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
-LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT QString apiUri();
-LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT QByteArray convertSha256Password(const QString &pwd);
+LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
+LIBROCKETCHATRESTAPI_QT_EXPORT QString apiUri();
+LIBROCKETCHATRESTAPI_QT_EXPORT QByteArray convertSha256Password(const QString &pwd);
 }

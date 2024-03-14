@@ -7,12 +7,12 @@
 #pragma once
 
 #include "channelgroupbasejob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 
 class QNetworkRequest;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT GetChannelRolesJob : public ChannelGroupBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GetChannelRolesJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:

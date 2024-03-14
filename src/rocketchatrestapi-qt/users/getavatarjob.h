@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt_export.h"
 #include "userbasejob.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_TESTS_EXPORT GetAvatarJob : public UserBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GetAvatarJob : public UserBaseJob
 {
     Q_OBJECT
 public:

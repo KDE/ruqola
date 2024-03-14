@@ -7,6 +7,7 @@
 #include "getmessagejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -93,4 +94,11 @@ bool GetMessageJob::canStart() const
     return true;
 }
 
+QString GetMessageJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1StringView("error-not-allowed")) {
+        return i18n("Invalid emoji provided.");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
+}
 #include "moc_getmessagejob.cpp"
