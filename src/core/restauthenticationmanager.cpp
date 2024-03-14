@@ -13,7 +13,7 @@
 
 // We use method.callAnon here.
 // We use same params as ddpclient login method.
-#define sl(x) QStringLiteral(x)
+#define sl(x) QLatin1StringView(x)
 QString RESTAuthenticationManager::METHOD_LOGIN = sl("login");
 QString RESTAuthenticationManager::METHOD_SEND_OTP = sl("login");
 QString RESTAuthenticationManager::METHOD_LOGOUT = sl("logout");
