@@ -354,8 +354,6 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         return i18n("Only you can see this message");
     } else if (message.messageType() == Message::System) {
         return message.systemMessageText();
-        //    } else if (message.messageType() == Message::VideoConference) {
-        //        return QStringLiteral("");
     } else {
         QStringList highlightWords;
         if (mRoom) {
