@@ -157,14 +157,14 @@ void Connection::setRestApiLogger(RocketChatRestApi::AbstractLogger *logger)
 
 void Connection::initializeCookies()
 {
-    QString url = serverUrl();
+    const QString url = serverUrl();
     if (!url.isEmpty()) {
         QString host;
-        QStringList lsthost = url.split(QStringLiteral("//"));
+        const QList<QStringView> lsthost = QStringView(url).split(QStringLiteral("//"));
         if (lsthost.count() < 2) {
             host = url;
         } else {
-            host = lsthost.at(1);
+            host = lsthost.at(1).toString();
         }
 
         if (!mUserId.isEmpty()) {
