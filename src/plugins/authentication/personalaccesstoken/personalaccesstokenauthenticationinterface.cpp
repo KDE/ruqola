@@ -6,6 +6,7 @@
 
 #include "personalaccesstokenauthenticationinterface.h"
 #include "connection.h"
+#include "ddpapi/ddpauthenticationmanager.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
 // TODO use RESTAuthenticationManager here ?

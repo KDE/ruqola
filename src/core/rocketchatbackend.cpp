@@ -9,6 +9,7 @@
 
 #include "rocketchatbackend.h"
 #include "connection.h"
+#include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
 #include "model/messagesmodel.h"
 #include "model/usersmodel.h"
