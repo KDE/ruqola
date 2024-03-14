@@ -172,8 +172,6 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
             }
         }
     }
-    // TODO add block
-
     if (msgUrl.hasHtmlDescription()) {
         for (const MessageUrlSelection &messageUrlSelection : std::as_const(mMessageUrlSelection)) {
             if (messageUrlSelection.messageUrl == msgUrl) {
