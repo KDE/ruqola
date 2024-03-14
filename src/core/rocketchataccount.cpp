@@ -98,6 +98,9 @@
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
+#undef USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#define USE_RESTAPI_LOGIN_CMAKE_SUPPORT 0
+
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
@@ -643,8 +646,7 @@ bool RocketChatAccount::editingMode() const
 
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
 {
-    // TODO activate it
-#if 0
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     if (mRestApi) {
         if (mRestApi->authenticationManager()) {
             return mRestApi->authenticationManager()->loginStatus();
@@ -1441,7 +1443,11 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+        restapi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
+#else
         ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
+#endif
         return;
     }
     mLstPluginAuthenticationInterface.clear();

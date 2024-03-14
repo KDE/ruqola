@@ -5,12 +5,15 @@
 */
 
 #include "personalaccesstokenauthenticationinterface.h"
+#include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
-// TODO use RESTAuthenticationManager here ?
 #include "rocketchataccount.h"
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#include "restauthenticationmanager.h"
+#endif
 
 PersonalAccessTokenAuthenticationInterface::PersonalAccessTokenAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
@@ -33,7 +36,7 @@ void PersonalAccessTokenAuthenticationInterface::login()
         mAccount->ddp()->authenticationManager()->login();
         return;
     }
-    qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " authToken is empty !!!!!. Can't connect";
+    qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " authToken is empty !. Can't connect";
 }
 
 PluginAuthenticationConfigureWidget *PersonalAccessTokenAuthenticationInterface::configureWidget(QWidget *parent)

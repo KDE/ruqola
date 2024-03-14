@@ -5,9 +5,18 @@
 */
 
 #include "passwordauthenticationinterface.h"
+#include "config-ruqola.h"
+#include "rocketchataccount.h"
+// TODO activate it when we will use USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#undef USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#define USE_RESTAPI_LOGIN_CMAKE_SUPPORT 0
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#include "connection.h"
+#include "restauthenticationmanager.h"
+#else
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
-#include "rocketchataccount.h"
+#endif
 
 PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
@@ -19,13 +28,22 @@ PasswordAuthenticationInterface::~PasswordAuthenticationInterface() = default;
 void PasswordAuthenticationInterface::login()
 {
     if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+        mAccount->restApi()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
+        mAccount->restApi()->authenticationManager()->login();
+#else
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
         mAccount->ddp()->authenticationManager()->login();
+#endif
         return;
     }
 
     if (!mAccount->settings()->twoFactorAuthenticationCode().isEmpty()) {
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+        mAccount->restApi()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode());
+#else
         mAccount->ddp()->authenticationManager()->sendOTP(mAccount->settings()->twoFactorAuthenticationCode());
+#endif
         return;
     }
 
@@ -33,11 +51,19 @@ void PasswordAuthenticationInterface::login()
         return;
     }
 
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    if (mAccount->ldapEnabled()) {
+        mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
+    } else {
+        mAccount->restApi()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+    }
+#else
     if (mAccount->ldapEnabled()) {
         mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
     } else {
         mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
     }
+#endif
 }
 
 PluginAuthenticationConfigureWidget *PasswordAuthenticationInterface::configureWidget(QWidget *parent)
