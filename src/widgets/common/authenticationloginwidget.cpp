@@ -91,10 +91,10 @@ void AuthenticationLoginWidget::setExistingAccountName(const QStringList &lst)
 
 void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
 {
-    auto restApi = new RocketChatRestApi::Connection(this);
+    auto restApi = new Connection(this);
     restApi->setServerUrl(mAccountInfo.serverUrl);
     restApi->forgotPassword(email);
-    connect(restApi, &RocketChatRestApi::Connection::forgotPasswordDone, this, [restApi]() {
+    connect(restApi, &Connection::forgotPasswordDone, this, [restApi]() {
         restApi->deleteLater();
     });
 }
@@ -138,8 +138,8 @@ void AuthenticationLoginWidget::slotRegisterAccount()
 {
     QPointer<RegisterUserDialog> dlg = new RegisterUserDialog(this);
     connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
-        auto restApi = new RocketChatRestApi::Connection(this);
-        connect(restApi, &RocketChatRestApi::Connection::registerUserDone, this, [this, restApi]() {
+        auto restApi = new Connection(this);
+        connect(restApi, &Connection::registerUserDone, this, [this, restApi]() {
             restApi->deleteLater();
             slotRegisterUserDone();
         });

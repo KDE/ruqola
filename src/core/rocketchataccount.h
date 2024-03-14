@@ -88,11 +88,7 @@ class ManageLocalDatabase;
 class AccountRoomSettings;
 class PreviewUrlCacheManager;
 class E2eKeyManager;
-
-namespace RocketChatRestApi
-{
 class Connection;
-}
 
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
@@ -261,7 +257,7 @@ public:
     [[nodiscard]] OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
 
     [[nodiscard]] AuthenticationManager::LoginStatus loginStatus();
-    RocketChatRestApi::Connection *restApi();
+    Connection *restApi();
 
     [[nodiscard]] Room *room(const QString &roomId);
 
@@ -673,7 +669,7 @@ private:
     UsersModel *const mUserModel;
     RoomModel *const mRoomModel;
     DDPClient *mDdp = nullptr;
-    RocketChatRestApi::Connection *mRestApi = nullptr;
+    Connection *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;

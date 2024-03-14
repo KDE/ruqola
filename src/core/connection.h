@@ -39,6 +39,8 @@ namespace RocketChatRestApi
 class RestApiAbstractJob;
 class DownloadFileJob;
 class AbstractLogger;
+}
+
 class LIBRUQOLACORE_EXPORT Connection : public QObject
 {
     Q_OBJECT
@@ -105,7 +107,7 @@ public:
     void emailNotifications(const QString &roomId, const QString &value);
     void mobilePushNotifications(const QString &roomId, const QString &value);
     void unreadAlert(const QString &roomId, const QString &value);
-    void setAvatar(const UserBaseJob::UserInfo &info, const RocketChatRestApi::SetAvatarJob::SetAvatarInfo &avatarInfo);
+    void setAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const RocketChatRestApi::SetAvatarJob::SetAvatarInfo &avatarInfo);
     void markRoomAsUnRead(const QString &roomId);
     void markMessageAsUnReadFrom(const QString &messageId);
     void forgotPassword(const QString &email);
@@ -167,16 +169,16 @@ public:
     void getPinnedMessages(const QString &roomId, int offset = 0, int count = 50);
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
-    void setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message = QString());
+    void setUserStatus(const QString &userId, RocketChatRestApi::SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
     void getStarredMessages(const QString &roomId, int offset = 0, int count = 50);
     void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
     void customUserStatus();
-    void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
+    void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
     void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
     void getMessage(const QString &messageId, const QString &roomId);
     void getCommand(const QString &commandName);
-    void runCommand(const RunCommandJob::RunCommandInfo &runCommandInfo);
+    void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
     void sendUserEmailCode(const QString &identifier);
     void deleteOwnAccount(const QString &password);
     void registerNewUser(const RocketChatRestApi::RegisterUserJob::RegisterUserInfo &userInfo);
@@ -187,10 +189,10 @@ public:
     void getChannelsCounter(const QString &roomId);
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     void removeOtherTokens();
-    void createCustomUserStatus(const CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
+    void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void deleteCustomUserStatus(const QString &customUserStatusId);
-    void updateCustomUserStatus(const CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
-    void resetAvatar(const UserBaseJob::UserInfo &info);
+    void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
+    void resetAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info);
     void statistics(bool refresh);
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QString &roomId, int offset = 0, int count = 50);
@@ -198,7 +200,7 @@ public:
     void historyChannel(const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &info);
 
 Q_SIGNALS:
-    void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
+    void avatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
     void loginDone(const QString &authToken, const QString &userId);
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
@@ -206,13 +208,13 @@ Q_SIGNALS:
     void serverInfoFailed(bool useDeprecatedVersion);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QJsonObject &data);
-    void channelFilesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void channelMembersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelMembersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void userInfoDone(const QJsonObject &obj);
-    void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void permissionListAllDone(const QJsonObject &obj);
@@ -232,7 +234,7 @@ Q_SIGNALS:
     void deleteGroupsDone();
     void pinMessageDone();
     void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
-    void groupRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void groupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void followMessageDone();
     void unFollowMessageDone();
     void startDiscussionDone();
@@ -264,7 +266,7 @@ Q_SIGNALS:
     void disableEmailDone();
     void updateOwnBasicInfoDone();
     void cleanHistoryDone();
-    void channelGetCountersDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QString &roomId);
     void usersSetPreferencesDone(const QJsonObject &replyObject);
     void removeOtherTokensDone();
@@ -288,7 +290,7 @@ private:
 
     QNetworkAccessManager *const mNetworkAccessManager;
     QNetworkCookieJar *const mCookieJar;
-    RestApiMethod *const mRestApiMethod;
+    RocketChatRestApi::RestApiMethod *const mRestApiMethod;
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     RESTAuthenticationManager *const mRESTAuthenticationManager;
 #endif
@@ -299,4 +301,3 @@ private:
     QString mPassword;
     bool mSessionFailed = false;
 };
-}

@@ -488,46 +488,46 @@ void RocketChatAccount::insertAvatarUrl(const QString &userId, const QUrl &url)
     mCache->insertAvatarUrl(userId, url);
 }
 
-RocketChatRestApi::Connection *RocketChatAccount::restApi()
+Connection *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
-        mRestApi = new RocketChatRestApi::Connection(this);
-        connect(mRestApi, &RocketChatRestApi::Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
-        connect(mRestApi, &RocketChatRestApi::Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
-        connect(mRestApi, &RocketChatRestApi::Connection::failed, this, &RocketChatAccount::slotJobFailed);
-        connect(mRestApi, &RocketChatRestApi::Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
+        mRestApi = new Connection(this);
+        connect(mRestApi, &Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
+        connect(mRestApi, &Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
+        connect(mRestApi, &Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
+        connect(mRestApi, &Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
+        connect(mRestApi, &Connection::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
+        connect(mRestApi, &Connection::failed, this, &RocketChatAccount::slotJobFailed);
+        connect(mRestApi, &Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
+        connect(mRestApi, &Connection::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
+        connect(mRestApi, &Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
+        connect(mRestApi, &Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
+        connect(mRestApi, &Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
 
-        connect(mRestApi, &RocketChatRestApi::Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
+        connect(mRestApi, &Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
             slotGetListMessagesDone(obj,
                                     roomId,
                                     onlyUnread ? ListMessagesModel::ListMessageType::UnreadThreadsMessages
                                                : ListMessagesModel::ListMessageType::ThreadsMessages);
         });
-        connect(mRestApi, &RocketChatRestApi::Connection::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &Connection::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
         });
-        connect(mRestApi, &RocketChatRestApi::Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::PinnedMessages);
         });
-        connect(mRestApi, &RocketChatRestApi::Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::StarredMessages);
         });
 
-        connect(mRestApi, &RocketChatRestApi::Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::networkSessionFailedError, this, [this]() {
+        connect(mRestApi, &Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
+        connect(mRestApi, &Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
+        connect(mRestApi, &Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
+        connect(mRestApi, &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
+        connect(mRestApi, &Connection::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
+        connect(mRestApi, &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
+        connect(mRestApi, &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
+        connect(mRestApi, &Connection::networkSessionFailedError, this, [this]() {
             qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError Reconnect and logout : " << accountName();
             logOut();
             slotReconnectToServer();

@@ -20,7 +20,7 @@ QString RESTAuthenticationManager::METHOD_LOGOUT = sl("logout");
 // FIXME: using METHOD_LOGOUT_CLEAN_UP
 QString RESTAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 
-RESTAuthenticationManager::RESTAuthenticationManager(RocketChatRestApi::Connection *restApiConnection, QObject *parent)
+RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnection, QObject *parent)
     : QObject(parent)
     , mRestApiConnection(restApiConnection)
 {

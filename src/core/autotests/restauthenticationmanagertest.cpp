@@ -13,7 +13,7 @@
 class RESTAuthenticationManagerTestImpl : public RESTAuthenticationManager
 {
 public:
-    explicit RESTAuthenticationManagerTestImpl(RocketChatRestApi::Connection *restApiConnection, QObject *parent = nullptr)
+    explicit RESTAuthenticationManagerTestImpl(Connection *restApiConnection, QObject *parent = nullptr)
         : RESTAuthenticationManager(restApiConnection, parent)
     {
     }

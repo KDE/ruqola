@@ -61,7 +61,7 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->addWidget(collapsibleGroupBox);
 
     if (mRocketChatAccount) {
-        connect(mRocketChatAccount->restApi(), &RocketChatRestApi::Connection::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
+        connect(mRocketChatAccount->restApi(), &Connection::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
     }
 
     auto formLayout = new QFormLayout(collapsibleGroupBox);

@@ -13,11 +13,7 @@
 #include <QObject>
 #include <QSet>
 
-namespace RocketChatRestApi
-{
 class Connection;
-}
-
 class RocketChatAccount;
 class AvatarManager;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
@@ -27,7 +23,7 @@ public:
     explicit RocketChatCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatCache() override;
 
-    void setRestApiConnection(RocketChatRestApi::Connection *restApi);
+    void setRestApiConnection(Connection *restApi);
 
     [[nodiscard]] QString recordingVideoPath(const QString &accountName) const;
     [[nodiscard]] QString recordingImagePath(const QString &accountName) const;

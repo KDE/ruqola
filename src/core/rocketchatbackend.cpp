@@ -162,8 +162,8 @@ void RocketChatBackend::slotConnectedChanged()
     auto restApi = mRocketChatAccount->restApi();
 
     restApi->serverInfo();
-    connect(restApi, &RocketChatRestApi::Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
-    connect(restApi, &RocketChatRestApi::Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
+    connect(restApi, &Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
+    connect(restApi, &Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
 
     mRocketChatAccount->loadAccountSettings();
 }
@@ -312,7 +312,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
         restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 
-        connect(restApi, &RocketChatRestApi::Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
+        connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
         QJsonObject params;
         // TODO use timeStamp too
         params[QLatin1StringView("$date")] = QJsonValue(0); // get ALL rooms we've ever seen

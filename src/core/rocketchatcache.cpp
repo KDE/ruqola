@@ -38,9 +38,9 @@ RocketChatCache::~RocketChatCache()
     settings.endGroup();
 }
 
-void RocketChatCache::setRestApiConnection(RocketChatRestApi::Connection *restApi)
+void RocketChatCache::setRestApiConnection(Connection *restApi)
 {
-    connect(restApi, &RocketChatRestApi::Connection::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
+    connect(restApi, &Connection::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
 }
 
 bool RocketChatCache::fileInCache(const QUrl &url)

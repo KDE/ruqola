@@ -10,10 +10,8 @@
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 #include <QObject>
-namespace RocketChatRestApi
-{
+
 class Connection;
-}
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
 {
     Q_OBJECT
@@ -29,7 +27,7 @@ public:
         Logout,
         LogoutCleanUp,
     };
-    explicit RESTAuthenticationManager(RocketChatRestApi::Connection *restApiConnection, QObject *parent = nullptr);
+    explicit RESTAuthenticationManager(Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
 
     void login();
@@ -66,7 +64,7 @@ private:
     QString mAuthToken;
     QString mUserId;
     qint64 mTokenExpires;
-    RocketChatRestApi::Connection *const mRestApiConnection;
+    Connection *const mRestApiConnection;
     AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
     // Used when sending OTP
     QJsonObject mLastLoginPayload;
