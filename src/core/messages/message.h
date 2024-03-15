@@ -117,9 +117,6 @@ public:
 
     [[nodiscard]] bool wasEdited() const;
 
-    [[nodiscard]] QString editedByUserId() const;
-    void setEditedByUserId(const QString &editedByUserId);
-
     [[nodiscard]] QString alias() const;
     void setAlias(const QString &alias);
 
@@ -302,7 +299,6 @@ private:
 
     // editedBy
     QString mEditedByUsername;
-    QString mEditedByUserId;
 
     // alias
     QString mAlias;

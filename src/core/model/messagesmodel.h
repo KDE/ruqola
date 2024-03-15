@@ -38,7 +38,6 @@ public:
         UpdatedAt,
         EditedAt,
         EditedByUserName,
-        EditedByUserId,
         EditedToolTip,
         Alias,
         Avatar,

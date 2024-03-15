@@ -58,7 +58,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mName = userObject.value(QLatin1StringView("name")).toString();
     mUserId = userObject.value(QLatin1StringView("_id")).toString();
     mEditedByUsername = o.value(QLatin1StringView("editedBy")).toObject().value(QLatin1StringView("username")).toString();
-    mEditedByUserId = o.value(QLatin1StringView("editedBy")).toObject().value(QLatin1StringView("_id")).toString();
     mAlias = o.value(QLatin1StringView("alias")).toString();
     mAvatar = o.value(QLatin1StringView("avatar")).toString();
     assignMessageStateValue(Groupable, o.value(QLatin1StringView("groupable")).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
@@ -486,10 +485,10 @@ bool Message::operator==(const Message &other) const
 {
     return (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
-        && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
-        && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable())
-        && (parseUrls() == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
-        && (mRole == other.role()) && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
+        && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
+        && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
+        && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions()) && (mRole == other.role())
+        && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
         && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
@@ -670,16 +669,6 @@ void Message::setAlias(const QString &alias)
     mAlias = alias;
 }
 
-QString Message::editedByUserId() const
-{
-    return mEditedByUserId;
-}
-
-void Message::setEditedByUserId(const QString &editedByUserId)
-{
-    mEditedByUserId = editedByUserId;
-}
-
 QString Message::editedByUsername() const
 {
     return mEditedByUsername;
@@ -849,7 +838,6 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mUpdatedAt = static_cast<qint64>(o[QLatin1StringView("updatedAt")].toDouble());
     message.setEditedAt(static_cast<qint64>(o[QLatin1StringView("editedAt")].toDouble()));
     message.mEditedByUsername = o[QLatin1StringView("editedByUsername")].toString();
-    message.mEditedByUserId = o[QLatin1StringView("editedByUserID")].toString();
     message.mAlias = o[QLatin1StringView("alias")].toString();
     message.mAvatar = o[QLatin1StringView("avatar")].toString();
     message.assignMessageStateValue(Message::MessageState::Groupable, o[QLatin1StringView("groupable")].toBool());
@@ -940,7 +928,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
 
     o[QLatin1StringView("editedByUsername")] = message.mEditedByUsername;
-    o[QLatin1StringView("editedByUserID")] = message.mEditedByUserId;
     o[QLatin1StringView("alias")] = message.mAlias;
     o[QLatin1StringView("avatar")] = message.mAvatar;
     o[QLatin1StringView("groupable")] = message.messageStateValue(Message::MessageState::Groupable);
@@ -1067,7 +1054,6 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mUpdatedAt:" << t.updatedAt();
     d.space() << "mEditedAt:" << t.editedAt();
     d.space() << "mEditedByUsername:" << t.editedByUsername();
-    d.space() << "mEditedByUserId:" << t.editedByUserId();
     d.space() << "mAlias:" << t.alias();
     d.space() << "mSystemMessageType:" << t.systemMessageType();
     d.space() << "mRoomId:" << t.roomId();

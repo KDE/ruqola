@@ -44,7 +44,6 @@ static void fillTestMessage(Message &input)
     input.setUpdatedAt(45);
     input.setEditedAt(89);
     input.setEditedByUsername(QStringLiteral("editeduser1"));
-    input.setEditedByUserId(QStringLiteral("editedbyid1"));
     input.setAlias(QStringLiteral("ali"));
     input.setAvatar(QStringLiteral("avatar1"));
     input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);

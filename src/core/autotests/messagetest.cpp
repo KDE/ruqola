@@ -32,7 +32,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 752);
+    QCOMPARE(sizeof(Message), 728);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -225,7 +225,6 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRef.setUpdatedAt(1516721464681);
         messageStarredRef.setEditedAt(1516712012309);
         messageStarredRef.setEditedByUsername(QStringLiteral("laurent"));
-        messageStarredRef.setEditedByUserId(QStringLiteral("uKK39zoewTkdacidH"));
         messageStarredRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
         messageStarredRef.setIsStarred(true);
         messageStarredRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
@@ -269,7 +268,6 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRemovedRef.setUpdatedAt(1516721464681);
         messageStarredRemovedRef.setEditedAt(1516712012309);
         messageStarredRemovedRef.setEditedByUsername(QStringLiteral("laurent"));
-        messageStarredRemovedRef.setEditedByUserId(QStringLiteral("uKK39zoewTkdacidH"));
         messageStarredRemovedRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
         messageStarredRemovedRef.setIsStarred(false);
         messageStarredRemovedRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
@@ -340,7 +338,6 @@ void MessageTest::shouldSerializeData()
         input.setUpdatedAt(45);
         input.setEditedAt(89);
         input.setEditedByUsername(QStringLiteral("editeduser1"));
-        input.setEditedByUserId(QStringLiteral("editedbyid1"));
         input.setAlias(QStringLiteral("ali"));
         input.setAvatar(QStringLiteral("avatar1"));
         input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
@@ -402,7 +399,6 @@ void MessageTest::shouldSerializeData()
         input.setUpdatedAt(45);
         input.setEditedAt(89);
         input.setEditedByUsername(QStringLiteral("editeduser1"));
-        input.setEditedByUserId(QStringLiteral("editedbyid1"));
         input.setAlias(QStringLiteral("ali"));
         input.setAvatar(QStringLiteral("avatar1"));
         input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
