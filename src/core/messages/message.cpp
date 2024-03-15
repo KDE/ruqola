@@ -12,14 +12,13 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-Message::Message(EmojiManager *emojiManager)
-    : mEmojiManager(emojiManager)
+Message::Message()
 {
 }
 
 Message::~Message() = default;
 
-void Message::parseMessage(const QJsonObject &o, bool restApi)
+void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager)
 {
     const QString roomId = o.value(QLatin1StringView("rid")).toString();
 
@@ -90,15 +89,15 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 
     parseAttachment(o.value(QLatin1StringView("attachments")).toArray());
     parseUrls(o.value(QLatin1StringView("urls")).toArray());
-    parseReactions(o.value(QLatin1StringView("reactions")).toObject());
+    parseReactions(o.value(QLatin1StringView("reactions")).toObject(), emojiManager);
     parseChannels(o.value(QLatin1StringView("channels")).toArray());
     // TODO unread element
 }
 
-void Message::parseReactions(const QJsonObject &reacts)
+void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
 {
     if (!reacts.isEmpty()) {
-        mReactions.parseReactions(reacts, mEmojiManager);
+        mReactions.parseReactions(reacts, emojiManager);
     }
 }
 
@@ -833,7 +832,7 @@ Utils::AvatarInfo Message::avatarInfo() const
 
 Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
-    Message message(emojiManager);
+    Message message;
     message.mThreadCount = o[QLatin1StringView("tcount")].toInt();
     message.mDiscussionCount = o[QLatin1StringView("dcount")].toInt();
     message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString();

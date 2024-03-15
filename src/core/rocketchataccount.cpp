@@ -2812,8 +2812,8 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
             qCWarning(RUQOLA_LOG) << "Unexpected null message model.";
             return;
         }
-        Message m(emojiManager());
-        m.parseMessage(replyObject, useRestApi);
+        Message m;
+        m.parseMessage(replyObject, useRestApi, emojiManager());
         m.setMessageType(Message::MessageType::Information);
         m.setPendingMessage(temporaryMessage);
         if (!m.threadMessageId().isEmpty()) {

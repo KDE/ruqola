@@ -25,7 +25,7 @@ class LIBRUQOLACORE_EXPORT Message
 {
     Q_GADGET
 public:
-    explicit Message(EmojiManager *emojiManager = nullptr);
+    Message();
     Message(const Message &other) = default;
     virtual ~Message();
 
@@ -81,7 +81,7 @@ public:
      */
     [[nodiscard]] static QByteArray serialize(const Message &message, bool toBinary = true);
 
-    void parseMessage(const QJsonObject &o, bool restApi);
+    void parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager);
 
     [[nodiscard]] bool operator==(const Message &other) const;
 
@@ -241,13 +241,11 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
     LIBRUQOLACORE_NO_EXPORT void parseUrls(const QJsonArray &urls);
-    LIBRUQOLACORE_NO_EXPORT void parseReactions(const QJsonObject &mentions);
+    LIBRUQOLACORE_NO_EXPORT void parseReactions(const QJsonObject &mentions, EmojiManager *emojiManager);
     LIBRUQOLACORE_NO_EXPORT void parseChannels(const QJsonArray &channels);
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
-
-    EmojiManager *mEmojiManager = nullptr;
 
     // Moderation Message Info
     // Optimization !!!

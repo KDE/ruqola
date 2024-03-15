@@ -272,8 +272,8 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         } else {
             qCDebug(RUQOLA_MESSAGE_LOG) << " new message: " << o;
         }
-        Message m(mRocketChatAccount->emojiManager());
-        m.parseMessage(o, restApi);
+        Message m;
+        m.parseMessage(o, restApi, mRocketChatAccount->emojiManager());
         updateVideoConferenceInfo(m);
         const QString roomId = m.roomId();
         if (roomId != lastRoomId) {

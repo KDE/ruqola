@@ -32,7 +32,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 800);
+    QCOMPARE(sizeof(Message), 792);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -317,7 +317,7 @@ void MessageTest::shouldParseMessage()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     QJsonObject obj = doc.object();
     Message originalMessage;
-    originalMessage.parseMessage(obj, false);
+    originalMessage.parseMessage(obj, false, nullptr);
     const bool messageIsEqual = (originalMessage == expectedMessage);
     if (!messageIsEqual) {
         qDebug() << "originalMessage " << originalMessage;
@@ -583,7 +583,7 @@ void MessageTest::shouldParseJsonMessage()
     const QJsonObject fields = doc.object();
 
     Message r;
-    r.parseMessage(fields, false);
+    r.parseMessage(fields, false, nullptr);
     // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Message::serialize(r, false);
@@ -629,7 +629,7 @@ void MessageTest::shouldUpdateJsonMessage()
     const QJsonObject fields = doc.object();
 
     Message r;
-    r.parseMessage(fields, false);
+    r.parseMessage(fields, false, nullptr);
 
     for (const QString &updateFile : fileNameupdate) {
         const QString originalUpdateJsonFile =
@@ -641,7 +641,7 @@ void MessageTest::shouldUpdateJsonMessage()
         const QJsonDocument doc = QJsonDocument::fromJson(content);
         const QJsonObject fields = doc.object();
 
-        r.parseMessage(fields, false);
+        r.parseMessage(fields, false, nullptr);
     }
 
     // qDebug() << " fields"<<fields;

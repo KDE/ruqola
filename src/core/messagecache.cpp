@@ -74,7 +74,7 @@ void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QString &mes
     const QJsonObject msgObject = obj[QLatin1StringView("message")].toObject();
     Q_ASSERT(!msgObject.isEmpty());
     auto message = new Message;
-    message->parseMessage(msgObject, true);
+    message->parseMessage(msgObject, true, nullptr);
     Q_ASSERT(messageId == message->messageId());
     mMessages.insert(message->messageId(), message);
     mMessageJobs.remove(messageId);
