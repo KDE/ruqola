@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 03:47+0000\n"
+"POT-Creation-Date: 2024-03-15 03:44+0000\n"
 "PO-Revision-Date: 2024-03-10 22:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -303,7 +303,7 @@ msgstr "Desarxiva"
 msgid "(Last Message: %1)"
 msgstr "(Últim missatge: %1)"
 
-#: core/messages/block.cpp:124 core/messages/message.cpp:626
+#: core/messages/block.cpp:126 core/messages/message.cpp:626
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
