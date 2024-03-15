@@ -85,6 +85,7 @@ void MessageTest::shouldParseMessage_data()
         url.setDescription(QStringLiteral("View more about this event at CppCon 2017"));
         url.setImageUrl(QStringLiteral("http://foo.com/img/app-icon.png?1504596901"));
         url.setSiteUrl(QStringLiteral("https://foo.com/event/C8CT"));
+        url.setUrlId(QStringLiteral("9kHnbbjbHKHjXXQp7_0"));
         url.setImageWidth(200);
         url.setImageHeight(200);
         url.generateMessageUrlInfo();
@@ -116,6 +117,12 @@ void MessageTest::shouldParseMessage_data()
         url.setSiteName(QStringLiteral("GitHub"));
         url.setImageWidth(1200);
         url.setImageHeight(600);
+        url.setUrlId(QStringLiteral("yZPPxBQ79M9jG5hS6_0"));
+        url.setDescription(
+            QStringLiteral("[Deferred connection evaluation by blabla · Pull Request #48 · "
+                           "](https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149)\nCloses "
+                           "#23\n[GitHub](https://foo/pull/48)"));
+        url.generateMessageUrlInfo();
         urlMessageRef.setUrls({url});
         QTest::addRow("url1") << QStringLiteral("url1") << urlMessageRef;
     }
