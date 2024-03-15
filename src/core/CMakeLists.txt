@@ -125,6 +125,8 @@ target_sources(libruqolacore PRIVATE
     messages/messageattachment.h
     messages/message.cpp
     messages/message.h
+    messages/systemmessagetypeutil.h
+    messages/systemmessagetypeutil.cpp
     messages/messagepinned.cpp
     messages/messagepinned.h
     messages/messagestarred.cpp
