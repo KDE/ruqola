@@ -279,12 +279,12 @@ void Message::setMessagePinned(const MessagePinned &messagePinned)
 
 bool Message::unread() const
 {
-    return mUnread;
+    return messageStateValue(Unread);
 }
 
 void Message::setUnread(bool unread)
 {
-    mUnread = unread;
+    assignMessageStateValue(Unread, unread);
 }
 
 QString Message::role() const
@@ -495,7 +495,7 @@ bool Message::operator==(const Message &other) const
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
         && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable())
         && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
-        && (mRole == other.role()) && (mReactions == other.reactions()) && (mUnread == other.unread()) && (mMessagePinned == other.messagePinned())
+        && (mRole == other.role()) && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
         && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())

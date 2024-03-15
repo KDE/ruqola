@@ -350,9 +350,6 @@ private:
     // parseUrls
     bool mParseUrls = false;
 
-    // Unread Message
-    bool mUnread = false;
-
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
     EmojiManager *mEmojiManager = nullptr;
 };
