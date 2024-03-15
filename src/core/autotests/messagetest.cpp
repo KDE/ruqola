@@ -32,7 +32,8 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(m), 816);
+    QCOMPARE(sizeof(Message), 816);
+    QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
 // TODO add check for default value ???
@@ -118,10 +119,6 @@ void MessageTest::shouldParseMessage_data()
         url.setImageWidth(1200);
         url.setImageHeight(600);
         url.setUrlId(QStringLiteral("yZPPxBQ79M9jG5hS6_0"));
-        url.setDescription(
-            QStringLiteral("[Deferred connection evaluation by blabla · Pull Request #48 · "
-                           "](https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149)\nCloses "
-                           "#23\n[GitHub](https://foo/pull/48)"));
         url.generateMessageUrlInfo();
         urlMessageRef.setUrls({url});
         QTest::addRow("url1") << QStringLiteral("url1") << urlMessageRef;
@@ -392,6 +389,7 @@ void MessageTest::shouldSerializeData()
 
         QVERIFY(output.wasEdited());
     }
+
     {
         Message input;
 
