@@ -432,9 +432,9 @@ void MessageTest::shouldSerializeData()
             lstAttachement.append(std::move(attachment2));
         }
         input.setAttachments(lstAttachement);
-#if 0 // TODO FIXME
-      // Urls
+        // Urls
         QList<MessageUrl> lstUrls;
+#if 0 // TODO FIXME
         {
             MessageUrl url1;
             url1.setUrl(QStringLiteral("foo1"));
@@ -449,8 +449,8 @@ void MessageTest::shouldSerializeData()
             url2.generateMessageUrlInfo();
             lstUrls.append(std::move(url2));
         }
-        input.setUrls(lstUrls);
 #endif
+        input.setUrls(lstUrls);
 
         // Reactions
         QList<Reaction> reacts;
