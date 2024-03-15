@@ -63,7 +63,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mAlias = o.value(QLatin1StringView("alias")).toString();
     mAvatar = o.value(QLatin1StringView("avatar")).toString();
     assignMessageStateValue(Groupable, o.value(QLatin1StringView("groupable")).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
-    mParseUrls = o.value(QLatin1StringView("parseUrls")).toBool();
+    assignMessageStateValue(ParsedUrl, o.value(QLatin1StringView("parseUrls")).toBool());
     mRole = o.value(QLatin1StringView("role")).toString();
     mThreadCount = o.value(QLatin1StringView("tcount")).toInt();
     mDiscussionCount = o.value(QLatin1StringView("dcount")).toInt();
@@ -494,7 +494,7 @@ bool Message::operator==(const Message &other) const
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
         && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable())
-        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
+        && (parseUrls() == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
         && (mRole == other.role()) && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
@@ -800,12 +800,12 @@ void Message::setAvatar(const QString &avatar)
 
 bool Message::parseUrls() const
 {
-    return mParseUrls;
+    return messageStateValue(ParsedUrl);
 }
 
 void Message::setParseUrls(bool parseUrls)
 {
-    mParseUrls = parseUrls;
+    assignMessageStateValue(ParsedUrl, parseUrls);
 }
 
 bool Message::groupable() const
@@ -861,7 +861,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mAlias = o[QLatin1StringView("alias")].toString();
     message.mAvatar = o[QLatin1StringView("avatar")].toString();
     message.assignMessageStateValue(Message::MessageState::Groupable, o[QLatin1StringView("groupable")].toBool());
-    message.mParseUrls = o[QLatin1StringView("parseUrls")].toBool();
+    message.assignMessageStateValue(Message::MessageState::ParsedUrl, o[QLatin1StringView("parseUrls")].toBool());
     message.mMessageStarred.setIsStarred(o[QLatin1StringView("starred")].toBool());
 
     message.mMessagePinned = MessagePinned::deserialize(o[QLatin1StringView("pinnedMessage")].toObject());
@@ -952,7 +952,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QLatin1StringView("alias")] = message.mAlias;
     o[QLatin1StringView("avatar")] = message.mAvatar;
     o[QLatin1StringView("groupable")] = message.messageStateValue(Message::MessageState::Groupable);
-    o[QLatin1StringView("parseUrls")] = message.mParseUrls;
+    o[QLatin1StringView("parseUrls")] = message.parseUrls();
     o[QLatin1StringView("starred")] = message.mMessageStarred.isStarred();
 
     o[QLatin1StringView("pinnedMessage")] = MessagePinned::serialize(message.mMessagePinned);

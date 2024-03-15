@@ -247,6 +247,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
 
+    EmojiManager *mEmojiManager = nullptr;
+
     // Moderation Message Info
     // Optimization !!!
     ModerationMessage mModerationMessage;
@@ -337,20 +339,15 @@ private:
 
     // Thread last message
     qint64 mThreadLastMessage = -1;
+    // Thread last message
+    qint64 mDiscussionLastMessage = -1;
     // Thread count
     int mThreadCount = 0;
 
-    // Thread last message
-    qint64 mDiscussionLastMessage = -1;
     // Thread count
     int mDiscussionCount = 0;
 
     MessageType mMessageType = MessageType::NormalText;
-
-    // parseUrls
-    bool mParseUrls = false;
-
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
-    EmojiManager *mEmojiManager = nullptr;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);
