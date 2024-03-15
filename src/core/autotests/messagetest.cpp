@@ -32,7 +32,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 792);
+    QCOMPARE(sizeof(Message), 768);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 

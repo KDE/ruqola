@@ -215,8 +215,11 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.editedAt();
     case MessagesModel::EditedByUserName:
         return message.editedByUsername();
-    case MessagesModel::EditedToolTip:
-        return i18n("Edited at %1 by %2", message.editedDisplayTime(), message.editedByUsername());
+    case MessagesModel::EditedToolTip: {
+        QLocale l;
+        const QString editedDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(message.editedAt()), QLocale::LongFormat);
+        return i18n("Edited at %1 by %2", editedDisplayTime, message.editedByUsername());
+    }
     case MessagesModel::Attachments: {
         QVariantList lst;
         lst.reserve(message.attachments().count());

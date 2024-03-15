@@ -101,11 +101,6 @@ void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManag
     }
 }
 
-QString Message::editedDisplayTime() const
-{
-    return mEditedDisplayTime;
-}
-
 bool Message::isEditingMode() const
 {
     return messageStateValue(Edited);
@@ -709,8 +704,6 @@ void Message::setEditedAt(qint64 editedAt)
 {
     if (mEditedAt != editedAt) {
         mEditedAt = editedAt;
-        QLocale l;
-        mEditedDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(mEditedAt), QLocale::LongFormat);
     }
 }
 

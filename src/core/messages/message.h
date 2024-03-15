@@ -204,8 +204,6 @@ public:
     [[nodiscard]] bool isEditingMode() const;
     void setIsEditingMode(bool isEditingMode);
 
-    [[nodiscard]] QString editedDisplayTime() const;
-
     const QMap<QString, QString> &channels() const;
     void setChannels(const QMap<QString, QString> &newChannels);
 
@@ -332,7 +330,6 @@ private:
     qint64 mUpdatedAt = -1;
 
     // editedAt
-    QString mEditedDisplayTime;
     qint64 mEditedAt = -1;
 
     // Thread last message
