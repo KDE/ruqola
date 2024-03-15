@@ -109,32 +109,32 @@ QString Message::editedDisplayTime() const
 
 bool Message::isEditingMode() const
 {
-    return mIsEditingMode;
+    return messageStateValue(Edited);
 }
 
 void Message::setIsEditingMode(bool isEditingMode)
 {
-    mIsEditingMode = isEditingMode;
+    assignMessageStateValue(Edited, isEditingMode);
 }
 
 bool Message::showIgnoredMessage() const
 {
-    return mShowIgnoredMessage;
+    return messageStateValue(Ignored);
 }
 
 void Message::setShowIgnoredMessage(bool showIgnoredMessage)
 {
-    mShowIgnoredMessage = showIgnoredMessage;
+    assignMessageStateValue(Ignored, showIgnoredMessage);
 }
 
 bool Message::pendingMessage() const
 {
-    return mPendingMessage;
+    return messageStateValue(Pending);
 }
 
 void Message::setPendingMessage(bool pendingMessage)
 {
-    mPendingMessage = pendingMessage;
+    assignMessageStateValue(Pending, pendingMessage);
 }
 
 QString Message::emoji() const
@@ -174,12 +174,12 @@ bool Message::isAutoTranslated() const
 
 bool Message::showTranslatedMessage() const
 {
-    return mShowTranslatedMessage;
+    return messageStateValue(Translated);
 }
 
 void Message::setShowTranslatedMessage(bool showOriginalMessage)
 {
-    mShowTranslatedMessage = showOriginalMessage;
+    assignMessageStateValue(Translated, showOriginalMessage);
 }
 
 MessageTranslation Message::messageTranslation() const
@@ -336,12 +336,12 @@ void Message::setLocalTranslation(const QString &newLocalTranslation)
 
 bool Message::hoverHighlight() const
 {
-    return mHoverHighlight;
+    return messageStateValue(HoverHighlight);
 }
 
 void Message::setHoverHighlight(bool newShowReactionIcon)
 {
-    mHoverHighlight = newShowReactionIcon;
+    assignMessageStateValue(HoverHighlight, newShowReactionIcon);
 }
 
 const QMap<QString, QString> &Message::channels() const
@@ -499,8 +499,8 @@ bool Message::operator==(const Message &other) const
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
         && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
-        && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
-        && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage())
+        && (mMessageTranslation == other.messageTranslation()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
+        && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation()) && (mBlocks == other.blocks())
         && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
 }

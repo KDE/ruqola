@@ -353,16 +353,6 @@ private:
     // Unread Message
     bool mUnread = false;
 
-    bool mShowTranslatedMessage = true;
-
-    bool mPendingMessage = false;
-
-    bool mShowIgnoredMessage = false;
-
-    bool mIsEditingMode = false;
-
-    bool mHoverHighlight = false;
-
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
     EmojiManager *mEmojiManager = nullptr;
 };
