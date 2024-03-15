@@ -62,7 +62,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mEditedByUserId = o.value(QLatin1StringView("editedBy")).toObject().value(QLatin1StringView("_id")).toString();
     mAlias = o.value(QLatin1StringView("alias")).toString();
     mAvatar = o.value(QLatin1StringView("avatar")).toString();
-    mGroupable = o.value(QLatin1StringView("groupable")).toBool(/*true*/ false); // Laurent, disable for the moment groupable
+    assignMessageStateValue(Groupable, o.value(QLatin1StringView("groupable")).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
     mParseUrls = o.value(QLatin1StringView("parseUrls")).toBool();
     mRole = o.value(QLatin1StringView("role")).toString();
     mThreadCount = o.value(QLatin1StringView("tcount")).toInt();
@@ -73,7 +73,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
     mMessageTranslation.parse(o);
-    mPrivateMessage = o.value(QLatin1StringView("private")).toBool(false);
+    assignMessageStateValue(Private, o.value(QLatin1StringView("private")).toBool(false));
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
@@ -369,12 +369,12 @@ void Message::parseBlocks(const QJsonArray &blocks)
 
 bool Message::privateMessage() const
 {
-    return mPrivateMessage;
+    return messageStateValue(Private);
 }
 
 void Message::setPrivateMessage(bool newPrivateMessage)
 {
-    mPrivateMessage = newPrivateMessage;
+    assignMessageStateValue(Private, newPrivateMessage);
 }
 
 ModerationMessage Message::moderationMessage() const
@@ -493,7 +493,7 @@ bool Message::operator==(const Message &other) const
     return (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
-        && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (mGroupable == other.groupable())
+        && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable())
         && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
         && (mRole == other.role()) && (mReactions == other.reactions()) && (mUnread == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
@@ -502,7 +502,7 @@ bool Message::operator==(const Message &other) const
         && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage())
         && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation()) && (mBlocks == other.blocks())
-        && (mDisplayTime == other.mDisplayTime) && (mPrivateMessage == other.privateMessage());
+        && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
 }
 
 bool Message::operator<(const Message &other) const
@@ -810,12 +810,12 @@ void Message::setParseUrls(bool parseUrls)
 
 bool Message::groupable() const
 {
-    return mGroupable;
+    return messageStateValue(Groupable);
 }
 
 void Message::setGroupable(bool groupable)
 {
-    mGroupable = groupable;
+    assignMessageStateValue(Groupable, groupable);
 }
 
 QString Message::generateUniqueId(const QString &messageId, int index)
@@ -839,7 +839,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString();
     message.mThreadMessageId = o[QLatin1StringView("tmid")].toString();
 
-    message.mPrivateMessage = o[QLatin1StringView("private")].toBool(false);
+    message.assignMessageStateValue(Private, o[QLatin1StringView("private")].toBool(false));
     if (o.contains(QLatin1StringView("tlm"))) {
         message.mThreadLastMessage = static_cast<qint64>(o[QLatin1StringView("tlm")].toDouble());
     }
@@ -860,7 +860,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mEditedByUserId = o[QLatin1StringView("editedByUserID")].toString();
     message.mAlias = o[QLatin1StringView("alias")].toString();
     message.mAvatar = o[QLatin1StringView("avatar")].toString();
-    message.mGroupable = o[QLatin1StringView("groupable")].toBool();
+    message.assignMessageStateValue(Message::MessageState::Groupable, o[QLatin1StringView("groupable")].toBool());
     message.mParseUrls = o[QLatin1StringView("parseUrls")].toBool();
     message.mMessageStarred.setIsStarred(o[QLatin1StringView("starred")].toBool());
 
@@ -951,7 +951,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QLatin1StringView("editedByUserID")] = message.mEditedByUserId;
     o[QLatin1StringView("alias")] = message.mAlias;
     o[QLatin1StringView("avatar")] = message.mAvatar;
-    o[QLatin1StringView("groupable")] = message.mGroupable;
+    o[QLatin1StringView("groupable")] = message.messageStateValue(Message::MessageState::Groupable);
     o[QLatin1StringView("parseUrls")] = message.mParseUrls;
     o[QLatin1StringView("starred")] = message.mMessageStarred.isStarred();
 
@@ -1052,7 +1052,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mMessageTranslation.isEmpty()) {
         o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
     }
-    if (message.mPrivateMessage) {
+    if (message.messageStateValue(Private)) {
         o[QLatin1StringView("private")] = true;
     }
 
@@ -1124,6 +1124,30 @@ QString Message::dateTime() const
 {
     const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(timeStamp());
     return currentDate.toString();
+}
+
+bool Message::messageStateValue(MessageState type) const
+{
+    return mMessageStates & type;
+}
+
+Message::MessageStates Message::messageStates() const
+{
+    return mMessageStates;
+}
+
+void Message::setMessageStates(const MessageStates &newMessageStates)
+{
+    mMessageStates = newMessageStates;
+}
+
+void Message::assignMessageStateValue(MessageState type, bool status)
+{
+    if (status) {
+        mMessageStates |= type;
+    } else {
+        mMessageStates &= ~type;
+    }
 }
 
 #include "moc_message.cpp"

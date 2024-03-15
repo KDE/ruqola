@@ -233,6 +233,9 @@ public:
     [[nodiscard]] bool privateMessage() const;
     void setPrivateMessage(bool newPrivateMessage);
 
+    [[nodiscard]] MessageStates messageStates() const;
+    void setMessageStates(const MessageStates &newMessageStates);
+
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString generateUniqueId(const QString &messageId, int index);
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
@@ -241,6 +244,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseReactions(const QJsonObject &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseChannels(const QJsonArray &channels);
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
+    LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
 
     // Moderation Message Info
     // Optimization !!!
@@ -342,9 +347,6 @@ private:
 
     MessageType mMessageType = MessageType::NormalText;
 
-    // groupable
-    bool mGroupable = true;
-
     // parseUrls
     bool mParseUrls = false;
 
@@ -361,8 +363,7 @@ private:
 
     bool mHoverHighlight = false;
 
-    bool mPrivateMessage = false;
-
+    MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
     EmojiManager *mEmojiManager = nullptr;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);
