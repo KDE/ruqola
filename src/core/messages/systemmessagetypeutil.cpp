@@ -15,7 +15,7 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
     } else if (str == QLatin1StringView("ul")) {
         return UserLeft;
     } else if (str == QLatin1StringView("ult")) {
-        return UserLeftChannel;
+        return UserLeftTeam;
     } else if (str == QLatin1StringView("room_changed_topic")) {
         return RoomTopicChanged;
     } else if (str == QLatin1StringView("au")) {
@@ -110,7 +110,7 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
         return QLatin1StringView("uj");
     case UserLeft:
         return QLatin1StringView("ul");
-    case UserLeftChannel:
+    case UserLeftTeam:
         return QLatin1StringView("ult");
     case RoomTopicChanged:
         return QLatin1StringView("room_changed_topic");

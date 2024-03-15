@@ -47,7 +47,7 @@ static void fillTestMessage(Message &input)
     input.setEditedByUserId(QStringLiteral("editedbyid1"));
     input.setAlias(QStringLiteral("ali"));
     input.setAvatar(QStringLiteral("avatar1"));
-    input.setSystemMessageType(QStringLiteral("type"));
+    input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
     input.setGroupable(true);
     input.setParseUrls(true);
     input.setMessageType(Message::MessageType::NormalText);

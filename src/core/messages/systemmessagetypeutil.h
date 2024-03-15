@@ -15,7 +15,7 @@ enum SystemMessageType {
     Unknown = 0,
     UserJoined,
     UserLeft,
-    UserLeftChannel,
+    UserLeftTeam,
     RoomTopicChanged,
     UserAdded,
     RoomNameChanged,

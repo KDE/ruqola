@@ -61,8 +61,9 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
 bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
 {
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage =
-        messageType == Message::System && index.data(MessagesModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
+    const bool isSystemMessage = messageType == Message::System
+        && index.data(MessagesModel::SystemMessageType).value<SystemMessageTypeUtil::SystemMessageType>()
+            != SystemMessageTypeUtil::SystemMessageType::JitsiCallStarted;
     return isSystemMessage || index.data(MessagesModel::PrivateMessage).toBool();
 }
 

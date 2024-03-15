@@ -15,6 +15,7 @@
 #include "messageurl.h"
 #include "moderation/moderationmessage.h"
 #include "reactions.h"
+#include "systemmessagetypeutil.h"
 #include "utils.h"
 #include <QColor>
 #include <QList>
@@ -122,8 +123,8 @@ public:
     [[nodiscard]] QString alias() const;
     void setAlias(const QString &alias);
 
-    [[nodiscard]] QString systemMessageType() const;
-    void setSystemMessageType(const QString &systemMessageType);
+    [[nodiscard]] SystemMessageTypeUtil::SystemMessageType systemMessageType() const;
+    void setSystemMessageType(const SystemMessageTypeUtil::SystemMessageType &systemMessageType);
 
     [[nodiscard]] MessageType messageType() const;
     void setMessageType(Message::MessageType messageType);
@@ -306,8 +307,6 @@ private:
     // alias
     QString mAlias;
 
-    QString mSystemMessageType;
-
     // rid
     QString mRoomId;
 
@@ -342,6 +341,7 @@ private:
     // Thread count
     int mDiscussionCount = 0;
 
+    SystemMessageTypeUtil::SystemMessageType mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
     MessageType mMessageType = MessageType::NormalText;
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);
 };

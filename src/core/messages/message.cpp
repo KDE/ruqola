@@ -80,7 +80,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
             mMessageType = VideoConference;
             // qDebug() << " VIDEO " << o;
         } else {
-            mSystemMessageType = type;
+            mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = System;
         }
     }
@@ -504,12 +504,12 @@ bool Message::operator<(const Message &other) const
     return mTimeStamp < other.mTimeStamp;
 }
 
-QString Message::systemMessageType() const
+SystemMessageTypeUtil::SystemMessageType Message::systemMessageType() const
 {
     return mSystemMessageType;
 }
 
-void Message::setSystemMessageType(const QString &systemMessageType)
+void Message::setSystemMessageType(const SystemMessageTypeUtil::SystemMessageType &systemMessageType)
 {
     mSystemMessageType = systemMessageType;
 }
@@ -521,118 +521,118 @@ Message::MessageType Message::messageType() const
 
 QString Message::systemMessageText() const
 {
-    if (mSystemMessageType == QLatin1StringView("uj")) {
+    switch (mSystemMessageType) {
+    case SystemMessageTypeUtil::SystemMessageType::UserJoined:
         return i18n("%1 has joined the channel", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("ul")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserLeft:
         return i18n("%1 has left the channel", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("ult")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserLeftTeam:
         return i18n("%1 left this Team", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room_changed_topic")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomTopicChanged:
         if (mText.isEmpty()) {
             return i18n("Topic was cleared by: %1", mUsername);
         } else {
             return i18n("%2 changed topic to: <i>%1</i>", mText, mUsername);
         }
-    } else if (mSystemMessageType == QLatin1StringView("au")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserAdded:
         return i18n("%2 added %1 to the conversation", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1Char('r')) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomNameChanged:
         return i18n("%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("ru")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserRemoved:
         return i18n("%2 removed user %1", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room_changed_description")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomDescriptionChanged:
         if (mText.isEmpty()) {
             return i18n("Description was cleared by %1", mUsername);
         } else {
             return i18n("%2 changed room description to %1", mText, mUsername);
         }
-    } else if (mSystemMessageType == QLatin1StringView("room_changed_announcement")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomAnnoucementChanged:
         if (mText.isEmpty()) {
             return i18n("Announcement was cleared by %1", mUsername);
         } else {
             return i18n("%2 changed room announcement to %1", mText, mUsername);
         }
-    } else if (mSystemMessageType == QLatin1StringView("room_changed_privacy")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomPrivacyChanged:
         return i18n("%2 changed room privacy to %1", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("jitsi_call_started")) {
+    case SystemMessageTypeUtil::SystemMessageType::JitsiCallStarted:
         return QStringLiteral("<a href=\"ruqola:/jitsicall/\">") + i18n("Click to join to video") + QStringLiteral("</a>");
-    } else if (mSystemMessageType == QLatin1StringView("rm")) {
+    case SystemMessageTypeUtil::SystemMessageType::MessageDeleted:
         // TODO encrypted message
         return i18n("Message Deleted");
-    } else if (mSystemMessageType == QLatin1StringView("message_pinned")) {
+    case SystemMessageTypeUtil::SystemMessageType::MessagePinned:
         return i18n("Message Pinned");
-    } else if (mSystemMessageType == QLatin1StringView("otr")) {
+    case SystemMessageTypeUtil::SystemMessageType::EncryptedMessage:
         return i18n("Encrypted Message");
-    } else if (mSystemMessageType == QLatin1StringView("user-unmuted")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserUnmuted:
         return i18n("%1 was unmuted by %2", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("user-muted")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserMuted:
         return i18n("%1 was muted by %2", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("subscription-role-added")) {
+    case SystemMessageTypeUtil::SystemMessageType::SubscriptionRoleAdded:
         return i18n("Role \'%3\' was added to %1 by %2", mText, mUsername, mRole);
-    } else if (mSystemMessageType == QLatin1StringView("subscription-role-removed")) {
+    case SystemMessageTypeUtil::SystemMessageType::SubscriptionRoleRemoved:
         return i18n("Role \'%3\' was removed to %1 by %2", mText, mUsername, mRole);
-    } else if (mSystemMessageType == QLatin1StringView("e2e")) {
+    case SystemMessageTypeUtil::SystemMessageType::MessageE2E:
         // TODO need to unencrypt it
         // return i18n("Encrypted message: %1", mText);
         return i18n("This message is end-to-end encrypted. To view it, you must enter your encryption key in your account settings.");
-    } else if (mSystemMessageType == QLatin1StringView("discussion-created")) {
+    case SystemMessageTypeUtil::SystemMessageType::DiscussionCreated:
         return i18n("Discussion created about \"%1\"", mText);
-    } else if (mSystemMessageType == QLatin1StringView("ut")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserJoinedConversation:
         return i18n("%1 has joined the conversation", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room-archived")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomArchived:
         return i18n("This room has been archived by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room-unarchived")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomUnarchived:
         return i18n("This room has been unarchived by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("rtc")) {
+    case SystemMessageTypeUtil::SystemMessageType::Rtc:
         qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
-    } else if (mSystemMessageType == QLatin1StringView("wm")) {
+    case SystemMessageTypeUtil::SystemMessageType::Welcome:
         // TODO verify
         qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
         return i18n("Welcome %1!", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room_changed_avatar")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomAvatarChanged:
         return i18n("Room avatar changed by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room_e2e_enabled")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomE2eEnabled:
         return i18n("This room's encryption has been enabled by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room_e2e_disabled")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomE2eDisabled:
         return i18n("This room's encryption has been disabled by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room-set-read-only")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomSetReadOnly:
         return i18n("Room set as Read Only by  %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room-removed-read-only")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomRemoveReadOnly:
         return i18n("Room added writing permission by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("added-user-to-team")) {
+    case SystemMessageTypeUtil::SystemMessageType::AddedUserToTeam:
         return i18n("%1 added @%2 to this Team", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("removed-user-from-team")) {
+    case SystemMessageTypeUtil::SystemMessageType::RemovedUserFromTeam:
         return i18n("%1 removed @%2 from this Team", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("user-converted-to-team")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserConvertedToTeam:
         return i18n("%1 converted #%2 to a Team", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("user-converted-to-channel")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserConvertedToChannel:
         return i18n("%1 converted #%2 to a Channel", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("user-removed-room-from-team")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserRemovedRoomFromTeam:
         return i18n("%1 removed #%2 from this Team", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("user-deleted-room-from-team")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserDeletedRoomFromTeam:
         return i18n("%1 deleted #%2", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("user-added-room-to-team")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserAddedRoomToTeam:
         return i18n("%1 added #%2 to this Team", mUsername, mText);
-    } else if (mSystemMessageType == QLatin1StringView("room-allowed-reacting")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomAllowedReacting:
         return i18n("Room allowed reacting by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room-disallowed-reacting")) {
+    case SystemMessageTypeUtil::SystemMessageType::RoomDisallowedReacting:
         return i18n("Room disallowed reacting by %1", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("ujt")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserJoinedTeam:
         return i18n("%1 joined this Team", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("user_joined_otr")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserJoinedOtr:
         return i18n("%1 has joined OTR chat.", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("user_key_refreshed_successfully")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserKeyRefreshedSuccessfully:
         return i18n("%1 key refreshed successfully", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("user_requested_otr_key_refresh")) {
+    case SystemMessageTypeUtil::SystemMessageType::UserRequesterOtrKeyRefresh:
         return i18n("%1 has requested key refresh.", mUsername);
-    } else if (mSystemMessageType == QLatin1StringView("room_changed_topic")) {
-        return i18n("Room topic changed to: %1 by %2", mUsername, mText); // TODO verify
-    } else if (mSystemMessageType == QLatin1StringView("videoconf")) {
+    case SystemMessageTypeUtil::SystemMessageType::VideoConf:
         return i18n("Conference Call");
-    } else {
+    case SystemMessageTypeUtil::SystemMessageType::Unknown:
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
-        return i18n("Unknown action!");
+        break;
     }
+    return i18n("Unknown action!");
 }
 
 void Message::setMessageType(MessageType messageType)
@@ -858,7 +858,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     message.mMessagePinned = MessagePinned::deserialize(o[QLatin1StringView("pinnedMessage")].toObject());
     message.mRole = o[QLatin1StringView("role")].toString();
-    message.mSystemMessageType = o[QLatin1StringView("type")].toString();
+    message.mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(o[QLatin1StringView("type")].toString());
     message.mEmoji = o[QLatin1StringView("emoji")].toString();
     message.mMessageType = o[QLatin1StringView("messageType")].toVariant().value<MessageType>();
     const QJsonArray attachmentsArray = o.value(QLatin1StringView("attachments")).toArray();
@@ -956,7 +956,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QLatin1StringView("emoji")] = message.mEmoji;
     }
 
-    o[QLatin1StringView("type")] = message.mSystemMessageType;
+    o[QLatin1StringView("type")] = SystemMessageTypeUtil::systemMessageTypeStringFromEnum(message.mSystemMessageType);
     o[QLatin1StringView("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
 
     // Attachments

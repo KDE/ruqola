@@ -202,7 +202,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::UserId:
         return message.userId();
     case MessagesModel::SystemMessageType:
-        return message.systemMessageType();
+        return QVariant::fromValue<SystemMessageTypeUtil::SystemMessageType>(message.systemMessageType());
     case MessagesModel::MessageId:
         return message.messageId();
     case MessagesModel::Alias:
