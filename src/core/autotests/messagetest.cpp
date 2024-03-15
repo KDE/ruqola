@@ -317,7 +317,7 @@ void MessageTest::shouldParseMessage()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     QJsonObject obj = doc.object();
     Message originalMessage;
-    originalMessage.parseMessage(obj);
+    originalMessage.parseMessage(obj, false);
     const bool messageIsEqual = (originalMessage == expectedMessage);
     if (!messageIsEqual) {
         qDebug() << "originalMessage " << originalMessage;
@@ -583,7 +583,7 @@ void MessageTest::shouldParseJsonMessage()
     const QJsonObject fields = doc.object();
 
     Message r;
-    r.parseMessage(fields);
+    r.parseMessage(fields, false);
     // qDebug() << " fields"<<fields;
 
     const QByteArray ba = Message::serialize(r, false);
@@ -629,7 +629,7 @@ void MessageTest::shouldUpdateJsonMessage()
     const QJsonObject fields = doc.object();
 
     Message r;
-    r.parseMessage(fields);
+    r.parseMessage(fields, false);
 
     for (const QString &updateFile : fileNameupdate) {
         const QString originalUpdateJsonFile =
@@ -641,7 +641,7 @@ void MessageTest::shouldUpdateJsonMessage()
         const QJsonDocument doc = QJsonDocument::fromJson(content);
         const QJsonObject fields = doc.object();
 
-        r.parseMessage(fields);
+        r.parseMessage(fields, false);
     }
 
     // qDebug() << " fields"<<fields;
