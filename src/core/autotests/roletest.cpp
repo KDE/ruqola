@@ -43,9 +43,9 @@ void RoleTest::shouldBeValid()
     QVERIFY(!r.isValid());
     r.setIsModerator(false);
     QVERIFY(!r.isValid());
-    r.setUserId(QStringLiteral("foo"));
+    r.setUserId(QByteArrayLiteral("foo"));
     QVERIFY(r.isValid());
-    r.setUserId(QString());
+    r.setUserId(QByteArray());
     QVERIFY(!r.isValid());
 }
 
@@ -55,14 +55,14 @@ void RoleTest::shouldLoadRoles_data()
     QTest::addColumn<Role>("role");
 
     Role r;
-    r.setUserId(QStringLiteral("id1"));
+    r.setUserId(QByteArrayLiteral("id1"));
     r.setIsOwner(true);
     r.setIsModerator(true);
     r.setIsLeader(true);
     r.setUserName(QStringLiteral("bla"));
     QTest::addRow("role1") << QStringLiteral("role1") << r;
     Role r2;
-    r2.setUserId(QStringLiteral("id2"));
+    r2.setUserId(QByteArrayLiteral("id2"));
     r2.setIsOwner(true);
     r2.setIsLeader(true);
     r2.setUserName(QStringLiteral("bla"));
@@ -84,7 +84,7 @@ void RoleTest::shouldLoadRoles()
 void RoleTest::shouldVerifyHasRoles()
 {
     Role r;
-    r.setUserId(QStringLiteral("foo"));
+    r.setUserId(QByteArrayLiteral("foo"));
     QVERIFY(!r.hasARole());
     r.setIsOwner(true);
     QVERIFY(r.hasARole());

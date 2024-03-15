@@ -12,12 +12,12 @@
 
 Role::Role() = default;
 
-QString Role::userId() const
+QByteArray Role::userId() const
 {
     return mUserId;
 }
 
-void Role::setUserId(const QString &userId)
+void Role::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }
@@ -94,7 +94,7 @@ void Role::setUserName(const QString &newUserName)
 void Role::parseRole(const QJsonObject &obj)
 {
     const QJsonObject uObj = obj.value(QLatin1StringView("u")).toObject();
-    mUserId = uObj.value(QLatin1StringView("_id")).toString();
+    mUserId = uObj.value(QLatin1StringView("_id")).toString().toLatin1();
     mUserName = uObj.value(QLatin1StringView("username")).toString();
     const QJsonArray roleArray = obj[QLatin1StringView("roles")].toArray();
     for (int i = 0; i < roleArray.count(); ++i) {

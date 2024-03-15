@@ -91,9 +91,9 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
     RocketChatAccountSettings SampleChat1;
 
     QSignalSpy SpyID(&SampleChat1, &RocketChatAccountSettings::userIdChanged);
-    const QString userId = QStringLiteral("RA15");
+    const QByteArray userId = QByteArray("RA15");
     QVERIFY(userId != SampleChat1.userId());
-    SampleChat1.setUserId(QStringLiteral("RA15"));
+    SampleChat1.setUserId(QByteArray("RA15"));
     QCOMPARE(SpyID.count(), 1);
 }
 
@@ -107,7 +107,7 @@ void RocketChatAccountSettingsTest::shouldLogout()
     RocketChatAccountSettings SampleChat;
 
     SampleChat.setAuthToken(QStringLiteral("Token305"));
-    SampleChat.setUserId(QStringLiteral("ECE305"));
+    SampleChat.setUserId(QByteArray("ECE305"));
     SampleChat.setPassword(QStringLiteral("masterPassword"));
     // Make sure that values are not null
     QVERIFY(!SampleChat.authToken().isEmpty());
@@ -166,7 +166,7 @@ void RocketChatAccountSettingsTest::shouldSetUserID()
 {
     RocketChatAccountSettings sampleChat;
 
-    const QString val = QStringLiteral("ECE305");
+    const QByteArray val("ECE305");
     sampleChat.setUserId(val);
 
     QCOMPARE(val, sampleChat.userId());

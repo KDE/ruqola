@@ -30,7 +30,7 @@ void Roles::updateRoles(const QJsonObject &obj)
 {
     const QString type = obj[QLatin1StringView("type")].toString();
     const QString id = obj[QLatin1StringView("_id")].toString();
-    const QString userId = obj[QLatin1StringView("u")].toObject().value(QLatin1StringView("_id")).toString();
+    const QByteArray userId = obj[QLatin1StringView("u")].toObject().value(QLatin1StringView("_id")).toString().toLatin1();
     bool foundUser = false;
     // qDebug() << " type " << type << " id " << id << " userId" << userId;
     if (type == QLatin1StringView("added")) {
@@ -100,7 +100,7 @@ void Roles::parseRole(const QJsonObject &obj)
     }
 }
 
-Role Roles::findRoleByUserId(const QString &userId) const
+Role Roles::findRoleByUserId(const QByteArray &userId) const
 {
     for (const Role &r : std::as_const(mRoles)) {
         if (r.userId() == userId) {

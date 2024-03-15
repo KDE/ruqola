@@ -14,8 +14,8 @@ class LIBRUQOLACORE_EXPORT Role
 public:
     Role();
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &userId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &userId);
 
     [[nodiscard]] bool isModerator() const;
     void setIsModerator(bool isModerator);
@@ -38,7 +38,7 @@ public:
     void setUserName(const QString &newUserName);
 
 private:
-    QString mUserId;
+    QByteArray mUserId;
     QString mUserName;
     bool mIsModerator = false;
     bool mIsLeader = false;

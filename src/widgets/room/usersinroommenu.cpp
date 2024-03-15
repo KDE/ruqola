@@ -55,12 +55,12 @@ void UsersInRoomMenu::slotIgnoreUser()
             return;
         }
     }
-    Ruqola::self()->rocketChatAccount()->ignoreUser(mRoom->roomId(), mUserId, !userIsIgnored);
+    Ruqola::self()->rocketChatAccount()->ignoreUser(mRoom->roomId(), QString::fromLatin1(mUserId), !userIsIgnored);
 }
 
 void UsersInRoomMenu::slotRemoveFromRoom()
 {
-    Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
+    Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), QString::fromLatin1(mUserId), mRoom->channelType());
 }
 
 void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
@@ -68,7 +68,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     const bool canManageUsersInRoom = mRoom->canChangeRoles();
     const bool isAdministrator = Ruqola::self()->rocketChatAccount()->ownUser().isAdministrator();
     auto account = Ruqola::self()->rocketChatAccount();
-    const QString ownUserId = account->userId();
+    const QByteArray ownUserId = account->userId();
     const bool isAdirectChannel = mRoom->channelType() == Room::RoomType::Direct;
     const bool isNotMe = mUserId != ownUserId;
     QMenu menu(mParentWidget);
@@ -95,7 +95,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             auto removeAsOwner = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
             connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole, account]() {
                 account->changeRoles(mRoom->roomId(),
-                                     mUserId,
+                                     QString::fromLatin1(mUserId),
                                      mRoom->channelType(),
                                      hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
             });
@@ -108,7 +108,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             auto removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
             connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole, account]() {
                 account->changeRoles(mRoom->roomId(),
-                                     mUserId,
+                                     QString::fromLatin1(mUserId),
                                      mRoom->channelType(),
                                      hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
             });
@@ -120,7 +120,7 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             auto removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
             connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole, account]() {
                 account->changeRoles(mRoom->roomId(),
-                                     mUserId,
+                                     QString::fromLatin1(mUserId),
                                      mRoom->channelType(),
                                      hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
             });
@@ -170,7 +170,7 @@ void UsersInRoomMenu::setParentWidget(QWidget *parentWidget)
     mParentWidget = parentWidget;
 }
 
-void UsersInRoomMenu::setUserId(const QString &userId)
+void UsersInRoomMenu::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }

@@ -103,8 +103,8 @@ public:
     [[nodiscard]] QString username() const;
     void setUsername(const QString &username);
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &userId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &userId);
 
     [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
@@ -295,7 +295,7 @@ private:
     // u
     QString mUsername;
     QString mName;
-    QString mUserId;
+    QByteArray mUserId;
 
     // editedBy
     QString mEditedByUsername;

@@ -60,7 +60,9 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
     auto job = new VideoConferenceNotificationJob(this);
     connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, [this, videoConference]() {
         // Send info about accept video conf.
-        mRocketChatAccount->ddp()->videoConferenceAccepted(videoConference.roomId(), videoConference.callId(), mRocketChatAccount->userId());
+        mRocketChatAccount->ddp()->videoConferenceAccepted(videoConference.roomId(),
+                                                           videoConference.callId(),
+                                                           QString::fromLatin1(mRocketChatAccount->userId()));
 
         auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
         RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
@@ -81,7 +83,9 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
     });
     connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, [this, videoConference]() {
         // Send info about reject video conf.
-        mRocketChatAccount->ddp()->videoConferenceRejected(videoConference.roomId(), videoConference.callId(), mRocketChatAccount->userId());
+        mRocketChatAccount->ddp()->videoConferenceRejected(videoConference.roomId(),
+                                                           videoConference.callId(),
+                                                           QString::fromLatin1(mRocketChatAccount->userId()));
         mVideoConferenceList.removeAll(videoConference);
     });
     job->setRocketChatAccount(mRocketChatAccount);

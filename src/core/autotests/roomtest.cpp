@@ -295,7 +295,7 @@ void RoomTest::shouldEmitSignals()
     input.setParentRid(QStringLiteral("bla"));
     input.setAutoTranslateLanguage(QStringLiteral("bli"));
     input.setAutoTranslate(true);
-    input.setDirectChannelUserId(QStringLiteral("naninani"));
+    input.setDirectChannelUserId(QByteArrayLiteral("naninani"));
     input.setLastMessageAt(QDateTime::currentMSecsSinceEpoch());
 
     QCOMPARE(spyNameChanged.count(), 1);
@@ -412,7 +412,7 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonObject fields = doc.object();
 
     RocketChatAccount account;
-    account.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+    account.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
     Room r(&account);
     r.parseSubscriptionRoom(fields);
 

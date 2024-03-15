@@ -39,7 +39,7 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     model.setFiles(mFiles);
@@ -51,7 +51,7 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     model.setFiles(mFiles);

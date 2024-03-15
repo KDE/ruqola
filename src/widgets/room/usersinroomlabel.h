@@ -19,13 +19,13 @@ public:
     explicit UserLabel(QWidget *parent = nullptr);
     ~UserLabel() override;
     void setRoom(Room *room);
-    void setUserId(const QString &userId);
+    void setUserId(const QByteArray &userId);
     void setUserName(const QString &userName);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenConversation();
-    QString mUserId;
+    QByteArray mUserId;
     QString mUserName;
     QPointer<Room> mRoom;
     UsersInRoomMenu *mMenu = nullptr;

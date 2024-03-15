@@ -85,7 +85,7 @@ QString UsersModel::userStatusIconFileName(const QString &name) const
     return QStringLiteral("user-offline");
 }
 
-User::PresenceStatus UsersModel::status(const QString &userId) const
+User::PresenceStatus UsersModel::status(const QByteArray &userId) const
 {
     const int userCount = mUsers.count();
 
@@ -112,7 +112,7 @@ User UsersModel::fullUserInfo(const QString &userName) const
     return {};
 }
 
-void UsersModel::removeUser(const QString &userId)
+void UsersModel::removeUser(const QByteArray &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
     const int userCount = mUsers.count();
@@ -158,7 +158,7 @@ void UsersModel::addUser(const User &newuser)
 
 void UsersModel::updateUser(const QJsonObject &array)
 {
-    const QString id = array.value(QLatin1StringView("id")).toString();
+    const QByteArray id = array.value(QLatin1StringView("id")).toString().toLatin1();
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == id) {

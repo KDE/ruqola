@@ -443,7 +443,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
     return false;
 }
 
-QStringList MessagesModel::roomRoles(const QString &userId) const
+QStringList MessagesModel::roomRoles(const QByteArray &userId) const
 {
     if (mRoom) {
         return mRoom->rolesForUserId(userId);
@@ -614,9 +614,10 @@ bool MessagesModel::threadMessageFollowed(const QString &threadMessageId) const
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
         if (it != mAllMessages.cend()) {
-            const QString userId = mRocketChatAccount ? mRocketChatAccount->userId() : QString();
+            const QByteArray userId = mRocketChatAccount ? mRocketChatAccount->userId() : QByteArray();
             if (!userId.isEmpty()) {
-                return (*it).replies().contains(userId);
+                // TODO convert replies to QList<QByteArray>
+                return (*it).replies().contains(QString::fromLatin1(userId));
             }
         } else {
             qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one

@@ -24,7 +24,7 @@ void MessagesModelTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QVERIFY(rcAccount);
-    rcAccount->settings()->setUserId(QStringLiteral("userid1"));
+    rcAccount->settings()->setUserId(QByteArrayLiteral("userid1"));
 }
 
 void MessagesModelTest::shouldHaveDefaultValue()
@@ -40,7 +40,7 @@ static void fillTestMessage(Message &input)
     input.setText(QStringLiteral("message1"));
     input.setTimeStamp(QDateTime::currentMSecsSinceEpoch());
     input.setUsername(QStringLiteral("user1"));
-    input.setUserId(QStringLiteral("userid1"));
+    input.setUserId(QByteArrayLiteral("userid1"));
     input.setUpdatedAt(45);
     input.setEditedAt(89);
     input.setEditedByUsername(QStringLiteral("editeduser1"));
@@ -279,7 +279,7 @@ void MessagesModelTest::shouldAllowEditing()
 
     // GIVEN a message from someone else
     input.setMessageId(QStringLiteral("msg2"));
-    input.setUserId(QStringLiteral("someone_else"));
+    input.setUserId(QByteArrayLiteral("someone_else"));
     model.addMessages({input});
 
     // THEN
@@ -293,7 +293,7 @@ void MessagesModelTest::shouldFindPrevNextMessage()
     MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
 
     auto isByMe = [](const Message &msg) {
-        return msg.userId() == QLatin1StringView("userid1");
+        return msg.userId() == QByteArrayLiteral("userid1");
     };
 
     // THEN there is no prev/next message
@@ -308,7 +308,7 @@ void MessagesModelTest::shouldFindPrevNextMessage()
     QList<Message> messages;
     auto makeMessage = [&](const char *id, const char *userId) {
         input.setMessageId(QString::fromLatin1(id));
-        input.setUserId(QString::fromLatin1(userId));
+        input.setUserId(QByteArrayLiteral(userId));
         static int timestamp = 1;
         input.setTimeStamp(timestamp);
         return input;

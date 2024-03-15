@@ -109,7 +109,7 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
     }
     const QModelIndex index = mListView->indexAt(pos);
     if (index.isValid()) {
-        const QString userId = index.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
+        const QByteArray userId = index.data(UsersForRoomModel::UsersForRoomRoles::UserId).toByteArray();
         const QString userName = index.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
         mMenu->setUserId(userId);
         mMenu->setUserName(userName);

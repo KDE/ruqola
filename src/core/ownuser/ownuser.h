@@ -18,8 +18,8 @@ public:
     ~OwnUser();
     void parseOwnUserInfo(const QJsonObject &replyObject);
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &userId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &userId);
 
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
@@ -64,7 +64,7 @@ public:
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
 private:
-    QString mUserId;
+    QByteArray mUserId;
     QString mUserName;
     QString mStatus;
     QString mEmail;

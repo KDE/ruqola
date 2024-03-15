@@ -56,7 +56,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     const auto userObject = o.value(QLatin1StringView("u")).toObject();
     mUsername = userObject.value(QLatin1StringView("username")).toString();
     mName = userObject.value(QLatin1StringView("name")).toString();
-    mUserId = userObject.value(QLatin1StringView("_id")).toString();
+    mUserId = userObject.value(QLatin1StringView("_id")).toString().toLatin1();
     mEditedByUsername = o.value(QLatin1StringView("editedBy")).toObject().value(QLatin1StringView("username")).toString();
     mAlias = o.value(QLatin1StringView("alias")).toString();
     mAvatar = o.value(QLatin1StringView("avatar")).toString();
@@ -706,12 +706,12 @@ void Message::setUpdatedAt(qint64 updatedAt)
     mUpdatedAt = updatedAt;
 }
 
-QString Message::userId() const
+QByteArray Message::userId() const
 {
     return mUserId;
 }
 
-void Message::setUserId(const QString &userId)
+void Message::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }
@@ -834,7 +834,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.setTimeStamp(static_cast<qint64>(o[QLatin1StringView("timestamp")].toDouble()));
     message.mUsername = o[QLatin1StringView("username")].toString();
     message.mName = o[QLatin1StringView("name")].toString();
-    message.mUserId = o[QLatin1StringView("userID")].toString();
+    message.mUserId = o[QLatin1StringView("userID")].toString().toLatin1();
     message.mUpdatedAt = static_cast<qint64>(o[QLatin1StringView("updatedAt")].toDouble());
     message.setEditedAt(static_cast<qint64>(o[QLatin1StringView("editedAt")].toDouble()));
     message.mEditedByUsername = o[QLatin1StringView("editedByUsername")].toString();
@@ -920,7 +920,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mName.isEmpty()) {
         o[QLatin1StringView("name")] = message.mName;
     }
-    o[QLatin1StringView("userID")] = message.mUserId;
+    o[QLatin1StringView("userID")] = QString::fromLatin1(message.mUserId);
     o[QLatin1StringView("updatedAt")] = message.mUpdatedAt;
     o[QLatin1StringView("editedAt")] = message.mEditedAt;
     if (message.mThreadLastMessage > -1) {

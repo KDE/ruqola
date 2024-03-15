@@ -19,7 +19,7 @@ public:
     void setRoles(const QList<Role> &roles);
 
     void parseRole(const QJsonObject &obj);
-    [[nodiscard]] Role findRoleByUserId(const QString &userId) const;
+    [[nodiscard]] Role findRoleByUserId(const QByteArray &userId) const;
     [[nodiscard]] bool isEmpty() const;
     void updateRoles(const QJsonObject &obj);
     [[nodiscard]] int count() const;

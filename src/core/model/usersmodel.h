@@ -29,12 +29,12 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void addUser(const User &userFromUserId);
-    void removeUser(const QString &userId);
+    void removeUser(const QByteArray &userId);
 
     void updateUser(const QJsonObject &array);
     [[nodiscard]] QString userStatusIconFileName(const QString &name) const;
 
-    [[nodiscard]] User::PresenceStatus status(const QString &userId) const;
+    [[nodiscard]] User::PresenceStatus status(const QByteArray &userId) const;
     [[nodiscard]] User fullUserInfo(const QString &userName) const;
     [[nodiscard]] bool userIsOffline(const QString &name) const;
 

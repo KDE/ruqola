@@ -60,7 +60,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         User user;
         user.setUserName(QStringLiteral("laurent"));
         user.setName(QStringLiteral("Laurent Montel"));
-        user.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        user.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         user.setUtcOffset(0);
         user.setActive(true);
         user.setStatus(User::PresenceStatus::Unknown);

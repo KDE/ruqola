@@ -364,7 +364,7 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
     const QString collection = object.value(QLatin1StringView("collection")).toString();
     if (collection == QLatin1StringView("users")) {
-        const QString id = object.value(QLatin1StringView("id")).toString();
+        const QByteArray id = object.value(QLatin1StringView("id")).toString().toLatin1();
         mRocketChatAccount->usersModel()->removeUser(id);
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
@@ -391,7 +391,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         const QJsonObject fields = object.value(QLatin1StringView("fields")).toObject();
         const QString username = fields.value(QLatin1StringView("username")).toString();
         if (username == mRocketChatAccount->settings()->userName()) {
-            mRocketChatAccount->settings()->setUserId(object[QLatin1StringView("id")].toString());
+            mRocketChatAccount->settings()->setUserId(object[QLatin1StringView("id")].toString().toLatin1());
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
         } else {
             // TODO add current user ? me ?
@@ -724,7 +724,7 @@ void RocketChatBackend::subscribeRegistration()
 {
     qCDebug(RUQOLA_LOG) << "subscribe registration";
     // TODO verify if we don"t send two subscription.
-    const QString userId{mRocketChatAccount->settings()->userId()};
+    const QString userId{QString::fromLatin1(mRocketChatAccount->settings()->userId())};
     {
         // Subscribe notification.
         QJsonArray params;

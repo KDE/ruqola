@@ -28,12 +28,12 @@ void User::setName(const QString &name)
     mName = name;
 }
 
-QString User::userId() const
+QByteArray User::userId() const
 {
     return mUserId;
 }
 
-void User::setUserId(const QString &userId)
+void User::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }
@@ -125,7 +125,7 @@ QDebug operator<<(QDebug d, const User &t)
 // FIXME Add autotest for it!
 void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &roleInfo)
 {
-    setUserId(object.value(QLatin1StringView("_id")).toString());
+    setUserId(object.value(QLatin1StringView("_id")).toString().toLatin1());
     setName(object.value(QLatin1StringView("name")).toString());
     setStatus(Utils::presenceStatusFromString(object.value(QLatin1StringView("status")).toString()));
     setUserName(object.value(QLatin1StringView("username")).toString());
@@ -171,7 +171,7 @@ void User::parseUser(const QVariantList &list)
     if (list.count() != 4) {
         qCDebug(RUQOLA_SPECIALWARNING_LOG) << " List argument different of 4! It's a bug: " << list;
     }
-    setUserId(list.at(0).toString());
+    setUserId(list.at(0).toString().toLatin1());
     setUserName(list.at(1).toString());
     const int valueStatus = list.at(2).toInt();
     if (valueStatus == 0) {
@@ -233,7 +233,7 @@ void User::setBio(const QString &newBio)
 QJsonObject User::serialize(const User &user)
 {
     QJsonObject o;
-    o[QLatin1StringView("identifier")] = user.userId();
+    o[QLatin1StringView("identifier")] = QString::fromLatin1(user.userId());
     o[QLatin1StringView("name")] = user.name();
     o[QLatin1StringView("username")] = user.userName();
     o[QLatin1StringView("statusText")] = user.statusText();
@@ -249,7 +249,7 @@ QJsonObject User::serialize(const User &user)
 User User::deserialize(const QJsonObject &o)
 {
     User user;
-    user.setUserId(o.value(QLatin1StringView("identifier")).toString());
+    user.setUserId(o.value(QLatin1StringView("identifier")).toString().toLatin1());
     user.setName(o.value(QLatin1StringView("name")).toString());
     user.setStatus(Utils::presenceStatusFromString(o.value(QLatin1StringView("status")).toString()));
     user.setUserName(o.value(QLatin1StringView("username")).toString());
@@ -332,7 +332,7 @@ void User::setActive(bool newActive)
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1StringView("fields")).toObject();
-    setUserId(object.value(QLatin1StringView("id")).toString());
+    setUserId(object.value(QLatin1StringView("id")).toString().toLatin1());
     setName(fields.value(QLatin1StringView("name")).toString());
     setNickName(fields.value(QLatin1StringView("nickname")).toString());
     setStatus(Utils::presenceStatusFromString(fields.value(QLatin1StringView("status")).toString()));

@@ -39,7 +39,7 @@ void AdminUsersModel::removeElement(const QString &identifier)
 {
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == identifier) {
+        if (mUsers.at(i).userId() == identifier.toLatin1()) {
             beginRemoveRows(QModelIndex(), i, i);
             mUsers.takeAt(i);
             mUsers.setTotal(mUsers.count()); // Update total
@@ -56,7 +56,7 @@ void AdminUsersModel::updateElement(const QJsonObject &userObj)
     const QJsonObject obj = userObj[QLatin1StringView("user")].toObject();
     const QString identifier{obj.value(QStringLiteral("_id")).toString()};
     for (int i = 0; i < roomCount; ++i) {
-        if (mUsers.at(i).userId() == identifier) {
+        if (mUsers.at(i).userId() == identifier.toLatin1()) {
             beginRemoveRows(QModelIndex(), i, i);
             mUsers.takeAt(i);
             endRemoveRows();

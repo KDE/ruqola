@@ -267,7 +267,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     mMessageListDelegate->attachmentContextMenu(options, index, info, &menu);
-    const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toString() != mCurrentRocketChatAccount->userId());
+    const bool isNotOwnerOfMessage = (index.data(MessagesModel::UserId).toByteArray() != mCurrentRocketChatAccount->userId());
 
     auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
@@ -337,7 +337,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
-    const bool messageIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(mCurrentRocketChatAccount->userId())
+    const bool messageIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(QString::fromLatin1(mCurrentRocketChatAccount->userId()))
                                                               : index.data(MessagesModel::ThreadMessageFollowed).toBool();
 
     const auto followingToMessageAction =
@@ -772,7 +772,7 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     const QString threadMessageId = message->threadMessageId();
     QString threadMessagePreview = index.data(MessagesModel::ThreadMessagePreview).toString();
-    const bool threadIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(mCurrentRocketChatAccount->userId())
+    const bool threadIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(QString::fromLatin1(mCurrentRocketChatAccount->userId()))
                                                              : index.data(MessagesModel::ThreadMessageFollowed).toBool();
     QString messageId = threadMessageId;
     if (threadMessageId.isEmpty()) {

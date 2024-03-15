@@ -124,7 +124,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
                                                   "<b>Token:</b> %1<br>"
                                                   "<b>Your user Id:</b> %2</qt>",
                                                   token,
-                                                  mRocketChatAccount->userId()),
+                                                  QString::fromLatin1(mRocketChatAccount->userId())),
                                              i18n("Personal Token Created"));
                     initialize();
                 });
@@ -198,7 +198,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
                                               "<b>Token:</b> %1<br>"
                                               "<b>Your user Id:</b> %2</qt>",
                                               token,
-                                              mRocketChatAccount->userId()),
+                                              QString::fromLatin1(mRocketChatAccount->userId())),
                                          i18n("Personal Token Regenerated"));
                 initialize();
             });

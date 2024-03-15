@@ -31,24 +31,24 @@ void RolesTest::shouldFindRoles()
     Role r1;
     r1.setIsOwner(true);
     r1.setIsLeader(true);
-    r1.setUserId(QStringLiteral("r1"));
+    r1.setUserId(QByteArrayLiteral("r1"));
     v.append(std::move(r1));
 
     Role r2;
     r2.setIsOwner(true);
     r2.setIsLeader(false);
-    r2.setUserId(QStringLiteral("r2"));
+    r2.setUserId(QByteArrayLiteral("r2"));
     v.append(std::move(r2));
 
     r.setRoles(v);
 
-    Role result = r.findRoleByUserId(QStringLiteral("r1"));
+    Role result = r.findRoleByUserId(QByteArrayLiteral("r1"));
     QVERIFY(result.isValid());
     QVERIFY(result.isOwner());
     QVERIFY(result.isLeader());
     QVERIFY(!result.isModerator());
 
-    result = r.findRoleByUserId(QStringLiteral("r7"));
+    result = r.findRoleByUserId(QByteArrayLiteral("r7"));
     QVERIFY(!result.isValid());
 }
 

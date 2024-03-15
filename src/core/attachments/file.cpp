@@ -14,7 +14,7 @@ File::File() = default;
 void File::parseFile(const QJsonObject &object, bool restApi)
 {
     const QJsonObject fields = restApi ? object : object.value(QLatin1StringView("fields")).toObject();
-    setUserId(fields.value(QLatin1StringView("userId")).toString());
+    setUserId(fields.value(QLatin1StringView("userId")).toString().toLatin1());
 
     setDescription(fields.value(QLatin1StringView("description")).toString());
     setFileName(fields.value(QLatin1StringView("name")).toString());
@@ -62,12 +62,12 @@ bool File::operator==(const File &other) const
         && (userName() == other.userName()) && (complete() == other.complete()) && (typeGroup() == other.typeGroup());
 }
 
-QString File::userId() const
+QByteArray File::userId() const
 {
     return mUserId;
 }
 
-void File::setUserId(const QString &userId)
+void File::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }

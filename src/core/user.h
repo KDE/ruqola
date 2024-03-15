@@ -45,8 +45,8 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &userId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &userId);
 
     [[nodiscard]] User::PresenceStatus status() const;
     void setStatus(User::PresenceStatus status);
@@ -112,7 +112,7 @@ private:
     QDateTime mLastLogin;
 
     PresenceStatus mStatus = PresenceStatus::PresenceOffline;
-    QString mUserId;
+    QByteArray mUserId;
     QString mName;
     QString mUserName;
     QString mStatusText;

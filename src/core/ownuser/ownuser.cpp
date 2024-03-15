@@ -15,7 +15,7 @@ OwnUser::~OwnUser() = default;
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject "<<replyObject;
-    mUserId = replyObject.value(QLatin1StringView("_id")).toString();
+    mUserId = replyObject.value(QLatin1StringView("_id")).toString().toLatin1();
     mUserName = replyObject.value(QLatin1StringView("username")).toString();
     mStatus = replyObject.value(QLatin1StringView("status")).toString();
     mEmail = replyObject.value(QLatin1StringView("email")).toString();
@@ -61,12 +61,12 @@ void OwnUser::setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences
     mOwnUserPreferences = ownUserPreferences;
 }
 
-QString OwnUser::userId() const
+QByteArray OwnUser::userId() const
 {
     return mUserId;
 }
 
-void OwnUser::setUserId(const QString &userId)
+void OwnUser::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }

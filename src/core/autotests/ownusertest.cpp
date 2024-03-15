@@ -41,7 +41,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<OwnUser>("ownuser");
     OwnUser result;
-    result.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+    result.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
     result.setStatus(QStringLiteral("online"));
     result.setUserName(QStringLiteral("foo-bla"));
     result.setEmail(QStringLiteral("bla@kde.org"));

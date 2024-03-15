@@ -619,7 +619,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
         mRoomHeaderWidget->setIsDirectGroup((mRoom->channelType() == Room::RoomType::Direct) && mRoom->userNames().count() > 2);
-        if (mRoom->roomId() == QLatin1StringView("%1%1").arg(mCurrentRocketChatAccount->userId())) {
+        if (mRoom->roomId() == QLatin1StringView("%1%1").arg(QString::fromLatin1(mCurrentRocketChatAccount->userId()))) {
             mRoomHeaderWidget->setCallEnabled(false);
         } else {
             mRoomHeaderWidget->setCallEnabled(true);
@@ -913,7 +913,7 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
 
 void RoomWidget::slotCloseOtr()
 {
-    mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(roomId(), mCurrentRocketChatAccount->userId());
+    mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(roomId(), QString::fromLatin1(mCurrentRocketChatAccount->userId()));
 }
 
 void RoomWidget::slotRefreshOtrKeys()

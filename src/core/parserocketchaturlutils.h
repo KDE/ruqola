@@ -39,7 +39,7 @@ public:
     Q_ENUM(RoomIdType)
 
     struct ParsingInfo {
-        QString userId;
+        QByteArray userId;
         QString token;
         QString messageId;
         QString roomId;

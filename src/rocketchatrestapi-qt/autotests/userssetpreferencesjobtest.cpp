@@ -43,11 +43,11 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         job.setUsersSetPreferencesInfo(info);
         QVERIFY(!job.canStart());
 
-        const QString userId = QStringLiteral("foo");
+        const QByteArray userId = QByteArrayLiteral("foo");
         info.userId = userId;
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(userId, desktopNotifications).toLatin1());
+                 QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(QString::fromLatin1(userId), desktopNotifications).toLatin1());
     }
 }
 
@@ -73,7 +73,7 @@ void UsersSetPreferencesJobTest::shouldNotStarting()
     job.setUsersSetPreferencesInfo(info);
     QVERIFY(!job.canStart());
 
-    info.userId = QStringLiteral("foo");
+    info.userId = QByteArrayLiteral("foo");
     job.setUsersSetPreferencesInfo(info);
     QVERIFY(job.canStart());
 }

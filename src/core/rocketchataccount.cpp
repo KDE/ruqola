@@ -834,7 +834,7 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
     }
     mPresenceStatus = status;
     // qDebug() << "RocketChatAccount::setDefaultStatus  " << messageStatus;
-    restApi()->setUserStatus(userId(), type, messageStatus);
+    restApi()->setUserStatus(QString::fromLatin1(userId()), type, messageStatus);
 }
 
 QList<TextEmoticonsCore::CustomEmoji> RocketChatAccount::customEmojies() const
@@ -1600,7 +1600,7 @@ void RocketChatAccount::setDisplayName(const QString &displayName)
     settings()->setDisplayName(displayName);
 }
 
-QString RocketChatAccount::userId() const
+QByteArray RocketChatAccount::userId() const
 {
     return settings()->userId();
 }
@@ -1645,7 +1645,7 @@ bool RocketChatAccount::accountEnabled() const
     return settings()->accountEnabled();
 }
 
-void RocketChatAccount::setUserId(const QString &userID)
+void RocketChatAccount::setUserId(const QByteArray &userID)
 {
     settings()->setUserId(userID);
 }
@@ -2215,7 +2215,7 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     } else {
         // qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
 
-        const QString userIdFromDirectChannel = Utils::userIdFromDirectChannel(rid, userId());
+        const QString userIdFromDirectChannel = Utils::userIdFromDirectChannel(rid, QString::fromLatin1(userId()));
         if (block) {
             ddp()->blockUser(rid, userIdFromDirectChannel);
         } else {
@@ -2844,7 +2844,7 @@ void RocketChatAccount::resetAvatar()
 {
     RocketChatRestApi::UserBaseJob::UserInfo info;
     info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    info.userIdentifier = userId();
+    info.userIdentifier = QString::fromLatin1(userId());
     restApi()->resetAvatar(info);
     // TODO update avatar when we reset it.
 }
@@ -2853,7 +2853,7 @@ void RocketChatAccount::setAvatarUrl(const QString &url)
 {
     RocketChatRestApi::UserBaseJob::UserInfo userInfo;
     userInfo.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    userInfo.userIdentifier = userId();
+    userInfo.userIdentifier = QString::fromLatin1(userId());
     RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mAvatarUrl = url;
     restApi()->setAvatar(userInfo, avatarInfo);
@@ -2863,7 +2863,7 @@ void RocketChatAccount::setImageUrl(const QUrl &url)
 {
     RocketChatRestApi::UserBaseJob::UserInfo userInfo;
     userInfo.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    userInfo.userIdentifier = userId();
+    userInfo.userIdentifier = QString::fromLatin1(userId());
     RocketChatRestApi::SetAvatarJob::SetAvatarInfo avatarInfo;
     avatarInfo.mImageUrl = url;
     restApi()->setAvatar(userInfo, avatarInfo);
@@ -2935,7 +2935,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 {
     // qDebug() << " void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)" << replyObject;
     const QJsonObject user = replyObject.value(QLatin1StringView("user")).toObject();
-    if (user.value(QLatin1StringView("_id")).toString() == userId()) {
+    if (user.value(QLatin1StringView("_id")).toString().toLatin1() == userId()) {
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1StringView("settings")).toObject().value(QLatin1StringView("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
@@ -2987,7 +2987,7 @@ CustomSoundsManager *RocketChatAccount::customSoundManager() const
 
 void RocketChatAccount::slotAwayStatusChanged(bool away)
 {
-    restApi()->setUserStatus(userId(), away ? RocketChatRestApi::SetStatusJob::Away : RocketChatRestApi::SetStatusJob::OnLine, {});
+    restApi()->setUserStatus(QString::fromLatin1(userId()), away ? RocketChatRestApi::SetStatusJob::Away : RocketChatRestApi::SetStatusJob::OnLine, {});
     qCDebug(RUQOLA_LOG) << "RocketChatAccount::slotAwayStatusChanged  " << away;
 }
 

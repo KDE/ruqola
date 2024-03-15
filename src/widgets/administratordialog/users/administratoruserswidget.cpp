@@ -150,7 +150,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
             }
         }
         RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
-        info.mUserId = user.userId();
+        info.mUserId = QString::fromLatin1(user.userId());
         auto job = new RocketChatRestApi::UsersUpdateJob(this);
         job->setUpdateInfo(info);
         if (twoFactorAuthenticationEnforcePasswordFallback) {

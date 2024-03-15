@@ -26,7 +26,7 @@ public:
         [[nodiscard]] bool isValid() const;
         [[nodiscard]] static bool convertToBool(State state);
         [[nodiscard]] static State convertToState(bool checked);
-        QString userId;
+        QByteArray userId;
         QString newRoomNotification;
         QString newMessageNotification;
         QString desktopNotifications;

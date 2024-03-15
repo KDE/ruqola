@@ -28,8 +28,8 @@ public:
 
     File &operator=(const File &other) = default;
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &userId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &userId);
 
     [[nodiscard]] QString url() const;
     void setUrl(const QString &url);
@@ -60,7 +60,7 @@ public:
 private:
     QString mFileName;
     QString mDescription;
-    QString mUserId;
+    QByteArray mUserId;
     QString mUrl;
     QString mMimeType;
     QString mFileId;

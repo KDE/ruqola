@@ -51,7 +51,7 @@ public:
     [[nodiscard]] bool loadMoreUsersInProgress() const;
 Q_SIGNALS:
     void hasFullListChanged();
-    void userStatusChanged(const QString &userId);
+    void userStatusChanged(const QByteArray &userId);
     void loadingInProgressChanged();
 
 private:

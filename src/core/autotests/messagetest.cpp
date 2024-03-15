@@ -51,7 +51,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setTimeStamp(1504509615057);
         firstMessageRef.setUsername(QStringLiteral("foo.ff"));
         firstMessageRef.setName(QStringLiteral("newname"));
-        firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
+        firstMessageRef.setUserId(QByteArrayLiteral("qt9uNY9FxyL5QT5no"));
         firstMessageRef.setMessageType(Message::NormalText);
         firstMessageRef.setUpdatedAt(1504509615063);
         firstMessageRef.setEditedAt(-1);
@@ -73,7 +73,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setName(QStringLiteral("name"));
         urlMessageRef.setTimeStamp(1504596899771);
         urlMessageRef.setUsername(QStringLiteral("username"));
-        urlMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
+        urlMessageRef.setUserId(QByteArrayLiteral("bjBueJtHsHQECdkmH"));
         urlMessageRef.setMessageType(Message::NormalText);
         urlMessageRef.setUpdatedAt(1504596901803);
         urlMessageRef.setEditedAt(-1);
@@ -101,7 +101,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setName(QStringLiteral("test1 test2"));
         urlMessageRef.setTimeStamp(1704484544725);
         urlMessageRef.setUsername(QStringLiteral("test1"));
-        urlMessageRef.setUserId(QStringLiteral("uKK39zoekdacidH"));
+        urlMessageRef.setUserId(QByteArrayLiteral("uKK39zoekdacidH"));
         urlMessageRef.setMessageType(Message::NormalText);
         urlMessageRef.setUpdatedAt(1704484544886);
         urlMessageRef.setEditedAt(-1);
@@ -132,7 +132,7 @@ void MessageTest::shouldParseMessage_data()
         imageMessageRef.setGroupable(false);
         imageMessageRef.setTimeStamp(1505399177844);
         imageMessageRef.setUsername(QStringLiteral("username"));
-        imageMessageRef.setUserId(QStringLiteral("FwHz8w8PWWQRqrJjM"));
+        imageMessageRef.setUserId(QByteArrayLiteral("FwHz8w8PWWQRqrJjM"));
         imageMessageRef.setMessageType(Message::NormalText);
         imageMessageRef.setUpdatedAt(1505399177846);
         imageMessageRef.setEditedAt(-1);
@@ -164,7 +164,7 @@ void MessageTest::shouldParseMessage_data()
         videoMessageRef.setGroupable(false);
         videoMessageRef.setTimeStamp(1515580853098);
         videoMessageRef.setUsername(QStringLiteral("laurent"));
-        videoMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        videoMessageRef.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         videoMessageRef.setMessageType(Message::NormalText);
         videoMessageRef.setUpdatedAt(1515580853102);
         videoMessageRef.setEditedAt(-1);
@@ -192,7 +192,7 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setGroupable(false);
         audioMessageRef.setTimeStamp(1515588347098);
         audioMessageRef.setUsername(QStringLiteral("laurent"));
-        audioMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        audioMessageRef.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         audioMessageRef.setMessageType(Message::NormalText);
         audioMessageRef.setUpdatedAt(1515588347102);
         audioMessageRef.setEditedAt(-1);
@@ -220,7 +220,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRef.setGroupable(false);
         messageStarredRef.setTimeStamp(1516711967347);
         messageStarredRef.setUsername(QStringLiteral("laurent"));
-        messageStarredRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        messageStarredRef.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         messageStarredRef.setMessageType(Message::NormalText);
         messageStarredRef.setUpdatedAt(1516721464681);
         messageStarredRef.setEditedAt(1516712012309);
@@ -240,7 +240,7 @@ void MessageTest::shouldParseMessage_data()
         messagePinnedRef.setGroupable(false);
         messagePinnedRef.setTimeStamp(1550240990669);
         messagePinnedRef.setUsername(QStringLiteral("laurent"));
-        messagePinnedRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        messagePinnedRef.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         messagePinnedRef.setMessageType(Message::NormalText);
         messagePinnedRef.setUpdatedAt(1550240994061);
         messagePinnedRef.setRoomId(QStringLiteral("zMHhMfsEPvKjgFuyE"));
@@ -263,7 +263,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRemovedRef.setGroupable(false);
         messageStarredRemovedRef.setTimeStamp(1516711967347);
         messageStarredRemovedRef.setUsername(QStringLiteral("laurent"));
-        messageStarredRemovedRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        messageStarredRemovedRef.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         messageStarredRemovedRef.setMessageType(Message::NormalText);
         messageStarredRemovedRef.setUpdatedAt(1516721464681);
         messageStarredRemovedRef.setEditedAt(1516712012309);
@@ -283,7 +283,7 @@ void MessageTest::shouldParseMessage_data()
         messageAttachmentFileRef.setGroupable(false);
         messageAttachmentFileRef.setTimeStamp(1520540888833);
         messageAttachmentFileRef.setUsername(QStringLiteral("laurent"));
-        messageAttachmentFileRef.setUserId(QStringLiteral("39zoewTkdacidH"));
+        messageAttachmentFileRef.setUserId(QByteArrayLiteral("39zoewTkdacidH"));
         messageAttachmentFileRef.setMessageType(Message::NormalText);
         messageAttachmentFileRef.setUpdatedAt(1520540888836);
         messageAttachmentFileRef.setEditedAt(-1);
@@ -334,7 +334,7 @@ void MessageTest::shouldSerializeData()
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));
-        input.setUserId(QStringLiteral("userid1"));
+        input.setUserId(QByteArrayLiteral("userid1"));
         input.setUpdatedAt(45);
         input.setEditedAt(89);
         input.setEditedByUsername(QStringLiteral("editeduser1"));
@@ -395,7 +395,7 @@ void MessageTest::shouldSerializeData()
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));
-        input.setUserId(QStringLiteral("userid1"));
+        input.setUserId(QByteArrayLiteral("userid1"));
         input.setUpdatedAt(45);
         input.setEditedAt(89);
         input.setEditedByUsername(QStringLiteral("editeduser1"));

@@ -84,7 +84,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
 {
     QJsonObject jsonObj;
     QJsonObject dataObj;
-    jsonObj[QLatin1StringView("userId")] = mUsersSetPreferencesInfo.userId;
+    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mUsersSetPreferencesInfo.userId);
     if (!mUsersSetPreferencesInfo.newRoomNotification.isEmpty()) {
         dataObj[QLatin1StringView("newRoomNotification")] = mUsersSetPreferencesInfo.newRoomNotification;
     }

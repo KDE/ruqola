@@ -27,8 +27,8 @@ public:
 
     [[nodiscard]] bool isValid() const;
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &userId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &userId);
 
     [[nodiscard]] QString authToken() const;
     void setAuthToken(const QString &authToken);
@@ -91,7 +91,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
 
     AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown; // By default
-    QString mUserId;
+    QByteArray mUserId;
     QString mAuthToken;
     QString mServerUrl;
     QString mAccountName;

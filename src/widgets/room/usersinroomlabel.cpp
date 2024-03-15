@@ -35,7 +35,7 @@ void UsersInRoomLabel::setUserInfo(const UsersInRoomLabel::UserInfo &info)
 {
     mUserNameLabel->setText(info.userDisplayName);
     mIconLabel->setPixmap(QIcon::fromTheme(info.iconStatus).pixmap(18, 18));
-    mUserNameLabel->setUserId(info.userId);
+    mUserNameLabel->setUserId(info.userId.toLatin1());
     mUserNameLabel->setUserName(info.userName);
 }
 
@@ -65,7 +65,7 @@ void UserLabel::setUserName(const QString &userName)
     mUserName = userName;
 }
 
-void UserLabel::setUserId(const QString &userId)
+void UserLabel::setUserId(const QByteArray &userId)
 {
     mUserId = userId;
 }

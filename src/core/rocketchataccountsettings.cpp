@@ -43,7 +43,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
 
     mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
     mUserName = mSetting->value(QStringLiteral("username")).toString();
-    mUserId = mSetting->value(QStringLiteral("userID")).toString();
+    mUserId = mSetting->value(QStringLiteral("userID")).toString().toLatin1();
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
@@ -177,12 +177,12 @@ bool RocketChatAccountSettings::tokenExpired() const
     return mExpireToken < QDateTime::currentDateTime().toMSecsSinceEpoch();
 }
 
-QString RocketChatAccountSettings::userId() const
+QByteArray RocketChatAccountSettings::userId() const
 {
     return mUserId;
 }
 
-void RocketChatAccountSettings::setUserId(const QString &userId)
+void RocketChatAccountSettings::setUserId(const QByteArray &userId)
 {
     // Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
     mUserId = userId;

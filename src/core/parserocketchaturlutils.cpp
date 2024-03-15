@@ -53,7 +53,7 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
         } else if (urlPath == QLatin1StringView("/auth")) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));
             mParsingInfo.token = query.queryItemValue(QStringLiteral("token"));
-            mParsingInfo.userId = query.queryItemValue(QStringLiteral("userId"));
+            mParsingInfo.userId = query.queryItemValue(QStringLiteral("userId")).toLatin1();
             return ParseRocketChatUrlUtils::UrlType::Server;
         } else if (urlPath == QLatin1StringView("/invite")) {
             mParsingInfo.serverHost = query.queryItemValue(QStringLiteral("host"));

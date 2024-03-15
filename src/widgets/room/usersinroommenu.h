@@ -21,7 +21,7 @@ public:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void setRoom(Room *room);
     void setUserName(const QString &userName);
-    void setUserId(const QString &userId);
+    void setUserId(const QByteArray &userId);
     void setParentWidget(QWidget *parentWidget);
 
 private:
@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotIgnoreUser();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveFromRoom();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfo();
-    QString mUserId;
+    QByteArray mUserId;
     QString mUserName;
     QPointer<Room> mRoom;
     QWidget *mParentWidget = nullptr;

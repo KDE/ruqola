@@ -280,8 +280,8 @@ public:
     void setAccountName(const QString &accountname);
     [[nodiscard]] QString accountName() const;
 
-    void setUserId(const QString &userID);
-    [[nodiscard]] QString userId() const;
+    void setUserId(const QByteArray &userID);
+    [[nodiscard]] QByteArray userId() const;
 
     void setPassword(const QString &password);
     [[nodiscard]] QString password() const;

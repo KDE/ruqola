@@ -174,7 +174,7 @@ public:
     [[nodiscard]] bool encrypted() const;
     void setEncrypted(bool encrypted);
 
-    [[nodiscard]] bool userIsIgnored(const QString &userId);
+    [[nodiscard]] bool userIsIgnored(const QByteArray &userId);
     [[nodiscard]] QString roomMessageInfo() const;
 
     [[nodiscard]] QString e2EKey() const;
@@ -192,12 +192,12 @@ public:
     [[nodiscard]] Roles rolesForRooms() const;
     void setRolesForRooms(const Roles &rolesForRooms);
 
-    [[nodiscard]] QStringList rolesForUserId(const QString &userId);
+    [[nodiscard]] QStringList rolesForUserId(const QByteArray &userId);
 
     [[nodiscard]] bool canChangeRoles() const;
-    [[nodiscard]] bool userHasOwnerRole(const QString &userId) const;
-    [[nodiscard]] bool userHasLeaderRole(const QString &userId) const;
-    [[nodiscard]] bool userHasModeratorRole(const QString &userId) const;
+    [[nodiscard]] bool userHasOwnerRole(const QByteArray &userId) const;
+    [[nodiscard]] bool userHasLeaderRole(const QByteArray &userId) const;
+    [[nodiscard]] bool userHasModeratorRole(const QByteArray &userId) const;
 
     void updateRoles(const QJsonObject &obj);
 
@@ -219,8 +219,8 @@ public:
     [[nodiscard]] bool autoTranslate() const;
     void setAutoTranslate(bool autoTranslate);
 
-    [[nodiscard]] QString directChannelUserId() const;
-    void setDirectChannelUserId(const QString &userId);
+    [[nodiscard]] QByteArray directChannelUserId() const;
+    void setDirectChannelUserId(const QByteArray &userId);
 
     [[nodiscard]] QStringList displaySystemMessageTypes() const;
     void setDisplaySystemMessageTypes(const QStringList &displaySystemMessageTypes);
@@ -416,7 +416,7 @@ private:
     bool mBroadcast = false;
     bool mAutoTranslate = false;
 
-    QString mDirectChannelUserId;
+    QByteArray mDirectChannelUserId;
 
     QStringList mDisplaySystemMessageType;
     ChannelCounterInfo mChannelCounterInfo;

@@ -48,7 +48,7 @@ AccountManager::AccountManagerInfo PersonalAccessTokenAuthenticationConfigWidget
     info.accountName = mAccountNameLineEdit->text();
     info.serverUrl = mServerNameLineEdit->text();
     info.token = mPersonalAccessTokenLineEdit->text();
-    info.userId = mUserLineEdit->text();
+    info.userId = mUserLineEdit->text().toLatin1();
     info.authMethodType = AuthenticationManager::AuthMethodType::PersonalAccessToken;
     return info;
 }
@@ -58,7 +58,7 @@ void PersonalAccessTokenAuthenticationConfigWidget::setAccountInfo(const Account
     // We can't change mServerNameLineEdit when we edit account
     mServerNameLineEdit->setReadOnly(true);
     mPersonalAccessTokenLineEdit->setText(info.token);
-    mUserLineEdit->setText(info.userId);
+    mUserLineEdit->setText(QString::fromLatin1(info.userId));
     mAccountNameLineEdit->setText(info.accountName);
     mServerNameLineEdit->setText(info.serverUrl);
 }

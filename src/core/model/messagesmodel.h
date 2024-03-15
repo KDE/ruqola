@@ -154,7 +154,7 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void refresh();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QString &threadMessageId) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QString &userId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QByteArray &userId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
                                                                      const QString &userName,
                                                                      const QStringList &highlightWords,

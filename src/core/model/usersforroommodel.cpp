@@ -142,7 +142,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 const QJsonObject userObject = current.toObject();
                 const QString userName = userObject[QLatin1StringView("username")].toString();
                 const QString name = userObject[QLatin1StringView("name")].toString();
-                const QString id = userObject[QLatin1StringView("_id")].toString();
+                const QByteArray id = userObject[QLatin1StringView("_id")].toString().toLatin1();
                 const double utcOffset = userObject[QLatin1StringView("utcOffset")].toDouble();
                 const QString status = userObject[QLatin1StringView("status")].toString();
                 User user;
@@ -176,7 +176,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                     const QJsonObject userObject = current.toObject();
                     const QString userName = userObject[QLatin1StringView("username")].toString();
                     const QString name = userObject[QLatin1StringView("name")].toString();
-                    const QString id = userObject[QLatin1StringView("_id")].toString();
+                    const QByteArray id = userObject[QLatin1StringView("_id")].toString().toLatin1();
                     User user;
                     user.setName(name);
                     user.setUserName(userName);

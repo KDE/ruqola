@@ -35,7 +35,7 @@ void FilesForRoomModelTest::shouldAddFiles()
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
@@ -49,7 +49,7 @@ void FilesForRoomModelTest::shouldAddFiles()
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     w.setFiles(mFiles);
@@ -65,7 +65,7 @@ void FilesForRoomModelTest::shouldVerifyData()
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
 
@@ -81,7 +81,7 @@ void FilesForRoomModelTest::shouldVerifyData()
         File f;
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
-        f.setUserId(QStringLiteral("userid%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
     w.setFiles(mFiles);

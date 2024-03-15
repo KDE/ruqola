@@ -318,8 +318,8 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     if (json.contains(QLatin1StringView("uids"))) {
         const QJsonArray &uidsArray = json[QLatin1StringView("uids")].toArray();
-        const auto &u0 = uidsArray[0].toString();
-        const auto &u1 = uidsArray[1].toString();
+        const auto &u0 = uidsArray[0].toString().toLatin1();
+        const auto &u1 = uidsArray[1].toString().toLatin1();
         setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
 
         QStringList lstUids;
@@ -1127,7 +1127,7 @@ bool Room::allowToPinMessage() const
     return hasPermission(QStringLiteral("pin-message"));
 }
 
-QStringList Room::rolesForUserId(const QString &userId)
+QStringList Room::rolesForUserId(const QByteArray &userId)
 {
     QStringList lstRoles;
     const Role r = mRolesForRooms.findRoleByUserId(userId);
@@ -1258,7 +1258,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     const NotificationOptions notifications = NotificationOptions::deserialize(notificationsObj);
     r->setNotificationOptions(notifications);
 
-    r->setDirectChannelUserId(o[QLatin1StringView("directChannelUserId")].toString());
+    r->setDirectChannelUserId(o[QLatin1StringView("directChannelUserId")].toString().toLatin1());
 
     r->setAvatarETag(o[QLatin1StringView("avatarETag")].toString());
 
@@ -1365,7 +1365,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QLatin1StringView("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
     if (!r->directChannelUserId().isEmpty()) {
-        o[QLatin1StringView("directChannelUserId")] = r->directChannelUserId();
+        o[QLatin1StringView("directChannelUserId")] = QString::fromLatin1(r->directChannelUserId());
     }
 
     serializeStringList(o, QLatin1StringView("systemMessages"), r->displaySystemMessageTypes());
@@ -1464,9 +1464,10 @@ bool Room::encryptedEnabled() const
     return false;
 }
 
-bool Room::userIsIgnored(const QString &userId)
+bool Room::userIsIgnored(const QByteArray &userId)
 {
-    return mIgnoredUsers.contains(userId);
+    // TODO Convert mIgnoredUsers to QList<QByteArray>
+    return mIgnoredUsers.contains(QString::fromLatin1(userId));
 }
 
 bool Room::roomIsBlocked() const
@@ -1493,7 +1494,7 @@ bool Room::canChangeRoles() const
     return mRoles.contains(QStringLiteral("owner"));
 }
 
-bool Room::userHasOwnerRole(const QString &userId) const
+bool Room::userHasOwnerRole(const QByteArray &userId) const
 {
     const Role r = mRolesForRooms.findRoleByUserId(userId);
     if (r.isValid()) {
@@ -1502,7 +1503,7 @@ bool Room::userHasOwnerRole(const QString &userId) const
     return false;
 }
 
-bool Room::userHasLeaderRole(const QString &userId) const
+bool Room::userHasLeaderRole(const QByteArray &userId) const
 {
     const Role r = mRolesForRooms.findRoleByUserId(userId);
     if (r.isValid()) {
@@ -1511,7 +1512,7 @@ bool Room::userHasLeaderRole(const QString &userId) const
     return false;
 }
 
-bool Room::userHasModeratorRole(const QString &userId) const
+bool Room::userHasModeratorRole(const QByteArray &userId) const
 {
     const Role r = mRolesForRooms.findRoleByUserId(userId);
     if (r.isValid()) {
@@ -1525,12 +1526,12 @@ void Room::updateRoles(const QJsonObject &obj)
     mRolesForRooms.updateRoles(obj);
 }
 
-QString Room::directChannelUserId() const
+QByteArray Room::directChannelUserId() const
 {
     return mDirectChannelUserId;
 }
 
-void Room::setDirectChannelUserId(const QString &uid)
+void Room::setDirectChannelUserId(const QByteArray &uid)
 {
     if (mDirectChannelUserId != uid) {
         mDirectChannelUserId = uid;
