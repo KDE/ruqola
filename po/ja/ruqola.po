@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-15 00:38+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -290,7 +290,7 @@ msgstr ""
 msgid "(Last Message: %1)"
 msgstr ""
 
-#: core/messages/block.cpp:124 core/messages/message.cpp:637
+#: core/messages/block.cpp:126 core/messages/message.cpp:637
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -862,7 +862,7 @@ msgstr ""
 msgid "Only you can see this message"
 msgstr ""
 
-#: core/model/messagesmodel.cpp:364
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
@@ -1344,12 +1344,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2863
+#: core/rocketchataccount.cpp:2886
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2887
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1608,6 +1608,16 @@ msgstr ""
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:114
 #, kde-format
 msgid "Message deletion is not allowed."
+msgstr ""
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
+#, kde-format
+msgid "Not allowed to get message %1"
+msgstr ""
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#, kde-format
+msgid "Not allowed to get message %2 in room %1"
 msgstr ""
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91

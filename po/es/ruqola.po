@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-15 00:38+0000\n"
 "PO-Revision-Date: 2024-03-02 18:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -297,7 +297,7 @@ msgstr "Desarchivar"
 msgid "(Last Message: %1)"
 msgstr "(Último mensaje: %1)"
 
-#: core/messages/block.cpp:124 core/messages/message.cpp:637
+#: core/messages/block.cpp:126 core/messages/message.cpp:637
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -872,7 +872,7 @@ msgstr "Editado el %1 por %2"
 msgid "Only you can see this message"
 msgstr "¿Desea borrar este mensaje?"
 
-#: core/model/messagesmodel.cpp:364
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mensaje ignorado"
@@ -1359,12 +1359,12 @@ msgstr "<strong>%1</strong> está escribiendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:2863
+#: core/rocketchataccount.cpp:2886
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2887
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
@@ -1626,6 +1626,17 @@ msgstr "Extraer roles"
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "No se permite el borrado de mensajes."
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
+#, fuzzy, kde-format
+#| msgid "File sharing not allowed in direct messages"
+msgid "Not allowed to get message %1"
+msgstr "No se permite compartir archivos en mensajes directos"
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#, kde-format
+msgid "Not allowed to get message %2 in room %1"
+msgstr ""
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format

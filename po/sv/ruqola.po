@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-15 00:38+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -293,7 +293,7 @@ msgstr "Packa upp"
 msgid "(Last Message: %1)"
 msgstr "(Senaste meddelande: %1)"
 
-#: core/messages/block.cpp:124 core/messages/message.cpp:637
+#: core/messages/block.cpp:126 core/messages/message.cpp:637
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -868,7 +868,7 @@ msgstr "Redigerad %1 av %2"
 msgid "Only you can see this message"
 msgstr "Vill du ta bort meddelandet?"
 
-#: core/model/messagesmodel.cpp:364
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorerat meddelande"
@@ -1359,12 +1359,12 @@ msgstr "<strong>%1</strong> skriver..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:2863
+#: core/rocketchataccount.cpp:2886
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2887
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
@@ -1628,6 +1628,17 @@ msgstr "Extrahera roller"
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "Meddelandeborttagning är inte tillåten."
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
+#, fuzzy, kde-format
+#| msgid "File sharing not allowed in direct messages"
+msgid "Not allowed to get message %1"
+msgstr "Fildelning tillåts inte i direkta meddelanden"
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#, kde-format
+msgid "Not allowed to get message %2 in room %1"
+msgstr ""
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format

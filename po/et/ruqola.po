@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-15 00:38+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -301,7 +301,7 @@ msgstr "Arhiivist välja"
 msgid "(Last Message: %1)"
 msgstr "(Viimane sõnum: %1)"
 
-#: core/messages/block.cpp:124 core/messages/message.cpp:637
+#: core/messages/block.cpp:126 core/messages/message.cpp:637
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -918,7 +918,7 @@ msgstr "Muutnud %1"
 msgid "Only you can see this message"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: core/model/messagesmodel.cpp:364
+#: core/model/messagesmodel.cpp:362
 #, kde-format
 msgid "Ignored Message"
 msgstr "Eiratud sõnum"
@@ -1455,13 +1455,13 @@ msgstr "<strong>%1</strong> kirjutab ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:2863
+#: core/rocketchataccount.cpp:2886
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2887
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1741,6 +1741,17 @@ msgstr "Rollide hankimine"
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "Sõnumi kustutamine ei ole lubatud."
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
+#, fuzzy, kde-format
+#| msgid "File sharing not allowed in direct messages"
+msgid "Not allowed to get message %1"
+msgstr "Otsesõnumites ei ole failide jagamine lubatud"
+
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
+#, kde-format
+msgid "Not allowed to get message %2 in room %1"
+msgstr ""
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format
