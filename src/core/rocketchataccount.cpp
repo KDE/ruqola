@@ -437,16 +437,6 @@ void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const Q
     }
 }
 
-QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
-{
-    return mRoomModel->inputMessage(roomId);
-}
-
-void RocketChatAccount::setUserCurrentMessage(const QString &message, const QString &roomId)
-{
-    mRoomModel->setInputMessage(roomId, message);
-}
-
 void RocketChatAccount::textEditing(const QString &roomId, bool clearNotification)
 {
     mTypingNotification->textNotificationChanged(roomId, clearNotification);
