@@ -748,7 +748,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             const QRect discussionRect(layout.usableRect.x(), layout.repliesY + layout.repliesHeight, layout.usableRect.width(), layout.discussionsHeight);
             if (discussionRect.contains(mev->pos())) {
                 // We need to fix rest api first
-                mRocketChatAccount->joinDiscussion(message->discussionRoomId(), QString());
+                mRocketChatAccount->joinDiscussion(QString::fromLatin1(message->discussionRoomId()), QString());
                 return true;
             }
         }

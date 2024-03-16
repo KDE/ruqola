@@ -524,7 +524,7 @@ void MessageTest::shouldSerializeData()
         input.setReplies({QStringLiteral("reply1"), QStringLiteral("reply2")});
 
         // Discussion
-        input.setDiscussionRoomId(QStringLiteral("discussion1"));
+        input.setDiscussionRoomId(QByteArrayLiteral("discussion1"));
         input.setDiscussionCount(55);
         input.setDiscussionLastMessage(666);
 

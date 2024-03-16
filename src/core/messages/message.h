@@ -167,8 +167,8 @@ public:
     [[nodiscard]] int discussionCount() const;
     void setDiscussionCount(int discussionCount);
 
-    [[nodiscard]] QString discussionRoomId() const;
-    void setDiscussionRoomId(const QString &discussionRoomId);
+    [[nodiscard]] QByteArray discussionRoomId() const;
+    void setDiscussionRoomId(const QByteArray &discussionRoomId);
 
     [[nodiscard]] QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
@@ -313,7 +313,7 @@ private:
     QString mEmoji;
 
     // drid discussion room id
-    QString mDiscussionRoomId;
+    QByteArray mDiscussionRoomId;
 
     // tmid
     QString mThreadMessageId;

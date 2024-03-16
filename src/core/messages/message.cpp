@@ -65,7 +65,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mRole = o.value(QLatin1StringView("role")).toString();
     mThreadCount = o.value(QLatin1StringView("tcount")).toInt();
     mDiscussionCount = o.value(QLatin1StringView("dcount")).toInt();
-    mDiscussionRoomId = o.value(QLatin1StringView("drid")).toString();
+    mDiscussionRoomId = o.value(QLatin1StringView("drid")).toString().toLatin1();
     mThreadMessageId = o.value(QLatin1StringView("tmid")).toString();
     mEmoji = o.value(QLatin1StringView("emoji")).toString();
     mMessageStarred.parse(o);
@@ -200,12 +200,12 @@ void Message::setThreadMessageId(const QString &threadMessageId)
     mThreadMessageId = threadMessageId;
 }
 
-QString Message::discussionRoomId() const
+QByteArray Message::discussionRoomId() const
 {
     return mDiscussionRoomId;
 }
 
-void Message::setDiscussionRoomId(const QString &discussionRoomId)
+void Message::setDiscussionRoomId(const QByteArray &discussionRoomId)
 {
     mDiscussionRoomId = discussionRoomId;
 }
@@ -817,7 +817,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     Message message;
     message.mThreadCount = o[QLatin1StringView("tcount")].toInt();
     message.mDiscussionCount = o[QLatin1StringView("dcount")].toInt();
-    message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString();
+    message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString().toLatin1();
     message.mThreadMessageId = o[QLatin1StringView("tmid")].toString();
 
     message.assignMessageStateValue(Private, o[QLatin1StringView("private")].toBool(false));
@@ -1007,7 +1007,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QLatin1StringView("dlm")] = message.mDiscussionLastMessage;
     }
     if (!message.mDiscussionRoomId.isEmpty()) {
-        o[QLatin1StringView("drid")] = message.mDiscussionRoomId;
+        o[QLatin1StringView("drid")] = QString::fromLatin1(message.mDiscussionRoomId);
     }
 
     if (!message.mThreadMessageId.isEmpty()) {
