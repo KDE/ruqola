@@ -199,7 +199,8 @@ void MessageListDelegateBase::setSearchText(const QString &newSearchText)
     }
 }
 
-QTextDocument *MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const QString &messageId, const QString &messageStr, int width) const
+QTextDocument *
+MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const QByteArray &messageId, const QString &messageStr, int width) const
 {
     auto it = mDocumentCache.find(messageId);
     if (it != mDocumentCache.end()) {
@@ -213,7 +214,7 @@ QTextDocument *MessageListDelegateBase::documentForDelegate(RocketChatAccount *r
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
+    QByteArray needUpdateMessageId; // TODO use it ?
     int maximumRecursiveQuotedText = -1;
     if (rcAccount) {
         maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();

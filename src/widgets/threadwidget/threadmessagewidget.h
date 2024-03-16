@@ -43,10 +43,10 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateFollowThreadIcon(bool followThread);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFollowThreadChanged(bool clicked);
-    QString mThreadMessageId;
+    QByteArray mThreadMessageId;
     QLabel *const mThreadPreview;
     RoomWidgetBase *const mRoomWidgetBase;
     RocketChatAccount *const mRocketChatAccount;

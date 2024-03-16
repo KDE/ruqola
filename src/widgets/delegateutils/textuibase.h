@@ -21,10 +21,10 @@ public:
     virtual ~TextUiBase();
 
 protected:
-    virtual void removeMessageCache(const QString &messageId);
+    virtual void removeMessageCache(const QByteArray &messageId);
     virtual void setCacheMaxEntries(int maxEntries);
     virtual void clearCache();
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>> mDocumentCache;
+    mutable LRUCache<QByteArray, std::unique_ptr<QTextDocument>> mDocumentCache;
     TextSelectionImpl *const mTextSelectionImpl;
     QListView *const mListView;
 };

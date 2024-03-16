@@ -44,18 +44,18 @@ public:
     void setRoomId(const QString &roomId);
     [[nodiscard]] QString roomId() const;
 
-    [[nodiscard]] QString messageIdBeingEdited() const;
-    void setMessageIdBeingEdited(const QString &messageIdBeingEdited);
+    [[nodiscard]] QByteArray messageIdBeingEdited() const;
+    void setMessageIdBeingEdited(const QByteArray &messageIdBeingEdited);
 
-    void setEditMessage(const QString &messageId, const QString &text);
+    void setEditMessage(const QByteArray &messageId, const QString &text);
     void setQuoteMessage(const QString &permalink, const QString &text);
 
     bool handleMimeData(const QMimeData *mimeData);
 
     void clearMessageIdBeingEdited();
 
-    [[nodiscard]] QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId, const QString &text = {}, bool replyInDialogBox = false);
+    [[nodiscard]] QByteArray threadMessageId() const;
+    void setThreadMessageId(const QByteArray &threadMessageId, const QString &text = {}, bool replyInDialogBox = false);
 
     void slotPublicSettingChanged();
     void slotOwnUserPreferencesChanged();
@@ -66,7 +66,7 @@ public:
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
-    void threadMessageIdChanged(const QString &threadMessageId, const QString &text);
+    void threadMessageIdChanged(const QByteArray &threadMessageId, const QString &text);
     void quoteMessageChanged(const QString &permalink, const QString &text);
     void createUploadJob(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
 
@@ -83,8 +83,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendSoundMessage();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
 
-    QString mThreadMessageId;
-    QString mMessageIdBeingEdited;
+    QByteArray mThreadMessageId;
+    QByteArray mMessageIdBeingEdited;
     QString mQuotePermalink;
     QString mQuoteText;
     EditingMode mMode = EditingMode::NewMessage;

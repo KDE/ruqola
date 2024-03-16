@@ -140,7 +140,7 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 
 void ChannelListWidget::slotAccountInitialized()
 {
-    mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QString());
+    mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QByteArray());
 }
 
 void ChannelListWidget::slotSearchRoomTextChanged()
@@ -162,14 +162,14 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
     }
 }
 
-void ChannelListWidget::selectMessageId(const QString &messageId)
+void ChannelListWidget::selectMessageId(const QByteArray &messageId)
 {
     if (!messageId.isEmpty()) {
         Q_EMIT selectMessageIdRequested(messageId);
     }
 }
 
-void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
+void ChannelListWidget::slotSelectMessageRequested(const QByteArray &messageId,
                                                    const QString &roomId,
                                                    ParseRocketChatUrlUtils::RoomIdType roomType,
                                                    ParseRocketChatUrlUtils::ChannelType channelType)

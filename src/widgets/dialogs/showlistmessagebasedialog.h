@@ -27,7 +27,7 @@ public:
     void setRoom(Room *room);
 
 Q_SIGNALS:
-    void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
+    void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreMessages();

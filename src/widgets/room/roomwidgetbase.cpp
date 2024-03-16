@@ -86,7 +86,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::createNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidgetBase::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::loadHistory);
-    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId, const QString &text) {
+    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QByteArray &messageId, const QString &text) {
         mMessageLineWidget->setThreadMessageId(messageId, text, false);
     });
 
@@ -107,7 +107,7 @@ void RoomWidgetBase::slotSendFile(const RocketChatRestApi::UploadFileJob::Upload
     }
 }
 
-void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const QString &text)
+void RoomWidgetBase::slotShowThreadMessage(const QByteArray &threadMessageId, const QString &text)
 {
     mRoomReplyThreadWidget->setMessageText(text);
     mRoomReplyThreadWidget->setVisible(!threadMessageId.isEmpty());
@@ -134,12 +134,12 @@ void RoomWidgetBase::slotShowQuoteMessage(const QString &permalink, const QStrin
     mRoomQuoteMessageWidget->setVisible(!permalink.isEmpty());
 }
 
-void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage, const QString &channelName)
+void RoomWidgetBase::slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage, const QString &channelName)
 {
     CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setDiscussionName(originalMessage);
     dlg.setChannelInfo(channelName, mRoomId);
-    dlg.setMessageId(messageId);
+    dlg.setMessageId(QString::fromLatin1(messageId));
     dlg.exec();
 }
 

@@ -25,7 +25,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     // t ? I can't find it.
     const QString type = o.value(QLatin1StringView("t")).toString();
 
-    mMessageId = o.value(QLatin1StringView("_id")).toString();
+    mMessageId = o.value(QLatin1StringView("_id")).toString().toLatin1();
     mRoomId = roomId;
     mText = o.value(QLatin1StringView("msg")).toString();
     if (restApi) {
@@ -66,7 +66,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mThreadCount = o.value(QLatin1StringView("tcount")).toInt();
     mDiscussionCount = o.value(QLatin1StringView("dcount")).toInt();
     mDiscussionRoomId = o.value(QLatin1StringView("drid")).toString().toLatin1();
-    mThreadMessageId = o.value(QLatin1StringView("tmid")).toString();
+    mThreadMessageId = o.value(QLatin1StringView("tmid")).toString().toLatin1();
     mEmoji = o.value(QLatin1StringView("emoji")).toString();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
@@ -190,12 +190,12 @@ QString Message::displayTime() const
     return mDisplayTime;
 }
 
-QString Message::threadMessageId() const
+QByteArray Message::threadMessageId() const
 {
     return mThreadMessageId;
 }
 
-void Message::setThreadMessageId(const QString &threadMessageId)
+void Message::setThreadMessageId(const QByteArray &threadMessageId)
 {
     mThreadMessageId = threadMessageId;
 }
@@ -749,12 +749,12 @@ void Message::setText(const QString &text)
     mText = text;
 }
 
-QString Message::messageId() const
+QByteArray Message::messageId() const
 {
     return mMessageId;
 }
 
-void Message::setMessageId(const QString &messageId)
+void Message::setMessageId(const QByteArray &messageId)
 {
     mMessageId = messageId;
 }
@@ -799,9 +799,9 @@ void Message::setGroupable(bool groupable)
     assignMessageStateValue(Groupable, groupable);
 }
 
-QString Message::generateUniqueId(const QString &messageId, int index)
+QByteArray Message::generateUniqueId(const QByteArray &messageId, int index)
 {
-    return QStringLiteral("%1_%2").arg(messageId, QString::number(index));
+    return messageId + QByteArray("_") + QByteArray::number(index);
 }
 
 Utils::AvatarInfo Message::avatarInfo() const
@@ -818,7 +818,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mThreadCount = o[QLatin1StringView("tcount")].toInt();
     message.mDiscussionCount = o[QLatin1StringView("dcount")].toInt();
     message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString().toLatin1();
-    message.mThreadMessageId = o[QLatin1StringView("tmid")].toString();
+    message.mThreadMessageId = o[QLatin1StringView("tmid")].toString().toLatin1();
 
     message.assignMessageStateValue(Private, o[QLatin1StringView("private")].toBool(false));
     if (o.contains(QLatin1StringView("tlm"))) {
@@ -828,7 +828,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         message.mDiscussionLastMessage = static_cast<qint64>(o[QLatin1StringView("dlm")].toDouble());
     }
 
-    message.mMessageId = o[QLatin1StringView("messageID")].toString();
+    message.mMessageId = o[QLatin1StringView("messageID")].toString().toLatin1();
     message.mRoomId = o[QLatin1StringView("roomID")].toString();
     message.mText = o[QLatin1StringView("message")].toString();
     message.setTimeStamp(static_cast<qint64>(o[QLatin1StringView("timestamp")].toDouble()));
@@ -912,7 +912,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     QJsonDocument d;
     QJsonObject o;
 
-    o[QLatin1StringView("messageID")] = message.mMessageId;
+    o[QLatin1StringView("messageID")] = QString::fromLatin1(message.mMessageId);
     o[QLatin1StringView("roomID")] = message.mRoomId;
     o[QLatin1StringView("message")] = message.mText;
     o[QLatin1StringView("timestamp")] = message.mTimeStamp;
@@ -1011,7 +1011,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
 
     if (!message.mThreadMessageId.isEmpty()) {
-        o[QLatin1StringView("tmid")] = message.mThreadMessageId;
+        o[QLatin1StringView("tmid")] = QString::fromLatin1(message.mThreadMessageId);
     }
     if (!message.mReplies.isEmpty()) {
         o[QLatin1StringView("replies")] = QJsonArray::fromStringList(message.mReplies);

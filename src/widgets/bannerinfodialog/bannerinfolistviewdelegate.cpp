@@ -60,7 +60,7 @@ void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionView
 QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
@@ -167,9 +167,9 @@ BannerInfoListViewDelegate::Layout BannerInfoListViewDelegate::doLayout(const QS
     return layout;
 }
 
-QString BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QString identifier = index.data(BannerInfosModel::Identifier).toString();
+    const QByteArray identifier = index.data(BannerInfosModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }
@@ -177,7 +177,7 @@ QString BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) co
 QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = cacheIdentifier(index);
+    const QByteArray messageId = cacheIdentifier(index);
     const QString messageBannerStr = index.data(BannerInfosModel::Text).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageBannerStr, width);
 }

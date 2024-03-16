@@ -134,7 +134,7 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
     }
 }
 
-void MessageListView::goToMessage(const QString &messageId)
+void MessageListView::goToMessage(const QByteArray &messageId)
 {
     auto messageModel = qobject_cast<MessagesModel *>(model());
     Q_ASSERT(messageModel);
@@ -517,7 +517,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         connect(showReportInfo, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
             const auto job = new RocketChatRestApi::ModerationReportsJob(this);
-            job->setMessageId(messageId);
+            job->setMessageId(QString::fromLatin1(messageId));
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ModerationReportsJob::moderationReportsDone, this, [this](const QJsonObject &obj) {
                 ModerationReportInfos infos;
@@ -540,7 +540,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         connect(dismissReports, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
             const auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
-            job->setMessageId(messageId);
+            job->setMessageId(QString::fromLatin1(messageId));
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, []() {
                 // TODO
@@ -583,7 +583,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         auto goToMessageAction = new QAction(i18n("Go to Message"), &menu); // Add icon
         connect(goToMessageAction, &QAction::triggered, this, [this, index, message]() {
-            const QString messageId = message->messageId();
+            const QByteArray messageId = message->messageId();
             const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
             Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
         });
@@ -691,10 +691,10 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 
 void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIsFollowing)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     if (messageIsFollowing) {
         auto job = new RocketChatRestApi::UnFollowMessageJob(this);
-        job->setMessageId(messageId);
+        job->setMessageId(QString::fromLatin1(messageId));
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         // connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
         if (!job->start()) {
@@ -702,7 +702,7 @@ void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIs
         }
     } else {
         auto job = new RocketChatRestApi::FollowMessageJob(this);
-        job->setMessageId(messageId);
+        job->setMessageId(QString::fromLatin1(messageId));
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         // connect(job, &RocketChatRestApi::UnFollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
         if (!job->start()) {
@@ -713,8 +713,8 @@ void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIs
 
 void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
-    const QString permalink = generatePermalink(messageId);
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    const QString permalink = generatePermalink(QString::fromLatin1(messageId));
     QClipboard *clip = QApplication::clipboard();
     clip->setText(permalink, QClipboard::Clipboard);
 }
@@ -724,9 +724,9 @@ void MessageListView::slotForwardMessage(const QModelIndex &index)
     QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const QStringList identifiers = dlg->channelIdentifiers();
-        const QString messageId = index.data(MessagesModel::MessageId).toString();
+        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
         auto job = new RocketChatRestApi::PostMessageJob(this);
-        job->setText(QStringLiteral("[ ](%1)\n").arg(generatePermalink(messageId)));
+        job->setText(QStringLiteral("[ ](%1)\n").arg(generatePermalink(QString::fromLatin1(messageId))));
         job->setRoomIds(identifiers);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
@@ -750,9 +750,9 @@ QString MessageListView::generatePermalink(const QString &messageId) const
 
 void MessageListView::slotQuoteMessage(const QModelIndex &index)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     QString text = index.data(MessagesModel::OriginalMessage).toString();
-    const QString permalink = generatePermalink(messageId);
+    const QString permalink = generatePermalink(QString::fromLatin1(messageId));
     // qDebug() << " permalink " << permalink;
     if (text.length() > 80) {
         text = text.left(80) + QStringLiteral("...");
@@ -763,18 +763,18 @@ void MessageListView::slotQuoteMessage(const QModelIndex &index)
 void MessageListView::slotEditMessage(const QModelIndex &index)
 {
     const QString text = index.data(MessagesModel::OriginalMessageOrAttachmentDescription).toString();
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     Q_EMIT editMessageRequested(messageId, text);
 }
 
 void MessageListView::slotShowFullThread(const QModelIndex &index)
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-    const QString threadMessageId = message->threadMessageId();
+    const QByteArray threadMessageId = message->threadMessageId();
     QString threadMessagePreview = index.data(MessagesModel::ThreadMessagePreview).toString();
     const bool threadIsFollowing = threadMessageId.isEmpty() ? message->replies().contains(QString::fromLatin1(mCurrentRocketChatAccount->userId()))
                                                              : index.data(MessagesModel::ThreadMessageFollowed).toBool();
-    QString messageId = threadMessageId;
+    QByteArray messageId = threadMessageId;
     if (threadMessageId.isEmpty()) {
         messageId = message->messageId();
         if (threadMessagePreview.isEmpty()) {
@@ -783,7 +783,7 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     }
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
     ThreadMessageWidget::ThreadMessageInfo info;
-    info.threadMessageId = messageId;
+    info.threadMessageId = QString::fromLatin1(messageId);
     info.threadMessagePreview = threadMessagePreview;
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;
@@ -795,8 +795,8 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
 
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
-    mCurrentRocketChatAccount->markMessageAsUnReadFrom(messageId);
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    mCurrentRocketChatAccount->markMessageAsUnReadFrom(QString::fromLatin1(messageId));
 }
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)
@@ -807,8 +807,8 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
                                            i18nc("@title", "Delete Message"),
                                            KStandardGuiItem::del(),
                                            KStandardGuiItem::cancel())) {
-        const QString messageId = index.data(MessagesModel::MessageId).toString();
-        mCurrentRocketChatAccount->deleteMessage(messageId, mRoom->roomId());
+        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+        mCurrentRocketChatAccount->deleteMessage(QString::fromLatin1(messageId), mRoom->roomId());
     }
 }
 
@@ -829,22 +829,22 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
     const QString message = index.data(MessagesModel::OriginalMessage).toString();
     dlg->setPreviewMessage(message);
     if (dlg->exec()) {
-        const QString messageId = index.data(MessagesModel::MessageId).toString();
-        mCurrentRocketChatAccount->reportMessage(messageId, dlg->message());
+        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+        mCurrentRocketChatAccount->reportMessage(QString::fromLatin1(messageId), dlg->message());
     }
     delete dlg;
 }
 
 void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
-    mCurrentRocketChatAccount->starMessage(messageId, !isStarred);
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    mCurrentRocketChatAccount->starMessage(QString::fromLatin1(messageId), !isStarred);
 }
 
 void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
-    mCurrentRocketChatAccount->pinMessage(messageId, !isPinned);
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    mCurrentRocketChatAccount->pinMessage(QString::fromLatin1(messageId), !isPinned);
 }
 
 void MessageListView::slotStartPrivateConversation(const QString &userName)
@@ -855,7 +855,7 @@ void MessageListView::slotStartPrivateConversation(const QString &userName)
 void MessageListView::slotStartDiscussion(const QModelIndex &index)
 {
     const QString message = index.data(MessagesModel::OriginalMessage).toString();
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     Q_EMIT createNewDiscussion(messageId, message);
 }
 
@@ -908,7 +908,7 @@ MessageListView::Mode MessageListView::mode() const
 
 void MessageListView::slotReplyInThread(const QModelIndex &index)
 {
-    const QString messageId = index.data(MessagesModel::MessageId).toString();
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     const QString threadPreview = index.data(MessagesModel::OriginalMessage).toString();
     Q_EMIT replyInThreadRequested(messageId, threadPreview);
 }

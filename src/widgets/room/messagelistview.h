@@ -43,7 +43,7 @@ public:
 
     void setRoomId(const QString &roomID);
 
-    void goToMessage(const QString &messageId);
+    void goToMessage(const QByteArray &messageId);
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
     void clearTextDocumentCache();
@@ -62,13 +62,13 @@ protected:
 
 Q_SIGNALS:
     void modelChanged();
-    void editMessageRequested(const QString &messageId, const QString &text);
+    void editMessageRequested(const QByteArray &messageId, const QString &text);
     void quoteMessageRequested(const QString &messageId, const QString &text);
-    void createNewDiscussion(const QString &messageId, const QString &originalMessage);
+    void createNewDiscussion(const QByteArray &messageId, const QString &originalMessage);
     void createPrivateConversation(const QString &userName);
     void loadHistoryRequested();
-    void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
-    void replyInThreadRequested(const QString &messageId, const QString &text);
+    void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);
+    void replyInThreadRequested(const QByteArray &messageId, const QString &text);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotEditMessage(const QModelIndex &index);

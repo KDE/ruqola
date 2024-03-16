@@ -49,7 +49,7 @@ void BannerInfoTest::shouldBannerInfo_data()
     QTest::addRow("bannerinfoempty") << QStringLiteral("bannerinfoempty") << BannerInfo();
     {
         BannerInfo info;
-        info.setIdentifier(QStringLiteral("alert-5fcc1f02f5204d09050943d2"));
+        info.setIdentifier(QByteArrayLiteral("alert-5fcc1f02f5204d09050943d2"));
         info.setLink(QStringLiteral("https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1"));
         info.setPriority(10);
         info.setRead(true);
@@ -59,7 +59,7 @@ void BannerInfoTest::shouldBannerInfo_data()
     }
     {
         BannerInfo info;
-        info.setIdentifier(QStringLiteral("versionUpdate-4_4_1"));
+        info.setIdentifier(QByteArrayLiteral("versionUpdate-4_4_1"));
         info.setLink(QStringLiteral("https://github.com/RocketChat/Rocket.Chat/releases/tag/4.4.1"));
         info.setPriority(10);
         info.setText(QStringLiteral("New_version_available_(s)"));

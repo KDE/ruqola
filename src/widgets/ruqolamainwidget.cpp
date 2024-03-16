@@ -63,7 +63,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mRoomWidget->setLayoutSpacing(mSplitter->handleWidth());
     mStackedRoomWidget->addWidget(mRoomWidget);
     connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, [this](const QString &channelId) {
-        mChannelList->channelListView()->selectChannelRequested(channelId, QString());
+        mChannelList->channelListView()->selectChannelRequested(channelId, QByteArray());
     });
 
     mEmptyRoomWidget->setObjectName(QStringLiteral("mEmptyRoomWidget"));
@@ -167,7 +167,7 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // This is for switching between already-loaded accounts
     // On startup it's too early
     if (previousRocketChatAccount) {
-        mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QString());
+        mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QByteArray());
     }
 
     updateBannerInfo();

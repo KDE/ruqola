@@ -562,7 +562,7 @@ Q_SIGNALS:
     void publicSettingChanged();
     void serverVersionChanged();
     void openLinkRequested(const QString &link);
-    void selectRoomByRoomIdRequested(const QString &identifier, const QString &messageId = QString());
+    void selectRoomByRoomIdRequested(const QString &identifier, const QByteArray &messageId = QByteArray());
     void selectRoomByRoomNameRequested(const QString &identifier);
     void openTeamNameRequested(const QString &identifier);
     void openThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &message);
@@ -585,7 +585,7 @@ Q_SIGNALS:
     void rolesUpdated();
     void totpResult(const QString &secret, const QString &url);
 
-    void selectChannelAndMessage(const QString &messageId,
+    void selectChannelAndMessage(const QByteArray &messageId,
                                  const QString &roomId,
                                  ParseRocketChatUrlUtils::RoomIdType roomType,
                                  ParseRocketChatUrlUtils::ChannelType channelType);

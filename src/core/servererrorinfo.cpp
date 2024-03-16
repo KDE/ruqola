@@ -60,7 +60,7 @@ void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
     }
 }
 
-QString ServerErrorInfo::identifier() const
+QByteArray ServerErrorInfo::identifier() const
 {
     return mIdentifier;
 }
@@ -68,7 +68,7 @@ QString ServerErrorInfo::identifier() const
 void ServerErrorInfo::createUniqueIdentifier()
 {
     identifierId++;
-    mIdentifier = QString::number(identifierId);
+    mIdentifier = QByteArray::number(identifierId);
 }
 
 QString ServerErrorInfo::dateTimeStr() const

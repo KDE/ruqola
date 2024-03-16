@@ -33,7 +33,7 @@ void MessageDelegateHelperBase::updateView(const QModelIndex &index)
     mListView->update(index);
 }
 
-void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
+void MessageDelegateHelperBase::removeMessageCache(const QByteArray &messageId)
 {
     TextUiBase::removeMessageCache(messageId);
 }
@@ -65,7 +65,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Docu
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
-    QString needUpdateMessageId; // TODO use it ?
+    QByteArray needUpdateMessageId; // TODO use it ?
     // Laurent Ruqola::self()->rocketChatAccount() only for test.
     auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
     int maximumRecursiveQuotedText = -1;

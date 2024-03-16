@@ -45,7 +45,7 @@ void MessageTest::shouldParseMessage_data()
 
     {
         Message firstMessageRef;
-        firstMessageRef.setMessageId(QStringLiteral("blaid"));
+        firstMessageRef.setMessageId(QByteArrayLiteral("blaid"));
         firstMessageRef.setAlias(QStringLiteral("aliasname"));
         firstMessageRef.setGroupable(false);
         firstMessageRef.setTimeStamp(1504509615057);
@@ -67,7 +67,7 @@ void MessageTest::shouldParseMessage_data()
     }
     {
         Message urlMessageRef;
-        urlMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
+        urlMessageRef.setMessageId(QByteArrayLiteral("9kHnbbjbHKHjXXQp7"));
         urlMessageRef.setAlias(QStringLiteral("alias"));
         urlMessageRef.setGroupable(false);
         urlMessageRef.setName(QStringLiteral("name"));
@@ -86,7 +86,7 @@ void MessageTest::shouldParseMessage_data()
         url.setDescription(QStringLiteral("View more about this event at CppCon 2017"));
         url.setImageUrl(QStringLiteral("http://foo.com/img/app-icon.png?1504596901"));
         url.setSiteUrl(QStringLiteral("https://foo.com/event/C8CT"));
-        url.setUrlId(QStringLiteral("9kHnbbjbHKHjXXQp7_0"));
+        url.setUrlId(QByteArrayLiteral("9kHnbbjbHKHjXXQp7_0"));
         url.setImageWidth(200);
         url.setImageHeight(200);
         url.generateMessageUrlInfo();
@@ -96,7 +96,7 @@ void MessageTest::shouldParseMessage_data()
     }
     {
         Message urlMessageRef;
-        urlMessageRef.setMessageId(QStringLiteral("yZPPxBQ79M9jG5hS6"));
+        urlMessageRef.setMessageId(QByteArrayLiteral("yZPPxBQ79M9jG5hS6"));
         urlMessageRef.setGroupable(false);
         urlMessageRef.setName(QStringLiteral("test1 test2"));
         urlMessageRef.setTimeStamp(1704484544725);
@@ -118,7 +118,7 @@ void MessageTest::shouldParseMessage_data()
         url.setSiteName(QStringLiteral("GitHub"));
         url.setImageWidth(1200);
         url.setImageHeight(600);
-        url.setUrlId(QStringLiteral("yZPPxBQ79M9jG5hS6_0"));
+        url.setUrlId(QByteArrayLiteral("yZPPxBQ79M9jG5hS6_0"));
         url.generateMessageUrlInfo();
         urlMessageRef.setUrls({url});
         QTest::addRow("url1") << QStringLiteral("url1") << urlMessageRef;
@@ -126,7 +126,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // Image
         Message imageMessageRef;
-        imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
+        imageMessageRef.setMessageId(QByteArrayLiteral("CD2LsyS4dNbj6TTjQ"));
         imageMessageRef.setAlias(QStringLiteral("aliasname"));
         imageMessageRef.setName(QStringLiteral("name"));
         imageMessageRef.setGroupable(false);
@@ -158,7 +158,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // Video
         Message videoMessageRef;
-        videoMessageRef.setMessageId(QStringLiteral("KCy2KiFYmS5NuakPm"));
+        videoMessageRef.setMessageId(QByteArrayLiteral("KCy2KiFYmS5NuakPm"));
         videoMessageRef.setAlias(QStringLiteral("Laurent Montel"));
         videoMessageRef.setName(QStringLiteral("Laurent Montel"));
         videoMessageRef.setGroupable(false);
@@ -186,7 +186,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // Audio
         Message audioMessageRef;
-        audioMessageRef.setMessageId(QStringLiteral("AwDsjWKJaW2wCP2ht"));
+        audioMessageRef.setMessageId(QByteArrayLiteral("AwDsjWKJaW2wCP2ht"));
         audioMessageRef.setAlias(QStringLiteral("Laurent Montel"));
         audioMessageRef.setName(QStringLiteral("Laurent Montel"));
         audioMessageRef.setGroupable(false);
@@ -214,7 +214,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // Message Starred
         Message messageStarredRef;
-        messageStarredRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
+        messageStarredRef.setMessageId(QByteArrayLiteral("R6AkSJ7orEkYHNcZJ"));
         messageStarredRef.setAlias(QStringLiteral("Laurent"));
         messageStarredRef.setName(QStringLiteral("Laurent"));
         messageStarredRef.setGroupable(false);
@@ -234,7 +234,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // Message Starred
         Message messagePinnedRef;
-        messagePinnedRef.setMessageId(QStringLiteral("4eawfwyFnt7L8wTwE"));
+        messagePinnedRef.setMessageId(QByteArrayLiteral("4eawfwyFnt7L8wTwE"));
         messagePinnedRef.setAlias(QStringLiteral("Laurent"));
         messagePinnedRef.setName(QStringLiteral("Laurent Montel"));
         messagePinnedRef.setGroupable(false);
@@ -257,7 +257,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // Message Remove Starred status
         Message messageStarredRemovedRef;
-        messageStarredRemovedRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
+        messageStarredRemovedRef.setMessageId(QByteArrayLiteral("R6AkSJ7orEkYHNcZJ"));
         messageStarredRemovedRef.setAlias(QStringLiteral("Laurent"));
         messageStarredRemovedRef.setName(QStringLiteral("Laurent"));
         messageStarredRemovedRef.setGroupable(false);
@@ -277,7 +277,7 @@ void MessageTest::shouldParseMessage_data()
     {
         // messageattachmentfile
         Message messageAttachmentFileRef;
-        messageAttachmentFileRef.setMessageId(QStringLiteral("messageid"));
+        messageAttachmentFileRef.setMessageId(QByteArrayLiteral("messageid"));
         messageAttachmentFileRef.setAlias(QStringLiteral("Laurent"));
         messageAttachmentFileRef.setName(QStringLiteral("Laurent Montel"));
         messageAttachmentFileRef.setGroupable(false);
@@ -329,7 +329,7 @@ void MessageTest::shouldSerializeData()
     {
         Message input;
 
-        input.setMessageId(QStringLiteral("ff"));
+        input.setMessageId(QByteArrayLiteral("ff"));
         input.setRoomId(QStringLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
@@ -368,13 +368,13 @@ void MessageTest::shouldSerializeData()
         url1.setUrl(QStringLiteral("foo1"));
         url1.setPageTitle(QStringLiteral("foo2"));
         url1.generateMessageUrlInfo();
-        url1.setUrlId(QStringLiteral("ff_0"));
+        url1.setUrlId(QByteArrayLiteral("ff_0"));
         lstUrls.append(std::move(url1));
         MessageUrl url2;
         url2.setUrl(QStringLiteral("foo5"));
         url2.setPageTitle(QStringLiteral("foo6"));
         url2.generateMessageUrlInfo();
-        url2.setUrlId(QStringLiteral("ff_1"));
+        url2.setUrlId(QByteArrayLiteral("ff_1"));
         lstUrls.append(std::move(url2));
         input.setUrls(lstUrls);
 
@@ -390,7 +390,7 @@ void MessageTest::shouldSerializeData()
     {
         Message input;
 
-        input.setMessageId(QStringLiteral("ff"));
+        input.setMessageId(QByteArrayLiteral("ff"));
         input.setRoomId(QStringLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
@@ -529,7 +529,7 @@ void MessageTest::shouldSerializeData()
         input.setDiscussionLastMessage(666);
 
         // Thread
-        input.setThreadMessageId(QStringLiteral("thread1"));
+        input.setThreadMessageId(QByteArrayLiteral("thread1"));
         input.setThreadLastMessage(7777);
         input.setThreadCount(4);
         const QByteArray ba = Message::serialize(input);

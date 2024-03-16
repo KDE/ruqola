@@ -302,20 +302,20 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
 }
 
-void MessageListDelegate::removeSizeHintCache(const QString &messageId)
+void MessageListDelegate::removeSizeHintCache(const QByteArray &messageId)
 {
     mSizeHintCache.remove(messageId);
 }
 
 void MessageListDelegate::removeMessageCache(const Message *message)
 {
-    const QString messageId = message->messageId();
+    const QByteArray messageId = message->messageId();
     removeSizeHintCache(messageId);
     mHelperText->removeMessageCache(messageId);
 
     const auto attachments{message->attachments()};
     for (const auto &attachment : attachments) {
-        const QString attachmentId = attachment.attachmentId();
+        const QByteArray attachmentId = attachment.attachmentId();
         mHelperAttachmentImage->removeMessageCache(attachmentId);
         mHelperAttachmentFile->removeMessageCache(attachmentId);
         mHelperAttachmentVideo->removeMessageCache(attachmentId);
@@ -639,7 +639,7 @@ void MessageListDelegate::clearSizeHintCache()
     mSizeHintCache.clear();
 }
 
-QString MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -654,7 +654,7 @@ MessageDelegateHelperUrlPreview *MessageListDelegate::helperUrlPreview() const
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
@@ -716,7 +716,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
             mEmoticonMenuWidget->show();
             connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [=](const QString &id) {
-                mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
+                mRocketChatAccount->reactOnMessage(QString::fromLatin1(message->messageId()), id, true /*add*/);
             });
             return true;
         }
@@ -736,7 +736,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 const bool threadIsFollowing = message->replies().contains(QString::fromLatin1(mRocketChatAccount->userId()));
                 // We show current => use this message
                 const Message threadMessage = *message;
-                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
+                Q_EMIT mRocketChatAccount->openThreadRequested(QString::fromLatin1(message->messageId()),
                                                                threadMessagePreview.isEmpty() ? index.data(MessagesModel::MessageConvertedText).toString()
                                                                                               : threadMessagePreview,
                                                                threadIsFollowing,

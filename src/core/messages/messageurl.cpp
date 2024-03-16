@@ -100,12 +100,12 @@ bool MessageUrl::hasPreviewUrl() const
     return false;
 }
 
-QString MessageUrl::urlId() const
+QByteArray MessageUrl::urlId() const
 {
     return mUrlId;
 }
 
-void MessageUrl::setUrlId(const QString &newUrlId)
+void MessageUrl::setUrlId(const QByteArray &newUrlId)
 {
     mUrlId = newUrlId;
 }

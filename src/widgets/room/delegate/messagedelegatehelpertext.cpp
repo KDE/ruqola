@@ -38,7 +38,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     QString text = index.data(MessagesModel::MessageConvertedText).toString();
-    const QString threadMessageId = message->threadMessageId();
+    const QByteArray threadMessageId = message->threadMessageId();
 
     if (mShowThreadContext && !threadMessageId.isEmpty()) {
         const auto sameAsPreviousMessageThread = [&] {
@@ -70,7 +70,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                 if (msg) {
                                     contextMessage = *msg;
                                 } else if (connectToUpdates) {
-                                    connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                                    connect(messageCache, &MessageCache::messageLoaded, this, [=](const QByteArray &msgId) {
                                         if (msgId == threadMessageId) {
                                             that->updateView(index);
                                         }
@@ -89,7 +89,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     const QString contextText =
                         KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1StringView(": ") + contextMessage.text(), 200);
 
-                    QString needUpdateMessageId;
+                    QByteArray needUpdateMessageId;
                     const int maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
                     const TextConverter::ConvertMessageTextSettings settings(contextText,
                                                                              mRocketChatAccount->userName(),
@@ -105,7 +105,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     int recursiveIndex = 0;
                     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
                     if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
-                        connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                        connect(messageCache, &MessageCache::messageLoaded, this, [=](const QByteArray &msgId) {
                             if (msgId == needUpdateMessageId) {
                                 that->updateView(index);
                             }

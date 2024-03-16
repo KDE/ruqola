@@ -73,8 +73,8 @@ public:
     [[nodiscard]] bool collapsed() const;
     void setCollapsed(bool collapsed);
 
-    [[nodiscard]] QString attachmentId() const;
-    void setAttachmentId(const QString &attachementId);
+    [[nodiscard]] QByteArray attachmentId() const;
+    void setAttachmentId(const QByteArray &attachementId);
 
     [[nodiscard]] bool showAttachment() const;
     void setShowAttachment(bool showAttachment);
@@ -107,7 +107,7 @@ private:
     QString mAuthorName;
     QString mMimeType;
     QString mText;
-    QString mAttachmentId;
+    QByteArray mAttachmentId;
     QString mAuthorIcon;
     QString mAttachmentFieldsText;
     QString mImageUrlPreview;

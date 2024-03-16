@@ -84,7 +84,7 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
@@ -154,9 +154,9 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     return layout;
 }
 
-QString ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QString identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
+    const QByteArray identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }
@@ -164,7 +164,7 @@ QString ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index
 QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     const QString messageStr = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
 
     return documentForDelegate(nullptr, identifier, messageStr, width);

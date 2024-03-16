@@ -31,7 +31,7 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
     mText = object[QLatin1StringView("text")].toString();
     mTitle = object[QLatin1StringView("title")].toString();
     mLink = object[QLatin1StringView("link")].toString();
-    mIdentifier = object[QLatin1StringView("id")].toString();
+    mIdentifier = object[QLatin1StringView("id")].toString().toLatin1();
     mPriority = object[QLatin1StringView("priority")].toInt(-1);
     mRead = object[QLatin1StringView("read")].toBool(false);
     //    if (mPriority != -1) {
@@ -104,12 +104,12 @@ void BannerInfo::setTextArguments(const QStringList &newTextArguments)
     mTextArguments = newTextArguments;
 }
 
-const QString &BannerInfo::identifier() const
+const QByteArray &BannerInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void BannerInfo::setIdentifier(const QString &newIdentifier)
+void BannerInfo::setIdentifier(const QByteArray &newIdentifier)
 {
     mIdentifier = newIdentifier;
 }

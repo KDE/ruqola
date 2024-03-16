@@ -546,7 +546,7 @@ QString Room::displayTopic() const
     }
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(mTopic, {}, {}, {}, emojiManager, messageCache, {}, {});
     int recursiveIndex = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
@@ -598,7 +598,7 @@ QString Room::displayAnnouncement() const
     }
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(mAnnouncement, {}, {}, {}, emojiManager, messageCache, {}, {});
     int recursiveIndex = 0;
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);

@@ -21,7 +21,7 @@ public:
 
     void setModel(CommonMessageFilterProxyModel *model);
 Q_SIGNALS:
-    void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
+    void goToMessageRequested(const QByteArray &messageId, const QString &messageDateTimeUtc);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

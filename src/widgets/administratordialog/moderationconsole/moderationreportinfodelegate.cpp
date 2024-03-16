@@ -75,7 +75,7 @@ void ModerationReportInfoDelegate::paint(QPainter *painter, const QStyleOptionVi
 
 QSize ModerationReportInfoDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         return it->value;
@@ -156,9 +156,9 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
     return layout;
 }
 
-QString ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QString identifier = index.data(ModerationReportInfoModel::ReportIdentifier).toString();
+    const QByteArray identifier = index.data(ModerationReportInfoModel::ReportIdentifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }
@@ -166,7 +166,7 @@ QString ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) 
 QTextDocument *ModerationReportInfoDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = cacheIdentifier(index);
+    const QByteArray messageId = cacheIdentifier(index);
     const QString messageStr = index.data(ModerationReportInfoModel::Message).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageStr, width);
 }

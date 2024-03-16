@@ -51,8 +51,8 @@ public:
     [[nodiscard]] int imageWidth() const;
     void setImageWidth(int newImageWidth);
 
-    [[nodiscard]] QString urlId() const;
-    void setUrlId(const QString &newUrlId);
+    [[nodiscard]] QByteArray urlId() const;
+    void setUrlId(const QByteArray &newUrlId);
 
     [[nodiscard]] bool showPreview() const;
     void setShowPreview(bool newShowPreview);
@@ -87,7 +87,7 @@ private:
     QString mAuthorUrl;
     QString mSiteUrl;
     QString mSiteName;
-    QString mUrlId;
+    QByteArray mUrlId;
     QString mHtmlDescription;
     QString mImageBuildUrl;
     int mImageHeight = -1;

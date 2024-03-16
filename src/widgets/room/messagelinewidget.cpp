@@ -127,7 +127,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
         if (mMessageIdBeingEdited.isEmpty() && mQuotePermalink.isEmpty()) {
             if (msg.startsWith(QLatin1Char('/'))) {
                 // a command ?
-                if (mCurrentRocketChatAccount->runCommand(msg, roomId(), mThreadMessageId)) {
+                if (mCurrentRocketChatAccount->runCommand(msg, roomId(), QString::fromLatin1(mThreadMessageId))) {
                     setMode(MessageLineWidget::EditingMode::NewMessage);
                     return;
                 }
@@ -173,21 +173,21 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(roomId(), msg);
             } else {
-                mCurrentRocketChatAccount->replyOnThread(roomId(), mThreadMessageId, msg);
+                mCurrentRocketChatAccount->replyOnThread(roomId(), QString::fromLatin1(mThreadMessageId), msg);
                 if (!mReplyInThreadDialogBox) {
                     setThreadMessageId({});
                 }
             }
         } else if (!mMessageIdBeingEdited.isEmpty()) {
             // TODO check message size
-            mCurrentRocketChatAccount->updateMessage(roomId(), mMessageIdBeingEdited, msg);
+            mCurrentRocketChatAccount->updateMessage(roomId(), QString::fromLatin1(mMessageIdBeingEdited), msg);
             clearMessageIdBeingEdited();
         } else if (!mQuotePermalink.isEmpty()) {
             const QString newMessage = QStringLiteral("[ ](%1) %2").arg(mQuotePermalink, msg);
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(roomId(), newMessage);
             } else {
-                mCurrentRocketChatAccount->replyOnThread(roomId(), mThreadMessageId, newMessage);
+                mCurrentRocketChatAccount->replyOnThread(roomId(), QString::fromLatin1(mThreadMessageId), newMessage);
                 if (!mReplyInThreadDialogBox) {
                     setThreadMessageId({});
                 }
@@ -206,7 +206,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.messageText = QString();
     info.filenameUrl = uploadFileInfo.fileUrl;
     info.roomId = roomId();
-    info.threadMessageId = mThreadMessageId;
+    info.threadMessageId = QString::fromLatin1(mThreadMessageId);
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
 
@@ -257,7 +257,7 @@ void MessageLineWidget::clearMessageIdBeingEdited()
     setMode(MessageLineWidget::EditingMode::NewMessage);
 }
 
-void MessageLineWidget::setEditMessage(const QString &messageId, const QString &text)
+void MessageLineWidget::setEditMessage(const QByteArray &messageId, const QString &text)
 {
     // Remove old mark as editing
     clearEditingMode();
@@ -399,12 +399,12 @@ void MessageLineWidget::slotSendFile()
     delete dlg;
 }
 
-QString MessageLineWidget::threadMessageId() const
+QByteArray MessageLineWidget::threadMessageId() const
 {
     return mThreadMessageId;
 }
 
-void MessageLineWidget::setThreadMessageId(const QString &threadMessageId, const QString &text, bool replyInDialogBox)
+void MessageLineWidget::setThreadMessageId(const QByteArray &threadMessageId, const QString &text, bool replyInDialogBox)
 {
     mReplyInThreadDialogBox = replyInDialogBox;
 
@@ -442,12 +442,12 @@ void MessageLineWidget::slotTextEditing(bool clearNotification)
     mCurrentRocketChatAccount->textEditing(roomId(), clearNotification);
 }
 
-QString MessageLineWidget::messageIdBeingEdited() const
+QByteArray MessageLineWidget::messageIdBeingEdited() const
 {
     return mMessageIdBeingEdited;
 }
 
-void MessageLineWidget::setMessageIdBeingEdited(const QString &messageIdBeingEdited)
+void MessageLineWidget::setMessageIdBeingEdited(const QByteArray &messageIdBeingEdited)
 {
     mMessageIdBeingEdited = messageIdBeingEdited;
 }

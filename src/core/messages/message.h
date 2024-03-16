@@ -91,8 +91,8 @@ public:
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &messageId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &messageId);
 
     [[nodiscard]] QString text() const;
     void setText(const QString &text);
@@ -170,8 +170,8 @@ public:
     [[nodiscard]] QByteArray discussionRoomId() const;
     void setDiscussionRoomId(const QByteArray &discussionRoomId);
 
-    [[nodiscard]] QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId);
+    [[nodiscard]] QByteArray threadMessageId() const;
+    void setThreadMessageId(const QByteArray &threadMessageId);
 
     [[nodiscard]] QString displayTime() const;
 
@@ -233,7 +233,7 @@ public:
     void setMessageStates(const MessageStates &newMessageStates);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QString generateUniqueId(const QString &messageId, int index);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QByteArray generateUniqueId(const QByteArray &messageId, int index);
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
     LIBRUQOLACORE_NO_EXPORT void parseUrls(const QJsonArray &urls);
@@ -287,7 +287,7 @@ private:
     QString mRole;
 
     // _id
-    QString mMessageId;
+    QByteArray mMessageId;
 
     // msg
     QString mText;
@@ -316,7 +316,7 @@ private:
     QByteArray mDiscussionRoomId;
 
     // tmid
-    QString mThreadMessageId;
+    QByteArray mThreadMessageId;
 
     // ts
     QString mDisplayTime;

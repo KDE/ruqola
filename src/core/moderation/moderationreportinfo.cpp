@@ -21,7 +21,7 @@ bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
 
 void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)
 {
-    mReportIdentifier = o[QLatin1StringView("_id")].toString();
+    mReportIdentifier = o[QLatin1StringView("_id")].toString().toLatin1();
     mDescription = o[QLatin1StringView("description")].toString();
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
     parseRoom(o[QLatin1StringView("room")].toObject());
@@ -59,19 +59,19 @@ void ModerationReportInfo::setDescription(const QString &newDescription)
     mDescription = newDescription;
 }
 
-QString ModerationReportInfo::reportIdentifier() const
+QByteArray ModerationReportInfo::reportIdentifier() const
 {
     return mReportIdentifier;
 }
 
-void ModerationReportInfo::setReportIdentifier(const QString &newReportIdentifier)
+void ModerationReportInfo::setReportIdentifier(const QByteArray &newReportIdentifier)
 {
     mReportIdentifier = newReportIdentifier;
 }
 
 void ModerationReportInfo::parseReportedBy(const QJsonObject &o)
 {
-    mUserId = o[QLatin1StringView("_id")].toString();
+    mUserId = o[QLatin1StringView("_id")].toString().toLatin1();
     mUserName = o[QLatin1StringView("username")].toString();
     // TODO
 }
@@ -86,12 +86,12 @@ void ModerationReportInfo::setUserName(const QString &newUserName)
     mUserName = newUserName;
 }
 
-QString ModerationReportInfo::userId() const
+QByteArray ModerationReportInfo::userId() const
 {
     return mUserId;
 }
 
-void ModerationReportInfo::setUserId(const QString &newUserId)
+void ModerationReportInfo::setUserId(const QByteArray &newUserId)
 {
     mUserId = newUserId;
 }

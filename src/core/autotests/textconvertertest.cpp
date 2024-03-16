@@ -136,7 +136,7 @@ void TextConverterTest::shouldConvertText()
     QEXPECT_FAIL("multi star", "Bug in KF5", Continue);
     QEXPECT_FAIL("Remove <br/>", "Bug in KF5", Continue);
 
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
     int recursiveIndex = 0;
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex),
@@ -190,7 +190,7 @@ void TextConverterTest::shouldHighlightWords()
 
     output = prepareExpectedOutput(output);
 
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
@@ -222,7 +222,7 @@ void TextConverterTest::shouldHighlightText()
     QFETCH(QString, output);
 
     output = prepareExpectedOutput(output);
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
@@ -365,7 +365,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.loadCustomEmoji(obj);
     manager.setServerUrl(serverUrl);
 
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {});
     auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
@@ -423,7 +423,7 @@ void TextConverterTest::shouldShowChannels()
     QFETCH(map, channels);
 
     output = prepareExpectedOutput(output);
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
@@ -438,7 +438,7 @@ void TextConverterTest::shouldShowUsers()
     QFETCH(map, channels);
 
     output = prepareExpectedOutput(output);
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
@@ -521,7 +521,7 @@ void TextConverterTest::shouldShowSearchedText()
 
     output = prepareExpectedOutput(output);
 
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, searchedText);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);

@@ -25,7 +25,7 @@ public:
     [[nodiscard]] QDateTime dateTime() const;
     void setDateTime(const QDateTime &newDateTime);
 
-    [[nodiscard]] QString identifier() const;
+    [[nodiscard]] QByteArray identifier() const;
 
     [[nodiscard]] QString dateTimeStr() const;
 
@@ -35,7 +35,7 @@ private:
     QString mAccountName;
     QString mMessage;
     QDateTime mDateTime;
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mDateTimeStr;
 };
 Q_DECLARE_TYPEINFO(ServerErrorInfo, Q_RELOCATABLE_TYPE);

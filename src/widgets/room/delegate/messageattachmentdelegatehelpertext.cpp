@@ -97,7 +97,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessagesModel::AttachmentAndUrlPreviewVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
-            attachmentVisibility.ElementId = msgAttach.attachmentId();
+            attachmentVisibility.elementId = msgAttach.attachmentId();
             auto model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessagesModel::DisplayAttachment);
             return true;
@@ -156,7 +156,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
 
 QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(const MessageAttachment &msgAttach, int width) const
 {
-    const QString attachmentId = msgAttach.attachmentId();
+    const QByteArray attachmentId = msgAttach.attachmentId();
     auto it = mDocumentCache.find(attachmentId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
@@ -190,7 +190,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
     } else {
         // Use TextConverter in case it starts with a [](URL) reply marker
         auto *rcAccount = mRocketChatAccount;
-        QString needUpdateMessageId;
+        QByteArray needUpdateMessageId;
         int maximumRecursiveQuotedText = -1;
         if (rcAccount) {
             maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();

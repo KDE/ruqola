@@ -35,7 +35,7 @@ void UpdateVideoConferenceMessageJob::start()
         auto messageModel = room->messageModel();
         // Search messages
         if (messageModel) {
-            Message msg = messageModel->findMessageById(mVideoConferenceInfo.messageId());
+            Message msg = messageModel->findMessageById(mVideoConferenceInfo.messageId().toLatin1());
             msg.setVideoConferenceInfo(std::move(mVideoConferenceInfo));
             // qDebug() << " msg " << msg;
             mRocketChatAccount->addMessageToDataBase(room->displayFName(), msg);

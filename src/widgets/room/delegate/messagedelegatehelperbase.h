@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, 
 {
 public:
     struct DocumentDescriptionInfo {
-        QString documentId;
+        QByteArray documentId;
         QString description;
         int width = -1;
     };
@@ -26,7 +26,7 @@ public:
 
     virtual void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
-    void removeMessageCache(const QString &messageId) override;
+    void removeMessageCache(const QByteArray &messageId) override;
 
     void clearTextDocumentCache();
 

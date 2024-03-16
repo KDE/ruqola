@@ -509,7 +509,7 @@ void RoomWidget::slotTeamChannelsRequested()
     dlg.exec();
 }
 
-void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+void RoomWidget::slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage)
 {
     mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, mRoomHeaderWidget->roomName());
 }
@@ -554,9 +554,9 @@ void RoomWidget::storeRoomSettings()
         } else {
             AccountRoomSettings::PendingTypedInfo info;
             info.text = mRoomWidgetBase->messageLineWidget()->text();
-            info.messageIdBeingEdited = mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited();
+            info.messageIdBeingEdited = QString::fromLatin1(mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited());
             info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
-            info.threadMessageId = mRoomWidgetBase->messageLineWidget()->threadMessageId();
+            info.threadMessageId = QString::fromLatin1(mRoomWidgetBase->messageLineWidget()->threadMessageId());
             info.quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink();
             info.quoteText = mRoomWidgetBase->messageLineWidget()->quoteText();
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
@@ -584,9 +584,9 @@ void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomTy
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     if (currentPendingInfo.isValid()) {
         mRoomWidgetBase->messageLineWidget()->setQuoteMessage(currentPendingInfo.quotePermalink, currentPendingInfo.quoteText);
-        mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId);
+        mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId.toLatin1());
         mRoomWidgetBase->messageLineWidget()->setText(currentPendingInfo.text);
-        mRoomWidgetBase->messageLineWidget()->setMessageIdBeingEdited(currentPendingInfo.messageIdBeingEdited);
+        mRoomWidgetBase->messageLineWidget()->setMessageIdBeingEdited(currentPendingInfo.messageIdBeingEdited.toLatin1());
         if (currentPendingInfo.scrollbarPosition != -1) {
             mRoomWidgetBase->messageListView()->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
         }
@@ -709,7 +709,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
     MessagesModel *roomMessageModel = mCurrentRocketChatAccount->messageModelForRoom(mRoomWidgetBase->roomId());
     if (roomMessageModel->rowCount() >= numberOfMessage) {
-        const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
+        const QByteArray messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
     } else {
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
@@ -745,7 +745,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
             //                qDebug() << " numberOfMessage " << numberOfMessage;
             //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
 
-            const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
+            const QByteArray messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
             mRoomWidgetBase->messageListView()->goToMessage(messageId);
         });
         if (!job->start()) {
@@ -754,12 +754,12 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
     }
 }
 
-void RoomWidget::scrollToMessageId(const QString &messageId)
+void RoomWidget::scrollToMessageId(const QByteArray &messageId)
 {
     slotGotoMessage(messageId, {});
 }
 
-void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc)
+void RoomWidget::slotGotoMessage(const QByteArray &messageId, const QString &messageDateTimeUtc)
 {
     MessageListView *messageListView = mRoomWidgetBase->messageListView();
     auto messageModel = qobject_cast<MessagesModel *>(messageListView->model());

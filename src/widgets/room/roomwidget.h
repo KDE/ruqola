@@ -50,7 +50,7 @@ public:
     void storeRoomSettings();
 
     void setLayoutSpacing(int spacing);
-    void scrollToMessageId(const QString &messageId);
+    void scrollToMessageId(const QByteArray &messageId);
 
     void forceLineEditFocus();
 
@@ -69,7 +69,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setRoomType(Room::RoomType roomType);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotEncryptedChanged(bool b);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGoBackToRoom();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreatePrivateDiscussion(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessages();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionRequested(RoomHeaderWidget::ChannelActionType type);
@@ -95,7 +95,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void clearBeforeSwitching();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamChannelsRequested();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJumpToUnreadMessage(qint64 numberOfMessage);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotGotoMessage(const QByteArray &messageId, const QString &messageDateTimeUtc);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QString &teamId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTryReconnect();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisplayReconnectWidget(int seconds);

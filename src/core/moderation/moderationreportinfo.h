@@ -19,8 +19,8 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &newDescription);
 
-    [[nodiscard]] QString reportIdentifier() const;
-    void setReportIdentifier(const QString &newReportIdentifier);
+    [[nodiscard]] QByteArray reportIdentifier() const;
+    void setReportIdentifier(const QByteArray &newReportIdentifier);
 
     void parseModerationReportInfo(const QJsonObject &o);
 
@@ -30,8 +30,8 @@ public:
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &newUserId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &newUserId);
 
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);
@@ -43,10 +43,10 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseReportedBy(const QJsonObject &o);
     QString mTimeStampDateTimeStr;
     QString mDescription;
-    QString mReportIdentifier;
+    QByteArray mReportIdentifier;
     QString mRoomId;
     QString mUserName;
-    QString mUserId;
+    QByteArray mUserId;
     qint64 mTimeStamp = -1;
 };
 Q_DECLARE_METATYPE(ModerationReportInfo)

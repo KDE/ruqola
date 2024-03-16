@@ -51,7 +51,7 @@ void MessagesModel::deactivate()
     }
 }
 
-Message MessagesModel::findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
+Message MessagesModel::findLastMessageBefore(const QByteArray &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId); // if it == end, we'll start from there
     auto rit = QList<Message>::const_reverse_iterator(it); // this points to *it-1 already
@@ -59,7 +59,7 @@ Message MessagesModel::findLastMessageBefore(const QString &messageId, const std
     return rit == mAllMessages.rend() ? Message() : *rit;
 }
 
-Message MessagesModel::findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const
+Message MessagesModel::findNextMessageAfter(const QByteArray &messageId, const std::function<bool(const Message &)> &predicate) const
 {
     auto it = findMessage(messageId);
     if (it == mAllMessages.end()) {
@@ -71,13 +71,13 @@ Message MessagesModel::findNextMessageAfter(const QString &messageId, const std:
     return it == mAllMessages.end() ? Message() : *it;
 }
 
-Message MessagesModel::findMessageById(const QString &messageId) const
+Message MessagesModel::findMessageById(const QByteArray &messageId) const
 {
     auto it = findMessage(messageId);
     return it == mAllMessages.end() ? Message() : *it;
 }
 
-QModelIndex MessagesModel::indexForMessage(const QString &messageId) const
+QModelIndex MessagesModel::indexForMessage(const QByteArray &messageId) const
 {
     auto it = findMessage(messageId);
     if (it == mAllMessages.end()) {
@@ -87,7 +87,7 @@ QModelIndex MessagesModel::indexForMessage(const QString &messageId) const
     return idx;
 }
 
-QString MessagesModel::messageIdFromIndex(int rowIndex)
+QByteArray MessagesModel::messageIdFromIndex(int rowIndex)
 {
     if (rowIndex >= 0 && rowIndex < mAllMessages.count()) {
         return mAllMessages.at(rowIndex).messageId();
@@ -388,7 +388,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         auto attachments = message.attachments();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
             const MessageAttachment att = attachments.at(i);
-            if (att.attachmentId() == visibility.ElementId) {
+            if (att.attachmentId() == visibility.elementId) {
                 MessageAttachment changeAttachment = attachments.takeAt(i);
                 changeAttachment.setShowAttachment(visibility.show);
                 attachments.insert(i, changeAttachment);
@@ -404,7 +404,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         auto urls = message.urls();
         for (int i = 0, total = urls.count(); i < total; ++i) {
             const MessageUrl att = urls.at(i);
-            if (att.urlId() == visibility.ElementId) {
+            if (att.urlId() == visibility.elementId) {
                 MessageUrl changeUrlPreview = urls.takeAt(i);
                 changeUrlPreview.setShowPreview(visibility.show);
                 urls.insert(i, changeUrlPreview);
@@ -477,7 +477,7 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
         }
     }
 
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(messageStr,
                                                              userName,
                                                              mAllMessages,
@@ -513,7 +513,7 @@ void MessagesModel::clear()
     }
 }
 
-void MessagesModel::changeShowOriginalMessage(const QString &messageId, bool showOriginal)
+void MessagesModel::changeShowOriginalMessage(const QByteArray &messageId, bool showOriginal)
 {
     Q_UNUSED(showOriginal)
     auto it = findMessage(messageId);
@@ -562,7 +562,7 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
     }
 }
 
-void MessagesModel::deleteMessage(const QString &messageId)
+void MessagesModel::deleteMessage(const QByteArray &messageId)
 {
     auto it = findMessage(messageId);
     if (it != mAllMessages.end()) {
@@ -578,7 +578,7 @@ qint64 MessagesModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
 }
 
-Message MessagesModel::threadMessage(const QString &threadMessageId) const
+Message MessagesModel::threadMessage(const QByteArray &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
@@ -591,7 +591,7 @@ Message MessagesModel::threadMessage(const QString &threadMessageId) const
     return Message{};
 }
 
-QString MessagesModel::threadMessagePreview(const QString &threadMessageId) const
+QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
@@ -609,7 +609,7 @@ QString MessagesModel::threadMessagePreview(const QString &threadMessageId) cons
     return {};
 }
 
-bool MessagesModel::threadMessageFollowed(const QString &threadMessageId) const
+bool MessagesModel::threadMessageFollowed(const QByteArray &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = findMessage(threadMessageId);
@@ -626,14 +626,14 @@ bool MessagesModel::threadMessageFollowed(const QString &threadMessageId) const
     return false;
 }
 
-QList<Message>::iterator MessagesModel::findMessage(const QString &messageId)
+QList<Message>::iterator MessagesModel::findMessage(const QByteArray &messageId)
 {
     return std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         return msg.messageId() == messageId;
     });
 }
 
-QList<Message>::const_iterator MessagesModel::findMessage(const QString &messageId) const
+QList<Message>::const_iterator MessagesModel::findMessage(const QByteArray &messageId) const
 {
     return std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [&](const Message &msg) {
         return msg.messageId() == messageId;

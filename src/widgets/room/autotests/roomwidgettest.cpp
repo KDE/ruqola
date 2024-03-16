@@ -163,7 +163,7 @@ void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
     auto mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
     QVERIFY(mMessageLineWidget);
 
-    mMessageLineWidget->setThreadMessageId(QStringLiteral("placeholder"));
+    mMessageLineWidget->setThreadMessageId(QByteArrayLiteral("placeholder"));
     loop.processEvents();
     QVERIFY(!mRoomReplyThreadWidget->isHidden());
 

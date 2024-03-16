@@ -115,7 +115,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
@@ -218,9 +218,9 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     return layout;
 }
 
-QString NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QString identifier = index.data(NotificationHistoryModel::MessageId).toString();
+    const QByteArray identifier = index.data(NotificationHistoryModel::MessageId).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }
@@ -228,7 +228,7 @@ QString NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) c
 QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = cacheIdentifier(index);
+    const QByteArray messageId = cacheIdentifier(index);
     const QString messageStr = index.data(NotificationHistoryModel::MessageStr).toString();
     auto *rcAccount = rocketChatAccount(index);
     return documentForDelegate(rcAccount, messageId, messageStr, width);

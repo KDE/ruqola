@@ -31,20 +31,20 @@ public:
 Q_SIGNALS:
     void roomSelected(const ChannelListView::ChannelSelectedInfo &roomInfo);
     void roomPressed(const QString &roomId);
-    void selectMessageIdRequested(const QString &messageId);
+    void selectMessageIdRequested(const QByteArray &messageId);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void selectMessageId(const QString &messageId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectMessageId(const QByteArray &messageId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAccountInitialized();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRoomTextChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void clearFilterChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenLinkRequested(const QString &link);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void applyChannelSelection();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectMessageRequested(const QString &messageId,
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectMessageRequested(const QByteArray &messageId,
                                                                const QString &roomId,
                                                                ParseRocketChatUrlUtils::RoomIdType roomType,
                                                                ParseRocketChatUrlUtils::ChannelType channelType);

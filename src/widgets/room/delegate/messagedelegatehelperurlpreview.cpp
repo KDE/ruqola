@@ -186,7 +186,7 @@ bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &message
         if (layout.hideShowButtonRect.translated(previewRect.topLeft()).contains(pos)) {
             MessagesModel::AttachmentAndUrlPreviewVisibility previewUrlVisibility;
             previewUrlVisibility.show = !layout.isShown;
-            previewUrlVisibility.ElementId = messageUrl.urlId();
+            previewUrlVisibility.elementId = messageUrl.urlId();
             auto model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, QVariant::fromValue(previewUrlVisibility), MessagesModel::DisplayUrlPreview);
             return true;

@@ -379,12 +379,12 @@ void MessageAttachment::setCollapsed(bool collapsed)
     mCollapsed = collapsed;
 }
 
-QString MessageAttachment::attachmentId() const
+QByteArray MessageAttachment::attachmentId() const
 {
     return mAttachmentId;
 }
 
-void MessageAttachment::setAttachmentId(const QString &attachementId)
+void MessageAttachment::setAttachmentId(const QByteArray &attachementId)
 {
     mAttachmentId = attachementId;
 }

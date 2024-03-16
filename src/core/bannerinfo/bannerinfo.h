@@ -38,8 +38,8 @@ public:
     [[nodiscard]] const QStringList &textArguments() const;
     void setTextArguments(const QStringList &newTextArguments);
 
-    [[nodiscard]] const QString &identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    [[nodiscard]] const QByteArray &identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] int priority() const;
     void setPriority(int newPriority);
@@ -51,7 +51,7 @@ private:
     QString mText;
     QString mTitle;
     QString mLink;
-    QString mIdentifier;
+    QByteArray mIdentifier;
     int mPriority = -1;
     bool mRead = false;
 };

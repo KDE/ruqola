@@ -17,10 +17,10 @@ public:
     void clearSizeHintCache();
 
 protected:
-    void removeMessageCache(const QString &messageId) override;
+    void removeMessageCache(const QByteArray &messageId) override;
     void setCacheMaxEntries(int maxEntries) override;
     void clearCache() override;
     // Cache SizeHint value
     // We need to clear it when we resize widget.
-    mutable LRUCache<QString, QSize> mSizeHintCache;
+    mutable LRUCache<QByteArray, QSize> mSizeHintCache;
 };

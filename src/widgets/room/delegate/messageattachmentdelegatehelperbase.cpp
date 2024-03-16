@@ -193,15 +193,15 @@ MessageAttachmentDelegateHelperBase::convertAttachmentToDocumentTypeInfo(Documen
     return info;
 }
 
-QString MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type) const
+QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type) const
 {
     switch (type) {
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Unknown:
         return {};
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Title:
-        return QLatin1StringView("title_");
+        return QByteArrayLiteral("title_");
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Description:
-        return QLatin1StringView("description_");
+        return QByteArrayLiteral("description_");
     }
     return {};
 }

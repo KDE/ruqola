@@ -80,7 +80,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
 
 ThreadMessageWidget::~ThreadMessageWidget() = default;
 
-void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
+void ThreadMessageWidget::slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage)
 {
     mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, QString());
 }
@@ -89,7 +89,7 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
 {
     if (clicked) {
         auto job = new RocketChatRestApi::UnFollowMessageJob(this);
-        job->setMessageId(mThreadMessageId);
+        job->setMessageId(QString::fromLatin1(mThreadMessageId));
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::UnFollowMessageJob::unFollowMessageDone, this, [this]() {
             updateFollowThreadIcon(false); // TODO verify it
@@ -99,7 +99,7 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
         }
     } else {
         auto job = new RocketChatRestApi::FollowMessageJob(this);
-        job->setMessageId(mThreadMessageId);
+        job->setMessageId(QString::fromLatin1(mThreadMessageId));
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, [this]() {
             updateFollowThreadIcon(true); // TODO verify it
@@ -128,9 +128,9 @@ void ThreadMessageWidget::setThreadMessageInfo(const ThreadMessageWidget::Thread
         mRoomWidgetBase->updateRoomReadOnly(mRoom);
     }
     mThreadPreview->setText(info.threadMessagePreview);
-    if (mThreadMessageId != info.threadMessageId) {
-        mThreadMessageId = info.threadMessageId;
-        mRocketChatAccount->getThreadMessages(mThreadMessageId, info.messageThread);
+    if (mThreadMessageId != info.threadMessageId.toLatin1()) {
+        mThreadMessageId = info.threadMessageId.toLatin1();
+        mRocketChatAccount->getThreadMessages(QString::fromLatin1(mThreadMessageId), info.messageThread);
         mRoomWidgetBase->messageListView()->setModel(mRocketChatAccount->threadMessageModel());
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(mThreadMessageId, {}, true);
     }

@@ -314,7 +314,7 @@ QString generateRichText(const QString &str,
 }
 }
 
-QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId, int &recusiveIndex)
+QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QByteArray &needUpdateMessageId, int &recusiveIndex)
 {
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -330,7 +330,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         const int endPos = str.indexOf(QLatin1Char(')'));
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
-        const QString messageId = url.mid(url.indexOf(QLatin1StringView("msg=")) + 4);
+        const QByteArray messageId = url.mid(url.indexOf(QLatin1StringView("msg=")) + 4).toLatin1();
         // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;

@@ -90,7 +90,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
-    const QString identifier = cacheIdentifier(index);
+    const QByteArray identifier = cacheIdentifier(index);
     auto it = mSizeHintCache.find(identifier);
     if (it != mSizeHintCache.end()) {
         const QSize result = it->value;
@@ -243,9 +243,9 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     return layout;
 }
 
-QString ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index) const
 {
-    const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
+    const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
     Q_ASSERT(!discussionRoomId.isEmpty());
     return discussionRoomId;
 }
@@ -253,7 +253,7 @@ QString ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index) const
 QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = cacheIdentifier(index);
+    const QByteArray messageId = cacheIdentifier(index);
     const QString messageStr = index.data(DiscussionsModel::Description).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageStr, width);
 }

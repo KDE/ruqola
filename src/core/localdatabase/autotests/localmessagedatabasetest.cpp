@@ -57,7 +57,7 @@ void LocalMessageDatabaseTest::shouldStoreMessages()
     message1.setText(QString::fromUtf8("Message text: €1"));
     message1.setUsername(QString::fromUtf8("Hervé"));
     message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50, 50)).toMSecsSinceEpoch());
-    message1.setMessageId(QStringLiteral("msg-1"));
+    message1.setMessageId(QByteArrayLiteral("msg-1"));
     logger.addMessage(accountName(), roomName(), message1);
 
     message1.setText(QString::fromUtf8("Message text: €2"));
@@ -68,14 +68,14 @@ void LocalMessageDatabaseTest::shouldStoreMessages()
     message2.setText(QString::fromUtf8("Message text: ßĐ"));
     message2.setUsername(QString::fromUtf8("Joe"));
     message2.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 40, 50)).toMSecsSinceEpoch()); // earlier
-    message2.setMessageId(QStringLiteral("msg-2"));
+    message2.setMessageId(QByteArrayLiteral("msg-2"));
     logger.addMessage(accountName(), roomName(), message2);
 
     Message messageOtherRoom;
     messageOtherRoom.setText(QString::fromUtf8("Message other room"));
     messageOtherRoom.setUsername(QString::fromUtf8("Joe"));
     messageOtherRoom.setTimeStamp(QDateTime(QDate(2022, 6, 7), QTime(23, 30, 50)).toMSecsSinceEpoch());
-    messageOtherRoom.setMessageId(QStringLiteral("msg-other-1"));
+    messageOtherRoom.setMessageId(QByteArrayLiteral("msg-other-1"));
     logger.addMessage(accountName(), otherRoomName(), messageOtherRoom);
 
     // WHEN
@@ -147,7 +147,7 @@ void LocalMessageDatabaseTest::shouldExtractMessages()
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
         message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50 + i, 50)).toMSecsSinceEpoch());
-        message1.setMessageId(QStringLiteral("msg-%1").arg(i));
+        message1.setMessageId(QStringLiteral("msg-%1").arg(i).toLatin1());
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN
@@ -203,7 +203,7 @@ void LocalMessageDatabaseTest::shouldExtractSpecificNumberOfMessages()
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
         message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 1 + i, 50)).toMSecsSinceEpoch());
-        message1.setMessageId(QStringLiteral("msg-%1").arg(i));
+        message1.setMessageId(QStringLiteral("msg-%1").arg(i).toLatin1());
         logger.addMessage(accountName(), roomName(), message1);
     }
     // WHEN

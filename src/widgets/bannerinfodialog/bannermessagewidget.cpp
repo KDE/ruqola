@@ -35,7 +35,7 @@ void BannerMessageWidget::slotReadInfo()
     } else {
         const auto info = mBannerInfos.takeFirst();
 
-        Q_EMIT infoWasRead(info.identifier);
+        Q_EMIT infoWasRead(QString::fromLatin1(info.identifier));
         updateInfo();
     }
 }

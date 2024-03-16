@@ -688,7 +688,7 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
     auto account = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
     if (account) {
         // const QString path{parseUrl.path()};
-        const QString messageId = parseInfo.messageId;
+        const QByteArray messageId = parseInfo.messageId.toLatin1();
         qCDebug(RUQOLA_LOG) << " parseUrl " << parseInfo;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(account->accountName());

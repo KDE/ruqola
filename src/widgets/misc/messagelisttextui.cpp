@@ -18,7 +18,7 @@ void MessageListTextUi::clearSizeHintCache()
 
 MessageListTextUi::~MessageListTextUi() = default;
 
-void MessageListTextUi::removeMessageCache(const QString &messageId)
+void MessageListTextUi::removeMessageCache(const QByteArray &messageId)
 {
     mSizeHintCache.remove(messageId);
     TextUiBase::removeMessageCache(messageId);

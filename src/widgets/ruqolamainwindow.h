@@ -98,7 +98,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFullScreen(bool t);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenNotificationHistory();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotNewNotification();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyMessage(const QString &accountName, const QByteArray &messageId, const QString &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdministratorServerSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRocketChatInformation();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasBannerInfo() const;

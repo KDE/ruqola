@@ -14,7 +14,7 @@ TextUiBase::TextUiBase(TextSelectionImpl *textSelectionImpl, QListView *view)
 
 TextUiBase::~TextUiBase() = default;
 
-void TextUiBase::removeMessageCache(const QString &messageId)
+void TextUiBase::removeMessageCache(const QByteArray &messageId)
 {
     mDocumentCache.remove(messageId);
 }

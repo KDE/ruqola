@@ -431,7 +431,7 @@ void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const Q
 {
     MessagesModel *model = mRoomModel->messageModel(roomId);
     if (model) {
-        model->changeShowOriginalMessage(messageId, showOriginal);
+        model->changeShowOriginalMessage(messageId.toLatin1(), showOriginal);
     } else {
         qCWarning(RUQOLA_LOG) << "impossible to find room: " << roomId;
     }
@@ -1019,7 +1019,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
         const auto listMessages = messages.listMessages();
         for (const auto &msg : listMessages) {
             QJsonObject params;
-            params.insert(QStringLiteral("tmid"), msg.messageId());
+            params.insert(QStringLiteral("tmid"), QString::fromLatin1(msg.messageId()));
             mDdp->method(QStringLiteral("getThreadMessages"), QJsonDocument(params), [](const QJsonObject &reply, RocketChatAccount *account) {
                 // don't trigger warning about unhandled replies
                 Q_UNUSED(reply)
@@ -1135,7 +1135,7 @@ void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 
 void RocketChatAccount::updateThreadMessageList(const Message &m)
 {
-    if (mThreadMessageModel->threadMessageId() == m.threadMessageId()) {
+    if (mThreadMessageModel->threadMessageId().toLatin1() == m.threadMessageId()) {
         mThreadMessageModel->addMessages({m});
     }
 }

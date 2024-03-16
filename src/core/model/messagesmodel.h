@@ -22,7 +22,7 @@ class LIBRUQOLACORE_EXPORT MessagesModel : public QAbstractListModel
 public:
     struct LIBRUQOLACORE_EXPORT AttachmentAndUrlPreviewVisibility {
         bool show = false;
-        QString ElementId;
+        QByteArray elementId;
     };
     enum MessageRoles {
         Username = Qt::UserRole + 1,
@@ -115,7 +115,7 @@ public:
      */
     [[nodiscard]] qint64 lastTimestamp() const;
 
-    void deleteMessage(const QString &messageId);
+    void deleteMessage(const QByteArray &messageId);
 
     [[nodiscard]] qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
@@ -124,24 +124,24 @@ public:
 
     void clear();
 
-    void changeShowOriginalMessage(const QString &messageId, bool showOriginal);
+    void changeShowOriginalMessage(const QByteArray &messageId, bool showOriginal);
 
     [[nodiscard]] QString roomId() const;
 
     void activate();
     void deactivate();
 
-    [[nodiscard]] Message findLastMessageBefore(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
-    [[nodiscard]] Message findNextMessageAfter(const QString &messageId, const std::function<bool(const Message &)> &predicate) const;
-    [[nodiscard]] Message findMessageById(const QString &messageId) const;
-    [[nodiscard]] QModelIndex indexForMessage(const QString &messageId) const;
+    [[nodiscard]] Message findLastMessageBefore(const QByteArray &messageId, const std::function<bool(const Message &)> &predicate) const;
+    [[nodiscard]] Message findNextMessageAfter(const QByteArray &messageId, const std::function<bool(const Message &)> &predicate) const;
+    [[nodiscard]] Message findMessageById(const QByteArray &messageId) const;
+    [[nodiscard]] QModelIndex indexForMessage(const QByteArray &messageId) const;
 
-    [[nodiscard]] QString messageIdFromIndex(int rowIndex);
+    [[nodiscard]] QByteArray messageIdFromIndex(int rowIndex);
 
     [[nodiscard]] QString searchText() const;
     void setSearchText(const QString &searchText);
 
-    [[nodiscard]] Message threadMessage(const QString &threadMessageId) const;
+    [[nodiscard]] Message threadMessage(const QByteArray &threadMessageId) const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
@@ -153,15 +153,15 @@ private:
     LIBRUQOLACORE_NO_EXPORT void addMessage(const Message &message);
 
     LIBRUQOLACORE_NO_EXPORT void refresh();
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QString &threadMessageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QByteArray &threadMessageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QByteArray &userId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
                                                                      const QString &userName,
                                                                      const QStringList &highlightWords,
                                                                      const QString &searchedText) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QString &threadMessageId) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::iterator findMessage(const QString &messageId);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::const_iterator findMessage(const QString &messageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QByteArray &threadMessageId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::iterator findMessage(const QByteArray &messageId);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QList<Message>::const_iterator findMessage(const QByteArray &messageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
 
     QString mSearchText;

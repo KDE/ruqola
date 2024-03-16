@@ -220,14 +220,14 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messag
     auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
     for (const auto &message : messageIds) {
         const QString messageId{message};
-        messageModel->deleteMessage(messageId);
+        messageModel->deleteMessage(messageId.toLatin1());
         Room *room = mRocketChatAccount->room(roomId);
         if (room) {
             mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
         }
         // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
         MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
-        threadMessageModel->deleteMessage(messageId);
+        threadMessageModel->deleteMessage(messageId.toLatin1());
     }
 }
 
@@ -608,14 +608,14 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             if (messageModel) {
                 const QString messageId = contents.at(0).toObject()[QLatin1StringView("_id")].toString();
-                messageModel->deleteMessage(messageId);
+                messageModel->deleteMessage(messageId.toLatin1());
                 Room *room = mRocketChatAccount->room(roomId);
                 if (room) {
                     mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
                 }
                 // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
                 MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
-                threadMessageModel->deleteMessage(messageId);
+                threadMessageModel->deleteMessage(messageId.toLatin1());
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
