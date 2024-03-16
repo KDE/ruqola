@@ -27,7 +27,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageInfo {
         Message messageThread;
-        QString threadMessageId;
+        QByteArray threadMessageId;
         QString threadMessagePreview;
         Room *room = nullptr;
         bool threadIsFollowing = false;

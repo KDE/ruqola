@@ -878,7 +878,7 @@ void RoomWidget::slotGoBackToRoom()
     }
 }
 
-void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId,
+void RoomWidget::slotOpenThreadRequested(const QByteArray &threadMessageId,
                                          const QString &threadMessagePreview,
                                          bool threadIsFollowing,
                                          const Message &threadMessage)

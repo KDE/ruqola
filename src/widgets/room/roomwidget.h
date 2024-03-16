@@ -82,7 +82,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureNotification();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadHistory();
     LIBRUQOLAWIDGETS_NO_EXPORT void
-    slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &threadMessage);
+    slotOpenThreadRequested(const QByteArray &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &threadMessage);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureAutoTranslate();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChannelInfoRequested();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInviteUsers();

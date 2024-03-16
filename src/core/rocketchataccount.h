@@ -565,7 +565,7 @@ Q_SIGNALS:
     void selectRoomByRoomIdRequested(const QString &identifier, const QByteArray &messageId = QByteArray());
     void selectRoomByRoomNameRequested(const QString &identifier);
     void openTeamNameRequested(const QString &identifier);
-    void openThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &message);
+    void openThreadRequested(const QByteArray &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &message);
     void raiseWindow();
     void registerUserSuccess();
     void roomNeedAttention();

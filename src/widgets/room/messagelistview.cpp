@@ -783,7 +783,7 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     }
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
     ThreadMessageWidget::ThreadMessageInfo info;
-    info.threadMessageId = QString::fromLatin1(messageId);
+    info.threadMessageId = messageId;
     info.threadMessagePreview = threadMessagePreview;
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;

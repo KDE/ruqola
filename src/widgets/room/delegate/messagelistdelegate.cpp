@@ -736,7 +736,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 const bool threadIsFollowing = message->replies().contains(QString::fromLatin1(mRocketChatAccount->userId()));
                 // We show current => use this message
                 const Message threadMessage = *message;
-                Q_EMIT mRocketChatAccount->openThreadRequested(QString::fromLatin1(message->messageId()),
+                Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
                                                                threadMessagePreview.isEmpty() ? index.data(MessagesModel::MessageConvertedText).toString()
                                                                                               : threadMessagePreview,
                                                                threadIsFollowing,
