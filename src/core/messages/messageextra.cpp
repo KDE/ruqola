@@ -6,6 +6,14 @@
 
 #include "messageextra.h"
 
-MessageExtra::MessageExtra()
+MessageExtra::MessageExtra() = default;
+
+QString MessageExtra::localTranslation() const
 {
+    return mLocalTranslation;
+}
+
+void MessageExtra::setLocalTranslation(const QString &newLocalTranslation)
+{
+    mLocalTranslation = newLocalTranslation;
 }

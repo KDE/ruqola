@@ -6,8 +6,18 @@
 
 #pragma once
 
-class MessageExtra
+#include <QSharedData>
+#include <QString>
+
+class MessageExtra : public QSharedData
 {
 public:
     MessageExtra();
+
+    [[nodiscard]] QString localTranslation() const;
+    void setLocalTranslation(const QString &newLocalTranslation);
+
+private:
+    // Local translation
+    QString mLocalTranslation;
 };
