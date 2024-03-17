@@ -70,7 +70,11 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     mEmoji = o.value(QLatin1StringView("emoji")).toString();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
-    mMessageTranslation.parse(o);
+    MessageTranslation translation;
+    translation.parse(o);
+    if (!translation.isEmpty()) {
+        setMessageTranslation(translation);
+    }
     assignMessageStateValue(Private, o.value(QLatin1StringView("private")).toBool(false));
 
     mMessageType = Message::MessageType::NormalText;
