@@ -46,7 +46,7 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
     QSqlDatabase db;
     if (initializeDataBase(accountName, _roomName, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceMessageFromLogs(), db);
-        query.addBindValue(m.messageId());
+        query.addBindValue(QString::fromLatin1(m.messageId()));
         query.addBindValue(m.timeStamp());
         query.addBindValue(m.username());
         query.addBindValue(m.text());
