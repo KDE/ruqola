@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-16 00:38+0000\n"
-"PO-Revision-Date: 2024-03-14 11:42+0100\n"
+"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"PO-Revision-Date: 2024-03-15 09:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1355,12 +1355,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2886
+#: core/rocketchataccount.cpp:2876
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2887
+#: core/rocketchataccount.cpp:2877
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -1622,15 +1622,14 @@ msgid "Message deletion is not allowed."
 msgstr "No es permet la supressió de missatges."
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
-#, fuzzy, kde-format
-#| msgid "File sharing not allowed in direct messages"
+#, kde-format
 msgid "Not allowed to get message %1"
-msgstr "No es permet la compartició de fitxers en els missatges directes"
+msgstr "No es permet l'obtenció del missatge %1"
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
-msgstr ""
+msgstr "No es permet l'obtenció del missatge %2 a la sala %1"
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format
@@ -9566,6 +9565,3 @@ msgstr "Corregix el missatge de traducció en el canal directe."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Don't show @here/@all as user."
 msgstr "No mostra @here/@all com a usuari."
-
-#~ msgid "Room topic changed to: %1 by %2"
-#~ msgstr "%2 ha canviat el tema de la sala: %1"
