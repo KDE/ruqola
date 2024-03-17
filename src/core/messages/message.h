@@ -244,7 +244,6 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
 
     // Moderation Message Info
-    // Optimization !!!
     QSharedDataPointer<ModerationMessage> mModerationMessage;
 
     // BackgroundColor
