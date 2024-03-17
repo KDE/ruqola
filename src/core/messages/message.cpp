@@ -1096,6 +1096,9 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mLocalTranslation" << t.localTranslation();
     d.space() << "mDiscussionCount" << t.discussionCount();
     d.space() << "mDiscussionLastMessage" << t.discussionLastMessage();
+    if (t.moderationMessage()) {
+        d.space() << "moderationMessage" << t.moderationMessage();
+    }
 
     for (int i = 0, total = t.blocks().count(); i < total; ++i) {
         d.space() << "block:" << t.blocks().at(i);
