@@ -213,8 +213,6 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.avatar();
     case MessagesModel::EditedAt:
         return message.editedAt();
-    case MessagesModel::EditedByUserName:
-        return message.editedByUsername();
     case MessagesModel::EditedToolTip: {
         QLocale l;
         const QString editedDisplayTime = l.toString(QDateTime::fromMSecsSinceEpoch(message.editedAt()), QLocale::LongFormat);

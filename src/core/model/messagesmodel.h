@@ -37,7 +37,6 @@ public:
         RoomId,
         UpdatedAt,
         EditedAt,
-        EditedByUserName,
         EditedToolTip,
         Alias,
         Avatar,
