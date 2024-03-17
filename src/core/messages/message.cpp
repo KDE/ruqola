@@ -370,14 +370,21 @@ void Message::setPrivateMessage(bool newPrivateMessage)
     assignMessageStateValue(Private, newPrivateMessage);
 }
 
-ModerationMessage Message::moderationMessage() const
+const ModerationMessage *Message::moderationMessage() const
 {
-    return mModerationMessage;
+    if (mModerationMessage) {
+        return mModerationMessage.data();
+    }
+    return nullptr;
 }
 
 void Message::setModerationMessage(const ModerationMessage &newModerationMessage)
 {
-    mModerationMessage = newModerationMessage;
+    if (!mModerationMessage) {
+        mModerationMessage = new ModerationMessage(newModerationMessage);
+    } else {
+        mModerationMessage.reset(new ModerationMessage(newModerationMessage));
+    }
 }
 
 QColor Message::goToMessageBackgroundColor() const

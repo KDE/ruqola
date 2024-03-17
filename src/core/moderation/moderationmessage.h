@@ -10,9 +10,10 @@
 #include <QDebug>
 #include <QString>
 
-class LIBRUQOLACORE_EXPORT ModerationMessage
+class LIBRUQOLACORE_EXPORT ModerationMessage : public QSharedData
 {
 public:
+    explicit ModerationMessage(const ModerationMessage &other);
     ModerationMessage();
     ~ModerationMessage();
 

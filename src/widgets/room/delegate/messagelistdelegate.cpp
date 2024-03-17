@@ -483,8 +483,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Draw date if it differs from the previous message
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
-    if (!message->moderationMessage().isEmpty()) {
-        drawModerationDate(painter, index, option, message->moderationMessage().roomName());
+    if (message->moderationMessage() && !message->moderationMessage()->isEmpty()) {
+        drawModerationDate(painter, index, option, message->moderationMessage()->roomName());
     } else if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         drawDate(painter, index, option, displayLastSeenMessage);
     } else if (displayLastSeenMessage) {

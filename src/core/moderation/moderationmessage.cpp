@@ -10,6 +10,15 @@ ModerationMessage::ModerationMessage() = default;
 
 ModerationMessage::~ModerationMessage() = default;
 
+ModerationMessage::ModerationMessage(const ModerationMessage &other)
+    : QSharedData(other)
+{
+    mModerationId = other.moderationId();
+    mRoomId = other.roomId();
+    mRoomName = other.roomName();
+    mRoomFName = other.roomFName();
+}
+
 QString ModerationMessage::moderationId() const
 {
     return mModerationId;

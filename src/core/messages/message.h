@@ -223,7 +223,7 @@ public:
 
     void setVideoConferenceInfo(const VideoConferenceInfo &info);
 
-    [[nodiscard]] ModerationMessage moderationMessage() const;
+    [[nodiscard]] const ModerationMessage *moderationMessage() const;
     void setModerationMessage(const ModerationMessage &newModerationMessage);
 
     [[nodiscard]] bool privateMessage() const;
@@ -245,7 +245,7 @@ private:
 
     // Moderation Message Info
     // Optimization !!!
-    ModerationMessage mModerationMessage;
+    QSharedDataPointer<ModerationMessage> mModerationMessage;
 
     // BackgroundColor
     QColor mGoToMessageBackgroundColor;
