@@ -166,7 +166,7 @@ void Message::setName(const QString &name)
 
 bool Message::isAutoTranslated() const
 {
-    return !mMessageTranslation.translatedString().isEmpty();
+    return !mMessageTranslation.isEmpty();
 }
 
 bool Message::showTranslatedMessage() const
