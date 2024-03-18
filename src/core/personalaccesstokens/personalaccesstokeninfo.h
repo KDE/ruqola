@@ -31,10 +31,10 @@ public:
     const QString &createAtDisplayDateTime() const;
 
 private:
-    qint64 mCreatedAt = -1;
     QString mLastTokenPart;
     QString mName;
     QString mCreateAtDisplayDateTime;
+    qint64 mCreatedAt = -1;
     bool mBypassTwoFactor = false;
 };
 
