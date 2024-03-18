@@ -132,6 +132,29 @@ void DDPAuthenticationManager::logout()
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
+void DDPAuthenticationManager::logoutAndCleanup()
+{
+    if (checkGenericError()) {
+        return;
+    }
+
+    if (mLoginStatus == AuthenticationManager::LoginStatus::LogoutOngoing) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
+        return;
+    }
+
+    if (isLoggedOut()) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "User is already logged out.";
+        return;
+    }
+
+    // TODO fix parameters!
+    const QString params = sl("[]");
+
+    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::LogoutCleanUp));
+    setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+}
+
 QString DDPAuthenticationManager::userId() const
 {
     return mUserId;
