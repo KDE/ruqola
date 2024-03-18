@@ -14,6 +14,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageExtra : public QSharedData
 {
 public:
     MessageExtra();
+    ~MessageExtra();
 
     [[nodiscard]] QString localTranslation() const;
     void setLocalTranslation(const QString &newLocalTranslation);

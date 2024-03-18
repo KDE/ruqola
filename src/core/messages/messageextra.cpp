@@ -5,8 +5,18 @@
 */
 
 #include "messageextra.h"
+#include "ruqola_message_memory_debug.h"
 
-MessageExtra::MessageExtra() = default;
+MessageExtra::MessageExtra()
+    : QSharedData()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageExtra created " << this;
+}
+
+MessageExtra::~MessageExtra()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageExtra removed " << this;
+}
 
 QString MessageExtra::localTranslation() const
 {
