@@ -19,8 +19,8 @@ public:
 
     void parseModerationInfo(const QJsonObject &replyObject);
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &newUserId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &newUserId);
 
     [[nodiscard]] QString name() const;
     void setName(const QString &newName);
@@ -28,8 +28,8 @@ public:
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);
 
-    [[nodiscard]] QString msgId() const;
-    void setMsgId(const QString &newMsgId);
+    [[nodiscard]] QByteArray msgId() const;
+    void setMsgId(const QByteArray &newMsgId);
 
     [[nodiscard]] int count() const;
     void setCount(int newCount);
@@ -51,10 +51,10 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoomList(const QJsonArray &rooms);
     QStringList mRoomList;
-    QString mUserId;
+    QByteArray mUserId;
     QString mName;
     QString mUserName;
-    QString mMsgId;
+    QByteArray mMsgId;
     QString mMessage;
     QString mCreateAtDisplayDateTime;
     qint64 mCreatedAt = -1;

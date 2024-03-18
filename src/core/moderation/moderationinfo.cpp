@@ -45,10 +45,10 @@ void ModerationInfo::parseRoomList(const QJsonArray &rooms)
 void ModerationInfo::parseModerationInfo(const QJsonObject &o)
 {
     // qDebug() << " ModerationInfo " << o;
-    mUserId = o[QLatin1StringView("userId")].toString();
+    mUserId = o[QLatin1StringView("userId")].toString().toLatin1();
     mName = o[QLatin1StringView("name")].toString();
     mUserName = o[QLatin1StringView("username")].toString();
-    mMsgId = o[QLatin1StringView("msgId")].toString();
+    mMsgId = o[QLatin1StringView("msgId")].toString().toLatin1();
     mCount = o[QLatin1StringView("count")].toInt();
     mIsUserDeleted = o[QLatin1StringView("isUserDeleted")].toBool();
     mMessage = o[QLatin1StringView("message")].toString();
@@ -85,12 +85,12 @@ const QString &ModerationInfo::createAtDisplayDateTime() const
     return mCreateAtDisplayDateTime;
 }
 
-QString ModerationInfo::userId() const
+QByteArray ModerationInfo::userId() const
 {
     return mUserId;
 }
 
-void ModerationInfo::setUserId(const QString &newUserId)
+void ModerationInfo::setUserId(const QByteArray &newUserId)
 {
     mUserId = newUserId;
 }
@@ -115,12 +115,12 @@ void ModerationInfo::setUserName(const QString &newUserName)
     mUserName = newUserName;
 }
 
-QString ModerationInfo::msgId() const
+QByteArray ModerationInfo::msgId() const
 {
     return mMsgId;
 }
 
-void ModerationInfo::setMsgId(const QString &newMsgId)
+void ModerationInfo::setMsgId(const QByteArray &newMsgId)
 {
     mMsgId = newMsgId;
 }
