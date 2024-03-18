@@ -659,8 +659,13 @@ void RocketChatAccount::tryLogin()
 {
     qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    // FIXME login !!!!!!!
+    // restApi()
+#else
     // ddp() creates a new DDPClient object if it doesn't exist.
     ddp()->enqueueLogin();
+#endif
 
     // In the meantime, load cache...
     mRoomModel->reset();
