@@ -585,6 +585,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_encryptio
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_restapi_authentication_debug.h IDENTIFIER RUQOLA_RESTAPI_AUTH_LOG
     CATEGORY_NAME org.kde.ruqola.restapi.authentication DESCRIPTION "ruqola (restapi authentication)" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_memory_debug.h IDENTIFIER RUQOLA_MESSAGE_MEMORY_LOG
+    CATEGORY_NAME org.kde.ruqola.message.memory DESCRIPTION "ruqola message memory" EXPORT RUQOLA)
+
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
