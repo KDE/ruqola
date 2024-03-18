@@ -320,11 +320,6 @@ private:
     // editedAt
     qint64 mEditedAt = -1;
 
-    // Thread last message
-    qint64 mThreadLastMessage = -1;
-    // Thread last message
-    qint64 mDiscussionLastMessage = -1;
-
     SystemMessageTypeUtil::SystemMessageType mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
     MessageType mMessageType = MessageType::NormalText;
     MessageStates mMessageStates = MessageStates(MessageState::Groupable | MessageState::Translated);

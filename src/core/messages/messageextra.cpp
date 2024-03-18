@@ -38,6 +38,26 @@ void MessageExtra::setThreadMessageId(const QByteArray &threadMessageId)
     mThreadMessageId = threadMessageId;
 }
 
+qint64 MessageExtra::threadLastMessage() const
+{
+    return mThreadLastMessage;
+}
+
+void MessageExtra::setThreadLastMessage(qint64 newThreadLastMessage)
+{
+    mThreadLastMessage = newThreadLastMessage;
+}
+
+qint64 MessageExtra::discussionLastMessage() const
+{
+    return mDiscussionLastMessage;
+}
+
+void MessageExtra::setDiscussionLastMessage(qint64 newDiscussionLastMessage)
+{
+    mDiscussionLastMessage = newDiscussionLastMessage;
+}
+
 QByteArray MessageExtra::discussionRoomId() const
 {
     return mDiscussionRoomId;

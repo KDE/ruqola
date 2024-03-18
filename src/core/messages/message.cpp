@@ -251,22 +251,28 @@ void Message::setDiscussionCount(int discussionCount)
 
 qint64 Message::discussionLastMessage() const
 {
-    return mDiscussionLastMessage;
+    if (mMessageExtra) {
+        return mMessageExtra->discussionLastMessage();
+    }
+    return -1;
 }
 
 void Message::setDiscussionLastMessage(qint64 discussionLastMessage)
 {
-    mDiscussionLastMessage = discussionLastMessage;
+    messageExtra()->setDiscussionLastMessage(discussionLastMessage);
 }
 
 qint64 Message::threadLastMessage() const
 {
-    return mThreadLastMessage;
+    if (mMessageExtra) {
+        return mMessageExtra->threadLastMessage();
+    }
+    return -1;
 }
 
 void Message::setThreadLastMessage(qint64 threadLastMessage)
 {
-    mThreadLastMessage = threadLastMessage;
+    messageExtra()->setThreadLastMessage(threadLastMessage);
 }
 
 int Message::threadCount() const
@@ -881,10 +887,10 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     message.assignMessageStateValue(Private, o[QLatin1StringView("private")].toBool(false));
     if (o.contains(QLatin1StringView("tlm"))) {
-        message.mThreadLastMessage = static_cast<qint64>(o[QLatin1StringView("tlm")].toDouble());
+        message.setThreadLastMessage(static_cast<qint64>(o[QLatin1StringView("tlm")].toDouble()));
     }
     if (o.contains(QLatin1StringView("dlm"))) {
-        message.mDiscussionLastMessage = static_cast<qint64>(o[QLatin1StringView("dlm")].toDouble());
+        message.setDiscussionLastMessage(static_cast<qint64>(o[QLatin1StringView("dlm")].toDouble()));
     }
 
     message.mMessageId = o[QLatin1StringView("messageID")].toString().toLatin1();

@@ -31,6 +31,12 @@ public:
     [[nodiscard]] QByteArray threadMessageId() const;
     void setThreadMessageId(const QByteArray &threadMessageId);
 
+    [[nodiscard]] qint64 threadLastMessage() const;
+    void setThreadLastMessage(qint64 newThreadLastMessage);
+
+    [[nodiscard]] qint64 discussionLastMessage() const;
+    void setDiscussionLastMessage(qint64 newDiscussionLastMessage);
+
 private:
     // Local translation
     QString mLocalTranslation;
@@ -40,6 +46,11 @@ private:
 
     // tmid
     QByteArray mThreadMessageId;
+
+    // Thread last message
+    qint64 mThreadLastMessage = -1;
+    // Thread last message
+    qint64 mDiscussionLastMessage = -1;
 
     // Thread count
     int mThreadCount = 0;
