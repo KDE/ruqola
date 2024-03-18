@@ -43,9 +43,6 @@ public:
     [[nodiscard]] QString fileId() const;
     void setFileId(const QString &fileId);
 
-    [[nodiscard]] QString rid() const;
-    void setRid(const QString &rid);
-
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
 
@@ -64,7 +61,6 @@ private:
     QString mUrl;
     QString mMimeType;
     QString mFileId;
-    QString mRid;
     QString mUserName;
     QString mUploadedDateTimeStr;
     QString mTypeGroup;

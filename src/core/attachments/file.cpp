@@ -20,7 +20,6 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     setFileName(fields.value(QLatin1StringView("name")).toString());
     setMimeType(fields.value(QLatin1StringView("type")).toString());
     setUrl(fields.value(QLatin1StringView("url")).toString());
-    setRid(fields.value(QLatin1StringView("rid")).toString());
     setComplete(fields.value(QLatin1StringView("complete")).toBool());
     setTypeGroup(fields.value(QLatin1StringView("typeGroup")).toString());
     if (restApi) {
@@ -58,8 +57,8 @@ void File::setDescription(const QString &description)
 bool File::operator==(const File &other) const
 {
     return (description() == other.description()) && (fileName() == other.fileName()) && (url() == other.url()) && (userId() == other.userId())
-        && (mimeType() == other.mimeType()) && (uploadedAt() == other.uploadedAt()) && (fileId() == other.fileId()) && (rid() == other.rid())
-        && (userName() == other.userName()) && (complete() == other.complete()) && (typeGroup() == other.typeGroup());
+        && (mimeType() == other.mimeType()) && (uploadedAt() == other.uploadedAt()) && (fileId() == other.fileId()) && (userName() == other.userName())
+        && (complete() == other.complete()) && (typeGroup() == other.typeGroup());
 }
 
 QByteArray File::userId() const
@@ -114,16 +113,6 @@ void File::setFileId(const QString &fileId)
     mFileId = fileId;
 }
 
-QString File::rid() const
-{
-    return mRid;
-}
-
-void File::setRid(const QString &rid)
-{
-    mRid = rid;
-}
-
 QString File::userName() const
 {
     return mUserName;
@@ -168,7 +157,6 @@ QDebug operator<<(QDebug d, const File &t)
     d.space() << "Mimetype:" << t.mimeType();
     d.space() << "Uploaded time:" << t.uploadedAt();
     d.space() << "File Id:" << t.fileId();
-    d.space() << "Rid:" << t.rid();
     d.space() << "Username:" << t.userName();
     d.space() << "Complete:" << t.complete();
     d.space() << "TypeGroup:" << t.typeGroup();

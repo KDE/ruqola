@@ -24,7 +24,6 @@ void FileTest::shouldHaveDefaultValue()
     QVERIFY(f.url().isEmpty());
     QVERIFY(f.mimeType().isEmpty());
     QVERIFY(f.fileId().isEmpty());
-    QVERIFY(f.rid().isEmpty());
     QVERIFY(f.uploadedDateTimeStr().isEmpty());
     QCOMPARE(f.uploadedAt(), -1);
     QCOMPARE(f.complete(), false);
@@ -50,7 +49,6 @@ void FileTest::shouldAssignValue()
     f.setMimeType(mimetype);
     f.setUploadedAt(timeUploaded);
     f.setFileId(fileId);
-    f.setRid(rId);
     f.setComplete(complete);
 
     QCOMPARE(f.url(), url);
@@ -60,7 +58,6 @@ void FileTest::shouldAssignValue()
     QCOMPARE(f.mimeType(), mimetype);
     QCOMPARE(f.uploadedAt(), timeUploaded);
     QCOMPARE(f.fileId(), fileId);
-    QCOMPARE(f.rid(), rId);
     QCOMPARE(f.complete(), complete);
 
     complete = true;
@@ -88,7 +85,6 @@ void FileTest::shouldCopyValue()
     f.setMimeType(mimetype);
     f.setUploadedAt(timeUploaded);
     f.setFileId(fileId);
-    f.setRid(rId);
 
     File f2 = f;
     QCOMPARE(f2, f);
@@ -108,7 +104,6 @@ void FileTest::shouldParseFile_data()
         expected.setMimeType(QStringLiteral("image/jpeg"));
         expected.setUploadedAt(1507828418338);
         expected.setFileId(QStringLiteral("ybWLKB4FepCkzQXsa"));
-        expected.setRid(QStringLiteral("GENERAL"));
         QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
     }
     {
@@ -121,7 +116,6 @@ void FileTest::shouldParseFile_data()
         expected.setMimeType(QStringLiteral("image/png"));
         expected.setUploadedAt(1517990371911);
         expected.setFileId(QStringLiteral("AoqRSa6GMt3wXCeSo"));
-        expected.setRid(QStringLiteral("GENERAL"));
         expected.setUserName(QStringLiteral("bli"));
         expected.setComplete(true);
         QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
