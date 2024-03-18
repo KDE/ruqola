@@ -63,10 +63,18 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     assignMessageStateValue(Groupable, o.value(QLatin1StringView("groupable")).toBool(/*true*/ false)); // Laurent, disable for the moment groupable
     assignMessageStateValue(ParsedUrl, o.value(QLatin1StringView("parseUrls")).toBool());
     mRole = o.value(QLatin1StringView("role")).toString();
-    mThreadCount = o.value(QLatin1StringView("tcount")).toInt();
-    mDiscussionCount = o.value(QLatin1StringView("dcount")).toInt();
-    mDiscussionRoomId = o.value(QLatin1StringView("drid")).toString().toLatin1();
-    mThreadMessageId = o.value(QLatin1StringView("tmid")).toString().toLatin1();
+    if (o.contains(QLatin1StringView("tcount"))) {
+        setThreadCount(o.value(QLatin1StringView("tcount")).toInt());
+    }
+    if (o.contains(QLatin1StringView("tcount"))) {
+        setDiscussionCount(o.value(QLatin1StringView("tcount")).toInt());
+    }
+    if (o.contains(QLatin1StringView("drid"))) {
+        setDiscussionRoomId(o.value(QLatin1StringView("drid")).toString().toLatin1());
+    }
+    if (o.contains(QLatin1StringView("tmid"))) {
+        setThreadMessageId(o.value(QLatin1StringView("tmid")).toString().toLatin1());
+    }
     mEmoji = o.value(QLatin1StringView("emoji")).toString();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
@@ -196,32 +204,41 @@ QString Message::displayTime() const
 
 QByteArray Message::threadMessageId() const
 {
-    return mThreadMessageId;
+    if (mMessageExtra) {
+        return mMessageExtra->threadMessageId();
+    }
+    return {};
 }
 
 void Message::setThreadMessageId(const QByteArray &threadMessageId)
 {
-    mThreadMessageId = threadMessageId;
+    messageExtra()->setThreadMessageId(threadMessageId);
 }
 
 QByteArray Message::discussionRoomId() const
 {
-    return mDiscussionRoomId;
+    if (mMessageExtra) {
+        return mMessageExtra->discussionRoomId();
+    }
+    return {};
 }
 
 void Message::setDiscussionRoomId(const QByteArray &discussionRoomId)
 {
-    mDiscussionRoomId = discussionRoomId;
+    messageExtra()->setDiscussionRoomId(discussionRoomId);
 }
 
 int Message::discussionCount() const
 {
-    return mDiscussionCount;
+    if (mMessageExtra) {
+        return mMessageExtra->discussionCount();
+    }
+    return {};
 }
 
 void Message::setDiscussionCount(int discussionCount)
 {
-    mDiscussionCount = discussionCount;
+    messageExtra()->setDiscussionCount(discussionCount);
 }
 
 qint64 Message::discussionLastMessage() const
@@ -246,12 +263,15 @@ void Message::setThreadLastMessage(qint64 threadLastMessage)
 
 int Message::threadCount() const
 {
-    return mThreadCount;
+    if (mMessageExtra) {
+        return mMessageExtra->threadCount();
+    }
+    return 0;
 }
 
 void Message::setThreadCount(int threadCount)
 {
-    mThreadCount = threadCount;
+    messageExtra()->setThreadCount(threadCount);
 }
 
 MessageStarred Message::messageStarred() const
@@ -321,14 +341,25 @@ QString Message::originalMessageOrAttachmentDescription() const
     return attachments().constFirst().description();
 }
 
-const QString &Message::localTranslation() const
+MessageExtra *Message::messageExtra()
 {
-    return mLocalTranslation;
+    if (!mMessageExtra) {
+        mMessageExtra = new MessageExtra;
+    }
+    return mMessageExtra;
+}
+
+QString Message::localTranslation() const
+{
+    if (!mMessageExtra) {
+        return {};
+    }
+    return mMessageExtra->localTranslation();
 }
 
 void Message::setLocalTranslation(const QString &newLocalTranslation)
 {
-    mLocalTranslation = newLocalTranslation;
+    messageExtra()->setLocalTranslation(newLocalTranslation);
 }
 
 bool Message::hoverHighlight() const
@@ -500,12 +531,12 @@ bool Message::operator==(const Message &other) const
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
         && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions()) && (mRole == other.role())
         && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
-        && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
-        && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
-        && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
+        && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
+        && (discussionCount() == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
+        && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
         && (mMessageTranslation == other.messageTranslation()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
-        && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation()) && (mBlocks == other.blocks())
+        && (mChannels == other.channels()) && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks())
         && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
 }
 
@@ -826,10 +857,19 @@ Utils::AvatarInfo Message::avatarInfo() const
 Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     Message message;
-    message.mThreadCount = o[QLatin1StringView("tcount")].toInt();
-    message.mDiscussionCount = o[QLatin1StringView("dcount")].toInt();
-    message.mDiscussionRoomId = o[QLatin1StringView("drid")].toString().toLatin1();
-    message.mThreadMessageId = o[QLatin1StringView("tmid")].toString().toLatin1();
+    if (o.contains(QLatin1StringView("tcount"))) {
+        message.setThreadCount(o[QLatin1StringView("tcount")].toInt());
+    }
+    if (o.contains(QLatin1StringView("tmid"))) {
+        message.setThreadMessageId(o[QLatin1StringView("tmid")].toString().toLatin1());
+    }
+    if (o.contains(QLatin1StringView("dcount"))) {
+        message.setDiscussionCount(o[QLatin1StringView("dcount")].toInt());
+    }
+
+    if (o.contains(QLatin1StringView("drid"))) {
+        message.setDiscussionRoomId(o.value(QLatin1StringView("drid")).toString().toLatin1());
+    }
 
     message.assignMessageStateValue(Private, o[QLatin1StringView("private")].toBool(false));
     if (o.contains(QLatin1StringView("tlm"))) {
@@ -911,7 +951,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         message.mBlocks.append(std::move(block));
     }
 
-    message.mLocalTranslation = o[QLatin1StringView("localTransation")].toString();
+    message.setLocalTranslation(o[QLatin1StringView("localTransation")].toString());
 
     message.mMessageTranslation = MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray());
 
@@ -1008,21 +1048,21 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QLatin1StringView("reactions")] = Reactions::serialize(message.reactions());
     }
 
-    if (message.mThreadCount > 0) {
-        o[QLatin1StringView("tcount")] = message.mThreadCount;
+    if (message.threadCount() > 0) {
+        o[QLatin1StringView("tcount")] = message.threadCount();
         o[QLatin1StringView("tlm")] = message.mThreadLastMessage;
     }
 
-    if (message.mDiscussionCount > 0) {
-        o[QLatin1StringView("dcount")] = message.mDiscussionCount;
+    if (message.discussionCount() > 0) {
+        o[QLatin1StringView("dcount")] = message.discussionCount();
         o[QLatin1StringView("dlm")] = message.mDiscussionLastMessage;
     }
-    if (!message.mDiscussionRoomId.isEmpty()) {
-        o[QLatin1StringView("drid")] = QString::fromLatin1(message.mDiscussionRoomId);
+    if (!message.discussionRoomId().isEmpty()) {
+        o[QLatin1StringView("drid")] = QString::fromLatin1(message.discussionRoomId());
     }
 
-    if (!message.mThreadMessageId.isEmpty()) {
-        o[QLatin1StringView("tmid")] = QString::fromLatin1(message.mThreadMessageId);
+    if (!message.threadMessageId().isEmpty()) {
+        o[QLatin1StringView("tmid")] = QString::fromLatin1(message.threadMessageId());
     }
     if (!message.mReplies.isEmpty()) {
         o[QLatin1StringView("replies")] = QJsonArray::fromStringList(message.mReplies);
@@ -1036,8 +1076,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QLatin1StringView("blocks")] = blockArray;
     }
-    if (!message.mLocalTranslation.isEmpty()) {
-        o[QLatin1StringView("localTransation")] = message.mLocalTranslation;
+    if (!message.localTranslation().isEmpty()) {
+        o[QLatin1StringView("localTransation")] = message.localTranslation();
     }
     if (!message.mMessageTranslation.isEmpty()) {
         o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
@@ -1086,7 +1126,6 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "pinned" << t.messagePinned();
     d.space() << "threadcount" << t.threadCount();
     d.space() << "threadlastmessage" << t.threadLastMessage();
-    d.space() << "discussioncount" << t.discussionCount();
     d.space() << "discussionlastmessage" << t.discussionLastMessage();
     d.space() << "discussionRoomId" << t.discussionRoomId();
     d.space() << "threadMessageId" << t.threadMessageId();
@@ -1098,6 +1137,7 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mShowIgnoredMessage" << t.showIgnoredMessage();
     d.space() << "mChannels" << t.channels();
     d.space() << "mLocalTranslation" << t.localTranslation();
+    d.space() << "mDiscussionRoomId" << t.discussionRoomId();
     d.space() << "mDiscussionCount" << t.discussionCount();
     d.space() << "mDiscussionLastMessage" << t.discussionLastMessage();
     if (t.moderationMessage()) {

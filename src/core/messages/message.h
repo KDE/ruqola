@@ -9,6 +9,7 @@
 #include "block.h"
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
+#include "messageextra.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
 #include "messagetranslation.h"
@@ -208,7 +209,7 @@ public:
     [[nodiscard]] bool hoverHighlight() const;
     void setHoverHighlight(bool newShowReactionIcon);
 
-    [[nodiscard]] const QString &localTranslation() const;
+    [[nodiscard]] QString localTranslation() const;
     void setLocalTranslation(const QString &newLocalTranslation);
 
     [[nodiscard]] QString originalMessageOrAttachmentDescription() const;
@@ -242,15 +243,14 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
+    [[nodiscard]] MessageExtra *messageExtra();
 
     // Moderation Message Info
     QSharedDataPointer<ModerationMessage> mModerationMessage;
+    QSharedDataPointer<MessageExtra> mMessageExtra;
 
     // BackgroundColor
     QColor mGoToMessageBackgroundColor;
-
-    // Local translation
-    QString mLocalTranslation;
 
     // Message Pinned
     MessagePinned mMessagePinned;
@@ -311,12 +311,6 @@ private:
     // emoji
     QString mEmoji;
 
-    // drid discussion room id
-    QByteArray mDiscussionRoomId;
-
-    // tmid
-    QByteArray mThreadMessageId;
-
     // ts
     QString mDisplayTime;
     qint64 mTimeStamp = -1;
@@ -330,11 +324,6 @@ private:
     qint64 mThreadLastMessage = -1;
     // Thread last message
     qint64 mDiscussionLastMessage = -1;
-    // Thread count
-    int mThreadCount = 0;
-
-    // Thread count
-    int mDiscussionCount = 0;
 
     SystemMessageTypeUtil::SystemMessageType mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
     MessageType mMessageType = MessageType::NormalText;

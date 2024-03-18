@@ -32,7 +32,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 640);
+    QCOMPARE(sizeof(Message), 568);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
@@ -327,6 +327,38 @@ void MessageTest::shouldParseMessage()
 void MessageTest::shouldSerializeData()
 {
     {
+        // Test discussionId
+        Message input;
+
+        input.setMessageId(QByteArrayLiteral("ff"));
+        input.setRoomId(QStringLiteral("room1"));
+        input.setText(QStringLiteral("message1"));
+        input.setTimeStamp(42);
+        input.setUsername(QStringLiteral("user1"));
+        input.setUserId(QByteArrayLiteral("userid1"));
+        input.setUpdatedAt(45);
+        input.setEditedAt(89);
+        input.setEditedByUsername(QStringLiteral("editeduser1"));
+        input.setAlias(QStringLiteral("ali"));
+        input.setAvatar(QStringLiteral("avatar1"));
+        input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
+        input.setLocalTranslation(QStringLiteral("Local !!!!"));
+        input.setParseUrls(true);
+        input.setRole(QStringLiteral("leader"));
+        input.setMessageType(Message::MessageType::NormalText);
+        input.setDiscussionRoomId(QByteArrayLiteral("discussion111"));
+        input.setDiscussionCount(90);
+        // It will break as it's not supported yet
+        input.setIsStarred(true);
+
+        const QByteArray ba = Message::serialize(input);
+        // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        QCOMPARE(input, output);
+
+        QVERIFY(output.wasEdited());
+    }
+    {
         Message input;
 
         input.setMessageId(QByteArrayLiteral("ff"));
@@ -383,6 +415,39 @@ void MessageTest::shouldSerializeData()
         const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
         QCOMPARE(input, output);
         // TODO add Mentions
+
+        QVERIFY(output.wasEdited());
+    }
+
+    {
+        // Test thread messageId
+        Message input;
+
+        input.setMessageId(QByteArrayLiteral("ff"));
+        input.setRoomId(QStringLiteral("room1"));
+        input.setText(QStringLiteral("message1"));
+        input.setTimeStamp(42);
+        input.setUsername(QStringLiteral("user1"));
+        input.setUserId(QByteArrayLiteral("userid1"));
+        input.setUpdatedAt(45);
+        input.setEditedAt(89);
+        input.setEditedByUsername(QStringLiteral("editeduser1"));
+        input.setAlias(QStringLiteral("ali"));
+        input.setAvatar(QStringLiteral("avatar1"));
+        input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
+        input.setLocalTranslation(QStringLiteral("Local !!!!"));
+        input.setParseUrls(true);
+        input.setRole(QStringLiteral("leader"));
+        input.setMessageType(Message::MessageType::NormalText);
+        input.setThreadMessageId(QByteArrayLiteral("thread111"));
+        input.setThreadCount(56);
+        // It will break as it's not supported yet
+        input.setIsStarred(true);
+
+        const QByteArray ba = Message::serialize(input);
+        // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        QCOMPARE(input, output);
 
         QVERIFY(output.wasEdited());
     }
@@ -541,6 +606,37 @@ void MessageTest::shouldSerializeData()
             qDebug() << "output: " << output << QCborValue::fromCbor(ba).toMap().toJsonObject();
         }
         QCOMPARE(input, output);
+        QVERIFY(output.wasEdited());
+    }
+
+    {
+        // Test local translation
+        Message input;
+
+        input.setMessageId(QByteArrayLiteral("ff"));
+        input.setRoomId(QStringLiteral("room1"));
+        input.setText(QStringLiteral("message1"));
+        input.setTimeStamp(42);
+        input.setUsername(QStringLiteral("user1"));
+        input.setUserId(QByteArrayLiteral("userid1"));
+        input.setUpdatedAt(45);
+        input.setEditedAt(89);
+        input.setEditedByUsername(QStringLiteral("editeduser1"));
+        input.setAlias(QStringLiteral("ali"));
+        input.setAvatar(QStringLiteral("avatar1"));
+        input.setSystemMessageType(SystemMessageTypeUtil::MessageDeleted);
+        input.setLocalTranslation(QStringLiteral("Local !!!!"));
+        input.setParseUrls(true);
+        input.setRole(QStringLiteral("leader"));
+        input.setMessageType(Message::MessageType::NormalText);
+        // It will break as it's not supported yet
+        input.setIsStarred(true);
+
+        const QByteArray ba = Message::serialize(input);
+        // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+        const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+        QCOMPARE(input, output);
+
         QVERIFY(output.wasEdited());
     }
 }
