@@ -293,7 +293,7 @@ void RESTAuthenticationManager::logout()
     }
     const QString params = sl("[]");
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::SendOtp, METHOD_LOGOUT);
+    callLoginImpl(Utils::strToJsonArray(params), Method::Logout, METHOD_LOGOUT);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 #undef sl
