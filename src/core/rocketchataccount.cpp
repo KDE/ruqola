@@ -670,6 +670,15 @@ void RocketChatAccount::logOut()
 {
     mSettings->logout();
     mRoomModel->clear();
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    if (mRestApi) {
+        mRestApi->authenticationManager()->logoutAndCleanup();
+        delete mRestApi;
+        mRestApi = nullptr;
+    }
+    delete mDdp;
+    mDdp = nullptr;
+#else
     if (mDdp) {
         mDdp->authenticationManager()->logoutAndCleanup();
         delete mDdp;
@@ -677,6 +686,7 @@ void RocketChatAccount::logOut()
     }
     delete mRestApi;
     mRestApi = nullptr;
+#endif
 }
 
 void RocketChatAccount::clearAllUnreadMessages()
