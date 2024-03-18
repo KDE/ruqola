@@ -296,6 +296,30 @@ void RESTAuthenticationManager::logout()
     callLoginImpl(Utils::strToJsonArray(params), Method::Logout, METHOD_LOGOUT);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
+
+void RESTAuthenticationManager::logoutAndCleanup()
+{
+    if (checkGenericError()) {
+        return;
+    }
+
+    if (mLoginStatus == AuthenticationManager::LoginStatus::LogoutOngoing) {
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "Another logout operation is ongoing.";
+        return;
+    }
+
+    if (isLoggedOut()) {
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "User is already logged out.";
+        return;
+    }
+
+    // TODO fix parameters! In RC client we use "user"
+    const QString params = sl("[]");
+
+    callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp, METHOD_LOGOUT_CLEAN_UP);
+    setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+}
+
 #undef sl
 
 #include "moc_restauthenticationmanager.cpp"

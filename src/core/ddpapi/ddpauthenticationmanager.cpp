@@ -148,7 +148,7 @@ void DDPAuthenticationManager::logoutAndCleanup()
         return;
     }
 
-    // TODO fix parameters!
+    // TODO fix parameters! In RC client we use "user"
     const QString params = sl("[]");
 
     ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT_CLEAN_UP, Utils::strToJsonArray(params), this, static_cast<int>(Method::LogoutCleanUp));

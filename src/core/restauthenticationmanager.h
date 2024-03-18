@@ -36,6 +36,7 @@ public:
     void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
     void sendOTP(const QString &otp);
     void logout();
+    void logoutAndCleanup();
 
     void setAuthToken(const QString &authToken);
 
