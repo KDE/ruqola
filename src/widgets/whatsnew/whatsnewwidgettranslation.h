@@ -78,5 +78,6 @@ static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
     kli18n("Fix jitsi support."),
     kli18n("Fix translate message in direct channel."),
     kli18n("Don't show @here/@all as user."),
+    kli18n("Reduce memory footprint."),
 };
 static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;
