@@ -151,7 +151,7 @@ void DDPAuthenticationManager::logoutAndCleanup()
     // TODO fix parameters!
     const QString params = sl("[]");
 
-    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::LogoutCleanUp));
+    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT_CLEAN_UP, Utils::strToJsonArray(params), this, static_cast<int>(Method::LogoutCleanUp));
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 

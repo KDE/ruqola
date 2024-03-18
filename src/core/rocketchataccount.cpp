@@ -671,7 +671,7 @@ void RocketChatAccount::logOut()
     mSettings->logout();
     mRoomModel->clear();
     if (mDdp) {
-        mDdp->authenticationManager()->logout();
+        mDdp->authenticationManager()->logoutAndCleanup();
         delete mDdp;
         mDdp = nullptr;
     }
