@@ -31,6 +31,7 @@ public:
 
 Q_SIGNALS:
     void backgroundColorChanged();
+    void animationFinished();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBackgroundColorChanged();

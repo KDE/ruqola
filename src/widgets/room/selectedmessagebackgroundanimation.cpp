@@ -53,14 +53,17 @@ void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBac
 
 void SelectedMessageBackgroundAnimation::start()
 {
-    auto animation = new QPropertyAnimation(this, "backgroundColor", this);
+    auto animation = new QPropertyAnimation(this, QByteArrayLiteral("backgroundColor"), this);
     animation->setDuration(2000);
     const auto color = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color();
     animation->setStartValue(color);
     animation->setEndValue(QColor(Qt::transparent));
     animation->setEasingCurve(QEasingCurve::InOutQuad);
     animation->start();
-    connect(animation, &QPropertyAnimation::finished, this, &SelectedMessageBackgroundAnimation::deleteLater);
+    connect(animation, &QPropertyAnimation::finished, this, [this]() {
+        Q_EMIT animationFinished();
+        deleteLater();
+    });
 }
 
 MessagesModel *SelectedMessageBackgroundAnimation::messageModel() const
