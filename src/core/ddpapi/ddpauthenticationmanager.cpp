@@ -128,7 +128,7 @@ void DDPAuthenticationManager::logout()
 
     const QString params = sl("[]");
 
-    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::SendOtp));
+    ddpClient()->invokeMethodAndRegister(METHOD_LOGOUT, Utils::strToJsonArray(params), this, static_cast<int>(Method::Logout));
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
