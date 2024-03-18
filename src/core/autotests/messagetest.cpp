@@ -348,6 +348,7 @@ void MessageTest::shouldSerializeData()
         input.setMessageType(Message::MessageType::NormalText);
         input.setDiscussionRoomId(QByteArrayLiteral("discussion111"));
         input.setDiscussionCount(90);
+        input.setDiscussionLastMessage(985);
         // It will break as it's not supported yet
         input.setIsStarred(true);
 
@@ -441,6 +442,7 @@ void MessageTest::shouldSerializeData()
         input.setMessageType(Message::MessageType::NormalText);
         input.setThreadMessageId(QByteArrayLiteral("thread111"));
         input.setThreadCount(56);
+        input.setThreadLastMessage(92);
         // It will break as it's not supported yet
         input.setIsStarred(true);
 

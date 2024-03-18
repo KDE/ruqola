@@ -32,16 +32,24 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
         setEditedAt(Utils::parseIsoDate(QStringLiteral("editedAt"), o));
         setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-        setThreadLastMessage(Utils::parseIsoDate(QStringLiteral("tlm"), o));
-        setDiscussionLastMessage(Utils::parseIsoDate(QStringLiteral("dlm"), o));
+        if (o.contains(QStringLiteral("tlm"))) {
+            setThreadLastMessage(Utils::parseIsoDate(QStringLiteral("tlm"), o));
+        }
+        if (o.contains(QStringLiteral("dlm"))) {
+            setDiscussionLastMessage(Utils::parseIsoDate(QStringLiteral("dlm"), o));
+        }
     } else {
         setTimeStamp(Utils::parseDate(QStringLiteral("ts"), o));
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
         setEditedAt(Utils::parseDate(QStringLiteral("editedAt"), o));
         // Verify if a day we will use not restapi for it.
-        setThreadLastMessage(Utils::parseDate(QStringLiteral("tlm"), o));
+        if (o.contains(QStringLiteral("tlm"))) {
+            setThreadLastMessage(Utils::parseDate(QStringLiteral("tlm"), o));
+        }
         // Verify if a day we will use not restapi for it.
-        setDiscussionLastMessage(Utils::parseDate(QStringLiteral("dlm"), o));
+        if (o.contains(QStringLiteral("dlm"))) {
+            setDiscussionLastMessage(Utils::parseDate(QStringLiteral("dlm"), o));
+        }
     }
 
     QStringList lst;
