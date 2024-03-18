@@ -32,16 +32,16 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
         setEditedAt(Utils::parseIsoDate(QStringLiteral("editedAt"), o));
         setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-        mThreadLastMessage = Utils::parseIsoDate(QStringLiteral("tlm"), o);
-        mDiscussionLastMessage = Utils::parseIsoDate(QStringLiteral("dlm"), o);
+        setThreadLastMessage(Utils::parseIsoDate(QStringLiteral("tlm"), o));
+        setDiscussionLastMessage(Utils::parseIsoDate(QStringLiteral("dlm"), o));
     } else {
         setTimeStamp(Utils::parseDate(QStringLiteral("ts"), o));
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
         setEditedAt(Utils::parseDate(QStringLiteral("editedAt"), o));
         // Verify if a day we will use not restapi for it.
-        mThreadLastMessage = Utils::parseDate(QStringLiteral("tlm"), o);
+        setThreadLastMessage(Utils::parseDate(QStringLiteral("tlm"), o));
         // Verify if a day we will use not restapi for it.
-        mDiscussionLastMessage = Utils::parseDate(QStringLiteral("dlm"), o);
+        setDiscussionLastMessage(Utils::parseDate(QStringLiteral("dlm"), o));
     }
 
     QStringList lst;
@@ -531,8 +531,8 @@ bool Message::operator==(const Message &other) const
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
         && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions()) && (mRole == other.role())
         && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
-        && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
-        && (discussionCount() == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
+        && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage())
+        && (discussionCount() == other.discussionCount()) && (discussionLastMessage() == other.discussionLastMessage())
         && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
         && (mMessageTranslation == other.messageTranslation()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
@@ -974,8 +974,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QLatin1StringView("userID")] = QString::fromLatin1(message.mUserId);
     o[QLatin1StringView("updatedAt")] = message.mUpdatedAt;
     o[QLatin1StringView("editedAt")] = message.mEditedAt;
-    if (message.mThreadLastMessage > -1) {
-        o[QLatin1StringView("tlm")] = message.mThreadLastMessage;
+    if (message.threadLastMessage() > -1) {
+        o[QLatin1StringView("tlm")] = message.threadLastMessage();
     }
 
     o[QLatin1StringView("editedByUsername")] = message.mEditedByUsername;
@@ -1050,12 +1050,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     if (message.threadCount() > 0) {
         o[QLatin1StringView("tcount")] = message.threadCount();
-        o[QLatin1StringView("tlm")] = message.mThreadLastMessage;
+        o[QLatin1StringView("tlm")] = message.threadLastMessage();
     }
 
     if (message.discussionCount() > 0) {
         o[QLatin1StringView("dcount")] = message.discussionCount();
-        o[QLatin1StringView("dlm")] = message.mDiscussionLastMessage;
+        o[QLatin1StringView("dlm")] = message.discussionLastMessage();
     }
     if (!message.discussionRoomId().isEmpty()) {
         o[QLatin1StringView("drid")] = QString::fromLatin1(message.discussionRoomId());
