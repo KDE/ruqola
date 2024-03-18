@@ -5,14 +5,23 @@
 */
 
 #include "moderationmessage.h"
+#include "ruqola_message_memory_debug.h"
 #include <QJsonObject>
-ModerationMessage::ModerationMessage() = default;
+ModerationMessage::ModerationMessage()
+    : QSharedData()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage created " << this;
+}
 
-ModerationMessage::~ModerationMessage() = default;
+ModerationMessage::~ModerationMessage()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage deleted " << this;
+}
 
 ModerationMessage::ModerationMessage(const ModerationMessage &other)
     : QSharedData(other)
 {
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage(const ModerationMessage &other) created " << this;
     mModerationId = other.moderationId();
     mRoomId = other.roomId();
     mRoomName = other.roomName();
@@ -42,7 +51,6 @@ void ModerationMessage::parseRoom(const QJsonObject &roomObj)
     mRoomId = roomObj[QLatin1StringView("_id")].toString();
     mRoomName = roomObj[QLatin1StringView("name")].toString();
     mRoomFName = roomObj[QLatin1StringView("fname")].toString();
-    // TODO
 }
 
 QString ModerationMessage::roomFName() const
