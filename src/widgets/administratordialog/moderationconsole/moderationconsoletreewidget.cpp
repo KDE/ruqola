@@ -111,7 +111,7 @@ void ModerationConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIn
     auto job = new RocketChatRestApi::ModerationUserReportedMessagesJob(this);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
-    job->setReportedMessageFromUserId(modelIndex.data().toString());
+    job->setReportedMessageFromUserId(QString::fromLatin1(modelIndex.data().toByteArray()));
     connect(job,
             &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
             this,
@@ -163,7 +163,7 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
         auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
-        job->setUserIdForMessages(modelIndex.data().toString());
+        job->setUserIdForMessages(QString::fromLatin1(modelIndex.data().toByteArray()));
         connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, [this]() {
             Q_EMIT refreshList();
         });
@@ -186,7 +186,7 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
         auto job = new RocketChatRestApi::ModerationUserDeleteReportedMessagesJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
-        job->setUserIdForMessages(modelIndex.data().toString());
+        job->setUserIdForMessages(QString::fromLatin1(modelIndex.data().toByteArray()));
         connect(job, &RocketChatRestApi::ModerationUserDeleteReportedMessagesJob::moderationUserDeleteReportedMessagesDone, this, [this]() {
             Q_EMIT refreshList();
         });
