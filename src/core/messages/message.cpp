@@ -182,7 +182,7 @@ void Message::setName(const QString &name)
 
 bool Message::isAutoTranslated() const
 {
-    return !mMessageTranslation.isEmpty();
+    return !messageTranslation().isEmpty();
 }
 
 bool Message::showTranslatedMessage() const
@@ -548,7 +548,7 @@ bool Message::operator==(const Message &other) const
         && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage())
         && (discussionCount() == other.discussionCount()) && (discussionLastMessage() == other.discussionLastMessage())
         && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
-        && (mMessageTranslation == other.messageTranslation()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
+        && (messageTranslation() == other.messageTranslation()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (mChannels == other.channels()) && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks())
         && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
@@ -965,9 +965,13 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         message.mBlocks.append(std::move(block));
     }
 
-    message.setLocalTranslation(o[QLatin1StringView("localTransation")].toString());
+    if (o.contains(QLatin1StringView("localTransation"))) {
+        message.setLocalTranslation(o[QLatin1StringView("localTransation")].toString());
+    }
 
-    message.mMessageTranslation = MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray());
+    if (o.contains(QLatin1StringView("messageTranslation"))) {
+        message.mMessageTranslation = MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray());
+    }
 
     return message;
 }
@@ -1093,8 +1097,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.localTranslation().isEmpty()) {
         o[QLatin1StringView("localTransation")] = message.localTranslation();
     }
-    if (!message.mMessageTranslation.isEmpty()) {
-        o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
+    if (!message.messageTranslation().isEmpty()) {
+        o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(message.messageTranslation());
     }
     if (message.messageStateValue(Private)) {
         o[QLatin1StringView("private")] = true;
