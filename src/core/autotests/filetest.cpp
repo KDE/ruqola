@@ -40,7 +40,6 @@ void FileTest::shouldAssignValue()
     const QString mimetype = QStringLiteral("ble1");
     const qint64 timeUploaded = 55;
     const QString fileId = QStringLiteral("blabla");
-    const QString rId = QStringLiteral("blabla22");
     bool complete = false;
     f.setUrl(url);
     f.setFileName(name);
@@ -74,7 +73,6 @@ void FileTest::shouldCopyValue()
     const QByteArray userId = QByteArrayLiteral("ble");
     const QString mimetype = QStringLiteral("ble1");
     const QString fileId = QStringLiteral("blabla");
-    const QString rId = QStringLiteral("blabla22");
     const qint64 timeUploaded = 55;
     bool complete = true;
     f.setComplete(complete);
