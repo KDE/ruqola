@@ -44,8 +44,8 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     mMessageWidget->setObjectName(QStringLiteral("mMessageWidget"));
     mainLayout->addWidget(mMessageWidget);
     mMessageWidget->setVisible(false);
-    mMessageWidget->setCloseButtonVisible(false);
-    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setCloseButtonVisible(true);
+    mMessageWidget->setMessageType(KMessageWidget::Error);
     mMessageWidget->setWordWrap(true);
 
     mDeviceComboBox->setObjectName(QStringLiteral("mDeviceComboBox"));

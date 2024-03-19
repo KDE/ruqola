@@ -56,7 +56,7 @@ PlaySoundWidget::PlaySoundWidget(RocketChatAccount *account, QWidget *parent)
     mainLayout->addWidget(mMessageWidget);
     mMessageWidget->setVisible(false);
     mMessageWidget->setCloseButtonVisible(false);
-    mMessageWidget->setMessageType(KMessageWidget::Information);
+    mMessageWidget->setMessageType(KMessageWidget::Error);
     mMessageWidget->setWordWrap(true);
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
     mLabelPercentSound->setObjectName(QStringLiteral("mLabelPercentSound"));
