@@ -15,7 +15,6 @@ SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(MessagesM
     : QObject{parent}
     , mModel(model)
 {
-    connect(this, &SelectedMessageBackgroundAnimation::backgroundColorChanged, this, &SelectedMessageBackgroundAnimation::slotBackgroundColorChanged);
 }
 
 SelectedMessageBackgroundAnimation::~SelectedMessageBackgroundAnimation() = default;
@@ -23,13 +22,6 @@ SelectedMessageBackgroundAnimation::~SelectedMessageBackgroundAnimation() = defa
 QColor SelectedMessageBackgroundAnimation::backgroundColor() const
 {
     return m_backgroundColor;
-}
-
-void SelectedMessageBackgroundAnimation::slotBackgroundColorChanged()
-{
-    if (mModel && mModelIndex.isValid()) {
-        mModel->setData(mModelIndex, m_backgroundColor, MessagesModel::GoToMessageBackgroundColor);
-    }
 }
 
 QPersistentModelIndex SelectedMessageBackgroundAnimation::modelIndex() const

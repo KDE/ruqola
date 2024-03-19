@@ -890,7 +890,16 @@ void MessageListView::addSelectedMessageBackgroundAnimation(const QModelIndex &i
     if (messageModel) {
         auto animation = new SelectedMessageBackgroundAnimation(messageModel, this);
         animation->setModelIndex(index);
+        connect(animation, &SelectedMessageBackgroundAnimation::backgroundColorChanged, this, [this, animation]() {
+            mMessageListDelegate->needUpdateIndexBackground(animation->modelIndex(), animation->backgroundColor());
+            update(animation->modelIndex());
+        });
+        connect(animation, &SelectedMessageBackgroundAnimation::animationFinished, this, [this, animation]() {
+            mMessageListDelegate->removeNeedUpdateIndexBackground(animation->modelIndex());
+            update(animation->modelIndex());
+        });
         animation->start();
+
     } else {
         qCWarning(RUQOLAWIDGETS_LOG) << " message model empty";
     }

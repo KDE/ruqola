@@ -78,8 +78,7 @@ public:
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
         PrivateMessage,
-        GoToMessageBackgroundColor,
-        LastMessageRoles = GoToMessageBackgroundColor,
+        LastMessageRoles = PrivateMessage,
     };
     Q_ENUM(MessageRoles)
 

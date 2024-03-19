@@ -29,10 +29,9 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(m.blocks().isEmpty());
     QVERIFY(m.attachments().isEmpty());
     QCOMPARE(m.discussionCount(), 0);
-    QVERIFY(!m.goToMessageBackgroundColor().isValid());
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 552);
+    QCOMPARE(sizeof(Message), 536);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 

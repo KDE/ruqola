@@ -41,6 +41,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
+    struct IndexBackgroundColor {
+        QPersistentModelIndex index;
+        QColor color;
+    };
+
     struct MenuInfo {
         Room::RoomType roomType = Room::RoomType::Unknown;
         QPoint globalPos;
@@ -101,6 +106,9 @@ public:
 
     void removeSizeHintCache(const QByteArray &messageId);
 
+    void needUpdateIndexBackground(const QPersistentModelIndex &index, const QColor &color);
+    void removeNeedUpdateIndexBackground(const QPersistentModelIndex &index);
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
@@ -139,6 +147,7 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     QListView *const mListView;
     TextSelectionImpl *const mTextSelectionImpl;
+    QList<IndexBackgroundColor> mIndexBackgroundColorList;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
     QScopedPointer<MessageAttachmentDelegateHelperImage> mHelperAttachmentImage;

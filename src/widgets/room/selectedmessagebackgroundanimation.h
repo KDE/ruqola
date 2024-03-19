@@ -34,7 +34,6 @@ Q_SIGNALS:
     void animationFinished();
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotBackgroundColorChanged();
     QColor m_backgroundColor;
     QPersistentModelIndex mModelIndex;
     MessagesModel *const mModel;

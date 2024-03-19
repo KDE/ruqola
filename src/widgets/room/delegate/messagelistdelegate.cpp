@@ -307,6 +307,30 @@ void MessageListDelegate::removeSizeHintCache(const QByteArray &messageId)
     mSizeHintCache.remove(messageId);
 }
 
+void MessageListDelegate::needUpdateIndexBackground(const QPersistentModelIndex &index, const QColor &color)
+{
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+        return key.index == index;
+    });
+    if (it != mIndexBackgroundColorList.cend()) {
+        mIndexBackgroundColorList.erase(it);
+    }
+    IndexBackgroundColor back;
+    back.color = color;
+    back.index = index;
+    mIndexBackgroundColorList.append(std::move(back));
+}
+
+void MessageListDelegate::removeNeedUpdateIndexBackground(const QPersistentModelIndex &index)
+{
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+        return key.index == index;
+    });
+    if (it != mIndexBackgroundColorList.cend()) {
+        mIndexBackgroundColorList.erase(it);
+    }
+}
+
 void MessageListDelegate::removeMessageCache(const Message *message)
 {
     const QByteArray messageId = message->messageId();
@@ -466,7 +490,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    const QColor goToMessageBackgroundColor{message->goToMessageBackgroundColor()};
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+        return key.index == index;
+    });
+    QColor goToMessageBackgroundColor;
+    if (it != mIndexBackgroundColorList.cend()) {
+        goToMessageBackgroundColor = it->color;
+    }
     if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
         painter->fillRect(option.rect, goToMessageBackgroundColor);
     } else if (message->isEditingMode()) {

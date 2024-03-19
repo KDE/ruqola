@@ -342,8 +342,6 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return message.originalMessageOrAttachmentDescription();
     case MessagesModel::PrivateMessage:
         return message.privateMessage();
-    case MessagesModel::GoToMessageBackgroundColor:
-        return message.goToMessageBackgroundColor();
     }
 
     return {};
@@ -432,10 +430,6 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
     case MessagesModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
         Q_EMIT dataChanged(index, index, {MessagesModel::LocalTranslation});
-        return true;
-    case MessagesModel::GoToMessageBackgroundColor:
-        message.setGoToMessageBackgroundColor(value.value<QColor>());
-        Q_EMIT dataChanged(index, index, {MessagesModel::GoToMessageBackgroundColor});
         return true;
     }
     return false;

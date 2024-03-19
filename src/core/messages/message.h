@@ -219,9 +219,6 @@ public:
 
     [[nodiscard]] QString dateTime() const;
 
-    [[nodiscard]] QColor goToMessageBackgroundColor() const;
-    void setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgroundColor);
-
     void setVideoConferenceInfo(const VideoConferenceInfo &info);
 
     [[nodiscard]] const ModerationMessage *moderationMessage() const;
@@ -248,9 +245,6 @@ private:
     // Moderation Message Info
     QSharedDataPointer<ModerationMessage> mModerationMessage;
     QSharedDataPointer<MessageExtra> mMessageExtra;
-
-    // BackgroundColor
-    QColor mGoToMessageBackgroundColor;
 
     // Message Pinned
     MessagePinned mMessagePinned;

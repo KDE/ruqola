@@ -436,16 +436,6 @@ void Message::setModerationMessage(const ModerationMessage &newModerationMessage
     }
 }
 
-QColor Message::goToMessageBackgroundColor() const
-{
-    return mGoToMessageBackgroundColor;
-}
-
-void Message::setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgroundColor)
-{
-    mGoToMessageBackgroundColor = newGoToMessageBackgroundColor;
-}
-
 void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
 {
     auto it = std::find_if(mBlocks.cbegin(), mBlocks.cend(), [info](const auto &block) {
