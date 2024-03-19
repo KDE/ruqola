@@ -960,7 +960,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     if (o.contains(QLatin1StringView("messageTranslation"))) {
-        message.mMessageTranslation = MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray());
+        message.setMessageTranslation(MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray()));
     }
 
     return message;
