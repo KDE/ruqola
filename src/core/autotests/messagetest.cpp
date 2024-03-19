@@ -348,12 +348,22 @@ void MessageTest::shouldSerializeData()
         input.setDiscussionRoomId(QByteArrayLiteral("discussion111"));
         input.setDiscussionCount(90);
         input.setDiscussionLastMessage(985);
+        MessageTranslation l;
+        l.setTranslatedString({{QStringLiteral("foo"), QStringLiteral("bla")}});
+        input.setMessageTranslation(l);
         // It will break as it's not supported yet
         input.setIsStarred(true);
 
         const QByteArray ba = Message::serialize(input);
         // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
         const Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
+
+        const bool compare = (input == output);
+        if (!compare) {
+            qDebug() << "input: " << input;
+            qDebug() << "output: " << output << QCborValue::fromCbor(ba).toMap().toJsonObject();
+        }
+
         QCOMPARE(input, output);
 
         QVERIFY(output.wasEdited());

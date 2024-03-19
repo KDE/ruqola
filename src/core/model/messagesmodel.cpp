@@ -456,7 +456,10 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
         if (mRocketChatAccount->hasAutotranslateSupport()) {
             if (message.showTranslatedMessage()) {
                 if (mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
-                    const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+                    QString messageTranslation;
+                    if (message.messageTranslation()) {
+                        messageTranslation = message.messageTranslation()->translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+                    }
                     if (!messageTranslation.isEmpty()) {
                         messageStr = messageTranslation;
                     } else if (!message.localTranslation().isEmpty()) {

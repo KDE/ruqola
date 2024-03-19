@@ -9,6 +9,12 @@
 
 MessageTranslation::MessageTranslation() = default;
 
+MessageTranslation::MessageTranslation(const MessageTranslation &other)
+    : QSharedData(other)
+{
+    mTranslatedString = other.mTranslatedString;
+}
+
 QDebug operator<<(QDebug d, const MessageTranslation &t)
 {
     d.space() << "translate string" << t.translatedString();
@@ -41,7 +47,7 @@ void MessageTranslation::setTranslatedString(const QMap<QString, QString> &trans
     mTranslatedString = translatedString;
 }
 
-QString MessageTranslation::translatedStringFromLanguage(const QString &lang)
+QString MessageTranslation::translatedStringFromLanguage(const QString &lang) const
 {
     return mTranslatedString.value(lang);
 }
@@ -59,9 +65,9 @@ QJsonArray MessageTranslation::serialize(const MessageTranslation &translation)
     return array;
 }
 
-MessageTranslation MessageTranslation::deserialize(const QJsonArray &array)
+MessageTranslation *MessageTranslation::deserialize(const QJsonArray &array)
 {
-    MessageTranslation translationMessage;
+    MessageTranslation *translationMessage = new MessageTranslation;
     QMap<QString, QString> translationStrings;
     for (int i = 0, total = array.count(); i < total; ++i) {
         QJsonObject o = array.at(i).toObject();
@@ -69,7 +75,7 @@ MessageTranslation MessageTranslation::deserialize(const QJsonArray &array)
             translationStrings.insert(o.keys().at(0), o.value(o.keys().at(0)).toString());
         }
     }
-    translationMessage.setTranslatedString(translationStrings);
+    translationMessage->setTranslatedString(translationStrings);
     return translationMessage;
 }
 

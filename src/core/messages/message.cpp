@@ -182,7 +182,10 @@ void Message::setName(const QString &name)
 
 bool Message::isAutoTranslated() const
 {
-    return !messageTranslation().isEmpty();
+    if (mMessageTranslation) {
+        return !mMessageTranslation->isEmpty();
+    }
+    return false;
 }
 
 bool Message::showTranslatedMessage() const
@@ -195,14 +198,21 @@ void Message::setShowTranslatedMessage(bool showOriginalMessage)
     assignMessageStateValue(Translated, showOriginalMessage);
 }
 
-MessageTranslation Message::messageTranslation() const
+const MessageTranslation *Message::messageTranslation() const
 {
-    return mMessageTranslation;
+    if (mMessageTranslation) {
+        return mMessageTranslation.data();
+    }
+    return nullptr;
 }
 
 void Message::setMessageTranslation(const MessageTranslation &messageTranslation)
 {
-    mMessageTranslation = messageTranslation;
+    if (!mMessageTranslation) {
+        mMessageTranslation = new MessageTranslation(messageTranslation);
+    } else {
+        mMessageTranslation.reset(new MessageTranslation(messageTranslation));
+    }
 }
 
 QString Message::displayTime() const
@@ -529,7 +539,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
 
 bool Message::operator==(const Message &other) const
 {
-    return (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
+    bool result = (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
@@ -538,10 +548,25 @@ bool Message::operator==(const Message &other) const
         && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage())
         && (discussionCount() == other.discussionCount()) && (discussionLastMessage() == other.discussionLastMessage())
         && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
-        && (messageTranslation() == other.messageTranslation()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
-        && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
-        && (mChannels == other.channels()) && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks())
-        && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
+        && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies()) && (mEmoji == other.emoji())
+        && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage()) && (mChannels == other.channels())
+        && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks()) && (mDisplayTime == other.mDisplayTime)
+        && (privateMessage() == other.privateMessage());
+    if (!result) {
+        return false;
+    }
+    if (messageTranslation() && other.messageTranslation()) {
+        if (*messageTranslation() == (*other.messageTranslation())) {
+            result = true;
+        } else {
+            result = false;
+        }
+    } else if (!messageTranslation() && !other.messageTranslation()) {
+        result = true;
+    } else {
+        result = false;
+    }
+    return result;
 }
 
 bool Message::operator<(const Message &other) const
@@ -960,7 +985,9 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     if (o.contains(QLatin1StringView("messageTranslation"))) {
-        message.setMessageTranslation(MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray()));
+        MessageTranslation *translation = MessageTranslation::deserialize(o[QLatin1StringView("messageTranslation")].toArray());
+        message.setMessageTranslation(*translation);
+        delete translation;
     }
 
     return message;
@@ -1087,8 +1114,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.localTranslation().isEmpty()) {
         o[QLatin1StringView("localTransation")] = message.localTranslation();
     }
-    if (!message.messageTranslation().isEmpty()) {
-        o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(message.messageTranslation());
+    if (message.messageTranslation() && !message.messageTranslation()->isEmpty()) {
+        o[QLatin1StringView("messageTranslation")] = MessageTranslation::serialize(*message.messageTranslation());
     }
     if (message.messageStateValue(Private)) {
         o[QLatin1StringView("private")] = true;
@@ -1137,7 +1164,9 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "discussionlastmessage" << t.discussionLastMessage();
     d.space() << "discussionRoomId" << t.discussionRoomId();
     d.space() << "threadMessageId" << t.threadMessageId();
-    d.space() << "messagetranslation" << t.messageTranslation();
+    if (t.messageTranslation()) {
+        d.space() << "messagetranslation" << *t.messageTranslation();
+    }
     d.space() << "mShowOriginalMessage" << t.showTranslatedMessage();
     d.space() << "mReplies" << t.replies();
     d.space() << "mEmoji" << t.emoji();

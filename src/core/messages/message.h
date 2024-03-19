@@ -176,8 +176,9 @@ public:
 
     [[nodiscard]] QString displayTime() const;
 
-    [[nodiscard]] MessageTranslation messageTranslation() const;
+    [[nodiscard]] const MessageTranslation *messageTranslation() const;
     void setMessageTranslation(const MessageTranslation &messageTranslation);
+    void setMessageTranslation(MessageTranslation *messageTranslation);
 
     [[nodiscard]] bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);
@@ -253,7 +254,7 @@ private:
     MessageStarred mMessageStarred;
 
     // Message Translation
-    MessageTranslation mMessageTranslation;
+    QSharedDataPointer<MessageTranslation> mMessageTranslation;
 
     // Message Object Fields
     QList<MessageAttachment> mAttachments;
