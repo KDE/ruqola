@@ -46,7 +46,7 @@ void DownloadFileJob::slotDownloadDone()
             const QString newFilePath = mLocalFileUrl.toLocalFile();
             QFileInfo(newFilePath).absoluteDir().mkpath(QStringLiteral("."));
             QFile file(newFilePath);
-            if (file.open(QIODevice::ReadWrite)) {
+            if (file.open(QIODevice::WriteOnly)) {
                 file.write(data);
                 file.close();
             } else {
