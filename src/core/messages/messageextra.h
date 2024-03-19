@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QSharedData>
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT MessageExtra : public QSharedData
+class LIBRUQOLACORE_EXPORT MessageExtra : public QSharedData
 {
 public:
     MessageExtra();
