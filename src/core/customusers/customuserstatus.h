@@ -24,8 +24,8 @@ public:
     [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &identifier);
 
     [[nodiscard]] User::PresenceStatus statusType() const;
     void setStatusType(User::PresenceStatus statusType);
@@ -35,7 +35,7 @@ public:
     [[nodiscard]] bool operator==(const CustomUserStatus &other) const;
 
 private:
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mName;
     qint64 mUpdatedAt = -1;
     User::PresenceStatus mStatusType = User::PresenceStatus::Unknown;

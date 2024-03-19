@@ -100,7 +100,7 @@ void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
         const QJsonObject customStatusObj = obj.value(QLatin1StringView("userStatusData")).toObject();
         if (!customStatusObj.isEmpty()) {
             if (customStatusObj.contains(QLatin1StringView("_id"))) {
-                const QString identifier = customStatusObj.value(QLatin1StringView("_id")).toString();
+                const QByteArray identifier = customStatusObj.value(QLatin1StringView("_id")).toString().toLatin1();
                 for (const CustomUserStatus &status : std::as_const(mCustomUserses)) {
                     if (status.identifier() == identifier) {
                         mCustomUserses.removeOne(status);
@@ -127,7 +127,7 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                 // previousName
                 //=> update otherwise add
                 bool found = false;
-                const QString identifier = customStatusObj.value(QLatin1StringView("_id")).toString();
+                const QByteArray identifier = customStatusObj.value(QLatin1StringView("_id")).toString().toLatin1();
                 for (CustomUserStatus &status : mCustomUserses) {
                     if (status.identifier() == identifier) {
                         status.parseCustomStatus(customStatusObj);

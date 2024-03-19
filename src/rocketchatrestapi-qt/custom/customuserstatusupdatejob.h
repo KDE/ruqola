@@ -15,7 +15,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT CustomUserStatusUpdateJob : public RestApiA
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT StatusUpdateInfo {
-        QString identifier;
+        QByteArray identifier;
         QString name;
         QString statusType;
         [[nodiscard]] bool isValid() const
