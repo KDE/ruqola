@@ -7,7 +7,7 @@
 #include "messagedelegatehelpersection.h"
 #include "common/delegatepaintutil.h"
 #include "rocketchataccount.h"
-#include "textconverter.h"
+// #include "textconverter.h"
 
 #include <KLocalizedString>
 
