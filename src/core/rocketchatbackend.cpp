@@ -8,6 +8,7 @@
  */
 
 #include "rocketchatbackend.h"
+#include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
@@ -21,6 +22,10 @@
 #include "ruqolalogger.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#include "connection.h"
+#include "restauthenticationmanager.h"
+#endif
 #include <QJsonArray>
 
 void process_updatePublicsettings(const QJsonObject &obj, RocketChatAccount *account)
@@ -305,6 +310,33 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+        qDebug() << " RocketChatBackend::slotLoginStatusChanged() login!!!!";
+        mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->restApi()->authenticationManager()->authToken());
+        mRocketChatAccount->settings()->setExpireToken(mRocketChatAccount->restApi()->authenticationManager()->tokenExpires());
+
+        auto restApi = mRocketChatAccount->restApi();
+        auto ddp = mRocketChatAccount->ddp();
+        ddp->setServerUrl(restApi->serverUrl());
+        ddp->start();
+
+        QJsonObject params;
+        // TODO use timeStamp too
+        params[QLatin1StringView("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+
+        std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
+            getsubscription_parsing(obj, account);
+        };
+
+        ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
+
+        connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
+        restApi->setAuthToken(mRocketChatAccount->restApi()->authenticationManager()->authToken());
+        restApi->setUserId(mRocketChatAccount->restApi()->authenticationManager()->userId());
+        restApi->listAllPermissions();
+        restApi->getPrivateSettings();
+        restApi->getOwnInfo();
+#else
         // Now that we are logged in the ddp authentication manager has all the information we need
         auto restApi = mRocketChatAccount->restApi();
         mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
@@ -327,6 +359,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->listAllPermissions();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
+#endif
     }
 }
 
@@ -347,7 +380,11 @@ void RocketChatBackend::tryAutoLogin()
     if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->password().isEmpty()) {
         return;
     }
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    // TODO
+#else
     mRocketChatAccount->ddp()->login();
+#endif
 }
 
 QList<File> RocketChatBackend::files() const

@@ -8,17 +8,15 @@
 
 #include "messagequeue.h"
 #include "config-ruqola.h"
-#include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
-
-#undef USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#define USE_RESTAPI_LOGIN_CMAKE_SUPPORT 0
 
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 #include "authenticationmanager.h"
 #include "connection.h"
 #include "restauthenticationmanager.h"
+#else
+#include "ddpapi/ddpauthenticationmanager.h"
 #endif
 
 #include <QCborValue>

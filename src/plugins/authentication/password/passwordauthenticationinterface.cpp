@@ -7,9 +7,7 @@
 #include "passwordauthenticationinterface.h"
 #include "config-ruqola.h"
 #include "rocketchataccount.h"
-// TODO activate it when we will use USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#undef USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#define USE_RESTAPI_LOGIN_CMAKE_SUPPORT 0
+
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 #include "connection.h"
 #include "restauthenticationmanager.h"

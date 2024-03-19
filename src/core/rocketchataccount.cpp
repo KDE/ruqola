@@ -98,9 +98,6 @@
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
-#undef USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#define USE_RESTAPI_LOGIN_CMAKE_SUPPORT 0
-
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
@@ -660,8 +657,11 @@ void RocketChatAccount::tryLogin()
     qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    // FIXME login !!!!!!!
-    // restApi()
+    if (auto interface = defaultAuthenticationInterface()) {
+        interface->login();
+    } else {
+        qCWarning(RUQOLA_LOG) << "No plugins loaded. Please verify your installation.";
+    }
 #else
     // ddp() creates a new DDPClient object if it doesn't exist.
     ddp()->enqueueLogin();
@@ -1449,7 +1449,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-        restapi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
+        restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
 #else
         ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
 #endif

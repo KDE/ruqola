@@ -17,7 +17,6 @@
 QString RESTAuthenticationManager::METHOD_LOGIN = sl("login");
 QString RESTAuthenticationManager::METHOD_SEND_OTP = sl("login");
 QString RESTAuthenticationManager::METHOD_LOGOUT = sl("logout");
-// FIXME: using METHOD_LOGOUT_CLEAN_UP
 QString RESTAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 
 RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnection, QObject *parent)
