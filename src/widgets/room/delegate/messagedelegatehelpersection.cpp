@@ -68,7 +68,7 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
 #if 0 // We need to use QTextDocument here too
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
-    QString needUpdateMessageId;
+    QByteArray needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(block.sectionText(), {}, {}, {}, emojiManager, messageCache, {}, {});
     int recursiveIndex = 0;
     layout.title = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
