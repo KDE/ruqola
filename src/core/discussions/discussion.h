@@ -32,8 +32,8 @@ public:
 
     void parseDiscussion(const QJsonObject &o);
 
-    [[nodiscard]] QString discussionRoomId() const;
-    void setDiscussionRoomId(const QString &discussionRoomId);
+    [[nodiscard]] QByteArray discussionRoomId() const;
+    void setDiscussionRoomId(const QByteArray &discussionRoomId);
 
     [[nodiscard]] QString lastMessageDisplay() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     QString mDescription;
     QString mParentRoomId;
-    QString mDiscussionRoomId;
+    QByteArray mDiscussionRoomId;
     QString mLastMessageDateTimeStr;
     QString mTimeStampDateTimeStr;
     QString mFname;

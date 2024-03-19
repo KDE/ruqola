@@ -122,7 +122,7 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mDescription = o.value(QLatin1StringView("description")).toString();
     mFname = o.value(QLatin1StringView("fname")).toString();
     mNumberMessages = o.value(QLatin1StringView("msgs")).toInt();
-    mDiscussionRoomId = o.value(QLatin1StringView("_id")).toString();
+    mDiscussionRoomId = o.value(QLatin1StringView("_id")).toString().toLatin1();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
     const QJsonValue ownerValue = o.value(QLatin1StringView("u"));
@@ -132,12 +132,12 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     }
 }
 
-QString Discussion::discussionRoomId() const
+QByteArray Discussion::discussionRoomId() const
 {
     return mDiscussionRoomId;
 }
 
-void Discussion::setDiscussionRoomId(const QString &discussionRoomId)
+void Discussion::setDiscussionRoomId(const QByteArray &discussionRoomId)
 {
     mDiscussionRoomId = discussionRoomId;
 }
