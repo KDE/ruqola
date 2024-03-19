@@ -22,12 +22,12 @@ void Discussion::setDescription(const QString &description)
     mDescription = description;
 }
 
-QString Discussion::parentRoomId() const
+QByteArray Discussion::parentRoomId() const
 {
     return mParentRoomId;
 }
 
-void Discussion::setParentRoomId(const QString &parentRoomId)
+void Discussion::setParentRoomId(const QByteArray &parentRoomId)
 {
     mParentRoomId = parentRoomId;
 }
@@ -118,7 +118,7 @@ bool Discussion::operator==(const Discussion &other) const
 
 void Discussion::parseDiscussion(const QJsonObject &o)
 {
-    mParentRoomId = o.value(QLatin1StringView("prid")).toString();
+    mParentRoomId = o.value(QLatin1StringView("prid")).toString().toLatin1();
     mDescription = o.value(QLatin1StringView("description")).toString();
     mFname = o.value(QLatin1StringView("fname")).toString();
     mNumberMessages = o.value(QLatin1StringView("msgs")).toInt();

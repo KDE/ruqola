@@ -38,7 +38,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
         Discussion c;
         c.setDescription(QStringLiteral("roomid%1").arg(i));
         c.setNumberMessages(i);
-        c.setParentRoomId(QStringLiteral("online"));
+        c.setParentRoomId(QByteArrayLiteral("online"));
         discussionList.append(std::move(c));
     }
     model.setDiscussions(discussionList);
@@ -51,7 +51,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
         Discussion c;
         c.setDescription(QStringLiteral("roomid%1").arg(i));
         c.setNumberMessages(i);
-        c.setParentRoomId(QStringLiteral("online"));
+        c.setParentRoomId(QByteArrayLiteral("online"));
         discussionList.append(std::move(c));
     }
     model.setDiscussions(discussionList);

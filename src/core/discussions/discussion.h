@@ -18,8 +18,8 @@ public:
     [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
 
-    [[nodiscard]] QString parentRoomId() const;
-    void setParentRoomId(const QString &parentRoomId);
+    [[nodiscard]] QByteArray parentRoomId() const;
+    void setParentRoomId(const QByteArray &parentRoomId);
 
     [[nodiscard]] int numberMessages() const;
     void setNumberMessages(int numberMessages);
@@ -50,7 +50,7 @@ public:
 
 private:
     QString mDescription;
-    QString mParentRoomId;
+    QByteArray mParentRoomId;
     QByteArray mDiscussionRoomId;
     QString mLastMessageDateTimeStr;
     QString mTimeStampDateTimeStr;
