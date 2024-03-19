@@ -32,6 +32,7 @@ public:
     void setRoomFName(const QString &newRoomFName);
 
     [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] bool operator==(const ModerationMessage &other) const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &roomObj);

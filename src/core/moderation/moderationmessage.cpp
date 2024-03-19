@@ -28,6 +28,11 @@ ModerationMessage::ModerationMessage(const ModerationMessage &other)
     mRoomFName = other.roomFName();
 }
 
+bool ModerationMessage::operator==(const ModerationMessage &other) const
+{
+    return mModerationId == other.moderationId() && mRoomId == other.roomId() && mRoomName == other.roomName() && mRoomFName == other.roomFName();
+}
+
 QString ModerationMessage::moderationId() const
 {
     return mModerationId;

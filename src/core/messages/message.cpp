@@ -555,16 +555,29 @@ bool Message::operator==(const Message &other) const
     if (!result) {
         return false;
     }
+    // compare messageTranslation
     if (messageTranslation() && other.messageTranslation()) {
         if (*messageTranslation() == (*other.messageTranslation())) {
             result = true;
         } else {
-            result = false;
+            return false;
         }
     } else if (!messageTranslation() && !other.messageTranslation()) {
         result = true;
     } else {
-        result = false;
+        return false;
+    }
+    // Compare moderationMessage
+    if (moderationMessage() && other.moderationMessage()) {
+        if (*moderationMessage() == (*other.moderationMessage())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!moderationMessage() && !other.moderationMessage()) {
+        result = true;
+    } else {
+        return false;
     }
     return result;
 }
