@@ -310,9 +310,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
+        auto restApi = mRocketChatAccount->restApi();
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
         qDebug() << " RocketChatBackend::slotLoginStatusChanged() login!!!!";
-        auto restApi = mRocketChatAccount->restApi();
         mRocketChatAccount->settings()->setAuthToken(restApi->authenticationManager()->authToken());
         mRocketChatAccount->settings()->setExpireToken(restApi->authenticationManager()->tokenExpires());
 
@@ -336,7 +336,6 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->setUserId(restApi->authenticationManager()->userId());
 #else
         // Now that we are logged in the ddp authentication manager has all the information we need
-        auto restApi = mRocketChatAccount->restApi();
         mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
         mRocketChatAccount->settings()->setExpireToken(mRocketChatAccount->ddp()->authenticationManager()->tokenExpires());
         restApi->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
@@ -380,7 +379,6 @@ void RocketChatBackend::tryAutoLogin()
     }
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     mRocketChatAccount->tryLogin();
-    // TODO
 #else
     mRocketChatAccount->ddp()->login();
 #endif
