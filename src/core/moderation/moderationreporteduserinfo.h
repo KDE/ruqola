@@ -16,6 +16,12 @@ public:
     ~ModerationReportedUserInfo() = default;
 
     void parseModerationReportedUserInfo(const QJsonObject &replyObject);
+
+    [[nodiscard]] qint64 timeStamp() const;
+    void setTimeStamp(qint64 newTimeStamp);
+
+private:
+    qint64 mTimeStamp = -1;
 };
 
 Q_DECLARE_METATYPE(ModerationReportedUserInfo)

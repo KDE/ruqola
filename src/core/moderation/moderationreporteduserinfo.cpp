@@ -18,3 +18,13 @@ void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObje
 {
     // TODO
 }
+
+qint64 ModerationReportedUserInfo::timeStamp() const
+{
+    return mTimeStamp;
+}
+
+void ModerationReportedUserInfo::setTimeStamp(qint64 newTimeStamp)
+{
+    mTimeStamp = newTimeStamp;
+}
