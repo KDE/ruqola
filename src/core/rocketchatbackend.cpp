@@ -318,7 +318,8 @@ void RocketChatBackend::slotLoginStatusChanged()
 
         auto ddp = mRocketChatAccount->ddp();
         ddp->setServerUrl(restApi->serverUrl());
-        ddp->start();
+        ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
+        ddp->authenticationManager()->login();
 
         QJsonObject params;
         // TODO use timeStamp too
