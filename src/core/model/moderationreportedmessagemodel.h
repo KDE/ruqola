@@ -10,11 +10,11 @@
 #include "libruqolacore_export.h"
 #include "moderation/moderationreportedmessageinfos.h"
 
-class LIBRUQOLACORE_EXPORT ModerationModel : public CustomBaseModel
+class LIBRUQOLACORE_EXPORT ModerationReportedMessageModel : public CustomBaseModel
 {
     Q_OBJECT
 public:
-    enum ModerationInfoRoles {
+    enum ModerationReportedMessageRoles {
         Name,
         UserName,
         Message,
@@ -26,10 +26,10 @@ public:
         MessageId,
         LastColumn = MessageId,
     };
-    Q_ENUM(ModerationInfoRoles)
+    Q_ENUM(ModerationReportedMessageRoles)
 
-    explicit ModerationModel(QObject *parent = nullptr);
-    ~ModerationModel() override;
+    explicit ModerationReportedMessageModel(QObject *parent = nullptr);
+    ~ModerationReportedMessageModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;

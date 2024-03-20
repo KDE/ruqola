@@ -14,14 +14,19 @@ class LIBRUQOLACORE_EXPORT ModerationReportedUserInfo
 public:
     ModerationReportedUserInfo();
     ~ModerationReportedUserInfo() = default;
+    [[nodiscard]] bool operator==(const ModerationReportedUserInfo &other) const;
 
     void parseModerationReportedUserInfo(const QJsonObject &replyObject);
 
     [[nodiscard]] qint64 timeStamp() const;
     void setTimeStamp(qint64 newTimeStamp);
 
+    [[nodiscard]] int count() const;
+    void setCount(int newCount);
+
 private:
     qint64 mTimeStamp = -1;
+    int mCount = 0;
 };
 
 Q_DECLARE_METATYPE(ModerationReportedUserInfo)
