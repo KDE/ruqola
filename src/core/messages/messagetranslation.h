@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QMap>
-class LIBRUQOLACORE_TESTS_EXPORT MessageTranslation : public QSharedData
+class LIBRUQOLACORE_EXPORT MessageTranslation : public QSharedData
 {
 public:
     MessageTranslation();
