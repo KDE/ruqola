@@ -482,10 +482,10 @@ target_sources(libruqolacore PRIVATE
     manageloadhistoryparsesyncmessagesutils.h
     manageloadhistoryparsesyncmessagesutils.cpp
 
-    moderation/moderationinfo.h
-    moderation/moderationinfo.cpp
-    moderation/moderationinfos.cpp
-    moderation/moderationinfos.h
+    moderation/moderationreportedmessageinfo.h
+    moderation/moderationreportedmessageinfo.cpp
+    moderation/moderationreportedmessageinfos.cpp
+    moderation/moderationreportedmessageinfos.h
 
     moderation/moderationreportinfo.h
     moderation/moderationreportinfo.cpp

@@ -3,19 +3,19 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#include "moderationinfotest.h"
-#include "moderation/moderationinfo.h"
+#include "moderationreportedmessageinfotest.h"
+#include "moderation/moderationreportedmessageinfo.h"
 #include "ruqola_autotest_helper.h"
 
-QTEST_GUILESS_MAIN(ModerationInfoTest)
-ModerationInfoTest::ModerationInfoTest(QObject *parent)
+QTEST_GUILESS_MAIN(ModerationReportedMessageInfoTest)
+ModerationReportedMessageInfoTest::ModerationReportedMessageInfoTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void ModerationInfoTest::shouldHaveDefaultValues()
+void ModerationReportedMessageInfoTest::shouldHaveDefaultValues()
 {
-    ModerationInfo i;
+    ModerationReportedMessageInfo i;
     QVERIFY(i.userId().isEmpty());
     QVERIFY(i.name().isEmpty());
     QVERIFY(i.userName().isEmpty());
@@ -26,14 +26,14 @@ void ModerationInfoTest::shouldHaveDefaultValues()
     QVERIFY(i.roomList().isEmpty());
 }
 
-void ModerationInfoTest::shouldModerationInfo()
+void ModerationReportedMessageInfoTest::shouldModerationInfo()
 {
     QFETCH(QString, name);
-    QFETCH(ModerationInfo, moderationInfo);
+    QFETCH(ModerationReportedMessageInfo, moderationInfo);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/moderation/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
-    ModerationInfo result;
+    ModerationReportedMessageInfo result;
     result.parseModerationInfo(obj);
     const bool equal = result == moderationInfo;
     if (!equal) {
@@ -43,13 +43,13 @@ void ModerationInfoTest::shouldModerationInfo()
     QVERIFY(equal);
 }
 
-void ModerationInfoTest::shouldModerationInfo_data()
+void ModerationReportedMessageInfoTest::shouldModerationInfo_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<ModerationInfo>("moderationInfo");
-    QTest::addRow("moderationempty") << QStringLiteral("moderationempty") << ModerationInfo();
+    QTest::addColumn<ModerationReportedMessageInfo>("moderationInfo");
+    QTest::addRow("moderationempty") << QStringLiteral("moderationempty") << ModerationReportedMessageInfo();
     {
-        ModerationInfo info;
+        ModerationReportedMessageInfo info;
         info.setUserId(QByteArrayLiteral("SSSSSQ4iShzD9T2"));
         info.setName(QStringLiteral("Name Laur"));
         info.setUserName(QStringLiteral("laurent"));
@@ -66,4 +66,4 @@ void ModerationInfoTest::shouldModerationInfo_data()
     }
 }
 
-#include "moc_moderationinfotest.cpp"
+#include "moc_moderationreportedmessageinfotest.cpp"

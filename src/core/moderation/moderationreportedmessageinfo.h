@@ -9,13 +9,13 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 
-class LIBRUQOLACORE_EXPORT ModerationInfo
+class LIBRUQOLACORE_EXPORT ModerationReportedMessageInfo
 {
 public:
-    ModerationInfo();
-    ~ModerationInfo() = default;
+    ModerationReportedMessageInfo();
+    ~ModerationReportedMessageInfo() = default;
 
-    [[nodiscard]] bool operator==(const ModerationInfo &other) const;
+    [[nodiscard]] bool operator==(const ModerationReportedMessageInfo &other) const;
 
     void parseModerationInfo(const QJsonObject &replyObject);
 
@@ -62,6 +62,6 @@ private:
     bool mIsUserDeleted = false;
 };
 
-Q_DECLARE_METATYPE(ModerationInfo)
-Q_DECLARE_TYPEINFO(ModerationInfo, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationInfo &t);
+Q_DECLARE_METATYPE(ModerationReportedMessageInfo)
+Q_DECLARE_TYPEINFO(ModerationReportedMessageInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportedMessageInfo &t);

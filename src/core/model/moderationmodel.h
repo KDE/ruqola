@@ -8,7 +8,7 @@
 
 #include "custombasemodel.h"
 #include "libruqolacore_export.h"
-#include "moderation/moderationinfos.h"
+#include "moderation/moderationreportedmessageinfos.h"
 
 class LIBRUQOLACORE_EXPORT ModerationModel : public CustomBaseModel
 {
@@ -43,11 +43,11 @@ public:
 
     void removeElement(const QString &identifier) override;
 
-    [[nodiscard]] const ModerationInfos &moderationInfos() const;
-    void setModerationInfos(const ModerationInfos &newDeviceInfos);
+    [[nodiscard]] const ModerationReportedMessageInfos &moderationInfos() const;
+    void setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     LIBRUQOLACORE_NO_EXPORT void clear();
-    ModerationInfos mModerationInfos;
+    ModerationReportedMessageInfos mModerationInfos;
 };

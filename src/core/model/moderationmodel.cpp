@@ -63,7 +63,7 @@ QVariant ModerationModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const ModerationInfo &moderationInfo = mModerationInfos.at(index.row());
+    const ModerationReportedMessageInfo &moderationInfo = mModerationInfos.at(index.row());
     const int col = index.column();
     switch (static_cast<ModerationInfoRoles>(col)) {
     case ModerationInfoRoles::UserId:
@@ -119,12 +119,12 @@ void ModerationModel::checkFullList()
     setHasFullList(mModerationInfos.count() == mModerationInfos.total());
 }
 
-const ModerationInfos &ModerationModel::moderationInfos() const
+const ModerationReportedMessageInfos &ModerationModel::moderationInfos() const
 {
     return mModerationInfos;
 }
 
-void ModerationModel::setModerationInfos(const ModerationInfos &newDeviceInfos)
+void ModerationModel::setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos)
 {
     clear();
     if (!mModerationInfos.isEmpty()) {

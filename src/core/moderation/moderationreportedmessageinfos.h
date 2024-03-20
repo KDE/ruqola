@@ -7,14 +7,14 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "moderationinfo.h"
+#include "moderationreportedmessageinfo.h"
 #include <QDebug>
 #include <QList>
 
-class LIBRUQOLACORE_EXPORT ModerationInfos
+class LIBRUQOLACORE_EXPORT ModerationReportedMessageInfos
 {
 public:
-    ModerationInfos();
+    ModerationReportedMessageInfos();
 
     void clear();
 
@@ -27,24 +27,24 @@ public:
     [[nodiscard]] int moderationInfosCount() const;
     void setModerationInfosCount(int newModerationInfosCount);
 
-    [[nodiscard]] const QList<ModerationInfo> &moderationInfosList() const;
-    void setModerationInfosList(const QList<ModerationInfo> &newModerationInfosList);
+    [[nodiscard]] const QList<ModerationReportedMessageInfo> &moderationInfosList() const;
+    void setModerationInfosList(const QList<ModerationReportedMessageInfo> &newModerationInfosList);
 
     [[nodiscard]] bool isEmpty() const;
     [[nodiscard]] int count() const;
-    [[nodiscard]] ModerationInfo at(int index) const;
+    [[nodiscard]] ModerationReportedMessageInfo at(int index) const;
 
     void parseModerationInfos(const QJsonObject &moderationInfosObj);
     void parseMoreModerationInfos(const QJsonObject &moderationInfosObj);
 
-    ModerationInfo takeAt(int index);
+    ModerationReportedMessageInfo takeAt(int index);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseModerationInfosObj(const QJsonObject &moderationInfosObj);
-    QList<ModerationInfo> mModerationInfosList;
+    QList<ModerationReportedMessageInfo> mModerationInfosList;
     int mModerationInfosCount = 0;
     int mOffset = 0;
     int mTotal = 0;
 };
-Q_DECLARE_METATYPE(ModerationInfos)
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationInfos &t);
+Q_DECLARE_METATYPE(ModerationReportedMessageInfos)
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportedMessageInfos &t);

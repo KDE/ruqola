@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class ModerationInfoTest : public QObject
+class ModerationReportedMessageInfoTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ModerationInfoTest(QObject *parent = nullptr);
-    ~ModerationInfoTest() override = default;
+    explicit ModerationReportedMessageInfoTest(QObject *parent = nullptr);
+    ~ModerationReportedMessageInfoTest() override = default;
 
 private Q_SLOTS:
     void shouldModerationInfo_data();

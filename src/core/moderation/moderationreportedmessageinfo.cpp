@@ -4,12 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "moderationinfo.h"
+#include "moderationreportedmessageinfo.h"
 #include "utils.h"
 
-ModerationInfo::ModerationInfo() = default;
+ModerationReportedMessageInfo::ModerationReportedMessageInfo() = default;
 
-QDebug operator<<(QDebug d, const ModerationInfo &t)
+QDebug operator<<(QDebug d, const ModerationReportedMessageInfo &t)
 {
     d.space() << "userId" << t.userId();
     d.space() << "name" << t.name();
@@ -26,13 +26,13 @@ QDebug operator<<(QDebug d, const ModerationInfo &t)
 // obj QJsonObject({"count":1,"offset":0,"reports":[{"count":1,"isUserDeleted":false,"message":"Fghd","msgId":"eJ443teFnx7hTG5pZ","name":"Laurent m",
 // "rooms":[{"_id":"GotJhd87jLScanhwr","fname":"test4","name":"test4","t":"c"}],"ts":"2023-09-20T15:09:37.959Z","userId":"dddd","username":"laurent"}],
 // "success":true,"total":1})
-bool ModerationInfo::operator==(const ModerationInfo &other) const
+bool ModerationReportedMessageInfo::operator==(const ModerationReportedMessageInfo &other) const
 {
     return mUserId == other.mUserId && mName == other.mName && mUserName == other.mUserName && mUserId == other.mUserId && mCount == other.mCount
         && mIsUserDeleted == other.mIsUserDeleted && mMessage == other.mMessage && mCreatedAt == other.mCreatedAt && mRoomList == other.mRoomList;
 }
 
-void ModerationInfo::parseRoomList(const QJsonArray &rooms)
+void ModerationReportedMessageInfo::parseRoomList(const QJsonArray &rooms)
 {
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
@@ -42,7 +42,7 @@ void ModerationInfo::parseRoomList(const QJsonArray &rooms)
     }
 }
 
-void ModerationInfo::parseModerationInfo(const QJsonObject &o)
+void ModerationReportedMessageInfo::parseModerationInfo(const QJsonObject &o)
 {
     // qDebug() << " ModerationInfo " << o;
     mUserId = o[QLatin1StringView("userId")].toString().toLatin1();
@@ -56,7 +56,7 @@ void ModerationInfo::parseModerationInfo(const QJsonObject &o)
     parseRoomList(o[QLatin1StringView("rooms")].toArray());
 }
 
-void ModerationInfo::setCreatedAt(qint64 newCreatedAt)
+void ModerationReportedMessageInfo::setCreatedAt(qint64 newCreatedAt)
 {
     mCreatedAt = newCreatedAt;
     if (mCreatedAt != -1) {
@@ -65,92 +65,92 @@ void ModerationInfo::setCreatedAt(qint64 newCreatedAt)
     }
 }
 
-QStringList ModerationInfo::roomList() const
+QStringList ModerationReportedMessageInfo::roomList() const
 {
     return mRoomList;
 }
 
-void ModerationInfo::setRoomList(const QStringList &newRoomName)
+void ModerationReportedMessageInfo::setRoomList(const QStringList &newRoomName)
 {
     mRoomList = newRoomName;
 }
 
-qint64 ModerationInfo::createdAt() const
+qint64 ModerationReportedMessageInfo::createdAt() const
 {
     return mCreatedAt;
 }
 
-const QString &ModerationInfo::createAtDisplayDateTime() const
+const QString &ModerationReportedMessageInfo::createAtDisplayDateTime() const
 {
     return mCreateAtDisplayDateTime;
 }
 
-QByteArray ModerationInfo::userId() const
+QByteArray ModerationReportedMessageInfo::userId() const
 {
     return mUserId;
 }
 
-void ModerationInfo::setUserId(const QByteArray &newUserId)
+void ModerationReportedMessageInfo::setUserId(const QByteArray &newUserId)
 {
     mUserId = newUserId;
 }
 
-QString ModerationInfo::name() const
+QString ModerationReportedMessageInfo::name() const
 {
     return mName;
 }
 
-void ModerationInfo::setName(const QString &newName)
+void ModerationReportedMessageInfo::setName(const QString &newName)
 {
     mName = newName;
 }
 
-QString ModerationInfo::userName() const
+QString ModerationReportedMessageInfo::userName() const
 {
     return mUserName;
 }
 
-void ModerationInfo::setUserName(const QString &newUserName)
+void ModerationReportedMessageInfo::setUserName(const QString &newUserName)
 {
     mUserName = newUserName;
 }
 
-QByteArray ModerationInfo::msgId() const
+QByteArray ModerationReportedMessageInfo::msgId() const
 {
     return mMsgId;
 }
 
-void ModerationInfo::setMsgId(const QByteArray &newMsgId)
+void ModerationReportedMessageInfo::setMsgId(const QByteArray &newMsgId)
 {
     mMsgId = newMsgId;
 }
 
-int ModerationInfo::count() const
+int ModerationReportedMessageInfo::count() const
 {
     return mCount;
 }
 
-void ModerationInfo::setCount(int newCount)
+void ModerationReportedMessageInfo::setCount(int newCount)
 {
     mCount = newCount;
 }
 
-bool ModerationInfo::isUserDeleted() const
+bool ModerationReportedMessageInfo::isUserDeleted() const
 {
     return mIsUserDeleted;
 }
 
-void ModerationInfo::setIsUserDeleted(bool newIsUserDeleted)
+void ModerationReportedMessageInfo::setIsUserDeleted(bool newIsUserDeleted)
 {
     mIsUserDeleted = newIsUserDeleted;
 }
 
-QString ModerationInfo::message() const
+QString ModerationReportedMessageInfo::message() const
 {
     return mMessage;
 }
 
-void ModerationInfo::setMessage(const QString &newMessage)
+void ModerationReportedMessageInfo::setMessage(const QString &newMessage)
 {
     mMessage = newMessage;
 }

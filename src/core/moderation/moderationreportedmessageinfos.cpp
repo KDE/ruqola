@@ -4,15 +4,15 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "moderationinfos.h"
+#include "moderationreportedmessageinfos.h"
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
-ModerationInfos::ModerationInfos() = default;
+ModerationReportedMessageInfos::ModerationReportedMessageInfos() = default;
 
-QDebug operator<<(QDebug d, const ModerationInfos &t)
+QDebug operator<<(QDebug d, const ModerationReportedMessageInfos &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
@@ -23,62 +23,62 @@ QDebug operator<<(QDebug d, const ModerationInfos &t)
     return d;
 }
 
-int ModerationInfos::offset() const
+int ModerationReportedMessageInfos::offset() const
 {
     return mOffset;
 }
 
-void ModerationInfos::setOffset(int newOffset)
+void ModerationReportedMessageInfos::setOffset(int newOffset)
 {
     mOffset = newOffset;
 }
 
-int ModerationInfos::total() const
+int ModerationReportedMessageInfos::total() const
 {
     return mTotal;
 }
 
-void ModerationInfos::setTotal(int newTotal)
+void ModerationReportedMessageInfos::setTotal(int newTotal)
 {
     mTotal = newTotal;
 }
 
-int ModerationInfos::moderationInfosCount() const
+int ModerationReportedMessageInfos::moderationInfosCount() const
 {
     return mModerationInfosCount;
 }
 
-void ModerationInfos::setModerationInfosCount(int newModerationInfosCount)
+void ModerationReportedMessageInfos::setModerationInfosCount(int newModerationInfosCount)
 {
     mModerationInfosCount = newModerationInfosCount;
 }
 
-const QList<ModerationInfo> &ModerationInfos::moderationInfosList() const
+const QList<ModerationReportedMessageInfo> &ModerationReportedMessageInfos::moderationInfosList() const
 {
     return mModerationInfosList;
 }
 
-void ModerationInfos::setModerationInfosList(const QList<ModerationInfo> &newModerationInfosList)
+void ModerationReportedMessageInfos::setModerationInfosList(const QList<ModerationReportedMessageInfo> &newModerationInfosList)
 {
     mModerationInfosList = newModerationInfosList;
 }
 
-bool ModerationInfos::isEmpty() const
+bool ModerationReportedMessageInfos::isEmpty() const
 {
     return mModerationInfosList.isEmpty();
 }
 
-void ModerationInfos::clear()
+void ModerationReportedMessageInfos::clear()
 {
     mModerationInfosList.clear();
 }
 
-int ModerationInfos::count() const
+int ModerationReportedMessageInfos::count() const
 {
     return mModerationInfosList.count();
 }
 
-ModerationInfo ModerationInfos::at(int index) const
+ModerationReportedMessageInfo ModerationReportedMessageInfos::at(int index) const
 {
     if (index < 0 || index > mModerationInfosList.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
@@ -87,7 +87,7 @@ ModerationInfo ModerationInfos::at(int index) const
     return mModerationInfosList.at(index);
 }
 
-void ModerationInfos::parseModerationInfos(const QJsonObject &moderationInfosObj)
+void ModerationReportedMessageInfos::parseModerationInfos(const QJsonObject &moderationInfosObj)
 {
     mModerationInfosList.clear();
     mModerationInfosCount = moderationInfosObj[QLatin1StringView("count")].toInt();
@@ -97,13 +97,13 @@ void ModerationInfos::parseModerationInfos(const QJsonObject &moderationInfosObj
     parseModerationInfosObj(moderationInfosObj);
 }
 
-void ModerationInfos::parseModerationInfosObj(const QJsonObject &moderationInfosObj)
+void ModerationReportedMessageInfos::parseModerationInfosObj(const QJsonObject &moderationInfosObj)
 {
     const QJsonArray moderationsArray = moderationInfosObj[QLatin1StringView("reports")].toArray();
     for (const QJsonValue &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
-            ModerationInfo m;
+            ModerationReportedMessageInfo m;
             m.parseModerationInfo(moderationObject);
             mModerationInfosList.append(std::move(m));
         } else {
@@ -112,7 +112,7 @@ void ModerationInfos::parseModerationInfosObj(const QJsonObject &moderationInfos
     }
 }
 
-void ModerationInfos::parseMoreModerationInfos(const QJsonObject &moderationInfosObj)
+void ModerationReportedMessageInfos::parseMoreModerationInfos(const QJsonObject &moderationInfosObj)
 {
     const int moderationInfosCount = moderationInfosObj[QLatin1StringView("count")].toInt();
     mOffset = moderationInfosObj[QLatin1StringView("offset")].toInt();
@@ -121,7 +121,7 @@ void ModerationInfos::parseMoreModerationInfos(const QJsonObject &moderationInfo
     mModerationInfosCount += moderationInfosCount;
 }
 
-ModerationInfo ModerationInfos::takeAt(int index)
+ModerationReportedMessageInfo ModerationReportedMessageInfos::takeAt(int index)
 {
     return mModerationInfosList.takeAt(index);
 }
