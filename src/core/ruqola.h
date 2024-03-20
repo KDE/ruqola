@@ -53,6 +53,10 @@ public:
 
     [[nodiscard]] bool debug() const;
 
+    // Laurent: Temporary or not ?
+    [[nodiscard]] bool useRestApiLogin() const;
+    void setUseRestApiLogin(bool newUseRestApiLogin);
+
 Q_SIGNALS:
     void translatorMenuChanged();
 
@@ -65,4 +69,5 @@ private:
 
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
+    bool mUseRestApiLogin = false;
 };

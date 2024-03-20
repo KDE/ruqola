@@ -78,6 +78,16 @@ bool Ruqola::debug() const
     return mDebug;
 }
 
+bool Ruqola::useRestApiLogin() const
+{
+    return mUseRestApiLogin;
+}
+
+void Ruqola::setUseRestApiLogin(bool newUseRestApiLogin)
+{
+    mUseRestApiLogin = newUseRestApiLogin;
+}
+
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);
