@@ -101,6 +101,12 @@ int main(int argc, char *argv[])
 
     (void)Ruqola::self();
 
+#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    if (parser.isSet(QStringLiteral("loginrestapi"))) {
+        Ruqola::self()->setUseRestApiLogin(true);
+    }
+#endif
+
     if (RuqolaGlobalConfig::self()->useCustomFont()) {
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
     } else {
