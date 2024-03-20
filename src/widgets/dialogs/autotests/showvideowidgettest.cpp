@@ -47,7 +47,7 @@ void ShowVideoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessageWidget);
     QVERIFY(!mMessageWidget->isCloseButtonVisible());
     QVERIFY(mMessageWidget->wordWrap());
-    QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Information);
+    QCOMPARE(mMessageWidget->messageType(), KMessageWidget::Error);
 
     auto mSoundButton = w.findChild<QToolButton *>(QStringLiteral("mSoundButton"));
     QVERIFY(mSoundButton);
