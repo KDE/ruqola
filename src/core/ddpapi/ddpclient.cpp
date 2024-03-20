@@ -8,6 +8,7 @@
  */
 
 #include "ddpclient.h"
+#include "config-ruqola.h"
 #include "messagequeue.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccount.h"
@@ -872,11 +873,13 @@ quint64 DDPClient::loadHistory(const QJsonArray &params)
 
 void DDPClient::login()
 {
+#if !USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     if (auto interface = mRocketChatAccount->defaultAuthenticationInterface()) {
         interface->login();
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "No plugins loaded. Please verify your installation.";
     }
+#endif
 }
 
 void DDPClient::enqueueLogin()
@@ -910,11 +913,12 @@ void DDPClient::onWSConnected()
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
     }
-
+#if !USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     if (mLoginEnqueued) {
         login();
         mLoginEnqueued = false;
     }
+#endif
 }
 
 void DDPClient::onSslErrors(const QList<QSslError> &errors)
