@@ -7,12 +7,15 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QDebug>
+#include <QJsonObject>
 
 class LIBRUQOLACORE_EXPORT ModerationReportedUserInfo
 {
 public:
     ModerationReportedUserInfo();
     ~ModerationReportedUserInfo() = default;
+
+    void parseModerationReportedUserInfo(const QJsonObject &replyObject);
 };
 
 Q_DECLARE_METATYPE(ModerationReportedUserInfo)

@@ -13,3 +13,8 @@ QDebug operator<<(QDebug d, const ModerationReportedUserInfo &t)
     // TODO
     return d;
 }
+
+void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObject &replyObject)
+{
+    // TODO
+}
