@@ -18,5 +18,6 @@ void ModerationReportedUserInfoTest::shouldHaveDefaultValues()
 {
     ModerationReportedUserInfo w;
     QCOMPARE(w.timeStamp(), -1);
+    QCOMPARE(w.count(), 0);
     // TODO
 }
