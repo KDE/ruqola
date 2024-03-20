@@ -10,7 +10,7 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/commonmessagefilterproxymodel.h"
 #include "model/moderationmessagesmodel.h"
-#include "model/moderationmodel.h"
+#include "model/moderationreportedmessagemodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationdismissreportsjob.h"
 #include "moderation/moderationreportsbyusersjob.h"
@@ -30,7 +30,7 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
     , mCommonMessagesModel(new ModerationMessagesModel(account, this))
 {
     mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
-    mModel = new ModerationModel(this);
+    mModel = new ModerationReportedMessageModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
 
@@ -110,7 +110,7 @@ void ModerationConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIn
     }
     auto job = new RocketChatRestApi::ModerationUserReportedMessagesJob(this);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+    const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
     job->setReportedMessageFromUserId(QString::fromLatin1(modelIndex.data().toByteArray()));
     connect(job,
             &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
@@ -133,11 +133,11 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
         menu.addSeparator();
 
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Dismiss reports"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDismissReport(modelIndex);
         });
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Delete all Messages"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationModel::UserId);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
             slotDeleteAllMessages(modelIndex);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
@@ -162,7 +162,7 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
         == KMessageBox::ButtonCode::PrimaryAction) {
         auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
+        const QModelIndex modelIndex = mModel->index(index.row(), ModerationReportedMessageModel::UserId);
         job->setUserIdForMessages(QString::fromLatin1(modelIndex.data().toByteArray()));
         connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, [this]() {
             Q_EMIT refreshList();
@@ -185,7 +185,7 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
         == KMessageBox::ButtonCode::PrimaryAction) {
         auto job = new RocketChatRestApi::ModerationUserDeleteReportedMessagesJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        const QModelIndex modelIndex = mModel->index(index.row(), ModerationModel::UserId);
+        const QModelIndex modelIndex = mModel->index(index.row(), ModerationReportedMessageModel::UserId);
         job->setUserIdForMessages(QString::fromLatin1(modelIndex.data().toByteArray()));
         connect(job, &RocketChatRestApi::ModerationUserDeleteReportedMessagesJob::moderationUserDeleteReportedMessagesDone, this, [this]() {
             Q_EMIT refreshList();
