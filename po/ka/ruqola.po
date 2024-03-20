@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-19 00:38+0000\n"
-"PO-Revision-Date: 2024-03-15 04:45+0100\n"
+"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"PO-Revision-Date: 2024-03-19 04:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -294,120 +294,120 @@ msgstr "დეარქივირება"
 msgid "(Last Message: %1)"
 msgstr "(ბოლო შეტყობინება: %1)"
 
-#: core/messages/block.cpp:126 core/messages/message.cpp:685
+#: core/messages/block.cpp:126 core/messages/message.cpp:713
 #: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Conference Call"
 msgstr "საკონფერენციო ზარი"
 
-#: core/messages/message.cpp:581
+#: core/messages/message.cpp:609
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 შემოუერთდა არხს"
 
-#: core/messages/message.cpp:583
+#: core/messages/message.cpp:611
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 გავიდა არხიდან"
 
-#: core/messages/message.cpp:585
+#: core/messages/message.cpp:613
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 მიატოვა ეს გუნდი"
 
-#: core/messages/message.cpp:588
+#: core/messages/message.cpp:616
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "სათაური გაასუფთავა: %1"
 
-#: core/messages/message.cpp:590
+#: core/messages/message.cpp:618
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2-მა შეცვალა სათაური: <i>%1</i>"
 
-#: core/messages/message.cpp:593
+#: core/messages/message.cpp:621
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 -მა %1 საუბარში ჩაამატა"
 
-#: core/messages/message.cpp:595
+#: core/messages/message.cpp:623
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2-მა ოთახის სახელი <a href=\"ruqola:/room/%1\">#%1</a>-ზე შეცვალა"
 
-#: core/messages/message.cpp:597
+#: core/messages/message.cpp:625
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 წაშალა მომხმარებელი %1"
 
-#: core/messages/message.cpp:600
+#: core/messages/message.cpp:628
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "აღწერა წაიშალა %1-ის მიერ"
 
-#: core/messages/message.cpp:602
+#: core/messages/message.cpp:630
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2-მა ოთახის აღწერა %1-ზე შეცვალა"
 
-#: core/messages/message.cpp:606
+#: core/messages/message.cpp:634
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "განცხადება გასუფთავდა %1-ის მიერ"
 
-#: core/messages/message.cpp:608
+#: core/messages/message.cpp:636
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 -მა ოთახის განცხადება %1-ზე შეცვალა"
 
-#: core/messages/message.cpp:611
+#: core/messages/message.cpp:639
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2-მა ოთახის კონფიდენციალობა %1-ზე შეცვალა"
 
-#: core/messages/message.cpp:613
+#: core/messages/message.cpp:641
 #, kde-format
 msgid "Click to join to video"
 msgstr "დააწკაპუნეთ ვიდეოსთან შესაერთებლად"
 
-#: core/messages/message.cpp:616
+#: core/messages/message.cpp:644
 #, kde-format
 msgid "Message Deleted"
 msgstr "შეტყობინება წაშლილია"
 
-#: core/messages/message.cpp:618
+#: core/messages/message.cpp:646
 #, kde-format
 msgid "Message Pinned"
 msgstr "შეტყობინება მიჭიკარტებულია"
 
-#: core/messages/message.cpp:620
+#: core/messages/message.cpp:648
 #, kde-format
 msgid "Encrypted Message"
 msgstr "დაშიფრული შეტყობინება"
 
-#: core/messages/message.cpp:622
+#: core/messages/message.cpp:650
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1-ის დადუმება მოიხსნა %2-ის მიერ"
 
-#: core/messages/message.cpp:624
+#: core/messages/message.cpp:652
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 დადუმებულია %2-ის მიერ"
 
-#: core/messages/message.cpp:626
+#: core/messages/message.cpp:654
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2-მა '%3' როლი დაამატა %1-ს"
 
-#: core/messages/message.cpp:628
+#: core/messages/message.cpp:656
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2-მა '%3' როლი წაშალა %1-დან"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:632
+#: core/messages/message.cpp:660
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -416,122 +416,122 @@ msgstr ""
 "ეს შეტყობინება გამჭოლადაა დაშიფრული. მის სანახავად ანგარიშის პარამეტრებში "
 "დაშიფვრის გასაღები უნდა მიუთითოთ."
 
-#: core/messages/message.cpp:634
+#: core/messages/message.cpp:662
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "'%1'-ის შესახებ კამათი შეიქმნა"
 
-#: core/messages/message.cpp:636
+#: core/messages/message.cpp:664
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 შემოუერთდა საუბარს"
 
-#: core/messages/message.cpp:638
+#: core/messages/message.cpp:666
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "ეს ოთახი დაარქივდა %1-ის მიერ"
 
-#: core/messages/message.cpp:640
+#: core/messages/message.cpp:668
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "ეს ოთახი განარქივდა %1-ის მიერ"
 
-#: core/messages/message.cpp:643 core/messages/message.cpp:690
+#: core/messages/message.cpp:671 core/messages/message.cpp:718
 #, kde-format
 msgid "Unknown action!"
 msgstr "უცნობი ქმედება!"
 
-#: core/messages/message.cpp:647
+#: core/messages/message.cpp:675
 #, kde-format
 msgid "Welcome %1!"
 msgstr "მოგესალმებით, %1!"
 
-#: core/messages/message.cpp:649
+#: core/messages/message.cpp:677
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "ოთახის ავატარი შეიცვალა %1-ის მიერ"
 
-#: core/messages/message.cpp:651
+#: core/messages/message.cpp:679
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "ოთახის დაშიფვრა ჩაირთო %1-ის მიერ"
 
-#: core/messages/message.cpp:653
+#: core/messages/message.cpp:681
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "ოთახის დაშიფვრა გამოირთო %1-ის მიერ"
 
-#: core/messages/message.cpp:655
+#: core/messages/message.cpp:683
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "%1-მა ოთახი მხოლოდ-წაკითხვაზე დააყენა"
 
-#: core/messages/message.cpp:657
+#: core/messages/message.cpp:685
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "ოთახს დაემატა ჩაწერის უფლება %1-სგან"
 
-#: core/messages/message.cpp:659
+#: core/messages/message.cpp:687
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 -მა დაამატა @%2 ამ გუნდში"
 
-#: core/messages/message.cpp:661
+#: core/messages/message.cpp:689
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 -მა @%2 ამ გუნდიდან წაშალა"
 
-#: core/messages/message.cpp:663
+#: core/messages/message.cpp:691
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 -მა #%2 გუნდად გადააკეთა"
 
-#: core/messages/message.cpp:665
+#: core/messages/message.cpp:693
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1-მა #%2 არხად გადააკეთა"
 
-#: core/messages/message.cpp:667
+#: core/messages/message.cpp:695
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 -მა #%2 ამ გუნდიდან წაშალა"
 
-#: core/messages/message.cpp:669
+#: core/messages/message.cpp:697
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 წაშალა #%2"
 
-#: core/messages/message.cpp:671
+#: core/messages/message.cpp:699
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 -მა #%2 ამ გუნდში დაამატა"
 
-#: core/messages/message.cpp:673
+#: core/messages/message.cpp:701
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "ოთახში %1-ით რეაქცია დაშვებულია"
 
-#: core/messages/message.cpp:675
+#: core/messages/message.cpp:703
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "ოთახში %1-ით რეაქცია დაშვებული არაა"
 
-#: core/messages/message.cpp:677
+#: core/messages/message.cpp:705
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 შემოუერთდა ამ გუნდს"
 
-#: core/messages/message.cpp:679
+#: core/messages/message.cpp:707
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 შემოუერთდა OTR ჩატს."
 
-#: core/messages/message.cpp:681
+#: core/messages/message.cpp:709
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 გასაღები წარმატებით განახლდა"
 
-#: core/messages/message.cpp:683
+#: core/messages/message.cpp:711
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1-ma გასაღების განახლება მოითხოვა."
@@ -858,12 +858,12 @@ msgstr "ნაკადების წაუკითხავი შეტყ�
 msgid "Edited at %1 by %2"
 msgstr "ჩასწრების დრო %1 (%2-ის მიერ)"
 
-#: core/model/messagesmodel.cpp:355
+#: core/model/messagesmodel.cpp:353
 #, kde-format
 msgid "Only you can see this message"
 msgstr "ამ შეტყობინებას, მხოლოდ, თქვენ ხედავთ"
 
-#: core/model/messagesmodel.cpp:363
+#: core/model/messagesmodel.cpp:361
 #, kde-format
 msgid "Ignored Message"
 msgstr "იგნორირებული შეტყობინება"
@@ -8407,48 +8407,48 @@ msgstr "შეერთება"
 msgid "Link Preview"
 msgstr "ბმულის მინიატურა"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:396
+#: widgets/room/delegate/messagelistdelegate.cpp:420
 #: widgets/room/messagelistview.cpp:381 widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "ინფორმაცია მომხმარებელზე"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:405
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #: widgets/room/messagelistview.cpp:389
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "კონფიდენციალური საუბრის დაწყება"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:610
+#: widgets/room/delegate/messagelistdelegate.cpp:640
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 პასუხი"
 msgstr[1] "%1 პასუხი"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:620
+#: widgets/room/delegate/messagelistdelegate.cpp:650
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 შეტყობინება"
 msgstr[1] "%1 შეტყობინება"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:620
+#: widgets/room/delegate/messagelistdelegate.cpp:650
 #, kde-format
 msgid "No message yet"
 msgstr "შეტყობინებების გარეშე"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:904
+#: widgets/room/delegate/messagelistdelegate.cpp:934
 #, kde-format
 msgid "Following"
 msgstr "გამოწერილია"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:908
+#: widgets/room/delegate/messagelistdelegate.cpp:938
 #, kde-format
 msgid "Message has been pinned"
 msgstr "შეტყობინება მიმაგრდა"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:912
+#: widgets/room/delegate/messagelistdelegate.cpp:942
 #, kde-format
 msgid "Message has been starred"
 msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
@@ -8622,7 +8622,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "შეტყობინების წაშლა"
 
-#: widgets/room/messagelistview.cpp:947
+#: widgets/room/messagelistview.cpp:956
 #, kde-format
 msgid "Translator Error"
 msgstr "მთარგმნელის შეცდომა"
@@ -9505,7 +9505,7 @@ msgstr "მომხმარებლისთვის @here/@all ნაჩვ
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Reduce memory footprint."
-msgstr ""
+msgstr "მეხსიერებაში კვალის შემცირება."
 
 #~ msgid "Room topic changed to: %1 by %2"
 #~ msgstr "ოთახის თემა შეიცვალა %1-ზე %2-ის მიერ"
