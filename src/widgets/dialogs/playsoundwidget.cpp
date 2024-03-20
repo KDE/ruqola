@@ -235,6 +235,11 @@ void PlaySoundWidget::slotAttachmentFileDownloadDone(const QString &url)
     mPlayButton->setEnabled(true);
 }
 
+void PlaySoundWidget::setLocalAudioPath(const QString &url)
+{
+    slotAttachmentFileDownloadDone(url);
+}
+
 void PlaySoundWidget::setAudioPath(const QString &url)
 {
     if (mRocketChatAccount) {

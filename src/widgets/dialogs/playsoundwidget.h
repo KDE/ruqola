@@ -30,6 +30,8 @@ public:
     void setAudioPath(const QString &url);
     [[nodiscard]] QUrl audioUrl() const;
 
+    void setLocalAudioPath(const QString &url);
+
 Q_SIGNALS:
     void updateTitle(const QUrl &url);
 
