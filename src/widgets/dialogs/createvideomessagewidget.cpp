@@ -37,6 +37,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     , mStopButton(new QToolButton(this))
     , mDurationLabel(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
+    , mMediaDevices(new QMediaDevices(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -88,11 +89,18 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     connect(mListCamera, &QComboBox::activated, this, [this]() {
         setCamera(mListCamera->itemData(mListCamera->currentIndex()).value<QCameraDevice>());
     });
+    connect(mMediaDevices, &QMediaDevices::audioInputsChanged, this, &CreateVideoMessageWidget::updateVideoInputs);
 }
 
 CreateVideoMessageWidget::~CreateVideoMessageWidget()
 {
     delete mTemporaryFile;
+}
+
+void CreateVideoMessageWidget::updateVideoInputs()
+{
+    mListCamera->clear();
+    updateCameras();
 }
 
 void CreateVideoMessageWidget::loadSettings()

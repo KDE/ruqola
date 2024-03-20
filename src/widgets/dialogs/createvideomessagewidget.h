@@ -19,6 +19,7 @@ class QCameraDevice;
 class QToolButton;
 class KMessageWidget;
 class QAudioInput;
+class QMediaDevices;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateVideoMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -45,6 +46,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void displayRecorderError();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateCameraActive(bool active);
     LIBRUQOLAWIDGETS_NO_EXPORT void displayCameraError();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateVideoInputs();
 
     QTemporaryFile *mTemporaryFile = nullptr;
     QVideoWidget *const mVideoWidget;
@@ -58,4 +60,5 @@ private:
     QToolButton *const mStopButton;
     QLabel *const mDurationLabel;
     KMessageWidget *const mMessageWidget;
+    QMediaDevices *const mMediaDevices;
 };
