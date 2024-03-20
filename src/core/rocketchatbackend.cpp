@@ -334,9 +334,6 @@ void RocketChatBackend::slotLoginStatusChanged()
         connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
         restApi->setAuthToken(restApi->authenticationManager()->authToken());
         restApi->setUserId(restApi->authenticationManager()->userId());
-        restApi->listAllPermissions();
-        restApi->getPrivateSettings();
-        restApi->getOwnInfo();
 #else
         // Now that we are logged in the ddp authentication manager has all the information we need
         auto restApi = mRocketChatAccount->restApi();
@@ -357,10 +354,10 @@ void RocketChatBackend::slotLoginStatusChanged()
         auto ddp = mRocketChatAccount->ddp();
         ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
 
+#endif
         restApi->listAllPermissions();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
-#endif
     }
 }
 
@@ -382,6 +379,7 @@ void RocketChatBackend::tryAutoLogin()
         return;
     }
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+    mRocketChatAccount->tryLogin();
     // TODO
 #else
     mRocketChatAccount->ddp()->login();
