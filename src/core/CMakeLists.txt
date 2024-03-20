@@ -500,6 +500,8 @@ target_sources(libruqolacore PRIVATE
 
     moderation/moderationreporteduserinfo.h
     moderation/moderationreporteduserinfo.cpp
+    moderation/moderationreporteduserinfos.cpp
+    moderation/moderationreporteduserinfos.h
 
     previewurlcachemanager.h
     previewurlcachemanager.cpp
