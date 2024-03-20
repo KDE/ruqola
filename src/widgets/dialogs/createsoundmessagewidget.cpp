@@ -33,6 +33,7 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     , mAudioRecorder(new QMediaRecorder(this))
     , mDeviceComboBox(new QComboBox(this))
     , mMessageWidget(new KMessageWidget(this))
+    , mMediaDevices(new QMediaDevices(this))
 {
     mCaptureSession.setRecorder(mAudioRecorder);
     mCaptureSession.setAudioInput(new QAudioInput(this));
@@ -77,6 +78,7 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
     connect(mAudioRecorder, &QMediaRecorder::durationChanged, this, &CreateSoundMessageWidget::updateRecordTime);
     connect(mAudioRecorder, &QMediaRecorder::recorderStateChanged, this, &CreateSoundMessageWidget::updateRecorderState);
     connect(mAudioRecorder, &QMediaRecorder::errorChanged, this, &CreateSoundMessageWidget::displayRecorderError);
+    connect(mMediaDevices, &QMediaDevices::audioInputsChanged, this, &CreateSoundMessageWidget::updateAudioInputs);
     initializeInput();
     updateRecorderState(mAudioRecorder->recorderState());
 }
@@ -84,6 +86,16 @@ CreateSoundMessageWidget::CreateSoundMessageWidget(QWidget *parent)
 CreateSoundMessageWidget::~CreateSoundMessageWidget()
 {
     delete mTemporaryFile;
+}
+
+void CreateSoundMessageWidget::updateAudioInputs()
+{
+    mDeviceComboBox->clear();
+    mDeviceComboBox->addItem(i18n("Default"), QVariant(QString()));
+    for (const auto &device : QMediaDevices::audioInputs()) {
+        const auto name = device.description();
+        mDeviceComboBox->addItem(name, QVariant::fromValue(device));
+    }
 }
 
 void CreateSoundMessageWidget::loadSettings()

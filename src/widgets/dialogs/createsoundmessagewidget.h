@@ -14,6 +14,7 @@ class QLabel;
 class QTemporaryFile;
 class QComboBox;
 class KMessageWidget;
+class QMediaDevices;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateSoundMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRecordTime(qint64 duration);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializeInput();
     LIBRUQOLAWIDGETS_NO_EXPORT void displayRecorderError();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateAudioInputs();
     QToolButton *const mRecordButton;
     QToolButton *const mPauseButton;
     QToolButton *const mStopButton;
@@ -46,4 +48,5 @@ private:
     QComboBox *const mDeviceComboBox;
     QTemporaryFile *mTemporaryFile = nullptr;
     KMessageWidget *const mMessageWidget;
+    QMediaDevices *const mMediaDevices;
 };
