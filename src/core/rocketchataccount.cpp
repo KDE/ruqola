@@ -609,7 +609,9 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
+#if !USE_RESTAPI_LOGIN_CMAKE_SUPPORT
         connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
+#endif
         connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);

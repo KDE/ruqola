@@ -312,10 +312,10 @@ void RocketChatBackend::slotLoginStatusChanged()
     if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
         qDebug() << " RocketChatBackend::slotLoginStatusChanged() login!!!!";
-        mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->restApi()->authenticationManager()->authToken());
-        mRocketChatAccount->settings()->setExpireToken(mRocketChatAccount->restApi()->authenticationManager()->tokenExpires());
-
         auto restApi = mRocketChatAccount->restApi();
+        mRocketChatAccount->settings()->setAuthToken(restApi->authenticationManager()->authToken());
+        mRocketChatAccount->settings()->setExpireToken(restApi->authenticationManager()->tokenExpires());
+
         auto ddp = mRocketChatAccount->ddp();
         ddp->setServerUrl(restApi->serverUrl());
         ddp->start();
@@ -331,8 +331,8 @@ void RocketChatBackend::slotLoginStatusChanged()
         ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
 
         connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
-        restApi->setAuthToken(mRocketChatAccount->restApi()->authenticationManager()->authToken());
-        restApi->setUserId(mRocketChatAccount->restApi()->authenticationManager()->userId());
+        restApi->setAuthToken(restApi->authenticationManager()->authToken());
+        restApi->setUserId(restApi->authenticationManager()->userId());
         restApi->listAllPermissions();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
