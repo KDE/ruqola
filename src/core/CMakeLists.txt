@@ -498,6 +498,9 @@ target_sources(libruqolacore PRIVATE
     moderation/moderationlistmessages.h
     moderation/moderationlistmessages.cpp
 
+    moderation/moderationreporteduserinfo.h
+    moderation/moderationreporteduserinfo.cpp
+
     previewurlcachemanager.h
     previewurlcachemanager.cpp
 
