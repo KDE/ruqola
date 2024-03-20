@@ -14,6 +14,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageTranslation : public QSharedData
 public:
     MessageTranslation();
     explicit MessageTranslation(const MessageTranslation &other);
+    ~MessageTranslation();
     void parse(const QJsonObject &o);
     [[nodiscard]] bool operator==(const MessageTranslation &other) const;
 

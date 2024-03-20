@@ -4,15 +4,26 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagetranslation.h"
+#include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
-MessageTranslation::MessageTranslation() = default;
+MessageTranslation::MessageTranslation()
+    : QSharedData()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation created " << this;
+}
 
 MessageTranslation::MessageTranslation(const MessageTranslation &other)
     : QSharedData(other)
 {
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageTranslation created " << this;
     mTranslatedString = other.mTranslatedString;
+}
+
+MessageTranslation::~MessageTranslation()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage deleted " << this;
 }
 
 QDebug operator<<(QDebug d, const MessageTranslation &t)
