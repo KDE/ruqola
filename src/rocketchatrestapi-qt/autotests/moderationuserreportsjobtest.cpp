@@ -22,17 +22,15 @@ void ModerationUserReportsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
-    QVERIFY(job.reportedMessageFromUserId().isEmpty());
 }
 
 void ModerationUserReportsJobTest::shouldGenerateRequest()
 {
     ModerationUserReportsJob job;
-    job.setReportedMessageFromUserId(QStringLiteral("bla"));
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.user.reportedMessages?userId=bla")));
+        QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.userReports")));
     }
 }
 
@@ -52,9 +50,6 @@ void ModerationUserReportsJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-    QVERIFY(!job.canStart());
-    const QString userIdFromMessages = QStringLiteral("foo1");
-    job.setReportedMessageFromUserId(userIdFromMessages);
     QVERIFY(job.canStart());
 }
 

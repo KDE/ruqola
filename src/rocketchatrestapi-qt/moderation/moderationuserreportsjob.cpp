@@ -41,30 +41,17 @@ void ModerationUserReportsJob::onGetRequestResponse(const QString &replyErrorStr
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QLatin1StringView("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ModerationReportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationUserReportedMessagesDone(replyObject);
+        Q_EMIT moderationUserReportJobDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to get user reported messages : ")
+        addLoggerWarning(QByteArrayLiteral("ModerationReportJob: Problem when we tried to getmoderation user report : ")
                          + replyJson.toJson(QJsonDocument::Indented));
     }
-}
-
-QString ModerationUserReportsJob::reportedMessageFromUserId() const
-{
-    return mReportedMessageFromUserId;
-}
-
-void ModerationUserReportsJob::setReportedMessageFromUserId(const QString &newReportedMessageFromUserId)
-{
-    mReportedMessageFromUserId = newReportedMessageFromUserId;
 }
 
 QNetworkRequest ModerationUserReportsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReports);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), mReportedMessageFromUserId);
-    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
@@ -75,10 +62,6 @@ QNetworkRequest ModerationUserReportsJob::request() const
 bool ModerationUserReportsJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        return false;
-    }
-    if (mReportedMessageFromUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MessageId is empty";
         return false;
     }
     return true;
