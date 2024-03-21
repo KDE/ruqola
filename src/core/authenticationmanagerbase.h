@@ -40,10 +40,13 @@ public:
     [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
     void setLoginStatus(AuthenticationManager::LoginStatus status);
 
+    void loginPassword(const QString &user, const QString &password);
+    void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
+    void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
+
+    virtual void loginImpl(const QJsonArray &params) = 0;
+
     virtual void login() = 0;
-    virtual void login(const QString &user, const QString &password) = 0;
-    virtual void loginLDAP(const QString &user, const QString &password) = 0; // TODO: LDAP options?
-    virtual void loginOAuth(const QString &credentialToken, const QString &credentialSecret) = 0;
     virtual void sendOTP(const QString &otp) = 0;
     virtual void logout() = 0;
     virtual void logoutAndCleanup() = 0;

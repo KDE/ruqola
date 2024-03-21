@@ -30,7 +30,7 @@ RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
     connect(login, &QPushButton::clicked, this, [this, dummyAccount, authManager]() {
         const AccountManager::AccountManagerInfo info = mAuthenticationLoginWidget->accountInfo();
         dummyAccount->restApi()->setServerUrl(info.serverUrl);
-        authManager->login(info.userName, info.password);
+        authManager->loginPassword(info.userName, info.password);
     });
     auto logout = new QPushButton(QStringLiteral("Logout"), this);
     mainLayout->addWidget(logout);

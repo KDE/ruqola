@@ -20,9 +20,6 @@ public:
     ~RESTAuthenticationManager() override;
 
     void login() override;
-    void login(const QString &user, const QString &password) override;
-    void loginLDAP(const QString &user, const QString &password) override; // TODO: LDAP options?
-    void loginOAuth(const QString &credentialToken, const QString &credentialSecret) override;
     void sendOTP(const QString &otp) override;
     void logout() override;
     void logoutAndCleanup() override;
@@ -31,10 +28,10 @@ public:
 
 protected:
     virtual void callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
+    void loginImpl(const QJsonArray &params) override;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
-    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
 
     Connection *const mRestApiConnection;

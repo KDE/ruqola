@@ -182,21 +182,6 @@ void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &res
     qDebug() << " result " << response;
 }
 
-void RESTAuthenticationManager::login(const QString &user, const QString &password)
-{
-    loginImpl(AuthenticationManagerUtils::login(user, password));
-}
-
-void RESTAuthenticationManager::loginLDAP(const QString &user, const QString &password)
-{
-    loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
-}
-
-void RESTAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
-{
-    loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
-}
-
 void RESTAuthenticationManager::sendOTP(const QString &otpCode)
 {
     if (checkGenericError()) {

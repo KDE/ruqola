@@ -53,13 +53,13 @@ void PasswordAuthenticationInterface::login()
     if (mAccount->ldapEnabled()) {
         mAccount->restApi()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
     } else {
-        mAccount->restApi()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+        mAccount->restApi()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password());
     }
 #else
     if (mAccount->ldapEnabled()) {
         mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
     } else {
-        mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+        mAccount->ddp()->authenticationManager()->loginPassword(mAccount->settings()->userName(), mAccount->settings()->password());
     }
 #endif
 }

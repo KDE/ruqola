@@ -5,6 +5,7 @@
 */
 
 #include "authenticationmanagerbase.h"
+#include "ddpapi/authenticationmanagerutils.h"
 #include "ruqola_authentication_debug.h"
 #define sl(x) QStringLiteral(x)
 
@@ -72,4 +73,20 @@ bool AuthenticationManagerBase::checkGenericError() const
 
     return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
+
+void AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
+{
+    loginImpl(AuthenticationManagerUtils::login(user, password));
+}
+
+void AuthenticationManagerBase::loginLDAP(const QString &user, const QString &password)
+{
+    loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
+}
+
+void AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
+{
+    loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
+}
+
 #undef sl

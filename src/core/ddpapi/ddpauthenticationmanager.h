@@ -22,12 +22,12 @@ public:
     ~DDPAuthenticationManager() override;
 
     void login() override;
-    void login(const QString &user, const QString &password) override;
-    void loginLDAP(const QString &user, const QString &password) override; // TODO: LDAP options?
-    void loginOAuth(const QString &credentialToken, const QString &credentialSecret) override;
     void sendOTP(const QString &otp) override;
     void logout() override;
     void logoutAndCleanup() override;
+
+protected:
+    void loginImpl(const QJsonArray &params) override;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(int operationId, const QJsonObject &response) override;
@@ -39,6 +39,5 @@ private:
         Q_UNUSED(result)
     }
 
-    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
     LIBRUQOLACORE_NO_EXPORT void clientConnectedChangedSlot();
 };

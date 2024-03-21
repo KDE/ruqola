@@ -40,21 +40,6 @@ void DDPAuthenticationManager::login()
     loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
-void DDPAuthenticationManager::login(const QString &user, const QString &password)
-{
-    loginImpl(AuthenticationManagerUtils::login(user, password));
-}
-
-void DDPAuthenticationManager::loginLDAP(const QString &user, const QString &password)
-{
-    loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
-}
-
-void DDPAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
-{
-    loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
-}
-
 void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
 {
     if (checkGenericError()) {
