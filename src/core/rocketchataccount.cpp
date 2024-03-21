@@ -609,9 +609,9 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
-#if !USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-        connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
-#endif
+        if (!Ruqola::self()->useRestApiLogin()) {
+            connect(mDdp->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &RocketChatAccount::slotLoginStatusChanged);
+        }
         connect(mDdp, &DDPClient::connectedChanged, this, &RocketChatAccount::connectedChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
@@ -635,22 +635,22 @@ bool RocketChatAccount::editingMode() const
 
 AuthenticationManager::LoginStatus RocketChatAccount::loginStatus()
 {
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    if (mRestApi) {
-        if (mRestApi->authenticationManager()) {
-            return mRestApi->authenticationManager()->loginStatus();
+    if (Ruqola::self()->useRestApiLogin()) {
+        if (mRestApi) {
+            if (mRestApi->authenticationManager()) {
+                return mRestApi->authenticationManager()->loginStatus();
+            }
+        } else {
+            return AuthenticationManager::LoggedOut;
         }
     } else {
-        return AuthenticationManager::LoggedOut;
+        // TODO: DDP API should exist as soon as the hostname is known
+        if (mDdp) {
+            return ddp()->authenticationManager()->loginStatus();
+        } else {
+            return AuthenticationManager::LoggedOut;
+        }
     }
-#else
-    // TODO: DDP API should exist as soon as the hostname is known
-    if (mDdp) {
-        return ddp()->authenticationManager()->loginStatus();
-    } else {
-        return AuthenticationManager::LoggedOut;
-    }
-#endif
     return AuthenticationManager::LoggedOut;
 }
 
@@ -658,16 +658,16 @@ void RocketChatAccount::tryLogin()
 {
     qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    if (auto interface = defaultAuthenticationInterface()) {
-        interface->login();
+    if (Ruqola::self()->useRestApiLogin()) {
+        if (auto interface = defaultAuthenticationInterface()) {
+            interface->login();
+        } else {
+            qCWarning(RUQOLA_LOG) << "No plugins loaded. Please verify your installation.";
+        }
     } else {
-        qCWarning(RUQOLA_LOG) << "No plugins loaded. Please verify your installation.";
+        // ddp() creates a new DDPClient object if it doesn't exist.
+        ddp()->enqueueLogin();
     }
-#else
-    // ddp() creates a new DDPClient object if it doesn't exist.
-    ddp()->enqueueLogin();
-#endif
 
     // In the meantime, load cache...
     mRoomModel->reset();
@@ -677,23 +677,23 @@ void RocketChatAccount::logOut()
 {
     mSettings->logout();
     mRoomModel->clear();
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    if (mRestApi) {
-        mRestApi->authenticationManager()->logoutAndCleanup();
+    if (Ruqola::self()->useRestApiLogin()) {
+        if (mRestApi) {
+            mRestApi->authenticationManager()->logoutAndCleanup();
+            delete mRestApi;
+            mRestApi = nullptr;
+        }
+        delete mDdp;
+        mDdp = nullptr;
+    } else {
+        if (mDdp) {
+            mDdp->authenticationManager()->logoutAndCleanup();
+            delete mDdp;
+            mDdp = nullptr;
+        }
         delete mRestApi;
         mRestApi = nullptr;
     }
-    delete mDdp;
-    mDdp = nullptr;
-#else
-    if (mDdp) {
-        mDdp->authenticationManager()->logoutAndCleanup();
-        delete mDdp;
-        mDdp = nullptr;
-    }
-    delete mRestApi;
-    mRestApi = nullptr;
-#endif
 }
 
 void RocketChatAccount::clearAllUnreadMessages()
@@ -1450,11 +1450,11 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " No plugins loaded. Please verify your installation.";
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-        restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
-#else
-        ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
-#endif
+        if (Ruqola::self()->useRestApiLogin()) {
+            restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
+        } else {
+            ddp()->authenticationManager()->setLoginStatus(AuthenticationManager::FailedToLoginPluginProblem);
+        }
         return;
     }
     mLstPluginAuthenticationInterface.clear();

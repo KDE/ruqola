@@ -14,7 +14,7 @@
 #include "messages/message.h"
 #include "user.h"
 #include <QObject>
-
+class DDPClient;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {
@@ -57,6 +57,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void subscribeRegistration();
     LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
     LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
+    LIBRUQOLACORE_NO_EXPORT void initializeSubscription(DDPClient *ddp);
 
     QList<User> mUsers;
     QList<File> mFiles;

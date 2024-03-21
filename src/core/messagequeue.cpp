@@ -10,14 +10,12 @@
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 #include "authenticationmanager.h"
+#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
-#else
-#include "authenticationmanager/ddpauthenticationmanager.h"
-#endif
 
 #include <QCborValue>
 #include <QJsonArray>
@@ -35,11 +33,14 @@ MessageQueue::~MessageQueue()
 
 void MessageQueue::loadCache()
 {
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    connect(mRocketChatAccount->restApi()->authenticationManager(), &RESTAuthenticationManager::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
-#else
-    connect(mRocketChatAccount->ddp()->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
-#endif
+    if (Ruqola::self()->useRestApiLogin()) {
+        connect(mRocketChatAccount->restApi()->authenticationManager(),
+                &RESTAuthenticationManager::loginStatusChanged,
+                this,
+                &MessageQueue::onLoginStatusChanged);
+    } else {
+        connect(mRocketChatAccount->ddp()->authenticationManager(), &DDPAuthenticationManager::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
+    }
 }
 
 QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)

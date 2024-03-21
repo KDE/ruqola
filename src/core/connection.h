@@ -31,9 +31,7 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 class RESTAuthenticationManager;
-#endif
 namespace RocketChatRestApi
 {
 class RestApiAbstractJob;
@@ -49,9 +47,7 @@ public:
     ~Connection() override;
 
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *logger);
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     [[nodiscard]] RESTAuthenticationManager *authenticationManager() const;
-#endif
 
     [[nodiscard]] QString userId() const;
     [[nodiscard]] QString authToken() const;
@@ -296,9 +292,7 @@ private:
     QNetworkAccessManager *const mNetworkAccessManager;
     QNetworkCookieJar *const mCookieJar;
     RocketChatRestApi::RestApiMethod *const mRestApiMethod;
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     RESTAuthenticationManager *const mRESTAuthenticationManager;
-#endif
     RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
     QString mUserId;
     QString mAuthToken;

@@ -5,11 +5,10 @@
 */
 
 #include "connection.h"
-#include "restapimethod.h"
-#include "ruqola_debug.h"
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 #include "authenticationmanager/restauthenticationmanager.h"
-#endif
+#include "restapimethod.h"
+#include "ruqola.h"
+#include "ruqola_debug.h"
 
 #include "downloadfilejob.h"
 #include "serverinfojob.h"
@@ -141,17 +140,15 @@ Connection::Connection(QObject *parent)
     , mNetworkAccessManager(new QNetworkAccessManager(this))
     , mCookieJar(new QNetworkCookieJar(this))
     , mRestApiMethod(new RestApiMethod)
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
     , mRESTAuthenticationManager(new RESTAuthenticationManager(this, this))
-#endif
 {
     mNetworkAccessManager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     mNetworkAccessManager->setCookieJar(mCookieJar);
     connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &Connection::slotResult);
     connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &Connection::slotSslErrors);
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    connect(mRESTAuthenticationManager, &RESTAuthenticationManager::loginStatusChanged, this, &Connection::loginStatusChanged);
-#endif
+    if (Ruqola::self()->useRestApiLogin()) {
+        connect(mRESTAuthenticationManager, &RESTAuthenticationManager::loginStatusChanged, this, &Connection::loginStatusChanged);
+    }
 }
 
 Connection::~Connection()
@@ -159,12 +156,10 @@ Connection::~Connection()
     delete mRestApiMethod;
 }
 
-#if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 RESTAuthenticationManager *Connection::authenticationManager() const
 {
     return mRESTAuthenticationManager;
 }
-#endif
 
 void Connection::setRestApiLogger(RocketChatRestApi::AbstractLogger *logger)
 {
