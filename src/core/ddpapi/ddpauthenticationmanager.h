@@ -21,7 +21,6 @@ public:
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
     ~DDPAuthenticationManager() override;
 
-    void login() override;
     void sendOTP(const QString &otp) override;
     void logout() override;
     void logoutAndCleanup() override;

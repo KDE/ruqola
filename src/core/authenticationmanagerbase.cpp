@@ -89,4 +89,14 @@ void AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const
     loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
+void AuthenticationManagerBase::login()
+{
+    if (mAuthToken.isNull()) {
+        qCWarning(RUQOLA_AUTHENTICATION_LOG) << "No auth token available, can't login.";
+        return;
+    }
+
+    loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
+}
+
 #undef sl

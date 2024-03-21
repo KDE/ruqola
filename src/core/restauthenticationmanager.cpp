@@ -22,16 +22,6 @@ RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnecti
 
 RESTAuthenticationManager::~RESTAuthenticationManager() = default;
 
-void RESTAuthenticationManager::login()
-{
-    if (mAuthToken.isNull()) {
-        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "No auth token available, can't login.";
-        return;
-    }
-
-    loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
-}
-
 QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;

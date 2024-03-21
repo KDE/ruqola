@@ -19,7 +19,6 @@ public:
     explicit RESTAuthenticationManager(Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
 
-    void login() override;
     void sendOTP(const QString &otp) override;
     void logout() override;
     void logoutAndCleanup() override;

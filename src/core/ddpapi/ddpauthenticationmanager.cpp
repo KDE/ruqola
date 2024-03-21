@@ -30,16 +30,6 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
 
 DDPAuthenticationManager::~DDPAuthenticationManager() = default;
 
-void DDPAuthenticationManager::login()
-{
-    if (mAuthToken.isNull()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "No auth token available, can't login.";
-        return;
-    }
-
-    loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
-}
-
 void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
 {
     if (checkGenericError()) {

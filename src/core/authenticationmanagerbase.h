@@ -43,10 +43,10 @@ public:
     void loginPassword(const QString &user, const QString &password);
     void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
     void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
+    void login();
 
     virtual void loginImpl(const QJsonArray &params) = 0;
 
-    virtual void login() = 0;
     virtual void sendOTP(const QString &otp) = 0;
     virtual void logout() = 0;
     virtual void logoutAndCleanup() = 0;
