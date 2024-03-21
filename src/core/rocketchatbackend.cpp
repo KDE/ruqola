@@ -311,7 +311,6 @@ void RocketChatBackend::slotLoginStatusChanged()
     if (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn) {
         auto restApi = mRocketChatAccount->restApi();
         if (Ruqola::self()->useRestApiLogin()) {
-            qDebug() << " RocketChatBackend::slotLoginStatusChanged() login!!!!";
             mRocketChatAccount->settings()->setAuthToken(restApi->authenticationManager()->authToken());
             mRocketChatAccount->settings()->setExpireToken(restApi->authenticationManager()->tokenExpires());
 
