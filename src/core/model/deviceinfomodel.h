@@ -22,6 +22,7 @@ public:
         SessionId,
         Ip,
         UserId,
+        LoginAtDisplay,
         LoginAt,
         LastColumn = LoginAt,
     };

@@ -14,4 +14,6 @@ class LIBRUQOLACORE_EXPORT DeviceInfoProxyModel : public SearchTreeBaseFilterPro
 public:
     explicit DeviceInfoProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
     ~DeviceInfoProxyModel() override;
+
+    [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

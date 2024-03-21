@@ -8,6 +8,7 @@
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/deviceinfomodel.h"
+#include "model/deviceinfoproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -27,7 +28,7 @@ MyAccountManageDeviceConfigureWidget::MyAccountManageDeviceConfigureWidget(Rocke
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search device..."));
 
-    mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
+    mProxyModelModel = new DeviceInfoProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
