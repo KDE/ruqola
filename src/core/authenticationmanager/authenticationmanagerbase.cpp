@@ -286,3 +286,5 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
 }
 
 #undef sl
+
+#include "moc_authenticationmanagerbase.cpp"

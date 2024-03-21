@@ -22,3 +22,5 @@ void MessageExtraTest::shouldHaveDefaultValues()
     QCOMPARE(extra.threadCount(), 0);
     QCOMPARE(extra.discussionCount(), 0);
 }
+
+#include "moc_messageextratest.cpp"

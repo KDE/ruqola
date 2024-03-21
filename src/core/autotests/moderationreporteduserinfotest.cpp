@@ -21,3 +21,5 @@ void ModerationReportedUserInfoTest::shouldHaveDefaultValues()
     QCOMPARE(w.count(), 0);
     // TODO
 }
+
+#include "moc_moderationreporteduserinfotest.cpp"
