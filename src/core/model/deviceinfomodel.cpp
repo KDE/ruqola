@@ -38,9 +38,10 @@ QVariant DeviceInfoModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Session Id");
         case DeviceInfoRoles::Ip:
             return i18n("Ip");
+        case DeviceInfoRoles::LoginAt:
         case DeviceInfoRoles::UserId:
             return {};
-        case DeviceInfoRoles::LoginAt:
+        case DeviceInfoRoles::LoginAtDisplay:
             return i18n("Login At");
         }
     }
@@ -76,8 +77,10 @@ QVariant DeviceInfoModel::data(const QModelIndex &index, int role) const
         return deviceInfo.ip();
     case DeviceInfoRoles::UserId:
         return deviceInfo.userId();
-    case DeviceInfoRoles::LoginAt:
+    case DeviceInfoRoles::LoginAtDisplay:
         return deviceInfo.loginAtDisplay();
+    case DeviceInfoRoles::LoginAt:
+        return deviceInfo.loginAt();
     case DeviceInfoRoles::Os:
         return deviceInfo.os();
     case DeviceInfoRoles::Client:
@@ -143,7 +146,7 @@ void DeviceInfoModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> DeviceInfoModel::hideColumns() const
 {
-    return {DeviceInfoRoles::Identifier, DeviceInfoRoles::UserId, DeviceInfoRoles::SessionId};
+    return {DeviceInfoRoles::Identifier, DeviceInfoRoles::UserId, DeviceInfoRoles::SessionId, DeviceInfoRoles::LoginAt};
 }
 
 void DeviceInfoModel::removeElement(const QString &identifier)
