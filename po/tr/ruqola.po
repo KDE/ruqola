@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"POT-Creation-Date: 2024-03-21 00:38+0000\n"
 "PO-Revision-Date: 2024-03-19 14:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -556,7 +556,8 @@ msgstr "%1 ve %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
+#: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -868,28 +869,28 @@ msgstr "Bu iletiyi yalnızca siz görebilirsiniz"
 msgid "Ignored Message"
 msgstr "Yok Sayılan İleti"
 
-#: core/model/moderationmodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:36
 #, kde-format
 msgid "Reported message"
 msgstr "Bildirilen ileti"
 
-#: core/model/moderationmodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
-#: core/model/moderationmodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:40
 #, kde-format
 msgid "Reports"
 msgstr "Raporlar"
 
-#: core/model/moderationmodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:42
 #, kde-format
 msgid "Report date"
 msgstr "Bildirim tarihi"
 
-#: core/model/moderationmodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:44
 #, kde-format
 msgid "Room"
 msgstr "Oda"
@@ -899,7 +900,8 @@ msgstr "Oda"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:124
+#: widgets/dialogs/createsoundmessagewidget.cpp:94
+#: widgets/dialogs/createsoundmessagewidget.cpp:136
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
@@ -1350,12 +1352,12 @@ msgstr "<strong>%1</strong> yazıyor…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:2891
+#: core/rocketchataccount.cpp:2893
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2892
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -6827,8 +6829,8 @@ msgstr ""
 "Bir tartışma, genelde bir soruyla başlar; örneğin \"Bir resmi nasıl karşıya "
 "yüklerim?\""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:143
-#: widgets/dialogs/createvideomessagewidget.cpp:241
+#: widgets/dialogs/createsoundmessagewidget.cpp:155
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "%1 saniye kaydedildi"
@@ -6977,7 +6979,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Ses: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:245
 #: widgets/dialogs/showvideowidget.cpp:244
 #, kde-format
 msgid "Error: "
@@ -8919,7 +8921,7 @@ msgstr "Belirli bir hesapla başla"
 msgid "Show Message"
 msgstr "İletiyi Göster"
 
-#: widgets/ruqolacommandlineoptions.h:19
+#: widgets/ruqolacommandlineoptions.h:23
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Kullanıcı bildirimi için kullanılabilir seçenekleri listeler"

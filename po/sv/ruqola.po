@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"POT-Creation-Date: 2024-03-21 00:38+0000\n"
 "PO-Revision-Date: 2024-01-02 16:40+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -555,7 +555,8 @@ msgstr "%1 och %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
+#: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -868,28 +869,28 @@ msgstr "Vill du ta bort meddelandet?"
 msgid "Ignored Message"
 msgstr "Ignorerat meddelande"
 
-#: core/model/moderationmodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:36
 #, kde-format
 msgid "Reported message"
 msgstr "Rapporterat meddelande"
 
-#: core/model/moderationmodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Användarnamn"
 
-#: core/model/moderationmodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:40
 #, kde-format
 msgid "Reports"
 msgstr "Rapporter"
 
-#: core/model/moderationmodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:42
 #, kde-format
 msgid "Report date"
 msgstr "Rapportdatum"
 
-#: core/model/moderationmodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:44
 #, kde-format
 msgid "Room"
 msgstr "Rum"
@@ -899,7 +900,8 @@ msgstr "Rum"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:124
+#: widgets/dialogs/createsoundmessagewidget.cpp:94
+#: widgets/dialogs/createsoundmessagewidget.cpp:136
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
@@ -1354,12 +1356,12 @@ msgstr "<strong>%1</strong> skriver..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:2891
+#: core/rocketchataccount.cpp:2893
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: core/rocketchataccount.cpp:2892
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
@@ -6851,8 +6853,8 @@ msgid ""
 msgstr ""
 "Ofta börjar en diskussion med en fråga, såsom \"Hur laddar jag upp en bild?\""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:143
-#: widgets/dialogs/createvideomessagewidget.cpp:241
+#: widgets/dialogs/createsoundmessagewidget.cpp:155
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Spelade in %1 sek"
@@ -6999,7 +7001,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Ljud: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:245
 #: widgets/dialogs/showvideowidget.cpp:244
 #, kde-format
 msgid "Error: "
@@ -8924,7 +8926,7 @@ msgstr "Starta med specifikt konto"
 msgid "Show Message"
 msgstr "Visa meddelande"
 
-#: widgets/ruqolacommandlineoptions.h:19
+#: widgets/ruqolacommandlineoptions.h:23
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Listar tillgängliga alternativ för användaråterkoppling"

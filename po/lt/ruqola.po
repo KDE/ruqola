@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"POT-Creation-Date: 2024-03-21 00:38+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -574,7 +574,8 @@ msgstr ""
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
+#: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -911,33 +912,33 @@ msgstr "Ar norite ištrinti šią žinutę?"
 msgid "Ignored Message"
 msgstr ""
 
-#: core/model/moderationmodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:36
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Reported message"
 msgstr "1 žinutė"
 
-#: core/model/moderationmodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "Username:"
 msgid "Username"
 msgstr "Naudotojo vardas:"
 
-#: core/model/moderationmodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:40
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Reports"
 msgstr "Pranešti apie klaidą"
 
-#: core/model/moderationmodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:42
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Report date"
 msgstr "Pranešti apie klaidą"
 
-#: core/model/moderationmodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Hide Room"
 msgid "Room"
@@ -948,7 +949,8 @@ msgstr "Slėpti kambarį"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:124
+#: widgets/dialogs/createsoundmessagewidget.cpp:94
+#: widgets/dialogs/createsoundmessagewidget.cpp:136
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
@@ -1437,13 +1439,13 @@ msgstr "<strong>%1</strong> rašo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2891
+#: core/rocketchataccount.cpp:2893
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2892
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -7060,8 +7062,8 @@ msgid ""
 "picture?\""
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:143
-#: widgets/dialogs/createvideomessagewidget.cpp:241
+#: widgets/dialogs/createsoundmessagewidget.cpp:155
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -7218,7 +7220,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Įrašyti failą"
 
-#: widgets/dialogs/playsoundwidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:245
 #: widgets/dialogs/showvideowidget.cpp:244
 #, kde-format
 msgid "Error: "
@@ -9274,7 +9276,7 @@ msgstr "Pradėti naudojant tam tikrą paskyrą"
 msgid "Show Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/ruqolacommandlineoptions.h:19
+#: widgets/ruqolacommandlineoptions.h:23
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr ""

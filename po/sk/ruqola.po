@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"POT-Creation-Date: 2024-03-21 00:38+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -575,7 +575,8 @@ msgstr "%1 a %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
+#: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -913,32 +914,32 @@ msgstr ""
 msgid "Ignored Message"
 msgstr ""
 
-#: core/model/moderationmodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:36
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Reported message"
 msgstr "Správa"
 
-#: core/model/moderationmodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "User name: %1"
 msgid "Username"
 msgstr "Meno používateľa: %1"
 
-#: core/model/moderationmodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:40
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Reports"
 msgstr "Nahlásiť chybu"
 
-#: core/model/moderationmodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:42
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Report date"
 msgstr "Správa"
 
-#: core/model/moderationmodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Room"
@@ -949,7 +950,8 @@ msgstr "Súkromné:"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:124
+#: widgets/dialogs/createsoundmessagewidget.cpp:94
+#: widgets/dialogs/createsoundmessagewidget.cpp:136
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
@@ -1436,13 +1438,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2891
+#: core/rocketchataccount.cpp:2893
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2892
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -7057,8 +7059,8 @@ msgid ""
 "picture?\""
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:143
-#: widgets/dialogs/createvideomessagewidget.cpp:241
+#: widgets/dialogs/createsoundmessagewidget.cpp:155
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr ""
@@ -7218,7 +7220,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Zvuk:"
 
-#: widgets/dialogs/playsoundwidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:245
 #: widgets/dialogs/showvideowidget.cpp:244
 #, fuzzy, kde-format
 #| msgid "Error"
@@ -9282,7 +9284,7 @@ msgstr ""
 msgid "Show Message"
 msgstr "Všetky správy"
 
-#: widgets/ruqolacommandlineoptions.h:19
+#: widgets/ruqolacommandlineoptions.h:23
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr ""

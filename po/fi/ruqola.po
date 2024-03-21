@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:38+0000\n"
+"POT-Creation-Date: 2024-03-21 00:38+0000\n"
 "PO-Revision-Date: 2023-09-20 18:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -556,7 +556,8 @@ msgstr "%1 ja %2"
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
-#: core/model/moderationmodel.cpp:30 core/model/permissionsmodel.cpp:30
+#: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -872,31 +873,31 @@ msgstr "Haluatko poistaa tämän viestin?"
 msgid "Ignored Message"
 msgstr "Ohitettu viesti"
 
-#: core/model/moderationmodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:36
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Reported message"
 msgstr "Ilmoita viestistä"
 
-#: core/model/moderationmodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:38
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
-#: core/model/moderationmodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:40
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Reports"
 msgstr "Ilmoita ohjelmavirheestä"
 
-#: core/model/moderationmodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:42
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Report date"
 msgstr "Ilmoita viestistä"
 
-#: core/model/moderationmodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:44
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Room"
@@ -907,7 +908,8 @@ msgstr "Huoneet"
 #: core/model/notificationpreferencemodel.cpp:45
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#: widgets/dialogs/createsoundmessagewidget.cpp:124
+#: widgets/dialogs/createsoundmessagewidget.cpp:94
+#: widgets/dialogs/createsoundmessagewidget.cpp:136
 #: widgets/dialogs/playsoundwidget.cpp:122
 #: widgets/dialogs/showvideowidget.cpp:122
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:199
@@ -1362,12 +1364,12 @@ msgstr "<strong>%1</strong> kirjoittaa…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:2891
+#: core/rocketchataccount.cpp:2893
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:2892
+#: core/rocketchataccount.cpp:2894
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -6765,8 +6767,8 @@ msgid ""
 "picture?\""
 msgstr "Keskustelu alkaa yleensä kysymyksellä kuten ”Kuinka lähetän kuvan?”"
 
-#: widgets/dialogs/createsoundmessagewidget.cpp:143
-#: widgets/dialogs/createvideomessagewidget.cpp:241
+#: widgets/dialogs/createsoundmessagewidget.cpp:155
+#: widgets/dialogs/createvideomessagewidget.cpp:249
 #, kde-format
 msgid "Recorded %1 sec"
 msgstr "Nauhoitettiin %1 s"
@@ -6913,7 +6915,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Ääni: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:240
+#: widgets/dialogs/playsoundwidget.cpp:245
 #: widgets/dialogs/showvideowidget.cpp:244
 #, kde-format
 msgid "Error: "
@@ -8848,7 +8850,7 @@ msgstr "Aloita tietyllä tilillä"
 msgid "Show Message"
 msgstr "Seuraa viestiä…"
 
-#: widgets/ruqolacommandlineoptions.h:19
+#: widgets/ruqolacommandlineoptions.h:23
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Luettelee eri käyttäjäpalautemahdollisuudet"
