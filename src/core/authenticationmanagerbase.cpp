@@ -6,6 +6,12 @@
 
 #include "authenticationmanagerbase.h"
 #include "ruqola_authentication_debug.h"
+#define sl(x) QStringLiteral(x)
+
+QString AuthenticationManagerBase::METHOD_LOGIN = sl("login");
+QString AuthenticationManagerBase::METHOD_SEND_OTP = sl("login");
+QString AuthenticationManagerBase::METHOD_LOGOUT = sl("logout");
+QString AuthenticationManagerBase::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 
 AuthenticationManagerBase::AuthenticationManagerBase(QObject *parent)
     : QObject{parent}
@@ -66,3 +72,4 @@ bool AuthenticationManagerBase::checkGenericError() const
 
     return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
+#undef sl

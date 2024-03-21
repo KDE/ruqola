@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "authenticationmanager.h"
 #include "authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
@@ -16,18 +15,7 @@ class Connection;
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public AuthenticationManagerBase
 {
     Q_OBJECT
-    static QString METHOD_LOGIN;
-    static QString METHOD_SEND_OTP;
-    static QString METHOD_LOGOUT;
-    static QString METHOD_LOGOUT_CLEAN_UP;
-
 public:
-    enum class Method {
-        Login,
-        SendOtp,
-        Logout,
-        LogoutCleanUp,
-    };
     explicit RESTAuthenticationManager(Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
 

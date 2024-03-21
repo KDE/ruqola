@@ -12,12 +12,7 @@
 #include "utils.h"
 
 // We use method.callAnon here.
-// We use same params as ddpclient login method.
 #define sl(x) QLatin1StringView(x)
-QString RESTAuthenticationManager::METHOD_LOGIN = sl("login");
-QString RESTAuthenticationManager::METHOD_SEND_OTP = sl("login");
-QString RESTAuthenticationManager::METHOD_LOGOUT = sl("logout");
-QString RESTAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 
 RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnection, QObject *parent)
     : AuthenticationManagerBase(parent)

@@ -19,11 +19,6 @@
 
 #define sl(x) QStringLiteral(x)
 
-QString DDPAuthenticationManager::METHOD_LOGIN = sl("login");
-QString DDPAuthenticationManager::METHOD_SEND_OTP = sl("login");
-QString DDPAuthenticationManager::METHOD_LOGOUT = sl("logout");
-QString DDPAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
-
 DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent)
     : DDPManager(ddpClient, parent)
 {

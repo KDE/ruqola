@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "authenticationmanager.h"
 #include "ddpapi/ddpmanager.h"
 #include "libruqolacore_export.h"
 
@@ -17,18 +16,6 @@
 class LIBRUQOLACORE_EXPORT DDPAuthenticationManager : public DDPManager
 {
     Q_OBJECT
-
-    enum class Method {
-        Login,
-        SendOtp,
-        Logout,
-        LogoutCleanUp,
-    };
-
-    static QString METHOD_LOGIN;
-    static QString METHOD_SEND_OTP;
-    static QString METHOD_LOGOUT;
-    static QString METHOD_LOGOUT_CLEAN_UP;
 
 public:
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
