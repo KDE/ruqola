@@ -43,12 +43,7 @@ include(ECMSetupVersion)
 option(OPTION_SELENIUMWEBDRIVER_SUPPORT "Add selenium driver test (experimental)" OFF)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
-option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Acess Token Support" OFF)
-option(OPTION_USE_RESTAPI_LOGIN_CMAKE_SUPPORT "Use restapi for login (experimental)" OFF)
-
-if (OPTION_USE_RESTAPI_LOGIN_CMAKE_SUPPORT)
-    set(USE_RESTAPI_LOGIN_CMAKE_SUPPORT true)
-endif()
+option(OPTION_USE_PERSONAL_ACCESS_TOKEN "Activate Personal Acess Token Support" ON)
 
 if (OPTION_USE_PERSONAL_ACCESS_TOKEN)
     set(USE_PERSONAL_ACCESS_TOKEN true)
