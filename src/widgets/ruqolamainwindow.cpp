@@ -145,16 +145,16 @@ RuqolaMainWindow::~RuqolaMainWindow()
 
 void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
 {
-    if (parser->isSet(QStringLiteral("messageurl"))) {
-        const QString messageUrl = parser->value(QStringLiteral("messageurl"));
+    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::MessageUrl))) {
+        const QString messageUrl = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::MessageUrl));
         if (!messageUrl.isEmpty()) {
             if (RocketChatUrlUtils::parseUrl(messageUrl)) {
                 return;
             }
         }
     }
-    if (parser->isSet(QStringLiteral("account"))) {
-        const QString loadAccount = parser->value(QStringLiteral("account"));
+    if (parser->isSet(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::Account))) {
+        const QString loadAccount = parser->value(RuqolaCommandLineParser::commandLineFromEnum(RuqolaCommandLineParser::Account));
         if (!loadAccount.isEmpty()) {
             Ruqola::self()->setCurrentAccount(loadAccount);
         }
@@ -167,7 +167,7 @@ void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const
     Q_UNUSED(workingDirectory)
     if (!arguments.isEmpty()) {
         QCommandLineParser parser;
-        ruqolaOptions(&parser);
+        RuqolaCommandLineParser commandLineParser(&parser);
         parser.parse(arguments);
         parseCommandLine(&parser);
     }

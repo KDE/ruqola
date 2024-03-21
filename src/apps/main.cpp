@@ -69,13 +69,13 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
-    ruqolaOptions(&parser);
+    RuqolaCommandLineParser commandLineParser(&parser);
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
 #if HAVE_KUSERFEEDBACK
-    if (parser.isSet(QStringLiteral("feedback"))) {
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::FeedBack))) {
         auto userFeedback = new RuqolaUserFeedbackProvider;
         QTextStream(stdout) << userFeedback->describeDataSources() << '\n';
         delete userFeedback;
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    if (parser.isSet(QStringLiteral("list-accounts"))) {
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::ListAccount))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath,
                         QStringList() << QStringLiteral("ruqola.conf"),
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     (void)Ruqola::self();
 
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-    if (parser.isSet(QStringLiteral("loginrestapi"))) {
+    if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::LoginRestApi))) {
         Ruqola::self()->setUseRestApiLogin(true);
     }
 #endif
