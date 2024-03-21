@@ -50,13 +50,13 @@ void CreateNewServerStackWidget::addAuthenticationConfigureWidget(Authentication
             delete mPluginAuthenticationConfigureWidget;
         }
         mPluginAuthenticationConfigureWidget = configureWidget;
-        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
-        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         connect(mPluginAuthenticationConfigureWidget,
                 &PluginAuthenticationConfigureWidget::settingsIsValid,
                 this,
                 &CreateNewServerStackWidget::settingsIsValid);
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::tryLogin, this, &CreateNewServerStackWidget::tryLogin);
+        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
+        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
     } else {

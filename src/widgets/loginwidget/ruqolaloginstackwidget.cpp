@@ -44,10 +44,11 @@ void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationMana
             delete mPluginAuthenticationConfigureWidget;
         }
         mPluginAuthenticationConfigureWidget = configureWidget;
-        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
-        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::settingsIsValid, this, &RuqolaLoginStackWidget::settingsIsValid);
         connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::tryLogin, this, &RuqolaLoginStackWidget::tryLogin);
+
+        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
+        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
         addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
         delete interface;
