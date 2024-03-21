@@ -16,7 +16,7 @@ public:
         ListAccount,
         Account,
         MessageUrl,
-        LoginRestApi,
+        LoginDdpApi,
         FeedBack,
     };
 
