@@ -32,6 +32,13 @@ RocketChatAccountSettings::~RocketChatAccountSettings()
 
 bool RocketChatAccountSettings::isValid() const
 {
+    if (mAuthMethodType == AuthenticationManager::AuthMethodType::Password) {
+        return !mServerUrl.isEmpty() && !mUserName.isEmpty();
+    } else if (mAuthMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        return !mServerUrl.isEmpty() && !mAuthToken.isEmpty() && !mUserId.isEmpty();
+    } else {
+        qCWarning(RUQOLA_LOG) << "Need to define isValid for  " << mAuthMethodType;
+    }
     return !mServerUrl.isEmpty() && !mUserName.isEmpty();
 }
 
