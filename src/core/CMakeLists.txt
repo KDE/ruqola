@@ -167,6 +167,8 @@ target_sources(libruqolacore PRIVATE
     model/commandsmodel.h
     model/deviceinfomodel.cpp
     model/deviceinfomodel.h
+    model/deviceinfoproxymodel.h
+    model/deviceinfoproxymodel.cpp
     model/searchtreebasefilterproxymodel.cpp
     model/searchtreebasefilterproxymodel.h
     model/custombasemodel.cpp
