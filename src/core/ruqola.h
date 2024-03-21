@@ -69,5 +69,5 @@ private:
 
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
-    bool mUseRestApiLogin = false;
+    bool mUseRestApiLogin = true;
 };
