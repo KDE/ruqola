@@ -316,24 +316,15 @@ void RocketChatBackend::slotLoginStatusChanged()
         mRocketChatAccount->settings()->setAuthToken(restApi->authenticationManager()->authToken());
         mRocketChatAccount->settings()->setExpireToken(restApi->authenticationManager()->tokenExpires());
 
+        connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
+        restApi->setAuthToken(restApi->authenticationManager()->authToken());
+        restApi->setUserId(restApi->authenticationManager()->userId());
+
         auto ddp = mRocketChatAccount->ddp();
         ddp->setServerUrl(restApi->serverUrl());
         ddp->authenticationManager()->setAuthToken(restApi->authenticationManager()->authToken());
         ddp->authenticationManager()->login();
 
-        QJsonObject params;
-        // TODO use timeStamp too
-        params[QLatin1StringView("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
-
-        std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
-            getsubscription_parsing(obj, account);
-        };
-
-        ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
-
-        connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
-        restApi->setAuthToken(restApi->authenticationManager()->authToken());
-        restApi->setUserId(restApi->authenticationManager()->userId());
 #else
         // Now that we are logged in the ddp authentication manager has all the information we need
         mRocketChatAccount->settings()->setAuthToken(mRocketChatAccount->ddp()->authenticationManager()->authToken());
@@ -342,6 +333,10 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->setUserId(mRocketChatAccount->ddp()->authenticationManager()->userId());
 
         connect(restApi, &Connection::getOwnInfoDone, mRocketChatAccount, &RocketChatAccount::parseOwnInfoDone, Qt::UniqueConnection);
+
+        auto ddp = mRocketChatAccount->ddp();
+
+#endif
         QJsonObject params;
         // TODO use timeStamp too
         params[QLatin1StringView("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
@@ -350,10 +345,7 @@ void RocketChatBackend::slotLoginStatusChanged()
             getsubscription_parsing(obj, account);
         };
 
-        auto ddp = mRocketChatAccount->ddp();
         ddp->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
-
-#endif
         restApi->listAllPermissions();
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
