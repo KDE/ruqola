@@ -31,7 +31,6 @@ void PersonalAccessTokenAuthenticationInterface::login()
         mAccount->restApi()->setUserId(QString::fromLatin1(mAccount->settings()->userId()));
 
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
-        // TODO login ddpclient
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
         mAccount->ddp()->authenticationManager()->login();
         return;
