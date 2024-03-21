@@ -70,6 +70,7 @@ static const KLazyLocalizedString ruqolaNewFeatures2_2[] = {
     kli18n("Improve mentions support."),
     kli18n("Add support for deep linking <a href=\"https://developer.rocket.chat/getting-started/deep-linking\">Deep Linking</a>."),
     kli18n("Implement block actions."),
+    kli18n("Implement personal token authentication."),
 };
 static const int numRuqolaNewFeatures2_2 = sizeof ruqolaNewFeatures2_2 / sizeof *ruqolaNewFeatures2_2;
 // enter items for the "Important changes" list here:
@@ -79,5 +80,6 @@ static const KLazyLocalizedString ruqolaBugfixing2_2[] = {
     kli18n("Fix translate message in direct channel."),
     kli18n("Don't show @here/@all as user."),
     kli18n("Reduce memory footprint."),
+    kli18n("Use RESTAPI for logging."),
 };
 static const int numRuqolaBugfixing2_2 = sizeof ruqolaBugfixing2_2 / sizeof *ruqolaBugfixing2_2;
