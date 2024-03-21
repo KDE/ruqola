@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 03:44+0000\n"
+"POT-Creation-Date: 2024-03-21 03:11+0000\n"
 "PO-Revision-Date: 2023-12-29 13:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7000,7 +7000,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Ses: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/playsoundwidget.cpp:304
 #: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "

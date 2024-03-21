@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 03:44+0000\n"
+"POT-Creation-Date: 2024-03-21 03:11+0000\n"
 "PO-Revision-Date: 2024-02-27 12:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -6974,7 +6974,7 @@ msgctxt "@title:window"
 msgid "Sound: %1"
 msgstr "Suono: %1"
 
-#: widgets/dialogs/playsoundwidget.cpp:299
+#: widgets/dialogs/playsoundwidget.cpp:304
 #: widgets/dialogs/showvideowidget.cpp:302
 #, kde-format
 msgid "Error: "
