@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "authenticationmanagerbase.h"
+#include "authenticationmanager/authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 #include <QObject>

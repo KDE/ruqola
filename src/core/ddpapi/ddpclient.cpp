@@ -19,7 +19,7 @@
 #include "ruqolawebsocket.h"
 #include "utils.h"
 
-#include "ddpapi/ddpauthenticationmanager.h"
+#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "ddpapi/ddpmanager.h"
 
 #include <QJsonArray>

@@ -5,7 +5,7 @@
 */
 
 #include "authenticationmanagerutilstest.h"
-#include "ddpapi/authenticationmanagerutils.h"
+#include "authenticationmanager/authenticationmanagerutils.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>

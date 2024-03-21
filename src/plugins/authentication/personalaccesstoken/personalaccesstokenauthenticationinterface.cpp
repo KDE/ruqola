@@ -5,9 +5,9 @@
 */
 
 #include "personalaccesstokenauthenticationinterface.h"
+#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "config-ruqola.h"
 #include "connection.h"
-#include "ddpapi/ddpauthenticationmanager.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
 #include "rocketchataccount.h"

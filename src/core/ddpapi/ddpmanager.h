@@ -10,7 +10,7 @@
 
 #include <QObject>
 
-#include "authenticationmanagerbase.h"
+#include "authenticationmanager/authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 
 class DDPClient;

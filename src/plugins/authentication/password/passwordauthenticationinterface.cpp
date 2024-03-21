@@ -12,7 +12,7 @@
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
 #else
-#include "ddpapi/ddpauthenticationmanager.h"
+#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
 #endif
 

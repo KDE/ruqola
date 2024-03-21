@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore
-    authenticationmanagerbase.h authenticationmanagerbase.cpp)
+add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
     abstractwebsocket.cpp
@@ -67,15 +66,10 @@ target_sources(libruqolacore PRIVATE
     managedevices/deviceinfos.h
     managedevices/deviceinfos.cpp
 
-    ddpapi/ddpauthenticationmanager.cpp
-    ddpapi/ddpauthenticationmanager.h
     ddpapi/ddpclient.cpp
     ddpapi/ddpclient.h
     ddpapi/ddpmanager.cpp
     ddpapi/ddpmanager.h
-
-    ddpapi/authenticationmanagerutils.h
-    ddpapi/authenticationmanagerutils.cpp
 
     discussions/discussion.cpp
     discussions/discussion.h
@@ -353,7 +347,12 @@ target_sources(libruqolacore PRIVATE
 
     authenticationmanager/restauthenticationmanager.cpp
     authenticationmanager/restauthenticationmanager.h
-
+    authenticationmanager/ddpauthenticationmanager.cpp
+    authenticationmanager/ddpauthenticationmanager.h
+    authenticationmanager/authenticationmanagerutils.h
+    authenticationmanager/authenticationmanagerutils.cpp
+    authenticationmanager/authenticationmanagerbase.h 
+    authenticationmanager/authenticationmanagerbase.cpp
 
     receivetypingnotificationmanager.cpp
     receivetypingnotificationmanager.h

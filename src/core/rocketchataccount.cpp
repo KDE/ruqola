@@ -10,10 +10,10 @@
 
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
+#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "commands/listcommandsjob.h"
 #include "customemojiiconmanager.h"
-#include "ddpapi/ddpauthenticationmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
 #include "encryption/e2ekeymanager.h"

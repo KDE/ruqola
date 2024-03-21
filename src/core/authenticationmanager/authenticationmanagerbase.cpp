@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "authenticationmanagerbase.h"
-#include "ddpapi/authenticationmanagerutils.h"
+#include "authenticationmanager/authenticationmanagerbase.h"
+#include "authenticationmanager/authenticationmanagerutils.h"
 #include "ruqola_authentication_debug.h"
 #include "utils.h"
 #define sl(x) QStringLiteral(x)
