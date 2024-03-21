@@ -37,6 +37,5 @@ protected:
     DDPClient *mDdpClient = nullptr;
 
 private:
-    virtual void processMethodResponseImpl(int opId, const QJsonObject &response) = 0;
     virtual void processSubscriptionResultImpl(int subId, const QJsonObject &result) = 0;
 };

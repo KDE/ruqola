@@ -21,16 +21,10 @@ public:
     explicit DDPAuthenticationManager(DDPClient *ddpClient, QObject *parent = nullptr);
     ~DDPAuthenticationManager() override;
 
-    void sendOTP(const QString &otp) override;
-    void logout() override;
-    void logoutAndCleanup() override;
-
 protected:
-    void loginImpl(const QJsonArray &params) override;
+    void callLoginImpl(const QJsonArray &params, AuthenticationManagerBase::Method method) override;
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(int operationId, const QJsonObject &response) override;
-
     // Authentication doesn't involve any subscriptions
     LIBRUQOLACORE_NO_EXPORT void processSubscriptionResultImpl(int subscriptionId, const QJsonObject &result) override
     {

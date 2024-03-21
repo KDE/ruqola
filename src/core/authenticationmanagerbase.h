@@ -44,15 +44,15 @@ public:
     void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
     void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
     void login();
-
-    virtual void loginImpl(const QJsonArray &params) = 0;
-
-    virtual void sendOTP(const QString &otp) = 0;
-    virtual void logout() = 0;
-    virtual void logoutAndCleanup() = 0;
+    void sendOTP(const QString &otp);
+    void logout();
+    void logoutAndCleanup();
+    void loginImpl(const QJsonArray &params);
 
     [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
+    void processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method);
 
+    virtual void callLoginImpl(const QJsonArray &params, Method method) = 0;
 Q_SIGNALS:
     void loginStatusChanged();
 
