@@ -51,6 +51,8 @@ public:
     virtual void logout() = 0;
     virtual void logoutAndCleanup() = 0;
 
+    [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
+
 Q_SIGNALS:
     void loginStatusChanged();
 

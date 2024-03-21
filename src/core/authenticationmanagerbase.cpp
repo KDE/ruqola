@@ -99,4 +99,19 @@ void AuthenticationManagerBase::login()
     loginImpl(AuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
+QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManagerBase::Method m)
+{
+    switch (m) {
+    case AuthenticationManagerBase::Method::Login:
+        return AuthenticationManagerBase::METHOD_LOGIN;
+    case AuthenticationManagerBase::Method::SendOtp:
+        return AuthenticationManagerBase::METHOD_SEND_OTP;
+    case AuthenticationManagerBase::Method::Logout:
+        return AuthenticationManagerBase::METHOD_LOGOUT;
+    case AuthenticationManagerBase::Method::LogoutCleanUp:
+        return AuthenticationManagerBase::METHOD_LOGOUT_CLEAN_UP;
+    }
+    return {};
+}
+
 #undef sl
