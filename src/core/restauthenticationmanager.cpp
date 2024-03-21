@@ -41,8 +41,9 @@ QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method,
     return json;
 }
 
-void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName)
+void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method)
 {
+    const QString methodName = AuthenticationManagerBase::convertMethodEnumToString(method);
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
     info.methodName = methodName;
@@ -61,7 +62,7 @@ void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, RESTAuth
     }
 }
 
-void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName)
+void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method)
 {
     if (checkGenericError()) {
         return;
@@ -80,13 +81,13 @@ void RESTAuthenticationManager::loginImpl(const QJsonArray &params, RESTAuthenti
     // TODO: sanity checks on params
 
     mLastLoginPayload = params[0].toObject();
-    callLoginImpl(params, method, methodName);
+    callLoginImpl(params, method);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOngoing);
 }
 
 void RESTAuthenticationManager::loginImpl(const QJsonArray &params)
 {
-    loginImpl(params, Method::Login, METHOD_LOGIN);
+    loginImpl(params, Method::Login);
 }
 
 void RESTAuthenticationManager::processMethodResponseImpl(const QJsonObject &response, RESTAuthenticationManager::Method method)
@@ -188,7 +189,7 @@ void RESTAuthenticationManager::sendOTP(const QString &otpCode)
     //        return;
     //    }
 
-    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
+    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 }
 
@@ -209,7 +210,7 @@ void RESTAuthenticationManager::logout()
     }
     const QString params = sl("[]");
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::Logout, METHOD_LOGOUT);
+    callLoginImpl(Utils::strToJsonArray(params), Method::Logout);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
@@ -232,7 +233,7 @@ void RESTAuthenticationManager::logoutAndCleanup()
     // TODO fix parameters! In RC client we use "user"
     const QString params = sl("[]");
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp, METHOD_LOGOUT_CLEAN_UP);
+    callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp);
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 

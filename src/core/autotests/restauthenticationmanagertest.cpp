@@ -20,11 +20,10 @@ public:
     ~RESTAuthenticationManagerTestImpl() override = default;
 
 protected:
-    void callLoginImpl(const QJsonArray &params, RESTAuthenticationManagerTestImpl::Method method, const QString &methodName) override
+    void callLoginImpl(const QJsonArray &params, RESTAuthenticationManagerTestImpl::Method method) override
     {
         Q_UNUSED(params);
         Q_UNUSED(method);
-        Q_UNUSED(methodName);
         // Nothing
     }
 };

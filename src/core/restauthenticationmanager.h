@@ -26,11 +26,11 @@ public:
     void processMethodResponseImpl(const QJsonObject &replyObject, RESTAuthenticationManager::Method method);
 
 protected:
-    virtual void callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
+    virtual void callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method);
     void loginImpl(const QJsonArray &params) override;
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
+    LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
 
     Connection *const mRestApiConnection;
