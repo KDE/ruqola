@@ -9,8 +9,8 @@
 #include "rocketchataccount.h"
 
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
-#include "restauthenticationmanager.h"
 #else
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"

@@ -5,9 +5,9 @@
 */
 
 #include "restauthenticationgui.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "common/authenticationloginwidget.h"
 #include "connection.h"
-#include "restauthenticationmanager.h"
 #include "rocketchataccount.h"
 #include <QApplication>
 #include <QLabel>

@@ -12,7 +12,7 @@
 #include "personalaccesstokenauthenticationplugin_debug.h"
 #include "rocketchataccount.h"
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#include "restauthenticationmanager.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #endif
 
 PersonalAccessTokenAuthenticationInterface::PersonalAccessTokenAuthenticationInterface(QObject *parent)

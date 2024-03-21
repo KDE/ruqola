@@ -23,8 +23,8 @@
 #include "videoconference/videoconferencemessageinfomanager.h"
 
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
-#include "restauthenticationmanager.h"
 #endif
 #include <QJsonArray>
 

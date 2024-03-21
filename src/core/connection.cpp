@@ -8,7 +8,7 @@
 #include "restapimethod.h"
 #include "ruqola_debug.h"
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
-#include "restauthenticationmanager.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #endif
 
 #include "downloadfilejob.h"

@@ -5,7 +5,7 @@
 */
 
 #include "restauthenticationmanagertest.h"
-#include "restauthenticationmanager.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "rocketchataccount.h"
 #include <QSignalSpy>
 #include <QTest>

@@ -351,10 +351,13 @@ target_sources(libruqolacore PRIVATE
     plugins/pluginauthenticationconfigurewidget.h
     plugins/pluginauthenticationconfigurewidget.cpp
 
+    authenticationmanager/restauthenticationmanager.cpp
+    authenticationmanager/restauthenticationmanager.h
+
+
     receivetypingnotificationmanager.cpp
     receivetypingnotificationmanager.h
-    restauthenticationmanager.cpp
-    restauthenticationmanager.h
+
     retentioninfo.cpp
     retentioninfo.h
     rocketchataccount.cpp

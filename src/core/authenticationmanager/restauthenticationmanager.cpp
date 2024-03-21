@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "restauthenticationmanager.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_authentication_debug.h"

@@ -21,6 +21,7 @@
 #include "messagequeue.h"
 #include "previewurlcachemanager.h"
 
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "model/commandsmodel.h"
 #include "model/commonmessagefilterproxymodel.h"
@@ -39,7 +40,6 @@
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
 #include "otr/otrmanager.h"
-#include "restauthenticationmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
 #include "ruqola.h"

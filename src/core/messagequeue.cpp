@@ -13,8 +13,8 @@
 
 #if USE_RESTAPI_LOGIN_CMAKE_SUPPORT
 #include "authenticationmanager.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
-#include "restauthenticationmanager.h"
 #else
 #include "ddpapi/ddpauthenticationmanager.h"
 #endif
