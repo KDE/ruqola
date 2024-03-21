@@ -42,28 +42,7 @@ public:
     void logout();
     void logoutAndCleanup();
 
-    void setAuthToken(const QString &authToken);
-
-    [[nodiscard]] QString userId() const;
-    [[nodiscard]] QString authToken() const;
-    [[nodiscard]] bool isLoggedIn() const;
-    [[nodiscard]] bool isLoggedOut() const;
-    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
-    void setLoginStatus(AuthenticationManager::LoginStatus newStatus);
-
-    [[nodiscard]] qint64 tokenExpires() const;
-
-Q_SIGNALS:
-    void loginStatusChanged();
-
 private:
-    QString mUserId;
-    QString mAuthToken;
-    qint64 mTokenExpires;
-    AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
-    // Used when sending OTP
-    QJsonObject mLastLoginPayload;
-
     LIBRUQOLACORE_NO_EXPORT void processMethodResponseImpl(int operationId, const QJsonObject &response) override;
 
     // Authentication doesn't involve any subscriptions
@@ -75,5 +54,4 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
     LIBRUQOLACORE_NO_EXPORT void clientConnectedChangedSlot();
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
 };

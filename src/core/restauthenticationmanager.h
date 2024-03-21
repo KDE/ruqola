@@ -7,12 +7,13 @@
 #pragma once
 
 #include "authenticationmanager.h"
+#include "authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 #include <QJsonObject>
 #include <QObject>
 
 class Connection;
-class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public QObject
+class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public AuthenticationManagerBase
 {
     Q_OBJECT
     static QString METHOD_LOGIN;
@@ -38,21 +39,7 @@ public:
     void logout();
     void logoutAndCleanup();
 
-    void setAuthToken(const QString &authToken);
-
-    [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
-    void setLoginStatus(AuthenticationManager::LoginStatus status);
-
-    [[nodiscard]] bool isLoggedIn() const;
-    [[nodiscard]] bool isLoggedOut() const;
-
-    [[nodiscard]] QString userId() const;
-    [[nodiscard]] QString authToken() const;
-    [[nodiscard]] qint64 tokenExpires() const;
     void processMethodResponseImpl(const QJsonObject &replyObject, RESTAuthenticationManager::Method method);
-
-Q_SIGNALS:
-    void loginStatusChanged();
 
 protected:
     virtual void callLoginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
@@ -61,13 +48,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params, RESTAuthenticationManager::Method method, const QString &methodName);
     LIBRUQOLACORE_NO_EXPORT void loginImpl(const QJsonArray &params);
     LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool checkGenericError() const;
-    QString mAuthToken;
-    QString mUserId;
-    qint64 mTokenExpires;
+
     Connection *const mRestApiConnection;
-    AuthenticationManager::LoginStatus mLoginStatus = AuthenticationManager::LoggedOut;
-    // Used when sending OTP
-    QJsonObject mLastLoginPayload;
     int mIndex = 5000;
 };

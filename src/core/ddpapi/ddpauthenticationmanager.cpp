@@ -35,11 +35,6 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
 
 DDPAuthenticationManager::~DDPAuthenticationManager() = default;
 
-void DDPAuthenticationManager::setAuthToken(const QString &authToken)
-{
-    mAuthToken = authToken;
-}
-
 void DDPAuthenticationManager::login()
 {
     if (mAuthToken.isNull()) {
@@ -155,16 +150,6 @@ void DDPAuthenticationManager::logoutAndCleanup()
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
 }
 
-QString DDPAuthenticationManager::userId() const
-{
-    return mUserId;
-}
-
-QString DDPAuthenticationManager::authToken() const
-{
-    return mAuthToken;
-}
-
 void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const QJsonObject &response)
 {
     switch (static_cast<Method>(operationId)) {
@@ -247,35 +232,6 @@ void DDPAuthenticationManager::processMethodResponseImpl(int operationId, const 
     }
 }
 
-AuthenticationManager::LoginStatus DDPAuthenticationManager::loginStatus() const
-{
-    return mLoginStatus;
-}
-
-bool DDPAuthenticationManager::isLoggedIn() const
-{
-    return mLoginStatus == AuthenticationManager::LoggedIn;
-}
-
-bool DDPAuthenticationManager::isLoggedOut() const
-{
-    return mLoginStatus == AuthenticationManager::LoggedOut || mLoginStatus == AuthenticationManager::LogoutCleanUpOngoing
-        || mLoginStatus == AuthenticationManager::LoggedOutAndCleanedUp;
-}
-
-void DDPAuthenticationManager::setLoginStatus(AuthenticationManager::LoginStatus status)
-{
-    if (mLoginStatus != status) {
-        mLoginStatus = status;
-        Q_EMIT loginStatusChanged();
-    }
-}
-
-qint64 DDPAuthenticationManager::tokenExpires() const
-{
-    return mTokenExpires;
-}
-
 void DDPAuthenticationManager::clientConnectedChangedSlot()
 {
     if (mLoginStatus == AuthenticationManager::FailedToLoginPluginProblem) {
@@ -287,15 +243,6 @@ void DDPAuthenticationManager::clientConnectedChangedSlot()
     // Just connected -> not logged in yet -> state = LoggedOut
     // Just disconnected -> whatever state we're in, need to change to LoggedOut
     setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
-}
-
-bool DDPAuthenticationManager::checkGenericError() const
-{
-    if (mLoginStatus == AuthenticationManager::LoginStatus::GenericError) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
-    }
-
-    return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
 
 #undef sl

@@ -13,7 +13,7 @@
 #include <QJsonObject>
 
 DDPManager::DDPManager(DDPClient *ddpClient, QObject *parent)
-    : QObject(parent)
+    : AuthenticationManagerBase(parent)
     , mDdpClient(ddpClient)
 {
 }

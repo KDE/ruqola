@@ -20,37 +20,12 @@ QString RESTAuthenticationManager::METHOD_LOGOUT = sl("logout");
 QString RESTAuthenticationManager::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
 
 RESTAuthenticationManager::RESTAuthenticationManager(Connection *restApiConnection, QObject *parent)
-    : QObject(parent)
+    : AuthenticationManagerBase(parent)
     , mRestApiConnection(restApiConnection)
 {
 }
 
 RESTAuthenticationManager::~RESTAuthenticationManager() = default;
-
-void RESTAuthenticationManager::setAuthToken(const QString &authToken)
-{
-    mAuthToken = authToken;
-}
-
-AuthenticationManager::LoginStatus RESTAuthenticationManager::loginStatus() const
-{
-    return mLoginStatus;
-}
-
-QString RESTAuthenticationManager::userId() const
-{
-    return mUserId;
-}
-
-QString RESTAuthenticationManager::authToken() const
-{
-    return mAuthToken;
-}
-
-qint64 RESTAuthenticationManager::tokenExpires() const
-{
-    return mTokenExpires;
-}
 
 void RESTAuthenticationManager::login()
 {
@@ -245,34 +220,6 @@ void RESTAuthenticationManager::sendOTP(const QString &otpCode)
 
     callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp, METHOD_SEND_OTP);
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
-}
-
-bool RESTAuthenticationManager::isLoggedIn() const
-{
-    return mLoginStatus == AuthenticationManager::LoggedIn;
-}
-
-bool RESTAuthenticationManager::isLoggedOut() const
-{
-    return mLoginStatus == AuthenticationManager::LoggedOut || mLoginStatus == AuthenticationManager::LogoutCleanUpOngoing
-        || mLoginStatus == AuthenticationManager::LoggedOutAndCleanedUp;
-}
-
-void RESTAuthenticationManager::setLoginStatus(AuthenticationManager::LoginStatus status)
-{
-    if (mLoginStatus != status) {
-        mLoginStatus = status;
-        Q_EMIT loginStatusChanged();
-    }
-}
-
-bool RESTAuthenticationManager::checkGenericError() const
-{
-    if (mLoginStatus == AuthenticationManager::LoginStatus::GenericError) {
-        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << Q_FUNC_INFO << "The authentication manager is in an irreversible error state and can't perform any operation.";
-    }
-
-    return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
 
 void RESTAuthenticationManager::logout()

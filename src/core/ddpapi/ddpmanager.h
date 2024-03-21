@@ -10,6 +10,7 @@
 
 #include <QObject>
 
+#include "authenticationmanagerbase.h"
 #include "libruqolacore_export.h"
 
 class DDPClient;
@@ -19,7 +20,7 @@ class DDPClient;
  * @brief Abstract class describing the interface for classes that may subscribe to DDP events
  *   and call DDP methods.
  */
-class LIBRUQOLACORE_EXPORT DDPManager : public QObject
+class LIBRUQOLACORE_EXPORT DDPManager : public AuthenticationManagerBase
 {
     Q_OBJECT
 
