@@ -6,6 +6,7 @@
 
 #include "personalaccesstokenauthenticationinterface.h"
 #include "authenticationmanager/ddpauthenticationmanager.h"
+#include "authenticationmanager/restauthenticationmanager.h"
 #include "config-ruqola.h"
 #include "connection.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
@@ -22,10 +23,14 @@ PersonalAccessTokenAuthenticationInterface::~PersonalAccessTokenAuthenticationIn
 void PersonalAccessTokenAuthenticationInterface::login()
 {
     qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " login personal access token";
-    if (!mAccount->settings()->authToken().isEmpty() && !mAccount->settings()->tokenExpired()) {
+    // FIXME: expire token!
+    if (!mAccount->settings()->authToken().isEmpty()) {
         // https://developer.rocket.chat/reference/api/rest-api#access-tokens
         mAccount->restApi()->setAuthToken(mAccount->settings()->authToken());
         mAccount->restApi()->setUserId(QString::fromLatin1(mAccount->settings()->userId()));
+        qDebug() << " mAccount->settings()->authToken() " << mAccount->settings()->authToken() << "mAccount->settings()->userId()  "
+                 << mAccount->settings()->userId();
+        mAccount->restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::LoggedIn);
 
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
         mAccount->ddp()->authenticationManager()->setAuthToken(mAccount->settings()->authToken());
