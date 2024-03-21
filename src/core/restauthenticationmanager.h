@@ -19,13 +19,13 @@ public:
     explicit RESTAuthenticationManager(Connection *restApiConnection, QObject *parent = nullptr);
     ~RESTAuthenticationManager() override;
 
-    void login();
-    void login(const QString &user, const QString &password);
-    void loginLDAP(const QString &user, const QString &password); // TODO: LDAP options?
-    void loginOAuth(const QString &credentialToken, const QString &credentialSecret);
-    void sendOTP(const QString &otp);
-    void logout();
-    void logoutAndCleanup();
+    void login() override;
+    void login(const QString &user, const QString &password) override;
+    void loginLDAP(const QString &user, const QString &password) override; // TODO: LDAP options?
+    void loginOAuth(const QString &credentialToken, const QString &credentialSecret) override;
+    void sendOTP(const QString &otp) override;
+    void logout() override;
+    void logoutAndCleanup() override;
 
     void processMethodResponseImpl(const QJsonObject &replyObject, RESTAuthenticationManager::Method method);
 
