@@ -38,7 +38,7 @@ QVariant ModerationReportedMessageModel::headerData(int section, Qt::Orientation
             return i18n("Username");
         case ModerationReportedMessageRoles::Reports:
             return i18n("Reports");
-        case ModerationReportedMessageRoles::ReportDate:
+        case ModerationReportedMessageRoles::ReportDateDisplay:
             return i18n("Report date");
         case ModerationReportedMessageRoles::RoomName:
             return i18n("Room");
@@ -80,7 +80,7 @@ QVariant ModerationReportedMessageModel::data(const QModelIndex &index, int role
         return moderationReportedMessageInfo.count();
     case ModerationReportedMessageRoles::UserDeleted:
         return moderationReportedMessageInfo.isUserDeleted();
-    case ModerationReportedMessageRoles::ReportDate:
+    case ModerationReportedMessageRoles::ReportDateDisplay:
         return moderationReportedMessageInfo.createAtDisplayDateTime();
     case ModerationReportedMessageRoles::RoomName:
         return moderationReportedMessageInfo.roomList().join(QLatin1Char(','));
