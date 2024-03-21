@@ -31,6 +31,7 @@ QVariant ModerationReportedMessageModel::headerData(int section, Qt::Orientation
         case ModerationReportedMessageRoles::UserId:
         case ModerationReportedMessageRoles::MessageId:
         case ModerationReportedMessageRoles::UserDeleted:
+        case ModerationReportedMessageRoles::ReportDate:
             return {};
         case ModerationReportedMessageRoles::Message:
             return i18n("Reported message");
@@ -80,6 +81,8 @@ QVariant ModerationReportedMessageModel::data(const QModelIndex &index, int role
         return moderationReportedMessageInfo.count();
     case ModerationReportedMessageRoles::UserDeleted:
         return moderationReportedMessageInfo.isUserDeleted();
+    case ModerationReportedMessageRoles::ReportDate:
+        return moderationReportedMessageInfo.createdAt();
     case ModerationReportedMessageRoles::ReportDateDisplay:
         return moderationReportedMessageInfo.createAtDisplayDateTime();
     case ModerationReportedMessageRoles::RoomName:
@@ -145,7 +148,10 @@ void ModerationReportedMessageModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> ModerationReportedMessageModel::hideColumns() const
 {
-    return {ModerationReportedMessageRoles::UserDeleted, ModerationReportedMessageRoles::UserId, ModerationReportedMessageRoles::MessageId};
+    return {ModerationReportedMessageRoles::UserDeleted,
+            ModerationReportedMessageRoles::UserId,
+            ModerationReportedMessageRoles::MessageId,
+            ModerationReportedMessageRoles::ReportDate};
 }
 
 void ModerationReportedMessageModel::removeElement(const QString &identifier)

@@ -19,6 +19,7 @@ public:
         UserName,
         Message,
         RoomName,
+        ReportDate,
         ReportDateDisplay,
         Reports,
         UserDeleted,
