@@ -54,9 +54,9 @@ void AdminUsersModel::updateElement(const QJsonObject &userObj)
 {
     const int roomCount = mUsers.count();
     const QJsonObject obj = userObj[QLatin1StringView("user")].toObject();
-    const QString identifier{obj.value(QStringLiteral("_id")).toString()};
+    const QByteArray identifier{obj.value(QStringLiteral("_id")).toString().toLatin1()};
     for (int i = 0; i < roomCount; ++i) {
-        if (mUsers.at(i).userId() == identifier.toLatin1()) {
+        if (mUsers.at(i).userId() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mUsers.takeAt(i);
             endRemoveRows();
