@@ -13,10 +13,9 @@
 #include "model/moderationreportedusermodel.h"
 #include "model/moderationreporteduserproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
-#include "moderation/moderationdismissreportsjob.h"
 #include "moderation/moderationreportsbyusersjob.h"
-#include "moderation/moderationuserdeletereportedmessagesjob.h"
-#include "moderation/moderationuserreportedmessagesjob.h"
+#include "moderation/moderationuserreportsjob.h"
+
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -71,12 +70,8 @@ QString ModerationReportedUserConsoleTreeWidget::displayShowMessage() const
 
 void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
-    auto job = new RocketChatRestApi::ModerationReportsByUsersJob(this);
+    auto job = new RocketChatRestApi::ModerationUserReportsJob(this);
 
-    RocketChatRestApi::ModerationReportsByUsersJob::ModerationReportsByUsersInfo info;
-    info.mOldest = mModerationRanges.fromDate;
-    info.mLatest = mModerationRanges.toDate;
-    info.mSelector = searchName;
     RocketChatRestApi::QueryParameters parameters;
     //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
     //    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
@@ -89,21 +84,15 @@ void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int c
     }
 
     job->setQueryParameters(parameters);
-    if (info.isValid()) {
-        job->setModerationReportsByUsersInfo(info);
-    }
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
         connect(job,
-                &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone,
+                &RocketChatRestApi::ModerationUserReportsJob::moderationUserReportJobDone,
                 this,
                 &ModerationReportedUserConsoleTreeWidget::slotLoadMoreElementDone);
     } else {
-        connect(job,
-                &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone,
-                this,
-                &ModerationReportedUserConsoleTreeWidget::slotSearchDone);
+        connect(job, &RocketChatRestApi::ModerationUserReportsJob::moderationUserReportJobDone, this, &ModerationReportedUserConsoleTreeWidget::slotSearchDone);
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
