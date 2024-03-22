@@ -368,8 +368,20 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
 
 void RocketChatBackend::tryAutoLogin()
 {
-    if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->password().isEmpty()) {
-        return;
+    if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::Password) {
+        if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->password().isEmpty()) {
+            qCWarning(RUQOLA_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty(" << mRocketChatAccount->serverVersion().isEmpty()
+                                  << "mRocketChatAccount->password().isEmpty() " << mRocketChatAccount->password().isEmpty();
+            return;
+        }
+    } else if (mRocketChatAccount->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->authToken().isEmpty()) {
+            qCWarning(RUQOLA_LOG) << " Impossible to log: mRocketChatAccount->serverVersion().isEmpty(" << mRocketChatAccount->serverVersion().isEmpty()
+                                  << "mRocketChatAccount->authToken().isEmpty() " << mRocketChatAccount->authToken().isEmpty();
+            return;
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << " tryAutoLogin check not implemented for " << mRocketChatAccount->authMethodType();
     }
     if (Ruqola::self()->useRestApiLogin()) {
         mRocketChatAccount->tryLogin();
