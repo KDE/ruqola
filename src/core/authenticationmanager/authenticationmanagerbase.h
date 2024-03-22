@@ -35,6 +35,7 @@ public:
     [[nodiscard]] QString authToken() const;
     [[nodiscard]] qint64 tokenExpires() const;
 
+    void setUserId(const QString &newUserId);
     void setAuthToken(const QString &authToken);
 
     [[nodiscard]] AuthenticationManager::LoginStatus loginStatus() const;
@@ -53,6 +54,7 @@ public:
     void processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method);
 
     virtual void callLoginImpl(const QJsonArray &params, Method method) = 0;
+
 Q_SIGNALS:
     void loginStatusChanged();
 

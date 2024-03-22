@@ -75,6 +75,11 @@ bool AuthenticationManagerBase::checkGenericError() const
     return mLoginStatus == AuthenticationManager::LoginStatus::GenericError;
 }
 
+void AuthenticationManagerBase::setUserId(const QString &newUserId)
+{
+    mUserId = newUserId;
+}
+
 void AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
 {
     loginImpl(AuthenticationManagerUtils::login(user, password));
@@ -92,7 +97,7 @@ void AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const
 
 void AuthenticationManagerBase::login()
 {
-    if (mAuthToken.isNull()) {
+    if (mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_AUTHENTICATION_LOG) << "No auth token available, can't login.";
         return;
     }
