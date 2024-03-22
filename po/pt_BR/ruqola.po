@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 03:11+0000\n"
+"POT-Creation-Date: 2024-03-22 03:03+0000\n"
 "PO-Revision-Date: 2023-06-07 13:29-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -784,7 +784,7 @@ msgstr "ID da sessão"
 msgid "Ip"
 msgstr "IP"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:45
 #, fuzzy, kde-format
 #| msgid "Join At"
 msgid "Login At"
@@ -7918,19 +7918,19 @@ msgstr ""
 msgid "Personal Access Token"
 msgstr "Os tokens de acesso pessoal estão desativados no momento"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search Invite..."
 msgid "Search device..."
 msgstr "Pesquisar convite..."
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No device found"
 msgstr "Nenhum usuário encontrado"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "%1 user (Total: %2)"
 #| msgid_plural "%1 users (Total: %2)"
@@ -7939,7 +7939,7 @@ msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 usuário (total: %2)"
 msgstr[1] "%1 usuários (total: %2)"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
 #, fuzzy, kde-format
 #| msgid "Disconnected"
 msgid "Disconnect"
