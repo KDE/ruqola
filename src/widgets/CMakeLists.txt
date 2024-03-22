@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolawidgets)
+add_library(libruqolawidgets
+    administratordialog/moderationconsole/administratormoderationreportedmessageconsoletreewidget.h administratordialog/moderationconsole/administratormoderationreportedmessageconsoletreewidget.cpp)
 
 if (TARGET KF6::UserFeedbackWidgets OR TARGET KUserFeedbackWidgets)
     target_sources(libruqolawidgets PRIVATE
