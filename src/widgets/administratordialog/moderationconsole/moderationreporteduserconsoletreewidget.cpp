@@ -10,8 +10,8 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/commonmessagefilterproxymodel.h"
 #include "model/moderationmessagesmodel.h"
-#include "model/moderationreportedmessagemodel.h"
-#include "model/moderationreportedmessageproxymodel.h"
+#include "model/moderationreportedusermodel.h"
+#include "model/moderationreporteduserproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationdismissreportsjob.h"
 #include "moderation/moderationreportsbyusersjob.h"
@@ -31,11 +31,11 @@ ModerationReportedUserConsoleTreeWidget::ModerationReportedUserConsoleTreeWidget
     , mCommonMessagesModel(new ModerationMessagesModel(account, this))
 {
     mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
-    mModel = new ModerationReportedMessageModel(this);
+    mModel = new ModerationReportedUserModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
 
-    mProxyModelModel = new ModerationReportedMessageProxyModel(mModel, this);
+    mProxyModelModel = new ModerationReportedUserProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
     connect(this, &ModerationReportedUserConsoleTreeWidget::doubleClicked, this, &ModerationReportedUserConsoleTreeWidget::slotShowMessages);
@@ -112,6 +112,7 @@ void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int c
 
 void ModerationReportedUserConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIndex)
 {
+#if 0
     if (!newModelIndex.isValid()) {
         return;
     }
@@ -126,10 +127,12 @@ void ModerationReportedUserConsoleTreeWidget::slotShowMessages(const QModelIndex
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
     }
+#endif
 }
 
 void ModerationReportedUserConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
+#if 0
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         QMenu menu(this);
@@ -149,6 +152,7 @@ void ModerationReportedUserConsoleTreeWidget::slotCustomContextMenuRequested(con
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
+#endif
 }
 
 void ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
@@ -161,6 +165,7 @@ void ModerationReportedUserConsoleTreeWidget::slotShowReportedMessages(const QJs
 
 void ModerationReportedUserConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
 {
+#if 0
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
                                         i18nc("@title:window", "Dismiss"),
@@ -178,10 +183,12 @@ void ModerationReportedUserConsoleTreeWidget::slotDismissReport(const QModelInde
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationDismissReportsJob job";
         }
     }
+#endif
 }
 
 void ModerationReportedUserConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index)
 {
+#if 0
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Are you sure you want to delete all reported messages from this user?\n"
                                              "The messages will be deleted from the message history and no one will be able to see it.\n"
@@ -201,6 +208,7 @@ void ModerationReportedUserConsoleTreeWidget::slotDeleteAllMessages(const QModel
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationUserDeleteReportedMessagesJob job";
         }
     }
+#endif
 }
 
 #include "moc_moderationreporteduserconsoletreewidget.cpp"
