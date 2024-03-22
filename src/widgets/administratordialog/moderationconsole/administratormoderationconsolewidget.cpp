@@ -18,7 +18,6 @@ AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(Rocke
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     mAdministratorModerationReportedMessageConsoleTreeWidget->setObjectName(QStringLiteral("mAdministratorModerationReportedMessageConsoleTreeWidget"));

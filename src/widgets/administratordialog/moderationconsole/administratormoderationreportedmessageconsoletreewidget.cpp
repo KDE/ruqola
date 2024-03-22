@@ -18,7 +18,6 @@ AdministratorModerationReportedMessageConsoleTreeWidget::AdministratorModeration
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
-    mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
     mAdministratorModerationRangeWidget->setObjectName(QStringLiteral("mAdministratorModerationRangeWidget"));
