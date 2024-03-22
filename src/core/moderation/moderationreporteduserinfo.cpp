@@ -25,6 +25,11 @@ void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObje
 {
     mCount = o[QLatin1StringView("count")].toInt();
     setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    parseReportedUser(o[QLatin1StringView("reportedUser")].toObject());
+}
+
+void ModerationReportedUserInfo::parseReportedUser(const QJsonObject &o)
+{
     // TODO
 }
 

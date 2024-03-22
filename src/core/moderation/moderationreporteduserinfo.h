@@ -27,6 +27,7 @@ public:
     [[nodiscard]] const QString &createAtDisplayDateTime() const;
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseReportedUser(const QJsonObject &o);
     QString mCreateAtDisplayDateTime;
     qint64 mCreatedAt = -1;
     int mCount = 0;
