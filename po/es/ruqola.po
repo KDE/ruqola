@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 00:38+0000\n"
+"POT-Creation-Date: 2024-03-22 00:37+0000\n"
 "PO-Revision-Date: 2024-03-02 18:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -763,7 +763,7 @@ msgstr "Identificador de sesión"
 msgid "Ip"
 msgstr "Ip"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:45
 #, kde-format
 msgid "Login At"
 msgstr "Iniciar sesión en"
@@ -873,28 +873,28 @@ msgstr "¿Desea borrar este mensaje?"
 msgid "Ignored Message"
 msgstr "Mensaje ignorado"
 
-#: core/model/moderationreportedmessagemodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:37
 #, kde-format
 msgid "Reported message"
 msgstr "Mensaje reportado"
 
-#: core/model/moderationreportedmessagemodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:39
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Nombre del usuario"
 
-#: core/model/moderationreportedmessagemodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:41
 #, kde-format
 msgid "Reports"
 msgstr "Reportes"
 
-#: core/model/moderationreportedmessagemodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:43
 #, kde-format
 msgid "Report date"
 msgstr "Fecha del reporte"
 
-#: core/model/moderationreportedmessagemodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:45
 #, kde-format
 msgid "Room"
 msgstr "Sala"
@@ -7988,24 +7988,24 @@ msgstr "Cifrado E2E"
 msgid "Manage Device"
 msgstr "Administrar dispositivos"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
 msgid "Search device..."
 msgstr "Dispositivo de búsqueda..."
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
 #, kde-format
 msgid "No device found"
 msgstr "No se encontró ningún dispositivo"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:47
 #, kde-format
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 dispositivo (Total: %2)"
 msgstr[1] "%1 dispositivos (Total: %2)"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
 #, kde-format
 msgid "Disconnect"
 msgstr "Desconectar"
@@ -8965,22 +8965,22 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuario en la sala (Total: %2)"
 msgstr[1] "%1 usuarios en la sala (Total: %2)"
 
-#: widgets/ruqolacommandlineoptions.h:14
+#: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
 msgid "Return lists of accounts"
 msgstr "Devolver la lista de cuentas"
 
-#: widgets/ruqolacommandlineoptions.h:15
+#: widgets/ruqolacommandlineoptions.cpp:38
 #, kde-format
 msgid "Start with specific account"
 msgstr "Iniciar con una cuenta específica"
 
-#: widgets/ruqolacommandlineoptions.h:16
+#: widgets/ruqolacommandlineoptions.cpp:39
 #, kde-format
 msgid "Show Message"
 msgstr "Mostrar mensaje"
 
-#: widgets/ruqolacommandlineoptions.h:23
+#: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Mostrar las opciones disponibles para comentarios de usuario"
@@ -9552,24 +9552,32 @@ msgstr ""
 msgid "Implement block actions."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#: widgets/whatsnew/whatsnewwidgettranslation.h:73
+msgid "Implement personal token authentication."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
 msgstr "Mejora en el soporte del modo oscuro."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix jitsi support."
 msgstr "Mejora en el soporte de jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix translate message in direct channel."
 msgstr "Mejora en la traducción de mensajes en los canales directos."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Don't show @here/@all as user."
 msgstr "No muestra @here/@all como usuario."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Reduce memory footprint."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+msgid "Use RESTAPI for logging."
 msgstr ""
 
 #~ msgid "Room topic changed to: %1 by %2"

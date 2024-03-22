@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 00:38+0000\n"
+"POT-Creation-Date: 2024-03-22 00:37+0000\n"
 "PO-Revision-Date: 2024-03-19 20:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -764,7 +764,7 @@ msgstr "Ідентифікатор сеансу"
 msgid "Ip"
 msgstr "IP"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:45
 #, kde-format
 msgid "Login At"
 msgstr "Час входу"
@@ -873,28 +873,28 @@ msgstr "Бачити це повідомлення можете лише ви"
 msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
 
-#: core/model/moderationreportedmessagemodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:37
 #, kde-format
 msgid "Reported message"
 msgstr "Повідомлення зі скаргами"
 
-#: core/model/moderationreportedmessagemodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:39
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Користувач"
 
-#: core/model/moderationreportedmessagemodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:41
 #, kde-format
 msgid "Reports"
 msgstr "Скарги"
 
-#: core/model/moderationreportedmessagemodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:43
 #, kde-format
 msgid "Report date"
 msgstr "Дата скарги"
 
-#: core/model/moderationreportedmessagemodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:45
 #, kde-format
 msgid "Room"
 msgstr "Кімната"
@@ -8038,17 +8038,17 @@ msgstr "Шифрування E2E"
 msgid "Manage Device"
 msgstr "Керування пристроєм"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
 msgid "Search device..."
 msgstr "Шукати пристрій…"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
 #, kde-format
 msgid "No device found"
 msgstr "Не знайдено жодного пристрою"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:47
 #, kde-format
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
@@ -8057,7 +8057,7 @@ msgstr[1] "%1 пристрої (загалом: %2)"
 msgstr[2] "%1 пристроїв (загалом: %2)"
 msgstr[3] "%1 пристрій (загалом: %2)"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
 #, kde-format
 msgid "Disconnect"
 msgstr "Від'єднати"
@@ -9023,22 +9023,22 @@ msgstr[1] "%1 користувачі у кімнаті (загалом: %2)"
 msgstr[2] "%1 користувачів у кімнаті (загалом: %2)"
 msgstr[3] "%1 користувач у кімнаті (загалом: %2)"
 
-#: widgets/ruqolacommandlineoptions.h:14
+#: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
 msgid "Return lists of accounts"
 msgstr "Повернути список облікових записів"
 
-#: widgets/ruqolacommandlineoptions.h:15
+#: widgets/ruqolacommandlineoptions.cpp:38
 #, kde-format
 msgid "Start with specific account"
 msgstr "Запустити із вказаним обліковим записом"
 
-#: widgets/ruqolacommandlineoptions.h:16
+#: widgets/ruqolacommandlineoptions.cpp:39
 #, kde-format
 msgid "Show Message"
 msgstr "Показати повідомлення"
 
-#: widgets/ruqolacommandlineoptions.h:23
+#: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Показати доступні варіанти для відгуків користувача"
@@ -9612,25 +9612,35 @@ msgstr ""
 msgid "Implement block actions."
 msgstr "Реалізовано дії з блокування."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#: widgets/whatsnew/whatsnewwidgettranslation.h:73
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement personal token authentication."
+msgstr "Реалізовано дії з блокування."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
 msgstr "Виправлено підтримку темного режиму."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix jitsi support."
 msgstr "Виправлено підтримку jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix translate message in direct channel."
 msgstr "Виправлено переклад повідомлень у безпосередньому каналі."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Don't show @here/@all as user."
 msgstr "Вимкнено показ @here/@all як користувача."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Reduce memory footprint."
 msgstr "Зменшити споживання пам'яті."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+msgid "Use RESTAPI for logging."
+msgstr ""
 
 #~ msgid "Room topic changed to: %1 by %2"
 #~ msgstr "Тему кімнати змінено на таку %1, %2"

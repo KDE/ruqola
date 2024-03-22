@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 00:38+0000\n"
-"PO-Revision-Date: 2024-02-27 21:53+0100\n"
+"POT-Creation-Date: 2024-03-22 00:37+0000\n"
+"PO-Revision-Date: 2024-03-21 09:47+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -760,7 +760,7 @@ msgstr "Seanco Id"
 msgid "Ip"
 msgstr "Ip"
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:45
 #, kde-format
 msgid "Login At"
 msgstr "Ensaluti Ĉe"
@@ -860,38 +860,37 @@ msgid "Edited at %1 by %2"
 msgstr "Redaktita ĉe %1 de %2"
 
 #: core/model/messagesmodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Do you want to delete this message?"
+#, kde-format
 msgid "Only you can see this message"
-msgstr "Ĉu vi volas forigi ĉi tiun mesaĝon?"
+msgstr "Nur vi povas vidi ĉi tiun mesaĝon"
 
 #: core/model/messagesmodel.cpp:361
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorita Mesaĝo"
 
-#: core/model/moderationreportedmessagemodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:37
 #, kde-format
 msgid "Reported message"
 msgstr "Raportita mesaĝo"
 
-#: core/model/moderationreportedmessagemodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:39
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Uzantnomo"
 
-#: core/model/moderationreportedmessagemodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:41
 #, kde-format
 msgid "Reports"
 msgstr "Raportoj"
 
-#: core/model/moderationreportedmessagemodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:43
 #, kde-format
 msgid "Report date"
 msgstr "Raporta dato"
 
-#: core/model/moderationreportedmessagemodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:45
 #, kde-format
 msgid "Room"
 msgstr "Ĉambro"
@@ -1612,7 +1611,7 @@ msgstr "'%1' ne estas valida ĉambronomo"
 #: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:64
 #, kde-format
 msgid "Extract Roles"
-msgstr "Ekstrakti Rolojn"
+msgstr "Eltiri Rolojn"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:114
 #, kde-format
@@ -1620,15 +1619,14 @@ msgid "Message deletion is not allowed."
 msgstr "Forigo de mesaĝoj ne estas permesita."
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
-#, fuzzy, kde-format
-#| msgid "File sharing not allowed in direct messages"
+#, kde-format
 msgid "Not allowed to get message %1"
-msgstr "Dosiera kundivido ne permesita en rektaj mesaĝoj"
+msgstr "Ne permesita ekpreni mesaĝon %1"
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
-msgstr ""
+msgstr "Ne permesita ekpreni mesaĝon %2 en ĉambro %1"
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format
@@ -7934,24 +7932,24 @@ msgstr "E2E Ĉifrado"
 msgid "Manage Device"
 msgstr "Administri Aparato"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
 msgid "Search device..."
 msgstr "Serĉi aparaton..."
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
 #, kde-format
 msgid "No device found"
 msgstr "Neniu aparato trovata"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:47
 #, kde-format
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
 msgstr[0] "%1 aparato (Totalo: %2)"
 msgstr[1] "%1 aparatoj (Totalo: %2)"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
 #, kde-format
 msgid "Disconnect"
 msgstr "Malkonekti"
@@ -8775,7 +8773,7 @@ msgstr ""
 #, kde-format
 msgctxt "Percent value; %p is the value, % is the percent sign"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
 #, kde-format
@@ -8904,22 +8902,22 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 Uzanto en ĉambro (Totalo: %2)"
 msgstr[1] "%1 Uzantoj en ĉambro (Totalo: %2)"
 
-#: widgets/ruqolacommandlineoptions.h:14
+#: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
 msgid "Return lists of accounts"
 msgstr "Redoni listojn de kontoj"
 
-#: widgets/ruqolacommandlineoptions.h:15
+#: widgets/ruqolacommandlineoptions.cpp:38
 #, kde-format
 msgid "Start with specific account"
 msgstr "Komenci per specifa konto"
 
-#: widgets/ruqolacommandlineoptions.h:16
+#: widgets/ruqolacommandlineoptions.cpp:39
 #, kde-format
 msgid "Show Message"
 msgstr "Montri Mesaĝon"
 
-#: widgets/ruqolacommandlineoptions.h:23
+#: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr "Listigas la disponeblajn opciojn por uzant-sugestoj"
@@ -9485,51 +9483,34 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:72
 msgid "Implement block actions."
-msgstr ""
+msgstr "Realigi blokad-agojn."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#: widgets/whatsnew/whatsnewwidgettranslation.h:73
+#, fuzzy
+#| msgid "Implement block actions."
+msgid "Implement personal token authentication."
+msgstr "Realigi blokad-agojn."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
 msgstr "Ripari subtenon por malhela reĝimo."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix jitsi support."
 msgstr "Ripari subtenon de jitsi."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 msgid "Fix translate message in direct channel."
 msgstr "Ripari traduki mesaĝon en rekta kanalo."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Don't show @here/@all as user."
 msgstr "Ne montri @here/@all kiel uzanto."
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Reduce memory footprint."
+msgstr "Redukti memorbezonon."
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+msgid "Use RESTAPI for logging."
 msgstr ""
-
-#~ msgid "Room topic changed to: %1 by %2"
-#~ msgstr "Ĉambrotemo ŝanĝita al: %1 per %2"
-
-#~ msgid "Server not found: %1"
-#~ msgstr "Servilo ne trovita: %1"
-
-#~ msgid "Commit"
-#~ msgstr "Enmeti"
-
-#~ msgid "Build Environment"
-#~ msgstr "Konstrua Medio"
-
-#~ msgid "Account Name:"
-#~ msgstr "Kontonomo:"
-
-#~ msgid "Account name"
-#~ msgstr "Kontonomo"
-
-#~ msgid "File Uploaded:"
-#~ msgstr "Dosiero Alŝutita:"
-
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Dosiero Alŝutita: %1"
-
-#~ msgid "Authentication Method"
-#~ msgstr "Aŭtentikiga Metodo"

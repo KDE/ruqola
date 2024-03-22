@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-21 00:38+0000\n"
+"POT-Creation-Date: 2024-03-22 00:37+0000\n"
 "PO-Revision-Date: 2024-02-03 02:20+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -793,7 +793,7 @@ msgstr ""
 msgid "Ip"
 msgstr ""
 
-#: core/model/deviceinfomodel.cpp:44
+#: core/model/deviceinfomodel.cpp:45
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login At"
@@ -912,33 +912,33 @@ msgstr "Ar norite ištrinti šią žinutę?"
 msgid "Ignored Message"
 msgstr ""
 
-#: core/model/moderationreportedmessagemodel.cpp:36
+#: core/model/moderationreportedmessagemodel.cpp:37
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "Reported message"
 msgstr "1 žinutė"
 
-#: core/model/moderationreportedmessagemodel.cpp:38
+#: core/model/moderationreportedmessagemodel.cpp:39
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, fuzzy, kde-format
 #| msgid "Username:"
 msgid "Username"
 msgstr "Naudotojo vardas:"
 
-#: core/model/moderationreportedmessagemodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:41
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Reports"
 msgstr "Pranešti apie klaidą"
 
-#: core/model/moderationreportedmessagemodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:43
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Report date"
 msgstr "Pranešti apie klaidą"
 
-#: core/model/moderationreportedmessagemodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:45
 #, fuzzy, kde-format
 #| msgid "Hide Room"
 msgid "Room"
@@ -8213,19 +8213,19 @@ msgstr ""
 msgid "Manage Device"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search device..."
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No device found"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:47
 #, kde-format
 msgid "%1 device (Total: %2)"
 msgid_plural "%1 devices (Total: %2)"
@@ -8234,7 +8234,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
+#: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:96
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Disconnect"
@@ -9260,23 +9260,23 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/ruqolacommandlineoptions.h:14
+#: widgets/ruqolacommandlineoptions.cpp:37
 #, kde-format
 msgid "Return lists of accounts"
 msgstr "Grąžinti paskyrų sąrašus"
 
-#: widgets/ruqolacommandlineoptions.h:15
+#: widgets/ruqolacommandlineoptions.cpp:38
 #, kde-format
 msgid "Start with specific account"
 msgstr "Pradėti naudojant tam tikrą paskyrą"
 
-#: widgets/ruqolacommandlineoptions.h:16
+#: widgets/ruqolacommandlineoptions.cpp:39
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Show Message"
 msgstr "Šifruota žinutė"
 
-#: widgets/ruqolacommandlineoptions.h:23
+#: widgets/ruqolacommandlineoptions.cpp:43
 #, kde-format
 msgid "Lists the available options for user feedback"
 msgstr ""
@@ -9900,30 +9900,38 @@ msgstr ""
 msgid "Implement block actions."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:77
+#: widgets/whatsnew/whatsnewwidgettranslation.h:73
+msgid "Implement personal token authentication."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:78
 #, fuzzy
 #| msgid "Android support"
 msgid "Fix dark mode support."
 msgstr "Android palaikymas"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:78
+#: widgets/whatsnew/whatsnewwidgettranslation.h:79
 #, fuzzy
 #| msgid "Android support"
 msgid "Fix jitsi support."
 msgstr "Android palaikymas"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:79
+#: widgets/whatsnew/whatsnewwidgettranslation.h:80
 #, fuzzy
 #| msgid "Leave Channel"
 msgid "Fix translate message in direct channel."
 msgstr "Išeiti iš kanalo"
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:80
+#: widgets/whatsnew/whatsnewwidgettranslation.h:81
 msgid "Don't show @here/@all as user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidgettranslation.h:81
+#: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Reduce memory footprint."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidgettranslation.h:83
+msgid "Use RESTAPI for logging."
 msgstr ""
 
 #, fuzzy
