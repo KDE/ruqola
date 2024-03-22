@@ -16,15 +16,10 @@ class LIBRUQOLACORE_EXPORT ModerationReportedUserModel : public CustomBaseModel
 public:
     enum ModerationReportedUserRoles {
         Name,
-        UserName,
-        Message,
         ReportDate,
         ReportDateDisplay,
         Reports,
-        UserDeleted,
-        UserId,
-        MessageId,
-        LastColumn = MessageId,
+        LastColumn = Reports,
     };
     Q_ENUM(ModerationReportedUserRoles)
 
