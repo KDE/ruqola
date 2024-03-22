@@ -26,8 +26,6 @@ QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation or
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<ModerationReportedUserRoles>(section)) {
-        case ModerationReportedUserRoles::Name:
-            return i18n("Name");
         case ModerationReportedUserRoles::Reports:
             return i18n("Reports");
         case ModerationReportedUserRoles::ReportDateDisplay:
@@ -63,20 +61,6 @@ QVariant ModerationReportedUserModel::data(const QModelIndex &index, int role) c
         return moderationReportedUserInfo.createAtDisplayDateTime();
     case ModerationReportedUserRoles::Reports:
         return moderationReportedUserInfo.count();
-#if 0
-    case ModerationReportedUserRoles::UserId:
-        return moderationReportedUserInfo.userId();
-    case ModerationReportedUserRoles::Name:
-        return moderationReportedUserInfo.name();
-    case ModerationReportedUserRoles::Message:
-        return moderationReportedUserInfo.message();
-    case ModerationReportedUserRoles::UserName:
-        return moderationReportedUserInfo.userName();
-    case ModerationReportedUserRoles::MessageId:
-        return moderationReportedUserInfo.msgId();
-    case ModerationReportedUserRoles::UserDeleted:
-        return moderationReportedUserInfo.isUserDeleted();
-#endif
     }
     return {};
 }
@@ -138,13 +122,7 @@ void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> ModerationReportedUserModel::hideColumns() const
 {
-    return {};
-#if 0
-    return {ModerationReportedUserRoles::UserDeleted,
-                ModerationReportedUserRoles::UserId,
-                ModerationReportedUserRoles::MessageId,
-                ModerationReportedUserRoles::ReportDate};
-#endif
+    return {ModerationReportedUserRoles::ReportDate};
 }
 
 void ModerationReportedUserModel::removeElement(const QString &identifier)
