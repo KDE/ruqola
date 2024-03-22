@@ -1,0 +1,19 @@
+/*
+   SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+#include "libruqolacore_export.h"
+#include "searchtreebasefilterproxymodel.h"
+
+class LIBRUQOLACORE_EXPORT ModerationReportedUserProxyModel : public SearchTreeBaseFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit ModerationReportedUserProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
+    ~ModerationReportedUserProxyModel() override;
+
+    [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+};

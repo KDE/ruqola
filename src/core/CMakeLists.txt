@@ -274,10 +274,17 @@ target_sources(libruqolacore PRIVATE
     model/servererrorinfohistorymodel.cpp
     model/servererrorinfohistoryfilterproxymodel.cpp
     model/servererrorinfohistoryfilterproxymodel.h
+
     model/moderationreportedmessagemodel.cpp
     model/moderationreportedmessagemodel.h
     model/moderationreportedmessageproxymodel.cpp
     model/moderationreportedmessageproxymodel.h
+
+    model/moderationreportedusermodel.cpp
+    model/moderationreportedusermodel.h
+    model/moderationreporteduserproxymodel.cpp
+    model/moderationreporteduserproxymodel.h
+
 
 
     model/sortfilterproxymodelbase.h
