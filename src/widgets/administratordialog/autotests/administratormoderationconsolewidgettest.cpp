@@ -5,8 +5,8 @@
 */
 #include "administratormoderationconsolewidgettest.h"
 #include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
-#include "administratordialog/moderationconsole/administratormoderationrangewidget.h"
-#include "administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.h"
+#include "administratordialog/moderationconsole/administratormoderationreportedmessageconsoletreewidget.h"
+#include "administratordialog/moderationconsole/administratormoderationreporteduserconsoletreewidget.h"
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -22,11 +22,13 @@ void AdministratorModerationConsoleWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mModerationConsoleTreeWidget = d.findChild<ModerationReportedMessageConsoleTreeWidget *>(QStringLiteral("mModerationConsoleTreeWidget"));
-    QVERIFY(mModerationConsoleTreeWidget);
+    auto mAdministratorModerationReportedMessageConsoleTreeWidget =
+        d.findChild<AdministratorModerationReportedMessageConsoleTreeWidget *>(QStringLiteral("mAdministratorModerationReportedMessageConsoleTreeWidget"));
+    QVERIFY(mAdministratorModerationReportedMessageConsoleTreeWidget);
 
-    auto mAdministratorModerationRangeWidget = d.findChild<AdministratorModerationRangeWidget *>(QStringLiteral("mAdministratorModerationRangeWidget"));
-    QVERIFY(mAdministratorModerationRangeWidget);
+    auto mAdministratorModerationReportedUserConsoleTreeWidget =
+        d.findChild<AdministratorModerationReportedUserConsoleTreeWidget *>(QStringLiteral("mAdministratorModerationReportedUserConsoleTreeWidget"));
+    QVERIFY(mAdministratorModerationReportedUserConsoleTreeWidget);
 }
 
 #include "moc_administratormoderationconsolewidgettest.cpp"
