@@ -11,6 +11,7 @@
 #include "model/commonmessagefilterproxymodel.h"
 #include "model/moderationmessagesmodel.h"
 #include "model/moderationreportedmessagemodel.h"
+#include "model/moderationreportedmessageproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "moderation/moderationdismissreportsjob.h"
 #include "moderation/moderationreportsbyusersjob.h"
@@ -34,7 +35,7 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search moderation message..."));
 
-    mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
+    mProxyModelModel = new ModerationReportedMessageProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
     connect(this, &ModerationConsoleTreeWidget::doubleClicked, this, &ModerationConsoleTreeWidget::slotShowMessages);
