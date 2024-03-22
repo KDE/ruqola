@@ -8,17 +8,16 @@
 
 #include "custombasemodel.h"
 #include "libruqolacore_export.h"
-#include "moderation/moderationreportedmessageinfos.h"
+#include "moderation/moderationreporteduserinfos.h"
 
 class LIBRUQOLACORE_EXPORT ModerationReportedUserModel : public CustomBaseModel
 {
     Q_OBJECT
 public:
-    enum ModerationReportedMessageRoles {
+    enum ModerationReportedUserRoles {
         Name,
         UserName,
         Message,
-        RoomName,
         ReportDate,
         ReportDateDisplay,
         Reports,
@@ -27,7 +26,7 @@ public:
         MessageId,
         LastColumn = MessageId,
     };
-    Q_ENUM(ModerationReportedMessageRoles)
+    Q_ENUM(ModerationReportedUserRoles)
 
     explicit ModerationReportedUserModel(QObject *parent = nullptr);
     ~ModerationReportedUserModel() override;
@@ -44,11 +43,11 @@ public:
 
     void removeElement(const QString &identifier) override;
 
-    [[nodiscard]] const ModerationReportedMessageInfos &moderationInfos() const;
-    void setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos);
+    [[nodiscard]] const ModerationReportedUserInfos &moderationInfos() const;
+    void setModerationInfos(const ModerationReportedUserInfos &userInfos);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
     LIBRUQOLACORE_NO_EXPORT void clear();
-    ModerationReportedMessageInfos mModerationInfos;
+    ModerationReportedUserInfos mModerationInfos;
 };

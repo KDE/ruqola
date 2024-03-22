@@ -25,24 +25,22 @@ int ModerationReportedUserModel::rowCount(const QModelIndex &parent) const
 QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<ModerationReportedMessageRoles>(section)) {
-        case ModerationReportedMessageRoles::Name:
+        switch (static_cast<ModerationReportedUserRoles>(section)) {
+        case ModerationReportedUserRoles::Name:
             return i18n("Name");
-        case ModerationReportedMessageRoles::UserId:
-        case ModerationReportedMessageRoles::MessageId:
-        case ModerationReportedMessageRoles::UserDeleted:
-        case ModerationReportedMessageRoles::ReportDate:
+        case ModerationReportedUserRoles::UserId:
+        case ModerationReportedUserRoles::MessageId:
+        case ModerationReportedUserRoles::UserDeleted:
+        case ModerationReportedUserRoles::ReportDate:
             return {};
-        case ModerationReportedMessageRoles::Message:
+        case ModerationReportedUserRoles::Message:
             return i18n("Reported message");
-        case ModerationReportedMessageRoles::UserName:
+        case ModerationReportedUserRoles::UserName:
             return i18n("Username");
-        case ModerationReportedMessageRoles::Reports:
+        case ModerationReportedUserRoles::Reports:
             return i18n("Reports");
-        case ModerationReportedMessageRoles::ReportDateDisplay:
+        case ModerationReportedUserRoles::ReportDateDisplay:
             return i18n("Report date");
-        case ModerationReportedMessageRoles::RoomName:
-            return i18n("Room");
         }
     }
     return {};
@@ -51,7 +49,7 @@ QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation or
 int ModerationReportedUserModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    constexpr int val = static_cast<int>(ModerationReportedMessageRoles::LastColumn) + 1;
+    constexpr int val = static_cast<int>(ModerationReportedUserRoles::LastColumn) + 1;
     return val;
 }
 
@@ -63,31 +61,30 @@ QVariant ModerationReportedUserModel::data(const QModelIndex &index, int role) c
     if (role != Qt::DisplayRole) {
         return {};
     }
-
-    const ModerationReportedMessageInfo &moderationReportedMessageInfo = mModerationInfos.at(index.row());
+#if 0
+    const ModerationReportedUserInfos &moderationReportedUserInfo = mModerationInfos.at(index.row());
     const int col = index.column();
-    switch (static_cast<ModerationReportedMessageRoles>(col)) {
-    case ModerationReportedMessageRoles::UserId:
-        return moderationReportedMessageInfo.userId();
-    case ModerationReportedMessageRoles::Name:
-        return moderationReportedMessageInfo.name();
-    case ModerationReportedMessageRoles::Message:
-        return moderationReportedMessageInfo.message();
-    case ModerationReportedMessageRoles::UserName:
-        return moderationReportedMessageInfo.userName();
-    case ModerationReportedMessageRoles::MessageId:
-        return moderationReportedMessageInfo.msgId();
-    case ModerationReportedMessageRoles::Reports:
-        return moderationReportedMessageInfo.count();
-    case ModerationReportedMessageRoles::UserDeleted:
-        return moderationReportedMessageInfo.isUserDeleted();
-    case ModerationReportedMessageRoles::ReportDate:
-        return moderationReportedMessageInfo.createdAt();
-    case ModerationReportedMessageRoles::ReportDateDisplay:
-        return moderationReportedMessageInfo.createAtDisplayDateTime();
-    case ModerationReportedMessageRoles::RoomName:
-        return moderationReportedMessageInfo.roomList().join(QLatin1Char(','));
+    switch (static_cast<ModerationReportedUserRoles>(col)) {
+    case ModerationReportedUserRoles::UserId:
+        return moderationReportedUserInfo.userId();
+    case ModerationReportedUserRoles::Name:
+        return moderationReportedUserInfo.name();
+    case ModerationReportedUserRoles::Message:
+        return moderationReportedUserInfo.message();
+    case ModerationReportedUserRoles::UserName:
+        return moderationReportedUserInfo.userName();
+    case ModerationReportedUserRoles::MessageId:
+        return moderationReportedUserInfo.msgId();
+    case ModerationReportedUserRoles::Reports:
+        return moderationReportedUserInfo.count();
+    case ModerationReportedUserRoles::UserDeleted:
+        return moderationReportedUserInfo.isUserDeleted();
+    case ModerationReportedUserRoles::ReportDate:
+        return moderationReportedUserInfo.createdAt();
+    case ModerationReportedUserRoles::ReportDateDisplay:
+        return moderationReportedUserInfo.createAtDisplayDateTime();
     }
+#endif
     return {};
 }
 
@@ -108,7 +105,7 @@ void ModerationReportedUserModel::clear()
 void ModerationReportedUserModel::parseElements(const QJsonObject &obj)
 {
     clear();
-    mModerationInfos.parseModerationInfos(obj);
+    mModerationInfos.parseModerationReportedUserInfos(obj);
     if (!mModerationInfos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
         endInsertRows();
@@ -122,12 +119,12 @@ void ModerationReportedUserModel::checkFullList()
     setHasFullList(mModerationInfos.count() == mModerationInfos.total());
 }
 
-const ModerationReportedMessageInfos &ModerationReportedUserModel::moderationInfos() const
+const ModerationReportedUserInfos &ModerationReportedUserModel::moderationInfos() const
 {
     return mModerationInfos;
 }
 
-void ModerationReportedUserModel::setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos)
+void ModerationReportedUserModel::setModerationInfos(const ModerationReportedUserInfos &newDeviceInfos)
 {
     clear();
     if (!mModerationInfos.isEmpty()) {
@@ -140,7 +137,7 @@ void ModerationReportedUserModel::setModerationInfos(const ModerationReportedMes
 void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mModerationInfos.count();
-    mModerationInfos.parseModerationInfos(obj);
+    mModerationInfos.parseMoreModerationReportedUserInfos(obj);
     beginInsertRows(QModelIndex(), numberOfElement, mModerationInfos.count() - 1);
     endInsertRows();
     checkFullList();
@@ -148,10 +145,10 @@ void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> ModerationReportedUserModel::hideColumns() const
 {
-    return {ModerationReportedMessageRoles::UserDeleted,
-            ModerationReportedMessageRoles::UserId,
-            ModerationReportedMessageRoles::MessageId,
-            ModerationReportedMessageRoles::ReportDate};
+    return {ModerationReportedUserRoles::UserDeleted,
+            ModerationReportedUserRoles::UserId,
+            ModerationReportedUserRoles::MessageId,
+            ModerationReportedUserRoles::ReportDate};
 }
 
 void ModerationReportedUserModel::removeElement(const QString &identifier)
