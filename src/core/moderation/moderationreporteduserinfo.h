@@ -32,11 +32,15 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &newName);
 
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseReportedUser(const QJsonObject &o);
     QString mUsername;
     QString mName;
     QString mCreateAtDisplayDateTime;
+    QByteArray mIdentifier;
     qint64 mCreatedAt = -1;
     int mCount = 0;
 };

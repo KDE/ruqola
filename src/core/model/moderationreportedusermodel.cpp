@@ -30,6 +30,7 @@ QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation or
             return i18n("Reports");
         case ModerationReportedUserRoles::ReportDateDisplay:
             return i18n("Report date");
+        case ModerationReportedUserRoles::Identifier:
         case ModerationReportedUserRoles::ReportDate:
             return {};
         case ModerationReportedUserRoles::UserName:
@@ -69,6 +70,8 @@ QVariant ModerationReportedUserModel::data(const QModelIndex &index, int role) c
         return moderationReportedUserInfo.username();
     case ModerationReportedUserRoles::Name:
         return moderationReportedUserInfo.name();
+    case ModerationReportedUserRoles::Identifier:
+        return moderationReportedUserInfo.identifier();
     }
     return {};
 }
@@ -130,7 +133,7 @@ void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> ModerationReportedUserModel::hideColumns() const
 {
-    return {ModerationReportedUserRoles::ReportDate};
+    return {ModerationReportedUserRoles::ReportDate, ModerationReportedUserRoles::Identifier};
 }
 
 void ModerationReportedUserModel::removeElement(const QString &identifier)

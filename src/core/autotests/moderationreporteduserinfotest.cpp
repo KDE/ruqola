@@ -22,6 +22,7 @@ void ModerationReportedUserInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.createAtDisplayDateTime().isEmpty());
     QVERIFY(w.username().isEmpty());
     QVERIFY(w.name().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
 }
 
 #include "moc_moderationreporteduserinfotest.cpp"

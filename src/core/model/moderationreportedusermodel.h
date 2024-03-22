@@ -17,6 +17,7 @@ public:
     enum ModerationReportedUserRoles {
         UserName,
         Name,
+        Identifier,
         ReportDate,
         ReportDateDisplay,
         Reports,
