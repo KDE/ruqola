@@ -3048,7 +3048,7 @@ bool RocketChatAccount::hasLicense(const QString &name)
 
 void RocketChatAccount::parseLicenses(const QJsonArray &replyArray)
 {
-    qDebug() << " replyArray " << replyArray;
+    // qDebug() << " replyArray " << replyArray;
     mLicensesManager.parseLicenses(replyArray);
 }
 
