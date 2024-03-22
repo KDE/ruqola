@@ -12,12 +12,12 @@
 class QWidget;
 class ModerationMessagesModel;
 class CommonMessageFilterProxyModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationConsoleTreeWidget : public SearchTreeBaseWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportedMessageConsoleTreeWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
 public:
-    explicit ModerationConsoleTreeWidget(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ModerationConsoleTreeWidget() override;
+    explicit ModerationReportedMessageConsoleTreeWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~ModerationReportedMessageConsoleTreeWidget() override;
 
     void setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range);
 

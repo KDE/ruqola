@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "moderationconsoletreewidget.h"
+#include "moderationreportedmessageconsoletreewidget.h"
 #include "administratordialog/moderationconsole/moderationmessagesdialog.h"
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -26,7 +26,7 @@
 #include <QPointer>
 #include <QTreeView>
 
-ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
+ModerationReportedMessageConsoleTreeWidget::ModerationReportedMessageConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
     , mCommonMessagesModel(new ModerationMessagesModel(account, this))
 {
@@ -38,29 +38,29 @@ ModerationConsoleTreeWidget::ModerationConsoleTreeWidget(RocketChatAccount *acco
     mProxyModelModel = new ModerationReportedMessageProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
-    connect(this, &ModerationConsoleTreeWidget::doubleClicked, this, &ModerationConsoleTreeWidget::slotShowMessages);
-    connect(this, &ModerationConsoleTreeWidget::refreshList, this, [this]() {
+    connect(this, &ModerationReportedMessageConsoleTreeWidget::doubleClicked, this, &ModerationReportedMessageConsoleTreeWidget::slotShowMessages);
+    connect(this, &ModerationReportedMessageConsoleTreeWidget::refreshList, this, [this]() {
         slotLoadElements();
     });
     hideColumns();
     connectModel();
 }
 
-ModerationConsoleTreeWidget::~ModerationConsoleTreeWidget() = default;
+ModerationReportedMessageConsoleTreeWidget::~ModerationReportedMessageConsoleTreeWidget() = default;
 
-void ModerationConsoleTreeWidget::setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range)
+void ModerationReportedMessageConsoleTreeWidget::setModerationRanges(const AdministratorModerationRangeWidget::DateTimeRange &range)
 {
     mModerationRanges = range;
     slotLoadElements();
     // qDebug() << " range " << range;
 }
 
-void ModerationConsoleTreeWidget::updateLabel()
+void ModerationReportedMessageConsoleTreeWidget::updateLabel()
 {
     mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No moderation message found") : displayShowMessage());
 }
 
-QString ModerationConsoleTreeWidget::displayShowMessage() const
+QString ModerationReportedMessageConsoleTreeWidget::displayShowMessage() const
 {
     QString displayMessageStr = i18np("%1 moderation message (Total: %2)", "%1 moderation messages (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
@@ -69,7 +69,7 @@ QString ModerationConsoleTreeWidget::displayShowMessage() const
     return displayMessageStr;
 }
 
-void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const QString &searchName)
+void ModerationReportedMessageConsoleTreeWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
     auto job = new RocketChatRestApi::ModerationReportsByUsersJob(this);
 
@@ -95,16 +95,22 @@ void ModerationConsoleTreeWidget::slotLoadElements(int offset, int count, const 
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
-        connect(job, &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone, this, &ModerationConsoleTreeWidget::slotLoadMoreElementDone);
+        connect(job,
+                &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone,
+                this,
+                &ModerationReportedMessageConsoleTreeWidget::slotLoadMoreElementDone);
     } else {
-        connect(job, &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone, this, &ModerationConsoleTreeWidget::slotSearchDone);
+        connect(job,
+                &RocketChatRestApi::ModerationReportsByUsersJob::moderationReportByUserDone,
+                this,
+                &ModerationReportedMessageConsoleTreeWidget::slotSearchDone);
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
     }
 }
 
-void ModerationConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIndex)
+void ModerationReportedMessageConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIndex)
 {
     if (!newModelIndex.isValid()) {
         return;
@@ -116,13 +122,13 @@ void ModerationConsoleTreeWidget::slotShowMessages(const QModelIndex &newModelIn
     connect(job,
             &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
             this,
-            &ModerationConsoleTreeWidget::slotShowReportedMessages);
+            &ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
     }
 }
 
-void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
+void ModerationReportedMessageConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
@@ -145,7 +151,7 @@ void ModerationConsoleTreeWidget::slotCustomContextMenuRequested(const QPoint &p
     }
 }
 
-void ModerationConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
+void ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &obj)
 {
     mCommonMessagesModel->parse(obj);
     ModerationMessagesDialog dlg(mRocketChatAccount, this);
@@ -153,7 +159,7 @@ void ModerationConsoleTreeWidget::slotShowReportedMessages(const QJsonObject &ob
     dlg.exec();
 }
 
-void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
+void ModerationReportedMessageConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
 {
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Are you sure you want to dismiss and delete all reports for this user's messages? This action cannot be undone."),
@@ -174,7 +180,7 @@ void ModerationConsoleTreeWidget::slotDismissReport(const QModelIndex &index)
     }
 }
 
-void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index)
+void ModerationReportedMessageConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index)
 {
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Are you sure you want to delete all reported messages from this user?\n"
@@ -197,4 +203,4 @@ void ModerationConsoleTreeWidget::slotDeleteAllMessages(const QModelIndex &index
     }
 }
 
-#include "moc_moderationconsoletreewidget.cpp"
+#include "moc_moderationreportedmessageconsoletreewidget.cpp"

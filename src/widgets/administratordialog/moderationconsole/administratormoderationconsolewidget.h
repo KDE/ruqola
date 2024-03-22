@@ -8,7 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class RocketChatAccount;
-class ModerationConsoleTreeWidget;
+class ModerationReportedMessageConsoleTreeWidget;
 class AdministratorModerationRangeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationConsoleWidget : public QWidget
 {
@@ -20,6 +20,6 @@ public:
     void initialize();
 
 private:
-    ModerationConsoleTreeWidget *const mModerationConsoleTreeWidget;
+    ModerationReportedMessageConsoleTreeWidget *const mModerationConsoleTreeWidget;
     AdministratorModerationRangeWidget *const mAdministratorModerationRangeWidget;
 };
