@@ -32,6 +32,8 @@ QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation or
             return i18n("Reports");
         case ModerationReportedUserRoles::ReportDateDisplay:
             return i18n("Report date");
+        case ModerationReportedUserRoles::ReportDate:
+            return {};
         }
     }
     return {};
@@ -52,10 +54,16 @@ QVariant ModerationReportedUserModel::data(const QModelIndex &index, int role) c
     if (role != Qt::DisplayRole) {
         return {};
     }
-#if 0
-    const ModerationReportedUserInfos &moderationReportedUserInfo = mModerationInfos.at(index.row());
+    const ModerationReportedUserInfo &moderationReportedUserInfo = mModerationInfos.at(index.row());
     const int col = index.column();
     switch (static_cast<ModerationReportedUserRoles>(col)) {
+    case ModerationReportedUserRoles::ReportDate:
+        return moderationReportedUserInfo.createdAt();
+    case ModerationReportedUserRoles::ReportDateDisplay:
+        return moderationReportedUserInfo.createAtDisplayDateTime();
+    case ModerationReportedUserRoles::Reports:
+        return moderationReportedUserInfo.count();
+#if 0
     case ModerationReportedUserRoles::UserId:
         return moderationReportedUserInfo.userId();
     case ModerationReportedUserRoles::Name:
@@ -66,16 +74,10 @@ QVariant ModerationReportedUserModel::data(const QModelIndex &index, int role) c
         return moderationReportedUserInfo.userName();
     case ModerationReportedUserRoles::MessageId:
         return moderationReportedUserInfo.msgId();
-    case ModerationReportedUserRoles::Reports:
-        return moderationReportedUserInfo.count();
     case ModerationReportedUserRoles::UserDeleted:
         return moderationReportedUserInfo.isUserDeleted();
-    case ModerationReportedUserRoles::ReportDate:
-        return moderationReportedUserInfo.createdAt();
-    case ModerationReportedUserRoles::ReportDateDisplay:
-        return moderationReportedUserInfo.createAtDisplayDateTime();
-    }
 #endif
+    }
     return {};
 }
 
@@ -139,9 +141,9 @@ QList<int> ModerationReportedUserModel::hideColumns() const
     return {};
 #if 0
     return {ModerationReportedUserRoles::UserDeleted,
-            ModerationReportedUserRoles::UserId,
-            ModerationReportedUserRoles::MessageId,
-            ModerationReportedUserRoles::ReportDate};
+                ModerationReportedUserRoles::UserId,
+                ModerationReportedUserRoles::MessageId,
+                ModerationReportedUserRoles::ReportDate};
 #endif
 }
 

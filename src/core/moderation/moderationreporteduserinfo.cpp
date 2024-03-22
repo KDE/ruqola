@@ -12,30 +12,39 @@ ModerationReportedUserInfo::ModerationReportedUserInfo() = default;
 QDebug operator<<(QDebug d, const ModerationReportedUserInfo &t)
 {
     d.space() << "count" << t.count();
-    d.space() << "timeStamp" << t.timeStamp();
+    d.space() << "timeStamp" << t.createdAt();
     return d;
 }
 
 bool ModerationReportedUserInfo::operator==(const ModerationReportedUserInfo &other) const
 {
-    return mCount == other.count() && mTimeStamp == other.timeStamp();
+    return mCount == other.count() && mCreatedAt == other.createdAt();
 }
 
 void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObject &o)
 {
     mCount = o[QLatin1StringView("count")].toInt();
-    setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    setCreatedAt(Utils::parseIsoDate(QStringLiteral("ts"), o));
     // TODO
 }
 
-qint64 ModerationReportedUserInfo::timeStamp() const
+qint64 ModerationReportedUserInfo::createdAt() const
 {
-    return mTimeStamp;
+    return mCreatedAt;
 }
 
-void ModerationReportedUserInfo::setTimeStamp(qint64 newTimeStamp)
+void ModerationReportedUserInfo::setCreatedAt(qint64 newTimeStamp)
 {
-    mTimeStamp = newTimeStamp;
+    mCreatedAt = newTimeStamp;
+    if (mCreatedAt != -1) {
+        QLocale l;
+        mCreateAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedAt), QLocale::LongFormat);
+    }
+}
+
+const QString &ModerationReportedUserInfo::createAtDisplayDateTime() const
+{
+    return mCreateAtDisplayDateTime;
 }
 
 int ModerationReportedUserInfo::count() const

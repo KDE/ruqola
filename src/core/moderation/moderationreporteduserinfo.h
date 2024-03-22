@@ -18,14 +18,17 @@ public:
 
     void parseModerationReportedUserInfo(const QJsonObject &replyObject);
 
-    [[nodiscard]] qint64 timeStamp() const;
-    void setTimeStamp(qint64 newTimeStamp);
+    [[nodiscard]] qint64 createdAt() const;
+    void setCreatedAt(qint64 newTimeStamp);
 
     [[nodiscard]] int count() const;
     void setCount(int newCount);
 
+    [[nodiscard]] const QString &createAtDisplayDateTime() const;
+
 private:
-    qint64 mTimeStamp = -1;
+    QString mCreateAtDisplayDateTime;
+    qint64 mCreatedAt = -1;
     int mCount = 0;
 };
 

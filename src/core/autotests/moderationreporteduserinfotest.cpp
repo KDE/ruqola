@@ -17,8 +17,9 @@ ModerationReportedUserInfoTest::ModerationReportedUserInfoTest(QObject *parent)
 void ModerationReportedUserInfoTest::shouldHaveDefaultValues()
 {
     ModerationReportedUserInfo w;
-    QCOMPARE(w.timeStamp(), -1);
+    QCOMPARE(w.createdAt(), -1);
     QCOMPARE(w.count(), 0);
+    QVERIFY(w.createAtDisplayDateTime().isEmpty());
     // TODO
 }
 
