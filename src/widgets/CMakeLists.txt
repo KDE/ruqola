@@ -200,6 +200,11 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp
     administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.h
 
+    administratordialog/moderationconsole/administratormoderationreporteduserconsoletreewidget.cpp
+    administratordialog/moderationconsole/administratormoderationreporteduserconsoletreewidget.h
+    administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp
+    administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.h
+
     administratordialog/moderationconsole/moderationmessagesdialog.cpp
     administratordialog/moderationconsole/moderationmessagesdialog.h
     administratordialog/moderationconsole/moderationmessageswidget.cpp
