@@ -32,6 +32,10 @@ QVariant ModerationReportedUserModel::headerData(int section, Qt::Orientation or
             return i18n("Report date");
         case ModerationReportedUserRoles::ReportDate:
             return {};
+        case ModerationReportedUserRoles::UserName:
+            return i18n("Username");
+        case ModerationReportedUserRoles::Name:
+            return i18n("Name");
         }
     }
     return {};
@@ -61,6 +65,10 @@ QVariant ModerationReportedUserModel::data(const QModelIndex &index, int role) c
         return moderationReportedUserInfo.createAtDisplayDateTime();
     case ModerationReportedUserRoles::Reports:
         return moderationReportedUserInfo.count();
+    case ModerationReportedUserRoles::UserName:
+        return moderationReportedUserInfo.username();
+    case ModerationReportedUserRoles::Name:
+        return moderationReportedUserInfo.name();
     }
     return {};
 }

@@ -26,8 +26,16 @@ public:
 
     [[nodiscard]] const QString &createAtDisplayDateTime() const;
 
+    [[nodiscard]] QString username() const;
+    void setUsername(const QString &newUsername);
+
+    [[nodiscard]] QString name() const;
+    void setName(const QString &newName);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseReportedUser(const QJsonObject &o);
+    QString mUsername;
+    QString mName;
     QString mCreateAtDisplayDateTime;
     qint64 mCreatedAt = -1;
     int mCount = 0;

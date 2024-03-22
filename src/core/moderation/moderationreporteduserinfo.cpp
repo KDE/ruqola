@@ -13,12 +13,14 @@ QDebug operator<<(QDebug d, const ModerationReportedUserInfo &t)
 {
     d.space() << "count" << t.count();
     d.space() << "timeStamp" << t.createdAt();
+    d.space() << "username" << t.username();
+    d.space() << "name" << t.name();
     return d;
 }
 
 bool ModerationReportedUserInfo::operator==(const ModerationReportedUserInfo &other) const
 {
-    return mCount == other.count() && mCreatedAt == other.createdAt();
+    return mCount == other.count() && mCreatedAt == other.createdAt() && mUsername == other.username() && mName == other.name();
 }
 
 void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObject &o)
@@ -30,7 +32,28 @@ void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObje
 
 void ModerationReportedUserInfo::parseReportedUser(const QJsonObject &o)
 {
-    // TODO
+    mUsername = o[QLatin1StringView("username")].toString();
+    mName = o[QLatin1StringView("name")].toString();
+}
+
+QString ModerationReportedUserInfo::name() const
+{
+    return mName;
+}
+
+void ModerationReportedUserInfo::setName(const QString &newName)
+{
+    mName = newName;
+}
+
+QString ModerationReportedUserInfo::username() const
+{
+    return mUsername;
+}
+
+void ModerationReportedUserInfo::setUsername(const QString &newUsername)
+{
+    mUsername = newUsername;
 }
 
 qint64 ModerationReportedUserInfo::createdAt() const

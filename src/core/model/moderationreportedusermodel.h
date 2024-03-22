@@ -15,6 +15,8 @@ class LIBRUQOLACORE_EXPORT ModerationReportedUserModel : public CustomBaseModel
     Q_OBJECT
 public:
     enum ModerationReportedUserRoles {
+        UserName,
+        Name,
         ReportDate,
         ReportDateDisplay,
         Reports,

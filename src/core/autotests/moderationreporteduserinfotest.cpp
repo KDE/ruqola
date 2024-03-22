@@ -20,7 +20,8 @@ void ModerationReportedUserInfoTest::shouldHaveDefaultValues()
     QCOMPARE(w.createdAt(), -1);
     QCOMPARE(w.count(), 0);
     QVERIFY(w.createAtDisplayDateTime().isEmpty());
-    // TODO
+    QVERIFY(w.username().isEmpty());
+    QVERIFY(w.name().isEmpty());
 }
 
 #include "moc_moderationreporteduserinfotest.cpp"
