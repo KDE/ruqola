@@ -9,6 +9,7 @@
 #include <QWidget>
 class RocketChatAccount;
 class AdministratorModerationReportedMessageConsoleTreeWidget;
+class AdministratorModerationReportedUserConsoleTreeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorModerationConsoleWidget : public QWidget
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ public:
 
 private:
     AdministratorModerationReportedMessageConsoleTreeWidget *const mAdministratorModerationReportedMessageConsoleTreeWidget;
+    AdministratorModerationReportedUserConsoleTreeWidget *const mAdministratorModerationReportedUserConsoleTreeWidget;
 };
