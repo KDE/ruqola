@@ -48,41 +48,41 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
     {
         VideoConference conference;
         conference.setAction(VideoConference::IncomingCall);
-        conference.setCallId(QStringLiteral("6398e61e29673367a61e6f23"));
-        conference.setRoomId(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId(QByteArrayLiteral("6398e61e29673367a61e6f23"));
+        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
+        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
         QTest::addRow("call") << QStringLiteral("call") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Accepted);
-        conference.setCallId(QStringLiteral("6398e79daa2274c5a48a02c2"));
-        conference.setRoomId(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId(QByteArrayLiteral("6398e79daa2274c5a48a02c2"));
+        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
+        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
         QTest::addRow("accept") << QStringLiteral("accept") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Confirmed);
-        conference.setCallId(QStringLiteral("6398e79daa2274c5a48a02c2"));
-        conference.setRoomId(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QStringLiteral("xkNpoB3T98EEPCj2K"));
+        conference.setCallId(QByteArrayLiteral("6398e79daa2274c5a48a02c2"));
+        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
+        conference.setUserId(QByteArrayLiteral("xkNpoB3T98EEPCj2K"));
         QTest::addRow("confirmed") << QStringLiteral("confirmed") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Rejected);
-        conference.setCallId(QStringLiteral("6398e888fc94d2587faae3c6"));
-        conference.setRoomId(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId(QByteArrayLiteral("6398e888fc94d2587faae3c6"));
+        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
+        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
         QTest::addRow("rejected") << QStringLiteral("rejected") << conference;
     }
     {
         VideoConference conference;
         conference.setAction(VideoConference::Canceled);
-        conference.setCallId(QStringLiteral("6398e944aa2274c5a48a02ea"));
-        conference.setRoomId(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
-        conference.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+        conference.setCallId(QByteArrayLiteral("6398e944aa2274c5a48a02ea"));
+        conference.setRoomId(QByteArrayLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
+        conference.setUserId(QByteArrayLiteral("YbwG4T2uB3wZSZSKB"));
         QTest::addRow("canceled") << QStringLiteral("canceled") << conference;
     }
 }

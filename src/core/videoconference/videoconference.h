@@ -29,14 +29,14 @@ public:
     [[nodiscard]] bool operator==(const VideoConference &other) const;
 
     void parseVideoConference(const QJsonObject &content);
-    [[nodiscard]] QString callId() const;
-    void setCallId(const QString &newCallId);
+    [[nodiscard]] QByteArray callId() const;
+    void setCallId(const QByteArray &newCallId);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &newRoomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
 
-    [[nodiscard]] QString userId() const;
-    void setUserId(const QString &newUserId);
+    [[nodiscard]] QByteArray userId() const;
+    void setUserId(const QByteArray &newUserId);
 
     [[nodiscard]] bool isValid() const;
 
@@ -45,9 +45,9 @@ public:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT VideoConference::Action convertActionToEnum(const QString &str);
-    QString mCallId;
-    QString mRoomId;
-    QString mUserId;
+    QByteArray mCallId;
+    QByteArray mRoomId;
+    QByteArray mUserId;
     Action mAction = Unknown;
 };
 Q_DECLARE_TYPEINFO(VideoConference, Q_RELOCATABLE_TYPE);

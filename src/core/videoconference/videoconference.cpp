@@ -22,9 +22,9 @@ void VideoConference::parseVideoConference(const QJsonObject &content)
 {
     mAction = convertActionToEnum(content[QLatin1StringView("action")].toString());
     const QJsonObject videoConfParams = content[QLatin1StringView("params")].toObject();
-    mCallId = videoConfParams[QLatin1StringView("callId")].toString();
-    mRoomId = videoConfParams[QLatin1StringView("rid")].toString();
-    mUserId = videoConfParams[QLatin1StringView("uid")].toString();
+    mCallId = videoConfParams[QLatin1StringView("callId")].toString().toLatin1();
+    mRoomId = videoConfParams[QLatin1StringView("rid")].toString().toLatin1();
+    mUserId = videoConfParams[QLatin1StringView("uid")].toString().toLatin1();
     // {"action":"call","params":{"callId":"63983180a7f9e1466a4eedc6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}
 }
 
@@ -57,32 +57,32 @@ void VideoConference::setAction(Action newAction)
     mAction = newAction;
 }
 
-QString VideoConference::callId() const
+QByteArray VideoConference::callId() const
 {
     return mCallId;
 }
 
-void VideoConference::setCallId(const QString &newCallId)
+void VideoConference::setCallId(const QByteArray &newCallId)
 {
     mCallId = newCallId;
 }
 
-QString VideoConference::roomId() const
+QByteArray VideoConference::roomId() const
 {
     return mRoomId;
 }
 
-void VideoConference::setRoomId(const QString &newRoomId)
+void VideoConference::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
 
-QString VideoConference::userId() const
+QByteArray VideoConference::userId() const
 {
     return mUserId;
 }
 
-void VideoConference::setUserId(const QString &newUserId)
+void VideoConference::setUserId(const QByteArray &newUserId)
 {
     mUserId = newUserId;
 }

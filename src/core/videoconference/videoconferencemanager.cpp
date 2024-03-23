@@ -60,14 +60,14 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
     auto job = new VideoConferenceNotificationJob(this);
     connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, [this, videoConference]() {
         // Send info about accept video conf.
-        mRocketChatAccount->ddp()->videoConferenceAccepted(videoConference.roomId(),
-                                                           videoConference.callId(),
+        mRocketChatAccount->ddp()->videoConferenceAccepted(QString::fromLatin1(videoConference.roomId()),
+                                                           QString::fromLatin1(videoConference.callId()),
                                                            QString::fromLatin1(mRocketChatAccount->userId()));
 
         auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
         RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
         QJsonObject obj;
-        joinInfo.callId = videoConference.callId();
+        joinInfo.callId = QString::fromLatin1(videoConference.callId());
         // TODO joinInfo.useCamera = callInfo.useCamera;
         // TODO joinInfo.useMicro = callInfo.useMic;
         conferenceJoinJob->setInfo(joinInfo);
@@ -83,8 +83,8 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
     });
     connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, [this, videoConference]() {
         // Send info about reject video conf.
-        mRocketChatAccount->ddp()->videoConferenceRejected(videoConference.roomId(),
-                                                           videoConference.callId(),
+        mRocketChatAccount->ddp()->videoConferenceRejected(QString::fromLatin1(videoConference.roomId()),
+                                                           QString::fromLatin1(videoConference.callId()),
                                                            QString::fromLatin1(mRocketChatAccount->userId()));
         mVideoConferenceList.removeAll(videoConference);
     });
