@@ -202,7 +202,7 @@ void RoomTest::shouldSerialized()
         input.setNotificationOptions(w);
 
         // setParentRid
-        input.setParentRid(QStringLiteral("parentId1"));
+        input.setParentRid(QByteArrayLiteral("parentId1"));
 
         // Avatar
         input.setAvatarETag(QStringLiteral("avatar1"));
@@ -292,7 +292,7 @@ void RoomTest::shouldEmitSignals()
     input.setDescription(QStringLiteral("ddd"));
     input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
-    input.setParentRid(QStringLiteral("bla"));
+    input.setParentRid(QByteArrayLiteral("bla"));
     input.setAutoTranslateLanguage(QStringLiteral("bli"));
     input.setAutoTranslate(true);
     input.setDirectChannelUserId(QByteArrayLiteral("naninani"));

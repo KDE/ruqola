@@ -874,7 +874,7 @@ void RoomWidget::slotLoginStatusChanged()
 void RoomWidget::slotGoBackToRoom()
 {
     if (mRoom) {
-        Q_EMIT selectChannelRequested(mRoom->parentRid());
+        Q_EMIT selectChannelRequested(QString::fromLatin1(mRoom->parentRid()));
     }
 }
 

@@ -204,8 +204,8 @@ public:
     [[nodiscard]] bool broadcast() const;
     void setBroadcast(bool broadcast);
 
-    [[nodiscard]] QString parentRid() const;
-    void setParentRid(const QString &parentRid);
+    [[nodiscard]] QByteArray parentRid() const;
+    void setParentRid(const QByteArray &parentRid);
 
     [[nodiscard]] QString fName() const;
     void setFName(const QString &value);
@@ -355,7 +355,7 @@ private:
     Room::RoomType mChannelType = RoomType::Unknown;
 
     // Parent Rid when we have a discussion.
-    QString mParentRid;
+    QByteArray mParentRid;
 
     // name
     QString mName;

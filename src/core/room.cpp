@@ -314,7 +314,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setRoomCreatorUserName(QString());
     }
     if (json.contains(QLatin1StringView("prid"))) {
-        setParentRid(json[QLatin1StringView("prid")].toString());
+        setParentRid(json[QLatin1StringView("prid")].toString().toLatin1());
     }
     if (json.contains(QLatin1StringView("uids"))) {
         const QJsonArray &uidsArray = json[QLatin1StringView("uids")].toArray();
@@ -1073,12 +1073,12 @@ bool Room::isDiscussionRoom() const
     return !mParentRid.isEmpty();
 }
 
-QString Room::parentRid() const
+QByteArray Room::parentRid() const
 {
     return mParentRid;
 }
 
-void Room::setParentRid(const QString &parentRid)
+void Room::setParentRid(const QByteArray &parentRid)
 {
     if (mParentRid != parentRid) {
         mParentRid = parentRid;
@@ -1270,7 +1270,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     const TeamInfo teaminfo = TeamInfo::deserialize(o);
     r->setTeamInfo(teaminfo);
 
-    r->setParentRid(o[QLatin1StringView("prid")].toString());
+    r->setParentRid(o[QLatin1StringView("prid")].toString().toLatin1());
 
     r->setUserNames(extractStringList(o, QLatin1StringView("usernames")));
 }
@@ -1386,7 +1386,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         TeamInfo::serialize(r->teamInfo(), o);
     }
     if (!r->parentRid().isEmpty()) {
-        o[QLatin1StringView("prid")] = r->parentRid();
+        o[QLatin1StringView("prid")] = QString::fromLatin1(r->parentRid());
     }
 
     serializeStringList(o, QLatin1StringView("usernames"), r->userNames());
