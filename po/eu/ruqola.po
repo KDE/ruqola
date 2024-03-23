@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:37+0000\n"
+"POT-Creation-Date: 2024-03-23 00:37+0000\n"
 "PO-Revision-Date: 2024-03-05 20:19+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -559,6 +559,7 @@ msgstr "%1 eta %2"
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
@@ -879,17 +880,20 @@ msgid "Reported message"
 msgstr "Berri emandako mezua"
 
 #: core/model/moderationreportedmessagemodel.cpp:39
+#: core/model/moderationreportedusermodel.cpp:37
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Erabiltzaile-izena"
 
 #: core/model/moderationreportedmessagemodel.cpp:41
+#: core/model/moderationreportedusermodel.cpp:30
 #, kde-format
 msgid "Reports"
 msgstr "Txostenak"
 
 #: core/model/moderationreportedmessagemodel.cpp:43
+#: core/model/moderationreportedusermodel.cpp:32
 #, kde-format
 msgid "Report date"
 msgstr "Txostenaren data"
@@ -2654,6 +2658,18 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Fitxategia gordetzeko errorea"
 
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Reported Messages"
+msgstr "Berri emandako mezua"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Reported Users"
+msgstr "Berri emandako mezua"
+
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
 #, kde-format
@@ -2696,66 +2712,6 @@ msgstr "Hilabete hau"
 msgid "Previous month"
 msgstr "Aurreko hilabetea"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, kde-format
-msgid "Search moderation message..."
-msgstr "Bilatu moderatzeko mezua..."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, kde-format
-msgid "No moderation message found"
-msgstr "Ez da moderatzeko mezurik aurkitu"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, kde-format
-msgid "%1 moderation message (Total: %2)"
-msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "Moderatzeko mezu %1 (Guztira: %2)"
-msgstr[1] "Moderatzeko %1 mezu (Guztira: %2)"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, kde-format
-msgid "See messages"
-msgstr "Ikusi mezuak"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
-#, kde-format
-msgid "Dismiss reports"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, kde-format
-msgid "Delete all Messages"
-msgstr "Ezabatu mezu guztiak"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
-#, kde-format
-msgid ""
-"Are you sure you want to dismiss and delete all reports for this user's "
-"messages? This action cannot be undone."
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
-#, kde-format
-msgctxt "@title:window"
-msgid "Dismiss"
-msgstr "Baztertu"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, kde-format
-msgid ""
-"Are you sure you want to delete all reported messages from this user?\n"
-"The messages will be deleted from the message history and no one will be "
-"able to see it.\n"
-"This action cannot be undone."
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
-#, kde-format
-msgctxt "@title:window"
-msgid "Delete All Messages"
-msgstr "Ezabatu mezu guztiak"
-
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
@@ -2792,6 +2748,76 @@ msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
 msgstr[0] "Gelan mezu %1"
 msgstr[1] "Gelan %1 mezu"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:36
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:35
+#, kde-format
+msgid "Search moderation message..."
+msgstr "Bilatu moderatzeko mezua..."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:60
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:59
+#, kde-format
+msgid "No moderation message found"
+msgstr "Ez da moderatzeko mezurik aurkitu"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
+#, kde-format
+msgid "%1 moderation message (Total: %2)"
+msgid_plural "%1 moderation messages (Total: %2)"
+msgstr[0] "Moderatzeko mezu %1 (Guztira: %2)"
+msgstr[1] "Moderatzeko %1 mezu (Guztira: %2)"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:129
+#, kde-format
+msgid "See messages"
+msgstr "Ikusi mezuak"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:142
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
+#, kde-format
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#, kde-format
+msgid "Delete all Messages"
+msgstr "Ezabatu mezu guztiak"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#, kde-format
+msgctxt "@title:window"
+msgid "Dismiss"
+msgstr "Baztertu"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:186
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:182
+#, kde-format
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:189
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:185
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Ezabatu mezu guztiak"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -9385,7 +9411,9 @@ msgid "Implement block actions."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:73
-msgid "Implement personal token authentication."
+msgid ""
+"Implement personal token authentication. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78

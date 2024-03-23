@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:37+0000\n"
-"PO-Revision-Date: 2024-03-19 12:52+0100\n"
+"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"PO-Revision-Date: 2024-03-22 18:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -561,6 +561,7 @@ msgstr "%1 i %2"
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
@@ -879,17 +880,20 @@ msgid "Reported message"
 msgstr "Missatge informat"
 
 #: core/model/moderationreportedmessagemodel.cpp:39
+#: core/model/moderationreportedusermodel.cpp:37
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Nom d'usuari"
 
 #: core/model/moderationreportedmessagemodel.cpp:41
+#: core/model/moderationreportedusermodel.cpp:30
 #, kde-format
 msgid "Reports"
 msgstr "Informes"
 
 #: core/model/moderationreportedmessagemodel.cpp:43
+#: core/model/moderationreportedusermodel.cpp:32
 #, kde-format
 msgid "Report date"
 msgstr "Data de l'informe"
@@ -2657,6 +2661,18 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Error en desar el fitxer"
 
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Reported message"
+msgid "Reported Messages"
+msgstr "Missatge informat"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Reported message"
+msgid "Reported Users"
+msgstr "Missatge informat"
+
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
 #, kde-format
@@ -2699,72 +2715,6 @@ msgstr "Aquest mes"
 msgid "Previous month"
 msgstr "Mes anterior"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, kde-format
-msgid "Search moderation message..."
-msgstr "Cerca un missatge de moderació..."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, kde-format
-msgid "No moderation message found"
-msgstr "No s'ha trobat cap missatge de moderació"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, kde-format
-msgid "%1 moderation message (Total: %2)"
-msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 missatge de moderació (Total: %2)"
-msgstr[1] "%1 missatges de moderació (Total: %2)"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, kde-format
-msgid "See messages"
-msgstr "Vegeu els missatges"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
-#, kde-format
-msgid "Dismiss reports"
-msgstr "Descarta els informes"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, kde-format
-msgid "Delete all Messages"
-msgstr "Suprimeix tots els missatges"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
-#, kde-format
-msgid ""
-"Are you sure you want to dismiss and delete all reports for this user's "
-"messages? This action cannot be undone."
-msgstr ""
-"Segur que voleu descartar i suprimir tots els informes per als missatges "
-"d'aquest usuari? Aquesta acció no es pot desfer."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
-#, kde-format
-msgctxt "@title:window"
-msgid "Dismiss"
-msgstr "Descarta"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, kde-format
-msgid ""
-"Are you sure you want to delete all reported messages from this user?\n"
-"The messages will be deleted from the message history and no one will be "
-"able to see it.\n"
-"This action cannot be undone."
-msgstr ""
-"Realment voleu suprimir tots els missatges informats d'aquest usuari?\n"
-"Els missatges se suprimiran de l'historial de missatges i ningú podrà "
-"veure'ls.\n"
-"Aquesta acció no es pot desfer."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
-#, kde-format
-msgctxt "@title:window"
-msgid "Delete All Messages"
-msgstr "Suprimeix tots els missatges"
-
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
@@ -2801,6 +2751,82 @@ msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
 msgstr[0] "%1 missatge a la sala"
 msgstr[1] "%1 missatges a la sala"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:36
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:35
+#, kde-format
+msgid "Search moderation message..."
+msgstr "Cerca un missatge de moderació..."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:60
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:59
+#, kde-format
+msgid "No moderation message found"
+msgstr "No s'ha trobat cap missatge de moderació"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
+#, kde-format
+msgid "%1 moderation message (Total: %2)"
+msgid_plural "%1 moderation messages (Total: %2)"
+msgstr[0] "%1 missatge de moderació (Total: %2)"
+msgstr[1] "%1 missatges de moderació (Total: %2)"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:129
+#, kde-format
+msgid "See messages"
+msgstr "Vegeu els missatges"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:142
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
+#, kde-format
+msgid "Dismiss reports"
+msgstr "Descarta els informes"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#, kde-format
+msgid "Delete all Messages"
+msgstr "Suprimeix tots els missatges"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+"Segur que voleu descartar i suprimir tots els informes per als missatges "
+"d'aquest usuari? Aquesta acció no es pot desfer."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#, kde-format
+msgctxt "@title:window"
+msgid "Dismiss"
+msgstr "Descarta"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:186
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:182
+#, kde-format
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+"Realment voleu suprimir tots els missatges informats d'aquest usuari?\n"
+"Els missatges se suprimiran de l'historial de missatges i ningú podrà "
+"veure'ls.\n"
+"Aquesta acció no es pot desfer."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:189
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:185
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Suprimeix tots els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -9552,10 +9578,10 @@ msgid "Implement block actions."
 msgstr "Implementa accions de bloqueig."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:73
-#, fuzzy
-#| msgid "Implement block actions."
-msgid "Implement personal token authentication."
-msgstr "Implementa accions de bloqueig."
+msgid ""
+"Implement personal token authentication. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Bug 481400</a>"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
@@ -9579,7 +9605,11 @@ msgstr "Redueix el consum de memòria."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Use RESTAPI for logging."
-msgstr ""
+msgstr "Fa servir RESTAPI per al registre."
+
+#~| msgid "Implement block actions."
+#~ msgid "Implement personal token authentication."
+#~ msgstr "Implementa l'autenticació de testimonis personals."
 
 #~ msgid "Room topic changed to: %1 by %2"
 #~ msgstr "%2 ha canviat el tema de la sala: %1"

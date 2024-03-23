@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:37+0000\n"
+"POT-Creation-Date: 2024-03-23 00:37+0000\n"
 "PO-Revision-Date: 2023-11-24 12:18+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -570,6 +570,7 @@ msgstr "%1 и %2"
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
@@ -889,17 +890,20 @@ msgid "Reported message"
 msgstr "Пожаловаться на сообщение"
 
 #: core/model/moderationreportedmessagemodel.cpp:39
+#: core/model/moderationreportedusermodel.cpp:37
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Имя пользователя"
 
 #: core/model/moderationreportedmessagemodel.cpp:41
+#: core/model/moderationreportedusermodel.cpp:30
 #, fuzzy, kde-format
 msgid "Reports"
 msgstr "Отчёты"
 
 #: core/model/moderationreportedmessagemodel.cpp:43
+#: core/model/moderationreportedusermodel.cpp:32
 #, fuzzy, kde-format
 msgid "Report date"
 msgstr "Пожаловаться на сообщение"
@@ -2703,6 +2707,16 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Ошибка сохранения файла"
 
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
+#, fuzzy, kde-format
+msgid "Reported Messages"
+msgstr "Пожаловаться на сообщение"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
+#, fuzzy, kde-format
+msgid "Reported Users"
+msgstr "Пожаловаться на сообщение"
+
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
 #, kde-format
@@ -2745,68 +2759,6 @@ msgstr ""
 msgid "Previous month"
 msgstr "Предыдущий канал"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, fuzzy, kde-format
-msgid "Search moderation message..."
-msgstr "Поиск сообщений..."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, fuzzy, kde-format
-msgid "No moderation message found"
-msgstr "Сообщений не найдено"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, fuzzy, kde-format
-msgid "%1 moderation message (Total: %2)"
-msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 устройство (всего: %2)"
-msgstr[1] "%1 устройства (всего: %2)"
-msgstr[2] "%1 устройств (всего: %2)"
-msgstr[3] "%1 устройство (всего: %2)"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, fuzzy, kde-format
-msgid "See messages"
-msgstr "Поиск сообщений"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
-#, kde-format
-msgid "Dismiss reports"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, fuzzy, kde-format
-msgid "Delete all Messages"
-msgstr "Удалить все сообщения"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
-#, kde-format
-msgid ""
-"Are you sure you want to dismiss and delete all reports for this user's "
-"messages? This action cannot be undone."
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
-#, kde-format
-msgctxt "@title:window"
-msgid "Dismiss"
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, kde-format
-msgid ""
-"Are you sure you want to delete all reported messages from this user?\n"
-"The messages will be deleted from the message history and no one will be "
-"able to see it.\n"
-"This action cannot be undone."
-msgstr ""
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
-#, fuzzy, kde-format
-msgctxt "@title:window"
-msgid "Delete All Messages"
-msgstr "Удалить все сообщения"
-
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -2847,6 +2799,78 @@ msgstr[0] "%1 сообщение в комнате"
 msgstr[1] "%1 сообщения в комнате"
 msgstr[2] "%1 сообщений в комнате"
 msgstr[3] "%1 сообщение в комнате"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:36
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:35
+#, fuzzy, kde-format
+msgid "Search moderation message..."
+msgstr "Поиск сообщений..."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:60
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:59
+#, fuzzy, kde-format
+msgid "No moderation message found"
+msgstr "Сообщений не найдено"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
+#, fuzzy, kde-format
+msgid "%1 moderation message (Total: %2)"
+msgid_plural "%1 moderation messages (Total: %2)"
+msgstr[0] "%1 устройство (всего: %2)"
+msgstr[1] "%1 устройства (всего: %2)"
+msgstr[2] "%1 устройств (всего: %2)"
+msgstr[3] "%1 устройство (всего: %2)"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:129
+#, fuzzy, kde-format
+msgid "See messages"
+msgstr "Поиск сообщений"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:142
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
+#, kde-format
+msgid "Dismiss reports"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#, fuzzy, kde-format
+msgid "Delete all Messages"
+msgstr "Удалить все сообщения"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#, kde-format
+msgctxt "@title:window"
+msgid "Dismiss"
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:186
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:182
+#, kde-format
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:189
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:185
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Удалить все сообщения"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -9640,7 +9664,9 @@ msgid "Implement block actions."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:73
-msgid "Implement personal token authentication."
+msgid ""
+"Implement personal token authentication. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78

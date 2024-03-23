@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 00:37+0000\n"
-"PO-Revision-Date: 2024-03-19 07:00+0100\n"
+"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"PO-Revision-Date: 2024-03-22 07:19+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -559,6 +559,7 @@ msgstr "%1 in %2"
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:116
 #: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
 #: core/model/moderationreportedmessagemodel.cpp:30
+#: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:78
 #: core/model/usersinrolemodel.cpp:86
@@ -877,17 +878,20 @@ msgid "Reported message"
 msgstr "Poročano sporočilo"
 
 #: core/model/moderationreportedmessagemodel.cpp:39
+#: core/model/moderationreportedusermodel.cpp:37
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:67
 #, kde-format
 msgid "Username"
 msgstr "Uporabniško ime"
 
 #: core/model/moderationreportedmessagemodel.cpp:41
+#: core/model/moderationreportedusermodel.cpp:30
 #, kde-format
 msgid "Reports"
 msgstr "Poročilo"
 
 #: core/model/moderationreportedmessagemodel.cpp:43
+#: core/model/moderationreportedusermodel.cpp:32
 #, kde-format
 msgid "Report date"
 msgstr "Datum poročila"
@@ -2657,6 +2661,18 @@ msgstr ""
 msgid "Save File Error"
 msgstr "Napaka shranjevanja datoteke"
 
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Reported message"
+msgid "Reported Messages"
+msgstr "Poročano sporočilo"
+
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
+#, fuzzy, kde-format
+#| msgid "Reported message"
+msgid "Reported Users"
+msgstr "Poročano sporočilo"
+
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
 #, kde-format
@@ -2699,75 +2715,6 @@ msgstr "Ta mesec"
 msgid "Previous month"
 msgstr "Prejšnji mesec"
 
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:35
-#, kde-format
-msgid "Search moderation message..."
-msgstr "Preišči sporočila moderacije..."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:59
-#, kde-format
-msgid "No moderation message found"
-msgstr "Ni sporočil o moderiranju"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:64
-#, kde-format
-msgid "%1 moderation message (Total: %2)"
-msgid_plural "%1 moderation messages (Total: %2)"
-msgstr[0] "%1 sporočilo moderacije (Skupaj: %2)"
-msgstr[1] "%1 sporočili moderacije (Skupaj: %2)"
-msgstr[2] "%1 sporočil moderacije (Skupaj: %2)"
-msgstr[3] "%1 sporočil moderacije (Skupaj: %2)"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:130
-#, kde-format
-msgid "See messages"
-msgstr "Glej sporočila"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:135
-#, kde-format
-msgid "Dismiss reports"
-msgstr "Opusti poročila"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:139
-#, kde-format
-msgid "Delete all Messages"
-msgstr "Izbriši vsa sporočila"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:158
-#, kde-format
-msgid ""
-"Are you sure you want to dismiss and delete all reports for this user's "
-"messages? This action cannot be undone."
-msgstr ""
-"Ali ste prepričani, da želite opustiti in izbrisati vsa poročila za "
-"sporočila tega uporabnika? Tega dejanja ni mogoče razveljaviti."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:159
-#, kde-format
-msgctxt "@title:window"
-msgid "Dismiss"
-msgstr "Odpusti"
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:179
-#, kde-format
-msgid ""
-"Are you sure you want to delete all reported messages from this user?\n"
-"The messages will be deleted from the message history and no one will be "
-"able to see it.\n"
-"This action cannot be undone."
-msgstr ""
-"Ali ste prepričani, da želite izbrisati vsa prijavljena sporočila tega "
-"uporabnika?\n"
-"Sporočila bodo izbrisana iz zgodovine sporočil in nihče jih ne bo mogel "
-"videti.\n"
-"Tega dejanja ni mogoče razveljaviti."
-
-#: widgets/administratordialog/moderationconsole/moderationconsoletreewidget.cpp:182
-#, kde-format
-msgctxt "@title:window"
-msgid "Delete All Messages"
-msgstr "Izbriši vsa sporočila"
-
 #: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
@@ -2806,6 +2753,85 @@ msgstr[0] "%1 sporočilo v sobi"
 msgstr[1] "%1 sporočili v sobi"
 msgstr[2] "%1 sporočila v sobi"
 msgstr[3] "%1 sporočil v sobi"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:36
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:35
+#, kde-format
+msgid "Search moderation message..."
+msgstr "Preišči sporočila moderacije..."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:60
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:59
+#, kde-format
+msgid "No moderation message found"
+msgstr "Ni sporočil o moderiranju"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
+#, kde-format
+msgid "%1 moderation message (Total: %2)"
+msgid_plural "%1 moderation messages (Total: %2)"
+msgstr[0] "%1 sporočilo moderacije (Skupaj: %2)"
+msgstr[1] "%1 sporočili moderacije (Skupaj: %2)"
+msgstr[2] "%1 sporočil moderacije (Skupaj: %2)"
+msgstr[3] "%1 sporočil moderacije (Skupaj: %2)"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:137
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:129
+#, kde-format
+msgid "See messages"
+msgstr "Glej sporočila"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:142
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:134
+#, kde-format
+msgid "Dismiss reports"
+msgstr "Opusti poročila"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#, kde-format
+msgid "Delete all Messages"
+msgstr "Izbriši vsa sporočila"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:159
+#, kde-format
+msgid ""
+"Are you sure you want to dismiss and delete all reports for this user's "
+"messages? This action cannot be undone."
+msgstr ""
+"Ali ste prepričani, da želite opustiti in izbrisati vsa poročila za "
+"sporočila tega uporabnika? Tega dejanja ni mogoče razveljaviti."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:166
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
+#, kde-format
+msgctxt "@title:window"
+msgid "Dismiss"
+msgstr "Odpusti"
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:186
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:182
+#, kde-format
+msgid ""
+"Are you sure you want to delete all reported messages from this user?\n"
+"The messages will be deleted from the message history and no one will be "
+"able to see it.\n"
+"This action cannot be undone."
+msgstr ""
+"Ali ste prepričani, da želite izbrisati vsa prijavljena sporočila tega "
+"uporabnika?\n"
+"Sporočila bodo izbrisana iz zgodovine sporočil in nihče jih ne bo mogel "
+"videti.\n"
+"Tega dejanja ni mogoče razveljaviti."
+
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:189
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:185
+#, kde-format
+msgctxt "@title:window"
+msgid "Delete All Messages"
+msgstr "Izbriši vsa sporočila"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:76
 #: widgets/notificationhistory/notificationhistorylistview.cpp:83
@@ -9536,10 +9562,10 @@ msgid "Implement block actions."
 msgstr "Izvedi bločna dejanja."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:73
-#, fuzzy
-#| msgid "Implement block actions."
-msgid "Implement personal token authentication."
-msgstr "Izvedi bločna dejanja."
+msgid ""
+"Implement personal token authentication. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Bug 481400</a>"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
@@ -9563,7 +9589,10 @@ msgstr "Zmanjšaj pomnilniški odtis."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Use RESTAPI for logging."
-msgstr ""
+msgstr "Uporabi RESTAPI za beleženje dnevnika."
+
+#~ msgid "Implement personal token authentication."
+#~ msgstr "Izvedi avtentikacijo z osebnim žetonom."
 
 #~ msgid "Room topic changed to: %1 by %2"
 #~ msgstr "%2 je spremenil temo sobe v %1"
