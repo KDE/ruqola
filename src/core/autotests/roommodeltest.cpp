@@ -356,7 +356,7 @@ void RoomModelTest::shouldReturnData()
     const QString name = QStringLiteral("myRoom");
     const bool selected = true;
     const QString roomType = QStringLiteral("p");
-    const QString userId = QStringLiteral("sdfsdfs");
+    const QByteArray userId = QByteArrayLiteral("sdfsdfs");
     const QString userName = QStringLiteral("pp");
     const QString topic = QStringLiteral("topic");
     const QStringList mutedUsers = QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")};
@@ -395,7 +395,7 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomType); // channel type
     QCOMPARE(Room::roomFromRoomType(output.value<Room::RoomType>()), roomType);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserId);
-    QCOMPARE(output.toString(), userId);
+    QCOMPARE(output.toByteArray(), userId);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOwnerUserName);
     QCOMPARE(output.toString(), userName);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomTopic);

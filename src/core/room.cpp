@@ -305,12 +305,12 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     const QJsonValue ownerValue = json.value(QLatin1StringView("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString());
+        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString().toLatin1());
         setRoomCreatorUserName(objOwner.value(QLatin1StringView("username")).toString());
     } else {
         // When room is initialized we are the owner. When we update room we have the real
         // owner and if it's empty => we need to clear it.
-        setRoomCreatorUserId(QString());
+        setRoomCreatorUserId(QByteArray());
         setRoomCreatorUserName(QString());
     }
     if (json.contains(QLatin1StringView("prid"))) {
@@ -449,12 +449,12 @@ void Room::setMutedUsers(const QStringList &mutedUsers)
     }
 }
 
-QString Room::roomCreatorUserId() const
+QByteArray Room::roomCreatorUserId() const
 {
     return mRoomCreateUserId;
 }
 
-void Room::setRoomCreatorUserId(const QString &userId)
+void Room::setRoomCreatorUserId(const QByteArray &userId)
 {
     mRoomCreateUserId = userId;
 }
@@ -689,12 +689,12 @@ void Room::parseInsertRoom(const QJsonObject &json)
     const QJsonValue ownerValue = json.value(QLatin1StringView("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
-        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString());
+        setRoomCreatorUserId(objOwner.value(QLatin1StringView("_id")).toString().toLatin1());
         setRoomCreatorUserName(objOwner.value(QLatin1StringView("username")).toString());
     } else {
         // When room is initialized we are the owner. When we update room we have the real
         // owner and if it's empty => we need to clear it.
-        setRoomCreatorUserId(QString());
+        setRoomCreatorUserId(QByteArray());
         setRoomCreatorUserName(QString());
     }
     // qDebug() << " *thus" << *this;
@@ -1217,7 +1217,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setAutoTranslateLanguage(o[QLatin1StringView("autoTranslateLanguage")].toString());
     r->setAutoTranslate(o[QLatin1StringView("autoTranslate")].toBool());
     r->setRoomCreatorUserName(o[QLatin1StringView("roomCreatorUserName")].toString());
-    r->setRoomCreatorUserId(o[QLatin1StringView("roomCreatorUserID")].toString());
+    r->setRoomCreatorUserId(o[QLatin1StringView("roomCreatorUserID")].toString().toLatin1());
     r->setTopic(o[QLatin1StringView("topic")].toString());
     r->setJitsiTimeout(static_cast<qint64>(o[QLatin1StringView("jitsiTimeout")].toDouble()));
     r->setReadOnly(o[QLatin1StringView("ro")].toBool());
@@ -1307,7 +1307,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QLatin1StringView("name")] = r->name();
     o[QLatin1StringView("fname")] = r->fName();
     o[QLatin1StringView("roomCreatorUserName")] = r->roomOwnerUserName();
-    o[QLatin1StringView("roomCreatorUserID")] = r->roomCreatorUserId();
+    o[QLatin1StringView("roomCreatorUserID")] = QString::fromLatin1(r->roomCreatorUserId());
     if (r->numberMessages() > 0) {
         o[QLatin1StringView("msgs")] = r->numberMessages();
     }

@@ -97,7 +97,7 @@ void RoomTest::shouldSerialized()
         input.setName(QStringLiteral("d"));
         input.setAnnouncement(QStringLiteral("AA"));
         input.setRoomCreatorUserName(QStringLiteral("pp"));
-        input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
+        input.setRoomCreatorUserId(QByteArrayLiteral("sdfsdfs"));
         input.setTopic(QStringLiteral("topic"));
         input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
         input.setJitsiTimeout(55);
@@ -144,7 +144,7 @@ void RoomTest::shouldSerialized()
         input.setName(QStringLiteral("p"));
         input.setAnnouncement(QStringLiteral("AA"));
         input.setRoomCreatorUserName(QStringLiteral("pp"));
-        input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
+        input.setRoomCreatorUserId(QByteArrayLiteral("sdfsdfs"));
         input.setTopic(QStringLiteral("topic"));
         input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
         input.setJitsiTimeout(55);
@@ -274,7 +274,7 @@ void RoomTest::shouldEmitSignals()
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));
     input.setRoomCreatorUserName(QStringLiteral("pp"));
-    input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
+    input.setRoomCreatorUserId(QByteArrayLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
     input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);

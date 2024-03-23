@@ -57,8 +57,8 @@ public:
     [[nodiscard]] QString roomOwnerUserName() const;
     void setRoomCreatorUserName(const QString &userName);
 
-    [[nodiscard]] QString roomCreatorUserId() const;
-    void setRoomCreatorUserId(const QString &userId);
+    [[nodiscard]] QByteArray roomCreatorUserId() const;
+    void setRoomCreatorUserId(const QByteArray &userId);
 
     [[nodiscard]] QStringList mutedUsers() const;
     void setMutedUsers(const QStringList &mutedUsers);
@@ -367,7 +367,7 @@ private:
 
     // u
     QString mRoomCreatorUserName;
-    QString mRoomCreateUserId;
+    QByteArray mRoomCreateUserId;
 
     // topic
     QString mTopic;
