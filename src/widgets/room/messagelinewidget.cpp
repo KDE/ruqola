@@ -205,7 +205,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.description = uploadFileInfo.description;
     info.messageText = QString();
     info.filenameUrl = uploadFileInfo.fileUrl;
-    info.roomId = roomId();
+    info.roomId = QString::fromLatin1(roomId());
     info.threadMessageId = QString::fromLatin1(mThreadMessageId);
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
@@ -452,12 +452,12 @@ void MessageLineWidget::setMessageIdBeingEdited(const QByteArray &messageIdBeing
     mMessageIdBeingEdited = messageIdBeingEdited;
 }
 
-QString MessageLineWidget::roomId() const
+QByteArray MessageLineWidget::roomId() const
 {
     return mMessageTextEdit->roomId();
 }
 
-void MessageLineWidget::setRoomId(const QString &roomId)
+void MessageLineWidget::setRoomId(const QByteArray &roomId)
 {
     mMessageTextEdit->setRoomId(roomId);
 }

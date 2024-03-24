@@ -61,12 +61,12 @@ void GetMentionedMessagesJob::onGetRequestResponse(const QString &replyErrorStri
     }
 }
 
-QString GetMentionedMessagesJob::roomId() const
+QByteArray GetMentionedMessagesJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetMentionedMessagesJob::setRoomId(const QString &roomId)
+void GetMentionedMessagesJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -75,7 +75,7 @@ QNetworkRequest GetMentionedMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetMentionedMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

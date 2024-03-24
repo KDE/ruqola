@@ -10,17 +10,17 @@ AccountRoomSettings::AccountRoomSettings() = default;
 
 AccountRoomSettings::~AccountRoomSettings() = default;
 
-void AccountRoomSettings::remove(const QString &roomId)
+void AccountRoomSettings::remove(const QByteArray &roomId)
 {
     mPendingTypedTexts.remove(roomId);
 }
 
-void AccountRoomSettings::add(const QString &roomId, const PendingTypedInfo &info)
+void AccountRoomSettings::add(const QByteArray &roomId, const PendingTypedInfo &info)
 {
     mPendingTypedTexts[roomId] = info;
 }
 
-AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QString &roomId)
+AccountRoomSettings::PendingTypedInfo AccountRoomSettings::value(const QByteArray &roomId)
 {
     return mPendingTypedTexts.value(roomId);
 }

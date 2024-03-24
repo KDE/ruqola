@@ -26,15 +26,15 @@ public:
     AccountRoomSettings();
     ~AccountRoomSettings();
 
-    void remove(const QString &roomId);
+    void remove(const QByteArray &roomId);
 
-    void add(const QString &roomId, const PendingTypedInfo &info);
+    void add(const QByteArray &roomId, const PendingTypedInfo &info);
 
-    [[nodiscard]] PendingTypedInfo value(const QString &roomId);
+    [[nodiscard]] PendingTypedInfo value(const QByteArray &roomId);
 
     [[nodiscard]] bool isEmpty() const;
 
 private:
-    QMap<QString /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
+    QMap<QByteArray /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t);

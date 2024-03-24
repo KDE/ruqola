@@ -26,8 +26,8 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
@@ -35,12 +35,12 @@ public:
     void setLastUpdate(const QDateTime &newLastUpdate);
 
 Q_SIGNALS:
-    void syncMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void syncMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
 
 private:
     Q_DISABLE_COPY(SyncMessagesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
+    QByteArray mRoomId;
     QDateTime mLastUpdate;
 };
 }

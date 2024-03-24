@@ -44,12 +44,12 @@ void MarkRoomAsUnReadJob::onPostRequestResponse(const QString &replyErrorString,
     }
 }
 
-QString MarkRoomAsUnReadJob::objectId() const
+QByteArray MarkRoomAsUnReadJob::objectId() const
 {
     return mObjectId;
 }
 
-void MarkRoomAsUnReadJob::setObjectId(const QString &objectId)
+void MarkRoomAsUnReadJob::setObjectId(const QByteArray &objectId)
 {
     mObjectId = objectId;
 }
@@ -109,10 +109,10 @@ QJsonDocument MarkRoomAsUnReadJob::json() const
 {
     QJsonObject jsonObj;
     if (mUnReadObject == Room) {
-        jsonObj[QLatin1StringView("roomId")] = mObjectId;
+        jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mObjectId);
     } else if (mUnReadObject == FromMessage) {
         QJsonObject fromMessage;
-        fromMessage[QLatin1StringView("_id")] = mObjectId;
+        fromMessage[QLatin1StringView("_id")] = QString::fromLatin1(mObjectId);
         jsonObj[QLatin1StringView("firstUnreadMessage")] = fromMessage;
     }
 

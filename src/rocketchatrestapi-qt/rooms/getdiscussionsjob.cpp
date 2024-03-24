@@ -60,12 +60,12 @@ void GetDiscussionsJob::onGetRequestResponse(const QString &replyErrorString, co
     }
 }
 
-QString GetDiscussionsJob::roomId() const
+QByteArray GetDiscussionsJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetDiscussionsJob::setRoomId(const QString &roomId)
+void GetDiscussionsJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -79,7 +79,7 @@ QNetworkRequest GetDiscussionsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsGetDiscussions);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

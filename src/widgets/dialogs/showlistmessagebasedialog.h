@@ -22,8 +22,8 @@ public:
 
     void setModel(ListMessagesFilterProxyModel *model);
 
-    void setRoomId(const QString &roomId);
-    [[nodiscard]] QString roomId() const;
+    void setRoomId(const QByteArray &roomId);
+    [[nodiscard]] QByteArray roomId() const;
     void setRoom(Room *room);
 
 Q_SIGNALS:
@@ -31,7 +31,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreMessages();
-    QString mRoomId;
+    QByteArray mRoomId;
     ShowListMessageBaseWidget *const mShowListMessage;
     RocketChatAccount *const mRocketChatAccount;
 };

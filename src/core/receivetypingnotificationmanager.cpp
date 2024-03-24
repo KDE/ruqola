@@ -19,7 +19,7 @@ void ReceiveTypingNotificationManager::clearTypingNotification()
     Q_EMIT clearNotification();
 }
 
-void ReceiveTypingNotificationManager::insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping)
+void ReceiveTypingNotificationManager::insertTypingNotification(const QByteArray &roomId, const QString &userName, bool onTyping)
 {
     if (mMapTypingNotifications.contains(roomId)) {
         QStringList lst = mMapTypingNotifications.value(roomId);
@@ -72,7 +72,7 @@ QString ReceiveTypingNotificationManager::generateNotification(const QStringList
     return i18n("<strong>%1</strong> are typing...", notificationStr);
 }
 
-QString ReceiveTypingNotificationManager::typingNotification(const QString &roomId) const
+QString ReceiveTypingNotificationManager::typingNotification(const QByteArray &roomId) const
 {
     return generateNotification(mMapTypingNotifications.value(roomId));
 }

@@ -61,12 +61,12 @@ void GetPinnedMessagesJob::onGetRequestResponse(const QString &replyErrorString,
     }
 }
 
-QString GetPinnedMessagesJob::roomId() const
+QByteArray GetPinnedMessagesJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetPinnedMessagesJob::setRoomId(const QString &roomId)
+void GetPinnedMessagesJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -75,7 +75,7 @@ QNetworkRequest GetPinnedMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetPinnedMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

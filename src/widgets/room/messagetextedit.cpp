@@ -205,12 +205,12 @@ QMenu *MessageTextEdit::mousePopupMenu()
     return menu;
 }
 
-void MessageTextEdit::setRoomId(const QString &roomId)
+void MessageTextEdit::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
 
-QString MessageTextEdit::roomId() const
+QByteArray MessageTextEdit::roomId() const
 {
     return mRoomId;
 }

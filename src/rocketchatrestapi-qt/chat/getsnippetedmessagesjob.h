@@ -26,17 +26,17 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
-    void getSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void getSnippetedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
 
 private:
     Q_DISABLE_COPY(GetSnippetedMessagesJob)
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
+    QByteArray mRoomId;
 };
 }

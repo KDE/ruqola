@@ -88,7 +88,7 @@ public:
      * @param roomName The name of the room
      * @param selected True if room if @param roomID is selected, else false
      */
-    void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
+    void addRoom(const QByteArray &roomID, const QString &roomName, bool selected = false);
 
     // Clear data and refill it with data in the cache, if there is
     void reset();
@@ -106,20 +106,20 @@ public:
      * @param room The room to be added
      */
     [[nodiscard]] bool addRoom(Room *room);
-    void removeRoom(const QString &roomId);
+    void removeRoom(const QByteArray &roomId);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const;
     void userStatusChanged(const User &user);
 
-    UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
+    UsersForRoomModel *usersModelForRoom(const QByteArray &roomId) const;
 
-    MessagesModel *messageModel(const QString &roomId) const;
+    MessagesModel *messageModel(const QByteArray &roomId) const;
 
-    [[nodiscard]] QString inputMessage(const QString &roomId) const;
-    void setInputMessage(const QString &roomId, const QString &inputMessage);
-    [[nodiscard]] Room *findRoom(const QString &roomID) const;
+    [[nodiscard]] QString inputMessage(const QByteArray &roomId) const;
+    void setInputMessage(const QByteArray &roomId, const QString &inputMessage);
+    [[nodiscard]] Room *findRoom(const QByteArray &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
-    [[nodiscard]] QString insertRoom(const QJsonObject &room);
+    [[nodiscard]] QByteArray insertRoom(const QJsonObject &room);
 
     [[nodiscard]] QModelIndex indexForRoomName(const QString &roomName) const;
 
@@ -129,7 +129,7 @@ public:
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
-    void roomRemoved(const QString &roomId);
+    void roomRemoved(const QByteArray &roomId);
 
 private:
     LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();

@@ -74,12 +74,12 @@ void SyncMessagesJob::setLastUpdate(const QDateTime &newLastUpdate)
     mLastUpdate = newLastUpdate;
 }
 
-QString SyncMessagesJob::roomId() const
+QByteArray SyncMessagesJob::roomId() const
 {
     return mRoomId;
 }
 
-void SyncMessagesJob::setRoomId(const QString &roomId)
+void SyncMessagesJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -88,7 +88,7 @@ QNetworkRequest SyncMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSyncMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
     queryUrl.addQueryItem(QStringLiteral("lastUpdate"), mLastUpdate.toUTC().toString(Qt::ISODateWithMs));
 
     // qDebug() << " queryUrl " << queryUrl.toString();

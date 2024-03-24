@@ -39,7 +39,7 @@ void UsersInRoomMenu::slotBlockUser()
             return;
         }
     }
-    Ruqola::self()->rocketChatAccount()->blockUser(mRoom->roomId(), !userIsBlocked);
+    Ruqola::self()->rocketChatAccount()->blockUser(QString::fromLatin1(mRoom->roomId()), !userIsBlocked);
 }
 
 void UsersInRoomMenu::slotIgnoreUser()

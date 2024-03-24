@@ -27,7 +27,7 @@ TypingNotification::~TypingNotification()
     }
 }
 
-void TypingNotification::textNotificationChanged(const QString &roomId, bool emptyString)
+void TypingNotification::textNotificationChanged(const QByteArray &roomId, bool emptyString)
 {
     if (mTimer->isActive()) {
         mTimer->stop();

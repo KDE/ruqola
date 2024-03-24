@@ -58,12 +58,12 @@ void ShowAttachmentDialog::setModel(FilesForRoomFilterProxyModel *model)
     mShowAttachmentWidget->setModel(model);
 }
 
-void ShowAttachmentDialog::setRoomId(const QString &roomId)
+void ShowAttachmentDialog::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
 
-QString ShowAttachmentDialog::roomId() const
+QByteArray ShowAttachmentDialog::roomId() const
 {
     return mRoomId;
 }

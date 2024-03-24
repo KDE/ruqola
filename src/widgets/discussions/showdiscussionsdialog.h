@@ -18,13 +18,13 @@ public:
     ~ShowDiscussionsDialog() override;
 
     void setModel(DiscussionsFilterProxyModel *model);
-    void setRoomId(const QString &roomId);
+    void setRoomId(const QByteArray &roomId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreDiscussions();
-    QString mRoomId;
+    QByteArray mRoomId;
     ShowDiscussionsWidget *const mShowDiscussionsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

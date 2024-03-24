@@ -43,12 +43,12 @@ void MarkRoomAsReadJob::onPostRequestResponse(const QString &replyErrorString, c
     }
 }
 
-QString MarkRoomAsReadJob::roomId() const
+QByteArray MarkRoomAsReadJob::roomId() const
 {
     return mRoomId;
 }
 
-void MarkRoomAsReadJob::setRoomId(const QString &roomId)
+void MarkRoomAsReadJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -82,7 +82,7 @@ QNetworkRequest MarkRoomAsReadJob::request() const
 QJsonDocument MarkRoomAsReadJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = mRoomId;
+    jsonObj[QLatin1StringView("rid")] = QString::fromLatin1(mRoomId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

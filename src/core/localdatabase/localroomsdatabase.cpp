@@ -38,7 +38,7 @@ void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(LocalDatabaseUtils::insertReplaceRoom(), db);
-        query.addBindValue(room->roomId());
+        query.addBindValue(QString::fromLatin1(room->roomId()));
         query.addBindValue(room->updatedAt()); // TODO ?
         query.addBindValue(Room::serialize(room, false)); // TODO use binary ?
         if (!query.exec()) {

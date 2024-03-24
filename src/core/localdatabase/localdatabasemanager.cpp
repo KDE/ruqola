@@ -86,7 +86,10 @@ void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mRoomsDatabase->updateRoom(accountName, room);
         // TODO verify it.
-        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, room->roomId(), room->lastMessageAt(), GlobalDatabase::TimeStampType::RoomTimeStamp);
+        mGlobalDatabase->insertOrReplaceTimeStamp(accountName,
+                                                  QString::fromLatin1(room->roomId()),
+                                                  room->lastMessageAt(),
+                                                  GlobalDatabase::TimeStampType::RoomTimeStamp);
     }
 }
 

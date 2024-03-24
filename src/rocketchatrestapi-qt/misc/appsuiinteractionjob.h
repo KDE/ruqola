@@ -19,7 +19,7 @@ public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT AppsUiInteractionJobInfo {
         QJsonObject messageObj;
         QString methodName;
-        void generateMessageObj(const QString &actionId, const QString &value, const QString &blockId, const QString &roomId, const QString &messageId);
+        void generateMessageObj(const QString &actionId, const QString &value, const QString &blockId, const QByteArray &roomId, const QString &messageId);
         [[nodiscard]] bool isValid() const;
     };
     explicit AppsUiInteractionJob(QObject *parent = nullptr);

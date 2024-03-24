@@ -34,7 +34,6 @@ public:
         UserId,
         SystemMessageType,
         MessageId,
-        RoomId,
         UpdatedAt,
         EditedAt,
         EditedToolTip,
@@ -82,7 +81,7 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessagesModel(const QString &roomID = QStringLiteral("no_room"),
+    explicit MessagesModel(const QByteArray &roomID = QByteArrayLiteral("no_room"),
                            RocketChatAccount *account = nullptr,
                            Room *room = nullptr,
                            QObject *parent = nullptr);
@@ -117,14 +116,14 @@ public:
 
     [[nodiscard]] qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
-    void setRoomId(const QString &roomId);
+    void setRoomId(const QByteArray &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+
     [[nodiscard]] bool isEmpty() const;
 
     void clear();
 
     void changeShowOriginalMessage(const QByteArray &messageId, bool showOriginal);
-
-    [[nodiscard]] QString roomId() const;
 
     void activate();
     void deactivate();
@@ -163,7 +162,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
 
     QString mSearchText;
-    QString mRoomId;
+    QByteArray mRoomId;
     QList<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QPointer<Room> mRoom;

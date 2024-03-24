@@ -30,8 +30,8 @@ public:
     void loadAccountSettings();
 
 private:
-    void syncMessage(const QString &roomId, qint64 lastSeenAt);
-    void slotSyncMessages(const QJsonObject &obj, const QString &roomId);
+    void syncMessage(const QByteArray &roomId, qint64 lastSeenAt);
+    void slotSyncMessages(const QJsonObject &obj, const QByteArray &roomId);
     RocketChatAccount *const mRocketChatAccount;
 };
 Q_DECLARE_TYPEINFO(ManageLocalDatabase::ManageLoadHistoryInfo, Q_RELOCATABLE_TYPE);

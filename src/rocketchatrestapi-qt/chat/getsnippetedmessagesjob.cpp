@@ -61,12 +61,12 @@ void GetSnippetedMessagesJob::onGetRequestResponse(const QString &replyErrorStri
     }
 }
 
-QString GetSnippetedMessagesJob::roomId() const
+QByteArray GetSnippetedMessagesJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetSnippetedMessagesJob::setRoomId(const QString &roomId)
+void GetSnippetedMessagesJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -75,7 +75,7 @@ QNetworkRequest GetSnippetedMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("roomId"), QString::fromLatin1(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

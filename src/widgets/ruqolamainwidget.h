@@ -25,7 +25,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 public:
     explicit RuqolaMainWidget(QWidget *parent = nullptr);
     ~RuqolaMainWidget() override;
-    [[nodiscard]] QString roomId() const;
+    [[nodiscard]] QByteArray roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     [[nodiscard]] Room::RoomType roomType() const;
     Room *room() const;
@@ -41,7 +41,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateBannerInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannerDismissDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkBannerAsRead(const QString &identifier);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomPressed(const QString &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomPressed(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void createBannerMessageWidget();
 
     QSplitter *const mSplitter;

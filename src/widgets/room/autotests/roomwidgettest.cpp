@@ -96,7 +96,7 @@ void RoomWidgetTest::shouldHaveDefaultValues()
 #endif
 }
 
-static Room *createRoom(const QString &roomId, const QString &roomName)
+static Room *createRoom(const QByteArray &roomId, const QString &roomName)
 {
     RocketChatAccount *rcAccount = Ruqola::self()->rocketChatAccount();
     Room *r = new Room(rcAccount);
@@ -114,17 +114,17 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     RoomWidget w;
     RocketChatAccount *rcAccount = Ruqola::self()->rocketChatAccount();
     w.setCurrentRocketChatAccount(rcAccount);
-    const QString roomId1 = QStringLiteral("roomId1");
+    const QByteArray roomId1("roomId1");
     Room *room1 = createRoom(roomId1, QStringLiteral("roomName1"));
     QVERIFY(rcAccount->roomModel()->addRoom(room1));
-    const QString roomId2 = QStringLiteral("roomId2");
+    const QByteArray roomId2("roomId2");
     Room *room2 = createRoom(roomId2, QStringLiteral("roomName2"));
     QVERIFY(rcAccount->roomModel()->addRoom(room2));
 
     // Ensure switching between rooms works
-    w.setChannelSelected(room1->roomId(), room1->channelType());
+    w.setChannelSelected(QString::fromLatin1(room1->roomId()), room1->channelType());
     QCOMPARE(w.roomId(), roomId1);
-    w.setChannelSelected(room2->roomId(), room2->channelType());
+    w.setChannelSelected(QString::fromLatin1(room2->roomId()), room2->channelType());
     QCOMPARE(w.roomId(), roomId2);
 
     // WHEN typing text and switching rooms
@@ -132,7 +132,7 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     QVERIFY(mMessageLineWidget);
     mMessageLineWidget->setText(QStringLiteral("Text for room 2"));
 
-    w.setChannelSelected(room1->roomId(), room1->channelType());
+    w.setChannelSelected(QString::fromLatin1(room1->roomId()), room1->channelType());
     // THEN the text should be empty
     QCOMPARE(mMessageLineWidget->text(), QString());
 
@@ -140,7 +140,7 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     mMessageLineWidget->setText(QStringLiteral("Text for room 1"));
 
     // THEN the orig text should appear again
-    w.setChannelSelected(room2->roomId(), room2->channelType());
+    w.setChannelSelected(QString::fromLatin1(room2->roomId()), room2->channelType());
     QCOMPARE(mMessageLineWidget->text(), QStringLiteral("Text for room 2"));
     mMessageLineWidget->setText(QString());
 
@@ -148,7 +148,7 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
     mMessageLineWidget->setText(QStringLiteral("Text for room 1"));
 
     // THEN the other text should appear again
-    w.setChannelSelected(room2->roomId(), room2->channelType());
+    w.setChannelSelected(QString::fromLatin1(room2->roomId()), room2->channelType());
     QCOMPARE(mMessageLineWidget->text(), QStringLiteral("Text for room 1"));
 }
 

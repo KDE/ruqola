@@ -75,7 +75,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
                         break;
                     }
                     channel.setName(room->displayFName());
-                    channel.setIdentifier(room->roomId());
+                    channel.setIdentifier(QString::fromLatin1(room->roomId()));
                     channel.setAvatarInfo(room->avatarInfo());
                     channels.append(std::move(channel));
                 }

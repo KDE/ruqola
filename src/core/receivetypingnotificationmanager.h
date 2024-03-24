@@ -16,17 +16,17 @@ public:
     explicit ReceiveTypingNotificationManager(QObject *parent = nullptr);
     ~ReceiveTypingNotificationManager() override;
 
-    void insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping);
+    void insertTypingNotification(const QByteArray &roomId, const QString &userName, bool onTyping);
 
-    [[nodiscard]] QString typingNotification(const QString &roomId) const;
+    [[nodiscard]] QString typingNotification(const QByteArray &roomId) const;
 
     void clearTypingNotification();
 Q_SIGNALS:
-    void notificationChanged(const QString &roomId, const QString &notificationStr);
+    void notificationChanged(const QByteArray &roomId, const QString &notificationStr);
     void clearNotification();
 
 private:
     Q_DISABLE_COPY(ReceiveTypingNotificationManager)
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames) const;
-    QMap<QString, QStringList> mMapTypingNotifications;
+    QMap<QByteArray, QStringList> mMapTypingNotifications;
 };

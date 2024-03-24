@@ -49,7 +49,7 @@ public:
 
 Q_SIGNALS:
     void roomSelected(const ChannelListView::ChannelSelectedInfo &roomInfo);
-    void roomPressed(const QString &roomId);
+    void roomPressed(const QByteArray &roomId);
     void selectMessageIdRequested(const QByteArray &messageId);
 
 protected:
@@ -68,7 +68,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConvertToChannel(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureNotification(Room *room);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomRemoved(const QString &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomRemoved(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPressed(const QModelIndex &index);
 
     ChannelListDelegate *const mChannelListDelegate;

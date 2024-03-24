@@ -36,8 +36,8 @@ public:
 
     QMenu *mousePopupMenu() override;
 
-    void setRoomId(const QString &roomId);
-    [[nodiscard]] QString roomId() const;
+    void setRoomId(const QByteArray &roomId);
+    [[nodiscard]] QByteArray roomId() const;
 
 Q_SIGNALS:
 
@@ -78,5 +78,5 @@ private:
     CompletionListView *const mEmojiCompletionListView;
     CompletionListView *const mCommandCompletionListView;
     UserAndChannelCompletionDelegate *mUserAndChannelCompletionDelegate = nullptr;
-    QString mRoomId;
+    QByteArray mRoomId;
 };

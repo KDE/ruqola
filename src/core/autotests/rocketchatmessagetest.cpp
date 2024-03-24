@@ -24,7 +24,7 @@ void RocketChatMessageTest::shouldJoinRoom()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.joinRoom(QStringLiteral("foo"), QStringLiteral("access_code"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.joinRoom(QByteArray("foo"), QStringLiteral("access_code"), 43);
     compareFile(r.result, QStringLiteral("joinroom"));
 }
 
@@ -49,10 +49,10 @@ void RocketChatMessageTest::shouldInformTypingStatus()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.informTypingStatus(QStringLiteral("roomId"), QStringLiteral("user1"), false, 42);
+    RocketChatMessage::RocketChatMessageResult r = m.informTypingStatus(QByteArray("roomId"), QStringLiteral("user1"), false, 42);
     compareFile(r.result, QStringLiteral("informtypingstatusfalse"));
 
-    r = m.informTypingStatus(QStringLiteral("roomId2"), QStringLiteral("user2"), true, 43);
+    r = m.informTypingStatus(QByteArray("roomId2"), QStringLiteral("user2"), true, 43);
     compareFile(r.result, QStringLiteral("informtypingstatustrue"));
 }
 
@@ -70,7 +70,7 @@ void RocketChatMessageTest::shouldSplotlightWithoutUsers()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QString(), QStringLiteral("room"), QStringLiteral("foo,bla"), false, true, 43);
+    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QByteArray(), QStringLiteral("room"), QStringLiteral("foo,bla"), false, true, 43);
     compareFile(r.result, QStringLiteral("spotlight-without-users"));
 }
 
@@ -78,7 +78,7 @@ void RocketChatMessageTest::shouldSplotlightWithoutRooms()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QString(), QStringLiteral("room"), QStringLiteral("foo,bla"), true, false, 43);
+    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QByteArray(), QStringLiteral("room"), QStringLiteral("foo,bla"), true, false, 43);
     compareFile(r.result, QStringLiteral("spotlight-without-rooms"));
 }
 
@@ -86,7 +86,7 @@ void RocketChatMessageTest::inputChannelAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.inputChannelAutocomplete(QString(), QStringLiteral("pattern"), QStringLiteral("exception"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.inputChannelAutocomplete(QByteArray(), QStringLiteral("pattern"), QStringLiteral("exception"), 43);
     compareFile(r.result, QStringLiteral("inputChannelAutocomplete"));
 }
 
@@ -94,7 +94,7 @@ void RocketChatMessageTest::inputUserAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QString(), QStringLiteral("pattern"), QStringLiteral("exception"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray(), QStringLiteral("pattern"), QStringLiteral("exception"), 43);
     compareFile(r.result, QStringLiteral("inputUserAutocomplete"));
 }
 
@@ -102,8 +102,7 @@ void RocketChatMessageTest::inputUserWithRoomIdAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r =
-        m.inputUserAutocomplete(QStringLiteral("RoomId25"), QStringLiteral("pattern"), QStringLiteral("exception"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray("RoomId25"), QStringLiteral("pattern"), QStringLiteral("exception"), 43);
     compareFile(r.result, QStringLiteral("inputUserWithRoomIdAutocomplete"));
 }
 

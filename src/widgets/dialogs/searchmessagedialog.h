@@ -20,7 +20,7 @@ public:
     explicit SearchMessageDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchMessageDialog() override;
 
-    void setRoomId(const QString &roomId);
+    void setRoomId(const QByteArray &roomId);
 
     void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);

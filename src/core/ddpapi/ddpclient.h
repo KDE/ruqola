@@ -161,24 +161,24 @@ public:
      */
     [[nodiscard]] QString cachePath() const;
 
-    quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
+    quint64 informTypingStatus(const QByteArray &room, bool typing, const QString &userName);
 
     void setServerUrl(const QString &url);
     void start();
 
     [[nodiscard]] DDPAuthenticationManager *authenticationManager() const;
 
-    quint64 joinRoom(const QString &roomId, const QString &joinCode);
+    quint64 joinRoom(const QByteArray &roomId, const QString &joinCode);
     quint64 openDirectChannel(const QString &userId);
-    void subscribeRoomMessage(const QString &roomId);
+    void subscribeRoomMessage(const QByteArray &roomId);
     quint64 setDefaultStatus(User::PresenceStatus status);
-    quint64 createJitsiConfCall(const QString &roomId);
+    quint64 createJitsiConfCall(const QByteArray &roomId);
     quint64 loadHistory(const QJsonArray &params);
-    quint64 inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
-    quint64 inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
+    quint64 inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
+    quint64 inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
-    quint64 deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType);
+    quint64 deleteFileMessage(const QByteArray &roomId, const QString &fileid, Room::RoomType channelType);
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey);

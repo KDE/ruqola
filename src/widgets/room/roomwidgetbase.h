@@ -34,8 +34,8 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     void updateListView();
     void updateRoomReadOnly(Room *room);
@@ -58,7 +58,7 @@ private:
     slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCancelUpload(int identifier);
-    QString mRoomId;
+    QByteArray mRoomId;
     UploadFileProgressStatusListWidget *const mUploadFileProgressStatusListWidget;
     MessageListView *const mMessageListView;
     RoomReplyThreadWidget *const mRoomReplyThreadWidget;

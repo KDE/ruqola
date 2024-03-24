@@ -138,7 +138,7 @@ void RoomWidgetBase::slotCreateNewDiscussion(const QByteArray &messageId, const 
 {
     CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setDiscussionName(originalMessage);
-    dlg.setChannelInfo(channelName, mRoomId);
+    dlg.setChannelInfo(channelName, QString::fromLatin1(mRoomId));
     dlg.setMessageId(QString::fromLatin1(messageId));
     dlg.exec();
 }
@@ -179,12 +179,12 @@ void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::
     mUploadFileProgressStatusListWidget->uploadProgress(info, jobIdentifier, accountName);
 }
 
-QString RoomWidgetBase::roomId() const
+QByteArray RoomWidgetBase::roomId() const
 {
     return mRoomId;
 }
 
-void RoomWidgetBase::setRoomId(const QString &roomId)
+void RoomWidgetBase::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }

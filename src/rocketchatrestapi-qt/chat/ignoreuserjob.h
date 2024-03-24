@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] bool canStart() const override;
     [[nodiscard]] QString ignoreUserId() const;
@@ -35,12 +35,12 @@ public:
     void setIgnore(bool ignore);
 
 Q_SIGNALS:
-    void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
+    void ignoreUserDone(const QJsonObject &obj, const QByteArray &roomId);
 
 private:
     Q_DISABLE_COPY(IgnoreUserJob)
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
+    QByteArray mRoomId;
     QString mIgnoreUserId;
     bool mIgnore = true;
 };

@@ -28,8 +28,8 @@ public:
     explicit SearchMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchMessageWidget() override;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     void setModel(CommonMessageFilterProxyModel *model);
     void setRoom(Room *room);
@@ -44,7 +44,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessages(const QString &str);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowSearch() const;
-    QString mRoomId;
+    QByteArray mRoomId;
     QLabel *const mSearchLabel;
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;

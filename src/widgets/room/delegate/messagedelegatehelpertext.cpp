@@ -52,7 +52,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
         }();
         if (mRocketChatAccount) {
             if (!sameAsPreviousMessageThread) {
-                const MessagesModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
+                const MessagesModel *model = mRocketChatAccount->messageModelForRoom(message->roomId().toLatin1());
                 if (model) {
                     auto that = const_cast<MessageDelegateHelperText *>(this);
                     // Find the previous message in the same thread, to use it as context

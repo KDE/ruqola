@@ -72,7 +72,7 @@ void ShowDiscussionsDialog::slotLoadMoreDiscussions()
     mRocketChatAccount->loadMoreDiscussions(mRoomId);
 }
 
-void ShowDiscussionsDialog::setRoomId(const QString &roomId)
+void ShowDiscussionsDialog::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }

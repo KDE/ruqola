@@ -20,8 +20,8 @@ public:
 
     void setModel(FilesForRoomFilterProxyModel *model);
 
-    void setRoomId(const QString &roomId);
-    [[nodiscard]] QString roomId() const;
+    void setRoomId(const QByteArray &roomId);
+    [[nodiscard]] QByteArray roomId() const;
 
     [[nodiscard]] Room::RoomType roomType() const;
     void setRoomType(Room::RoomType roomType);
@@ -31,7 +31,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreAttachment();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAttachment(const QString &fileId);
-    QString mRoomId;
+    QByteArray mRoomId;
     Room::RoomType mRoomType = Room::RoomType::Unknown;
     ShowAttachmentWidget *const mShowAttachmentWidget;
     RocketChatAccount *const mRocketChatAccount;

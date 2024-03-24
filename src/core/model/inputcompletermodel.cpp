@@ -88,7 +88,7 @@ QList<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
                     ChannelUserCompleter channel;
                     channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
                     channel.setName(room->displayFName());
-                    channel.setIdentifier(room->roomId());
+                    channel.setIdentifier(QString::fromLatin1(room->roomId()));
                     channel.setChannelIcon();
                     channel.setAvatarInfo(room->avatarInfo());
                     channels.append(std::move(channel));

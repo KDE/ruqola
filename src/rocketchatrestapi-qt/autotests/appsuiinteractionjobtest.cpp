@@ -84,7 +84,7 @@ void AppsUiInteractionJobTest::shouldTestGenerateMessageObj()
     QFETCH(QString, actionId);
     QFETCH(QString, value);
     QFETCH(QString, blockId);
-    QFETCH(QString, roomId);
+    QFETCH(QByteArray, roomId);
     QFETCH(QString, messageId);
     QFETCH(QString, result);
 
@@ -98,23 +98,23 @@ void AppsUiInteractionJobTest::shouldTestGenerateMessageObj_data()
     QTest::addColumn<QString>("actionId");
     QTest::addColumn<QString>("value");
     QTest::addColumn<QString>("blockId");
-    QTest::addColumn<QString>("roomId");
+    QTest::addColumn<QByteArray>("roomId");
     QTest::addColumn<QString>("messageId");
     QTest::addColumn<QString>("result");
 
-    QTest::addRow("empty") << QString() << QString() << QString() << QString() << QString()
+    QTest::addRow("empty") << QString() << QString() << QString() << QByteArray() << QString()
                            << QStringLiteral(
                                   "{\"actionId\":\"\",\"container\":{\"id\":\"\",\"type\":\"message\"},\"mid\":\"\",\"payload\":{\"blockId\":\"\",\"value\":"
                                   "\"\"},\"rid\":\"\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 
-    QTest::addRow("test1") << QStringLiteral("act1") << QString() << QStringLiteral("blo1") << QStringLiteral("room1") << QStringLiteral("message1")
+    QTest::addRow("test1") << QStringLiteral("act1") << QString() << QStringLiteral("blo1") << QByteArrayLiteral("room1") << QStringLiteral("message1")
                            << QStringLiteral(
                                   "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
                                   "\"blockId\":\"blo1\",\"value\":\"\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 
     QTest::addRow("test2") << QStringLiteral("act1")
                            << QStringLiteral("[{\"_id\":\"HJ4EFjvEjYT73X\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]")
-                           << QStringLiteral("blo1") << QStringLiteral("room1") << QStringLiteral("message1")
+                           << QStringLiteral("blo1") << QByteArrayLiteral("room1") << QStringLiteral("message1")
                            << QStringLiteral(
                                   "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
                                   "\"blockId\":\"blo1\",\"value\":\"[{\\\"_id\\\":\\\"HJ4EFjvEjYT73X\\\",\\\"username\\\":\\\"service\\\",\\\"name\\\":"

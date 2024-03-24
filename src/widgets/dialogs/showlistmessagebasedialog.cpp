@@ -49,12 +49,12 @@ void ShowListMessageBaseDialog::setModel(ListMessagesFilterProxyModel *model)
     mShowListMessage->setModel(model);
 }
 
-void ShowListMessageBaseDialog::setRoomId(const QString &roomId)
+void ShowListMessageBaseDialog::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
 
-QString ShowListMessageBaseDialog::roomId() const
+QByteArray ShowListMessageBaseDialog::roomId() const
 {
     return mRoomId;
 }

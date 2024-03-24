@@ -29,7 +29,7 @@ void MessagesModelTest::initTestCase()
 
 void MessagesModelTest::shouldHaveDefaultValue()
 {
-    MessagesModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel w(QByteArrayLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
 }
@@ -263,7 +263,7 @@ void MessagesModelTest::shouldUpdateFirstMessage()
 void MessagesModelTest::shouldAllowEditing()
 {
     // GIVEN a message from me
-    MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel model(QByteArrayLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     RuqolaServerConfig::ServerConfigFeatureTypes settings;
     settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowEditingMessage;
     settings |= RuqolaServerConfig::ServerConfigFeatureType::AllowMessageDeleting;
@@ -290,7 +290,7 @@ void MessagesModelTest::shouldAllowEditing()
 void MessagesModelTest::shouldFindPrevNextMessage()
 {
     // GIVEN an empty model
-    MessagesModel model(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
+    MessagesModel model(QByteArrayLiteral("roomId"), Ruqola::self()->rocketChatAccount());
 
     auto isByMe = [](const Message &msg) {
         return msg.userId() == QByteArrayLiteral("userid1");

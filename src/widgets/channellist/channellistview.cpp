@@ -87,7 +87,7 @@ void ChannelListView::slotPressed(const QModelIndex &index)
         if (!index.parent().isValid())
             return;
 
-        const QString roomId = index.data(RoomModel::RoomId).toString();
+        const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
         Q_EMIT roomPressed(roomId);
     }
 }
@@ -143,7 +143,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
-        const QString roomId = index.data(RoomModel::RoomId).toString();
+        const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
         Room *room = mCurrentRocketChatAccount->room(roomId);
         if (mCurrentRocketChatAccount->teamEnabled()) {
             if (room) {
@@ -343,7 +343,7 @@ void ChannelListView::slotGroupConvertToTeamDone(const QJsonObject &obj)
 
 void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRead)
 {
-    const QString roomId = index.data(RoomModel::RoomId).toString();
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     if (markAsRead) {
         mCurrentRocketChatAccount->markRoomAsRead(roomId);
     } else {
@@ -370,7 +370,7 @@ void ChannelListView::channelSelected(const QModelIndex &index)
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
 {
-    const QString roomId = index.data(RoomModel::RoomId).toString();
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     mCurrentRocketChatAccount->hideRoom(roomId, roomType);
 }
 
@@ -382,7 +382,7 @@ void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType 
 
 void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavorite)
 {
-    const QString roomId = index.data(RoomModel::RoomId).toString();
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     mCurrentRocketChatAccount->changeFavorite(roomId, !isFavorite);
 }
 
@@ -490,10 +490,10 @@ void ChannelListView::selectNextChannel(Direction direction, bool switchToNextUn
     }
 }
 
-void ChannelListView::slotRoomRemoved(const QString &roomId)
+void ChannelListView::slotRoomRemoved(const QByteArray &roomId)
 {
     const auto currentlySelectedIndex = selectionModel()->currentIndex();
-    const QString currentRoomId = currentlySelectedIndex.data(RoomModel::RoomId).toString();
+    const QByteArray currentRoomId = currentlySelectedIndex.data(RoomModel::RoomId).toByteArray();
     if (currentRoomId == roomId) {
         selectNextChannel();
     }

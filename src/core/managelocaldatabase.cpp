@@ -41,7 +41,7 @@ void ManageLocalDatabase::loadAccountSettings()
     mRocketChatAccount->rocketChatBackend()->loadPublicSettings(timeStamp);
 }
 
-void ManageLocalDatabase::syncMessage(const QString &roomId, qint64 lastSeenAt)
+void ManageLocalDatabase::syncMessage(const QByteArray &roomId, qint64 lastSeenAt)
 {
     auto job = new RocketChatRestApi::SyncMessagesJob(this);
     job->setRoomId(roomId);
@@ -53,7 +53,7 @@ void ManageLocalDatabase::syncMessage(const QString &roomId, qint64 lastSeenAt)
     }
 }
 
-void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QString &roomId)
+void ManageLocalDatabase::slotSyncMessages(const QJsonObject &obj, const QByteArray &roomId)
 {
     qCWarning(RUQOLA_LOAD_HISTORY_LOG) << " roomId " << roomId << " obj " << obj;
     ManageLoadHistoryParseSyncMessagesUtils utils(mRocketChatAccount);
@@ -86,7 +86,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 // FIXME: don't use  info.lastSeenAt until we store room information in database
                 // We need to use last message timeStamp
                 const qint64 endDateTime = info.roomModel->lastTimestamp();
-                syncMessage(info.roomId, /*info.lastSeenAt*/ endDateTime);
+                syncMessage(info.roomId.toLatin1(), /*info.lastSeenAt*/ endDateTime);
                 return;
             } else {
                 // Load more from network.

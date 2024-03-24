@@ -146,7 +146,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mInputTextManager,
             &InputTextManager::completionRequested,
             this,
-            [this](const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
+            [this](const QByteArray &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
                 inputAutocomplete(roomId, pattern, exceptions, type, false);
             });
 
@@ -154,7 +154,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mInputThreadMessageTextManager,
             &InputTextManager::completionRequested,
             this,
-            [this](const QString &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
+            [this](const QByteArray &roomId, const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
                 inputAutocomplete(roomId, pattern, exceptions, type, true);
             });
 
@@ -193,7 +193,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mThreadMessageModel = new ThreadMessageModel(this, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 
-    mListMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
+    mListMessageModel = new ListMessagesModel(QByteArray(), this, nullptr, this);
     mListMessageModel->setObjectName(QStringLiteral("listmessagemodel"));
 
     mListMessagesFilterProxyModel = new ListMessagesFilterProxyModel(mListMessageModel, this);
@@ -368,7 +368,7 @@ RuqolaLogger *RocketChatAccount::ruqolaLogger() const
     return mRuqolaLogger;
 }
 
-UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) const
+UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QByteArray &roomId) const
 {
     return mRoomModel->usersModelForRoom(roomId);
 }
@@ -393,7 +393,7 @@ RocketChatAccountSettings *RocketChatAccount::settings() const
     return mSettings;
 }
 
-void RocketChatAccount::slotInformTypingStatus(const QString &room, bool typing)
+void RocketChatAccount::slotInformTypingStatus(const QByteArray &room, bool typing)
 {
     qCDebug(RUQOLA_TYPING_NOTIFICATION_LOG) << " slotInformTypingStatus room " << room << " typing " << typing;
     ddp()->informTypingStatus(room, typing, mSettings->userName());
@@ -409,7 +409,7 @@ UsersModel *RocketChatAccount::usersModel() const
     return mUserModel;
 }
 
-Room *RocketChatAccount::room(const QString &roomId)
+Room *RocketChatAccount::room(const QByteArray &roomId)
 {
     return mRoomModel->findRoom(roomId);
 }
@@ -419,12 +419,12 @@ DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel() co
     return mDiscussionsFilterProxyModel;
 }
 
-MessagesModel *RocketChatAccount::messageModelForRoom(const QString &roomID)
+MessagesModel *RocketChatAccount::messageModelForRoom(const QByteArray &roomID)
 {
     return mRoomModel->messageModel(roomID);
 }
 
-void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal)
+void RocketChatAccount::changeShowOriginalMessage(const QByteArray &roomId, const QString &messageId, bool showOriginal)
 {
     MessagesModel *model = mRoomModel->messageModel(roomId);
     if (model) {
@@ -434,7 +434,7 @@ void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const Q
     }
 }
 
-void RocketChatAccount::textEditing(const QString &roomId, bool clearNotification)
+void RocketChatAccount::textEditing(const QByteArray &roomId, bool clearNotification)
 {
     mTypingNotification->textNotificationChanged(roomId, clearNotification);
 }
@@ -448,23 +448,23 @@ void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &
     }
 }
 
-void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
+void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &message)
 {
     restApi()->postMessage(roomID, message);
     markRoomAsRead(roomID);
 }
 
-void RocketChatAccount::updateMessage(const QString &roomID, const QString &messageId, const QString &message)
+void RocketChatAccount::updateMessage(const QByteArray &roomID, const QString &messageId, const QString &message)
 {
     restApi()->updateMessage(roomID, messageId, message);
 }
 
-void RocketChatAccount::replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message)
+void RocketChatAccount::replyOnThread(const QByteArray &roomID, const QString &threadMessageId, const QString &message)
 {
     restApi()->sendMessage(roomID, message, QString(), threadMessageId);
 }
 
-void RocketChatAccount::deleteFileMessage(const QString &roomId, const QString &fileId, Room::RoomType channelType)
+void RocketChatAccount::deleteFileMessage(const QByteArray &roomId, const QString &fileId, Room::RoomType channelType)
 {
     ddp()->deleteFileMessage(roomId, fileId, channelType);
 }
@@ -500,17 +500,17 @@ Connection *RocketChatAccount::restApi()
 
         connect(mRestApi, &Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
             slotGetListMessagesDone(obj,
-                                    roomId,
+                                    roomId.toLatin1(),
                                     onlyUnread ? ListMessagesModel::ListMessageType::UnreadThreadsMessages
                                                : ListMessagesModel::ListMessageType::ThreadsMessages);
         });
-        connect(mRestApi, &Connection::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &Connection::getMentionedMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
         });
-        connect(mRestApi, &Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::PinnedMessages);
         });
-        connect(mRestApi, &Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+        connect(mRestApi, &Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QByteArray &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::StarredMessages);
         });
 
@@ -600,7 +600,7 @@ void RocketChatAccount::leaveRoom(const QString &identifier, Room::RoomType chan
     }
 }
 
-void RocketChatAccount::hideRoom(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::hideRoom(const QByteArray &roomId, Room::RoomType channelType)
 {
     restApi()->closeChannel(roomId, Room::roomFromRoomType(channelType));
 }
@@ -700,7 +700,7 @@ void RocketChatAccount::clearAllUnreadMessages()
 {
     for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = mRoomModel->index(roomIdx);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toString();
+        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toByteArray();
         const bool roomHasAlert = roomModelIndex.data(RoomModel::RoomAlert).toBool();
         if (roomHasAlert) {
             markRoomAsRead(roomId);
@@ -708,7 +708,7 @@ void RocketChatAccount::clearAllUnreadMessages()
     }
 }
 
-void RocketChatAccount::markRoomAsRead(const QString &roomId)
+void RocketChatAccount::markRoomAsRead(const QByteArray &roomId)
 {
     mMarkUnreadThreadsAsReadOnNextReply = true;
     restApi()->markRoomAsRead(roomId);
@@ -717,7 +717,7 @@ void RocketChatAccount::markRoomAsRead(const QString &roomId)
     }
 }
 
-void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
+void RocketChatAccount::changeFavorite(const QByteArray &roomId, bool checked)
 {
     restApi()->markAsFavorite(roomId, checked);
 }
@@ -737,11 +737,11 @@ void RocketChatAccount::openArchivedRoom(const RocketChatRestApi::ChannelGroupBa
     // TODO
 }
 
-void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
+void RocketChatAccount::joinJitsiConfCall(const QByteArray &roomId)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)" << roomId;
     // const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
-    const QString hash = mRuqolaServerConfig->uniqueId() + roomId;
+    const QString hash = mRuqolaServerConfig->uniqueId() + QString::fromLatin1(roomId);
 #if defined(Q_OS_IOS)
     const QString scheme = QStringLiteral("org.jitsi.meet://");
 #else
@@ -752,7 +752,7 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
     QDesktopServices::openUrl(clickedUrl);
 }
 
-void RocketChatAccount::eraseRoom(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::eraseRoom(const QByteArray &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -796,16 +796,16 @@ void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelT
     }
 }
 
-void RocketChatAccount::joinDiscussion(const QString &roomId, const QString &joinCode)
+void RocketChatAccount::joinDiscussion(const QByteArray &roomId, const QString &joinCode)
 {
     ddp()->joinRoom(roomId, joinCode);
 }
 
-void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
+void RocketChatAccount::joinRoom(const QByteArray &roomId, const QString &joinCode)
 {
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     mManageChannels->channelJoin(info, joinCode);
 }
 
@@ -881,7 +881,7 @@ OtrManager *RocketChatAccount::otrManager() const
     return mOtrManager;
 }
 
-void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
+void RocketChatAccount::deleteMessage(const QString &messageId, const QByteArray &roomId)
 {
     restApi()->deleteMessage(roomId, messageId);
 }
@@ -902,7 +902,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
     }
 }
 
-void RocketChatAccount::membersInRoom(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::membersInRoom(const QByteArray &roomId, Room::RoomType channelType)
 {
     // We call it first for initialize all member in rooms.
     // We need to clear it. It can be initialize by "/rooms-changed" signal
@@ -918,7 +918,7 @@ void RocketChatAccount::membersInRoom(const QString &roomId, Room::RoomType chan
 
 void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
 {
-    const QString roomId = roomData.value(QStringLiteral("_id")).toString();
+    const QByteArray roomId = roomData.value(QStringLiteral("_id")).toString().toLatin1();
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     if (usersModelForRoom) {
         const int numberOfUsers = roomData.value(QStringLiteral("usersCount")).toInt();
@@ -937,7 +937,7 @@ void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketC
 {
     // FIXME channelInfo
     const QString channelInfoIdentifier = channelInfo.identifier;
-    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier.toLatin1());
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
         usersModelForRoom->setLoadMoreUsersInProgress(false);
@@ -946,7 +946,7 @@ void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketC
     }
 }
 
-void RocketChatAccount::roomFiles(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::roomFiles(const QByteArray &roomId, Room::RoomType channelType)
 {
     mFilesModelForRoom->initialize();
     restApi()->filesInRoom(roomId, Room::roomFromRoomType(channelType));
@@ -984,7 +984,7 @@ ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationMa
 
 void RocketChatAccount::slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
-    Room *room = mRoomModel->findRoom(channelInfo.identifier);
+    Room *room = mRoomModel->findRoom(channelInfo.identifier.toLatin1());
     if (room) {
         Roles r;
         r.parseRole(obj);
@@ -1005,7 +1005,7 @@ void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const 
     }
 }
 
-void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)
+void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QByteArray &roomId)
 {
     if (mDiscussionsModel->roomId() != roomId) {
         mDiscussionsModel->parseDiscussions(obj, roomId);
@@ -1015,7 +1015,7 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
     mDiscussionsModel->setLoadMoreDiscussionsInProgress(false);
 }
 
-void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type)
+void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QByteArray &roomId, ListMessagesModel::ListMessageType type)
 {
     if (mMarkUnreadThreadsAsReadOnNextReply && type == ListMessagesModel::UnreadThreadsMessages) {
         qCDebug(RUQOLA_THREAD_MESSAGE_LOG) << "Obj" << obj << "roomId:" << roomId;
@@ -1084,7 +1084,7 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const Rocke
     mFilesModelForRoom->setLoadMoreFilesInProgress(false);
 }
 
-void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     const int offset = usersModelForRoom->usersCount();
@@ -1094,7 +1094,7 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, Room::RoomTyp
     }
 }
 
-void RocketChatAccount::getMentionsMessages(const QString &roomId)
+void RocketChatAccount::getMentionsMessages(const QByteArray &roomId)
 {
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
@@ -1102,7 +1102,7 @@ void RocketChatAccount::getMentionsMessages(const QString &roomId)
     restApi()->getMentionedMessages(roomId);
 }
 
-void RocketChatAccount::getPinnedMessages(const QString &roomId)
+void RocketChatAccount::getPinnedMessages(const QByteArray &roomId)
 {
     mListMessageModel->clear();
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
@@ -1110,7 +1110,7 @@ void RocketChatAccount::getPinnedMessages(const QString &roomId)
     restApi()->getPinnedMessages(roomId);
 }
 
-void RocketChatAccount::getStarredMessages(const QString &roomId)
+void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
 {
     mListMessageModel->clear();
     mListMessageModel->setRoomId(roomId);
@@ -1118,7 +1118,7 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     restApi()->getStarredMessages(roomId);
 }
 
-void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType)
 {
     if (!mFilesModelForRoom->loadMoreFilesInProgress()) {
         const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
@@ -1129,7 +1129,7 @@ void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, Room::Roo
     }
 }
 
-void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
+void RocketChatAccount::loadMoreDiscussions(const QByteArray &roomId)
 {
     if (!mDiscussionsModel->loadMoreDiscussionsInProgress()) {
         const int offset = mDiscussionsModel->discussions()->discussionsCount();
@@ -1147,7 +1147,7 @@ void RocketChatAccount::updateThreadMessageList(const Message &m)
     }
 }
 
-void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
+void RocketChatAccount::getListMessages(const QByteArray &roomId, ListMessagesModel::ListMessageType type)
 {
     mListMessageModel->setListMessageType(type);
     mListMessageModel->setLoadMoreListMessagesInProgress(true);
@@ -1225,7 +1225,7 @@ void RocketChatAccount::setShowFavoriteRoom(bool checked)
     setUserPreferences(std::move(info));
 }
 
-void RocketChatAccount::loadMoreListMessages(const QString &roomId)
+void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
 {
     if (!mListMessageModel->loadMoreListMessagesInProgress()) {
         const int offset = mListMessageModel->rowCount();
@@ -1260,14 +1260,14 @@ void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId
     restApi()->getThreadMessages(threadMessageId);
 }
 
-void RocketChatAccount::createJitsiConfCall(const QString &roomId)
+void RocketChatAccount::createJitsiConfCall(const QByteArray &roomId)
 {
     // TODO use restapi
     ddp()->createJitsiConfCall(roomId);
     joinJitsiConfCall(roomId);
 }
 
-void RocketChatAccount::addUserToRoom(const QString &userId, const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::addUserToRoom(const QString &userId, const QByteArray &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -1287,7 +1287,7 @@ void RocketChatAccount::clearSearchModel()
     mSearchMessageModel->clearModel();
 }
 
-void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid, bool userRegularExpression)
+void RocketChatAccount::messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression)
 {
     if (pattern.isEmpty()) {
         clearSearchModel();
@@ -1725,7 +1725,7 @@ bool RocketChatAccount::attachmentIsInLocalCache(const QString &url)
     return mCache->attachmentIsInLocalCache(url);
 }
 
-void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 timeStamp)
+void RocketChatAccount::loadHistory(const QByteArray &roomID, bool initial, qint64 timeStamp)
 {
     MessagesModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
@@ -1736,7 +1736,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
         }
         ManageLocalDatabase::ManageLoadHistoryInfo info;
         info.roomModel = roomModel;
-        info.roomId = roomID;
+        info.roomId = QString::fromLatin1(roomID);
         info.initial = initial;
         info.timeStamp = timeStamp;
         info.roomName = room->displayFName();
@@ -1884,7 +1884,7 @@ bool RocketChatAccount::jitsiEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::JitsiEnabled;
 }
 
-void RocketChatAccount::groupInfo(const QString &roomId)
+void RocketChatAccount::groupInfo(const QByteArray &roomId)
 {
     restApi()->groupInfo(roomId);
 }
@@ -1964,7 +1964,7 @@ OwnUserPreferences::RoomListDisplay RocketChatAccount::roomListDisplay() const
     return ownUser().ownUserPreferences().roomListDisplay();
 }
 
-void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
+void RocketChatAccount::kickUser(const QByteArray &roomId, const QString &userId, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -1981,7 +1981,7 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, R
     }
 }
 
-void RocketChatAccount::rolesInRoom(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::rolesInRoom(const QByteArray &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -1998,13 +1998,13 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, Room::RoomType channe
     }
 }
 
-void RocketChatAccount::switchingToRoom(const QString &roomID)
+void RocketChatAccount::switchingToRoom(const QByteArray &roomID)
 {
     clearTypingNotification();
     checkInitializedRoom(roomID);
 }
 
-void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType)
+void RocketChatAccount::changeRoles(const QByteArray &roomId, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -2060,7 +2060,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
     }
 }
 
-void RocketChatAccount::channelInfo(const QString &roomId)
+void RocketChatAccount::channelInfo(const QByteArray &roomId)
 {
     restApi()->channelInfo(roomId);
 }
@@ -2168,7 +2168,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     }
 }
 
-void RocketChatAccount::inputAutocomplete(const QString &roomId,
+void RocketChatAccount::inputAutocomplete(const QByteArray &roomId,
                                           const QString &pattern,
                                           const QString &exceptions,
                                           InputTextManager::CompletionForType type,
@@ -2209,7 +2209,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
     mRoomModel->userStatusChanged(user);
 }
 
-void RocketChatAccount::ignoreUser(const QString &rid, const QString &userId, bool ignore)
+void RocketChatAccount::ignoreUser(const QByteArray &rid, const QString &userId, bool ignore)
 {
     restApi()->ignoreUser(rid, userId, ignore);
 }
@@ -2236,7 +2236,7 @@ void RocketChatAccount::clearTypingNotification()
     mReceiveTypingNotificationManager->clearTypingNotification();
 }
 
-void RocketChatAccount::checkInitializedRoom(const QString &roomId)
+void RocketChatAccount::checkInitializedRoom(const QByteArray &roomId)
 {
     Room *r = mRoomModel->findRoom(roomId);
     if (r && !r->wasInitialized()) {
@@ -2300,7 +2300,7 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
     // TODO verify this code when role change. It seems weird.
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
-        const QString scope = obj[QLatin1StringView("scope")].toString();
+        const QByteArray scope = obj[QLatin1StringView("scope")].toString().toLatin1();
         Room *room = mRoomModel->findRoom(scope);
         if (room) {
             room->updateRoles(obj);
@@ -2319,7 +2319,7 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId,
     restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId, users);
 }
 
-void RocketChatAccount::threadsInRoom(const QString &roomId, bool onlyUnread)
+void RocketChatAccount::threadsInRoom(const QByteArray &roomId, bool onlyUnread)
 {
     if (threadsEnabled()) {
         mListMessageModel->clear();
@@ -2328,7 +2328,7 @@ void RocketChatAccount::threadsInRoom(const QString &roomId, bool onlyUnread)
     }
 }
 
-void RocketChatAccount::discussionsInRoom(const QString &roomId)
+void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
 {
     mDiscussionsModel->initialize();
     mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
@@ -2365,12 +2365,12 @@ void RocketChatAccount::slotGetSupportedLanguagesDone(const QJsonObject &obj)
     mAutoTranslateLanguagesModel->parseLanguages(obj);
 }
 
-void RocketChatAccount::autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language)
+void RocketChatAccount::autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language)
 {
     restApi()->autoTranslateSaveLanguageSettings(roomId, language);
 }
 
-void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate)
+void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate)
 {
     restApi()->autoTranslateSaveAutoTranslateSettings(roomId, autoTranslate);
 }
@@ -2525,7 +2525,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     // qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
 }
 
-bool RocketChatAccount::runCommand(const QString &msg, const QString &roomId, const QString &tmid)
+bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId, const QString &tmid)
 {
     const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
     if (info.isValid()) {
@@ -2550,7 +2550,7 @@ void RocketChatAccount::markMessageAsUnReadFrom(const QString &messageId)
     restApi()->markMessageAsUnReadFrom(messageId);
 }
 
-void RocketChatAccount::markRoomAsUnRead(const QString &roomId)
+void RocketChatAccount::markRoomAsUnRead(const QByteArray &roomId)
 {
     restApi()->markRoomAsUnRead(roomId);
 }
@@ -2654,7 +2654,7 @@ bool RocketChatAccount::isAdministrator() const
 
 void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
-    Room *room = mRoomModel->findRoom(channelInfo.identifier);
+    Room *room = mRoomModel->findRoom(channelInfo.identifier.toLatin1());
     if (room) {
         ChannelCounterInfo info;
         info.parseCounterInfo(obj);
@@ -2662,7 +2662,7 @@ void RocketChatAccount::slotChannelGetCountersDone(const QJsonObject &obj, const
     }
 }
 
-void RocketChatAccount::slotMarkAsReadDone(const QString &roomId)
+void RocketChatAccount::slotMarkAsReadDone(const QByteArray &roomId)
 {
     Room *room = this->room(roomId);
     if (room) {
@@ -2812,7 +2812,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
 
 void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestApi, bool temporaryMessage)
 {
-    const QString roomId = replyObject.value(QLatin1StringView("rid")).toString();
+    const QByteArray roomId = replyObject.value(QLatin1StringView("rid")).toString().toLatin1();
     if (!roomId.isEmpty()) {
         MessagesModel *messageModel = messageModelForRoom(roomId);
         if (!messageModel) {
@@ -3072,7 +3072,7 @@ void RocketChatAccount::executeBlockAction(const QString &appId,
                                            const QString &actionId,
                                            const QString &value,
                                            const QString &blockId,
-                                           const QString &roomId,
+                                           const QByteArray &roomId,
                                            const QString &messageId)
 {
     auto job = new RocketChatRestApi::AppsUiInteractionJob(this);

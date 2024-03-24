@@ -33,10 +33,10 @@ void GetStarredMessagesJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QString roomId = QStringLiteral("bla");
+    const QByteArray roomId = QByteArrayLiteral("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getStarredMessages?roomId=%1").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getStarredMessages?roomId=%1").arg(QString::fromLatin1(roomId))));
 }
 
 void GetStarredMessagesJobTest::shouldNotStarting()
@@ -56,7 +56,7 @@ void GetStarredMessagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId = QByteArrayLiteral("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }

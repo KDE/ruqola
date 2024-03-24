@@ -29,7 +29,7 @@ void UpdateVideoConferenceMessageJob::start()
         return;
     }
     const QString roomId{mVideoConferenceInfo.roomId()};
-    auto room = mRocketChatAccount->room(roomId);
+    auto room = mRocketChatAccount->room(roomId.toLatin1());
     if (room) {
         // qDebug() << " room" << room << " **** " << *room;
         auto messageModel = room->messageModel();

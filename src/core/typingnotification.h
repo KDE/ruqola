@@ -16,13 +16,13 @@ public:
     explicit TypingNotification(QObject *parent = nullptr);
     ~TypingNotification() override;
 
-    void textNotificationChanged(const QString &roomId, bool emptyString);
+    void textNotificationChanged(const QByteArray &roomId, bool emptyString);
 Q_SIGNALS:
-    void informTypingStatus(const QString &room, bool typing);
+    void informTypingStatus(const QByteArray &room, bool typing);
 
 private:
     void slotTimeout();
-    QString mRoomId;
+    QByteArray mRoomId;
     bool mTypingInprogress = false;
     QTimer *const mTimer;
 };

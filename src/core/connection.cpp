@@ -502,23 +502,23 @@ void Connection::changeGroupsDescription(const QString &roomId, const QString &d
     }
 }
 
-void Connection::postMessage(const QString &roomId, const QString &text)
+void Connection::postMessage(const QByteArray &roomId, const QString &text)
 {
     auto job = new PostMessageJob(this);
     connect(job, &PostMessageJob::postMessageDone, this, &Connection::postMessageDone);
     initializeRestApiJob(job);
-    job->setRoomIds({roomId});
+    job->setRoomIds({QString::fromLatin1(roomId)});
     job->setText(text);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start PostMessageJob job";
     }
 }
 
-void Connection::deleteMessage(const QString &roomId, const QString &messageId)
+void Connection::deleteMessage(const QByteArray &roomId, const QString &messageId)
 {
     auto job = new DeleteMessageJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     job->setMessageId(messageId);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start deleteMessage job";
@@ -602,11 +602,11 @@ void Connection::archiveGroups(const QString &roomId, bool archive)
     }
 }
 
-void Connection::updateMessage(const QString &roomId, const QString &messageId, const QString &text)
+void Connection::updateMessage(const QByteArray &roomId, const QString &messageId, const QString &text)
 {
     auto job = new UpdateMessageJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     job->setMessageId(messageId);
     job->setUpdatedText(text);
     connect(job, &UpdateMessageJob::updateMessageFailed, this, &Connection::updateMessageFailed);
@@ -635,13 +635,13 @@ void Connection::reactOnMessage(const QString &messageId, const QString &emoji, 
     }
 }
 
-void Connection::closeChannel(const QString &roomId, const QString &type)
+void Connection::closeChannel(const QByteArray &roomId, const QString &type)
 {
     auto job = new ChannelCloseJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelCloseJob::Direct);
@@ -712,14 +712,14 @@ void Connection::openDirectMessage(const QString &userId)
     }
 }
 
-void Connection::filesInRoom(const QString &roomId, const QString &type, int offset, int count)
+void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int offset, int count)
 {
     auto job = new ChannelFilesJob(this);
     connect(job, &ChannelFilesJob::channelFilesDone, this, &Connection::channelFilesDone);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     QueryParameters parameters;
     parameters.setCount(count);
@@ -742,7 +742,7 @@ void Connection::filesInRoom(const QString &roomId, const QString &type, int off
 }
 
 // FIXME
-void Connection::membersInRoom(const QString &roomId, const QString &type, int offset, int count)
+void Connection::membersInRoom(const QByteArray &roomId, const QString &type, int offset, int count)
 {
     auto job = new ChannelMembersJob(this);
     QueryParameters parameters;
@@ -753,7 +753,7 @@ void Connection::membersInRoom(const QString &roomId, const QString &type, int o
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelMembersJob::Direct);
@@ -767,13 +767,13 @@ void Connection::membersInRoom(const QString &roomId, const QString &type, int o
     }
 }
 
-void Connection::addUserInChannel(const QString &roomId, const QString &userId)
+void Connection::addUserInChannel(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     job->setInviteUserId(userId);
     if (!job->start()) {
@@ -781,13 +781,13 @@ void Connection::addUserInChannel(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::addUserInGroup(const QString &roomId, const QString &userId)
+void Connection::addUserInGroup(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupsInviteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
     job->setInviteUserId(userId);
@@ -796,10 +796,10 @@ void Connection::addUserInGroup(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::searchMessages(const QString &roomId, const QString &pattern, bool useRegularExpression)
+void Connection::searchMessages(const QByteArray &roomId, const QString &pattern, bool useRegularExpression)
 {
     auto job = new SearchMessageJob(this);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     job->setSearchText(pattern);
     job->setUseRegularExpression(useRegularExpression);
     initializeRestApiJob(job);
@@ -809,7 +809,7 @@ void Connection::searchMessages(const QString &roomId, const QString &pattern, b
     }
 }
 
-void Connection::markRoomAsRead(const QString &roomId)
+void Connection::markRoomAsRead(const QByteArray &roomId)
 {
     auto job = new MarkRoomAsReadJob(this);
     job->setRoomId(roomId);
@@ -820,7 +820,7 @@ void Connection::markRoomAsRead(const QString &roomId)
     }
 }
 
-void Connection::markRoomAsUnRead(const QString &roomId)
+void Connection::markRoomAsUnRead(const QByteArray &roomId)
 {
     auto job = new MarkRoomAsUnReadJob(this);
     job->setObjectId(roomId);
@@ -834,7 +834,7 @@ void Connection::markRoomAsUnRead(const QString &roomId)
 void Connection::markMessageAsUnReadFrom(const QString &messageId)
 {
     auto job = new MarkRoomAsUnReadJob(this);
-    job->setObjectId(messageId);
+    job->setObjectId(messageId.toLatin1());
     job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     initializeRestApiJob(job);
     if (!job->start()) {
@@ -852,12 +852,12 @@ void Connection::getRooms()
     }
 }
 
-void Connection::markAsFavorite(const QString &roomId, bool favorite)
+void Connection::markAsFavorite(const QByteArray &roomId, bool favorite)
 {
     auto job = new RoomFavoriteJob(this);
     initializeRestApiJob(job);
     job->setFavorite(favorite);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start markAsFavorite job";
     }
@@ -943,24 +943,24 @@ void Connection::changeChannelName(const QString &roomId, const QString &newName
     }
 }
 
-void Connection::channelInfo(const QString &roomId)
+void Connection::channelInfo(const QByteArray &roomId)
 {
     auto job = new ChannelInfoJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start channelInfo job";
     }
 }
 
-void Connection::groupInfo(const QString &roomId)
+void Connection::groupInfo(const QByteArray &roomId)
 {
     auto job = new GroupsInfoJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start groupInfo job";
     }
@@ -1058,7 +1058,7 @@ void Connection::userInfo(const QString &identifier, bool userName)
     }
 }
 
-void Connection::ignoreUser(const QString &roomId, const QString &userId, bool ignore)
+void Connection::ignoreUser(const QByteArray &roomId, const QString &userId, bool ignore)
 {
     auto job = new IgnoreUserJob(this);
     initializeRestApiJob(job);
@@ -1126,13 +1126,13 @@ void Connection::setChannelType(const QString &roomId, bool isPrivate)
     }
 }
 
-void Connection::getGroupRoles(const QString &roomId)
+void Connection::getGroupRoles(const QByteArray &roomId)
 {
     auto job = new GetGroupRolesJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &GetGroupRolesJob::groupRolesDone, this, &Connection::groupRolesDone);
     if (!job->start()) {
@@ -1140,13 +1140,13 @@ void Connection::getGroupRoles(const QString &roomId)
     }
 }
 
-void Connection::getChannelRoles(const QString &roomId)
+void Connection::getChannelRoles(const QByteArray &roomId)
 {
     auto job = new GetChannelRolesJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &Connection::channelRolesDone);
     if (!job->start()) {
@@ -1231,14 +1231,14 @@ void Connection::channelGetAllUserMentions(const QString &roomId, int offset, in
     }
 }
 
-void Connection::channelKick(const QString &roomId, const QString &userId)
+void Connection::channelKick(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelKickJob::kickUserDone, this, &Connection::channelKickUserDone);
     if (!job->start()) {
@@ -1246,14 +1246,14 @@ void Connection::channelKick(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::groupKick(const QString &roomId, const QString &userId)
+void Connection::groupKick(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupsKickJob(this);
     initializeRestApiJob(job);
     job->setKickUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
     connect(job, &GroupsKickJob::kickUserDone, this, &Connection::groupKickUserDone);
@@ -1262,14 +1262,14 @@ void Connection::groupKick(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::groupAddModerator(const QString &roomId, const QString &userId)
+void Connection::groupAddModerator(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &GroupAddModeratorJob::addModeratorDone, this, &Connection::addModeratorDone);
     if (!job->start()) {
@@ -1277,13 +1277,13 @@ void Connection::groupAddModerator(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::groupRemoveModerator(const QString &roomId, const QString &userId)
+void Connection::groupRemoveModerator(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupRemoveModeratorJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
     connect(job, &GroupRemoveModeratorJob::removeModeratorDone, this, &Connection::removeModeratorDone);
@@ -1292,14 +1292,14 @@ void Connection::groupRemoveModerator(const QString &roomId, const QString &user
     }
 }
 
-void Connection::groupAddLeader(const QString &roomId, const QString &userId)
+void Connection::groupAddLeader(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &GroupAddLeaderJob::addLeaderDone, this, &Connection::addLeaderDone);
     if (!job->start()) {
@@ -1307,13 +1307,13 @@ void Connection::groupAddLeader(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::groupRemoveLeader(const QString &roomId, const QString &userId)
+void Connection::groupRemoveLeader(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupRemoveLeaderJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
     connect(job, &GroupRemoveLeaderJob::removeLeaderDone, this, &Connection::removeLeaderDone);
@@ -1322,13 +1322,13 @@ void Connection::groupRemoveLeader(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::groupAddOwner(const QString &roomId, const QString &userId)
+void Connection::groupAddOwner(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupAddOwnerJob(this);
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
     connect(job, &GroupAddOwnerJob::addOwnerDone, this, &Connection::addOwnerDone);
@@ -1337,14 +1337,14 @@ void Connection::groupAddOwner(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::groupRemoveOwner(const QString &roomId, const QString &userId)
+void Connection::groupRemoveOwner(const QByteArray &roomId, const QString &userId)
 {
     auto job = new GroupRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
     connect(job, &GroupRemoveOwnerJob::groupRemoveOwnerDone, this, &Connection::channelRemoveOwnerDone);
@@ -1353,14 +1353,14 @@ void Connection::groupRemoveOwner(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::channelAddModerator(const QString &roomId, const QString &userId)
+void Connection::channelAddModerator(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelAddModeratorJob(this);
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelAddModeratorJob::addModeratorDone, this, &Connection::addModeratorDone);
     if (!job->start()) {
@@ -1368,14 +1368,14 @@ void Connection::channelAddModerator(const QString &roomId, const QString &userI
     }
 }
 
-void Connection::channelRemoveModerator(const QString &roomId, const QString &userId)
+void Connection::channelRemoveModerator(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelRemoveModeratorJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveModeratorJob::removeModeratorDone, this, &Connection::removeModeratorDone);
     if (!job->start()) {
@@ -1383,14 +1383,14 @@ void Connection::channelRemoveModerator(const QString &roomId, const QString &us
     }
 }
 
-void Connection::channelAddLeader(const QString &roomId, const QString &userId)
+void Connection::channelAddLeader(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelAddLeaderJob(this);
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelAddLeaderJob::addLeaderDone, this, &Connection::addLeaderDone);
     if (!job->start()) {
@@ -1398,14 +1398,14 @@ void Connection::channelAddLeader(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::channelRemoveLeader(const QString &roomId, const QString &userId)
+void Connection::channelRemoveLeader(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelRemoveLeaderJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveLeaderJob::removeLeaderDone, this, &Connection::removeLeaderDone);
     if (!job->start()) {
@@ -1413,14 +1413,14 @@ void Connection::channelRemoveLeader(const QString &roomId, const QString &userI
     }
 }
 
-void Connection::channelAddOwner(const QString &roomId, const QString &userId)
+void Connection::channelAddOwner(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelAddOwnerJob(this);
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelAddOwnerJob::addOwnerDone, this, &Connection::addOwnerDone);
     if (!job->start()) {
@@ -1428,14 +1428,14 @@ void Connection::channelAddOwner(const QString &roomId, const QString &userId)
     }
 }
 
-void Connection::channelRemoveOwner(const QString &roomId, const QString &userId)
+void Connection::channelRemoveOwner(const QByteArray &roomId, const QString &userId)
 {
     auto job = new ChannelRemoveOwnerJob(this);
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, &Connection::channelRemoveOwnerDone);
     if (!job->start()) {
@@ -1443,13 +1443,13 @@ void Connection::channelRemoveOwner(const QString &roomId, const QString &userId
     }
 }
 
-void Connection::channelDelete(const QString &roomId)
+void Connection::channelDelete(const QByteArray &roomId)
 {
     auto job = new ChannelDeleteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelDeleteJob::deletechannelDone, this, &Connection::deletechannelDone);
     if (!job->start()) {
@@ -1457,12 +1457,12 @@ void Connection::channelDelete(const QString &roomId)
     }
 }
 
-void Connection::groupDelete(const QString &roomId)
+void Connection::groupDelete(const QByteArray &roomId)
 {
     auto job = new GroupsDeleteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     job->setChannelGroupInfo(info);
     connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &Connection::deleteGroupsDone);
@@ -1525,7 +1525,7 @@ void Connection::createDiscussion(const QString &parentRoomId,
     }
 }
 
-void Connection::getDiscussions(const QString &roomId, int offset, int count)
+void Connection::getDiscussions(const QByteArray &roomId, int offset, int count)
 {
     auto job = new GetDiscussionsJob(this);
     initializeRestApiJob(job);
@@ -1540,11 +1540,11 @@ void Connection::getDiscussions(const QString &roomId, int offset, int count)
     }
 }
 
-void Connection::getThreadsList(const QString &roomId, bool onlyUnread, int offset, int count)
+void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset, int count)
 {
     auto job = new GetThreadsJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
@@ -1563,7 +1563,7 @@ void Connection::getThreadsList(const QString &roomId, bool onlyUnread, int offs
     }
 }
 
-void Connection::getMessage(const QString &messageId, const QString &roomId)
+void Connection::getMessage(const QString &messageId, const QByteArray &roomId)
 {
     auto job = new GetMessageJob(this);
     initializeRestApiJob(job);
@@ -1575,7 +1575,7 @@ void Connection::getMessage(const QString &messageId, const QString &roomId)
     }
 }
 
-void Connection::getPinnedMessages(const QString &roomId, int offset, int count)
+void Connection::getPinnedMessages(const QByteArray &roomId, int offset, int count)
 {
     auto job = new GetPinnedMessagesJob(this);
     initializeRestApiJob(job);
@@ -1593,7 +1593,7 @@ void Connection::getPinnedMessages(const QString &roomId, int offset, int count)
     }
 }
 
-void Connection::getMentionedMessages(const QString &roomId, int offset, int count)
+void Connection::getMentionedMessages(const QByteArray &roomId, int offset, int count)
 {
     auto job = new GetMentionedMessagesJob(this);
     initializeRestApiJob(job);
@@ -1612,7 +1612,7 @@ void Connection::getMentionedMessages(const QString &roomId, int offset, int cou
     }
 }
 
-void Connection::getStarredMessages(const QString &roomId, int offset, int count)
+void Connection::getStarredMessages(const QByteArray &roomId, int offset, int count)
 {
     auto job = new GetStarredMessagesJob(this);
     initializeRestApiJob(job);
@@ -1631,7 +1631,7 @@ void Connection::getStarredMessages(const QString &roomId, int offset, int count
     }
 }
 
-void Connection::getSnippetedMessages(const QString &roomId, int offset, int count)
+void Connection::getSnippetedMessages(const QByteArray &roomId, int offset, int count)
 {
     auto job = new GetSnippetedMessagesJob(this);
     initializeRestApiJob(job);
@@ -1672,12 +1672,12 @@ void Connection::syncThreadMessages(const QString &threadMessageId, const QStrin
     }
 }
 
-void Connection::sendMessage(const QString &roomId, const QString &text, const QString &messageId, const QString &threadMessageId)
+void Connection::sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId, const QString &threadMessageId)
 {
     auto job = new SendMessageJob(this);
     initializeRestApiJob(job);
     SendMessageJob::SendMessageArguments args;
-    args.roomId = roomId;
+    args.roomId = QString::fromLatin1(roomId);
     args.message = text;
     args.messageId = messageId;
     args.threadMessageId = threadMessageId;
@@ -1687,11 +1687,11 @@ void Connection::sendMessage(const QString &roomId, const QString &text, const Q
     }
 }
 
-void Connection::autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language)
+void Connection::autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language)
 {
     auto job = new TranslateSaveSettingsJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     job->setType(TranslateSaveSettingsJob::LanguageSetting);
     job->setLanguage(language);
     connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &Connection::translateSavesettingsDone);
@@ -1700,11 +1700,11 @@ void Connection::autoTranslateSaveLanguageSettings(const QString &roomId, const 
     }
 }
 
-void Connection::autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate)
+void Connection::autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate)
 {
     auto job = new TranslateSaveSettingsJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     job->setType(TranslateSaveSettingsJob::AutoTranslateSetting);
     job->setAutoTranslate(autoTranslate);
     connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &Connection::translateSavesettingsDone);
@@ -1868,13 +1868,13 @@ void Connection::getRoomsAdmin(const RocketChatRestApi::AdminRoomsJob::AdminRoom
     }
 }
 
-void Connection::getChannelsCounter(const QString &roomId)
+void Connection::getChannelsCounter(const QByteArray &roomId)
 {
     auto job = new ChannelGetCountersJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelGetCountersJob::channelGetCountersDone, this, &Connection::channelGetCountersDone);
     if (!job->start()) {

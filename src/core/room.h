@@ -103,8 +103,8 @@ public:
     [[nodiscard]] bool alert() const;
     void setAlert(bool alert);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &id);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &id);
 
     void setBlocker(bool alert);
     [[nodiscard]] bool blocker() const;
@@ -349,7 +349,7 @@ private:
     QString mInputMessage;
 
     // _id
-    QString mRoomId;
+    QByteArray mRoomId;
 
     // t (can take values "d" , "c" or "p" or "l")
     Room::RoomType mChannelType = RoomType::Unknown;

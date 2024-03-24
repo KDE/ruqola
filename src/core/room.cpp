@@ -25,7 +25,7 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     , mRocketChatAccount(account)
 {
     mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
-    mMessageModel = new MessagesModel(QString(), mRocketChatAccount, this, this);
+    mMessageModel = new MessagesModel(QByteArray(), mRocketChatAccount, this, this);
 }
 
 Room::~Room() = default;
@@ -202,7 +202,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 {
     qCDebug(RUQOLA_LOG) << "void Room::parseUpdateRoom(const QJsonObject &json)" << json;
     if (json.contains(QLatin1StringView("rid"))) {
-        setRoomId(json.value(QLatin1StringView("rid")).toString());
+        setRoomId(json.value(QLatin1StringView("rid")).toString().toLatin1());
     }
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     if (json.contains(QLatin1StringView("alert"))) {
@@ -469,12 +469,12 @@ void Room::setRoomCreatorUserName(const QString &userName)
     mRoomCreatorUserName = userName;
 }
 
-QString Room::roomId() const
+QByteArray Room::roomId() const
 {
     return mRoomId;
 }
 
-void Room::setRoomId(const QString &id)
+void Room::setRoomId(const QByteArray &id)
 {
     if (mRoomId != id) {
         mRoomId = id;
@@ -622,7 +622,7 @@ void Room::setName(const QString &name)
 
 void Room::parseInsertRoom(const QJsonObject &json)
 {
-    const QString roomID = json.value(QLatin1StringView("_id")).toString();
+    const QByteArray roomID = json.value(QLatin1StringView("_id")).toString().toLatin1();
     // qDebug() << " json " << json;
     setRoomId(roomID);
     setName(json[QLatin1StringView("name")].toString());
@@ -769,9 +769,9 @@ void Room::setIgnoredUsers(const QStringList &ignoredUsers)
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
-    QString roomID = json.value(QLatin1StringView("rid")).toString();
+    QByteArray roomID = json.value(QLatin1StringView("rid")).toString().toLatin1();
     if (roomID.isEmpty()) {
-        roomID = json.value(QLatin1StringView("_id")).toString();
+        roomID = json.value(QLatin1StringView("_id")).toString().toLatin1();
     }
     setRoomId(roomID);
     setName(json[QLatin1StringView("name")].toString());
@@ -951,7 +951,7 @@ Utils::AvatarInfo Room::avatarInfo() const
         }
     } else {
         info.avatarType = Utils::AvatarType::Room;
-        info.identifier = mRoomId;
+        info.identifier = QString::fromLatin1(mRoomId);
     }
     mCurrentAvatarInfo = info;
     return mCurrentAvatarInfo;
@@ -1210,7 +1210,7 @@ void Room::setEncrypted(bool encrypted)
 
 void Room::deserialize(Room *r, const QJsonObject &o)
 {
-    r->setRoomId(o[QLatin1StringView("rid")].toString());
+    r->setRoomId(o[QLatin1StringView("rid")].toString().toLatin1());
     r->setChannelType(Room::roomTypeFromString(o[QLatin1StringView("t")].toString()));
     r->setName(o[QLatin1StringView("name")].toString());
     r->setFName(o[QLatin1StringView("fname")].toString());
@@ -1302,7 +1302,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     // todo add timestamp
 
-    o[QLatin1StringView("rid")] = r->roomId();
+    o[QLatin1StringView("rid")] = QString::fromLatin1(r->roomId());
     o[QLatin1StringView("t")] = Room::roomFromRoomType(r->channelType());
     o[QLatin1StringView("name")] = r->name();
     o[QLatin1StringView("fname")] = r->fName();

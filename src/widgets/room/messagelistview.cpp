@@ -153,7 +153,7 @@ void MessageListView::setChannelSelected(Room *room)
         oldModel->deactivate();
     }
     setRoom(room);
-    const QString roomId = room->roomId();
+    const QByteArray roomId = room->roomId();
     mCurrentRocketChatAccount->switchingToRoom(roomId);
     MessagesModel *model = mCurrentRocketChatAccount->messageModelForRoom(roomId);
     setModel(model);

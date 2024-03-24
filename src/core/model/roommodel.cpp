@@ -50,7 +50,7 @@ QList<Room *> RoomModel::findRoomNameConstains(const QString &str) const
     return rooms;
 }
 
-Room *RoomModel::findRoom(const QString &roomID) const
+Room *RoomModel::findRoom(const QByteArray &roomID) const
 {
     for (Room *r : std::as_const(mRoomsList)) {
         if (r->roomId() == roomID) {
@@ -167,7 +167,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool selected)
+void RoomModel::addRoom(const QByteArray &roomID, const QString &roomName, bool selected)
 {
     if (roomID.isEmpty() || roomName.isEmpty()) {
         qCDebug(RUQOLA_ROOMS_LOG) << " Impossible to add a room";
@@ -210,9 +210,9 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread) const
 void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
 {
     // Use "_id"
-    QString rId = roomData.value(QLatin1StringView("rid")).toString();
+    QByteArray rId = roomData.value(QLatin1StringView("rid")).toString().toLatin1();
     if (rId.isEmpty()) {
-        rId = roomData.value(QLatin1StringView("_id")).toString();
+        rId = roomData.value(QLatin1StringView("_id")).toString().toLatin1();
     }
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
@@ -231,7 +231,7 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
     }
 }
 
-QString RoomModel::insertRoom(const QJsonObject &room)
+QByteArray RoomModel::insertRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseInsertRoom(room);
@@ -286,7 +286,7 @@ bool RoomModel::addRoom(Room *room)
     return true;
 }
 
-void RoomModel::removeRoom(const QString &roomId)
+void RoomModel::removeRoom(const QByteArray &roomId)
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
@@ -307,7 +307,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     if (actionName == QLatin1StringView("removed")) {
         qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name "
                                   << " rid " << roomData.value(QLatin1StringView("rid"));
-        const QString id = roomData.value(QLatin1StringView("rid")).toString();
+        const QByteArray id = roomData.value(QLatin1StringView("rid")).toString().toLatin1();
         removeRoom(id);
     } else if (actionName == QLatin1StringView("inserted")) {
         qCDebug(RUQOLA_ROOMS_LOG) << "INSERT ROOM  name " << roomData.value(QLatin1StringView("name")) << " rid " << roomData.value(QLatin1StringView("rid"));
@@ -336,9 +336,9 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonObject &roomData)" << roomData;
     // TODO fix me!
     // Use "_id"
-    QString rId = roomData.value(QLatin1StringView("rid")).toString();
+    QByteArray rId = roomData.value(QLatin1StringView("rid")).toString().toLatin1();
     if (rId.isEmpty()) {
-        rId = roomData.value(QLatin1StringView("_id")).toString();
+        rId = roomData.value(QLatin1StringView("_id")).toString().toLatin1();
     }
     if (!rId.isEmpty()) {
         const int roomCount = mRoomsList.size();
@@ -371,7 +371,7 @@ void RoomModel::userStatusChanged(const User &user)
     }
 }
 
-UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
+UsersForRoomModel *RoomModel::usersModelForRoom(const QByteArray &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
@@ -384,7 +384,7 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
     return nullptr;
 }
 
-MessagesModel *RoomModel::messageModel(const QString &roomId) const
+MessagesModel *RoomModel::messageModel(const QByteArray &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
@@ -396,7 +396,7 @@ MessagesModel *RoomModel::messageModel(const QString &roomId) const
     return {};
 }
 
-QString RoomModel::inputMessage(const QString &roomId) const
+QString RoomModel::inputMessage(const QByteArray &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
@@ -408,7 +408,7 @@ QString RoomModel::inputMessage(const QString &roomId) const
     return {};
 }
 
-void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessage)
+void RoomModel::setInputMessage(const QByteArray &roomId, const QString &inputMessage)
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {

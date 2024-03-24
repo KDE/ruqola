@@ -130,7 +130,7 @@ void InputTextManager::setCompletionType(InputTextManager::CompletionForType typ
     }
 }
 
-void InputTextManager::setInputTextChanged(const QString &roomId, const QString &text, int position)
+void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QString &text, int position)
 {
     if (text.isEmpty()) {
         clearCompleter();

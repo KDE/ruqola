@@ -16,13 +16,13 @@ public:
     explicit CommandsModelFilterProxyModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~CommandsModelFilterProxyModel() override;
 
-    void setRoomId(const QString &roomId);
+    void setRoomId(const QByteArray &roomId);
 
 protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
-    QString mRoomId;
+    QByteArray mRoomId;
     RocketChatAccount *const mRocketChatAccount;
 };

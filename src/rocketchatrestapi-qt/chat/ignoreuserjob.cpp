@@ -68,12 +68,12 @@ void IgnoreUserJob::setIgnoreUserId(const QString &ignoreUserId)
     mIgnoreUserId = ignoreUserId;
 }
 
-QString IgnoreUserJob::roomId() const
+QByteArray IgnoreUserJob::roomId() const
 {
     return mRoomId;
 }
 
-void IgnoreUserJob::setRoomId(const QString &roomId)
+void IgnoreUserJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -82,7 +82,7 @@ QNetworkRequest IgnoreUserJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatIgnoreUser);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("rid"), QString::fromLatin1(mRoomId));
     queryUrl.addQueryItem(QStringLiteral("userId"), mIgnoreUserId);
     queryUrl.addQueryItem(QStringLiteral("ignore"), mIgnore ? QStringLiteral("true") : QStringLiteral("false"));
     url.setQuery(queryUrl);

@@ -10,7 +10,7 @@
 #include "listmessages.h"
 
 CommonMessagesModel::CommonMessagesModel(RocketChatAccount *account, QObject *parent)
-    : MessagesModel(QStringLiteral("no_room"), account, nullptr, parent)
+    : MessagesModel(QByteArrayLiteral("no_room"), account, nullptr, parent)
 {
 }
 

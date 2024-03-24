@@ -30,8 +30,8 @@ public:
     [[nodiscard]] MarkAsUnReadObject unReadObject() const;
     void setUnReadObject(MarkAsUnReadObject type);
 
-    [[nodiscard]] QString objectId() const;
-    void setObjectId(const QString &objectId);
+    [[nodiscard]] QByteArray objectId() const;
+    void setObjectId(const QByteArray &objectId);
 
 Q_SIGNALS:
     void markAsUnReadDone();
@@ -42,7 +42,7 @@ protected:
 private:
     Q_DISABLE_COPY(MarkRoomAsUnReadJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mObjectId;
+    QByteArray mObjectId;
     MarkAsUnReadObject mUnReadObject = Unknown;
 };
 }

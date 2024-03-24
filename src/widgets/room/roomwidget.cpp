@@ -266,7 +266,7 @@ void RoomWidget::slotPruneMessages()
     dlg->setRoomName(mRoom->name());
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
-        info.roomId = mRoomWidgetBase->roomId();
+        info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
         if (KMessageBox::ButtonCode::PrimaryAction
             == KMessageBox::questionTwoActions(this,
                                                i18n("Do you want really remove history?"),
@@ -284,7 +284,7 @@ void RoomWidget::slotExportMessages()
     QPointer<ExportMessagesDialog> dlg = new ExportMessagesDialog(this);
     if (dlg->exec()) {
         RocketChatRestApi::RoomsExportJob::RoomsExportInfo info = dlg->roomExportInfo();
-        info.roomId = mRoomWidgetBase->roomId();
+        info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
         mCurrentRocketChatAccount->exportMessages(info);
     }
     delete dlg;
@@ -310,7 +310,7 @@ void RoomWidget::slotAddUsersInRoom()
 void RoomWidget::slotInviteUsers()
 {
     InviteUsersDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setRoomId(mRoomWidgetBase->roomId());
+    dlg.setRoomId(QString::fromLatin1(mRoomWidgetBase->roomId()));
     dlg.generateLink();
     dlg.exec();
 }
@@ -459,7 +459,7 @@ void RoomWidget::slotCallRequested()
 
             auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
             RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
-            startInfo.roomId = mRoomWidgetBase->roomId();
+            startInfo.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
             startInfo.allowRinging = mRoom->hasPermission(QStringLiteral("videoconf-ring-users"));
             job->setInfo(startInfo);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -578,10 +578,10 @@ void RoomWidget::forceLineEditFocus()
 void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomType)
 {
     storeRoomSettings();
-    setRoomId(roomId);
+    setRoomId(roomId.toLatin1());
     setRoomType(roomType);
     clearBeforeSwitching();
-    const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
+    const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId.toLatin1());
     if (currentPendingInfo.isValid()) {
         mRoomWidgetBase->messageLineWidget()->setQuoteMessage(currentPendingInfo.quotePermalink, currentPendingInfo.quoteText);
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId.toLatin1());
@@ -619,7 +619,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
         mRoomHeaderWidget->setIsDirectGroup((mRoom->channelType() == Room::RoomType::Direct) && mRoom->userNames().count() > 2);
-        if (mRoom->roomId() == QLatin1StringView("%1%1").arg(QString::fromLatin1(mCurrentRocketChatAccount->userId()))) {
+        if (QString::fromLatin1(mRoom->roomId()) == QLatin1StringView("%1%1").arg(QString::fromLatin1(mCurrentRocketChatAccount->userId()))) {
             mRoomHeaderWidget->setCallEnabled(false);
         } else {
             mRoomHeaderWidget->setCallEnabled(true);
@@ -635,7 +635,7 @@ void RoomWidget::updateRoomHeader()
     }
 }
 
-QString RoomWidget::roomId() const
+QByteArray RoomWidget::roomId() const
 {
     return mRoomWidgetBase->roomId();
 }
@@ -655,7 +655,7 @@ void RoomWidget::slotShowListOfUsersInRoom(bool checked)
     mUsersInRoomFlowWidget->setVisible(checked);
 }
 
-void RoomWidget::setRoomId(const QString &roomId)
+void RoomWidget::setRoomId(const QByteArray &roomId)
 {
     mRoomWidgetBase->setRoomId(roomId);
     mRoom = mCurrentRocketChatAccount->room(mRoomWidgetBase->roomId());
@@ -732,7 +732,7 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         }
         auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         info.count = numberOfMessage - roomMessageModel->rowCount() + 1;
-        info.roomId = mRoomWidgetBase->roomId();
+        info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
         const qint64 endDateTime = roomMessageModel->lastTimestamp();
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime, Qt::UTC).toString(Qt::ISODateWithMs);
         // qDebug() << " info.latestMessage " << info.latestMessage;
@@ -787,7 +787,7 @@ void RoomWidget::slotGotoMessage(const QByteArray &messageId, const QString &mes
             return;
         }
         auto job = new RocketChatRestApi::ChannelHistoryJob(this);
-        info.roomId = mRoomWidgetBase->roomId();
+        info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
         const qint64 endDateTime = messageModel->lastTimestamp();
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime, Qt::UTC).toString(Qt::ISODateWithMs);
         info.oldestMessage = messageDateTimeUtc;
@@ -820,7 +820,7 @@ void RoomWidget::slotEncryptedChanged(bool b)
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.encrypted = b;
-    info.roomId = mRoomWidgetBase->roomId();
+    info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
     info.roomType = mRoom ? mRoom->roomFromRoomType(mRoom->channelType()) : QString();
     info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
     auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
@@ -913,7 +913,7 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
 
 void RoomWidget::slotCloseOtr()
 {
-    mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(roomId(), QString::fromLatin1(mCurrentRocketChatAccount->userId()));
+    mCurrentRocketChatAccount->ddp()->streamNotifyUserOtrEnd(QString::fromLatin1(roomId()), QString::fromLatin1(mCurrentRocketChatAccount->userId()));
 }
 
 void RoomWidget::slotRefreshOtrKeys()

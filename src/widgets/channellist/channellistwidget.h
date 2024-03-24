@@ -30,7 +30,7 @@ public:
 
 Q_SIGNALS:
     void roomSelected(const ChannelListView::ChannelSelectedInfo &roomInfo);
-    void roomPressed(const QString &roomId);
+    void roomPressed(const QByteArray &roomId);
     void selectMessageIdRequested(const QByteArray &messageId);
 
 protected:

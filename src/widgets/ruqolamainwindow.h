@@ -59,7 +59,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLogout();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectNextUnreadChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewChannel();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotTypingNotificationChanged(const QByteArray &roomId, const QString &notificationStr);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearNotification();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAccountChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUnreadOnTop(bool checked);

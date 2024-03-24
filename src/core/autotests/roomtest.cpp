@@ -92,7 +92,7 @@ void RoomTest::shouldSerialized()
 {
     {
         Room input(nullptr);
-        input.setRoomId(QStringLiteral("foo"));
+        input.setRoomId(QByteArrayLiteral("foo"));
         input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
         input.setName(QStringLiteral("d"));
         input.setAnnouncement(QStringLiteral("AA"));
@@ -139,7 +139,7 @@ void RoomTest::shouldSerialized()
     }
     {
         Room input(nullptr);
-        input.setRoomId(QStringLiteral("foo"));
+        input.setRoomId(QByteArrayLiteral("foo"));
         input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
         input.setName(QStringLiteral("p"));
         input.setAnnouncement(QStringLiteral("AA"));
@@ -269,7 +269,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
     QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
 
-    input.setRoomId(QStringLiteral("foo"));
+    input.setRoomId(QByteArrayLiteral("foo"));
     input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));

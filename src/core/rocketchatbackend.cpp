@@ -216,7 +216,7 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
     }
 }
 
-void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messageIds, const QString &roomId)
+void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messageIds, const QByteArray &roomId)
 {
     if (messageIds.isEmpty()) {
         return;
@@ -243,7 +243,7 @@ void RocketChatBackend::addMessagesFromLocalDataBase(const QList<Message> &messa
     MessagesModel *messageModel = nullptr;
     for (const auto &message : messages) {
         if (!messageModel) {
-            const QString roomId = message.roomId();
+            const QByteArray roomId = message.roomId().toLatin1();
             messageModel = mRocketChatAccount->messageModelForRoom(roomId);
         }
         updateVideoConferenceInfo(message);
@@ -264,7 +264,7 @@ void RocketChatBackend::addMessagesFromLocalDataBase(const QList<Message> &messa
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool loadHistory, bool restApi)
 {
     QHash<MessagesModel *, QList<Message>> dispatcher;
-    QString lastRoomId;
+    QByteArray lastRoomId;
     MessagesModel *messageModel = nullptr;
     Room *room = nullptr;
     for (const QJsonValue &v : messages) {
@@ -279,7 +279,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         Message m;
         m.parseMessage(o, restApi, mRocketChatAccount->emojiManager());
         updateVideoConferenceInfo(m);
-        const QString roomId = m.roomId();
+        const QByteArray roomId = m.roomId().toLatin1();
         if (roomId != lastRoomId) {
             messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             room = mRocketChatAccount->room(roomId);
@@ -545,7 +545,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "Remove channel" << contents;
                 const QJsonObject roomData = contents[1].toObject();
                 // TODO use rid
-                model->removeRoom(QString());
+                model->removeRoom(QByteArray());
             } else {
                 qWarning() << "rooms-changed invalid actionName " << actionName;
             }
@@ -645,11 +645,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
 
             QString roomId = eventname;
             roomId.remove(QStringLiteral("/deleteMessage"));
-            MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+            MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
                 const QString messageId = contents.at(0).toObject()[QLatin1StringView("_id")].toString();
                 messageModel->deleteMessage(messageId.toLatin1());
-                Room *room = mRocketChatAccount->room(roomId);
+                Room *room = mRocketChatAccount->room(roomId.toLatin1());
                 if (room) {
                     mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
                 }
@@ -675,7 +675,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             const QString typingUserName = contents.toVariantList().at(0).toString();
             if (typingUserName != mRocketChatAccount->settings()->userName()) {
                 const bool status = contents.toVariantList().at(1).toBool();
-                mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, typingUserName, status);
+                mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId.toLatin1(), typingUserName, status);
             }
         } else if (eventname.endsWith(QLatin1StringView("/deleteMessageBulk"))) {
             if (mRocketChatAccount->ruqolaLogger()) {

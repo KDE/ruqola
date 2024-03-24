@@ -43,12 +43,12 @@ void DiscussionsModel::initialize()
     setHasFullList(false);
 }
 
-QString DiscussionsModel::roomId() const
+QByteArray DiscussionsModel::roomId() const
 {
     return mRoomId;
 }
 
-void DiscussionsModel::setRoomId(const QString &roomId)
+void DiscussionsModel::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -89,7 +89,7 @@ void DiscussionsModel::clear()
     endResetModel();
 }
 
-void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId)
+void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QByteArray &roomId)
 {
     mRoomId = roomId;
     if (!mDiscussions->isEmpty()) {

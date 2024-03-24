@@ -54,7 +54,7 @@ void LocalRoomsDatabaseTest::shouldStoreRoomsSettings()
         roomDataBase.updateRoom(accountName(), &r);
 
         // WHEN
-        const QByteArray getInfo = roomDataBase.jsonRoom(accountName(), r.roomId());
+        const QByteArray getInfo = roomDataBase.jsonRoom(accountName(), QString::fromLatin1(r.roomId()));
 
         // THEN
         QCOMPARE(getInfo, ba);

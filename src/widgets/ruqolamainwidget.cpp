@@ -93,7 +93,7 @@ RuqolaMainWidget::~RuqolaMainWidget()
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
+        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(QString::fromLatin1(mRoomWidget->roomId()));
     }
 }
 
@@ -105,7 +105,7 @@ void RuqolaMainWidget::createBannerMessageWidget()
     connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
 }
 
-void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
+void RuqolaMainWidget::slotRoomPressed(const QByteArray &roomId)
 {
     if (mRoomWidget->roomId() == roomId) {
         // force select lineedit
@@ -115,7 +115,7 @@ void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
 
 void RuqolaMainWidget::selectChannelRoom(const ChannelListView::ChannelSelectedInfo &roomInfo)
 {
-    if (mRoomWidget->roomId() == roomInfo.roomId) {
+    if (mRoomWidget->roomId() == roomInfo.roomId.toLatin1()) {
         return;
     }
     mCurrentRocketChatAccount->settings()->setLastSelectedRoom(roomInfo.roomId);
@@ -139,7 +139,7 @@ Room *RuqolaMainWidget::room() const
     return mRoomWidget->room();
 }
 
-QString RuqolaMainWidget::roomId() const
+QByteArray RuqolaMainWidget::roomId() const
 {
     return mRoomWidget->roomId();
 }
@@ -155,7 +155,7 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mRoomWidget->storeRoomSettings();
     const auto previousRocketChatAccount = mCurrentRocketChatAccount;
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
+        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(QString::fromLatin1(mRoomWidget->roomId()));
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::bannerInfoChanged, this, &RuqolaMainWidget::updateBannerInfo);
     }
     mCurrentRocketChatAccount = account;

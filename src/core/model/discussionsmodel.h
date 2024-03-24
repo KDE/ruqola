@@ -35,10 +35,10 @@ public:
 
     void initialize();
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
-    void parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId);
+    void parseDiscussions(const QJsonObject &discussionsObj, const QByteArray &roomId);
 
     void addMoreDiscussions(const QJsonObject &discussionsObj);
     Discussions *discussions() const;
@@ -59,7 +59,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
-    QString mRoomId;
+    QByteArray mRoomId;
     bool mLoadMoreDiscussionsInProgress = false;
     bool mHasFullList = false;
     Discussions *const mDiscussions;

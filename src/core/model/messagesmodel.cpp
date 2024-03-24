@@ -20,7 +20,7 @@
 
 #include <KLocalizedString>
 
-MessagesModel::MessagesModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
+MessagesModel::MessagesModel(const QByteArray &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : QAbstractListModel(parent)
     , mRoomId(roomID)
     , mRocketChatAccount(account)
@@ -488,7 +488,7 @@ QString MessagesModel::convertMessageText(const Message &message, const QString 
     return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 }
 
-void MessagesModel::setRoomId(const QString &roomId)
+void MessagesModel::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -635,7 +635,7 @@ QList<Message>::const_iterator MessagesModel::findMessage(const QByteArray &mess
     });
 }
 
-QString MessagesModel::roomId() const
+QByteArray MessagesModel::roomId() const
 {
     return mRoomId;
 }

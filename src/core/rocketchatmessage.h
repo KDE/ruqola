@@ -28,21 +28,21 @@ public:
     void setJsonFormat(QJsonDocument::JsonFormat jsonFormat);
 
     [[nodiscard]] RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult joinRoom(const QByteArray &roomId, const QString &accessCode, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult openDirectChannel(const QString &username, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QByteArray &roomId, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unsubscribe(quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult blockUser(const QString &rid, const QString &userId, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    searchRoomUsers(const QString &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
+    searchRoomUsers(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id);
+    inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id);
+    inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
 

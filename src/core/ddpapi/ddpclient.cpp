@@ -246,7 +246,7 @@ void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
     const QJsonObject obj = root.value(QLatin1StringView("result")).toObject();
     // qDebug() << " void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)" << obj;
     if (!obj.isEmpty()) {
-        const QString rid = obj.value(QLatin1StringView("rid")).toString();
+        const QByteArray rid = obj.value(QLatin1StringView("rid")).toString().toLatin1();
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
@@ -390,17 +390,18 @@ QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const
     return m_messageQueue;
 }
 
-void DDPClient::subscribeRoomMessage(const QString &roomId)
+void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
 {
+    const QString rId = QString::fromLatin1(roomId);
     QJsonArray params;
-    params.append(QJsonValue(roomId));
+    params.append(QJsonValue(rId));
     subscribe(QStringLiteral("stream-room-messages"), params);
 
-    const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessage")))};
+    const QJsonArray params2{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("deleteMessage")))};
     subscribe(QStringLiteral("stream-notify-room"), params2);
-    const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("deleteMessageBulk")))};
+    const QJsonArray params3{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("deleteMessageBulk")))};
     subscribe(QStringLiteral("stream-notify-room"), params3);
-    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(roomId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
+    const QJsonArray params4{QJsonValue(QStringLiteral("%1/%2").arg(rId, QStringLiteral("user-activity")))}; // It seems that it's the new "typing"
     subscribe(QStringLiteral("stream-notify-room"), params4);
 }
 
@@ -410,7 +411,7 @@ quint64 DDPClient::openDirectChannel(const QString &userId)
     return method(result, open_direct_channel, DDPClient::Persistent);
 }
 
-quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &fileid, Room::RoomType channelType)
+quint64 DDPClient::deleteFileMessage(const QByteArray &roomId, const QString &fileid, Room::RoomType channelType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, mUid);
 
@@ -432,7 +433,7 @@ quint64 DDPClient::openRoom(const QString &roomId)
     return method(result, open_room, DDPClient::Persistent);
 }
 
-quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
+quint64 DDPClient::joinRoom(const QByteArray &roomId, const QString &joinCode)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, mUid);
     return method(result, join_room, DDPClient::Persistent);
@@ -444,13 +445,13 @@ quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
     return method(result, change_default_status, DDPClient::Persistent);
 }
 
-quint64 DDPClient::createJitsiConfCall(const QString &roomId)
+quint64 DDPClient::createJitsiConfCall(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, mUid);
     return method(result, create_jitsi_conf_call, DDPClient::Persistent);
 }
 
-quint64 DDPClient::inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
+quint64 DDPClient::inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(roomId, pattern, exceptions, mUid);
     if (threadDialog) {
@@ -460,7 +461,7 @@ quint64 DDPClient::inputChannelAutocomplete(const QString &roomId, const QString
     }
 }
 
-quint64 DDPClient::inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
+quint64 DDPClient::inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(roomId, pattern, exceptions, mUid);
     if (threadDialog) {
@@ -610,7 +611,7 @@ quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &cal
     return method(result, video_conference_call, DDPClient::Persistent);
 }
 
-quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
+quint64 DDPClient::informTypingStatus(const QByteArray &roomId, bool typing, const QString &userName)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, mUid);
     const qint64 bytes = mWebSocket->sendTextMessage(result.result);

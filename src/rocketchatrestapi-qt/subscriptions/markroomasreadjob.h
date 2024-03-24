@@ -24,15 +24,15 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
 Q_SIGNALS:
-    void markAsReadDone(const QString &roomId);
+    void markAsReadDone(const QByteArray &roomId);
 
 private:
     Q_DISABLE_COPY(MarkRoomAsReadJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
+    QByteArray mRoomId;
 };
 }

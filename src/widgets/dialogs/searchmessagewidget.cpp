@@ -85,12 +85,12 @@ void SearchMessageWidget::slotSearchLineMessagesEnterPressed()
     slotSearchMessages(mSearchLineEdit->text());
 }
 
-QString SearchMessageWidget::roomId() const
+QByteArray SearchMessageWidget::roomId() const
 {
     return mRoomId;
 }
 
-void SearchMessageWidget::setRoomId(const QString &roomId)
+void SearchMessageWidget::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }

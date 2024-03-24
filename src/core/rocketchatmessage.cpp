@@ -164,9 +164,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const 
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QString &roomId, const QString &accessCode, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QByteArray &roomId, const QString &accessCode, quint64 id)
 {
-    const QJsonArray params{{roomId}, {accessCode}};
+    const QJsonArray params{{QString::fromLatin1(roomId)}, {accessCode}};
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
 
@@ -183,9 +183,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(
     return generateMethod(QStringLiteral("deleteFileMessage"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
-    const QString eventName = roomId + QStringLiteral("/user-activity");
+    const QString eventName = QString::fromLatin1(roomId) + QStringLiteral("/user-activity");
     const QJsonArray params{{eventName}, {userId}, {typingStatus}};
     return generateMethod(QStringLiteral("stream-notify-room"), QJsonDocument(params), id);
 }
@@ -206,26 +206,26 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(U
     return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QString &roomId, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QByteArray &roomId, quint64 id)
 {
-    const QJsonArray params{{QJsonValue(roomId)}};
+    const QJsonArray params{{QJsonValue(QString::fromLatin1(roomId))}};
     return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::inputChannelAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id)
+RocketChatMessage::inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id)
 {
     return searchRoomUsers(roomId, pattern, exceptions, false, true, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::inputUserAutocomplete(const QString &roomId, const QString &pattern, const QString &exceptions, quint64 id)
+RocketChatMessage::inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id)
 {
     return searchRoomUsers(roomId, pattern, exceptions, true, false, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::searchRoomUsers(const QString &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
+RocketChatMessage::searchRoomUsers(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
 {
     QJsonArray params;
     params.append(pattern);
@@ -243,7 +243,7 @@ RocketChatMessage::searchRoomUsers(const QString &roomId, const QString &pattern
     secondParams[QLatin1StringView("mentions")] = true;
     params.append(std::move(secondParams));
     if (!roomId.isEmpty()) {
-        params.append(roomId);
+        params.append(QString::fromLatin1(roomId));
     }
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }

@@ -41,8 +41,8 @@ public:
     [[nodiscard]] EditingMode mode() const;
     void setMode(EditingMode mode);
 
-    void setRoomId(const QString &roomId);
-    [[nodiscard]] QString roomId() const;
+    void setRoomId(const QByteArray &roomId);
+    [[nodiscard]] QByteArray roomId() const;
 
     [[nodiscard]] QByteArray messageIdBeingEdited() const;
     void setMessageIdBeingEdited(const QByteArray &messageIdBeingEdited);

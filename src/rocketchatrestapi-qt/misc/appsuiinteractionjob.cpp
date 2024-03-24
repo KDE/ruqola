@@ -99,7 +99,7 @@ bool AppsUiInteractionJob::AppsUiInteractionJobInfo::isValid() const
 void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QString &actionId,
                                                                         const QString &value,
                                                                         const QString &blockId,
-                                                                        const QString &roomId,
+                                                                        const QByteArray &roomId,
                                                                         const QString &messageId)
 {
     QJsonObject o;
@@ -111,7 +111,7 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
     payload.insert(QStringLiteral("value"), value);
 
     o.insert(QStringLiteral("payload"), payload);
-    o.insert(QStringLiteral("rid"), roomId);
+    o.insert(QStringLiteral("rid"), QString::fromLatin1(roomId));
     o.insert(QStringLiteral("mid"), messageId);
 
     QJsonObject container;

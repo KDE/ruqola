@@ -45,7 +45,7 @@ SearchMessageDialog::~SearchMessageDialog()
     writeConfig();
 }
 
-void SearchMessageDialog::setRoomId(const QString &roomId)
+void SearchMessageDialog::setRoomId(const QByteArray &roomId)
 {
     mSearchMessageWidget->setRoomId(roomId);
 }

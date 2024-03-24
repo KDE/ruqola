@@ -376,7 +376,7 @@ void RuqolaMainWindow::slotClearNotification()
     mStatusBarTypingMessage->clear();
 }
 
-void RuqolaMainWindow::slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr)
+void RuqolaMainWindow::slotTypingNotificationChanged(const QByteArray &roomId, const QString &notificationStr)
 {
     if (mMainWidget->roomId() == roomId) {
         mStatusBarTypingMessage->setText(notificationStr);
@@ -854,7 +854,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
     // TODO add channel name!
     if (dlg->exec()) {
         // FIXME channelinfo
-        mCurrentRocketChatAccount->joinRoom(channelInfo.identifier, dlg->password());
+        mCurrentRocketChatAccount->joinRoom(channelInfo.identifier.toLatin1(), dlg->password());
     }
     delete dlg;
 }

@@ -49,12 +49,12 @@ void GetMessageJob::onGetRequestResponse(const QString &replyErrorString, const 
     }
 }
 
-QString GetMessageJob::roomId() const
+QByteArray GetMessageJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetMessageJob::setRoomId(const QString &roomId)
+void GetMessageJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -100,7 +100,7 @@ QString GetMessageJob::errorMessage(const QString &str, const QJsonObject &detai
         if (mRoomId.isEmpty()) {
             return i18n("Not allowed to get message %1", mMessageId);
         }
-        return i18n("Not allowed to get message %2 in room %1", mRoomId, mMessageId);
+        return i18n("Not allowed to get message %2 in room %1", QString::fromLatin1(mRoomId), mMessageId);
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }

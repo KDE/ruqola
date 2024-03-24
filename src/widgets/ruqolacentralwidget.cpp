@@ -91,7 +91,7 @@ Room *RuqolaCentralWidget::room() const
     return mRuqolaMainWidget->room();
 }
 
-QString RuqolaCentralWidget::roomId() const
+QByteArray RuqolaCentralWidget::roomId() const
 {
     return mRuqolaMainWidget->roomId();
 }
