@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-22 22:15+0100\n"
+"PO-Revision-Date: 2024-03-23 17:06+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -2655,16 +2655,14 @@ msgid "Save File Error"
 msgstr "Dosier-Konserva Eraro"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Messages"
-msgstr "Raportita mesaĝo"
+msgstr "Raportitaj Mesaĝoj"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Users"
-msgstr "Raportita mesaĝo"
+msgstr "Raportitaj Uzantoj"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -9516,6 +9514,8 @@ msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
+"Realigi aŭtentigon per persona ĵetono. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Bug 481400</a>"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
@@ -9540,6 +9540,3 @@ msgstr "Redukti memorbezonon."
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Use RESTAPI for logging."
 msgstr "Uzi RESTAPI por protokolado."
-
-#~ msgid "Implement personal token authentication."
-#~ msgstr "Realigi aŭtentigon per persona ĵetono."

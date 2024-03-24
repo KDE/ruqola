@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-17 11:25+0100\n"
+"PO-Revision-Date: 2024-03-23 11:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2660,16 +2660,14 @@ msgid "Save File Error"
 msgstr "Błąd zapisu pliku"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Messages"
-msgstr "Zgłoszona wiadomość"
+msgstr "Zgłoszone wiadomości"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Users"
-msgstr "Zgłoszona wiadomość"
+msgstr "Zgłoszeni użytkownicy"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -9575,10 +9573,12 @@ msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
+"Dodano uwierzytelnianie osobistym tokenem. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Błąd 481400</a>"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
-msgstr "Naprawiono tryb ciemny"
+msgstr "Naprawiono tryb ciemny."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:79
 msgid "Fix jitsi support."
@@ -9594,11 +9594,11 @@ msgstr "Nie pokazuj @here/@all jako użytkownik."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Reduce memory footprint."
-msgstr ""
+msgstr "Ograniczono zapotrzebowanie na pamięć."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Use RESTAPI for logging."
-msgstr ""
+msgstr "Użyto RESTAPI do logowania."
 
 #, fuzzy
 #~| msgid "Implement block actions."

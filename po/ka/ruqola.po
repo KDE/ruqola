@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-22 02:21+0100\n"
+"PO-Revision-Date: 2024-03-23 06:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2652,16 +2652,14 @@ msgid "Save File Error"
 msgstr "ფაილის შენახვის შეცდომა"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Messages"
-msgstr "დარეპორტებული შეტყობინება"
+msgstr "დარეპორტებული შეტყობინებები"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Users"
-msgstr "დარეპორტებული შეტყობინება"
+msgstr "დარეპორტებული მომხმარებლები"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -9520,6 +9518,8 @@ msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
+"პირადი კოდით ავთენტიკაციის განხორციელება. <a href=\"https://bugs.kde.org/"
+"show_bug.cgi?id=481400\">Bug 481400</a>"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."

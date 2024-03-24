@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-22 19:12+0200\n"
+"PO-Revision-Date: 2024-03-23 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2677,16 +2677,14 @@ msgid "Save File Error"
 msgstr "Помилка під час збереження файла"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Messages"
-msgstr "Повідомлення зі скаргами"
+msgstr "Повідомлення, на які поскаржилися"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Users"
-msgstr "Повідомлення зі скаргами"
+msgstr "Користувачі, на яких скаржилися"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -9643,6 +9641,8 @@ msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
+"Реалізовано розпізнавання за особистим жетоном. <a href=\"https://bugs.kde."
+"org/show_bug.cgi?id=481400\">Вада 481400</a>"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
