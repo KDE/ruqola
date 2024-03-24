@@ -97,7 +97,7 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
     }
     case Team: {
         const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::RoomIdentifier);
-        const QString roomId = modelIndex.data().toString();
+        const QString roomId = QString::fromLatin1(modelIndex.data().toByteArray());
         mRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
         break;
     }
