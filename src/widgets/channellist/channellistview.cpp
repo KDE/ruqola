@@ -233,8 +233,8 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
         if (!teamId.isEmpty()) {
             auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
             job->setTeamId(teamId);
-            const QString roomId = index.data(RoomModel::RoomId).toString();
-            job->setRoomIds({roomId});
+            const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
+            job->setRoomIds({QString::fromLatin1(roomId)});
 
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             // connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &ChannelListView::slotChannelConvertToTeamDone);
@@ -356,13 +356,13 @@ void ChannelListView::channelSelected(const QModelIndex &index)
     if (!index.parent().isValid())
         return;
 
-    const QString roomId = index.data(RoomModel::RoomId).toString();
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     const QString roomName = index.data(RoomModel::RoomFName).toString();
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
     ChannelSelectedInfo info;
     info.avatarInfo = avatarInfo;
-    info.roomId = roomId;
+    info.roomId = QString::fromLatin1(roomId);
     info.roomName = roomName;
     info.roomType = roomType;
     Q_EMIT roomSelected(info);
@@ -376,8 +376,8 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
 
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)
 {
-    const QString roomId = index.data(RoomModel::RoomId).toString();
-    mCurrentRocketChatAccount->leaveRoom(roomId, roomType);
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
+    mCurrentRocketChatAccount->leaveRoom(QString::fromLatin1(roomId), roomType);
 }
 
 void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavorite)

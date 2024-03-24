@@ -260,7 +260,7 @@ Room::TeamRoomInfo RoomModel::roomFromTeamId(const QString &teamId)
             if (modelIndex.data(RoomModel::RoomTeamId).toString() == teamId) {
                 Room::TeamRoomInfo teamInfo;
                 teamInfo.teamName = modelIndex.data(RoomModel::RoomName).toString();
-                teamInfo.teamIdentifier = modelIndex.data(RoomModel::RoomId).toString();
+                teamInfo.teamIdentifier = QString::fromLatin1(modelIndex.data(RoomModel::RoomId).toByteArray());
                 return teamInfo;
             }
         }
