@@ -92,7 +92,7 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
                                                        button.actionId,
                                                        button.value,
                                                        button.blockId,
-                                                       message->roomId().toLatin1(),
+                                                       message->roomId(),
                                                        QString::fromLatin1(message->messageId()));
                 return true;
             }

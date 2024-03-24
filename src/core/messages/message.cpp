@@ -20,7 +20,7 @@ Message::~Message() = default;
 
 void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager)
 {
-    const QString roomId = o.value(QLatin1StringView("rid")).toString();
+    const QByteArray roomId = o.value(QLatin1StringView("rid")).toString().toLatin1();
 
     // t ? I can't find it.
     const QString type = o.value(QLatin1StringView("t")).toString();
@@ -843,12 +843,12 @@ void Message::setMessageId(const QByteArray &messageId)
     mMessageId = messageId;
 }
 
-QString Message::roomId() const
+QByteArray Message::roomId() const
 {
     return mRoomId;
 }
 
-void Message::setRoomId(const QString &roomId)
+void Message::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -922,7 +922,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     message.mMessageId = o[QLatin1StringView("messageID")].toString().toLatin1();
-    message.mRoomId = o[QLatin1StringView("roomID")].toString();
+    message.mRoomId = o[QLatin1StringView("roomID")].toString().toLatin1();
     message.mText = o[QLatin1StringView("message")].toString();
     message.setTimeStamp(static_cast<qint64>(o[QLatin1StringView("timestamp")].toDouble()));
     message.mUsername = o[QLatin1StringView("username")].toString();
@@ -1012,7 +1012,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     QJsonObject o;
 
     o[QLatin1StringView("messageID")] = QString::fromLatin1(message.mMessageId);
-    o[QLatin1StringView("roomID")] = message.mRoomId;
+    o[QLatin1StringView("roomID")] = QString::fromLatin1(message.mRoomId);
     o[QLatin1StringView("message")] = message.mText;
     o[QLatin1StringView("timestamp")] = message.mTimeStamp;
     o[QLatin1StringView("username")] = message.mUsername;

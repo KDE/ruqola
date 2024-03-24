@@ -36,7 +36,7 @@ void MessagesModelTest::shouldHaveDefaultValue()
 
 static void fillTestMessage(Message &input)
 {
-    input.setRoomId(QStringLiteral("room2"));
+    input.setRoomId(QByteArrayLiteral("room2"));
     input.setText(QStringLiteral("message1"));
     input.setTimeStamp(QDateTime::currentMSecsSinceEpoch());
     input.setUsername(QStringLiteral("user1"));

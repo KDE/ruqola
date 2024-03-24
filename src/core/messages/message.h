@@ -55,8 +55,8 @@ public:
     Q_FLAGS(MessageState MessageStates)
     Q_DECLARE_FLAGS(MessageStates, MessageState)
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] bool groupable() const;
     void setGroupable(bool groupable);
@@ -298,7 +298,7 @@ private:
     QString mAlias;
 
     // rid
-    QString mRoomId;
+    QByteArray mRoomId;
 
     // avatar
     QString mAvatar;

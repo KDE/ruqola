@@ -55,7 +55,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setUpdatedAt(1504509615063);
         firstMessageRef.setEditedAt(-1);
         firstMessageRef.setIsStarred(false);
-        firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
+        firstMessageRef.setRoomId(QByteArrayLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
         MessageAttachment att;
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
         att.setTitle(QStringLiteral("dd.pdf"));
@@ -77,7 +77,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setUpdatedAt(1504596901803);
         urlMessageRef.setEditedAt(-1);
         urlMessageRef.setIsStarred(false);
-        urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
+        urlMessageRef.setRoomId(QByteArrayLiteral("dBWXYy4nyBHn8Q7dv"));
         urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
         MessageUrl url;
         url.setUrl(QStringLiteral("https://foo.com/event/C8CT"));
@@ -106,7 +106,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setEditedAt(-1);
         urlMessageRef.setIsStarred(false);
         urlMessageRef.setParseUrls(true);
-        urlMessageRef.setRoomId(QStringLiteral("wWTrQstz3mex5Mm"));
+        urlMessageRef.setRoomId(QByteArrayLiteral("wWTrQstz3mex5Mm"));
         urlMessageRef.setText(QStringLiteral("https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"));
         MessageUrl url;
         url.setUrl(QStringLiteral("https://foo/pull/48/files#diff-142b45cf8aa373eab25fd7a81c45c11fb2bb07e4556b34162497ecb66b4aefb4R149"));
@@ -136,7 +136,7 @@ void MessageTest::shouldParseMessage_data()
         imageMessageRef.setUpdatedAt(1505399177846);
         imageMessageRef.setEditedAt(-1);
         imageMessageRef.setIsStarred(false);
-        imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
+        imageMessageRef.setRoomId(QByteArrayLiteral("dBWXYy4nyBHn8Q7dv"));
 
         MessageAttachment attImage;
         attImage.setTitle(QStringLiteral("Clipboard"));
@@ -168,7 +168,7 @@ void MessageTest::shouldParseMessage_data()
         videoMessageRef.setUpdatedAt(1515580853102);
         videoMessageRef.setEditedAt(-1);
         videoMessageRef.setIsStarred(false);
-        videoMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+        videoMessageRef.setRoomId(QByteArrayLiteral("kGtPa6bu7xHrS5xz6"));
 
         MessageAttachment attVideo;
         attVideo.setTitle(QStringLiteral("SampleVideo_1280x720_1mb.mp4"));
@@ -196,7 +196,7 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setUpdatedAt(1515588347102);
         audioMessageRef.setEditedAt(-1);
         audioMessageRef.setIsStarred(false);
-        audioMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+        audioMessageRef.setRoomId(QByteArrayLiteral("kGtPa6bu7xHrS5xz6"));
 
         MessageAttachment attAudio;
         attAudio.setTitle(QStringLiteral("joint.wav"));
@@ -224,7 +224,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRef.setUpdatedAt(1516721464681);
         messageStarredRef.setEditedAt(1516712012309);
         messageStarredRef.setEditedByUsername(QStringLiteral("laurent"));
-        messageStarredRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+        messageStarredRef.setRoomId(QByteArrayLiteral("kGtPa6bu7xHrS5xz6"));
         messageStarredRef.setIsStarred(true);
         messageStarredRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
 
@@ -242,7 +242,7 @@ void MessageTest::shouldParseMessage_data()
         messagePinnedRef.setUserId(QByteArrayLiteral("uKK39zoewTkdacidH"));
         messagePinnedRef.setMessageType(Message::NormalText);
         messagePinnedRef.setUpdatedAt(1550240994061);
-        messagePinnedRef.setRoomId(QStringLiteral("zMHhMfsEPvKjgFuyE"));
+        messagePinnedRef.setRoomId(QByteArrayLiteral("zMHhMfsEPvKjgFuyE"));
         messagePinnedRef.setIsStarred(false);
         MessagePinned pinned;
         pinned.setPinned(true);
@@ -267,7 +267,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRemovedRef.setUpdatedAt(1516721464681);
         messageStarredRemovedRef.setEditedAt(1516712012309);
         messageStarredRemovedRef.setEditedByUsername(QStringLiteral("laurent"));
-        messageStarredRemovedRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+        messageStarredRemovedRef.setRoomId(QByteArrayLiteral("kGtPa6bu7xHrS5xz6"));
         messageStarredRemovedRef.setIsStarred(false);
         messageStarredRemovedRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
 
@@ -286,7 +286,7 @@ void MessageTest::shouldParseMessage_data()
         messageAttachmentFileRef.setMessageType(Message::NormalText);
         messageAttachmentFileRef.setUpdatedAt(1520540888836);
         messageAttachmentFileRef.setEditedAt(-1);
-        messageAttachmentFileRef.setRoomId(QStringLiteral("Pa6bu7xHrS5xz6"));
+        messageAttachmentFileRef.setRoomId(QByteArrayLiteral("Pa6bu7xHrS5xz6"));
         messageAttachmentFileRef.setIsStarred(false);
 
         MessageAttachment fileAttachment;
@@ -330,7 +330,7 @@ void MessageTest::shouldSerializeData()
         Message input;
 
         input.setMessageId(QByteArrayLiteral("ff"));
-        input.setRoomId(QStringLiteral("room1"));
+        input.setRoomId(QByteArrayLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));
@@ -372,7 +372,7 @@ void MessageTest::shouldSerializeData()
         Message input;
 
         input.setMessageId(QByteArrayLiteral("ff"));
-        input.setRoomId(QStringLiteral("room1"));
+        input.setRoomId(QByteArrayLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));
@@ -434,7 +434,7 @@ void MessageTest::shouldSerializeData()
         Message input;
 
         input.setMessageId(QByteArrayLiteral("ff"));
-        input.setRoomId(QStringLiteral("room1"));
+        input.setRoomId(QByteArrayLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));
@@ -467,7 +467,7 @@ void MessageTest::shouldSerializeData()
         Message input;
 
         input.setMessageId(QByteArrayLiteral("ff"));
-        input.setRoomId(QStringLiteral("room1"));
+        input.setRoomId(QByteArrayLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));
@@ -625,7 +625,7 @@ void MessageTest::shouldSerializeData()
         Message input;
 
         input.setMessageId(QByteArrayLiteral("ff"));
-        input.setRoomId(QStringLiteral("room1"));
+        input.setRoomId(QByteArrayLiteral("room1"));
         input.setText(QStringLiteral("message1"));
         input.setTimeStamp(42);
         input.setUsername(QStringLiteral("user1"));

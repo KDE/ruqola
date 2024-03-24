@@ -243,7 +243,7 @@ void RocketChatBackend::addMessagesFromLocalDataBase(const QList<Message> &messa
     MessagesModel *messageModel = nullptr;
     for (const auto &message : messages) {
         if (!messageModel) {
-            const QByteArray roomId = message.roomId().toLatin1();
+            const QByteArray roomId = message.roomId();
             messageModel = mRocketChatAccount->messageModelForRoom(roomId);
         }
         updateVideoConferenceInfo(message);
@@ -279,7 +279,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         Message m;
         m.parseMessage(o, restApi, mRocketChatAccount->emojiManager());
         updateVideoConferenceInfo(m);
-        const QByteArray roomId = m.roomId().toLatin1();
+        const QByteArray roomId = m.roomId();
         if (roomId != lastRoomId) {
             messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             room = mRocketChatAccount->room(roomId);
