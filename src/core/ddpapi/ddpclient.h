@@ -195,7 +195,7 @@ public:
     quint64 updateOAuthApp(const QString &name, bool active, const QString &redirectUrl);
     quint64 setAdminStatus(const QString &userId, bool admin);
     quint64 openRoom(const QString &roomId);
-    quint64 bannerDismiss(const QString &bannerId);
+    quint64 bannerDismiss(const QByteArray &bannerId);
     quint64 licenseGetModules();
     quint64 videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId);

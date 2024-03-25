@@ -410,7 +410,7 @@ public:
     void updateCustomUserStatus(const QJsonArray &replyArray);
     [[nodiscard]] CustomUserStatuses customUserStatuses() const;
 
-    void removeCustomUserStatus(const QString &customUserStatusId);
+    void removeCustomUserStatus(const QByteArray &customUserStatusId);
     void updateCustomUserStatus(const RocketChatRestApi::CustomUserStatusUpdateJob::StatusUpdateInfo &statusUpdateInfo);
     void createCustomUserStatus(const RocketChatRestApi::CustomUserStatusCreateJob::StatusCreateInfo &statusCreateInfo);
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
@@ -527,7 +527,7 @@ public:
                             const QString &avalue,
                             const QString &ablockId,
                             const QByteArray &roomId,
-                            const QString &messageId);
+                            const QByteArray &messageId);
 
 Q_SIGNALS:
     void roomRemoved(const QByteArray &roomId);

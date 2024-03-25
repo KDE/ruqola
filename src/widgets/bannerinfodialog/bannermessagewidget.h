@@ -21,7 +21,7 @@ public:
     void setBannerInfos(const QList<BannerInfos::UnreadInformation> &newBannerInfo);
 
 Q_SIGNALS:
-    void infoWasRead(const QString &identifier);
+    void infoWasRead(const QByteArray &identifier);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReadInfo();

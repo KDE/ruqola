@@ -24,9 +24,9 @@ QDebug operator<<(QDebug d, const DeviceInfo &t)
 
 void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
 {
-    mIdentifier = obj[QLatin1StringView("_id")].toString();
+    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
     mHost = obj[QLatin1StringView("host")].toString();
-    mSessionId = obj[QLatin1StringView("sessionId")].toString();
+    mSessionId = obj[QLatin1StringView("sessionId")].toString().toLatin1();
     mIp = obj[QLatin1StringView("ip")].toString();
     mUserId = obj[QLatin1StringView("userId")].toString();
     const QJsonObject deviceObj = obj[QLatin1StringView("device")].toObject();
@@ -49,12 +49,12 @@ bool DeviceInfo::operator==(const DeviceInfo &other) const
         && mLoginAt == other.loginAt() && mOs == other.os() && mClient == other.client();
 }
 
-const QString &DeviceInfo::identifier() const
+const QByteArray &DeviceInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void DeviceInfo::setIdentifier(const QString &newIdentifier)
+void DeviceInfo::setIdentifier(const QByteArray &newIdentifier)
 {
     mIdentifier = newIdentifier;
 }
@@ -69,12 +69,12 @@ void DeviceInfo::setHost(const QString &newHost)
     mHost = newHost;
 }
 
-const QString &DeviceInfo::sessionId() const
+const QByteArray &DeviceInfo::sessionId() const
 {
     return mSessionId;
 }
 
-void DeviceInfo::setSessionId(const QString &newSessionId)
+void DeviceInfo::setSessionId(const QByteArray &newSessionId)
 {
     mSessionId = newSessionId;
 }

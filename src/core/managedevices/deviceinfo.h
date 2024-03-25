@@ -20,14 +20,14 @@ public:
 
     [[nodiscard]] bool operator==(const DeviceInfo &other) const;
 
-    [[nodiscard]] const QString &identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    [[nodiscard]] const QByteArray &identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] const QString &host() const;
     void setHost(const QString &newHost);
 
-    [[nodiscard]] const QString &sessionId() const;
-    void setSessionId(const QString &newSessionId);
+    [[nodiscard]] const QByteArray &sessionId() const;
+    void setSessionId(const QByteArray &newSessionId);
 
     [[nodiscard]] const QString &ip() const;
     void setIp(const QString &newIp);
@@ -47,9 +47,9 @@ public:
     [[nodiscard]] QString loginAtDisplay() const;
 
 private:
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mHost;
-    QString mSessionId;
+    QByteArray mSessionId;
     QString mIp;
     QString mUserId;
     QString mClient;

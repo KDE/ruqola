@@ -37,7 +37,7 @@ public:
     const CustomSoundsInfo &customSounds() const;
     void setCustomSounds(const CustomSoundsInfo &newCustomSounds);
 
-    void removeElement(const QString &identifier) override;
+    void removeElement(const QByteArray &identifier) override;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;

@@ -264,17 +264,17 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 
 void AdministratorRoomsWidget::slotDeleteGroupsDone(const QString &identifier)
 {
-    mModel->removeElement(identifier);
+    mModel->removeElement(identifier.toLatin1());
 }
 
 void AdministratorRoomsWidget::slotDeletechannelDone(const QString &identifier)
 {
-    mModel->removeElement(identifier);
+    mModel->removeElement(identifier.toLatin1());
 }
 
 void AdministratorRoomsWidget::slotDeleteDirectMessageDone(const QString &identifier)
 {
-    mModel->removeElement(identifier);
+    mModel->removeElement(identifier.toLatin1());
 }
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)

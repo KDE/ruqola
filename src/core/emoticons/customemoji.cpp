@@ -36,7 +36,7 @@ bool CustomEmoji::isAnimatedImage() const
 
 void CustomEmoji::parseEmoji(const QJsonObject &emoji, bool useIsoDate)
 {
-    mIdentifier = emoji.value(QLatin1StringView("_id")).toString();
+    mIdentifier = emoji.value(QLatin1StringView("_id")).toString().toLatin1();
     mExtension = emoji.value(QLatin1StringView("extension")).toString();
     mName = emoji.value(QLatin1StringView("name")).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
@@ -128,12 +128,12 @@ QString CustomEmoji::cachedHtml() const
     return mCachedHtml;
 }
 
-QString CustomEmoji::identifier() const
+QByteArray CustomEmoji::identifier() const
 {
     return mIdentifier;
 }
 
-void CustomEmoji::setIdentifier(const QString &identifier)
+void CustomEmoji::setIdentifier(const QByteArray &identifier)
 {
     mIdentifier = identifier;
 }

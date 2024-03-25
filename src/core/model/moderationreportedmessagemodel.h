@@ -42,7 +42,7 @@ public:
     void addMoreElements(const QJsonObject &obj) override;
     [[nodiscard]] QList<int> hideColumns() const override;
 
-    void removeElement(const QString &identifier) override;
+    void removeElement(const QByteArray &identifier) override;
 
     [[nodiscard]] const ModerationReportedMessageInfos &moderationInfos() const;
     void setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos);

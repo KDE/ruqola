@@ -175,11 +175,11 @@ QList<int> AdminRoomsModel::hideColumns() const
     return {AdminRoomsRoles::Identifier, AdminRoomsRoles::ChannelType, AdminRoomsRoles::Featured, AdminRoomsModel::IsTeam};
 }
 
-void AdminRoomsModel::removeElement(const QString &identifier)
+void AdminRoomsModel::removeElement(const QByteArray &identifier)
 {
     const int roomCount = mAdminRooms.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (QString::fromLatin1(mAdminRooms.at(i).identifier()) == identifier) {
+        if (mAdminRooms.at(i).identifier() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mAdminRooms.takeAt(i);
             mAdminRooms.setTotal(mAdminRooms.count()); // Update total

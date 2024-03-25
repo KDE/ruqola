@@ -173,7 +173,7 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     updateBannerInfo();
 }
 
-void RuqolaMainWidget::slotMarkBannerAsRead(const QString &identifier)
+void RuqolaMainWidget::slotMarkBannerAsRead(const QByteArray &identifier)
 {
 #if 1
     mCurrentRocketChatAccount->ddp()->bannerDismiss(identifier);

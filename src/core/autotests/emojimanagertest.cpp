@@ -58,7 +58,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
         val.setName(QStringLiteral("kdab"));
-        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setIdentifier(QByteArrayLiteral("RyBauhQqnoE5WeJvZ"));
         val.setExtension(QStringLiteral("png"));
         val.setEmojiIdentifier(QStringLiteral(":kdab:"));
         val.setUpdatedAt(1529303015003);
@@ -66,7 +66,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
 
         CustomEmoji val1;
         val1.setName(QStringLiteral("vader"));
-        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setIdentifier(QByteArrayLiteral("fAiQmJnJPAaEFmps6"));
         val1.setExtension(QStringLiteral("png"));
         val1.setEmojiIdentifier(QStringLiteral(":vader:"));
         val1.setUpdatedAt(1560497261506);
@@ -82,14 +82,14 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
         val.setName(QStringLiteral("kdab"));
-        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setIdentifier(QByteArrayLiteral("RyBauhQqnoE5WeJvZ"));
         val.setExtension(QStringLiteral("png"));
         val.setEmojiIdentifier(QStringLiteral(":kdab:"));
         val.setUpdatedAt(1529303015003);
 
         CustomEmoji val1;
         val1.setName(QStringLiteral("vader"));
-        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setIdentifier(QByteArrayLiteral("fAiQmJnJPAaEFmps6"));
         val1.setExtension(QStringLiteral("png"));
         val1.setEmojiIdentifier(QStringLiteral(":vader:"));
         val1.setUpdatedAt(1560497261506);
@@ -135,14 +135,14 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
         val.setName(QStringLiteral("kdab"));
-        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setIdentifier(QByteArrayLiteral("RyBauhQqnoE5WeJvZ"));
         val.setExtension(QStringLiteral("png"));
         val.setEmojiIdentifier(QStringLiteral(":kdab:"));
         val.setUpdatedAt(1529303015003);
 
         CustomEmoji val1;
         val1.setName(QStringLiteral("vader"));
-        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setIdentifier(QByteArrayLiteral("fAiQmJnJPAaEFmps6"));
         val1.setExtension(QStringLiteral("png"));
         val1.setEmojiIdentifier(QStringLiteral(":vader:"));
         val1.setUpdatedAt(1560497261506);
@@ -154,7 +154,7 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         QList<CustomEmoji> emojiListAfterDeleting = emojiList;
         CustomEmoji val2;
         val2.setName(QStringLiteral("ruqola"));
-        val2.setIdentifier(QStringLiteral("HdN28k4PQ6J9xLkZ8"));
+        val2.setIdentifier(QByteArrayLiteral("HdN28k4PQ6J9xLkZ8"));
         val2.setExtension(QStringLiteral("png"));
         val2.setEmojiIdentifier(QStringLiteral(":ruqola:"));
         val2.setUpdatedAt(1631885946222);
@@ -202,14 +202,14 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         QList<CustomEmoji> emojiList;
         CustomEmoji val;
         val.setName(QStringLiteral("kdab"));
-        val.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val.setIdentifier(QByteArrayLiteral("RyBauhQqnoE5WeJvZ"));
         val.setExtension(QStringLiteral("png"));
         val.setEmojiIdentifier(QStringLiteral(":kdab:"));
         val.setUpdatedAt(1529303015003);
 
         CustomEmoji val1;
         val1.setName(QStringLiteral("vader"));
-        val1.setIdentifier(QStringLiteral("fAiQmJnJPAaEFmps6"));
+        val1.setIdentifier(QByteArrayLiteral("fAiQmJnJPAaEFmps6"));
         val1.setExtension(QStringLiteral("png"));
         val1.setEmojiIdentifier(QStringLiteral(":vader:"));
         val1.setUpdatedAt(1560497261506);
@@ -221,7 +221,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         QList<CustomEmoji> emojiListAfterDeleting;
         CustomEmoji val2;
         val2.setName(QStringLiteral("ruqola"));
-        val2.setIdentifier(QStringLiteral("RyBauhQqnoE5WeJvZ"));
+        val2.setIdentifier(QByteArrayLiteral("RyBauhQqnoE5WeJvZ"));
         val2.setExtension(QStringLiteral("png"));
         val2.setEmojiIdentifier(QStringLiteral(":ruqola:"));
         val2.setUpdatedAt(1631885946222);

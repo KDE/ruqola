@@ -123,11 +123,11 @@ QList<int> AdminCustomSoundModel::hideColumns() const
     return {CustomSoundsRoles::Identifier};
 }
 
-void AdminCustomSoundModel::removeElement(const QString &identifier)
+void AdminCustomSoundModel::removeElement(const QByteArray &identifier)
 {
     const int userCount = mCustomSounds.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mCustomSounds.at(i).identifier() == identifier.toLatin1()) {
+        if (mCustomSounds.at(i).identifier() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mCustomSounds.takeAt(i);
             mCustomSounds.setTotal(mCustomSounds.count()); // Update total

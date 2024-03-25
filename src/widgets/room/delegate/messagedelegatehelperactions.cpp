@@ -88,12 +88,7 @@ bool MessageDelegateHelperActions::handleMouseEvent(const Block &block,
                 Q_ASSERT(message);
                 // qDebug() << " message->roomId" << message->roomId();
                 // qDebug() << " message->messageId" << message->messageId();
-                mRocketChatAccount->executeBlockAction(button.appId,
-                                                       button.actionId,
-                                                       button.value,
-                                                       button.blockId,
-                                                       message->roomId(),
-                                                       QString::fromLatin1(message->messageId()));
+                mRocketChatAccount->executeBlockAction(button.appId, button.actionId, button.value, button.blockId, message->roomId(), message->messageId());
                 return true;
             }
         }

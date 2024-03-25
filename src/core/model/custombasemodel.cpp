@@ -37,7 +37,7 @@ void CustomBaseModel::insertElement(const QJsonObject &obj)
     // Nothing
 }
 
-void CustomBaseModel::removeElement(const QString &identifier)
+void CustomBaseModel::removeElement(const QByteArray &identifier)
 {
     Q_UNUSED(identifier)
 }

@@ -33,7 +33,7 @@ public:
 
     virtual void insertElement(const QJsonObject &obj);
 
-    virtual void removeElement(const QString &identifier);
+    virtual void removeElement(const QByteArray &identifier);
 
     virtual void updateElement(const QJsonObject &obj);
 
@@ -41,6 +41,7 @@ public:
 
 protected:
     virtual void checkFullList() = 0;
+
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();

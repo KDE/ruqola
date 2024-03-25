@@ -40,7 +40,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void showEvent(QShowEvent *event) override;
     LIBRUQOLAWIDGETS_NO_EXPORT void updateBannerInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannerDismissDone();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkBannerAsRead(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkBannerAsRead(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomPressed(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void createBannerMessageWidget();
 

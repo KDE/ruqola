@@ -35,11 +35,11 @@ void AdminUsersModel::insertElement(const QJsonObject &obj)
     }
 }
 
-void AdminUsersModel::removeElement(const QString &identifier)
+void AdminUsersModel::removeElement(const QByteArray &identifier)
 {
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == identifier.toLatin1()) {
+        if (mUsers.at(i).userId() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mUsers.takeAt(i);
             mUsers.setTotal(mUsers.count()); // Update total

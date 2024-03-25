@@ -120,7 +120,7 @@ void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmo
     }
 }
 
-void AdminCustomEmojiModel::removeElement(const QString &identifier)
+void AdminCustomEmojiModel::removeElement(const QByteArray &identifier)
 {
     const int userCount = mCustomEmojiList.count();
     for (int i = 0; i < userCount; ++i) {
@@ -149,7 +149,7 @@ QList<int> AdminCustomEmojiModel::hideColumns() const
     return {CustomEmojiRoles::Identifier, CustomEmojiRoles::Icon};
 }
 
-QIcon AdminCustomEmojiModel::createCustomIcon(const QString &identifier) const
+QIcon AdminCustomEmojiModel::createCustomIcon(const QByteArray &identifier) const
 {
     if (mRocketChatAccount) {
         const QString fileName = mRocketChatAccount->emojiManager()->customEmojiFileNameFromIdentifier(identifier);

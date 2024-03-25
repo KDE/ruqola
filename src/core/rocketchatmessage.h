@@ -76,7 +76,7 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult openRoom(const QString &roomId, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult bannerDismiss(const QString &bannerId, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult bannerDismiss(const QByteArray &bannerId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult licenseGetModules(quint64 id);
 

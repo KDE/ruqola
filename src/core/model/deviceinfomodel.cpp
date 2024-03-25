@@ -149,7 +149,7 @@ QList<int> DeviceInfoModel::hideColumns() const
     return {DeviceInfoRoles::Identifier, DeviceInfoRoles::UserId, DeviceInfoRoles::SessionId, DeviceInfoRoles::LoginAt};
 }
 
-void DeviceInfoModel::removeElement(const QString &identifier)
+void DeviceInfoModel::removeElement(const QByteArray &identifier)
 {
     const int userCount = mDeviceInfos.count();
     for (int i = 0; i < userCount; ++i) {

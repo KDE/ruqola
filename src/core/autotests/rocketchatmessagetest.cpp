@@ -267,7 +267,7 @@ void RocketChatMessageTest::bannerDismiss()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss(QStringLiteral("banner_read"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss(QByteArrayLiteral("banner_read"), 43);
     compareFile(r.result, QStringLiteral("bannerDismiss"));
 }
 

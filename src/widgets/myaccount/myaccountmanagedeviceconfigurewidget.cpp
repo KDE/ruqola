@@ -82,7 +82,7 @@ void MyAccountManageDeviceConfigureWidget::slotLoadElements(int offset, int coun
     }
 }
 
-void MyAccountManageDeviceConfigureWidget::slotDeviceRemoved(const QString &emojiId)
+void MyAccountManageDeviceConfigureWidget::slotDeviceRemoved(const QByteArray &emojiId)
 {
     mModel->removeElement(emojiId);
 }
@@ -105,8 +105,8 @@ void MyAccountManageDeviceConfigureWidget::slotDisconnectDevice(const QModelInde
 {
     auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);
-    const QString sessionsId = modelIndex.data().toString();
-    job->setSessionId(sessionsId);
+    const QByteArray sessionsId = modelIndex.data().toByteArray();
+    job->setSessionId(QString::fromLatin1(sessionsId));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SessionsLogoutMeJob::logoutMeDone, this, [this, sessionsId]() {
         slotDeviceRemoved(sessionsId);

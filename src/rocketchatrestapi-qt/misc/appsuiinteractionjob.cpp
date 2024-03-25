@@ -100,7 +100,7 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
                                                                         const QString &value,
                                                                         const QString &blockId,
                                                                         const QByteArray &roomId,
-                                                                        const QString &messageId)
+                                                                        const QByteArray &messageId)
 {
     QJsonObject o;
     o.insert(QStringLiteral("type"), QStringLiteral("blockAction"));
@@ -112,11 +112,11 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
 
     o.insert(QStringLiteral("payload"), payload);
     o.insert(QStringLiteral("rid"), QString::fromLatin1(roomId));
-    o.insert(QStringLiteral("mid"), messageId);
+    o.insert(QStringLiteral("mid"), QString::fromLatin1(messageId));
 
     QJsonObject container;
     container.insert(QStringLiteral("type"), QStringLiteral("message"));
-    container.insert(QStringLiteral("id"), messageId);
+    container.insert(QStringLiteral("id"), QString::fromLatin1(messageId));
     o.insert(QStringLiteral("container"), container);
 
     // TODO fix me.

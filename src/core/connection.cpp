@@ -1904,10 +1904,10 @@ void Connection::createCustomUserStatus(const CustomUserStatusCreateJob::StatusC
     }
 }
 
-void Connection::deleteCustomUserStatus(const QString &customUserStatusId)
+void Connection::deleteCustomUserStatus(const QByteArray &customUserStatusId)
 {
     auto job = new CustomUserStatusDeleteJob(this);
-    job->setCustomUserStatusId(customUserStatusId);
+    job->setCustomUserStatusId(QString::fromLatin1(customUserStatusId));
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusDeleteJob::userStatusDeletedDone, this, &Connection::userStatusDeletedDone);
     if (!job->start()) {

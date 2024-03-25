@@ -136,7 +136,7 @@ QList<int> ModerationReportedUserModel::hideColumns() const
     return {ModerationReportedUserRoles::ReportDate, ModerationReportedUserRoles::Identifier};
 }
 
-void ModerationReportedUserModel::removeElement(const QString &identifier)
+void ModerationReportedUserModel::removeElement(const QByteArray &identifier)
 {
 #if 0
     const int userCount = mModerationInfos.count();

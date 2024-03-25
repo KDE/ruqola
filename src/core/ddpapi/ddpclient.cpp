@@ -575,7 +575,7 @@ quint64 DDPClient::deleteOAuthApp(const QString &appId)
     return method(result, delete_oauth_app, DDPClient::Persistent);
 }
 
-quint64 DDPClient::bannerDismiss(const QString &bannerId)
+quint64 DDPClient::bannerDismiss(const QByteArray &bannerId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->bannerDismiss(bannerId, mUid);
     return method(result, banner_dismiss, DDPClient::Persistent);

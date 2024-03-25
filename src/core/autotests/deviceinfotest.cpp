@@ -52,9 +52,9 @@ void DeviceInfoTest::shouldDeviceInfo_data()
     {
         DeviceInfo info;
         info.setHost(QStringLiteral("chat.kde.org"));
-        info.setIdentifier(QStringLiteral("iy78NiKzd"));
+        info.setIdentifier(QByteArrayLiteral("iy78NiKzd"));
         info.setIp(QStringLiteral("179.4.8.1"));
-        info.setSessionId(QStringLiteral("iKzd"));
+        info.setSessionId(QByteArrayLiteral("iKzd"));
         info.setUserId(QStringLiteral("acidH"));
         info.setLoginAt(1660405994979);
         QTest::addRow("deviceinfo1") << QStringLiteral("deviceinfo1") << info;
@@ -62,9 +62,9 @@ void DeviceInfoTest::shouldDeviceInfo_data()
     {
         DeviceInfo info;
         info.setHost(QStringLiteral("chat.kde.org"));
-        info.setIdentifier(QStringLiteral("87pMW"));
+        info.setIdentifier(QByteArrayLiteral("87pMW"));
         info.setIp(QStringLiteral("1.7.6.11"));
-        info.setSessionId(QStringLiteral("87pMW"));
+        info.setSessionId(QByteArrayLiteral("87pMW"));
         info.setUserId(QStringLiteral("dacidH"));
         info.setClient(QStringLiteral("Firefox"));
         info.setOs(QStringLiteral("Linux x86_64"));

@@ -19,8 +19,8 @@ public:
 
     void parseEmoji(const QJsonObject &emoji, bool useIsoDate = false);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &identifier);
 
     [[nodiscard]] QString extension() const;
     void setExtension(const QString &extension);
@@ -58,7 +58,7 @@ public:
 
 private:
     QString mEmojiIdentifier;
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mExtension;
     QString mName;
     mutable QString mCachedHtml;

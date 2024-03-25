@@ -47,7 +47,7 @@ public:
     void addMoreElements(const QJsonObject &obj) override;
     [[nodiscard]] QList<int> hideColumns() const override;
 
-    void removeElement(const QString &identifier) override;
+    void removeElement(const QByteArray &identifier) override;
 
     void updateElement(const QJsonObject &obj) override;
 

@@ -40,10 +40,10 @@ public:
     const CustomEmojisInfo &customEmojis() const;
     void setCustomEmojis(const CustomEmojisInfo &newCustomEmojis);
 
-    [[nodiscard]] QIcon createCustomIcon(const QString &name) const;
+    [[nodiscard]] QIcon createCustomIcon(const QByteArray &name) const;
 
 protected:
-    void removeElement(const QString &identifier) override;
+    void removeElement(const QByteArray &identifier) override;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;

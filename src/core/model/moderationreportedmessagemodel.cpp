@@ -154,7 +154,7 @@ QList<int> ModerationReportedMessageModel::hideColumns() const
             ModerationReportedMessageRoles::ReportDate};
 }
 
-void ModerationReportedMessageModel::removeElement(const QString &identifier)
+void ModerationReportedMessageModel::removeElement(const QByteArray &identifier)
 {
 #if 0
     const int userCount = mModerationInfos.count();

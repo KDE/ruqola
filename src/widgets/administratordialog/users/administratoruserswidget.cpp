@@ -118,8 +118,8 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
     mRocketChatAccount->restApi()->initializeRestApiJob(userJob);
     RocketChatRestApi::UserBaseJob::UserInfo info;
     info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-    const QString userId = index.data().toString();
-    info.userIdentifier = userId;
+    const QByteArray userId = index.data().toByteArray();
+    info.userIdentifier = QString::fromLatin1(userId);
     userJob->setUserInfo(info);
     connect(userJob, &RocketChatRestApi::UserInfoJob::userInfoDone, this, &AdministratorUsersWidget::slotUserInfoDone);
     if (!userJob->start()) {
@@ -183,8 +183,8 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
         auto job = new RocketChatRestApi::DeleteUserJob(this);
         RocketChatRestApi::UserBaseJob::UserInfo info;
         info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
-        const QString userId = index.data().toString();
-        info.userIdentifier = userId;
+        const QByteArray userId = index.data().toByteArray();
+        info.userIdentifier = QString::fromLatin1(userId);
         job->setUserInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DeleteUserJob::deleteUserDone, this, [this, userId]() {
@@ -196,7 +196,7 @@ void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
     }
 }
 
-void AdministratorUsersWidget::slotDeleteUserDone(const QString &userId)
+void AdministratorUsersWidget::slotDeleteUserDone(const QByteArray &userId)
 {
     mModel->removeElement(userId);
 }
@@ -205,9 +205,9 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
 {
     auto job = new RocketChatRestApi::SetUserActiveStatusJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-    const QString userId = modelIndex.data().toString();
+    const QByteArray userId = modelIndex.data().toByteArray();
     job->setActivate(!activateUser);
-    job->setActivateUserId(userId);
+    job->setActivateUserId(QString::fromLatin1(userId));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, modelIndex](const QJsonObject &replyObject) {
         slotSetUserActiveStatus(replyObject, modelIndex);
@@ -333,8 +333,8 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
 void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool adminStatus)
 {
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-    const QString userId = modelIndex.data().toString();
-    mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
+    const QByteArray userId = modelIndex.data().toByteArray();
+    mRocketChatAccount->ddp()->setAdminStatus(QString::fromLatin1(userId), adminStatus);
 }
 
 void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
@@ -366,8 +366,8 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
 
         auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
         const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-        const QString userId = modelIndex.data().toString();
-        job->setResetUserId(userId);
+        const QByteArray userId = modelIndex.data().toByteArray();
+        job->setResetUserId(QString::fromLatin1(userId));
 
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             job->setAuthMethod(QStringLiteral("password"));
@@ -411,8 +411,8 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         }
         auto job = new RocketChatRestApi::ResetTOTPJob(this);
         const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-        const QString userId = modelIndex.data().toString();
-        job->setResetUserId(userId);
+        const QByteArray userId = modelIndex.data().toByteArray();
+        job->setResetUserId(QString::fromLatin1(userId));
 
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             job->setAuthMethod(QStringLiteral("password"));

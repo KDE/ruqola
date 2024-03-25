@@ -32,7 +32,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActivateUser(const QModelIndex &index, bool activateUser);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetUserActiveStatus(const QJsonObject &replyObject, const QModelIndex &modelIndex);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteUserDone(const QString &userId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteUserDone(const QByteArray &userId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserCreateDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfoDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserUpdateDone(const QJsonObject &obj);

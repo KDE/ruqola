@@ -2692,7 +2692,7 @@ CustomUserStatuses RocketChatAccount::customUserStatuses() const
     return mCustomUserStatuses;
 }
 
-void RocketChatAccount::removeCustomUserStatus(const QString &customUserStatusId)
+void RocketChatAccount::removeCustomUserStatus(const QByteArray &customUserStatusId)
 {
     restApi()->deleteCustomUserStatus(customUserStatusId);
 }
@@ -3073,7 +3073,7 @@ void RocketChatAccount::executeBlockAction(const QString &appId,
                                            const QString &value,
                                            const QString &blockId,
                                            const QByteArray &roomId,
-                                           const QString &messageId)
+                                           const QByteArray &messageId)
 {
     auto job = new RocketChatRestApi::AppsUiInteractionJob(this);
     RocketChatRestApi::AppsUiInteractionJob::AppsUiInteractionJobInfo info;

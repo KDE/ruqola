@@ -39,7 +39,7 @@ public:
 
 protected:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Users::ParseType parseType() const override;
-    LIBRUQOLACORE_NO_EXPORT void removeElement(const QString &identifier) override;
+    LIBRUQOLACORE_NO_EXPORT void removeElement(const QByteArray &identifier) override;
     LIBRUQOLACORE_NO_EXPORT void updateElement(const QJsonObject &obj) override;
     LIBRUQOLACORE_NO_EXPORT void insertElement(const QJsonObject &obj) override;
 };

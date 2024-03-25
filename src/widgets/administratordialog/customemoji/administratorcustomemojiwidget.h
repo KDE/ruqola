@@ -26,5 +26,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCustomEmoji(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddCustomEmoji();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveCustomEmoji(const QModelIndex &index);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotEmojiRemoved(const QString &emojiId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotEmojiRemoved(const QByteArray &emojiId);
 };

@@ -117,7 +117,7 @@ void CustomUserStatusTreeWidget::removeClicked()
                                            i18nc("@title", "Remove Custom User Status"),
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
-        mRocketChatAccount->removeCustomUserStatus(QString::fromLatin1(userStatus.identifier()));
+        mRocketChatAccount->removeCustomUserStatus(userStatus.identifier());
     }
 }
 

@@ -44,7 +44,7 @@ void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomAr
         const QJsonObject customEmojiObj = obj.value(QLatin1StringView("emojiData")).toObject();
         if (!customEmojiObj.isEmpty()) {
             if (customEmojiObj.contains(QLatin1StringView("_id"))) {
-                const QString identifier = customEmojiObj.value(QLatin1StringView("_id")).toString();
+                const QByteArray identifier = customEmojiObj.value(QLatin1StringView("_id")).toString().toLatin1();
                 for (auto emoji : std::as_const(mCustomEmojiList)) {
                     if (emoji.identifier() == identifier) {
                         mCustomEmojiList.removeAll(emoji);
@@ -81,7 +81,7 @@ void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
     for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = arrayEmojiCustomArray.at(i).toObject();
         const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
-        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        const QByteArray identifier = emojiData.value(QStringLiteral("_id")).toString().toLatin1();
         if (!identifier.isEmpty()) {
             auto it = std::find_if(mCustomEmojiList.cbegin(), mCustomEmojiList.cend(), [identifier](const auto &emoji) {
                 return emoji.identifier() == identifier;
@@ -136,7 +136,7 @@ TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const Q
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
 }
 
-QString EmojiManager::customEmojiFileNameFromIdentifier(const QString &emojiIdentifier) const
+QString EmojiManager::customEmojiFileNameFromIdentifier(const QByteArray &emojiIdentifier) const
 {
     for (const CustomEmoji &customEmoji : mCustomEmojiList) {
         if (customEmoji.identifier() == emojiIdentifier) {
@@ -250,7 +250,17 @@ void EmojiManager::replaceEmojis(QString *str)
             stream << '|';
             stream << QRegularExpression::escape(string);
         };
-        auto addEmojis = [&](const auto &emojis) {
+        auto addEmojis = [&](const QList<CustomEmoji> &emojis) {
+            for (const auto &emoji : emojis) {
+                const QByteArray b = emoji.identifier();
+                addEmoji(QString::fromLatin1(b));
+                const auto aliases = emoji.aliases();
+                for (const auto &alias : aliases) {
+                    addEmoji(alias);
+                }
+            }
+        };
+        auto addUnicodeEmojis = [&](const QList<TextEmoticonsCore::UnicodeEmoticon> &emojis) {
             for (const auto &emoji : emojis) {
                 addEmoji(emoji.identifier());
                 const auto aliases = emoji.aliases();
@@ -259,9 +269,8 @@ void EmojiManager::replaceEmojis(QString *str)
                 }
             }
         };
-
         addEmojis(mCustomEmojiList);
-        addEmojis(unicodeEmojiList());
+        addUnicodeEmojis(unicodeEmojiList());
         // close non-capturing group
         stream << ")";
         stream.flush();

@@ -104,10 +104,10 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::licenseGetModules(
     return generateMethod(QStringLiteral("license:getModules"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(const QString &bannerId, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(const QByteArray &bannerId, quint64 id)
 {
     QJsonObject obj{
-        {QStringLiteral("id"), bannerId},
+        {QStringLiteral("id"), QString::fromLatin1(bannerId)},
     };
 
     const QJsonArray params{obj};
