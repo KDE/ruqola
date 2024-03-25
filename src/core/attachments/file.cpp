@@ -31,7 +31,7 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     const QJsonObject user = object.value(QLatin1StringView("user")).toObject();
     setUserName(user.value(QLatin1StringView("username")).toString());
 
-    setFileId(restApi ? object.value(QLatin1StringView("_id")).toString() : object.value(QLatin1StringView("id")).toString());
+    setFileId(restApi ? object.value(QLatin1StringView("_id")).toString().toLatin1() : object.value(QLatin1StringView("id")).toString().toLatin1());
 }
 
 QString File::fileName() const
@@ -103,12 +103,12 @@ void File::setUploadedAt(qint64 uploadedAt)
     mUploadedDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mUploadedAt), QLocale::LongFormat);
 }
 
-QString File::fileId() const
+QByteArray File::fileId() const
 {
     return mFileId;
 }
 
-void File::setFileId(const QString &fileId)
+void File::setFileId(const QByteArray &fileId)
 {
     mFileId = fileId;
 }

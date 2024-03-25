@@ -185,7 +185,7 @@ public:
     [[nodiscard]] QList<Permission> permissions() const;
 
     void blockUser(const QString &userId, bool block);
-    void deleteFileMessage(const QByteArray &roomId, const QString &fileId, Room::RoomType channelType);
+    void deleteFileMessage(const QByteArray &roomId, const QByteArray &fileId, Room::RoomType channelType);
     void openDocumentation();
     void clearSearchModel();
     void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);

@@ -39,7 +39,7 @@ void FileTest::shouldAssignValue()
     const QByteArray userId = QByteArrayLiteral("ble");
     const QString mimetype = QStringLiteral("ble1");
     const qint64 timeUploaded = 55;
-    const QString fileId = QStringLiteral("blabla");
+    const QByteArray fileId("blabla");
     bool complete = false;
     f.setUrl(url);
     f.setFileName(name);
@@ -72,7 +72,7 @@ void FileTest::shouldCopyValue()
     const QString description = QStringLiteral("des");
     const QByteArray userId = QByteArrayLiteral("ble");
     const QString mimetype = QStringLiteral("ble1");
-    const QString fileId = QStringLiteral("blabla");
+    const QByteArray fileId("blabla");
     const qint64 timeUploaded = 55;
     bool complete = true;
     f.setComplete(complete);
@@ -101,7 +101,7 @@ void FileTest::shouldParseFile_data()
         expected.setDescription(QString());
         expected.setMimeType(QStringLiteral("image/jpeg"));
         expected.setUploadedAt(1507828418338);
-        expected.setFileId(QStringLiteral("ybWLKB4FepCkzQXsa"));
+        expected.setFileId(QByteArrayLiteral("ybWLKB4FepCkzQXsa"));
         QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
     }
     {
@@ -113,7 +113,7 @@ void FileTest::shouldParseFile_data()
         expected.setDescription(QString());
         expected.setMimeType(QStringLiteral("image/png"));
         expected.setUploadedAt(1517990371911);
-        expected.setFileId(QStringLiteral("AoqRSa6GMt3wXCeSo"));
+        expected.setFileId(QByteArrayLiteral("AoqRSa6GMt3wXCeSo"));
         expected.setUserName(QStringLiteral("bli"));
         expected.setComplete(true);
         QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;

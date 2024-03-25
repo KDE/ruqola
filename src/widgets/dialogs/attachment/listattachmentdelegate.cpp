@@ -107,7 +107,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
                                                    i18nc("@title", "Delete File"),
                                                    KStandardGuiItem::del(),
                                                    KStandardGuiItem::cancel())) {
-                const QString fileId = file->fileId();
+                const QByteArray fileId = file->fileId();
                 Q_EMIT deleteAttachment(fileId);
                 // TODO
                 // appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileId, appid.selectedRoom.channelType)

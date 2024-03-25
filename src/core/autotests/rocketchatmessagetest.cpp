@@ -211,7 +211,7 @@ void RocketChatMessageTest::deleteFileMessage()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QStringLiteral("fileid"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QByteArrayLiteral("fileid"), 43);
     compareFile(r.result, QStringLiteral("deleteFileMessage"));
 }
 

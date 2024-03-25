@@ -464,7 +464,7 @@ void RocketChatAccount::replyOnThread(const QByteArray &roomID, const QString &t
     restApi()->sendMessage(roomID, message, QString(), threadMessageId);
 }
 
-void RocketChatAccount::deleteFileMessage(const QByteArray &roomId, const QString &fileId, Room::RoomType channelType)
+void RocketChatAccount::deleteFileMessage(const QByteArray &roomId, const QByteArray &fileId, Room::RoomType channelType)
 {
     ddp()->deleteFileMessage(roomId, fileId, channelType);
 }

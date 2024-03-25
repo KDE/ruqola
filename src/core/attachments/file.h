@@ -40,8 +40,8 @@ public:
     [[nodiscard]] qint64 uploadedAt() const;
     void setUploadedAt(qint64 uploadedAt);
 
-    [[nodiscard]] QString fileId() const;
-    void setFileId(const QString &fileId);
+    [[nodiscard]] QByteArray fileId() const;
+    void setFileId(const QByteArray &fileId);
 
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &userName);
@@ -60,7 +60,7 @@ private:
     QByteArray mUserId;
     QString mUrl;
     QString mMimeType;
-    QString mFileId;
+    QByteArray mFileId;
     QString mUserName;
     QString mUploadedDateTimeStr;
     QString mTypeGroup;

@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreAttachment();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAttachment(const QString &fileId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAttachment(const QByteArray &fileId);
     QByteArray mRoomId;
     Room::RoomType mRoomType = Room::RoomType::Unknown;
     ShowAttachmentWidget *const mShowAttachmentWidget;

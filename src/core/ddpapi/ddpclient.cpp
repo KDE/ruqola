@@ -411,7 +411,7 @@ quint64 DDPClient::openDirectChannel(const QString &userId)
     return method(result, open_direct_channel, DDPClient::Persistent);
 }
 
-quint64 DDPClient::deleteFileMessage(const QByteArray &roomId, const QString &fileid, Room::RoomType channelType)
+quint64 DDPClient::deleteFileMessage(const QByteArray &roomId, const QByteArray &fileid, Room::RoomType channelType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, mUid);
 

@@ -24,7 +24,7 @@ public:
 
 Q_SIGNALS:
     void loadMoreFileAttachment();
-    void deleteAttachment(const QString &fileId);
+    void deleteAttachment(const QByteArray &fileId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);

@@ -21,7 +21,7 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 Q_SIGNALS:
-    void deleteAttachment(const QString &fileId);
+    void deleteAttachment(const QByteArray &fileId);
 
 private:
     struct Layout {

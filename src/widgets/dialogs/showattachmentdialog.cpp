@@ -48,7 +48,7 @@ ShowAttachmentDialog::~ShowAttachmentDialog()
     writeConfig();
 }
 
-void ShowAttachmentDialog::slotDeleteAttachment(const QString &fileId)
+void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
 {
     mRocketChatAccount->deleteFileMessage(mRoomId, fileId, mRoomType);
 }

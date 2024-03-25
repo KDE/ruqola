@@ -177,9 +177,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QSt
 }
 
 // Verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(const QString &fileId, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(const QByteArray &fileId, quint64 id)
 {
-    const QJsonArray params{{fileId}};
+    const QJsonArray params{{QString::fromLatin1(fileId)}};
     return generateMethod(QStringLiteral("deleteFileMessage"), QJsonDocument(params), id);
 }
 
