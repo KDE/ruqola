@@ -20,7 +20,7 @@ public:
     void setTeamRoomInfo(const Room::TeamRoomInfo &newTeamNameInfo);
 
 Q_SIGNALS:
-    void openTeam(const QString &identifier);
+    void openTeam(const QByteArray &identifier);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGoToRoomTeam(const QString &contents);

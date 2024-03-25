@@ -494,7 +494,7 @@ void RoomWidget::slotCallRequested()
     }
 }
 
-void RoomWidget::slotOpenTeamRequested(const QString &teamId)
+void RoomWidget::slotOpenTeamRequested(const QByteArray &teamId)
 {
     Q_EMIT mCurrentRocketChatAccount->openTeamNameRequested(teamId);
 }

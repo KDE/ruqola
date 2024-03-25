@@ -562,7 +562,7 @@ Q_SIGNALS:
     void openLinkRequested(const QString &link);
     void selectRoomByRoomIdRequested(const QString &identifier, const QByteArray &messageId = QByteArray());
     void selectRoomByRoomNameRequested(const QString &identifier);
-    void openTeamNameRequested(const QString &identifier);
+    void openTeamNameRequested(const QByteArray &identifier);
     void openThreadRequested(const QByteArray &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &message);
     void raiseWindow();
     void registerUserSuccess();

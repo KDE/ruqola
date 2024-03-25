@@ -410,7 +410,8 @@ bool ChannelListView::selectChannelByRoomIdOrRoomName(const QString &id, bool ro
 
         for (int roomIdx = 0; roomIdx < sectionSize; ++roomIdx) {
             const auto roomModelIndex = filterModel()->index(roomIdx, 0, section);
-            const auto identifier = roomId ? roomModelIndex.data(RoomModel::RoomId).toString() : roomModelIndex.data(RoomModel::RoomName).toString();
+            const auto identifier =
+                roomId ? QString::fromLatin1(roomModelIndex.data(RoomModel::RoomId).toByteArray()) : roomModelIndex.data(RoomModel::RoomName).toString();
             if (identifier == id) {
                 selectionModel()->setCurrentIndex(roomModelIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
                 return true;

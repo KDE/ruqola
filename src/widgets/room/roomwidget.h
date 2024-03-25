@@ -96,7 +96,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamChannelsRequested();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJumpToUnreadMessage(qint64 numberOfMessage);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGotoMessage(const QByteArray &messageId, const QString &messageDateTimeUtc);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QString &teamId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QByteArray &teamId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTryReconnect();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisplayReconnectWidget(int seconds);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginStatusChanged();

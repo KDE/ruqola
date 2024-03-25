@@ -69,7 +69,7 @@ Q_SIGNALS:
     void channelInfoRequested();
     void teamChannelsRequested();
     void callRequested();
-    void openTeam(const QString &identifier);
+    void openTeam(const QByteArray &identifier);
 
 private:
     QLabel *const mRoomName;

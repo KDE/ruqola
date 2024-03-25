@@ -34,7 +34,7 @@ public:
 
     struct TeamRoomInfo {
         QString teamName;
-        QString teamIdentifier;
+        QByteArray teamIdentifier;
     };
 
     // t (can take values "d" , "c" or "p" or "l")

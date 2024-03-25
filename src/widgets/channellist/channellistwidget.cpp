@@ -148,17 +148,17 @@ void ChannelListWidget::slotSearchRoomTextChanged()
     mChannelView->filterModel()->setFilterString(mSearchRoomLineEdit->text());
 }
 
-void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
+void ChannelListWidget::slotOpenTeamRequested(const QByteArray &identifier)
 {
     const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
     if (selectedIndex.isValid()) {
-        const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
+        const QByteArray currentRoomId = selectedIndex.data(RoomModel::RoomId).toByteArray();
         if (identifier == currentRoomId) {
             return;
         }
     }
-    if (!mChannelView->selectChannelByRoomIdRequested(identifier)) {
-        mCurrentRocketChatAccount->openChannel(identifier, RocketChatAccount::ChannelTypeInfo::RoomId);
+    if (!mChannelView->selectChannelByRoomIdRequested(QString::fromLatin1(identifier))) {
+        mCurrentRocketChatAccount->openChannel(QString::fromLatin1(identifier), RocketChatAccount::ChannelTypeInfo::RoomId);
     }
 }
 

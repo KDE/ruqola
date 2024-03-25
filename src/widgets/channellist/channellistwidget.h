@@ -42,7 +42,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRoomTextChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void clearFilterChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenLinkRequested(const QString &link);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenTeamRequested(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void applyChannelSelection();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectMessageRequested(const QByteArray &messageId,
                                                                const QString &roomId,
