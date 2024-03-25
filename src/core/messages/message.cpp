@@ -343,7 +343,7 @@ void Message::parseChannels(const QJsonArray &channels)
     mChannels.clear();
     for (int i = 0, total = channels.size(); i < total; ++i) {
         const QJsonObject mention = channels.at(i).toObject();
-        mChannels.insert(mention.value(QLatin1StringView("name")).toString(), mention.value(QLatin1StringView("_id")).toString());
+        mChannels.insert(mention.value(QLatin1StringView("name")).toString(), mention.value(QLatin1StringView("_id")).toString().toLatin1());
     }
 }
 
@@ -396,12 +396,12 @@ void Message::setHoverHighlight(bool newShowReactionIcon)
     assignMessageStateValue(HoverHighlight, newShowReactionIcon);
 }
 
-const QMap<QString, QString> &Message::channels() const
+const QMap<QString, QByteArray> &Message::channels() const
 {
     return mChannels;
 }
 
-void Message::setChannels(const QMap<QString, QString> &newChannels)
+void Message::setChannels(const QMap<QString, QByteArray> &newChannels)
 {
     mChannels = newChannels;
 }
@@ -979,11 +979,11 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
     message.setMentions(mentions);
 
-    QMap<QString, QString> channels;
+    QMap<QString, QByteArray> channels;
     const QJsonArray channelsArray = o.value(QLatin1StringView("channels")).toArray();
     for (int i = 0, total = channelsArray.count(); i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
-        channels.insert(channel.value(QLatin1StringView("channel")).toString(), channel.value(QLatin1StringView("_id")).toString());
+        channels.insert(channel.value(QLatin1StringView("channel")).toString(), channel.value(QLatin1StringView("_id")).toString().toLatin1());
     }
     message.setChannels(channels);
 
@@ -1071,12 +1071,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     // Channels
     if (!message.channels().isEmpty()) {
-        QMapIterator<QString, QString> j(message.channels());
+        QMapIterator<QString, QByteArray> j(message.channels());
         QJsonArray array;
         while (j.hasNext()) {
             j.next();
             QJsonObject channel;
-            channel.insert(QLatin1StringView("_id"), j.value());
+            channel.insert(QLatin1StringView("_id"), QString::fromLatin1(j.value()));
             channel.insert(QLatin1StringView("channel"), j.key());
             array.append(std::move(channel));
         }

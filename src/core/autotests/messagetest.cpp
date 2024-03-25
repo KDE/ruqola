@@ -560,11 +560,11 @@ void MessageTest::shouldSerializeData()
         input.setMentions(mentions);
 
         // Channels
-        QMap<QString, QString> channels;
-        channels.insert(QStringLiteral("channel1"), QStringLiteral("foo-1"));
-        channels.insert(QStringLiteral("channel2"), QStringLiteral("foo-2"));
-        channels.insert(QStringLiteral("channel3"), QStringLiteral("foo-3"));
-        channels.insert(QStringLiteral("channel4"), QStringLiteral("foo-4"));
+        QMap<QString, QByteArray> channels;
+        channels.insert(QStringLiteral("channel1"), QByteArrayLiteral("foo-1"));
+        channels.insert(QStringLiteral("channel2"), QByteArrayLiteral("foo-2"));
+        channels.insert(QStringLiteral("channel3"), QByteArrayLiteral("foo-3"));
+        channels.insert(QStringLiteral("channel4"), QByteArrayLiteral("foo-4"));
         input.setChannels(channels);
 
         // Starred

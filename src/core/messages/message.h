@@ -204,8 +204,8 @@ public:
     [[nodiscard]] bool isEditingMode() const;
     void setIsEditingMode(bool isEditingMode);
 
-    const QMap<QString, QString> &channels() const;
-    void setChannels(const QMap<QString, QString> &newChannels);
+    const QMap<QString, QByteArray> &channels() const;
+    void setChannels(const QMap<QString, QByteArray> &newChannels);
 
     [[nodiscard]] bool hoverHighlight() const;
     void setHoverHighlight(bool newShowReactionIcon);
@@ -272,7 +272,7 @@ private:
     QMap<QString, QString> mMentions;
 
     // Channels Name/identifier
-    QMap<QString, QString> mChannels;
+    QMap<QString, QByteArray> mChannels;
 
     // Users which replies to thread
     QStringList mReplies;

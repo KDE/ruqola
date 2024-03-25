@@ -416,11 +416,12 @@ void TextConverterTest::shouldShowChannels_data()
 
 void TextConverterTest::shouldShowChannels()
 {
-    using map = QMap<QString, QString>;
+    using mapMentions = QMap<QString, QString>;
+    using mapChannels = QMap<QString, QByteArray>;
     QFETCH(QString, input);
     QFETCH(QString, output);
-    QFETCH(map, mentions);
-    QFETCH(map, channels);
+    QFETCH(mapMentions, mentions);
+    QFETCH(mapChannels, channels);
 
     output = prepareExpectedOutput(output);
     QByteArray needUpdateMessageId;
@@ -431,11 +432,12 @@ void TextConverterTest::shouldShowChannels()
 
 void TextConverterTest::shouldShowUsers()
 {
-    using map = QMap<QString, QString>;
+    using mapMentions = QMap<QString, QString>;
+    using mapChannels = QMap<QString, QByteArray>;
     QFETCH(QString, input);
     QFETCH(QString, output);
-    QFETCH(map, mentions);
-    QFETCH(map, channels);
+    QFETCH(mapMentions, mentions);
+    QFETCH(mapChannels, channels);
 
     output = prepareExpectedOutput(output);
     QByteArray needUpdateMessageId;
