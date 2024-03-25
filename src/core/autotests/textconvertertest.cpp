@@ -382,32 +382,32 @@ void TextConverterTest::shouldShowChannels_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-    QTest::addColumn<QMap<QString, QString>>("mentions");
-    QTest::addColumn<QMap<QString, QString>>("channels");
+    QTest::addColumn<QMap<QString, QByteArray>>("mentions");
+    QTest::addColumn<QMap<QString, QByteArray>>("channels");
 
     {
-        QMap<QString, QString> mentions;
-        QMap<QString, QString> channels;
+        QMap<QString, QByteArray> mentions;
+        QMap<QString, QByteArray> channels;
         QTest::newRow("empty") << QString() << QString() << mentions << channels;
     }
     {
-        QMap<QString, QString> mentions;
-        QMap<QString, QString> channels;
-        channels.insert(QStringLiteral("foo"), QStringLiteral("idd"));
+        QMap<QString, QByteArray> mentions;
+        QMap<QString, QByteArray> channels;
+        channels.insert(QStringLiteral("foo"), QByteArrayLiteral("idd"));
         QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a></div>") << mentions << channels;
     }
     {
-        QMap<QString, QString> mentions;
-        QMap<QString, QString> channels;
-        channels.insert(QStringLiteral("bla"), QStringLiteral("idd"));
+        QMap<QString, QByteArray> mentions;
+        QMap<QString, QByteArray> channels;
+        channels.insert(QStringLiteral("bla"), QByteArrayLiteral("idd"));
         QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a></div>") << mentions
                                            << channels;
     }
     {
-        QMap<QString, QString> mentions;
-        QMap<QString, QString> channels;
-        channels.insert(QStringLiteral("bli"), QStringLiteral("112"));
-        channels.insert(QStringLiteral("oss"), QStringLiteral("kli"));
+        QMap<QString, QByteArray> mentions;
+        QMap<QString, QByteArray> channels;
+        channels.insert(QStringLiteral("bli"), QByteArrayLiteral("112"));
+        channels.insert(QStringLiteral("oss"), QByteArrayLiteral("kli"));
         QTest::newRow("multi channel") << QStringLiteral("foo #bli blass #oss")
                                        << QStringLiteral("<div>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></div>")
                                        << mentions << channels;
@@ -454,25 +454,25 @@ void TextConverterTest::shouldShowUsers_data()
     QTest::addColumn<QMap<QString, QByteArray>>("channels");
 
     {
-        QMap<QString, QString> mentions;
-        QMap<QString, QString> channels;
+        QMap<QString, QByteArray> mentions;
+        QMap<QString, QByteArray> channels;
         QTest::newRow("empty") << QString() << QString() << mentions << channels;
     }
     {
-        QMap<QString, QString> mentions;
-        mentions.insert(QStringLiteral("kde"), QStringLiteral("bb"));
-        QMap<QString, QString> channels;
-        channels.insert(QStringLiteral("foo"), QStringLiteral("idd"));
+        QMap<QString, QByteArray> mentions;
+        mentions.insert(QStringLiteral("kde"), QByteArrayLiteral("bb"));
+        QMap<QString, QByteArray> channels;
+        channels.insert(QStringLiteral("foo"), QByteArrayLiteral("idd"));
         QTest::newRow("channel-user1") << QStringLiteral("#foo @kde")
                                        << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/bb'>@kde</a></div>") << mentions
                                        << channels;
     }
 
     {
-        QMap<QString, QString> mentions;
-        mentions.insert(QStringLiteral("kde1"), QStringLiteral("bb"));
-        QMap<QString, QString> channels;
-        channels.insert(QStringLiteral("foo2"), QStringLiteral("idd"));
+        QMap<QString, QByteArray> mentions;
+        mentions.insert(QStringLiteral("kde1"), QByteArrayLiteral("bb"));
+        QMap<QString, QByteArray> channels;
+        channels.insert(QStringLiteral("foo2"), QByteArrayLiteral("idd"));
         QTest::newRow("channel-user-unknown") << QStringLiteral("#foo @kde")
                                               << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></div>")
                                               << mentions << channels;
