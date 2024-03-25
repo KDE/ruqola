@@ -139,7 +139,7 @@ public:
     [[nodiscard]] bool isStarred() const;
     void setIsStarred(bool starred);
 
-    [[nodiscard]] Reactions reactions() const;
+    [[nodiscard]] const Reactions *reactions() const;
     void setReactions(const Reactions &reactions);
 
     [[nodiscard]] QString systemMessageText() const;
@@ -266,7 +266,7 @@ private:
     QList<Block> mBlocks;
 
     // Reactions
-    Reactions mReactions;
+    QSharedDataPointer<Reactions> mReactions;
 
     // Mentions username/identifier
     QMap<QString, QByteArray> mMentions;

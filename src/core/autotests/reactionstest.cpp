@@ -27,24 +27,24 @@ void ReactionsTest::shouldHaveDefaultValue()
 void ReactionsTest::shouldParseReactions_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<Reactions>("expectedReactions");
+    QTest::addColumn<Reactions *>("expectedReactions");
     {
-        Reactions reactionsRef;
+        Reactions *reactionsRef = new Reactions;
         Reaction react;
         react.setReactionName(QStringLiteral(":ok_hand:"));
         react.setUserNames(QStringList() << QStringLiteral("foo") << QStringLiteral("bla") << QStringLiteral("bli"));
-        reactionsRef.setReactions({react});
+        reactionsRef->setReactions({react});
         QTest::addRow("reactions") << QStringLiteral("reactions") << reactionsRef;
     }
     {
-        Reactions reactionsRef;
+        Reactions *reactionsRef = new Reactions;
         Reaction react;
         react.setReactionName(QStringLiteral(":mrs_claus:"));
         react.setUserNames(QStringList() << QStringLiteral("bla"));
         Reaction react2;
         react2.setReactionName(QStringLiteral(":right_facing_fist:"));
         react2.setUserNames(QStringList() << QStringLiteral("bli"));
-        reactionsRef.setReactions({react, react2});
+        reactionsRef->setReactions({react, react2});
         QTest::addRow("reactions2") << QStringLiteral("reactions2") << reactionsRef;
     }
 }
@@ -52,12 +52,12 @@ void ReactionsTest::shouldParseReactions_data()
 void ReactionsTest::shouldParseReactions()
 {
     QFETCH(QString, name);
-    QFETCH(Reactions, expectedReactions);
+    QFETCH(Reactions *, expectedReactions);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Reactions originalReactions;
     originalReactions.parseReactions(obj);
-    const bool emojiIsEqual = (originalReactions == expectedReactions);
+    const bool emojiIsEqual = (originalReactions == *expectedReactions);
     if (!emojiIsEqual) {
         qDebug() << "originalReactions " << originalReactions;
         qDebug() << "expectedReactions " << expectedReactions;

@@ -135,7 +135,8 @@ void MessageListDelegateTest::layoutChecks()
     QVERIFY(layout.avatarPos.y() + layout.avatarPixmap.height() / layout.avatarPixmap.devicePixelRatioF() <= bottom);
 #endif
     // Reactions
-    if (message.reactions().isEmpty()) {
+    auto react = message.reactions();
+    if (react && react->isEmpty()) {
         QCOMPARE(layout.reactionsHeight, 0);
     } else {
         QVERIFY(layout.reactionsHeight > 15);

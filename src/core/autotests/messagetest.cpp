@@ -31,7 +31,7 @@ void MessageTest::shouldHaveDefaultValues()
     QCOMPARE(m.discussionCount(), 0);
     QVERIFY(!m.privateMessage());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 536);
+    QCOMPARE(sizeof(Message), 520);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 

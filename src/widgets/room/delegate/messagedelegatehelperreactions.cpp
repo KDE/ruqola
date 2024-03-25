@@ -93,7 +93,12 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    const QList<Reaction> reactions = message->reactions().reactions();
+    QList<Reaction> reactions;
+    if (auto react = message->reactions()) {
+        reactions = react->reactions();
+    } else {
+        return;
+    }
     if (reactions.isEmpty()) {
         return;
     }
@@ -195,14 +200,16 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     int reactionsHeight = 0;
-    if (!message->reactions().isEmpty()) {
-        const QFontMetrics emojiFontMetrics(mEmojiFont);
-        // const QList<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()), option);
-        // for (auto t : layouts) {
-        //     qDebug() << " t " << t.reactionRect << " maxWidth " << maxWidth;
-        // }
-        // qDebug() << " layouts" << layouts;
-        reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + DelegatePaintUtil::margin();
+    if (auto react = message->reactions()) {
+        if (!react->reactions().isEmpty()) {
+            const QFontMetrics emojiFontMetrics(mEmojiFont);
+            // const QList<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()),
+            // option); for (auto t : layouts) {
+            //     qDebug() << " t " << t.reactionRect << " maxWidth " << maxWidth;
+            // }
+            // qDebug() << " layouts" << layouts;
+            reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + DelegatePaintUtil::margin();
+        }
     }
     return {maxWidth, reactionsHeight};
 }
@@ -210,14 +217,16 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
 bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        const QPoint pos = mouseEvent->pos();
-        const QList<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
-        for (const ReactionLayout &reactionLayout : reactions) {
-            if (reactionLayout.reactionRect.contains(pos)) {
-                const Reaction &reaction = reactionLayout.reaction;
-                const bool doAdd = !reaction.userNames().contains(mRocketChatAccount->userName());
-                mRocketChatAccount->reactOnMessage(QString::fromLatin1(message->messageId()), reaction.reactionName(), doAdd);
-                return true;
+        if (auto react = message->reactions()) {
+            const QPoint pos = mouseEvent->pos();
+            const QList<ReactionLayout> reactions = layoutReactions(react->reactions(), reactionsRect, option);
+            for (const ReactionLayout &reactionLayout : reactions) {
+                if (reactionLayout.reactionRect.contains(pos)) {
+                    const Reaction &reaction = reactionLayout.reaction;
+                    const bool doAdd = !reaction.userNames().contains(mRocketChatAccount->userName());
+                    mRocketChatAccount->reactOnMessage(QString::fromLatin1(message->messageId()), reaction.reactionName(), doAdd);
+                    return true;
+                }
             }
         }
     }
@@ -230,13 +239,15 @@ bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent,
                                                      const QStyleOptionViewItem &option,
                                                      const Message *message)
 {
-    const QList<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
-    for (const ReactionLayout &reactionLayout : reactions) {
-        if (reactionLayout.reactionRect.contains(helpEvent->pos())) {
-            const Reaction &reaction = reactionLayout.reaction;
-            const QString tooltip = reaction.convertedUsersNameAtToolTip();
-            QToolTip::showText(helpEvent->globalPos(), tooltip, view);
-            return true;
+    if (auto react = message->reactions()) {
+        const QList<ReactionLayout> reactions = layoutReactions(react->reactions(), reactionsRect, option);
+        for (const ReactionLayout &reactionLayout : reactions) {
+            if (reactionLayout.reactionRect.contains(helpEvent->pos())) {
+                const Reaction &reaction = reactionLayout.reaction;
+                const QString tooltip = reaction.convertedUsersNameAtToolTip();
+                QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+                return true;
+            }
         }
     }
     return false;

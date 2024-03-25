@@ -751,10 +751,12 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             return true;
         }
 
-        if (!message->reactions().isEmpty()) {
-            const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
-            if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
-                return true;
+        if (auto react = message->reactions()) {
+            if (!react->isEmpty()) {
+                const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
+                if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
+                    return true;
+                }
             }
         }
         if (message->threadCount() > 0) {
@@ -901,10 +903,12 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
 
         const MessageListLayoutBase::Layout layout = doLayout(option, index);
-        if (!message->reactions().isEmpty()) {
-            const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
-            if (mHelperReactions->handleHelpEvent(helpEvent, view, reactionsRect, option, message)) {
-                return true;
+        if (auto react = message->reactions()) {
+            if (!react->isEmpty()) {
+                const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
+                if (mHelperReactions->handleHelpEvent(helpEvent, view, reactionsRect, option, message)) {
+                    return true;
+                }
             }
         }
         const QPoint helpEventPos{helpEvent->pos()};

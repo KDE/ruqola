@@ -267,11 +267,13 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     }
     case MessagesModel::Reactions: {
         QVariantList lst;
-        const auto reactions = message.reactions().reactions();
-        lst.reserve(reactions.count());
-        for (const Reaction &react : reactions) {
-            // Convert reactions
-            lst.append(QVariant::fromValue(react));
+        if (auto reactionsMessages = message.reactions()) {
+            const auto reactions = reactionsMessages->reactions();
+            lst.reserve(reactions.count());
+            for (const Reaction &react : reactions) {
+                // Convert reactions
+                lst.append(QVariant::fromValue(react));
+            }
         }
         return lst;
     }
@@ -533,11 +535,13 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
             return matchesFilePath(msg.attachments());
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
-        const auto reactions = msg.reactions().reactions();
-        for (const Reaction &reaction : reactions) {
-            const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
-            if (!fileName.isEmpty() && mRocketChatAccount->urlForLink(fileName).path() == filePath) {
-                return true;
+        if (auto reactionsMessages = msg.reactions()) {
+            const auto reactions = reactionsMessages->reactions();
+            for (const Reaction &reaction : reactions) {
+                const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
+                if (!fileName.isEmpty() && mRocketChatAccount->urlForLink(fileName).path() == filePath) {
+                    return true;
+                }
             }
         }
         const Utils::AvatarInfo info = msg.avatarInfo();

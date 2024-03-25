@@ -116,7 +116,12 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
 {
     if (!reacts.isEmpty()) {
-        mReactions.parseReactions(reacts, emojiManager);
+        if (!mMessageTranslation) {
+            mReactions = new Reactions;
+        } else {
+            mReactions.reset(new Reactions);
+        }
+        mReactions->parseReactions(reacts, emojiManager);
     }
 }
 
@@ -485,14 +490,21 @@ void Message::parseUrls(const QJsonArray &urls)
     }
 }
 
-Reactions Message::reactions() const
+const Reactions *Message::reactions() const
 {
-    return mReactions;
+    if (mReactions) {
+        return mReactions.data();
+    }
+    return nullptr;
 }
 
 void Message::setReactions(const Reactions &reactions)
 {
-    mReactions = reactions;
+    if (!mReactions) {
+        mReactions = new Reactions(reactions);
+    } else {
+        mReactions.reset(new Reactions(reactions));
+    }
 }
 
 bool Message::isPinned() const
@@ -544,15 +556,26 @@ bool Message::operator==(const Message &other) const
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
         && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions()) && (mRole == other.role())
-        && (mReactions == other.reactions()) && (unread() == other.unread()) && (mMessagePinned == other.messagePinned())
-        && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage())
-        && (discussionCount() == other.discussionCount()) && (discussionLastMessage() == other.discussionLastMessage())
-        && (discussionRoomId() == other.discussionRoomId()) && (threadMessageId() == other.threadMessageId())
-        && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies()) && (mEmoji == other.emoji())
-        && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage()) && (mChannels == other.channels())
-        && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks()) && (mDisplayTime == other.mDisplayTime)
-        && (privateMessage() == other.privateMessage());
+        && (unread() == other.unread()) && (mMessagePinned == other.messagePinned()) && (mMessageStarred == other.messageStarred())
+        && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
+        && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
+        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
+        && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
+        && (mChannels == other.channels()) && (localTranslation() == other.localTranslation()) && (mBlocks == other.blocks())
+        && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
+        return false;
+    }
+    // compare messageTranslation
+    if (reactions() && other.reactions()) {
+        if (*reactions() == (*other.reactions())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!reactions() && !other.reactions()) {
+        result = true;
+    } else {
         return false;
     }
     // compare messageTranslation
@@ -960,8 +983,12 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
             message.mUrls.append(std::move(url));
         }
     }
-    const QJsonObject reactionsArray = o.value(QLatin1StringView("reactions")).toObject();
-    message.setReactions(Reactions::deserialize(reactionsArray, emojiManager));
+    if (o.contains(QLatin1StringView("reactions"))) {
+        const QJsonObject reactionsArray = o.value(QLatin1StringView("reactions")).toObject();
+        Reactions *reaction = Reactions::deserialize(reactionsArray);
+        message.setReactions(*reaction);
+        delete reaction;
+    }
 
     const QJsonArray repliesArray = o.value(QLatin1StringView("replies")).toArray();
     QStringList replies;
@@ -1092,8 +1119,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QLatin1StringView("urls")] = array;
     }
 
-    if (!message.reactions().isEmpty()) {
-        o[QLatin1StringView("reactions")] = Reactions::serialize(message.reactions());
+    if (message.reactions() && !message.reactions()->isEmpty()) {
+        o[QLatin1StringView("reactions")] = Reactions::serialize(*message.reactions());
     }
 
     if (message.threadCount() > 0) {
@@ -1168,7 +1195,7 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "Mentions:" << t.mentions();
     d.space() << "mMessageType:" << t.messageType();
     d.space() << "mRole:" << t.role();
-    d.space() << "mReaction:" << t.reactions();
+    d.space() << "mReaction:" << *t.reactions();
     d.space() << "mUnread:" << t.unread();
     d.space() << "starred" << t.messageStarred();
     d.space() << "pinned" << t.messagePinned();

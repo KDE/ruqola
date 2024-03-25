@@ -5,10 +5,27 @@
 */
 
 #include "reactions.h"
+#include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
-Reactions::Reactions() = default;
+Reactions::Reactions()
+    : QSharedData()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Reactions created " << this;
+}
+
+Reactions::Reactions(const Reactions &other)
+    : QSharedData(other)
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " ModerationMessage(const ModerationMessage &other) created " << this;
+    mReactions = other.reactions();
+}
+
+Reactions::~Reactions()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Reactions deleted " << this;
+}
 
 void Reactions::setReactions(const QList<Reaction> &reactions)
 {
@@ -68,7 +85,7 @@ QJsonObject Reactions::serialize(const Reactions &reactions)
     return obj;
 }
 
-Reactions Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
+Reactions *Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     QList<Reaction> reacts;
     const QStringList lst = o.keys();
@@ -90,8 +107,8 @@ Reactions Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManage
         }
         users.clear();
     }
-    Reactions final;
-    final.setReactions(reacts);
+    auto final = new Reactions;
+    final->setReactions(reacts);
     return final;
 }
 
