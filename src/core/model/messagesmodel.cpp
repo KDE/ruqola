@@ -615,8 +615,7 @@ bool MessagesModel::threadMessageFollowed(const QByteArray &threadMessageId) con
         if (it != mAllMessages.cend()) {
             const QByteArray userId = mRocketChatAccount ? mRocketChatAccount->userId() : QByteArray();
             if (!userId.isEmpty()) {
-                // TODO convert replies to QList<QByteArray>
-                return (*it).replies().contains(QString::fromLatin1(userId));
+                return (*it).replies().contains(userId);
             }
         } else {
             qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one

@@ -52,12 +52,12 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         }
     }
 
-    QStringList lst;
+    QList<QByteArray> lst;
     const QJsonArray replieArray = o.value(QLatin1StringView("replies")).toArray();
     const auto nbReplieArrayCount{replieArray.count()};
     lst.reserve(nbReplieArrayCount);
     for (auto i = 0; i < nbReplieArrayCount; ++i) {
-        lst.append(replieArray.at(i).toVariant().toString());
+        lst.append(replieArray.at(i).toVariant().toString().toLatin1());
     }
     mReplies = lst;
 
@@ -165,12 +165,12 @@ void Message::setEmoji(const QString &emoji)
     mEmoji = emoji;
 }
 
-QStringList Message::replies() const
+QList<QByteArray> Message::replies() const
 {
     return mReplies;
 }
 
-void Message::setReplies(const QStringList &replies)
+void Message::setReplies(const QList<QByteArray> &replies)
 {
     mReplies = replies;
 }
@@ -991,10 +991,10 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     const QJsonArray repliesArray = o.value(QLatin1StringView("replies")).toArray();
-    QStringList replies;
+    QList<QByteArray> replies;
     replies.reserve(repliesArray.count());
     for (int i = 0, total = repliesArray.count(); i < total; ++i) {
-        replies.append(repliesArray.at(i).toString());
+        replies.append(repliesArray.at(i).toString().toLatin1());
     }
     message.setReplies(replies);
 
@@ -1140,7 +1140,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QLatin1StringView("tmid")] = QString::fromLatin1(message.threadMessageId());
     }
     if (!message.mReplies.isEmpty()) {
-        o[QLatin1StringView("replies")] = QJsonArray::fromStringList(message.mReplies);
+        QStringList serialize;
+        for (const QByteArray &i : std::as_const(message.mReplies)) {
+            serialize << QString::fromLatin1(i);
+        }
+        o[QLatin1StringView("replies")] = QJsonArray::fromStringList(serialize);
     }
 
     if (!message.mBlocks.isEmpty()) {

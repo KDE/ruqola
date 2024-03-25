@@ -186,8 +186,8 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    [[nodiscard]] QStringList replies() const;
-    void setReplies(const QStringList &replies);
+    [[nodiscard]] QList<QByteArray> replies() const;
+    void setReplies(const QList<QByteArray> &replies);
 
     [[nodiscard]] QString emoji() const;
     void setEmoji(const QString &emoji);
@@ -275,7 +275,7 @@ private:
     QMap<QString, QByteArray> mChannels;
 
     // Users which replies to thread
-    QStringList mReplies;
+    QList<QByteArray> mReplies;
 
     // role used when we add/remove role. It will displaying in messagesystem
     QString mRole;

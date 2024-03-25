@@ -597,7 +597,7 @@ void MessageTest::shouldSerializeData()
         input.setBlocks(blocks);
 
         // Replies
-        input.setReplies({QStringLiteral("reply1"), QStringLiteral("reply2")});
+        input.setReplies({QByteArrayLiteral("reply1"), QByteArrayLiteral("reply2")});
 
         // Discussion
         input.setDiscussionRoomId(QByteArrayLiteral("discussion1"));
