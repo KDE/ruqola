@@ -127,7 +127,7 @@ void AdminCustomSoundModel::removeElement(const QString &identifier)
 {
     const int userCount = mCustomSounds.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mCustomSounds.at(i).identifier() == identifier) {
+        if (mCustomSounds.at(i).identifier() == identifier.toLatin1()) {
             beginRemoveRows(QModelIndex(), i, i);
             mCustomSounds.takeAt(i);
             mCustomSounds.setTotal(mCustomSounds.count()); // Update total

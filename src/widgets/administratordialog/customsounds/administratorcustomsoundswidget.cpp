@@ -50,9 +50,9 @@ void AdministratorCustomSoundsWidget::slotCustomSoundUpdated()
     // TODO
 }
 
-void AdministratorCustomSoundsWidget::slotCustomSoundRemoved(const QString &identifier)
+void AdministratorCustomSoundsWidget::slotCustomSoundRemoved(const QByteArray &identifier)
 {
-    mModel->removeElement(identifier);
+    mModel->removeElement(QString::fromLatin1(identifier));
 }
 
 void AdministratorCustomSoundsWidget::updateLabel()

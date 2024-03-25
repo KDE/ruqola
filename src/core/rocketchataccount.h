@@ -575,7 +575,7 @@ Q_SIGNALS:
     void permissionChanged();
     void displayReconnectWidget(int seconds);
 
-    void customSoundRemoved(const QString &identifier);
+    void customSoundRemoved(const QByteArray &identifier);
     void customSoundAdded(); // TODO add argument ?
     void customSoundUpdated(); // TODO add argument ?
 

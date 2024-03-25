@@ -26,7 +26,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCustomSound(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddCustomSound();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveCustomSound(const QModelIndex &index);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundRemoved(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundRemoved(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundAdded();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomSoundUpdated();
 };

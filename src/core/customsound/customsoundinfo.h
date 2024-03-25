@@ -15,8 +15,8 @@ public:
     CustomSoundInfo();
     ~CustomSoundInfo() = default;
 
-    [[nodiscard]] const QString &identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    [[nodiscard]] const QByteArray &identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] const QString &name() const;
     void setName(const QString &newName);
@@ -29,7 +29,7 @@ public:
     [[nodiscard]] bool isValid() const;
 
 private:
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mName;
     QString mExtension;
 };

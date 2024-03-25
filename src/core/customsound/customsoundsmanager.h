@@ -28,9 +28,9 @@ public:
 
     void initializeDefaultSounds();
 Q_SIGNALS:
-    void customSoundRemoved(const QString &identifier);
-    void customSoundAdded(const QString &identifier);
-    void customSoundUpdated(const QString &identifier);
+    void customSoundRemoved(const QByteArray &identifier);
+    void customSoundAdded(const QByteArray &identifier);
+    void customSoundUpdated(const QByteArray &identifier);
 
 private:
     QList<CustomSoundInfo> mCustomSoundsInfo;

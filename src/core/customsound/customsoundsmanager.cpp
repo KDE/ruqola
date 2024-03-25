@@ -22,56 +22,56 @@ void CustomSoundsManager::initializeDefaultSounds()
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("chime"));
+        info.setIdentifier(QByteArrayLiteral("chime"));
         info.setName(QStringLiteral("Chime"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("door"));
+        info.setIdentifier(QByteArrayLiteral("door"));
         info.setName(QStringLiteral("Door"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("beep"));
+        info.setIdentifier(QByteArrayLiteral("beep"));
         info.setName(QStringLiteral("Beep"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("chelle"));
+        info.setIdentifier(QByteArrayLiteral("chelle"));
         info.setName(QStringLiteral("Chelle"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("ding"));
+        info.setIdentifier(QByteArrayLiteral("ding"));
         info.setName(QStringLiteral("Ding"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("droplet"));
+        info.setIdentifier(QByteArrayLiteral("droplet"));
         info.setName(QStringLiteral("Droplet"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("highbell"));
+        info.setIdentifier(QByteArrayLiteral("highbell"));
         info.setName(QStringLiteral("Highbell"));
         listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
-        info.setIdentifier(QStringLiteral("seasons"));
+        info.setIdentifier(QByteArrayLiteral("seasons"));
         info.setName(QStringLiteral("Seasons"));
         listSounds.append(std::move(info));
     }
@@ -109,7 +109,7 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
     for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
         const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
-        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        const QByteArray identifier = emojiData.value(QStringLiteral("_id")).toString().toLatin1();
         if (!identifier.isEmpty()) {
             for (int j = 0, total = mCustomSoundsInfo.count(); j < total; ++j) {
                 if (mCustomSoundsInfo.at(j).identifier() == identifier) {
@@ -129,7 +129,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
     for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
         const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
-        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        const QByteArray identifier = emojiData.value(QStringLiteral("_id")).toString().toLatin1();
         if (!identifier.isEmpty()) {
             bool soundIdentifierFound = false;
             for (int j = 0, total = mCustomSoundsInfo.count(); j < total; ++j) {

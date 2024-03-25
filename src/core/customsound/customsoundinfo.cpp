@@ -9,12 +9,12 @@
 
 CustomSoundInfo::CustomSoundInfo() = default;
 
-const QString &CustomSoundInfo::identifier() const
+const QByteArray &CustomSoundInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void CustomSoundInfo::setIdentifier(const QString &newIdentifier)
+void CustomSoundInfo::setIdentifier(const QByteArray &newIdentifier)
 {
     mIdentifier = newIdentifier;
 }
@@ -32,7 +32,7 @@ void CustomSoundInfo::setName(const QString &newName)
 void CustomSoundInfo::parseCustomSoundInfo(const QJsonObject &obj)
 {
     mName = obj[QLatin1StringView("name")].toString();
-    mIdentifier = obj[QLatin1StringView("_id")].toString();
+    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
     mExtension = obj[QLatin1StringView("extension")].toString();
 }
 
