@@ -108,7 +108,7 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
     dlg->setRoomEditInfo(info);
     if (dlg->exec()) {
         AdministratorRoomsEditBaseWidget::RoomEditInfo newInfo = dlg->roomEditInfo();
-        const QString roomIdentifier = roomInfo.identifier();
+        const QByteArray roomIdentifier = roomInfo.identifier();
         const bool oldArchivedValue = info.archived;
         const bool newArchivedValue = newInfo.archived;
         const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(newInfo, roomType, roomIdentifier);
@@ -174,10 +174,10 @@ void AdministratorRoomsWidget::slotGetRoomSettingsDone(const QJsonObject &obj)
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
 AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info,
                                                         const Room::RoomType roomType,
-                                                        const QString &roomIdentifier)
+                                                        const QByteArray &roomIdentifier)
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo roomSettingsInfo;
-    roomSettingsInfo.roomId = roomIdentifier;
+    roomSettingsInfo.roomId = QString::fromLatin1(roomIdentifier);
     roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
     roomSettingsInfo.favorite = info.favorite;
     roomSettingsInfo.roomType = Room::roomFromRoomType(roomType);

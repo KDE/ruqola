@@ -39,7 +39,7 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     if (object.contains(QLatin1StringView("ts"))) {
         setCreatedRoom(Utils::parseIsoDate(QStringLiteral("ts"), object));
     }
-    setIdentifier(object[QLatin1StringView("_id")].toString());
+    setIdentifier(object[QLatin1StringView("_id")].toString().toLatin1());
     setReadOnly(object[QLatin1StringView("ro")].toBool());
 
     setFeatured(object[QLatin1StringView("featured")].toBool(false));
@@ -229,12 +229,12 @@ void RoomInfo::setChannelType(const QString &channelType)
     mChannelType = channelType;
 }
 
-QString RoomInfo::identifier() const
+QByteArray RoomInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void RoomInfo::setIdentifier(const QString &identifier)
+void RoomInfo::setIdentifier(const QByteArray &identifier)
 {
     mIdentifier = identifier;
 }

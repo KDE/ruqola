@@ -154,7 +154,7 @@ void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 void AdminRoomsModel::updateElement(const QJsonObject &obj)
 {
     const int roomCount = mAdminRooms.count();
-    const QString identifier{obj.value(QStringLiteral("_id")).toString()};
+    const QByteArray identifier{obj.value(QStringLiteral("_id")).toString().toLatin1()};
     for (int i = 0; i < roomCount; ++i) {
         if (mAdminRooms.at(i).identifier() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
@@ -179,7 +179,7 @@ void AdminRoomsModel::removeElement(const QString &identifier)
 {
     const int roomCount = mAdminRooms.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mAdminRooms.at(i).identifier() == identifier) {
+        if (QString::fromLatin1(mAdminRooms.at(i).identifier()) == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mAdminRooms.takeAt(i);
             mAdminRooms.setTotal(mAdminRooms.count()); // Update total

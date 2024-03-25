@@ -32,8 +32,8 @@ public:
     [[nodiscard]] QString channelType() const;
     void setChannelType(const QString &channelType);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &identifier);
 
     [[nodiscard]] QString topic() const;
     void setTopic(const QString &topic);
@@ -90,7 +90,7 @@ private:
     QStringList mUserNames;
     QStringList mUsers;
     QString mTopic;
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QString mChannelType;
     QString mChannelTypeStr;
     QString mName;
