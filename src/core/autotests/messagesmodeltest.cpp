@@ -306,16 +306,16 @@ void MessagesModelTest::shouldFindPrevNextMessage()
     Message input;
     fillTestMessage(input);
     QList<Message> messages;
-    auto makeMessage = [&](const char *id, const char *userId) {
-        input.setMessageId(QByteArrayLiteral(id));
-        input.setUserId(QByteArrayLiteral(userId));
+    auto makeMessage = [&](const QByteArray &id, const QByteArray &userId) {
+        input.setMessageId(id);
+        input.setUserId(userId);
         static int timestamp = 1;
         input.setTimeStamp(timestamp);
         return input;
     };
-    messages << makeMessage("msgA", "userid1");
-    messages << makeMessage("msgB", "userid2");
-    messages << makeMessage("msgC", "userid1");
+    messages << makeMessage(QByteArrayLiteral("msgA"), QByteArrayLiteral("userid1"));
+    messages << makeMessage(QByteArrayLiteral("msgB"), QByteArrayLiteral("userid2"));
+    messages << makeMessage(QByteArrayLiteral("msgC"), QByteArrayLiteral("userid1"));
     model.addMessages(messages);
 
     // WHEN/THEN
