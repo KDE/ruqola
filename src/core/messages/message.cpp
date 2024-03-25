@@ -464,7 +464,7 @@ void Message::parseMentions(const QJsonArray &mentions)
     mMentions.clear();
     for (int i = 0; i < mentions.size(); i++) {
         const QJsonObject mention = mentions.at(i).toObject();
-        mMentions.insert(mention.value(QLatin1StringView("username")).toString(), mention.value(QLatin1StringView("_id")).toString());
+        mMentions.insert(mention.value(QLatin1StringView("username")).toString(), mention.value(QLatin1StringView("_id")).toString().toLatin1());
     }
 }
 
@@ -510,12 +510,12 @@ void Message::setIsStarred(bool starred)
     mMessageStarred.setIsStarred(starred);
 }
 
-QMap<QString, QString> Message::mentions() const
+QMap<QString, QByteArray> Message::mentions() const
 {
     return mMentions;
 }
 
-void Message::setMentions(const QMap<QString, QString> &mentions)
+void Message::setMentions(const QMap<QString, QByteArray> &mentions)
 {
     mMentions = mentions;
 }
@@ -971,11 +971,11 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
     message.setReplies(replies);
 
-    QMap<QString, QString> mentions;
+    QMap<QString, QByteArray> mentions;
     const QJsonArray mentionsArray = o.value(QLatin1StringView("mentions")).toArray();
     for (int i = 0, total = mentionsArray.count(); i < total; ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
-        mentions.insert(mention.value(QLatin1StringView("username")).toString(), mention.value(QLatin1StringView("_id")).toString());
+        mentions.insert(mention.value(QLatin1StringView("username")).toString(), mention.value(QLatin1StringView("_id")).toString().toLatin1());
     }
     message.setMentions(mentions);
 
@@ -1057,12 +1057,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     // Mentions
     if (!message.mentions().isEmpty()) {
-        QMapIterator<QString, QString> i(message.mentions());
+        QMapIterator<QString, QByteArray> i(message.mentions());
         QJsonArray array;
         while (i.hasNext()) {
             i.next();
             QJsonObject mention;
-            mention.insert(QLatin1StringView("_id"), i.value());
+            mention.insert(QLatin1StringView("_id"), QString::fromLatin1(i.value()));
             mention.insert(QLatin1StringView("username"), i.key());
             array.append(std::move(mention));
         }

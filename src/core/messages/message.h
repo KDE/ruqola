@@ -133,8 +133,8 @@ public:
     [[nodiscard]] QList<MessageUrl> urls() const;
     void setUrls(const QList<MessageUrl> &urls);
 
-    [[nodiscard]] QMap<QString, QString> mentions() const;
-    void setMentions(const QMap<QString, QString> &mentions);
+    [[nodiscard]] QMap<QString, QByteArray> mentions() const;
+    void setMentions(const QMap<QString, QByteArray> &mentions);
 
     [[nodiscard]] bool isStarred() const;
     void setIsStarred(bool starred);
@@ -269,7 +269,7 @@ private:
     Reactions mReactions;
 
     // Mentions username/identifier
-    QMap<QString, QString> mMentions;
+    QMap<QString, QByteArray> mMentions;
 
     // Channels Name/identifier
     QMap<QString, QByteArray> mChannels;

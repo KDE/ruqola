@@ -156,7 +156,7 @@ QString markdownToRichText(const QString &markDown)
 QString generateRichText(const QString &str,
                          const QString &username,
                          const QStringList &highlightWords,
-                         const QMap<QString, QString> &mentions,
+                         const QMap<QString, QByteArray> &mentions,
                          const QMap<QString, QByteArray> &channels,
                          const QString &searchedText)
 {
@@ -291,22 +291,23 @@ QString generateRichText(const QString &str,
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
 
-        QString userIdentifier = mentions.value(word.toString());
+        QByteArray userIdentifier = mentions.value(word.toString());
         if (userIdentifier.isEmpty()) {
-            userIdentifier = word.toString();
+            userIdentifier = word.toString().toLatin1();
         }
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word.toString(),
                            QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
-                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
+                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, QString::fromLatin1(userIdentifier)));
 
         } else {
-            if (!Utils::validUser(userIdentifier)) { // here ? all ?
+            if (!Utils::validUser(QString::fromLatin1(userIdentifier))) { // here ? all ?
                 newStr.replace(QLatin1Char('@') + word.toString(),
                                QStringLiteral("<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>")
                                    .arg(word.toString(), hereAllMentionForegroundColor, hereAllMentionBackgroundColor));
             } else {
-                newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
+                newStr.replace(QLatin1Char('@') + word.toString(),
+                               QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, QString::fromLatin1(userIdentifier)));
             }
         }
     }

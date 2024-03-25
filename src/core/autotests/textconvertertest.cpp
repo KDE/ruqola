@@ -416,7 +416,7 @@ void TextConverterTest::shouldShowChannels_data()
 
 void TextConverterTest::shouldShowChannels()
 {
-    using mapMentions = QMap<QString, QString>;
+    using mapMentions = QMap<QString, QByteArray>;
     using mapChannels = QMap<QString, QByteArray>;
     QFETCH(QString, input);
     QFETCH(QString, output);
@@ -432,7 +432,7 @@ void TextConverterTest::shouldShowChannels()
 
 void TextConverterTest::shouldShowUsers()
 {
-    using mapMentions = QMap<QString, QString>;
+    using mapMentions = QMap<QString, QByteArray>;
     using mapChannels = QMap<QString, QByteArray>;
     QFETCH(QString, input);
     QFETCH(QString, output);
@@ -450,8 +450,8 @@ void TextConverterTest::shouldShowUsers_data()
 {
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
-    QTest::addColumn<QMap<QString, QString>>("mentions");
-    QTest::addColumn<QMap<QString, QString>>("channels");
+    QTest::addColumn<QMap<QString, QByteArray>>("mentions");
+    QTest::addColumn<QMap<QString, QByteArray>>("channels");
 
     {
         QMap<QString, QString> mentions;

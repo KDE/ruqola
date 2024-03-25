@@ -552,11 +552,11 @@ void MessageTest::shouldSerializeData()
         input.setLocalTranslation(QStringLiteral("message fr"));
 
         // Mention
-        QMap<QString, QString> mentions;
-        mentions.insert(QStringLiteral("bla1"), QStringLiteral("foo1"));
-        mentions.insert(QStringLiteral("bla2"), QStringLiteral("foo2"));
-        mentions.insert(QStringLiteral("bla3"), QStringLiteral("foo3"));
-        mentions.insert(QStringLiteral("bla4"), QStringLiteral("foo4"));
+        QMap<QString, QByteArray> mentions;
+        mentions.insert(QStringLiteral("bla1"), QByteArrayLiteral("foo1"));
+        mentions.insert(QStringLiteral("bla2"), QByteArrayLiteral("foo2"));
+        mentions.insert(QStringLiteral("bla3"), QByteArrayLiteral("foo3"));
+        mentions.insert(QStringLiteral("bla4"), QByteArrayLiteral("foo4"));
         input.setMentions(mentions);
 
         // Channels
