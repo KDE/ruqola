@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-20 10:31+0100\n"
+"PO-Revision-Date: 2024-03-23 09:08+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -9660,7 +9660,7 @@ msgstr "Réduire l'empreinte mémoire."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Use RESTAPI for logging."
-msgstr ""
+msgstr "Utiliser « RESTAPI » pour se connecter."
 
 #, fuzzy
 #~| msgid "Implement block actions."

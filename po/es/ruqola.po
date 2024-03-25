@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-02 18:57+0100\n"
+"PO-Revision-Date: 2024-03-23 17:44+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -864,10 +864,9 @@ msgid "Edited at %1 by %2"
 msgstr "Editado el %1 por %2"
 
 #: core/model/messagesmodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Do you want to delete this message?"
+#, kde-format
 msgid "Only you can see this message"
-msgstr "¿Desea borrar este mensaje?"
+msgstr "Solo tú puedes ver este mensaje"
 
 #: core/model/messagesmodel.cpp:361
 #, kde-format
@@ -1629,15 +1628,14 @@ msgid "Message deletion is not allowed."
 msgstr "No se permite el borrado de mensajes."
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:101
-#, fuzzy, kde-format
-#| msgid "File sharing not allowed in direct messages"
+#, kde-format
 msgid "Not allowed to get message %1"
-msgstr "No se permite compartir archivos en mensajes directos"
+msgstr "No está permitido recuperar el mensaje %1"
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:103
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
-msgstr ""
+msgstr "No está permitido recuperar el mensaje %2 de la sala %1"
 
 #: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:91
 #, kde-format
@@ -2664,16 +2662,14 @@ msgid "Save File Error"
 msgstr "Guardar archivo de errores"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Messages"
-msgstr "Mensaje reportado"
+msgstr "Mensajes reportados"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Reported Users"
-msgstr "Mensaje reportado"
+msgstr "Usuarios reportados"
 
 #: widgets/administratordialog/moderationconsole/administratormoderationrangewidget.cpp:32
 #: widgets/exportmessages/exportmessageswidget.cpp:24
@@ -8862,7 +8858,7 @@ msgstr ""
 #, kde-format
 msgctxt "Percent value; %p is the value, % is the percent sign"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:35
 #, kde-format
@@ -9576,13 +9572,15 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:72
 msgid "Implement block actions."
-msgstr ""
+msgstr "Implementación de las acciones en bloque."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:73
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
 "show_bug.cgi?id=481400\">Bug 481400</a>"
 msgstr ""
+"Implementación de los token de autenticación personal.<a href=\"https://bugs."
+"kde.org/show_bug.cgi?id=481400\">Bug 481400</a>"
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:78
 msgid "Fix dark mode support."
@@ -9602,11 +9600,8 @@ msgstr "No muestra @here/@all como usuario."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:82
 msgid "Reduce memory footprint."
-msgstr ""
+msgstr "Reducción del consumo de memoria."
 
 #: widgets/whatsnew/whatsnewwidgettranslation.h:83
 msgid "Use RESTAPI for logging."
-msgstr ""
-
-#~ msgid "Room topic changed to: %1 by %2"
-#~ msgstr "El tema de la sala ha sido cambiado a: %1 por %2"
+msgstr "Uso de RESTAPI para los registros."
