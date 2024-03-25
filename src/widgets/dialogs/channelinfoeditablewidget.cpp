@@ -136,10 +136,10 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
 
 ChannelInfoEditableWidget::~ChannelInfoEditableWidget() = default;
 
-void ChannelInfoEditableWidget::selectRoomToDelete(const QString &teamId)
+void ChannelInfoEditableWidget::selectRoomToDelete(const QByteArray &teamId)
 {
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
-    job->setTeamId(teamId);
+    job->setTeamId(QString::fromLatin1(teamId));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &ChannelInfoEditableWidget::slotTeamListRoomsDone);
     if (!job->start()) {
@@ -147,10 +147,10 @@ void ChannelInfoEditableWidget::selectRoomToDelete(const QString &teamId)
     }
 }
 
-void ChannelInfoEditableWidget::deleteTeam(const QString &teamId, const QStringList &roomIds)
+void ChannelInfoEditableWidget::deleteTeam(const QByteArray &teamId, const QStringList &roomIds)
 {
     auto job = new RocketChatRestApi::TeamDeleteJob(this);
-    job->setTeamId(teamId);
+    job->setTeamId(QString::fromLatin1(teamId));
     job->setRoomsId(roomIds);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
@@ -162,7 +162,7 @@ void ChannelInfoEditableWidget::deleteTeam(const QString &teamId, const QStringL
 void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
     QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
-    const QString teamId = mRoom->teamInfo().teamId();
+    const QByteArray teamId = mRoom->teamInfo().teamId();
     if (teamRooms.isEmpty()) {
         deleteTeam(teamId, {});
     } else {
@@ -172,7 +172,7 @@ void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
             const QStringList roomIds = dlg->roomsId();
             auto job = new RocketChatRestApi::TeamDeleteJob(this);
             job->setRoomsId(roomIds);
-            job->setTeamId(teamId);
+            job->setTeamId(QString::fromLatin1(teamId));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
             if (!job->start()) {

@@ -144,7 +144,7 @@ public:
     [[nodiscard]] QList<TextEmoticonsCore::CustomEmoji> customEmojies() const;
 
     void reconnectToServer();
-    [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QString &teamId) const;
+    [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QByteArray &teamId) const;
 
     void textEditing(const QByteArray &roomId, bool clearNotification);
     void leaveRoom(const QString &identifier, Room::RoomType channelType);

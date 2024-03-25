@@ -29,11 +29,11 @@ void TeamInfoTest::shouldVerifyHasTeamRoom()
     TeamInfo info;
     QVERIFY(!info.hasTeamRoom());
     info.setMainTeam(true);
-    info.setTeamId(QStringLiteral("ff"));
+    info.setTeamId(QByteArrayLiteral("ff"));
     QVERIFY(!info.hasTeamRoom());
     info.setMainTeam(false);
     QVERIFY(info.hasTeamRoom());
-    info.setTeamId(QString());
+    info.setTeamId(QByteArray());
     QVERIFY(!info.hasTeamRoom());
 }
 

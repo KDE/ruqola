@@ -86,7 +86,7 @@ void TeamChannelsWidget::setRoom(Room *room)
 void TeamChannelsWidget::initializeTeamRoomsList()
 {
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
-    job->setTeamId(mTeamId);
+    job->setTeamId(QString::fromLatin1(mTeamId));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &TeamChannelsWidget::slotTeamListRoomsDone);
     if (!job->start()) {
@@ -165,7 +165,7 @@ void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
-        job->setTeamId(mTeamId);
+        job->setTeamId(QString::fromLatin1(mTeamId));
         job->setRoomId(roomId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
@@ -191,7 +191,7 @@ void TeamChannelsWidget::slotAddExistingRoom()
     delete dlg;
     if (!roomIds.isEmpty()) {
         auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
-        job->setTeamId(mTeamId);
+        job->setTeamId(QString::fromLatin1(mTeamId));
         job->setRoomIds(roomIds);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &TeamChannelsWidget::slotTeamAddRoomsDone);
@@ -223,7 +223,7 @@ void TeamChannelsWidget::slotCreateRoom()
     dlg->setFeatures(flags);
     if (dlg->exec()) {
         RocketChatRestApi::CreateChannelTeamInfo createRoominfo = dlg->channelInfo(false);
-        createRoominfo.teamId = mTeamId;
+        createRoominfo.teamId = QString::fromLatin1(mTeamId);
         createRoominfo.infoType = RocketChatRestApi::CreateChannelTeamInfo::CreateInfoType::Channel;
         if (createRoominfo.privateChannel) {
             createGroups(createRoominfo);

@@ -252,12 +252,12 @@ void RoomModel::addRoom(const QJsonObject &room)
     }
 }
 
-Room::TeamRoomInfo RoomModel::roomFromTeamId(const QString &teamId)
+Room::TeamRoomInfo RoomModel::roomFromTeamId(const QByteArray &teamId)
 {
     for (int row = 0; row < rowCount(); ++row) {
         const QModelIndex modelIndex = index(row, 0);
         if (modelIndex.data(RoomModel::RoomTeamIsMain).toBool()) {
-            if (modelIndex.data(RoomModel::RoomTeamId).toString() == teamId) {
+            if (modelIndex.data(RoomModel::RoomTeamId).toByteArray() == teamId) {
                 Room::TeamRoomInfo teamInfo;
                 teamInfo.teamName = modelIndex.data(RoomModel::RoomName).toString();
                 teamInfo.teamIdentifier = QString::fromLatin1(modelIndex.data(RoomModel::RoomId).toByteArray());

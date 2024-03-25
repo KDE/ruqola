@@ -177,7 +177,7 @@ void RoomTest::shouldSerialized()
 
         // TeamInfo
         TeamInfo teamInfo;
-        teamInfo.setTeamId(QStringLiteral("dddd"));
+        teamInfo.setTeamId(QByteArrayLiteral("dddd"));
         teamInfo.setMainTeam(true);
         teamInfo.setAutoJoin(true);
         teamInfo.setRoomsCount(12);

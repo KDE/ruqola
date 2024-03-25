@@ -98,7 +98,7 @@ public:
     void updateRoom(const QJsonObject &array);
     void addRoom(const QJsonObject &room);
 
-    [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QString &teamId);
+    [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QByteArray &teamId);
 
     /**
      * @brief Adds a room to mRoomsList with @param room

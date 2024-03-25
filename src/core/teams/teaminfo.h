@@ -16,8 +16,8 @@ public:
 
     void parseTeamInfo(const QJsonObject &replyObject);
 
-    [[nodiscard]] QString teamId() const;
-    void setTeamId(const QString &teamId);
+    [[nodiscard]] QByteArray teamId() const;
+    void setTeamId(const QByteArray &teamId);
 
     [[nodiscard]] bool mainTeam() const;
     void setMainTeam(bool mainTeam);
@@ -39,7 +39,7 @@ public:
     void setRoomsCount(int newRoomsCount);
 
 private:
-    QString mTeamId;
+    QByteArray mTeamId;
     int mRoomsCount = 0;
     bool mMainTeam = false;
     bool mAutoJoin = false;

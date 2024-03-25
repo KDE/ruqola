@@ -49,5 +49,5 @@ private:
     TeamRoomsFilterProxyModel *const mTeamRoomFilterProxyModel;
     QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
-    QString mTeamId;
+    QByteArray mTeamId;
 };

@@ -261,7 +261,7 @@ void RocketChatAccount::reconnectToServer()
     slotReconnectToServer();
 }
 
-Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QString &teamId) const
+Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QByteArray &teamId) const
 {
     return mRoomModel->roomFromTeamId(teamId);
 }
