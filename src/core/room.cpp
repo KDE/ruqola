@@ -103,6 +103,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "id :" << t.roomId();
     d << "type :" << t.channelType();
     d << "name :" << t.name();
+    d << "fname :" << t.fName();
     d << "mAnnouncement :" << t.announcement();
     d << "roomCreaterUserName :" << t.roomOwnerUserName();
     d << "roomCreaterUserID :" << t.roomCreatorUserId();
