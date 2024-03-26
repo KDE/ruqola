@@ -96,19 +96,19 @@ void ModerationReportInfo::setUserId(const QByteArray &newUserId)
     mUserId = newUserId;
 }
 
-QString ModerationReportInfo::roomId() const
+QByteArray ModerationReportInfo::roomId() const
 {
     return mRoomId;
 }
 
-void ModerationReportInfo::setRoomId(const QString &newRoomId)
+void ModerationReportInfo::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
 
 void ModerationReportInfo::parseRoom(const QJsonObject &o)
 {
-    mRoomId = o[QLatin1StringView("_id")].toString();
+    mRoomId = o[QLatin1StringView("_id")].toString().toLatin1();
     // TODO add more ? roomName etc ?
 }
 

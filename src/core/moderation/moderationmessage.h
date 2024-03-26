@@ -17,13 +17,13 @@ public:
     ModerationMessage();
     ~ModerationMessage();
 
-    [[nodiscard]] QString moderationId() const;
-    void setModerationId(const QString &newModerationId);
+    [[nodiscard]] QByteArray moderationId() const;
+    void setModerationId(const QByteArray &newModerationId);
 
     void parse(const QJsonObject &obj);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &newRoomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
 
     [[nodiscard]] QString roomName() const;
     void setRoomName(const QString &newRoomName);
@@ -36,8 +36,8 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseRoom(const QJsonObject &roomObj);
-    QString mModerationId;
-    QString mRoomId;
+    QByteArray mModerationId;
+    QByteArray mRoomId;
     QString mRoomName;
     QString mRoomFName;
 };

@@ -35,7 +35,7 @@ void ModerationReportInfoTest::shouldLoadReportInfo_data()
     moderationReportInfo.setDescription(QStringLiteral("test report 22222"));
     moderationReportInfo.setReportIdentifier(QByteArrayLiteral("65278f64533fd6f8588e"));
     moderationReportInfo.setTimeStamp(1697091428125);
-    moderationReportInfo.setRoomId(QStringLiteral("xxib9aFXMGN3o"));
+    moderationReportInfo.setRoomId(QByteArrayLiteral("xxib9aFXMGN3o"));
     moderationReportInfo.setUserId(QByteArrayLiteral("H7Q9djXQ4iShzD9T2"));
     moderationReportInfo.setUserName(QStringLiteral("bla"));
 

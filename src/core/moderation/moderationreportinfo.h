@@ -27,8 +27,8 @@ public:
     [[nodiscard]] qint64 timeStamp() const;
     void setTimeStamp(qint64 newTimeStamp);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &newRoomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
 
     [[nodiscard]] QByteArray userId() const;
     void setUserId(const QByteArray &newUserId);
@@ -44,7 +44,7 @@ private:
     QString mTimeStampDateTimeStr;
     QString mDescription;
     QByteArray mReportIdentifier;
-    QString mRoomId;
+    QByteArray mRoomId;
     QString mUserName;
     QByteArray mUserId;
     qint64 mTimeStamp = -1;

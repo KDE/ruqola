@@ -33,19 +33,19 @@ bool ModerationMessage::operator==(const ModerationMessage &other) const
     return mModerationId == other.moderationId() && mRoomId == other.roomId() && mRoomName == other.roomName() && mRoomFName == other.roomFName();
 }
 
-QString ModerationMessage::moderationId() const
+QByteArray ModerationMessage::moderationId() const
 {
     return mModerationId;
 }
 
-void ModerationMessage::setModerationId(const QString &newModerationId)
+void ModerationMessage::setModerationId(const QByteArray &newModerationId)
 {
     mModerationId = newModerationId;
 }
 
 void ModerationMessage::parse(const QJsonObject &obj)
 {
-    mModerationId = obj[QLatin1StringView("_id")].toString();
+    mModerationId = obj[QLatin1StringView("_id")].toString().toLatin1();
     // TODO add timestamp
     const QJsonObject messageObject = obj[QLatin1StringView("message")].toObject();
     parseRoom(obj[QLatin1StringView("room")].toObject());
@@ -53,7 +53,7 @@ void ModerationMessage::parse(const QJsonObject &obj)
 
 void ModerationMessage::parseRoom(const QJsonObject &roomObj)
 {
-    mRoomId = roomObj[QLatin1StringView("_id")].toString();
+    mRoomId = roomObj[QLatin1StringView("_id")].toString().toLatin1();
     mRoomName = roomObj[QLatin1StringView("name")].toString();
     mRoomFName = roomObj[QLatin1StringView("fname")].toString();
 }
@@ -73,12 +73,12 @@ bool ModerationMessage::isEmpty() const
     return mModerationId.isEmpty();
 }
 
-QString ModerationMessage::roomId() const
+QByteArray ModerationMessage::roomId() const
 {
     return mRoomId;
 }
 
-void ModerationMessage::setRoomId(const QString &newRoomId)
+void ModerationMessage::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
