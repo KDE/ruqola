@@ -115,8 +115,6 @@ public:
 
     MessagesModel *messageModel(const QByteArray &roomId) const;
 
-    [[nodiscard]] QString inputMessage(const QByteArray &roomId) const;
-    void setInputMessage(const QByteArray &roomId, const QString &inputMessage);
     [[nodiscard]] Room *findRoom(const QByteArray &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
     [[nodiscard]] QByteArray insertRoom(const QJsonObject &room);

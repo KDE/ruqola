@@ -396,30 +396,6 @@ MessagesModel *RoomModel::messageModel(const QByteArray &roomId) const
     return {};
 }
 
-QString RoomModel::inputMessage(const QByteArray &roomId) const
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            return room->inputMessage();
-        }
-    }
-    return {};
-}
-
-void RoomModel::setInputMessage(const QByteArray &roomId, const QString &inputMessage)
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            room->setInputMessage(inputMessage);
-            return;
-        }
-    }
-}
-
 RoomModel::Section RoomModel::section(Room *r) const
 {
     const Room::RoomType roomType = r->channelType();

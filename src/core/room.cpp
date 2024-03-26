@@ -1415,16 +1415,6 @@ MessagesModel *Room::messageModel() const
     return mMessageModel;
 }
 
-QString Room::inputMessage() const
-{
-    return mInputMessage;
-}
-
-void Room::setInputMessage(const QString &inputMessage)
-{
-    mInputMessage = inputMessage;
-}
-
 bool Room::archived() const
 {
     return roomStateValue(Room::Archived);

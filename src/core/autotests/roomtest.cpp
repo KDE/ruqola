@@ -26,7 +26,6 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.usersModelForRoom());
 
     QVERIFY(input.messageModel());
-    QVERIFY(input.inputMessage().isEmpty());
 
     QVERIFY(input.description().isEmpty());
     QVERIFY(input.announcement().isEmpty());
@@ -88,7 +87,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(w.audioNotificationValue().isEmpty());
 
     // 26/03/2024: size: 1040
-    QCOMPARE(sizeof(Room), 1032);
+    QCOMPARE(sizeof(Room), 1008);
 }
 
 void RoomTest::shouldSerialized()
@@ -323,22 +322,6 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyautoTranslateChanged.count(), 1);
     QCOMPARE(spydirectChannelUserIdChanged.count(), 1);
     QCOMPARE(spylastMessageAtChanged.count(), 1);
-}
-
-void RoomTest::shouldChangeInputMessage()
-{
-    Room input(nullptr);
-    QString inputMsg = QStringLiteral("Foo");
-    input.setInputMessage(inputMsg);
-    QCOMPARE(input.inputMessage(), inputMsg);
-
-    inputMsg = QString();
-    input.setInputMessage(inputMsg);
-    QCOMPARE(input.inputMessage(), inputMsg);
-
-    inputMsg = QStringLiteral("foo");
-    input.setInputMessage(inputMsg);
-    QCOMPARE(input.inputMessage(), inputMsg);
 }
 
 void RoomTest::shouldParseRoom_data()

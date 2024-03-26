@@ -152,9 +152,6 @@ public:
 
     [[nodiscard]] MessagesModel *messageModel() const;
 
-    [[nodiscard]] QString inputMessage() const;
-    void setInputMessage(const QString &inputMessage);
-
     [[nodiscard]] bool archived() const;
     void setArchived(bool archived);
 
@@ -370,8 +367,6 @@ private:
     QStringList mUids;
     QStringList mUserNames;
     QStringList mThreadUnread;
-
-    QString mInputMessage;
 
     // _id
     QByteArray mRoomId;
