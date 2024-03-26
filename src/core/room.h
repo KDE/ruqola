@@ -46,6 +46,25 @@ public:
     };
     Q_ENUM(RoomType)
 
+    enum RoomState {
+        None = 0,
+        ReadOnly = 1,
+        Selected = 2,
+        Favorite = 4,
+        Open = 8,
+        Alert = 16,
+        Blocker = 32,
+        Archived = 64,
+        Blocked = 128,
+        Encrypted = 256,
+        JoinCodeRequired = 512,
+        WasInitialized = 1024,
+        BroadCast = 2048,
+        AutoTranslate = 4096,
+    };
+    Q_FLAGS(RoomState RoomStates)
+    Q_DECLARE_FLAGS(RoomStates, RoomState)
+
     [[nodiscard]] static QString roomFromRoomType(RoomType type);
 
     // To be used in ID find: message ID
@@ -270,6 +289,9 @@ public:
     [[nodiscard]] QStringList threadUnread() const;
     void setThreadUnread(const QStringList &newThreadUnread);
 
+    [[nodiscard]] RoomStates roomStates() const;
+    void setRoomStates(Room::RoomStates newRoomStates);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -328,6 +350,9 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseTeamInfo(const QJsonObject &obj);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT static QStringList extractStringList(const QJsonObject &o, const QString &key);
     LIBRUQOLACORE_NO_EXPORT static void serializeStringList(QJsonObject &o, const QString &key, const QStringList &list);
+
+    LIBRUQOLACORE_NO_EXPORT void assignRoomStateValue(RoomState type, bool status);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool roomStateValue(RoomState type) const;
 
     // Room Object Fields
 
@@ -400,22 +425,6 @@ private:
 
     qint64 mNumberMessages = 0;
 
-    // ro - read-only chat or not
-    bool mReadOnly = false;
-    bool mSelected = false;
-    bool mFavorite = false;
-    // We can hide it or not.
-    bool mOpen = false;
-    bool mAlert = false;
-    bool mBlocker = false;
-    bool mArchived = false;
-    bool mBlocked = false;
-    bool mEncrypted = false;
-    bool mJoinCodeRequired = false;
-    bool mWasInitialized = false;
-    bool mBroadcast = false;
-    bool mAutoTranslate = false;
-
     QByteArray mDirectChannelUserId;
 
     QStringList mDisplaySystemMessageType;
@@ -427,6 +436,8 @@ private:
     UsersForRoomModel *const mUsersModelForRoom;
     QPointer<MessagesModel> mMessageModel;
     RocketChatAccount *const mRocketChatAccount;
+
+    RoomStates mRoomStates = RoomState::None;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Room &t);

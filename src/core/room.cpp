@@ -69,18 +69,15 @@ bool Room::isEqual(const Room &other) const
 {
     return (mRoomId == other.roomId()) && (mChannelType == other.channelType()) && (mName == other.name()) && (mAnnouncement == other.announcement())
         && (mRoomCreatorUserName == other.roomOwnerUserName()) && (mRoomCreateUserId == other.roomCreatorUserId()) && (mTopic == other.topic())
-        && (mMutedUsers == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mReadOnly == other.readOnly()) && (mUnread == other.unread())
-        && (mSelected == other.selected()) && (mFavorite == other.favorite()) && (mOpen == other.open()) && (mBlocker == other.blocker())
-        && (mArchived == other.archived()) && (mDescription == other.description()) && (mUserMentions == other.userMentions())
-        && (mNotificationOptions == other.notificationOptions()) && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt())
-        && (mBlocked == other.blocked()) && (mRoles == other.roles()) && (mIgnoredUsers == other.ignoredUsers()) && (mEncrypted == other.encrypted())
-        && (mE2EKey == other.e2EKey()) && (mE2eKeyId == other.e2eKeyId()) && (mJoinCodeRequired == other.joinCodeRequired())
-        && (mBroadcast == other.broadcast()) && (mParentRid == other.parentRid()) && (mFName == other.fName()) && (mAutoTranslate == other.autoTranslate())
+        && (mMutedUsers == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mUnread == other.unread())
+        && (mDescription == other.description()) && (mUserMentions == other.userMentions()) && (mNotificationOptions == other.notificationOptions())
+        && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (mIgnoredUsers == other.ignoredUsers())
+        && (mE2EKey == other.e2EKey()) && (mE2eKeyId == other.e2eKeyId()) && (mParentRid == other.parentRid()) && (mFName == other.fName())
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
         && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
         && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
-        && (mThreadUnread == other.threadUnread());
+        && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates());
 }
 
 QString Room::displayRoomName() const
@@ -385,15 +382,12 @@ void Room::setNumberMessages(qint64 newNumberMessages)
 
 bool Room::selected() const
 {
-    return mSelected;
+    return roomStateValue(Room::Selected);
 }
 
 void Room::setSelected(bool selected)
 {
-    if (mSelected != selected) {
-        mSelected = selected;
-        // Add signal otherwise it's not necessary to check value
-    }
+    assignRoomStateValue(Room::Selected, selected);
 }
 
 bool Room::hideBadgeForMention() const
@@ -485,52 +479,52 @@ void Room::setRoomId(const QByteArray &id)
 
 bool Room::alert() const
 {
-    return mAlert;
+    return roomStateValue(Room::Alert);
 }
 
 void Room::setBlocker(bool block)
 {
-    if (mBlocker != block) {
-        mBlocker = block;
+    if (roomStateValue(Room::Blocker) != block) {
+        assignRoomStateValue(Room::Blocker, block);
         Q_EMIT blockerChanged();
     }
 }
 
 bool Room::blocker() const
 {
-    return mBlocker;
+    return roomStateValue(Room::Blocker);
 }
 
 void Room::setAlert(bool alert)
 {
-    if (mAlert != alert) {
-        mAlert = alert;
+    if (roomStateValue(Room::Alert) != alert) {
+        assignRoomStateValue(Room::Alert, alert);
         Q_EMIT alertChanged();
     }
 }
 
 bool Room::open() const
 {
-    return mOpen;
+    return roomStateValue(Room::Open);
 }
 
 void Room::setOpen(bool open)
 {
-    if (mOpen != open) {
-        mOpen = open;
+    if (roomStateValue(Room::Open) != open) {
+        assignRoomStateValue(Room::Open, open);
         Q_EMIT openChanged();
     }
 }
 
 bool Room::readOnly() const
 {
-    return mReadOnly;
+    return roomStateValue(Room::ReadOnly);
 }
 
 void Room::setReadOnly(bool readOnly)
 {
-    if (mReadOnly != readOnly) {
-        mReadOnly = readOnly;
+    if (roomStateValue(Room::ReadOnly) != readOnly) {
+        assignRoomStateValue(Room::ReadOnly, readOnly);
         Q_EMIT readOnlyChanged();
     }
 }
@@ -563,13 +557,13 @@ void Room::setTopic(const QString &topic)
 
 bool Room::favorite() const
 {
-    return mFavorite;
+    return roomStateValue(Room::Favorite);
 }
 
 void Room::setFavorite(bool favorite)
 {
-    if (mFavorite != favorite) {
-        mFavorite = favorite;
+    if (roomStateValue(Room::Favorite) != favorite) {
+        assignRoomStateValue(Room::Favorite, favorite);
         Q_EMIT favoriteChanged();
     }
 }
@@ -731,13 +725,13 @@ void Room::setLastMessageAt(qint64 lastMessageAt)
 
 bool Room::blocked() const
 {
-    return mBlocked;
+    return roomStateValue(Room::Blocked);
 }
 
 void Room::setBlocked(bool blocked)
 {
-    if (mBlocked != blocked) {
-        mBlocked = blocked;
+    if (roomStateValue(Room::Blocked) != blocked) {
+        assignRoomStateValue(Room::Blocked, blocked);
         Q_EMIT blockedChanged();
     }
 }
@@ -1024,13 +1018,13 @@ void Room::setDisplaySystemMessageTypes(const QStringList &systemMessageType)
 
 bool Room::autoTranslate() const
 {
-    return mAutoTranslate;
+    return roomStateValue(Room::AutoTranslate);
 }
 
 void Room::setAutoTranslate(bool autoTranslate)
 {
-    if (mAutoTranslate != autoTranslate) {
-        mAutoTranslate = autoTranslate;
+    if (roomStateValue(Room::AutoTranslate) != autoTranslate) {
+        assignRoomStateValue(Room::AutoTranslate, autoTranslate);
         Q_EMIT autoTranslateChanged();
     }
 }
@@ -1089,13 +1083,13 @@ void Room::setParentRid(const QByteArray &parentRid)
 
 bool Room::broadcast() const
 {
-    return mBroadcast;
+    return roomStateValue(Room::BroadCast);
 }
 
 void Room::setBroadcast(bool broadcast)
 {
-    if (mBroadcast != broadcast) {
-        mBroadcast = broadcast;
+    if (roomStateValue(Room::BroadCast) != broadcast) {
+        assignRoomStateValue(Room::BroadCast, broadcast);
         Q_EMIT broadcastChanged();
     }
 }
@@ -1149,23 +1143,23 @@ QStringList Room::rolesForUserId(const QByteArray &userId)
 
 bool Room::wasInitialized() const
 {
-    return mWasInitialized;
+    return roomStateValue(Room::WasInitialized);
 }
 
 void Room::setWasInitialized(bool wasInitialized)
 {
-    mWasInitialized = wasInitialized;
+    assignRoomStateValue(Room::WasInitialized, wasInitialized);
 }
 
 bool Room::joinCodeRequired() const
 {
-    return mJoinCodeRequired;
+    return roomStateValue(Room::JoinCodeRequired);
 }
 
 void Room::setJoinCodeRequired(bool joinCodeRequired)
 {
-    if (mJoinCodeRequired != joinCodeRequired) {
-        mJoinCodeRequired = joinCodeRequired;
+    if (roomStateValue(Room::JoinCodeRequired) != joinCodeRequired) {
+        assignRoomStateValue(Room::JoinCodeRequired, joinCodeRequired);
         Q_EMIT joinCodeRequiredChanged();
     }
 }
@@ -1198,13 +1192,13 @@ void Room::setE2EKey(const QString &e2EKey)
 
 bool Room::encrypted() const
 {
-    return mEncrypted;
+    return roomStateValue(Room::Encrypted);
 }
 
 void Room::setEncrypted(bool encrypted)
 {
-    if (mEncrypted != encrypted) {
-        mEncrypted = encrypted;
+    if (roomStateValue(Room::Encrypted) != encrypted) {
+        assignRoomStateValue(Room::Encrypted, encrypted);
         Q_EMIT encryptedChanged();
     }
 }
@@ -1433,13 +1427,13 @@ void Room::setInputMessage(const QString &inputMessage)
 
 bool Room::archived() const
 {
-    return mArchived;
+    return roomStateValue(Room::Archived);
 }
 
 void Room::setArchived(bool archived)
 {
-    if (mArchived != archived) {
-        mArchived = archived;
+    if (roomStateValue(Room::Archived) != archived) {
+        assignRoomStateValue(Room::Archived, archived);
         Q_EMIT archivedChanged();
     }
 }
@@ -1473,18 +1467,18 @@ bool Room::userIsIgnored(const QByteArray &userId)
 
 bool Room::roomIsBlocked() const
 {
-    return ((mReadOnly && !canChangeRoles()) || mArchived) || mBlocker || mBlocked;
+    return ((readOnly() && !canChangeRoles()) || archived()) || blocker() || blocked();
 }
 
 QString Room::roomMessageInfo() const
 {
-    if ((mReadOnly && !canChangeRoles()) || mArchived) {
+    if ((readOnly() && !canChangeRoles()) || archived()) {
         return i18n("Channel is read only.");
     }
-    if (mBlocker) {
+    if (blocker()) {
         return i18n("You have blocked this channel.");
     }
-    if (mBlocked) {
+    if (blocked()) {
         return i18n("Channel was blocked.");
     }
     return {};
@@ -1537,6 +1531,30 @@ void Room::setDirectChannelUserId(const QByteArray &uid)
     if (mDirectChannelUserId != uid) {
         mDirectChannelUserId = uid;
         Q_EMIT directChannelUserIdChanged();
+    }
+}
+
+bool Room::roomStateValue(RoomState type) const
+{
+    return mRoomStates & type;
+}
+
+Room::RoomStates Room::roomStates() const
+{
+    return mRoomStates;
+}
+
+void Room::setRoomStates(RoomStates newRoomStates)
+{
+    mRoomStates = newRoomStates;
+}
+
+void Room::assignRoomStateValue(RoomState type, bool status)
+{
+    if (status) {
+        mRoomStates |= type;
+    } else {
+        mRoomStates &= ~type;
     }
 }
 
