@@ -27,6 +27,8 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
     QVERIFY(!w.hideUnreadStatus());
     QVERIFY(!w.muteGroupMentions());
     QVERIFY(w.audioNotificationValue().isEmpty());
+    // 26/03/2024: size: 200
+    QCOMPARE(sizeof(NotificationOptions), 200);
 }
 
 void NotificationOptionsTest::shouldAssignValue()
