@@ -36,9 +36,9 @@ public:
 
     [[nodiscard]] OtrType type() const;
 
-    [[nodiscard]] QString roomId() const;
+    [[nodiscard]] QByteArray roomId() const;
 
-    [[nodiscard]] QString userId() const;
+    [[nodiscard]] QByteArray userId() const;
 
     [[nodiscard]] bool isValid() const;
 
@@ -50,8 +50,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseCryptoSettings(const QString &publicKey);
     LIBRUQOLACORE_NO_EXPORT void extractRoomUser(const QJsonObject &obj);
     // TODO add crypto support
-    QString mRoomId;
-    QString mUserId;
+    QByteArray mRoomId;
+    QByteArray mUserId;
     OtrType mType = OtrType::Unknown;
     CryptoSettings mCrypto;
 };

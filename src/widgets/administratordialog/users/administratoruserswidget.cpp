@@ -334,7 +334,7 @@ void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool ad
 {
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
     const QByteArray userId = modelIndex.data().toByteArray();
-    mRocketChatAccount->ddp()->setAdminStatus(QString::fromLatin1(userId), adminStatus);
+    mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
 }
 
 void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)

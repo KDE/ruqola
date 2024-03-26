@@ -129,7 +129,7 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
                                        KStandardGuiItem::cancel())
         == KMessageBox::PrimaryAction) {
         const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
-        const QString soundIdentifier = modelIndex.data().toString();
+        const QByteArray soundIdentifier = modelIndex.data().toByteArray();
         mRocketChatAccount->ddp()->deleteCustomSound(soundIdentifier);
     }
 }

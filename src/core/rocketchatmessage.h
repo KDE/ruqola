@@ -52,9 +52,9 @@ public:
     streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKeys, quint64 id);
+    streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteCustomSound(const QString &identifier, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteCustomSound(const QByteArray &identifier, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult uploadCustomSound(const QByteArray &sound, quint64 id);
 
@@ -72,7 +72,7 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult addOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult setAdminStatus(const QString &userId, bool admin, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult setAdminStatus(const QByteArray &userId, bool admin, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult openRoom(const QString &roomId, quint64 id);
 

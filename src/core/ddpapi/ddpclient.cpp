@@ -483,7 +483,7 @@ quint64 DDPClient::listCustomSounds()
     return method(result, list_custom_sounds, DDPClient::Persistent);
 }
 
-quint64 DDPClient::deleteCustomSound(const QString &identifier)
+quint64 DDPClient::deleteCustomSound(const QByteArray &identifier)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteCustomSound(identifier, mUid);
     return method(result, delete_custom_sound, DDPClient::Persistent);
@@ -532,7 +532,7 @@ quint64 DDPClient::validateTempToken2fa(const QString &code)
     return method(result, validateTempToken_2fa, DDPClient::Persistent);
 }
 
-quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey)
+quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, mUid);
     qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
@@ -561,7 +561,7 @@ quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
     return method(result, block_user, DDPClient::Persistent);
 }
 
-quint64 DDPClient::setAdminStatus(const QString &userId, bool admin)
+quint64 DDPClient::setAdminStatus(const QByteArray &userId, bool admin)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setAdminStatus(userId, admin, mUid);
     return method(result, admin_status, DDPClient::Persistent);

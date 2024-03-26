@@ -41,7 +41,7 @@ void OtrManager::parseOtr(const QJsonArray &contents)
 void OtrManager::slotAcceptOtr(const Otr &t)
 {
     // We need to answer with own userId
-    mRocketChatAccount->ddp()->streamNotifyUserOtrAcknowledge(t.roomId(), QString::fromLatin1(mRocketChatAccount->userId()), t.crypto().mCrypt);
+    mRocketChatAccount->ddp()->streamNotifyUserOtrAcknowledge(t.roomId(), mRocketChatAccount->userId(), t.crypto().mCrypt);
 }
 
 void OtrManager::slotRejectOtr(const Otr &t)

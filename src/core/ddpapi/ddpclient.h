@@ -181,8 +181,8 @@ public:
     quint64 deleteFileMessage(const QByteArray &roomId, const QByteArray &fileid, Room::RoomType channelType);
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
-    quint64 streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey);
-    quint64 deleteCustomSound(const QString &identifier);
+    quint64 streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey);
+    quint64 deleteCustomSound(const QByteArray &identifier);
     quint64 uploadCustomSound(const QByteArray &sound);
     void unsubscribe(quint64 registerId);
     quint64 listCustomSounds();
@@ -193,7 +193,7 @@ public:
     quint64 deleteOAuthApp(const QString &appId);
     quint64 addOAuthApp(const QString &name, bool active, const QString &redirectUrl);
     quint64 updateOAuthApp(const QString &name, bool active, const QString &redirectUrl);
-    quint64 setAdminStatus(const QString &userId, bool admin);
+    quint64 setAdminStatus(const QByteArray &userId, bool admin);
     quint64 openRoom(const QString &roomId);
     quint64 bannerDismiss(const QByteArray &bannerId);
     quint64 licenseGetModules();

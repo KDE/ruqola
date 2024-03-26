@@ -119,13 +119,13 @@ void RocketChatMessageTest::setAdminStatus()
     {
         RocketChatMessage m;
         m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QStringLiteral("userId"), false, 43);
+        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QByteArrayLiteral("userId"), false, 43);
         compareFile(r.result, QStringLiteral("setAdminStatusFalse"));
     }
     {
         RocketChatMessage m;
         m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QStringLiteral("userId"), false, 43);
+        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QByteArrayLiteral("userId"), false, 43);
         compareFile(r.result, QStringLiteral("setAdminStatusTrue"));
     }
 }
@@ -195,7 +195,7 @@ void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r =
-        m.streamNotifyUserOtrAcknowledge(QStringLiteral("userFrom"), QStringLiteral("userTo"), QStringLiteral("publickeys"), 43);
+        m.streamNotifyUserOtrAcknowledge(QByteArrayLiteral("userFrom"), QByteArrayLiteral("userTo"), QStringLiteral("publickeys"), 43);
     compareFile(r.result, QStringLiteral("streamNotifyUserOtrAcknowledge"));
 }
 
@@ -219,7 +219,7 @@ void RocketChatMessageTest::deleteCustomSound()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound(QStringLiteral("identifier"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound(QByteArrayLiteral("identifier"), 43);
     compareFile(r.result, QStringLiteral("deleteCustomSound"));
 }
 

@@ -14,8 +14,8 @@ Otr::~Otr() = default;
 
 void Otr::extractRoomUser(const QJsonObject &obj)
 {
-    mRoomId = obj.value(QLatin1StringView("roomId")).toString();
-    mUserId = obj.value(QLatin1StringView("userId")).toString();
+    mRoomId = obj.value(QLatin1StringView("roomId")).toString().toLatin1();
+    mUserId = obj.value(QLatin1StringView("userId")).toString().toLatin1();
 }
 
 void Otr::parseOtr(const QJsonArray &contents)
@@ -71,12 +71,12 @@ Otr::OtrType Otr::type() const
     return mType;
 }
 
-QString Otr::roomId() const
+QByteArray Otr::roomId() const
 {
     return mRoomId;
 }
 
-QString Otr::userId() const
+QByteArray Otr::userId() const
 {
     return mUserId;
 }

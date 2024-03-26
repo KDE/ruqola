@@ -125,9 +125,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(const QString &userId, bool admin, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(const QByteArray &userId, bool admin, quint64 id)
 {
-    const QJsonArray params{{userId}, {admin}};
+    const QJsonArray params{{QString::fromLatin1(userId)}, {admin}};
     return generateMethod(QStringLiteral("setAdminStatus"), QJsonDocument(params), id);
 }
 
@@ -139,9 +139,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(
     return generateMethod(QStringLiteral("uploadCustomSound"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(const QString &identifier, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(const QByteArray &identifier, quint64 id)
 {
-    const QJsonArray params{{identifier}};
+    const QJsonArray params{{QString::fromLatin1(identifier)}};
 
     return generateMethod(QStringLiteral("deleteCustomSound"), QJsonDocument(params), id);
 }
@@ -351,11 +351,13 @@ RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
 }
 
 RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKeys, quint64 id)
+RocketChatMessage::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id)
 {
-    const QJsonObject acknowledgeObject{{QStringLiteral("roomId"), roomId}, {QStringLiteral("userId"), userId}, {QStringLiteral("publicKey"), publicKeys}};
-    QString otrId = roomId;
-    otrId = otrId.remove(userId);
+    const QJsonObject acknowledgeObject{{QStringLiteral("roomId"), QString::fromLatin1(roomId)},
+                                        {QStringLiteral("userId"), QString::fromLatin1(userId)},
+                                        {QStringLiteral("publicKey"), publicKeys}};
+    QString otrId = QString::fromLatin1(roomId);
+    otrId = otrId.remove(QString::fromLatin1(userId));
     const QJsonArray params{QStringLiteral("%1/otr").arg(otrId), QStringLiteral("acknowledge"), acknowledgeObject};
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 #if 0
