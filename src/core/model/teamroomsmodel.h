@@ -43,6 +43,6 @@ public:
 private:
     Q_DISABLE_COPY(TeamRoomsModel)
     QList<TeamRoom> mTeamRooms;
-    QStringList mRoomSelected;
+    QList<QByteArray> mRoomSelected;
     bool mIsCheckable = false;
 };

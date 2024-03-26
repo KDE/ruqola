@@ -44,12 +44,12 @@ void TeamConvertToChannelJob::onPostRequestResponse(const QString &replyErrorStr
     }
 }
 
-const QStringList &TeamConvertToChannelJob::roomsToRemove() const
+const QList<QByteArray> &TeamConvertToChannelJob::roomsToRemove() const
 {
     return mRoomsToRemove;
 }
 
-void TeamConvertToChannelJob::setRoomsToRemove(const QStringList &newRoomsToRemove)
+void TeamConvertToChannelJob::setRoomsToRemove(const QList<QByteArray> &newRoomsToRemove)
 {
     mRoomsToRemove = newRoomsToRemove;
 }
@@ -95,7 +95,11 @@ QJsonDocument TeamConvertToChannelJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1StringView("teamId")] = mTeamId;
     if (!mRoomsToRemove.isEmpty()) {
-        jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(mRoomsToRemove);
+        QStringList lst;
+        for (const QByteArray &b : std::as_const(mRoomsToRemove)) {
+            lst.append(QString::fromLatin1(b));
+        }
+        jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(lst);
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

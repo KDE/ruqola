@@ -19,7 +19,7 @@ public:
 
     void setTeamRooms(const QList<TeamRoom> &rooms);
 
-    [[nodiscard]] QStringList roomsId() const;
+    [[nodiscard]] QList<QByteArray> roomsId() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

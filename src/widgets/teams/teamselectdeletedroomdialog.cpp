@@ -61,7 +61,7 @@ void TeamSelectDeletedRoomDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-QStringList TeamSelectDeletedRoomDialog::roomsId() const
+QList<QByteArray> TeamSelectDeletedRoomDialog::roomsId() const
 {
     return mTeamSelectDeletedRoomWidget->roomsId();
 }

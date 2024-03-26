@@ -42,7 +42,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamDeleteDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamListRoomsDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void selectRoomToDelete(const QByteArray &teamId);
-    LIBRUQOLAWIDGETS_NO_EXPORT void deleteTeam(const QByteArray &teamId, const QStringList &roomdId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void deleteTeam(const QByteArray &teamId, const QList<QByteArray> &roomdId);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasRetentionPermission() const;
     QPointer<Room> mRoom;
 

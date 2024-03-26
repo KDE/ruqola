@@ -28,14 +28,14 @@ public:
 
     void parse(const QJsonObject &obj);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &identifier);
     [[nodiscard]] static QList<TeamRoom> parseTeamRooms(const QJsonObject &obj);
 
 private:
     QString mName;
     QString mFname;
-    QString mIdentifier;
+    QByteArray mIdentifier;
     bool mAutoJoin = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoom &t);

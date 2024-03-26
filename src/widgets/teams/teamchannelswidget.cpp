@@ -119,14 +119,14 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
             menu.addSeparator();
             const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
             menu.addAction(autojoin ? i18n("Remove Autojoin") : i18n("Add Autojoin"), this, [this, index, autojoin]() {
-                const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+                const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
                 updateAutojoin(roomId, autojoin);
             });
         }
         if (mRoom->hasPermission(QStringLiteral("remove-team-channel"))) {
             menu.addSeparator();
             menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("Remove from Team"), this, [this, index]() {
-                const QString roomId = index.data(TeamRoomsModel::Identifier).toString();
+                const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
                 removeRoomFromTeam(roomId);
             });
         }
@@ -136,11 +136,11 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     }
 }
 
-void TeamChannelsWidget::updateAutojoin(const QString &roomId, bool autojoin)
+void TeamChannelsWidget::updateAutojoin(const QByteArray &roomId, bool autojoin)
 {
     auto job = new RocketChatRestApi::TeamUpdateRoomJob(this);
     job->setIsDefault(!autojoin);
-    job->setRoomId(roomId);
+    job->setRoomId(QString::fromLatin1(roomId));
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamUpdateRoomJob::teamUpdateRoomDone, this, &TeamChannelsWidget::slotTeamUpdateRoomDone);
     if (!job->start()) {
@@ -156,7 +156,7 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
     mTeamRoomsModel->setRoomChanged(std::move(teamRoom));
 }
 
-void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
+void TeamChannelsWidget::removeRoomFromTeam(const QByteArray &roomId)
 {
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
@@ -166,7 +166,7 @@ void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
                                            KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
         job->setTeamId(QString::fromLatin1(mTeamId));
-        job->setRoomId(roomId);
+        job->setRoomId(QString::fromLatin1(roomId));
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
         if (!job->start()) {

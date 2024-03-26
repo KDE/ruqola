@@ -50,15 +50,15 @@ void TeamRoom::parse(const QJsonObject &obj)
     mName = obj[QLatin1StringView("name")].toString();
     mFname = obj[QLatin1StringView("fname")].toString();
     mAutoJoin = obj[QLatin1StringView("teamDefault")].toBool(false);
-    mIdentifier = obj[QLatin1StringView("_id")].toString();
+    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
 }
 
-QString TeamRoom::identifier() const
+QByteArray TeamRoom::identifier() const
 {
     return mIdentifier;
 }
 
-void TeamRoom::setIdentifier(const QString &identifier)
+void TeamRoom::setIdentifier(const QByteArray &identifier)
 {
     mIdentifier = identifier;
 }

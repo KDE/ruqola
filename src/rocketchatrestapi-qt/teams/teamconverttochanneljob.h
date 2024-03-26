@@ -27,8 +27,8 @@ public:
     [[nodiscard]] QString teamId() const;
     void setTeamId(const QString &teamId);
 
-    [[nodiscard]] const QStringList &roomsToRemove() const;
-    void setRoomsToRemove(const QStringList &newRoomsToRemove);
+    [[nodiscard]] const QList<QByteArray> &roomsToRemove() const;
+    void setRoomsToRemove(const QList<QByteArray> &newRoomsToRemove);
 
 Q_SIGNALS:
     void teamConvertToChannelDone();
@@ -37,6 +37,6 @@ private:
     Q_DISABLE_COPY(TeamConvertToChannelJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mTeamId;
-    QStringList mRoomsToRemove;
+    QList<QByteArray> mRoomsToRemove;
 };
 }

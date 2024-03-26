@@ -38,7 +38,7 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
         return teamroom.identifier();
     case Qt::CheckStateRole: {
         if (mIsCheckable) {
-            const QString roomId = data(index, TeamRoomsModel::Identifier).toString();
+            const QByteArray roomId = data(index, TeamRoomsModel::Identifier).toByteArray();
             return mRoomSelected.contains(roomId) ? Qt::Checked : Qt::Unchecked;
         }
     }
@@ -93,7 +93,7 @@ bool TeamRoomsModel::setData(const QModelIndex &index, const QVariant &value, in
         if (role == Qt::CheckStateRole) {
             if (index.isValid()) {
                 Q_EMIT dataChanged(index, index);
-                const QString roomId = data(index, TeamRoomsModel::Identifier).toString();
+                const QByteArray roomId = data(index, TeamRoomsModel::Identifier).toByteArray();
                 if (value == Qt::Checked) {
                     mRoomSelected.append(std::move(roomId));
                 } else {

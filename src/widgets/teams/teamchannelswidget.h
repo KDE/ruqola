@@ -37,8 +37,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateRoom();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveTeamRoomDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamUpdateRoomDone(const QJsonObject &replyObject);
-    LIBRUQOLAWIDGETS_NO_EXPORT void removeRoomFromTeam(const QString &roomId);
-    LIBRUQOLAWIDGETS_NO_EXPORT void updateAutojoin(const QString &roomId, bool autojoin);
+    LIBRUQOLAWIDGETS_NO_EXPORT void removeRoomFromTeam(const QByteArray &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateAutojoin(const QByteArray &roomId, bool autojoin);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTeamAddRoomsDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);

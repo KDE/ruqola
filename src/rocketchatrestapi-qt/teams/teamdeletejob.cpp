@@ -45,12 +45,12 @@ void TeamDeleteJob::onPostRequestResponse(const QString &replyErrorString, const
     }
 }
 
-QStringList TeamDeleteJob::roomsId() const
+QList<QByteArray> TeamDeleteJob::roomsId() const
 {
     return mRoomToDeleteId;
 }
 
-void TeamDeleteJob::setRoomsId(const QStringList &roomsId)
+void TeamDeleteJob::setRoomsId(const QList<QByteArray> &roomsId)
 {
     mRoomToDeleteId = roomsId;
 }
@@ -95,7 +95,11 @@ QJsonDocument TeamDeleteJob::json() const
 {
     QJsonObject jsonObj;
     if (!mRoomToDeleteId.isEmpty()) {
-        jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(mRoomToDeleteId);
+        QStringList lst;
+        for (const QByteArray &b : std::as_const(mRoomToDeleteId)) {
+            lst.append(QString::fromLatin1(b));
+        }
+        jsonObj[QLatin1StringView("roomsToRemove")] = QJsonArray::fromStringList(lst);
     }
     jsonObj[QLatin1StringView("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);

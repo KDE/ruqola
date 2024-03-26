@@ -52,13 +52,13 @@ void TeamSelectDeletedRoomWidget::setTeamRooms(const QList<TeamRoom> &rooms)
     mTeamRoomsModel->setTeamRooms(rooms);
 }
 
-QStringList TeamSelectDeletedRoomWidget::roomsId() const
+QList<QByteArray> TeamSelectDeletedRoomWidget::roomsId() const
 {
-    QStringList lst;
+    QList<QByteArray> lst;
     for (int i = 0, cnt = mTeamRoomsModel->rowCount(); i < cnt; ++i) {
         const QModelIndex idx = mTeamRoomsModel->index(i, 0, QModelIndex());
         if (mTeamRoomsModel->data(idx, Qt::CheckStateRole).toInt() == Qt::Checked) {
-            lst.append(mTeamRoomsModel->data(idx, TeamRoomsModel::Identifier).toString());
+            lst.append(mTeamRoomsModel->data(idx, TeamRoomsModel::Identifier).toByteArray());
         }
     }
     return lst;
