@@ -710,7 +710,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             auto job = new NotifierJob;
             job->setInfo(info);
             connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
-            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QByteArray &roomId, const QString &tmId) {
+            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QByteArray &roomId, const QByteArray &tmId) {
                 if (tmId.isEmpty()) {
                     account->sendMessage(roomId, str);
                 } else {

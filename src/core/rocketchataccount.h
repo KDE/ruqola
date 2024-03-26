@@ -156,7 +156,7 @@ public:
     void changeFavorite(const QByteArray &roomId, bool checked);
     void sendMessage(const QByteArray &roomID, const QString &message);
     void updateMessage(const QByteArray &roomID, const QString &messageId, const QString &message);
-    void replyOnThread(const QByteArray &roomID, const QString &threadMessageId, const QString &message);
+    void replyOnThread(const QByteArray &roomID, const QByteArray &threadMessageId, const QString &message);
     void openChannel(const QString &identifier, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QByteArray &roomId);
     void createNewChannel(const RocketChatRestApi::CreateChannelTeamInfo &info);

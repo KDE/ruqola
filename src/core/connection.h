@@ -164,7 +164,7 @@ public:
     void getDiscussions(const QByteArray &roomId, int offset = 0, int count = 50);
     void getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset = 0, int count = 50);
     void getThreadMessages(const QString &threadMessageId);
-    void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QString &threadMessageId = QString());
+    void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
     void getPinnedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate);

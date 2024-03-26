@@ -24,7 +24,7 @@ public:
 
 Q_SIGNALS:
     void switchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType);
-    void sendReply(const QString &message, const QByteArray &roomId, const QString &tmId);
+    void sendReply(const QString &message, const QByteArray &roomId, const QByteArray &tmId);
 
 private:
     NotificationInfo mInfo;

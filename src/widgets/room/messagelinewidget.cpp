@@ -173,7 +173,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(roomId(), msg);
             } else {
-                mCurrentRocketChatAccount->replyOnThread(roomId(), QString::fromLatin1(mThreadMessageId), msg);
+                mCurrentRocketChatAccount->replyOnThread(roomId(), mThreadMessageId, msg);
                 if (!mReplyInThreadDialogBox) {
                     setThreadMessageId({});
                 }
@@ -187,7 +187,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(roomId(), newMessage);
             } else {
-                mCurrentRocketChatAccount->replyOnThread(roomId(), QString::fromLatin1(mThreadMessageId), newMessage);
+                mCurrentRocketChatAccount->replyOnThread(roomId(), mThreadMessageId, newMessage);
                 if (!mReplyInThreadDialogBox) {
                     setThreadMessageId({});
                 }

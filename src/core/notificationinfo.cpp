@@ -61,12 +61,12 @@ void NotificationInfo::setTitle(const QString &newTitle)
     mTitle = newTitle;
 }
 
-const QString &NotificationInfo::senderId() const
+const QByteArray &NotificationInfo::senderId() const
 {
     return mSenderId;
 }
 
-void NotificationInfo::setSenderId(const QString &newSenderId)
+void NotificationInfo::setSenderId(const QByteArray &newSenderId)
 {
     mSenderId = newSenderId;
 }
@@ -121,12 +121,12 @@ void NotificationInfo::setChannelType(const QString &newChannelType)
     mChannelType = newChannelType;
 }
 
-const QString &NotificationInfo::tmId() const
+const QByteArray &NotificationInfo::tmId() const
 {
     return mTmId;
 }
 
-void NotificationInfo::setTmId(const QString &newTmId)
+void NotificationInfo::setTmId(const QByteArray &newTmId)
 {
     mTmId = newTmId;
 }
@@ -148,14 +148,14 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
     setTitle(obj[QLatin1StringView("title")].toString());
     const QJsonObject payloadObj = obj.value(QLatin1StringView("payload")).toObject();
     if (!payloadObj.isEmpty()) {
-        setMessageId(payloadObj[QLatin1StringView("_id")].toString());
+        setMessageId(payloadObj[QLatin1StringView("_id")].toString().toLatin1());
         setRoomId(payloadObj[QLatin1StringView("rid")].toString().toLatin1());
         setRoomName(payloadObj[QLatin1StringView("name")].toString());
         setChannelType(payloadObj[QLatin1StringView("type")].toString());
-        setTmId(payloadObj[QLatin1StringView("tmid")].toString());
+        setTmId(payloadObj[QLatin1StringView("tmid")].toString().toLatin1());
         const QJsonObject senderObj = payloadObj.value(QLatin1StringView("sender")).toObject();
         if (!senderObj.isEmpty()) {
-            setSenderId(senderObj.value(QLatin1StringView("_id")).toString());
+            setSenderId(senderObj.value(QLatin1StringView("_id")).toString().toLatin1());
             setSenderName(senderObj.value(QLatin1StringView("name")).toString());
             setSenderUserName(senderObj.value(QLatin1StringView("username")).toString());
         } else {
@@ -201,12 +201,12 @@ void NotificationInfo::setDateTime(const QString &newDateTime)
     mDateTime = newDateTime;
 }
 
-const QString &NotificationInfo::messageId() const
+const QByteArray &NotificationInfo::messageId() const
 {
     return mMessageId;
 }
 
-void NotificationInfo::setMessageId(const QString &newMessageId)
+void NotificationInfo::setMessageId(const QByteArray &newMessageId)
 {
     mMessageId = newMessageId;
 }

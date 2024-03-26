@@ -38,31 +38,33 @@ void NotificationInfoTest::shouldParseNotification_data()
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<QString>("title");
     QTest::addColumn<QString>("message");
-    QTest::addColumn<QString>("sender");
+    QTest::addColumn<QByteArray>("sender");
     QTest::addColumn<QString>("roomName");
     QTest::addColumn<QString>("channelType");
     QTest::addColumn<QString>("senderName");
     QTest::addColumn<QString>("senderUserName");
     QTest::addColumn<QByteArray>("roomId");
-    QTest::addColumn<QString>("tmId");
-    QTest::addColumn<QString>("messageId");
-    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp")
-                                   << QString() << QStringLiteral("d") << QStringLiteral("Laurent") << QStringLiteral("laurent")
-                                   << QByteArrayLiteral("tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH") << QString() << QStringLiteral("yfitiEkpGyDAAJ6Eo");
+    QTest::addColumn<QByteArray>("tmId");
+    QTest::addColumn<QByteArray>("messageId");
+    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong")
+                                   << QByteArrayLiteral("tgrk5CZKgYGiSSqXp") << QString() << QStringLiteral("d") << QStringLiteral("Laurent")
+                                   << QStringLiteral("laurent") << QByteArrayLiteral("tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH") << QByteArray()
+                                   << QByteArrayLiteral("yfitiEkpGyDAAJ6Eo");
     // TODO
     QTest::newRow("notificationencrypted") << QStringLiteral("notificationencrypted") << QStringLiteral("title") << QStringLiteral("pong")
-                                           << QStringLiteral("tgrk5CZKgYGiSSqXp") << QString() << QStringLiteral("d") << QStringLiteral("foo")
-                                           << QStringLiteral("bla") << QByteArrayLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH") << QString()
-                                           << QStringLiteral("PuKLfJfd5r5DrZBdN");
+                                           << QByteArrayLiteral("tgrk5CZKgYGiSSqXp") << QString() << QStringLiteral("d") << QStringLiteral("foo")
+                                           << QStringLiteral("bla") << QByteArrayLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH") << QByteArray()
+                                           << QByteArrayLiteral("PuKLfJfd5r5DrZBdN");
 
     QTest::newRow("notification2") << QStringLiteral("notification1") << QStringLiteral("my title") << QStringLiteral("@here")
-                                   << QStringLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c") << QStringLiteral("foo")
-                                   << QStringLiteral("foo.bla") << QByteArrayLiteral("Fc4EWcQXCkJkJ7QEQ") << QString() << QStringLiteral("dNYhFAYBhqPFnBwRy");
+                                   << QByteArrayLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c")
+                                   << QStringLiteral("foo") << QStringLiteral("foo.bla") << QByteArrayLiteral("Fc4EWcQXCkJkJ7QEQ") << QByteArray()
+                                   << QByteArrayLiteral("dNYhFAYBhqPFnBwRy");
 
     QTest::newRow("notification-tmid1") << QStringLiteral("notification-tmid1") << QStringLiteral("my title") << QStringLiteral("@here")
-                                        << QStringLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c")
+                                        << QByteArrayLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c")
                                         << QStringLiteral("foo") << QStringLiteral("foo.bla") << QByteArrayLiteral("Fc4EWcQXCkJkJ7QEQ")
-                                        << QStringLiteral("QLNcu8TnRi8Ld57Pk") << QStringLiteral("dNYhFAYBhqPFnBwRy");
+                                        << QByteArrayLiteral("QLNcu8TnRi8Ld57Pk") << QByteArrayLiteral("dNYhFAYBhqPFnBwRy");
 }
 
 void NotificationInfoTest::shouldParseNotification()
@@ -70,14 +72,14 @@ void NotificationInfoTest::shouldParseNotification()
     QFETCH(QString, fileName);
     QFETCH(QString, title);
     QFETCH(QString, message);
-    QFETCH(QString, sender);
+    QFETCH(QByteArray, sender);
     QFETCH(QString, roomName);
     QFETCH(QString, channelType);
     QFETCH(QString, senderName);
     QFETCH(QString, senderUserName);
     QFETCH(QByteArray, roomId);
-    QFETCH(QString, tmId);
-    QFETCH(QString, messageId);
+    QFETCH(QByteArray, tmId);
+    QFETCH(QByteArray, messageId);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/json/") + fileName + QLatin1StringView(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));

@@ -1672,7 +1672,7 @@ void Connection::syncThreadMessages(const QString &threadMessageId, const QStrin
     }
 }
 
-void Connection::sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId, const QString &threadMessageId)
+void Connection::sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId, const QByteArray &threadMessageId)
 {
     auto job = new SendMessageJob(this);
     initializeRestApiJob(job);
@@ -1680,7 +1680,7 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
     args.roomId = QString::fromLatin1(roomId);
     args.message = text;
     args.messageId = messageId;
-    args.threadMessageId = threadMessageId;
+    args.threadMessageId = QString::fromLatin1(threadMessageId);
     job->setSendMessageArguments(std::move(args));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start job";

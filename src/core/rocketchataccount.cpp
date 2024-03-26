@@ -459,7 +459,7 @@ void RocketChatAccount::updateMessage(const QByteArray &roomID, const QString &m
     restApi()->updateMessage(roomID, messageId, message);
 }
 
-void RocketChatAccount::replyOnThread(const QByteArray &roomID, const QString &threadMessageId, const QString &message)
+void RocketChatAccount::replyOnThread(const QByteArray &roomID, const QByteArray &threadMessageId, const QString &message)
 {
     restApi()->sendMessage(roomID, message, QString(), threadMessageId);
 }

@@ -33,8 +33,8 @@ public:
     [[nodiscard]] const QString &title() const;
     void setTitle(const QString &newTitle);
 
-    [[nodiscard]] const QString &senderId() const;
-    void setSenderId(const QString &newSenderId);
+    [[nodiscard]] const QByteArray &senderId() const;
+    void setSenderId(const QByteArray &newSenderId);
 
     [[nodiscard]] const QString &senderName() const;
     void setSenderName(const QString &newSenderName);
@@ -51,8 +51,8 @@ public:
     [[nodiscard]] const QString &channelType() const;
     void setChannelType(const QString &newChannelType);
 
-    [[nodiscard]] const QString &tmId() const;
-    void setTmId(const QString &newTmId);
+    [[nodiscard]] const QByteArray &tmId() const;
+    void setTmId(const QByteArray &newTmId);
 
     [[nodiscard]] const QPixmap &pixmap() const;
     void setPixmap(const QPixmap &newPixmap);
@@ -65,8 +65,8 @@ public:
     [[nodiscard]] const QString &dateTime() const;
     void setDateTime(const QString &newDateTime);
 
-    [[nodiscard]] const QString &messageId() const;
-    void setMessageId(const QString &newMessageId);
+    [[nodiscard]] const QByteArray &messageId() const;
+    void setMessageId(const QByteArray &newMessageId);
 
     [[nodiscard]] NotificationType notificationType() const;
     void setNotificationType(const NotificationType &newNotificationType);
@@ -74,17 +74,17 @@ public:
     [[nodiscard]] bool operator==(const NotificationInfo &other) const;
 
 private:
-    QString mMessageId;
+    QByteArray mMessageId;
     QString mAccountName;
     QString mMessage;
     QString mTitle;
-    QString mSenderId;
+    QByteArray mSenderId;
     QString mSenderName;
     QString mSenderUserName;
     QString mRoomName;
     QByteArray mRoomId;
     QString mChannelType;
-    QString mTmId;
+    QByteArray mTmId;
     QString mDateTime;
     QPixmap mPixmap;
     NotificationType mNotificationType = StandardMessage;
