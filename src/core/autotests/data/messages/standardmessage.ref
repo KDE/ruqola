@@ -9,9 +9,6 @@
     "messageType": "NormalText",
     "name": "john",
     "parseUrls": false,
-    "pinnedMessage": {
-        "pinned": false
-    },
     "roomID": "hPseB3qQYPxoXqGkN",
     "starred": false,
     "timestamp": 1519115539337,

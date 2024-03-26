@@ -29,9 +29,6 @@
     "messageType": "NormalText",
     "name": "Laurent",
     "parseUrls": true,
-    "pinnedMessage": {
-        "pinned": false
-    },
     "roomID": "A7BegtZRWz4oQmnPy",
     "starred": false,
     "timestamp": 1647583692904,

@@ -9,9 +9,6 @@
     "messageType": "NormalText",
     "name": "foo",
     "parseUrls": false,
-    "pinnedMessage": {
-        "pinned": false
-    },
     "reactions": {
         ":mrs_claus:": {
             "usernames": [
