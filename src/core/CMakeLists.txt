@@ -390,6 +390,10 @@ target_sources(libruqolacore PRIVATE
     roles/rolesmanager.h
     room.cpp
     room.h
+
+    roomextra.h
+    roomextra.cpp
+
     roominfo/roominfo.cpp
     roominfo/roominfo.h
     roominfo/roomsinfo.cpp
