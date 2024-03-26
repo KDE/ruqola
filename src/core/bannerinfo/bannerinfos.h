@@ -37,7 +37,7 @@ public:
 
     void clear();
 
-    void updateBannerReadInfo(const QString &name, bool readStatus);
+    void updateBannerReadInfo(const QByteArray &name, bool readStatus);
 
     [[nodiscard]] int count() const;
 

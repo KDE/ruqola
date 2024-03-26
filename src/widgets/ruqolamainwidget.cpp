@@ -62,7 +62,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
     mRoomWidget->setLayoutSpacing(mSplitter->handleWidth());
     mStackedRoomWidget->addWidget(mRoomWidget);
-    connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, [this](const QString &channelId) {
+    connect(mRoomWidget, &RoomWidget::selectChannelRequested, this, [this](const QByteArray &channelId) {
         mChannelList->channelListView()->selectChannelRequested(channelId, QByteArray());
     });
 
@@ -93,7 +93,7 @@ RuqolaMainWidget::~RuqolaMainWidget()
     KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(myRuqolaMainWidgetGroupName));
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(QString::fromLatin1(mRoomWidget->roomId()));
+        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
     }
 }
 
@@ -115,7 +115,7 @@ void RuqolaMainWidget::slotRoomPressed(const QByteArray &roomId)
 
 void RuqolaMainWidget::selectChannelRoom(const ChannelListView::ChannelSelectedInfo &roomInfo)
 {
-    if (mRoomWidget->roomId() == roomInfo.roomId.toLatin1()) {
+    if (mRoomWidget->roomId() == roomInfo.roomId) {
         return;
     }
     mCurrentRocketChatAccount->settings()->setLastSelectedRoom(roomInfo.roomId);
@@ -155,7 +155,7 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mRoomWidget->storeRoomSettings();
     const auto previousRocketChatAccount = mCurrentRocketChatAccount;
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(QString::fromLatin1(mRoomWidget->roomId()));
+        mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::bannerInfoChanged, this, &RuqolaMainWidget::updateBannerInfo);
     }
     mCurrentRocketChatAccount = account;

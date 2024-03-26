@@ -71,10 +71,10 @@ void BannerInfos::clear()
     mBanners.clear();
 }
 
-void BannerInfos::updateBannerReadInfo(const QString &name, bool readStatus)
+void BannerInfos::updateBannerReadInfo(const QByteArray &name, bool readStatus)
 {
     for (int i = 0, total = mBanners.size(); i < total; ++i) {
-        if (mBanners.at(i).identifier() == name.toLatin1()) {
+        if (mBanners.at(i).identifier() == name) {
             mBanners[i].setRead(readStatus);
         }
     }

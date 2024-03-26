@@ -101,12 +101,12 @@ void NotificationInfo::setRoomName(const QString &newRoomName)
     mRoomName = newRoomName;
 }
 
-const QString &NotificationInfo::roomId() const
+const QByteArray &NotificationInfo::roomId() const
 {
     return mRoomId;
 }
 
-void NotificationInfo::setRoomId(const QString &newRoomId)
+void NotificationInfo::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
@@ -149,7 +149,7 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
     const QJsonObject payloadObj = obj.value(QLatin1StringView("payload")).toObject();
     if (!payloadObj.isEmpty()) {
         setMessageId(payloadObj[QLatin1StringView("_id")].toString());
-        setRoomId(payloadObj[QLatin1StringView("rid")].toString());
+        setRoomId(payloadObj[QLatin1StringView("rid")].toString().toLatin1());
         setRoomName(payloadObj[QLatin1StringView("name")].toString());
         setChannelType(payloadObj[QLatin1StringView("type")].toString());
         setTmId(payloadObj[QLatin1StringView("tmid")].toString());

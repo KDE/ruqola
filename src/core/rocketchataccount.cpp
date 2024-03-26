@@ -2797,7 +2797,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     if (rmatch.hasMatch()) {
                         const QString bannerName = rmatch.captured(1);
                         const bool result = updateJson.value(key).toBool();
-                        mBannerInfos.updateBannerReadInfo(bannerName, result);
+                        mBannerInfos.updateBannerReadInfo(bannerName.toLatin1(), result);
                     }
                 }
             }

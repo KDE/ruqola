@@ -20,7 +20,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QTreeView
     Q_OBJECT
 public:
     struct ChannelSelectedInfo {
-        QString roomId;
+        QByteArray roomId;
         QString roomName;
         Room::RoomType roomType;
         Utils::AvatarInfo avatarInfo;
@@ -31,7 +31,7 @@ public:
 
     [[nodiscard]] RoomFilterProxyModel *filterModel() const;
 
-    void selectChannelRequested(const QString &channelId, const QByteArray &messageId);
+    void selectChannelRequested(const QByteArray &channelId, const QByteArray &messageId);
     void selectNextUnreadChannel();
 
     enum class Direction {

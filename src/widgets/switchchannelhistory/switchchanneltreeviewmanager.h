@@ -33,7 +33,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *newCurrentRocketChatAccount);
 
 Q_SIGNALS:
-    void switchToChannel(const QString &identifier);
+    void switchToChannel(const QByteArray &identifier);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void activateChannel(const QModelIndex &index);

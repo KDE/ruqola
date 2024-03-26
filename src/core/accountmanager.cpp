@@ -710,11 +710,11 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             auto job = new NotifierJob;
             job->setInfo(info);
             connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
-            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId, const QString &tmId) {
+            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QByteArray &roomId, const QString &tmId) {
                 if (tmId.isEmpty()) {
-                    account->sendMessage(roomId.toLatin1(), str);
+                    account->sendMessage(roomId, str);
                 } else {
-                    account->replyOnThread(roomId.toLatin1(), tmId, str);
+                    account->replyOnThread(roomId, tmId, str);
                 }
                 // qDebug() << " str" << str << " Room Name " << roomName;
             });
@@ -731,14 +731,14 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
     connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
 }
 
-void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType)
+void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType)
 {
     setCurrentAccount(accountName);
     QString linkRoom;
     if (channelType == QLatin1Char('c')) {
-        linkRoom = QStringLiteral("ruqola:/room/%1").arg(roomName);
+        linkRoom = QStringLiteral("ruqola:/room/%1").arg(QString::fromLatin1(roomId));
     } else {
-        linkRoom = QStringLiteral("ruqola:/user/%1").arg(roomName);
+        linkRoom = QStringLiteral("ruqola:/user/%1").arg(QString::fromLatin1(roomId));
     }
     Q_EMIT mCurrentAccount->raiseWindow();
     Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);

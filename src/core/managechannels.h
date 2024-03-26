@@ -27,7 +27,7 @@ public:
     void channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode);
 Q_SIGNALS:
     // TODO ?
-    void selectRoomByRoomIdRequested(const QString &identifier, const QByteArray &messageId = QByteArray());
+    void selectRoomByRoomIdRequested(const QByteArray &identifier, const QByteArray &messageId = QByteArray());
     void selectRoomByRoomNameRequested(const QString &identifier);
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);

@@ -46,7 +46,7 @@ public:
     Room *room() const;
 
     void slotShowListOfUsersInRoom(bool checked);
-    void setChannelSelected(const QString &roomId, Room::RoomType roomType);
+    void setChannelSelected(const QByteArray &roomId, Room::RoomType roomType);
     void storeRoomSettings();
 
     void setLayoutSpacing(int spacing);
@@ -55,7 +55,7 @@ public:
     void forceLineEditFocus();
 
 Q_SIGNALS:
-    void selectChannelRequested(const QString &channelId);
+    void selectChannelRequested(const QByteArray &channelId);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

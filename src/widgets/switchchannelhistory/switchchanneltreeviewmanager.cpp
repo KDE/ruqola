@@ -35,7 +35,7 @@ void SwitchChannelTreeViewManager::activateChannel(const QModelIndex &index)
     if (!index.isValid()) {
         return;
     }
-    const QString identifier = index.data(SwitchChannelHistoryModel::SwitchChannelHistoryRoles::Identifier).toString();
+    const QByteArray identifier = index.data(SwitchChannelHistoryModel::SwitchChannelHistoryRoles::Identifier).toByteArray();
     Q_EMIT switchToChannel(identifier);
 
     mSwitcherChannelTreeView->hide();

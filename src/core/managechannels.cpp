@@ -33,7 +33,7 @@ ManageChannels::SearchChannelFound ManageChannels::searchOpenChannels(const QStr
         if (QString::fromLatin1(identifier) == roomId) {
             if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
                 result = ManageChannels::SearchChannelFound::ChannelOpened;
-                Q_EMIT selectRoomByRoomIdRequested(roomId);
+                Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
             } else {
                 result = ManageChannels::SearchChannelFound::ChannelHidden;
             }
@@ -98,7 +98,7 @@ void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::
                 &RocketChatRestApi::GroupOpenJob::groupOpenDone,
                 this,
                 [this](const QJsonObject &, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
-                    Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
+                    Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier.toLatin1());
                 });
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start GroupOpenJob job";
@@ -132,7 +132,7 @@ void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::Chann
                 &RocketChatRestApi::ChannelOpenJob::channelOpenDone,
                 this,
                 [this](const QJsonObject &, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo) {
-                    Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
+                    Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier.toLatin1());
                 });
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start ChannelOpenJob job";
@@ -152,7 +152,7 @@ void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBas
         qCWarning(RUQOLA_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
         break;
     case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
-        Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier);
+        Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier.toLatin1());
         break;
     case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name:
         Q_EMIT selectRoomByRoomNameRequested(channelInfo.identifier);

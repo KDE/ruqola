@@ -23,7 +23,7 @@ public:
 
     struct SwitchChannelInfo {
         SwitchChannelInfo() = default;
-        SwitchChannelInfo(const QString &name, const QString &identifier, const Utils::AvatarInfo &info)
+        SwitchChannelInfo(const QString &name, const QByteArray &identifier, const Utils::AvatarInfo &info)
             : mName(name)
             , mIdentifier(identifier)
             , mAvatarInfo(info)
@@ -31,7 +31,7 @@ public:
         }
         [[nodiscard]] bool operator==(const SwitchChannelInfo &other) const;
         QString mName;
-        QString mIdentifier;
+        QByteArray mIdentifier;
         Utils::AvatarInfo mAvatarInfo;
     };
 

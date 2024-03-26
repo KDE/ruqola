@@ -23,8 +23,8 @@ public:
     void setInfo(const NotificationInfo &info);
 
 Q_SIGNALS:
-    void switchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
-    void sendReply(const QString &message, const QString &roomId, const QString &tmId);
+    void switchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType);
+    void sendReply(const QString &message, const QByteArray &roomId, const QString &tmId);
 
 private:
     NotificationInfo mInfo;

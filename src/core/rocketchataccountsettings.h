@@ -62,8 +62,8 @@ public:
     [[nodiscard]] bool accountEnabled() const;
     void setAccountEnabled(bool accountEnabled);
 
-    [[nodiscard]] QString lastSelectedRoom() const;
-    void setLastSelectedRoom(const QString &roomId);
+    [[nodiscard]] QByteArray lastSelectedRoom() const;
+    void setLastSelectedRoom(const QByteArray &roomId);
 
     [[nodiscard]] QString displayName() const;
     void setDisplayName(const QString &displayName);

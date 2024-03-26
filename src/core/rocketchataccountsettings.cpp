@@ -153,12 +153,12 @@ void RocketChatAccountSettings::setAccountEnabled(bool enabled)
     }
 }
 
-QString RocketChatAccountSettings::lastSelectedRoom() const
+QByteArray RocketChatAccountSettings::lastSelectedRoom() const
 {
-    return mSetting->value(QStringLiteral("SelectedRoom")).toString();
+    return mSetting->value(QStringLiteral("SelectedRoom")).toByteArray();
 }
 
-void RocketChatAccountSettings::setLastSelectedRoom(const QString &roomId)
+void RocketChatAccountSettings::setLastSelectedRoom(const QByteArray &roomId)
 {
     if (!roomId.isEmpty()) {
         mSetting->setValue(QStringLiteral("SelectedRoom"), roomId);

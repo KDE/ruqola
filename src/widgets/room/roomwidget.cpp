@@ -575,13 +575,13 @@ void RoomWidget::forceLineEditFocus()
     mRoomWidgetBase->messageLineWidget()->setFocus();
 }
 
-void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomType)
+void RoomWidget::setChannelSelected(const QByteArray &roomId, Room::RoomType roomType)
 {
     storeRoomSettings();
-    setRoomId(roomId.toLatin1());
+    setRoomId(roomId);
     setRoomType(roomType);
     clearBeforeSwitching();
-    const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId.toLatin1());
+    const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     if (currentPendingInfo.isValid()) {
         mRoomWidgetBase->messageLineWidget()->setQuoteMessage(currentPendingInfo.quotePermalink, currentPendingInfo.quoteText);
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId.toLatin1());
@@ -874,7 +874,7 @@ void RoomWidget::slotLoginStatusChanged()
 void RoomWidget::slotGoBackToRoom()
 {
     if (mRoom) {
-        Q_EMIT selectChannelRequested(QString::fromLatin1(mRoom->parentRid()));
+        Q_EMIT selectChannelRequested(mRoom->parentRid());
     }
 }
 

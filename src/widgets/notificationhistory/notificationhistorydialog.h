@@ -19,7 +19,7 @@ public:
     void addServerList(const QList<AccountManager::AccountDisplayInfo> &info);
 
 Q_SIGNALS:
-    void showNotifyMessage(const QString &accountName, const QByteArray &messageId, const QString &roomId);
+    void showNotifyMessage(const QString &accountName, const QByteArray &messageId, const QByteArray &roomId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

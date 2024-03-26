@@ -45,8 +45,8 @@ public:
     [[nodiscard]] const QString &roomName() const;
     void setRoomName(const QString &newRoomName);
 
-    [[nodiscard]] const QString &roomId() const;
-    void setRoomId(const QString &newRoomId);
+    [[nodiscard]] const QByteArray &roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
 
     [[nodiscard]] const QString &channelType() const;
     void setChannelType(const QString &newChannelType);
@@ -82,7 +82,7 @@ private:
     QString mSenderName;
     QString mSenderUserName;
     QString mRoomName;
-    QString mRoomId;
+    QByteArray mRoomId;
     QString mChannelType;
     QString mTmId;
     QString mDateTime;

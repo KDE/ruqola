@@ -78,7 +78,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void removeLogs(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void loadAccount();
     LIBRUQOLACORE_NO_EXPORT void connectToAccount(RocketChatAccount *account);
-    LIBRUQOLACORE_NO_EXPORT void slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
+    LIBRUQOLACORE_NO_EXPORT void slotSwitchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType);
     LIBRUQOLACORE_NO_EXPORT void loadExcludeEmoticons();
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;

@@ -362,7 +362,7 @@ void ChannelListView::channelSelected(const QModelIndex &index)
     const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
     ChannelSelectedInfo info;
     info.avatarInfo = avatarInfo;
-    info.roomId = QString::fromLatin1(roomId);
+    info.roomId = roomId;
     info.roomName = roomName;
     info.roomType = roomType;
     Q_EMIT roomSelected(info);
@@ -386,9 +386,9 @@ void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavori
     mCurrentRocketChatAccount->changeFavorite(roomId, !isFavorite);
 }
 
-void ChannelListView::selectChannelRequested(const QString &channelId, const QByteArray &messageId)
+void ChannelListView::selectChannelRequested(const QByteArray &channelId, const QByteArray &messageId)
 {
-    if (!selectChannelByRoomIdRequested(channelId)) {
+    if (!selectChannelByRoomIdRequested(QString::fromLatin1(channelId))) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
     } else {
         if (!messageId.isEmpty()) {

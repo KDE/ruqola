@@ -97,7 +97,7 @@ void NotificationHistoryWidget::slotTextChanged(const QString &str)
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
 {
     if (index.isValid()) {
-        const QString roomId = index.data(NotificationHistoryModel::RoomId).toString();
+        const QByteArray roomId = index.data(NotificationHistoryModel::RoomId).toByteArray();
         const QByteArray messageId = index.data(NotificationHistoryModel::MessageId).toByteArray();
         const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
         if (!accountName.isEmpty() && !roomId.isEmpty() && !messageId.isEmpty()) {
