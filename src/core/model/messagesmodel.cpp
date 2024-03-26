@@ -282,7 +282,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::DirectChannels:
         return mRoom && (mRoom->channelType() == Room::RoomType::Direct);
     case MessagesModel::Pinned:
-        return message.messagePinned().pinned();
+        return message.messagePinned() && message.messagePinned()->pinned();
     case MessagesModel::DiscussionCount:
         return message.discussionCount();
     case MessagesModel::DiscussionRoomId:

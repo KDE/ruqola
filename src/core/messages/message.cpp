@@ -85,7 +85,14 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     }
     mEmoji = o.value(QLatin1StringView("emoji")).toString();
     mMessageStarred.parse(o);
-    mMessagePinned.parse(o);
+
+    MessagePinned pinned;
+    pinned.parse(o);
+    if (pinned.isValid()) {
+        setMessagePinned(pinned);
+    }
+
+    // Translation
     MessageTranslation translation;
     translation.parse(o);
     if (!translation.isEmpty()) {
@@ -116,7 +123,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
 {
     if (!reacts.isEmpty()) {
-        if (!mMessageTranslation) {
+        if (!mReactions) {
             mReactions = new Reactions;
         } else {
             mReactions.reset(new Reactions);
@@ -313,14 +320,21 @@ void Message::setMessageStarred(MessageStarred messageStarred)
     mMessageStarred = messageStarred;
 }
 
-MessagePinned Message::messagePinned() const
+const MessagePinned *Message::messagePinned() const
 {
-    return mMessagePinned;
+    if (mMessagePinned) {
+        return mMessagePinned.data();
+    }
+    return nullptr;
 }
 
 void Message::setMessagePinned(const MessagePinned &messagePinned)
 {
-    mMessagePinned = messagePinned;
+    if (!mMessagePinned) {
+        mMessagePinned = new MessagePinned(messagePinned);
+    } else {
+        mMessagePinned.reset(new MessagePinned(messagePinned));
+    }
 }
 
 bool Message::unread() const
@@ -509,7 +523,10 @@ void Message::setReactions(const Reactions &reactions)
 
 bool Message::isPinned() const
 {
-    return mMessagePinned.pinned();
+    if (mMessagePinned) {
+        return mMessagePinned->pinned();
+    }
+    return false;
 }
 
 bool Message::isStarred() const
@@ -556,8 +573,8 @@ bool Message::operator==(const Message &other) const
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
         && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
         && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions()) && (mRole == other.role())
-        && (unread() == other.unread()) && (mMessagePinned == other.messagePinned()) && (mMessageStarred == other.messageStarred())
-        && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
+        && (unread() == other.unread()) && (mMessageStarred == other.messageStarred()) && (threadCount() == other.threadCount())
+        && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
         && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
         && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
@@ -566,7 +583,20 @@ bool Message::operator==(const Message &other) const
     if (!result) {
         return false;
     }
-    // compare messageTranslation
+    // compare reactions
+    if (messagePinned() && other.messagePinned()) {
+        if (*messagePinned() == (*other.messagePinned())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!messagePinned() && !other.messagePinned()) {
+        result = true;
+    } else {
+        return false;
+    }
+
+    // compare reactions
     if (reactions() && other.reactions()) {
         if (*reactions() == (*other.reactions())) {
             result = true;
@@ -960,7 +990,12 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.assignMessageStateValue(Message::MessageState::ParsedUrl, o[QLatin1StringView("parseUrls")].toBool());
     message.mMessageStarred.setIsStarred(o[QLatin1StringView("starred")].toBool());
 
-    message.mMessagePinned = MessagePinned::deserialize(o[QLatin1StringView("pinnedMessage")].toObject());
+    if (o.contains(QLatin1StringView("pinnedMessage"))) {
+        MessagePinned *pinned = MessagePinned::deserialize(o[QLatin1StringView("pinnedMessage")].toObject());
+        message.setMessagePinned(*pinned);
+        delete pinned;
+    }
+
     message.mRole = o[QLatin1StringView("role")].toString();
     message.mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(o[QLatin1StringView("type")].toString());
     message.mEmoji = o[QLatin1StringView("emoji")].toString();
@@ -1060,7 +1095,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QLatin1StringView("parseUrls")] = message.parseUrls();
     o[QLatin1StringView("starred")] = message.mMessageStarred.isStarred();
 
-    o[QLatin1StringView("pinnedMessage")] = MessagePinned::serialize(message.mMessagePinned);
+    if (message.mMessagePinned) {
+        o[QLatin1StringView("pinnedMessage")] = MessagePinned::serialize(*message.mMessagePinned);
+    }
 
     if (!message.mRole.isEmpty()) {
         o[QLatin1StringView("role")] = message.mRole;
@@ -1202,7 +1239,7 @@ QDebug operator<<(QDebug d, const Message &t)
     d.space() << "mReaction:" << *t.reactions();
     d.space() << "mUnread:" << t.unread();
     d.space() << "starred" << t.messageStarred();
-    d.space() << "pinned" << t.messagePinned();
+    d.space() << "pinned" << *t.messagePinned();
     d.space() << "threadcount" << t.threadCount();
     d.space() << "threadlastmessage" << t.threadLastMessage();
     d.space() << "discussionlastmessage" << t.discussionLastMessage();

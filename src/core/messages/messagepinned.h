@@ -8,10 +8,12 @@
 
 #include "libruqola_private_export.h"
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT MessagePinned
+class LIBRUQOLACORE_TESTS_EXPORT MessagePinned : public QSharedData
 {
 public:
     MessagePinned();
+    ~MessagePinned();
+    explicit MessagePinned(const MessagePinned &other);
 
     [[nodiscard]] bool pinned() const;
     void setPinned(bool pinned);
@@ -23,7 +25,9 @@ public:
     void parse(const QJsonObject &o);
 
     static QJsonObject serialize(const MessagePinned &message);
-    static MessagePinned deserialize(const QJsonObject &o);
+    static MessagePinned *deserialize(const QJsonObject &o);
+
+    [[nodiscard]] bool isValid() const;
 
 private:
     QString mPinnedBy;

@@ -150,7 +150,7 @@ public:
     [[nodiscard]] bool unread() const;
     void setUnread(bool unread);
 
-    [[nodiscard]] MessagePinned messagePinned() const;
+    [[nodiscard]] const MessagePinned *messagePinned() const;
     void setMessagePinned(const MessagePinned &messagePinned);
 
     [[nodiscard]] MessageStarred messageStarred() const;
@@ -248,7 +248,7 @@ private:
     QSharedDataPointer<MessageExtra> mMessageExtra;
 
     // Message Pinned
-    MessagePinned mMessagePinned;
+    QSharedDataPointer<MessagePinned> mMessagePinned;
 
     // Message Starred
     MessageStarred mMessageStarred;

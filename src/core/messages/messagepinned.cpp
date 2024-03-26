@@ -5,8 +5,32 @@
 */
 
 #include "messagepinned.h"
+#include "ruqola_message_memory_debug.h"
 #include <QJsonObject>
-MessagePinned::MessagePinned() = default;
+
+MessagePinned::MessagePinned()
+    : QSharedData()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessagePinned created " << this;
+}
+
+MessagePinned::MessagePinned(const MessagePinned &other)
+    : QSharedData(other)
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessagePinned created " << this;
+    mPinned = other.mPinned;
+    mPinnedBy = other.mPinnedBy;
+}
+
+MessagePinned::~MessagePinned()
+{
+    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessagePinned deleted " << this;
+}
+
+bool MessagePinned::isValid() const
+{
+    return !mPinnedBy.isEmpty();
+}
 
 bool MessagePinned::pinned() const
 {
@@ -56,10 +80,10 @@ QDebug operator<<(QDebug d, const MessagePinned &t)
     return d;
 }
 
-MessagePinned MessagePinned::deserialize(const QJsonObject &o)
+MessagePinned *MessagePinned::deserialize(const QJsonObject &o)
 {
-    MessagePinned pinned;
-    pinned.setPinned(o[QLatin1StringView("pinned")].toBool());
-    pinned.setPinnedBy(o[QLatin1StringView("pinnedBy")].toString());
+    MessagePinned *pinned = new MessagePinned;
+    pinned->setPinned(o[QLatin1StringView("pinned")].toBool());
+    pinned->setPinnedBy(o[QLatin1StringView("pinnedBy")].toString());
     return pinned;
 }
