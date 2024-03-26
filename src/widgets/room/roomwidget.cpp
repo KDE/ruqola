@@ -619,7 +619,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
         mRoomHeaderWidget->setIsDirectGroup((mRoom->channelType() == Room::RoomType::Direct) && mRoom->userNames().count() > 2);
-        if (QString::fromLatin1(mRoom->roomId()) == QLatin1StringView("%1%1").arg(QString::fromLatin1(mCurrentRocketChatAccount->userId()))) {
+        if (mRoom->roomId() == QByteArray((mCurrentRocketChatAccount->userId() + mCurrentRocketChatAccount->userId()))) {
             mRoomHeaderWidget->setCallEnabled(false);
         } else {
             mRoomHeaderWidget->setCallEnabled(true);
