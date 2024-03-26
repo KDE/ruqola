@@ -291,23 +291,23 @@ QString generateRichText(const QString &str,
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
 
-        QByteArray userIdentifier = mentions.value(word.toString());
+        const QByteArray userIdentifier = mentions.value(word.toString());
+        QString wordFromUserIdentifier = QString::fromLatin1(userIdentifier);
         if (userIdentifier.isEmpty()) {
-            userIdentifier = word.toString().toLatin1();
+            wordFromUserIdentifier = word.toString();
         }
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word.toString(),
                            QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
-                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, QString::fromLatin1(userIdentifier)));
+                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, wordFromUserIdentifier));
 
         } else {
-            if (!Utils::validUser(QString::fromLatin1(userIdentifier))) { // here ? all ?
+            if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
                 newStr.replace(QLatin1Char('@') + word.toString(),
                                QStringLiteral("<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>")
                                    .arg(word.toString(), hereAllMentionForegroundColor, hereAllMentionBackgroundColor));
             } else {
-                newStr.replace(QLatin1Char('@') + word.toString(),
-                               QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, QString::fromLatin1(userIdentifier)));
+                newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, wordFromUserIdentifier));
             }
         }
     }
