@@ -1060,7 +1060,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
             menuBar()->show();
         } else {
             if (!dontShowWarning && (!toolBar()->isVisible() || !toolBar()->actions().contains(mHamburgerMenu))) {
-                const QString accel = mShowMenuBarAction->shortcut().toString();
+                const QString accel = mShowMenuBarAction->shortcut().toString(QKeySequence::NativeText);
                 KMessageBox::information(this,
                                          i18n("<qt>This will hide the menu bar completely."
                                               " You can show it again by typing %1.</qt>",
