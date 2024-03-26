@@ -35,7 +35,7 @@ SearchTeamDialog::SearchTeamDialog(RocketChatAccount *account, QWidget *parent)
 
 SearchTeamDialog::~SearchTeamDialog() = default;
 
-const QString &SearchTeamDialog::teamId() const
+const QByteArray &SearchTeamDialog::teamId() const
 {
     return mSearchTeamWidget->teamId();
 }

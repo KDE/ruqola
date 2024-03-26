@@ -24,13 +24,13 @@ public:
 
     void parse(const QJsonObject &obj);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &identifier);
 
 private:
     QString mName;
     QString mFname;
-    QString mIdentifier;
+    QByteArray mIdentifier;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoomCompleter &t);
 Q_DECLARE_METATYPE(TeamRoomCompleter)

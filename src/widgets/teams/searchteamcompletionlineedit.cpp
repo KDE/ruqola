@@ -33,7 +33,7 @@ SearchTeamCompletionLineEdit::SearchTeamCompletionLineEdit(RocketChatAccount *ac
 
 SearchTeamCompletionLineEdit::~SearchTeamCompletionLineEdit() = default;
 
-const QString &SearchTeamCompletionLineEdit::teamId() const
+const QByteArray &SearchTeamCompletionLineEdit::teamId() const
 {
     return mTeamId;
 }
@@ -94,7 +94,7 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
 void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(TeamCompleterModel::TeamName).toString();
-    const QString teamIdentifier = index.data(TeamCompleterModel::TeamId).toString();
+    const QByteArray teamIdentifier = index.data(TeamCompleterModel::TeamId).toByteArray();
     mCompletionListView->hide();
     disconnect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
     setText(completerName);

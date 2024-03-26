@@ -18,7 +18,7 @@ public:
     explicit SearchTeamWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTeamWidget() override;
 
-    [[nodiscard]] const QString &teamId() const;
+    [[nodiscard]] const QByteArray &teamId() const;
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

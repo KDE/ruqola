@@ -31,7 +31,7 @@ SearchTeamWidget::SearchTeamWidget(RocketChatAccount *account, QWidget *parent)
 
 SearchTeamWidget::~SearchTeamWidget() = default;
 
-const QString &SearchTeamWidget::teamId() const
+const QByteArray &SearchTeamWidget::teamId() const
 {
     return mSearchLine->teamId();
 }

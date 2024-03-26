@@ -40,16 +40,16 @@ void TeamRoomCompleter::parse(const QJsonObject &obj)
     // {"_id":"QMkvkiMyxKoEuJjnb","avatarETag":"MDRisL8NzZtsCdkYE","fname":"ruqola-test","name":"ruqola-test","t":"p"},
     mName = obj[QLatin1StringView("name")].toString();
     mFname = obj[QLatin1StringView("fname")].toString();
-    mIdentifier = obj[QLatin1StringView("_id")].toString();
+    mIdentifier = obj[QLatin1StringView("_id")].toString().toLatin1();
     // TODO add room type too
 }
 
-QString TeamRoomCompleter::identifier() const
+QByteArray TeamRoomCompleter::identifier() const
 {
     return mIdentifier;
 }
 
-void TeamRoomCompleter::setIdentifier(const QString &identifier)
+void TeamRoomCompleter::setIdentifier(const QByteArray &identifier)
 {
     mIdentifier = identifier;
 }
