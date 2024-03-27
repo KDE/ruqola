@@ -406,6 +406,8 @@ RoomModel::Section RoomModel::section(Room *r) const
     }
     if (r->favorite() && mRocketChatAccount && mRocketChatAccount->sortFavoriteChannels()) {
         return Section::Favorites;
+    } else if (r->favorite() && !mRocketChatAccount) {
+        return Section::Favorites;
     } else if (r->teamInfo().mainTeam()) {
         return Section::Teams;
     }
