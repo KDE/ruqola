@@ -207,7 +207,7 @@ void RoomTest::shouldSerialized()
         input.setParentRid(QByteArrayLiteral("parentId1"));
 
         // Avatar
-        input.setAvatarETag(QStringLiteral("avatar1"));
+        input.setAvatarETag(QByteArrayLiteral("avatar1"));
 
         // setE2EKey
         input.setE2EKey(QStringLiteral("e2ekey-1"));

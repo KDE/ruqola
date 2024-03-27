@@ -337,7 +337,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     setUserNames(lstUserNames);
 
-    setAvatarETag(json.value(QLatin1StringView("avatarETag")).toString());
+    setAvatarETag(json.value(QLatin1StringView("avatarETag")).toString().toLatin1());
     parseDisplaySystemMessage(json);
     parseRetentionInfo(json);
     parseTeamInfo(json);
@@ -935,7 +935,7 @@ Utils::AvatarInfo Room::avatarInfo() const
     }
     // TODO direct channel or group channel
     Utils::AvatarInfo info;
-    info.etag = mAvatarETag;
+    info.etag = QString::fromLatin1(mAvatarETag);
     // Group => uids >= 3
     if (mUids.count() > 2) {
         QString identifier;
@@ -964,12 +964,12 @@ Utils::AvatarInfo Room::avatarInfo() const
     return mCurrentAvatarInfo;
 }
 
-QString Room::avatarETag() const
+QByteArray Room::avatarETag() const
 {
     return mAvatarETag;
 }
 
-void Room::setAvatarETag(const QString &avatarETag)
+void Room::setAvatarETag(const QByteArray &avatarETag)
 {
     if (mAvatarETag != avatarETag) {
         mAvatarETag = avatarETag;
@@ -1270,7 +1270,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
 
     r->setDirectChannelUserId(o[QLatin1StringView("directChannelUserId")].toString().toLatin1());
 
-    r->setAvatarETag(o[QLatin1StringView("avatarETag")].toString());
+    r->setAvatarETag(o[QLatin1StringView("avatarETag")].toString().toLatin1());
 
     r->setUids(extractStringList(o, QLatin1StringView("uids")));
 
@@ -1383,7 +1383,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     serializeStringList(o, QLatin1StringView("userHighlights"), r->highlightsWord());
 
     if (!r->avatarETag().isEmpty()) {
-        o[QLatin1StringView("avatarETag")] = r->avatarETag();
+        o[QLatin1StringView("avatarETag")] = QString::fromLatin1(r->avatarETag());
     }
     if (!r->uids().isEmpty()) {
         o[QLatin1StringView("uids")] = QJsonArray::fromStringList(r->uids());

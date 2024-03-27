@@ -242,14 +242,14 @@ public:
     [[nodiscard]] QStringList displaySystemMessageTypes() const;
     void setDisplaySystemMessageTypes(const QStringList &displaySystemMessageTypes);
 
-    [[nodiscard]] ChannelCounterInfo channelCounterInfo() const;
+    [[nodiscard]] const ChannelCounterInfo *channelCounterInfo() const;
     void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
 
     void newMessageAdded();
 
     [[nodiscard]] bool allowToPinMessage() const;
-    [[nodiscard]] QString avatarETag() const;
-    void setAvatarETag(const QString &avatarETag);
+    [[nodiscard]] QByteArray avatarETag() const;
+    void setAvatarETag(const QByteArray &avatarETag);
 
     [[nodiscard]] Utils::AvatarInfo avatarInfo() const;
 
@@ -404,7 +404,7 @@ private:
     QString mE2eKeyId;
 
     // AvatarEtag
-    QString mAvatarETag;
+    QByteArray mAvatarETag;
 
     // Roles In Room
     Roles mRolesForRooms;
