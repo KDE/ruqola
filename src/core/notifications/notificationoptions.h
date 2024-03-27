@@ -18,15 +18,15 @@ public:
     NotificationOptions(const NotificationOptions &other) = default;
     struct LIBRUQOLACORE_EXPORT NotificationValue {
         NotificationValue() = default;
-        explicit NotificationValue(const QString &val, const QString &pref)
+        explicit NotificationValue(const QByteArray &val, const QByteArray &pref)
             : value(val)
             , preferenceOrigin(pref)
         {
         }
-        QString value;
-        QString preferenceOrigin;
+        QByteArray value;
+        QByteArray preferenceOrigin;
         [[nodiscard]] bool operator==(const NotificationValue &other) const;
-        [[nodiscard]] QString currentValue() const;
+        [[nodiscard]] QByteArray currentValue() const;
         [[nodiscard]] bool isEmpty() const;
     };
 

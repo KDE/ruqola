@@ -12,7 +12,7 @@
 
 struct NotificationPreferenceInfo {
     QString displayText;
-    QString preference;
+    QByteArray preference;
 };
 
 class LIBRUQOLACORE_EXPORT NotificationPreferenceModel : public QAbstractListModel
@@ -31,9 +31,9 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    [[nodiscard]] int setCurrentNotificationPreference(const QString &preference);
+    [[nodiscard]] int setCurrentNotificationPreference(const QByteArray &preference);
 
-    [[nodiscard]] QString currentPreference(int index) const;
+    [[nodiscard]] QByteArray currentPreference(int index) const;
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();

@@ -43,30 +43,30 @@ void NotificationPreferenceModel::fillModel()
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
-        preferenceInfo.preference = QStringLiteral("default");
+        preferenceInfo.preference = QByteArrayLiteral("default");
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("All Messages");
-        preferenceInfo.preference = QStringLiteral("all");
+        preferenceInfo.preference = QByteArrayLiteral("all");
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Mentions");
-        preferenceInfo.preference = QStringLiteral("mentions");
+        preferenceInfo.preference = QByteArrayLiteral("mentions");
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Nothing");
-        preferenceInfo.preference = QStringLiteral("nothing");
+        preferenceInfo.preference = QByteArrayLiteral("nothing");
         mNotificationPreferenceList.append(std::move(preferenceInfo));
     }
 }
 
-int NotificationPreferenceModel::setCurrentNotificationPreference(const QString &preference)
+int NotificationPreferenceModel::setCurrentNotificationPreference(const QByteArray &preference)
 {
     int newStatusIndex = 0;
     for (int i = 0, total = mNotificationPreferenceList.count(); i < total; ++i) {
@@ -82,9 +82,9 @@ int NotificationPreferenceModel::setCurrentNotificationPreference(const QString 
     return mCurrentPreference;
 }
 
-QString NotificationPreferenceModel::currentPreference(int index) const
+QByteArray NotificationPreferenceModel::currentPreference(int index) const
 {
-    const QString str = mNotificationPreferenceList.at(index).preference;
+    const QByteArray str = mNotificationPreferenceList.at(index).preference;
     return str;
 }
 

@@ -188,13 +188,13 @@ void RoomTest::shouldSerialized()
         // Notification
         NotificationOptions w;
         NotificationOptions::NotificationValue w1;
-        w1.value = QStringLiteral("notification1");
+        w1.value = QByteArrayLiteral("notification1");
         w.setDesktopNotifications(w1);
         NotificationOptions::NotificationValue w2;
-        w2.value = QStringLiteral("notification2");
+        w2.value = QByteArrayLiteral("notification2");
         w.setMobilePushNotification(w2);
         NotificationOptions::NotificationValue w3;
-        w3.value = QStringLiteral("notification3");
+        w3.value = QByteArrayLiteral("notification3");
         w.setEmailNotifications(w3);
         w.setUnreadTrayIconAlert(QStringLiteral("ssssf"));
         w.setDisableNotifications(false);

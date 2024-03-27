@@ -34,13 +34,13 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
 void NotificationOptionsTest::shouldAssignValue()
 {
     NotificationOptions w;
-    NotificationOptions::NotificationValue desktopNotifications = NotificationOptions::NotificationValue{QStringLiteral("bla"), QString()};
+    NotificationOptions::NotificationValue desktopNotifications = NotificationOptions::NotificationValue{QByteArrayLiteral("bla"), QByteArray()};
     w.setDesktopNotifications(desktopNotifications);
 
-    NotificationOptions::NotificationValue mobilePushNotification = NotificationOptions::NotificationValue{QStringLiteral("bli"), QString()};
+    NotificationOptions::NotificationValue mobilePushNotification = NotificationOptions::NotificationValue{QByteArrayLiteral("bli"), QByteArray()};
     w.setMobilePushNotification(mobilePushNotification);
 
-    NotificationOptions::NotificationValue emailNotifications = NotificationOptions::NotificationValue{QStringLiteral("blu"), QString()};
+    NotificationOptions::NotificationValue emailNotifications = NotificationOptions::NotificationValue{QByteArrayLiteral("blu"), QByteArray()};
     w.setEmailNotifications(emailNotifications);
 
     QString unreadTrayIconAlert = QStringLiteral("Ablu");
@@ -75,19 +75,19 @@ void NotificationOptionsTest::shouldAssignValue()
 void NotificationOptionsTest::shouldParseNotification_data()
 {
     QTest::addColumn<QString>("fileNameinit");
-    QTest::addColumn<QString>("desktopNotifications");
-    QTest::addColumn<QString>("mobilePushNotification");
-    QTest::addColumn<QString>("emailNotifications");
+    QTest::addColumn<QByteArray>("desktopNotifications");
+    QTest::addColumn<QByteArray>("mobilePushNotification");
+    QTest::addColumn<QByteArray>("emailNotifications");
     NotificationOptions notif;
-    QTest::addRow("notification1") << QStringLiteral("notification1") << QStringLiteral("default") << QStringLiteral("all") << QStringLiteral("all");
+    QTest::addRow("notification1") << QStringLiteral("notification1") << QByteArrayLiteral("default") << QByteArrayLiteral("all") << QByteArrayLiteral("all");
 }
 
 void NotificationOptionsTest::shouldParseNotification()
 {
     QFETCH(QString, fileNameinit);
-    QFETCH(QString, desktopNotifications);
-    QFETCH(QString, mobilePushNotification);
-    QFETCH(QString, emailNotifications);
+    QFETCH(QByteArray, desktopNotifications);
+    QFETCH(QByteArray, mobilePushNotification);
+    QFETCH(QByteArray, emailNotifications);
 
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/notificationoption/") + fileNameinit + QLatin1StringView(".json");
     QFile f(originalJsonFile);
