@@ -359,12 +359,6 @@ private:
     // Room Object Fields
 
     NotificationOptions mNotificationOptions;
-    // muted - collection of muted users by its usernames
-    QStringList mMutedUsers;
-
-    QStringList mIgnoredUsers;
-
-    QStringList mHighlightsWord;
 
     // Roles
     QStringList mRoles;
@@ -409,9 +403,6 @@ private:
     QString mE2EKey;
     QString mE2eKeyId;
 
-    // Autotranslate
-    QString mAutotranslateLanguage;
-
     // AvatarEtag
     QString mAvatarETag;
 
@@ -430,7 +421,6 @@ private:
     QStringList mDisplaySystemMessageType;
     ChannelCounterInfo mChannelCounterInfo;
     RetentionInfo mRetentionInfo;
-    TeamInfo mTeamInfo;
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
     UsersForRoomModel *const mUsersModelForRoom;

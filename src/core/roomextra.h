@@ -16,6 +16,21 @@ public:
     RoomExtra();
     ~RoomExtra();
 
+    [[nodiscard]] QString autoTranslateLanguage() const;
+    void setAutoTranslateLanguage(const QString &autotranslateLanguage);
+
+    void setMutedUsers(const QStringList &mutedUsers);
+    [[nodiscard]] QStringList mutedUsers() const;
+
+    [[nodiscard]] QStringList ignoredUsers() const;
+    void setIgnoredUsers(const QStringList &newIgnoredUsers);
+
+    [[nodiscard]] QStringList highlightsWord() const;
+    void setHighlightsWord(const QStringList &newHighlightsWord);
+
+    [[nodiscard]] TeamInfo teamInfo() const;
+    void setTeamInfo(const TeamInfo &newTeamInfo);
+
 private:
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;

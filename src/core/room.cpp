@@ -69,14 +69,14 @@ bool Room::isEqual(const Room &other) const
 {
     return (mRoomId == other.roomId()) && (mChannelType == other.channelType()) && (mName == other.name()) && (mAnnouncement == other.announcement())
         && (mRoomCreatorUserName == other.roomOwnerUserName()) && (mRoomCreateUserId == other.roomCreatorUserId()) && (mTopic == other.topic())
-        && (mMutedUsers == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mUnread == other.unread())
+        && (mutedUsers() == other.mutedUsers()) && (mJitsiTimeout == other.jitsiTimeout()) && (mUnread == other.unread())
         && (mDescription == other.description()) && (mUserMentions == other.userMentions()) && (mNotificationOptions == other.notificationOptions())
-        && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (mIgnoredUsers == other.ignoredUsers())
+        && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (ignoredUsers() == other.ignoredUsers())
         && (mE2EKey == other.e2EKey()) && (mE2eKeyId == other.e2eKeyId()) && (mParentRid == other.parentRid()) && (mFName == other.fName())
-        && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
+        && (autoTranslateLanguage() == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
-        && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
-        && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
+        && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
+        && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
         && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates());
 }
 
@@ -433,13 +433,16 @@ void Room::setJitsiTimeout(qint64 jitsiTimeout)
 
 QStringList Room::mutedUsers() const
 {
-    return mMutedUsers;
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->mutedUsers();
 }
 
-void Room::setMutedUsers(const QStringList &mutedUsers)
+void Room::setMutedUsers(const QStringList &users)
 {
-    if (mMutedUsers != mutedUsers) {
-        mMutedUsers = mutedUsers;
+    if (mutedUsers() != users) {
+        roomExtra()->setMutedUsers(users);
         Q_EMIT mutedUsersChanged();
     }
 }
@@ -751,13 +754,16 @@ void Room::setRoles(const QStringList &roles)
 
 QStringList Room::ignoredUsers() const
 {
-    return mIgnoredUsers;
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->ignoredUsers();
 }
 
-void Room::setIgnoredUsers(const QStringList &ignoredUsers)
+void Room::setIgnoredUsers(const QStringList &users)
 {
-    if (mIgnoredUsers != ignoredUsers) {
-        mIgnoredUsers = ignoredUsers;
+    if (ignoredUsers() != users) {
+        roomExtra()->setIgnoredUsers(users);
         Q_EMIT ignoredUsersChanged();
     }
 }
@@ -837,9 +843,9 @@ void Room::parseRetentionInfo(const QJsonObject &json)
 
 Room::TeamRoomInfo Room::teamRoomInfo() const
 {
-    if (mRocketChatAccount) {
-        if (!mTeamInfo.mainTeam() && !mTeamInfo.teamId().isEmpty()) {
-            return mRocketChatAccount->roomFromTeamId(mTeamInfo.teamId());
+    if (mRocketChatAccount && teamInfo().isValid()) {
+        if (!teamInfo().mainTeam() && !teamInfo().teamId().isEmpty()) {
+            return mRocketChatAccount->roomFromTeamId(teamInfo().teamId());
         }
     }
     return {};
@@ -847,13 +853,16 @@ Room::TeamRoomInfo Room::teamRoomInfo() const
 
 TeamInfo Room::teamInfo() const
 {
-    return mTeamInfo;
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->teamInfo();
 }
 
-void Room::setTeamInfo(const TeamInfo &teamInfo)
+void Room::setTeamInfo(const TeamInfo &info)
 {
-    if (mTeamInfo != teamInfo) {
-        mTeamInfo = teamInfo;
+    if (teamInfo() != info) {
+        roomExtra()->setTeamInfo(info);
         Q_EMIT teamInfoChanged();
     }
 }
@@ -878,13 +887,16 @@ void Room::setRetentionInfo(RetentionInfo retentionInfo)
 
 QStringList Room::highlightsWord() const
 {
-    return mHighlightsWord;
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->highlightsWord();
 }
 
-void Room::setHighlightsWord(const QStringList &highlightsWord)
+void Room::setHighlightsWord(const QStringList &words)
 {
-    if (mHighlightsWord != highlightsWord) {
-        mHighlightsWord = highlightsWord;
+    if (highlightsWord() != words) {
+        roomExtra()->setHighlightsWord(words);
         Q_EMIT highlightsWordChanged();
     }
 }
@@ -1031,13 +1043,16 @@ void Room::setAutoTranslate(bool autoTranslate)
 
 QString Room::autoTranslateLanguage() const
 {
-    return mAutotranslateLanguage;
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->autoTranslateLanguage();
 }
 
-void Room::setAutoTranslateLanguage(const QString &autotranslateLanguage)
+void Room::setAutoTranslateLanguage(const QString &autotranslateLang)
 {
-    if (mAutotranslateLanguage != autotranslateLanguage) {
-        mAutotranslateLanguage = autotranslateLanguage;
+    if (autoTranslateLanguage() != autotranslateLang) {
+        roomExtra()->setAutoTranslateLanguage(autotranslateLang);
         Q_EMIT autoTranslateLanguageChanged();
     }
 }
@@ -1451,8 +1466,12 @@ bool Room::encryptedEnabled() const
 
 bool Room::userIsIgnored(const QByteArray &userId)
 {
+    const QStringList users = ignoredUsers();
+    if (users.isEmpty()) {
+        return false;
+    }
     // TODO Convert mIgnoredUsers to QList<QByteArray>
-    return mIgnoredUsers.contains(QString::fromLatin1(userId));
+    return users.contains(QString::fromLatin1(userId));
 }
 
 bool Room::roomIsBlocked() const
