@@ -10,9 +10,10 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QJsonObject>
-class LIBRUQOLACORE_EXPORT ChannelCounterInfo
+class LIBRUQOLACORE_EXPORT ChannelCounterInfo : public QSharedData
 {
 public:
+    explicit ChannelCounterInfo(const ChannelCounterInfo &other);
     ChannelCounterInfo();
     ~ChannelCounterInfo();
     void parseCounterInfo(const QJsonObject &replyObject);

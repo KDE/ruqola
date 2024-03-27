@@ -627,7 +627,7 @@ void RoomWidget::updateRoomHeader()
         // TODO Description ?
 
         mRoomWidgetBase->updateRoomReadOnly(mRoom);
-        if (mRoom->channelCounterInfo().isValid() && mRoom->channelCounterInfo().unreadMessages() > 0) {
+        if (mRoom->channelCounterInfo() && mRoom->channelCounterInfo()->isValid() && mRoom->channelCounterInfo()->unreadMessages() > 0) {
             mRoomCounterInfoWidget->animatedShow();
         } else {
             mRoomCounterInfoWidget->animatedHide();

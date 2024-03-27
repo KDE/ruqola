@@ -5,10 +5,30 @@
 */
 
 #include "channelcounterinfo.h"
+#include "ruqola_room_memory_debug.h"
 
-ChannelCounterInfo::ChannelCounterInfo() = default;
+ChannelCounterInfo::ChannelCounterInfo()
+    : QSharedData()
+{
+    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra created " << this;
+}
 
-ChannelCounterInfo::~ChannelCounterInfo() = default;
+ChannelCounterInfo::ChannelCounterInfo(const ChannelCounterInfo &other)
+    : QSharedData(other)
+{
+    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra created " << this;
+
+    mUnreadFrom = other.mUnreadFrom;
+    mUnreadMessages = other.mUnreadMessages;
+    mMessageCount = other.mMessageCount;
+    mUnreadMessageTimeStep = other.mUnreadMessageTimeStep;
+    mJoined = other.mJoined;
+}
+
+ChannelCounterInfo::~ChannelCounterInfo()
+{
+    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra deleted " << this;
+}
 
 void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 {
@@ -87,6 +107,7 @@ void ChannelCounterInfo::setUnreadMessageTimeStep(qint64 unreadMessageTimeStep)
 
 QDebug operator<<(QDebug d, const ChannelCounterInfo &t)
 {
+    d.space() << "mUnreadFrom Messages" << t.unreadFrom();
     d.space() << "Unread Messages" << t.unreadMessages();
     d.space() << "Messages count" << t.messageCount();
     d.space() << "Unread from" << t.unreadFrom();

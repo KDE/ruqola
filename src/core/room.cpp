@@ -978,25 +978,39 @@ void Room::setAvatarETag(const QByteArray &avatarETag)
     }
 }
 
-ChannelCounterInfo Room::channelCounterInfo() const
+const ChannelCounterInfo *Room::channelCounterInfo() const
 {
-    return mChannelCounterInfo;
+    if (mChannelCounterInfo) {
+        return mChannelCounterInfo.data();
+    }
+    return nullptr;
 }
 
 void Room::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
 {
-    if (mChannelCounterInfo != channelCounterInfo) {
-        mChannelCounterInfo = channelCounterInfo;
+    if (channelCounterInfo.isValid()) {
+        if (!mChannelCounterInfo) {
+            mChannelCounterInfo = new ChannelCounterInfo(channelCounterInfo);
+        } else {
+            if (channelCounterInfo != *mChannelCounterInfo) {
+                mChannelCounterInfo.reset(new ChannelCounterInfo(channelCounterInfo));
+            }
+        }
         Q_EMIT channelCounterInfoChanged();
+    } else {
+        if (mChannelCounterInfo) {
+            mChannelCounterInfo.reset(nullptr);
+            Q_EMIT channelCounterInfoChanged();
+        }
     }
 }
 
 void Room::newMessageAdded()
 {
-    if (mChannelCounterInfo.isValid()) {
-        if (mChannelCounterInfo.unreadMessages() > 0) {
-            const auto unreadMessageCount = mChannelCounterInfo.unreadMessages() + 1;
-            mChannelCounterInfo.setUnreadMessages(unreadMessageCount);
+    if (mChannelCounterInfo && mChannelCounterInfo->isValid()) {
+        if (mChannelCounterInfo->unreadMessages() > 0) {
+            const auto unreadMessageCount = mChannelCounterInfo->unreadMessages() + 1;
+            mChannelCounterInfo->setUnreadMessages(unreadMessageCount);
             Q_EMIT channelCounterInfoChanged();
             // qDebug() << " mChannelCounterInfo " << mChannelCounterInfo;
         }

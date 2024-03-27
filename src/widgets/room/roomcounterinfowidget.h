@@ -17,8 +17,8 @@ public:
     explicit RoomCounterInfoWidget(QWidget *parent = nullptr);
     ~RoomCounterInfoWidget() override;
 
-    [[nodiscard]] ChannelCounterInfo channelCounterInfo() const;
-    void setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo);
+    [[nodiscard]] const ChannelCounterInfo *channelCounterInfo() const;
+    void setChannelCounterInfo(const ChannelCounterInfo *channelCounterInfo);
 
 Q_SIGNALS:
     void markAsRead();
@@ -27,5 +27,5 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLinkActivated(const QString &contents);
-    ChannelCounterInfo mChannelCounterInfo;
+    const ChannelCounterInfo *mChannelCounterInfo = nullptr;
 };

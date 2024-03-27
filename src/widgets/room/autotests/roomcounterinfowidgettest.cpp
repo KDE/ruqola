@@ -17,7 +17,7 @@ void RoomCounterInfoWidgetTest::shouldHaveDefaultValues()
 {
     RoomCounterInfoWidget w;
     w.show();
-    QVERIFY(!w.channelCounterInfo().isValid());
+    QVERIFY(!w.channelCounterInfo());
     QVERIFY(!w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
 }

@@ -26,16 +26,16 @@ void ChannelCounterInfoTest::shouldHaveDefaultValues()
 void ChannelCounterInfoTest::shouldLoadChannelCounter_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<ChannelCounterInfo>("channelcounter");
-    ChannelCounterInfo result;
-    result.setMessageCount(48013);
-    result.setUnreadMessages(0);
-    result.setJoined(true);
+    QTest::addColumn<ChannelCounterInfo *>("channelcounter");
+    ChannelCounterInfo *result = new ChannelCounterInfo;
+    result->setMessageCount(48013);
+    result->setUnreadMessages(0);
+    result->setJoined(true);
     QDateTime t;
     t.setTimeSpec(Qt::LocalTime);
     t.setDate(QDate(2020, 9, 25));
     t.setTime(QTime(13, 36, 30, 262));
-    result.setUnreadFrom(t);
+    result->setUnreadFrom(t);
 
     // TODO
     QTest::addRow("test1") << QStringLiteral("test1") << result;
@@ -44,16 +44,16 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter_data()
 void ChannelCounterInfoTest::shouldLoadChannelCounter()
 {
     QFETCH(QString, name);
-    QFETCH(ChannelCounterInfo, channelcounter);
+    QFETCH(ChannelCounterInfo *, channelcounter);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + QLatin1StringView("/channelcounter/") + name + QLatin1StringView(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     ChannelCounterInfo r;
     r.parseCounterInfo(obj);
-    const bool equalOwner = (r == channelcounter);
+    const bool equalOwner = (r == *channelcounter);
     if (!equalOwner) {
         qDebug() << "ACTUAL " << r;
-        qDebug() << "EXPECTED " << channelcounter;
+        qDebug() << "EXPECTED " << *channelcounter;
     }
     QVERIFY(equalOwner);
 }

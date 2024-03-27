@@ -419,7 +419,7 @@ private:
     QByteArray mDirectChannelUserId;
 
     QStringList mDisplaySystemMessageType;
-    ChannelCounterInfo mChannelCounterInfo;
+    QSharedDataPointer<ChannelCounterInfo> mChannelCounterInfo;
     RetentionInfo mRetentionInfo;
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
