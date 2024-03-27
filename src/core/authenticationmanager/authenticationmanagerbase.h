@@ -20,11 +20,6 @@ public:
         LogoutCleanUp,
     };
 
-    static QString METHOD_LOGIN;
-    static QString METHOD_SEND_OTP;
-    static QString METHOD_LOGOUT;
-    static QString METHOD_LOGOUT_CLEAN_UP;
-
     explicit AuthenticationManagerBase(QObject *parent = nullptr);
     ~AuthenticationManagerBase() override;
 

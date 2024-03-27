@@ -10,11 +10,6 @@
 #include "utils.h"
 #define sl(x) QStringLiteral(x)
 
-QString AuthenticationManagerBase::METHOD_LOGIN = sl("login");
-QString AuthenticationManagerBase::METHOD_SEND_OTP = sl("login");
-QString AuthenticationManagerBase::METHOD_LOGOUT = sl("logout");
-QString AuthenticationManagerBase::METHOD_LOGOUT_CLEAN_UP = sl("logoutCleanUp");
-
 AuthenticationManagerBase::AuthenticationManagerBase(QObject *parent)
     : QObject{parent}
 {
@@ -109,13 +104,13 @@ QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManag
 {
     switch (m) {
     case AuthenticationManagerBase::Method::Login:
-        return AuthenticationManagerBase::METHOD_LOGIN;
+        return sl("login");
     case AuthenticationManagerBase::Method::SendOtp:
-        return AuthenticationManagerBase::METHOD_SEND_OTP;
+        return sl("login");
     case AuthenticationManagerBase::Method::Logout:
-        return AuthenticationManagerBase::METHOD_LOGOUT;
+        return sl("logout");
     case AuthenticationManagerBase::Method::LogoutCleanUp:
-        return AuthenticationManagerBase::METHOD_LOGOUT_CLEAN_UP;
+        return sl("logoutCleanUp");
     }
     return {};
 }
