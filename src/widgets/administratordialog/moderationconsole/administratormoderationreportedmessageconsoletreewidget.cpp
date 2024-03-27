@@ -36,3 +36,5 @@ void AdministratorModerationReportedMessageConsoleTreeWidget::initialize()
 {
     mModerationConsoleTreeWidget->initialize();
 }
+
+#include "moc_administratormoderationreportedmessageconsoletreewidget.cpp"
