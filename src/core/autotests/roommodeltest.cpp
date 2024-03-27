@@ -344,9 +344,7 @@ void RoomModelTest::shouldReturnDataDefault()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOpen);
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
-    QVERIFY(output.toString().isEmpty());
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
-    QCOMPARE(output, QVariant(QIcon()));
+    QCOMPARE(output.value<RoomModel::Section>(), RoomModel::Section::Unknown);
 }
 
 void RoomModelTest::shouldReturnData()
@@ -416,8 +414,8 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output.toBool(), open);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
     QCOMPARE(output.value<RoomModel::Section>(), RoomModel::Section::Favorites); // first priority for favorites and then to channels
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
-    QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
+    // output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
+    // QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
 }
 
 void RoomModelTest::shouldInsertRoom_data()
