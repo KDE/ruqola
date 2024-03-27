@@ -108,7 +108,7 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::Channel);
     QCOMPARE(requestSpy.count(), 1);
-    QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("c"));
+    QCOMPARE(requestSpy.at(0).at(1).toString(), QStringLiteral("c"));
     typeChangedSpy.clear();
     requestSpy.clear();
 
@@ -116,14 +116,14 @@ void InputTextManagerTest::shouldEmitCompletionRequestSignals()
     QCOMPARE(typeChangedSpy.count(), 1);
     QCOMPARE(typeChangedSpy.at(0).at(0).value<InputTextManager::CompletionForType>(), InputTextManager::User);
     QCOMPARE(requestSpy.count(), 1);
-    QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
+    QCOMPARE(requestSpy.at(0).at(1).toString(), QStringLiteral("foo"));
     requestSpy.clear();
     typeChangedSpy.clear();
 
     manager.setInputTextChanged(QByteArray(), QStringLiteral("@foo hello"), 4);
     QCOMPARE(typeChangedSpy.count(), 0); // User again
     QCOMPARE(requestSpy.count(), 1);
-    QCOMPARE(requestSpy.at(0).at(0).toString(), QStringLiteral("foo"));
+    QCOMPARE(requestSpy.at(0).at(1).toString(), QStringLiteral("foo"));
     requestSpy.clear();
     typeChangedSpy.clear();
 
