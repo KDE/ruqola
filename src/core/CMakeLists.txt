@@ -611,6 +611,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_restapi_a
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_memory_debug.h IDENTIFIER RUQOLA_MESSAGE_MEMORY_LOG
     CATEGORY_NAME org.kde.ruqola.message.memory DESCRIPTION "ruqola message memory" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_room_memory_debug.h IDENTIFIER RUQOLA_ROOM_MEMORY_LOG
+    CATEGORY_NAME org.kde.ruqola.room.memory DESCRIPTION "ruqola room memory" EXPORT RUQOLA)
+
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 

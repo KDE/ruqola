@@ -1529,6 +1529,14 @@ bool Room::roomStateValue(RoomState type) const
     return mRoomStates & type;
 }
 
+RoomExtra *Room::roomExtra()
+{
+    if (!mRoomExtra) {
+        mRoomExtra = new RoomExtra;
+    }
+    return mRoomExtra;
+}
+
 Room::RoomStates Room::roomStates() const
 {
     return mRoomStates;

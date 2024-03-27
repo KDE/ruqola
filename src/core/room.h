@@ -17,6 +17,7 @@
 #include "channelcounterinfo.h"
 #include "libruqolacore_export.h"
 #include "retentioninfo.h"
+#include "roomextra.h"
 #include "teams/teaminfo.h"
 #include "utils.h"
 
@@ -350,6 +351,10 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void assignRoomStateValue(RoomState type, bool status);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool roomStateValue(RoomState type) const;
+
+    [[nodiscard]] RoomExtra *roomExtra();
+
+    QSharedDataPointer<RoomExtra> mRoomExtra;
 
     // Room Object Fields
 
