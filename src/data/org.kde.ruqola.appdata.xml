@@ -413,7 +413,7 @@
       <li xml:lang="x-test">xxShow mention/attachment/Pinned message/start messagexx</li>
       <li>Support emoji</li>
       <li xml:lang="ca">Permet emojis</li>
-      <li xml:lang="ca-valencia">Permet emojis</li>
+      <li xml:lang="ca-valencia">Permet emoji</li>
       <li xml:lang="en-GB">Support emoji</li>
       <li xml:lang="eo">Subtenu emoji</li>
       <li xml:lang="es">Soporte de emojis</li>
@@ -645,7 +645,7 @@
       <li xml:lang="x-test">xxTwo-factor authentication via emailxx</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
-      <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
+      <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emoji personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="en-GB">Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="eo">Administranto-subteno (Servilo-Informoj, Ĉambroj, Propra Uzanto-Statuso, Propraj Sonoj, Propra Emoji, Uzantoj, Invitoj, Vida Protokolo, Permesoj, Roloj, Aŭto), Administranto-agordoj (Mesaĝo, Konto, Retenpolitiko, Dosiera Alŝuto, Ĉifrado)</li>
       <li xml:lang="es">Soporte de administrador (Información del servidor, salas, estado personalizado de los usuarios, sonidos personalizados, emojis personalizados, usuarios, invitaciones, ver registros, permisos, roles y autenticación), preferencias de administrador (mensajes, cuentas, política de retención, subida de archivos, cifrado)</li>
