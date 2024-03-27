@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:37+0000\n"
+"POT-Creation-Date: 2024-03-27 09:14+0000\n"
 "PO-Revision-Date: 2023-05-10 20:24+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1452,32 +1452,32 @@ msgstr "Zugangsname"
 msgid "A new account was added."
 msgstr "Zugangsname eingeben"
 
-#: core/room.cpp:1132
+#: core/room.cpp:1147
 #, kde-format
 msgid "Owner"
 msgstr "Eigentümer"
 
-#: core/room.cpp:1135
+#: core/room.cpp:1150
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1138
+#: core/room.cpp:1153
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1466
+#: core/room.cpp:1485
 #, kde-format
 msgid "Channel is read only."
 msgstr "Der Kanal ist nur lesbar."
 
-#: core/room.cpp:1469
+#: core/room.cpp:1488
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Sie haben diesen Kanal blockiert."
 
-#: core/room.cpp:1472
+#: core/room.cpp:1491
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal wurde blockiert"
