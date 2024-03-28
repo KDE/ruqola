@@ -46,7 +46,7 @@ void RoomCounterInfoWidget::updateInfo()
         setText(i18np("%4 %1 new message since %2. %3",
                       "%4 %1 new messages since %2. %3",
                       mChannelCounterInfo->unreadMessages(),
-                      QLocale().toString(mChannelCounterInfo->unreadFrom()),
+                      QLocale().toString(mChannelCounterInfo->unreadFrom().toLocalTime()),
                       QStringLiteral(" <a href=\"markAsRead\">%1</a>").arg(i18n("(Mark As Read)")),
                       QStringLiteral("<a href=\"gotofirstunreadmessage\">%1</a>").arg(i18n("(Jump to first Unread)"))));
         setVisible(true); // FIXME: AnimateShow create some pb. Need to investigate it
