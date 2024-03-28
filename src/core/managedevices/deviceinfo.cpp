@@ -28,7 +28,7 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
     mHost = obj[QLatin1StringView("host")].toString();
     mSessionId = obj[QLatin1StringView("sessionId")].toString().toLatin1();
     mIp = obj[QLatin1StringView("ip")].toString();
-    mUserId = obj[QLatin1StringView("userId")].toString();
+    mUserId = obj[QLatin1StringView("userId")].toString().toLatin1();
     const QJsonObject deviceObj = obj[QLatin1StringView("device")].toObject();
     if (!deviceObj.isEmpty()) {
         const QJsonObject osObj = deviceObj[QLatin1StringView("os")].toObject();
@@ -89,12 +89,12 @@ void DeviceInfo::setIp(const QString &newIp)
     mIp = newIp;
 }
 
-const QString &DeviceInfo::userId() const
+const QByteArray &DeviceInfo::userId() const
 {
     return mUserId;
 }
 
-void DeviceInfo::setUserId(const QString &newUserId)
+void DeviceInfo::setUserId(const QByteArray &newUserId)
 {
     mUserId = newUserId;
 }

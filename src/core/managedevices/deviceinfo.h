@@ -32,8 +32,8 @@ public:
     [[nodiscard]] const QString &ip() const;
     void setIp(const QString &newIp);
 
-    [[nodiscard]] const QString &userId() const;
-    void setUserId(const QString &newUserId);
+    [[nodiscard]] const QByteArray &userId() const;
+    void setUserId(const QByteArray &newUserId);
 
     [[nodiscard]] qint64 loginAt() const;
     void setLoginAt(qint64 newLoginAt);
@@ -51,7 +51,7 @@ private:
     QString mHost;
     QByteArray mSessionId;
     QString mIp;
-    QString mUserId;
+    QByteArray mUserId;
     QString mClient;
     QString mOs;
     QString mLoginAtDateTimeStr;
