@@ -98,7 +98,7 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     case AdminInviteModel::CreateAt:
         return inviteInfo.createDateTime();
     case AdminInviteModel::CreateAtStr:
-        return inviteInfo.createDateTime().toString();
+        return QLocale().toString(inviteInfo.createDateTime());
     case AdminInviteModel::Uses:
         return inviteInfo.uses();
     case AdminInviteModel::MaxUses:
