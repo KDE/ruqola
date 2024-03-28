@@ -40,7 +40,7 @@ public:
     void setDownloadManager(DownloadAppsLanguagesManager *downloadManager);
 
 private:
-    void parseListCommands(const QJsonObject &commandsObj);
+    LIBRUQOLACORE_NO_EXPORT void parseListCommands(const QJsonObject &commandsObj);
     QList<Command> mCommands;
     int mCommandsCount = 0;
     int mOffset = 0;

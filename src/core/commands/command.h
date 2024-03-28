@@ -43,8 +43,8 @@ public:
     [[nodiscard]] QString translatedParams() const;
 
 private:
-    void convertDescriptionI18n();
-    void convertParamsI18n();
+    LIBRUQOLACORE_NO_EXPORT void convertDescriptionI18n();
+    LIBRUQOLACORE_NO_EXPORT void convertParamsI18n();
     QStringList mPermissions;
     QString mParams;
     QString mCommandName;

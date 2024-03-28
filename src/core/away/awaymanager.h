@@ -29,8 +29,8 @@ Q_SIGNALS:
     void awayChanged(bool away);
 
 private:
-    void slotResumeFromIdle();
-    void slotIdleTimeoutReached(int timerId);
+    LIBRUQOLACORE_NO_EXPORT void slotResumeFromIdle();
+    LIBRUQOLACORE_NO_EXPORT void slotIdleTimeoutReached(int timerId);
     [[nodiscard]] int calculateRemainingTime() const;
     [[nodiscard]] int timeValue() const;
     RocketChatAccount *const mRocketChatAccount;
