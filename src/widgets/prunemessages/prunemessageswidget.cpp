@@ -93,8 +93,8 @@ PruneMessagesWidget::~PruneMessagesWidget() = default;
 void PruneMessagesWidget::updateLabelInfo()
 {
     const QString message = i18n("This will delete all messages in %3 between %1 and %2.",
-                                 mLastestDateTimeEdit->dateTime().toString(),
-                                 mOldestDateTimeEdit->dateTime().toString(),
+                                 QLocale().toString(mLastestDateTimeEdit->dateTime()),
+                                 QLocale().toString(mOldestDateTimeEdit->dateTime()),
                                  mRoomName);
     mInfoLabel->setText(message);
 }
