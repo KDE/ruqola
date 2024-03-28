@@ -20,7 +20,7 @@ public:
     explicit TeamSearchRoomForTeamWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamSearchRoomForTeamWidget() override;
 
-    [[nodiscard]] QStringList roomIds() const;
+    [[nodiscard]] QList<QByteArray> roomIds() const;
 
 Q_SIGNALS:
     void textChanged(const QString &str);

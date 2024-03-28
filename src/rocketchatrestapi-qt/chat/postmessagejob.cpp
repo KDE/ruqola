@@ -68,12 +68,12 @@ void PostMessageJob::setText(const QString &text)
     mText = text;
 }
 
-QStringList PostMessageJob::roomIds() const
+QList<QByteArray> PostMessageJob::roomIds() const
 {
     return mRoomIds;
 }
 
-void PostMessageJob::setRoomIds(const QStringList &roomIds)
+void PostMessageJob::setRoomIds(const QList<QByteArray> &roomIds)
 {
     mRoomIds = roomIds;
 }
@@ -100,9 +100,14 @@ QJsonDocument PostMessageJob::json() const
     QJsonObject jsonObj;
     if (mRoomIds.count() == 1) {
         // Make sure to not break old RC server
-        jsonObj[QLatin1StringView("roomId")] = mRoomIds.at(0);
+        jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomIds.at(0));
     } else {
-        jsonObj[QLatin1StringView("roomId")] = QJsonArray::fromStringList(mRoomIds);
+        QStringList lst;
+        lst.reserve(mRoomIds.count());
+        for (const QByteArray &b : std::as_const(mRoomIds)) {
+            lst.append(QString::fromLatin1(b));
+        }
+        jsonObj[QLatin1StringView("roomId")] = QJsonArray::fromStringList(lst);
     }
     jsonObj[QLatin1StringView("text")] = mText;
 

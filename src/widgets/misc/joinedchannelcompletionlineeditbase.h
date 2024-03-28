@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT JoinedChannelCompletionLineEditBase : public
 public:
     struct JoinedChannelCompletionInfo {
         QString name;
-        QString channelId;
+        QByteArray channelId;
     };
     explicit JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent = nullptr);
     ~JoinedChannelCompletionLineEditBase() override;

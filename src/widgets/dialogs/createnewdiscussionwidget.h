@@ -21,7 +21,7 @@ public:
     explicit CreateNewDiscussionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewDiscussionWidget() override;
 
-    void setChannelInfo(const QString &name, const QString &channelId);
+    void setChannelInfo(const QString &name, const QByteArray &channelId);
     [[nodiscard]] QString channelName() const;
 
     void setDiscussionName(const QString &name);
@@ -30,9 +30,9 @@ public:
     void setMessage(const QString &name);
     [[nodiscard]] QString message() const;
 
-    [[nodiscard]] QStringList usersId() const;
+    [[nodiscard]] QList<QByteArray> usersId() const;
 
-    [[nodiscard]] QString channelId() const;
+    [[nodiscard]] QByteArray channelId() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 

@@ -66,7 +66,7 @@ void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(UserCompleterModel::UserName).toString();
-    const QString userId = index.data(UserCompleterModel::UserId).toString();
+    const QByteArray userId = index.data(UserCompleterModel::UserId).toByteArray();
     UserCompletionInfo info;
     info.username = completerName;
     info.userId = userId;

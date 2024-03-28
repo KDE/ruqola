@@ -65,7 +65,7 @@ void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
 void ChannelSearchNameLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
-    const QString roomId = index.data(InputCompleterModel::Identifier).toString();
+    const QByteArray roomId = index.data(InputCompleterModel::Identifier).toByteArray();
     ChannelCompletionInfo info;
     info.channelName = completerName;
     info.channelId = roomId;

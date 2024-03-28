@@ -26,17 +26,17 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString parentRoomId() const;
-    void setParentRoomId(const QString &parentRoomId);
+    [[nodiscard]] QByteArray parentRoomId() const;
+    void setParentRoomId(const QByteArray &parentRoomId);
 
     [[nodiscard]] QString discussionName() const;
     void setDiscussionName(const QString &discussionName);
 
-    [[nodiscard]] QString parentMessageId() const;
-    void setParentMessageId(const QString &parentMessageId);
+    [[nodiscard]] QByteArray parentMessageId() const;
+    void setParentMessageId(const QByteArray &parentMessageId);
 
-    [[nodiscard]] QStringList users() const;
-    void setUsers(const QStringList &value);
+    [[nodiscard]] QList<QByteArray> users() const;
+    void setUsers(const QList<QByteArray> &value);
 
     [[nodiscard]] QString replyMessage() const;
     void setReplyMessage(const QString &reply);
@@ -50,10 +50,10 @@ protected:
 private:
     Q_DISABLE_COPY(RoomStartDiscussionJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QStringList mUsers;
-    QString mParentRoomId;
+    QList<QByteArray> mUsers;
+    QByteArray mParentRoomId;
     QString mDiscussionName;
-    QString mParentMessageId;
+    QByteArray mParentMessageId;
     QString mReplyMessage;
 };
 }

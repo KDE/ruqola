@@ -45,7 +45,7 @@ AddUsersInRoomDialog::~AddUsersInRoomDialog()
     writeConfig();
 }
 
-QStringList AddUsersInRoomDialog::userIds() const
+QList<QByteArray> AddUsersInRoomDialog::userIds() const
 {
     return mAddUsersInRoomWidget->userIds();
 }

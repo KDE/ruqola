@@ -18,7 +18,7 @@ public:
     explicit ForwardMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ForwardMessageWidget() override;
 
-    [[nodiscard]] QStringList channelIdentifiers() const;
+    [[nodiscard]] QList<QByteArray> channelIdentifiers() const;
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

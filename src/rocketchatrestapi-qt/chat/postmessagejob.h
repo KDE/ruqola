@@ -25,8 +25,8 @@ public:
     [[nodiscard]] QString text() const;
     void setText(const QString &text);
 
-    [[nodiscard]] QStringList roomIds() const;
-    void setRoomIds(const QStringList &roomId);
+    [[nodiscard]] QList<QByteArray> roomIds() const;
+    void setRoomIds(const QList<QByteArray> &roomId);
 
     [[nodiscard]] QJsonDocument json() const;
 
@@ -40,7 +40,7 @@ protected:
 private:
     Q_DISABLE_COPY(PostMessageJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QStringList mRoomIds;
+    QList<QByteArray> mRoomIds;
     QString mText;
 };
 }

@@ -20,7 +20,7 @@ public:
     explicit AddUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersWidget() override;
 
-    [[nodiscard]] QStringList userIds() const;
+    [[nodiscard]] QList<QByteArray> userIds() const;
 
     void setPlaceholderText(const QString &str);
 

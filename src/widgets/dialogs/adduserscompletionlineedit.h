@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersCompletionLineEdit : public Completi
 public:
     struct UserCompletionInfo {
         QString username;
-        QString userId;
+        QByteArray userId;
     };
     explicit AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersCompletionLineEdit() override;

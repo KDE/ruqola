@@ -232,9 +232,9 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
         const QByteArray teamId = dlg->teamId();
         if (!teamId.isEmpty()) {
             auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
-            job->setTeamId(QString::fromLatin1(teamId));
+            job->setTeamId(teamId);
             const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
-            job->setRoomIds({QString::fromLatin1(roomId)});
+            job->setRoomIds({roomId});
 
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             // connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &ChannelListView::slotChannelConvertToTeamDone);

@@ -43,12 +43,12 @@ void ClickableWidget::setName(const QString &userName)
     mName = userName;
 }
 
-QString ClickableWidget::identifier() const
+QByteArray ClickableWidget::identifier() const
 {
     return mIdentifier;
 }
 
-void ClickableWidget::setIdentifier(const QString &userId)
+void ClickableWidget::setIdentifier(const QByteArray &userId)
 {
     mIdentifier = userId;
 }

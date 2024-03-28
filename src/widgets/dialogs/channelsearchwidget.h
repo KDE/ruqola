@@ -23,9 +23,9 @@ public:
 
     [[nodiscard]] QString channelName() const;
 
-    void setChannelInfo(const QString &name, const QString &channelId);
+    void setChannelInfo(const QString &name, const QByteArray &channelId);
 
-    [[nodiscard]] QString channelId() const;
+    [[nodiscard]] QByteArray channelId() const;
 Q_SIGNALS:
     void updateRoomName(bool valid);
 

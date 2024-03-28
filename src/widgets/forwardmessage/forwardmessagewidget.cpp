@@ -69,9 +69,9 @@ void ForwardMessageWidget::slotRemoveRoom(const QString &name)
     Q_EMIT updateOkButton(!mMap.isEmpty());
 }
 
-QStringList ForwardMessageWidget::channelIdentifiers() const
+QList<QByteArray> ForwardMessageWidget::channelIdentifiers() const
 {
-    QStringList identifiers;
+    QList<QByteArray> identifiers;
     QMapIterator<QString, ClickableWidget *> i(mMap);
     identifiers.reserve(mMap.count());
     while (i.hasNext()) {

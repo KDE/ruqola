@@ -300,8 +300,8 @@ void RoomWidget::slotAddUsersInRoom()
 {
     QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
-        const QStringList users = dlg->userIds();
-        for (const QString &user : users) {
+        const QList<QByteArray> users = dlg->userIds();
+        for (const QByteArray &user : users) {
             mCurrentRocketChatAccount->addUserToRoom(user, mRoomWidgetBase->roomId(), mRoomType);
         }
     }

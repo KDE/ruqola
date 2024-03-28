@@ -183,7 +183,7 @@ void TeamChannelsWidget::slotRemoveTeamRoomDone()
 
 void TeamChannelsWidget::slotAddExistingRoom()
 {
-    QStringList roomIds;
+    QList<QByteArray> roomIds;
     QPointer<TeamSearchRoomDialog> dlg = new TeamSearchRoomDialog(mRocketChatAccount, this);
     if (dlg->exec()) {
         roomIds = dlg->roomIds();
@@ -191,7 +191,7 @@ void TeamChannelsWidget::slotAddExistingRoom()
     delete dlg;
     if (!roomIds.isEmpty()) {
         auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
-        job->setTeamId(QString::fromLatin1(mTeamId));
+        job->setTeamId(mTeamId);
         job->setRoomIds(roomIds);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &TeamChannelsWidget::slotTeamAddRoomsDone);

@@ -18,7 +18,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public Completio
 public:
     struct ChannelCompletionInfo {
         QString channelName;
-        QString channelId;
+        QByteArray channelId;
     };
     explicit ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelSearchNameLineEdit() override;

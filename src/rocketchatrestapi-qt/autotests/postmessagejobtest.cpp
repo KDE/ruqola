@@ -37,11 +37,11 @@ void PostMessageJobTest::shouldGenerateRequest()
 void PostMessageJobTest::shouldGenerateJson()
 {
     PostMessageJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     const QString text = QStringLiteral("topic1");
     job.setRoomIds({roomId});
     job.setText(text);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","text":"%2"})").arg(roomId, text).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","text":"%2"})").arg(QString::fromLatin1(roomId), text).toLatin1());
 }
 
 void PostMessageJobTest::shouldNotStarting()
@@ -61,7 +61,7 @@ void PostMessageJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomIds({roomId});
     QVERIFY(!job.canStart());
     const QString text = QStringLiteral("topic1");

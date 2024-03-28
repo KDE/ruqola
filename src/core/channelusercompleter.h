@@ -52,8 +52,8 @@ public:
 
     [[nodiscard]] QString completerName() const;
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] Utils::AvatarInfo avatarInfo() const;
 
@@ -69,7 +69,7 @@ private:
     QString mName;
     QString mUserName;
     QString mAvatarTag;
-    QString mIdentifier;
+    QByteArray mIdentifier;
 
     ChannelUserCompleterType mType = ChannelUserCompleterType::Unknown;
     bool mOutsideRoom = false;

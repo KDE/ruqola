@@ -16,28 +16,28 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionDialog : public QDialog
     Q_OBJECT
 public:
     struct NewDiscussionInfo {
-        QStringList users;
+        QList<QByteArray> users;
         QString discussionName;
         QString channelName;
         QString message;
-        QString channelId;
+        QByteArray channelId;
     };
     explicit CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewDiscussionDialog() override;
 
     [[nodiscard]] NewDiscussionInfo newDiscussionInfo() const;
 
-    void setChannelInfo(const QString &name, const QString &channelId);
+    void setChannelInfo(const QString &name, const QByteArray &channelId);
     void setDiscussionName(const QString &name);
 
-    [[nodiscard]] const QString &messageId() const;
-    void setMessageId(const QString &newMessageId);
+    [[nodiscard]] const QByteArray &messageId() const;
+    void setMessageId(const QByteArray &newMessageId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void createNewDiscussion();
-    QString mMessageId;
+    QByteArray mMessageId;
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;
 };

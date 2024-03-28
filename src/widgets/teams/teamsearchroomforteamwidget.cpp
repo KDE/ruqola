@@ -60,9 +60,9 @@ void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-QStringList TeamSearchRoomForTeamWidget::roomIds() const
+QList<QByteArray> TeamSearchRoomForTeamWidget::roomIds() const
 {
-    QStringList addUsers;
+    QList<QByteArray> addUsers;
     QMapIterator<QString, ClickableWidget *> i(mMap);
     addUsers.reserve(mMap.count());
     while (i.hasNext()) {

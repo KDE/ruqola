@@ -28,7 +28,7 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(RocketChatAccount *account, QWidget *
 
 AddUsersInRoomWidget::~AddUsersInRoomWidget() = default;
 
-QStringList AddUsersInRoomWidget::userIds() const
+QList<QByteArray> AddUsersInRoomWidget::userIds() const
 {
     return mAddUsersWidget->userIds();
 }

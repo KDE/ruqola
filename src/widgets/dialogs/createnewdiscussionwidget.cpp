@@ -63,12 +63,12 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
 
 CreateNewDiscussionWidget::~CreateNewDiscussionWidget() = default;
 
-void CreateNewDiscussionWidget::setChannelInfo(const QString &name, const QString &channelId)
+void CreateNewDiscussionWidget::setChannelInfo(const QString &name, const QByteArray &channelId)
 {
     mChannelSearchWidget->setChannelInfo(name, channelId);
 }
 
-QString CreateNewDiscussionWidget::channelId() const
+QByteArray CreateNewDiscussionWidget::channelId() const
 {
     return mChannelSearchWidget->channelId();
 }
@@ -98,7 +98,7 @@ QString CreateNewDiscussionWidget::message() const
     return mMessageTextEdit->toPlainText();
 }
 
-QStringList CreateNewDiscussionWidget::usersId() const
+QList<QByteArray> CreateNewDiscussionWidget::usersId() const
 {
     return mUsers->userIds();
 }

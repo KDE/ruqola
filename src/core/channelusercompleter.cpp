@@ -39,12 +39,12 @@ QString ChannelUserCompleter::completerName() const
     return {};
 }
 
-QString ChannelUserCompleter::identifier() const
+QByteArray ChannelUserCompleter::identifier() const
 {
     return mIdentifier;
 }
 
-void ChannelUserCompleter::setIdentifier(const QString &newIdentifier)
+void ChannelUserCompleter::setIdentifier(const QByteArray &newIdentifier)
 {
     mIdentifier = newIdentifier;
 }
@@ -59,7 +59,7 @@ void ChannelUserCompleter::parseChannel(const QJsonObject &object, ChannelUserCo
     // qDebug() << " object " << object;
     mType = type;
     mName = object.value(QLatin1StringView("name")).toString();
-    mIdentifier = object.value(QLatin1StringView("_id")).toString();
+    mIdentifier = object.value(QLatin1StringView("_id")).toString().toLatin1();
     if (mType == ChannelUserCompleterType::DirectChannel) {
         mAvatarTag = object.value(QLatin1StringView("avatarETag")).toString();
         mUserName = object.value(QLatin1StringView("username")).toString();
@@ -85,7 +85,7 @@ void ChannelUserCompleter::createAvatarInfo()
 {
     mAvatarInfo.avatarType = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? Utils::AvatarType::Room : Utils::AvatarType::User);
     mAvatarInfo.etag = mAvatarTag;
-    mAvatarInfo.identifier = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? mIdentifier : mUserName);
+    mAvatarInfo.identifier = (mType == ChannelUserCompleter::ChannelUserCompleterType::Room ? QString::fromLatin1(mIdentifier) : mUserName);
 }
 
 void ChannelUserCompleter::setAvatarInfo(const Utils::AvatarInfo &newAvatarInfo)

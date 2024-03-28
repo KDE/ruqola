@@ -45,22 +45,22 @@ void TeamAddRoomsJob::onPostRequestResponse(const QString &replyErrorString, con
     }
 }
 
-QStringList TeamAddRoomsJob::roomIds() const
+QList<QByteArray> TeamAddRoomsJob::roomIds() const
 {
     return mRoomIds;
 }
 
-void TeamAddRoomsJob::setRoomIds(const QStringList &roomsId)
+void TeamAddRoomsJob::setRoomIds(const QList<QByteArray> &roomsId)
 {
     mRoomIds = roomsId;
 }
 
-QString TeamAddRoomsJob::teamId() const
+QByteArray TeamAddRoomsJob::teamId() const
 {
     return mTeamId;
 }
 
-void TeamAddRoomsJob::setTeamId(const QString &teamId)
+void TeamAddRoomsJob::setTeamId(const QByteArray &teamId)
 {
     mTeamId = teamId;
 }
@@ -99,8 +99,14 @@ QJsonDocument TeamAddRoomsJob::json() const
 {
     QJsonObject jsonObj;
     // Example {"rooms":["QMkvkiMyxKoEuJjnb","zMHhMfsEPvKjgFuyE"],"teamId":"6072f51066b377a354d793cc"}
-    jsonObj[QLatin1StringView("rooms")] = QJsonArray::fromStringList(mRoomIds);
-    jsonObj[QLatin1StringView("teamId")] = mTeamId;
+    QStringList lst;
+    lst.reserve(mRoomIds.count());
+    for (const QByteArray &b : std::as_const(mRoomIds)) {
+        lst.append(QString::fromLatin1(b));
+    }
+
+    jsonObj[QLatin1StringView("rooms")] = QJsonArray::fromStringList(lst);
+    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

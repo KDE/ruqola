@@ -138,8 +138,8 @@ void RoomWidgetBase::slotCreateNewDiscussion(const QByteArray &messageId, const 
 {
     CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setDiscussionName(originalMessage);
-    dlg.setChannelInfo(channelName, QString::fromLatin1(mRoomId));
-    dlg.setMessageId(QString::fromLatin1(messageId));
+    dlg.setChannelInfo(channelName, mRoomId);
+    dlg.setMessageId(messageId);
     dlg.exec();
 }
 

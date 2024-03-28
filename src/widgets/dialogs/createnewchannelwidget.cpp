@@ -78,7 +78,11 @@ QString CreateNewChannelWidget::channelName() const
 QStringList CreateNewChannelWidget::members(bool userId) const
 {
     if (userId) {
-        return mUsers->userIds();
+        QStringList lst;
+        for (const QByteArray &b : mUsers->userIds()) {
+            lst.append(QString::fromLatin1(b));
+        }
+        return lst;
     } else {
         return mUsers->userNames();
     }

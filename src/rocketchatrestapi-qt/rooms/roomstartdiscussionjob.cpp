@@ -56,22 +56,22 @@ void RoomStartDiscussionJob::setReplyMessage(const QString &reply)
     mReplyMessage = reply;
 }
 
-QStringList RoomStartDiscussionJob::users() const
+QList<QByteArray> RoomStartDiscussionJob::users() const
 {
     return mUsers;
 }
 
-void RoomStartDiscussionJob::setUsers(const QStringList &value)
+void RoomStartDiscussionJob::setUsers(const QList<QByteArray> &value)
 {
     mUsers = value;
 }
 
-QString RoomStartDiscussionJob::parentMessageId() const
+QByteArray RoomStartDiscussionJob::parentMessageId() const
 {
     return mParentMessageId;
 }
 
-void RoomStartDiscussionJob::setParentMessageId(const QString &parentMessageId)
+void RoomStartDiscussionJob::setParentMessageId(const QByteArray &parentMessageId)
 {
     mParentMessageId = parentMessageId;
 }
@@ -86,12 +86,12 @@ void RoomStartDiscussionJob::setDiscussionName(const QString &discussionName)
     mDiscussionName = discussionName;
 }
 
-QString RoomStartDiscussionJob::parentRoomId() const
+QByteArray RoomStartDiscussionJob::parentRoomId() const
 {
     return mParentRoomId;
 }
 
-void RoomStartDiscussionJob::setParentRoomId(const QString &parentId)
+void RoomStartDiscussionJob::setParentRoomId(const QByteArray &parentId)
 {
     mParentRoomId = parentId;
 }
@@ -129,16 +129,22 @@ QNetworkRequest RoomStartDiscussionJob::request() const
 QJsonDocument RoomStartDiscussionJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("prid")] = mParentRoomId;
+    jsonObj[QLatin1StringView("prid")] = QString::fromLatin1(mParentRoomId);
     jsonObj[QLatin1StringView("t_name")] = mDiscussionName;
     if (!mParentMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("pmid")] = mParentMessageId;
+        jsonObj[QLatin1StringView("pmid")] = QString::fromLatin1(mParentMessageId);
     }
     if (!mReplyMessage.isEmpty()) {
         jsonObj[QLatin1StringView("reply")] = mReplyMessage;
     }
     if (!mUsers.isEmpty()) {
-        const QJsonArray usersJson = QJsonArray::fromStringList(mUsers);
+        QStringList lst;
+        lst.reserve(mUsers.count());
+        for (const QByteArray &b : mUsers) {
+            lst.append(QString::fromLatin1(b));
+        }
+
+        const QJsonArray usersJson = QJsonArray::fromStringList(lst);
         jsonObj[QLatin1StringView("users")] = usersJson;
     }
     // TODO add encrypted

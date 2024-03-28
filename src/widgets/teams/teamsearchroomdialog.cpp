@@ -42,7 +42,7 @@ TeamSearchRoomDialog::~TeamSearchRoomDialog()
     writeConfig();
 }
 
-QStringList TeamSearchRoomDialog::roomIds() const
+QList<QByteArray> TeamSearchRoomDialog::roomIds() const
 {
     return mTeamSearchRoomWidget->roomIds();
 }

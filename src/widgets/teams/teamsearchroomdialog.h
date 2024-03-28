@@ -18,7 +18,7 @@ public:
     explicit TeamSearchRoomDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamSearchRoomDialog() override;
 
-    [[nodiscard]] QStringList roomIds() const;
+    [[nodiscard]] QList<QByteArray> roomIds() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

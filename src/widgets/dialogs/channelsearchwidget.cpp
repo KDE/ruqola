@@ -34,7 +34,7 @@ ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *pa
 
 ChannelSearchWidget::~ChannelSearchWidget() = default;
 
-void ChannelSearchWidget::setChannelInfo(const QString &name, const QString &channelId)
+void ChannelSearchWidget::setChannelInfo(const QString &name, const QByteArray &channelId)
 {
     mUserInfo.channelName = name;
     mUserInfo.channelId = channelId;
@@ -47,7 +47,7 @@ QString ChannelSearchWidget::channelName() const
     return mUserInfo.channelName;
 }
 
-QString ChannelSearchWidget::channelId() const
+QByteArray ChannelSearchWidget::channelId() const
 {
     return mUserInfo.channelId;
 }

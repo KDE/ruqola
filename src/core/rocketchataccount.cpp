@@ -1267,7 +1267,7 @@ void RocketChatAccount::createJitsiConfCall(const QByteArray &roomId)
     joinJitsiConfCall(roomId);
 }
 
-void RocketChatAccount::addUserToRoom(const QString &userId, const QByteArray &roomId, Room::RoomType channelType)
+void RocketChatAccount::addUserToRoom(const QByteArray &userId, const QByteArray &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -2310,11 +2310,11 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
     }
 }
 
-void RocketChatAccount::createDiscussion(const QString &parentRoomId,
+void RocketChatAccount::createDiscussion(const QByteArray &parentRoomId,
                                          const QString &discussionName,
                                          const QString &replyMessage,
-                                         const QString &messageId,
-                                         const QStringList &users)
+                                         const QByteArray &messageId,
+                                         const QList<QByteArray> &users)
 {
     restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId, users);
 }

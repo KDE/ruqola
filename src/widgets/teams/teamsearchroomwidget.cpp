@@ -22,7 +22,7 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(RocketChatAccount *account, QWidget *
 
 TeamSearchRoomWidget::~TeamSearchRoomWidget() = default;
 
-QStringList TeamSearchRoomWidget::roomIds() const
+QList<QByteArray> TeamSearchRoomWidget::roomIds() const
 {
     return mTeamSearchRoomForTeamWidget->roomIds();
 }

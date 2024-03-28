@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddTeamRoomCompletionLineEdit : public Compl
     Q_OBJECT
 public:
     struct RoomCompletionInfo {
-        QString roomId;
+        QByteArray roomId;
         QString roomName;
     };
     explicit AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);

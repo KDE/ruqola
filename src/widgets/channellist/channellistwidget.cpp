@@ -181,8 +181,8 @@ void ChannelListWidget::slotSelectMessageRequested(const QByteArray &messageId,
     case ParseRocketChatUrlUtils::RoomIdType::RoomId: {
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
-            const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
-            if (roomId == currentRoomId) {
+            const QByteArray currentRoomId = selectedIndex.data(RoomModel::RoomId).toByteArray();
+            if (roomId == QString::fromLatin1(currentRoomId)) {
                 selectMessageId(messageId);
                 return;
             }

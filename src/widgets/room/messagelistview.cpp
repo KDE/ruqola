@@ -723,7 +723,7 @@ void MessageListView::slotForwardMessage(const QModelIndex &index)
 {
     QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
-        const QStringList identifiers = dlg->channelIdentifiers();
+        const QList<QByteArray> identifiers = dlg->channelIdentifiers();
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
         auto job = new RocketChatRestApi::PostMessageJob(this);
         job->setText(QStringLiteral("[ ](%1)\n").arg(generatePermalink(QString::fromLatin1(messageId))));

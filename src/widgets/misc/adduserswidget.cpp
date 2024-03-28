@@ -59,9 +59,9 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-QStringList AddUsersWidget::userIds() const
+QList<QByteArray> AddUsersWidget::userIds() const
 {
-    QStringList addUsers;
+    QList<QByteArray> addUsers;
     QMapIterator<QString, ClickableWidget *> i(mMap);
     while (i.hasNext()) {
         i.next();

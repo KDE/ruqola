@@ -34,8 +34,8 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &userName);
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &userId);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &userId);
 
 Q_SIGNALS:
     void removeClickableWidget(const QString &username);
@@ -43,7 +43,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemove();
     QString mName;
-    QString mIdentifier;
+    QByteArray mIdentifier;
     QLabel *const mLabel;
     ClickableLabel *const mClickableLabel;
 };

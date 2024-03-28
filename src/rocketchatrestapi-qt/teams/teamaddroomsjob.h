@@ -24,11 +24,11 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString teamId() const;
-    void setTeamId(const QString &teamId);
+    [[nodiscard]] QByteArray teamId() const;
+    void setTeamId(const QByteArray &teamId);
 
-    [[nodiscard]] QStringList roomIds() const;
-    void setRoomIds(const QStringList &roomsId);
+    [[nodiscard]] QList<QByteArray> roomIds() const;
+    void setRoomIds(const QList<QByteArray> &roomsId);
 
 Q_SIGNALS:
     void teamAddRoomsDone(const QJsonObject &obj);
@@ -39,7 +39,7 @@ protected:
 private:
     Q_DISABLE_COPY(TeamAddRoomsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QStringList mRoomIds;
-    QString mTeamId;
+    QList<QByteArray> mRoomIds;
+    QByteArray mTeamId;
 };
 }

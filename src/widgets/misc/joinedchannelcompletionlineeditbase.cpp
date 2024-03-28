@@ -75,7 +75,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
                         break;
                     }
                     channel.setName(room->displayFName());
-                    channel.setIdentifier(QString::fromLatin1(room->roomId()));
+                    channel.setIdentifier(room->roomId());
                     channel.setAvatarInfo(room->avatarInfo());
                     channels.append(std::move(channel));
                 }
@@ -90,7 +90,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
 void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(JoinedChannelModel::Name).toString();
-    const QString roomId = index.data(JoinedChannelModel::ChannelId).toString();
+    const QByteArray roomId = index.data(JoinedChannelModel::ChannelId).toByteArray();
     if (completerName.isEmpty() || roomId.isEmpty()) {
         return;
     }

@@ -176,7 +176,7 @@ public:
     void loadHistory(const QByteArray &roomID, bool initial = false, qint64 timeStamp = 0);
 
     void roomFiles(const QByteArray &roomId, Room::RoomType channelType = Room::RoomType::Unknown);
-    void addUserToRoom(const QString &username, const QByteArray &roomId, Room::RoomType channelType);
+    void addUserToRoom(const QByteArray &username, const QByteArray &roomId, Room::RoomType channelType);
     void messageSearch(const QString &pattern, const QByteArray &rid, bool userRegularExpression = false);
     [[nodiscard]] InputTextManager *inputTextManager() const;
 
@@ -201,11 +201,11 @@ public:
     void switchingToRoom(const QByteArray &roomID);
     void reportMessage(const QString &messageId, const QString &message);
     void getThreadMessages(const QString &threadMessageId, const Message &message);
-    void createDiscussion(const QString &parentRoomName,
+    void createDiscussion(const QByteArray &parentRoomName,
                           const QString &discussionName,
                           const QString &replyMessage,
-                          const QString &messageId,
-                          const QStringList &users = QStringList());
+                          const QByteArray &messageId,
+                          const QList<QByteArray> &users = QList<QByteArray>());
     void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
     void discussionsInRoom(const QByteArray &roomId);
     void followMessage(const QString &messageId, bool follow);

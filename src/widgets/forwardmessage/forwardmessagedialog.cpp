@@ -37,7 +37,7 @@ ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *
 
 ForwardMessageDialog::~ForwardMessageDialog() = default;
 
-QStringList ForwardMessageDialog::channelIdentifiers() const
+QList<QByteArray> ForwardMessageDialog::channelIdentifiers() const
 {
     return mForwardMessageWidget->channelIdentifiers();
 }

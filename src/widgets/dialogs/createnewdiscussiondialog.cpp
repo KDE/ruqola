@@ -78,7 +78,7 @@ CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscu
     return info;
 }
 
-void CreateNewDiscussionDialog::setChannelInfo(const QString &name, const QString &channelId)
+void CreateNewDiscussionDialog::setChannelInfo(const QString &name, const QByteArray &channelId)
 {
     mCreateNewDiscussionWidget->setChannelInfo(name, channelId);
 }
@@ -95,12 +95,12 @@ void CreateNewDiscussionDialog::createNewDiscussion()
     accept();
 }
 
-const QString &CreateNewDiscussionDialog::messageId() const
+const QByteArray &CreateNewDiscussionDialog::messageId() const
 {
     return mMessageId;
 }
 
-void CreateNewDiscussionDialog::setMessageId(const QString &newMessageId)
+void CreateNewDiscussionDialog::setMessageId(const QByteArray &newMessageId)
 {
     mMessageId = newMessageId;
 }

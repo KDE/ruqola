@@ -77,13 +77,13 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
     switch (mType) {
     case Room: {
         QModelIndex modelIndex = mModel->index(index.row(), DirectoryRoomsModel::Identifier);
-        const QString channelId = modelIndex.data().toString();
+        const QByteArray channelId = modelIndex.data().toByteArray();
         modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
         const QString channelType = modelIndex.data().toString();
         if (channelType == QLatin1StringView("p")) {
-            mRocketChatAccount->openPrivateGroup(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            mRocketChatAccount->openPrivateGroup(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
         } else if (channelType == QLatin1StringView("c")) {
-            mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            mRocketChatAccount->openChannel(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
         }
         break;
     }

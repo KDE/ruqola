@@ -507,7 +507,7 @@ void Connection::postMessage(const QByteArray &roomId, const QString &text)
     auto job = new PostMessageJob(this);
     connect(job, &PostMessageJob::postMessageDone, this, &Connection::postMessageDone);
     initializeRestApiJob(job);
-    job->setRoomIds({QString::fromLatin1(roomId)});
+    job->setRoomIds({roomId});
     job->setText(text);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start PostMessageJob job";
@@ -767,7 +767,7 @@ void Connection::membersInRoom(const QByteArray &roomId, const QString &type, in
     }
 }
 
-void Connection::addUserInChannel(const QByteArray &roomId, const QString &userId)
+void Connection::addUserInChannel(const QByteArray &roomId, const QByteArray &userId)
 {
     auto job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
@@ -775,13 +775,13 @@ void Connection::addUserInChannel(const QByteArray &roomId, const QString &userI
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    job->setInviteUserId(userId);
+    job->setInviteUserId(QString::fromLatin1(userId));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
     }
 }
 
-void Connection::addUserInGroup(const QByteArray &roomId, const QString &userId)
+void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &userId)
 {
     auto job = new GroupsInviteJob(this);
     initializeRestApiJob(job);
@@ -790,7 +790,7 @@ void Connection::addUserInGroup(const QByteArray &roomId, const QString &userId)
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
-    job->setInviteUserId(userId);
+    job->setInviteUserId(QString::fromLatin1(userId));
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInGroup job";
     }
@@ -1505,11 +1505,11 @@ void Connection::unFollowMessage(const QString &messageId)
     }
 }
 
-void Connection::createDiscussion(const QString &parentRoomId,
+void Connection::createDiscussion(const QByteArray &parentRoomId,
                                   const QString &discussionName,
                                   const QString &replyMessage,
-                                  const QString &parentMessageId,
-                                  const QStringList &users)
+                                  const QByteArray &parentMessageId,
+                                  const QList<QByteArray> &users)
 {
     auto job = new RoomStartDiscussionJob(this);
     initializeRestApiJob(job);
