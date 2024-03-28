@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT MessagePinned : public QSharedData
+class LIBRUQOLACORE_EXPORT MessagePinned : public QSharedData
 {
 public:
     MessagePinned();
