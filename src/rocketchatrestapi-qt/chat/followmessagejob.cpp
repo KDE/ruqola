@@ -62,18 +62,18 @@ bool FollowMessageJob::canStart() const
 QJsonDocument FollowMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("mid")] = mMessageId;
+    jsonObj[QLatin1StringView("mid")] = QString::fromLatin1(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString FollowMessageJob::messageId() const
+QByteArray FollowMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void FollowMessageJob::setMessageId(const QString &t)
+void FollowMessageJob::setMessageId(const QByteArray &t)
 {
     mMessageId = t;
 }

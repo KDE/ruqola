@@ -89,7 +89,7 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
 {
     if (clicked) {
         auto job = new RocketChatRestApi::UnFollowMessageJob(this);
-        job->setMessageId(QString::fromLatin1(mThreadMessageId));
+        job->setMessageId(mThreadMessageId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::UnFollowMessageJob::unFollowMessageDone, this, [this]() {
             updateFollowThreadIcon(false); // TODO verify it
@@ -99,7 +99,7 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
         }
     } else {
         auto job = new RocketChatRestApi::FollowMessageJob(this);
-        job->setMessageId(QString::fromLatin1(mThreadMessageId));
+        job->setMessageId(mThreadMessageId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, [this]() {
             updateFollowThreadIcon(true); // TODO verify it

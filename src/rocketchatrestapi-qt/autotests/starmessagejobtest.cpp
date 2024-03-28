@@ -49,7 +49,7 @@ void StarMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    job.setMessageId(QStringLiteral("bla"));
+    job.setMessageId(QByteArrayLiteral("bla"));
     QVERIFY(job.canStart());
 }
 
@@ -63,7 +63,7 @@ void StarMessageJobTest::shouldGenerateStarMessageRequest()
     job.setAuthToken(authToken);
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QString messageId = QStringLiteral("foo");
+    const QByteArray messageId("foo");
     job.setMessageId(messageId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.starMessage")));
@@ -81,7 +81,7 @@ void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QString messageId = QStringLiteral("foo");
+    const QByteArray messageId("foo");
     job.setMessageId(messageId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unStarMessage")));
@@ -93,9 +93,9 @@ void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
 void StarMessageJobTest::shouldGenerateJson()
 {
     StarMessageJob job;
-    const QString messageId = QStringLiteral("foo1");
+    const QByteArray messageId("foo1");
     job.setMessageId(messageId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(messageId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"messageId":"%1"})").arg(QString::fromLatin1(messageId)).toLatin1());
 }
 
 #include "moc_starmessagejobtest.cpp"

@@ -16,7 +16,7 @@ public:
     InviteInfo();
     ~InviteInfo() = default;
     void parseInviteInfo(const QJsonObject &replyObject);
-    const QByteArray &identifier() const;
+    [[nodiscard]] const QByteArray &identifier() const;
     void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] int maxUses() const;

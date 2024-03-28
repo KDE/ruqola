@@ -169,8 +169,8 @@ public:
     void eraseRoom(const QByteArray &roomId, Room::RoomType channelType);
     void changeNotificationsSettings(const QString &QByteArray, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
-    void starMessage(const QString &messageId, bool starred);
-    void pinMessage(const QString &messageId, bool pinned);
+    void starMessage(const QByteArray &messageId, bool starred);
+    void pinMessage(const QByteArray &messageId, bool pinned);
     [[nodiscard]] QString avatarUrl(const Utils::AvatarInfo &info);
     [[nodiscard]] QUrl attachmentUrlFromLocalCache(const QString &url);
     void loadHistory(const QByteArray &roomID, bool initial = false, qint64 timeStamp = 0);
@@ -199,7 +199,7 @@ public:
     void changeRoles(const QByteArray &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
     void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void switchingToRoom(const QByteArray &roomID);
-    void reportMessage(const QString &messageId, const QString &message);
+    void reportMessage(const QByteArray &messageId, const QString &message);
     void getThreadMessages(const QString &threadMessageId, const Message &message);
     void createDiscussion(const QByteArray &parentRoomName,
                           const QString &discussionName,
@@ -208,7 +208,7 @@ public:
                           const QList<QByteArray> &users = QList<QByteArray>());
     void threadsInRoom(const QByteArray &roomId, bool onlyUnread);
     void discussionsInRoom(const QByteArray &roomId);
-    void followMessage(const QString &messageId, bool follow);
+    void followMessage(const QByteArray &messageId, bool follow);
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);
     void loadThreadMessagesHistory(const QString &threadMessageId);

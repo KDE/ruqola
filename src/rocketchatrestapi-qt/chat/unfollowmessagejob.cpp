@@ -62,18 +62,18 @@ bool UnFollowMessageJob::canStart() const
 QJsonDocument UnFollowMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("mid")] = mMessageId;
+    jsonObj[QLatin1StringView("mid")] = QString::fromLatin1(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString UnFollowMessageJob::messageId() const
+QByteArray UnFollowMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void UnFollowMessageJob::setMessageId(const QString &t)
+void UnFollowMessageJob::setMessageId(const QByteArray &t)
 {
     mMessageId = t;
 }

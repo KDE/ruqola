@@ -67,7 +67,7 @@ void StarMessageJob::setStarMessage(bool starMessage)
 QJsonDocument StarMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("messageId")] = mMessageId;
+    jsonObj[QLatin1StringView("messageId")] = QString::fromLatin1(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -78,12 +78,12 @@ bool StarMessageJob::requireHttpAuthentication() const
     return true;
 }
 
-QString StarMessageJob::messageId() const
+QByteArray StarMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void StarMessageJob::setMessageId(const QString &messageId)
+void StarMessageJob::setMessageId(const QByteArray &messageId)
 {
     mMessageId = messageId;
 }

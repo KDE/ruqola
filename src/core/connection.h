@@ -70,7 +70,7 @@ public:
     void serverInfo();
     void getPrivateSettings();
     void getOwnInfo();
-    void starMessage(const QString &messageId, bool starred);
+    void starMessage(const QByteArray &messageId, bool starred);
     RocketChatRestApi::DownloadFileJob *
     downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain", bool requiredAuthentication = true);
     void changeChannelTopic(const QString &roomId, const QString &topic);
@@ -113,7 +113,7 @@ public:
     void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QByteArray &roomId, const QString &userId, bool ignore);
     void userPresence(const QString &userId);
-    void reportMessage(const QString &messageId, const QString &message);
+    void reportMessage(const QByteArray &messageId, const QString &message);
     void setGroupType(const QString &roomId, bool isPrivate);
     void setChannelType(const QString &roomId, bool isPrivate);
     void getGroupRoles(const QByteArray &roomId);
@@ -151,11 +151,11 @@ public:
     void channelAddLeader(const QByteArray &roomId, const QString &userId);
     void channelRemoveLeader(const QByteArray &roomId, const QString &userId);
     void changeGroupsEncrypted(const QString &roomId, bool b);
-    void pinMessage(const QString &messageId, bool pinned);
+    void pinMessage(const QByteArray &messageId, bool pinned);
     void desktopDurationNotifications(const QString &roomId, int value);
     void desktopSoundNotifications(const QString &roomId, const QString &value);
-    void followMessage(const QString &messageId);
-    void unFollowMessage(const QString &messageId);
+    void followMessage(const QByteArray &messageId);
+    void unFollowMessage(const QByteArray &messageId);
     void createDiscussion(const QByteArray &parentRoomId,
                           const QString &discussionName,
                           const QString &replyMessage,

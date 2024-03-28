@@ -694,7 +694,7 @@ void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIs
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
     if (messageIsFollowing) {
         auto job = new RocketChatRestApi::UnFollowMessageJob(this);
-        job->setMessageId(QString::fromLatin1(messageId));
+        job->setMessageId(messageId);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         // connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
         if (!job->start()) {
@@ -702,7 +702,7 @@ void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIs
         }
     } else {
         auto job = new RocketChatRestApi::FollowMessageJob(this);
-        job->setMessageId(QString::fromLatin1(messageId));
+        job->setMessageId(messageId);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         // connect(job, &RocketChatRestApi::UnFollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
         if (!job->start()) {
@@ -830,7 +830,7 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
     dlg->setPreviewMessage(message);
     if (dlg->exec()) {
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-        mCurrentRocketChatAccount->reportMessage(QString::fromLatin1(messageId), dlg->message());
+        mCurrentRocketChatAccount->reportMessage(messageId, dlg->message());
     }
     delete dlg;
 }
@@ -838,13 +838,13 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
 void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred)
 {
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-    mCurrentRocketChatAccount->starMessage(QString::fromLatin1(messageId), !isStarred);
+    mCurrentRocketChatAccount->starMessage(messageId, !isStarred);
 }
 
 void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)
 {
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-    mCurrentRocketChatAccount->pinMessage(QString::fromLatin1(messageId), !isPinned);
+    mCurrentRocketChatAccount->pinMessage(messageId, !isPinned);
 }
 
 void MessageListView::slotStartPrivateConversation(const QString &userName)

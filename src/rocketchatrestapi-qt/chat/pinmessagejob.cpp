@@ -73,12 +73,12 @@ QNetworkRequest PinMessageJob::request() const
     return request;
 }
 
-QString PinMessageJob::messageId() const
+QByteArray PinMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void PinMessageJob::setMessageId(const QString &messageId)
+void PinMessageJob::setMessageId(const QByteArray &messageId)
 {
     mMessageId = messageId;
 }
@@ -96,7 +96,7 @@ void PinMessageJob::setPinMessage(bool pinMessage)
 QJsonDocument PinMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("messageId")] = mMessageId;
+    jsonObj[QLatin1StringView("messageId")] = QString::fromLatin1(mMessageId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -39,7 +39,7 @@ public:
     void append(const Discussion &discussion);
 
 private:
-    void parseDiscussionsObj(const QJsonObject &discussionsObj);
+    LIBRUQOLACORE_NO_EXPORT void parseDiscussionsObj(const QJsonObject &discussionsObj);
     QList<Discussion> mDiscussion;
     int mDiscussionsCount = 0;
     int mOffset = 0;

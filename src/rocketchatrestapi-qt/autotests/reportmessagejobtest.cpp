@@ -46,7 +46,7 @@ void ReportMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setReportMessage(QStringLiteral("bla"));
     QVERIFY(!job.canStart());
-    job.setMessageId(QStringLiteral("bla"));
+    job.setMessageId(QByteArrayLiteral("sbla"));
     QVERIFY(job.canStart());
 }
 
@@ -61,11 +61,12 @@ void ReportMessageJobTest::shouldGenerateJobRequest()
 void ReportMessageJobTest::shouldGenerateJson()
 {
     ReportMessageJob job;
-    const QString messageId = QStringLiteral("foo1");
+    const QByteArray messageId("foo1");
     job.setMessageId(messageId);
     const QString reportMessage = QStringLiteral("foo2");
     job.setReportMessage(reportMessage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%2","messageId":"%1"})").arg(messageId, reportMessage).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"description":"%2","messageId":"%1"})").arg(QString::fromLatin1(messageId), reportMessage).toLatin1());
 }
 
 #include "moc_reportmessagejobtest.cpp"

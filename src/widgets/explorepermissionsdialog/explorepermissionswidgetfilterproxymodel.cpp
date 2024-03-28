@@ -8,10 +8,6 @@
 #include "config-ruqola.h"
 #include "model/permissionsmodel.h"
 
-#if HAVE_TEXT_UTILS
-#include <TextUtils/ConvertText>
-#endif
-
 ExplorePermissionsWidgetFilterProxyModel::ExplorePermissionsWidgetFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase{parent}
 {

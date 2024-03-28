@@ -351,7 +351,7 @@ void Connection::getOwnInfo()
     }
 }
 
-void Connection::starMessage(const QString &messageId, bool starred)
+void Connection::starMessage(const QByteArray &messageId, bool starred)
 {
     auto job = new StarMessageJob(this);
     initializeRestApiJob(job);
@@ -1086,7 +1086,7 @@ void Connection::userPresence(const QString &userId)
     }
 }
 
-void Connection::reportMessage(const QString &messageId, const QString &message)
+void Connection::reportMessage(const QByteArray &messageId, const QString &message)
 {
     auto job = new ReportMessageJob(this);
     initializeRestApiJob(job);
@@ -1471,7 +1471,7 @@ void Connection::groupDelete(const QByteArray &roomId)
     }
 }
 
-void Connection::pinMessage(const QString &messageId, bool pinned)
+void Connection::pinMessage(const QByteArray &messageId, bool pinned)
 {
     auto job = new PinMessageJob(this);
     initializeRestApiJob(job);
@@ -1483,7 +1483,7 @@ void Connection::pinMessage(const QString &messageId, bool pinned)
     }
 }
 
-void Connection::followMessage(const QString &messageId)
+void Connection::followMessage(const QByteArray &messageId)
 {
     auto job = new FollowMessageJob(this);
     initializeRestApiJob(job);
@@ -1494,7 +1494,7 @@ void Connection::followMessage(const QString &messageId)
     }
 }
 
-void Connection::unFollowMessage(const QString &messageId)
+void Connection::unFollowMessage(const QByteArray &messageId)
 {
     auto job = new UnFollowMessageJob(this);
     initializeRestApiJob(job);

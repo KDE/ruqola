@@ -20,8 +20,8 @@ public:
     [[nodiscard]] bool requireHttpAuthentication() const override;
     [[nodiscard]] bool canStart() const override;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &msgId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &msgId);
 
     [[nodiscard]] QNetworkRequest request() const override;
 
@@ -33,6 +33,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(FollowMessageJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mMessageId;
+    QByteArray mMessageId;
 };
 }

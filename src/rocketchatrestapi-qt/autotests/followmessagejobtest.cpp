@@ -36,9 +36,9 @@ void FollowMessageJobTest::shouldGenerateRequest()
 void FollowMessageJobTest::shouldGenerateJson()
 {
     FollowMessageJob job;
-    const QString messageid = QStringLiteral("foo1");
+    const QByteArray messageid("foo1");
     job.setMessageId(messageid);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"mid":"%1"})").arg(messageid).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"mid":"%1"})").arg(QString::fromLatin1(messageid)).toLatin1());
 }
 
 void FollowMessageJobTest::shouldNotStarting()
@@ -58,7 +58,7 @@ void FollowMessageJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString messageId = QStringLiteral("foo1");
+    const QByteArray messageId("foo1");
     job.setMessageId(messageId);
     QVERIFY(job.canStart());
 }

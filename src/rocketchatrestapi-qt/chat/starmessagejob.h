@@ -21,8 +21,8 @@ public:
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &messageId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &messageId);
 
     [[nodiscard]] QNetworkRequest request() const override;
     [[nodiscard]] QJsonDocument json() const;
@@ -38,7 +38,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(StarMessageJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mMessageId;
+    QByteArray mMessageId;
     bool mStarMessage = true;
 };
 }

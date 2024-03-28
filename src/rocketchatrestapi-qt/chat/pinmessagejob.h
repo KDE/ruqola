@@ -22,8 +22,8 @@ public:
     [[nodiscard]] bool canStart() const override;
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &messageId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &messageId);
 
     [[nodiscard]] bool pinMessage() const;
     void setPinMessage(bool pinMessage);
@@ -36,7 +36,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(PinMessageJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mMessageId;
+    QByteArray mMessageId;
     bool mPinMessage = true;
 };
 }

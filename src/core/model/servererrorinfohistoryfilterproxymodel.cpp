@@ -7,9 +7,6 @@
 #include "servererrorinfohistoryfilterproxymodel.h"
 #include "config-ruqola.h"
 #include "servererrorinfohistorymodel.h"
-#if HAVE_TEXT_UTILS
-#include <TextUtils/ConvertText>
-#endif
 
 ServerErrorInfoHistoryFilterProxyModel::ServerErrorInfoHistoryFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase{parent}

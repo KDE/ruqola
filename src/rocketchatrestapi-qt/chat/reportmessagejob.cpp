@@ -82,12 +82,12 @@ QNetworkRequest ReportMessageJob::request() const
     return request;
 }
 
-QString ReportMessageJob::messageId() const
+QByteArray ReportMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void ReportMessageJob::setMessageId(const QString &messageId)
+void ReportMessageJob::setMessageId(const QByteArray &messageId)
 {
     mMessageId = messageId;
 }
@@ -95,7 +95,7 @@ void ReportMessageJob::setMessageId(const QString &messageId)
 QJsonDocument ReportMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("messageId")] = mMessageId;
+    jsonObj[QLatin1StringView("messageId")] = QString::fromLatin1(mMessageId);
     jsonObj[QLatin1StringView("description")] = mReportMessage;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);

@@ -1313,17 +1313,17 @@ void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
     mSearchMessageModel->parse(obj);
 }
 
-void RocketChatAccount::starMessage(const QString &messageId, bool starred)
+void RocketChatAccount::starMessage(const QByteArray &messageId, bool starred)
 {
     restApi()->starMessage(messageId, starred);
 }
 
-void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
+void RocketChatAccount::pinMessage(const QByteArray &messageId, bool pinned)
 {
     restApi()->pinMessage(messageId, pinned);
 }
 
-void RocketChatAccount::reportMessage(const QString &messageId, const QString &message)
+void RocketChatAccount::reportMessage(const QByteArray &messageId, const QString &message)
 {
     restApi()->reportMessage(messageId, message);
 }
@@ -2335,7 +2335,7 @@ void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
     restApi()->getDiscussions(roomId);
 }
 
-void RocketChatAccount::followMessage(const QString &messageId, bool follow)
+void RocketChatAccount::followMessage(const QByteArray &messageId, bool follow)
 {
     if (follow) {
         restApi()->followMessage(messageId);
