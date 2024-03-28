@@ -123,8 +123,6 @@ public:
 
     void clear();
 
-    void changeShowOriginalMessage(const QByteArray &messageId, bool showOriginal);
-
     void activate();
     void deactivate();
 

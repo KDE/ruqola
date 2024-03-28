@@ -510,15 +510,6 @@ void MessagesModel::clear()
     }
 }
 
-void MessagesModel::changeShowOriginalMessage(const QByteArray &messageId, bool showOriginal)
-{
-    Q_UNUSED(showOriginal)
-    auto it = findMessage(messageId);
-    if (it != mAllMessages.end()) {
-        // TODO implement it
-    }
-}
-
 void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
     auto matchesFilePath = [&](const QList<MessageAttachment> &msgAttachments) {
