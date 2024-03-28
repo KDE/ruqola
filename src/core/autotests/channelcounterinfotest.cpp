@@ -32,7 +32,7 @@ void ChannelCounterInfoTest::shouldLoadChannelCounter_data()
     result->setUnreadMessages(0);
     result->setJoined(true);
     QDateTime t;
-    t.setTimeSpec(Qt::LocalTime);
+    t.setTimeZone(QTimeZone::LocalTime);
     t.setDate(QDate(2020, 9, 25));
     t.setTime(QTime(13, 36, 30, 262));
     result->setUnreadFrom(t);
