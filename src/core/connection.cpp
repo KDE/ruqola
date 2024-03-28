@@ -817,10 +817,10 @@ void Connection::markRoomAsUnRead(const QByteArray &roomId)
     }
 }
 
-void Connection::markMessageAsUnReadFrom(const QString &messageId)
+void Connection::markMessageAsUnReadFrom(const QByteArray &messageId)
 {
     auto job = new MarkRoomAsUnReadJob(this);
-    job->setObjectId(messageId.toLatin1());
+    job->setObjectId(messageId);
     job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     initializeRestApiJob(job);
     if (!job->start()) {
@@ -1217,7 +1217,7 @@ void Connection::channelGetAllUserMentions(const QString &roomId, int offset, in
     }
 }
 
-void Connection::channelKick(const QByteArray &roomId, const QString &userId)
+void Connection::channelKick(const QByteArray &roomId, const QByteArray &userId)
 {
     auto job = new ChannelKickJob(this);
     initializeRestApiJob(job);
@@ -1232,7 +1232,7 @@ void Connection::channelKick(const QByteArray &roomId, const QString &userId)
     }
 }
 
-void Connection::groupKick(const QByteArray &roomId, const QString &userId)
+void Connection::groupKick(const QByteArray &roomId, const QByteArray &userId)
 {
     auto job = new GroupsKickJob(this);
     initializeRestApiJob(job);

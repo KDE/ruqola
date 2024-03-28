@@ -195,7 +195,7 @@ public:
     void switchEditingMode(bool b);
     void setSortUnreadOnTop(bool b);
     void setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder);
-    void kickUser(const QByteArray &rid, const QString &userId, Room::RoomType channelType);
+    void kickUser(const QByteArray &rid, const QByteArray &userId, Room::RoomType channelType);
     void changeRoles(const QByteArray &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
     void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void switchingToRoom(const QByteArray &roomID);
@@ -366,7 +366,7 @@ public:
     [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QString &tmid = QString());
 
     void avatarChanged(const QJsonArray &contents);
-    void markMessageAsUnReadFrom(const QString &messageId);
+    void markMessageAsUnReadFrom(const QByteArray &messageId);
     void markRoomAsUnRead(const QByteArray &roomId);
     void sendUserEmailCode();
     void requestNewPassword(const QString &email);

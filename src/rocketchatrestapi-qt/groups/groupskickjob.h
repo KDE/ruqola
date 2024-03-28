@@ -25,8 +25,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString kickUserId() const;
-    void setKickUserId(const QString &kickUserId);
+    [[nodiscard]] QByteArray kickUserId() const;
+    void setKickUserId(const QByteArray &kickUserId);
 
 Q_SIGNALS:
     void kickUserDone(const QJsonObject &obj);
@@ -34,6 +34,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GroupsKickJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mKickUserId;
+    QByteArray mKickUserId;
 };
 }

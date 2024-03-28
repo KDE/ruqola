@@ -1954,7 +1954,7 @@ OwnUserPreferences::RoomListDisplay RocketChatAccount::roomListDisplay() const
     return ownUser().ownUserPreferences().roomListDisplay();
 }
 
-void RocketChatAccount::kickUser(const QByteArray &roomId, const QString &userId, Room::RoomType channelType)
+void RocketChatAccount::kickUser(const QByteArray &roomId, const QByteArray &userId, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -2535,7 +2535,7 @@ User RocketChatAccount::fullUserInfo(const QString &userName) const
     return mUserModel->fullUserInfo(userName);
 }
 
-void RocketChatAccount::markMessageAsUnReadFrom(const QString &messageId)
+void RocketChatAccount::markMessageAsUnReadFrom(const QByteArray &messageId)
 {
     restApi()->markMessageAsUnReadFrom(messageId);
 }

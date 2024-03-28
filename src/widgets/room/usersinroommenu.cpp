@@ -60,7 +60,7 @@ void UsersInRoomMenu::slotIgnoreUser()
 
 void UsersInRoomMenu::slotRemoveFromRoom()
 {
-    Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), QString::fromLatin1(mUserId), mRoom->channelType());
+    Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
 void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)

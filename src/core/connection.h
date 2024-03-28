@@ -107,7 +107,7 @@ public:
     void unreadAlert(const QString &roomId, const QString &value);
     void setAvatar(const RocketChatRestApi::UserBaseJob::UserInfo &info, const RocketChatRestApi::SetAvatarJob::SetAvatarInfo &avatarInfo);
     void markRoomAsUnRead(const QByteArray &roomId);
-    void markMessageAsUnReadFrom(const QString &messageId);
+    void markMessageAsUnReadFrom(const QByteArray &messageId);
     void forgotPassword(const QString &email);
     void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore);
@@ -130,8 +130,8 @@ public:
     void groupInfo(const QByteArray &roomId);
     void channelGetAllUserMentions(const QString &roomId, int offset = 0, int count = 50);
     void openDirectMessage(const QString &userId);
-    void channelKick(const QByteArray &roomId, const QString &userId);
-    void groupKick(const QByteArray &roomId, const QString &userId);
+    void channelKick(const QByteArray &roomId, const QByteArray &userId);
+    void groupKick(const QByteArray &roomId, const QByteArray &userId);
     void groupAddModerator(const QByteArray &roomId, const QString &userId);
     void groupRemoveModerator(const QByteArray &roomId, const QString &userId);
     void groupAddLeader(const QByteArray &roomId, const QString &userId);

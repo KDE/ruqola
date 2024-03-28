@@ -68,7 +68,7 @@ QJsonDocument GroupsKickJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    jsonObj[QLatin1StringView("userId")] = kickUserId();
+    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(kickUserId());
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -83,12 +83,12 @@ QNetworkRequest GroupsKickJob::request() const
     return request;
 }
 
-QString GroupsKickJob::kickUserId() const
+QByteArray GroupsKickJob::kickUserId() const
 {
     return mKickUserId;
 }
 
-void GroupsKickJob::setKickUserId(const QString &kickUserId)
+void GroupsKickJob::setKickUserId(const QByteArray &kickUserId)
 {
     mKickUserId = kickUserId;
 }

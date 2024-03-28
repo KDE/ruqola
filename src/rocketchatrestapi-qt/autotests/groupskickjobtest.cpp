@@ -42,10 +42,11 @@ void GroupsKickJobTest::shouldGenerateJson()
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
     info.identifier = channelname;
     job.setChannelGroupInfo(info);
-    const QString userkick = QStringLiteral("bla");
+    const QByteArray userkick("bla");
     job.setKickUserId(userkick);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(channelname, userkick).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(channelname, QString::fromLatin1(userkick)).toLatin1());
 }
 
 void GroupsKickJobTest::shouldNotStarting()
@@ -71,7 +72,7 @@ void GroupsKickJobTest::shouldNotStarting()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     QVERIFY(!job.canStart());
-    const QString kickuser = QStringLiteral("bla");
+    const QByteArray kickuser("bla");
     job.setKickUserId(kickuser);
     QVERIFY(job.canStart());
 }

@@ -796,7 +796,7 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
 {
     const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-    mCurrentRocketChatAccount->markMessageAsUnReadFrom(QString::fromLatin1(messageId));
+    mCurrentRocketChatAccount->markMessageAsUnReadFrom(messageId);
 }
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)
