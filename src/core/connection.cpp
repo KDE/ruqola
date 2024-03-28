@@ -1743,7 +1743,7 @@ void Connection::usersAutocomplete(const UsersAutocompleteJob::UsersAutocomplete
     }
 }
 
-void Connection::findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays)
+void Connection::findOrCreateInvite(const QByteArray &roomId, int maxUses, int numberOfDays)
 {
     auto job = new FindOrCreateInviteJob(this);
     job->setRoomId(roomId);

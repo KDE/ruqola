@@ -118,12 +118,12 @@ void InviteUsersWidget::slotFindOrCreateInvite(const RocketChatRestApi::FindOrCr
     }
 }
 
-QString InviteUsersWidget::roomId() const
+QByteArray InviteUsersWidget::roomId() const
 {
     return mRoomId;
 }
 
-void InviteUsersWidget::setRoomId(const QString &roomId)
+void InviteUsersWidget::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }

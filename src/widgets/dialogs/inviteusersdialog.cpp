@@ -43,12 +43,12 @@ InviteUsersDialog::~InviteUsersDialog()
     writeConfig();
 }
 
-QString InviteUsersDialog::roomId() const
+QByteArray InviteUsersDialog::roomId() const
 {
     return mInviteUsersWidget->roomId();
 }
 
-void InviteUsersDialog::setRoomId(const QString &roomId)
+void InviteUsersDialog::setRoomId(const QByteArray &roomId)
 {
     mInviteUsersWidget->setRoomId(roomId);
 }

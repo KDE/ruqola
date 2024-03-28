@@ -33,8 +33,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] int maxUses() const;
     void setMaxUses(int maxUses);
@@ -53,7 +53,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(FindOrCreateInviteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
+    QByteArray mRoomId;
     int mMaxUses = 20;
     int mNumberOfDays = 0;
 };

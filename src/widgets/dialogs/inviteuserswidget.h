@@ -20,8 +20,8 @@ public:
     explicit InviteUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~InviteUsersWidget() override;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     void generateLink(int maxUses = 25, int numberOfDays = 1);
 
@@ -30,7 +30,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFindOrCreateInvite(const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCopyLink();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGenerateNewLink();
-    QString mRoomId;
+    QByteArray mRoomId;
     QLineEdit *const mInviteUserLineEdit;
     QLabel *const mExpireDateLabel;
     QComboBox *const mExpirationDays;

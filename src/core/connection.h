@@ -173,7 +173,7 @@ public:
     void getSnippetedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
-    void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
+    void findOrCreateInvite(const QByteArray &roomId, int maxUses, int numberOfDays);
     void getMessage(const QString &messageId, const QByteArray &roomId);
     void getCommand(const QString &commandName);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);

@@ -76,12 +76,12 @@ void FindOrCreateInviteJob::setMaxUses(int maxUses)
     mMaxUses = maxUses;
 }
 
-QString FindOrCreateInviteJob::roomId() const
+QByteArray FindOrCreateInviteJob::roomId() const
 {
     return mRoomId;
 }
 
-void FindOrCreateInviteJob::setRoomId(const QString &roomId)
+void FindOrCreateInviteJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -123,7 +123,7 @@ QNetworkRequest FindOrCreateInviteJob::request() const
 QJsonDocument FindOrCreateInviteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("rid")] = mRoomId;
+    jsonObj[QLatin1StringView("rid")] = QString::fromLatin1(mRoomId);
     jsonObj[QLatin1StringView("days")] = mNumberOfDays;
     jsonObj[QLatin1StringView("maxUses")] = mMaxUses;
     const QJsonDocument postData = QJsonDocument(jsonObj);

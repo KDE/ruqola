@@ -16,8 +16,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersDialog : public QDialog
 public:
     explicit InviteUsersDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~InviteUsersDialog() override;
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
     void generateLink();
 
 private:

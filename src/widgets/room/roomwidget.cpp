@@ -311,7 +311,7 @@ void RoomWidget::slotAddUsersInRoom()
 void RoomWidget::slotInviteUsers()
 {
     InviteUsersDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setRoomId(QString::fromLatin1(mRoomWidgetBase->roomId()));
+    dlg.setRoomId(mRoomWidgetBase->roomId());
     dlg.generateLink();
     dlg.exec();
 }

@@ -37,13 +37,13 @@ void FindOrCreateInviteJobTest::shouldGenerateJson()
 {
     FindOrCreateInviteJob job;
 
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":0,"maxUses":20,"rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":0,"maxUses":20,"rid":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
     job.setMaxUses(32);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":0,"maxUses":32,"rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":0,"maxUses":32,"rid":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
     job.setNumberOfDays(42);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":42,"maxUses":32,"rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":42,"maxUses":32,"rid":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
 }
 
 void FindOrCreateInviteJobTest::shouldNotStarting()
@@ -63,7 +63,7 @@ void FindOrCreateInviteJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }
