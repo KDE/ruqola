@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 09:14+0000\n"
+"POT-Creation-Date: 2024-03-28 00:39+0000\n"
 "PO-Revision-Date: 2024-03-23 11:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -795,7 +795,7 @@ msgstr "Tipus de canal"
 msgid "Belongs To"
 msgstr "Pertany a"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:565
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:567
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1007,83 +1007,83 @@ msgstr "Autenticació de dos factors"
 msgid "Last token part"
 msgstr "Última part del testimoni"
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:451
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menció"
 msgstr[1] "%1 mencions"
 
-#: core/model/roommodel.cpp:453
+#: core/model/roommodel.cpp:455
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menció de grup"
 msgstr[1] "%1 mencions de grup"
 
-#: core/model/roommodel.cpp:457
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 missatge del fil no llegit"
 msgstr[1] "%1 missatges dels fils no llegits"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:463
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 missatge sense llegir"
 msgstr[1] "%1 missatges sense llegir"
 
-#: core/model/roommodel.cpp:487
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala d'equips"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:495
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:495
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de debat"
 
-#: core/model/roommodel.cpp:499
+#: core/model/roommodel.cpp:501
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala de canal"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Unread"
 msgstr "Sense llegir"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Favorites"
 msgstr "Preferides"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:565
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Equips"
 
-#: core/model/roommodel.cpp:567
+#: core/model/roommodel.cpp:569
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Debats"
 
-#: core/model/roommodel.cpp:569
+#: core/model/roommodel.cpp:571
 #, kde-format
 msgid "Private Messages"
 msgstr "Missatges privats"
 
-#: core/model/roommodel.cpp:571
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
@@ -1381,32 +1381,32 @@ msgstr "S'ha afegit un compte"
 msgid "A new account was added."
 msgstr "S'ha afegit un compte nou."
 
-#: core/room.cpp:1147
+#: core/room.cpp:1161
 #, kde-format
 msgid "Owner"
 msgstr "Propietari"
 
-#: core/room.cpp:1150
+#: core/room.cpp:1164
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1153
+#: core/room.cpp:1167
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1485
+#: core/room.cpp:1499
 #, kde-format
 msgid "Channel is read only."
 msgstr "El canal només és de lectura."
 
-#: core/room.cpp:1488
+#: core/room.cpp:1502
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Heu blocat aquest canal."
 
-#: core/room.cpp:1491
+#: core/room.cpp:1505
 #, kde-format
 msgid "Channel was blocked."
 msgstr "El canal està blocat."
@@ -8756,19 +8756,19 @@ msgstr "(Intenta reconnectar)"
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 segons abans de reconnectar. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:36
+#: widgets/room/roomcounterinfowidget.cpp:46
 #, kde-format
 msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "%4 %1 missatge nou des de %2. %3"
 msgstr[1] "%4 %1 missatges nous des de %2. %3"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:50
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "(Marca com a llegit)"
 
-#: widgets/room/roomcounterinfowidget.cpp:41
+#: widgets/room/roomcounterinfowidget.cpp:51
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr "(Ves al primer no llegit)"

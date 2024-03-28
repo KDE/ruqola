@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 09:14+0000\n"
+"POT-Creation-Date: 2024-03-28 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 06:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -798,7 +798,7 @@ msgstr "頻道類型"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:565
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:567
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1016,79 +1016,79 @@ msgstr "兩步驟驗證"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:451
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 個提及"
 
-#: core/model/roommodel.cpp:453
+#: core/model/roommodel.cpp:455
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 個群組提及"
 
-#: core/model/roommodel.cpp:457
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 個未讀的對話串訊息"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:463
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 個未讀訊息"
 
-#: core/model/roommodel.cpp:487
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "Teams Room"
 msgstr "團隊聊天室"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:495
 #, kde-format
 msgid "Private Room"
 msgstr "私人聊天室"
 
-#: core/model/roommodel.cpp:495
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "Discussion Room"
 msgstr "討論室"
 
-#: core/model/roommodel.cpp:499
+#: core/model/roommodel.cpp:501
 #, kde-format
 msgid "Channel Room"
 msgstr "頻道聊天室"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Unread"
 msgstr "未讀"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Favorites"
 msgstr "最愛"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:565
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "團隊"
 
-#: core/model/roommodel.cpp:567
+#: core/model/roommodel.cpp:569
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "討論"
 
-#: core/model/roommodel.cpp:569
+#: core/model/roommodel.cpp:571
 #, kde-format
 msgid "Private Messages"
 msgstr "私訊"
 
-#: core/model/roommodel.cpp:571
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
@@ -1390,32 +1390,32 @@ msgstr "帳戶名稱"
 msgid "A new account was added."
 msgstr "輸入帳戶名稱"
 
-#: core/room.cpp:1147
+#: core/room.cpp:1161
 #, kde-format
 msgid "Owner"
 msgstr "擁有者"
 
-#: core/room.cpp:1150
+#: core/room.cpp:1164
 #, kde-format
 msgid "Leader"
 msgstr ""
 
-#: core/room.cpp:1153
+#: core/room.cpp:1167
 #, kde-format
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1485
+#: core/room.cpp:1499
 #, kde-format
 msgid "Channel is read only."
 msgstr "頻道是唯讀的。"
 
-#: core/room.cpp:1488
+#: core/room.cpp:1502
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "您已封鎖此頻道。"
 
-#: core/room.cpp:1491
+#: core/room.cpp:1505
 #, kde-format
 msgid "Channel was blocked."
 msgstr "頻道已封鎖。"
@@ -8688,7 +8688,7 @@ msgstr "（嘗試重新連線）"
 msgid "%1 seconds before reconnecting. %2"
 msgstr ""
 
-#: widgets/room/roomcounterinfowidget.cpp:36
+#: widgets/room/roomcounterinfowidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -8696,12 +8696,12 @@ msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:50
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "（標記為已讀）"
 
-#: widgets/room/roomcounterinfowidget.cpp:41
+#: widgets/room/roomcounterinfowidget.cpp:51
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr "（跳到第一個未讀）"

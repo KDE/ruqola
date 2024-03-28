@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 09:14+0000\n"
+"POT-Creation-Date: 2024-03-28 00:39+0000\n"
 "PO-Revision-Date: 2024-03-23 23:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -792,7 +792,7 @@ msgstr "Kanaaltype"
 msgid "Belongs To"
 msgstr "Behoort toe aan"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:565
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:567
 #: widgets/administratordialog/administratorwidget.cpp:53
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -1004,83 +1004,83 @@ msgstr "Twee-factor-authenticatie"
 msgid "Last token part"
 msgstr "Laatste gedeelte token"
 
-#: core/model/roommodel.cpp:449
+#: core/model/roommodel.cpp:451
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 vermelding"
 msgstr[1] "%1 vermeldingen"
 
-#: core/model/roommodel.cpp:453
+#: core/model/roommodel.cpp:455
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 groepsmelding"
 msgstr[1] "%1 groepsmeldingen"
 
-#: core/model/roommodel.cpp:457
+#: core/model/roommodel.cpp:459
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 ongelezen bericht uit discussiebundeling"
 msgstr[1] "%1 ongelezen berichten uit discussiebundeling"
 
-#: core/model/roommodel.cpp:461
+#: core/model/roommodel.cpp:463
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ongelezen bericht"
 msgstr[1] "%1 ongelezen berichten"
 
-#: core/model/roommodel.cpp:487
+#: core/model/roommodel.cpp:489
 #, kde-format
 msgid "Teams Room"
 msgstr "Teamsroom"
 
-#: core/model/roommodel.cpp:493
+#: core/model/roommodel.cpp:495
 #, kde-format
 msgid "Private Room"
 msgstr "Privéroom"
 
-#: core/model/roommodel.cpp:495
+#: core/model/roommodel.cpp:497
 #, kde-format
 msgid "Discussion Room"
 msgstr "Discussieroom"
 
-#: core/model/roommodel.cpp:499
+#: core/model/roommodel.cpp:501
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanaalroom"
 
-#: core/model/roommodel.cpp:559
+#: core/model/roommodel.cpp:561
 #, kde-format
 msgid "Unread"
 msgstr "Ongelezen"
 
-#: core/model/roommodel.cpp:561
+#: core/model/roommodel.cpp:563
 #, kde-format
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: core/model/roommodel.cpp:563
+#: core/model/roommodel.cpp:565
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:567
+#: core/model/roommodel.cpp:569
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussies"
 
-#: core/model/roommodel.cpp:569
+#: core/model/roommodel.cpp:571
 #, kde-format
 msgid "Private Messages"
 msgstr "Privé berichten"
 
-#: core/model/roommodel.cpp:571
+#: core/model/roommodel.cpp:573
 #, kde-format
 msgid "Unknown"
 msgstr "Onbekend"
@@ -1379,32 +1379,32 @@ msgstr "Account toegevoegd"
 msgid "A new account was added."
 msgstr "Een nieuw account is ingevoerd."
 
-#: core/room.cpp:1147
+#: core/room.cpp:1161
 #, kde-format
 msgid "Owner"
 msgstr "Eigenaar"
 
-#: core/room.cpp:1150
+#: core/room.cpp:1164
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1153
+#: core/room.cpp:1167
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1485
+#: core/room.cpp:1499
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanaal is alleen-lezen."
 
-#: core/room.cpp:1488
+#: core/room.cpp:1502
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "U hebt dit kanaal geblokkeerd."
 
-#: core/room.cpp:1491
+#: core/room.cpp:1505
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanaal was geblokkeerd."
@@ -8750,19 +8750,19 @@ msgstr "(Probeer opnieuw te verbinden)"
 msgid "%1 seconds before reconnecting. %2"
 msgstr "%1 seconden voor opnieuw te verbinden. %2"
 
-#: widgets/room/roomcounterinfowidget.cpp:36
+#: widgets/room/roomcounterinfowidget.cpp:46
 #, kde-format
 msgid "%4 %1 new message since %2. %3"
 msgid_plural "%4 %1 new messages since %2. %3"
 msgstr[0] "%4 %1 nieuw bericht sinds %2. %3"
 msgstr[1] "%4 %1 nieuwe berichten sinds %2. %3"
 
-#: widgets/room/roomcounterinfowidget.cpp:40
+#: widgets/room/roomcounterinfowidget.cpp:50
 #, kde-format
 msgid "(Mark As Read)"
 msgstr "(Als gelezen markeren)"
 
-#: widgets/room/roomcounterinfowidget.cpp:41
+#: widgets/room/roomcounterinfowidget.cpp:51
 #, kde-format
 msgid "(Jump to first Unread)"
 msgstr "(Naar eerste ongelezen gaan)"
