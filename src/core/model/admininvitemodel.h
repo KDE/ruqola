@@ -38,7 +38,7 @@ public:
     [[nodiscard]] const QList<InviteInfo> &adminInvites() const;
     void setAdminInvites(const QList<InviteInfo> &newAdminInvites);
 
-    void removeInvite(const QString &identifier);
+    void removeInvite(const QByteArray &identifier);
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;

@@ -11,9 +11,9 @@ InviteInfo::InviteInfo() = default;
 
 void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
 {
-    mIdentifier = replyObject[QLatin1StringView("_id")].toString();
-    mUserIdentifier = replyObject[QLatin1StringView("userId")].toString();
-    mRoomId = replyObject[QLatin1StringView("rid")].toString();
+    mIdentifier = replyObject[QLatin1StringView("_id")].toString().toLatin1();
+    mUserIdentifier = replyObject[QLatin1StringView("userId")].toString().toLatin1();
+    mRoomId = replyObject[QLatin1StringView("rid")].toString().toLatin1();
     mUses = replyObject[QLatin1StringView("uses")].toInt();
     mMaxUses = replyObject[QLatin1StringView("maxUses")].toInt();
     if (replyObject.contains(QLatin1StringView("createdAt"))) {
@@ -24,12 +24,12 @@ void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
     }
 }
 
-const QString &InviteInfo::identifier() const
+const QByteArray &InviteInfo::identifier() const
 {
     return mIdentifier;
 }
 
-void InviteInfo::setIdentifier(const QString &newIdentifier)
+void InviteInfo::setIdentifier(const QByteArray &newIdentifier)
 {
     mIdentifier = newIdentifier;
 }
@@ -44,22 +44,22 @@ void InviteInfo::setMaxUses(int newMaxUses)
     mMaxUses = newMaxUses;
 }
 
-const QString &InviteInfo::userIdentifier() const
+const QByteArray &InviteInfo::userIdentifier() const
 {
     return mUserIdentifier;
 }
 
-void InviteInfo::setUserIdentifier(const QString &newUserIdentifier)
+void InviteInfo::setUserIdentifier(const QByteArray &newUserIdentifier)
 {
     mUserIdentifier = newUserIdentifier;
 }
 
-const QString &InviteInfo::roomId() const
+const QByteArray &InviteInfo::roomId() const
 {
     return mRoomId;
 }
 
-void InviteInfo::setRoomId(const QString &newRoomId)
+void InviteInfo::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }

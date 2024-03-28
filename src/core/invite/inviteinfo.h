@@ -16,17 +16,17 @@ public:
     InviteInfo();
     ~InviteInfo() = default;
     void parseInviteInfo(const QJsonObject &replyObject);
-    const QString &identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    const QByteArray &identifier() const;
+    void setIdentifier(const QByteArray &newIdentifier);
 
     [[nodiscard]] int maxUses() const;
     void setMaxUses(int newMaxUses);
 
-    [[nodiscard]] const QString &userIdentifier() const;
-    void setUserIdentifier(const QString &newUserIdentifier);
+    [[nodiscard]] const QByteArray &userIdentifier() const;
+    void setUserIdentifier(const QByteArray &newUserIdentifier);
 
-    [[nodiscard]] const QString &roomId() const;
-    void setRoomId(const QString &newRoomId);
+    [[nodiscard]] const QByteArray &roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
 
     [[nodiscard]] int uses() const;
     void setUses(int newUses);
@@ -40,9 +40,9 @@ public:
     [[nodiscard]] bool operator==(const InviteInfo &other) const;
 
 private:
-    QString mUserIdentifier;
-    QString mIdentifier;
-    QString mRoomId;
+    QByteArray mUserIdentifier;
+    QByteArray mIdentifier;
+    QByteArray mRoomId;
     QDateTime mExpireDateTime;
     QDateTime mCreateDateTime;
     int mUses = 0;

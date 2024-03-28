@@ -38,13 +38,13 @@ void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
-            removeClicked(modelIndex.data().toString());
+            removeClicked(modelIndex.data().toByteArray());
         });
         menu.exec(viewport()->mapToGlobal(pos));
     }
 }
 
-void InviteTreeView::removeClicked(const QString &identifier)
+void InviteTreeView::removeClicked(const QByteArray &identifier)
 {
     if (KMessageBox::PrimaryAction
         == KMessageBox::warningTwoActions(this,

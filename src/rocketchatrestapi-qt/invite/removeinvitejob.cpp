@@ -79,12 +79,12 @@ void RemoveInviteJob::slotRemoveInviteFinished()
     deleteLater();
 }
 
-QString RemoveInviteJob::identifier() const
+QByteArray RemoveInviteJob::identifier() const
 {
     return mIdentifier;
 }
 
-void RemoveInviteJob::setIdentifier(const QString &identifier)
+void RemoveInviteJob::setIdentifier(const QByteArray &identifier)
 {
     mIdentifier = identifier;
 }
@@ -96,7 +96,7 @@ bool RemoveInviteJob::hasQueryParameterSupport() const
 
 QNetworkRequest RemoveInviteJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite, mIdentifier);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite, QString::fromLatin1(mIdentifier));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

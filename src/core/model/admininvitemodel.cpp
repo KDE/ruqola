@@ -118,7 +118,7 @@ QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo) const
     }
 }
 
-void AdminInviteModel::removeInvite(const QString &identifier)
+void AdminInviteModel::removeInvite(const QByteArray &identifier)
 {
     const int roomCount = mAdminInvites.count();
     for (int i = 0; i < roomCount; ++i) {

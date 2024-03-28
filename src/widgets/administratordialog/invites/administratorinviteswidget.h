@@ -23,8 +23,8 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotListInviteDone(const QJsonDocument &obj);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveInvite(const QString &identifier);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveInviteDone(const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveInvite(const QByteArray &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveInviteDone(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
     InviteTreeView *const mInviteTreeView;
     QLineEdit *const mSearchLineWidget;

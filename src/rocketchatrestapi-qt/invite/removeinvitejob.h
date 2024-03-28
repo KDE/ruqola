@@ -28,15 +28,15 @@ public:
 
     [[nodiscard]] bool hasQueryParameterSupport() const override;
 
-    [[nodiscard]] QString identifier() const;
-    void setIdentifier(const QString &identifier);
+    [[nodiscard]] QByteArray identifier() const;
+    void setIdentifier(const QByteArray &identifier);
 
 Q_SIGNALS:
-    void removeInviteDone(const QString &identifier);
+    void removeInviteDone(const QByteArray &identifier);
 
 private:
     Q_DISABLE_COPY(RemoveInviteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotRemoveInviteFinished();
-    QString mIdentifier;
+    QByteArray mIdentifier;
 };
 }

@@ -87,7 +87,7 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
     }
 }
 
-void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
+void AdministratorInvitesWidget::slotRemoveInvite(const QByteArray &identifier)
 {
     auto removeInviteJob = new RocketChatRestApi::RemoveInviteJob(this);
     removeInviteJob->setIdentifier(identifier);
@@ -98,7 +98,7 @@ void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
     }
 }
 
-void AdministratorInvitesWidget::slotRemoveInviteDone(const QString &identifier)
+void AdministratorInvitesWidget::slotRemoveInviteDone(const QByteArray &identifier)
 {
     mAdminInviteModel->removeInvite(identifier);
 }
