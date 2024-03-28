@@ -55,7 +55,7 @@ void UsersInRoomMenu::slotIgnoreUser()
             return;
         }
     }
-    Ruqola::self()->rocketChatAccount()->ignoreUser(mRoom->roomId(), QString::fromLatin1(mUserId), !userIsIgnored);
+    Ruqola::self()->rocketChatAccount()->ignoreUser(mRoom->roomId(), mUserId, !userIsIgnored);
 }
 
 void UsersInRoomMenu::slotRemoveFromRoom()

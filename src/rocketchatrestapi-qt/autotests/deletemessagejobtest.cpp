@@ -37,11 +37,12 @@ void DeleteMessageJobTest::shouldGenerateRequest()
 void DeleteMessageJobTest::shouldGenerateJson()
 {
     DeleteMessageJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString text = QStringLiteral("topic1");
+    const QByteArray roomId("foo1");
+    const QByteArray text("topic1");
     job.setRoomId(roomId);
     job.setMessageId(text);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msgId":"%2","roomId":"%1"})").arg(roomId, text).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"msgId":"%2","roomId":"%1"})").arg(QString::fromLatin1(roomId), QString::fromLatin1(text)).toLatin1());
 }
 
 void DeleteMessageJobTest::shouldNotStarting()
@@ -61,10 +62,10 @@ void DeleteMessageJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
-    const QString text = QStringLiteral("topic1");
+    const QByteArray text("topic1");
     job.setMessageId(text);
     QVERIFY(job.canStart());
 }

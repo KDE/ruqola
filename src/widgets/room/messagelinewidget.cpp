@@ -180,7 +180,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             }
         } else if (!mMessageIdBeingEdited.isEmpty()) {
             // TODO check message size
-            mCurrentRocketChatAccount->updateMessage(roomId(), QString::fromLatin1(mMessageIdBeingEdited), msg);
+            mCurrentRocketChatAccount->updateMessage(roomId(), mMessageIdBeingEdited, msg);
             clearMessageIdBeingEdited();
         } else if (!mQuotePermalink.isEmpty()) {
             const QString newMessage = QStringLiteral("[ ](%1) %2").arg(mQuotePermalink, msg);

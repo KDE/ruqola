@@ -79,30 +79,30 @@ bool UpdateMessageJob::canStart() const
 QJsonDocument UpdateMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
-    jsonObj[QLatin1StringView("msgId")] = mMessageId;
+    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
+    jsonObj[QLatin1StringView("msgId")] = QString::fromLatin1(mMessageId);
     jsonObj[QLatin1StringView("text")] = mUpdatedText;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString UpdateMessageJob::roomId() const
+QByteArray UpdateMessageJob::roomId() const
 {
     return mRoomId;
 }
 
-void UpdateMessageJob::setRoomId(const QString &roomId)
+void UpdateMessageJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
 
-QString UpdateMessageJob::messageId() const
+QByteArray UpdateMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void UpdateMessageJob::setMessageId(const QString &t)
+void UpdateMessageJob::setMessageId(const QByteArray &t)
 {
     mMessageId = t;
 }

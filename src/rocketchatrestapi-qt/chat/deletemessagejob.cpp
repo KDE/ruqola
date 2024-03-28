@@ -67,29 +67,29 @@ bool DeleteMessageJob::canStart() const
 QJsonDocument DeleteMessageJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = roomId();
-    jsonObj[QLatin1StringView("msgId")] = messageId();
+    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(roomId());
+    jsonObj[QLatin1StringView("msgId")] = QString::fromLatin1(messageId());
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString DeleteMessageJob::roomId() const
+QByteArray DeleteMessageJob::roomId() const
 {
     return mRoomId;
 }
 
-void DeleteMessageJob::setRoomId(const QString &roomId)
+void DeleteMessageJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
 
-QString DeleteMessageJob::messageId() const
+QByteArray DeleteMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void DeleteMessageJob::setMessageId(const QString &t)
+void DeleteMessageJob::setMessageId(const QByteArray &t)
 {
     mMessageId = t;
 }

@@ -31,7 +31,7 @@ void IgnoreUserJobTest::shouldGenerateRequest()
     IgnoreUserJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     job.setRoomId(QByteArrayLiteral("foo"));
-    job.setIgnoreUserId(QStringLiteral("bla"));
+    job.setIgnoreUserId(QByteArrayLiteral("bla"));
     verifyAuthentication(&job, request);
     // TODO verify
     // TODO add ignore == false

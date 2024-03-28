@@ -24,11 +24,11 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &msgId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &msgId);
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] QString updatedText() const;
     void setUpdatedText(const QString &updatedText);
@@ -40,8 +40,8 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(UpdateMessageJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
-    QString mMessageId;
+    QByteArray mRoomId;
+    QByteArray mMessageId;
     QString mUpdatedText;
 };
 }

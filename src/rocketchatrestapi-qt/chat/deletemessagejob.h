@@ -20,14 +20,14 @@ public:
     [[nodiscard]] bool requireHttpAuthentication() const override;
     [[nodiscard]] bool canStart() const override;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &msgId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &msgId);
     [[nodiscard]] QNetworkRequest request() const override;
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 Q_SIGNALS:
     void deleteMessageDone();
 
@@ -38,7 +38,7 @@ protected:
 private:
     Q_DISABLE_COPY(DeleteMessageJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
-    QString mMessageId;
+    QByteArray mRoomId;
+    QByteArray mMessageId;
 };
 }

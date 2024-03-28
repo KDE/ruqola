@@ -514,11 +514,11 @@ void Connection::postMessage(const QByteArray &roomId, const QString &text)
     }
 }
 
-void Connection::deleteMessage(const QByteArray &roomId, const QString &messageId)
+void Connection::deleteMessage(const QByteArray &roomId, const QByteArray &messageId)
 {
     auto job = new DeleteMessageJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(QString::fromLatin1(roomId));
+    job->setRoomId(roomId);
     job->setMessageId(messageId);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start deleteMessage job";
@@ -588,25 +588,11 @@ void Connection::archiveChannel(const QString &roomId, bool archive)
     }
 }
 
-void Connection::archiveGroups(const QString &roomId, bool archive)
-{
-    auto job = new ArchiveGroupsJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
-    job->setChannelGroupInfo(info);
-    job->setArchive(archive);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start archiveGroups job";
-    }
-}
-
-void Connection::updateMessage(const QByteArray &roomId, const QString &messageId, const QString &text)
+void Connection::updateMessage(const QByteArray &roomId, const QByteArray &messageId, const QString &text)
 {
     auto job = new UpdateMessageJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(QString::fromLatin1(roomId));
+    job->setRoomId(roomId);
     job->setMessageId(messageId);
     job->setUpdatedText(text);
     connect(job, &UpdateMessageJob::updateMessageFailed, this, &Connection::updateMessageFailed);
@@ -1058,7 +1044,7 @@ void Connection::userInfo(const QString &identifier, bool userName)
     }
 }
 
-void Connection::ignoreUser(const QByteArray &roomId, const QString &userId, bool ignore)
+void Connection::ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore)
 {
     auto job = new IgnoreUserJob(this);
     initializeRestApiJob(job);

@@ -28,8 +28,8 @@ public:
     void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] bool canStart() const override;
-    [[nodiscard]] QString ignoreUserId() const;
-    void setIgnoreUserId(const QString &ignoreUserId);
+    [[nodiscard]] QByteArray ignoreUserId() const;
+    void setIgnoreUserId(const QByteArray &ignoreUserId);
 
     [[nodiscard]] bool ignore() const;
     void setIgnore(bool ignore);
@@ -41,7 +41,7 @@ private:
     Q_DISABLE_COPY(IgnoreUserJob)
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
-    QString mIgnoreUserId;
+    QByteArray mIgnoreUserId;
     bool mIgnore = true;
 };
 }

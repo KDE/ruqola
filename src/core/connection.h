@@ -78,12 +78,12 @@ public:
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
     void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QByteArray &roomId, const QString &text);
-    void deleteMessage(const QByteArray &roomId, const QString &messageId);
+    void deleteMessage(const QByteArray &roomId, const QByteArray &messageId);
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
-    void updateMessage(const QByteArray &roomId, const QString &messageId, const QString &text);
+    void updateMessage(const QByteArray &roomId, const QByteArray &messageId, const QString &text);
     void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     void closeChannel(const QByteArray &roomId, const QString &type);
     void createDirectMessage(const QStringList &userName);
@@ -91,7 +91,6 @@ public:
     void changeChannelDescription(const QString &roomId, const QString &description);
     void changeGroupsDescription(const QString &roomId, const QString &description);
     void archiveChannel(const QString &roomId, bool archive);
-    void archiveGroups(const QString &roomId, bool archive);
     void filesInRoom(const QByteArray &roomId, const QString &type, int offset = 0, int count = 50);
     void addUserInChannel(const QByteArray &roomId, const QByteArray &userId);
 
@@ -111,7 +110,7 @@ public:
     void markMessageAsUnReadFrom(const QString &messageId);
     void forgotPassword(const QString &email);
     void userInfo(const QString &identifier, bool userName = false);
-    void ignoreUser(const QByteArray &roomId, const QString &userId, bool ignore);
+    void ignoreUser(const QByteArray &roomId, const QByteArray &userId, bool ignore);
     void userPresence(const QString &userId);
     void reportMessage(const QByteArray &messageId, const QString &message);
     void setGroupType(const QString &roomId, bool isPrivate);

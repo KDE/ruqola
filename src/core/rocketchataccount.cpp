@@ -424,16 +424,6 @@ MessagesModel *RocketChatAccount::messageModelForRoom(const QByteArray &roomID)
     return mRoomModel->messageModel(roomID);
 }
 
-void RocketChatAccount::changeShowOriginalMessage(const QByteArray &roomId, const QString &messageId, bool showOriginal)
-{
-    MessagesModel *model = mRoomModel->messageModel(roomId);
-    if (model) {
-        model->changeShowOriginalMessage(messageId.toLatin1(), showOriginal);
-    } else {
-        qCWarning(RUQOLA_LOG) << "impossible to find room: " << roomId;
-    }
-}
-
 void RocketChatAccount::textEditing(const QByteArray &roomId, bool clearNotification)
 {
     mTypingNotification->textNotificationChanged(roomId, clearNotification);
@@ -454,7 +444,7 @@ void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &mes
     markRoomAsRead(roomID);
 }
 
-void RocketChatAccount::updateMessage(const QByteArray &roomID, const QString &messageId, const QString &message)
+void RocketChatAccount::updateMessage(const QByteArray &roomID, const QByteArray &messageId, const QString &message)
 {
     restApi()->updateMessage(roomID, messageId, message);
 }
@@ -881,7 +871,7 @@ OtrManager *RocketChatAccount::otrManager() const
     return mOtrManager;
 }
 
-void RocketChatAccount::deleteMessage(const QString &messageId, const QByteArray &roomId)
+void RocketChatAccount::deleteMessage(const QByteArray &messageId, const QByteArray &roomId)
 {
     restApi()->deleteMessage(roomId, messageId);
 }
@@ -2209,7 +2199,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
     mRoomModel->userStatusChanged(user);
 }
 
-void RocketChatAccount::ignoreUser(const QByteArray &rid, const QString &userId, bool ignore)
+void RocketChatAccount::ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore)
 {
     restApi()->ignoreUser(rid, userId, ignore);
 }

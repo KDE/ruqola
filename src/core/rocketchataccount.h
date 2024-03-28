@@ -155,7 +155,7 @@ public:
     void markRoomAsRead(const QByteArray &roomId);
     void changeFavorite(const QByteArray &roomId, bool checked);
     void sendMessage(const QByteArray &roomID, const QString &message);
-    void updateMessage(const QByteArray &roomID, const QString &messageId, const QString &message);
+    void updateMessage(const QByteArray &roomID, const QByteArray &messageId, const QString &message);
     void replyOnThread(const QByteArray &roomID, const QByteArray &threadMessageId, const QString &message);
     void openChannel(const QString &identifier, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QByteArray &roomId);
@@ -164,7 +164,7 @@ public:
     void openDirectChannel(const QString &username);
     void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?
     void createJitsiConfCall(const QByteArray &roomId);
-    void deleteMessage(const QString &messageId, const QByteArray &roomId);
+    void deleteMessage(const QByteArray &messageId, const QByteArray &roomId);
     void userAutocomplete(const QString &searchText, const QString &exception);
     void eraseRoom(const QByteArray &roomId, Room::RoomType channelType);
     void changeNotificationsSettings(const QString &QByteArray, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
@@ -189,7 +189,7 @@ public:
     void openDocumentation();
     void clearSearchModel();
     void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
-    void ignoreUser(const QByteArray &rid, const QString &userId, bool ignore);
+    void ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore);
     void channelInfo(const QByteArray &roomId);
     void groupInfo(const QByteArray &roomId);
     void switchEditingMode(bool b);
@@ -222,7 +222,6 @@ public:
     void autoTranslateSaveAutoTranslateSettings(const QByteArray &roomId, bool autoTranslate);
 
     [[nodiscard]] MessagesModel *messageModelForRoom(const QByteArray &roomID);
-    void changeShowOriginalMessage(const QByteArray &roomId, const QString &messageId, bool showOriginal);
 
     void loadMoreListMessages(const QByteArray &roomId);
     void getListMessages(const QByteArray &roomId, ListMessagesModel::ListMessageType type);

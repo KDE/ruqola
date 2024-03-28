@@ -39,14 +39,15 @@ void UpdateMessageJobTest::shouldGenerateRequest()
 void UpdateMessageJobTest::shouldGenerateJson()
 {
     UpdateMessageJob job;
-    const QString roomId = QStringLiteral("foo1");
-    const QString messageId = QStringLiteral("topic1");
+    const QByteArray roomId("foo1");
+    const QByteArray messageId("topic1");
     const QString updatedText = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setMessageId(messageId);
     job.setUpdatedText(updatedText);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"msgId":"%2","roomId":"%1","text":"%3"})").arg(roomId, messageId, updatedText).toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(R"({"msgId":"%2","roomId":"%1","text":"%3"})").arg(QString::fromLatin1(roomId), QString::fromLatin1(messageId), updatedText).toLatin1());
 }
 
 void UpdateMessageJobTest::shouldNotStarting()
@@ -66,10 +67,10 @@ void UpdateMessageJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
-    const QString text = QStringLiteral("topic1");
+    const QByteArray text("topic1");
     job.setMessageId(text);
     QVERIFY(job.canStart());
     QVERIFY(job.updatedText().isEmpty());

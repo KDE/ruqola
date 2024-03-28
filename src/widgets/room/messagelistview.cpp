@@ -808,7 +808,7 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
                                            KStandardGuiItem::del(),
                                            KStandardGuiItem::cancel())) {
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
-        mCurrentRocketChatAccount->deleteMessage(QString::fromLatin1(messageId), mRoom->roomId());
+        mCurrentRocketChatAccount->deleteMessage(messageId, mRoom->roomId());
     }
 }
 
