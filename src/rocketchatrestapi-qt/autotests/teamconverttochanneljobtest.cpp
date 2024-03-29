@@ -37,13 +37,14 @@ void TeamConvertToChannelJobTest::shouldGenerateRequest()
 void TeamConvertToChannelJobTest::shouldGenerateJson()
 {
     TeamConvertToChannelJob job;
-    const QString teamId = QStringLiteral("foo2");
+    const QByteArray teamId("foo2");
     job.setTeamId(teamId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QString::fromLatin1(teamId)).toLatin1());
     const QList<QByteArray> roomsToRemove{QByteArrayLiteral("bla"), QByteArrayLiteral("bla1"), QByteArrayLiteral("bla2")};
     job.setRoomsToRemove(roomsToRemove);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(QString::fromLatin1(teamId)).toLatin1());
 }
 
 void TeamConvertToChannelJobTest::shouldNotStarting()
@@ -63,7 +64,7 @@ void TeamConvertToChannelJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString teamId = QStringLiteral("foo2");
+    const QByteArray teamId("foo2");
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }

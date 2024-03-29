@@ -54,12 +54,12 @@ void TeamConvertToChannelJob::setRoomsToRemove(const QList<QByteArray> &newRooms
     mRoomsToRemove = newRoomsToRemove;
 }
 
-QString TeamConvertToChannelJob::teamId() const
+QByteArray TeamConvertToChannelJob::teamId() const
 {
     return mTeamId;
 }
 
-void TeamConvertToChannelJob::setTeamId(const QString &teamId)
+void TeamConvertToChannelJob::setTeamId(const QByteArray &teamId)
 {
     mTeamId = teamId;
 }
@@ -93,7 +93,7 @@ QNetworkRequest TeamConvertToChannelJob::request() const
 QJsonDocument TeamConvertToChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("teamId")] = mTeamId;
+    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
     if (!mRoomsToRemove.isEmpty()) {
         QStringList lst;
         for (const QByteArray &b : std::as_const(mRoomsToRemove)) {

@@ -271,7 +271,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
             delete dlg;
         }
         auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
-        job->setTeamId(QString::fromLatin1(teamId));
+        job->setTeamId(teamId);
         job->setRoomsToRemove(listRoomIdToDelete);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {

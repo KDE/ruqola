@@ -37,12 +37,13 @@ void TeamRemoveRoomJobTest::shouldGenerateRequest()
 void TeamRemoveRoomJobTest::shouldGenerateJson()
 {
     TeamRemoveRoomJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    const QString teamId = QStringLiteral("foo2");
+    const QByteArray teamId("foo2");
     job.setTeamId(teamId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","teamId":"%2"})").arg(roomId).arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"roomId":"%1","teamId":"%2"})").arg(QString::fromLatin1(roomId)).arg(QString::fromLatin1(teamId)).toLatin1());
 }
 
 void TeamRemoveRoomJobTest::shouldNotStarting()
@@ -62,10 +63,10 @@ void TeamRemoveRoomJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
-    const QString teamId = QStringLiteral("foo2");
+    const QByteArray teamId("foo2");
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }

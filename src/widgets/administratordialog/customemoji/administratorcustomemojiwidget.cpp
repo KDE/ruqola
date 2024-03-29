@@ -155,7 +155,7 @@ void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &in
         == KMessageBox::ButtonCode::PrimaryAction) {
         auto job = new RocketChatRestApi::EmojiCustomDeleteJob(this);
         const QByteArray emojiId = index.data().toByteArray();
-        job->setEmojiId(QString::fromLatin1(emojiId));
+        job->setEmojiId(emojiId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomDeleteJob::emojiCustomDeleteDone, this, [this, emojiId]() {
             slotEmojiRemoved(emojiId);

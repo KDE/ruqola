@@ -43,22 +43,22 @@ void TeamRemoveRoomJob::onPostRequestResponse(const QString &replyErrorString, c
     }
 }
 
-QString TeamRemoveRoomJob::teamId() const
+QByteArray TeamRemoveRoomJob::teamId() const
 {
     return mTeamId;
 }
 
-void TeamRemoveRoomJob::setTeamId(const QString &teamId)
+void TeamRemoveRoomJob::setTeamId(const QByteArray &teamId)
 {
     mTeamId = teamId;
 }
 
-QString TeamRemoveRoomJob::roomId() const
+QByteArray TeamRemoveRoomJob::roomId() const
 {
     return mRoomId;
 }
 
-void TeamRemoveRoomJob::setRoomId(const QString &roomId)
+void TeamRemoveRoomJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -96,8 +96,8 @@ QNetworkRequest TeamRemoveRoomJob::request() const
 QJsonDocument TeamRemoveRoomJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
-    jsonObj[QLatin1StringView("teamId")] = mTeamId;
+    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
+    jsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(mTeamId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -43,12 +43,12 @@ void EmojiCustomDeleteJob::onPostRequestResponse(const QString &replyErrorString
     }
 }
 
-QString EmojiCustomDeleteJob::emojiId() const
+QByteArray EmojiCustomDeleteJob::emojiId() const
 {
     return mEmojiId;
 }
 
-void EmojiCustomDeleteJob::setEmojiId(const QString &emojiId)
+void EmojiCustomDeleteJob::setEmojiId(const QByteArray &emojiId)
 {
     mEmojiId = emojiId;
 }
@@ -73,7 +73,7 @@ bool EmojiCustomDeleteJob::canStart() const
 QJsonDocument EmojiCustomDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("emojiId")] = emojiId();
+    jsonObj[QLatin1StringView("emojiId")] = QString::fromLatin1(emojiId());
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

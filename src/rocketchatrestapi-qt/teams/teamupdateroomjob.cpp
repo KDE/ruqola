@@ -52,12 +52,12 @@ void TeamUpdateRoomJob::setIsDefault(bool isDefault)
     mIsDefault = isDefault;
 }
 
-QString TeamUpdateRoomJob::roomId() const
+QByteArray TeamUpdateRoomJob::roomId() const
 {
     return mRoomId;
 }
 
-void TeamUpdateRoomJob::setRoomId(const QString &roomId)
+void TeamUpdateRoomJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -91,7 +91,7 @@ QNetworkRequest TeamUpdateRoomJob::request() const
 QJsonDocument TeamUpdateRoomJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
+    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
     jsonObj[QLatin1StringView("isDefault")] = mIsDefault;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

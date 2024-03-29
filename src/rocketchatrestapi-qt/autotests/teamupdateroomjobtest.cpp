@@ -38,12 +38,12 @@ void TeamUpdateRoomJobTest::shouldGenerateRequest()
 void TeamUpdateRoomJobTest::shouldGenerateJson()
 {
     TeamUpdateRoomJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     const bool isDefault = true;
     job.setIsDefault(isDefault);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"isDefault":true,"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"isDefault":true,"roomId":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
 }
 
 void TeamUpdateRoomJobTest::shouldNotStarting()
@@ -63,7 +63,7 @@ void TeamUpdateRoomJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
 }

@@ -25,8 +25,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString emojiId() const;
-    void setEmojiId(const QString &emojiId);
+    [[nodiscard]] QByteArray emojiId() const;
+    void setEmojiId(const QByteArray &emojiId);
 
 Q_SIGNALS:
     void emojiCustomDeleteDone();
@@ -34,6 +34,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(EmojiCustomDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mEmojiId;
+    QByteArray mEmojiId;
 };
 }

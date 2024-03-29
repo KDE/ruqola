@@ -140,7 +140,7 @@ void TeamChannelsWidget::updateAutojoin(const QByteArray &roomId, bool autojoin)
 {
     auto job = new RocketChatRestApi::TeamUpdateRoomJob(this);
     job->setIsDefault(!autojoin);
-    job->setRoomId(QString::fromLatin1(roomId));
+    job->setRoomId(roomId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamUpdateRoomJob::teamUpdateRoomDone, this, &TeamChannelsWidget::slotTeamUpdateRoomDone);
     if (!job->start()) {
@@ -165,8 +165,8 @@ void TeamChannelsWidget::removeRoomFromTeam(const QByteArray &roomId)
                                            KStandardGuiItem::remove(),
                                            KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
-        job->setTeamId(QString::fromLatin1(mTeamId));
-        job->setRoomId(QString::fromLatin1(roomId));
+        job->setTeamId(mTeamId);
+        job->setRoomId(roomId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
         if (!job->start()) {
