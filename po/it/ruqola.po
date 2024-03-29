@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
 "PO-Revision-Date: 2024-03-24 03:42+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1357,12 +1357,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2893
+#: core/rocketchataccount.cpp:2883
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2894
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -1641,18 +1641,18 @@ msgstr "Non è consentito ricevere il messaggio %2 nella stanza %1"
 msgid "Invalid message: '%1'"
 msgstr "Messaggio non valido: «%1»"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:117
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #, kde-format
 msgid "This room is blocked"
 msgstr "Questa stanza è bloccata"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:119
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Sei stato silenziato, quindi non puoi parlare in questa stanza"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:121
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:129
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:134
 #, kde-format
 msgid "Invalid channel"
 msgstr "Canale non valido"
@@ -1941,7 +1941,7 @@ msgid "Invalid role"
 msgstr "Ruolo non valido"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:153
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:159
 #, kde-format
 msgid "Invalid room"
 msgstr "Stanza non valida"
@@ -2322,7 +2322,7 @@ msgstr "Un canale non può essere convertito in squadra."
 msgid "Team already exists."
 msgstr "La squadra esiste già."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:111
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:117
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "Non hai il permesso di aggiungere questo canale alla squadra"
@@ -3850,7 +3850,7 @@ msgid "Password"
 msgstr "Password"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferenza"
@@ -8834,18 +8834,18 @@ msgstr "Rispondi in una discussione"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Risposta alla discussione per messaggio: «%1»"
 
-#: widgets/room/roomwidget.cpp:272
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vuoi davvero rimuovere la cronologia?"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Rimuovi cronologia"
 
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
 "PO-Revision-Date: 2024-03-23 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1371,12 +1371,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2893
+#: core/rocketchataccount.cpp:2883
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2894
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -1652,18 +1652,18 @@ msgstr "Отримання повідомлення %2 у кімнаті %1 за
 msgid "Invalid message: '%1'"
 msgstr "Некоректне повідомлення: «%1»"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:117
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #, kde-format
 msgid "This room is blocked"
 msgstr "Кімнату заблоковано"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:119
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Вас заглушено — ви не можете говорити у цій кімнаті"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:121
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:129
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:134
 #, kde-format
 msgid "Invalid channel"
 msgstr "Некоректний канал"
@@ -1953,7 +1953,7 @@ msgid "Invalid role"
 msgstr "Некоректна роль"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:153
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:159
 #, kde-format
 msgid "Invalid room"
 msgstr "Некоректна кімната"
@@ -2334,7 +2334,7 @@ msgstr "Не вдалося перетворити канал на команд�
 msgid "Team already exists."
 msgstr "Така команда вже існує."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:111
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:117
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr ""
@@ -3876,7 +3876,7 @@ msgid "Password"
 msgstr "Пароль"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid "Video Conference"
 msgstr "Відеоконференція"
@@ -8893,18 +8893,18 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:272
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Вилучення журналу"
 
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

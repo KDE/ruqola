@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
 "PO-Revision-Date: 2024-03-23 11:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1361,12 +1361,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2893
+#: core/rocketchataccount.cpp:2883
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2894
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -1642,18 +1642,18 @@ msgstr "No es permet l'obtenció del missatge %2 a la sala %1"
 msgid "Invalid message: '%1'"
 msgstr "Missatge no vàlid: «%1»"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:117
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #, kde-format
 msgid "This room is blocked"
 msgstr "Esta sala està bloquejada"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:119
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Heu estat silenciat i no podeu parlar en esta sala"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:121
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:129
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:134
 #, kde-format
 msgid "Invalid channel"
 msgstr "Canal no vàlid"
@@ -1940,7 +1940,7 @@ msgid "Invalid role"
 msgstr "Rol no vàlid"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:153
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:159
 #, kde-format
 msgid "Invalid room"
 msgstr "Sala no vàlida"
@@ -2322,7 +2322,7 @@ msgstr "El canal no es pot convertir en equip."
 msgid "Team already exists."
 msgstr "L'equip ja existix."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:111
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:117
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "No teniu permís per a afegir este canal a l'equip"
@@ -3849,7 +3849,7 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
@@ -8836,18 +8836,18 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:272
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

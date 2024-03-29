@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1442,13 +1442,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2893
+#: core/rocketchataccount.cpp:2883
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2894
+#: core/rocketchataccount.cpp:2884
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1739,18 +1739,18 @@ msgstr ""
 msgid "Invalid message: '%1'"
 msgstr "Neplatný názov"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:117
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:122
 #, kde-format
 msgid "This room is blocked"
 msgstr ""
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:119
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:124
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr ""
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:121
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:129
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:134
 #, fuzzy, kde-format
 #| msgid "Invalid channel."
 msgid "Invalid channel"
@@ -2037,7 +2037,7 @@ msgid "Invalid role"
 msgstr "Neplatné pravidlo"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:337
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:153
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:159
 #, kde-format
 msgid "Invalid room"
 msgstr ""
@@ -2404,7 +2404,7 @@ msgstr "Odstrániť účet"
 msgid "Team already exists."
 msgstr ""
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:111
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:117
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr ""
@@ -4039,7 +4039,7 @@ msgid "Password"
 msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -9132,19 +9132,19 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Správa"
 
-#: widgets/room/roomwidget.cpp:272
+#: widgets/room/roomwidget.cpp:273
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:273
+#: widgets/room/roomwidget.cpp:274
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrániť účet"
 
-#: widgets/room/roomwidget.cpp:443
+#: widgets/room/roomwidget.cpp:444
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
