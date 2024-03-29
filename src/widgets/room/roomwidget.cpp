@@ -267,7 +267,7 @@ void RoomWidget::slotPruneMessages()
     dlg->setRoomName(mRoom->name());
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
-        info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
+        info.roomId = mRoomWidgetBase->roomId();
         if (KMessageBox::ButtonCode::PrimaryAction
             == KMessageBox::questionTwoActions(this,
                                                i18n("Do you want really remove history?"),
@@ -285,7 +285,7 @@ void RoomWidget::slotExportMessages()
     QPointer<ExportMessagesDialog> dlg = new ExportMessagesDialog(this);
     if (dlg->exec()) {
         RocketChatRestApi::RoomsExportJob::RoomsExportInfo info = dlg->roomExportInfo();
-        info.roomId = QString::fromLatin1(mRoomWidgetBase->roomId());
+        info.roomId = mRoomWidgetBase->roomId();
         mCurrentRocketChatAccount->exportMessages(info);
     }
     delete dlg;

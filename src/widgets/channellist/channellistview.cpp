@@ -377,7 +377,7 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)
 {
     const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
-    mCurrentRocketChatAccount->leaveRoom(QString::fromLatin1(roomId), roomType);
+    mCurrentRocketChatAccount->leaveRoom(roomId, roomType);
 }
 
 void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavorite)

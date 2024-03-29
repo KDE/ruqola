@@ -574,7 +574,7 @@ void RocketChatAccount::setSearchListCompletion(const QStringList &newSearchList
     mSearchListCompletion = newSearchListCompletion;
 }
 
-void RocketChatAccount::leaveRoom(const QString &identifier, Room::RoomType channelType)
+void RocketChatAccount::leaveRoom(const QByteArray &identifier, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
@@ -1325,7 +1325,7 @@ void RocketChatAccount::getThreadMessages(const QByteArray &threadMessageId, con
     restApi()->getThreadMessages(threadMessageId);
 }
 
-void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
+void RocketChatAccount::changeNotificationsSettings(const QByteArray &roomId,
                                                     RocketChatAccount::NotificationOptionsType notificationsType,
                                                     const QVariant &newValue)
 {

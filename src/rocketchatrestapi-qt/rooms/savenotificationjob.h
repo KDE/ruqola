@@ -25,8 +25,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
     [[nodiscard]] bool disableNotifications() const;
     void setDisableNotifications(bool disableNotifications);
@@ -82,7 +82,7 @@ private:
 
     SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
 
-    QString mRoomId;
+    QByteArray mRoomId;
 
     QString mDesktopNotifications;
     QString mEmailNotifications;

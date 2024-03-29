@@ -39,7 +39,7 @@ protected:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
-    LIBRUQOLACORE_NO_EXPORT void slotGetMessageDone(const QJsonObject &obj, const QString &messageId);
+    LIBRUQOLACORE_NO_EXPORT void slotGetMessageDone(const QJsonObject &obj, const QByteArray &messageId);
 
     mutable QMap<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;
     QCache<QByteArray, ThreadMessageModel> mThreadMessageModels;

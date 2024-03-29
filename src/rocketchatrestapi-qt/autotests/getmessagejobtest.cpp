@@ -6,7 +6,6 @@
 
 #include "getmessagejobtest.h"
 #include "chat/getmessagejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 QTEST_GUILESS_MAIN(GetMessageJobTest)
 using namespace RocketChatRestApi;
@@ -28,7 +27,7 @@ void GetMessageJobTest::shouldGenerateRequest()
 {
     GetMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setMessageId(QStringLiteral("foo"));
+    job.setMessageId(QByteArrayLiteral("foo"));
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage?msgId=foo")));
 }

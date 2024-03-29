@@ -65,7 +65,7 @@ QJsonDocument RoomsExportJob::json() const
 {
     QJsonObject jsonObj;
 
-    jsonObj[QLatin1StringView("rid")] = mRoomExportInfo.roomId;
+    jsonObj[QLatin1StringView("rid")] = QString::fromLatin1(mRoomExportInfo.roomId);
     switch (mRoomExportInfo.exportAs) {
     case RoomsExportInfo::ExportAs::Unknown:
         // Nothing it's a bug here.

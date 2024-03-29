@@ -50,21 +50,22 @@ void SaveNotificationJobTest::shouldGenerateRequest()
 void SaveNotificationJobTest::shouldGenerateJson()
 {
     SaveNotificationJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{},"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{},"roomId":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
 
     // Add settings
     const bool hideUnread = true;
     job.setHideUnreadStatus(hideUnread);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{"hideUnreadStatus":"1"},"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"notifications":{"hideUnreadStatus":"1"},"roomId":"%1"})").arg(QString::fromLatin1(roomId)).toLatin1());
     const QString mobilePushNotifications = QStringLiteral("all");
     job.setMobilePushNotifications(mobilePushNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral("{\"notifications\":{"
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-                 .arg(roomId, mobilePushNotifications)
+                 .arg(QString::fromLatin1(roomId), mobilePushNotifications)
                  .toLatin1());
 
     const bool disableNotifications = true;
@@ -74,7 +75,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
                             "\"disableNotifications\":\"1\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-                 .arg(roomId, mobilePushNotifications)
+                 .arg(QString::fromLatin1(roomId), mobilePushNotifications)
                  .toLatin1());
 
     const bool muteMentionGroups = true;
@@ -85,7 +86,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\","
                             "\"muteGroupMentions\":\"1\"},\"roomId\":\"%1\"}")
-                 .arg(roomId, mobilePushNotifications)
+                 .arg(QString::fromLatin1(roomId), mobilePushNotifications)
                  .toLatin1());
 
     // TODO add more settings
@@ -108,7 +109,7 @@ void SaveNotificationJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
 

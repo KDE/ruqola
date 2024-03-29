@@ -36,9 +36,9 @@ void CustomUserStatusDeleteTestJob::shouldGenerateJson()
 {
     CustomUserStatusDeleteJob job;
 
-    const QString statusId = QStringLiteral("foo1");
+    const QByteArray statusId("foo1");
     job.setCustomUserStatusId(statusId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"customUserStatusId":"%1"})").arg(statusId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"customUserStatusId":"%1"})").arg(QString::fromLatin1(statusId)).toLatin1());
 }
 
 void CustomUserStatusDeleteTestJob::shouldNotStarting()
@@ -58,7 +58,7 @@ void CustomUserStatusDeleteTestJob::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
 
-    const QString statusId = QStringLiteral("foo1");
+    const QByteArray statusId("foo1");
     job.setCustomUserStatusId(statusId);
     QVERIFY(job.canStart());
 }

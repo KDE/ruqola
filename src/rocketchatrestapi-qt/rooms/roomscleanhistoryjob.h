@@ -20,7 +20,7 @@ public:
         [[nodiscard]] bool isValid() const;
         QDateTime latest; // required
         QDateTime oldest; // required
-        QString roomId; // required
+        QByteArray roomId; // required
         QStringList users;
         bool inclusive = false;
         bool excludePinned = false;

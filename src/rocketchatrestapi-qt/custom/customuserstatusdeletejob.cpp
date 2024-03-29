@@ -42,12 +42,12 @@ void CustomUserStatusDeleteJob::onPostRequestResponse(const QString &replyErrorS
     }
 }
 
-QString CustomUserStatusDeleteJob::customUserStatusId() const
+QByteArray CustomUserStatusDeleteJob::customUserStatusId() const
 {
     return mCustomUserStatusId;
 }
 
-void CustomUserStatusDeleteJob::setCustomUserStatusId(const QString &customUserStatusId)
+void CustomUserStatusDeleteJob::setCustomUserStatusId(const QByteArray &customUserStatusId)
 {
     mCustomUserStatusId = customUserStatusId;
 }
@@ -81,7 +81,7 @@ QNetworkRequest CustomUserStatusDeleteJob::request() const
 QJsonDocument CustomUserStatusDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("customUserStatusId")] = mCustomUserStatusId;
+    jsonObj[QLatin1StringView("customUserStatusId")] = QString::fromLatin1(mCustomUserStatusId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

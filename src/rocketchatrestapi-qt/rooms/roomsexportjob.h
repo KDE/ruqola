@@ -29,7 +29,7 @@ public:
         };
 
         [[nodiscard]] bool isValid() const;
-        QString roomId;
+        QByteArray roomId;
         QStringList toUsers;
         QStringList toEmails;
         QString subject;

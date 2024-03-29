@@ -50,7 +50,7 @@ void RoomsExportJobTest::shouldGenerateJson()
     RoomsExportJob job;
     RoomsExportJob::RoomsExportInfo info;
     // TODO
-    const QString roomId = QStringLiteral("room1");
+    const QByteArray roomId("room1");
     info.roomId = roomId;
     info.exportAs = RoomsExportJob::RoomsExportInfo::ExportAs::File;
 
@@ -58,7 +58,9 @@ void RoomsExportJobTest::shouldGenerateJson()
     info.dateTo = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
     job.setRoomExportInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"dateFrom":"2020-12-03T05:07:50.000","dateTo":"2020-03-03T05:07:50.000","rid":"%1","type":"file"})").arg(roomId).toLatin1());
+             QStringLiteral(R"({"dateFrom":"2020-12-03T05:07:50.000","dateTo":"2020-03-03T05:07:50.000","rid":"%1","type":"file"})")
+                 .arg(QString::fromLatin1(roomId))
+                 .toLatin1());
     //    info.inclusive = true;
     //    job.setCleanHistoryInfo(info);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
@@ -92,7 +94,7 @@ void RoomsExportJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     RoomsExportJob::RoomsExportInfo info;
-    const QString roomId = QStringLiteral("room1");
+    const QByteArray roomId("room1");
     info.roomId = roomId;
     job.setRoomExportInfo(info);
     QVERIFY(!job.canStart());

@@ -147,7 +147,7 @@ public:
     [[nodiscard]] Room::TeamRoomInfo roomFromTeamId(const QByteArray &teamId) const;
 
     void textEditing(const QByteArray &roomId, bool clearNotification);
-    void leaveRoom(const QString &identifier, Room::RoomType channelType);
+    void leaveRoom(const QByteArray &identifier, Room::RoomType channelType);
     void hideRoom(const QByteArray &roomId, Room::RoomType channelType);
     void tryLogin();
     void logOut();
@@ -167,7 +167,7 @@ public:
     void deleteMessage(const QByteArray &messageId, const QByteArray &roomId);
     void userAutocomplete(const QString &searchText, const QString &exception);
     void eraseRoom(const QByteArray &roomId, Room::RoomType channelType);
-    void changeNotificationsSettings(const QString &QByteArray, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
+    void changeNotificationsSettings(const QByteArray &QByteArray, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     void starMessage(const QByteArray &messageId, bool starred);
     void pinMessage(const QByteArray &messageId, bool pinned);

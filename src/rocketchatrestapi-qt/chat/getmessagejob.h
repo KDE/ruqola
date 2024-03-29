@@ -26,14 +26,14 @@ public:
 
     [[nodiscard]] bool canStart() const override;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &messageId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &messageId);
 
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &roomId);
 
 Q_SIGNALS:
-    void getMessageDone(const QJsonObject &obj, const QString &messageId, const QByteArray &roomId);
+    void getMessageDone(const QJsonObject &obj, const QByteArray &messageId, const QByteArray &roomId);
 
 protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
@@ -41,7 +41,7 @@ protected:
 private:
     Q_DISABLE_COPY(GetMessageJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mMessageId;
+    QByteArray mMessageId;
     QByteArray mRoomId;
 };
 }

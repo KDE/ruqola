@@ -46,7 +46,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     } else if (!mMessageJobs.contains(messageId)) {
         auto job = new RocketChatRestApi::GetMessageJob(this);
         mMessageJobs.insert(messageId, job);
-        job->setMessageId(QString::fromLatin1(messageId));
+        job->setMessageId(messageId);
         connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone, this, &MessageCache::slotGetMessageDone);
         if (!startJob(job)) {
             qCDebug(RUQOLA_LOG) << "Impossible to start GetMessageJob";
@@ -69,15 +69,15 @@ void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QByte
     Q_EMIT modelLoaded();
 }
 
-void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QString &messageId)
+void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QByteArray &messageId)
 {
     const QJsonObject msgObject = obj[QLatin1StringView("message")].toObject();
     Q_ASSERT(!msgObject.isEmpty());
     auto message = new Message;
     message->parseMessage(msgObject, true, nullptr);
-    Q_ASSERT(messageId.toLatin1() == message->messageId());
+    Q_ASSERT(messageId == message->messageId());
     mMessages.insert(message->messageId(), message);
-    mMessageJobs.remove(messageId.toLatin1());
+    mMessageJobs.remove(messageId);
     Q_EMIT messageLoaded(message->messageId());
 }
 

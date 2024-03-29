@@ -153,12 +153,12 @@ void SaveNotificationJob::setMuteGroupMentions(bool muteGroupMentions)
     mMuteGroupMentions = muteGroupMentions;
 }
 
-QString SaveNotificationJob::roomId() const
+QByteArray SaveNotificationJob::roomId() const
 {
     return mRoomId;
 }
 
-void SaveNotificationJob::setRoomId(const QString &roomId)
+void SaveNotificationJob::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
@@ -196,7 +196,7 @@ QNetworkRequest SaveNotificationJob::request() const
 QJsonDocument SaveNotificationJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mRoomId;
+    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mRoomId);
     QJsonObject notificationsJson;
 
     if (mSettingsWillBeChanged & EmailNotifications) {

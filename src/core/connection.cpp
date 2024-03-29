@@ -551,26 +551,26 @@ void Connection::createGroups(const RocketChatRestApi::CreateChannelTeamInfo &in
     }
 }
 
-void Connection::leaveChannel(const QString &roomId)
+void Connection::leaveChannel(const QByteArray &roomId)
 {
     auto job = new LeaveChannelJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start leaveChannel job";
     }
 }
 
-void Connection::leaveGroups(const QString &roomId)
+void Connection::leaveGroups(const QByteArray &roomId)
 {
     auto job = new LeaveGroupsJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = roomId;
+    info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start leaveGroups job";
@@ -849,7 +849,7 @@ void Connection::markAsFavorite(const QByteArray &roomId, bool favorite)
     }
 }
 
-void Connection::disableNotifications(const QString &roomId, bool value)
+void Connection::disableNotifications(const QByteArray &roomId, bool value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -860,7 +860,7 @@ void Connection::disableNotifications(const QString &roomId, bool value)
     }
 }
 
-void Connection::muteGroupMentions(const QString &roomId, bool value)
+void Connection::muteGroupMentions(const QByteArray &roomId, bool value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -871,7 +871,7 @@ void Connection::muteGroupMentions(const QString &roomId, bool value)
     }
 }
 
-void Connection::desktopDurationNotifications(const QString &roomId, int value)
+void Connection::desktopDurationNotifications(const QByteArray &roomId, int value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -882,7 +882,7 @@ void Connection::desktopDurationNotifications(const QString &roomId, int value)
     }
 }
 
-void Connection::hideMentionStatus(const QString &roomId, bool value)
+void Connection::hideMentionStatus(const QByteArray &roomId, bool value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -893,7 +893,7 @@ void Connection::hideMentionStatus(const QString &roomId, bool value)
     }
 }
 
-void Connection::desktopSoundNotifications(const QString &roomId, const QString &value)
+void Connection::desktopSoundNotifications(const QByteArray &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -952,7 +952,7 @@ void Connection::groupInfo(const QByteArray &roomId)
     }
 }
 
-void Connection::hideUnreadStatus(const QString &roomId, bool value)
+void Connection::hideUnreadStatus(const QByteArray &roomId, bool value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -963,7 +963,7 @@ void Connection::hideUnreadStatus(const QString &roomId, bool value)
     }
 }
 
-void Connection::desktopNotifications(const QString &roomId, const QString &value)
+void Connection::desktopNotifications(const QByteArray &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -974,7 +974,7 @@ void Connection::desktopNotifications(const QString &roomId, const QString &valu
     }
 }
 
-void Connection::emailNotifications(const QString &roomId, const QString &value)
+void Connection::emailNotifications(const QByteArray &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -985,7 +985,7 @@ void Connection::emailNotifications(const QString &roomId, const QString &value)
     }
 }
 
-void Connection::mobilePushNotifications(const QString &roomId, const QString &value)
+void Connection::mobilePushNotifications(const QByteArray &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -996,7 +996,7 @@ void Connection::mobilePushNotifications(const QString &roomId, const QString &v
     }
 }
 
-void Connection::unreadAlert(const QString &roomId, const QString &value)
+void Connection::unreadAlert(const QByteArray &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
@@ -1549,7 +1549,7 @@ void Connection::getThreadsList(const QByteArray &roomId, bool onlyUnread, int o
     }
 }
 
-void Connection::getMessage(const QString &messageId, const QByteArray &roomId)
+void Connection::getMessage(const QByteArray &messageId, const QByteArray &roomId)
 {
     auto job = new GetMessageJob(this);
     initializeRestApiJob(job);
@@ -1893,7 +1893,7 @@ void Connection::createCustomUserStatus(const CustomUserStatusCreateJob::StatusC
 void Connection::deleteCustomUserStatus(const QByteArray &customUserStatusId)
 {
     auto job = new CustomUserStatusDeleteJob(this);
-    job->setCustomUserStatusId(QString::fromLatin1(customUserStatusId));
+    job->setCustomUserStatusId(customUserStatusId);
     initializeRestApiJob(job);
     connect(job, &CustomUserStatusDeleteJob::userStatusDeletedDone, this, &Connection::userStatusDeletedDone);
     if (!job->start()) {

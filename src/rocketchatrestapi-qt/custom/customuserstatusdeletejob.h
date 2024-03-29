@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString customUserStatusId() const;
-    void setCustomUserStatusId(const QString &customUserStatusId);
+    [[nodiscard]] QByteArray customUserStatusId() const;
+    void setCustomUserStatusId(const QByteArray &customUserStatusId);
 
 Q_SIGNALS:
     void userStatusDeletedDone();
@@ -33,6 +33,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(CustomUserStatusDeleteJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mCustomUserStatusId;
+    QByteArray mCustomUserStatusId;
 };
 }
