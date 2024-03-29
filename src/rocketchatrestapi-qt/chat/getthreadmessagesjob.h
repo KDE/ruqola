@@ -26,16 +26,16 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId);
+    [[nodiscard]] QByteArray threadMessageId() const;
+    void setThreadMessageId(const QByteArray &threadMessageId);
 
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
 Q_SIGNALS:
-    void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
+    void getThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
 
 private:
     Q_DISABLE_COPY(GetThreadMessagesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mThreadMessageId;
+    QByteArray mThreadMessageId;
 };
 }

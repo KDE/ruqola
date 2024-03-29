@@ -14,12 +14,12 @@ ManageLoadHistoryParseSyncMessagesUtils::ManageLoadHistoryParseSyncMessagesUtils
 
 ManageLoadHistoryParseSyncMessagesUtils::~ManageLoadHistoryParseSyncMessagesUtils() = default;
 
-QStringList ManageLoadHistoryParseSyncMessagesUtils::deletedMessages() const
+QList<QByteArray> ManageLoadHistoryParseSyncMessagesUtils::deletedMessages() const
 {
     return mDeletedMessages;
 }
 
-void ManageLoadHistoryParseSyncMessagesUtils::setDeletedMessages(const QStringList &newDeletedMessages)
+void ManageLoadHistoryParseSyncMessagesUtils::setDeletedMessages(const QList<QByteArray> &newDeletedMessages)
 {
     mDeletedMessages = newDeletedMessages;
 }
@@ -42,7 +42,7 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
     const QJsonArray deleteArray = result[QLatin1StringView("deleted")].toArray();
     for (int i = 0, total = deleteArray.size(); i < total; ++i) {
         const QJsonObject o = deleteArray.at(i).toObject();
-        mDeletedMessages.append(o[QLatin1StringView("_id")].toString());
+        mDeletedMessages.append(o[QLatin1StringView("_id")].toString().toLatin1());
     }
 
     QList<Message> updatedMessages;

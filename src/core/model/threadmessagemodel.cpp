@@ -15,12 +15,12 @@ ThreadMessageModel::ThreadMessageModel(RocketChatAccount *account, QObject *pare
 
 ThreadMessageModel::~ThreadMessageModel() = default;
 
-QString ThreadMessageModel::threadMessageId() const
+QByteArray ThreadMessageModel::threadMessageId() const
 {
     return mThreadMessageId;
 }
 
-void ThreadMessageModel::setThreadMessageId(const QString &threadMessageId)
+void ThreadMessageModel::setThreadMessageId(const QByteArray &threadMessageId)
 {
     mThreadMessageId = threadMessageId;
 }

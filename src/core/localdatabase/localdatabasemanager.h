@@ -24,7 +24,7 @@ public:
     LocalDatabaseManager();
     ~LocalDatabaseManager();
 
-    void deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId);
+    void deleteMessage(const QString &accountName, const QString &roomName, const QByteArray &messageId);
     void addMessage(const QString &accountName, const QString &roomName, const Message &m);
 
     void addRoom(const QString &accountName, Room *room);

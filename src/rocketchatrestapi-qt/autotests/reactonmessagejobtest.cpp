@@ -38,16 +38,16 @@ void ReactOnMessageJobTest::shouldGenerateRequest()
 void ReactOnMessageJobTest::shouldGenerateJson()
 {
     ReactOnMessageJob job;
-    const QString messageid = QStringLiteral("foo1");
+    const QByteArray messageid("foo1");
     const QString emoji = QStringLiteral("topic1");
     job.setMessageId(messageid);
     job.setEmoji(emoji);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":true})").arg(emoji, messageid).toLatin1());
+             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":true})").arg(emoji, QString::fromLatin1(messageid)).toLatin1());
 
     job.setShouldReact(false);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":false})").arg(emoji, messageid).toLatin1());
+             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":false})").arg(emoji, QString::fromLatin1(messageid)).toLatin1());
 }
 
 void ReactOnMessageJobTest::shouldNotStarting()
@@ -67,7 +67,7 @@ void ReactOnMessageJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString messageId = QStringLiteral("foo1");
+    const QByteArray messageId("foo1");
     job.setMessageId(messageId);
     QVERIFY(!job.canStart());
     const QString emoji = QStringLiteral("topic1");

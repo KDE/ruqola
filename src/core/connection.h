@@ -84,7 +84,7 @@ public:
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
     void updateMessage(const QByteArray &roomId, const QByteArray &messageId, const QString &text);
-    void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
+    void reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact);
     void closeChannel(const QByteArray &roomId, const QString &type);
     void createDirectMessage(const QStringList &userName);
     void historyChannel(const QString &roomId, const QString &type);
@@ -162,7 +162,7 @@ public:
                           const QList<QByteArray> &users);
     void getDiscussions(const QByteArray &roomId, int offset = 0, int count = 50);
     void getThreadsList(const QByteArray &roomId, bool onlyUnread, int offset = 0, int count = 50);
-    void getThreadMessages(const QString &threadMessageId);
+    void getThreadMessages(const QByteArray &threadMessageId);
     void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
     void getPinnedMessages(const QByteArray &roomId, int offset = 0, int count = 50);
     void autoTranslateSaveLanguageSettings(const QByteArray &roomId, const QString &language);
@@ -238,7 +238,7 @@ Q_SIGNALS:
     void startDiscussionDone();
     void getDiscussionsDone(const QJsonObject &obj, const QByteArray &roomId);
     void getThreadsDone(const QJsonObject &obj, const QString &roomId, bool onlyUnread);
-    void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
+    void getThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
     void getPinnedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getStarredMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getSnippetedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);

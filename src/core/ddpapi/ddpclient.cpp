@@ -427,7 +427,7 @@ quint64 DDPClient::deleteFileMessage(const QByteArray &roomId, const QByteArray 
     return method(result, callback, DDPClient::Persistent);
 }
 
-quint64 DDPClient::openRoom(const QString &roomId)
+quint64 DDPClient::openRoom(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, mUid);
     return method(result, open_room, DDPClient::Persistent);

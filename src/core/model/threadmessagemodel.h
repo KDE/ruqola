@@ -16,8 +16,8 @@ public:
     explicit ThreadMessageModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~ThreadMessageModel() override;
 
-    [[nodiscard]] QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId);
+    [[nodiscard]] QByteArray threadMessageId() const;
+    void setThreadMessageId(const QByteArray &threadMessageId);
 
     void parseThreadMessages(const QJsonObject &obj);
     void loadMoreThreadMessages(const QJsonObject &obj);
@@ -29,6 +29,6 @@ public:
 private:
     LIBRUQOLACORE_NO_EXPORT void parse(const QJsonObject &obj);
     Message mPreviewMessage;
-    QString mThreadMessageId;
+    QByteArray mThreadMessageId;
     int mTotal = 0;
 };

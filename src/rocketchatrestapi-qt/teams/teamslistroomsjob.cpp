@@ -49,12 +49,12 @@ void TeamsListRoomsJob::onGetRequestResponse(const QString &replyErrorString, co
     }
 }
 
-QString TeamsListRoomsJob::teamId() const
+QByteArray TeamsListRoomsJob::teamId() const
 {
     return mTeamId;
 }
 
-void TeamsListRoomsJob::setTeamId(const QString &teamId)
+void TeamsListRoomsJob::setTeamId(const QByteArray &teamId)
 {
     mTeamId = teamId;
 }
@@ -63,7 +63,7 @@ QNetworkRequest TeamsListRoomsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::TeamsListRooms);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("teamId"), mTeamId);
+    queryUrl.addQueryItem(QStringLiteral("teamId"), QString::fromLatin1(mTeamId));
     // TODO add offset/count for the future
     // Add filter
     url.setQuery(queryUrl);

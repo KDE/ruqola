@@ -429,7 +429,7 @@ void RocketChatAccount::textEditing(const QByteArray &roomId, bool clearNotifica
     mTypingNotification->textNotificationChanged(roomId, clearNotification);
 }
 
-void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
+void RocketChatAccount::reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact)
 {
     if (emoji.startsWith(QLatin1Char(':')) && emoji.endsWith(QLatin1Char(':'))) {
         restApi()->reactOnMessage(messageId, emoji, shouldReact);
@@ -985,7 +985,7 @@ void RocketChatAccount::slotChannelGroupRolesDone(const QJsonObject &obj, const 
     }
 }
 
-void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
+void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId)
 {
     if (mThreadMessageModel->threadMessageId() != threadMessageId) {
         mThreadMessageModel->setThreadMessageId(threadMessageId);
@@ -1132,7 +1132,7 @@ void RocketChatAccount::loadMoreDiscussions(const QByteArray &roomId)
 
 void RocketChatAccount::updateThreadMessageList(const Message &m)
 {
-    if (mThreadMessageModel->threadMessageId().toLatin1() == m.threadMessageId()) {
+    if (mThreadMessageModel->threadMessageId() == m.threadMessageId()) {
         mThreadMessageModel->addMessages({m});
     }
 }
@@ -1245,7 +1245,7 @@ void RocketChatAccount::loadMoreListMessages(const QByteArray &roomId)
     }
 }
 
-void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId)
+void RocketChatAccount::loadThreadMessagesHistory(const QByteArray &threadMessageId)
 {
     restApi()->getThreadMessages(threadMessageId);
 }
@@ -1318,7 +1318,7 @@ void RocketChatAccount::reportMessage(const QByteArray &messageId, const QString
     restApi()->reportMessage(messageId, message);
 }
 
-void RocketChatAccount::getThreadMessages(const QString &threadMessageId, const Message &message)
+void RocketChatAccount::getThreadMessages(const QByteArray &threadMessageId, const Message &message)
 {
     // mListMessageModel->clear();
     mThreadMessageModel->setPreviewMessage(message);
@@ -2515,7 +2515,7 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     // qCDebug(RUQOLA_COMMANDS_LOG) << "accountname " << accountName() << "\nslotListCommandDone " << obj;
 }
 
-bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId, const QString &tmid)
+bool RocketChatAccount::runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid)
 {
     const RocketChatRestApi::RunCommandJob::RunCommandInfo info = RocketChatRestApi::RunCommandJob::parseString(msg, roomId, tmid);
     if (info.isValid()) {
@@ -3047,7 +3047,7 @@ void RocketChatAccount::addMessageToDataBase(const QString &roomName, const Mess
     mLocalDatabaseManager->addMessage(accountName(), roomName, message);
 }
 
-void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const QString &messageId)
+void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const QByteArray &messageId)
 {
     mLocalDatabaseManager->deleteMessage(accountName(), roomName, messageId);
 }

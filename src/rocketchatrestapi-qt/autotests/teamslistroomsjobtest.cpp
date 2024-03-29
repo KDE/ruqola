@@ -28,11 +28,11 @@ void TeamsListRoomsJobTest::shouldHaveDefaultValue()
 void TeamsListRoomsJobTest::shouldGenerateRequest()
 {
     TeamsListRoomsJob job;
-    const QString teamId = QStringLiteral("blu");
+    const QByteArray teamId("blu");
     job.setTeamId(teamId);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listRooms?teamId=%1").arg(teamId)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/teams.listRooms?teamId=%1").arg(QString::fromLatin1(teamId))));
 }
 
 void TeamsListRoomsJobTest::shouldNotStarting()
@@ -52,7 +52,7 @@ void TeamsListRoomsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString teamId = QStringLiteral("foo1");
+    const QByteArray teamId("foo1");
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
 }

@@ -130,7 +130,7 @@ void ThreadMessageWidget::setThreadMessageInfo(const ThreadMessageWidget::Thread
     mThreadPreview->setText(info.threadMessagePreview);
     if (mThreadMessageId != info.threadMessageId) {
         mThreadMessageId = info.threadMessageId;
-        mRocketChatAccount->getThreadMessages(QString::fromLatin1(mThreadMessageId), info.messageThread);
+        mRocketChatAccount->getThreadMessages(mThreadMessageId, info.messageThread);
         mRoomWidgetBase->messageListView()->setModel(mRocketChatAccount->threadMessageModel());
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(mThreadMessageId, {}, true);
     }

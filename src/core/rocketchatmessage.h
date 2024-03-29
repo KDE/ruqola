@@ -74,7 +74,7 @@ public:
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setAdminStatus(const QByteArray &userId, bool admin, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult openRoom(const QString &roomId, quint64 id);
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult openRoom(const QByteArray &roomId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult bannerDismiss(const QByteArray &bannerId, quint64 id);
 

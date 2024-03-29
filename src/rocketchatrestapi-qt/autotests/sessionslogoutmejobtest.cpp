@@ -36,10 +36,10 @@ void SessionsLogoutMeJobTest::shouldGenerateRequest()
 void SessionsLogoutMeJobTest::shouldGenerateJson()
 {
     SessionsLogoutMeJob job;
-    const QString sessionId = QStringLiteral("foo1");
+    const QByteArray sessionId("foo1");
     job.setSessionId(sessionId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"sessionId":"%1"})").arg(sessionId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"sessionId":"%1"})").arg(QString::fromLatin1(sessionId)).toLatin1());
 }
 
 void SessionsLogoutMeJobTest::shouldNotStarting()
@@ -59,7 +59,7 @@ void SessionsLogoutMeJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString sessionId = QStringLiteral("foo1");
+    const QByteArray sessionId("foo1");
     job.setSessionId(sessionId);
     QVERIFY(job.canStart());
 }

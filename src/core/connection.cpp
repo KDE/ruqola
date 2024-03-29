@@ -601,7 +601,7 @@ void Connection::updateMessage(const QByteArray &roomId, const QByteArray &messa
     }
 }
 
-void Connection::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
+void Connection::reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact)
 {
     auto job = new ReactOnMessageJob(this);
     initializeRestApiJob(job);
@@ -1635,7 +1635,7 @@ void Connection::getSnippetedMessages(const QByteArray &roomId, int offset, int 
     }
 }
 
-void Connection::getThreadMessages(const QString &threadMessageId)
+void Connection::getThreadMessages(const QByteArray &threadMessageId)
 {
     auto job = new GetThreadMessagesJob(this);
     initializeRestApiJob(job);

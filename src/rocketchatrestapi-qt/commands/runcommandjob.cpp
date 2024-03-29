@@ -53,16 +53,16 @@ void RunCommandJob::setRunCommandInfo(const RunCommandInfo &runCommandInfo)
     mRunCommandInfo = runCommandInfo;
 }
 
-RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QByteArray &roomId, const QString &tmid)
+RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid)
 {
     RunCommandJob::RunCommandInfo info;
     if (str.length() > 1) {
-        QString newStr = str.mid(1);
+        const QString newStr = str.mid(1);
         QStringList lst = newStr.split(QLatin1Char(' '), Qt::SkipEmptyParts);
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = QString::fromLatin1(roomId);
-        info.threadMessageId = tmid;
+        info.threadMessageId = QString::fromLatin1(tmid);
         if (numberElement > 1) {
             info.params = lst.join(QLatin1Char(' '));
         }

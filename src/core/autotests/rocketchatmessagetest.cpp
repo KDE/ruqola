@@ -259,7 +259,7 @@ void RocketChatMessageTest::openRoom()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.openRoom(QStringLiteral("bla"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.openRoom(QByteArrayLiteral("bla"), 43);
     compareFile(r.result, QStringLiteral("openroom"));
 }
 

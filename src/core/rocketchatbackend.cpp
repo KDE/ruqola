@@ -216,22 +216,21 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
     }
 }
 
-void RocketChatBackend::removeMessageFromLocalDatabase(const QStringList &messageIds, const QByteArray &roomId)
+void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &messageIds, const QByteArray &roomId)
 {
     if (messageIds.isEmpty()) {
         return;
     }
     auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
-    for (const auto &message : messageIds) {
-        const QString messageId{message};
-        messageModel->deleteMessage(messageId.toLatin1());
+    for (const auto &messageId : messageIds) {
+        messageModel->deleteMessage(messageId);
         Room *room = mRocketChatAccount->room(roomId);
         if (room) {
             mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
         }
         // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
         MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
-        threadMessageModel->deleteMessage(messageId.toLatin1());
+        threadMessageModel->deleteMessage(messageId);
     }
 }
 
@@ -647,15 +646,15 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
-                const QString messageId = contents.at(0).toObject()[QLatin1StringView("_id")].toString();
-                messageModel->deleteMessage(messageId.toLatin1());
+                const QByteArray messageId = contents.at(0).toObject()[QLatin1StringView("_id")].toString().toLatin1();
+                messageModel->deleteMessage(messageId);
                 Room *room = mRocketChatAccount->room(roomId.toLatin1());
                 if (room) {
                     mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
                 }
                 // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
                 MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
-                threadMessageModel->deleteMessage(messageId.toLatin1());
+                threadMessageModel->deleteMessage(messageId);
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }

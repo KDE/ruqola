@@ -224,7 +224,7 @@ bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, Q
                 if (reactionLayout.reactionRect.contains(pos)) {
                     const Reaction &reaction = reactionLayout.reaction;
                     const bool doAdd = !reaction.userNames().contains(mRocketChatAccount->userName());
-                    mRocketChatAccount->reactOnMessage(QString::fromLatin1(message->messageId()), reaction.reactionName(), doAdd);
+                    mRocketChatAccount->reactOnMessage(message->messageId(), reaction.reactionName(), doAdd);
                     return true;
                 }
             }

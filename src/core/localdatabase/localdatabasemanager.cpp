@@ -33,11 +33,12 @@ void LocalDatabaseManager::addMessage(const QString &accountName, const QString 
     }
 }
 
-void LocalDatabaseManager::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
+void LocalDatabaseManager::deleteMessage(const QString &accountName, const QString &roomName, const QByteArray &messageId)
 {
-    mMessageLogger->deleteMessage(accountName, roomName, messageId);
+    const QString msgId = QString::fromLatin1(messageId);
+    mMessageLogger->deleteMessage(accountName, roomName, msgId);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mMessagesDatabase->deleteMessage(accountName, roomName, messageId);
+        mMessagesDatabase->deleteMessage(accountName, roomName, msgId);
         mGlobalDatabase->removeTimeStamp(accountName, roomName, GlobalDatabase::TimeStampType::MessageTimeStamp);
     }
 }

@@ -29,7 +29,7 @@ ThreadMessageModel *MessageCache::threadMessageModel(const QByteArray &threadMes
         // Load the base msg of the thread
         auto job = new RocketChatRestApi::GetThreadMessagesJob(this);
         mThreadMessageJobs.insert(threadMessageId, job);
-        job->setThreadMessageId(QString::fromLatin1(threadMessageId));
+        job->setThreadMessageId(threadMessageId);
         connect(job, &RocketChatRestApi::GetThreadMessagesJob::getThreadMessagesDone, this, &MessageCache::slotGetThreadMessagesDone);
         if (!startJob(job)) {
             qCDebug(RUQOLA_LOG) << "Impossible to start GetThreadMessagesJob";
@@ -55,17 +55,17 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     return nullptr;
 }
 
-void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
+void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId)
 {
-    ThreadMessageModel *model = mThreadMessageModels.object(threadMessageId.toLatin1());
+    ThreadMessageModel *model = mThreadMessageModels.object(threadMessageId);
     if (!model) {
         model = new ThreadMessageModel;
         model->parseThreadMessages(obj);
-        mThreadMessageModels.insert(threadMessageId.toLatin1(), model);
+        mThreadMessageModels.insert(threadMessageId, model);
     } else {
         model->loadMoreThreadMessages(obj);
     }
-    mThreadMessageJobs.remove(threadMessageId.toLatin1());
+    mThreadMessageJobs.remove(threadMessageId);
     Q_EMIT modelLoaded();
 }
 

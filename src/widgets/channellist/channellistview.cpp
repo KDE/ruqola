@@ -252,7 +252,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
 {
     const QByteArray teamId = index.data(RoomModel::RoomTeamId).toByteArray();
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
-    job->setTeamId(QString::fromLatin1(teamId));
+    job->setTeamId(teamId);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, index](const QJsonObject &obj) {
         const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);

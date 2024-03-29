@@ -86,7 +86,7 @@ void TeamChannelsWidget::setRoom(Room *room)
 void TeamChannelsWidget::initializeTeamRoomsList()
 {
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
-    job->setTeamId(QString::fromLatin1(mTeamId));
+    job->setTeamId(mTeamId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &TeamChannelsWidget::slotTeamListRoomsDone);
     if (!job->start()) {

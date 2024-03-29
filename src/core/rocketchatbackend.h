@@ -41,7 +41,7 @@ public:
 
     void addMessagesFromLocalDataBase(const QList<Message> &messages);
 
-    void removeMessageFromLocalDatabase(const QStringList &messageIds, const QByteArray &roomId);
+    void removeMessageFromLocalDatabase(const QList<QByteArray> &messageIds, const QByteArray &roomId);
 
     void loadPublicSettings(qint64 timeStamp = -1);
 

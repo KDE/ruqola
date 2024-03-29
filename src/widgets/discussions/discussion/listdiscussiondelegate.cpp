@@ -158,8 +158,7 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
 
         const QRect discussionRect(layout.textRect.x(), layout.openDiscussionTextY, layout.textRect.width(), layout.openDiscussionTextHeight);
         if (discussionRect.contains(mev->pos())) {
-            const QString discussionRoomId = QString::fromLatin1(index.data(DiscussionsModel::DiscussionRoomId).toByteArray());
-            // TODO use QByteArray here
+            const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
             Q_EMIT openDiscussion(discussionRoomId);
             return true;
         }

@@ -48,7 +48,7 @@ bool DiscussionListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewIt
     return mListDiscussionDelegate->mouseEvent(event, option, index);
 }
 
-void DiscussionListView::slotOpenDiscussion(const QString &roomDiscussionId)
+void DiscussionListView::slotOpenDiscussion(const QByteArray &roomDiscussionId)
 {
     if (mRocketChatAccount) {
         mRocketChatAccount->ddp()->openRoom(roomDiscussionId);

@@ -106,7 +106,7 @@ void MyAccountManageDeviceConfigureWidget::slotDisconnectDevice(const QModelInde
     auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);
     const QByteArray sessionsId = modelIndex.data().toByteArray();
-    job->setSessionId(QString::fromLatin1(sessionsId));
+    job->setSessionId(sessionsId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SessionsLogoutMeJob::logoutMeDone, this, [this, sessionsId]() {
         slotDeviceRemoved(sessionsId);

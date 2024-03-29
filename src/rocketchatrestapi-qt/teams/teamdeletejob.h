@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString teamId() const;
-    void setTeamId(const QString &teamId);
+    [[nodiscard]] QByteArray teamId() const;
+    void setTeamId(const QByteArray &teamId);
 
     [[nodiscard]] QList<QByteArray> roomsId() const;
     void setRoomsId(const QList<QByteArray> &roomsId);
@@ -37,6 +37,6 @@ private:
     Q_DISABLE_COPY(TeamDeleteJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QList<QByteArray> mRoomToDeleteId;
-    QString mTeamId;
+    QByteArray mTeamId;
 };
 }

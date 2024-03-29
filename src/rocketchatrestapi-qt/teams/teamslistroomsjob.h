@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QString teamId() const;
-    void setTeamId(const QString &teamId);
+    [[nodiscard]] QByteArray teamId() const;
+    void setTeamId(const QByteArray &teamId);
 
     [[nodiscard]] bool canStart() const override;
 
@@ -38,6 +38,6 @@ protected:
 private:
     Q_DISABLE_COPY(TeamsListRoomsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mTeamId;
+    QByteArray mTeamId;
 };
 }

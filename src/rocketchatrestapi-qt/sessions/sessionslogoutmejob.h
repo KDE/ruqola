@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] const QString &sessionId() const;
-    void setSessionId(const QString &newSessionId);
+    [[nodiscard]] const QByteArray &sessionId() const;
+    void setSessionId(const QByteArray &newSessionId);
 
 Q_SIGNALS:
     void logoutMeDone();
@@ -33,6 +33,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(SessionsLogoutMeJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mSessionId;
+    QByteArray mSessionId;
 };
 }

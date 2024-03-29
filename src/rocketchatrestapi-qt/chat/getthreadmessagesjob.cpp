@@ -61,12 +61,12 @@ void GetThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString,
     }
 }
 
-QString GetThreadMessagesJob::threadMessageId() const
+QByteArray GetThreadMessagesJob::threadMessageId() const
 {
     return mThreadMessageId;
 }
 
-void GetThreadMessagesJob::setThreadMessageId(const QString &threadMessageId)
+void GetThreadMessagesJob::setThreadMessageId(const QByteArray &threadMessageId)
 {
     mThreadMessageId = threadMessageId;
 }
@@ -75,7 +75,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("tmid"), mThreadMessageId);
+    queryUrl.addQueryItem(QStringLiteral("tmid"), QString::fromLatin1(mThreadMessageId));
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
@@ -88,7 +88,7 @@ QNetworkRequest GetThreadMessagesJob::request() const
 QString GetThreadMessagesJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1StringView("error-invalid-message")) {
-        return i18n("Invalid message: \'%1\'", mThreadMessageId);
+        return i18n("Invalid message: \'%1\'", QString::fromLatin1(mThreadMessageId));
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }

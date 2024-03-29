@@ -38,7 +38,7 @@ protected:
     virtual bool startJob(RocketChatRestApi::RestApiAbstractJob *job); // virtual for unittest
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
+    LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
     LIBRUQOLACORE_NO_EXPORT void slotGetMessageDone(const QJsonObject &obj, const QString &messageId);
 
     mutable QMap<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;

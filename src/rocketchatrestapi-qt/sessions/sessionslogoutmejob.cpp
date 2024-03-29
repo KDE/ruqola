@@ -43,12 +43,12 @@ void SessionsLogoutMeJob::onPostRequestResponse(const QString &replyErrorString,
     }
 }
 
-const QString &SessionsLogoutMeJob::sessionId() const
+const QByteArray &SessionsLogoutMeJob::sessionId() const
 {
     return mSessionId;
 }
 
-void SessionsLogoutMeJob::setSessionId(const QString &newSessionId)
+void SessionsLogoutMeJob::setSessionId(const QByteArray &newSessionId)
 {
     mSessionId = newSessionId;
 }
@@ -82,7 +82,7 @@ QNetworkRequest SessionsLogoutMeJob::request() const
 QJsonDocument SessionsLogoutMeJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("sessionId")] = mSessionId;
+    jsonObj[QLatin1StringView("sessionId")] = QString::fromLatin1(mSessionId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

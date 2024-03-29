@@ -188,7 +188,7 @@ public:
     void deleteFileMessage(const QByteArray &roomId, const QByteArray &fileId, Room::RoomType channelType);
     void openDocumentation();
     void clearSearchModel();
-    void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
+    void reactOnMessage(const QByteArray &messageId, const QString &emoji, bool shouldReact);
     void ignoreUser(const QByteArray &rid, const QByteArray &userId, bool ignore);
     void channelInfo(const QByteArray &roomId);
     void groupInfo(const QByteArray &roomId);
@@ -200,7 +200,7 @@ public:
     void rolesInRoom(const QByteArray &roomId, Room::RoomType channelType);
     void switchingToRoom(const QByteArray &roomID);
     void reportMessage(const QByteArray &messageId, const QString &message);
-    void getThreadMessages(const QString &threadMessageId, const Message &message);
+    void getThreadMessages(const QByteArray &threadMessageId, const Message &message);
     void createDiscussion(const QByteArray &parentRoomName,
                           const QString &discussionName,
                           const QString &replyMessage,
@@ -211,7 +211,7 @@ public:
     void followMessage(const QByteArray &messageId, bool follow);
     void loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType);
     void loadMoreDiscussions(const QByteArray &roomId);
-    void loadThreadMessagesHistory(const QString &threadMessageId);
+    void loadThreadMessagesHistory(const QByteArray &threadMessageId);
     void loadMoreUsersInRoom(const QByteArray &roomId, Room::RoomType channelType);
 
     void getPinnedMessages(const QByteArray &roomId);
@@ -363,7 +363,7 @@ public:
     [[nodiscard]] User::PresenceStatus presenceStatus() const;
 
     void getListCommands();
-    [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QString &tmid = QString());
+    [[nodiscard]] bool runCommand(const QString &msg, const QByteArray &roomId, const QByteArray &tmid = QByteArray());
 
     void avatarChanged(const QJsonArray &contents);
     void markMessageAsUnReadFrom(const QByteArray &messageId);
@@ -505,7 +505,7 @@ public:
 
     [[nodiscard]] QUrl faviconLogoUrlFromLocalCache(const QString &url);
     void addMessageToDataBase(const QString &roomName, const Message &message);
-    void deleteMessageFromDatabase(const QString &roomName, const QString &messageId);
+    void deleteMessageFromDatabase(const QString &roomName, const QByteArray &messageId);
     void loadAccountSettings();
     void parseCustomSounds(const QJsonArray &obj);
 
@@ -601,7 +601,7 @@ private:
 
     LIBRUQOLACORE_NO_EXPORT void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     LIBRUQOLACORE_NO_EXPORT void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
+    LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
     LIBRUQOLACORE_NO_EXPORT void slotGetDiscussionsListDone(const QJsonObject &obj, const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void slotUsersPresenceDone(const QJsonObject &obj);

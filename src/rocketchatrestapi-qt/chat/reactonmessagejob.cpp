@@ -90,19 +90,19 @@ QJsonDocument ReactOnMessageJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1StringView("emoji")] = mEmoji;
-    jsonObj[QLatin1StringView("messageId")] = mMessageId;
+    jsonObj[QLatin1StringView("messageId")] = QString::fromLatin1(mMessageId);
     jsonObj[QLatin1StringView("shouldReact")] = mAddReact;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString ReactOnMessageJob::messageId() const
+QByteArray ReactOnMessageJob::messageId() const
 {
     return mMessageId;
 }
 
-void ReactOnMessageJob::setMessageId(const QString &t)
+void ReactOnMessageJob::setMessageId(const QByteArray &t)
 {
     mMessageId = t;
 }

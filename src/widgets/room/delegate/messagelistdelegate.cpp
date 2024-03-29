@@ -746,7 +746,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
             mEmoticonMenuWidget->show();
             connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [=](const QString &id) {
-                mRocketChatAccount->reactOnMessage(QString::fromLatin1(message->messageId()), id, true /*add*/);
+                mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
             });
             return true;
         }

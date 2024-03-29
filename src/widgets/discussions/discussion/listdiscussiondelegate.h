@@ -28,7 +28,7 @@ public:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 Q_SIGNALS:
-    void openDiscussion(const QString &discussionRoomId);
+    void openDiscussion(const QByteArray &discussionRoomId);
 
 protected:
     [[nodiscard]] RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;

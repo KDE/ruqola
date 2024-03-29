@@ -32,10 +32,10 @@ void GetThreadMessagesJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QString threadMessageId = QStringLiteral("bla");
+    const QByteArray threadMessageId("bla");
     job.setThreadMessageId(threadMessageId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadMessages?tmid=%1").arg(threadMessageId)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadMessages?tmid=%1").arg(QString::fromLatin1(threadMessageId))));
 }
 
 void GetThreadMessagesJobTest::shouldNotStarting()
@@ -55,7 +55,7 @@ void GetThreadMessagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString threadMessageId = QStringLiteral("foo1");
+    const QByteArray threadMessageId("foo1");
     job.setThreadMessageId(threadMessageId);
     QVERIFY(job.canStart());
 }
