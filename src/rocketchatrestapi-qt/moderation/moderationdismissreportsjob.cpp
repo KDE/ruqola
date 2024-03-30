@@ -43,12 +43,12 @@ void ModerationDismissReportsJob::onPostRequestResponse(const QString &replyErro
     }
 }
 
-QString ModerationDismissReportsJob::messageId() const
+QByteArray ModerationDismissReportsJob::messageId() const
 {
     return mMessageId;
 }
 
-void ModerationDismissReportsJob::setMessageId(const QString &newMessageId)
+void ModerationDismissReportsJob::setMessageId(const QByteArray &newMessageId)
 {
     mMessageId = newMessageId;
 }
@@ -95,7 +95,7 @@ QJsonDocument ModerationDismissReportsJob::json() const
     if (!mUserIdForMessages.isEmpty()) {
         jsonObj[QLatin1StringView("userId")] = mUserIdForMessages;
     } else if (!mMessageId.isEmpty()) {
-        jsonObj[QLatin1StringView("msgId")] = mMessageId;
+        jsonObj[QLatin1StringView("msgId")] = QString::fromLatin1(mMessageId);
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

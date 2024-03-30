@@ -28,7 +28,7 @@ void ModerationReportInfoJobTest::shouldGenerateRequest()
 {
     ModerationReportsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
-    job.setMessageId(QStringLiteral("foo"));
+    job.setMessageId(QByteArrayLiteral("foo"));
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/moderation.reports?msgId=foo")));
 }

@@ -26,8 +26,8 @@ public:
 
     [[nodiscard]] bool canStart() const override;
 
-    [[nodiscard]] QString messageId() const;
-    void setMessageId(const QString &messageId);
+    [[nodiscard]] QByteArray messageId() const;
+    void setMessageId(const QByteArray &messageId);
 
 Q_SIGNALS:
     void moderationReportsDone(const QJsonObject &obj);
@@ -35,6 +35,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ModerationReportsJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mMessageId;
+    QByteArray mMessageId;
 };
 }

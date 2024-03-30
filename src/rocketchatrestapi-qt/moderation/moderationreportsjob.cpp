@@ -49,12 +49,12 @@ void ModerationReportsJob::onGetRequestResponse(const QString &replyErrorString,
     }
 }
 
-QString ModerationReportsJob::messageId() const
+QByteArray ModerationReportsJob::messageId() const
 {
     return mMessageId;
 }
 
-void ModerationReportsJob::setMessageId(const QString &messageId)
+void ModerationReportsJob::setMessageId(const QByteArray &messageId)
 {
     mMessageId = messageId;
 }
@@ -63,7 +63,7 @@ QNetworkRequest ModerationReportsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationReports);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("msgId"), mMessageId);
+    queryUrl.addQueryItem(QStringLiteral("msgId"), QString::fromLatin1(mMessageId));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

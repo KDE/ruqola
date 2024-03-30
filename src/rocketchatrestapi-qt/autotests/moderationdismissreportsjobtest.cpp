@@ -46,10 +46,10 @@ void ModerationDismissReportsJobTest::shouldGenerateJson()
     }
     {
         ModerationDismissReportsJob job;
-        const QString messageId = QStringLiteral("foo7");
+        const QByteArray messageId("foo7");
         job.setMessageId(messageId);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msgId":"%1"})").arg(messageId).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msgId":"%1"})").arg(QString::fromLatin1(messageId)).toLatin1());
     }
 }
 
@@ -75,7 +75,7 @@ void ModerationDismissReportsJobTest::shouldNotStarting()
     QVERIFY(job.canStart());
     job.setUserIdForMessages(QString());
     QVERIFY(!job.canStart());
-    const QString messageId = QStringLiteral("foo2");
+    const QByteArray messageId("foo2");
     job.setMessageId(messageId);
     QVERIFY(job.canStart());
 }

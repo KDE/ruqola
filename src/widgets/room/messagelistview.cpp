@@ -517,7 +517,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         connect(showReportInfo, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
             const auto job = new RocketChatRestApi::ModerationReportsJob(this);
-            job->setMessageId(QString::fromLatin1(messageId));
+            job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ModerationReportsJob::moderationReportsDone, this, [this](const QJsonObject &obj) {
                 ModerationReportInfos infos;
@@ -540,7 +540,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         connect(dismissReports, &QAction::triggered, this, [this, message]() {
             const auto messageId = message->messageId();
             const auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
-            job->setMessageId(QString::fromLatin1(messageId));
+            job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, []() {
                 // TODO
