@@ -43,12 +43,12 @@ void ResetTOTPJob::onPostRequestResponse(const QString &replyErrorString, const 
     }
 }
 
-const QString &ResetTOTPJob::resetUserId() const
+const QByteArray &ResetTOTPJob::resetUserId() const
 {
     return mResetUserId;
 }
 
-void ResetTOTPJob::setResetUserId(const QString &newResetUserId)
+void ResetTOTPJob::setResetUserId(const QByteArray &newResetUserId)
 {
     mResetUserId = newResetUserId;
 }
@@ -82,7 +82,7 @@ QNetworkRequest ResetTOTPJob::request() const
 QJsonDocument ResetTOTPJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = mResetUserId;
+    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mResetUserId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

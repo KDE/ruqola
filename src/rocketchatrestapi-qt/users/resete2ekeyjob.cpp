@@ -42,12 +42,12 @@ void ResetE2EKeyJob::onPostRequestResponse(const QString &replyErrorString, cons
     }
 }
 
-const QString &ResetE2EKeyJob::resetUserId() const
+const QByteArray &ResetE2EKeyJob::resetUserId() const
 {
     return mResetUserId;
 }
 
-void ResetE2EKeyJob::setResetUserId(const QString &newResetUserId)
+void ResetE2EKeyJob::setResetUserId(const QByteArray &newResetUserId)
 {
     mResetUserId = newResetUserId;
 }
@@ -81,7 +81,7 @@ QNetworkRequest ResetE2EKeyJob::request() const
 QJsonDocument ResetE2EKeyJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = mResetUserId;
+    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mResetUserId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

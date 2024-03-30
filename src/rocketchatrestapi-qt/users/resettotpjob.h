@@ -25,8 +25,8 @@ public:
     [[nodiscard]] QJsonDocument json() const;
     [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
-    [[nodiscard]] const QString &resetUserId() const;
-    void setResetUserId(const QString &newResetUserId);
+    [[nodiscard]] const QByteArray &resetUserId() const;
+    void setResetUserId(const QByteArray &newResetUserId);
 
 Q_SIGNALS:
     void resetTOTPDone();
@@ -34,6 +34,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ResetTOTPJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mResetUserId;
+    QByteArray mResetUserId;
 };
 }

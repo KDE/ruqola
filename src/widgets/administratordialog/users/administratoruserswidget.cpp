@@ -207,7 +207,7 @@ void AdministratorUsersWidget::slotActivateUser(const QModelIndex &index, bool a
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
     const QByteArray userId = modelIndex.data().toByteArray();
     job->setActivate(!activateUser);
-    job->setActivateUserId(QString::fromLatin1(userId));
+    job->setActivateUserId(userId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this, modelIndex](const QJsonObject &replyObject) {
         slotSetUserActiveStatus(replyObject, modelIndex);
@@ -367,7 +367,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
         const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
         const QByteArray userId = modelIndex.data().toByteArray();
-        job->setResetUserId(QString::fromLatin1(userId));
+        job->setResetUserId(userId);
 
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             job->setAuthMethod(QStringLiteral("password"));
@@ -412,7 +412,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         auto job = new RocketChatRestApi::ResetTOTPJob(this);
         const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
         const QByteArray userId = modelIndex.data().toByteArray();
-        job->setResetUserId(QString::fromLatin1(userId));
+        job->setResetUserId(userId);
 
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             job->setAuthMethod(QStringLiteral("password"));

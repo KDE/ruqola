@@ -27,8 +27,8 @@ public:
     [[nodiscard]] bool activate() const;
     void setActivate(bool newActivate);
 
-    [[nodiscard]] const QString &activateUserId() const;
-    void setActivateUserId(const QString &newActivateUserId);
+    [[nodiscard]] const QByteArray &activateUserId() const;
+    void setActivateUserId(const QByteArray &newActivateUserId);
 
 Q_SIGNALS:
     void setUserActiveStatusDone(const QJsonObject &replyObject);
@@ -36,7 +36,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(SetUserActiveStatusJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mActivateUserId;
+    QByteArray mActivateUserId;
     bool mActivate = true;
 };
 }

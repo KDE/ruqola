@@ -37,12 +37,12 @@ void SetUserActiveStatusJobTest::shouldGenerateRequest()
 void SetUserActiveStatusJobTest::shouldGenerateJson()
 {
     SetUserActiveStatusJob job;
-    const QString userId = QStringLiteral("foo1");
+    const QByteArray userId("foo1");
     job.setActivateUserId(userId);
     job.setActivate(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":false,"userId":"%1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":false,"userId":"%1"})").arg(QString::fromLatin1(userId)).toLatin1());
     job.setActivate(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":true,"userId":"%1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":true,"userId":"%1"})").arg(QString::fromLatin1(userId)).toLatin1());
 }
 
 void SetUserActiveStatusJobTest::shouldNotStarting()
@@ -62,7 +62,7 @@ void SetUserActiveStatusJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString statusUserid = QStringLiteral("foo1");
+    const QByteArray statusUserid("foo1");
     job.setActivateUserId(statusUserid);
     QVERIFY(job.canStart());
 }

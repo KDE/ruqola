@@ -41,12 +41,12 @@ void SetUserActiveStatusJob::onPostRequestResponse(const QString &replyErrorStri
     }
 }
 
-const QString &SetUserActiveStatusJob::activateUserId() const
+const QByteArray &SetUserActiveStatusJob::activateUserId() const
 {
     return mActivateUserId;
 }
 
-void SetUserActiveStatusJob::setActivateUserId(const QString &newActivateUserId)
+void SetUserActiveStatusJob::setActivateUserId(const QByteArray &newActivateUserId)
 {
     mActivateUserId = newActivateUserId;
 }
@@ -90,7 +90,7 @@ QNetworkRequest SetUserActiveStatusJob::request() const
 QJsonDocument SetUserActiveStatusJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = mActivateUserId;
+    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mActivateUserId);
     jsonObj[QLatin1StringView("activeStatus")] = mActivate;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
