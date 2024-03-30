@@ -61,7 +61,7 @@ void CreateGroupsJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
 
-    const QString teamId = {QStringLiteral("foo")};
+    const QByteArray teamId("foo");
     info.teamId = teamId;
     info.broadcast = true;
     job.setCreateGroupsInfo(info);

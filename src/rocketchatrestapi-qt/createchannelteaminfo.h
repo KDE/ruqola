@@ -26,7 +26,7 @@ public:
     [[nodiscard]] bool canStart() const;
     QString name;
     QString description;
-    QString teamId;
+    QByteArray teamId;
 
     QStringList members;
     bool readOnly = false;

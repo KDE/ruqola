@@ -47,7 +47,7 @@ QJsonDocument CreateChannelTeamInfo::json() const
         extraJsonObj[QLatin1StringView("description")] = description;
     }
     if (!teamId.isEmpty()) {
-        extraJsonObj[QLatin1StringView("teamId")] = teamId;
+        extraJsonObj[QLatin1StringView("teamId")] = QString::fromLatin1(teamId);
     }
     jsonObj[QLatin1StringView("extraData")] = extraJsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);

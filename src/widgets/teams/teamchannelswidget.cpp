@@ -223,7 +223,7 @@ void TeamChannelsWidget::slotCreateRoom()
     dlg->setFeatures(flags);
     if (dlg->exec()) {
         RocketChatRestApi::CreateChannelTeamInfo createRoominfo = dlg->channelInfo(false);
-        createRoominfo.teamId = QString::fromLatin1(mTeamId);
+        createRoominfo.teamId = mTeamId;
         createRoominfo.infoType = RocketChatRestApi::CreateChannelTeamInfo::CreateInfoType::Channel;
         if (createRoominfo.privateChannel) {
             createGroups(createRoominfo);
