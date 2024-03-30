@@ -31,7 +31,7 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
     {
         AccountRoomSettings::PendingTypedInfo info;
         QVERIFY(!info.isValid());
-        info.messageIdBeingEdited = QStringLiteral("foo");
+        info.messageIdBeingEdited = QByteArrayLiteral("foo");
         QVERIFY(info.isValid());
     }
     {

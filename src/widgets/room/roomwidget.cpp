@@ -555,9 +555,9 @@ void RoomWidget::storeRoomSettings()
         } else {
             AccountRoomSettings::PendingTypedInfo info;
             info.text = mRoomWidgetBase->messageLineWidget()->text();
-            info.messageIdBeingEdited = QString::fromLatin1(mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited());
+            info.messageIdBeingEdited = mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited();
             info.scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value();
-            info.threadMessageId = QString::fromLatin1(mRoomWidgetBase->messageLineWidget()->threadMessageId());
+            info.threadMessageId = mRoomWidgetBase->messageLineWidget()->threadMessageId();
             info.quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink();
             info.quoteText = mRoomWidgetBase->messageLineWidget()->quoteText();
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
@@ -585,9 +585,9 @@ void RoomWidget::setChannelSelected(const QByteArray &roomId, Room::RoomType roo
     const AccountRoomSettings::PendingTypedInfo currentPendingInfo = mCurrentRocketChatAccount->accountRoomSettings()->value(roomId);
     if (currentPendingInfo.isValid()) {
         mRoomWidgetBase->messageLineWidget()->setQuoteMessage(currentPendingInfo.quotePermalink, currentPendingInfo.quoteText);
-        mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId.toLatin1());
+        mRoomWidgetBase->messageLineWidget()->setThreadMessageId(currentPendingInfo.threadMessageId);
         mRoomWidgetBase->messageLineWidget()->setText(currentPendingInfo.text);
-        mRoomWidgetBase->messageLineWidget()->setMessageIdBeingEdited(currentPendingInfo.messageIdBeingEdited.toLatin1());
+        mRoomWidgetBase->messageLineWidget()->setMessageIdBeingEdited(currentPendingInfo.messageIdBeingEdited);
         if (currentPendingInfo.scrollbarPosition != -1) {
             mRoomWidgetBase->messageListView()->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
         }

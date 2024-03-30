@@ -16,8 +16,8 @@ class LIBRUQOLACORE_EXPORT AccountRoomSettings
 public:
     struct LIBRUQOLACORE_EXPORT PendingTypedInfo {
         QString text;
-        QString messageIdBeingEdited;
-        QString threadMessageId;
+        QByteArray messageIdBeingEdited;
+        QByteArray threadMessageId;
         QString quotePermalink;
         QString quoteText;
         int scrollbarPosition = -1;
