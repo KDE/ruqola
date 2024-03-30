@@ -39,11 +39,12 @@ void SaveRoomSettingsJobTest::shouldGenerateRequest()
 void SaveRoomSettingsJobTest::shouldGenerateJson()
 {
     SaveRoomSettingsJob job;
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.roomId = roomId;
     job.setSaveRoomSettingsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"favorite":{},"rid":"%1","roomType":""})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"favorite":{},"rid":"%1","roomType":""})").arg(QString::fromLatin1(roomId)).toLatin1());
 
     const QString roomAnnouncement = QStringLiteral("announcement");
     info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
@@ -62,7 +63,7 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     }
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"favorite":{},"rid":"%1","roomAnnouncement":"%2","roomType":"","systemMessages":[%3]})")
-                 .arg(roomId, roomAnnouncement, res)
+                 .arg(QString::fromLatin1(roomId), roomAnnouncement, res)
                  .toLatin1());
 }
 
@@ -83,7 +84,7 @@ void SaveRoomSettingsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
+    const QByteArray roomId("foo1");
     SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.roomId = roomId;
     job.setSaveRoomSettingsInfo(info);

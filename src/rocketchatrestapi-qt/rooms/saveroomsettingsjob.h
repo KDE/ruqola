@@ -42,7 +42,7 @@ public:
 
         QStringList systemMessages;
         QString roomAvatar;
-        QString roomId;
+        QByteArray roomId;
         QString roomName;
         QString roomTopic;
         QString roomAnnouncement;

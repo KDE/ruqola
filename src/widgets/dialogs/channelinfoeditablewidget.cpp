@@ -195,7 +195,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoEditable
         return info;
     }
 
-    info.roomId = QString::fromLatin1(mRoom->roomId());
+    info.roomId = mRoom->roomId();
     info.joinCode = mPasswordLineEdit->password();
     if (mRoom->name() != mName->text()) {
         info.roomName = mName->text();

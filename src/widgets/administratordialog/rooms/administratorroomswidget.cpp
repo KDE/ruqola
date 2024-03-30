@@ -177,7 +177,7 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
                                                         const QByteArray &roomIdentifier)
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo roomSettingsInfo;
-    roomSettingsInfo.roomId = QString::fromLatin1(roomIdentifier);
+    roomSettingsInfo.roomId = roomIdentifier;
     roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
     roomSettingsInfo.favorite = info.favorite;
     roomSettingsInfo.roomType = Room::roomFromRoomType(roomType);
