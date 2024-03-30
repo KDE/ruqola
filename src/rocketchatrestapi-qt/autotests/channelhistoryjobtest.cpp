@@ -96,7 +96,7 @@ void ChannelHistoryJobTest::shouldNotStarting()
 
     job.setChannelHistoryInfo(historyInfo);
     QVERIFY(!job.canStart());
-    historyInfo.roomId = QStringLiteral("bla");
+    historyInfo.roomId = QByteArrayLiteral("bla");
     job.setChannelHistoryInfo(historyInfo);
     QVERIFY(job.canStart());
 }

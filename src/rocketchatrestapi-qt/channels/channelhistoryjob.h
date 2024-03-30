@@ -23,7 +23,7 @@ public:
     Q_ENUM(ChannelType)
 
     struct LIBROCKETCHATRESTAPI_QT_EXPORT ChannelHistoryInfo {
-        QString roomId;
+        QByteArray roomId;
         QString latestMessage;
         QString oldestMessage;
         ChannelType channelType = Unknown;
