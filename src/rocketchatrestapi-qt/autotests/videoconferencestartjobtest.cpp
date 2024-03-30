@@ -38,7 +38,7 @@ void VideoConferenceStartJobTest::shouldGenerateJson()
     VideoConferenceStartJob job;
     VideoConferenceStartJob::VideoConferenceStartInfo info;
     info.allowRinging = false;
-    info.roomId = QStringLiteral("foo");
+    info.roomId = QByteArrayLiteral("foo");
     info.title = QStringLiteral("bla");
     job.setInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"allowRinging":false,"roomId":"foo","title":"bla"})").toLatin1());
@@ -63,7 +63,7 @@ void VideoConferenceStartJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     VideoConferenceStartJob::VideoConferenceStartInfo info;
     info.allowRinging = false;
-    info.roomId = QStringLiteral("foo");
+    info.roomId = QByteArrayLiteral("foo");
     info.title = QStringLiteral("bla");
     job.setInfo(info);
     QVERIFY(job.canStart());

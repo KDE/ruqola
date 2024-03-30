@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT VideoConferenceStartJob : public RestApiAbs
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT VideoConferenceStartInfo {
-        QString roomId;
+        QByteArray roomId;
         QString title;
         bool allowRinging = true;
 

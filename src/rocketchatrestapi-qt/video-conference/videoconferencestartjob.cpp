@@ -81,7 +81,7 @@ QNetworkRequest VideoConferenceStartJob::request() const
 QJsonDocument VideoConferenceStartJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("roomId")] = mInfo.roomId;
+    jsonObj[QLatin1StringView("roomId")] = QString::fromLatin1(mInfo.roomId);
     jsonObj[QLatin1StringView("allowRinging")] = mInfo.allowRinging;
     if (!mInfo.title.isEmpty()) {
         jsonObj[QLatin1StringView("title")] = mInfo.title;
