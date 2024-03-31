@@ -545,6 +545,9 @@ target_sources(libruqolacore PRIVATE
     activities/activitiesmanager.h
     activities/activitiesmanager.cpp
 )
+if (BUILD_TESTING)
+    add_subdirectory(activities/autotests)
+endif()
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
