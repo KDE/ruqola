@@ -108,7 +108,7 @@ void ModerationReportedUserConsoleTreeWidget::slotShowMessages(const QModelIndex
     auto job = new RocketChatRestApi::ModerationUserReportedMessagesJob(this);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedMessageModel::UserId);
-    job->setReportedMessageFromUserId(QString::fromLatin1(modelIndex.data().toByteArray()));
+    job->setReportedMessageFromUserId(modelIndex.data().toByteArray());
     connect(job,
             &RocketChatRestApi::ModerationUserReportedMessagesJob::moderationUserReportedMessagesDone,
             this,
@@ -164,7 +164,7 @@ void ModerationReportedUserConsoleTreeWidget::slotDismissReport(const QModelInde
         auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         const QModelIndex modelIndex = mModel->index(index.row(), ModerationReportedMessageModel::UserId);
-        job->setUserIdForMessages(QString::fromLatin1(modelIndex.data().toByteArray()));
+        job->setUserIdForMessages(modelIndex.data().toByteArray());
         connect(job, &RocketChatRestApi::ModerationDismissReportsJob::moderationDismissReportsDone, this, [this]() {
             Q_EMIT refreshList();
         });
@@ -189,7 +189,7 @@ void ModerationReportedUserConsoleTreeWidget::slotDeleteAllMessages(const QModel
         auto job = new RocketChatRestApi::ModerationUserDeleteReportedMessagesJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         const QModelIndex modelIndex = mModel->index(index.row(), ModerationReportedMessageModel::UserId);
-        job->setUserIdForMessages(QString::fromLatin1(modelIndex.data().toByteArray()));
+        job->setUserIdForMessages(modelIndex.data().toByteArray());
         connect(job, &RocketChatRestApi::ModerationUserDeleteReportedMessagesJob::moderationUserDeleteReportedMessagesDone, this, [this]() {
             Q_EMIT refreshList();
         });
