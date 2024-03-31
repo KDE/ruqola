@@ -13,4 +13,14 @@ ActivitiesManager::ActivitiesManager(QObject *parent)
 
 ActivitiesManager::~ActivitiesManager() = default;
 
+bool ActivitiesManager::enabled() const
+{
+    return mEnabled;
+}
+
+void ActivitiesManager::setEnabled(bool newEnabled)
+{
+    mEnabled = newEnabled;
+}
+
 #include "moc_activitiesmanager.cpp"

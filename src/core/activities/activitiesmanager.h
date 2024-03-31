@@ -6,12 +6,18 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include <QObject>
 
-class ActivitiesManager : public QObject
+class LIBRUQOLACORE_EXPORT ActivitiesManager : public QObject
 {
     Q_OBJECT
 public:
     explicit ActivitiesManager(QObject *parent = nullptr);
     ~ActivitiesManager() override;
+    [[nodiscard]] bool enabled() const;
+    void setEnabled(bool newEnabled);
+
+private:
+    bool mEnabled = false;
 };
