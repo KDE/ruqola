@@ -75,7 +75,7 @@ void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, co
     if (isVisible()) {
         for (int row = topLeft.row(), total = bottomRight.row(); row <= total; ++row) {
             const QModelIndex userModelIndex = topLeft.sibling(row, 0);
-            const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
+            const QByteArray userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toByteArray();
 
             UsersInRoomLabel *userLabel = mListUsersWidget.value(userId);
             if (userLabel) {
@@ -105,7 +105,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             const auto userModelIndex = mUsersForRoomFilterProxyModel->index(numberOfUsers, 0);
             const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
             const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
-            const QString userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toString();
+            const QByteArray userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toByteArray();
             const QString userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
             UsersInRoomLabel::UserInfo info;
             info.userDisplayName = userDisplayName;

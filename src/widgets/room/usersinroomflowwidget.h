@@ -36,7 +36,7 @@ private:
     FlowLayout *const mFlowLayout;
     QPointer<Room> mRoom;
     // userId, UsersInRoomLabel
-    QMap<QString, UsersInRoomLabel *> mListUsersWidget;
+    QMap<QByteArray, UsersInRoomLabel *> mListUsersWidget;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxyModel;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

@@ -37,7 +37,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomLabel : public QWidget
 public:
     struct UserInfo {
         QString userName;
-        QString userId;
+        QByteArray userId;
         QString iconStatus;
         QString userDisplayName;
     };
