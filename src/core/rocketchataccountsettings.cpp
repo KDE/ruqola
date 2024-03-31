@@ -50,7 +50,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
 
     mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
     mUserName = mSetting->value(QStringLiteral("username")).toString();
-    mUserId = mSetting->value(QStringLiteral("userID")).toString().toLatin1();
+    mUserId = mSetting->value(QStringLiteral("userID")).toByteArray();
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
