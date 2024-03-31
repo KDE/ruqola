@@ -12,3 +12,5 @@ ActivitiesManager::ActivitiesManager(QObject *parent)
 }
 
 ActivitiesManager::~ActivitiesManager() = default;
+
+#include "moc_activitiesmanager.cpp"
