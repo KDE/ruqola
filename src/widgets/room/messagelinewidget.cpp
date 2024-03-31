@@ -205,8 +205,8 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.description = uploadFileInfo.description;
     info.messageText = QString();
     info.filenameUrl = uploadFileInfo.fileUrl;
-    info.roomId = QString::fromLatin1(roomId());
-    info.threadMessageId = QString::fromLatin1(mThreadMessageId);
+    info.roomId = roomId();
+    info.threadMessageId = mThreadMessageId;
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
 

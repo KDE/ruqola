@@ -17,10 +17,10 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileJob : public RestApiAbstractJob
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileInfo {
-        QString roomId;
+        QByteArray roomId;
         QString description;
         QString messageText;
-        QString threadMessageId;
+        QByteArray threadMessageId;
         QUrl filenameUrl;
         QString fileName;
         bool deleteTemporaryFile = false;

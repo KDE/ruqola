@@ -79,7 +79,7 @@ bool UploadFileJob::start()
     if (!mUploadFileInfo.threadMessageId.isEmpty()) {
         QHttpPart msgPart;
         msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1StringView("form-data; name=\"tmid\"")));
-        msgPart.setBody(mUploadFileInfo.threadMessageId.toUtf8());
+        msgPart.setBody(mUploadFileInfo.threadMessageId);
         multiPart->append(msgPart);
     }
 
@@ -107,7 +107,7 @@ void UploadFileJob::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
 
 QNetworkRequest UploadFileJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, mUploadFileInfo.roomId);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, QString::fromLatin1(mUploadFileInfo.roomId));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);

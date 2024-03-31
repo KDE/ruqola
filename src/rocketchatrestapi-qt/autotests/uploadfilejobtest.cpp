@@ -69,7 +69,7 @@ void UploadFileJobTest::shouldStart()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    info.roomId = QStringLiteral("bla");
+    info.roomId = QByteArrayLiteral("bla");
     job.setUploadFileInfo(info);
     QVERIFY(job.canStart());
 }
