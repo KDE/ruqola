@@ -109,7 +109,7 @@ QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
     case AdminOauthModel::CreatedBy:
         return info.createdBy();
     case AdminOauthModel::CreatedAtStr:
-        return info.createdDateTime().toString();
+        return QLocale().toString(info.createdDateTime());
     }
     return {};
 }
