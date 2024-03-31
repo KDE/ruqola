@@ -541,6 +541,11 @@ if (HAVE_TEXT_TRANSLATOR)
     )
 endif()
 
+target_sources(libruqolacore PRIVATE
+    activities/activitiesmanager.h
+    activities/activitiesmanager.cpp
+)
+
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 
