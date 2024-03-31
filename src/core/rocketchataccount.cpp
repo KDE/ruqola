@@ -791,11 +791,11 @@ void RocketChatAccount::joinDiscussion(const QByteArray &roomId, const QString &
     ddp()->joinRoom(roomId, joinCode);
 }
 
-void RocketChatAccount::joinRoom(const QByteArray &roomId, const QString &joinCode)
+void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
-    info.identifier = QString::fromLatin1(roomId);
+    info.identifier = roomId;
     mManageChannels->channelJoin(info, joinCode);
 }
 

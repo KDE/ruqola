@@ -160,7 +160,7 @@ public:
     void openChannel(const QString &identifier, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QByteArray &roomId);
     void createNewChannel(const RocketChatRestApi::CreateChannelTeamInfo &info);
-    void joinRoom(const QByteArray &roomId, const QString &joinCode = QString());
+    void joinRoom(const QString &roomId, const QString &joinCode = QString());
     void openDirectChannel(const QString &username);
     void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?
     void createJitsiConfCall(const QByteArray &roomId);

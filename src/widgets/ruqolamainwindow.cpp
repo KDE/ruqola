@@ -854,7 +854,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
     // TODO add channel name!
     if (dlg->exec()) {
         // FIXME channelinfo
-        mCurrentRocketChatAccount->joinRoom(channelInfo.identifier.toLatin1(), dlg->password());
+        mCurrentRocketChatAccount->joinRoom(channelInfo.identifier, dlg->password());
     }
     delete dlg;
 }
