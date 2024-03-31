@@ -43,12 +43,12 @@ void ModerationUserDeleteReportedMessagesJob::onPostRequestResponse(const QStrin
     }
 }
 
-QString ModerationUserDeleteReportedMessagesJob::userIdForMessages() const
+QByteArray ModerationUserDeleteReportedMessagesJob::userIdForMessages() const
 {
     return mUserIdForMessages;
 }
 
-void ModerationUserDeleteReportedMessagesJob::setUserIdForMessages(const QString &newUserIdForMessages)
+void ModerationUserDeleteReportedMessagesJob::setUserIdForMessages(const QByteArray &newUserIdForMessages)
 {
     mUserIdForMessages = newUserIdForMessages;
 }
@@ -82,7 +82,7 @@ QNetworkRequest ModerationUserDeleteReportedMessagesJob::request() const
 QJsonDocument ModerationUserDeleteReportedMessagesJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1StringView("userId")] = mUserIdForMessages;
+    jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mUserIdForMessages);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

@@ -26,8 +26,8 @@ public:
 
     [[nodiscard]] bool canStart() const override;
 
-    [[nodiscard]] QString reportedMessageFromUserId() const;
-    void setReportedMessageFromUserId(const QString &newReportedMessageFromUserId);
+    [[nodiscard]] QByteArray reportedMessageFromUserId() const;
+    void setReportedMessageFromUserId(const QByteArray &newReportedMessageFromUserId);
 
 Q_SIGNALS:
     void moderationUserReportedMessagesDone(const QJsonObject &obj);
@@ -35,6 +35,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ModerationUserReportedMessagesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mReportedMessageFromUserId;
+    QByteArray mReportedMessageFromUserId;
 };
 }

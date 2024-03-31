@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString userIdForMessages() const;
-    void setUserIdForMessages(const QString &newUserIdForMessages);
+    [[nodiscard]] QByteArray userIdForMessages() const;
+    void setUserIdForMessages(const QByteArray &newUserIdForMessages);
 
 Q_SIGNALS:
     void moderationUserDeleteReportedMessagesDone();
@@ -33,6 +33,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ModerationUserDeleteReportedMessagesJob)
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mUserIdForMessages;
+    QByteArray mUserIdForMessages;
 };
 }

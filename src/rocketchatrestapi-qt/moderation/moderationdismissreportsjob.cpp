@@ -53,12 +53,12 @@ void ModerationDismissReportsJob::setMessageId(const QByteArray &newMessageId)
     mMessageId = newMessageId;
 }
 
-QString ModerationDismissReportsJob::userIdForMessages() const
+QByteArray ModerationDismissReportsJob::userIdForMessages() const
 {
     return mUserIdForMessages;
 }
 
-void ModerationDismissReportsJob::setUserIdForMessages(const QString &newUserIdForMessages)
+void ModerationDismissReportsJob::setUserIdForMessages(const QByteArray &newUserIdForMessages)
 {
     mUserIdForMessages = newUserIdForMessages;
 }
@@ -93,7 +93,7 @@ QJsonDocument ModerationDismissReportsJob::json() const
 {
     QJsonObject jsonObj;
     if (!mUserIdForMessages.isEmpty()) {
-        jsonObj[QLatin1StringView("userId")] = mUserIdForMessages;
+        jsonObj[QLatin1StringView("userId")] = QString::fromLatin1(mUserIdForMessages);
     } else if (!mMessageId.isEmpty()) {
         jsonObj[QLatin1StringView("msgId")] = QString::fromLatin1(mMessageId);
     }

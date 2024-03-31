@@ -28,7 +28,7 @@ void ModerationUserReportedMessagesJobTest::shouldHaveDefaultValue()
 void ModerationUserReportedMessagesJobTest::shouldGenerateRequest()
 {
     ModerationUserReportedMessagesJob job;
-    job.setReportedMessageFromUserId(QStringLiteral("bla"));
+    job.setReportedMessageFromUserId(QByteArrayLiteral("bla"));
     {
         QNetworkRequest request = QNetworkRequest(QUrl());
         verifyAuthentication(&job, request);
@@ -53,7 +53,7 @@ void ModerationUserReportedMessagesJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString userIdFromMessages = QStringLiteral("foo1");
+    const QByteArray userIdFromMessages("foo1");
     job.setReportedMessageFromUserId(userIdFromMessages);
     QVERIFY(job.canStart());
 }
